@@ -260,22 +260,47 @@ internal static class ToolsContext
             IsRespecing = false;
         }
 
-        private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero,
-            int3 position)
+        private static void CopyInventoryOver([NotNull] RulesetCharacter oldHero, int3 position)
         {
-            var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();
             var personalSlots = oldHero.CharacterInventory.PersonalContainer.InventorySlots;
             var slotsByName = oldHero.CharacterInventory.InventorySlotsByName;
 
             foreach (var equipedItem in personalSlots.Select(i => i.EquipedItem).Where(i => i != null))
             {
-                equipedItem.AttunedToCharacter = string.Empty;
-                inventoryCommandService.CreateItemAtPosition(equipedItem, position);
+                DropItem(equipedItem, position);
             }
 
             foreach (var equipedItem in slotsByName.Select(s => s.Value.EquipedItem).Where(i => i != null))
             {
-                equipedItem.AttunedToCharacter = string.Empty;
+                DropItem(equipedItem, position);
+            }
+        }
+
+        private static void DropItem(RulesetItem equipedItem, int3 position)
+        {
+            var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();
+
+            equipedItem.AttunedToCharacter = string.Empty;
+
+            if (equipedItem is RulesetItemSpellbook spellbook)
+            {
+                foreach (var scrollDefinition in spellbook.ScribedSpells
+                             .Select(spellDefinition =>
+                                 DatabaseRepository.GetDatabase<ItemDefinition>()
+                                     .FirstOrDefault(item =>
+                                         item.IsUsableDevice
+                                         && item.UsableDeviceDescription.UsableDeviceTags.Contains("Scroll")
+                                         && item.UsableDeviceDescription.DeviceFunctions.Any(function =>
+                                             function.SpellDefinition == spellDefinition)))
+                             .Where(scrollDefinition => scrollDefinition != null))
+                {
+                    var rulesetItem = new RulesetItem(scrollDefinition);
+
+                    inventoryCommandService.CreateItemAtPosition(rulesetItem, position);
+                }
+            }
+            else
+            {
                 inventoryCommandService.CreateItemAtPosition(equipedItem, position);
             }
         }

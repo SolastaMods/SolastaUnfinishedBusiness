@@ -34,7 +34,15 @@ internal static class HandCrossbowData
                 new("Stormbow", ItemDefinitions.Enchanted_Longbow_Stormbow,
                     RecipeDefinitions.Recipe_Enchantment_LongsbowStormbow),
                 new("Medusa", ItemDefinitions.Enchanted_Shortbow_Medusa,
-                    RecipeDefinitions.Recipe_Enchantment_ShortbowMedusa)
+                    RecipeDefinitions.Recipe_Enchantment_ShortbowMedusa),
+                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
+                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+                    RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw),
+                new("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn),
+                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+                    RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn)
             }
         };
 }

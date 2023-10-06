@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
@@ -251,27 +250,27 @@ internal static class GameLocationBattleManagerTweaks
          */
         // ReSharper disable once ConvertIfStatementToSwitchStatement
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
-                 ExtraAdditionalDamageValueDetermination.AbilityScoreModifier)
+                 ExtraAdditionalDamageValueDetermination.CustomModifier)
         {
+            var customModifierProvider = featureDefinition.GetFirstSubFeatureOfType<CustomModifierProvider>();
+
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
-            var abilityScoreNameProvider = featureDefinition.GetFirstSubFeatureOfType<AbilityScoreNameProvider>();
-            if (abilityScoreNameProvider is not null)
-            {
-                var attributeValue = attacker.RulesetCharacter.TryGetAttributeValue(abilityScoreNameProvider());
-                additionalDamageForm.BonusDamage =
-                    Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(attributeValue), 0);
-            }
-            else
-            {
-                additionalDamageForm.BonusDamage = 0;
-            }
+            additionalDamageForm.BonusDamage = customModifierProvider?.Invoke(hero) ?? 0;
         }
         /*
          * ######################################
          * [CE] EDIT START
          * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
+         * and ExtraAdditionalDamageValueDetermination.CharacterLevel
          */
+        else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
+                 ExtraAdditionalDamageValueDetermination.CharacterLevel)
+        {
+            additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
+            additionalDamageForm.DiceNumber = 0;
+            additionalDamageForm.BonusDamage = hero!.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+        }
         else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
                  ExtraAdditionalDamageValueDetermination.FlatWithProgression)
         {
@@ -280,7 +279,7 @@ internal static class GameLocationBattleManagerTweaks
             if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
             {
                 // Find the character class which triggered this
-                var classDefinition = hero?.FindClassHoldingFeature(featureDefinition);
+                var classDefinition = hero!.FindClassHoldingFeature(featureDefinition);
 
                 if (classDefinition != null)
                 {

@@ -2,7 +2,8 @@
   "$type": "FeatureDefinitionFightingStyleChoice, Assembly-CSharp",
   "fightingStyles": [
     "Archery",
-    "Dueling"
+    "Dueling",
+    "TwoWeapon"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

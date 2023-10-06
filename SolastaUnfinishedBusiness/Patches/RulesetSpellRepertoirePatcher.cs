@@ -122,12 +122,13 @@ public static class RulesetSpellRepertoirePatcher
             var sharedMaxSlots = totalMaxSlots - pactMaxSlots;
             var sharedUsedSlots = totalUsedSlots - pactUsedSlots;
 
-            var isShiftPressedForSlotsPointsConversion =
-                Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            var isShiftPressed = !Global.IsMultiplayer
+                                 && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+#if false
             var isShiftPressed = (Global.CurrentAction is CharacterActionCastSpell or CharacterActionSpendSpellSlot
                                   && Global.CurrentAction.actionParams.BoolParameter5) ||
                                  (Global.CurrentAction is null && isShiftPressedForSlotsPointsConversion);
-
+#endif
             var forceConsumePactSlot = sharedUsedSlots == sharedMaxSlots ||
                                        (__instance.SpellCastingClass !=
                                            DatabaseHelper.CharacterClassDefinitions.Warlock && isShiftPressed) ||

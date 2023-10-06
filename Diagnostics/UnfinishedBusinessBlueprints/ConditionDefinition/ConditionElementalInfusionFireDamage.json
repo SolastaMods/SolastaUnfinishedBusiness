@@ -7,7 +7,7 @@
     "Definition:AdditionalDamageElementalInfusionFire:97b87eb9-a54f-553c-b758-8201e6e73f51"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
+  "silentWhenAdded": true,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
@@ -130,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Fire Damage Attack",
-    "description": "Your next melee attack deals an additional 1d6 Fire Damage damage per slot level spent.",
+    "title": "Fire Damage Infusion",
+    "description": "Your next melee attack deals an additional 1d6 Fire Damage per slot level spent.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",

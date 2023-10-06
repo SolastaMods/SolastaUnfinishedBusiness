@@ -1256,4 +1256,151 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Hunger of the Void
+
+    internal static SpellDefinition BuildHungerOfTheVoid()
+    {
+        const string Name = "HungerOfTheVoid";
+
+        var conditionHungerOfTheVoid = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}")
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        conditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(conditionHungerOfTheVoid));
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.HungerOfTheVoid, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
+                    .SetEffectAdvancement(
+                        EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter)
+                    .AddEffectForms(Darkness.EffectDescription.EffectForms.ToArray())
+                    .AddEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
+                        Entangle.EffectDescription.EffectForms[1])
+                    .SetParticleEffectParameters(Darkness)
+                    .Build())
+            .AddToDB();
+
+        // remove original condition blinded from Darkness spell
+        spell.EffectDescription.EffectForms.RemoveAll(x =>
+            x.FormType == EffectForm.EffectFormType.Condition
+            && x.ConditionForm.ConditionDefinition == ConditionDefinitions.ConditionBlinded);
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorHungerOfTheVoid : ICharacterTurnStartListener, ICharacterTurnEndListener
+    {
+        private readonly ConditionDefinition _conditionHungerOfTheVoid;
+
+        public CustomBehaviorHungerOfTheVoid(ConditionDefinition conditionHungerOfTheVoid)
+        {
+            _conditionHungerOfTheVoid = conditionHungerOfTheVoid;
+        }
+
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            InflictDamage(DamageTypeAcid, locationCharacter.RulesetCharacter, VenomousSpike, true);
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            InflictDamage(DamageTypeCold, locationCharacter.RulesetCharacter, ConeOfCold);
+        }
+
+        private void InflictDamage(
+            string damageType, RulesetActor rulesetActor, IMagicEffect magicEffect, bool rollSaving = false)
+        {
+            if (rulesetActor == null)
+            {
+                return;
+            }
+
+            if (!rulesetActor.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionHungerOfTheVoid.Name,
+                    out var activeCondition))
+            {
+                return;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (rulesetCaster == null)
+            {
+                return;
+            }
+
+            if (rollSaving)
+            {
+                var casterSaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
+                var modifierTrend = rulesetActor.actionModifier.savingThrowModifierTrends;
+                var advantageTrends = rulesetActor.actionModifier.savingThrowAdvantageTrends;
+                var dexterityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                    rulesetActor.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+
+                rulesetActor.RollSavingThrow(
+                    0, AttributeDefinitions.Dexterity, null, modifierTrend, advantageTrends, dexterityModifier,
+                    casterSaveDC,
+                    false, out var savingOutcome, out _);
+
+                if (savingOutcome == RollOutcome.Success)
+                {
+                    return;
+                }
+            }
+
+            var diceNumber = activeCondition.EffectLevel switch
+            {
+                >= 9 => 5,
+                >= 7 => 4,
+                >= 5 => 3,
+                _ => 2
+            };
+
+            var rolls = new List<int>();
+            var damageForm = new DamageForm { DamageType = damageType, DiceNumber = diceNumber, DieType = DieType.D6 };
+            var totalDamage = rulesetActor.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+            var attacker = GameLocationCharacter.GetFromActor(rulesetCaster);
+            var defender = GameLocationCharacter.GetFromActor(rulesetActor);
+
+            if (attacker != null && defender != null)
+            {
+                EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
+            }
+
+            RulesetActor.InflictDamage(
+                totalDamage,
+                damageForm,
+                damageForm.DamageType,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetActor },
+                rulesetActor,
+                false,
+                activeCondition.SourceGuid,
+                false,
+                new List<string>(),
+                new RollInfo(damageForm.DieType, rolls, 0),
+                false,
+                out _);
+        }
+    }
+
+    #endregion
 }

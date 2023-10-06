@@ -1,0 +1,24 @@
+Condition/&ConditionRavenScionHeartSeekingShotDescription=Seu próximo ataque com arma de longo alcance resultará em um acerto crítico garantido se atingir uma criatura.
+Condition/&ConditionRavenScionHeartSeekingShotTitle=Tiro em busca do coração
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Uma vez por turno, quando você atinge uma criatura com um ataque com arma de longo alcance, aquela criatura sofre dano extra do mesmo tipo igual ao seu nível de ladino.
+Feature/&AdditionalDamageRavenScionSniperAimTitle=Mira do atirador
+Feature/&DieRollModifierRavenScionPerfectShotDescription=Você rola novamente quaisquer 1s ou 2s ao rolar para causar dano. Você deve manter o segundo lançamento.
+Feature/&DieRollModifierRavenScionPerfectShotReroll={0} lança novamente o dado {1} de {2} para {3} por causa do Tiro Perfeito.
+Feature/&DieRollModifierRavenScionPerfectShotTitle=Tiro perfeito
+Feature/&FeatureRavenScionKillingSpreeDescription=Uma vez durante o seu turno, quando você reduz uma criatura a 0 pontos de vida, você ganha um ataque extra como parte de sua ação principal e reinicia o uso do recurso Mira do seu Sniper.
+Feature/&FeatureRavenScionKillingSpreeTitle=Matança
+Feature/&FeatureSetRavenScionRangedSpecialistDescription=Você é proficiente com todas as armas de longo alcance de duas mãos e estilo de luta com arco e flecha.
+Feature/&FeatureSetRavenScionRangedSpecialistTitle=Especialista de longo alcance
+Feature/&PowerRavenScionDeadlyFocusDescription=Se você errar em uma jogada de ataque com arma de longo alcance, você pode lançá-la novamente com vantagem. Você pode usar esse recurso uma vez por descanso curto.
+Feature/&PowerRavenScionDeadlyFocusTitle=Foco Mortal
+Feature/&PowerRavenScionHeartSeekingShotDescription=Como uma ação livre, você pode fazer com que seu próximo ataque com arma de longo alcance resulte em um acerto crítico garantido se atingir uma criatura. Você pode usar esse recurso uma vez por descanso curto.
+Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro em busca do coração
+Feedback/&AdditionalDamageSniperAimFormat=Mira do atirador
+Feedback/&AdditionalDamageSniperAimLine=Mira do Sniper causa +{2} de dano extra!
+Feedback/&TriggerRerollLine={0} rola {1} = {2}. Heart-Seeking Shot forçará um acerto crítico.
+Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Use seu foco mortal para tentar novamente o ataque.
+Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Use seu foco mortal para tentar novamente o ataque.
+Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Tentar novamente o ataque
+Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Foco Mortal
+Subclass/&RoguishRavenScionDescription=Scions são especialistas em armas de longo alcance treinados para derrubar inimigos de forma rápida e eficaz, sem causar inveja no resto do mundo, como sua herança próxima.
+Subclass/&RoguishRavenScionTitle=Descendente do Corvo

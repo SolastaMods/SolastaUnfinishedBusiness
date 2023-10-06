@@ -4,11 +4,12 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:AdditionalDamageElementalInfusionLightning:035f0fa4-0aeb-5b04-8fa4-ba714cf9171b",
     "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -130,12 +131,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Lightning Damage Resistance",
-    "description": "You have resistance to Lightning Damage damage.",
+    "title": "Lightning Damage Infusion",
+    "description": "You have resistance to Lightning Damage, and your next melee attack deals an additional 1d6 Lightning Damage per slot level spent.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
+      "m_AssetGUID": "fb9c96de68451564f9edc22a0a7b9de3",
+      "m_SubObjectName": "ConditionProtectedInsideMagicCircle",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

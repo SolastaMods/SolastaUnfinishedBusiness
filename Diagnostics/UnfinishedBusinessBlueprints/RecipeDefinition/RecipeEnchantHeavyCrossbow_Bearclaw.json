@@ -1,0 +1,54 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:HeavyCrossbow_Bearclaw:4fd83497-5d4a-5bab-a95f-b0557b6bc2a3",
+  "stackCount": 1,
+  "craftingHours": 14,
+  "craftingDC": 18,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Primed_HeavyCrossbow:388c95a2bb017954a87c2085695a9092"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Primed Morningstar:023e71e4f8fb4284da68a6fd6d011bcc"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_PurpleAmber:5e85e553c21339546b360ac82961dfab"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Item/&HeavyCrossbow_Bearclaw_Title",
+    "description": "Feature/&Emptystring",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e94ea6f478f66ef4d8a3b4ba6ba50e1a",
+      "m_SubObjectName": "Heavy_Crossbow02",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1a287118-1902-5b72-9200-a6063f337e69",
+  "contentPack": 9999,
+  "name": "RecipeEnchantHeavyCrossbow_Bearclaw"
+}

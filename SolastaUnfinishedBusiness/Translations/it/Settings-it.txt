@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per rico
 ModUi/&EnableRelearnSpells=<i>+ Può selezionare trucchetti o incantesimi già appresi da altre classi</i>
 ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
 ModUi/&EnableRogueCunningStrike=Abilita <color=#D89555>Ladro</color> <b>Colpo astuto</b> e <b>Colpo subdolo</b> ai livelli di classe 5 e 14 <i><color=#F0DAA0>[lascia perdere 1 dado di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
+ModUi/&EnableRogueFightingStyle=Abilita la scelta dello <color=#D89555>Ladro</color> <b>Stile di combattimento</b> al livello 2
+ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Ladro</color> <b>Mira costante</b> al livello di classe 3 <i><color=#F0DAA0>[l'azione bonus dà vantaggio al tuo prossimo tiro per colpire nel turno corrente se non mi sono ancora trasferito]</color></i>
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555> Ev
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Imposta probabilità percentuali di incontri casuali</color>
 ModUi/&Encounters=Incontri
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Consenti alle caratteristiche degli eroi di funzionare mentre sei in forma <color=#D89555>Wildshape</color>
 ModUi/&ExpandAll=Espandi tutto
 ModUi/&FactionHelp=<color=#C04040E0>Carica un gioco della campagna ufficiale per modificare le relazioni tra fazioni...</color>
 ModUi/&FactionRelations=<color=#F0DAA0> Fazioni:</color>
@@ -226,6 +227,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in su
 ModUi/&ShowDescriptions=Mostra descrizioni
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <color=#F0DAA0>[-1 visualizza tutto]</color></i></b>
 ModUi/&SpellsMenu=Incantesimi
+ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita della furtività quando l'attacco va a segno
+ModUi/&StealthBreaksWhenAttackMisses=Abilita la perdita di azione furtiva quando l'attacco fallisce
+ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di azione furtiva durante il lancio del materiale
+ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita della furtività quando si lancia somatico
+ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita della furtività durante il lancio dettagliato
+ModUi/&StealthDoesNotBreakWhenUsingItems=Abilita non perdere la furtività quando usi gli oggetti
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim con tutti i vestiti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali

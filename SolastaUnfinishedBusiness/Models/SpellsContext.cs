@@ -243,6 +243,7 @@ internal static class SpellsContext
 
         // 2nd level
         RegisterSpell(BuildBindingIce(), 0, SpellListSorcerer, SpellListWizard);
+        // RegisterSpell(BuildCloudOfDaggers(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildNoxiousSpray(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
@@ -259,6 +260,7 @@ internal static class SpellsContext
         RegisterSpell(BuildCorruptingBolt(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
         RegisterSpell(ElementalWeapon, 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(BuildHungerOfTheVoid(), 0, SpellListWarlock);
         RegisterSpell(BuildPulseWave(), 0, SpellListWizard);
         RegisterSpell(BuildFlameArrows(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);

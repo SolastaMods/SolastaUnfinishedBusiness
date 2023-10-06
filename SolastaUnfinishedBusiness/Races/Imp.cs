@@ -179,7 +179,7 @@ internal static class RaceImpBuilder
 
             yield return HandleImpishWrath(attacker,
                 defender,
-                rulesetEffect.EffectDescription?.FindFirstDamageForm()?.damageType);
+                rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
         public IEnumerator OnAttackFinishedByMe(
@@ -200,7 +200,7 @@ internal static class RaceImpBuilder
             yield return HandleImpishWrath(
                 attacker,
                 defender,
-                attackerAttackMode.EffectDescription?.FindFirstDamageForm()?.damageType);
+                attackerAttackMode.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
         private IEnumerator HandleImpishWrath(
@@ -212,18 +212,22 @@ internal static class RaceImpBuilder
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (implementationService == null
+                || gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrUnconscious: false })
             {
                 yield break;
             }
+
+            var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrUnconscious: false })
             {
@@ -263,7 +267,7 @@ internal static class RaceImpBuilder
 
             rulesetAttacker.UsePower(usablePower);
 
-            var damage = new DamageForm
+            var damageForm = new DamageForm
             {
                 DamageType = damageType, DieType = DieType.D1, DiceNumber = 0, BonusDamage = bonusDamage
             };
@@ -275,10 +279,8 @@ internal static class RaceImpBuilder
                 position = defender.LocationPosition
             };
 
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
             implementationService.ApplyEffectForms(
-                new List<EffectForm> { new() { damageForm = damage } },
+                new List<EffectForm> { new() { damageForm = damageForm } },
                 applyFormsParams,
                 new List<string> { damageType },
                 out _,

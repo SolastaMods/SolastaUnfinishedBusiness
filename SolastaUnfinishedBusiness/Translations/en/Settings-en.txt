@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin 
 ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned from other classes</i>
 ModUi/&EnableRespec=Enable the RESPEC after rest action
 ModUi/&EnableRogueCunningStrike=Enable <color=#D89555>Rogue</color> <b>Cunning Strike</b> and <b>Devious Strike</b> at class levels 5 and 14 <i><color=#F0DAA0>[you let forgo 1 sneak attack dice for additional hit effects]</color></i>
+ModUi/&EnableRogueFightingStyle=Enable <color=#D89555>Rogue</color> <b>Fighting Style</b> choice at level 2
+ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Rogue</color> <b>Steady Aim</b> at class level 3 <i><color=#F0DAA0>[bonus action gives advantage on your next attack roll in the current turn if you haven't moved yet]</color></i>
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjur
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
-ModUi/&EnumerateOriginSubFeatures=Allow features from heroes to work while in <color=#D89555>Wildshape</color> form
 ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
@@ -226,6 +227,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed too
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
 ModUi/&SpellsMenu=Spells
+ModUi/&StealthBreaksWhenAttackHits=Enable stealth loss when attack hits
+ModUi/&StealthBreaksWhenAttackMisses=Enable stealth loss when attack misses
+ModUi/&StealthBreaksWhenCastingMaterial=Enable stealth loss when casting material
+ModUi/&StealthBreaksWhenCastingSomatic=Enable stealth loss when casting somatic
+ModUi/&StealthBreaksWhenCastingVerbose=Enable stealth loss when casting verbose
+ModUi/&StealthDoesNotBreakWhenUsingItems=Enable don't lose stealth when using items
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items

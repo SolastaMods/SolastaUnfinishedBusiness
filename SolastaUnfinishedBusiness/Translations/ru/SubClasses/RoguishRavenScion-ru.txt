@@ -1,0 +1,24 @@
+Condition/&ConditionRavenScionHeartSeekingShotDescription=Ваше следующее попадание по существу атакой дальнобойным оружием гарантированно будет критическим.
+Condition/&ConditionRavenScionHeartSeekingShotTitle=Выстрел в сердце
+Feature/&AdditionalDamageRavenScionSniperAimDescription=Один раз за ход, когда вы поражаете существо дальнобойной атакой оружием, оно получает дополнительный урон того же типа, равный вашему уровню плута.
+Feature/&AdditionalDamageRavenScionSniperAimTitle=Снайперское прицеливание
+Feature/&DieRollModifierRavenScionPerfectShotDescription=При броске урона вы перебрасываете все 1 или 2. Вы должны использовать результаты второго броска.
+Feature/&DieRollModifierRavenScionPerfectShotReroll={0} перебрасывает кость {1} с {2} на {3}, благодаря Идеальному выстрелу.
+Feature/&DieRollModifierRavenScionPerfectShotTitle=Идеальный выстрел
+Feature/&FeatureRavenScionKillingSpreeDescription=Один раз в свой ход, когда вы снижаете количество хитов существа до 0, вы получаете дополнительную атаку в рамках своего основного действия и восстанавливаете использование своего Снайперского прицеливания.
+Feature/&FeatureRavenScionKillingSpreeTitle=Череда убийств
+Feature/&FeatureSetRavenScionRangedSpecialistDescription=Вы получаете владение всеми видами двуручного дальнобойного оружия и боевым стилем Стрельба из лука.
+Feature/&FeatureSetRavenScionRangedSpecialistTitle=Специалист дальнего боя
+Feature/&PowerRavenScionDeadlyFocusDescription=Если вы промахиваетесь при броске атаки дальнобойным оружием, вы можете повторить бросок с преимуществом. Вы можете использовать эту способность один раз до короткого отдыха.
+Feature/&PowerRavenScionDeadlyFocusTitle=Смертоносная концентрация
+Feature/&PowerRavenScionHeartSeekingShotDescription=Свободным действием вы можете сделать так, что ваше следующее попадание по сущетсву атакой дальнобойным оружием гарантированно будет критическим. Вы можете использовать эту способность один раз до короткого отдыха.
+Feature/&PowerRavenScionHeartSeekingShotTitle=Выстрел в сердце
+Feedback/&AdditionalDamageSniperAimFormat=Снайперское прицеливание
+Feedback/&AdditionalDamageSniperAimLine=Снайперское прицеливание наносит дополнительно +{2} урона!
+Feedback/&TriggerRerollLine={0} бросает {1} = {2}. Выстрел в сердце вызывает критическое попадание.
+Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
+Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
+Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Повторить атаку
+Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Смертоносная концентрация
+Subclass/&RoguishRavenScionDescription=Вороны - специалисты по дальнобойному оружию, обученные быстро и эффективно уничтожать врагов.
+Subclass/&RoguishRavenScionTitle=Ворон

@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar
 ModUi/&EnableRelearnSpells=<i>+ Pode selecionar truques ou feitiços já aprendidos de outras classes</i>
 ModUi/&EnableRespec=Habilite o RESPEC após a ação de descanso
 ModUi/&EnableRogueCunningStrike=Habilite <color=#D89555>Rogue</color> <b>Cunning Strike</b> e <b>Devious Strike</b> nos níveis de classe 5 e 14 <i><color=#F0DAA0>[você esqueceu 1 dado de ataque furtivo para efeitos de acerto adicionais]</color></i>
+ModUi/&EnableRogueFightingStyle=Habilite a escolha de <color=#D89555>Rogue</color> <b>Estilo de luta</b> no nível 2
+ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Rogue</color> <b>Steady Aim</b> no nível de classe 3 <i><color=#F0DAA0>[a ação bônus dá vantagem em sua próxima jogada de ataque no turno atual se você ainda não me mudei]</color></i>
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas / locais
 ModUi/&EnableSortingDungeonMakerAssets=Ativar classificação de recursos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Con
 ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
 ModUi/&Encounters=Encontros
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Permitir que recursos de heróis funcionem na forma <color=#D89555>Wildshape</color>
 ModUi/&ExpandAll=Expandir todos
 ModUi/&FactionHelp=<color=#C04040E0>Carregue um jogo de campanha oficial para modificar as relações entre as facções...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Facções:</color>
@@ -226,6 +227,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dica
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
 ModUi/&SpellsMenu=Feitiços
+ModUi/&StealthBreaksWhenAttackHits=Ative a perda de furtividade quando o ataque atingir
+ModUi/&StealthBreaksWhenAttackMisses=Ative a perda de sigilo quando o ataque erra
+ModUi/&StealthBreaksWhenCastingMaterial=Ative a perda de furtividade ao lançar material
+ModUi/&StealthBreaksWhenCastingSomatic=Ative a perda de furtividade ao lançar somático
+ModUi/&StealthBreaksWhenCastingVerbose=Ative a perda de sigilo ao transmitir verbose
+ModUi/&StealthDoesNotBreakWhenUsingItems=Habilite não perca a furtividade ao usar itens
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Armazene a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Loja de estoque de Gorim com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club</color> definido como itens de foco

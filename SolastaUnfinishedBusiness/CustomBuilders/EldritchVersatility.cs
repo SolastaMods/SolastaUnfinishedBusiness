@@ -31,8 +31,6 @@ internal static class EldritchVersatility
 {
     public enum PointAction
     {
-        Reserve,
-        UnReserve,
         Modify,
         Require
     }
@@ -44,7 +42,8 @@ internal static class EldritchVersatility
         EldritchWard,
         BattlefieldConversionSuccess,
         BattlefieldConversionFailure,
-        BlastBreakthroughOrEmpower
+        BlastBreakthrough,
+        BlastEmpower
     }
 
     private const string Name = "EldritchVersatility";
@@ -121,13 +120,19 @@ internal static class EldritchVersatility
         FeatureDefinition featureOrPower = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageInvocationAgonizingBlast, $"Feature{Name}{name}")
             .SetNotificationTag("BlastEmpower")
-            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.AbilityScoreModifier)
+            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.CustomModifier)
             .AddCustomSubFeatures(
-                new AbilityScoreNameProvider(() => AttributeDefinitions.Strength),
+                new CustomModifierProvider(hero =>
+                {
+                    hero.GetVersatilitySupportCondition(out var supportCondition);
+                    return supportCondition is null
+                        ? 0
+                        : GetAbilityScoreModifier(hero, AttributeDefinitions.Strength, supportCondition);
+                }),
                 new BlastEmpowerCustom($"Invocation{Name}{name}"))
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, AttributeDefinitions.Strength, featureOrPower);
+        BuildFeatureInvocation(name, sprite, featureOrPower, new BlastEmpowerActiveSwitch($"Invocation{Name}{name}"));
 
         name = "BlastBreakthrough";
         sprite = Sprites.GetSprite(name, Resources.BlastBreakthrough, 128);
@@ -137,7 +142,7 @@ internal static class EldritchVersatility
             .AddCustomSubFeatures(new BlastBreakthroughCustom($"Invocation{Name}{name}"))
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, AttributeDefinitions.Strength, featureOrPower);
+        BuildFeatureInvocation(name, sprite, featureOrPower);
 
         #endregion
 
@@ -148,10 +153,10 @@ internal static class EldritchVersatility
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new BattlefieldShorthandCopyMagicalAttackCastedSpells())
+            .AddCustomSubFeatures(new BattlefieldShorthandCopySpells())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
+        BuildFeatureInvocation(name, sprite, featureOrPower, new BattlefieldShorthandRemoveCopiedSpells());
 
         name = "BattlefieldConversion";
         sprite = Sprites.GetSprite(name, Resources.BattlefieldConversion, 128);
@@ -169,7 +174,7 @@ internal static class EldritchVersatility
                 new BattlefieldConversionRestoreSlot())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, AttributeDefinitions.Intelligence, featureOrPower);
+        BuildFeatureInvocation(name, sprite, featureOrPower);
 
         #endregion
 
@@ -183,7 +188,7 @@ internal static class EldritchVersatility
             .AddCustomSubFeatures(new EldritchAegisTwistHit())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
+        BuildFeatureInvocation(name, sprite, featureOrPower);
 
         name = "EldritchWard";
         sprite = Sprites.GetSprite(name, Resources.EldritchWard, 128);
@@ -193,7 +198,7 @@ internal static class EldritchVersatility
             .AddCustomSubFeatures(new EldritchWardAidSave())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, AttributeDefinitions.Wisdom, featureOrPower);
+        BuildFeatureInvocation(name, sprite, featureOrPower);
 
         #endregion
     }
@@ -209,8 +214,8 @@ internal static class EldritchVersatility
     private static void BuildFeatureInvocation(
         string name,
         AssetReferenceSprite sprite,
-        string abilityScore,
-        FeatureDefinition feature)
+        FeatureDefinition feature,
+        params object[] subFeatures)
     {
         _ = CustomInvocationDefinitionBuilder
             .Create($"Invocation{Name}{name}")
@@ -218,14 +223,17 @@ internal static class EldritchVersatility
             .SetPoolType(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool)
             .SetGrantedFeature(feature)
             .SetRequirements(0)
+            .AddCustomSubFeatures(subFeatures)
             .AddToDB();
-
-        feature.AddCustomSubFeatures(new AddAbilityScoreBonus(abilityScore));
     }
 
-    private static int GetAbilityScoreModifier(RulesetEntity ownerCharacter, string abilityScore)
+    private static int GetAbilityScoreModifier(RulesetEntity ownerCharacter, string abilityScore,
+        VersatilitySupportRulesetCondition supportCondition)
     {
-        return AttributeDefinitions.ComputeAbilityScoreModifier(ownerCharacter.TryGetAttributeValue(abilityScore));
+        return AttributeDefinitions.ComputeAbilityScoreModifier(Math.Max(Math.Max(
+                ownerCharacter.TryGetAttributeValue(abilityScore),
+                supportCondition.ReplacedAbilityScore == abilityScore ? supportCondition.ReplacedAbilityScoreValue : 0),
+            supportCondition.IsOverload ? 22 : 0));
     }
 
     private static void RequestCustomReaction(
@@ -275,53 +283,6 @@ internal static class EldritchVersatility
         return false;
     }
 
-    private static void ApplyMyFeatures(RulesetCharacterHero characterHero, params FeatureDefinition[] definitionsToAdd)
-    {
-        characterHero.ActiveFeatures.TryAdd(Name, new List<FeatureDefinition>());
-
-        foreach (var feature in definitionsToAdd)
-        {
-            characterHero.ActiveFeatures[Name].TryAdd(feature);
-        }
-    }
-
-    private static void RemoveMyFeatures(
-        RulesetCharacterHero characterHero, params FeatureDefinition[] definitionsToRemove)
-    {
-        if (characterHero.ActiveFeatures.TryGetValue(Name, out var features))
-        {
-            features.RemoveAll(definitionsToRemove.Contains);
-        }
-    }
-
-    private static void TurnOffPointReservingPower(
-        RulesetCharacter target,
-        VersatilitySupportRulesetCondition supportCondition)
-    {
-        var features = target.GetSubFeaturesByType<ToggleableOnInvocation>();
-
-        if (target == null)
-        {
-            return;
-        }
-
-        foreach (var feature in features)
-        {
-            var invocation = target.Invocations.Find(y =>
-                y.InvocationDefinition.Name == feature.InvocationName);
-
-            if (!invocation.Active)
-            {
-                continue;
-            }
-
-            invocation.Toggle();
-            feature.HandleToggle(target, supportCondition, invocation, true);
-
-            target.RefreshAll();
-        }
-    }
-
     internal class VersatilitySupportRulesetCondition :
         RulesetConditionCustom<VersatilitySupportRulesetCondition>, IBindToRulesetConditionCustom
     {
@@ -346,10 +307,12 @@ internal static class EldritchVersatility
         public int PointSpentOnAddingAC { get; private set; }
         public int CreateSlotDC { get; private set; }
         public int MaxPoints { get; private set; }
-        public int ReservedPoints { get; private set; }
-        private int EarnedPointsInThisTurn { get; set; }
+        public string ReplacedAbilityScore { get; set; }
+        public List<string> StrPowerPriority { get; private set; } = new();
+        public int ReplacedAbilityScoreValue { get; private set; }
         private int SlotLevel { get; set; }
         public int BeamNumber { get; private set; }
+        private int LearntAmount { get; set; }
         public bool IsOverload { get; set; }
         private bool HasBlastPursuit { get; set; }
 
@@ -367,33 +330,38 @@ internal static class EldritchVersatility
             }
 
             var modifyCurrent = 0;
-            var modifyReserve = 0;
 
-            switch (action, usage)
+            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+            switch (usage)
             {
-                case (_, PointUsage.EarnPoints):
+                case PointUsage.EarnPoints:
                     modifyCurrent = Math.Min(value, MaxPoints - CurrentPoints);
-                    modifyCurrent = Math.Min(modifyCurrent, MaxPoints - EarnedPointsInThisTurn);
                     break;
-                case (_, PointUsage.EldritchAegis):
-                case (_, PointUsage.EldritchWard):
+                case PointUsage.EldritchAegis:
+                case PointUsage.EldritchWard:
                     modifyCurrent = -value;
                     break;
-                case (_, PointUsage.BattlefieldConversionSuccess):
+                case PointUsage.BattlefieldConversionSuccess:
                     modifyCurrent = -Math.Min(2 * SlotLevel, MaxPoints);
                     break;
-                case (_, PointUsage.BattlefieldConversionFailure):
+                case PointUsage.BattlefieldConversionFailure:
                     modifyCurrent = -SlotLevel;
                     break;
-                case (PointAction.Reserve, PointUsage.BlastBreakthroughOrEmpower):
-                    modifyReserve = BeamNumber;
-                    break;
-                case (PointAction.UnReserve, PointUsage.BlastBreakthroughOrEmpower):
-                    modifyReserve = -BeamNumber;
-                    break;
-                case (PointAction.Modify, PointUsage.BlastBreakthroughOrEmpower):
-                    modifyReserve = -BeamNumber;
+                case PointUsage.BlastBreakthrough:
                     modifyCurrent = -BeamNumber;
+                    if (StrPowerPriority[0] != "BlastBreakthroughTitle")
+                    {
+                        modifyCurrent -= BeamNumber;
+                    }
+
+                    break;
+                case PointUsage.BlastEmpower:
+                    modifyCurrent = -BeamNumber;
+                    if (StrPowerPriority[0] != "BlastEmpowerTitle")
+                    {
+                        modifyCurrent -= BeamNumber;
+                    }
+
                     break;
             }
 
@@ -406,15 +374,6 @@ internal static class EldritchVersatility
             {
                 case PointAction.Require:
                     return CurrentPoints + modifyCurrent >= 0;
-                case PointAction.Reserve:
-                    if (!IsOverload && CurrentPoints + modifyCurrent - ReservedPoints - modifyReserve < 0)
-                    {
-                        return false;
-                    }
-
-                    ReservedPoints += modifyReserve;
-
-                    return true;
 
                 case PointAction.Modify:
                     if (CurrentPoints + modifyCurrent < 0)
@@ -422,25 +381,22 @@ internal static class EldritchVersatility
                         return false;
                     }
 
-                    if (!IsOverload && CurrentPoints + modifyCurrent - ReservedPoints - modifyReserve < 0)
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                    switch (usage)
                     {
-                        TurnOffPointReservingPower(GetEntity<RulesetCharacter>(SourceGuid), this);
+                        case PointUsage.EldritchAegis:
+                            PointSpentOnAddingAC += value;
+                            break;
+                        case PointUsage.BlastBreakthrough:
+                        case PointUsage.BlastEmpower:
+                            modifyCurrent = Math.Max(modifyCurrent, -BeamNumber);
+                            break;
                     }
 
-                    if (usage == PointUsage.EldritchAegis)
-                    {
-                        PointSpentOnAddingAC += value;
-                    }
-
-                    ReservedPoints += modifyReserve;
                     CurrentPoints += modifyCurrent;
 
                     return true;
-                case PointAction.UnReserve:
-                    // To prevent possible bugs
-                    ReservedPoints = Math.Max(modifyReserve + ReservedPoints, 0);
 
-                    return true;
                 default:
                     return false;
             }
@@ -449,6 +405,12 @@ internal static class EldritchVersatility
         private void InitSupportCondition([NotNull] RulesetCharacter ownerCharacter)
         {
             var ownerHero = ownerCharacter.GetOriginalHero();
+
+            if (ownerHero == null)
+            {
+                return;
+            }
+
             var characterLevel = ownerCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var proficiencyBonus = ownerCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
@@ -464,27 +426,52 @@ internal static class EldritchVersatility
                 BeamNumber = new[] { 1, 5, 11, 17 }.Count(x => characterLevel >= x);
             }
 
-            if (ownerHero != null && ownerHero.TrainedFeats.Contains(FeatEldritchVersatilityAdept))
+            if (ownerHero.TrainedFeats.Contains(FeatEldritchVersatilityAdept))
             {
                 MaxPoints += proficiencyBonus;
             }
 
             CurrentPoints = 0;
-            ReservedPoints = 0;
             SlotLevel = SharedSpellsContext.GetWarlockSpellLevel(ownerHero);
             CreateSlotDC = 8 + proficiencyBonus;
-            EarnedPointsInThisTurn = 0;
             PointSpentOnAddingAC = 0;
             IsValidBlastBreakthrough = false;
             IsOverload = false;
             HasBlastPursuit = ownerCharacter.HasAnyFeature(FeatureBlastReload);
+            LearntAmount =
+                ownerHero.TrainedInvocations.Count(x => x.Name.Contains($"Invocation{EldritchVersatility.Name}"));
+            ReplacedAbilityScore = string.Empty;
+            StrPowerPriority.Clear();
 
+            var names = ownerHero.GetSubFeaturesByType<ToggleableOnInvocation>().Select(x => x.InvocationName);
+
+            ownerHero.Invocations.DoIf(x =>
+                x.Active && names.Contains(x.InvocationDefinition.Name), y => y.Toggle());
+
+            ModifyAttributeScores(ownerHero, ReplacedAbilityScore);
+
+            ReplacedAbilityScoreValue = 10 + (2 * proficiencyBonus);
             CopiedSpells.Clear();
         }
 
-        private void ClearEarnedPointsInThisTurn()
+        public void ModifyAttributeScores(RulesetCharacterHero hero, string abilityScore)
         {
-            EarnedPointsInThisTurn = 0;
+            var names = new List<string>
+            {
+                AttributeDefinitions.Strength, AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom
+            };
+
+            if (abilityScore == string.Empty)
+            {
+                hero.Attributes.DoIf(x => names.Contains(x.Key), y => y.Value.ActiveModifiers.TryAdd(
+                    RulesetAttributeModifier
+                        .BuildAttributeModifier(AttributeModifierOperation.Additive, LearntAmount, Name)));
+            }
+            else
+            {
+                hero.Attributes.DoIf(x => names.Contains(x.Key),
+                    y => y.Value.ActiveModifiers.RemoveAll(z => z.Tags.Contains(Name)));
+            }
         }
 
         public void ClearPointSpentOnAddingAC()
@@ -515,9 +502,6 @@ internal static class EldritchVersatility
             {
                 MaxPoints = serializer.SerializeAttribute("MaxPoints", MaxPoints);
                 CurrentPoints = serializer.SerializeAttribute("CurrentPoints", CurrentPoints);
-                ReservedPoints = serializer.SerializeAttribute("ReservedPoints", ReservedPoints);
-                EarnedPointsInThisTurn =
-                    serializer.SerializeAttribute("EarnedPointsInThisTurn", EarnedPointsInThisTurn);
                 CreateSlotDC = serializer.SerializeAttribute("CreateSlotDC", CreateSlotDC);
                 SlotLevel = serializer.SerializeAttribute("SlotLevel", SlotLevel);
                 BeamNumber = serializer.SerializeAttribute("BeamNumber", BeamNumber);
@@ -526,6 +510,10 @@ internal static class EldritchVersatility
                     serializer.SerializeAttribute("IsValidBlastBreakthrough", IsValidBlastBreakthrough);
                 IsOverload = serializer.SerializeAttribute("IsOverload", IsOverload);
                 HasBlastPursuit = serializer.SerializeAttribute("HasBlastPursuit", HasBlastPursuit);
+                ReplacedAbilityScore = serializer.SerializeAttribute("ReplacedAbilityScore", ReplacedAbilityScore);
+                ReplacedAbilityScoreValue =
+                    serializer.SerializeAttribute("ReplacedAbilityScoreValue", ReplacedAbilityScoreValue);
+                LearntAmount = serializer.SerializeAttribute("LearntAmount", LearntAmount);
             }
             catch (Exception ex)
             {
@@ -544,6 +532,7 @@ internal static class EldritchVersatility
             {
                 BaseDefinition.SerializeDatabaseReferenceList(
                     serializer, "CopiedSpells", "SpellDefinition", CopiedSpells);
+                StrPowerPriority = serializer.SerializeElement("StrPowerPriority", StrPowerPriority);
 
                 if (serializer.Mode == Serializer.SerializationMode.Read)
                 {
@@ -563,19 +552,21 @@ internal static class EldritchVersatility
             CopiedSpells.Clear();
             MaxPoints = 0;
             CurrentPoints = 0;
-            ReservedPoints = 0;
             CreateSlotDC = 0;
-            EarnedPointsInThisTurn = 0;
             SlotLevel = 0;
             BeamNumber = 0;
             PointSpentOnAddingAC = 0;
+            ReplacedAbilityScore = "";
+            StrPowerPriority.Clear();
+            ReplacedAbilityScoreValue = 0;
+            LearntAmount = 0;
             IsValidBlastBreakthrough = false;
             IsOverload = false;
             HasBlastPursuit = false;
         }
 
         private sealed class OnConditionAddedOrRemovedVersatility :
-            ICharacterTurnStartListener, ICharacterBattleEndedListener,
+            ICharacterBattleEndedListener,
             IOnConditionAddedOrRemoved, IMagicalAttackBeforeHitConfirmedOnEnemy
         {
             public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
@@ -594,14 +585,6 @@ internal static class EldritchVersatility
 
                 warlockRepertoire.KnownCantrips.RemoveAll(x => copiedSpells.Contains(x));
                 warlockRepertoire.KnownSpells.RemoveAll(x => copiedSpells.Contains(x));
-            }
-
-            public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-            {
-                if (locationCharacter.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
-                {
-                    supportCondition.ClearEarnedPointsInThisTurn();
-                }
             }
 
             public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
@@ -634,13 +617,10 @@ internal static class EldritchVersatility
             // Do first time init
             public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
             {
-                if (rulesetCondition is not VersatilitySupportRulesetCondition supportCondition)
+                if (rulesetCondition is VersatilitySupportRulesetCondition supportCondition)
                 {
-                    return;
+                    supportCondition.InitSupportCondition(target);
                 }
-
-                supportCondition.InitSupportCondition(target);
-                TurnOffPointReservingPower(target, supportCondition);
             }
 
             // The clearing is called when next time this condition is added
@@ -652,10 +632,16 @@ internal static class EldritchVersatility
             {
                 Main.Info("Condition Versatility interrupted");
 
-                if (target.CurrentHitPoints > 0)
+                if (target.CurrentHitPoints <= 0)
                 {
-                    target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
+                    return;
                 }
+
+                var warlockRepertoire =
+                    target.GetOriginalHero()!.SpellRepertoires.Find(x =>
+                        x.SpellCastingClass == CharacterClassDefinitions.Warlock);
+                warlockRepertoire.ExtraSpellsByTag.Remove("BattlefieldShorthand");
+                target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
             }
         }
     }
@@ -669,26 +655,11 @@ internal static class EldritchVersatility
                 .AddCustomSubFeatures(new BlastBreakthroughRemoveImmunityCustom())
                 .AddToDB();
 
-        private static readonly FeatureDefinitionMagicAffinity FeatureBlastBreakthroughNoPenalty =
-            FeatureDefinitionMagicAffinityBuilder
-                .Create("FeatureBlastBreakthroughNoPenalty")
-                .SetGuiPresentationNoContent(true)
-                .SetCastingModifiers(noProximityPenalty: true)
-                .AddToDB();
-
-        private static readonly FeatureDefinitionCombatAffinity FeatureBlastBreakthroughIgnoreCover =
-            FeatureDefinitionCombatAffinityBuilder
-                .Create(FeatureDefinitionCombatAffinitys.CombatAffinityWandOfWarMageCover,
-                    "FeatureBlastBreakthroughIgnoreCover")
-                .SetGuiPresentationNoContent(true)
-                .AddToDB();
-
         public BlastBreakthroughCustom(string invocationName)
         {
             InvocationName = invocationName;
         }
 
-        // Reserve points when finish cast EB, if fail turn it off
         public void OnActionExecutionHandled(GameLocationCharacter character, CharacterActionParams actionParams,
             ActionScope scope)
         {
@@ -701,25 +672,18 @@ internal static class EldritchVersatility
                 return;
             }
 
-            if (!IsInvocationActive(rulesetCharacter, InvocationName, out var rulesetInvocation))
+            // Invalidate damage affinity and spell immunity
+            if (!supportCondition.IsValidBlastBreakthrough)
             {
                 return;
             }
 
-            // Invalidate damage affinity and spell immunity
             supportCondition.IsValidBlastBreakthrough = false;
             actionParams.targetCharacters.ForEach(x =>
                 x.RulesetCharacter
                     .RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
                         ConditionBlastBreakthroughRemoveImmunity.Name)
             );
-
-            HandleToggle(rulesetCharacter, supportCondition, rulesetInvocation, false);
-
-            if (!rulesetInvocation.Active)
-            {
-                rulesetCharacter.RefreshAll();
-            }
         }
 
         // Spend reserved points on cast EB if success
@@ -730,23 +694,42 @@ internal static class EldritchVersatility
             if (Gui.Battle is null ||
                 caster.RulesetCharacter != featureOwner ||
                 selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
-                !IsInvocationActive(featureOwner, InvocationName, out _) ||
-                !featureOwner.GetVersatilitySupportCondition(out var supportCondition))
+                !featureOwner.GetVersatilitySupportCondition(out var supportCondition) ||
+                !supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BlastBreakthrough))
             {
                 yield break;
             }
 
-            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BlastBreakthroughOrEmpower);
             supportCondition.IsValidBlastBreakthrough = true;
 
-            var modifier = GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Strength);
+            var modifier = GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Strength, supportCondition);
 
+            if (modifier < 1)
+            {
+                yield break;
+            }
+
+            castAction.ActionParams.ActionModifiers.ForEach(x =>
+                {
+                    x.AttacktoHitTrends.Add(new TrendInfo(modifier, FeatureSourceType.Invocation, InvocationName,
+                        null));
+                    x.AttackRollModifier += modifier;
+                }
+            );
+
+            if (modifier < 2)
+            {
+                yield break;
+            }
+
+            castAction.ActionParams.ActionModifiers.ForEach(x =>
+                x.AttackAdvantageTrends.RemoveAll(y => y.sourceType == FeatureSourceType.Proximity));
             if (modifier < 5)
             {
                 yield break;
             }
 
-            castAction.actionParams.targetCharacters.ForEach(
+            castAction.ActionParams.targetCharacters.ForEach(
                 x =>
                     InflictCondition(ConditionBlastBreakthroughRemoveImmunity, featureOwner, x.RulesetCharacter));
         }
@@ -761,7 +744,7 @@ internal static class EldritchVersatility
                 return;
             }
 
-            var modifier = GetAbilityScoreModifier(attackCharacter, AttributeDefinitions.Strength);
+            var modifier = GetAbilityScoreModifier(attackCharacter, AttributeDefinitions.Strength, supportCondition);
 
             if (modifier < 3)
             {
@@ -788,62 +771,13 @@ internal static class EldritchVersatility
                 return;
             }
 
-            HandleToggle(rulesetCharacter, supportCondition, invocation, true);
-        }
-
-        // Handle Toggle
-        public override void HandleToggle(RulesetCharacter character,
-            VersatilitySupportRulesetCondition supportCondition, RulesetInvocation invocation, bool toggledInUI)
-        {
-            while (true)
+            if (invocation.Active)
             {
-                if (invocation.Active)
-                {
-                    // Reserve for next use
-                    if (!supportCondition.TryEarnOrSpendPoints(
-                            PointAction.Reserve, PointUsage.BlastBreakthroughOrEmpower))
-                    {
-                        invocation.Toggle();
-                        toggledInUI = false;
-
-                        continue;
-                    }
-
-                    if (toggledInUI)
-                    {
-                        var modifier = GetAbilityScoreModifier(character, AttributeDefinitions.Strength);
-                        var hero = character.GetOriginalHero();
-
-                        if (modifier < 1)
-                        {
-                            return;
-                        }
-
-                        ApplyMyFeatures(hero, FeatureBlastBreakthroughIgnoreCover);
-
-                        if (modifier < 2)
-                        {
-                            return;
-                        }
-
-                        ApplyMyFeatures(hero, FeatureBlastBreakthroughNoPenalty);
-                    }
-                }
-                else
-                {
-                    if (toggledInUI)
-                    {
-                        supportCondition.TryEarnOrSpendPoints(PointAction.UnReserve,
-                            PointUsage.BlastBreakthroughOrEmpower);
-                    }
-
-                    RemoveMyFeatures(
-                        character.GetOriginalHero(),
-                        FeatureBlastBreakthroughIgnoreCover,
-                        FeatureBlastBreakthroughNoPenalty);
-                }
-
-                break;
+                supportCondition.StrPowerPriority.Add("BlastBreakthroughTitle");
+            }
+            else
+            {
+                supportCondition.StrPowerPriority.Remove("BlastBreakthroughTitle");
             }
         }
     }
@@ -866,7 +800,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class BattlefieldShorthandCopyMagicalAttackCastedSpells : IMagicalAttackCastedSpell
+    private sealed class BattlefieldShorthandCopySpells : IMagicalAttackCastedSpell
     {
         public IEnumerator OnSpellCast(
             RulesetCharacter featureOwner,
@@ -920,18 +854,14 @@ internal static class EldritchVersatility
             allKnownSpells.AddRange(warlockRepertoire.knownSpells);
             warlockRepertoire.ExtraSpellsByTag.TryAdd("BattlefieldShorthand", new List<SpellDefinition>());
 
-            // If the caster has this feature, check if the spell is copied, if so, remove it both from copied list and repertoire
-            if (featureOwner == caster.RulesetCharacter)
+            // If the caster has this feature, check if the spell is copied, if so, return
+            if (featureOwner == caster.RulesetCharacter &&
+                supportCondition.CopiedSpells.Contains(selectedSpellDefinition))
             {
-                if (supportCondition.CopiedSpells.Remove(selectedSpellDefinition))
-                {
-                    warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Remove(selectedSpellDefinition);
-                }
-
                 yield break;
             }
-            // Maximum copy-able spell level is half pool size
 
+            // Maximum copy-able spell level is half pool size
             if (allKnownSpells.Contains(selectedSpellDefinition) || spellLevel > supportCondition.MaxPoints / 2)
             {
                 yield break;
@@ -940,7 +870,15 @@ internal static class EldritchVersatility
             // You yourself should pass a check again to copy it if not overload
             if (!supportCondition.IsOverload)
             {
-                var checkModifier = new ActionModifier();
+                var checkModifier = new ActionModifier
+                {
+                    AbilityCheckModifier =
+                        GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Intelligence, supportCondition) -
+                        AttributeDefinitions.ComputeAbilityScoreModifier(
+                            featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence))
+                };
+                checkModifier.AbilityCheckModifierTrends.Add(new TrendInfo(checkModifier.AbilityCheckModifier,
+                    FeatureSourceType.CharacterFeature, "PowerPatronEldritchSurgeVersatilitySwitchPool", null));
                 var glc = GameLocationCharacter.GetFromActor(featureOwner);
 
                 if (glc != null)
@@ -981,15 +919,22 @@ internal static class EldritchVersatility
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationCharacter = action.ActingCharacter;
-            var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
+            var featureOwner = gameLocationCharacter.RulesetCharacter;
 
-            rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition);
+            featureOwner.GetVersatilitySupportCondition(out var supportCondition);
 
             if (!supportCondition.IsOverload)
             {
                 // Check to restore slot
-                var checkModifier = new ActionModifier();
-
+                var checkModifier = new ActionModifier
+                {
+                    AbilityCheckModifier =
+                        GetAbilityScoreModifier(featureOwner, AttributeDefinitions.Intelligence, supportCondition) -
+                        AttributeDefinitions.ComputeAbilityScoreModifier(
+                            featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence))
+                };
+                checkModifier.AbilityCheckModifierTrends.Add(new TrendInfo(checkModifier.AbilityCheckModifier,
+                    FeatureSourceType.CharacterFeature, "PowerPatronEldritchSurgeVersatilitySwitchPool", null));
                 gameLocationCharacter.RollAbilityCheck("Intelligence", "Arcana", supportCondition.CreateSlotDC,
                     AdvantageType.None, checkModifier, false, -1, out var abilityCheckRollOutcome,
                     out _, true);
@@ -997,7 +942,7 @@ internal static class EldritchVersatility
                 // If success increase DC, other wise decrease DC
                 var createSuccess = abilityCheckRollOutcome <= RollOutcome.Success;
 
-                supportCondition.ModifySlotDC(createSuccess, rulesetCharacter);
+                supportCondition.ModifySlotDC(createSuccess, featureOwner);
 
                 // Log to notify outcome and new DC
                 var console = Gui.Game.GameConsole;
@@ -1007,7 +952,7 @@ internal static class EldritchVersatility
                     : new GameConsoleEntry("Feedback/&BattlefieldConversionCreateSlotFailure",
                         console.consoleTableDefinition) { Indent = true };
 
-                console.AddCharacterEntry(rulesetCharacter, entry);
+                console.AddCharacterEntry(featureOwner, entry);
                 entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo,
                     supportCondition.CreateSlotDC.ToString());
                 console.AddEntry(entry);
@@ -1022,7 +967,7 @@ internal static class EldritchVersatility
 
             supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BattlefieldConversionSuccess);
 
-            var rulesetHero = rulesetCharacter.GetOriginalHero();
+            var rulesetHero = featureOwner.GetOriginalHero();
 
             if (rulesetHero == null)
             {
@@ -1061,7 +1006,7 @@ internal static class EldritchVersatility
         }
     }
 
-    private sealed class EldritchAegisTwistHit : IAttackBeforeHitConfirmedOnMeOrAlly
+    private sealed class EldritchAegisTwistHit : IAttackBeforeHitPossibleOnMeOrAlly
     {
         private static readonly ConditionDefinition ConditionEldritchAegisAddAC = ConditionDefinitionBuilder
             .Create("ConditionEldritchAegisAddAC")
@@ -1070,27 +1015,16 @@ internal static class EldritchVersatility
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedEldritchAegis())
             .AddToDB();
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
+            GameLocationCharacter me,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            ActionModifier attackModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            ActionModifier attackModifier,
+            int attackRoll)
         {
-            if (rulesetEffect != null
-                && rulesetEffect.EffectDescription.RangeType != RangeType.Touch
-                && rulesetEffect.EffectDescription.RangeType != RangeType.MeleeHit)
-            {
-                yield break;
-            }
-
             var ownerCharacter = me.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
             var alreadyBlocked = defenderCharacter.HasConditionOfType(ConditionEldritchAegisAddAC);
@@ -1112,8 +1046,10 @@ internal static class EldritchVersatility
             }
 
             // Get attack roll outcome
-            var totalAttack = Global.CurrentAction.AttackRoll;
-            var wisdomModifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom);
+            var totalAttack = attackRoll
+                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
+                              + attackModifier.AttackRollModifier;
+            var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
             var currentValue = defenderCharacter.RefreshArmorClass(false, true).CurrentValue;
             var requiredACAddition = totalAttack - currentValue + 1;
 
@@ -1136,7 +1072,7 @@ internal static class EldritchVersatility
             if (alreadyBlocked)
             {
                 // maximum AC bonus is wisdom modifier
-                if (supportCondition.PointSpentOnAddingAC + requiredACAddition > wisdomModifier)
+                if (supportCondition.PointSpentOnAddingAC + requiredACAddition > modifier)
                 {
                     yield break;
                 }
@@ -1151,7 +1087,7 @@ internal static class EldritchVersatility
             }
 
             // If not, can we prevent hit?
-            if (requiredACAddition > wisdomModifier ||
+            if (requiredACAddition > modifier ||
                 !supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.EldritchAegis,
                     requiredACAddition))
             {
@@ -1263,10 +1199,10 @@ internal static class EldritchVersatility
             }
 
             var requiredSaveAddition = -action.SaveOutcomeDelta;
-            var wisdomModifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom);
+            var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
 
             // bonus > modifier or points not enough
-            if (requiredSaveAddition > wisdomModifier ||
+            if (requiredSaveAddition > modifier ||
                 !supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.EldritchWard,
                     requiredSaveAddition))
             {
@@ -1327,52 +1263,11 @@ internal static class EldritchVersatility
         }
     }
 
-    private class BlastEmpowerCustom : ToggleableOnInvocation, IActionExecutionHandled, IMagicalAttackCastedSpell
+    private class BlastEmpowerCustom : ToggleableOnInvocation
     {
         public BlastEmpowerCustom(string name)
         {
             InvocationName = name;
-        }
-
-        // Reserve points when finish cast EB, if fail turn it off
-        public void OnActionExecutionHandled(GameLocationCharacter character, CharacterActionParams actionParams,
-            ActionScope scope)
-        {
-            var rulesetCharacter = character.RulesetCharacter;
-            if (Gui.Battle is null ||
-                !IsEldritchBlast(actionParams.RulesetEffect) ||
-                !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
-            {
-                return;
-            }
-
-            if (!IsInvocationActive(rulesetCharacter, InvocationName, out var rulesetInvocation))
-            {
-                return;
-            }
-
-            HandleToggle(rulesetCharacter, supportCondition, rulesetInvocation, false);
-            if (!rulesetInvocation.Active)
-            {
-                rulesetCharacter.RefreshAll();
-            }
-        }
-
-        // Spend reserved points on cast EB
-        public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster,
-            CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
-            RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
-        {
-            if (Gui.Battle is null ||
-                caster.RulesetCharacter != featureOwner ||
-                selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
-                !IsInvocationActive(featureOwner, InvocationName, out _) ||
-                !featureOwner.GetVersatilitySupportCondition(out var supportCondition))
-            {
-                yield break;
-            }
-
-            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BlastBreakthroughOrEmpower);
         }
 
         // Handle toggled in UI
@@ -1384,36 +1279,13 @@ internal static class EldritchVersatility
                 return;
             }
 
-            HandleToggle(rulesetCharacter, supportCondition, invocation, true);
-        }
-
-        // Handle Toggle
-        public override void HandleToggle(RulesetCharacter character,
-            VersatilitySupportRulesetCondition supportCondition, RulesetInvocation invocation, bool toggledInUI)
-        {
-            while (true)
+            if (invocation.Active)
             {
-                if (invocation.Active)
-                {
-                    // Reserve for next use
-                    if (!supportCondition.TryEarnOrSpendPoints(PointAction.Reserve,
-                            PointUsage.BlastBreakthroughOrEmpower))
-                    {
-                        invocation.Toggle();
-                        toggledInUI = false;
-                        continue;
-                    }
-                }
-                else
-                {
-                    if (toggledInUI)
-                    {
-                        supportCondition.TryEarnOrSpendPoints(PointAction.UnReserve,
-                            PointUsage.BlastBreakthroughOrEmpower);
-                    }
-                }
-
-                break;
+                supportCondition.StrPowerPriority.Add("BlastEmpowerTitle");
+            }
+            else
+            {
+                supportCondition.StrPowerPriority.Remove("BlastEmpowerTitle");
             }
         }
     }
@@ -1440,29 +1312,6 @@ internal static class EldritchVersatility
         }
     }
 
-    private class AddAbilityScoreBonus : ICustomLevelUpLogic
-    {
-        private readonly string _abilityScore;
-
-        public AddAbilityScoreBonus(string abilityScore)
-        {
-            _abilityScore = abilityScore;
-        }
-
-        public void ApplyFeature(RulesetCharacterHero hero, [UsedImplicitly] string tag)
-        {
-            hero.Attributes[_abilityScore].ActiveModifiers.TryAdd(
-                RulesetAttributeModifier
-                    .BuildAttributeModifier(AttributeModifierOperation.Additive, 1f, Name));
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, [UsedImplicitly] string tag)
-        {
-            var modifiers = hero.Attributes[_abilityScore].ActiveModifiers;
-            modifiers.Remove(modifiers.Find(x => x.Tags.Contains(Name)));
-        }
-    }
-
     private class EldritchVersatilityAdeptCustom : ICustomLevelUpLogic
     {
         public void ApplyFeature(RulesetCharacterHero hero, [UsedImplicitly] string tag)
@@ -1473,14 +1322,19 @@ internal static class EldritchVersatility
             }
 
             hero.ActiveFeatures[tag].TryAdd(PowerEldritchVersatilityPointPool);
+            hero.ActiveFeatures[tag].TryAdd(PowerVersatilitySwitch);
         }
 
         public void RemoveFeature(RulesetCharacterHero hero, [UsedImplicitly] string tag)
         {
-            if (hero.GetSubclassLevel(CharacterClassDefinitions.Warlock, PatronEldritchSurge.Name) < 1)
+            if (hero.GetSubclassLevel(CharacterClassDefinitions.Warlock, PatronEldritchSurge.Name) >= 1)
             {
-                hero.ActiveFeatures.Values.Do(x => x.RemoveAll(y => y == PowerEldritchVersatilityPointPool));
+                return;
             }
+
+            hero.ActiveFeatures.Values.Do(x =>
+                x.RemoveAll(y => y == PowerEldritchVersatilityPointPool || y == PowerVersatilitySwitch));
+            hero.UsablePowers.RemoveAll(x => x.PowerDefinition == PowerVersatilitySwitch);
         }
     }
 
@@ -1488,8 +1342,89 @@ internal static class EldritchVersatility
     {
         public string InvocationName;
         public abstract void OnInvocationToggled(GameLocationCharacter character, RulesetInvocation rulesetInvocation);
+    }
 
-        public abstract void HandleToggle(RulesetCharacter character,
-            VersatilitySupportRulesetCondition supportCondition, RulesetInvocation invocation, bool toggledInUI);
+    private class BlastEmpowerActiveSwitch : IActionExecutionHandled, IMagicalAttackCastedSpell
+    {
+        public BlastEmpowerActiveSwitch(string invocationName)
+        {
+            InvocationName = invocationName;
+        }
+
+        private string InvocationName { get; }
+
+        public void OnActionExecutionHandled(GameLocationCharacter character, CharacterActionParams actionParams,
+            ActionScope scope)
+        {
+            var rulesetCharacter = character.RulesetCharacter;
+
+            if (Gui.Battle is null ||
+                !IsEldritchBlast(actionParams.RulesetEffect) ||
+                !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            {
+                return;
+            }
+
+            var invocation = rulesetCharacter.Invocations.Find(invocation =>
+                !invocation.Active && invocation.invocationDefinition.Name == InvocationName);
+
+            if (invocation != default(RulesetInvocation) &&
+                supportCondition.StrPowerPriority.Contains("BlastEmpowerTitle"))
+            {
+                invocation.Toggle();
+            }
+        }
+
+        // Spend reserved points on cast EB
+        public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster,
+            CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
+            RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
+        {
+            if (Gui.Battle is null ||
+                caster.RulesetCharacter != featureOwner ||
+                selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
+                !IsInvocationActive(featureOwner, InvocationName, out var invocation) ||
+                !featureOwner.GetVersatilitySupportCondition(out var supportCondition))
+            {
+                yield break;
+            }
+
+            if (!supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.BlastEmpower))
+            {
+                invocation.Toggle();
+            }
+        }
+    }
+
+    // Split this part to become a sub feature of invocation definition to make sure that the spells get removed even when the invocation is toggled off.
+    private class BattlefieldShorthandRemoveCopiedSpells : IMagicalAttackCastedSpell
+    {
+        public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster,
+            CharacterActionCastSpell castAction, [UsedImplicitly] RulesetEffectSpell selectEffectSpell,
+            [UsedImplicitly] RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
+        {
+            if (!featureOwner.GetVersatilitySupportCondition(out var supportCondition))
+            {
+                yield break;
+            }
+
+            var warlockRepertoire = featureOwner.GetOriginalHero()!
+                .SpellRepertoires.Find(x => x.SpellCastingClass == CharacterClassDefinitions.Warlock);
+
+            if (warlockRepertoire is null)
+            {
+                yield break;
+            }
+
+            // If the caster has this feature, check if the spell is copied, if so, remove it both from copied list and repertoire
+            if (featureOwner != caster.RulesetCharacter ||
+                !supportCondition.CopiedSpells.Remove(selectedSpellDefinition))
+            {
+                yield break;
+            }
+
+            warlockRepertoire.ExtraSpellsByTag.TryGetValue("BattlefieldShorthand", out var spells);
+            spells?.Remove(selectedSpellDefinition);
+        }
     }
 }

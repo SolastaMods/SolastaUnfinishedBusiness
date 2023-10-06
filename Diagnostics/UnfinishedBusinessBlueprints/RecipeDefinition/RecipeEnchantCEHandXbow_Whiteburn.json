@@ -1,0 +1,54 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:CEHandXbow_Whiteburn:c06977cb-a4b9-59a5-9354-04f2e1cc1d50",
+  "stackCount": 1,
+  "craftingHours": 14,
+  "craftingDC": 18,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:CEHandXbow:df6c8bc3-aae1-5ef1-8e56-1c3bd06a96bb"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Primed Shortsword:1ebe57945830a054d81b17695baff2e6"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Blood_Of_Solasta:f139a17731fb4a94b9405e1869606d86"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Item/&CEHandXbow_Whiteburn_Title",
+    "description": "Feature/&Emptystring",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "cc2162ba-fb2b-51cb-9f4e-9e79dfd309c7",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "64983a03-f68d-5d77-9ea9-ceb1856d4c42",
+  "contentPack": 9999,
+  "name": "RecipeEnchantCEHandXbow_Whiteburn"
+}

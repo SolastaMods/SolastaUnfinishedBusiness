@@ -1,15 +1,7 @@
 {
   "$type": "FeatureDefinitionFightingStyleChoice, Assembly-CSharp",
   "fightingStyles": [
-    "BlindFighting",
-    "Crippling",
-    "Executioner",
-    "GreatWeapon",
-    "Merciless",
-    "Pugilist",
-    "TwoWeapon",
-    "Sentinel",
-    "RopeItUp"
+    "TwoWeapon"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

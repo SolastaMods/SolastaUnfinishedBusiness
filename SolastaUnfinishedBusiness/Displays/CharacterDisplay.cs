@@ -109,93 +109,6 @@ internal static class CharacterDisplay
         UI.Label(Gui.Localize("ModUi/&Progression"));
         UI.Label();
 
-        toggle = Main.Settings.EnablesAsiAndFeat;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablesAsiAndFeat"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablesAsiAndFeat = toggle;
-            CharacterContext.SwitchAsiAndFeat();
-        }
-
-        toggle = Main.Settings.EnableFeatsAtEveryFourLevels;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFeatsAtEveryFourLevels = toggle;
-            CharacterContext.SwitchEveryFourLevelsFeats();
-        }
-
-        toggle = Main.Settings.EnableFeatsAtEveryFourLevelsMiddle;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevelsMiddle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
-            CharacterContext.SwitchEveryFourLevelsFeats(true);
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
-        }
-
-        toggle = Main.Settings.EnumerateOriginSubFeatures;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnumerateOriginSubFeatures"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnumerateOriginSubFeatures = toggle;
-        }
-
-        toggle = Main.Settings.EnableBarbarianFightingStyle;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableBarbarianFightingStyle = toggle;
-            CharacterContext.SwitchBarbarianFightingStyle();
-        }
-
-        toggle = Main.Settings.EnableFighterWeaponSpecialization;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFighterWeaponSpecialization = toggle;
-            CharacterContext.SwitchFighterWeaponSpecialization();
-        }
-
-        toggle = Main.Settings.EnableMonkAbundantKi;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkAbundantKi"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableMonkAbundantKi = toggle;
-            CharacterContext.SwitchMonkAbundantKi();
-        }
-
-        toggle = Main.Settings.EnableMonkFightingStyle;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFightingStyle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableMonkFightingStyle = toggle;
-            CharacterContext.SwitchMonkFightingStyle();
-        }
-
-        toggle = Main.Settings.EnableMonkWeaponSpecialization;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableMonkWeaponSpecialization = toggle;
-            CharacterContext.SwitchMonkWeaponSpecialization();
-        }
-
-        toggle = Main.Settings.EnableRogueCunningStrike;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRogueCunningStrike = toggle;
-            CharacterContext.SwitchRogueCunningStrike();
-        }
-
-        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
-        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
-            CharacterContext.SwitchScimitarWeaponSpecialization();
-        }
-
-        UI.Label();
-
         toggle = Main.Settings.EnableLevel20;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))
         {
@@ -254,6 +167,107 @@ internal static class CharacterDisplay
 
             UI.Label();
             UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnablesAsiAndFeat;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablesAsiAndFeat"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablesAsiAndFeat = toggle;
+            CharacterContext.SwitchAsiAndFeat();
+        }
+
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevels;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFeatsAtEveryFourLevels = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats();
+        }
+
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevelsMiddle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevelsMiddle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats(true);
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        toggle = Main.Settings.EnableBarbarianFightingStyle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianFightingStyle = toggle;
+            CharacterContext.SwitchBarbarianFightingStyle();
+        }
+
+        toggle = Main.Settings.EnableFighterWeaponSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterWeaponSpecialization = toggle;
+            CharacterContext.SwitchFighterWeaponSpecialization();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableMonkAbundantKi;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkAbundantKi"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkAbundantKi = toggle;
+            CharacterContext.SwitchMonkAbundantKi();
+        }
+
+        toggle = Main.Settings.EnableMonkFightingStyle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkFightingStyle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkFightingStyle = toggle;
+            CharacterContext.SwitchMonkFightingStyle();
+        }
+
+        toggle = Main.Settings.EnableMonkWeaponSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkWeaponSpecialization = toggle;
+            CharacterContext.SwitchMonkWeaponSpecialization();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableRogueCunningStrike;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueCunningStrike"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueCunningStrike = toggle;
+            CharacterContext.SwitchRogueCunningStrike();
+        }
+
+        toggle = Main.Settings.EnableRogueFightingStyle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueFightingStyle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueFightingStyle = toggle;
+            CharacterContext.SwitchRogueFightingStyle();
+        }
+
+        toggle = Main.Settings.EnableRogueSteadyAim;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueSteadyAim"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueSteadyAim = toggle;
+            CharacterContext.SwitchRogueSteadyAim();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
+            CharacterContext.SwitchScimitarWeaponSpecialization();
         }
 
         UI.Label();

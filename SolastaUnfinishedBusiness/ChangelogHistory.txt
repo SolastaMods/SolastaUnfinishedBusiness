@@ -1,4 +1,19 @@
-﻿1.5.94.21:
+﻿1.5.94.22:
+
+- RESPEC is required on *** Patron Eldritch Surge *** and *** Roguish Raven ***
+
+- added 3rd level Hunger of The Void spell
+- added 56 new weapon crafting manuals across all weapon types
+- added fighting style and steady aim choices for Rogues
+- added remaining pre-gen Brek, Forammat, Liera, and Hector portraits 
+- added Roguish Raven subclass but kept original Raven "Uncut"
+- added scrolls dropping instead of spellbooks on RESPEC
+- added SRD rules setting to always break stealth after attacks
+- fixed Barbarian and Monk fighting style not honoring mod choices
+- fixed IsMelee weapon validators incorrectly allowing throwing
+- fixed Merciless crashing battles on enemy reduced to 0 HP
+
+1.5.94.21:
 
 - fixed crash introduced with support for custom reaction spells [i.e.: Elemental Infusion]
 

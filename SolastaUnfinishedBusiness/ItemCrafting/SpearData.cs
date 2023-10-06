@@ -32,7 +32,11 @@ internal static class SpearData
                 new("Lightbringer", ItemDefinitions.Enchanted_Shortsword_Lightbringer,
                     RecipeDefinitions.Recipe_Enchantment_ShortswordLightbringer),
                 new("Sharpness", ItemDefinitions.Enchanted_Shortsword_of_Sharpness,
-                    RecipeDefinitions.Recipe_Enchantment_ShortwordOfSharpness)
+                    RecipeDefinitions.Recipe_Enchantment_ShortwordOfSharpness),
+                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
+                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+                    RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw)
             }
         };
 }

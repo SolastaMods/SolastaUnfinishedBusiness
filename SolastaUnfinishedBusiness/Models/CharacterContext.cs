@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -42,20 +43,19 @@ internal static class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
-    private static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
+    internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
         FeatureDefinitionFightingStyleChoiceBuilder
             .Create("FightingStyleChoiceBarbarian")
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
-                "BlindFighting",
-                "Crippling",
-                "Executioner",
-                "GreatWeapon",
-                "Merciless",
-                "Pugilist",
-                "TwoWeapon",
-                "Sentinel",
-                "RopeItUp")
+                // "BlindFighting",
+                // "Crippling",
+                // "Executioner",
+                // "HandAndAHalf",
+                // "Interception",
+                // "Merciless",
+                // "Pugilist",
+                "TwoWeapon")
             .AddToDB();
 
     internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceMonk =
@@ -64,15 +64,30 @@ internal static class CharacterContext
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
                 "Archery",
-                "BlindFighting",
-                "Crippling",
+                // "BlindFighting",
+                // "Crippling",
                 "Dueling",
-                "Executioner",
-                "Lunger",
-                "MonkShieldExpert",
-                "Pugilist",
-                "RopeItUp",
-                "Sentinel")
+                // "Executioner",
+                // "Lunger",
+                // "MonkShieldExpert",
+                // "Pugilist",
+                // "ZenArcher",
+                "TwoWeapon")
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceRogue =
+        FeatureDefinitionFightingStyleChoiceBuilder
+            .Create("FightingStyleChoiceRogue")
+            .SetGuiPresentation("FighterFightingStyle", Category.Feature)
+            .SetFightingStyles(
+                "Archery",
+                // "BlindFighting",
+                // "Crippling",
+                "Dueling",
+                // "Executioner",
+                // "Lunger",
+                // "Merciless",
+                "TwoWeapon")
             .AddToDB();
 
     private static readonly FeatureDefinitionAttributeModifier AttributeModifierMonkAbundantKi =
@@ -190,6 +205,8 @@ internal static class CharacterContext
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
         SwitchRogueCunningStrike();
+        SwitchRogueFightingStyle();
+        SwitchRogueSteadyAim();
         SwitchScimitarWeaponSpecialization();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
@@ -1791,8 +1808,44 @@ internal static class CharacterContext
         }
         else
         {
-            Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == _featureSetRogueCunningStrike);
-            Rogue.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == _featureSetRogueDeviousStrike);
+            Rogue.FeatureUnlocks.RemoveAll(x => x.level == 5 && x.FeatureDefinition == _featureSetRogueCunningStrike);
+            Rogue.FeatureUnlocks.RemoveAll(x => x.level == 14 && x.FeatureDefinition == _featureSetRogueDeviousStrike);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchRogueFightingStyle()
+    {
+        if (Main.Settings.EnableRogueFightingStyle)
+        {
+            Rogue.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FightingStyleChoiceRogue, 2));
+        }
+        else
+        {
+            Rogue.FeatureUnlocks.RemoveAll(x => x.level == 2 && x.FeatureDefinition == FightingStyleChoiceRogue);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchRogueSteadyAim()
+    {
+        if (Main.Settings.EnableRogueSteadyAim)
+        {
+            Rogue.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(RangedCombatFeats.PowerFeatSteadyAim, 3));
+        }
+        else
+        {
+            Rogue.FeatureUnlocks.RemoveAll(x =>
+                x.level == 3 && x.FeatureDefinition == RangedCombatFeats.PowerFeatSteadyAim);
         }
 
         if (Main.Settings.EnableSortingFutureFeatures)

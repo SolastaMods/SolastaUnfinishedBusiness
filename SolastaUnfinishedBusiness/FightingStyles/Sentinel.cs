@@ -31,7 +31,7 @@ internal sealed class Sentinel : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        CharacterContext.FightingStyleChoiceMonk,
+        CharacterContext.FightingStyleChoiceBarbarian,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,

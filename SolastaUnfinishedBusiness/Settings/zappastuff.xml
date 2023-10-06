@@ -245,9 +245,8 @@
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
-  <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-  <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
+  <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
   <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
   <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
@@ -256,6 +255,8 @@
   <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
   <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
   <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
+  <EnableRogueFightingStyle>true</EnableRogueFightingStyle>
+  <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
@@ -1284,6 +1285,7 @@
           <string>ShadowBlade</string>
           <string>AdderFangs</string>
           <string>CorruptingBolt</string>
+          <string>HungerOfTheVoid</string>
           <string>SpiritShroud</string>
           <string>BrainBulwark</string>
           <string>PsychicLance</string>

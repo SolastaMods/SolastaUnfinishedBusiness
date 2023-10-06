@@ -112,7 +112,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Enchant Medusa Light Crossbow",
+    "title": "Enchant Light Medusa Crossbow",
     "description": "Item/&LightCrossbow_Medusa_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

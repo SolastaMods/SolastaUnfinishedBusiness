@@ -1,0 +1,54 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:CEHalberd_Bearclaw:e2f8e518-d2b7-5363-b90b-e6e264645093",
+  "stackCount": 1,
+  "craftingHours": 14,
+  "craftingDC": 18,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:CEHalberd:03d12c7d-c1f2-5678-a505-2681f2708283"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Primed Morningstar:023e71e4f8fb4284da68a6fd6d011bcc"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_PurpleAmber:5e85e553c21339546b360ac82961dfab"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Item/&CEHalberd_Bearclaw_Title",
+    "description": "Feature/&Emptystring",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2630eef0-2d97-59a3-8851-b0b8df4bf082",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7d743c67-5601-5176-ac61-5cd054984452",
+  "contentPack": 9999,
+  "name": "RecipeEnchantCEHalberd_Bearclaw"
+}

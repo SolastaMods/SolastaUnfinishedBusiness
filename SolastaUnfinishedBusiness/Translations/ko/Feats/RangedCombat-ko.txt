@@ -12,4 +12,6 @@ Feat/&FeatRangedExpertDescription=원거리 무기를 전문적으로 훈련하�
 Feat/&FeatRangedExpertTitle=원거리 전문가
 Feat/&FeatSteadyAimDescription=민첩이 1, 최대 20까지 증가합니다. 추가 행동으로, 현재 턴의 다음 명중 굴림에 당신에게 이점을 부여합니다. 이 추가 행동은 이번 턴에 움직이지 않았을 때만 사용할 수 있으며, 추가 행동을 사용한 후에는 현재 턴이 끝날 때까지 이동 속도가 0이 됩니다.
 Feat/&FeatSteadyAimTitle=안정된 조준
+Feature/&PowerFeatSteadyAimDescription=보너스 행동으로, 당신은 현재 턴의 다음 공격 굴림에서 이점을 얻습니다. 이 보너스 행동은 이번 턴 동안 움직이지 않은 경우에만 사용할 수 있으며, 보너스 행동을 사용한 후에는 현재 턴이 끝날 때까지 속도가 0입니다.
+Feature/&PowerFeatSteadyAimTitle=꾸준한 목표
 Tooltip/&DeadeyeConcentration=데드아이 비활성화

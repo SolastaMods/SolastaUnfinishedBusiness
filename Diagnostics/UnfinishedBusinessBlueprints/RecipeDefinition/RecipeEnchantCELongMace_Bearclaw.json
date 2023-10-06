@@ -1,0 +1,54 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:CELongMace_Bearclaw:8bd92f3c-3deb-5f91-afd9-d47143f57edc",
+  "stackCount": 1,
+  "craftingHours": 14,
+  "craftingDC": 18,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:CELongMace:fb3f2c7a-365c-5277-ad30-44bd293fd8b9"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Primed Morningstar:023e71e4f8fb4284da68a6fd6d011bcc"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_PurpleAmber:5e85e553c21339546b360ac82961dfab"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Item/&CELongMace_Bearclaw_Title",
+    "description": "Feature/&Emptystring",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4b6e1c66-ba25-50a7-818d-115539c85b6a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2e56e9a7-2621-52e2-b176-b31f7dce5fb8",
+  "contentPack": 9999,
+  "name": "RecipeEnchantCELongMace_Bearclaw"
+}

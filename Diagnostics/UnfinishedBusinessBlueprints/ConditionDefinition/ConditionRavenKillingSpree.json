@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalActionRavenKillingSpree2:688215c7-ceb6-5e15-8958-6b4192982d4b"
+    "Definition:AdditionalActionRavenKillingSpree:a3576270-8a8e-5ceb-a688-aaa8b4a9c745"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

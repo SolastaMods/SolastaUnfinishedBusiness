@@ -12,4 +12,6 @@ Feat/&FeatRangedExpertDescription=Seu treinamento especializado com armas de lon
 Feat/&FeatRangedExpertTitle=Especialista à Distância
 Feat/&FeatSteadyAimDescription=Aumente sua Destreza em 1, até um máximo de 20. Como uma ação bônus, você ganha vantagem em sua próxima jogada de ataque no turno atual. Você pode usar esta ação bônus apenas se não tiver se movido durante este turno, e depois de usar a ação bônus, sua velocidade é 0 até o final do turno atual.
 Feat/&FeatSteadyAimTitle=Mira firme
+Feature/&PowerFeatSteadyAimDescription=Como uma ação bônus, você ganha vantagem em sua próxima jogada de ataque no turno atual. Você pode usar esta ação bônus apenas se não tiver se movido durante este turno e, depois de usar a ação bônus, seu deslocamento será 0 até o final do turno atual.
+Feature/&PowerFeatSteadyAimTitle=Mira firme
 Tooltip/&DeadeyeConcentration=Desativar Deadeye.

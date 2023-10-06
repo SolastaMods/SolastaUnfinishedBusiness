@@ -564,10 +564,10 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionProtectedFromPoison { get; } =
             GetDefinition<ConditionDefinition>("ConditionProtectedFromPoison");
-        
+
         internal static ConditionDefinition ConditionProtectedInsideMagicCircle { get; } =
             GetDefinition<ConditionDefinition>("ConditionProtectedInsideMagicCircle");
-        
+
         internal static ConditionDefinition ConditionRaging { get; } =
             GetDefinition<ConditionDefinition>("ConditionRaging");
 
@@ -1112,9 +1112,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionCombatAffinitys
     {
-        internal static FeatureDefinitionCombatAffinity CombatAffinityWandOfWarMageCover { get; } =
-            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityWandOfWarMageCover");
-
         internal static FeatureDefinitionCombatAffinity CombatAffinityAdamantinePlateArmor { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityAdamantinePlateArmor");
 
@@ -1599,10 +1596,10 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerDomainLawHolyRetribution { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLawHolyRetribution");
-        
+
         internal static FeatureDefinitionPower PowerDomainLawWordOfLaw { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLawWordOfLaw");
-        
+
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
 
@@ -1695,6 +1692,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
+
+        internal static FeatureDefinitionPower PowerMartialCommanderRousingShout { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderRousingShout");
 
         internal static FeatureDefinitionPower PowerMelekTeleport { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMelekTeleport");
@@ -2643,6 +2643,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition LightCrossbowPlus2 { get; } = GetDefinition<ItemDefinition>("LightCrossbow+2");
         internal static ItemDefinition Longbow { get; } = GetDefinition<ItemDefinition>("Longbow");
         internal static ItemDefinition LongbowPlus1 { get; } = GetDefinition<ItemDefinition>("Longbow+1");
+        internal static ItemDefinition LongbowPlus2 { get; } = GetDefinition<ItemDefinition>("Longbow+2");
         internal static ItemDefinition Longsword { get; } = GetDefinition<ItemDefinition>("Longsword");
         internal static ItemDefinition LongswordPlus2 { get; } = GetDefinition<ItemDefinition>("Longsword+2");
         internal static ItemDefinition Mace { get; } = GetDefinition<ItemDefinition>("Mace");
@@ -2738,6 +2739,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ShieldPlus1 { get; } = GetDefinition<ItemDefinition>("Shield+1");
         internal static ItemDefinition ShieldPlus2 { get; } = GetDefinition<ItemDefinition>("Shield+2");
         internal static ItemDefinition Shortbow { get; } = GetDefinition<ItemDefinition>("Shortbow");
+        internal static ItemDefinition ShortbowPlus2 { get; } = GetDefinition<ItemDefinition>("Shortbow+2");
+
         internal static ItemDefinition Shortsword { get; } = GetDefinition<ItemDefinition>("Shortsword");
 
         internal static ItemDefinition SlippersOfSpiderClimbing { get; } =

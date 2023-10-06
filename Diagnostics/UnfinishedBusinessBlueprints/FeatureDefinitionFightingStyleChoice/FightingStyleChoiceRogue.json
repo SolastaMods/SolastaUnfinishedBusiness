@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionFightingStyleChoice, Assembly-CSharp",
+  "fightingStyles": [
+    "Archery",
+    "Dueling",
+    "TwoWeapon"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FighterFightingStyleTitle",
+    "description": "Feature/&FighterFightingStyleDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "39181448-ef91-593b-a1af-2820f9d8b036",
+  "contentPack": 9999,
+  "name": "FightingStyleChoiceRogue"
+}

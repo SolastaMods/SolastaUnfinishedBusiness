@@ -112,7 +112,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Enchant LongMace of Acuteness",
+    "title": "Enchant Long Mace of Acuteness",
     "description": "Item/&CELongMace_Acuteness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen gelernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die RESPEC-Nach-Ruhe-Aktion
 ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>Cunning Strike</b> und <b>Devious Strike</b> auf den Klassenstufen 5 und 14 <i><color=#F0DAA0>[Sie lassen darauf verzichten 1 Hinterhältiger Angriffswürfel für zusätzliche Treffereffekte]</color></i>
+ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schurken</color> <b>Kampfstils</b> auf Stufe 2
+ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Klassenstufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sind noch nicht umgezogen]</color></i>
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <c
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Leistungsauswahl <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Legen Sie die prozentuale Chance auf zufällige Begegnungen fest</color>
 ModUi/&Encounters=Begegnungen
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Erlaube Funktionen von Helden, auch in der <color=#D89555>Wildform</color>-Form zu funktionieren
 ModUi/&ExpandAll=Alle erweitern
 ModUi/&FactionHelp=<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Fraktionen:</color>
@@ -226,6 +227,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezepte in detaillierten To
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alles an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
+ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie „Stealth verlieren“, wenn ein Angriff erfolgt
+ModUi/&StealthBreaksWhenAttackMisses=Aktivieren Sie „Stealth verlieren“, wenn der Angriff fehlschlägt
+ModUi/&StealthBreaksWhenCastingMaterial=Aktivieren Sie beim Gießen von Material die Möglichkeit, die Tarnung zu verlieren
+ModUi/&StealthBreaksWhenCastingSomatic=Aktivieren Sie beim Wirken von Somatik die Tarnung, um die Tarnung zu verlieren
+ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie die Option „Stealth verlieren“, wenn Sie „Ausführlich“ wirken
+ModUi/&StealthDoesNotBreakWhenUsingItems=Aktivieren Sie die Option, bei der Verwendung von Gegenständen die Tarnung nicht zu verlieren
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Lagern Sie Gorims Laden mit aller nicht-magischen Kleidung <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Lagern Sie Gorims Laden mit allen nicht-magischen Musikinstrumenten <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Lagern Sie Hugos Laden mit <color=#D89555>Arkanstab</color>, <color=#D89555>Druidenhals</color>, <color=#D89555>Stab</color> und <color=#D89555>Keule</color> als Fokuselemente festlegen

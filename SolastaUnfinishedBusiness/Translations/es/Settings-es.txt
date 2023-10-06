@@ -116,6 +116,8 @@ ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volve
 ModUi/&EnableRelearnSpells=<i>+ Puede seleccionar cantrips o hechizos ya aprendidos de otras clases</i>
 ModUi/&EnableRespec=Habilite la acción RESPEC después del descanso
 ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Pícaro</color> <b>Golpe astuto</b> y <b>Golpe engañoso</b> en los niveles de clase 5 y 14 <i><color=#F0DAA0>[dejas pasar 1 dado de ataque furtivo para efectos de golpe adicionales]</color></i>
+ModUi/&EnableRogueFightingStyle=Habilita la elección de <color=#D89555>Pícaro</color> <b>Estilo de lucha</b> en el nivel 2.
+ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Rogue</color> <b>Steady Aim</b> en el nivel de clase 3 <i><color=#F0DAA0>[la acción adicional te da ventaja en tu próxima tirada de ataque en el turno actual si aún no me he movido]</color></i>
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
@@ -126,7 +128,6 @@ ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Con
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de probabilidad de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Permitir que funciones de héroes funcionen mientras están en forma <color=#D89555>Wildshape</color>
 ModUi/&ExpandAll=Expandir todo
 ModUi/&FactionHelp=<color=#C04040E0>Cargar un juego de campaña oficial para modificar las relaciones entre facciones...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Facciones:</color>
@@ -226,6 +227,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en in
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todo]</color></i></b>
 ModUi/&SpellsMenu=Hechizos
+ModUi/&StealthBreaksWhenAttackHits=Habilitar perder sigilo cuando golpea el ataque
+ModUi/&StealthBreaksWhenAttackMisses=Habilitar perder sigilo cuando falla el ataque
+ModUi/&StealthBreaksWhenCastingMaterial=Habilitar pérdida de sigilo al lanzar material.
+ModUi/&StealthBreaksWhenCastingSomatic=Habilitar pérdida de sigilo al lanzar somáticos.
+ModUi/&StealthBreaksWhenCastingVerbose=Habilitar pérdida de sigilo al transmitir contenido detallado
+ModUi/&StealthDoesNotBreakWhenUsingItems=Habilitar no perder el sigilo al usar elementos
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacene la tienda de Gorim con toda la ropa no mágica <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Almacene la tienda de Gorim con todos los instrumentos musicales no mágicos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Almacene la tienda de Hugo con <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Club</color> establecer como elementos de enfoque

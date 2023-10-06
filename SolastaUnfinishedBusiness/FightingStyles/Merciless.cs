@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -55,11 +56,18 @@ internal sealed class Merciless : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
+        CharacterContext.FightingStyleChoiceBarbarian,
+        CharacterContext.FightingStyleChoiceRogue,
+        FightingStyleChampionAdditional,
+        FightingStyleFighter,
+        FightingStylePaladin,
+        FightingStyleRanger
     };
 
-    private sealed class OnReducedToZeroHpByMeMerciless : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeMerciless : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe
     {
+        private bool _criticalHit;
+
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -68,9 +76,8 @@ internal sealed class Merciless : AbstractFightingStyle
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            // activeEffect != null means a magical attack
-            if (activeEffect != null || (!ValidatorsWeapon.IsMelee(attackMode) &&
-                                         !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode)))
+            if (activeEffect != null || (!ValidatorsWeapon.IsMelee(attackMode)
+                                         && !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode)))
             {
                 yield break;
             }
@@ -84,12 +91,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var usablePower = UsablePowersProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
-
-            // need to find a better way to determine critical
-            var distance = Global.CurrentAction.AttackRollOutcome == RollOutcome.CriticalSuccess
-                ? proficiencyBonus
-                : (proficiencyBonus + 1) / 2;
-
+            var distance = _criticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
@@ -97,13 +99,29 @@ internal sealed class Merciless : AbstractFightingStyle
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                     .AddAsActivePowerToSource(),
                 targetCharacters = gameLocationBattleService.Battle.EnemyContenders
-                    .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                    .Where(enemy => gameLocationBattleService.IsWithinXCells(downedCreature, enemy, distance))
+                    .Where(x =>
+                        x.IsOppositeSide(attacker.Side)
+                        && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                        && gameLocationBattleService.IsWithinXCells(downedCreature, x, distance))
                     .ToList()
             };
 
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, false);
+        }
+
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            _criticalHit = attackRollOutcome == RollOutcome.CriticalSuccess;
+
+            yield break;
         }
     }
 }

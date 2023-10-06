@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalActionRavenKillingSpree:a3576270-8a8e-5ceb-a688-aaa8b4a9c745",
+      "featureDefinition": "Definition:FeatureRavenKillingSpree:8c0618f9-8c44-5491-b190-2cbb22965199",
       "level": 9
     },
     {
@@ -41,7 +41,7 @@
     "description": "Subclass/&RoguishRavenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e5bec9dc-5392-5cd6-bec9-efe3d70bac5d",
+      "m_AssetGUID": "61802e13-6ccc-5668-8f5b-8388f30bcbd7",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -43,7 +43,9 @@ internal static class RapierData
                 new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
                     RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
                 new("Power", ItemDefinitions.Enchanted_Morningstar_Of_Power,
-                    RecipeDefinitions.Recipe_Enchantment_MorningstarOfPower)
+                    RecipeDefinitions.Recipe_Enchantment_MorningstarOfPower),
+                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+                    RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw)
             }
         };
 }

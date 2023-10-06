@@ -22,7 +22,15 @@ internal static class GreatSwordData
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 new("Punisher", ItemDefinitions.Enchanted_Battleaxe_Punisher,
-                    RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher)
+                    RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher),
+                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
+                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+                    RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw),
+                new("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
+                    RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn),
+                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+                    RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn)
             }
         };
 }

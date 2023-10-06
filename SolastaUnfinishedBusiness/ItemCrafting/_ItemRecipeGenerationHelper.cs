@@ -48,7 +48,10 @@ internal static class ItemRecipeGenerationHelper
         {
             var baseItem = baseConfig.item;
             var presentation = baseConfig.presentation;
+
+#pragma warning disable IDE0270
             if (presentation == null)
+#pragma warning restore IDE0270
             {
                 presentation = baseItem;
             }

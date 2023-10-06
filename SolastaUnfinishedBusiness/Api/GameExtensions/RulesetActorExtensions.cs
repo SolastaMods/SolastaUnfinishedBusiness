@@ -57,18 +57,18 @@ internal static class RulesetActorExtensions
 
         RulesetCharacterHero hero = null;
 
-        if (actor is RulesetCharacterHero hero1)
+        switch (actor)
         {
-            hero = hero1;
-        }
-        //also add sub-features from original form of wild-shaped character
-        else if (Main.Settings.EnumerateOriginSubFeatures
-                 && actor is RulesetCharacterMonster { originalFormCharacter: RulesetCharacterHero hero2 })
-        {
-            hero = hero2;
-            list.AddRange(FeaturesByType<BaseDefinition>(hero)
-                .Where(f => !list.Contains(f))
-                .ToList());
+            case RulesetCharacterHero rulesetCharacterHero:
+                hero = rulesetCharacterHero;
+                break;
+            //WILDSHAPE: Original hero features
+            case RulesetCharacterMonster { originalFormCharacter: RulesetCharacterHero rulesetCharacterHero }:
+                hero = rulesetCharacterHero;
+                list.AddRange(FeaturesByType<BaseDefinition>(hero)
+                    .Where(f => !list.Contains(f))
+                    .ToList());
+                break;
         }
 
         if (hero == null)

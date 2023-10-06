@@ -30,7 +30,11 @@ internal static class ThrowingWeaponData
                 new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
                     RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
                 new("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
-                    RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn)
+                    RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn),
+                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+                    RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw),
+                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+                    RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn)
             }
             // NumProduced = 3
         };

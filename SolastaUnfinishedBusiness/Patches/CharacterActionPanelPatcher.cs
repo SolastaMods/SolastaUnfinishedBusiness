@@ -267,6 +267,7 @@ public static class CharacterActionPanelPatcher
             }
 
             var table = __instance.actionPerformanceTable;
+
             if (table == null)
             {
                 return;
@@ -309,15 +310,18 @@ public static class CharacterActionPanelPatcher
             }
 
             var activeCount = 0;
+
             for (var i = 0; i < table.childCount; i++)
             {
                 var child = table.GetChild(i);
+
                 if (!child.gameObject.activeSelf)
                 {
                     continue;
                 }
 
                 var item = child.GetComponent<ActionTypePerformanceItem>();
+
                 if (item == null)
                 {
                     continue;
@@ -331,6 +335,7 @@ public static class CharacterActionPanelPatcher
                     : null;
 
                 var featureName = f?.FormatTitle();
+
                 if (!string.IsNullOrEmpty(featureName))
                 {
                     item.Tooltip.Content += $"\n{featureName}";
@@ -338,6 +343,7 @@ public static class CharacterActionPanelPatcher
 
 
                 var btn = item.GetComponent<Button>();
+
                 if (btn != null)
                 {
                     continue;
@@ -346,7 +352,6 @@ public static class CharacterActionPanelPatcher
                 btn = item.gameObject.AddComponent<Button>();
                 btn.enabled = true;
                 btn.interactable = true;
-
                 btn.onClick.AddListener(() =>
                 {
                     if (!Main.Settings.EnableActionSwitching)
@@ -355,15 +360,18 @@ public static class CharacterActionPanelPatcher
                     }
 
                     var panel = item.GetComponentInParent<CharacterActionPanel>();
+
                     if (item.availableSymbol.IsActive())
                     {
-                        ActionSwitching.PrioritizeAction(panel.GuiCharacter.GameLocationCharacter, panel.ActionType,
+                        ActionSwitching.PrioritizeAction(
+                            panel.GuiCharacter.GameLocationCharacter, panel.ActionType,
                             item.transform.GetSiblingIndex());
                     }
                 });
             }
 
             var rank = __instance.GuiCharacter.GameLocationCharacter.CurrentActionRankByType[__instance.ActionType];
+
             if (activeCount - rank >= 2) //at least 2 non-spent actions
             {
                 ServiceRepository.GetService<IGuiService>()
@@ -406,7 +414,6 @@ public static class CharacterActionPanelPatcher
         [UsedImplicitly]
         public static bool Prefix(
             CharacterActionPanel __instance,
-            GameLocationCharacter caster,
             RulesetEffectSpell spellEffect,
             MetamagicOptionDefinition metamagicOption)
         {

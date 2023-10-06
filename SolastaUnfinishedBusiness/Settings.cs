@@ -107,7 +107,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEpicPointsAndArray { get; set; }
     public bool ImproveLevelUpFeaturesSelection { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
-    public bool EnumerateOriginSubFeatures { get; set; }
 
     // Progression
     public bool EnablesAsiAndFeat { get; set; }
@@ -120,6 +119,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
+    public bool EnableRogueFightingStyle { get; set; }
+    public bool EnableRogueSteadyAim { get; set; }
     public bool EnableLevel20 { get; set; }
     public bool EnableMulticlass { get; set; }
     public int MaxAllowedClasses { get; set; }
@@ -154,6 +155,12 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
+    public bool StealthBreaksWhenAttackHits { get; set; }
+    public bool StealthBreaksWhenAttackMisses { get; set; }
+    public bool StealthBreaksWhenCastingMaterial { get; set; }
+    public bool StealthBreaksWhenCastingVerbose { get; set; }
+    public bool StealthBreaksWhenCastingSomatic { get; set; }
+    public bool StealthDoesNotBreakWhenUsingItems { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool AttackersWithDarkvisionHaveAdvantageOverDefendersWithout { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }

@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -14,21 +15,27 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
     string ICustomPortraitPointPoolProvider.Tooltip(RulesetCharacter character)
     {
         var currentPoints = 0;
-        var reservePoints = 0;
         var maxPoints = 0;
 
         if (!character.GetVersatilitySupportCondition(out var supportCondition))
         {
-            return "EldritchVersatilityPortraitPoolFormat".Formatted(Category.Tooltip, currentPoints, reservePoints,
-                maxPoints);
+            return "EldritchVersatilityPortraitPoolFormat".Formatted(
+                Category.Tooltip,
+                currentPoints,
+                maxPoints,
+                Gui.NoLocalization.Localized(),
+                Gui.NoLocalization.Localized());
         }
 
         currentPoints = supportCondition.CurrentPoints;
-        reservePoints = supportCondition.ReservedPoints;
         maxPoints = supportCondition.MaxPoints;
 
         return "EldritchVersatilityPortraitPoolFormat".Formatted(
-            Category.Tooltip, currentPoints, reservePoints, maxPoints);
+            Category.Tooltip,
+            currentPoints,
+            maxPoints,
+            Gui.Localize($"Attribute/&{supportCondition.ReplacedAbilityScore}TitleLong"),
+            string.Join(", ", supportCondition.StrPowerPriority.Select(s => s.Localized(Category.Feature))));
     }
 
     public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
@@ -36,6 +43,7 @@ internal class PortraitPointEldritchVersatility : ICustomPortraitPointPoolProvid
     public string GetPoints(RulesetCharacter character)
     {
         var currentPoints = 0;
+
         if (character.GetVersatilitySupportCondition(out var supportCondition))
         {
             currentPoints = supportCondition.CurrentPoints;
