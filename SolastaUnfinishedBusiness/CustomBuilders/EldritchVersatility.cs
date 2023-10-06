@@ -1084,6 +1084,7 @@ internal static class EldritchVersatility
                         requiredACAddition))
                 {
                     console.AddEntry(entry);
+                    defenderCharacter.RefreshArmorClass(true, false);
                 }
 
                 yield break;
