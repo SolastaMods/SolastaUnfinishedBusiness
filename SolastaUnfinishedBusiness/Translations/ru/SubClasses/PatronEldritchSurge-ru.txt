@@ -1,7 +1,7 @@
 Attribute/&TitleLong=Универсальный
 Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Вы получаете дополнительное действие и можете использовать все свои Универсалии, не тратя очков и не совершая проверок, принимая СИЛ/ИНТ/МДР за 22 (если эти значения выше).
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Перегрузка заряда
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Вы получаете <b>Мистический заряд</b> в качестве бонусного заговора. Количество лучей зависит от вашей решимости, которая рассчитывается как [уровень колдуна] - 2 * [уровни других классов]. Вы можете наложить 2 луча, если ваша решимость >= 3, 3 - если >= 8, 4 - если >= 13 и 5 - если >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Вы получаете <b>Мистический заряд</b> в качестве бонусного заговора. Количество лучей зависит от вашей решимости, которая рассчитывается как [уровень колдуна] - 2 * [уровни других классов]. Вы можете создать 2 луча, если ваша решимость >= 3, 3 - если >= 8, 4 - если >= 13 и 5 - если >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Эксклюзивный заряд
 Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Когда вы поражаете противника в пределах 30 футов или убиваете его с помощью <b>Мистического заряда</b>, вы получаете 1 / количество лучей дополнительных Мистических очков.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Взрывное преследование
