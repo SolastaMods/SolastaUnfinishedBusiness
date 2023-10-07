@@ -76,6 +76,13 @@ internal static class EldritchVersatility
             .Setup(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool, 2)
             .AddToDB();
 
+    public static readonly FeatureDefinitionCustomInvocationPool UnLearn1Versatility = 
+        CustomInvocationPoolDefinitionBuilder
+            .Create($"Feature{Name}UnLearn1")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool, 1, true)
+            .AddToDB();
+
     public static readonly FeatDefinition FeatEldritchVersatilityAdept = FeatDefinitionBuilder
         .Create($"Feat{Name}Adept")
         .SetGuiPresentation(Category.Feat)
