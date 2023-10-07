@@ -84,7 +84,7 @@
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
+        "savingThrowAffinity": "HalfDamage",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
@@ -140,7 +140,7 @@
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "CasterLevelTable",
-      "incrementMultiplier": 5,
+      "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 1,

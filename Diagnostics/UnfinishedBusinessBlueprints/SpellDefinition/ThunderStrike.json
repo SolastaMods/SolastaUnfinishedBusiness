@@ -84,7 +84,7 @@
         "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
+        "savingThrowAffinity": "HalfDamage",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
