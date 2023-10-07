@@ -103,8 +103,26 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee([CanBeNull] RulesetAttackMode attackMode)
     {
-        return !(attackMode == null || attackMode.Ranged || attackMode.Thrown)
-               && attackMode.SourceDefinition is ItemDefinition itemDefinition && IsMelee(itemDefinition);
+        if (attackMode == null
+            || attackMode.Ranged
+            || attackMode.SourceDefinition is not ItemDefinition itemDefinition
+            || !IsMelee(itemDefinition))
+        {
+            return false;
+        }
+
+        var currentAction = Global.CurrentAction;
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is { IsBattleInProgress: true }
+            && currentAction is CharacterActionAttack actionAttack)
+        {
+            return gameLocationBattleService.IsWithinXCells(
+                actionAttack.ActingCharacter, actionAttack.ActionParams.TargetCharacters[0], attackMode.ReachRange);
+        }
+
+        // fallback should never happen
+        return true;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
