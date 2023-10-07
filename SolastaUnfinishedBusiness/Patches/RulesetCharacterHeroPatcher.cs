@@ -126,7 +126,7 @@ public static class RulesetCharacterHeroPatcher
                 feature.GetAC(__instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier,
                     out var trendInfo);
                 __result.AddModifier(attributeModifier);
-                __result.valueTrends.Add(trendInfo);
+                __result.ValueTrends.Add(trendInfo);
             }
 
             RulesetAttributeModifier.SortAttributeModifiersList(__result.ActiveModifiers);

@@ -461,16 +461,14 @@ internal static class EldritchVersatility
                 AttributeDefinitions.Strength, AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom
             };
 
+            hero.Attributes.DoIf(x => names.Contains(x.Key),
+            y => y.Value.ActiveModifiers.RemoveAll(z => z.Tags.Contains(Name)));
+
             if (abilityScore == string.Empty)
             {
                 hero.Attributes.DoIf(x => names.Contains(x.Key), y => y.Value.ActiveModifiers.TryAdd(
                     RulesetAttributeModifier
                         .BuildAttributeModifier(AttributeModifierOperation.Additive, LearntAmount, Name)));
-            }
-            else
-            {
-                hero.Attributes.DoIf(x => names.Contains(x.Key),
-                    y => y.Value.ActiveModifiers.RemoveAll(z => z.Tags.Contains(Name)));
             }
         }
 
@@ -1045,12 +1043,17 @@ internal static class EldritchVersatility
                 yield break;
             }
 
+            if (supportCondition.PointSpentOnAddingAC > 0 && !alreadyBlocked)
+            {
+                yield break;
+            }
+
             // Get attack roll outcome
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
                               + attackModifier.AttackRollModifier;
             var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
-            var currentValue = defenderCharacter.RefreshArmorClass(false, true).CurrentValue;
+            var currentValue = defenderCharacter.RefreshArmorClass(true, false).CurrentValue;
             var requiredACAddition = totalAttack - currentValue + 1;
 
             // If other actions already blocked it
@@ -1081,6 +1084,7 @@ internal static class EldritchVersatility
                         requiredACAddition))
                 {
                     console.AddEntry(entry);
+                    defenderCharacter.RefreshArmorClass(true, false);
                 }
 
                 yield break;
