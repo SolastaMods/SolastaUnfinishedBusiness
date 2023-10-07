@@ -74,7 +74,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         var actionAffinityAudaciousWhirlToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityAudaciousWhirlToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.AudaciousWhirlToggle)
+            .SetAuthorizedActions(AudaciousWhirlToggle)
             .AddToDB();
 
         var movementAffinityAudaciousWhirl = FeatureDefinitionMovementAffinityBuilder
@@ -176,9 +176,9 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 powerMobileWhirl),
             ReactionResourceBardicInspiration.Instance,
             new RestrictReactionAttackMode((_, attacker, _, _, _) =>
-                attacker.OnceInMyTurnIsValid(WhirlMarker) &&
-                (attacker.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle) ||
-                 attacker.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
+                attacker.OnceInMyTurnIsValid(WhirlMarker)
+                && (attacker.RulesetCharacter.IsToggleEnabled(AudaciousWhirlToggle)
+                    || attacker.RulesetCharacter.IsToggleEnabled(MasterfulWhirlToggle))));
 
         PowerBundle.RegisterPowerBundle(
             powerAudaciousWhirl,
@@ -205,7 +205,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         var actionAffinityMasterfulWhirlToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityMasterfulWhirlToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle)
+            .SetAuthorizedActions(MasterfulWhirlToggle)
             .AddToDB();
 
         var featureSetMasterfulWhirl = FeatureDefinitionFeatureSetBuilder
