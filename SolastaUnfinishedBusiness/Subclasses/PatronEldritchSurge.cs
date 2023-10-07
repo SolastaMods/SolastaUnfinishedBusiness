@@ -67,7 +67,7 @@ public class PatronEldritchSurge : AbstractSubclass
 
     public PatronEldritchSurge()
     {
-        Subclass = CharacterSubclassDefinitionBuilder
+        var builder = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronEldritchSurge, 256))
             .AddFeaturesAtLevel(1,
@@ -83,9 +83,13 @@ public class PatronEldritchSurge : AbstractSubclass
                 Learn1Versatility)
             .AddFeaturesAtLevel(14,
                 PowerBlastOverload,
-                Learn1Versatility)
-            .AddToDB();
+                Learn1Versatility);
+        for (var i = 2; i <= 20; i++)
+        {
+            builder.AddFeaturesAtLevel(i, UnLearn1Versatility);
+        }
         BuildVersatilities();
+        Subclass = builder.AddToDB();
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Warlock;
