@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -16,7 +17,6 @@ using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.CustomBuilders.EldritchVersatility;
-using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -171,10 +171,13 @@ public class PatronEldritchSurge : AbstractSubclass
             rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition);
             supportCondition.ReplacedAbilityScore = ReplacedAbilityScore;
             supportCondition.ModifyAttributeScores(rulesetCharacter.GetOriginalHero(), ReplacedAbilityScore);
-            // Auto recharge out of combat.
+
+            // Auto recharge out of combat
             if (Gui.Battle is null)
             {
-                rulesetCharacter.GetOriginalHero().UsablePowers.DoIf(x => x.PowerDefinition == PowerVersatilitySwitch, y => y.Recharge());
+                rulesetCharacter.GetOriginalHero()!.UsablePowers.DoIf(x =>
+                        x.PowerDefinition == PowerVersatilitySwitch,
+                    y => y.Recharge());
             }
 
             yield break;
@@ -369,11 +372,13 @@ public class PatronEldritchSurge : AbstractSubclass
         }
     }
 
-    private class RechargePoolWhenBattleEnd: ICharacterBattleEndedListener
+    private class RechargePoolWhenBattleEnd : ICharacterBattleEndedListener
     {
         public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
         {
-            locationCharacter.RulesetCharacter.GetOriginalHero().UsablePowers.DoIf(x => x.PowerDefinition == PowerVersatilitySwitch, y => y.Recharge());
+            locationCharacter.RulesetCharacter.GetOriginalHero()!.UsablePowers.DoIf(x =>
+                    x.PowerDefinition == PowerVersatilitySwitch,
+                y => y.Recharge());
         }
     }
 }
