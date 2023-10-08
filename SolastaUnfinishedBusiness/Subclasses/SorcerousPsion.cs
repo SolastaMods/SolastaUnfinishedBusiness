@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -177,34 +178,9 @@ public sealed class SorcerousPsion : AbstractSubclass
 
         var actionAffinityMindSculpt = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, $"ActionAffinity{Name}MindSculpt")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MindSculptToggle)
-            .AddCustomSubFeatures(new ModifyEffectDescriptionMindSculpt())
-            .AddToDB();
-
-        var additionalDamageMindSculpt = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}MindSculpt")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("MindSculpt")
-            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.CustomModifier)
-            .SetSpecificDamageType(DamageTypePsychic)
-            .AddCustomSubFeatures(
-                new CustomModifierProvider(x => x.TryGetAttributeValue(AttributeDefinitions.Charisma)),
-                new ValidateContextInsteadOfRestrictedProperty(
-                    (_, _, _, _, _, _, rulesetEffect) =>
-                        (OperationType.Set,
-                            rulesetEffect != null
-                            && rulesetEffect.EffectDescription.EffectForms.Any(x =>
-                                x.FormType == EffectForm.EffectFormType.Damage
-                                && x.DamageForm.DamageType == DamageTypePsychic))))
-            .AddToDB();
-
-        additionalDamageMindSculpt.firstTargetOnly = true;
-
-        var featureSetMindSculpt = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}MindSculpt")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(actionAffinityMindSculpt, additionalDamageMindSculpt)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MindSculptToggle)
+            .AddCustomSubFeatures(new CustomBehaviorMindSculpt())
             .AddToDB();
 
         // LEVEL 14
@@ -218,23 +194,23 @@ public sealed class SorcerousPsion : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerMindOverMatter.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyMindOverMatter());
+        powerMindOverMatter.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyMindOverMatter(powerMindOverMatter));
 
         // LEVEL 18
 
         // Supreme Will
 
+        var powerSupremeWill = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SupremeWill")
+            .SetGuiPresentation($"FeatureSet{Name}SupremeWill", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .AddToDB();
+
         var actionAffinitySupremeWill = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, $"ActionAffinity{Name}SupremeWill")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.SupremeWillToggle)
-            .AddCustomSubFeatures(new ModifyConcentrationRequirementSupremeWill())
-            .AddToDB();
-
-        var powerSupremeWill = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SupremeWill")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
+            .AddCustomSubFeatures(new CustomBehaviorSupremeWill(powerSupremeWill))
             .AddToDB();
 
         var featureSetSupremeWill = FeatureDefinitionFeatureSetBuilder
@@ -251,7 +227,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheElements, 256))
             .AddFeaturesAtLevel(1, autoPreparedSpellsPsion, bonusCantripsPsionicMind, featureSetPsychokinesis)
-            .AddFeaturesAtLevel(6, featureSetMindSculpt)
+            .AddFeaturesAtLevel(6, actionAffinityMindSculpt)
             .AddFeaturesAtLevel(14, powerMindOverMatter)
             .AddFeaturesAtLevel(18, featureSetSupremeWill)
             .AddToDB();
@@ -271,47 +247,72 @@ public sealed class SorcerousPsion : AbstractSubclass
     // Mind Sculpt
     //
 
-    private sealed class ModifyEffectDescriptionMindSculpt : IModifyEffectDescription, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorMindSculpt : IMagicalAttackBeforeHitConfirmedOnEnemy, IActionFinishedByMe
     {
-        public bool IsValid(
-            BaseDefinition definition,
-            RulesetCharacter character,
-            EffectDescription effectDescription)
-        {
-            return definition is SpellDefinition spellDefinition
-                   && spellDefinition.EffectDescription.HasDamageForm()
-                   && character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle)
-                   && character.RemainingSorceryPoints > 0;
-        }
+        private bool _hasDamageChanged;
 
-        // currently broken because of our effect descriptions cache
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            foreach (var effectForm in effectDescription.EffectForms
-                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
+            _hasDamageChanged = false;
+
+            var character = attacker.RulesetCharacter;
+
+            if (rulesetEffect is RulesetEffectSpell rulesetEffectSpell
+                && rulesetEffectSpell.EffectDescription.HasDamageForm()
+                && character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle)
+                && character.RemainingSorceryPoints > 0)
             {
-                effectForm.DamageForm.DamageType = DamageTypePsychic;
+                foreach (var effectForm in actualEffectForms
+                             .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
+                {
+                    effectForm.DamageForm.DamageType = DamageTypePsychic;
+                }
+
+                _hasDamageChanged = true;
             }
 
-            return effectDescription;
+            if (!firstTarget)
+            {
+                yield break;
+            }
+
+            var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                character.TryGetAttributeValue(AttributeDefinitions.Charisma));
+
+            foreach (var effectForm in actualEffectForms
+                         .Where(x =>
+                             x.FormType == EffectForm.EffectFormType.Damage
+                             && x.DamageForm.DamageType == DamageTypePsychic))
+            {
+                effectForm.DamageForm.BonusDamage = charismaModifier;
+            }
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            if (action is not CharacterActionCastSpell)
+            {
+                yield break;
+            }
+
+            if (!_hasDamageChanged)
+            {
+                yield break;
+            }
+
+            _hasDamageChanged = false;
+
             var character = action.ActingCharacter.RulesetCharacter;
 
-            if (baseDefinition is SpellDefinition spellDefinition
-                && spellDefinition.EffectDescription.HasDamageForm()
-                && character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle))
-            {
-                character.SpendSorceryPoints(1);
-            }
-
-            yield break;
+            character.SpendSorceryPoints(1);
+            character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }
     }
 
@@ -321,6 +322,13 @@ public sealed class SorcerousPsion : AbstractSubclass
 
     private sealed class OnReducedToZeroHpByEnemyMindOverMatter : IOnReducedToZeroHpByEnemy
     {
+        private readonly FeatureDefinitionPower _powerMindOverMatter;
+
+        public OnReducedToZeroHpByEnemyMindOverMatter(FeatureDefinitionPower powerMindOverMatter)
+        {
+            _powerMindOverMatter = powerMindOverMatter;
+        }
+
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter source,
@@ -334,6 +342,11 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
+            if (!rulesetCharacter.CanUsePower(_powerMindOverMatter))
+            {
+                yield break;
+            }
+
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
@@ -342,7 +355,11 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var usablePower = UsablePowersProvider.Get(_powerMindOverMatter, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = "Reaction/&CustomReactionMindOverMatterDescription", UsablePower = usablePower
+            };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("MindOverMatter", reactionParams);
 
@@ -355,6 +372,8 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
+            rulesetCharacter.UsePower(usablePower);
+
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Sorcerer);
 
             rulesetCharacter.StabilizeAndGainHitPoints(1);
@@ -364,7 +383,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 ConditionDodging,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagCombat,
                 source.Guid,
                 string.Empty,
@@ -386,32 +405,60 @@ public sealed class SorcerousPsion : AbstractSubclass
     // Supreme Will
     //
 
-    private sealed class ModifyConcentrationRequirementSupremeWill :
-        IModifyConcentrationRequirement, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorSupremeWill : IModifyConcentrationRequirement, IActionFinishedByMe
     {
+        private readonly FeatureDefinitionPower _powerSupremeWill;
+        private bool _hasConcentrationChanged;
+
+        public CustomBehaviorSupremeWill(FeatureDefinitionPower powerSupremeWill)
+        {
+            _powerSupremeWill = powerSupremeWill;
+        }
+
         public bool RequiresConcentration(RulesetCharacter rulesetCharacter, RulesetEffectSpell rulesetEffectSpell)
         {
             if (!rulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.SupremeWillToggle))
             {
-                return true;
+                return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
             }
 
-            var requiredPoints = rulesetEffectSpell.SpellDefinition.SpellLevel * 2;
+            if (!rulesetCharacter.CanUsePower(_powerSupremeWill))
+            {
+                return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
+            }
 
-            return rulesetCharacter.RemainingSorceryPoints < requiredPoints;
+            if (!rulesetEffectSpell.SpellDefinition.RequiresConcentration)
+            {
+                return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
+            }
+
+            var requiredPoints = rulesetEffectSpell.EffectLevel * 2;
+
+            _hasConcentrationChanged = rulesetCharacter.RemainingSorceryPoints >= requiredPoints;
+
+            return !_hasConcentrationChanged;
         }
 
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var character = action.ActingCharacter.RulesetCharacter;
-
-            if (baseDefinition is SpellDefinition { RequiresConcentration: true } spellDefinition
-                && character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.SupremeWillToggle))
+            if (action is not CharacterActionCastSpell actionCastSpell)
             {
-                character.SpendSorceryPoints(2 * spellDefinition.SpellLevel);
+                yield break;
             }
 
-            yield break;
+            if (!_hasConcentrationChanged)
+            {
+                yield break;
+            }
+
+            _hasConcentrationChanged = false;
+
+            var character = action.ActingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerSupremeWill, character);
+
+            character.UsePower(usablePower);
+            character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
+            character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }
     }
 }
