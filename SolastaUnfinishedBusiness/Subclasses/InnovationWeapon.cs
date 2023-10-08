@@ -510,7 +510,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             }
 
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+                ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, true);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)

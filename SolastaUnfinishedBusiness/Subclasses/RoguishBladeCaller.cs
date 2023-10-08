@@ -390,7 +390,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 .ToList());
 
             // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
         }
 
         private enum BladeMarkStatus

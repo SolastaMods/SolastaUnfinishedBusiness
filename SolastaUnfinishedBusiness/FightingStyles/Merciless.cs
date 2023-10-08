@@ -107,7 +107,7 @@ internal sealed class Merciless : AbstractFightingStyle
             };
 
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
+                ?.ExecuteAction(actionParams, null, true);
         }
 
         public IEnumerator OnAttackFinishedByMe(

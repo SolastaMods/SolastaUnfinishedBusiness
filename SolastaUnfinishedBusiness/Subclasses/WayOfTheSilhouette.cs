@@ -321,7 +321,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             actionParams.TargetCharacters.SetRange(me);
 
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
+                ?.ExecuteAction(actionParams, null, true);
         }
     }
 }

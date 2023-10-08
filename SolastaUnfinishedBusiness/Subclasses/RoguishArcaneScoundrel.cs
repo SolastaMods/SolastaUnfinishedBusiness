@@ -336,7 +336,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                 .AddAsActivePowerToSource();
 
             // different follow up pattern [not adding to ResultingActions]
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
         }
     }
 

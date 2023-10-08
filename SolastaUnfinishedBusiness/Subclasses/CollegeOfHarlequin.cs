@@ -301,7 +301,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             };
 
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
+                ?.ExecuteAction(actionParams, null, true);
         }
     }
 }

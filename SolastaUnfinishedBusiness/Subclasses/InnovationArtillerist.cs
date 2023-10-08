@@ -941,7 +941,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
             // or use powers so force the dodge action
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+                ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, true);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)
