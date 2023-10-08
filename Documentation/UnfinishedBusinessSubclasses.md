@@ -3134,7 +3134,60 @@ Your armor class increases by 2, and you gain proficiency in Dexterity saving th
 
 
 
-## 4. Sorr-Akkath
+## 4. Psion
+
+Psions are exceptional individuals that possess innate ability to manipulate psionic energy by sheer force of will. Through extensive practices of mental discipline, a psion can learn to tap into their power and bend reality with a thought.
+
+
+### Level 1
+
+* Expanded Spells
+
+
+	I	Shield
+
+	II	Psychic Whip
+
+	III	Pulse Wave
+
+	IV	Confusion
+
+	V	Mind Twist
+
+
+
+* Psionic Mind
+
+You gain resistance to psychic damage.
+
+* Psychokinesis
+
+You can use your bonus action and target a creature within 30 feet of you. The targeted creature is then moved up to 15 feet towards you or away from you. Enemy creatures must pass Strength saving throw against your spellcasting DC or be moved in the chosen direction while allied creatures are moved with no saving throw. You can use this feature a number of times per long rest equal to your proficiency bonus, and can pay 2 sorcery points instead if you are out of uses.
+
+
+### Level 6
+
+* Mind Sculpt
+
+Whenever you deal psychic damage with a spell, you add your Charisma modifier as extra psychic damage to one damage roll of that spell. Additionally, you can pay 1 sorcery point to convert all spell damage you deal into psychic damage.
+
+
+### Level 14
+
+* Mind over Matter
+
+ if you fall to 0 hit points and don't outright die, you can regain 1 hit point, stand up, and also gain a number of temporary hit points equal to three times your Sorcerer level for one minute. This effect can occur only once per long rest.
+
+
+### Level 18
+
+* Supreme Will
+
+Whenever you cast a concentration spell, you can pay a number of sorcery points equal to twice the level of the spell to cast the spell without requiring concentration. You can use this feature only once per short rest.
+
+
+
+## 5. Sorr-Akkath
 
 Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
 

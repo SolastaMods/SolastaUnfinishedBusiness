@@ -36,7 +36,7 @@ You point at one creature you can see within range, and the sound of a dolorous 
 
 Causes light sources such as torches and mana lamps in the area of effect to light up.
 
-# 10. - Mind Spike (S) level 0 Enchantment
+# 10. - Mind Spike (V) level 0 Enchantment
 
 You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
 

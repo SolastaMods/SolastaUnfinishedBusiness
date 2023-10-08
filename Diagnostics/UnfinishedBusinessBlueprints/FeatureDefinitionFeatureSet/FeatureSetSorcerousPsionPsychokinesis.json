@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerSorcerousPsionPsychokinesisFixed:2551b21b-0301-5a16-bb2c-56419a30b0fe",
+    "Definition:PowerSorcerousPsionPsychokinesisPoints:5831f272-fbe6-568d-b883-190fbdb4d2c9",
+    "Definition:PowerSorcerousPsionPsychokinesisFixedDrag:5258e2ea-74e7-57bb-8e5e-3583ae148ac4",
+    "Definition:PowerSorcerousPsionPsychokinesisPointsDrag:e75b0140-389b-5673-81d2-765c198aafeb",
+    "Definition:PowerSorcerousPsionPsychokinesisFixedPush:24c80941-2ecb-546e-b406-970e6921b724",
+    "Definition:PowerSorcerousPsionPsychokinesisPointsPush:bd477ebb-45ec-5712-a201-4cda1faaf27e"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetSorcerousPsionPsychokinesisTitle",
+    "description": "Feature/&FeatureSetSorcerousPsionPsychokinesisDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e0e1d56e-3077-5983-a302-91e46e609d76",
+  "contentPack": 9999,
+  "name": "FeatureSetSorcerousPsionPsychokinesis"
+}

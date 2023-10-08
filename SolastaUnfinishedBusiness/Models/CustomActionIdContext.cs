@@ -25,8 +25,10 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.MonkKiPointsToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
-        (Id)ExtraActionId.QuiveringPalmToggle,
-        (Id)ExtraActionId.HailOfBladesToggle
+        (Id)ExtraActionId.HailOfBladesToggle,
+        (Id)ExtraActionId.MindSculptToggle,
+        (Id)ExtraActionId.SupremeWillToggle,
+        (Id)ExtraActionId.QuiveringPalmToggle // defined in sub class
     };
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
@@ -250,6 +252,20 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.PaladinSmiteToggle)
+            .AddToDB();
+        
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "MindSculptToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.MindSculptToggle)
+            .AddToDB();
+        
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "SupremeWillToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.SupremeWillToggle)
             .AddToDB();
     }
 
