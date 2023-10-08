@@ -1,9 +1,13 @@
 ﻿1.5.94.23:
 
+- added Sorcerous Psion subclass [homebrew by HiddenHax]
+- fixed break stealth feature disconsidering spell attacks
 - fixed custom selection panel using class level on races
 - fixed Devoted background missing cantrip slots from 17th
 - fixed Healer feat causing an exception on medKit tooltip
 - fixed Patron Eldritch Surge stacking versatilities scores
+- fixed Oath of Altruism freezing game on Guardian Aura
+- fixed Smite ignoring daggers and javelins within reach
 - fixed Way of Discordance freezing game on deflect missiles
 
 1.5.94.22:

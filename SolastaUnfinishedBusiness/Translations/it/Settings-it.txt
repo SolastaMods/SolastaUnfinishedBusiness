@@ -229,9 +229,9 @@ ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <c
 ModUi/&SpellsMenu=Incantesimi
 ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita furtiva quando l'attacco con un'arma o un incantesimo colpisce
 ModUi/&StealthBreaksWhenAttackMisses=Abilita la perdita furtiva quando l'attacco con arma o incantesimo fallisce
-ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di furtività quando si lancia materiale <b><i><color=#C04040E0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i></b>
-ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita di furtività quando si lancia <b><i><color=#C04040E0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO] somatico</color></i></b>
-ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita di furtività quando si lancia <b><i><color=#C04040E0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i></b> verboso
+ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di furtività quando si lancia materiale <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita di furtività quando si lancia <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO] somatico</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita di furtività quando si lancia <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO] verboso</color></i>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim con tutti i vestiti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali

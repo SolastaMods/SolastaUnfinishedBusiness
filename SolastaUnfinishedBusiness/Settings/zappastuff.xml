@@ -283,6 +283,11 @@
   <UseOfficialFlankingRulesAlsoForReach>true</UseOfficialFlankingRulesAlsoForReach>
   <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
   <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
+  <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
+  <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>
+  <StealthBreaksWhenCastingMaterial>false</StealthBreaksWhenCastingMaterial>
+  <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
+  <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
   <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
   <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>true</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
   <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
@@ -720,6 +725,7 @@
           <string>RoguishDuelist</string>
           <string>RoguishOpportunist</string>
           <string>RoguishRaven</string>
+          <string>RoguishRavenScion</string>
           <string>RoguishSlayer</string>
         </ArrayOfString>
       </value>
@@ -732,6 +738,7 @@
         <ArrayOfString>
           <string>SorcerousDivineHeart</string>
           <string>SorcerousFieldManipulator</string>
+          <string>SorcerousPsion</string>
           <string>SorcerousSorrAkkath</string>
           <string>SorcerousSpellBlade</string>
         </ArrayOfString>

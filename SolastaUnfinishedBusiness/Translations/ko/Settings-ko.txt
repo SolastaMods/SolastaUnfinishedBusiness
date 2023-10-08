@@ -229,9 +229,9 @@ ModUi/&SpellLevelFilter=<b><i><color=white>주문 레벨 필터</color> <color=#
 ModUi/&SpellsMenu=주문
 ModUi/&StealthBreaksWhenAttackHits=무기나 주문 공격이 적중할 때 스텔스 손실 활성화
 ModUi/&StealthBreaksWhenAttackMisses=무기나 주문 공격이 빗나갔을 때 스텔스 손실 활성화
-ModUi/&StealthBreaksWhenCastingMaterial=재료 시전 시 스텔스 손실 활성화 <b><i><color=#C04040E0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i></b>
-ModUi/&StealthBreaksWhenCastingSomatic=신체형 <b><i><color=#C04040E0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i></b> 시전 시 스텔스 손실 활성화
-ModUi/&StealthBreaksWhenCastingVerbose=장황한 시전 시 스텔스 손실 활성화 <b><i><color=#C04040E0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i></b>
+ModUi/&StealthBreaksWhenCastingMaterial=재료를 시전할 때 스텔스 손실 활성화 <i><color=#F0DAA0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=신체형 <i><color=#F0DAA0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i> 시전 시 스텔스 손실 활성화
+ModUi/&StealthBreaksWhenCastingVerbose=장황한 <i><color=#F0DAA0>[대상 ALL 또는 ENEMY를 사용한 모든 비공격 주문]</color></i> 시전 시 스텔스 손실을 활성화합니다.
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=고림의 만물상이 마법 효과가 없는 의류만 판매함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=고림의 만물상이 마법 효과가 없는 악기만 판매함 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=휴고의 상점에 <color=#D89555>비전 스태프</color>, <color=#D89555>드루이드 목걸이</color>, <color=#D89555>스태프</color>, <color=#D89555>클럽</color>을 주문 매개체 아이템으로 비축

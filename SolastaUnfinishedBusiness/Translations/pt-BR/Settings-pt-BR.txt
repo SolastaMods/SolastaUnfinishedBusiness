@@ -229,9 +229,9 @@ ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> 
 ModUi/&SpellsMenu=Feitiços
 ModUi/&StealthBreaksWhenAttackHits=Ative a perda furtiva quando o ataque de arma ou feitiço atingir
 ModUi/&StealthBreaksWhenAttackMisses=Habilite a perda furtiva quando o ataque de arma ou feitiço erra
-ModUi/&StealthBreaksWhenCastingMaterial=Habilite perda furtiva ao lançar material <b><i><color=#C04040E0>[qualquer feitiço que não seja de ataque com alvo TODOS ou INIMIGO]</color></i></b>
-ModUi/&StealthBreaksWhenCastingSomatic=Habilite perda furtiva ao lançar <b><i><color=#C04040E0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i></b>
-ModUi/&StealthBreaksWhenCastingVerbose=Habilite perda furtiva ao lançar <b><i><color=#C04040E0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i></b>
+ModUi/&StealthBreaksWhenCastingMaterial=Habilite a perda furtiva ao lançar material <i><color=#F0DAA0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Habilite a perda furtiva ao lançar <i><color=#F0DAA0>somático[qualquer feitiço sem ataque com o alvo TODOS ou INIMIGO]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Habilite perda furtiva ao lançar <i><color=#F0DAA0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Armazene a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Loja de estoque de Gorim com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club</color> definido como itens de foco

@@ -229,9 +229,9 @@ ModUi/&SpellLevelFilter=<b><i><color=white>Уровень заклинаний</
 ModUi/&SpellsMenu=Заклинания
 ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании оружия или заклинания
 ModUi/&StealthBreaksWhenAttackMisses=Включить потерю скрытности при промахе оружия или заклинания.
-ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материала <b><i><color=#C04040E0>[любое не атакующее заклинание с целью ВСЕ или ВРАГ]</color></i></b>
-ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматического <b><i><color=#C04040E0>[любого не атакующего заклинания с целью ВСЕХ или ВРАГА]</color></i></b>
-ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при произнесении подробного <b><i><color=#C04040E0>[любого не атакующего заклинания с целью ВСЕ или ВРАГ]</color></i></b>
+ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материала <i><color=#F0DAA0>[любое не атакующее заклинание с целью ВСЕ или ВРАГ]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматического <i><color=#F0DAA0>[любого не атакующего заклинания с целью ВСЕХ или ВРАГ]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при произнесении подробного <i><color=#F0DAA0>[любого не атакующего заклинания с целью ВСЕ или ВРАГ]</color></i>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Пополнить магазин Горима всей немагической одеждой <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Пополнить магазин Горима всеми немагическими музыкальными инструментами <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Пополнить магазин Хьюго наборами магических фокусировок: <color=#D89555>Магических посохов</color>, <color=#D89555>Друидических подвесок</color>, <color=#D89555>Жезлов</color> и <color=#D89555>Дубинок</color>
