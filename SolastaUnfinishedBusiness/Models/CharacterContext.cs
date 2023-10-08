@@ -1674,7 +1674,7 @@ internal static class CharacterContext
 
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (manager == null)
+            if (manager == null || gameLocationBattleManager is not {IsBattleInProgress: true})
             {
                 yield break;
             }

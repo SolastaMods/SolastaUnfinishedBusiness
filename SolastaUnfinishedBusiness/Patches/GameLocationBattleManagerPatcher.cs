@@ -174,8 +174,7 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
             // ReSharper disable once InvertIf
-            if (__instance.Battle != null &&
-                mover.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            if (__instance.Battle != null && mover.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
 
@@ -342,7 +341,8 @@ public static class GameLocationBattleManagerPatcher
                 attackMode.AttackTags.Contains(SpellBuilders.CantripWeaponAttack);
 
             //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
-            if (__instance.Battle != null && attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            // should also happen outside battles
+            if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 foreach (var attackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
                              .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnEnemy>())
@@ -825,7 +825,8 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit)
         {
             //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnEnemy`
-            if (__instance.Battle != null && attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            // should also happen outside battles
+            if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 foreach (var magicalAttackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
                              .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnEnemy>())
@@ -961,11 +962,9 @@ public static class GameLocationBattleManagerPatcher
             RulesetAttackMode attackerAttackMode)
         {
             //PATCH: registers which weapon types were used so far on attacks
-
             ValidatorsCharacter.RegisterWeaponTypeUsed(attacker, attackerAttackMode);
 
             //PATCH: allow custom behavior when physical attack initiates
-
             if (__instance.Battle != null)
             {
                 foreach (var attackInitiated in
@@ -977,7 +976,6 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: allow custom behavior when physical attack initiates on me
-
             if (__instance.Battle != null)
             {
                 foreach (var attackInitiated in
@@ -989,7 +987,6 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: allow custom behavior when physical attack initiates on me or ally
-
             if (__instance.Battle != null)
             {
                 foreach (var ally in __instance.Battle.AllContenders
