@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- ReSharper disable file ResxNotResolved -->
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -912,10 +913,6 @@
   <data name="Wyrmkin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Wyrmkin.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="FeatTelekinetic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Spells/FeatTelekinetic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LivewoodClub" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/LivewoodClub.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,

@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -562,15 +561,18 @@ internal static class CasterFeats
 
         var motionTypeName = motionType.ToString();
 
-        // keep backward compatibility
+        var spriteFromPower = PowerSpellBladeSpellTyrant;
+
         if (motionTypeName == "DragToOrigin")
         {
+            // keep backward compatibility
             motionTypeName = string.Empty;
+            spriteFromPower = PowerDomainSunSoothingHand;
         }
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}{savingThrowDifficultyAbility}{motionTypeName}")
-            .SetGuiPresentation($"{NAME}{motionTypeName}", Category.Feature, Sprites.FeatTelekinetic)
+            .SetGuiPresentation($"{NAME}{motionTypeName}", Category.Feature, spriteFromPower)
             .AddCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
