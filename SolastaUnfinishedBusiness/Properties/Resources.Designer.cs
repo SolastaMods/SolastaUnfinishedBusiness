@@ -3645,6 +3645,26 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] TelekinesisPull {
+            get {
+                object obj = ResourceManager.GetObject("TelekinesisPull", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] TelekinesisPush {
+            get {
+                object obj = ResourceManager.GetObject("TelekinesisPush", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Teleport {
             get {
                 object obj = ResourceManager.GetObject("Teleport", resourceCulture);
