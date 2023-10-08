@@ -1,4 +1,12 @@
-﻿1.5.94.22:
+﻿1.5.94.23:
+
+- fixed custom selection panel using class level on races
+- fixed Devoted background missing cantrip slots from 17th
+- fixed Healer feat causing an exception on medKit tooltip
+- fixed Patron Eldritch Surge stacking versatilities scores
+- fixed Way of Discordance freezing game on deflect missiles
+
+1.5.94.22:
 
 - RESPEC is required on *** Patron Eldritch Surge *** and *** Roguish Raven ***
 

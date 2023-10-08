@@ -31,9 +31,19 @@
     1,
     1,
     1,
+    1,
+    0,
+    1,
+    1,
+    1,
     1
   ],
   "knownSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -67,9 +77,19 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
   ],
   "replacedSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -316,6 +336,66 @@
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 16,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 17,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 18,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 19,
+      "slots": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 20,
       "slots": [
         0,
         0,
