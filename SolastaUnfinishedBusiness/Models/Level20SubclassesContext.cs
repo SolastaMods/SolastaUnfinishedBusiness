@@ -1685,7 +1685,7 @@ internal static class Level20SubclassesContext
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, false);
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, false);
+                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 
