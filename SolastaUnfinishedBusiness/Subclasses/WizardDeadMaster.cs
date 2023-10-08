@@ -147,15 +147,17 @@ public sealed class WizardDeadMaster : AbstractSubclass
                 {
                     (3, 2), new()
                     {
-                        (Skeleton, 1, Sprites.SpellRaiseSkeleton, new BaseDefinition[] { Scimitar }),
-                        (Skeleton_Archer, 1, Sprites.SpellRaiseSkeletonArcher,
+                        (Skeleton, 1, Sprites.GetSprite("SpellRaiseSkeleton", Resources.SpellRaiseSkeleton, 128),
+                            new BaseDefinition[] { Scimitar }),
+                        (Skeleton_Archer, 1,
+                            Sprites.GetSprite("SpellRaiseSkeletonArcher", Resources.SpellRaiseSkeletonArcher, 128),
                             new BaseDefinition[] { Shortbow, Shortsword })
                     }
                 }, //CR 0.25 x2
                 {
                     (5, 3), new()
                     {
-                        (Ghoul, 1, Sprites.SpellRaiseGhoul,
+                        (Ghoul, 1, Sprites.GetSprite("SpellRaiseGhoul", Resources.SpellRaiseGhoul, 128),
                             new BaseDefinition[]
                             {
                                 MonsterAttackDefinitions.Attack_Wildshape_GiantEagle_Talons,
@@ -166,30 +168,40 @@ public sealed class WizardDeadMaster : AbstractSubclass
                 {
                     (7, 4), new()
                     {
-                        (Skeleton_Enforcer, 1, Sprites.SpellRaiseSkeletonEnforcer,
+                        (Skeleton_Enforcer, 1,
+                            Sprites.GetSprite("SpellRaiseSkeletonEnforcer", Resources.SpellRaiseSkeletonEnforcer, 128),
                             new BaseDefinition[] { Battleaxe, MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock })
                     }
                 }, //CR 2
                 {
                     (9, 5), new()
                     {
-                        (Skeleton_Knight, 1, Sprites.SpellRaiseSkeletonKnight, new BaseDefinition[] { Longsword }),
-                        (Skeleton_Marksman, 1, Sprites.SpellRaiseSkeletonMarksman,
+                        (Skeleton_Knight, 1,
+                            Sprites.GetSprite("SpellRaiseSkeletonKnight", Resources.SpellRaiseSkeletonKnight, 128),
+                            new BaseDefinition[] { Longsword }),
+                        (Skeleton_Marksman, 1,
+                            Sprites.GetSprite("SpellRaiseSkeletonMarksman", Resources.SpellRaiseSkeletonMarksman, 128),
                             new BaseDefinition[] { Longbow, Shortsword })
                     }
                 }, //CR 3
                 {
-                    (11, 6),
-                    new() { (Ghost, 1, Sprites.SpellRaiseGhost, new BaseDefinition[] { Enchanted_Dagger_Souldrinker }) }
+                    (11, 6), new()
+                    {
+                        (Ghost, 1, Sprites.GetSprite("SpellRaiseGhost", Resources.SpellRaiseGhost, 128),
+                            new BaseDefinition[] { Enchanted_Dagger_Souldrinker })
+                    }
                 }, //CR 4
                 {
-                    (13, 7),
-                    new() { (Wight, 1, Sprites.SpellRaiseWight, new BaseDefinition[] { LongswordPlus2, LongbowPlus1 }) }
+                    (13, 7), new()
+                    {
+                        (Wight, 1, Sprites.GetSprite("SpellRaiseWight", Resources.SpellRaiseWight, 128),
+                            new BaseDefinition[] { LongswordPlus2, LongbowPlus1 })
+                    }
                 }, //CR 3 x2
                 {
                     (15, 8), new()
                     {
-                        (WightLord, 1, Sprites.SpellRaiseWightLord,
+                        (WightLord, 1, Sprites.GetSprite("SpellRaiseWightLord", Resources.SpellRaiseWightLord, 128),
                             new BaseDefinition[] { Enchanted_Longsword_Frostburn, Enchanted_Shortbow_Medusa })
                     }
                 } //CR 6

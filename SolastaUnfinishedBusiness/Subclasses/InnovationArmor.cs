@@ -124,7 +124,8 @@ public sealed class InnovationArmor : AbstractSubclass
 
         var guardianMode = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerInnovationArmorSwitchModeGuardian")
-            .SetGuiPresentation(Category.Feature, Sprites.PowerGuardianMode)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerGuardianMode", Resources.PowerGuardianMode, 256, 128))
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(NotGuardianMode),
                 ValidatorsValidatePowerUse.NotInCombat,
@@ -145,7 +146,8 @@ public sealed class InnovationArmor : AbstractSubclass
 
         var infiltratorMode = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerInnovationArmorSwitchModeInfiltrator")
-            .SetGuiPresentation(Category.Feature, Sprites.PowerInfiltratorMode)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerInfiltratorMode", Resources.PowerInfiltratorMode, 256, 128))
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(NotInfiltratorMode),
                 ValidatorsValidatePowerUse.NotInCombat,
@@ -166,7 +168,8 @@ public sealed class InnovationArmor : AbstractSubclass
 
         var defensiveField = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorDefensiveField")
-            .SetGuiPresentation(Category.Feature, Sprites.PowerDefensiveField)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerDefensiveField", Resources.PowerDefensiveField, 256, 128))
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(InGuardianMode), InventorClassHolder.Marker,
                 RecurrenceOnlyOnSelfTurn.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
