@@ -227,12 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Показывать рецепт с
 ModUi/&ShowDescriptions=Показывать описания
 ModUi/&SpellLevelFilter=<b><i><color=white>Уровень заклинаний</color> <color=#F0DAA0>[-1 отображает все]</color></i></b>
 ModUi/&SpellsMenu=Заклинания
-ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании атаки
-ModUi/&StealthBreaksWhenAttackMisses=Включить потерю скрытности при промахе атаки
-ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материального компонента заклинания
-ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматического компонента заклинания
-ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при использовании вербального компонента заклинания
-ModUi/&StealthDoesNotBreakWhenUsingItems=Включить «Не терять скрытность при использовании предметов».
+ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании оружия или заклинания
+ModUi/&StealthBreaksWhenAttackMisses=Включить потерю скрытности при промахе оружия или заклинания.
+ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материала <b><i><color=#C04040E0>[любое не атакующее заклинание с целью ВСЕ или ВРАГ]</color></i></b>
+ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматического <b><i><color=#C04040E0>[любого не атакующего заклинания с целью ВСЕХ или ВРАГА]</color></i></b>
+ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при произнесении подробного <b><i><color=#C04040E0>[любого не атакующего заклинания с целью ВСЕ или ВРАГ]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Пополнить магазин Горима всей немагической одеждой <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Пополнить магазин Горима всеми немагическими музыкальными инструментами <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Пополнить магазин Хьюго наборами магических фокусировок: <color=#D89555>Магических посохов</color>, <color=#D89555>Друидических подвесок</color>, <color=#D89555>Жезлов</color> и <color=#D89555>Дубинок</color>

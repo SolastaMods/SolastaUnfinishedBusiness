@@ -227,12 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in su
 ModUi/&ShowDescriptions=Mostra descrizioni
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <color=#F0DAA0>[-1 visualizza tutto]</color></i></b>
 ModUi/&SpellsMenu=Incantesimi
-ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita della furtività quando l'attacco va a segno
-ModUi/&StealthBreaksWhenAttackMisses=Abilita la perdita di azione furtiva quando l'attacco fallisce
-ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di azione furtiva durante il lancio del materiale
-ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita della furtività quando si lancia somatico
-ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita della furtività durante il lancio dettagliato
-ModUi/&StealthDoesNotBreakWhenUsingItems=Abilita non perdere la furtività quando usi gli oggetti
+ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita furtiva quando l'attacco con un'arma o un incantesimo colpisce
+ModUi/&StealthBreaksWhenAttackMisses=Abilita la perdita furtiva quando l'attacco con arma o incantesimo fallisce
+ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di furtività quando si lancia materiale <b><i><color=#C04040E0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i></b>
+ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita di furtività quando si lancia <b><i><color=#C04040E0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO] somatico</color></i></b>
+ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita di furtività quando si lancia <b><i><color=#C04040E0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i></b> verboso
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim con tutti i vestiti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali

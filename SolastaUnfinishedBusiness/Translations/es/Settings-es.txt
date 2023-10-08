@@ -227,12 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en in
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todo]</color></i></b>
 ModUi/&SpellsMenu=Hechizos
-ModUi/&StealthBreaksWhenAttackHits=Habilitar perder sigilo cuando golpea el ataque
-ModUi/&StealthBreaksWhenAttackMisses=Habilitar perder sigilo cuando falla el ataque
-ModUi/&StealthBreaksWhenCastingMaterial=Habilitar pérdida de sigilo al lanzar material.
-ModUi/&StealthBreaksWhenCastingSomatic=Habilitar pérdida de sigilo al lanzar somáticos.
-ModUi/&StealthBreaksWhenCastingVerbose=Habilitar pérdida de sigilo al transmitir contenido detallado
-ModUi/&StealthDoesNotBreakWhenUsingItems=Habilitar no perder el sigilo al usar elementos
+ModUi/&StealthBreaksWhenAttackHits=Habilite la pérdida de sigilo cuando se produzca un ataque con arma o hechizo.
+ModUi/&StealthBreaksWhenAttackMisses=Habilitar la pérdida de sigilo cuando falla el ataque con arma o hechizo.
+ModUi/&StealthBreaksWhenCastingMaterial=Habilite la pérdida de sigilo al lanzar material <b><i><color=#C04040E0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i></b>
+ModUi/&StealthBreaksWhenCastingSomatic=Habilite la pérdida de sigilo al lanzar somático <b><i><color=#C04040E0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i></b>
+ModUi/&StealthBreaksWhenCastingVerbose=Habilite la pérdida de sigilo al lanzar <b><i><color=#C04040E0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacene la tienda de Gorim con toda la ropa no mágica <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Almacene la tienda de Gorim con todos los instrumentos musicales no mágicos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Almacene la tienda de Hugo con <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Club</color> establecer como elementos de enfoque

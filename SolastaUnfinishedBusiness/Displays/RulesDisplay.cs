@@ -105,13 +105,7 @@ internal static class RulesDisplay
         {
             Main.Settings.StealthBreaksWhenCastingSomatic = toggle;
         }
-        
-        toggle = Main.Settings.StealthDoesNotBreakWhenUsingItems;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthDoesNotBreakWhenUsingItems"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthDoesNotBreakWhenUsingItems = toggle;
-        }
-        
+
         UI.Label();
 
         toggle = Main.Settings.DontEndTurnAfterReady;

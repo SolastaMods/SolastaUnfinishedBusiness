@@ -227,12 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezepte in detaillierten To
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alles an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
-ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie „Stealth verlieren“, wenn ein Angriff erfolgt
-ModUi/&StealthBreaksWhenAttackMisses=Aktivieren Sie „Stealth verlieren“, wenn der Angriff fehlschlägt
-ModUi/&StealthBreaksWhenCastingMaterial=Aktivieren Sie beim Gießen von Material die Möglichkeit, die Tarnung zu verlieren
-ModUi/&StealthBreaksWhenCastingSomatic=Aktivieren Sie beim Wirken von Somatik die Tarnung, um die Tarnung zu verlieren
-ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie die Option „Stealth verlieren“, wenn Sie „Ausführlich“ wirken
-ModUi/&StealthDoesNotBreakWhenUsingItems=Aktivieren Sie die Option, bei der Verwendung von Gegenständen die Tarnung nicht zu verlieren
+ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie Stealth-Verlust, wenn ein Waffen- oder Zauberangriff zuschlägt
+ModUi/&StealthBreaksWhenAttackMisses=Aktivieren Sie den Stealth-Verlust, wenn ein Waffen- oder Zauberangriff fehlschlägt
+ModUi/&StealthBreaksWhenCastingMaterial=Aktivieren Sie Stealth-Verlust beim Wirken von Material <b><i><color=#C04040E0>[jeder Nicht-Angriffszauber mit dem Ziel ALLES oder FEIND]</color></i></b>
+ModUi/&StealthBreaksWhenCastingSomatic=Aktivieren Sie Stealth-Verlust, wenn Sie somatische <b><i><color=#C04040E0>[jeden nicht angreifenden Zauber mit dem Ziel ALLES oder FEIND]</color></i></b> wirken
+ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie Stealth-Verlust, wenn Sie ausführliche <b><i><color=#C04040E0>[jeden nicht angreifenden Zauber mit dem Ziel ALLES oder FEIND]</color></i></b> wirken
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Lagern Sie Gorims Laden mit aller nicht-magischen Kleidung <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Lagern Sie Gorims Laden mit allen nicht-magischen Musikinstrumenten <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Lagern Sie Hugos Laden mit <color=#D89555>Arkanstab</color>, <color=#D89555>Druidenhals</color>, <color=#D89555>Stab</color> und <color=#D89555>Keule</color> als Fokuselemente festlegen

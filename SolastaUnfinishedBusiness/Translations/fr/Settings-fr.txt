@@ -227,12 +227,11 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans
 ModUi/&ShowDescriptions=Afficher les descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>Filtre par niveau de sort</color> <color=#F0DAA0>[-1 affiche tout]</color></i></b>
 ModUi/&SpellsMenu=Sorts
-ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsque l'attaque frappe
-ModUi/&StealthBreaksWhenAttackMisses=Activer la perte de furtivité lorsque l'attaque échoue
-ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de matériel
-ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de somatiques
-ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement verbeux
-ModUi/&StealthDoesNotBreakWhenUsingItems=Activer ne pas perdre la furtivité lors de l'utilisation d'objets
+ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort frappe
+ModUi/&StealthBreaksWhenAttackMisses=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort échoue
+ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de matériel <b><i><color=#C04040E0>[tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i></b>
+ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de <b><i><color=#C04040E0>somatique [tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i></b>
+ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement de <b><i><color=#C04040E0>[tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Approvisionner le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Approvisionner le magasin de Gorim avec tous les instruments de musique non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Approvisionner le magasin d'Hugo avec des <color=#D89555>Bâton d'Arcane</color>, <color=#D89555>Collier de Druide</color>, <color=#D89555>Bâton</color> et <color=#D89555>Gourdin</color> définis comme des focalisateurs de sort

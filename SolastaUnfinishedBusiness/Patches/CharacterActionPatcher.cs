@@ -178,9 +178,7 @@ public static class CharacterActionPatcher
                         || ((actionAttack.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
                              && Main.Settings.StealthBreaksWhenAttackMisses)))
                     {
-                        __instance.RemoveStealthyCondition(true);
-
-                        return false;
+                        roll = false;
                     }
 
                     break;
@@ -199,9 +197,7 @@ public static class CharacterActionPatcher
                             || ((actionCastSpell.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
                                  && Main.Settings.StealthBreaksWhenAttackMisses)))
                         {
-                            __instance.RemoveStealthyCondition(true);
-
-                            return false;
+                            roll = false;
                         }
                     }
                     else if (spell.EffectDescription.TargetSide != Side.Ally)
@@ -211,22 +207,12 @@ public static class CharacterActionPatcher
                             || spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic
                             || spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose)
                         {
-                            __instance.RemoveStealthyCondition(true);
-
-                            return false;
+                            roll = false;
                         }
                     }
 
                     break;
                 }
-            }
-
-            if (action.ActionId
-                    is ActionDefinitions.Id.UseItemBonus
-                    or ActionDefinitions.Id.UseItemMain
-                && Main.Settings.StealthDoesNotBreakWhenUsingItems)
-            {
-                return false;
             }
 
             return __instance.ComputeStealthBreak(roll, actionModifier, detectorsWithAdvantage);
