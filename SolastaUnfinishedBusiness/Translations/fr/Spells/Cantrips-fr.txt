@@ -1,7 +1,7 @@
 Condition/&ConditionAcidClawsDescription=La classe d'armure est réduite de 1.
 Condition/&ConditionAcidClawsTitle=Brûlure à l'acide
 Condition/&ConditionBoomingBladeDescription=Au niveau 5, les attaques déclenchées par ce cantrip infligent 1d8 dégâts de tonnerre supplémentaires. Les dégâts augmentent encore de 1d8 aux niveaux 11 et 17.
-Condition/&ConditionBoomingBladeSheathedDescription=Vous êtes enveloppé d’une énergie en plein essor. Si vous vous déplacez volontairement de 1,50 mètre ou plus, vous subissez des dégâts de tonnerre.
+Condition/&ConditionBoomingBladeSheathedDescription=Vous êtes enveloppé d'une énergie en plein essor. Si vous vous déplacez volontairement de 1,50 mètre ou plus, vous subissez des dégâts de tonnerre.
 Condition/&ConditionBoomingBladeSheathedTitle=Gainé
 Condition/&ConditionBoomingBladeTitle=Gaine de la Lame Boomante
 Condition/&ConditionMindSpikeDescription=Soustrait 1d4 au prochain jet de sauvegarde.

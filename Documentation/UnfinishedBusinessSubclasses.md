@@ -3176,7 +3176,7 @@ Whenever you deal psychic damage with a spell, you add your Charisma modifier as
 
 * Mind over Matter
 
- if you fall to 0 hit points and don't outright die, you can regain 1 hit point, stand up, and also gain a number of temporary hit points equal to three times your Sorcerer level for one minute. This effect can occur only once per long rest.
+If you fall to 0 hit points and don't outright die, you can regain 1 hit point, stand up, gain a number of temporary hit points equal to three times your Sorcerer level for one minute, and knock all enemies within 10 feet of you prone. This effect can occur only once per long rest.
 
 
 ### Level 18
