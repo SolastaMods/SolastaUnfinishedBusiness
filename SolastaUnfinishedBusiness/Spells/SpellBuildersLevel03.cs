@@ -950,7 +950,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class CustomBehaviorLightningArrow :
-        IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private const int MainTargetDiceNumber = 3;
         private readonly ConditionDefinition _conditionLightningArrow;
@@ -1042,13 +1042,18 @@ internal static partial class SpellBuilders
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsLeap));
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
             if (attackMode is not { Ranged: true } && attackMode is not { Thrown: true })
             {
@@ -1065,21 +1070,14 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var additionalDice = activeCondition.EffectLevel - 3;
-
-            attackMode.effectDescription = EffectDescriptionBuilder
-                .Create(attackMode.EffectDescription)
-                .Build();
-
-            var pos = attackMode.EffectDescription.EffectForms.FindIndex(x =>
-                x.FormType == EffectForm.EffectFormType.Damage);
+            var diceNumber = MainTargetDiceNumber + activeCondition.EffectLevel - 3;
+            var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
             if (pos >= 0)
             {
-                attackMode.effectDescription.EffectForms.Insert(
+                actualEffectForms.Insert(
                     pos + 1,
-                    EffectFormBuilder.DamageForm(DamageTypeLightning, MainTargetDiceNumber + additionalDice,
-                        DieType.D8));
+                    EffectFormBuilder.DamageForm(DamageTypeLightning, diceNumber, DieType.D8));
             }
         }
     }
