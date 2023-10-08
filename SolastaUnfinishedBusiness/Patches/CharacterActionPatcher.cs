@@ -178,7 +178,9 @@ public static class CharacterActionPatcher
                         || ((actionAttack.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
                              && Main.Settings.StealthBreaksWhenAttackMisses)))
                     {
-                        roll = false;
+                        __instance.RemoveStealthyCondition(true);
+
+                        return false;
                     }
 
                     break;
@@ -187,27 +189,41 @@ public static class CharacterActionPatcher
                 {
                     var spell = actionCastSpell.ActiveSpell.SpellDefinition;
 
-                    if (spell.MaterialComponentType != MaterialComponentType.None
-                        && Main.Settings.StealthBreaksWhenCastingMaterial)
+                    if (spell.EffectDescription.RangeType
+                        is RangeType.Touch
+                        or RangeType.MeleeHit
+                        or RangeType.RangeHit)
                     {
-                        roll = false;
-                    }
+                        if ((actionCastSpell.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
+                             && Main.Settings.StealthBreaksWhenAttackHits)
+                            || ((actionCastSpell.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                                 && Main.Settings.StealthBreaksWhenAttackMisses)))
+                        {
+                            __instance.RemoveStealthyCondition(true);
 
-                    if (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic)
-                    {
-                        roll = false;
+                            return false;
+                        }
                     }
-
-                    if (spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose)
+                    else if (spell.EffectDescription.TargetSide != Side.Ally)
                     {
-                        roll = false;
+                        if (spell.MaterialComponentType != MaterialComponentType.None &&
+                            Main.Settings.StealthBreaksWhenCastingMaterial
+                            || spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic
+                            || spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose)
+                        {
+                            __instance.RemoveStealthyCondition(true);
+
+                            return false;
+                        }
                     }
 
                     break;
                 }
             }
 
-            if (action.ActionId is ActionDefinitions.Id.UseItemBonus or ActionDefinitions.Id.UseItemMain
+            if (action.ActionId
+                    is ActionDefinitions.Id.UseItemBonus
+                    or ActionDefinitions.Id.UseItemMain
                 && Main.Settings.StealthDoesNotBreakWhenUsingItems)
             {
                 return false;

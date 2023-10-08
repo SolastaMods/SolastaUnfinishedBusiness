@@ -244,8 +244,8 @@ internal static partial class SpellBuilders
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
             .SetMaterialComponent(MaterialComponentType.None)
-            .SetVerboseComponent(false)
-            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
