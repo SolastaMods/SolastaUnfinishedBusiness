@@ -1762,6 +1762,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPaladinLayOnHands { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPaladinLayOnHands");
 
+        internal static FeatureDefinitionPower PowerPatronFiendDarkOnesBlessing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesBlessing");
+
         internal static FeatureDefinitionPower PowerPatronFiendDarkOnesOwnLuck { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesOwnLuck");
 
