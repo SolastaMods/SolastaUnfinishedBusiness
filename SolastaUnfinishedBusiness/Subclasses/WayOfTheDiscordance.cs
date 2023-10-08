@@ -588,7 +588,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             };
 
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, true);
+                ?.ExecuteAction(actionParams, null, false);
         }
     }
 }
