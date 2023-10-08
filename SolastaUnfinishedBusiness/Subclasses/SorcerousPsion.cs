@@ -300,6 +300,14 @@ public sealed class SorcerousPsion : AbstractSubclass
         {
             _hasDamageChanged = false;
 
+            if (actualEffectForms
+                .All(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage
+                    && x.DamageForm.DamageType == DamageTypePsychic))
+            {
+                yield break;
+            }
+
             var character = attacker.RulesetCharacter;
 
             if (rulesetEffect is RulesetEffectSpell rulesetEffectSpell
