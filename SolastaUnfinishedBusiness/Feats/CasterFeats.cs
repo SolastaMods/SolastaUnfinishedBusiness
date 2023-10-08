@@ -35,7 +35,8 @@ internal static class CasterFeats
             .Create("FeatTelekineticInt")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                BuildTelekinesis(AttributeDefinitions.Intelligence),
+                BuildTelekinesis(AttributeDefinitions.Intelligence, MotionForm.MotionType.DragToOrigin),
+                BuildTelekinesis(AttributeDefinitions.Intelligence, MotionForm.MotionType.PushFromOrigin),
                 AttributeModifierCreed_Of_Pakri)
             .SetFeatFamily(TELEKINETIC)
             .AddToDB();
@@ -47,7 +48,8 @@ internal static class CasterFeats
             .Create("FeatTelekineticCha")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                BuildTelekinesis(AttributeDefinitions.Charisma),
+                BuildTelekinesis(AttributeDefinitions.Charisma, MotionForm.MotionType.DragToOrigin),
+                BuildTelekinesis(AttributeDefinitions.Charisma, MotionForm.MotionType.PushFromOrigin),
                 AttributeModifierCreed_Of_Solasta)
             .SetFeatFamily(TELEKINETIC)
             .AddToDB();
@@ -58,7 +60,8 @@ internal static class CasterFeats
             .Create("FeatTelekineticWis")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                BuildTelekinesis(AttributeDefinitions.Wisdom),
+                BuildTelekinesis(AttributeDefinitions.Wisdom, MotionForm.MotionType.DragToOrigin),
+                BuildTelekinesis(AttributeDefinitions.Wisdom, MotionForm.MotionType.PushFromOrigin),
                 AttributeModifierCreed_Of_Maraike)
             .SetFeatFamily(TELEKINETIC)
             .AddToDB();
@@ -552,14 +555,22 @@ internal static class CasterFeats
     }
 
     [NotNull]
-    private static FeatureDefinition BuildTelekinesis(string savingThrowDifficultyAbility)
+    private static FeatureDefinition BuildTelekinesis(
+        string savingThrowDifficultyAbility, MotionForm.MotionType motionType)
     {
         const string NAME = "FeatTelekinetic";
 
+        var motionTypeName = motionType.ToString();
+
+        // keep backward compatibility
+        if (motionTypeName == "DragToOrigin")
+        {
+            motionTypeName = string.Empty;
+        }
+
         var power = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}{savingThrowDifficultyAbility}")
-            .SetGuiPresentation(NAME, Category.Feature, Sprites.FeatTelekinetic)
-            //TODO: ideally not hide out of combat, but make it disabled
+            .Create($"Power{NAME}{savingThrowDifficultyAbility}{motionTypeName}")
+            .SetGuiPresentation($"{NAME}{motionTypeName}", Category.Feature, Sprites.FeatTelekinetic)
             .AddCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
@@ -572,25 +583,25 @@ internal static class CasterFeats
                         true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                         savingThrowDifficultyAbility)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.Telekinesis, 1)
+                            .SetMotionForm(motionType, 1)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
                     .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .Build())
             .AddToDB();
 
         var invocation = CustomInvocationDefinitionBuilder
-            .Create($"CustomInvocation{NAME}{savingThrowDifficultyAbility}")
+            .Create($"CustomInvocation{NAME}{savingThrowDifficultyAbility}{motionTypeName}")
             .SetGuiPresentation(power.GuiPresentation)
             .SetPoolType(InvocationPoolTypeCustom.Pools.PlaneMagic)
             .SetGrantedFeature(power)
             .AddToDB();
 
         return FeatureDefinitionGrantInvocationsBuilder
-            .Create($"GrantInvocations{NAME}{savingThrowDifficultyAbility}")
+            .Create($"GrantInvocations{NAME}{savingThrowDifficultyAbility}{motionTypeName}")
             .SetGuiPresentationNoContent(true)
             .SetInvocations(invocation)
             .AddToDB();

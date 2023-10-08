@@ -74,6 +74,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -94,6 +95,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -120,6 +122,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -140,6 +143,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -414,9 +418,9 @@ public sealed class SorcerousPsion : AbstractSubclass
             }
 
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, false);
-            ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 

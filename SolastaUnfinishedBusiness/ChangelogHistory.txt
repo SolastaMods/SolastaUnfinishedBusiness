@@ -8,6 +8,7 @@
 - fixed Patron Eldritch Surge stacking versatilities scores
 - fixed Oath of Altruism freezing game on Guardian Aura
 - fixed Smite ignoring daggers and javelins within reach
+- fixed Telekinesis feat to work as official tabletop rules
 - fixed Way of Discordance freezing game on deflect missiles
 
 1.5.94.22:
