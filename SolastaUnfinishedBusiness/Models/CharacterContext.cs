@@ -178,6 +178,7 @@ internal static class CharacterContext
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionInvisible))
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDruidCircleBalanceBalanceOfPower)
                 .Build())
         .AddToDB();
 

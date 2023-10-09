@@ -1570,6 +1570,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerCollegeLoreCuttingWords { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCollegeLoreCuttingWords");
 
+        internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
+
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
 
