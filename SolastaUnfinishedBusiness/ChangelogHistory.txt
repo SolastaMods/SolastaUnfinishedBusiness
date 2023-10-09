@@ -2,6 +2,7 @@
 
 - added Gameplay > Rules > 'Enable item usage not breaking invisibility'
 - added Gameplay > Rules > 'Enable stealth not rolling if Subtle Metamagic'
+- added Ranger nature's shroud optional feature at level 10 [homebrew by DemonicDuck]
 - added Sorcerous Psion subclass [homebrew by HiddenHax]
 - fixed Arcane Scoundrel arcane backslash burning extra attacks on kill
 - fixed break stealth feature not considering spell attacks

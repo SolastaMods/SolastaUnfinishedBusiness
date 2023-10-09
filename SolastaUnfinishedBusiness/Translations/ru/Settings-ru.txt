@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=Включить <color=#D89555>Монахам</c
 ModUi/&EnableMonkWeaponSpecialization=Включить <b>Специализацию на оружии</b> для <color=#D89555>Монаха</color> на уровнях класса 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Включите функцию <color=#D89555>Ranger</color> <b>Nature's Shroud</b> на уровне 10 <i><color=#F0DAA0>[в качестве бонусного действия вы можете волшебным образом стать невидимым до начала следующего хода ]</color></i>
 ModUi/&EnableRejoinParty=Включить принудительную группировку персонажей вокруг выбранного героя или лидера, если никто не выбран, по нажатию <color=#1E81B0>CTRL-SHIFT-(R)</color> <i><color=#F0DAA0>[полезно в пати из 5 или 6 персонажей]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Возможность выбирать заговоры или заклинания, уже изученные от других классов</i>
 ModUi/&EnableRespec=Включить возможность респека после отдыха

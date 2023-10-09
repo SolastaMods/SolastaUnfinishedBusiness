@@ -194,13 +194,6 @@ internal static class CharacterDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
-        }
-
         toggle = Main.Settings.EnableBarbarianFightingStyle;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
         {
@@ -213,6 +206,29 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableFighterWeaponSpecialization = toggle;
             CharacterContext.SwitchFighterWeaponSpecialization();
+        }
+
+        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
+        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
+            CharacterContext.SwitchScimitarWeaponSpecialization();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        toggle = Main.Settings.EnableRangerNatureShroudAt10;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRangerNatureShroudAt10"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRangerNatureShroudAt10 = toggle;
+            CharacterContext.SwitchRangerNatureShroud();
         }
 
         UI.Label();
@@ -259,15 +275,6 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableRogueSteadyAim = toggle;
             CharacterContext.SwitchRogueSteadyAim();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
-        if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
-            CharacterContext.SwitchScimitarWeaponSpecialization();
         }
 
         UI.Label();
