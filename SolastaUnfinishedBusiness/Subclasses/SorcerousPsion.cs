@@ -109,7 +109,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         var powerPsychokinesisPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}PsychokinesisPoints")
             .SetGuiPresentation($"FeatureSet{Name}Psychokinesis", Category.Feature, PowerMonkStepOfTheWindDash)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2, 0)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 1, 0)
             .AddToDB();
 
         var powerPsychokinesisPointsDrag = FeatureDefinitionPowerSharedPoolBuilder
