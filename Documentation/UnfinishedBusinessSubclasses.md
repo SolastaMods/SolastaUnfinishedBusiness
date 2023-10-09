@@ -3269,14 +3269,14 @@ You learn two Versatilities.
 
 * Versatility Switch
 
-Each turn, you can switch between Str/Int/Wis/Versatile. When using Versatilities, treat the chosen ability score as 10 + 2 * [Proficiency Bonus]. If you choose versatile, your Int/Str/Wis gain a bonus equal to the amount of Versatilities you have learnt.
+Each turn, you can switch between Strength, Intelligence, Wisdom or Versatile. When using versatilities, treat the chosen ability score as 10 + 2 * Proficiency Bonus. If you choose versatile, your Strength, Intelligence or Wisdom gain a bonus equal to the amount of versatilities you have learnt.
 
 
 ### Level 6
 
 * Blast Pursuit
 
-When you hit an enemy within 30 feet / kills an enemy with Eldritch Blast, you gain 1 / number of beams additional Eldritch Point.
+Gain an additional Eldritch Point when you hit an enemy within 30 feet. When you kill an enemy, gain additional Eldritch Points equal to the number of beams per cast of Eldritch Blast.
 
 * Learn Versatility (1)
 
@@ -3298,7 +3298,7 @@ You learn one Versatility.
 
 * Blast Overload
 
-Once per long rest, you can use a free action to enter Overload. Until the start of your next turn, you gain an extra action, and you can use all your Versatilities without spending points or making any checks.
+Once per long rest, you can use a free action to enter Overload. Until the start of your next turn, you gain an extra action, and you can use all your versatilities without checks or points consumption.
 
 * Learn Versatility (1)
 

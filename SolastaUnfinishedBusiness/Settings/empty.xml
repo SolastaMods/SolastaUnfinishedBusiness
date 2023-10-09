@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>5</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
+  <EnableThesaurus>false</EnableThesaurus>
   <HideWelcomeMessage>true</HideWelcomeMessage>
+  <SelectedTab>1</SelectedTab>
   <DisplayRacesToggle>true</DisplayRacesToggle>
   <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
@@ -242,6 +243,7 @@
   <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
   <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
+  <EnableRangerNatureShroudAt10>false</EnableRangerNatureShroudAt10>
   <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
   <ImproveLevelUpFeaturesSelection>false</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
@@ -288,6 +290,8 @@
   <StealthBreaksWhenCastingMaterial>false</StealthBreaksWhenCastingMaterial>
   <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
   <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
+  <StealthDoesNotBreakWithSubtle>false</StealthDoesNotBreakWithSubtle>
+  <KeepInvisibilityWhenUsingItems>false</KeepInvisibilityWhenUsingItems>
   <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
   <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>false</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
   <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
