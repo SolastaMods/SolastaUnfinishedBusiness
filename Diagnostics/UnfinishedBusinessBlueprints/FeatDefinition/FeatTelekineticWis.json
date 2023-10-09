@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
-    "Definition:GrantInvocationsFeatTelekineticWisdom:2749fb15-3a17-5a8b-a8dc-3328e38960c8"
+    "Definition:GrantInvocationsFeatTelekineticWisdom:2749fb15-3a17-5a8b-a8dc-3328e38960c8",
+    "Definition:GrantInvocationsFeatTelekineticWisdomPushFromOrigin:ffcfda71-266a-500b-85d8-ecbc7521fabb"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

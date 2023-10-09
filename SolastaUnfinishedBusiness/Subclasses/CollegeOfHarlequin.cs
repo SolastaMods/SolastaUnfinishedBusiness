@@ -34,6 +34,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
 
         var powerTerrificPerformance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TerrificPerformance")
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetGuiPresentation(Category.Feature)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -55,6 +56,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
 
         var powerTerrificPerformanceImproved = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TerrificPerformanceImproved")
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetGuiPresentation(Category.Feature)
             .SetOverriddenPower(powerTerrificPerformance)
             .SetEffectDescription(
@@ -300,8 +302,9 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                     .ToList()
             };
 
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
+                ?.ExecuteAction(actionParams, null, true);
         }
     }
 }

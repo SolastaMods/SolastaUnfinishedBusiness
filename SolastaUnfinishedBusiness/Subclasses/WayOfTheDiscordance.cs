@@ -587,8 +587,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 targetCharacters = { ally }
             };
 
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
+                ?.ExecuteAction(actionParams, null, true);
         }
     }
 }

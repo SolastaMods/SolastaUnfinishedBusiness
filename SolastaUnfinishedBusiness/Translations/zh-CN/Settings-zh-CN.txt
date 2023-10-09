@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>武僧</color><b
 ModUi/&EnableMonkWeaponSpecialization=在等级2和11启用<color=#D89555>僧侣</color><b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的僧侣武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=在 10 级启用<color=#D89555>游侠</color><b>自然裹尸布</b>功能<i><color=#F0DAA0>[作为奖励动作，你可以神奇地变得隐形，直到下回合开始]</颜色></i>
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于5人或6人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的咒语或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
@@ -175,6 +176,7 @@ ModUi/&Items=<color=#F0DAA0>项目：</color>
 ModUi/&ItemsCraftingMerchants=物品、手工艺和商人
 ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检视界面为英雄添加物品...</color>
 ModUi/&ItemsHelp2=<b>按+将项目添加到地面容器</b>
+ModUi/&KeepInvisibilityWhenUsingItems=启用物品使用不会破坏<color=#D89555>隐形</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔法法杖成为奥术专用<i><color=#F0DAA0>[除了<color=#D89555>治疗法杖</color>是通用的]</color></i>
 ModUi/&MakeLargeWildshapeFormsMedium=使所有大型野生动物形态中等大小
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+发现后在关卡地图上标记隐形传送器的位置</i>
@@ -228,12 +230,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制
 ModUi/&ShowDescriptions=显示说明
 ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color><color=#F0DAA0>[-1 显示全部]</color></i></b>
 ModUi/&SpellsMenu=法术
-ModUi/&StealthBreaksWhenAttackHits=受到攻击时启用失去隐身功能
-ModUi/&StealthBreaksWhenAttackMisses=当攻击未命中时启用失去隐身功能
-ModUi/&StealthBreaksWhenCastingMaterial=铸造材料时启用失去隐身功能
-ModUi/&StealthBreaksWhenCastingSomatic=施放体细胞时启用失去隐身功能
-ModUi/&StealthBreaksWhenCastingVerbose=启用 verbose 时失去隐身功能
-ModUi/&StealthDoesNotBreakWhenUsingItems=启用使用物品时不会失去隐身功能
+ModUi/&StealthBreaksWhenAttackHits=当武器或法术攻击命中时启用隐身损失
+ModUi/&StealthBreaksWhenAttackMisses=当武器或法术攻击未命中时启用隐身损失
+ModUi/&StealthBreaksWhenCastingMaterial=施放材料时启用隐身损失<i><color=#F0DAA0>[任何目标为全部或敌人的非攻击法术]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=施放躯体<i><color=#F0DAA0>[任何目标为全部或敌人的非攻击法术]</color></i>时启用隐身损失
+ModUi/&StealthBreaksWhenCastingVerbose=施放详细时启用隐身损失<i><color=#F0DAA0>[任何目标为全部或敌人的非攻击法术]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=如果 <color=#D89555>Subtle Metamagic</color> 并且没有材质组件，则启用隐身不会破坏
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=格罗姆的商店出售所有非魔法服装<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=格罗姆的商店出售所有非魔法乐器<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店将<color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color>和<color=#D89555>棍棒</color>设置为焦点项目

@@ -14,7 +14,7 @@
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": false,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",

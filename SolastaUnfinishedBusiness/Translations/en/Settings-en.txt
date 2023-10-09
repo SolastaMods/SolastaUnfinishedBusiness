@@ -68,7 +68,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from oth
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
 ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Don't display helmets on graphic characters <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DontEndTurnAfterReady=Don't end turn after using ready action <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
+ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>ready action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Monk</color> <b>Fighting St
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Monk</color> <b>Weapon Specialization</b> at class levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Ranger</color> <b>Nature's Shroud</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party around the selected hero or the leader if none is selected <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned from other classes</i>
 ModUi/&EnableRespec=Enable the RESPEC after rest action
@@ -175,6 +176,7 @@ ModUi/&Items=<color=#F0DAA0>Items:</color>
 ModUi/&ItemsCraftingMerchants=Crafting, Items & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Enable item usage not breaking <color=#D89555>Invisibility</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
@@ -227,12 +229,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed too
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
 ModUi/&SpellsMenu=Spells
-ModUi/&StealthBreaksWhenAttackHits=Enable stealth loss when attack hits
-ModUi/&StealthBreaksWhenAttackMisses=Enable stealth loss when attack misses
-ModUi/&StealthBreaksWhenCastingMaterial=Enable stealth loss when casting material
-ModUi/&StealthBreaksWhenCastingSomatic=Enable stealth loss when casting somatic
-ModUi/&StealthBreaksWhenCastingVerbose=Enable stealth loss when casting verbose
-ModUi/&StealthDoesNotBreakWhenUsingItems=Enable don't lose stealth when using items
+ModUi/&StealthBreaksWhenAttackHits=Enable stealth loss when weapon or spell attack hits
+ModUi/&StealthBreaksWhenAttackMisses=Enable stealth loss when weapon or spell attack misses
+ModUi/&StealthBreaksWhenCastingMaterial=Enable stealth loss when casting <color=#D89555>material</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Enable stealth loss when casting <color=#D89555>somatic</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Enable stealth loss when casting <color=#D89555>verbal</color> <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Enable stealth not rolling if <color=#D89555>Subtle Metamagic</color> and no <color=#D89555>material</color> component
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
@@ -257,9 +259,9 @@ ModUi/&Update=<b><color=#D89555>Update</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use precise math to determine flanking <color=#F0DAA0>[may have a performance impact on slow machines]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
-ModUi/&UseOfficialDistanceCalculation=Use official distance calculation to be based on distance from one creature's cube to the other <i><color=#F0DAA0>[instead of Solasta's default distance calculation]</color></i>
-ModUi/&UseOfficialFlankingRules=Use official flanking rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Use official <color=#D89555>advantage / disadvantage</color> rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
+ModUi/&UseOfficialDistanceCalculation=Use official <color=#D89555>distance calculation</color> to be based on distance from one creature's cube to the other <i><color=#F0DAA0>[instead of Solasta's default distance calculation]</color></i>
+ModUi/&UseOfficialFlankingRules=Use official <color=#D89555>flanking rules</color> <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks</i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>

@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -73,6 +74,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -93,6 +95,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -106,7 +109,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         var powerPsychokinesisPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}PsychokinesisPoints")
             .SetGuiPresentation($"FeatureSet{Name}Psychokinesis", Category.Feature, PowerMonkStepOfTheWindDash)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2, 0)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 1, 0)
             .AddToDB();
 
         var powerPsychokinesisPointsDrag = FeatureDefinitionPowerSharedPoolBuilder
@@ -119,6 +122,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -139,6 +143,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -192,6 +197,17 @@ public sealed class SorcerousPsion : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build())
+                    .SetParticleEffectParameters(PowerDomainSunHeraldOfTheSun)
+                    .Build())
             .AddToDB();
 
         powerMindOverMatter.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyMindOverMatter(powerMindOverMatter));
@@ -210,7 +226,9 @@ public sealed class SorcerousPsion : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, $"ActionAffinity{Name}SupremeWill")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.SupremeWillToggle)
-            .AddCustomSubFeatures(new CustomBehaviorSupremeWill(powerSupremeWill))
+            .AddCustomSubFeatures(
+                new CustomBehaviorSupremeWill(powerSupremeWill),
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerSupremeWill)))
             .AddToDB();
 
         var featureSetSupremeWill = FeatureDefinitionFeatureSetBuilder
@@ -251,6 +269,26 @@ public sealed class SorcerousPsion : AbstractSubclass
     {
         private bool _hasDamageChanged;
 
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionCastSpell)
+            {
+                yield break;
+            }
+
+            if (!_hasDamageChanged)
+            {
+                yield break;
+            }
+
+            _hasDamageChanged = false;
+
+            var character = action.ActingCharacter.RulesetCharacter;
+
+            character.SpendSorceryPoints(1);
+            character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
+        }
+
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -261,6 +299,14 @@ public sealed class SorcerousPsion : AbstractSubclass
             bool criticalHit)
         {
             _hasDamageChanged = false;
+
+            if (actualEffectForms
+                .All(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage
+                    && x.DamageForm.DamageType == DamageTypePsychic))
+            {
+                yield break;
+            }
 
             var character = attacker.RulesetCharacter;
 
@@ -293,26 +339,6 @@ public sealed class SorcerousPsion : AbstractSubclass
             {
                 effectForm.DamageForm.BonusDamage = charismaModifier;
             }
-        }
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionCastSpell)
-            {
-                yield break;
-            }
-
-            if (!_hasDamageChanged)
-            {
-                yield break;
-            }
-
-            _hasDamageChanged = false;
-
-            var character = action.ActingCharacter.RulesetCharacter;
-
-            character.SpendSorceryPoints(1);
-            character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }
     }
 
@@ -355,10 +381,9 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerMindOverMatter, rulesetCharacter);
             var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "Reaction/&CustomReactionMindOverMatterDescription", UsablePower = usablePower
+                StringParameter = "Reaction/&CustomReactionMindOverMatterDescription"
             };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("MindOverMatter", reactionParams);
@@ -372,32 +397,38 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-            rulesetCharacter.UsePower(usablePower);
-
-            var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Sorcerer);
+            var tempHitPoints = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Sorcerer) * 3;
 
             rulesetCharacter.StabilizeAndGainHitPoints(1);
             rulesetCharacter.ReceiveTemporaryHitPoints(
-                3 * classLevel, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
-            rulesetCharacter.InflictCondition(
-                ConditionDodging,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
-                source.Guid,
-                string.Empty,
-                1,
-                null,
-                0,
-                0,
-                0);
+                tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+
+            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
+            var usablePower = UsablePowersProvider.Get(_powerMindOverMatter, rulesetCharacter);
+            var targets = battle.Battle.AllContenders
+                .Where(x =>
+                    x.IsOppositeSide(source.Side)
+                    && battle.IsWithinXCells(source, x, 2))
+                .ToList();
+
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+                .AddAsActivePowerToSource();
+            actionParams.TargetCharacters.SetRange(targets);
 
             EffectHelpers.StartVisualEffect(
                 source, source, PowerPatronFiendDarkOnesBlessing, EffectHelpers.EffectType.Effect);
 
+            foreach (var target in targets)
+            {
+                EffectHelpers.StartVisualEffect(
+                    source, target, PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
+            }
+
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, false);
+                ?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 
@@ -413,6 +444,28 @@ public sealed class SorcerousPsion : AbstractSubclass
         public CustomBehaviorSupremeWill(FeatureDefinitionPower powerSupremeWill)
         {
             _powerSupremeWill = powerSupremeWill;
+        }
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            if (!_hasConcentrationChanged)
+            {
+                yield break;
+            }
+
+            _hasConcentrationChanged = false;
+
+            var character = action.ActingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerSupremeWill, character);
+
+            character.UsePower(usablePower);
+            character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
+            character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }
 
         public bool RequiresConcentration(RulesetCharacter rulesetCharacter, RulesetEffectSpell rulesetEffectSpell)
@@ -437,28 +490,6 @@ public sealed class SorcerousPsion : AbstractSubclass
             _hasConcentrationChanged = rulesetCharacter.RemainingSorceryPoints >= requiredPoints;
 
             return !_hasConcentrationChanged;
-        }
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionCastSpell actionCastSpell)
-            {
-                yield break;
-            }
-
-            if (!_hasConcentrationChanged)
-            {
-                yield break;
-            }
-
-            _hasConcentrationChanged = false;
-
-            var character = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerSupremeWill, character);
-
-            character.UsePower(usablePower);
-            character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
-            character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }
     }
 }

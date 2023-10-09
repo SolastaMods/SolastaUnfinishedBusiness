@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=Включить <color=#D89555>Монахам</c
 ModUi/&EnableMonkWeaponSpecialization=Включить <b>Специализацию на оружии</b> для <color=#D89555>Монаха</color> на уровнях класса 2 и 11 <i><color=#F0DAA0>[оружие выбранного типа становится для вас оружием монаха]</color></i>
 ModUi/&EnableMulticlass=Включить мультиклассирование <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnablePcgRandom=Включить улучшенный алгоритм генерации случайных чисел <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Включите функцию <color=#D89555>Ranger</color> <b>Nature's Shroud</b> на уровне 10 <i><color=#F0DAA0>[в качестве бонусного действия вы можете волшебным образом стать невидимым до начала следующего хода ]</color></i>
 ModUi/&EnableRejoinParty=Включить принудительную группировку персонажей вокруг выбранного героя или лидера, если никто не выбран, по нажатию <color=#1E81B0>CTRL-SHIFT-(R)</color> <i><color=#F0DAA0>[полезно в пати из 5 или 6 персонажей]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Возможность выбирать заговоры или заклинания, уже изученные от других классов</i>
 ModUi/&EnableRespec=Включить возможность респека после отдыха
@@ -175,6 +176,7 @@ ModUi/&Items=<color=#F0DAA0>Предметы:</color>
 ModUi/&ItemsCraftingMerchants=Крафт, предметы и торговцы
 ModUi/&ItemsHelp1=<color=#C04040E0>Откройте экран персонажа, чтобы добавить предметы героям...</color>
 ModUi/&ItemsHelp2=<b>Нажмите + для добавления предметов в хранилище на земле</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Включить использование предметов, не нарушая <color=#D89555>Невидимость</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Сделать все волшебные посохи подходящими для магической фокусировки <i><color=#F0DAA0>[кроме <color=#D89555>Посоха лечения</color>, который является универсальным]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Также помечать местонахождение невидимых телепортов на карте уровня после того, как они открыты</i>
 ModUi/&MaxAllowedClasses=<color=white>Максимальное разрешённое количество классов</color>
@@ -227,12 +229,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Показывать рецепт с
 ModUi/&ShowDescriptions=Показывать описания
 ModUi/&SpellLevelFilter=<b><i><color=white>Уровень заклинаний</color> <color=#F0DAA0>[-1 отображает все]</color></i></b>
 ModUi/&SpellsMenu=Заклинания
-ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании атаки
-ModUi/&StealthBreaksWhenAttackMisses=Включить потерю скрытности при промахе атаки
-ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материального компонента заклинания
-ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматического компонента заклинания
-ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при использовании вербального компонента заклинания
-ModUi/&StealthDoesNotBreakWhenUsingItems=Включить «Не терять скрытность при использовании предметов».
+ModUi/&StealthBreaksWhenAttackHits=Включить потерю скрытности при попадании оружия или заклинания
+ModUi/&StealthBreaksWhenAttackMisses=Включить потерю скрытности при промахе оружия или заклинания.
+ModUi/&StealthBreaksWhenCastingMaterial=Включить потерю скрытности при использовании материала <i><color=#F0DAA0>[любое не атакующее заклинание с целью ВСЕ или ВРАГ]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Включить потерю скрытности при использовании соматического <i><color=#F0DAA0>[любого не атакующего заклинания с целью ВСЕХ или ВРАГ]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Включить потерю скрытности при произнесении подробного <i><color=#F0DAA0>[любого не атакующего заклинания с целью ВСЕ или ВРАГ]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Включить скрытность, не ломая ее, если <color=#D89555>Тонкая метамагия</color> и нет материального компонента.
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Пополнить магазин Горима всей немагической одеждой <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Пополнить магазин Горима всеми немагическими музыкальными инструментами <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Пополнить магазин Хьюго наборами магических фокусировок: <color=#D89555>Магических посохов</color>, <color=#D89555>Друидических подвесок</color>, <color=#D89555>Жезлов</color> и <color=#D89555>Дубинок</color>

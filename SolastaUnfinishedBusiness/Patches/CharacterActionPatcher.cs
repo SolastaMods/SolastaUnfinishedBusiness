@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -145,6 +146,8 @@ public static class CharacterActionPatcher
     [UsedImplicitly]
     public static class ApplyStealthBreakerBehavior_Patch
     {
+        internal static bool ShouldBanter;
+
         [NotNull]
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -169,25 +172,27 @@ public static class CharacterActionPatcher
             List<GameLocationCharacter> detectorsWithAdvantage,
             CharacterAction action)
         {
+            ShouldBanter = true;
+
             switch (action)
             {
                 case CharacterActionAttack actionAttack:
                 {
                     if ((actionAttack.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
                          && Main.Settings.StealthBreaksWhenAttackHits)
-                        || ((actionAttack.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
-                             && Main.Settings.StealthBreaksWhenAttackMisses)))
+                        || (actionAttack.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                            && Main.Settings.StealthBreaksWhenAttackMisses))
                     {
-                        __instance.RemoveStealthyCondition(true);
-
-                        return false;
+                        ShouldBanter = false;
+                        roll = false;
                     }
 
                     break;
                 }
                 case CharacterActionCastSpell actionCastSpell:
                 {
-                    var spell = actionCastSpell.ActiveSpell.SpellDefinition;
+                    var activeSpell = actionCastSpell.ActiveSpell;
+                    var spell = activeSpell.SpellDefinition;
 
                     if (spell.EffectDescription.RangeType
                         is RangeType.Touch
@@ -196,37 +201,37 @@ public static class CharacterActionPatcher
                     {
                         if ((actionCastSpell.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
                              && Main.Settings.StealthBreaksWhenAttackHits)
-                            || ((actionCastSpell.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
-                                 && Main.Settings.StealthBreaksWhenAttackMisses)))
+                            || (actionCastSpell.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                                && Main.Settings.StealthBreaksWhenAttackMisses))
                         {
-                            __instance.RemoveStealthyCondition(true);
-
-                            return false;
+                            ShouldBanter = false;
+                            roll = false;
                         }
                     }
                     else if (spell.EffectDescription.TargetSide != Side.Ally)
                     {
-                        if (spell.MaterialComponentType != MaterialComponentType.None &&
-                            Main.Settings.StealthBreaksWhenCastingMaterial
-                            || spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic
-                            || spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose)
-                        {
-                            __instance.RemoveStealthyCondition(true);
+                        var isSubtle = activeSpell.MetamagicOption ==
+                                       DatabaseHelper.MetamagicOptionDefinitions.MetamagicSubtleSpell;
 
+                        if (Main.Settings.StealthDoesNotBreakWithSubtle
+                            && isSubtle
+                            && spell.MaterialComponentType == MaterialComponentType.None)
+                        {
                             return false;
+                        }
+
+                        if ((spell.MaterialComponentType != MaterialComponentType.None &&
+                             Main.Settings.StealthBreaksWhenCastingMaterial)
+                            || (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic && !isSubtle)
+                            || (spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose && !isSubtle))
+                        {
+                            ShouldBanter = false;
+                            roll = false;
                         }
                     }
 
                     break;
                 }
-            }
-
-            if (action.ActionId
-                    is ActionDefinitions.Id.UseItemBonus
-                    or ActionDefinitions.Id.UseItemMain
-                && Main.Settings.StealthDoesNotBreakWhenUsingItems)
-            {
-                return false;
             }
 
             return __instance.ComputeStealthBreak(roll, actionModifier, detectorsWithAdvantage);

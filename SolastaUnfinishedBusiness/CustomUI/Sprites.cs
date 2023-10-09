@@ -25,6 +25,13 @@ public static class Sprites
 
     #endregion
 
+    #region Spells
+
+    internal static AssetReferenceSprite FarStep =>
+        GetSprite("FarStep", Resources.FarStep, 128);
+
+    #endregion
+
     #region Misc
 
     internal static AssetReferenceSprite GambitResourceIcon =>
@@ -165,69 +172,6 @@ public static class Sprites
 
     internal static AssetReferenceSprite ConditionGambit =>
         GetSprite("ConditionGambit", Resources.ConditionGambit, 32);
-
-    #endregion
-
-    #region Spells
-
-    internal static AssetReferenceSprite FarStep =>
-        GetSprite("FarStep", Resources.FarStep, 128);
-
-    internal static AssetReferenceSprite SpellRaiseSkeleton =>
-        GetSprite("SpellRaiseSkeleton", Resources.SpellRaiseSkeleton, 128);
-
-    internal static AssetReferenceSprite SpellRaiseSkeletonArcher =>
-        GetSprite("SpellRaiseSkeletonArcher", Resources.SpellRaiseSkeletonArcher, 128);
-
-    internal static AssetReferenceSprite SpellRaiseGhoul =>
-        GetSprite("SpellRaiseGhoul", Resources.SpellRaiseGhoul, 128);
-
-    internal static AssetReferenceSprite SpellRaiseSkeletonEnforcer =>
-        GetSprite("SpellRaiseSkeletonEnforcer", Resources.SpellRaiseSkeletonEnforcer, 128);
-
-    internal static AssetReferenceSprite SpellRaiseSkeletonKnight =>
-        GetSprite("SpellRaiseSkeletonKnight", Resources.SpellRaiseSkeletonKnight, 128);
-
-    internal static AssetReferenceSprite SpellRaiseSkeletonMarksman =>
-        GetSprite("SpellRaiseSkeletonMarksman", Resources.SpellRaiseSkeletonMarksman, 128);
-
-    internal static AssetReferenceSprite SpellRaiseGhost =>
-        GetSprite("SpellRaiseGhost", Resources.SpellRaiseGhost, 128);
-
-    internal static AssetReferenceSprite SpellRaiseWight =>
-        GetSprite("SpellRaiseWight", Resources.SpellRaiseWight, 128);
-
-    internal static AssetReferenceSprite SpellRaiseWightLord =>
-        GetSprite("SpellRaiseWightLord", Resources.SpellRaiseWightLord, 128);
-
-    internal static AssetReferenceSprite FeatTelekinetic =>
-        GetSprite("FeatTelekinetic", Resources.FeatTelekinetic, 128);
-
-    #endregion
-
-    #region Powers
-
-    internal static AssetReferenceSprite PowerFarStep =>
-        GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128);
-
-    internal static AssetReferenceSprite PowerGuardianMode =>
-        GetSprite("PowerGuardianMode", Resources.PowerGuardianMode, 256, 128);
-
-    internal static AssetReferenceSprite PowerInfiltratorMode =>
-        GetSprite("PowerInfiltratorMode", Resources.PowerInfiltratorMode, 256, 128);
-
-    internal static AssetReferenceSprite PowerDefensiveField =>
-        GetSprite("PowerDefensiveField", Resources.PowerDefensiveField, 256, 128);
-
-    #endregion
-
-    #region Items
-
-    internal static AssetReferenceSprite ItemThunderGauntlet =>
-        GetSprite("ItemThunderGauntlet", Resources.ItemThunderGauntlet, 128);
-
-    internal static AssetReferenceSprite ItemGemLightning =>
-        GetSprite("ItemGemLightning", Resources.ItemGemLightning, 128);
 
     #endregion
 

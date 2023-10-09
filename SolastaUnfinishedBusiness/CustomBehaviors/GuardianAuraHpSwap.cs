@@ -54,11 +54,16 @@ internal static class GuardianAuraHpSwap
         RulesetEffect rulesetEffect,
         int damageAmount)
     {
-        if (!attacker.IsOppositeSide(unit.Side) ||
-            defender.IsOppositeSide(unit.Side) ||
-            unit == defender ||
-            !(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false) ||
-            !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))
+        if (battleManager is not { IsBattleInProgress: true })
+        {
+            yield break;
+        }
+
+        if (!attacker.IsOppositeSide(unit.Side)
+            || defender.IsOppositeSide(unit.Side)
+            || unit == defender
+            || !(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false)
+            || !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))
         {
             yield break;
         }
@@ -107,8 +112,7 @@ internal static class GuardianAuraHpSwap
             damage = rulesetEffect.EffectDescription.FindFirstDamageForm();
         }
 
-        defender.RulesetCharacter.HealingReceived(
-            defender.RulesetCharacter, damageAmount, unit.Guid, HealingCap.MaximumHitPoints, null);
+        defender.RulesetCharacter.ReceiveHealing(damageAmount, true, unit.Guid);
         defender.RulesetCharacter.ForceSetHealth(damageAmount, true);
 
         if (damage != null)

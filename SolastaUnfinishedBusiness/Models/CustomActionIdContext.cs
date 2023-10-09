@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -253,14 +254,14 @@ public static class CustomActionIdContext
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.PaladinSmiteToggle)
             .AddToDB();
-        
+
         ActionDefinitionBuilder
             .Create(MetamagicToggle, "MindSculptToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.MindSculptToggle)
             .AddToDB();
-        
+
         ActionDefinitionBuilder
             .Create(MetamagicToggle, "SupremeWillToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
@@ -275,7 +276,8 @@ public static class CustomActionIdContext
 
         FarStep = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Action, Sprites.PowerFarStep)
+            .SetGuiPresentation(NAME, Category.Action,
+                Sprites.GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .DelegatedToAction()
             .SetEffectDescription(

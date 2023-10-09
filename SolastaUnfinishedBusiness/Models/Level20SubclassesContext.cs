@@ -895,7 +895,7 @@ internal static class Level20SubclassesContext
 
         OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfTirmarAuraTruth18, 18));
 
-        // Inquisitor’s Zeal
+        // Inquisitor's Zeal
 
         var savingThrowAffinityOathOfTirmarInquisitorZeal = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityOathOfTirmarInquisitorZeal")
@@ -1685,7 +1685,7 @@ internal static class Level20SubclassesContext
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, false);
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, false);
+                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 

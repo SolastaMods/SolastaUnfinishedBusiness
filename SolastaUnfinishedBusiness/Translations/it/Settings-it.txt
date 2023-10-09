@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=Abilita la scelta <color=#D89555>Monaco</color> <
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>Specializzazione arma</b> ai livelli di classe 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa un'arma monaco per te]</color></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnablePcgRandom=Abilita un migliore algoritmo generatore casuale <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Ranger</color> <b>Sudario della Natura</b> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo ]</color></i>
 ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per ricongiungersi al gruppo attorno all'eroe selezionato o al leader se non ne è selezionato nessuno <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Può selezionare trucchetti o incantesimi già appresi da altre classi</i>
 ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
@@ -175,6 +176,7 @@ ModUi/&Items=<color=#F0DAA0>Oggetti:</color>
 ModUi/&ItemsCraftingMerchants=Creazione, oggetti e mercanti
 ModUi/&ItemsHelp1=<color=#C04040E0>Apri la schermata di ispezione del personaggio per aggiungere oggetti agli eroi...</color>
 ModUi/&ItemsHelp2=<b>Premi + per aggiungere oggetti al contenitore a terra</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Abilita l'utilizzo degli oggetti senza interrompere l'<color=#D89555>Invisibilità</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Trasforma tutti i bastoni magici in fuochi arcani <i><color=#F0DAA0> [tranne <color=#D89555> Bastone della Guarigione</color> che è Universale]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Contrassegna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>
@@ -227,12 +229,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in su
 ModUi/&ShowDescriptions=Mostra descrizioni
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <color=#F0DAA0>[-1 visualizza tutto]</color></i></b>
 ModUi/&SpellsMenu=Incantesimi
-ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita della furtività quando l'attacco va a segno
-ModUi/&StealthBreaksWhenAttackMisses=Abilita la perdita di azione furtiva quando l'attacco fallisce
-ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di azione furtiva durante il lancio del materiale
-ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita della furtività quando si lancia somatico
-ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita della furtività durante il lancio dettagliato
-ModUi/&StealthDoesNotBreakWhenUsingItems=Abilita non perdere la furtività quando usi gli oggetti
+ModUi/&StealthBreaksWhenAttackHits=Abilita la perdita furtiva quando l'attacco con un'arma o un incantesimo colpisce
+ModUi/&StealthBreaksWhenAttackMisses=Abilita la perdita furtiva quando l'attacco con arma o incantesimo fallisce
+ModUi/&StealthBreaksWhenCastingMaterial=Abilita la perdita di furtività quando si lancia materiale <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Abilita la perdita di furtività quando si lancia <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO] somatico</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Abilita la perdita di furtività quando si lancia <i><color=#F0DAA0>[qualsiasi incantesimo non di attacco con bersaglio TUTTO o NEMICO] verboso</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Abilita la furtività senza interruzioni se <color=#D89555> Metamagia sottile</color> e nessun componente materiale
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim con tutti i vestiti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali

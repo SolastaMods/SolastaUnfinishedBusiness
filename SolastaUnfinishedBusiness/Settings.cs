@@ -104,11 +104,10 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableLevelPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
+    public bool EnableRangerNatureShroudAt10 { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
     public bool ImproveLevelUpFeaturesSelection { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
-
-    // Progression
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
@@ -160,7 +159,9 @@ public class Settings : UnityModManager.ModSettings
     public bool StealthBreaksWhenCastingMaterial { get; set; }
     public bool StealthBreaksWhenCastingVerbose { get; set; }
     public bool StealthBreaksWhenCastingSomatic { get; set; }
-    public bool StealthDoesNotBreakWhenUsingItems { get; set; }
+    
+    public bool StealthDoesNotBreakWithSubtle { get; set; }
+    public bool KeepInvisibilityWhenUsingItems  { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool AttackersWithDarkvisionHaveAdvantageOverDefendersWithout { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }

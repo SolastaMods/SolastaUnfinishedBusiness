@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=Aktiviere die Wahl des <color=#D89555>Mönchs</co
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie Multiclass <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Aktiviere die Funktion <color=#D89555>Ranger</color> <b>Nature's Shroud</b> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion kannst du bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden ]</color></i>
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen von 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen gelernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die RESPEC-Nach-Ruhe-Aktion
@@ -175,6 +176,7 @@ ModUi/&Items=<color=#F0DAA0>Artikel:</color>
 ModUi/&ItemsCraftingMerchants=Handwerk, Gegenstände und Händler
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffnen Sie den Charakterinspektionsbildschirm, um Gegenstände zu Helden hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Gegenstände zum Bodenbehälter hinzuzufügen</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Aktivieren Sie die Verwendung von Gegenständen, ohne die <color=#D89555>Unsichtbarkeit</color> zu beeinträchtigen
 ModUi/&MakeAllMagicStaveArcaneFoci=Machen Sie alle Zauberstäbe zu arkanen Brennpunkten <i><color=#F0DAA0>[außer dem <color=#D89555>Stab der Heilung</color>, der universell ist]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte.</i>
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>
@@ -227,12 +229,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezepte in detaillierten To
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alles an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
-ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie „Stealth verlieren“, wenn ein Angriff erfolgt
-ModUi/&StealthBreaksWhenAttackMisses=Aktivieren Sie „Stealth verlieren“, wenn der Angriff fehlschlägt
-ModUi/&StealthBreaksWhenCastingMaterial=Aktivieren Sie beim Gießen von Material die Möglichkeit, die Tarnung zu verlieren
-ModUi/&StealthBreaksWhenCastingSomatic=Aktivieren Sie beim Wirken von Somatik die Tarnung, um die Tarnung zu verlieren
-ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie die Option „Stealth verlieren“, wenn Sie „Ausführlich“ wirken
-ModUi/&StealthDoesNotBreakWhenUsingItems=Aktivieren Sie die Option, bei der Verwendung von Gegenständen die Tarnung nicht zu verlieren
+ModUi/&StealthBreaksWhenAttackHits=Aktivieren Sie Stealth-Verlust, wenn ein Waffen- oder Zauberangriff zuschlägt
+ModUi/&StealthBreaksWhenAttackMisses=Aktivieren Sie den Stealth-Verlust, wenn ein Waffen- oder Zauberangriff fehlschlägt
+ModUi/&StealthBreaksWhenCastingMaterial=Aktivieren Sie Stealth-Verlust beim Wirken von Material <i><color=#F0DAA0>[jeder Nicht-Angriffszauber mit dem Ziel ALLES oder FEIND]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Aktivieren Sie Stealth-Verlust, wenn Sie somatische <i><color=#F0DAA0>[jeden nicht angreifenden Zauber mit dem Ziel ALLES oder FEIND]</color></i> wirken
+ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie Stealth-Verlust, wenn Sie ausführlich <i><color=#F0DAA0>[jeden nicht angreifenden Zauber mit dem Ziel ALLES oder FEIND]</color></i> wirken
+ModUi/&StealthDoesNotBreakWithSubtle=Aktivieren Sie die Tarnung, die nicht unterbrochen wird, wenn <color=#D89555>Subtile Metamagie</color> und keine Materialkomponente vorhanden ist
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Lagern Sie Gorims Laden mit aller nicht-magischen Kleidung <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Lagern Sie Gorims Laden mit allen nicht-magischen Musikinstrumenten <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Lagern Sie Hugos Laden mit <color=#D89555>Arkanstab</color>, <color=#D89555>Druidenhals</color>, <color=#D89555>Stab</color> und <color=#D89555>Keule</color> als Fokuselemente festlegen
