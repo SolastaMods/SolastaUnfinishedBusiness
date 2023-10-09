@@ -1,0 +1,24 @@
+Action/&MindSculptToggleDescription=激活后，您接下来造成的所有法术伤害都会转化为精神伤害，消耗 1 点魔法值。
+Action/&MindSculptToggleTitle=心灵雕塑
+Action/&SupremeWillToggleDescription=激活后无需集中精力即可施展下一个法术，消耗 2 倍法术等级法术点。
+Action/&SupremeWillToggleTitle=至高意志
+Feature/&ActionAffinitySorcerousPsionMindSculptDescription=每当你用法术造成精神伤害时，你会将你的魅力调整值作为额外精神伤害添加到该法术的一次伤害检定中。此外，你可以支付 1 个法术点，将你造成的所有法术伤害转化为精神伤害。
+Feature/&ActionAffinitySorcerousPsionMindSculptTitle=心灵雕塑
+Feature/&DamageAffinitySorcerousPsionPsionicMindDescription=你获得了对精神伤害的抵抗力。
+Feature/&DamageAffinitySorcerousPsionPsionicMindTitle=灵能心灵
+Feature/&FeatureSetSorcerousPsionPsychokinesisDescription=你可以使用你的奖励动作来瞄准你周围 30 英尺内的一个生物。然后目标生物会向您移动或远离您 15 英尺。敌方生物必须通过对抗你的施法 DC 的力量豁免检定，或者朝所选方向移动，而盟友生物则无需豁免检定即可移动。每次长时间休息你可以使用这个功能的次数等于你的熟练加值，如果你不再使用，你可以支付 1 个魔法点。
+Feature/&FeatureSetSorcerousPsionPsychokinesisTitle=念力
+Feature/&FeatureSetSorcerousPsionSupremeWillDescription=每当你施展集中法术时，你可以支付等于法术等级两倍的法术点来施展法术而无需集中注意力。每次短暂休息只能使用此功能一次。
+Feature/&FeatureSetSorcerousPsionSupremeWillTitle=至高意志
+Feature/&PowerSorcerousPsionMindOverMatterDescription=如果你的生命值跌至 0 点并且没有彻底死亡，你可以恢复 1 点生命值，站起来，获得相当于你魔法师等级三倍的临时生命值，持续一分钟，并击倒周围 10 英尺内的所有敌人你容易。此效果每次长时间休息只能发生一次。Feature/&PowerSorcerousPsionMindOverMatterTitle=心灵高于物质
+Feature/&PowerSorcerousPsionMindOverMatterTitle=精神高于物质
+Feature/&PowerSorcerousPsionPsychokinesisDragDescription=你可以使用你的奖励动作来瞄准你周围 30 英尺内的一个生物。然后目标生物会向您移动 15 英尺。敌方生物必须通过对抗你的施法 DC 的力量豁免检定，或者朝所选方向移动，而盟友生物则无需豁免检定即可移动。每次长时间休息你可以使用这个功能的次数等于你的熟练加值，如果你不再使用，你可以支付 2 个魔法点。
+Feature/&PowerSorcerousPsionPsychokinesisDragTitle=念力【拉】
+Feature/&PowerSorcerousPsionPsychokinesisPushDescription=你可以使用你的奖励动作来瞄准你周围 30 英尺内的一个生物。然后目标生物会移至距离您 15 英尺的地方。敌方生物必须通过对抗你的施法 DC 的力量豁免检定，或者朝所选方向移动，而盟友生物则无需豁免检定即可移动。每次长时间休息你可以使用这个功能的次数等于你的熟练加值，如果你不再使用，你可以支付 2 个魔法点。
+Feature/&PowerSorcerousPsionPsychokinesisPushTitle=念力【推】
+Reaction/&CustomReactionMindOverMatterDescription=你可以用 1 点生命值 + 3 倍心灵术士等级临时生命值站立起来，并将 10 英尺内的所有敌人击倒。
+Reaction/&CustomReactionMindOverMatterReactDescription=你可以用 1 点生命值 + 3 倍心灵术士等级临时生命值站立起来，并将 10 英尺内的所有敌人击倒。
+Reaction/&CustomReactionMindOverMatterReactTitle=愈合
+Reaction/&CustomReactionMindOverMatterTitle=精神高于物质
+Subclass/&SorcerousPsionDescription=心灵术士是特殊的个体，拥有通过纯粹的意志力操纵灵能的天生能力。通过广泛的精神训练练习，心灵术士可以学会利用自己的力量并用思想扭曲现实。
+Subclass/&SorcerousPsionTitle=心灵术士

@@ -583,7 +583,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Void’s Grasp
+    #region Void's Grasp
 
     internal static SpellDefinition BuildVoidGrasp()
     {

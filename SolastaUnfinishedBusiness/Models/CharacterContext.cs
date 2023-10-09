@@ -163,13 +163,23 @@ internal static class CharacterContext
                 .Create()
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add)
-                        .Build())
+                .SetEffectForms(EffectFormBuilder.ConditionForm(CustomConditionsContext.Distracted))
                 .Build())
         .SetUniqueInstance()
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
+        .Create("PowerRangerNatureShroud")
+        .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
+        .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionInvisible))
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDruidCircleBalanceBalanceOfPower)
+                .Build())
         .AddToDB();
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
@@ -203,6 +213,7 @@ internal static class CharacterContext
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
+        SwitchRangerNatureShroud();
         SwitchRangerToUseCustomInvocationPools();
         SwitchRogueCunningStrike();
         SwitchRogueFightingStyle();
@@ -863,6 +874,26 @@ internal static class CharacterContext
         {
             AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
                 String.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
+        }
+    }
+
+    internal static void SwitchRangerNatureShroud()
+    {
+        if (Main.Settings.EnableRangerNatureShroudAt10)
+        {
+            Ranger.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 10));
+        }
+        else
+        {
+            Ranger.FeatureUnlocks
+                .RemoveAll(x => x.level == 10
+                                && x.FeatureDefinition == FeatureDefinitionPowerNatureShroud);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Ranger.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 
@@ -1674,7 +1705,7 @@ internal static class CharacterContext
 
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (manager == null)
+            if (manager == null || gameLocationBattleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }

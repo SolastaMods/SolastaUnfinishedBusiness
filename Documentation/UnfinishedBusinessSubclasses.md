@@ -3134,7 +3134,60 @@ Your armor class increases by 2, and you gain proficiency in Dexterity saving th
 
 
 
-## 4. Sorr-Akkath
+## 4. Psion
+
+Psions are exceptional individuals that possess innate ability to manipulate psionic energy by sheer force of will. Through extensive practices of mental discipline, a psion can learn to tap into their power and bend reality with a thought.
+
+
+### Level 1
+
+* Expanded Spells
+
+
+	I	Shield
+
+	II	Psychic Whip
+
+	III	Pulse Wave
+
+	IV	Confusion
+
+	V	Mind Twist
+
+
+
+* Psionic Mind
+
+You gain resistance to psychic damage.
+
+* Psychokinesis
+
+You can use your bonus action and target a creature within 30 feet of you. The targeted creature is then moved up to 15 feet towards you or away from you. Enemy creatures must pass Strength saving throw against your spellcasting DC or be moved in the chosen direction while allied creatures are moved with no saving throw. You can use this feature a number of times per long rest equal to your proficiency bonus, and can pay 1 sorcery point instead if you are out of uses.
+
+
+### Level 6
+
+* Mind Sculpt
+
+Whenever you deal psychic damage with a spell, you add your Charisma modifier as extra psychic damage to one damage roll of that spell. Additionally, you can pay 1 sorcery point to convert all spell damage you deal into psychic damage.
+
+
+### Level 14
+
+* Mind over Matter
+
+If you fall to 0 hit points and don't outright die, you can regain 1 hit point, stand up, gain a number of temporary hit points equal to three times your Sorcerer level for one minute, and knock all enemies within 10 feet of you prone. This effect can occur only once per long rest.
+
+
+### Level 18
+
+* Supreme Will
+
+Whenever you cast a concentration spell, you can pay a number of sorcery points equal to twice the level of the spell to cast the spell without requiring concentration. You can use this feature only once per short rest.
+
+
+
+## 5. Sorr-Akkath
 
 Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
 
@@ -3216,14 +3269,14 @@ You learn two Versatilities.
 
 * Versatility Switch
 
-Each turn, you can switch between Str/Int/Wis/Versatile. When using Versatilities, treat the chosen ability score as 10 + 2 * [Proficiency Bonus]. If you choose versatile, your Int/Str/Wis gain a bonus equal to the amount of Versatilities you have learnt.
+Each turn, you can switch between Strength, Intelligence, Wisdom or Versatile. When using versatilities, treat the chosen ability score as 10 + 2 * Proficiency Bonus. If you choose versatile, your Strength, Intelligence or Wisdom gain a bonus equal to the amount of versatilities you have learnt.
 
 
 ### Level 6
 
 * Blast Pursuit
 
-When you hit an enemy within 30 feet / kills an enemy with Eldritch Blast, you gain 1 / number of beams additional Eldritch Point.
+Gain an additional Eldritch Point when you hit an enemy within 30 feet. When you kill an enemy, gain additional Eldritch Points equal to the number of beams per cast of Eldritch Blast.
 
 * Learn Versatility (1)
 
@@ -3245,7 +3298,7 @@ You learn one Versatility.
 
 * Blast Overload
 
-Once per long rest, you can use a free action to enter Overload. Until the start of your next turn, you gain an extra action, and you can use all your Versatilities without spending points or making any checks.
+Once per long rest, you can use a free action to enter Overload. Until the start of your next turn, you gain an extra action, and you can use all your versatilities without checks or points consumption.
 
 * Learn Versatility (1)
 

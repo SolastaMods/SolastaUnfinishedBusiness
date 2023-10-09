@@ -36,7 +36,7 @@ You point at one creature you can see within range, and the sound of a dolorous 
 
 Causes light sources such as torches and mana lamps in the area of effect to light up.
 
-# 10. - Mind Spike (S) level 0 Enchantment
+# 10. - Mind Spike (V) level 0 Enchantment
 
 You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
 
@@ -135,7 +135,7 @@ On your next hit your weapon rings with thunder and the attack deals an extra 2d
 
 # 33. - Vile Brew (V,S) level 1 Evocation [Concentration]
 
-A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell’s duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns. When you cast this spell using a spell slot 2nd level or higher, the damage increases by 2d4 for each slot level above 1st.
+A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns. When you cast this spell using a spell slot 2nd level or higher, the damage increases by 2d4 for each slot level above 1st.
 
 # 34. - Void's Grasp (V,S) level 1 Evocation
 

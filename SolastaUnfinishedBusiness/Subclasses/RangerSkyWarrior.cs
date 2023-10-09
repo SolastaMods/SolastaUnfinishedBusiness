@@ -269,7 +269,8 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             _conditionGiftOfTheWindAttacked = conditionGiftOfTheWindAttacked;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,

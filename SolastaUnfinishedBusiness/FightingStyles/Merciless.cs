@@ -22,6 +22,7 @@ internal sealed class Merciless : AbstractFightingStyle
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
         .SetGuiPresentation("Merciless", Category.FightingStyle)
+        .SetUsesFixed(ActivationTime.NoCost)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -106,8 +107,9 @@ internal sealed class Merciless : AbstractFightingStyle
                     .ToList()
             };
 
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
+                ?.ExecuteAction(actionParams, null, true);
         }
 
         public IEnumerator OnAttackFinishedByMe(

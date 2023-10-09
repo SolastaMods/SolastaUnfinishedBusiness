@@ -1,0 +1,24 @@
+Action/&MindSculptToggleDescription=Ative para converter todo o próximo dano mágico que você causar em dano psíquico ao custo de 1 ponto de feitiço.
+Action/&MindSculptToggleTitle=Escultura da Mente
+Action/&SupremeWillToggleDescription=Ative para lançar o próximo feitiço sem exigir concentração com 2x o custo de pontos de feitiço no nível do feitiço.
+Action/&SupremeWillToggleTitle=Vontade Suprema
+Feature/&ActionAffinitySorcerousPsionMindSculptDescription=Sempre que você causa dano psíquico com uma magia, você adiciona seu modificador de Carisma como dano psíquico extra a uma jogada de dano daquela magia. Além disso, você pode pagar 1 ponto de feitiçaria para converter todo o dano mágico causado em dano psíquico.
+Feature/&ActionAffinitySorcerousPsionMindSculptTitle=Escultura da Mente
+Feature/&DamageAffinitySorcerousPsionPsionicMindDescription=Você ganha resistência a danos psíquicos.
+Feature/&DamageAffinitySorcerousPsionPsionicMindTitle=Mente Psiônica
+Feature/&FeatureSetSorcerousPsionPsychokinesisDescription=Você pode usar sua ação bônus e mirar em uma criatura a até 9 metros de você. A criatura alvo é então movida até 4,5 metros em sua direção ou para longe de você. As criaturas inimigas devem passar no teste de resistência de Força contra sua CD de conjuração ou serão movidas na direção escolhida enquanto as criaturas aliadas são movidas sem nenhum teste de resistência. Você pode usar esse recurso um número de vezes por descanso longo igual ao seu bônus de proficiência e pode pagar 1 ponto de feitiçaria se estiver sem uso.
+Feature/&FeatureSetSorcerousPsionPsychokinesisTitle=Psicocinese
+Feature/&FeatureSetSorcerousPsionSupremeWillDescription=Sempre que você conjurar uma magia de concentração, você pode pagar um número de pontos de feitiçaria igual ao dobro do nível da magia para conjurar a magia sem exigir concentração. Você pode usar esse recurso apenas uma vez por descanso curto.
+Feature/&FeatureSetSorcerousPsionSupremeWillTitle=Vontade Suprema
+Feature/&PowerSorcerousPsionMindOverMatterDescription=Se você cair para 0 pontos de vida e não morrer imediatamente, você pode recuperar 1 ponto de vida, levantar-se, ganhar um número de pontos de vida temporários igual a três vezes o seu nível de Feiticeiro por um minuto e derrubar todos os inimigos em um raio de 3 metros de distância. você está propenso. Este efeito pode ocorrer apenas uma vez por descanso longo.Feature/&PowerSorcerousPsionMindOverMatterTitle=Mind over Matter
+Feature/&PowerSorcerousPsionMindOverMatterTitle=Mente sobre a matéria
+Feature/&PowerSorcerousPsionPsychokinesisDragDescription=Você pode usar sua ação bônus e mirar em uma criatura a até 9 metros de você. A criatura alvo é então movida até 4,5 metros em sua direção. As criaturas inimigas devem passar no teste de resistência de Força contra sua CD de conjuração ou serão movidas na direção escolhida enquanto as criaturas aliadas são movidas sem nenhum teste de resistência. Você pode usar esse recurso um número de vezes por descanso longo igual ao seu bônus de proficiência e pode pagar 2 pontos de feitiçaria se estiver sem uso.
+Feature/&PowerSorcerousPsionPsychokinesisDragTitle=Psicocinese [Puxar]
+Feature/&PowerSorcerousPsionPsychokinesisPushDescription=Você pode usar sua ação bônus e mirar em uma criatura a até 9 metros de você. A criatura alvo é então movida até 4,5 metros de distância de você. As criaturas inimigas devem passar no teste de resistência de Força contra sua CD de conjuração ou serão movidas na direção escolhida enquanto as criaturas aliadas são movidas sem nenhum teste de resistência. Você pode usar esse recurso um número de vezes por descanso longo igual ao seu bônus de proficiência e pode pagar 2 pontos de feitiçaria se estiver sem uso.
+Feature/&PowerSorcerousPsionPsychokinesisPushTitle=Psicocinese [empurrar]
+Reaction/&CustomReactionMindOverMatterDescription=Você pode se levantar com 1 ponto de vida + 3x seus pontos de vida temporários do nível Psion e derrubar todos os inimigos em um raio de 3 metros.
+Reaction/&CustomReactionMindOverMatterReactDescription=Você pode se levantar com 1 ponto de vida + 3x seus pontos de vida temporários do nível Psion e derrubar todos os inimigos em um raio de 3 metros.
+Reaction/&CustomReactionMindOverMatterReactTitle=Curar
+Reaction/&CustomReactionMindOverMatterTitle=Mente sobre a matéria
+Subclass/&SorcerousPsionDescription=Psions são indivíduos excepcionais que possuem capacidade inata de manipular energia psiônica por pura força de vontade. Através de extensas práticas de disciplina mental, um psion pode aprender a explorar seu poder e distorcer a realidade com um pensamento.
+Subclass/&SorcerousPsionTitle=Psion

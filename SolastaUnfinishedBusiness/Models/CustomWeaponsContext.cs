@@ -670,7 +670,8 @@ internal static class CustomWeaponsContext
         baseDescription.EffectDescription.effectParticleParameters = effectParticleParameters;
 
         ThunderGauntlet = BuildWeapon("CEThunderGauntlet", baseItem, 0, true, Common, basePresentation, baseDescription,
-            Sprites.ItemThunderGauntlet, properties: new[] { ThunderImpactVFX });
+            Sprites.GetSprite("ItemThunderGauntlet", Resources.ItemThunderGauntlet, 128),
+            properties: new[] { ThunderImpactVFX });
         ThunderGauntlet.inDungeonEditor = false;
     }
 
@@ -713,7 +714,8 @@ internal static class CustomWeaponsContext
             SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters;
 
         LightningLauncher = BuildWeapon("CELightningLauncher", baseItem, 0, true, Common, basePresentation,
-            baseDescription, Sprites.ItemGemLightning, properties: new[] { LightningImpactVFX });
+            baseDescription, Sprites.GetSprite("ItemGemLightning", Resources.ItemGemLightning, 128),
+            properties: new[] { LightningImpactVFX });
         LightningLauncher.inDungeonEditor = false;
     }
 

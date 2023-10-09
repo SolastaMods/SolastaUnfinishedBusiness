@@ -14,7 +14,7 @@
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": false,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
@@ -78,7 +78,7 @@
         "saveOccurence": "EndOfTurn",
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
-          "type": "Telekinesis",
+          "type": "DragToOrigin",
           "distance": 1,
           "forceTurnTowardsSourceCharacterAfterPush": false,
           "forceSourceCharacterTurnTowardsTargetAfterPush": false
@@ -330,7 +330,7 @@
     "description": "Feature/&FeatTelekineticDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3f4f97bd-6969-5bbd-9378-7b25583153b7",
+      "m_AssetGUID": "2e41bc01-6d16-5480-940c-6250754ca0fa",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

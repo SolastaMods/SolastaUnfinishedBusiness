@@ -669,7 +669,7 @@ internal static class Level20Context
         }
 
         // fixes known cantrips and slots for some incomplete cast spell features
-        for (var level = 17; level <= 20; level++)
+        for (var level = 16; level <= 20; level++)
         {
             // Tiefling
             CastSpellTiefling.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet

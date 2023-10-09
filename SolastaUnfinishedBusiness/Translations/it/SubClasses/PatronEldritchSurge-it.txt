@@ -1,23 +1,23 @@
 Attribute/&TitleLong=Versatile
-Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Ottieni un'azione extra e puoi usare tutte le tue Versatilità senza spendere punti o effettuare prove, considerando For/Int/Sag come 22 (se superiore).
+Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Ottieni un'azione extra e puoi utilizzare tutte le tue versatilità senza prove o consumo di punti, impostando Forza, Intelligenza o Saggezza a un minimo di 22.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Sovraccarico di esplosioni
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Ottieni <b>Esplosione Eldritch</b> come trucchetto bonus. Il numero del raggio è invece derivato dalla tua determinazione calcolata come [livelli dello stregone] - 2 * [livelli di altre classi]. Puoi lanciare 2 raggi se determinazione >= 3, 3 se >= 8, 4 se >= 13 e 5 se >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Ottieni <b>Esplosione Eldritch</b> come trucchetto bonus. Il numero di raggi deriva dalla tua determinazione calcolata come: [livelli dello stregone] - 2 * [livelli di altre classi]. Puoi lanciare 2 raggi quando la tua determinazione >= 3, 3 quando >= 8, 4 quando >= 13 e 5 quando >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Esclusiva esplosione
-Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Quando colpisci un nemico entro 9 metri/uccidi un nemico con <b>Esplosione Eldritch</b>, guadagni 1/numero di raggi aggiuntivi.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Ottieni un punto Eldritch aggiuntivo quando colpisci un nemico entro 9 metri. Quando uccidi un nemico, ottieni punti Eldritch aggiuntivi pari al numero di raggi per lancio di Eldritch Blast.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Inseguimento esplosivo
-Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Una volta per ogni riposo lungo, puoi usare un'azione gratuita per entrare in Sovraccarico. Fino all'inizio del tuo turno successivo, ottieni un'azione extra e puoi usare tutte le tue Versatilità senza spendere punti o effettuare alcuna prova.
+Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Una volta per ogni riposo lungo, puoi usare un'azione gratuita per entrare in Sovraccarico. Fino all'inizio del tuo turno successivo, ottieni un'azione extra e puoi utilizzare tutte le tue Versatilità senza prove o consumo di punti.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Sovraccarico di esplosioni
 Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Puoi lanciare i trucchetti che hai lanciato in questo turno con la tua azione principale come azione bonus.
 Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Ricarica esplosiva
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Quando usi Versatilità, considera la tua Int come 10 + 2 * [Bonus di competenza].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Quando usi Versatilità, considera la tua Intelligenza come 10 + 2 * Bonus di Competenza.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntTitle=Int
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Il tuo Int/For/Sag ottiene un bonus pari alla quantità di Versatilità che hai imparato.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=La tua Forza, Intelligenza o Saggezza ottengono un bonus pari alla quantità di versatilità che hai imparato.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneTitle=Versatile
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=Ad ogni turno puoi alternare tra For/Int/Sag/Versatile. Quando usi Versatilità, considera il punteggio di caratteristica scelto come 10 + 2 * [Bonus di Competenza]. Se scegli Versatile, Int/For/Sag ottiene un bonus pari alla quantità di Versatilità che hai imparato.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=Ad ogni turno puoi alternare tra Forza, Intelligenza, Saggezza o Versatilità. Quando usi Versatilità, considera il punteggio di caratteristica scelto come 10 + 2 * Bonus di Competenza. Se scegli Versatile, la tua Forza, Intelligenza o Saggezza ottengono un bonus pari alla quantità di versatilità che hai imparato.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolTitle=Interruttore di versatilità
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Quando usi le Versatilità, considera la tua For come 10 + 2 * [Bonus di Competenza].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Quando usi le Versatilità, considera la tua Forza come 10 + 2 * Bonus di Competenza.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrTitle=Str
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Quando usi Versatilità, considera la tua Saggezza come 10 + 2 * [Bonus di competenza].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Quando usi le Versatilità, considera la tua Saggezza come 10 + 2 * Bonus di Competenza.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisTitle=Wis
 Subclass/&PatronEldritchSurgeDescription=Hai stretto un patto con un'entità misteriosa che potrebbe essere una coscienza emersa dalla complessità della Trama, credendo che il puro potere arcano possa creare qualsiasi fenomeno. E tu dovrai dimostrarlo.
 Subclass/&PatronEldritchSurgeTitle=L'ondata mistica

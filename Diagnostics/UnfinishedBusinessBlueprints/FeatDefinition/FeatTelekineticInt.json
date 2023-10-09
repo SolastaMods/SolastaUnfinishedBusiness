@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
-    "Definition:GrantInvocationsFeatTelekineticIntelligence:779a5876-e49a-5743-b0c9-fef6e0ac1322"
+    "Definition:GrantInvocationsFeatTelekineticIntelligence:779a5876-e49a-5743-b0c9-fef6e0ac1322",
+    "Definition:GrantInvocationsFeatTelekineticIntelligencePushFromOrigin:3d12d289-45af-578d-9d6e-6c39651d419e"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

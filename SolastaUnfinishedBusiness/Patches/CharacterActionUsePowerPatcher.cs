@@ -19,6 +19,13 @@ public static class CharacterActionUsePowerPatcher
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
+            var isPowerFunction = __instance.ActionParams.RulesetEffect.Name.Contains("PowerFunction");
+
+            if (isPowerFunction && Main.Settings.KeepInvisibilityWhenUsingItems)
+            {
+                return false;
+            }
+
             return !Global.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
         }
     }
@@ -32,6 +39,13 @@ public static class CharacterActionUsePowerPatcher
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
+            var isPowerFunction = __instance.ActionParams.RulesetEffect.Name.Contains("PowerFunction");
+
+            if (isPowerFunction && Main.Settings.KeepInvisibilityWhenUsingItems)
+            {
+                return false;
+            }
+
             return !Global.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
         }
     }

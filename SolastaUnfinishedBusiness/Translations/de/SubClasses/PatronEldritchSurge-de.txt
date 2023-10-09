@@ -1,23 +1,23 @@
 Attribute/&TitleLong=Vielseitig
-Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Du erhältst eine zusätzliche Aktion und kannst alle deine Vielseitigkeiten nutzen, ohne Punkte auszugeben oder Würfe durchzuführen, wobei Str/Int/Wis als 22 behandelt werden (falls höher).
+Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Sie erhalten eine zusätzliche Aktion und können alle Ihre Vielseitigkeiten ohne Würfe oder Punkteverbrauch nutzen, indem Sie Stärke, Intelligenz oder Weisheit auf mindestens 22 setzen.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Explosionsüberlastung
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Du erhältst <b>Eldritch Blast</b> als Bonus-Cantrip. Die Strahlnummer wird stattdessen durch Ihre Bestimmung abgeleitet und berechnet als [Hexenmeisterstufen] – 2 * [Stufen anderer Klassen]. Sie können 2 Strahlen werfen, wenn die Bestimmung >= 3, 3, wenn >= 8, 4, wenn >= 13 und 5, wenn >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Du erhältst <b>Eldritch Blast</b> als Bonus-Cantrip. Die Anzahl der Strahlen ergibt sich aus Ihrer Entscheidung und berechnet sich wie folgt: [Hexenmeisterstufen] – 2 * [Stufen anderer Klassen]. Sie können 2 Strahlen werfen, wenn Ihre Entschlossenheit >= 3, 3, wenn >= 8, 4, wenn >= 13 und 5, wenn >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Exklusiv bei Blast
-Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Wenn Sie mit <b>Eldritch Blast</b> einen Gegner im Umkreis von 30 Fuß treffen/einen Gegner töten, erhalten Sie 1/Anzahl der Strahlen zusätzlichen Eldritch-Punkt.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Erhalten Sie einen zusätzlichen Eldritch-Punkt, wenn Sie einen Feind im Umkreis von 30 Fuß treffen. Wenn Sie einen Feind töten, erhalten Sie zusätzliche Eldritch-Punkte in Höhe der Anzahl der Strahlen pro Zauber von Eldritch Blast.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Explosionsverfolgung
-Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Einmal pro langer Pause können Sie eine kostenlose Aktion nutzen, um in die Überlastung zu gelangen. Bis zum Beginn Ihres nächsten Zuges erhalten Sie eine zusätzliche Aktion und können alle Ihre Vielseitigkeiten nutzen, ohne Punkte auszugeben oder Kontrollen durchzuführen.
+Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Einmal pro langer Pause können Sie eine kostenlose Aktion nutzen, um in die Überlastung zu gelangen. Bis zum Beginn Ihres nächsten Zuges erhalten Sie eine zusätzliche Aktion und können alle Ihre Vielseitigkeiten ohne Würfe oder Punkteverbrauch nutzen.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Explosionsüberlastung
 Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Du kannst Zaubertricks, die du in diesem Zug gewirkt hast, mit deiner Hauptaktion als Bonusaktion wirken.
 Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Explosionsnachladen
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Wenn Sie Vielseitigkeit nutzen, behandeln Sie Ihren Int als 10 + 2 * [Kompetenzbonus].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Wenn Sie Vielseitigkeit nutzen, behandeln Sie Ihre Intelligenz als 10 + 2 * Fähigkeitsbonus.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntTitle=Int
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Ihr Int/Str/Wis erhält einen Bonus in Höhe der Menge an Vielseitigkeiten, die Sie erlernt haben.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Ihre Stärke, Intelligenz oder Weisheit erhalten einen Bonus in Höhe der Menge an Vielseitigkeit, die Sie erlernt haben.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneTitle=Vielseitig
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=In jeder Runde können Sie zwischen Str/Int/Wis/Vielseitig wechseln. Wenn Sie Vielseitigkeit nutzen, behandeln Sie den gewählten Fähigkeitswert als 10 + 2 * [Kompetenzbonus]. Wenn Sie sich für Vielseitigkeit entscheiden, erhält Ihr Int/Str/Wis einen Bonus in Höhe der Menge an Vielseitigkeit, die Sie erlernt haben.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=In jeder Runde können Sie zwischen Stärke, Intelligenz, Weisheit und Vielseitigkeit wechseln. Wenn Sie Vielseitigkeit nutzen, behandeln Sie den gewählten Fähigkeitswert als 10 + 2 * Fähigkeitsbonus. Wenn Sie sich für Vielseitigkeit entscheiden, erhalten Sie einen Bonus für Ihre Stärke, Intelligenz oder Weisheit in Höhe der Anzahl der erlernten Vielseitigkeiten.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolTitle=Vielseitigkeitsschalter
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Wenn Sie Vielseitigkeit nutzen, behandeln Sie Ihre Str als 10 + 2 * [Kompetenzbonus].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Wenn Sie Vielseitigkeit nutzen, behandeln Sie Ihre Stärke als 10 + 2 * Fähigkeitsbonus.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrTitle=Str
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Wenn Sie Vielseitigkeit nutzen, behandeln Sie Ihre Weisheit als 10 + 2 * [Kompetenzbonus].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Wenn Sie Vielseitigkeit nutzen, behandeln Sie Ihre Weisheit als 10 + 2 * Fähigkeitsbonus.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisTitle=Wis
-Subclass/&PatronEldritchSurgeDescription=Sie haben einen Pakt mit einem mysteriösen Wesen geschlossen, bei dem es sich möglicherweise um ein Bewusstsein handelt, das aus der Komplexität des Gewebes hervorgegangen ist, und glauben, dass reine arkane Macht jedes Phänomen erschaffen kann. Und Sie müssen es beweisen.
+Subclass/&PatronEldritchSurgeDescription=Sie haben einen Pakt mit einem mysteriösen Wesen geschlossen, bei dem es sich möglicherweise um ein Bewusstsein handelt, das aus der Komplexität des Gewebes hervorgegangen ist, und Sie glauben, dass reine arkane Macht jedes Phänomen erschaffen kann. Und Sie müssen es beweisen.
 Subclass/&PatronEldritchSurgeTitle=Die Eldritch-Welle

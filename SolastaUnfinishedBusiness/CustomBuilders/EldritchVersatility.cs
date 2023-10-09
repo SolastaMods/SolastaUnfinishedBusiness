@@ -76,6 +76,13 @@ internal static class EldritchVersatility
             .Setup(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool, 2)
             .AddToDB();
 
+    public static readonly FeatureDefinitionCustomInvocationPool UnLearn1Versatility =
+        CustomInvocationPoolDefinitionBuilder
+            .Create($"Feature{Name}UnLearn1")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool, 1, true)
+            .AddToDB();
+
     public static readonly FeatDefinition FeatEldritchVersatilityAdept = FeatDefinitionBuilder
         .Create($"Feat{Name}Adept")
         .SetGuiPresentation(Category.Feat)
@@ -304,7 +311,6 @@ internal static class EldritchVersatility
         public List<SpellDefinition> CopiedSpells { get; } = new();
         public int CurrentPoints { get; private set; }
         public bool IsValidBlastBreakthrough { get; set; }
-        public int PointSpentOnAddingAC { get; private set; }
         public int CreateSlotDC { get; private set; }
         public int MaxPoints { get; private set; }
         public string ReplacedAbilityScore { get; set; }
@@ -349,6 +355,7 @@ internal static class EldritchVersatility
                     break;
                 case PointUsage.BlastBreakthrough:
                     modifyCurrent = -BeamNumber;
+
                     if (StrPowerPriority[0] != "BlastBreakthroughTitle")
                     {
                         modifyCurrent -= BeamNumber;
@@ -357,6 +364,7 @@ internal static class EldritchVersatility
                     break;
                 case PointUsage.BlastEmpower:
                     modifyCurrent = -BeamNumber;
+
                     if (StrPowerPriority[0] != "BlastEmpowerTitle")
                     {
                         modifyCurrent -= BeamNumber;
@@ -384,9 +392,6 @@ internal static class EldritchVersatility
                     // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                     switch (usage)
                     {
-                        case PointUsage.EldritchAegis:
-                            PointSpentOnAddingAC += value;
-                            break;
                         case PointUsage.BlastBreakthrough:
                         case PointUsage.BlastEmpower:
                             modifyCurrent = Math.Max(modifyCurrent, -BeamNumber);
@@ -411,12 +416,12 @@ internal static class EldritchVersatility
                 return;
             }
 
-            var characterLevel = ownerCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var proficiencyBonus = ownerCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var characterLevel = ownerHero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var proficiencyBonus = ownerHero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-            MaxPoints = ownerCharacter.GetClassLevel(CharacterClassDefinitions.Warlock);
+            MaxPoints = ownerHero.GetClassLevel(CharacterClassDefinitions.Warlock);
 
-            if (ownerCharacter.HasSubFeatureOfType<ModifyEffectDescriptionEldritchBlast>())
+            if (ownerHero.HasSubFeatureOfType<ModifyEffectDescriptionEldritchBlast>())
             {
                 BeamNumber =
                     1 + ModifyEffectDescriptionEldritchBlast.ComputeAdditionalBeamCount(characterLevel, MaxPoints);
@@ -434,10 +439,9 @@ internal static class EldritchVersatility
             CurrentPoints = 0;
             SlotLevel = SharedSpellsContext.GetWarlockSpellLevel(ownerHero);
             CreateSlotDC = 8 + proficiencyBonus;
-            PointSpentOnAddingAC = 0;
             IsValidBlastBreakthrough = false;
             IsOverload = false;
-            HasBlastPursuit = ownerCharacter.HasAnyFeature(FeatureBlastReload);
+            HasBlastPursuit = ownerHero.HasAnyFeature(FeatureBlastReload);
             LearntAmount =
                 ownerHero.TrainedInvocations.Count(x => x.Name.Contains($"Invocation{EldritchVersatility.Name}"));
             ReplacedAbilityScore = string.Empty;
@@ -461,22 +465,17 @@ internal static class EldritchVersatility
                 AttributeDefinitions.Strength, AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom
             };
 
+            hero.Attributes.DoIf(x => names.Contains(x.Key),
+                y => y.Value.ActiveModifiers.RemoveAll(z => z.Tags.Contains(Name)));
+
             if (abilityScore == string.Empty)
             {
-                hero.Attributes.DoIf(x => names.Contains(x.Key), y => y.Value.ActiveModifiers.TryAdd(
-                    RulesetAttributeModifier
-                        .BuildAttributeModifier(AttributeModifierOperation.Additive, LearntAmount, Name)));
+                hero.Attributes.DoIf(x =>
+                        names.Contains(x.Key),
+                    y => y.Value.ActiveModifiers.TryAdd(
+                        RulesetAttributeModifier
+                            .BuildAttributeModifier(AttributeModifierOperation.Additive, LearntAmount, Name)));
             }
-            else
-            {
-                hero.Attributes.DoIf(x => names.Contains(x.Key),
-                    y => y.Value.ActiveModifiers.RemoveAll(z => z.Tags.Contains(Name)));
-            }
-        }
-
-        public void ClearPointSpentOnAddingAC()
-        {
-            PointSpentOnAddingAC = 0;
         }
 
         public void ModifySlotDC(bool createSuccess, RulesetCharacter rulesetCharacter)
@@ -505,7 +504,6 @@ internal static class EldritchVersatility
                 CreateSlotDC = serializer.SerializeAttribute("CreateSlotDC", CreateSlotDC);
                 SlotLevel = serializer.SerializeAttribute("SlotLevel", SlotLevel);
                 BeamNumber = serializer.SerializeAttribute("BeamNumber", BeamNumber);
-                PointSpentOnAddingAC = serializer.SerializeAttribute("PointSpentOnAddingAC", PointSpentOnAddingAC);
                 IsValidBlastBreakthrough =
                     serializer.SerializeAttribute("IsValidBlastBreakthrough", IsValidBlastBreakthrough);
                 IsOverload = serializer.SerializeAttribute("IsOverload", IsOverload);
@@ -555,8 +553,7 @@ internal static class EldritchVersatility
             CreateSlotDC = 0;
             SlotLevel = 0;
             BeamNumber = 0;
-            PointSpentOnAddingAC = 0;
-            ReplacedAbilityScore = "";
+            ReplacedAbilityScore = string.Empty;
             StrPowerPriority.Clear();
             ReplacedAbilityScoreValue = 0;
             LearntAmount = 0;
@@ -598,8 +595,8 @@ internal static class EldritchVersatility
             {
                 var characterAttacker = attacker.RulesetCharacter;
 
-                if (!IsEldritchBlast(rulesetEffect) ||
-                    !characterAttacker.GetVersatilitySupportCondition(out var supportCondition))
+                if (!IsEldritchBlast(rulesetEffect)
+                    || !characterAttacker.GetVersatilitySupportCondition(out var supportCondition))
                 {
                     yield break;
                 }
@@ -640,6 +637,7 @@ internal static class EldritchVersatility
                 var warlockRepertoire =
                     target.GetOriginalHero()!.SpellRepertoires.Find(x =>
                         x.SpellCastingClass == CharacterClassDefinitions.Warlock);
+
                 warlockRepertoire.ExtraSpellsByTag.Remove("BattlefieldShorthand");
                 target.PowersUsedByMe.RemoveAll(x => x.PowerDefinition == PowerEldritchVersatilityPointPool);
             }
@@ -660,14 +658,14 @@ internal static class EldritchVersatility
             InvocationName = invocationName;
         }
 
-        public void OnActionExecutionHandled(GameLocationCharacter character, CharacterActionParams actionParams,
-            ActionScope scope)
+        public void OnActionExecutionHandled(
+            GameLocationCharacter character, CharacterActionParams actionParams, ActionScope scope)
         {
             var rulesetCharacter = character.RulesetCharacter;
 
-            if (Gui.Battle is null ||
-                !IsEldritchBlast(actionParams.RulesetEffect) ||
-                !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if (Gui.Battle is null
+                || !IsEldritchBlast(actionParams.RulesetEffect)
+                || !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 return;
             }
@@ -862,7 +860,8 @@ internal static class EldritchVersatility
             }
 
             // Maximum copy-able spell level is half pool size
-            if (allKnownSpells.Contains(selectedSpellDefinition) || spellLevel > supportCondition.MaxPoints / 2)
+            if (allKnownSpells.Contains(selectedSpellDefinition) ||
+                (2 * spellLevel) - 1 > warlockRepertoire.SpellCastingLevel)
             {
                 yield break;
             }
@@ -1008,13 +1007,6 @@ internal static class EldritchVersatility
 
     private sealed class EldritchAegisTwistHit : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        private static readonly ConditionDefinition ConditionEldritchAegisAddAC = ConditionDefinitionBuilder
-            .Create("ConditionEldritchAegisAddAC")
-            .SetGuiPresentation(Category.Condition, ConditionMagicallyArmored)
-            .SetPossessive()
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedEldritchAegis())
-            .AddToDB();
-
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter me,
@@ -1027,7 +1019,9 @@ internal static class EldritchVersatility
         {
             var ownerCharacter = me.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
-            var alreadyBlocked = defenderCharacter.HasConditionOfType(ConditionEldritchAegisAddAC);
+            var alreadyBlocked =
+                EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter,
+                    out var eldritchAegisSupportCondition);
             var posOwner = me.locationPosition;
             var posDefender = defender.locationPosition;
 
@@ -1050,7 +1044,7 @@ internal static class EldritchVersatility
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
                               + attackModifier.AttackRollModifier;
             var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
-            var currentValue = defenderCharacter.RefreshArmorClass(false, true).CurrentValue;
+            var currentValue = defenderCharacter.Attributes[AttributeDefinitions.ArmorClass].CurrentValue;
             var requiredACAddition = totalAttack - currentValue + 1;
 
             // If other actions already blocked it
@@ -1072,16 +1066,20 @@ internal static class EldritchVersatility
             if (alreadyBlocked)
             {
                 // maximum AC bonus is wisdom modifier
-                if (supportCondition.PointSpentOnAddingAC + requiredACAddition > modifier)
+                if (eldritchAegisSupportCondition.ACBonus + requiredACAddition > modifier)
                 {
                     yield break;
                 }
 
-                if (supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegis,
-                        requiredACAddition))
+                if (!supportCondition.TryEarnOrSpendPoints(
+                        PointAction.Modify, PointUsage.EldritchAegis, requiredACAddition))
                 {
-                    console.AddEntry(entry);
+                    yield break;
                 }
+
+                eldritchAegisSupportCondition.ACBonus += requiredACAddition;
+                console.AddEntry(entry);
+                defenderCharacter.RefreshArmorClass(true);
 
                 yield break;
             }
@@ -1114,36 +1112,72 @@ internal static class EldritchVersatility
             //Spend points
             supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegis,
                 requiredACAddition);
-            InflictCondition(ConditionEldritchAegisAddAC, ownerCharacter, defenderCharacter);
+            InflictCondition(EldritchAegisSupportRulesetCondition.BindingDefinition, ownerCharacter, defenderCharacter);
+            EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter,
+                out eldritchAegisSupportCondition);
+            eldritchAegisSupportCondition.ACBonus = requiredACAddition;
+            defenderCharacter.RefreshArmorClass(true);
             console.AddEntry(entry);
         }
 
-        private sealed class OnConditionAddedOrRemovedEldritchAegis : IModifyAC, IOnConditionAddedOrRemoved
+        private sealed class EldritchAegisSupportRulesetCondition :
+            RulesetConditionCustom<EldritchAegisSupportRulesetCondition>, IBindToRulesetConditionCustom
         {
-            public void GetAC(RulesetCharacter owner, bool callRefresh, bool dryRun, FeatureDefinition dryRunFeature,
-                out RulesetAttributeModifier attributeModifier, out TrendInfo trendInfo)
+            static EldritchAegisSupportRulesetCondition()
             {
-                owner.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagCombat,
-                    ConditionEldritchAegisAddAC.Name, out var activeCondition);
-                RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var sourceCharacter);
-                sourceCharacter.GetVersatilitySupportCondition(out var supportCondition);
-                var acBonus = supportCondition.PointSpentOnAddingAC;
-                attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(AttributeModifierOperation.Additive,
-                    acBonus, AttributeDefinitions.TagCombat);
-                trendInfo = new TrendInfo(acBonus, FeatureSourceType.Condition, activeCondition.Name, null,
-                    attributeModifier);
+                Category = AttributeDefinitions.TagCombat;
+                Marker = new EldritchAegisSupportRulesetCondition();
+                BindingDefinition = ConditionDefinitionBuilder
+                    .Create("ConditionEldritchAegisAddAC")
+                    .SetGuiPresentation(Builders.Category.Condition, ConditionMagicallyArmored)
+                    .SetPossessive()
+                    .AddCustomSubFeatures(
+                        Marker,
+                        new EldritchAegisModifyAC())
+                    .AddToDB();
             }
 
-            public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+            public int ACBonus { get; set; }
+
+            public void ReplaceRulesetCondition(RulesetCondition originalRulesetCondition,
+                out RulesetCondition replacedRulesetCondition)
             {
-                // empty
+                replacedRulesetCondition = GetFromPoolAndCopyOriginalRulesetCondition(originalRulesetCondition);
             }
 
-            public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+            protected override void ClearCustomStates()
             {
-                RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var sourceCharacter);
-                sourceCharacter.GetVersatilitySupportCondition(out var supportCondition);
-                supportCondition?.ClearPointSpentOnAddingAC();
+                ACBonus = 0;
+            }
+
+            public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
+            {
+                base.SerializeAttributes(serializer, versionProvider);
+                try
+                {
+                    serializer.SerializeAttribute("ACBonus", ACBonus);
+                }
+                catch (Exception ex)
+                {
+                    Trace.LogException(
+                        new Exception("Error with EldritchAegisSupportCondition serialization" + ex.Message, ex));
+                }
+            }
+
+            private class EldritchAegisModifyAC : IModifyAC
+            {
+                public void GetAC(RulesetCharacter owner, [UsedImplicitly] bool callRefresh,
+                    [UsedImplicitly] bool dryRun, [UsedImplicitly] FeatureDefinition dryRunFeature,
+                    out RulesetAttributeModifier attributeModifier, out TrendInfo trendInfo)
+                {
+                    GetCustomConditionFromCharacter(owner, out var supportCondition);
+                    var acBonus = supportCondition.ACBonus;
+                    attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(
+                        AttributeModifierOperation.Additive,
+                        acBonus, AttributeDefinitions.TagCombat);
+                    trendInfo = new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name, null,
+                        attributeModifier);
+                }
             }
         }
     }

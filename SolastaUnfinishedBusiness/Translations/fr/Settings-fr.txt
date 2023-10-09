@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=Activer le choix de <b>Style de combat</b> du <co
 ModUi/&EnableMonkWeaponSpecialization=Activez la <b>Spécialisation d'arme</b> pour le <color=#D89555>Moine</color> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer la possibilité de multiclasser son personnage <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme pour la génération de nombres aléatoires (RNG) <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité <color=#D89555>Ranger</color> <b>Nature's Shroud</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour reformer le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Autoriser la sélection de sorts et sorts mineurs déjà appris d'autres classes</i>
 ModUi/&EnableRespec=Autoriser la respécialisation des personnages après une action de repos
@@ -122,6 +123,7 @@ ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localité
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableTeleportParty=Acutoriser <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pouvez bloquer des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
+ModUi/&EnableThesaurus=Activer le thésaurus <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans l'info-bulle du panneau lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la possibilité d'incanter <color=#D89555>Invocation d'élémentaire</color> et <color=#D89555>Invocation de fée</color> à des niveaux d'emplacements de sorts supérieurs
@@ -175,6 +177,7 @@ ModUi/&Items=<color=#F0DAA0>Objets :</color>
 ModUi/&ItemsCraftingMerchants=Artisanat, objets et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des objets au conteneur au sol</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Activer l'utilisation des objets sans rompre l'<color=#D89555>Invisibilité</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des Focaliseurs Arcaniques <i><color=#F0DAA0>[sauf le <color=#D89555>Bâton de guérison</color> qui est Universel]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement des téléporteurs invisibles sur la carte de niveau après leur découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Nombre de classes maximales autorisées</color>
@@ -227,12 +230,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans
 ModUi/&ShowDescriptions=Afficher les descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>Filtre par niveau de sort</color> <color=#F0DAA0>[-1 affiche tout]</color></i></b>
 ModUi/&SpellsMenu=Sorts
-ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsque l'attaque frappe
-ModUi/&StealthBreaksWhenAttackMisses=Activer la perte de furtivité lorsque l'attaque échoue
-ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de matériel
-ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de somatiques
-ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement verbeux
-ModUi/&StealthDoesNotBreakWhenUsingItems=Activer ne pas perdre la furtivité lors de l'utilisation d'objets
+ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort frappe
+ModUi/&StealthBreaksWhenAttackMisses=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort échoue
+ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de matériel <i><color=#F0DAA0>[tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de <i><color=#F0DAA0>somatique [tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement verbeux de <i><color=#F0DAA0>[tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Activer la furtivité sans interruption si <color=#D89555>Métamagie subtile</color> et aucun composant matériel
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Approvisionner le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Approvisionner le magasin de Gorim avec tous les instruments de musique non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Approvisionner le magasin d'Hugo avec des <color=#D89555>Bâton d'Arcane</color>, <color=#D89555>Collier de Druide</color>, <color=#D89555>Bâton</color> et <color=#D89555>Gourdin</color> définis comme des focalisateurs de sort

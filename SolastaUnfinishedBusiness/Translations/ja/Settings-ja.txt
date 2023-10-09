@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=レベル 2 で<color=#D89555>モンク</color>�
 ModUi/&EnableMonkWeaponSpecialization=クラスレベル 2 と 11 で<color=#D89555>モンク</color>の<b>武器特化</b>を有効にします<i><color=#F0DAA0>[選択した武器タイプがモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=マルチクラス <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=<color=#D89555>レンジャー</color> の<b>自然のシュラウド</b>機能をレベル 10 で有効にします<i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法のように透明になることができます]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にすると、何も選択されていない場合、選択したヒーローまたはリーダーを中心としたパーティーに再参加できます<i><color=#F0DAA0>[5 人または 6 人のパーティーで便利です]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ 他のクラスからすでに学習したキャントリップまたは呪文を選択できます</i>
 ModUi/&EnableRespec=休息後の RESPEC アクションを有効にする
@@ -122,6 +123,7 @@ ModUi/&EnableSaveByLocation=キャンペーン/場所ごとの保存を有効に
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color> を有効にしてパーティをテレポートします。<i><color=#F0DAA0>[未発見の場所にテレポートするとクエストが中断される可能性があります]</color></i>
+ModUi/&EnableThesaurus=シソーラス <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=キャラクタープールの切り替えを有効にして、デフォルトのプレイおよびテストパーティーを設定します
 ModUi/&EnableTooltipDistance=戦闘中にキャラクターの上にマウスを置くと、パネルのツールチップに距離が表示されるようになります。
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>コンジュア・エレメンタル</color>と<color=#D89555>コンジュア・フェイ</color>のアップキャストを有効にする
@@ -175,6 +177,7 @@ ModUi/&Items=<color=#F0DAA0>アイテム:</color>
 ModUi/&ItemsCraftingMerchants=クラフト、アイテム、商人
 ModUi/&ItemsHelp1=<color=#C04040E0>キャラクター検査画面を開いてヒーローにアイテムを追加します...</color>
 ModUi/&ItemsHelp2=<b>+ を押して地上コンテナにアイテムを追加します</b>
+ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>非表示</color>を壊さないアイテムの使用を有効にする
 ModUi/&MakeAllMagicStaveArcaneFoci=すべての魔法の杖を秘術の焦点にします<i><color=#F0DAA0>[万能の<color=#D89555>治癒の杖</color>を除く]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後にレベルマップ上に目に見えないテレポーターの位置もマークします</i>
 ModUi/&MaxAllowedClasses=<color=white>許可されるクラスの最大数</color>
@@ -227,12 +230,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=詳細なツールチップにクラ
 ModUi/&ShowDescriptions=説明を表示
 ModUi/&SpellLevelFilter=<b><i><color=white>スペル レベル フィルタ</color> <color=#F0DAA0>[-1 がすべて表示]</color></i></b>
 ModUi/&SpellsMenu=呪文
-ModUi/&StealthBreaksWhenAttackHits=攻撃がヒットしたときにステルスを失うことを有効にする
-ModUi/&StealthBreaksWhenAttackMisses=攻撃が失敗した場合にステルスを失うことを有効にする
-ModUi/&StealthBreaksWhenCastingMaterial=材料をキャストするときにステルスを失うことを有効にする
-ModUi/&StealthBreaksWhenCastingSomatic=ソマティックキャスト時のロストステルスを有効にする
-ModUi/&StealthBreaksWhenCastingVerbose=冗長キャスト時のステルス喪失を有効にする
-ModUi/&StealthDoesNotBreakWhenUsingItems=アイテム使用時にステルスを失わないようにする
+ModUi/&StealthBreaksWhenAttackHits=武器または呪文攻撃がヒットしたときにステルス喪失を有効にする
+ModUi/&StealthBreaksWhenAttackMisses=武器または呪文の攻撃が失敗した場合のステルス損失を有効にする
+ModUi/&StealthBreaksWhenCastingMaterial=マテリアル<i><color=#F0DAA0>[ALL または ENEMY を対象とする非攻撃呪文]</color></i> をキャストするときにステルス損失を有効にする
+ModUi/&StealthBreaksWhenCastingSomatic=ソマティック <i><color=#F0DAA0>[ALL または ENEMY を対象とする非攻撃呪文]</color></i> を唱えるときにステルス損失を有効にする
+ModUi/&StealthBreaksWhenCastingVerbose=冗長 <i><color=#F0DAA0>[ALL または ENEMY を対象とする非攻撃呪文]</color></i> を唱えるときにステルス損失を有効にする
+ModUi/&StealthDoesNotBreakWithSubtle=<color=#D89555>微妙なメタマジック</color>でマテリアルコンポーネントがない場合、ステルスが壊れないようにします
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=ゴリムのストアに魔法以外の衣類をすべて揃える <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=ゴリムのストアに魔法以外の楽器をすべて揃える <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴのストアに<color=#D89555>秘術の杖</color>、<color=#D89555>ドルイドの首</color>、<color=#D89555>スタッフ</color>、<color=#D89555>クラブ</color> フォーカスアイテムとして設定

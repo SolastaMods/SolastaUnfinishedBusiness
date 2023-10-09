@@ -23,6 +23,26 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeaturePatronEldritchSurgeBlastPursuit:e0083abd-e908-5593-b82b-7fd90ca71697",
       "level": 6
     },
@@ -30,6 +50,26 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureEldritchVersatilityLearn1:a76ad49a-2a2e-5799-8d77-c1b5814914bc",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -43,6 +83,26 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerPatronEldritchSurgeBlastOverload:25cade8b-5a01-55b8-b16a-aa1211b15bd1",
       "level": 14
     },
@@ -50,6 +110,41 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureEldritchVersatilityLearn1:a76ad49a-2a2e-5799-8d77-c1b5814914bc",
       "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureEldritchVersatilityUnLearn1:cecf66ce-a059-5689-a270-56b62e3d983e",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],

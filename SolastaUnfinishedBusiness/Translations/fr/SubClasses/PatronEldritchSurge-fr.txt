@@ -1,23 +1,23 @@
 Attribute/&TitleLong=Polyvalent
-Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Vous gagnez une action supplémentaire et vous pouvez utiliser toutes vos polyvalences sans dépenser de points ni effectuer de contrôle, en traitant Str/Int/Wis comme 22 (si supérieur).
+Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Vous gagnez une action supplémentaire, et vous pouvez utiliser toutes vos polyvalences sans contrôle ni consommation de points, en réglant la Force, l'Intelligence ou la Sagesse à 22 minimum.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Surcharge d'explosion
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Vous gagnez <b>Eldritch Blast</b> en tant que bonus. Le numéro de faisceau est plutôt dérivé de votre détermination calculée comme suit : [Niveaux de démoniste] - 2 * [Niveaux d'autres classes]. Vous pouvez lancer 2 poutres si détermination >= 3, 3 si >= 8, 4 si >= 13 et 5 si >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Vous gagnez <b>Eldritch Blast</b> en tant que bonus. Le nombre de faisceaux est dérivé de votre détermination, calculé comme suit : [Niveaux de démoniste] - 2 * [Niveaux des autres classes]. Vous pouvez lancer 2 faisceaux lorsque votre détermination >= 3, 3 lorsque >= 8, 4 lorsque votre détermination >= 13 et 5 lorsque >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Explosion exclusive
-Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Lorsque vous touchez un ennemi à moins de 9 mètres/tuez un ennemi avec <b>Explosion surnaturelle</b>, vous gagnez 1/nombre de faisceaux de points surnaturels supplémentaires.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Gagnez un point Eldritch supplémentaire lorsque vous touchez un ennemi à moins de 9 mètres. Lorsque vous tuez un ennemi, gagnez des points surnaturels supplémentaires égaux au nombre de faisceaux par lancement d'Eldritch Blast.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Poursuite explosive
-Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Une fois par repos long, vous pouvez utiliser une action gratuite pour entrer en surcharge. Jusqu'au début de votre prochain tour, vous gagnez une action supplémentaire et vous pouvez utiliser toutes vos Polyvalences sans dépenser de points ni effectuer de test.
+Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Une fois par repos long, vous pouvez utiliser une action gratuite pour entrer en surcharge. Jusqu'au début de votre prochain tour, vous gagnez une action supplémentaire, et vous pouvez utiliser toutes vos Polyvalences sans chèque ni consommation de points.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Surcharge d'explosion
 Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Vous pouvez lancer les sorts mineurs que vous avez lancés ce tour-ci avec votre action principale comme action bonus.
-Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Recharge explosive
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Lorsque vous utilisez les polyvalences, traitez votre Int comme 10 + 2 * [Bonus de compétence].
+Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Rechargement explosif
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Lorsque vous utilisez les polyvalences, traitez votre intelligence comme un bonus de compétence de 10 + 2 *.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntTitle=Int
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Votre Int/Str/Wis gagne un bonus égal au montant de polyvalences que vous avez apprises.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Votre Force, votre Intelligence ou votre Sagesse gagnent un bonus égal au nombre de polyvalences que vous avez apprises.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneTitle=Polyvalent
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=À chaque tour, vous pouvez basculer entre Str/Int/Wis/Versatile. Lorsque vous utilisez les polyvalences, traitez le score de capacité choisi comme 10 + 2 * [Bonus de compétence]. Si vous choisissez polyvalent, votre Int/Str/Wis gagne un bonus égal au nombre de polyvalences que vous avez apprises.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=À chaque tour, vous pouvez basculer entre Force, Intelligence, Sagesse ou Polyvalence. Lorsque vous utilisez Polyvalences, considérez le score de capacité choisi comme 10 + 2 * Bonus de compétence. Si vous choisissez la polyvalence, votre Force, votre Intelligence ou votre Sagesse gagnent un bonus égal au nombre de polyvalences que vous avez apprises.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolTitle=Commutateur de polyvalence
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Lorsque vous utilisez les polyvalences, traitez votre Str comme 10 + 2 * [Bonus de compétence].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Lorsque vous utilisez les polyvalences, considérez votre force comme un bonus de compétence de 10 + 2 *.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrTitle=Str
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Lorsque vous utilisez les polyvalences, traitez votre Sagesse comme 10 + 2 * [Bonus de compétence].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Lorsque vous utilisez les polyvalences, traitez votre sagesse comme un bonus de compétence de 10 + 2 *.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisTitle=Wis
-Subclass/&PatronEldritchSurgeDescription=Vous avez conclu un pacte avec une entité mystérieuse qui pourrait être une conscience issue de la complexité du Tissage, croyant que le pur pouvoir arcanique peut créer n'importe quel phénomène. Et vous devez le prouver.
+Subclass/&PatronEldritchSurgeDescription=Vous avez conclu un pacte avec une entité mystérieuse qui pourrait être une conscience issue de la complexité du Tissage, croyant que le pouvoir arcanique pur peut créer n'importe quel phénomène. Et vous devez le prouver.
 Subclass/&PatronEldritchSurgeTitle=La montée surnaturelle

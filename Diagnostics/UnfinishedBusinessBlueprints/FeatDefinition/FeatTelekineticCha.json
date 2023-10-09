@@ -13,7 +13,8 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
-    "Definition:GrantInvocationsFeatTelekineticCharisma:fe7c2cae-e8c9-5de2-bd43-5bf48be93ccc"
+    "Definition:GrantInvocationsFeatTelekineticCharisma:fe7c2cae-e8c9-5de2-bd43-5bf48be93ccc",
+    "Definition:GrantInvocationsFeatTelekineticCharismaPushFromOrigin:c482b27b-3e45-5054-b4d0-b8bb69f11018"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

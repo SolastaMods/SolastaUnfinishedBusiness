@@ -95,7 +95,6 @@ CombatAffinityFeatSpellSniperSorcerer	Title='Spell Sniper [Sorcerer]'.
 CombatAffinityFeatSpellSniperWarlock	Title='Spell Sniper [Warlock]'.
 CombatAffinityFeatSpellSniperWizard	Title='Spell Sniper [Wizard]'.
 CombatAffinityWayOfTheDiscordanceTurmoil	Title='Turmoil'.
-ConditionEldritchAegisAddAC	Description='ConditionMagicallyArmored'.
 ConditionElementalInfusionAcidDamage	Title='Acid Damage Infusion'.
 ConditionElementalInfusionAcidDamage	Description='Your next melee attack deals an additional 1d6 Acid Damage per slot level spent.'.
 ConditionElementalInfusionAcidResistance	Title='Acid Damage Infusion'.

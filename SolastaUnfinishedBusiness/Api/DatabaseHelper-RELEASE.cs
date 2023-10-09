@@ -1570,6 +1570,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerCollegeLoreCuttingWords { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCollegeLoreCuttingWords");
 
+        internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
+
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
 
@@ -1761,6 +1764,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerPaladinLayOnHands { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPaladinLayOnHands");
+
+        internal static FeatureDefinitionPower PowerPatronFiendDarkOnesBlessing { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesBlessing");
 
         internal static FeatureDefinitionPower PowerPatronFiendDarkOnesOwnLuck { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronFiendDarkOnesOwnLuck");
@@ -2830,6 +2836,9 @@ internal static partial class DatabaseHelper
     {
         internal static MetamagicOptionDefinition MetamagicQuickenedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicQuickenedSpell");
+
+        internal static MetamagicOptionDefinition MetamagicSubtleSpell { get; } =
+            GetDefinition<MetamagicOptionDefinition>("MetamagicSubtleSpell");
 
         internal static MetamagicOptionDefinition MetamagicTwinnedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicTwinnedSpell");

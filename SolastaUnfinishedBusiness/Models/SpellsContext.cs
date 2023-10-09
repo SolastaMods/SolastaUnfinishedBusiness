@@ -40,6 +40,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
+    internal static readonly SpellDefinition PsychicWhip = BuildPsychicWhip();
+    internal static readonly SpellDefinition PulseWave = BuildPulseWave();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SonicBoom = BuildSonicBoom();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
@@ -248,7 +250,7 @@ internal static class SpellsContext
         RegisterSpell(BuildNoxiousSpray(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
-        RegisterSpell(BuildPsychicWhip(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(PsychicWhip, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
@@ -261,7 +263,7 @@ internal static class SpellsContext
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
         RegisterSpell(ElementalWeapon, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildHungerOfTheVoid(), 0, SpellListWarlock);
-        RegisterSpell(BuildPulseWave(), 0, SpellListWizard);
+        RegisterSpell(PulseWave, 0, SpellListWizard);
         RegisterSpell(BuildFlameArrows(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildLightningArrow(), 0, SpellListRanger);

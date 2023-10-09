@@ -295,7 +295,7 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class PhysicalAttackInitiatedByMeBlessedWarrior : IPhysicalAttackInitiatedByMe
+    private sealed class PhysicalAttackInitiatedByMeBlessedWarrior : IAttackBeforeHitConfirmedOnEnemy
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -304,14 +304,24 @@ public sealed class RangerLightBearer : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
@@ -321,35 +331,29 @@ public sealed class RangerLightBearer : AbstractSubclass
             }
 
             // change all damage types to radiant
-            attackMode.effectDescription = EffectDescriptionBuilder
-                .Create(attackMode.EffectDescription)
-                .Build();
-
-            var effectDescription = attackMode.EffectDescription;
-
-            foreach (var damageForm in effectDescription.EffectForms
+            foreach (var damageForm in actualEffectForms
                          .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
             {
                 damageForm.DamageForm.damageType = DamageTypeRadiant;
             }
 
             // add additional radiant damage form
-            var classLevel = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
-            var pos = attackMode.EffectDescription.EffectForms.FindIndex(x =>
-                x.FormType == EffectForm.EffectFormType.Damage);
+            var diceNumber = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger) < 11 ? 1 : 2;
+            var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
 
             if (pos >= 0)
             {
-                effectDescription.EffectForms.Insert(pos,
-                    EffectFormBuilder.DamageForm(DamageTypeRadiant, classLevel < 11 ? 1 : 2, DieType.D8));
+                actualEffectForms.Insert(
+                    pos + 1,
+                    EffectFormBuilder.DamageForm(DamageTypeRadiant, diceNumber, DieType.D8));
             }
 
-            var rulesetCondition =
-                rulesetDefender.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-            if (rulesetCondition != null)
+            if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionDefinition.Name,
+                    out var activeCondition))
             {
-                rulesetDefender.RemoveCondition(rulesetCondition);
+                rulesetDefender.RemoveCondition(activeCondition);
             }
         }
     }

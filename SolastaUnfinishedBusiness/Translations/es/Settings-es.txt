@@ -112,6 +112,7 @@ ModUi/&EnableMonkFightingStyle=Activa la opción <color=#D89555>Monje</color> <b
 ModUi/&EnableMonkWeaponSpecialization=Activa <color=#D89555>Monje</color> <b>Especialización en armas</b> en los niveles de clase 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnablePcgRandom=Habilite un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Activa la característica <color=#D89555>Ranger</color> <b>Sudario de la Naturaleza</b> en el nivel 10 <i><color=#F0DAA0>[como acción adicional, puedes volverte invisible mágicamente hasta el comienzo del siguiente turno. ]</color></i>
 ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirte al grupo en torno al héroe seleccionado o al líder si no se selecciona ninguno <i><color=#F0DAA0>[útil con grupos de 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Puede seleccionar cantrips o hechizos ya aprendidos de otras clases</i>
 ModUi/&EnableRespec=Habilite la acción RESPEC después del descanso
@@ -122,6 +123,7 @@ ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
 ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color></i>
+ModUi/&EnableThesaurus=Habilitar diccionario de sinónimos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas del panel al pasar el mouse sobre un personaje en combate
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
@@ -175,6 +177,7 @@ ModUi/&Items=<color=#F0DAA0>Objetos:</color>
 ModUi/&ItemsCraftingMerchants=Fabricación, artículos y comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Habilitar el uso de elementos sin romper la <color=#D89555>Invisibilidad</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de curación</color> que es universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
@@ -227,12 +230,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en in
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todo]</color></i></b>
 ModUi/&SpellsMenu=Hechizos
-ModUi/&StealthBreaksWhenAttackHits=Habilitar perder sigilo cuando golpea el ataque
-ModUi/&StealthBreaksWhenAttackMisses=Habilitar perder sigilo cuando falla el ataque
-ModUi/&StealthBreaksWhenCastingMaterial=Habilitar pérdida de sigilo al lanzar material.
-ModUi/&StealthBreaksWhenCastingSomatic=Habilitar pérdida de sigilo al lanzar somáticos.
-ModUi/&StealthBreaksWhenCastingVerbose=Habilitar pérdida de sigilo al transmitir contenido detallado
-ModUi/&StealthDoesNotBreakWhenUsingItems=Habilitar no perder el sigilo al usar elementos
+ModUi/&StealthBreaksWhenAttackHits=Habilite la pérdida de sigilo cuando se produzca un ataque con arma o hechizo.
+ModUi/&StealthBreaksWhenAttackMisses=Habilitar la pérdida de sigilo cuando falla el ataque con arma o hechizo.
+ModUi/&StealthBreaksWhenCastingMaterial=Habilite la pérdida de sigilo al lanzar material <i><color=#F0DAA0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Habilite la pérdida de sigilo al lanzar somático <i><color=#F0DAA0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Habilite la pérdida de sigilo al lanzar <i><color=#F0DAA0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Habilite el sigilo sin romperse si <color=#D89555>Metamágica sutil</color> y no hay ningún componente material.
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacene la tienda de Gorim con toda la ropa no mágica <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Almacene la tienda de Gorim con todos los instrumentos musicales no mágicos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Almacene la tienda de Hugo con <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Club</color> establecer como elementos de enfoque

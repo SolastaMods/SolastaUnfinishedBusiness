@@ -236,6 +236,8 @@ internal enum ExtraActionId
     EldritchVersatilityMain = 9037,
     EldritchVersatilityBonus = 9038,
     EldritchVersatilityNoCost = 9039,
+    MindSculptToggle = 9040,
+    SupremeWillToggle = 9041,
     PrioritizeAction
 }
 

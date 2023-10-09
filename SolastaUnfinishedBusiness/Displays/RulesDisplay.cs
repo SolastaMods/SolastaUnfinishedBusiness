@@ -20,13 +20,6 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialFlankingRulesAlsoForRanged = false;
         }
 
-        toggle = Main.Settings.FixEldritchBlastRange;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixEldritchBlastRange = toggle;
-            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
-        }
-
         toggle = Main.Settings.UseOfficialFlankingRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
         {
@@ -75,7 +68,7 @@ internal static class RulesDisplay
         }
 
         UI.Label();
-        
+
         toggle = Main.Settings.StealthBreaksWhenAttackHits;
         if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenAttackHits"), ref toggle, UI.AutoWidth()))
         {
@@ -87,31 +80,7 @@ internal static class RulesDisplay
         {
             Main.Settings.StealthBreaksWhenAttackMisses = toggle;
         }
-        
-        toggle = Main.Settings.StealthBreaksWhenCastingMaterial;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingMaterial"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthBreaksWhenCastingMaterial = toggle;
-        }
-        
-        toggle = Main.Settings.StealthBreaksWhenCastingVerbose;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingVerbose"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthBreaksWhenCastingVerbose = toggle;
-        }
-        
-        toggle = Main.Settings.StealthBreaksWhenCastingSomatic;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingSomatic"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthBreaksWhenCastingSomatic = toggle;
-        }
-        
-        toggle = Main.Settings.StealthDoesNotBreakWhenUsingItems;
-        if (UI.Toggle(Gui.Localize("ModUi/&StealthDoesNotBreakWhenUsingItems"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.StealthDoesNotBreakWhenUsingItems = toggle;
-        }
-        
+
         UI.Label();
 
         toggle = Main.Settings.DontEndTurnAfterReady;
@@ -128,6 +97,12 @@ internal static class RulesDisplay
         {
             Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout = toggle;
             SrdAndHouseRulesContext.SwitchDarknessSpell();
+        }
+
+        toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
+        if (UI.Toggle(Gui.Localize("ModUi/&KeepInvisibilityWhenUsingItems"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
         }
 
         toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
@@ -212,6 +187,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
         }
 
+        toggle = Main.Settings.FixEldritchBlastRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixEldritchBlastRange = toggle;
+            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+        }
+
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
@@ -239,6 +221,32 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveAttunementRequirements = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.StealthBreaksWhenCastingMaterial;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingMaterial"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingMaterial = toggle;
+        }
+
+        toggle = Main.Settings.StealthBreaksWhenCastingVerbose;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingVerbose"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingVerbose = toggle;
+        }
+
+        toggle = Main.Settings.StealthBreaksWhenCastingSomatic;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingSomatic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthBreaksWhenCastingSomatic = toggle;
+        }
+
+        toggle = Main.Settings.StealthDoesNotBreakWithSubtle;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthDoesNotBreakWithSubtle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthDoesNotBreakWithSubtle = toggle;
         }
 
         UI.Label();

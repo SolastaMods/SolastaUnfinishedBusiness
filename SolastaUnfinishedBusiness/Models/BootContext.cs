@@ -64,9 +64,6 @@ internal static class BootContext
         // Races may rely on spells and powers being in the DB before they can properly load.
         RacesContext.Load();
 
-        // Backgrounds may rely on spells and powers being in the DB before they can properly load.
-        BackgroundsContext.Load();
-
         // Classes may rely on spells and powers being in the DB before they can properly load.
         ClassesContext.Load();
 
@@ -75,6 +72,9 @@ internal static class BootContext
 
         // Level 20 must always load after classes and subclasses
         Level20Context.Load();
+
+        // Backgrounds may rely on LEVEL20, spells and powers being in the DB before they can properly load.
+        BackgroundsContext.Load();
 
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();
