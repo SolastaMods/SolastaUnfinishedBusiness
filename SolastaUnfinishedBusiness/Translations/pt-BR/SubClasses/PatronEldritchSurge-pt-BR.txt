@@ -1,23 +1,23 @@
 Attribute/&TitleLong=Versátil
-Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Você ganha uma ação extra e pode usar todas as suas Versatilidades sem gastar pontos ou fazer qualquer teste, tratando Força/Int/Sab como 22 (se maior).
+Condition/&ConditionPatronEldritchSurgeBlastOverloadDescription=Você ganha uma ação extra e pode usar todas as suas versatilidades sem testes ou consumo de pontos, definindo Força, Inteligência ou Sabedoria em no mínimo 22.
 Condition/&ConditionPatronEldritchSurgeBlastOverloadTitle=Sobrecarga de explosão
-Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Você ganha <b>Eldritch Blast</b> como um truque bônus. O número do feixe é derivado por sua determinação calculada como [Níveis de Warlock] - 2 * [Níveis de Outras Classes]. Você pode lançar 2 feixes se determinação >= 3, 3 se >= 8, 4 se >= 13 e 5 se >= 18.
+Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveDescription=Você ganha <b>Eldritch Blast</b> como um truque bônus. O número de feixes é derivado de sua determinação, calculado como: [Níveis de Warlock] - 2 * [Níveis de Outras Classes]. Você pode lançar 2 raios quando sua determinação for >= 3, 3 quando >= 8, 4 quando >= 13 e 5 quando >= 18.
 Feature/&BonusCantripsPatronEldritchSurgeBlastExclusiveTitle=Explosão Exclusiva
-Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Quando você atinge um inimigo em um raio de 9 metros/mata um inimigo com <b>Eldritch Blast</b>, você ganha 1/número de feixes de Ponto Eldritch adicional.
+Feature/&FeaturePatronEldritchSurgeBlastPursuitDescription=Ganhe um Ponto Sobrenatural adicional ao atingir um inimigo em um raio de 9 metros. Ao matar um inimigo, ganhe pontos sobrenaturais adicionais iguais ao número de raios por lançamento de explosão sobrenatural.
 Feature/&FeaturePatronEldritchSurgeBlastPursuitTitle=Perseguição Explosiva
-Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Uma vez por descanso longo, você pode usar uma ação livre para entrar em Sobrecarga. Até o início do seu próximo turno, você ganha uma ação extra e pode usar todas as suas Versatilidades sem gastar pontos ou fazer qualquer teste.
+Feature/&PowerPatronEldritchSurgeBlastOverloadDescription=Uma vez por descanso longo, você pode usar uma ação livre para entrar em Sobrecarga. Até o início do seu próximo turno, você ganha uma ação extra e pode usar todas as suas Versatilidades sem testes ou consumo de pontos.
 Feature/&PowerPatronEldritchSurgeBlastOverloadTitle=Sobrecarga de explosão
 Feature/&PowerPatronEldritchSurgeBlastReloadDescription=Você pode lançar truques que lançou neste turno com sua ação principal como uma ação bônus.
 Feature/&PowerPatronEldritchSurgeBlastReloadTitle=Recarga Explosiva
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Ao usar Versatilidades, trate seu Int como 10 + 2 * [Bônus de Proficiência].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntDescription=Ao usar Versatilidades, trate sua Inteligência como 10 + 2 * Bônus de Proficiência.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchIntTitle=Int
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Sua Int/Str/Wis ganha um bônus igual à quantidade de Versatilidades que você aprendeu.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneDescription=Sua Força, Inteligência ou Sabedoria ganham um bônus igual à quantidade de versatilidades que você aprendeu.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchNoneTitle=Versátil
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=A cada turno, você pode alternar entre Str/Int/Wis/Versatile. Ao usar Versatilidades, trate o valor da habilidade escolhida como 10 + 2 * [Bônus de Proficiência]. Se você escolher versátil, sua Int/For/Wis ganha um bônus igual à quantidade de Versatilidades que você aprendeu.
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolDescription=A cada turno, você pode alternar entre Força, Inteligência, Sabedoria ou Versátil. Ao usar Versatilidades, trate o valor da habilidade escolhida como 10 + 2 * Bônus de Proficiência. Se você escolher versátil, sua Força, Inteligência ou Sabedoria ganham um bônus igual à quantidade de versatilidades que você aprendeu.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchPoolTitle=Chave de versatilidade
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Ao usar Versatilidades, trate sua Força como 10 + 2 * [Bônus de Proficiência].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrDescription=Ao usar Versatilidades, trate sua Força como 10 + 2 * Bônus de Proficiência.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchStrTitle=Str
-Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Ao usar Versatilidades, trate seu Wis como 10 + 2 * [Bônus de Proficiência].
+Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisDescription=Ao usar Versatilidades, trate sua Sabedoria como 10 + 2 * Bônus de Proficiência.
 Feature/&PowerPatronEldritchSurgeVersatilitySwitchWisTitle=Wis
 Subclass/&PatronEldritchSurgeDescription=Você fez um pacto com uma entidade misteriosa que pode ser uma consciência que emergiu da complexidade da Trama, acreditando que o puro poder arcano pode criar qualquer fenômeno. E você deve provar isso.
 Subclass/&PatronEldritchSurgeTitle=A onda sobrenatural
