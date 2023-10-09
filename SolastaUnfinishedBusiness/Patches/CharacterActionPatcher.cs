@@ -213,6 +213,13 @@ public static class CharacterActionPatcher
                         var isSubtle = activeSpell.MetamagicOption ==
                                        DatabaseHelper.MetamagicOptionDefinitions.MetamagicSubtleSpell;
 
+                        if (Main.Settings.StealthDoesNotBreakWithSubtle
+                            && isSubtle
+                            && spell.MaterialComponentType == MaterialComponentType.None)
+                        {
+                            return false;
+                        }
+
                         if ((spell.MaterialComponentType != MaterialComponentType.None &&
                              Main.Settings.StealthBreaksWhenCastingMaterial)
                             || (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic && !isSubtle)

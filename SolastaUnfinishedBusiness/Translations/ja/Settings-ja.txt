@@ -233,6 +233,7 @@ ModUi/&StealthBreaksWhenAttackMisses=武器または呪文の攻撃が失敗し�
 ModUi/&StealthBreaksWhenCastingMaterial=マテリアル<i><color=#F0DAA0>[ALL または ENEMY を対象とする非攻撃呪文]</color></i> をキャストするときにステルス損失を有効にする
 ModUi/&StealthBreaksWhenCastingSomatic=ソマティック <i><color=#F0DAA0>[ALL または ENEMY を対象とする非攻撃呪文]</color></i> を唱えるときにステルス損失を有効にする
 ModUi/&StealthBreaksWhenCastingVerbose=冗長 <i><color=#F0DAA0>[ALL または ENEMY を対象とする非攻撃呪文]</color></i> を唱えるときにステルス損失を有効にする
+ModUi/&StealthDoesNotBreakWithSubtle=<color=#D89555>微妙なメタマジック</color>でマテリアルコンポーネントがない場合、ステルスが壊れないようにします
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=ゴリムのストアに魔法以外の衣類をすべて揃える <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=ゴリムのストアに魔法以外の楽器をすべて揃える <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=ヒューゴのストアに<color=#D89555>秘術の杖</color>、<color=#D89555>ドルイドの首</color>、<color=#D89555>スタッフ</color>、<color=#D89555>クラブ</color> フォーカスアイテムとして設定

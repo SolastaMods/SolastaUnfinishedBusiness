@@ -175,7 +175,7 @@ ModUi/&Items=<color=#F0DAA0>Items:</color>
 ModUi/&ItemsCraftingMerchants=Crafting, Items & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
-ModUi/&KeepInvisibilityWhenUsingItems=Enable item usage doesn't break invisibility
+ModUi/&KeepInvisibilityWhenUsingItems=Enable item usage not breaking invisibility
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
@@ -232,7 +232,8 @@ ModUi/&StealthBreaksWhenAttackHits=Enable stealth loss when weapon or spell atta
 ModUi/&StealthBreaksWhenAttackMisses=Enable stealth loss when weapon or spell attack misses
 ModUi/&StealthBreaksWhenCastingMaterial=Enable stealth loss when casting material <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
 ModUi/&StealthBreaksWhenCastingSomatic=Enable stealth loss when casting somatic <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
-ModUi/&StealthBreaksWhenCastingVerbose=Enable stealth loss when casting verbose <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Enable stealth loss when casting verbal <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Enable stealth not breaking if <color=#D89555>Subtle Metamagic</color> and no material component
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items

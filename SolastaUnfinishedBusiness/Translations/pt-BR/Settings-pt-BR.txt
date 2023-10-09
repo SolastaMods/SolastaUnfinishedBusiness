@@ -233,6 +233,7 @@ ModUi/&StealthBreaksWhenAttackMisses=Habilite a perda furtiva quando o ataque de
 ModUi/&StealthBreaksWhenCastingMaterial=Habilite a perda furtiva ao lançar material <i><color=#F0DAA0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i>
 ModUi/&StealthBreaksWhenCastingSomatic=Habilite a perda furtiva ao lançar <i><color=#F0DAA0>somático[qualquer feitiço sem ataque com o alvo TODOS ou INIMIGO]</color></i>
 ModUi/&StealthBreaksWhenCastingVerbose=Habilite perda furtiva ao lançar <i><color=#F0DAA0>[qualquer feitiço sem ataque com alvo TODOS ou INIMIGO]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Habilite a furtividade sem quebrar se <color=#D89555>Subtle Metamagic</color> e nenhum componente material
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Armazene a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Loja de estoque de Gorim com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club</color> definido como itens de foco

@@ -233,6 +233,7 @@ ModUi/&StealthBreaksWhenAttackMisses=Habilitar la pérdida de sigilo cuando fall
 ModUi/&StealthBreaksWhenCastingMaterial=Habilite la pérdida de sigilo al lanzar material <i><color=#F0DAA0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i>
 ModUi/&StealthBreaksWhenCastingSomatic=Habilite la pérdida de sigilo al lanzar somático <i><color=#F0DAA0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i>
 ModUi/&StealthBreaksWhenCastingVerbose=Habilite la pérdida de sigilo al lanzar <i><color=#F0DAA0>[cualquier hechizo que no sea de ataque con objetivo TODOS o ENEMIGO]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Habilite el sigilo sin romperse si <color=#D89555>Metamágica sutil</color> y no hay ningún componente material.
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacene la tienda de Gorim con toda la ropa no mágica <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Almacene la tienda de Gorim con todos los instrumentos musicales no mágicos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Almacene la tienda de Hugo con <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Club</color> establecer como elementos de enfoque

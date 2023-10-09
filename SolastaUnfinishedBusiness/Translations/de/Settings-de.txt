@@ -233,6 +233,7 @@ ModUi/&StealthBreaksWhenAttackMisses=Aktivieren Sie den Stealth-Verlust, wenn ei
 ModUi/&StealthBreaksWhenCastingMaterial=Aktivieren Sie Stealth-Verlust beim Wirken von Material <i><color=#F0DAA0>[jeder Nicht-Angriffszauber mit dem Ziel ALLES oder FEIND]</color></i>
 ModUi/&StealthBreaksWhenCastingSomatic=Aktivieren Sie Stealth-Verlust, wenn Sie somatische <i><color=#F0DAA0>[jeden nicht angreifenden Zauber mit dem Ziel ALLES oder FEIND]</color></i> wirken
 ModUi/&StealthBreaksWhenCastingVerbose=Aktivieren Sie Stealth-Verlust, wenn Sie ausführlich <i><color=#F0DAA0>[jeden nicht angreifenden Zauber mit dem Ziel ALLES oder FEIND]</color></i> wirken
+ModUi/&StealthDoesNotBreakWithSubtle=Aktivieren Sie die Tarnung, die nicht unterbrochen wird, wenn <color=#D89555>Subtile Metamagie</color> und keine Materialkomponente vorhanden ist
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Lagern Sie Gorims Laden mit aller nicht-magischen Kleidung <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Lagern Sie Gorims Laden mit allen nicht-magischen Musikinstrumenten <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Lagern Sie Hugos Laden mit <color=#D89555>Arkanstab</color>, <color=#D89555>Druidenhals</color>, <color=#D89555>Stab</color> und <color=#D89555>Keule</color> als Fokuselemente festlegen

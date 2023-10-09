@@ -75,7 +75,7 @@ internal static class RulesDisplay
         }
 
         UI.Label();
-        
+
         toggle = Main.Settings.StealthBreaksWhenAttackHits;
         if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenAttackHits"), ref toggle, UI.AutoWidth()))
         {
@@ -87,23 +87,33 @@ internal static class RulesDisplay
         {
             Main.Settings.StealthBreaksWhenAttackMisses = toggle;
         }
-        
+
+        UI.Label();
+
         toggle = Main.Settings.StealthBreaksWhenCastingMaterial;
         if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingMaterial"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.StealthBreaksWhenCastingMaterial = toggle;
         }
-        
+
         toggle = Main.Settings.StealthBreaksWhenCastingVerbose;
         if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingVerbose"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.StealthBreaksWhenCastingVerbose = toggle;
         }
-        
+
         toggle = Main.Settings.StealthBreaksWhenCastingSomatic;
         if (UI.Toggle(Gui.Localize("ModUi/&StealthBreaksWhenCastingSomatic"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.StealthBreaksWhenCastingSomatic = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.StealthDoesNotBreakWithSubtle;
+        if (UI.Toggle(Gui.Localize("ModUi/&StealthDoesNotBreakWithSubtle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.StealthDoesNotBreakWithSubtle = toggle;
         }
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
