@@ -123,6 +123,7 @@ ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
 ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color>传送队伍<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></i>
+ModUi/&EnableThesaurus=启用同义词库<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设置默认的游戏和测试队伍
 ModUi/&EnableTooltipDistance=当鼠标悬停在战斗中的角色上时，启用在面板的工具提示上显示距离
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素召唤</color>和<color=#D89555>精类召唤</color>的升环

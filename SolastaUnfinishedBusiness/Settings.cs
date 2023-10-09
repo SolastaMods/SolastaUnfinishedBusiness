@@ -20,14 +20,10 @@ public class Settings : UnityModManager.ModSettings
     // UI Saved State
     //
 
-    public int SelectedTab { get; set; }
-
-    //
-    // Welcome Message
-    //
-
     public int EnableDiagsDump { get; set; }
+    public bool EnableThesaurus { get; set; }
     public bool HideWelcomeMessage { get; set; }
+    public int SelectedTab { get; set; }
 
     //
     // SETTINGS UI TOGGLES

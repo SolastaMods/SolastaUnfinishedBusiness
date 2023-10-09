@@ -123,6 +123,7 @@ ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
 ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color></i>
+ModUi/&EnableThesaurus=Habilitar diccionario de sinónimos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas del panel al pasar el mouse sobre un personaje en combate
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>

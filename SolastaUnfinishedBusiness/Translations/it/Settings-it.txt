@@ -123,6 +123,7 @@ ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableTeleportParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(T)</color> per teletrasportare il gruppo <i><color=#F0DAA0>[potresti interrompere le missioni se ti teletrasporti in un luogo sconosciuto]</color></i>
+ModUi/&EnableThesaurus=Abilita il dizionario dei sinonimi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Attiva/disattiva il pool di personaggi per impostare il gruppo di gioco e di prova predefinito
 ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza sulla descrizione comandi del pannello quando passi sopra un personaggio in combattimento
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555> Evoca Elementale</color> e <color=#D89555> Evoca Folletto</color>

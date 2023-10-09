@@ -1,5 +1,6 @@
 ﻿1.5.94.23:
 
+- RESPEC is suggested on Telekinesis to get full benefits of reworked feat
 - added Gameplay > Rules > 'Enable item usage not breaking invisibility'
 - added Gameplay > Rules > 'Enable stealth not rolling if Subtle Metamagic'
 - added Ranger nature's shroud optional feature at level 10 [homebrew by DemonicDuck]

@@ -123,6 +123,7 @@ ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localité
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableTeleportParty=Acutoriser <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pouvez bloquer des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
+ModUi/&EnableThesaurus=Activer le thésaurus <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans l'info-bulle du panneau lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la possibilité d'incanter <color=#D89555>Invocation d'élémentaire</color> et <color=#D89555>Invocation de fée</color> à des niveaux d'emplacements de sorts supérieurs

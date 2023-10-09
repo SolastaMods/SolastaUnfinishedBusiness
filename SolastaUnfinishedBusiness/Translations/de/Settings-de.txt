@@ -123,6 +123,7 @@ ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Stando
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
+ModUi/&EnableThesaurus=Aktivieren Sie den Thesaurus <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Distanz im Tooltip des Panels, wenn Sie im Kampf mit der Maus über einen Charakter fahren
 ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Fee beschwören</color>
