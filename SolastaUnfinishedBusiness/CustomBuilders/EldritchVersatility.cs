@@ -860,7 +860,7 @@ internal static class EldritchVersatility
             }
 
             // Maximum copy-able spell level is half pool size
-            if (allKnownSpells.Contains(selectedSpellDefinition) || spellLevel > supportCondition.MaxPoints / 2)
+            if (allKnownSpells.Contains(selectedSpellDefinition) || 2 * spellLevel - 1 > warlockRepertoire.SpellCastingLevel)
             {
                 yield break;
             }
