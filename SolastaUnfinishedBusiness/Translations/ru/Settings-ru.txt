@@ -175,6 +175,7 @@ ModUi/&Items=<color=#F0DAA0>Предметы:</color>
 ModUi/&ItemsCraftingMerchants=Крафт, предметы и торговцы
 ModUi/&ItemsHelp1=<color=#C04040E0>Откройте экран персонажа, чтобы добавить предметы героям...</color>
 ModUi/&ItemsHelp2=<b>Нажмите + для добавления предметов в хранилище на земле</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Включение использования предметов не нарушает невидимость
 ModUi/&MakeAllMagicStaveArcaneFoci=Сделать все волшебные посохи подходящими для магической фокусировки <i><color=#F0DAA0>[кроме <color=#D89555>Посоха лечения</color>, который является универсальным]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Также помечать местонахождение невидимых телепортов на карте уровня после того, как они открыты</i>
 ModUi/&MaxAllowedClasses=<color=white>Максимальное разрешённое количество классов</color>

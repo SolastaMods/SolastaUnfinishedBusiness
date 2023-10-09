@@ -106,6 +106,12 @@ internal static class RulesDisplay
             Main.Settings.StealthBreaksWhenCastingSomatic = toggle;
         }
 
+        toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
+        if (UI.Toggle(Gui.Localize("ModUi/&KeepInvisibilityWhenUsingItems"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.DontEndTurnAfterReady;

@@ -175,6 +175,7 @@ ModUi/&Items=<color=#F0DAA0>Oggetti:</color>
 ModUi/&ItemsCraftingMerchants=Creazione, oggetti e mercanti
 ModUi/&ItemsHelp1=<color=#C04040E0>Apri la schermata di ispezione del personaggio per aggiungere oggetti agli eroi...</color>
 ModUi/&ItemsHelp2=<b>Premi + per aggiungere oggetti al contenitore a terra</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Abilitare l'utilizzo degli oggetti non interrompe l'invisibilità
 ModUi/&MakeAllMagicStaveArcaneFoci=Trasforma tutti i bastoni magici in fuochi arcani <i><color=#F0DAA0> [tranne <color=#D89555> Bastone della Guarigione</color> che è Universale]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Contrassegna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>

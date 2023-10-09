@@ -1,5 +1,6 @@
 ﻿1.5.94.23:
 
+- added Gameplay > Rules > Use items don't break invisibility
 - added Sorcerous Psion subclass [homebrew by HiddenHax]
 - fixed break stealth feature disconsidering spell attacks
 - fixed custom selection panel using class level on races

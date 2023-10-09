@@ -175,6 +175,7 @@ ModUi/&Items=<color=#F0DAA0>Artikel:</color>
 ModUi/&ItemsCraftingMerchants=Handwerk, Gegenstände und Händler
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffnen Sie den Charakterinspektionsbildschirm, um Gegenstände zu Helden hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Gegenstände zum Bodenbehälter hinzuzufügen</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Durch die Aktivierung der Verwendung von Gegenständen wird die Unsichtbarkeit nicht unterbrochen
 ModUi/&MakeAllMagicStaveArcaneFoci=Machen Sie alle Zauberstäbe zu arkanen Brennpunkten <i><color=#F0DAA0>[außer dem <color=#D89555>Stab der Heilung</color>, der universell ist]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte.</i>
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>

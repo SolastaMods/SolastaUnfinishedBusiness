@@ -175,10 +175,13 @@ public static class CharacterActionPatcher
                 {
                     if ((actionAttack.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
                          && Main.Settings.StealthBreaksWhenAttackHits)
-                        || ((actionAttack.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
-                             && Main.Settings.StealthBreaksWhenAttackMisses)))
+                        || (actionAttack.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                            && Main.Settings.StealthBreaksWhenAttackMisses))
                     {
-                        roll = false;
+                        __instance.SetStealthy(false);
+                        __instance.SetAlertPerception(false);
+
+                        return false;
                     }
 
                     break;
@@ -194,20 +197,26 @@ public static class CharacterActionPatcher
                     {
                         if ((actionCastSpell.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
                              && Main.Settings.StealthBreaksWhenAttackHits)
-                            || ((actionCastSpell.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
-                                 && Main.Settings.StealthBreaksWhenAttackMisses)))
+                            || (actionCastSpell.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                                && Main.Settings.StealthBreaksWhenAttackMisses))
                         {
-                            roll = false;
+                            __instance.SetStealthy(false);
+                            __instance.SetAlertPerception(false);
+
+                            return false;
                         }
                     }
                     else if (spell.EffectDescription.TargetSide != Side.Ally)
                     {
-                        if (spell.MaterialComponentType != MaterialComponentType.None &&
-                            Main.Settings.StealthBreaksWhenCastingMaterial
-                            || spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic
-                            || spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose)
+                        if ((spell.MaterialComponentType != MaterialComponentType.None &&
+                             Main.Settings.StealthBreaksWhenCastingMaterial)
+                            || (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic)
+                            || (spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose))
                         {
-                            roll = false;
+                            __instance.SetStealthy(false);
+                            __instance.SetAlertPerception(false);
+
+                            return false;
                         }
                     }
 

@@ -175,6 +175,7 @@ ModUi/&Items=<color=#F0DAA0>Itens:</color>
 ModUi/&ItemsCraftingMerchants=Artesanato, itens e comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abra a tela de inspeção de personagem para adicionar itens aos heróis...</color>
 ModUi/&ItemsHelp2=<b>Pressione + para adicionar itens ao contêiner de solo</b>
+ModUi/&KeepInvisibilityWhenUsingItems=Habilitar o uso de itens não quebra a invisibilidade
 ModUi/&MakeAllMagicStaveArcaneFoci=Transforme todos os cajados mágicos em focos arcanos <i><color=#F0DAA0>[exceto <color=#D89555>Cajado de Cura</color> que é Universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização dos teletransportadores invisíveis no mapa de nível após a descoberta</i>
 ModUi/&MaxAllowedClasses=<color=white>Máximo de aulas permitidas</color>

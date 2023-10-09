@@ -175,6 +175,7 @@ ModUi/&Items=<color=#F0DAA0>项目：</color>
 ModUi/&ItemsCraftingMerchants=物品、手工艺和商人
 ModUi/&ItemsHelp1=<color=#C04040E0>打开角色检视界面为英雄添加物品...</color>
 ModUi/&ItemsHelp2=<b>按+将项目添加到地面容器</b>
+ModUi/&KeepInvisibilityWhenUsingItems=启用物品使用不会破坏隐形
 ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔法法杖成为奥术专用<i><color=#F0DAA0>[除了<color=#D89555>治疗法杖</color>是通用的]</color></i>
 ModUi/&MakeLargeWildshapeFormsMedium=使所有大型野生动物形态中等大小
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+发现后在关卡地图上标记隐形传送器的位置</i>
