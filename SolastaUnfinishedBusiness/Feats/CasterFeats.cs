@@ -564,7 +564,7 @@ internal static class CasterFeats
 
         var motionTypeName = motionType.ToString();
 
-        AssetReferenceSprite sprite = null;
+        AssetReferenceSprite sprite;
 
         if (motionTypeName == "DragToOrigin")
         {

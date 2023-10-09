@@ -233,7 +233,7 @@ ModUi/&StealthBreaksWhenAttackMisses=Enable stealth loss when weapon or spell at
 ModUi/&StealthBreaksWhenCastingMaterial=Enable stealth loss when casting material <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
 ModUi/&StealthBreaksWhenCastingSomatic=Enable stealth loss when casting somatic <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
 ModUi/&StealthBreaksWhenCastingVerbose=Enable stealth loss when casting verbal <i><color=#F0DAA0>[any non attack spell with target ALL or ENEMY]</color></i>
-ModUi/&StealthDoesNotBreakWithSubtle=Enable stealth not breaking if <color=#D89555>Subtle Metamagic</color> and no material component
+ModUi/&StealthDoesNotBreakWithSubtle=Enable stealth not rolling if <color=#D89555>Subtle Metamagic</color> and no material component
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
