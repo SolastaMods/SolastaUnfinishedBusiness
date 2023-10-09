@@ -84,10 +84,12 @@ public class PatronEldritchSurge : AbstractSubclass
             .AddFeaturesAtLevel(14,
                 PowerBlastOverload,
                 Learn1Versatility);
+
         for (var i = 2; i <= 20; i++)
         {
             builder.AddFeaturesAtLevel(i, UnLearn1Versatility);
         }
+
         BuildVersatilities();
         Subclass = builder.AddToDB();
     }

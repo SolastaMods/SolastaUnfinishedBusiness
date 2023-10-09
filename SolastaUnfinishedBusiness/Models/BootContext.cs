@@ -75,7 +75,7 @@ internal static class BootContext
 
         // Backgrounds may rely on LEVEL20, spells and powers being in the DB before they can properly load.
         BackgroundsContext.Load();
-        
+
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();
         RecipeHelper.AddRecipeIcons();

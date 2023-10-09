@@ -76,7 +76,7 @@ internal static class EldritchVersatility
             .Setup(InvocationPoolTypeCustom.Pools.EldritchVersatilityPool, 2)
             .AddToDB();
 
-    public static readonly FeatureDefinitionCustomInvocationPool UnLearn1Versatility = 
+    public static readonly FeatureDefinitionCustomInvocationPool UnLearn1Versatility =
         CustomInvocationPoolDefinitionBuilder
             .Create($"Feature{Name}UnLearn1")
             .SetGuiPresentationNoContent(true)
@@ -860,7 +860,8 @@ internal static class EldritchVersatility
             }
 
             // Maximum copy-able spell level is half pool size
-            if (allKnownSpells.Contains(selectedSpellDefinition) || 2 * spellLevel - 1 > warlockRepertoire.SpellCastingLevel)
+            if (allKnownSpells.Contains(selectedSpellDefinition) ||
+                (2 * spellLevel) - 1 > warlockRepertoire.SpellCastingLevel)
             {
                 yield break;
             }
@@ -1006,7 +1007,6 @@ internal static class EldritchVersatility
 
     private sealed class EldritchAegisTwistHit : IAttackBeforeHitPossibleOnMeOrAlly
     {
-
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter me,
@@ -1019,7 +1019,9 @@ internal static class EldritchVersatility
         {
             var ownerCharacter = me.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
-            var alreadyBlocked = EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter, out var eldritchAegisSupportCondition);
+            var alreadyBlocked =
+                EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter,
+                    out var eldritchAegisSupportCondition);
             var posOwner = me.locationPosition;
             var posDefender = defender.locationPosition;
 
@@ -1074,6 +1076,7 @@ internal static class EldritchVersatility
                 {
                     yield break;
                 }
+
                 eldritchAegisSupportCondition.ACBonus += requiredACAddition;
                 console.AddEntry(entry);
                 defenderCharacter.RefreshArmorClass(true);
@@ -1110,30 +1113,34 @@ internal static class EldritchVersatility
             supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegis,
                 requiredACAddition);
             InflictCondition(EldritchAegisSupportRulesetCondition.BindingDefinition, ownerCharacter, defenderCharacter);
-            EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter, out eldritchAegisSupportCondition);
+            EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter,
+                out eldritchAegisSupportCondition);
             eldritchAegisSupportCondition.ACBonus = requiredACAddition;
             defenderCharacter.RefreshArmorClass(true);
             console.AddEntry(entry);
         }
 
-        private sealed class EldritchAegisSupportRulesetCondition : RulesetConditionCustom<EldritchAegisSupportRulesetCondition>, IBindToRulesetConditionCustom
+        private sealed class EldritchAegisSupportRulesetCondition :
+            RulesetConditionCustom<EldritchAegisSupportRulesetCondition>, IBindToRulesetConditionCustom
         {
-            public int ACBonus { get; set; }
             static EldritchAegisSupportRulesetCondition()
             {
-                    Category = AttributeDefinitions.TagCombat;
-                    Marker = new EldritchAegisSupportRulesetCondition();
-                    BindingDefinition = ConditionDefinitionBuilder
-                        .Create("ConditionEldritchAegisAddAC")
-                        .SetGuiPresentation(Builders.Category.Condition, ConditionMagicallyArmored)
-                        .SetPossessive()
-                        .AddCustomSubFeatures(
+                Category = AttributeDefinitions.TagCombat;
+                Marker = new EldritchAegisSupportRulesetCondition();
+                BindingDefinition = ConditionDefinitionBuilder
+                    .Create("ConditionEldritchAegisAddAC")
+                    .SetGuiPresentation(Builders.Category.Condition, ConditionMagicallyArmored)
+                    .SetPossessive()
+                    .AddCustomSubFeatures(
                         Marker,
                         new EldritchAegisModifyAC())
-                        .AddToDB();
+                    .AddToDB();
             }
 
-            public void ReplaceRulesetCondition(RulesetCondition originalRulesetCondition, out RulesetCondition replacedRulesetCondition)
+            public int ACBonus { get; set; }
+
+            public void ReplaceRulesetCondition(RulesetCondition originalRulesetCondition,
+                out RulesetCondition replacedRulesetCondition)
             {
                 replacedRulesetCondition = GetFromPoolAndCopyOriginalRulesetCondition(originalRulesetCondition);
             }
@@ -1157,13 +1164,16 @@ internal static class EldritchVersatility
                 }
             }
 
-            private class EldritchAegisModifyAC: IModifyAC
+            private class EldritchAegisModifyAC : IModifyAC
             {
-                public void GetAC(RulesetCharacter owner, [UsedImplicitly] bool callRefresh, [UsedImplicitly] bool dryRun, [UsedImplicitly] FeatureDefinition dryRunFeature, out RulesetAttributeModifier attributeModifier, out TrendInfo trendInfo)
+                public void GetAC(RulesetCharacter owner, [UsedImplicitly] bool callRefresh,
+                    [UsedImplicitly] bool dryRun, [UsedImplicitly] FeatureDefinition dryRunFeature,
+                    out RulesetAttributeModifier attributeModifier, out TrendInfo trendInfo)
                 {
                     GetCustomConditionFromCharacter(owner, out var supportCondition);
                     var acBonus = supportCondition.ACBonus;
-                    attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(AttributeModifierOperation.Additive,
+                    attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(
+                        AttributeModifierOperation.Additive,
                         acBonus, AttributeDefinitions.TagCombat);
                     trendInfo = new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name, null,
                         attributeModifier);

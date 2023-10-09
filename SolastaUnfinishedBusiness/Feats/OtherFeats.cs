@@ -562,7 +562,8 @@ internal static class OtherFeats
         {
             var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var medicineBonus = character
-                .ComputeBaseAbilityCheckBonus(AttributeDefinitions.Wisdom, rulesetEffect?.MagicAttackTrends, "Medicine");
+                .ComputeBaseAbilityCheckBonus(
+                    AttributeDefinitions.Wisdom, rulesetEffect?.MagicAttackTrends, "Medicine");
 
             effectDescription.EffectForms[0].HealingForm.bonusHealing = characterLevel + medicineBonus;
 

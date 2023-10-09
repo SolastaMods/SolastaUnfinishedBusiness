@@ -964,6 +964,45 @@ internal static partial class SpellBuilders
             _conditionLightningArrow = conditionLightningArrow;
         }
 
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode is not { Ranged: true } && attackMode is not { Thrown: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionLightningArrow.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            var diceNumber = MainTargetDiceNumber + activeCondition.EffectLevel - 3;
+            var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
+
+            if (pos >= 0)
+            {
+                actualEffectForms.Insert(
+                    pos + 1,
+                    EffectFormBuilder.DamageForm(DamageTypeLightning, diceNumber, DieType.D8));
+            }
+        }
+
         public IEnumerator OnAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1040,45 +1079,6 @@ internal static partial class SpellBuilders
                 .ToList());
 
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsLeap));
-        }
-
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (attackMode is not { Ranged: true } && attackMode is not { Thrown: true })
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    _conditionLightningArrow.Name,
-                    out var activeCondition))
-            {
-                yield break;
-            }
-
-            var diceNumber = MainTargetDiceNumber + activeCondition.EffectLevel - 3;
-            var pos = actualEffectForms.FindIndex(x => x.FormType == EffectForm.EffectFormType.Damage);
-
-            if (pos >= 0)
-            {
-                actualEffectForms.Insert(
-                    pos + 1,
-                    EffectFormBuilder.DamageForm(DamageTypeLightning, diceNumber, DieType.D8));
-            }
         }
     }
 

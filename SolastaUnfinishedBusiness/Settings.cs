@@ -155,9 +155,8 @@ public class Settings : UnityModManager.ModSettings
     public bool StealthBreaksWhenCastingMaterial { get; set; }
     public bool StealthBreaksWhenCastingVerbose { get; set; }
     public bool StealthBreaksWhenCastingSomatic { get; set; }
-    
     public bool StealthDoesNotBreakWithSubtle { get; set; }
-    public bool KeepInvisibilityWhenUsingItems  { get; set; }
+    public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
     public bool AttackersWithDarkvisionHaveAdvantageOverDefendersWithout { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }

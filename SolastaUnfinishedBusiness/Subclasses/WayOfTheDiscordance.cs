@@ -67,10 +67,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                     (OperationType.Set,
-                        ValidatorsWeapon.IsUnarmed(character, mode)
-                        && Global.CurrentAttackAction != null
-                        && !Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
-                            .HasConditionOfType(conditionHadDiscordanceDamageThisTurn)
+                        (ValidatorsWeapon.IsUnarmed(character, mode)
+                         && Global.CurrentAttackAction != null
+                         && !Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                             .HasConditionOfType(conditionHadDiscordanceDamageThisTurn))
                         || character.GetClassLevel(CharacterClassDefinitions.Monk) >= EntropicStrikesLevel)))
             .AddToDB();
 
