@@ -139,6 +139,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         var powerArcaneBacklash = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneBackslash")
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetGuiPresentation(Category.Feature)
             .SetEffectDescription(
                 EffectDescriptionBuilder
