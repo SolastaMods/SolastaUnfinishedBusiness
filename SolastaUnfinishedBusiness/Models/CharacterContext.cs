@@ -878,7 +878,7 @@ internal static class CharacterContext
 
     internal static void SwitchRangerNatureShroud()
     {
-        if (Main.Settings.EnableBarbarianFightingStyle)
+        if (Main.Settings.EnableRangerNatureShroudAt10)
         {
             Ranger.FeatureUnlocks.TryAdd(
                 new FeatureUnlockByLevel(FeatureDefinitionPowerNatureShroud, 10));
