@@ -22,6 +22,7 @@ internal sealed class Merciless : AbstractFightingStyle
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
         .SetGuiPresentation("Merciless", Category.FightingStyle)
+        .SetUsesFixed(ActivationTime.NoCost)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
