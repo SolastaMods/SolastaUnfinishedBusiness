@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -188,7 +189,8 @@ public static class CharacterActionPatcher
                 }
                 case CharacterActionCastSpell actionCastSpell:
                 {
-                    var spell = actionCastSpell.ActiveSpell.SpellDefinition;
+                    var activeSpell = actionCastSpell.ActiveSpell;
+                    var spell = activeSpell.SpellDefinition;
 
                     if (spell.EffectDescription.RangeType
                         is RangeType.Touch
@@ -208,10 +210,13 @@ public static class CharacterActionPatcher
                     }
                     else if (spell.EffectDescription.TargetSide != Side.Ally)
                     {
+                        var isSubtle = activeSpell.MetamagicOption ==
+                                       DatabaseHelper.MetamagicOptionDefinitions.MetamagicSubtleSpell;
+
                         if ((spell.MaterialComponentType != MaterialComponentType.None &&
                              Main.Settings.StealthBreaksWhenCastingMaterial)
-                            || (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic)
-                            || (spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose))
+                            || (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic && !isSubtle)
+                            || (spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose && !isSubtle))
                         {
                             __instance.SetStealthy(false);
                             __instance.SetAlertPerception(false);
