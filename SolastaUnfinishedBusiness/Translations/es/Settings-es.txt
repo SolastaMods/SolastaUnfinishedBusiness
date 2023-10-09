@@ -175,7 +175,7 @@ ModUi/&Items=<color=#F0DAA0>Objetos:</color>
 ModUi/&ItemsCraftingMerchants=Fabricación, artículos y comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
-ModUi/&KeepInvisibilityWhenUsingItems=Habilitar el uso de elementos no rompe la invisibilidad
+ModUi/&KeepInvisibilityWhenUsingItems=Habilitar el uso de elementos sin romper la <color=#D89555>Invisibilidad</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de curación</color> que es universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>

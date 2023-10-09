@@ -3162,7 +3162,7 @@ You gain resistance to psychic damage.
 
 * Psychokinesis
 
-You can use your bonus action and target a creature within 30 feet of you. The targeted creature is then moved up to 15 feet towards you or away from you. Enemy creatures must pass Strength saving throw against your spellcasting DC or be moved in the chosen direction while allied creatures are moved with no saving throw. You can use this feature a number of times per long rest equal to your proficiency bonus, and can pay 2 sorcery points instead if you are out of uses.
+You can use your bonus action and target a creature within 30 feet of you. The targeted creature is then moved up to 15 feet towards you or away from you. Enemy creatures must pass Strength saving throw against your spellcasting DC or be moved in the chosen direction while allied creatures are moved with no saving throw. You can use this feature a number of times per long rest equal to your proficiency bonus, and can pay 1 sorcery point instead if you are out of uses.
 
 
 ### Level 6

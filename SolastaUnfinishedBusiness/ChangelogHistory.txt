@@ -4,15 +4,15 @@
 - added Gameplay > Rules > 'Enable stealth not rolling if Subtle Metamagic'
 - added Sorcerous Psion subclass [homebrew by HiddenHax]
 - fixed Arcane Scoundrel arcane backslash burning extra attacks on kill
-- fixed break stealth feature disconsidering spell attacks
+- fixed break stealth feature not considering spell attacks
 - fixed College of Harlequin terrific performance burning extra attacks on kill
 - fixed custom selection panel using class level on races
 - fixed Devoted background missing cantrip slots from 17th
 - fixed Healer feat causing an exception on medKit tooltip
 - fixed Merciless fighting style burning extra attacks on kill
-- fixed Patron Eldritch Surge stacking versatilities scores
 - fixed Oath of Altruism freezing game on Guardian Aura
-- fixed Smite ignoring daggers and javelins within reach
+- fixed Paladin smites ignoring daggers and javelins within reach
+- fixed Patron Eldritch Surge stacking versatilities scores
 - fixed Telekinesis feat to work as official tabletop rules
 - fixed Way of Discordance freezing game on Deflect Missiles
 - fixed Way of Discordance tides of chaos burning extra attacks on kill

@@ -175,7 +175,7 @@ ModUi/&Items=<color=#F0DAA0>아이템:</color>
 ModUi/&ItemsCraftingMerchants=제작, 아이템 및 상인
 ModUi/&ItemsHelp1=<color=#C04040E0>인벤토리에 아이템을 추가하려면 캐릭터 조사창을 열어야 합니다...</color>
 ModUi/&ItemsHelp2=<b>지상 컨테이너에 아이템을 추가하려면 +를 누르세요</b>
-ModUi/&KeepInvisibilityWhenUsingItems=아이템 사용을 활성화해도 투명화가 깨지지 않습니다.
+ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>투명화</color>를 깨지 않고 아이템 사용을 활성화합니다.
 ModUi/&MakeAllMagicStaveArcaneFoci=모든 마법 지팡이를 비전 주문 매개체로 만듦 <i><color=#F0DAA0>[범용<color=#D89555>치유의 스태프</color>는 제외]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 전개 후 레벨 맵에 보이지 않는 순간이동기의 위치도 표시</i>
 ModUi/&MaxAllowedClasses=<color=white>클래스 최대 허용</color>

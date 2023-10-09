@@ -175,7 +175,7 @@ ModUi/&Items=<color=#F0DAA0>Objets :</color>
 ModUi/&ItemsCraftingMerchants=Artisanat, objets et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des objets au conteneur au sol</b>
-ModUi/&KeepInvisibilityWhenUsingItems=Activer l'utilisation des objets ne rompt pas l'invisibilité
+ModUi/&KeepInvisibilityWhenUsingItems=Activer l'utilisation des objets sans rompre l'<color=#D89555>Invisibilité</color>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des Focaliseurs Arcaniques <i><color=#F0DAA0>[sauf le <color=#D89555>Bâton de guérison</color> qui est Universel]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement des téléporteurs invisibles sur la carte de niveau après leur découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Nombre de classes maximales autorisées</color>
