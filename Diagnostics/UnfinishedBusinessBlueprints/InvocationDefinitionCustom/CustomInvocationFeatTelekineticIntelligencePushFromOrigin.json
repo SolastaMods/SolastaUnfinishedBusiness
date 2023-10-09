@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerFeatTelekineticCharisma:db9f8762-a3ea-5fca-9719-eb378c088569",
+  "grantedFeature": "Definition:PowerFeatTelekineticIntelligencePushFromOrigin:84e020b2-e02c-572f-8b02-c72e7975bbfc",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,11 +11,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatTelekineticTitle",
-    "description": "Feature/&FeatTelekineticDescription",
+    "title": "Feature/&FeatTelekineticPushFromOriginTitle",
+    "description": "Feature/&FeatTelekineticPushFromOriginDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2e41bc01-6d16-5480-940c-6250754ca0fa",
+      "m_AssetGUID": "1ade88e4-6100-576f-91c0-6a1ccb35c81d",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7495e8ee-826c-5010-a4a0-41ea78b6754a",
+  "guid": "5a3436c6-956a-5ce6-8885-e00cf813cc35",
   "contentPack": 9999,
-  "name": "CustomInvocationFeatTelekineticCharisma"
+  "name": "CustomInvocationFeatTelekineticIntelligencePushFromOrigin"
 }

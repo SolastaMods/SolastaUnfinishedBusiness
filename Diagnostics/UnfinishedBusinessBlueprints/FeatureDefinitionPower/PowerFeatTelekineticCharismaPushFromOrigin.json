@@ -43,7 +43,7 @@
     "hasShoveRoll": false,
     "createdByCharacter": false,
     "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Intelligence",
+    "savingThrowDifficultyAbility": "Charisma",
     "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
@@ -78,7 +78,7 @@
         "saveOccurence": "EndOfTurn",
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
-          "type": "DragToOrigin",
+          "type": "PushFromOrigin",
           "distance": 1,
           "forceTurnTowardsSourceCharacterAfterPush": false,
           "forceSourceCharacterTurnTowardsTargetAfterPush": false
@@ -326,11 +326,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatTelekineticTitle",
-    "description": "Feature/&FeatTelekineticDescription",
+    "title": "Feature/&FeatTelekineticPushFromOriginTitle",
+    "description": "Feature/&FeatTelekineticPushFromOriginDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2e41bc01-6d16-5480-940c-6250754ca0fa",
+      "m_AssetGUID": "1ade88e4-6100-576f-91c0-6a1ccb35c81d",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d2793899-0feb-5ea2-805f-ad27d48abf8f",
+  "guid": "b95b2fb6-1e0e-5edf-8727-56fe8d7583c7",
   "contentPack": 9999,
-  "name": "PowerFeatTelekineticIntelligence"
+  "name": "PowerFeatTelekineticCharismaPushFromOrigin"
 }
