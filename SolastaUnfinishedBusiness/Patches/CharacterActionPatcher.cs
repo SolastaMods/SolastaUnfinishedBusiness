@@ -146,6 +146,8 @@ public static class CharacterActionPatcher
     [UsedImplicitly]
     public static class ApplyStealthBreakerBehavior_Patch
     {
+        internal static bool ShouldBanter;
+
         [NotNull]
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -170,6 +172,8 @@ public static class CharacterActionPatcher
             List<GameLocationCharacter> detectorsWithAdvantage,
             CharacterAction action)
         {
+            ShouldBanter = true;
+
             switch (action)
             {
                 case CharacterActionAttack actionAttack:
@@ -179,10 +183,8 @@ public static class CharacterActionPatcher
                         || (actionAttack.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
                             && Main.Settings.StealthBreaksWhenAttackMisses))
                     {
-                        __instance.SetStealthy(false);
-                        __instance.SetAlertPerception(false);
-
-                        return false;
+                        ShouldBanter = false;
+                        roll = false;
                     }
 
                     break;
@@ -202,10 +204,8 @@ public static class CharacterActionPatcher
                             || (actionCastSpell.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
                                 && Main.Settings.StealthBreaksWhenAttackMisses))
                         {
-                            __instance.SetStealthy(false);
-                            __instance.SetAlertPerception(false);
-
-                            return false;
+                            ShouldBanter = false;
+                            roll = false;
                         }
                     }
                     else if (spell.EffectDescription.TargetSide != Side.Ally)
@@ -225,10 +225,8 @@ public static class CharacterActionPatcher
                             || (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic && !isSubtle)
                             || (spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose && !isSubtle))
                         {
-                            __instance.SetStealthy(false);
-                            __instance.SetAlertPerception(false);
-
-                            return false;
+                            ShouldBanter = false;
+                            roll = false;
                         }
                     }
 
