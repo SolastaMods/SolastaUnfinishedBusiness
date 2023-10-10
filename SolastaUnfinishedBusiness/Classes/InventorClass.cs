@@ -537,6 +537,7 @@ internal static class InventorClass
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
             .SetFocusType(EquipmentDefinitions.FocusType.Universal) //should we add custom focus type?
+            .SetReplacedSpells(1, 0)
             .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.HalfRoundUp)
             .SetSpellKnowledge(SpellKnowledge.WholeList)

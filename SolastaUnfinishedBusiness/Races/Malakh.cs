@@ -80,6 +80,7 @@ internal static class RaceMalakhBuilder
             .SetFocusType(EquipmentDefinitions.FocusType.None)
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.None)
             .SetSpellKnowledge(SpellKnowledge.FixedList)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(spellListMalakh)
             .AddToDB();
 

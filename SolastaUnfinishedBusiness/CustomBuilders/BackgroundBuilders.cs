@@ -81,6 +81,7 @@ internal static class BackgroundsBuilders
                     .Create(CastSpellGnomeShadow, $"BonusCantrips{BackgroundDevoted}")
                     .SetGuiPresentation(Category.Feature)
                     .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
+                    .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                     .SetSpellList(
                         SpellListDefinitionBuilder
                             .Create($"SpellList{BackgroundDevoted}")

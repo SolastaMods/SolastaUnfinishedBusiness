@@ -24,6 +24,11 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FixesContext
 {
+    internal static void Load()
+    {
+        InitMagicAffinitiesAndCastSpells();
+    }
+
     internal static void LateLoad()
     {
         FixAdditionalDamageRestrictions();
@@ -58,6 +63,136 @@ internal static class FixesContext
         FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void InitMagicAffinitiesAndCastSpells()
+    {
+        // required to avoid issues on how game calculates caster / spell levels and some trace error messages
+        // that might affect multiplayer sessions, prevent level up from 19 to 20 and prevent some MC scenarios
+
+        var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var subclassesFeatures = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var racesFeatures = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var allFeatures = classesFeatures.Concat(subclassesFeatures).Concat(racesFeatures).ToList();
+        var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
+        var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
+
+        foreach (var magicAffinityDefinition in magicAffinityDefinitions)
+        {
+            var spellListDefinition = magicAffinityDefinition.ExtendedSpellList;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < 10)
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
+            }
+        }
+
+        foreach (var castSpellDefinition in castSpellDefinitions)
+        {
+            while (castSpellDefinition.KnownCantrips.Count < Level20Context.ModMaxLevel + 1)
+            {
+                castSpellDefinition.KnownCantrips.Add(0);
+            }
+
+            while (castSpellDefinition.KnownSpells.Count < Level20Context.ModMaxLevel + 1)
+            {
+                castSpellDefinition.KnownSpells.Add(0);
+            }
+
+            while (castSpellDefinition.ReplacedSpells.Count < Level20Context.ModMaxLevel + 1)
+            {
+                castSpellDefinition.ReplacedSpells.Add(0);
+            }
+
+            while (castSpellDefinition.ScribedSpells.Count < Level20Context.ModMaxLevel + 1)
+            {
+                castSpellDefinition.ScribedSpells.Add(0);
+            }
+
+            var spellListDefinition = castSpellDefinition.SpellListDefinition;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < 10)
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
+            }
+        }
+
+        // fixes known cantrips and slots for some incomplete cast spell features
+        for (var level = 17; level <= 20; level++)
+        {
+            // Tiefling
+            FeatureDefinitionCastSpells.CastSpellTiefling.slotsPerLevels.Add(
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                {
+                    Level = level, Slots = FeatureDefinitionCastSpells.CastSpellTiefling.slotsPerLevels[15].slots
+                });
+
+            FeatureDefinitionCastSpells.CastSpellTiefling.KnownCantrips[level] = 1;
+
+            // Gnome
+            FeatureDefinitionCastSpells.CastSpellGnomeShadow.slotsPerLevels.Add(
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                {
+                    Level = level, Slots = FeatureDefinitionCastSpells.CastSpellGnomeShadow.slotsPerLevels[15].slots
+                });
+
+            FeatureDefinitionCastSpells.CastSpellGnomeShadow.KnownCantrips[level] = 1;
+
+            // Tradition Light
+            FeatureDefinitionCastSpells.CastSpellTraditionLight.slotsPerLevels.Add(
+                new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+                {
+                    Level = level,
+                    Slots = FeatureDefinitionCastSpells.CastSpellTraditionLight.slotsPerLevels[15].slots
+                });
+
+            FeatureDefinitionCastSpells.CastSpellTraditionLight.KnownCantrips[level] = 2;
+
+            // Warlock
+            FeatureDefinitionCastSpells.CastSpellWarlock.slotsPerLevels[level - 1].slots = new List<int>
+            {
+                0,
+                0,
+                0,
+                0,
+                4,
+                0,
+                0,
+                0,
+                0
+            };
+
+            FeatureDefinitionCastSpells.CastSpellWarlock.KnownCantrips[level - 1] = 4;
+        }
     }
 
     private static void FixSavingThrowAffinityManaPainterAbsorption()
