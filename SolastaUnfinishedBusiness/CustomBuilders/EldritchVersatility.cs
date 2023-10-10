@@ -1027,21 +1027,21 @@ internal static class EldritchVersatility
             var ownerCharacter = me.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
             var alreadyBlocked =
-                EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter,
-                    out var eldritchAegisSupportCondition);
+                EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
+                    defenderCharacter, out var eldritchAegisSupportCondition);
             var posOwner = me.locationPosition;
             var posDefender = defender.locationPosition;
 
-            if (!alreadyBlocked &&
-                (int3.Distance(posOwner, posDefender) > 6f ||
-                 !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, me)))
+            if (!alreadyBlocked
+                && (int3.Distance(posOwner, posDefender) > 6f
+                    || !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, me)))
             {
                 yield break;
             }
 
             // This function also adjust AC to just enough block the attack, so if alreadyBlocked, we should not abort.
-            if ((!me.CanReact(true) && !alreadyBlocked) ||
-                !me.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if ((!me.CanReact(true) && !alreadyBlocked)
+                || !me.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
@@ -1050,8 +1050,8 @@ internal static class EldritchVersatility
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
                               + attackModifier.AttackRollModifier;
-            var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
-            var currentValue = defenderCharacter.Attributes[AttributeDefinitions.ArmorClass].CurrentValue;
+
+            var currentValue = defenderCharacter.RefreshArmorClass(true).CurrentValue;
             var requiredACAddition = totalAttack - currentValue + 1;
 
             // If other actions already blocked it
@@ -1066,10 +1066,13 @@ internal static class EldritchVersatility
                 {
                     Indent = true
                 };
+
             console.AddCharacterEntry(ownerCharacter, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredACAddition}");
 
             // If already applied, we just auto add AC if it's not enough.
+            var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
+
             if (alreadyBlocked)
             {
                 // maximum AC bonus is wisdom modifier
@@ -1455,6 +1458,11 @@ internal static class EldritchVersatility
             if (warlockRepertoire is null)
             {
                 yield break;
+            }
+
+            if (SpellsContext.SpellsChildMaster.TryGetValue(selectedSpellDefinition, out var parentSpell))
+            {
+                selectedSpellDefinition = parentSpell;
             }
 
             // If the caster has this feature, check if the spell is copied, if so, remove it both from copied list and repertoire
