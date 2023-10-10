@@ -829,8 +829,8 @@ internal static class EldritchVersatility
                     var posCaster = caster.locationPosition;
                     var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
 
-                    if (int3.Distance(posOwner, posCaster) > 12f ||
-                        !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
+                    if (int3.Distance(posOwner, posCaster) > 12f
+                        || !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
                     {
                         yield break;
                     }
@@ -845,6 +845,11 @@ internal static class EldritchVersatility
                 yield break;
             }
 
+            if (SpellsContext.SpellsChildMaster.TryGetValue(selectedSpellDefinition, out var parentSpell))
+            {
+                selectedSpellDefinition = parentSpell;
+            }
+
             var spellLevel = selectedSpellDefinition.SpellLevel;
             var allKnownSpells = warlockRepertoire.EnumerateAvailableExtraSpells();
 
@@ -853,15 +858,15 @@ internal static class EldritchVersatility
             warlockRepertoire.ExtraSpellsByTag.TryAdd("BattlefieldShorthand", new List<SpellDefinition>());
 
             // If the caster has this feature, check if the spell is copied, if so, return
-            if (featureOwner == caster.RulesetCharacter &&
-                supportCondition.CopiedSpells.Contains(selectedSpellDefinition))
+            if (featureOwner == caster.RulesetCharacter
+                && supportCondition.CopiedSpells.Contains(selectedSpellDefinition))
             {
                 yield break;
             }
 
             // Maximum copy-able spell level is half pool size
-            if (allKnownSpells.Contains(selectedSpellDefinition) ||
-                (2 * spellLevel) - 1 > warlockRepertoire.SpellCastingLevel)
+            if (allKnownSpells.Contains(selectedSpellDefinition)
+                || (2 * spellLevel) - 1 > warlockRepertoire.SpellCastingLevel)
             {
                 yield break;
             }
@@ -876,8 +881,10 @@ internal static class EldritchVersatility
                         AttributeDefinitions.ComputeAbilityScoreModifier(
                             featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence))
                 };
+
                 checkModifier.AbilityCheckModifierTrends.Add(new TrendInfo(checkModifier.AbilityCheckModifier,
                     FeatureSourceType.CharacterFeature, "PowerPatronEldritchSurgeVersatilitySwitchPool", null));
+
                 var glc = GameLocationCharacter.GetFromActor(featureOwner);
 
                 if (glc != null)
@@ -900,23 +907,16 @@ internal static class EldritchVersatility
                 }
             }
 
-            var spellToCopy = selectedSpellDefinition;
-
-            if (SpellsContext.SpellsChildMaster.TryGetValue(spellToCopy, out var parentSpell))
-            {
-                spellToCopy = parentSpell;
-            }
-
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess",
                 console.consoleTableDefinition) { Indent = true };
 
             console.AddCharacterEntry(featureOwner, entry);
             entry.AddParameter(
-                ConsoleStyleDuplet.ParameterType.Positive, spellToCopy.GuiPresentation.Title);
+                ConsoleStyleDuplet.ParameterType.Positive, selectedSpellDefinition.GuiPresentation.Title);
             console.AddEntry(entry);
-            supportCondition.CopiedSpells.Add(spellToCopy);
-            warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Add(spellToCopy);
+            supportCondition.CopiedSpells.Add(selectedSpellDefinition);
+            warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Add(selectedSpellDefinition);
         }
     }
 
