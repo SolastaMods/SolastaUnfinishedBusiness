@@ -900,16 +900,23 @@ internal static class EldritchVersatility
                 }
             }
 
+            var spellToCopy = selectedSpellDefinition;
+
+            if (SpellsContext.SpellsChildMaster.TryGetValue(spellToCopy, out var parentSpell))
+            {
+                spellToCopy = parentSpell;
+            }
+
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/BattlefieldShorthandCopySpellSuccess",
                 console.consoleTableDefinition) { Indent = true };
 
             console.AddCharacterEntry(featureOwner, entry);
             entry.AddParameter(
-                ConsoleStyleDuplet.ParameterType.Positive, selectedSpellDefinition.GuiPresentation.Title);
+                ConsoleStyleDuplet.ParameterType.Positive, spellToCopy.GuiPresentation.Title);
             console.AddEntry(entry);
-            supportCondition.CopiedSpells.Add(selectedSpellDefinition);
-            warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Add(selectedSpellDefinition);
+            supportCondition.CopiedSpells.Add(spellToCopy);
+            warlockRepertoire.ExtraSpellsByTag["BattlefieldShorthand"].Add(spellToCopy);
         }
     }
 
