@@ -1,5 +1,6 @@
 ﻿1.5.94.24:
 
+- fixed Arcane Scoundrel not offering the essence thief power after a sneak attack at level 17th
 - fixed Battlefield Shorthand versatility to memorize spell parent when subspells are cast
 - fixed lag on proficiencies panel with new Interface > Game UI > Enable Extended Proficiencies display setting
 - fixed Poisonous Skin crashing power effect serialization on load and save
