@@ -48,5 +48,6 @@ Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotDescription=
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactDescription=Você pode aplicar uma de suas técnicas de Tiro Arcano.
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactTitle=Tiro Arcano
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotTitle=Tiro Arcano
+Screen/&InvocationPoolArcaneShotChoiceHeader=Tiros Arcanos
 Subclass/&MartialArcaneArcherDescription=Um Arqueiro Arcano estuda um método élfico único de tiro com arco que combina magia em ataques para produzir efeitos sobrenaturais. Arqueiros Arcanos são alguns de seus guerreiros de elite entre os elfos. Eles vigiam os limites dos domínios élficos, mantendo-se atentos aos invasores e usando flechas infundidas com magia para derrotar monstros e invasores antes que eles cheguem aos assentamentos élficos. Ao longo dos séculos, os métodos desses arqueiros elfos foram aprendidos por membros de outras raças que também podem equilibrar aptidão arcana com arco e flecha.
 Subclass/&MartialArcaneArcherTitle=Arqueiro Arcano

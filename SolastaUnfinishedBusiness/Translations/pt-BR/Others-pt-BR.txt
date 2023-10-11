@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=Origem Final da Volta
 Screen/&ClassExtraSpellDescriptionFormat=Você conhece este feitiço da classe {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODADO]
 Screen/&EditorLocationSize4Title=Gigantesco [MODDED]
-Screen/&InvocationPoolSignatureSpellsHeader=Feitiços de Assinatura
 Screen/&MulticlassExtraSpellDescription=Você conhece este feitiço de outro repertório.
 Screen/&MulticlassExtraSpellTitle=Multiclasse
 Screen/&RaceExtraSpellDescription=Você conhece este feitiço de sua herança.

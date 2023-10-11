@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=ターンの終了元
 Screen/&ClassExtraSpellDescriptionFormat=この呪文は {0} クラスで知っていますね。
 Screen/&EditorLocationSize3Title=巨大な[MODD]
 Screen/&EditorLocationSize4Title=ガルガンチュアン [MODD]
-Screen/&InvocationPoolSignatureSpellsHeader=シグネチャースペル
 Screen/&MulticlassExtraSpellDescription=この呪文は他のレパートリーでもよく知られています。
 Screen/&MulticlassExtraSpellTitle=マルチクラス
 Screen/&RaceExtraSpellDescription=あなたは先祖からこの呪文を知っています。

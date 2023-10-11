@@ -118,7 +118,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
 
     public static void AddCustomSubPanels(ProficienciesPanel panel)
     {
-        if (panel.toggleGroup == null)
+        if (panel.toggleGroup == null || !Main.Settings.EnableExtendedProficienciesPanelDisplay)
         {
             return;
         }

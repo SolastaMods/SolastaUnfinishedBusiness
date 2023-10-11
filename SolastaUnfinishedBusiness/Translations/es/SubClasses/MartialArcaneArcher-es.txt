@@ -48,5 +48,6 @@ Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotDescription=
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactDescription=Puedes aplicar una de tus técnicas de Tiro Arcano.
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactTitle=Disparo Arcano
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotTitle=Disparo Arcano
+Screen/&InvocationPoolArcaneShotChoiceHeader=Disparos arcanos
 Subclass/&MartialArcaneArcherDescription=Un Arcane Archer estudia un método élfico único de tiro con arco que entreteje la magia en los ataques para producir efectos sobrenaturales. Los arqueros arcanos son algunos de sus guerreros más elitistas entre los elfos. Vigilan los límites de los dominios élficos, están atentos a los intrusos y usan flechas mágicas para derrotar a los monstruos e invasores antes de que puedan llegar a los asentamientos élficos. A lo largo de los siglos, los métodos de estos arqueros elfos han sido aprendidos por miembros de otras razas que también pueden equilibrar la aptitud arcana con el tiro con arco.
 Subclass/&MartialArcaneArcherTitle=Arquero Arcano

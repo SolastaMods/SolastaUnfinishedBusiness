@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=턴 종료 출처
 Screen/&ClassExtraSpellDescriptionFormat={0} 클래스의 이 주문을 알고 있습니다.
 Screen/&EditorLocationSize3Title=거대 [MODDED]
 Screen/&EditorLocationSize4Title=초거대 [MODDED]
-Screen/&InvocationPoolSignatureSpellsHeader=시그니쳐 주문
 Screen/&MulticlassExtraSpellDescription=이 주문이 다른 레퍼토리에 있다는 걸 압니다.
 Screen/&MulticlassExtraSpellTitle=멀티클래스
 Screen/&RaceExtraSpellDescription=당신은 당신의 유산에서 이 주문을 알고 있습니다.

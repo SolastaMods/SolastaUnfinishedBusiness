@@ -48,5 +48,6 @@ Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotDescription=
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactDescription=비전 사격 기술 중 하나를 사용할 수 있습니다.
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactTitle=비전 사격
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotTitle=비전 사격
+Screen/&InvocationPoolArcaneShotChoiceHeader=신비한 사격
 Subclass/&MartialArcaneArcherDescription=아케인 아처는 마법을 공격에 엮어 초자연적인 효과를 내는 엘프만의 독특한 궁술을 연구합니다. 아케인 아처는 엘프 중에서도 최정예 전사입니다. 이들은 엘프 영역의 변두리를 지키며 침입자를 예리하게 감시하고, 마법이 깃든 화살을 사용해 몬스터와 침입자가 엘프 정착지에 도달하기 전에 물리칩니다. 수세기에 걸쳐 엘프 궁수들의 궁술은 비전 적성과 궁술의 균형을 맞출 수 있는 다른 종족들에게도 전수되었습니다.
 Subclass/&MartialArcaneArcherTitle=아케인 아처

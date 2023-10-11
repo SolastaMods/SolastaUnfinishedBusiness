@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=Fin de la source de Renvoi
 Screen/&ClassExtraSpellDescriptionFormat=Vous connaissez ce sort par la classe {0}.
 Screen/&EditorLocationSize3Title=Très Grande [MODÉ]
 Screen/&EditorLocationSize4Title=Gigantesque [MODÉ]
-Screen/&InvocationPoolSignatureSpellsHeader=Sorts de prédilection
 Screen/&MulticlassExtraSpellDescription=Vous connaissez ce sort d'un autre répertoire.
 Screen/&MulticlassExtraSpellTitle=Multiclasse
 Screen/&RaceExtraSpellDescription=Vous connaissez ce sort de votre héritage.

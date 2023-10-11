@@ -269,6 +269,7 @@ public class Settings : UnityModManager.ModSettings
     public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
+    public bool EnableExtendedProficienciesPanelDisplay { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
