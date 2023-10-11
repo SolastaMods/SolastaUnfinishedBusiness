@@ -1,4 +1,12 @@
-﻿1.5.94.23:
+﻿1.5.94.24:
+
+- fixed Battlefield Shorthand versatility to memorize spell parent when subspells are cast
+- fixed lag on proficiencies panel with new Interface > Game UI > Enable Extended Proficiencies display setting
+- fixed Poisonous Skin crashing power effect serialization on load and save
+- fixed Rejoin Party and Teleport features to work under multiplayer
+- fixed remaining races cast spell cantrips and slots collections crashing level up above 16th
+
+1.5.94.23:
 
 - RESPEC is suggested on Telekinesis to get full benefits of reworked feat
 - added Gameplay > Rules > 'Enable item usage not breaking invisibility'

@@ -819,42 +819,53 @@ internal static class OtherFeats
 
     #region Poisonous Skin
 
-    private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
-        .Create("PowerFeatPoisonousSkin")
-        .SetGuiPresentation(Category.Feature)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                .ExcludeCaster()
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution, false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Constitution)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                        .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
-                .Build())
-        .AddToDB();
-
     private static FeatDefinition BuildPoisonousSkin()
     {
+        var powerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
+            .Create("PowerFeatPoisonousSkin")
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .ExcludeCaster()
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Constitution)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                            .SetConditionForm(ConditionDefinitions.ConditionPoisoned,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
+                    .Build())
+            .AddToDB();
+
+        powerFeatPoisonousSkin.AddCustomSubFeatures(new CustomBehaviorFeatPoisonousSkin(powerFeatPoisonousSkin));
+
         return FeatDefinitionBuilder
             .Create("FeatPoisonousSkin")
             .SetGuiPresentation(Category.Feat)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-            .AddCustomSubFeatures(new CustomBehaviorFeatPoisonousSkin())
+            .SetFeatures(powerFeatPoisonousSkin)
             .AddToDB();
     }
 
     private class CustomBehaviorFeatPoisonousSkin :
         IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
+        private readonly FeatureDefinitionPower _powerPoisonousSkin;
+
+        public CustomBehaviorFeatPoisonousSkin(FeatureDefinitionPower powerPoisonousSkin)
+        {
+            _powerPoisonousSkin = powerPoisonousSkin;
+        }
+
         //Poison character that shoves me
         public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter target)
         {
@@ -871,7 +882,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            PoisonTarget(action, target.RulesetCharacter, action.ActingCharacter);
+            yield return PoisonTarget(action, target.RulesetCharacter, action.ActingCharacter);
         }
 
         //Poison characters that I shove
@@ -886,7 +897,7 @@ internal static class OtherFeats
 
             foreach (var target in action.actionParams.TargetCharacters)
             {
-                PoisonTarget(action, rulesetAttacker, target);
+                yield return PoisonTarget(action, rulesetAttacker, target);
             }
         }
 
@@ -912,7 +923,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            PoisonTarget(action, me.RulesetCharacter, target);
+            yield return PoisonTarget(action, me.RulesetCharacter, target);
         }
 
         //Poison melee attacker
@@ -937,20 +948,20 @@ internal static class OtherFeats
                 yield break;
             }
 
-            PoisonTarget(action, me.RulesetCharacter, attacker);
+            yield return PoisonTarget(action, me.RulesetCharacter, attacker);
         }
 
-        private static void PoisonTarget(CharacterAction action, RulesetCharacter me, GameLocationCharacter target)
+        private IEnumerator PoisonTarget(CharacterAction action, RulesetCharacter me, GameLocationCharacter target)
         {
             var rulesetTarget = target.RulesetCharacter;
 
             if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(PowerFeatPoisonousSkin, me);
+            var usablePower = UsablePowersProvider.Get(_powerPoisonousSkin, me);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
