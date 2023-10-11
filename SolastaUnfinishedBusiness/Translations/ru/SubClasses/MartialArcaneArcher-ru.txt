@@ -48,6 +48,6 @@ Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotDescription=
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactDescription=Вы можете применить одну из своих техник Магического выстрела.
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactTitle=Магический выстрел
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotTitle=Магический выстрел
-Screen/&InvocationPoolArcaneShotChoiceHeader=Чародейские выстрелы
+Screen/&InvocationPoolArcaneShotChoiceHeader=Магические выстрелы
 Subclass/&MartialArcaneArcherDescription=Мистический Лучник изучает уникальный эльфийский метод стрельбы, при котором магия вплетается в выстрелы для получения сверхъестественных эффектов. Мистические Лучники – самые элитные воины среди эльфов. Они стоят на страже границ эльфийских королевств, зорко следят за нарушителями и используют наделённые магией стрелы, чтобы побеждать монстров и захватчиков до того, как они достигнут эльфийских поселений. За многие века методы этих эльфийских лучников были изучены представителями других рас, которые теперь тоже могут смешивать магию с мастерством лучника.
 Subclass/&MartialArcaneArcherTitle=Мистический лучник
