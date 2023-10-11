@@ -125,7 +125,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 .AddToDB();
 
             proxyPactWeapon.damageDie = DieType.D8;
-            proxyPactWeapon.damageDieNum = 1;
+            proxyPactWeapon.damageDieNum = i;
             proxyPactWeapon.addAbilityToDamage = true;
             proxyPactWeapons[i - 1] = proxyPactWeapon;
         }
