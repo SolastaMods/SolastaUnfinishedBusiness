@@ -1077,44 +1077,28 @@ internal static class GameUiContext
 
         private static void TeleportParty(int3 position)
         {
-            var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var formationPositions = new List<int3>();
-            var partyAndGuests = new List<GameLocationCharacter>();
-            var positions = new List<int3>();
+            var boxInt = new BoxInt(position, int3.zero, int3.zero);
 
-            for (var iy = 0; iy < 4; iy++)
+            // 20 to improve teleport behavior on campaigns with different heights
+            boxInt.Inflate(1, 20, 1);
+
+            foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
             {
-                for (var ix = 0; ix < 2; ix++)
+                foreach (var alternatePosition in boxInt.EnumerateAllPositionsWithin())
                 {
-                    formationPositions.Add(new int3(ix, 0, iy));
+                    if (!gameLocationPositioningService.CanPlaceCharacter(
+                            gameLocationCharacter, alternatePosition, CellHelpers.PlacementMode.Station)
+                        || !gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                            gameLocationCharacter, alternatePosition, true))
+                    {
+                        continue;
+                    }
+
+                    ServiceRepository.GetService<IGameLocationPositioningService>().TeleportCharacter(
+                        gameLocationCharacter, alternatePosition, LocationDefinitions.Orientation.North);
                 }
-            }
-
-            partyAndGuests.AddRange(gameLocationCharacterService.PartyCharacters);
-            partyAndGuests.AddRange(gameLocationCharacterService.GuestCharacters);
-
-            gameLocationPositioningService.ComputeFormationPlacementPositions(
-                partyAndGuests,
-                position,
-                LocationDefinitions.Orientation.North,
-                formationPositions,
-                CellHelpers.PlacementMode.Station,
-                positions,
-                new List<RulesetActor.SizeParameters>(),
-                25);
-
-            for (var index = 0; index < positions.Count; index++)
-            {
-                partyAndGuests[index].LocationPosition = positions[index];
-
-                // rotates the characters in position to force the game to redrawn them
-                gameLocationActionService.MoveCharacter(
-                    partyAndGuests[index],
-                    positions[(index + 1) % positions.Count],
-                    LocationDefinitions.Orientation.North, 0,
-                    ActionDefinitions.MoveStance.Walk);
             }
         }
     }
