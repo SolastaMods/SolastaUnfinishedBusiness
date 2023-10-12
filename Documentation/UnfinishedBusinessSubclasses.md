@@ -3248,7 +3248,60 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 # Warlock
 
-## 1. The Eldritch Surge
+## 1. The Celestial
+
+Your patron is a powerful being of the Upper Planes. You have bound yourself to an ancient empyrean, solar, ki-rin, unicorn, or other entity that resides in the planes of everlasting bliss. Your pact with that being allows you to experience the barest touch of the holy light that illuminates the multiverse.
+
+
+### Level 1
+
+* Bonus Cantrips
+
+You learn the Light and Sacred Flame cantrips. They count as warlock cantrips for you, but they don't count against your number of cantrips known.
+
+* Expanded Spells
+
+
+	I	Cure Wounds, Guiding Bolt
+
+	II	Flaming Sphere, Lesser Restoration
+
+	III	Daylight, Revivify
+
+	IV	Guardian of Faith, Wall of Fire
+
+	V	Flame Strike, Greater Restoration
+
+
+
+* Healing Light
+
+You gain the ability to channel celestial energy to heal wounds. You have a pool of D6s that you spend to fuel this healing. The number of dice in the pool equals 1 + your Warlock level. As a bonus action, you can heal one creature you can see within 60 feet of you, spending dice from the pool. The maximum number of dice you can spend at once equals your Charisma modifier (minimum of one die and maximum of six). Roll the dice you spend, add them together, and restore a number of hit points equal to the total. Your pool regains all expended dice when you finish a long rest.
+
+
+### Level 6
+
+* Radiant Soul
+
+Your link to the Celestial allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant or fire damage, you add your Charisma modifier to one radiant or fire damage roll of that spell.
+
+
+### Level 10
+
+* Celestial Resistance
+
+You gain temporary hit points whenever you finish a short or long rest. These temporary hit points equal your warlock level + your Charisma modifier. Additionally, all original party members gain temporary hit points equal to half your warlock level + your Charisma modifier.
+
+
+### Level 14
+
+* Searing Vengeance
+
+The radiant energy you channel allows you to resist death. When you have to make a death saving throw at the start of your turn, you can instead spring back to your feet with a burst of radiant energy. You regain hit points equal to half your hit point maximum, and then you stand up. Each creature of your choice that is within 30 feet of you takes radiant damage equal to 2d8 + your Charisma modifier, and is blinded until the end of your next turn. Once you use this feature, you can't use it again until you finish a long rest.
+
+
+
+## 2. The Eldritch Surge
 
 You made a pact with a mysterious entity that may be a consciousness that emerged from the intricacy of the Weave, believing that pure arcane power can create any phenomenon. And you are to prove it.
 
@@ -3306,7 +3359,7 @@ You learn one Versatility.
 
 
 
-## 2. The Elementalist
+## 3. The Elementalist
 
 You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 
@@ -3357,7 +3410,7 @@ Your control of elemental energies has increased to the point than you now have 
 
 
 
-## 3. The Moonlit
+## 4. The Moonlit
 
 Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 
@@ -3422,7 +3475,7 @@ Your control of moon light has increased to a new level. You can cast the spells
 
 
 
-## 4. The Mountain
+## 5. The Mountain
 
 You have made a pact with an ancient primal entity that dwells atop the highest mountains of Solasta. Such entities yearn for a simpler epoch when mortals left them to their long slumber above the clouds, raising no cities and delving no mines. Their warlocks disdain the tools of civilization, calling upon the mountain's strength to shield their companions and strike down their foes.
 
@@ -3479,7 +3532,7 @@ Gain immunity to cold damage. The first time you hit an enemy with an attack on 
 
 
 
-## 5. The Riftwalker
+## 6. The Riftwalker
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -3540,7 +3593,7 @@ As a main action, your control of rift portals has increased to the point that y
 
 
 
-## 6. The Soulblade
+## 7. The Soulblade
 
 You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 

@@ -1,6 +1,6 @@
 Feature/&BonusCantripCelestialDescription=您学习<b>光</b>和<b>神圣火焰</b>戏法。它们对你来说算作术士戏法，但它们不计入你已知的戏法数量。
 Feature/&BonusCantripCelestialTitle=奖金戏法
-Feature/&FeatureSetCelestialRadiantSoulDescription=从第 6 级开始，你与天界的联系使你能够充当辐射能量的管道。你对光辉伤害有抗性，当你施放一个造成光辉或火焰伤害的法术时，你将你的魅力调整值添加到该法术针对其目标之一的光辉或火焰伤害检定上。
+Feature/&FeatureSetCelestialRadiantSoulDescription=你与天界的联系使你能够充当辐射能量的管道。你对光辉伤害有抗性，当你施放一个造成光辉或火焰伤害的法术时，你可以将你的魅力调整值添加到该法术的一次光辉或火焰伤害检定上。
 Feature/&FeatureSetCelestialRadiantSoulTitle=光芒四射的灵魂
 Feature/&PowerCelestialCelestialResistanceDescription=每当你完成短暂或长时间的休息时，你都会获得临时生命值。这些临时生命值等于你的术士等级+你的魅力调整值。此外，所有原始队伍成员都会获得临时生命值，生命值等于你的术士等级的一半+你的魅力调整值。
 Feature/&PowerCelestialCelestialResistanceTitle=天界抵抗

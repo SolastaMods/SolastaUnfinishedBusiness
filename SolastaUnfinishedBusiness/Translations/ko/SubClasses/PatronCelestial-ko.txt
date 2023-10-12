@@ -1,6 +1,6 @@
 Feature/&BonusCantripCelestialDescription=<b>빛</b> 및 <b>성스러운 불꽃</b> 캔트립을 배웁니다. 그들은 흑마법사 캔트립으로 간주되지만 알려진 캔트립 수에는 포함되지 않습니다.
 Feature/&BonusCantripCelestialTitle=보너스 캔트립
-Feature/&FeatureSetCelestialRadiantSoulDescription=6레벨부터 천상과의 연결을 통해 복사 에너지의 전달자 역할을 할 수 있습니다. 당신은 복사 피해에 대한 저항력을 가지고 있으며, 복사 피해나 화염 피해를 주는 주문을 시전할 때 대상 중 하나에 대한 해당 주문의 복사 피해나 화염 피해 굴림에 카리스마 수정치를 추가합니다.
+Feature/&FeatureSetCelestialRadiantSoulDescription=천상과의 연결은 당신이 복사 에너지의 전달자 역할을 할 수 있게 해줍니다. 당신은 방사 피해에 대한 저항력을 갖고 있으며, 방사 피해 또는 화염 피해를 주는 주문을 시전할 때 해당 주문의 방사 피해 또는 화염 피해 굴림 하나에 카리스마 수정치를 추가합니다.
 Feature/&FeatureSetCelestialRadiantSoulTitle=빛나는 영혼
 Feature/&PowerCelestialCelestialResistanceDescription=짧거나 긴 휴식을 마칠 때마다 일시적인 체력을 얻습니다. 이 임시 체력은 흑마법사 레벨 + 카리스마 수정치와 같습니다. 또한 모든 원래 파티원은 흑마법사 레벨 + 카리스마 수정치의 절반에 해당하는 임시 체력을 얻습니다.
 Feature/&PowerCelestialCelestialResistanceTitle=천상의 저항

@@ -1,6 +1,6 @@
 Feature/&BonusCantripCelestialDescription=Du lernst die Cantrips <b>Licht</b> und <b>Heilige Flamme</b>. Sie zählen für Sie als Hexenmeister-Cantrips, zählen jedoch nicht zu Ihrer Anzahl bekannter Cantrips.
 Feature/&BonusCantripCelestialTitle=Bonus-Cantrips
-Feature/&FeatureSetCelestialRadiantSoulDescription=Ab der 6. Stufe ermöglicht Ihnen Ihre Verbindung zum Himmlischen, als Kanal für strahlende Energie zu dienen. Du hast Widerstand gegen Strahlungsschaden, und wenn du einen Zauber wirkst, der Strahlungs- oder Feuerschaden verursacht, addierst du deinen Charisma-Modifikator zu einem Strahlungs- oder Feuerschadenswurf dieses Zaubers gegen eines seiner Ziele.
+Feature/&FeatureSetCelestialRadiantSoulDescription=Ihre Verbindung zum Himmlischen ermöglicht es Ihnen, als Kanal für Strahlungsenergie zu dienen. Du hast Widerstand gegen Strahlungsschaden, und wenn du einen Zauber wirkst, der Strahlungs- oder Feuerschaden verursacht, addierst du deinen Charisma-Modifikator zu einem Strahlungs- oder Feuerschadenswurf dieses Zaubers.
 Feature/&FeatureSetCelestialRadiantSoulTitle=Strahlende Seele
 Feature/&PowerCelestialCelestialResistanceDescription=Sie erhalten vorübergehende Trefferpunkte, wenn Sie eine kurze oder lange Pause beenden. Diese temporären Trefferpunkte entsprechen Ihrer Hexenmeisterstufe + Ihrem Charisma-Modifikator. Darüber hinaus erhalten alle ursprünglichen Gruppenmitglieder vorübergehende Trefferpunkte in Höhe der Hälfte Ihrer Hexenmeisterstufe + Ihres Charisma-Modifikators.
 Feature/&PowerCelestialCelestialResistanceTitle=Himmlischer Widerstand

@@ -33,7 +33,7 @@
     "targetSide": "Enemy",
     "durationType": "Round",
     "durationParameter": 0,
-    "endOfEffect": "EndOfSourceTurn",
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -64,7 +64,7 @@
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
-        "addBonusMode": "None",
+        "addBonusMode": "AbilityBonus",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,

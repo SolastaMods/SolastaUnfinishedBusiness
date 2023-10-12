@@ -1,6 +1,6 @@
 Feature/&BonusCantripCelestialDescription=Impari i trucchetti <b>Luce</b> e <b>Fiamma Sacra</b>. Contano come trucchetti da stregone per te, ma non contano nel numero di trucchetti conosciuti.
 Feature/&BonusCantripCelestialTitle=Trucchetti bonus
-Feature/&FeatureSetCelestialRadiantSoulDescription=A partire dal 6° livello, il tuo legame con il Celestiale ti consente di fungere da condotto per l'energia radiante. Hai resistenza ai danni radianti e quando lanci un incantesimo che infligge danni radianti o da fuoco, aggiungi il tuo modificatore di Carisma a un tiro per i danni radianti o da fuoco di quell'incantesimo contro uno dei suoi bersagli.
+Feature/&FeatureSetCelestialRadiantSoulDescription=Il tuo collegamento con il Celestiale ti consente di fungere da condotto per l'energia radiante. Hai resistenza ai danni radiosi e quando lanci un incantesimo che infligge danni radiosi o da fuoco, aggiungi il tuo modificatore di Carisma a un tiro per i danni radiosi o da fuoco di quell'incantesimo.
 Feature/&FeatureSetCelestialRadiantSoulTitle=Anima radiosa
 Feature/&PowerCelestialCelestialResistanceDescription=Ottieni punti ferita temporanei ogni volta che finisci un riposo breve o lungo. Questi punti ferita temporanei equivalgono al tuo livello da stregone + il tuo modificatore di Carisma. Inoltre, tutti i membri originali del gruppo ottengono punti ferita temporanei pari alla metà del tuo livello da stregone + il tuo modificatore di Carisma.
 Feature/&PowerCelestialCelestialResistanceTitle=Resistenza Celeste

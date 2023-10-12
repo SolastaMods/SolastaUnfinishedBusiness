@@ -1,6 +1,6 @@
 Feature/&BonusCantripCelestialDescription=キャントリップは<b>光</b>と<b>聖なる炎</b>を習得します。それらはウォーロックのキャントリップとしてカウントされますが、既知のキャントリップの数にはカウントされません。
 Feature/&BonusCantripCelestialTitle=ボーナスキャントリップ
-Feature/&FeatureSetCelestialRadiantSoulDescription=6 レベルからは、天体とのつながりにより、放射エネルギーの導管として機能することができます。あなたは放射ダメージに対する耐性を持っており、放射ダメージまたは火ダメージを与える呪文を唱えるとき、その対象の 1 つに対するその呪文の 1 つの放射ダメージまたは火ダメージ ロールにカリスマ修正値を追加します。
+Feature/&FeatureSetCelestialRadiantSoulDescription=天体とのつながりにより、放射エネルギーの導管として機能することができます。あなたは放射ダメージに対する耐性を持っており、放射ダメージまたは火ダメージを与える呪文を唱えるとき、その呪文の放射ダメージまたは火ダメージロール１つにカリスマ修正値を追加します。
 Feature/&FeatureSetCelestialRadiantSoulTitle=光り輝く魂
 Feature/&PowerCelestialCelestialResistanceDescription=短い休憩または長い休憩を終えるたびに、一時的なヒット ポイントを獲得します。これらの一時的なヒット ポイントは、ウォーロック レベル + カリスマ修正値に等しくなります。さらに、すべての元のパーティーメンバーは、ウォーロックレベルの半分 + カリスマ修正値に等しい一時的なヒットポイントを獲得します。
 Feature/&PowerCelestialCelestialResistanceTitle=天体の抵抗

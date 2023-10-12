@@ -309,7 +309,7 @@
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
   "rechargeRate": "LongRest",
-  "costPerUse": 0,
+  "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",

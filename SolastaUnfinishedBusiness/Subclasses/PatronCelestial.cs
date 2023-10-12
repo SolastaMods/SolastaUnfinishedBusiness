@@ -62,7 +62,7 @@ public class PatronCelestial : AbstractSubclass
         var powerHealingLight = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HealingLight")
             .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 0)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -76,7 +76,9 @@ public class PatronCelestial : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerHealingLight.AddCustomSubFeatures(new ModifyPowerPoolAmountHealingLight(powerHealingLight));
+        powerHealingLight.AddCustomSubFeatures(
+            HasModifiedUses.Marker,
+            new ModifyPowerPoolAmountHealingLight(powerHealingLight));
 
         var healingLightPowers = new List<FeatureDefinitionPower>();
 
@@ -172,14 +174,16 @@ public class PatronCelestial : AbstractSubclass
 
         var powerCelestialResistance = FeatureDefinitionPowerBuilder
             .Create(CelestialResistanceName)
-            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeCelestialResistance())
+            .AddCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
+                new MagicEffectFinishedByMeCelestialResistance())
             .AddToDB();
 
         // LEVEL 14
@@ -195,10 +199,14 @@ public class PatronCelestial : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeRadiant, 2, DieType.D8),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeRadiant, 2, DieType.D8)
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBlinded))
                     .SetParticleEffectParameters(PowerDomainSunHeraldOfTheSun)
                     .Build())
@@ -295,7 +303,14 @@ public class PatronCelestial : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (gameLocationCharacterService == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Warlock);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
@@ -306,11 +321,12 @@ public class PatronCelestial : AbstractSubclass
                     (classLevel / (gameLocationCharacter.RulesetCharacter == rulesetCharacter ? 1 : 2)) +
                     charismaModifier;
 
+                EffectHelpers.StartVisualEffect(
+                    actingCharacter, gameLocationCharacter, ShadowDagger, EffectHelpers.EffectType.Effect);
+
                 gameLocationCharacter.RulesetCharacter.ReceiveTemporaryHitPoints(tempHitPoints,
                     DurationType.UntilAnyRest, 0, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
             }
-
-            yield break;
         }
     }
 
@@ -387,7 +403,7 @@ public class PatronCelestial : AbstractSubclass
             actionParams.TargetCharacters.SetRange(targets);
 
             EffectHelpers.StartVisualEffect(
-                source, source, PowerClericDivineInterventionPaladin, EffectHelpers.EffectType.Effect);
+                source, source, HolyAura, EffectHelpers.EffectType.Effect);
 
             foreach (var target in targets)
             {
