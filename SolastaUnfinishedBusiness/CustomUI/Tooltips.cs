@@ -21,6 +21,7 @@ internal static class Tooltips
 
     internal static void AddContextToPowerBoxTooltip(UsablePowerBox box)
     {
+#if false
         CharacterControlPanel panel = box.GetComponentInParent<CharacterControlPanelExploration>();
         panel ??= box.GetComponentInParent<CharacterControlPanelBattle>();
 
@@ -28,6 +29,8 @@ internal static class Tooltips
         {
             box.GuiTooltip.Context = panel.GuiCharacter?.RulesetCharacter;
         }
+#endif
+        box.GuiTooltip.Context = Global.CurrentCharacter;
     }
 
     internal static void UpdatePowerUses(ITooltip tooltip, TooltipFeaturePowerParameters parameters)
@@ -35,12 +38,6 @@ internal static class Tooltips
         if (tooltip.DataProvider is not GuiPowerDefinition guiPowerDefinition)
         {
             return;
-        }
-
-        //TODO: this is a hack. we should go to the bottom of it and find why caster is null on power pool
-        if (tooltip.Context is null && Global.CurrentCharacter is not null)
-        {
-            tooltip.Context = Global.CurrentCharacter;
         }
 
         if (tooltip.Context is not RulesetCharacter character)
