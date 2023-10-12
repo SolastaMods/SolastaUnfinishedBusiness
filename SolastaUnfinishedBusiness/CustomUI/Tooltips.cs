@@ -37,6 +37,12 @@ internal static class Tooltips
             return;
         }
 
+        //TODO: this is a hack. we should go to the bottom of it and find why caster is null on power pool
+        if (tooltip.Context is null && Global.CurrentCharacter is not null)
+        {
+            tooltip.Context = Global.CurrentCharacter;
+        }
+
         if (tooltip.Context is not RulesetCharacter character)
         {
             return;
@@ -66,7 +72,7 @@ internal static class Tooltips
         }
 
         var usablePower = UsablePowersProvider.Get(power, character);
-        var maxUses = PowerBundle.GetMaxUsesForPool(usablePower, character);
+        var maxUses = character.GetMaxUsesOfPower(usablePower);
         var remainingUses = character.GetRemainingUsesOfPower(usablePower);
 
         return $"{remainingUses}/{maxUses}";

@@ -57,7 +57,7 @@ internal static class UsablePowersProvider
         }
 
         var powerCost = usablePower.PowerDefinition.CostPerUse;
-        var maxUsesForPool = PowerBundle.GetMaxUsesForPool(pool, character);
+        var maxUsesForPool = character.GetMaxUsesOfPower(usablePower);
 
         usablePower.maxUses = maxUsesForPool / powerCost;
         usablePower.remainingUses = pool.RemainingUses / powerCost;
