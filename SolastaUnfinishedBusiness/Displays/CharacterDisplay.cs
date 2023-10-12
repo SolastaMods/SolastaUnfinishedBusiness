@@ -76,6 +76,12 @@ internal static class CharacterDisplay
             Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
         }
 
+        toggle = Main.Settings.DisableCastSpellPreRequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableCastSpellPreRequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableCastSpellPreRequisitesOnModFeats = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableEpicPointsAndArray;

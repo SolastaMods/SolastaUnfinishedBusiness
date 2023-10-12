@@ -167,7 +167,7 @@ internal class InvocationPoolTypeCustom
     internal static class Pools
     {
         internal static readonly InvocationPoolTypeCustom ArcaneShotChoice =
-            Register("ArcaneShotChoice", hidden: true);
+            Register("ArcaneShotChoice");
 
         internal static readonly InvocationPoolTypeCustom AngelicFormChoice =
             Register("AngelicFormChoice", hidden: true);
@@ -205,11 +205,11 @@ internal class InvocationPoolTypeCustom
 
         internal static readonly InvocationPoolTypeCustom SpellMastery =
             Register("SpellMastery",
-                main: (Id)ExtraActionId.CastSpellMasteryMain);
+                main: (Id)ExtraActionId.CastSpellMasteryMain, hidden: true);
 
         internal static readonly InvocationPoolTypeCustom SignatureSpells =
             Register("SignatureSpells", requireClassLevel: CharacterClassDefinitions.Wizard.Name,
-                main: (Id)ExtraActionId.CastSignatureSpellsMain);
+                main: (Id)ExtraActionId.CastSignatureSpellsMain, hidden: true);
 
         internal static readonly InvocationPoolTypeCustom Gambit =
             Register("Gambit", requireClassLevel: MartialTactician.Name,
@@ -218,9 +218,9 @@ internal class InvocationPoolTypeCustom
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);
 
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
-            Register("PlaneMagic", hidden: true,
+            Register("PlaneMagic",
                 main: (Id)ExtraActionId.CastPlaneMagicMain,
-                bonus: (Id)ExtraActionId.CastPlaneMagicBonus);
+                bonus: (Id)ExtraActionId.CastPlaneMagicBonus, hidden: true);
 
         internal static readonly InvocationPoolTypeCustom EldritchVersatilityPool =
             Register("EldritchVersatilityPool",

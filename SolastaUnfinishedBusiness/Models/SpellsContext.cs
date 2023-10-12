@@ -15,6 +15,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellsContext
 {
+    internal static readonly Dictionary<SpellDefinition, SpellDefinition> SpellsChildMaster = new();
     internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = new();
 
     internal static readonly SpellListDefinition EmptySpellList = SpellListDefinitionBuilder
@@ -332,6 +333,17 @@ internal static class SpellsContext
                          .ToList())
             {
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(name);
+            }
+        }
+
+        // cache spells with subs
+        foreach (var parent in DatabaseRepository.GetDatabase<SpellDefinition>()
+                     .Where(x => x.spellsBundle))
+        {
+            foreach (var child in parent.SubspellsList)
+            {
+                // tryAdd to avoid AtWill spells to mess up this collection
+                SpellsChildMaster.TryAdd(child, parent);
             }
         }
     }

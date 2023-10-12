@@ -99,6 +99,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFlexibleRaces { get; set; }
     public bool DisableLevelPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
+    public bool DisableCastSpellPreRequisitesOnModFeats { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt10 { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
@@ -269,6 +270,7 @@ public class Settings : UnityModManager.ModSettings
     public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
+    public bool EnableExtendedProficienciesPanelDisplay { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

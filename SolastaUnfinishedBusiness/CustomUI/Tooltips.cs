@@ -21,6 +21,7 @@ internal static class Tooltips
 
     internal static void AddContextToPowerBoxTooltip(UsablePowerBox box)
     {
+#if false
         CharacterControlPanel panel = box.GetComponentInParent<CharacterControlPanelExploration>();
         panel ??= box.GetComponentInParent<CharacterControlPanelBattle>();
 
@@ -28,6 +29,8 @@ internal static class Tooltips
         {
             box.GuiTooltip.Context = panel.GuiCharacter?.RulesetCharacter;
         }
+#endif
+        box.GuiTooltip.Context = Global.CurrentCharacter;
     }
 
     internal static void UpdatePowerUses(ITooltip tooltip, TooltipFeaturePowerParameters parameters)
@@ -66,7 +69,7 @@ internal static class Tooltips
         }
 
         var usablePower = UsablePowersProvider.Get(power, character);
-        var maxUses = PowerBundle.GetMaxUsesForPool(usablePower, character);
+        var maxUses = character.GetMaxUsesOfPower(usablePower);
         var remainingUses = character.GetRemainingUsesOfPower(usablePower);
 
         return $"{remainingUses}/{maxUses}";

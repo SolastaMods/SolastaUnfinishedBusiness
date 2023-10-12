@@ -244,6 +244,12 @@ internal static class GameUiDisplay
             Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
         }
 
+        toggle = Main.Settings.EnableExtendedProficienciesPanelDisplay;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableExtendedProficienciesPanelDisplay"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableExtendedProficienciesPanelDisplay = toggle;
+        }
+
         toggle = Main.Settings.ShowChannelDivinityOnPortrait;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
         {

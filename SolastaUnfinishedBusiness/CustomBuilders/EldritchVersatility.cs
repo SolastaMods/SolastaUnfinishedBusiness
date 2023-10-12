@@ -829,8 +829,8 @@ internal static class EldritchVersatility
                     var posCaster = caster.locationPosition;
                     var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
 
-                    if (int3.Distance(posOwner, posCaster) > 12f ||
-                        !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
+                    if (int3.Distance(posOwner, posCaster) > 12f
+                        || !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
                     {
                         yield break;
                     }
@@ -845,6 +845,11 @@ internal static class EldritchVersatility
                 yield break;
             }
 
+            if (SpellsContext.SpellsChildMaster.TryGetValue(selectedSpellDefinition, out var parentSpell))
+            {
+                selectedSpellDefinition = parentSpell;
+            }
+
             var spellLevel = selectedSpellDefinition.SpellLevel;
             var allKnownSpells = warlockRepertoire.EnumerateAvailableExtraSpells();
 
@@ -853,15 +858,15 @@ internal static class EldritchVersatility
             warlockRepertoire.ExtraSpellsByTag.TryAdd("BattlefieldShorthand", new List<SpellDefinition>());
 
             // If the caster has this feature, check if the spell is copied, if so, return
-            if (featureOwner == caster.RulesetCharacter &&
-                supportCondition.CopiedSpells.Contains(selectedSpellDefinition))
+            if (featureOwner == caster.RulesetCharacter
+                && supportCondition.CopiedSpells.Contains(selectedSpellDefinition))
             {
                 yield break;
             }
 
             // Maximum copy-able spell level is half pool size
-            if (allKnownSpells.Contains(selectedSpellDefinition) ||
-                (2 * spellLevel) - 1 > warlockRepertoire.SpellCastingLevel)
+            if (allKnownSpells.Contains(selectedSpellDefinition)
+                || (2 * spellLevel) - 1 > warlockRepertoire.SpellCastingLevel)
             {
                 yield break;
             }
@@ -876,8 +881,10 @@ internal static class EldritchVersatility
                         AttributeDefinitions.ComputeAbilityScoreModifier(
                             featureOwner.TryGetAttributeValue(AttributeDefinitions.Intelligence))
                 };
+
                 checkModifier.AbilityCheckModifierTrends.Add(new TrendInfo(checkModifier.AbilityCheckModifier,
                     FeatureSourceType.CharacterFeature, "PowerPatronEldritchSurgeVersatilitySwitchPool", null));
+
                 var glc = GameLocationCharacter.GetFromActor(featureOwner);
 
                 if (glc != null)
@@ -1020,21 +1027,21 @@ internal static class EldritchVersatility
             var ownerCharacter = me.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
             var alreadyBlocked =
-                EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter,
-                    out var eldritchAegisSupportCondition);
+                EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
+                    defenderCharacter, out var eldritchAegisSupportCondition);
             var posOwner = me.locationPosition;
             var posDefender = defender.locationPosition;
 
-            if (!alreadyBlocked &&
-                (int3.Distance(posOwner, posDefender) > 6f ||
-                 !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, me)))
+            if (!alreadyBlocked
+                && (int3.Distance(posOwner, posDefender) > 6f
+                    || !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, me)))
             {
                 yield break;
             }
 
             // This function also adjust AC to just enough block the attack, so if alreadyBlocked, we should not abort.
-            if ((!me.CanReact(true) && !alreadyBlocked) ||
-                !me.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if ((!me.CanReact(true) && !alreadyBlocked)
+                || !me.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
@@ -1043,8 +1050,8 @@ internal static class EldritchVersatility
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
                               + attackModifier.AttackRollModifier;
-            var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
-            var currentValue = defenderCharacter.Attributes[AttributeDefinitions.ArmorClass].CurrentValue;
+
+            var currentValue = defenderCharacter.RefreshArmorClass(true).CurrentValue;
             var requiredACAddition = totalAttack - currentValue + 1;
 
             // If other actions already blocked it
@@ -1059,10 +1066,13 @@ internal static class EldritchVersatility
                 {
                     Indent = true
                 };
+
             console.AddCharacterEntry(ownerCharacter, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredACAddition}");
 
             // If already applied, we just auto add AC if it's not enough.
+            var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
+
             if (alreadyBlocked)
             {
                 // maximum AC bonus is wisdom modifier
@@ -1448,6 +1458,11 @@ internal static class EldritchVersatility
             if (warlockRepertoire is null)
             {
                 yield break;
+            }
+
+            if (SpellsContext.SpellsChildMaster.TryGetValue(selectedSpellDefinition, out var parentSpell))
+            {
+                selectedSpellDefinition = parentSpell;
             }
 
             // If the caster has this feature, check if the spell is copied, if so, remove it both from copied list and repertoire

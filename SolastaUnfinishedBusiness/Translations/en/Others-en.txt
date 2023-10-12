@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=End Source of Turn
 Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
 Screen/&EditorLocationSize3Title=Huge [MODDED]
 Screen/&EditorLocationSize4Title=Gargantuan [MODDED]
-Screen/&InvocationPoolSignatureSpellsHeader=Signature Spells
 Screen/&MulticlassExtraSpellDescription=You know this spell from other repertoire.
 Screen/&MulticlassExtraSpellTitle=Multiclass
 Screen/&RaceExtraSpellDescription=You know this spell from your heritage.

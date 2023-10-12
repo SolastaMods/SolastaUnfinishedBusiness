@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=Sorgente finale del turno
 Screen/&ClassExtraSpellDescriptionFormat=Conosci questo incantesimo dalla classe {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICATO]
 Screen/&EditorLocationSize4Title=Gigantesco [MODIFICATO]
-Screen/&InvocationPoolSignatureSpellsHeader=Incantesimi distintivi
 Screen/&MulticlassExtraSpellDescription=Conosci questo incantesimo da un altro repertorio.
 Screen/&MulticlassExtraSpellTitle=Multiclasse
 Screen/&RaceExtraSpellDescription=Conosci questo incantesimo dalla tua eredità.

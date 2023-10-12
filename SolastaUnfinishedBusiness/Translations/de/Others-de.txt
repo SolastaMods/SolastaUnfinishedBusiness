@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=Endquelle der Wende
 Screen/&ClassExtraSpellDescriptionFormat=Du kennst diesen Zauber aus der Klasse {0}.
 Screen/&EditorLocationSize3Title=Riesig [MODDIERT]
 Screen/&EditorLocationSize4Title=Gargantuan [MODDED]
-Screen/&InvocationPoolSignatureSpellsHeader=Signaturzauber
 Screen/&MulticlassExtraSpellDescription=Sie kennen diesen Zauber aus anderem Repertoire.
 Screen/&MulticlassExtraSpellTitle=Mehrklassig
 Screen/&RaceExtraSpellDescription=Du kennst diesen Zauber aus deiner Herkunft.

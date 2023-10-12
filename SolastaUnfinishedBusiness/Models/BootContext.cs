@@ -27,6 +27,9 @@ internal static class BootContext
         TranslatorContext.Load();
         ResourceLocatorContext.Load();
 
+        // Fixes spell slots and progressions early on
+        FixesContext.Load();
+
         // Create our Content Pack for anything that gets further created
         CeContentPackContext.Load();
         CustomActionIdContext.Load();
@@ -61,6 +64,9 @@ internal static class BootContext
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
 
+        // Backgrounds may rely on spells and powers being in the DB before they can properly load.
+        BackgroundsContext.Load();
+
         // Races may rely on spells and powers being in the DB before they can properly load.
         RacesContext.Load();
 
@@ -72,9 +78,6 @@ internal static class BootContext
 
         // Level 20 must always load after classes and subclasses
         Level20Context.Load();
-
-        // Backgrounds may rely on LEVEL20, spells and powers being in the DB before they can properly load.
-        BackgroundsContext.Load();
 
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();

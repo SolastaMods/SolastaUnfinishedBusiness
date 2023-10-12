@@ -48,5 +48,6 @@ Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotDescription=
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactDescription=Sie können eine Ihrer Arcane Shot-Techniken anwenden.
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactTitle=Arkaner Schuss
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotTitle=Arkaner Schuss
+Screen/&InvocationPoolArcaneShotChoiceHeader=Arkane Schüsse
 Subclass/&MartialArcaneArcherDescription=Ein arkaner Bogenschütze erforscht eine einzigartige elfische Methode des Bogenschießens, bei der Magie in Angriffe eingebunden wird, um übernatürliche Effekte zu erzeugen. Arkane Bogenschützen gehören zu den elitärsten Kriegern unter den Elfen. Sie wachen über die Ränder der Elfengebiete, halten scharf Ausschau nach Eindringlingen und nutzen magische Pfeile, um Monster und Eindringlinge zu besiegen, bevor sie Elfensiedlungen erreichen können. Im Laufe der Jahrhunderte wurden die Methoden dieser Elfenbogenschützen von Angehörigen anderer Rassen erlernt, die ebenfalls arkane Fähigkeiten mit Bogenschießen in Einklang bringen können.
 Subclass/&MartialArcaneArcherTitle=Arkaner Bogenschütze

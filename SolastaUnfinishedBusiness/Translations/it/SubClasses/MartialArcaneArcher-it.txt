@@ -48,5 +48,6 @@ Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotDescription=
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactDescription=Puoi applicare una delle tue tecniche di Tiro Arcano.
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactTitle=Tiro Arcano
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotTitle=Tiro Arcano
+Screen/&InvocationPoolArcaneShotChoiceHeader=Colpi arcani
 Subclass/&MartialArcaneArcherDescription=Un arciere arcano studia un metodo unico di tiro con l'arco elfico che intreccia la magia negli attacchi per produrre effetti soprannaturali. Gli arcieri arcani sono alcuni dei loro guerrieri più elitari tra gli elfi. Vegliano ai margini dei domini elfici, tenendo d'occhio gli intrusi e usando frecce infuse di magia per sconfiggere mostri e invasori prima che possano raggiungere gli insediamenti elfici. Nel corso dei secoli, i metodi di questi elfi arcieri sono stati appresi da membri di altre razze che possono anche bilanciare l'attitudine arcana con il tiro con l'arco.
 Subclass/&MartialArcaneArcherTitle=Arciere arcano

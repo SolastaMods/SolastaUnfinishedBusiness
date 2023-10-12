@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=Origen final del giro
 Screen/&ClassExtraSpellDescriptionFormat=Conoces este hechizo de la clase {0}.
 Screen/&EditorLocationSize3Title=Enorme [MODIFICADO]
 Screen/&EditorLocationSize4Title=Gigantesco [MODIFICADO]
-Screen/&InvocationPoolSignatureSpellsHeader=Hechizos de firma
 Screen/&MulticlassExtraSpellDescription=Conoces este hechizo de otro repertorio.
 Screen/&MulticlassExtraSpellTitle=Multiclase
 Screen/&RaceExtraSpellDescription=Conoces este hechizo por tu herencia.

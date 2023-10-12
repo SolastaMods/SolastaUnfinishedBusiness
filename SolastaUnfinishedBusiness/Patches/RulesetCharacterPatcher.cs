@@ -152,6 +152,20 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.GetMaxUsesOfPower))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class GetMaxUsesOfPower_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref int __result, RulesetUsablePower usablePower)
+        {
+            __result += __instance.GetSubFeaturesByType<IModifyPowerPoolAmount>()
+                .Where(m => m.PowerPool == usablePower.PowerDefinition)
+                .Sum(m => m.PoolChangeAmount(__instance));
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.AcknowledgeAttackedCharacter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1253,7 +1267,7 @@ public static class RulesetCharacterPatcher
             var bind = typeof(RulesetUsablePower).GetMethod("get_MaxUses",
                 BindingFlags.Public | BindingFlags.Instance);
             var maxUses =
-                new Func<RulesetUsablePower, RulesetCharacter, int>(PowerBundle.GetMaxUsesForPool).Method;
+                new Func<RulesetUsablePower, RulesetCharacter, int>(GetMaxUsesOfPower).Method;
             var restoreAllSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("RestoreAllSpellSlots");
             var myRestoreAllSpellSlotsMethod =
                 new Action<RulesetSpellRepertoire, RulesetCharacter, RestType>(RestoreAllSpellSlots).Method;
@@ -1268,6 +1282,13 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, myRestoreAllSpellSlotsMethod));
+        }
+
+        private static int GetMaxUsesOfPower(
+            [NotNull] RulesetUsablePower poolPower,
+            [NotNull] RulesetCharacter character)
+        {
+            return character.GetMaxUsesOfPower(poolPower);
         }
 
         private static void RestoreAllSpellSlots(

@@ -58,6 +58,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 可能な限り最高の
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 追加のサイコロを振る代わりに、攻撃の合計ダメージが2倍になります。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>神々</color>
 ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を無効にする
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=この MOD によって提供される特技の呪文の前提条件を無効にします<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=この MOD によって提供される特技のレベルの前提条件を無効にします
 ModUi/&DisableRacePrerequisitesOnModFeats=この MOD によって提供される特技のレースの前提条件を無効にします
 ModUi/&DisableSenseDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>闇の視覚の感覚</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
@@ -91,6 +92,7 @@ ModUi/&EnableCustomPortraits=カスタムポートレートを有効にする
 ModUi/&EnableCustomPortraitsHelp=。カスタム ポートレートをサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color>< の下に配置します。 /b></i>、主人公の名前 <i><color=#F0DAA0>[例: アントン、セリア、ニアラなど]</color></i>\n にちなんで名付けられました。サイズ 256 x 384 ピクセルの透明レイヤーを含む PNG 画像を使用します<i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 を有効にする>[再起動が必要]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネル表示を有効にする <i><color=#F0DAA0>[秘術ショット、注入、ギャンビット、多用途性]</color></i>
 ModUi/&EnableFeatsAtEvenLevels=クラスレベル2、10、18で特技選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=クラスレベル6および14で特技選択を有効にする
 ModUi/&EnableFighterWeaponSpecialization=クラスレベル 8 と 16 で<color=#D89555>ファイター</color>の<b>武器スペシャライゼーション</b>を有効にします<i><color=#F0DAA0>[ヒットとダメージに +1 を獲得しますが、他のものでは不利になります。武器の種類]</color></i>

@@ -58,6 +58,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any dama
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deities</color>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on feats provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on feats provided by this mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on feats provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -91,6 +92,7 @@ ModUi/&EnableCustomPortraits=Enable custom portraits
 ModUi/&EnableCustomPortraitsHelp=. Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n. Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i> 
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Gambits, and Versatilities]</color></i>
 ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable feats selection at class levels 6 and 14
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>

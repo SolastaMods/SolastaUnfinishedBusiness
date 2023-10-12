@@ -11,7 +11,9 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PowerFeatPoisonousSkin:871e0c21-79b8-5137-85b2-ed91074185d7"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

@@ -155,6 +155,7 @@ internal static class RaceKoboldBuilder
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
             .SetSlotsPerLevel(SharedSpellsContext.RaceEmptyCastingSlots)
+            .SetReplacedSpells(1, 0)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(spellListDraconicKobold)
             .AddToDB();

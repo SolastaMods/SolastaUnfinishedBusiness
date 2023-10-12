@@ -48,5 +48,6 @@ Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotDescription=
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactDescription=Vous pouvez appliquer l'une de vos techniques Arcane Shot.
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactTitle=Tir arcanique
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotTitle=Tir arcanique
+Screen/&InvocationPoolArcaneShotChoiceHeader=Tirs arcaniques
 Subclass/&MartialArcaneArcherDescription=Un Arcane Archer étudie une méthode elfique unique de tir à l'arc qui intègre la magie dans les attaques pour produire des effets surnaturels. Les arcanes archers font partie de leurs guerriers les plus élitistes parmi les elfes. Ils surveillent les frontières des domaines elfiques, gardant un œil attentif sur les intrus et utilisant des flèches imprégnées de magie pour vaincre les monstres et les envahisseurs avant qu'ils ne puissent atteindre les colonies elfiques. Au fil des siècles, les méthodes de ces archers elfes ont été apprises par des membres d'autres races qui peuvent également équilibrer l'aptitude aux arcanes avec le tir à l'arc.
 Subclass/&MartialArcaneArcherTitle=Archer arcanique

@@ -179,7 +179,6 @@ Rules/&TurnOccurenceEndOfSourceTurnFormat=Конец источника хода
 Screen/&ClassExtraSpellDescriptionFormat=Вам известно это заклинание от класса {0}.
 Screen/&EditorLocationSize3Title=Огромный [Модифицировано]
 Screen/&EditorLocationSize4Title=Гигантский [Модифицировано]
-Screen/&InvocationPoolSignatureSpellsHeader=Фирменное заклинание
 Screen/&MulticlassExtraSpellDescription=Вам известно это заклинание из другого репертуара.
 Screen/&MulticlassExtraSpellTitle=Мультикласс
 Screen/&RaceExtraSpellDescription=Вам известно это заклинание из своего наследия.

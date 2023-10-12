@@ -162,10 +162,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         //
         // LEVEL 17
         //
-
-        const string ADDITIONAL_DAMAGE_POSSESSED = $"AdditionalDamage{Name}Possessed";
-        const string POWER_ESSENCE_THEFT = $"Power{Name}EssenceTheft";
-
         var conditionPossessed = ConditionDefinitionBuilder
             .Create($"Condition{Name}Possessed")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPossessed)
@@ -176,12 +172,13 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         // kept name for backward compatibility
         var additionalDamagePossessed = FeatureDefinitionPowerBuilder
-            .Create(ADDITIONAL_DAMAGE_POSSESSED)
+            .Create($"AdditionalDamage{Name}Possessed")
             .SetGuiPresentation($"Condition{Name}Possessed", Category.Condition)
             .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionPossessed))
                     .Build())
             .AddToDB();
@@ -191,11 +188,11 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
 
             return gameLocationCharacter != null &&
-                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(ADDITIONAL_DAMAGE_POSSESSED);
+                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(AdditionalDamageRogueSneakAttack.Name);
         }
 
         var powerEssenceTheft = FeatureDefinitionPowerBuilder
-            .Create(POWER_ESSENCE_THEFT)
+            .Create($"Power{Name}EssenceTheft")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
             .SetEffectDescription(

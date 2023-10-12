@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerCelestialHealingLight:d5680d5a-637b-5c7b-99b5-e408cd3f57f0",
+    "Definition:PowerSharedPoolCelestialHealingLight1:6eaaef34-40db-5762-82f0-be9cc2adc988",
+    "Definition:PowerSharedPoolCelestialHealingLight2:41112ae6-9f03-54b3-ab6d-9cd29d06e936",
+    "Definition:PowerSharedPoolCelestialHealingLight3:24afb709-e2bf-58e1-914b-8bb07fd48b52",
+    "Definition:PowerSharedPoolCelestialHealingLight4:e0c300d7-874e-5eb7-995a-93cd5b1100e6",
+    "Definition:PowerSharedPoolCelestialHealingLight5:8d6253ef-3e6c-51c3-9e1b-72d61849c0be",
+    "Definition:PowerSharedPoolCelestialHealingLight6:adbd3e0e-1046-570d-b94e-5e32677a8897"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerCelestialHealingLightTitle",
+    "description": "Feature/&PowerCelestialHealingLightDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "34a4bf3b-19c4-5bd5-906d-600cb791f905",
+  "contentPack": 9999,
+  "name": "FeatureSetCelestialHealingLight"
+}

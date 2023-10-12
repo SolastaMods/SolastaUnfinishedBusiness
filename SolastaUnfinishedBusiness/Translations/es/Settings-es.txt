@@ -58,6 +58,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: sigue tirando los dados 
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: duplica el daño total de tu ataque en lugar de tirar dados adicionales. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deidades</color>
 ModUi/&DisableAutoEquip=Deshabilitar el equipamiento automático de artículos en el inventario
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=Desactiva los requisitos previos para lanzar hechizos en las hazañas proporcionadas por este mod <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos de nivel en las hazañas proporcionadas por este mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de carrera en las proezas proporcionadas por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -91,6 +92,7 @@ ModUi/&EnableCustomPortraits=Habilitar retratos personalizados
 ModUi/&EnableCustomPortraitsHelp=. Coloque sus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color><. /b></i>, llamado así por el nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n. Utilice imágenes PNG, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[use GIMP para obtener mejores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y recursos de mezcla sencillos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar la visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, gambitos y versatilidad]</color></i>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niveles de clase 6 y 14
 ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>

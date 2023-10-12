@@ -42,6 +42,7 @@ internal static class RaceFairyBuilder
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
             .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
+            .SetReplacedSpells(1, 0)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(
                 SpellListDefinitionBuilder

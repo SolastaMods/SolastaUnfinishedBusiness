@@ -244,24 +244,6 @@ internal static class RaceTieflingBuilder
             });
         }
 
-        for (var level = 17; level <= 20; level++)
-        {
-            castSpellTieflingDevilTongue.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
-            {
-                Level = level, Slots = castSpellTieflingDevilTongue.slotsPerLevels[15].slots
-            });
-
-            castSpellTieflingMephistopheles.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
-            {
-                Level = level, Slots = castSpellTieflingMephistopheles.slotsPerLevels[15].slots
-            });
-
-            castSpellTieflingZariel.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
-            {
-                Level = level, Slots = castSpellTieflingZariel.slotsPerLevels[15].slots
-            });
-        }
-
         var raceTiefling = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTiefling")
             .SetOrUpdateGuiPresentation("Tiefling", Category.Race)

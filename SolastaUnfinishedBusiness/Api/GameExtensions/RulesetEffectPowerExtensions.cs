@@ -17,6 +17,8 @@ public static class RulesetEffectPowerExtensions
         if (finalUser != null
             && finalUser.UsablePowers.All(x => x.PowerDefinition != rulesetPower.PowerDefinition))
         {
+            Main.Info($"AddAsActivePowerToSource: {rulesetPower.PowerDefinition.Name} not in UsablePowers");
+
             finalUser.AddActivePower(rulesetPower);
         }
         else

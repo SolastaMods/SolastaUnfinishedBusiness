@@ -59,6 +59,7 @@ Mind Blank=Mind Blank
 Mind Spike=Mind Sliver
 Mirror Image=Mirror Image
 Mobile=Mobile
+Nature's Shroud=Nature's Veil
 Path of the Spirits=Path of the Totem Warrior
 Piercer=Piercer
 Polearm Expert=Polearm Master

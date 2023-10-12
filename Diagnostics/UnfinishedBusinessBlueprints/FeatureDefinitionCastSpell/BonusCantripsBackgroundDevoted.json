@@ -35,7 +35,6 @@
     1,
     1,
     1,
-    1,
     1
   ],
   "knownSpells": [
@@ -321,21 +320,6 @@
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 15,
-      "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
-      "level": 16,
       "slots": [
         0,
         0,

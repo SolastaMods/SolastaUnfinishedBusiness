@@ -65,7 +65,7 @@ internal static class PowerBundle
                 continue;
             }
 
-            var poolSize = GetMaxUsesForPool(poolPower, character);
+            var poolSize = character.GetMaxUsesOfPower(poolPower);
 
             poolPower.remainingUses = poolSize;
 
@@ -124,13 +124,6 @@ internal static class PowerBundle
         return character.UsablePowers.FirstOrDefault(usablePower => usablePower.PowerDefinition == poolPower);
     }
 
-    internal static int GetMaxUsesForPool([NotNull] RulesetUsablePower poolPower, [NotNull] RulesetCharacter character)
-    {
-        return poolPower.MaxUses + character.GetSubFeaturesByType<IModifyPowerPoolAmount>()
-            .Where(m => m.PowerPool == poolPower.PowerDefinition)
-            .Sum(m => m.PoolChangeAmount(character));
-    }
-
     internal static int GetMaxUsesForPool(this RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power)
     {
@@ -141,7 +134,7 @@ internal static class PowerBundle
 
         var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
 
-        return usablePower == null ? 0 : GetMaxUsesForPool(usablePower, character);
+        return usablePower == null ? 0 : character.GetMaxUsesOfPower(usablePower);
     }
 
     internal static void UpdateUsageForPower(this RulesetCharacter character,
@@ -189,7 +182,7 @@ internal static class PowerBundle
         int poolUsage,
         RulesetUsablePower usablePower)
     {
-        var maxUses = GetMaxUsesForPool(usablePower, character);
+        var maxUses = character.GetMaxUsesOfPower(usablePower);
         var remainingUses = Mathf.Clamp(usablePower.RemainingUses - poolUsage, 0, maxUses);
 
         usablePower.remainingUses = remainingUses;
