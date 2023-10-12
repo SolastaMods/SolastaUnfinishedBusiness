@@ -1,12 +1,16 @@
 ﻿1.5.94.24:
- 
-- added Patron Celestial subclass
+
+- mod takes ~120 hours a month to get new content and fixes
+- monthly cost with internet and services is ~$120 but only making $50 currently
+- looking for additional patrons to make it at least break even [mod UI > General > Tools for donation]
+
 - added Gameplay > General > 'Disable cast spell pre-requisites on feats provided by this mod'
-- added Interface > Game UI > 'Enable Extended Proficiencies display setting' [has lag on first open]
+- added Interface > Game UI > 'Enable Extended Proficiencies display setting'
+- added Patron Celestial subclass [request from jlk493]
 - changed Rejoin Party and Teleport features to work under multiplayer, adn Teleport on official campaigns
 - fixed Arcane Scoundrel not offering the essence thief power after a sneak attack at level 17th
 - fixed Battlefield Shorthand versatility to memorize spell parent when subspells are cast
-- fixed Poisonous Skin crashing power effect serialization on load and save [also improved log to find similar ones]
+- fixed Poisonous Skin crashing power effect serialization on load and save
 - fixed remaining races cast spell cantrips and slots collections crashing level up above 16th
 
 1.5.94.23:
