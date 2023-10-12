@@ -49,7 +49,7 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
 
     internal TBuilder SetMustCastSpellsPrerequisite()
     {
-        Definition.mustCastSpellsPrerequisite = true;
+        Definition.mustCastSpellsPrerequisite = !Main.Settings.DisableCastSpellPreRequisitesOnModFeats;
         return (TBuilder)this;
     }
 

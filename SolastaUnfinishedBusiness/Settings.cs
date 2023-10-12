@@ -99,6 +99,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFlexibleRaces { get; set; }
     public bool DisableLevelPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
+    public bool DisableCastSpellPreRequisitesOnModFeats { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt10 { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }

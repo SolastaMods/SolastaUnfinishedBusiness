@@ -58,6 +58,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 可能な限り最高の
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 追加のサイコロを振る代わりに、攻撃の合計ダメージが2倍になります。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>神々</color>
 ModUi/&DisableAutoEquip=インベントリ内のアイテムの自動装備を無効にする
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=この MOD によって提供される特技の呪文の前提条件を無効にします<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=この MOD によって提供される特技のレベルの前提条件を無効にします
 ModUi/&DisableRacePrerequisitesOnModFeats=この MOD によって提供される特技のレースの前提条件を無効にします
 ModUi/&DisableSenseDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>闇の視覚の感覚</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
