@@ -61,6 +61,20 @@ public static class CursorLocationSelectPositionPatcher
 
             return result;
         }
+
+        [UsedImplicitly]
+        public static void Postfix(CursorLocationSelectPosition __instance)
+        {
+            if (__instance.effectDescription.HasFormOfType(EffectForm.EffectFormType.Motion)
+                && __instance.effectDescription.RangeType == RangeType.Distance
+                && __instance.effectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Motion).MotionForm.Type ==
+                MotionForm.MotionType.TeleportToDestination)
+            {
+                return;
+            }
+
+            __instance.validCellsComputationCoroutine.Start(__instance.ComputeValidPositions());
+        }
     }
 
     [HarmonyPatch(typeof(CursorLocationSelectPosition), nameof(CursorLocationSelectPosition.ComputeValidPositions))]
