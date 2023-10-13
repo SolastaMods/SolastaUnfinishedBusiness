@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on b
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Enable the alternate <color=#D89555>Human</color> <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
+ModUi/&EnableAlternateVotingSystem=Enable alternate voting system <i><color=#F0DAA0>[use controlled heroes Charisma modifier average to determine player weight]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
@@ -270,3 +271,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks</
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>
 ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&VotingSystemRandomRange=<i><color=white>. Apply a random % factor to each weight</color></i>

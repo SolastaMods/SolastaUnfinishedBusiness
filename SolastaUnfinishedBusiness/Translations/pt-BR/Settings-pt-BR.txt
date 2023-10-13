@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Ativar exibição adicional de históric
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de níveis
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 opções de atributo / +1 habilidade]</color></i>
+ModUi/&EnableAlternateVotingSystem=Ative o sistema de votação alternativo <i><color=#F0DAA0>[use a média do modificador de carisma dos heróis controlados para determinar o peso do jogador]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Habilite a opção <color=#D89555>Bárbaro</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
@@ -270,3 +271,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também para ataques de 
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Em vez de conceder vantagem +1 para jogada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&VotingSystemRandomRange=<i><cor=branco>. Aplique um fator percentual aleatório a cada peso</color></i>

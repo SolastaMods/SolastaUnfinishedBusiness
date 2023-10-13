@@ -176,6 +176,22 @@ internal static class GameUiDisplay
             Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered = toggle;
         }
 
+        toggle = Main.Settings.EnableAlternateVotingSystem;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateVotingSystem"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAlternateVotingSystem = toggle;
+        }
+
+        if (Main.Settings.EnableAlternateVotingSystem)
+        {
+            var intValue = Main.Settings.VotingSystemRandomRange;
+            if (UI.Slider(Gui.Localize("ModUi/&VotingSystemRandomRange"), ref intValue, 1, 50,
+                    0, "%", UI.AutoWidth()))
+            {
+                Main.Settings.VotingSystemRandomRange = intValue;
+            }
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AllowMoreRealStateOnRestPanel;

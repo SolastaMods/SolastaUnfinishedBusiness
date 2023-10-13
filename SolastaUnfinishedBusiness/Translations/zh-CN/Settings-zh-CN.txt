@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景�
 ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和传送器启用额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
+ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用受控英雄魅力修正平均值来确定玩家体重]</color></i>
 ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
@@ -271,3 +272,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 对触及攻击生效</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&VotingSystemRandomRange=<i><颜色=白色>。对每个权重应用随机百分比因子</color></i>

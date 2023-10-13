@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=バックグラウンド検査で追加�
 ModUi/&EnableAdditionalIconsOnLevelMap=レベルマップ上のキャンプ、出口、テレポーターの追加アイコンを有効にする
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ ダンジョンメーカーに新しいアイテムを追加</i>
 ModUi/&EnableAlternateHuman=代替人間 <i><color=#F0DAA0>[+1 特技 / +2 属性選択 / +1 スキル]</color></i> を有効にする
+ModUi/&EnableAlternateVotingSystem=代替投票システムを有効にする<i><color=#F0DAA0>[プレイヤーの体重を決定するには、コントロールヒーローのカリスマ修正値の平均を使用する]</color></i>
 ModUi/&EnableBarbarianFightingStyle=レベル 2 で<color=#D89555>野蛮人</color>の<b>戦闘スタイル</b>の選択が可能になります
 ModUi/&EnableBetaContent=ベータ コンテンツを有効にする <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=マウスの右クリックによるキャンセルアクションを有効にする
@@ -270,3 +271,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にす�
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を与える</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</color>の重量は2ポンドを使用してください
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&VotingSystemRandomRange=<i><color=white>。各ウェイトにランダムな % 係数を適用します</color></i>

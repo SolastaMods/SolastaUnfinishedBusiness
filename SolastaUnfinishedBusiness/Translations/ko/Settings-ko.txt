@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=배경 검사에서 추가 배경 이야
 ModUi/&EnableAdditionalIconsOnLevelMap=레벨 지도에서 야영지, 출구, 순간이동기에 대한 추가 아이콘 활성화
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ 던전 메이커에 새 아이템 추가</i>
 ModUi/&EnableAlternateHuman=변형 룰 <color=#D89555>인간</color> <i><color=#F0DAA0>[+1 재주 / +2 능력치 / +1 기술]</color></i> 활성화
+ModUi/&EnableAlternateVotingSystem=대체 투표 시스템 활성화 <i><color=#F0DAA0>[제어된 영웅의 카리스마 수정자 평균을 사용하여 플레이어 체중 결정]</color></i>
 ModUi/&EnableBarbarianFightingStyle=<color=#D89555>바바리안</color>의 <b>전투 특화</b> 선택지를 2레벨에 활성화
 ModUi/&EnableBetaContent=베타 컨텐츠 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 우클릭으로 행동 취소 활성화
@@ -270,3 +271,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 장병기 공격에도 적용</
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
 ModUi/&Visuals=<color=#F0DAA0>비주얼:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&VotingSystemRandomRange=<i><색상=흰색>. 각 가중치에 임의의 % 계수를 적용합니다.</color></i>

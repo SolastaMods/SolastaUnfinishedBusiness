@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige 
 ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Neue Gegenstände zu Dungeon Maker hinzufügen</i>
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
+ModUi/&EnableAlternateVotingSystem=Aktivieren Sie das alternative Abstimmungssystem <i><color=#F0DAA0>[verwenden Sie den Charisma-Modifikator-Durchschnitt kontrollierter Helden, um das Spielergewicht zu bestimmen]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
@@ -270,3 +271,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe a
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&VotingSystemRandomRange=<i><color=white>. Wenden Sie auf jedes Gewicht einen zufälligen %-Faktor an</color></i>
