@@ -2,7 +2,6 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine.UI;
 using static RuleDefinitions;
 
@@ -36,7 +35,7 @@ public static class UsablePowerBoxPatcher
         public static void Postfix(UsablePowerBox __instance)
         {
             //PATCH: sets current character as context for power tooltip, so it may update its properties based on user
-            Tooltips.AddContextToPowerBoxTooltip(__instance);
+            __instance.GuiTooltip.Context = __instance.activator;
 
             //PATCH: make reaction powers not active
             if (__instance.usablePower.PowerDefinition.activationTime == ActivationTime.Reaction)
