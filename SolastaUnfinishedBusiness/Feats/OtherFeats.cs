@@ -842,7 +842,6 @@ internal static class OtherFeats
                             .SetConditionForm(ConditionDefinitions.ConditionPoisoned,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
                     .Build())
             .AddToDB();
 
