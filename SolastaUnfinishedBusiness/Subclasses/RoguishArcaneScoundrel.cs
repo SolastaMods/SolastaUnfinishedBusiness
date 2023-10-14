@@ -338,7 +338,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorEssenceTheft : IMagicEffectInitiatedByMe, IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorEssenceTheft : IMagicEffectInitiatedByMe, IFilterTargetingCharacter
     {
         private readonly ConditionDefinition _conditionPossessed;
         private readonly FeatureDefinitionPower _powerEssenceTheft;

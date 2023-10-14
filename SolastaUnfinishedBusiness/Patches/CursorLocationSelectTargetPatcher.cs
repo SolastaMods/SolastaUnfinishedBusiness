@@ -27,9 +27,9 @@ public static class CursorLocationSelectTargetPatcher
         {
             var definition = __instance.ActionParams.activeEffect.SourceDefinition;
 
-            //PATCH: supports IFilterTargetingMagicEffect
+            //PATCH: supports IFilterTargetingCharacter
             foreach (var filterTargetingMagicEffect in
-                     definition.GetAllSubFeaturesOfType<IFilterTargetingMagicEffect>())
+                     definition.GetAllSubFeaturesOfType<IFilterTargetingCharacter>())
             {
                 __result = filterTargetingMagicEffect.IsValid(__instance, target);
 

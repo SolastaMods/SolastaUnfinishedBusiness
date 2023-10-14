@@ -320,7 +320,7 @@ public sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorMarkOfTheDammed :
-        IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingMagicEffect
+        IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
