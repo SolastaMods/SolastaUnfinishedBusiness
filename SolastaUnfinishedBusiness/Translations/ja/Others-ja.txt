@@ -102,6 +102,7 @@ Feature/&ToolGainChoicesSingleDescription=次のツールのいずれかを選�
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} は {1} のボーナスを与え、新しい結果は {2} です (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} ロールで {1} を維持 {2} 対難易度 {3}、ロール {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} ロールで {1} 対難易度 {2} を維持、ロール {3} = {4}
+Feedback/&DishearteningPerformanceUsedSuccessLine={0} は、{1} の物語の選択肢をロールして、{2} の結果をもたらします。
 Feedback/&FlankingAttack=側面攻撃
 Feedback/&HigherGroundAttack=高いところ
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
