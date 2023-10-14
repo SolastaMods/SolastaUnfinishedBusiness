@@ -180,6 +180,11 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateVotingSystem"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAlternateVotingSystem = toggle;
+
+            if (!toggle)
+            {
+                Main.Settings.EnableSumD20OnAlternateVotingSystem = false;
+            }
         }
 
         if (Main.Settings.EnableAlternateVotingSystem)

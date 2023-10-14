@@ -17,11 +17,22 @@ public static class NarrativeStateAnswerChoicePatcher
     public static class Begin_Patch
     {
         [UsedImplicitly]
-        public static void Postfix()
+        public static void Postfix(NarrativeStateAnswerChoice __instance)
         {
+            if (!Main.Settings.EnableAlternateVotingSystem || !Main.Settings.EnableSumD20OnAlternateVotingSystem)
+            {
+                return;
+            }
+
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
             DiceRolls.Clear();
+
+            var actorLine = __instance.narrativeSequence.AdventureLogInfos.Last()?.ActorLine ?? string.Empty;
+            var console = Gui.Game.GameConsole;
+            var entry = new GameConsoleEntry(actorLine, console.consoleTableDefinition) { Indent = false };
+
+            console.AddEntry(entry);
 
             foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
             {
@@ -30,7 +41,15 @@ public static class NarrativeStateAnswerChoicePatcher
 
                 DiceRolls.Add(gameLocationCharacter.Guid, dieRoll);
 
-                Main.Info($"{gameLocationCharacter.Name} rolled a {dieRoll} for narrative choices");
+                entry = new GameConsoleEntry("Feedback/&DishearteningPerformanceUsedSuccessLine",
+                    console.consoleTableDefinition) { Indent = true };
+
+                console.AddCharacterEntry(gameLocationCharacter.RulesetCharacter, entry);
+                entry.AddParameter(
+                    ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(RuleDefinitions.DieType.D20));
+                entry.AddParameter(
+                    ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString());
+                console.AddEntry(entry);
             }
         }
     }
@@ -48,17 +67,16 @@ public static class NarrativeStateAnswerChoicePatcher
                 return true;
             }
 
-            selectedIndex = 0;
-
-            var maxWeightedVote = 0d;
+            // compute weights using charisma modifier
             var computedVotes = 0;
             var networkingService = ServiceRepository.GetService<INetworkingService>();
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
             var playersInRoom = networkingService.GetPlayersInRoom();
+            var votes = new Dictionary<int, int>();
 
             foreach (var current in __instance.playerVotesPerChoice)
             {
+                var heroIndex = current.Key;
                 var intList = current.Value;
 
                 if (intList == null)
@@ -66,29 +84,48 @@ public static class NarrativeStateAnswerChoicePatcher
                     continue;
                 }
 
-                var weightedVote = 0d;
+                var hero = gameLocationCharacterService.PartyCharacters[heroIndex];
+                var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                    hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
+
+                votes.TryAdd(heroIndex, 0);
 
                 foreach (var _ in intList)
                 {
                     ++computedVotes;
 
-                    var hero = gameLocationCharacterService.PartyCharacters[current.Key];
-                    var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                        hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
-
-                    weightedVote += charismaModifier * DiceRolls[hero.Guid];
+                    votes[heroIndex] += charismaModifier;
                 }
+            }
 
-                if (weightedVote < maxWeightedVote)
+            // add D20 rolls
+            if (Main.Settings.EnableSumD20OnAlternateVotingSystem)
+            {
+                foreach (var heroIndex in votes.Keys)
+                {
+                    var hero = gameLocationCharacterService.PartyCharacters[heroIndex];
+
+                    votes[heroIndex] += DiceRolls[hero.Guid];
+                }
+            }
+
+            // determine highest selection
+            var maxWeight = 0;
+
+            selectedIndex = 0;
+
+            foreach (var vote in votes)
+            {
+                var heroIndex = vote.Key;
+                var weight = vote.Value;
+
+                if (weight < maxWeight)
                 {
                     continue;
                 }
 
-                maxWeightedVote = weightedVote;
-
-                var key = current.Key;
-
-                selectedIndex = key;
+                maxWeight = weight;
+                selectedIndex = heroIndex;
             }
 
             everyoneVoted = playersInRoom.Count <= computedVotes;

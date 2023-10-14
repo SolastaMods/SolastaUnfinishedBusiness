@@ -102,6 +102,7 @@ Feature/&ToolGainChoicesSingleDescription=选择以下工具之一：{1}
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} 奖励 {1}，新结果为 {2}（DC：{3}）
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 掷骰以维持 {1} {2} 对抗 DC {3}，掷骰 {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} 掷骰以维持 {1} 对抗 DC {2}，掷骰 {3} = {4}
+Feedback/&DishearteningPerformanceUsedSuccessLine={0} 滚动 {1} 个叙述选项，结果为 {2}。
 Feedback/&FlankingAttack=背后夹击
 Feedback/&HigherGroundAttack=高处攻击
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！

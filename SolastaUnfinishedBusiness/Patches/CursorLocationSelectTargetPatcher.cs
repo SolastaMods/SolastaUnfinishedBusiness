@@ -112,25 +112,19 @@ public static class CursorLocationSelectTargetPatcher
     public static class Activate_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(params object[] parameters)
+        public static void Prefix(params object[] parameters)
         {
-            if (parameters.Length <= 0 || parameters[0] is not CharacterActionParams
+            //PATCH: allows Sorcerous Field Manipulator displacement to select any character
+            if (parameters.Length > 0 &&
+                parameters[0] is CharacterActionParams
                 {
                     RulesetEffect: RulesetEffectPower rulesetEffectPower
-                } characterActionParams)
+                } characterActionParams &&
+                rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
             {
-                return true;
-            }
-
-            //PATCH: allows Sorcerous Field Manipulator displacement to select any character
-            // allows any target to be selected as well as automatically presents a better UI description
-            if (rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
-            {
+                // allows any target to be selected as well as automatically presents a better UI description
                 characterActionParams.RulesetEffect.EffectDescription.inviteOptionalAlly = false;
             }
-
-            //PATCH: this power should not activate cursor but it does under certain conditions
-            return rulesetEffectPower.PowerDefinition.Name != "PowerResonatingStrike";
         }
     }
 
