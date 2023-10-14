@@ -328,7 +328,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Healing Light 6 D6",
+    "title": "Healing Light 6D6",
     "description": "As a bonus action, you can heal one creature you can see within 60 feet of you, spending 6 dice from the pool. Roll the dice you spend, add them together, and restore a number of hit points equal to the total. Your pool regains all expended dice when you finish a long rest.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
