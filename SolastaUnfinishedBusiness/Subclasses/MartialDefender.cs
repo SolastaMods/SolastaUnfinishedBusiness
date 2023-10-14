@@ -302,7 +302,9 @@ public sealed class MartialDefender : AbstractSubclass
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteAction(actionParams, null, false);
         }
     }
 }

@@ -1058,7 +1058,9 @@ public sealed class InnovationArtillerist : AbstractSubclass
             actionParams.RulesetEffect = effectPower;
             actionParams.TargetCharacters.SetRange(targets);
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteAction(actionParams, null, false);
         }
     }
 
