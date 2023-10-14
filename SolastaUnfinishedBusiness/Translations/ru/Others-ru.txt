@@ -102,7 +102,7 @@ Feature/&ToolGainChoicesSingleDescription=Выберите один из эти�
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} даёт бонус {1}, новый результат - {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} бросает для поддержания {1} {2} против Сл {3}, выкидывает {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} бросает для поддержания {1} против Сл {2}, выкидывает {3} = {4}
-Feedback/&DishearteningPerformanceUsedSuccessLine={0} выбрасывает вариант повествования {1} с результатом {2}.
+Feedback/&DishearteningPerformanceUsedSuccessLine={0} бросает нарративный выбор {1} с результатом {2}.
 Feedback/&FlankingAttack=Угроза с фланга
 Feedback/&HigherGroundAttack=Возвышенность
 Feedback/&ReturningWeaponActivates={1} возвращается к {0}!
