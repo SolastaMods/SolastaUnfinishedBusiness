@@ -329,7 +329,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
             rulesetAttacker.LogCharacterUsedPower(
                 _power,
-                "Feedback/&TriggerRerollLine",
+                $"Feedback/&Trigger{Name}RerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
