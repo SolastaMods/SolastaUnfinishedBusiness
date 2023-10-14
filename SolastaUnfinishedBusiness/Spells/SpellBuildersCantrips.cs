@@ -794,6 +794,7 @@ internal static partial class SpellBuilders
             .Create("PowerResonatingStrike")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -972,7 +973,11 @@ internal static partial class SpellBuilders
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(_secondTarget);
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            // adding to resulting actions in this scenario creates a strange interaction with War Caster
+            // action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteAction(actionParams, null, false);
         }
     }
 
