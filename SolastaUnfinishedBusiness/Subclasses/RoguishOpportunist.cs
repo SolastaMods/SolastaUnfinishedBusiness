@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using TA;
 using static AttributeDefinitions;
 using static FeatureDefinitionSavingThrowAffinity;
 using static RuleDefinitions;
@@ -319,9 +320,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
             GameLocationCharacter helper)
         {
             return helper.CanReact()
-                   && battleService.IsValidAttackerForOpportunityAttackOnCharacter(helper, defender)
-                   && helper != Gui.Battle.ActiveContender
-                   && defender.IsOppositeSide(helper.Side);
+                   && defender.IsOppositeSide(helper.Side)
+                   && helper.CanPerformOpportunityAttackOnCharacter(
+                       defender, defender.LocationPosition, int3.zero, out _, out _, true, battleService, true);
         }
     }
 }
