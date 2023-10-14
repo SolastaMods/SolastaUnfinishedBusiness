@@ -281,7 +281,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableDistanceOnTooltip { get; set; }
     public bool EnableCustomPortraits { get; set; }
     public bool EnableAlternateVotingSystem { get; set; }
-    public int VotingSystemRandomRange { get; set; }
+    public bool EnableSumD20OnAlternateVotingSystem { get; set; }
 
     public int[][][] FormationGridSets { get; set; } =
     {

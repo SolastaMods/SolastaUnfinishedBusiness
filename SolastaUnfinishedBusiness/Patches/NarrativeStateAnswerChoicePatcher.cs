@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -8,6 +9,32 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class NarrativeStateAnswerChoicePatcher
 {
+    private static readonly Dictionary<ulong, int> DiceRolls = new();
+
+    [HarmonyPatch(typeof(NarrativeStateAnswerChoice), nameof(NarrativeStateAnswerChoice.Begin))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class Begin_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix()
+        {
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            DiceRolls.Clear();
+
+            foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
+            {
+                var dieRoll = RuleDefinitions.RollDie(
+                    RuleDefinitions.DieType.D20, RuleDefinitions.AdvantageType.None, out _, out _);
+
+                DiceRolls.Add(gameLocationCharacter.Guid, dieRoll);
+
+                Main.Info($"{gameLocationCharacter.Name} rolled a {dieRoll} for narrative choices");
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(NarrativeStateAnswerChoice), nameof(NarrativeStateAnswerChoice.GetVoteWinner))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -41,20 +68,15 @@ public static class NarrativeStateAnswerChoicePatcher
 
                 var weightedVote = 0d;
 
-                foreach (var vote in intList)
+                foreach (var _ in intList)
                 {
                     ++computedVotes;
 
-                    var charGuids = networkingService.GetCharactersGuidsByPlayer(playersInRoom[vote].actorNumber);
-                    var controlledHeroes = gameLocationCharacterService.AllValidEntities
-                        .Where(x => charGuids.Contains(x.Guid));
-                    var charismaModifiers = controlledHeroes
-                        .Select(y =>
-                            AttributeDefinitions.ComputeAbilityScoreModifier(
-                                y.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma)));
+                    var hero = gameLocationCharacterService.PartyCharacters[current.Key];
+                    var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                        hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
-                    weightedVote += charismaModifiers.Average() *
-                                    (100f + RandomExtensions.RangeInclusive(0, Main.Settings.VotingSystemRandomRange)) / 100f;
+                    weightedVote += charismaModifier * DiceRolls[hero.Guid];
                 }
 
                 if (weightedVote < maxWeightedVote)

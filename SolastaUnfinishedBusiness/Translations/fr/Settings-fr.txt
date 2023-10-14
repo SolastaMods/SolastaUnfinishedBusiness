@@ -80,7 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage d'éléments d'histo
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte du niveau
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter les nouveaux objets au Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 Don / +2 choix de Caractéristiques / +1 Compétence]</color></i>
-ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[utiliser la moyenne du modificateur de charisme des héros contrôlés pour déterminer le poids du joueur]</color></i>
+ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[utiliser le modificateur de charisme du héros pour déterminer le poids du choix]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Activer pour le <color=#D89555>Barbare</color> le choix d'un <b>Style de combat</b> au niveau 2
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer l'annulation des actions avec un clic droit de la souris
@@ -125,6 +125,7 @@ ModUi/&EnableRogueSteadyAim=Activez <color=#D89555>Rogue</color> <b>Steady Aim</
 ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localités
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=. De plus, chaque héros ajoute un jet de D20 au poids pour un peu de hasard.
 ModUi/&EnableTeleportParty=Acutoriser <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pouvez bloquer des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&EnableThesaurus=Activer le thésaurus <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
@@ -271,4 +272,3 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également pour les att
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&VotingSystemRandomRange=<i><color=blanc>. Appliquer un facteur % aléatoire à chaque poids</color></i>

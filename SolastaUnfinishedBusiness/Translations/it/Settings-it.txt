@@ -80,7 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva de
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporto sulla mappa del livello
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
-ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[usa la media del modificatore di carisma degli eroi controllati per determinare il peso del giocatore]</color></i>
+ModUi/&EnableAlternateVotingSystem=Abilita il sistema di voto alternativo <i><color=#F0DAA0>[usa il modificatore di carisma dell'eroe per determinare il peso della scelta]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Barbaro</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
@@ -125,6 +125,7 @@ ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Ladro</color> <b>Mira costant
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=. Inoltre ogni eroe aggiunge un tiro di D20 al peso per un po' di casualità
 ModUi/&EnableTeleportParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(T)</color> per teletrasportare il gruppo <i><color=#F0DAA0>[potresti interrompere le missioni se ti teletrasporti in un luogo sconosciuto]</color></i>
 ModUi/&EnableThesaurus=Abilita il dizionario dei sinonimi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Attiva/disattiva il pool di personaggi per impostare il gruppo di gioco e di prova predefinito
@@ -271,5 +272,4 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche per attacchi di p
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio, concedi +1 al tiro per colpire</i>
 ModUi/&UseOfficialFoodRationsWeight=Usa <color=#D89555>razione di cibo</color> ufficiale di 2 libbre
 ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&VotingSystemRandomRange=<i><colore=bianco>. Applica un fattore% casuale a ciascun peso</color></i>
 odUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[includi stanze piatte, dungeon di dimensioni 150x150 e 200x200 e senza fronzoli che mescolano risorse da tutti gli ambienti]</color></i>

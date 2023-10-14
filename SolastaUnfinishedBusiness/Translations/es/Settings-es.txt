@@ -80,7 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Habilite la visualización de antecedent
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campamentos, salidas y teletransportadores en el mapa de nivel
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
-ModUi/&EnableAlternateVotingSystem=Habilite el sistema de votación alternativo <i><color=#F0DAA0>[use el promedio del modificador de carisma de los héroes controlados para determinar el peso del jugador]</color></i>
+ModUi/&EnableAlternateVotingSystem=Habilitar el sistema de votación alternativo <i><color=#F0DAA0>[use el modificador de carisma del héroe para determinar el peso de la elección]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Activa la opción <color=#D89555>Bárbaro</color> <b>Estilo de lucha</b> en el nivel 2
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite las acciones de cancelación con el botón derecho del mouse
@@ -125,6 +125,7 @@ ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Rogue</color> <b>Steady Aim<
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=. Además, cada héroe agrega una tirada de D20 al peso para darle un poco de aleatoriedad.
 ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color></i>
 ModUi/&EnableThesaurus=Habilitar diccionario de sinónimos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
@@ -271,4 +272,3 @@ ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Habilitar también para ataques
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ En lugar de ventaja otorga +1 a la tirada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilice <color=#D89555>ración de alimentos</color> con un peso oficial de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
-ModUi/&VotingSystemRandomRange=<i><color=blanco>. Aplicar un factor % aleatorio a cada peso</color></i>

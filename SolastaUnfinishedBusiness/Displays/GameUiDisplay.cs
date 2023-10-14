@@ -184,11 +184,10 @@ internal static class GameUiDisplay
 
         if (Main.Settings.EnableAlternateVotingSystem)
         {
-            var intValue = Main.Settings.VotingSystemRandomRange;
-            if (UI.Slider(Gui.Localize("ModUi/&VotingSystemRandomRange"), ref intValue, 1, 50,
-                    0, "%", UI.AutoWidth()))
+            toggle = Main.Settings.EnableSumD20OnAlternateVotingSystem;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableSumD20OnAlternateVotingSystem"), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.VotingSystemRandomRange = intValue;
+                Main.Settings.EnableSumD20OnAlternateVotingSystem = toggle;
             }
         }
 
