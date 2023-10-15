@@ -24,8 +24,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Greatsword | 1 | 5 | 1 |
 | Heavy Crossbow | 1 | 2 | 1 |
-
-
 # 2. - Mutant Tiger Drake
 
 A hybrid of the Tiger Drake and other monsters from the Badlands.
@@ -58,8 +56,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 6 | 1 |
-
-
 # 3. - Mutant Troll
 
 This mutant is clearly different from normal trolls, and almost certainly more dangerous.
@@ -90,8 +86,6 @@ Size: *Large*
 | Bite | 1 | 9 | 1 |
 | Claws | 1 | 8 | 1 |
 | Claws | 1 | 8 | 1 |
-
-
 # 4. - Mutated Bear
 
 This Badlands Bear has been intentionally modified with magic, making it more brutal and dangerous than it used to be.
@@ -128,8 +122,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 8 | 1 |
 | Claws | 1 | 8 | 1 |
-
-
 # 5. - Mutated Bear
 
 This Badlands Bear has been intentionally modified with magic, making it more brutal and dangerous than it used to be.
@@ -159,8 +151,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 8 | 1 |
 | Claws | 1 | 8 | 1 |
-
-
 # 6. - Mutated Bulette
 
 This bulette is another hybrid born out of the hideous experiments at the secret facility - and, of course, it's even worse than a normal bulette.
@@ -204,8 +194,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 11 | 1 |
-
-
 # 7. - Mutated Dryad
 
 This dryad seems to have undergone monstrous mutations.
@@ -248,8 +236,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Shillelagh | 1 | 4 | 1 |
 | Poisonous Spine | 1 | 4 | 1 |
-
-
 # 8. - Mutated Giant Ape
 
 A mutated version of the giant ape, incredibly powerful and able to regenerate.
@@ -286,8 +272,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Punch | 2 | 10 | 1 |
 | Rock | 1 | 10 | 5 |
-
-
 # 9. - Mutated Giant Ape
 
 A mutated version of the giant ape, incredibly powerful and able to regenerate.
@@ -314,8 +298,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Punch | 1 | 5 | 1 |
 | Rock | 1 | 5 | 5 |
-
-
 # 10. - Oni
 
 NotUsed_DoNotTranslate
@@ -346,6 +328,4 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Greatclub | 1 | 7 | 1 |
 | Greatclub | 1 | 7 | 1 |
-
-
 

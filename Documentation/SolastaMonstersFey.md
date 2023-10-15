@@ -37,8 +37,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Shillelagh | 1 | 6 | 1 |
-
-
 # 2. - Badlands Dryad
 
 A strange and powerful dryad, probably modified by the chaotic magic of the Badlands.
@@ -78,8 +76,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Shillelagh | 1 | 6 | 1 |
-
-
 # 3. - Dryad
 
 A fey typical of the forests and jungles of Solasta.
@@ -115,8 +111,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Shillelagh | 1 | 6 | 1 |
-
-
 # 4. - Dryad
 
 A fey typical of the forests and jungles of Solasta.
@@ -152,8 +146,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Shillelagh | 1 | 6 | 1 |
-
-
 # 5. - Dryad
 
 A fey typical of the forests and jungles of Solasta.
@@ -189,8 +181,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Shillelagh | 1 | 6 | 1 |
-
-
 # 6. - Dryad Queen
 
 A large and powerful dryad, who seems to lead a pack of lesser dryads.
@@ -234,8 +224,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Shillelagh | 1 | 8 | 1 |
 | Poisonous Spine | 1 | 5 | 1 |
-
-
 # 7. - Fey Ape
 
 An enormous and powerful ape, found only in the deepest and most ancient forests of Solasta.
@@ -262,8 +250,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Punch | 2 | 8 | 1 |
 | Rock | 1 | 8 | 5 |
-
-
 # 8. - Fey Bear
 
 An old and powerful bear, found only in the deepest and most ancient forests of Solasta.
@@ -291,8 +277,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 8 | 1 |
 | Claws | 1 | 8 | 1 |
-
-
 # 9. - Fey Eagle
 
 An enormous and powerful eagle, found only in the deepest and most ancient forests of Solasta.
@@ -328,8 +312,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 9 | 1 |
 | Talons | 1 | 9 | 1 |
-
-
 # 10. - Fey Wolf
 
 An enormous and powerful wolf, found only in the deepest and most ancient forests of Solasta.
@@ -359,8 +341,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 6 | 1 |
-
-
 # 11. - Green Hag
 
 A fey witch who can change her appearance and vanish into the darkness of the night.
@@ -388,8 +368,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 6 | 1 |
-
-
 # 12. - Swamp Hag
 
 A degenerate fey who learned the arts of arcane magic in the darkness of the swamps.
@@ -447,6 +425,4 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 7 | 1 |
-
-
 

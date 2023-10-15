@@ -660,6 +660,63 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    #region Pernicious Cloak
+
+    internal static InvocationDefinition BuildPerniciousCloak()
+    {
+        const string Name = "InvocationPerniciousCloak";
+
+        var abilityCheckAffinityPerniciousCloak = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create($"AbilityCheckAffinity{Name}")
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                (AttributeDefinitions.Charisma, SkillDefinitions.Intimidation))
+            .BuildAndAddAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
+                (AttributeDefinitions.Charisma, SkillDefinitions.Deception),
+                (AttributeDefinitions.Charisma, SkillDefinitions.Performance),
+                (AttributeDefinitions.Charisma, SkillDefinitions.Persuasion))
+            .AddToDB();
+
+        var conditionPerniciousCloak = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Name, Category.Invocation, ConditionDefinitions.ConditionConjuredCreature)
+            .SetConditionType(ConditionType.Neutral)
+            .AddFeatures(abilityCheckAffinityPerniciousCloak)
+            .AddToDB();
+
+        conditionPerniciousCloak.GuiPresentation.description = Gui.NoLocalization;
+
+        var powerPerniciousCloak = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Invocation)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetDamageForm(DamageTypePoison)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionPerniciousCloak, ConditionForm.ConditionOperation.Add,
+                            true))
+                    .Build())
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Invocation)
+            .SetRequirements(5)
+            .SetGrantedFeature(powerPerniciousCloak)
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Chain Master
 
     internal static InvocationDefinition BuildAbilitiesOfTheChainMaster()
@@ -921,7 +978,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationVexingHex";
 
         var powerInvocationVexingHex = FeatureDefinitionPowerBuilder
-            .Create("PowerInvocationVexingHex")
+            .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Invocation, PowerSorcererHauntedSoulVengefulSpirits)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
@@ -939,7 +996,7 @@ internal static class InvocationsBuilders
             .AddToDB();
 
         powerInvocationVexingHex.EffectDescription.EffectParticleParameters.casterParticleReference =
-            Blur.EffectDescription.EffectParticleParameters.casterParticleReference;
+            PowerPactChainPseudodragon.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         powerInvocationVexingHex.AddCustomSubFeatures(new FilterTargetingCharacterVexingHex(powerInvocationVexingHex));
 
@@ -969,14 +1026,16 @@ internal static class InvocationsBuilders
                 return true;
             }
 
-            if (target.RulesetCharacter == null)
+            var rulesetCharacter = target.RulesetCharacter;
+
+            if (rulesetCharacter == null)
             {
                 return true;
             }
 
-            var isValid = CanApplyHex(target);
+            var isValid = CanApplyHex(rulesetCharacter);
 
-            if (!CanApplyHex(target))
+            if (!isValid)
             {
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
             }
@@ -1042,11 +1101,11 @@ internal static class InvocationsBuilders
 
     #region HELPERS
 
-    private static bool CanApplyHex(GameLocationCharacter target)
+    private static bool CanApplyHex(RulesetActor rulesetCharacter)
     {
-        return target.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionMalediction.Name)
-               || target.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name)
-               || target.RulesetCharacter.HasConditionOfTypeOrSubType("ConditionPatronSoulbladeHexDefender");
+        return rulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionMalediction.Name)
+               || rulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name)
+               || rulesetCharacter.HasConditionOfTypeOrSubType("ConditionPatronSoulbladeHexDefender");
     }
 
     private static (bool, string) ValidateHex(InvocationDefinition invocationDefinition, RulesetCharacterHero hero)
@@ -1073,9 +1132,9 @@ internal static class InvocationsBuilders
         const string Name = "InvocationInexorableHex";
 
         var powerInexorableHex = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}InexorableHex")
+            .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Invocation, PowerMelekTeleport)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1117,7 +1176,7 @@ internal static class InvocationsBuilders
             foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.IsOppositeSide(source.Side)
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                     && CanApplyHex(x))
+                                     && CanApplyHex(x.RulesetCharacter))
                          .ToList())
             {
                 var boxInt = new BoxInt(
@@ -1142,16 +1201,34 @@ internal static class InvocationsBuilders
         const string Name = "InvocationTombOfFrost";
 
         var conditionTombOfFrost = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}TombOfFrost")
-            .SetGuiPresentation(Name, Category.Invocation, ConditionFrozen)
+            .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}")
+            .SetGuiPresentation(Name, Category.Invocation, ConditionDefinitions.ConditionChilled)
+            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration()
             .AddFeatures(DamageAffinityFireVulnerability)
             .AddToDB();
 
+        conditionTombOfFrost.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionTombOfFrost.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionTombOfFrost.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
         conditionTombOfFrost.GuiPresentation.description = Gui.NoLocalization;
 
+        var conditionTombOfFrostLazy = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Lazy")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedTombOfFrostLazy(conditionTombOfFrost))
+            .AddToDB();
+
         var powerTombOfFrost = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}TombOfFrost")
+            .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Invocation)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.None)
             .SetReactionContext(ExtraReactionContext.Custom)
@@ -1159,14 +1236,15 @@ internal static class InvocationsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetTempHpForm()
-                            .Build())
+                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorTombOfFrost(conditionTombOfFrost))
             .AddToDB();
+
+        powerTombOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference =
+            RayOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference;
+
+        powerTombOfFrost.AddCustomSubFeatures(
+            new CustomBehaviorTombOfFrost(powerTombOfFrost, conditionTombOfFrostLazy));
 
         return InvocationDefinitionBuilder
             .Create(Name)
@@ -1176,21 +1254,17 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorTombOfFrost :
-        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe, IActionFinishedByMe
+    private sealed class CustomBehaviorTombOfFrost : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionTombOfFrost;
+        private readonly ConditionDefinition _conditionTombOfFrostLazy;
+        private readonly FeatureDefinitionPower _powerTombOfFrost;
 
-        public CustomBehaviorTombOfFrost(ConditionDefinition conditionTombOfFrost)
+        public CustomBehaviorTombOfFrost(
+            FeatureDefinitionPower powerTombOfFrost,
+            ConditionDefinition conditionTombOfFrostLazy)
         {
-            _conditionTombOfFrost = conditionTombOfFrost;
-        }
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            // empty
-
-            yield break;
+            _powerTombOfFrost = powerTombOfFrost;
+            _conditionTombOfFrostLazy = conditionTombOfFrostLazy;
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
@@ -1206,7 +1280,10 @@ internal static class InvocationsBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield break;
+            if (rulesetEffect == null)
+            {
+                yield return HandleReaction(defender);
+            }
         }
 
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
@@ -1218,7 +1295,105 @@ internal static class InvocationsBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield break;
+            yield return HandleReaction(defender);
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter defender)
+        {
+            var gameLocationBattleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            if (!defender.CanReact())
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.GetRemainingPowerCharges(_powerTombOfFrost) <= 0)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "TombOfFrost"
+                };
+
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleManager.WaitForReactions(
+                defender, gameLocationActionManager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetDefender.UpdateUsageForPower(_powerTombOfFrost, _powerTombOfFrost.CostPerUse);
+
+            var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var tempHitPoints = classLevel * 10;
+
+            rulesetDefender.ReceiveTemporaryHitPoints(
+                tempHitPoints, DurationType.Round, 1, TurnOccurenceType.EndOfTurn, rulesetDefender.Guid);
+
+            rulesetDefender.InflictCondition(
+                _conditionTombOfFrostLazy.Name,
+                _conditionTombOfFrostLazy.DurationType,
+                _conditionTombOfFrostLazy.DurationParameter,
+                _conditionTombOfFrostLazy.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.Guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedTombOfFrostLazy : IOnConditionAddedOrRemoved
+    {
+        private readonly ConditionDefinition _conditionTombOfFrost;
+
+        public OnConditionAddedOrRemovedTombOfFrostLazy(ConditionDefinition conditionTombOfFrost)
+        {
+            _conditionTombOfFrost = conditionTombOfFrost;
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.InflictCondition(
+                _conditionTombOfFrost.Name,
+                _conditionTombOfFrost.DurationType,
+                _conditionTombOfFrost.DurationParameter,
+                _conditionTombOfFrost.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                target.Guid,
+                target.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

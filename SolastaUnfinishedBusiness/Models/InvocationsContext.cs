@@ -43,15 +43,16 @@ internal static class InvocationsContext
         LoadInvocation(BuildInexorableHex());
         LoadInvocation(BuildKinesis());
         LoadInvocation(BuildNecroticBlast());
-        LoadInvocation(BuildPsychicBlast());
+        LoadInvocation(BuildPerniciousCloak());
         LoadInvocation(BuildPoisonousBlast());
+        LoadInvocation(BuildPsychicBlast());
         LoadInvocation(BuildRadiantBlast());
-        LoadInvocation(BuildThunderBlast());
         LoadInvocation(BuildShroudOfShadow());
         LoadInvocation(BuildSpectralShield());
         LoadInvocation(BuildStasis());
         LoadInvocation(BuildSuperiorPactWeapon());
         LoadInvocation(BuildTenaciousPlague());
+        LoadInvocation(BuildThunderBlast());
         LoadInvocation(BuildTombOfFrost());
         LoadInvocation(BuildTrickstersEscape());
         LoadInvocation(BuildUltimatePactWeapon());

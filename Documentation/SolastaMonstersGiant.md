@@ -28,8 +28,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Greatsword | 2 | 12 | 1 |
 | Rock | 1 | 11 | 5 |
-
-
 # 2. - Björni Blackcloud
 
 A fire giant warlord who triggered a war against the Pohjolen Vartmerkint.
@@ -60,8 +58,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Greatsword | 2 | 12 | 1 |
 | Rock | 1 | 11 | 5 |
-
-
 # 3. - Fire Giant
 
 Born in the fires of the volcanoes beneath the Badlands, trained to fight and forge, these huge creatures are, alas, generally hostile.
@@ -89,8 +85,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Rock | 1 | 11 | 5 |
 | Greatsword | 2 | 11 | 1 |
-
-
 # 4. - Fire Giant
 
 Born in the fires of the volcanoes beneath the Badlands, trained to fight and forge, these huge creatures are, alas, generally hostile.
@@ -118,8 +112,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Rock | 1 | 11 | 5 |
 | Greatsword | 2 | 11 | 1 |
-
-
 # 5. - Frost Giant
 
 Made of ice and snow, their heart is also cold. These creatures live for battle and mayhem.
@@ -150,8 +142,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Greataxe | 2 | 9 | 1 |
 | Rock | 1 | 9 | 5 |
-
-
 # 6. - Hill Giant
 
 Dumb and voracious, these creatures are in constant search of food - and that may very well mean you and your friends.
@@ -178,8 +168,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Greatclub | 2 | 8 | 1 |
 | Rock | 1 | 8 | 5 |
-
-
 # 7. - Hill Giant
 
 Dumb and voracious, these creatures are in constant search of food - and that may very well mean you and your friends.
@@ -206,8 +194,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Greatclub | 2 | 8 | 1 |
 | Rock | 1 | 8 | 5 |
-
-
 # 8. - Hjalmar Vengeful-Heart
 
 Beings of immense power and solitary temperament, storm giants live reclusive lives and are generally not aggressive - but anger one of them and you'll know the meaning of wrath.
@@ -240,8 +226,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Rock | 1 | 14 | 5 |
 | Greatsword | 2 | 14 | 1 |
-
-
 # 9. - Ogre
 
 Ogres are huge and powerful, but stupid. They live for killing, scavenging, and simple pleasures.
@@ -269,8 +253,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Greatclub | 1 | 6 | 1 |
 | Javelin | 1 | 6 | 1 |
-
-
 # 10. - Oni
 
 NotUsed_DoNotTranslate
@@ -301,8 +283,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Greatclub | 1 | 7 | 1 |
 | Greatclub | 1 | 7 | 1 |
-
-
 # 11. - Stone Giant
 
 Immense creatures born of the very earth of Solasta, they dwell in gigantic caves and never feel at home under the open sky.
@@ -329,8 +309,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Greatclub | 2 | 9 | 1 |
 | Rock | 1 | 9 | 5 |
-
-
 # 12. - Storm Giant
 
 Beings of immense power and solitary temperament, storm giants live reclusive lives and are generally not aggressive - but anger one of them and you'll know the meaning of wrath.
@@ -364,8 +342,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Rock | 1 | 14 | 5 |
 | Greatsword | 2 | 14 | 1 |
-
-
 # 13. - Troll
 
 Voracious green giants with uncanny powers of regeneration.
@@ -396,8 +372,6 @@ Size: *Large*
 | Bite | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
-
-
 # 14. - Troll
 
 Voracious green giants with uncanny powers of regeneration.
@@ -428,6 +402,4 @@ Size: *Large*
 | Bite | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
-
-
 

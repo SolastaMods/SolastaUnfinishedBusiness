@@ -1,9 +1,9 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 7,
+  "requiredLevel": 5,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerInvocationInexorableHex:b32cd392-9b8a-51e3-b595-0dd3069b7a1c",
+  "grantedFeature": "Definition:PowerInvocationTombOfFrost:63a2904e-650f-550b-aa06-08d4624aad63",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Invocation/&InvocationInexorableHexTitle",
-    "description": "Invocation/&InvocationInexorableHexDescription",
+    "title": "Invocation/&InvocationTombOfFrostTitle",
+    "description": "Invocation/&InvocationTombOfFrostDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "15b275f3-08cd-5a6e-ba08-163467332c6f",
+  "guid": "bb4cd957-ab41-5de8-8fad-6920f6db36f1",
   "contentPack": 9999,
-  "name": "InvocationInexorableHex"
+  "name": "InvocationTombOfFrost"
 }

@@ -41,8 +41,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 8 | 1 |
-
-
 # 2. - Cube of Light
 
 A weird creature of light and magic of unknown origin.
@@ -93,8 +91,6 @@ Size: *Small*
 *Attacks:*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
-
-
 # 3. - Ice Golem
 
 An extremely powerful construct predating the Manacalon Empire, left to roam in the lands of the north.
@@ -141,8 +137,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 14 | 1 |
-
-
 # 4. - Iron Golem
 
 Golems are constructs created by powerful wizards as guards and servants. They are resistant to magic and to most mundane weapons.
@@ -186,8 +180,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 13 | 1 |
-
-
 # 5. - None
 
 
@@ -215,8 +207,6 @@ Size: *Medium*
 *Attacks:*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
-
-
 # 6. - Stone Golem
 
 Golems are constructs created by powerful wizards as guards and servants. They are resistant to magic and to most mundane weapons.
@@ -259,8 +249,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 10 | 1 |
-
-
 # 7. - Stone Golem
 
 Golems are constructs created by powerful wizards as guards and servants. They are resistant to magic and to most mundane weapons.
@@ -303,6 +291,4 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 10 | 1 |
-
-
 

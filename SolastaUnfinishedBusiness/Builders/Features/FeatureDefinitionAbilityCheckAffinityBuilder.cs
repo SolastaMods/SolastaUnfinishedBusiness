@@ -31,6 +31,26 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndAddAffinityGroups(
+        CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
+        DieType dieType = DieType.D1,
+        int diceNumber = 0,
+        params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
+    {
+        Definition.AffinityGroups.AddRange(
+            abilityProficiencyPairs
+                .Select(pair => new AbilityCheckAffinityGroup
+                {
+                    abilityScoreName = pair.abilityScoreName,
+                    proficiencyName = (pair.proficiencyName ?? string.Empty).Trim(),
+                    affinity = affinityType,
+                    abilityCheckModifierDiceNumber = diceNumber,
+                    abilityCheckModifierDieType = dieType
+                }));
+        Definition.AffinityGroups.Sort(Sorting.Compare);
+        return this;
+    }
+
     private FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
         CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
         DieType dieType = DieType.D1,

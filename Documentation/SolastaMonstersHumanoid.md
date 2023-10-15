@@ -32,8 +32,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Club | 1 | 2 | 1 |
-
-
 # 2. - Adria
 
 
@@ -78,8 +76,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 3. - Aksha
 
 
@@ -120,8 +116,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 8 | 1 |
-
-
 # 4. - Angbi Kramsson
 
 
@@ -165,8 +159,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 5. - Arbal
 
 Chieftains are the stronger orcs who have survived battles and challenges from other orcs to seize a position of power.
@@ -194,8 +186,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Greataxe | 1 | 6 | 1 |
 | Spear | 1 | 6 | 1 |
-
-
 # 6. - Archmage
 
 An evil mage who has sought an isolated location to perform unspeakable experiments without interference.
@@ -239,8 +229,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 7. - Archmage
 
 An evil mage who has sought an isolated location to perform unspeakable experiments without interference.
@@ -284,8 +272,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 8. - Archmage
 
 An evil mage who has sought an isolated location to perform unspeakable experiments without interference.
@@ -329,8 +315,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 9. - Badlands Hunter
 
 A wandering ranger seeking glory and battle.
@@ -359,8 +343,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Longbow | 1 | 6 | 1 |
 | Shortsword | 1 | 6 | 1 |
-
-
 # 10. - Bandit
 
 A malevolent fighter using a scimitar.
@@ -386,8 +368,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 3 | 1 |
-
-
 # 11. - Bandit
 
 A malevolent fighter using a scimitar.
@@ -413,8 +393,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 3 | 1 |
-
-
 # 12. - Bandit
 
 A malevolent fighter using a scimitar.
@@ -440,8 +418,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 3 | 1 |
-
-
 # 13. - Bandit Archer
 
 An experienced elf bandit, as skilled with a shortsword as with a longbow.
@@ -472,8 +448,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Longbow | 1 | 6 | 1 |
 | Shortsword | 1 | 6 | 1 |
-
-
 # 14. - Bandit Captain
 
 An experienced bandit, much more skilled than his followers.
@@ -501,8 +475,6 @@ Size: *Medium*
 | Dagger | 1 | 5 | 1 |
 | Scimitar | 1 | 5 | 1 |
 | Scimitar | 1 | 5 | 1 |
-
-
 # 15. - Bandit Captain
 
 An experienced bandit, much more skilled than his followers.
@@ -539,8 +511,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 7 | 1 |
 | Shortbow | 1 | 3 | 1 |
-
-
 # 16. - Bandit Quartermaster
 
 
@@ -565,8 +535,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 3 | 1 |
-
-
 # 17. - Barbarian
 
 A wandering barbarian.
@@ -594,8 +562,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Handaxe | 1 | 6 | 1 |
 | Maul | 1 | 6 | 1 |
-
-
 # 18. - Berserker
 
 Hailing from barbaric lands, berserkers come together in war parties to seek battle.
@@ -622,8 +588,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Greataxe | 1 | 5 | 1 |
-
-
 # 19. - Coparann Guard
 
 
@@ -650,8 +614,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Battleaxe | 1 | 4 | 1 |
-
-
 # 20. - Coparann Guard
 
 
@@ -678,8 +640,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 2 | 1 |
 | Battleaxe | 1 | 4 | 1 |
-
-
 # 21. - Cult Fanatic
 
 Part of a cult's leadership, these fanatics use their dogma and charisma to influence and prey on the weak-willed.
@@ -715,8 +675,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 4 | 1 |
-
-
 # 22. - Cultist Archer
 
 This archer is a worshipper of Arivad.
@@ -752,8 +710,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Shortsword | 1 | 6 | 1 |
 | Light Crossbow | 1 | 8 | 1 |
-
-
 # 23. - Dark Apprentice
 
 A dangerous but not yet fully learned necromancer, probably a student of a more experienced master residing nearby.
@@ -797,8 +753,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 3 | 1 |
-
-
 # 24. - Darkweaver
 
 A wandering rogue seeking glory and battle.
@@ -831,8 +785,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 7 | 1 |
 | Shortsword | 1 | 7 | 1 |
-
-
 # 25. - Evil Priest
 
 An evil priest leads a religious sect conducting depraved rites in the shadows of respectable society.
@@ -875,8 +827,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Mace | 1 | 2 | 1 |
-
-
 # 26. - Evil Priest
 
 An evil priest leads a religious sect conducting depraved rites in the shadows of respectable society.
@@ -919,8 +869,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Mace | 1 | 2 | 1 |
-
-
 # 27. - Gallivan Archer
 
 A typical archer from the armies of the Kingdom of Gallivan, heavily armored, wielding a longbow.
@@ -947,8 +895,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Longbow | 1 | 6 | 1 |
 | Shortsword | 1 | 5 | 1 |
-
-
 # 28. - Gallivan Archmage
 
 A shock arcanist serving as support for Gallivan's troops.
@@ -993,8 +939,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 29. - Gallivan Cleric
 
 A battle cleric leading shock troops of the Kingdom of Gallivan. This one worships Misaye, which is contrary to tradition.
@@ -1038,8 +982,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Mace | 1 | 5 | 1 |
-
-
 # 30. - Gallivan Corporal
 
 A powerful soldier, champion of the Gallivan army, right-hand man of the highest ranking generals.
@@ -1068,8 +1010,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Heavy Crossbow | 1 | 7 | 1 |
 | Spear | 1 | 9 | 1 |
-
-
 # 31. - Gallivan Druid
 
 A druid from the deep forests of Gallivan, serving the army of the Kingdom.
@@ -1115,8 +1055,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 6 | 1 |
-
-
 # 32. - Gallivan General
 
 An officer of the Gallivan army, probably a Sorak pawn, infiltrator, or polymorphed Sorak.
@@ -1151,8 +1089,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 5 | 1 |
 | Longsword | 1 | 11 | 1 |
-
-
 # 33. - Gallivan Shadowcaster
 
 A specialist of Gallivan's army, able to infiltrate and cast spells as a support operative.
@@ -1196,8 +1132,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Shortbow | 1 | 6 | 1 |
 | Shortsword | 1 | 3 | 1 |
-
-
 # 34. - Gallivan Smasher
 
 A member of an elite troop of the Kingdom of Gallivan, composed solely of women.
@@ -1227,8 +1161,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 2 | 1 |
 | Morningstar | 1 | 5 | 1 |
-
-
 # 35. - Gallivan Smasher
 
 A member of an elite troop of the Kingdom of Gallivan, composed solely of women.
@@ -1258,8 +1190,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 2 | 1 |
 | Morningstar | 1 | 5 | 1 |
-
-
 # 36. - Gallivan Trooper
 
 A standard foot soldier of the armies of Gallivan.
@@ -1287,8 +1217,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 3 | 1 |
 | Spear | 1 | 3 | 1 |
-
-
 # 37. - Goblin
 
 A greenish, evil little creature.
@@ -1317,8 +1245,6 @@ Size: *Small*
 | ---- | ----- | --------- | -------- |
 | Pebble | 1 | 2 | 1 |
 | Scimitar | 1 | 4 | 1 |
-
-
 # 38. - Goblin Cutthroat
 
 A veteran goblin who became a skilled killer.
@@ -1349,8 +1275,6 @@ Size: *Small*
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 5 | 1 |
 | Shortbow | 1 | 5 | 1 |
-
-
 # 39. - Goblin Cutthroat
 
 A veteran goblin who became a skilled killer.
@@ -1382,8 +1306,6 @@ Size: *Small*
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 5 | 1 |
 | Shortbow | 1 | 5 | 1 |
-
-
 # 40. - Goblin Shaman
 
 A goblin with quasi-clerical powers.
@@ -1428,8 +1350,6 @@ Size: *Small*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Pebble | 1 | 2 | 1 |
-
-
 # 41. - Goblin Skirmisher
 
 A goblin archer.
@@ -1458,8 +1378,6 @@ Size: *Small*
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 4 | 1 |
 | Shortbow | 1 | 4 | 1 |
-
-
 # 42. - Guard
 
 A low-ranking soldier, used to perform mundane security tasks.
@@ -1485,8 +1403,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Longsword | 1 | 3 | 1 |
-
-
 # 43. - Guard
 
 A low-ranking soldier, used to perform mundane security tasks.
@@ -1512,8 +1428,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Longsword | 1 | 3 | 1 |
-
-
 # 44. - High Priest
 
 A powerful cleric wandering the land to spread his faith with soft words and hard deeds.
@@ -1560,8 +1474,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Morningstar | 1 | 4 | 1 |
-
-
 # 45. - Highwayman
 
 Tall and powerful, this bandit wields a greatsword.
@@ -1587,8 +1499,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Greatsword | 1 | 4 | 1 |
-
-
 # 46. - Incubus
 
 A demon impersonating Vigdis' butler.
@@ -1613,8 +1523,6 @@ Size: *Medium*
 *Attacks:*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
-
-
 # 47. - Knight
 
 Pledging service to rulers or religious orders, the knights are ferocious warriors dedicated to the cause they believe in.
@@ -1643,8 +1551,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Greatsword | 1 | 5 | 1 |
 | Heavy Crossbow | 1 | 2 | 1 |
-
-
 # 48. - Lizzaria of Grimhold
 
 
@@ -1688,8 +1594,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 7 | 1 |
-
-
 # 49. - Loan Shark
 
 
@@ -1714,8 +1618,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 3 | 1 |
-
-
 # 50. - Lorson
 
 An experienced bandit, much more skilled than his followers.
@@ -1743,8 +1645,6 @@ Size: *Medium*
 | Dagger | 1 | 5 | 1 |
 | Scimitar | 1 | 5 | 1 |
 | Scimitar | 1 | 5 | 1 |
-
-
 # 51. - Lorson
 
 An experienced bandit, much more skilled than his followers.
@@ -1772,8 +1672,6 @@ Size: *Medium*
 | Dagger | 1 | 5 | 1 |
 | Dagger | 1 | 5 | 1 |
 | Scimitar | 1 | 5 | 1 |
-
-
 # 52. - Master Arcanist
 
 A master arcanist and former royal advisor who fell from grace, now serving dark purposes by corrupting the weak-minded he encounters.
@@ -1832,8 +1730,6 @@ A creature is unaffected by this spell if it is Blinded, or has Blindsight, True
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 53. - Morden Kyre
 
 
@@ -1879,8 +1775,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 4 | 1 |
-
-
 # 54. - Mountain Druid
 
 A kind of hermit generally found in the Snow Alliance mountains.
@@ -1933,8 +1827,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Quarterstaff | 1 | 3 | 1 |
-
-
 # 55. - Necromancer
 
 An evil wizard specializing in necromancy.
@@ -1979,8 +1871,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 7 | 1 |
-
-
 # 56. - Orc
 
 Orcs are brutish, tribal warriors, known for their barbaric habits. They live by raiding and looting.
@@ -2009,8 +1899,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Greataxe | 1 | 5 | 1 |
 | Javelin | 1 | 5 | 1 |
-
-
 # 57. - Orc
 
 Orcs are brutish, tribal warriors, known for their barbaric habits. They live by raiding and looting.
@@ -2038,8 +1926,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Greataxe | 1 | 5 | 1 |
 | Javelin | 1 | 5 | 1 |
-
-
 # 58. - Orc
 
 Orcs are brutish, tribal warriors, known for their barbaric habits. They live by raiding and looting.
@@ -2066,8 +1952,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Greataxe | 1 | 5 | 1 |
-
-
 # 59. - Orc Archer
 
 Orcs have archers among their troops. Despite their effectiveness, they are perceived as cowards and are generally second rank warriors.
@@ -2096,8 +1980,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Club | 1 | 5 | 1 |
 | Shortbow | 1 | 3 | 1 |
-
-
 # 60. - Orc Beastmaster
 
 An elusive orc, less confrontational than most, who uses his tamed beasts to fight for him.
@@ -2128,8 +2010,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 4 | 1 |
 | Shortbow | 1 | 5 | 1 |
-
-
 # 61. - Orc Beastmaster
 
 An elusive orc, less confrontational than most, who uses his tamed beasts to fight for him.
@@ -2160,8 +2040,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 4 | 1 |
 | Shortbow | 1 | 5 | 1 |
-
-
 # 62. - Orc Berserker
 
 Berserkers are crazed warriors who ignore all danger while in their battle trance. Fast and violent, they don't feel pain or fear.
@@ -2193,8 +2071,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Javelin | 1 | 6 | 5 |
 | Mace | 1 | 5 | 1 |
-
-
 # 63. - Orc Berserker
 
 Berserkers are crazed warriors who ignore all danger while in their battle trance. Fast and violent, they don't feel pain or fear.
@@ -2226,8 +2102,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Javelin | 1 | 6 | 5 |
 | Mace | 1 | 5 | 1 |
-
-
 # 64. - Orc Chieftain
 
 Chieftains are the stronger orcs who have survived battles and challenges from other orcs to seize a position of power.
@@ -2256,8 +2130,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Greataxe | 1 | 6 | 1 |
 | Spear | 1 | 6 | 1 |
-
-
 # 65. - Orc Grimblade
 
 A sneaky orc trained to use the shadows to stab its enemies in the back.
@@ -2287,8 +2159,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Ice Blade | 1 | 7 | 1 |
 | Ice Dagger | 1 | 7 | 1 |
-
-
 # 66. - Orc Shaman
 
 The closest thing the orcs have to a cleric, with some mystical powers.
@@ -2337,8 +2207,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Quarterstaff | 1 | 4 | 1 |
-
-
 # 67. - Orc Shaman
 
 The closest thing the orcs have to a cleric, with some mystical powers.
@@ -2387,8 +2255,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Quarterstaff | 1 | 4 | 1 |
-
-
 # 68. - Orc Shaman
 
 The closest thing the orcs have to a cleric, with some mystical powers.
@@ -2437,8 +2303,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Quarterstaff | 1 | 4 | 1 |
-
-
 # 69. - Perlevinn Duelist
 
 A duelist of House Perlevinn.
@@ -2469,8 +2333,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 7 | 1 |
 | Longsword | 1 | 7 | 1 |
-
-
 # 70. - Perlevinn Duelist
 
 A duelist of House Perlevinn.
@@ -2501,8 +2363,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 7 | 1 |
 | Longsword | 1 | 7 | 1 |
-
-
 # 71. - Perlevinn Sharpshooter
 
 An archer of House Perlevinn.
@@ -2533,8 +2393,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Shortbow | 1 | 5 | 1 |
 | Shortsword | 1 | 3 | 1 |
-
-
 # 72. - Perlevinn Spellmaster
 
 A sorcerer of House Perlevinn.
@@ -2586,8 +2444,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Quarterstaff | 1 | 3 | 1 |
-
-
 # 73. - Priest of Arivad
 
 
@@ -2634,8 +2490,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Morningstar | 1 | 4 | 1 |
-
-
 # 74. - Raider Arcanist
 
 A damage-dealing spellcaster.
@@ -2686,8 +2540,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 3 | 1 |
-
-
 # 75. - Raider Archer
 
 A plunderer who uses ranged weapons.
@@ -2718,8 +2570,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Shortbow | 1 | 5 | 1 |
 | Shortsword | 1 | 3 | 1 |
-
-
 # 76. - Raider Shaman
 
 An enemy support healer.
@@ -2770,8 +2620,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 3 | 1 |
-
-
 # 77. - Raider Sorcerer
 
 An enemy damage-dealing caster.
@@ -2824,8 +2672,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Quarterstaff | 1 | 3 | 1 |
-
-
 # 78. - Raider Warrior
 
 A strong melee warrior.
@@ -2858,8 +2704,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 7 | 1 |
 | Longsword | 1 | 7 | 1 |
-
-
 # 79. - Redscar Orc
 
 One of Arrok's pawns, this orc has been blessed with the power of fire.
@@ -2891,8 +2735,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Greataxe | 1 | 6 | 1 |
 | Shortbow | 1 | 5 | 1 |
-
-
 # 80. - Scout
 
 Scouts are skilled hunters and trackers who offer their services for a fee.
@@ -2921,8 +2763,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Longbow | 1 | 4 | 1 |
 | Shortsword | 1 | 4 | 1 |
-
-
 # 81. - Scout
 
 Scouts are skilled hunters and trackers who offer their services for a fee.
@@ -2951,8 +2791,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Longbow | 1 | 4 | 1 |
 | Shortsword | 1 | 4 | 1 |
-
-
 # 82. - Shock Arcanist
 
 A powerful battle wizard looking for a challenge.
@@ -3000,8 +2838,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 6 | 1 |
-
-
 # 83. - Sorak Infiltrator
 
 
@@ -3028,8 +2864,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 84. - Sorak Infiltrator
 
 
@@ -3058,8 +2892,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Warhammer | 1 | 6 | 1 |
-
-
 # 85. - Sorak Infiltrator
 
 A Sorr-Akkath ranged fighter.
@@ -3093,8 +2925,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 1 |
 | Poisonous Spine | 1 | 5 | 20 |
-
-
 # 86. - Sorcerer
 
 A wandering sorcerer.
@@ -3138,8 +2968,6 @@ Size: *Medium*
 *Attacks:*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
-
-
 # 87. - Sorr-Akkath Acolyte of Sorr-Tarr
 
 These spellcasters seem to be clerics of Sorr-Tarr.
@@ -3194,8 +3022,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 4 | 1 |
-
-
 # 88. - Sorr-Akkath Assassin
 
 A deadly killer who lurks in the shadows.
@@ -3230,8 +3056,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 6 | 1 |
 | Poisonous Spine | 1 | 6 | 1 |
-
-
 # 89. - Sorr-Akkath Assassin
 
 A deadly killer who lurks in the shadows.
@@ -3271,8 +3095,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 6 | 1 |
 | Poisonous Spine | 1 | 6 | 1 |
-
-
 # 90. - Sorr-Akkath Assassin
 
 A deadly killer who lurks in the shadows.
@@ -3312,8 +3134,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 6 | 1 |
 | Poisonous Spine | 1 | 6 | 1 |
-
-
 # 91. - Sorr-Akkath Harasser
 
 A dreadful infiltrator and assassin evolved from the Sorak assassin.
@@ -3357,8 +3177,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Poisonous Spine | 1 | 7 | 1 |
 | Shrieker Dagger | 1 | 8 | 1 |
-
-
 # 92. - Sorr-Akkath Harasser
 
 A dreadful infiltrator and assassin evolved from the Sorak assassin.
@@ -3402,8 +3220,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Poisonous Spine | 1 | 7 | 1 |
 | Shrieker Dagger | 1 | 8 | 1 |
-
-
 # 93. - Sorr-Akkath Kratshar
 
 A Sorak battlemage, trained in the best magic schools of Solasta under a false identity.
@@ -3469,8 +3285,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Shrieker Dagger | 1 | 8 | 1 |
-
-
 # 94. - Sorr-Akkath Kratshar
 
 A Sorak battlemage, trained in the best magic schools of Solasta under a false identity.
@@ -3536,8 +3350,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Shrieker Dagger | 1 | 8 | 1 |
-
-
 # 95. - Sorr-Akkath Saboteur
 
 A support fighter, fast, cunning, and vicious.
@@ -3575,8 +3387,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 5 | 1 |
-
-
 # 96. - Sorr-Akkath Saboteur
 
 A support fighter, fast, cunning, and vicious.
@@ -3614,8 +3424,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 5 | 1 |
-
-
 # 97. - Sorr-Akkath Shikkath
 
 A powerful armored fighter, with superior resistances and magical abilities.
@@ -3660,8 +3468,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Poisonous Spine | 1 | 9 | 1 |
 | Nekkesh Blade | 1 | 11 | 1 |
-
-
 # 98. - Sorr-Akkath Skirmisher
 
 A Sorr-Akkath ranged fighter.
@@ -3698,8 +3504,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 1 |
 | Poisonous Spine | 1 | 5 | 20 |
-
-
 # 99. - Sorr-Akkath Skirmisher
 
 A Sorr-Akkath ranged fighter.
@@ -3736,8 +3540,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 1 |
 | Poisonous Spine | 1 | 5 | 20 |
-
-
 # 100. - Sorr-Akkath Tshar
 
 The leader of the Soraks on Solasta, an ancient and powerful Acolyte of Sorr-Tarr.
@@ -3783,8 +3585,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Poisonous Spine | 1 | 9 | 1 |
 | Nekkesh Blade | 1 | 11 | 1 |
-
-
 # 101. - Sorr-Akkath Warrior
 
 A basic Sorr-Akkath fighter, aggressive and ruthless.
@@ -3820,8 +3620,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 4 | 1 |
 | Spine | 1 | 3 | 1 |
-
-
 # 102. - Sorr-Akkath Warrior
 
 A basic Sorr-Akkath fighter, aggressive and ruthless.
@@ -3857,8 +3655,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 4 | 1 |
 | Spine | 1 | 3 | 1 |
-
-
 # 103. - Sorr-Tarr's Avatar
 
 A demigod sent by Sorr-Tarr himself in the Demon Realms to kill you!
@@ -3895,8 +3691,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Poisonous Spine | 1 | 12 | 1 |
 | Nekkesh Blade | 1 | 12 | 1 |
-
-
 # 104. - Spectral Avenger
 
 
@@ -3932,8 +3726,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 105. - Spectral Servant
 
 
@@ -3969,8 +3761,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 106. - Spectral Servant
 
 
@@ -4006,8 +3796,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 107. - Spectral Servant
 
 
@@ -4043,8 +3831,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 108. - Spectral Servant
 
 
@@ -4080,8 +3866,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 109. - Spy
 
 A lawless rogue trained to spy and kill for wealthy masters.
@@ -4110,8 +3894,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 4 | 1 |
 | Shortsword | 1 | 4 | 1 |
-
-
 # 110. - Spy
 
 A lawless rogue trained to spy and kill for wealthy masters.
@@ -4140,8 +3922,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 4 | 1 |
 | Shortsword | 1 | 4 | 1 |
-
-
 # 111. - Talbut the Grey
 
 
@@ -4173,8 +3953,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 4 | 1 |
 | Longsword | 1 | 4 | 1 |
-
-
 # 112. - Thug
 
 Thugs are ruthless enforcers skilled at intimidation and violence. They work for money and have few scruples.
@@ -4202,8 +3980,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Heavy Crossbow | 1 | 2 | 1 |
 | Mace | 1 | 4 | 1 |
-
-
 # 113. - Thug
 
 Thugs are ruthless enforcers skilled at intimidation and violence. They work for money and have few scruples.
@@ -4231,8 +4007,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Heavy Crossbow | 1 | 2 | 1 |
 | Mace | 1 | 4 | 1 |
-
-
 # 114. - Tuznan Anfarel
 
 
@@ -4275,8 +4049,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 115. - Tuznan Anfarel
 
 
@@ -4319,8 +4091,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 5 | 1 |
-
-
 # 116. - Unknown Human
 
 A human working in the Badlands, of unknown affiliation.
@@ -4346,8 +4116,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Shortsword | 1 | 3 | 1 |
-
-
 # 117. - Veteran
 
 
@@ -4375,8 +4143,6 @@ Size: *Medium*
 | Heavy Crossbow | 1 | 3 | 1 |
 | Longsword | 1 | 5 | 1 |
 | Shortsword | 1 | 5 | 1 |
-
-
 # 118. - Veteran
 
 Veteran
@@ -4404,8 +4170,6 @@ Size: *Medium*
 | Heavy Crossbow | 1 | 3 | 1 |
 | Longsword | 1 | 5 | 1 |
 | Shortsword | 1 | 5 | 1 |
-
-
 # 119. - Veteran
 
 
@@ -4432,8 +4196,6 @@ Size: *Medium*
 | Heavy Crossbow | 1 | 3 | 1 |
 | Longsword | 1 | 5 | 1 |
 | Shortsword | 1 | 5 | 1 |
-
-
 # 120. - Veteran
 
 
@@ -4460,8 +4222,6 @@ Size: *Medium*
 | Heavy Crossbow | 1 | 3 | 1 |
 | Longsword | 1 | 5 | 1 |
 | Shortsword | 1 | 5 | 1 |
-
-
 # 121. - Warlord
 
 A very experienced and powerful fighter who has gathered followers and won territories.
@@ -4490,8 +4250,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Longsword | 1 | 7 | 1 |
-
-
 # 122. - Watchman
 
 A soldier posted to stop intruders.
@@ -4521,8 +4279,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Dagger | 1 | 2 | 1 |
 | Longsword | 1 | 5 | 1 |
-
-
 # 123. - Werewolf
 
 A shapechanger in human form, he retains some of his unnatural powers, including a fantastic resistance to non-silvered weapons.
@@ -4555,6 +4311,4 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Light Crossbow | 1 | 4 | 1 |
 | Longsword | 1 | 4 | 1 |
-
-
 

@@ -38,8 +38,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 8 | 1 |
-
-
 # 2. - Air Elemental
 
 A flying current of whirling air animated by magical elemental forces.
@@ -80,8 +78,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 8 | 1 |
-
-
 # 3. - Earth Elemental
 
 A bulky stone creature animated by magical elemental forces.
@@ -118,8 +114,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 8 | 1 |
-
-
 # 4. - Earth Elemental
 
 A bulky stone creature animated by magical elemental forces.
@@ -156,8 +150,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 8 | 1 |
-
-
 # 5. - Fire Elemental
 
 A creature of pure fire, animated by magical elemental forces.
@@ -199,8 +191,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Burning Touch | 1 | 6 | 1 |
-
-
 # 6. - Fire Elemental
 
 A creature of pure fire, animated by magical elemental forces.
@@ -242,8 +232,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Burning Touch | 1 | 6 | 1 |
-
-
 # 7. - Fire Jester
 
 A small fire elemental that likes to burn stuff.
@@ -281,8 +269,6 @@ Size: *Small*
 | ---- | ----- | --------- | -------- |
 | Fire Bolt | 1 | 4 | 1 |
 | Burning Touch | 1 | 3 | 1 |
-
-
 # 8. - Fire Osprey
 
 A bat-shaped fire elemental, only encountered in the depths of the Badlands.
@@ -322,8 +308,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Burning Touch | 1 | 6 | 1 |
-
-
 # 9. - Fire Spider
 
 A giant spider fused with a small fire elemental by the weird magical influence of the Badlands.
@@ -364,8 +348,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Burning Touch | 1 | 5 | 1 |
 | Fire Spit | 1 | 5 | 1 |
-
-
 # 10. - Gargoyle
 
 [TEMP] TBD
@@ -399,8 +381,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 4 | 1 |
 | Claws | 1 | 4 | 1 |
-
-
 # 11. - Ice Elemental
 
 A creature of pure ice, animated by magical forces that also sustain its extremely cold temperature.
@@ -446,8 +426,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 6 | 1 |
-
-
 # 12. - Ice Elemental
 
 A creature of pure ice, animated by magical forces that also sustain its extremely cold temperature.
@@ -493,8 +471,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 6 | 1 |
-
-
 # 13. - Invisible Stalker
 
 An elemental that can be summoned to serve a master, often in order to kill someone.
@@ -534,8 +510,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 6 | 1 |
-
-
 # 14. - Skarn Ghoul
 
 A small earth elemental made of skarn rock that can slam your feet until they hurt.
@@ -572,8 +546,6 @@ Size: *Small*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 1 |
 | Pebble | 1 | 5 | 1 |
-
-
 # 15. - Wind Snake
 
 A small air elemental that can freeze you to death.
@@ -614,6 +586,4 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Freeze | 1 | 4 | 1 |
 | Ray of Frost | 1 | 4 | 1 |
-
-
 

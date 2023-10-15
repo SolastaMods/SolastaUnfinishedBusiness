@@ -6,7 +6,7 @@
     "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Position",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
+    "targetSide": "Ally",
     "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -63,8 +63,8 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
-        "addBonusMode": "AbilityBonus",
+        "formType": "Motion",
+        "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
@@ -76,22 +76,12 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 0,
-          "dieType": "D1",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 0,
-          "damageType": "DamagePsychic",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
+        "motionForm": {
+          "$type": "MotionForm, Assembly-CSharp",
+          "type": "TeleportToDestination",
+          "distance": 0,
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -123,7 +113,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "aa83a600712ca5042b90c5b6128c2530",
+        "m_AssetGUID": "dae9742ef3a3d8a46be3f5d11695e852",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -147,7 +137,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "993b66c579edb0e4cb121149b724c751",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -171,7 +161,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "daccb38d23f39124594adc5be119d02d",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -323,7 +313,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Charisma",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
@@ -336,12 +326,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Invocation/&InvocationVexingHexTitle",
-    "description": "Invocation/&InvocationVexingHexDescription",
+    "title": "Invocation/&InvocationInexorableHexTitle",
+    "description": "Invocation/&InvocationInexorableHexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c0ead0251ff3ba4ca05fc28e4ba5647",
-      "m_SubObjectName": "VengefulSpirits",
+      "m_AssetGUID": "f2582a82a487aad49910c5263c7830ce",
+      "m_SubObjectName": "ShadowDodge",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -357,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7f1c83a5-1539-5d8c-98ea-90c3c18c7fa7",
+  "guid": "b32cd392-9b8a-51e3-b595-0dd3069b7a1c",
   "contentPack": 9999,
-  "name": "PowerInvocationVexingHex"
+  "name": "PowerInvocationInexorableHex"
 }

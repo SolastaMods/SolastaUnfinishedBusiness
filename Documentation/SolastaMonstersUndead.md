@@ -32,8 +32,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Longbow | 1 | 4 | 1 |
 | Longsword | 1 | 4 | 1 |
-
-
 # 2. - Badlands Ghast
 
 A more powerful kind of ghoul, known for its terrible stench.
@@ -67,8 +65,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 3 | 1 |
 | Claws | 1 | 5 | 1 |
-
-
 # 3. - Badlands Wraith
 
 An incorporeal undead that can drain your life and hates light.
@@ -115,8 +111,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Life Drain | 1 | 6 | 1 |
-
-
 # 4. - Brood of Blood
 
 Spawned by a Defiler, this is a bloodthirsty creature.
@@ -152,8 +146,6 @@ Size: *Medium*
 | Bite | 1 | 5 | 1 |
 | Claws | 1 | 5 | 1 |
 | Spit | 1 | 7 | 1 |
-
-
 # 5. - Brood of Dread
 
 Spawned by a Defiler, this is a bloodthirsty creature.
@@ -187,8 +179,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 5 | 1 |
 | Claws | 1 | 5 | 1 |
-
-
 # 6. - Brood of Dread
 
 Spawned by a Defiler, this is a bloodthirsty creature.
@@ -222,8 +212,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 5 | 1 |
 | Claws | 1 | 5 | 1 |
-
-
 # 7. - Brood of Dread
 
 Spawned by a Defiler, this is a bloodthirsty creature.
@@ -258,8 +246,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 5 | 1 |
 | Claws | 1 | 5 | 1 |
-
-
 # 8. - Brood of Flesh
 
 Spawned by a Defiler, this is a bloodthirsty creature.
@@ -294,8 +280,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
-
-
 # 9. - Emperor Laethar
 
 A powerful, ethereal undead creature.
@@ -342,8 +326,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 10. - Ghost Wolf
 
 A dead wolf raised by necromantic power.
@@ -389,8 +371,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 6 | 1 |
-
-
 # 11. - Ghoul
 
 A ravenous undead creature, constantly searching for flesh to eat.
@@ -422,8 +402,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 2 | 1 |
 | Claws | 1 | 4 | 1 |
-
-
 # 12. - Hendeolas Anfarel
 
 The leader of the Rebellion is actually… a mummy lord!
@@ -479,8 +457,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Rotting Fist | 1 | 9 | 1 |
-
-
 # 13. - Mummy
 
 A powerful undead creature, preserved for the afterlife.
@@ -521,8 +497,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Rotting Fist | 1 | 5 | 1 |
-
-
 # 14. - Ogre Zombie
 
 An ogre that has been raised by necromantic power.
@@ -551,8 +525,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Greatclub | 1 | 6 | 1 |
-
-
 # 15. - Skeletal Enforcer
 
 A powerful undead creature armed with an axe and a shield.
@@ -584,8 +556,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Battleaxe | 1 | 4 | 1 |
 | Pebble | 1 | 2 | 1 |
-
-
 # 16. - Skeletal Knight
 
 A powerful undead creature, created by raising a dead knight.
@@ -626,8 +596,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Longsword | 1 | 6 | 1 |
-
-
 # 17. - Skeletal Marksman
 
 A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.
@@ -662,8 +630,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Necrotic Arrow | 1 | 5 | 1 |
 | Rusty Shortsword | 1 | 5 | 1 |
-
-
 # 18. - Skeletal Sorcerer
 
 A powerful undead creature with necromantic powers.
@@ -715,8 +681,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Quarterstaff | 1 | 2 | 1 |
-
-
 # 19. - Skeletal Sorcerer
 
 A powerful undead creature with necromantic powers.
@@ -770,8 +734,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Quarterstaff | 1 | 2 | 1 |
-
-
 # 20. - Skeleton
 
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
@@ -802,8 +764,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 4 | 1 |
-
-
 # 21. - Skeleton
 
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
@@ -834,8 +794,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Scimitar | 1 | 4 | 1 |
-
-
 # 22. - Skeleton Archer
 
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
@@ -867,8 +825,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Shortbow | 1 | 3 | 1 |
 | Shortsword | 1 | 4 | 1 |
-
-
 # 23. - Spectral Avenger
 
 A powerful, ethereal undead creature.
@@ -919,8 +875,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 24. - Spectral Avenger
 
 A powerful, ethereal undead creature.
@@ -963,8 +917,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Touch | 1 | 5 | 1 |
-
-
 # 25. - Spectral Minotaur
 
 Such dreadful creatures can only be created by twisted necromancers, who wish to prolong a minotaur's slavery indefinitely - in death.
@@ -1019,8 +971,6 @@ Size: *Large*
 | Charge | 1 | 8 | 1 |
 | Gore | 1 | 8 | 1 |
 | Necrotic Greataxe | 1 | 8 | 1 |
-
-
 # 26. - Spectral Servant
 
 
@@ -1066,8 +1016,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Blade | 1 | 5 | 1 |
-
-
 # 27. - Spectral Servant
 
 
@@ -1113,8 +1061,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Withering Blade | 1 | 5 | 1 |
-
-
 # 28. - Spectral Spider
 
 Dead Badlands spiders somehow transformed into undead.
@@ -1156,8 +1102,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Necrotic Bite | 1 | 5 | 1 |
-
-
 # 29. - Wight
 
 A Wight
@@ -1193,8 +1137,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Longbow | 1 | 4 | 1 |
 | Longsword | 1 | 4 | 1 |
-
-
 # 30. - Wight Lord
 
 A powerful wight, trained to withstand the light of day.
@@ -1231,8 +1173,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Necrotic Arrow | 1 | 5 | 1 |
 | Necrotic Blade | 1 | 7 | 1 |
-
-
 # 31. - Wight Lord
 
 A powerful wight, trained to withstand the light of day.
@@ -1269,6 +1209,4 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Necrotic Arrow | 1 | 5 | 1 |
 | Necrotic Blade | 1 | 7 | 1 |
-
-
 

@@ -51,8 +51,6 @@ Size: *Large*
 | Fist | 1 | 10 | 5 |
 | Pincer | 2 | 10 | 5 |
 | Pincer | 2 | 10 | 5 |
-
-
 # 2. - Glabrezu
 
 Besides being devastating in battle, Glabrezus love to corrupt more than anything. Their cunning mind and high charisma allows them to tempt their victims and trap them into ruin.
@@ -103,8 +101,6 @@ Size: *Large*
 | Fist | 1 | 9 | 5 |
 | Pincer | 2 | 9 | 5 |
 | Pincer | 2 | 9 | 5 |
-
-
 # 3. - Hezrou
 
 Known for their unbearable stench, these demons use brute force to break enemy lines and lower their morale. Strong but not very smart, they can easily be manipulated and sent to their deaths in the service of superior demons.
@@ -144,8 +140,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 7 | 5 |
 | Claws | 1 | 7 | 5 |
-
-
 # 4. - Incubus
 
 Charming shapechangers, these demons are experts at infiltration and deception.
@@ -186,8 +180,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 5 |
 | Fire Bolt | 1 | 5 | 1 |
-
-
 # 5. - Incubus
 
 Charming shapechangers, these demons are experts at infiltration and deception.
@@ -228,8 +220,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 5 |
 | Fire Bolt | 1 | 5 | 1 |
-
-
 # 6. - Incubus
 
 Charming shapechangers, these demons are experts at infiltration and deception.
@@ -271,8 +261,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 5 |
 | Fire Bolt | 1 | 5 | 1 |
-
-
 # 7. - Incubus
 
 Charming shapechangers, these demons are experts at infiltration and deception.
@@ -313,8 +301,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 5 |
 | Fire Bolt | 1 | 5 | 1 |
-
-
 # 8. - Incubus
 
 Charming shapechangers, these demons are experts at infiltration and deception.
@@ -355,8 +341,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 5 |
 | Fire Bolt | 1 | 5 | 1 |
-
-
 # 9. - Lesser Hezrou
 
 A small Hezrou, probably reduced in power as punishment by an angry superior fiend.
@@ -395,8 +379,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 5 | 5 |
 | Claws | 1 | 5 | 5 |
-
-
 # 10. - Marilith
 
 These monstruous demons have enough arms to match the best swordsman, and a refined sense of tactics. They often serve as officers in the armies of the abyss.
@@ -443,8 +425,6 @@ Size: *Large*
 | Longsword | 1 | 9 | 5 |
 | Longsword | 1 | 9 | 5 |
 | Longsword | 1 | 9 | 5 |
-
-
 # 11. - Poison King
 
 A Hezrou who managed to achieve the title of General in Sessroth's army, with a unique nickname that reflects his favored way of killing his foes.
@@ -491,8 +471,6 @@ Size: *Large*
 | Bite | 1 | 10 | 5 |
 | Poisonous Claw | 1 | 10 | 5 |
 | Poisonous Claw | 1 | 10 | 5 |
-
-
 # 12. - Sessroth the Archreaver
 
 A very powerful and evil demon.
@@ -541,8 +519,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Javelin | 1 | 15 | 5 |
 | Maul | 2 | 15 | 1 |
-
-
 # 13. - Sessroth the Archreaver
 
 A very powerful and evil demon.
@@ -591,8 +567,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Javelin | 1 | 15 | 5 |
 | Maul | 2 | 15 | 1 |
-
-
 # 14. - Sessroth the Archreaver
 
 A very powerful and evil demon.
@@ -642,8 +616,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Javelin | 1 | 15 | 5 |
 | Maul | 2 | 15 | 1 |
-
-
 # 15. - Sessroth the Archreaver
 
 A very powerful and evil demon.
@@ -680,8 +652,6 @@ Size: *Large*
 *Attacks:*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
-
-
 # 16. - Succubus
 
 Charming shapechangers, these demons are experts at infiltration and deception.
@@ -722,8 +692,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 5 |
 | Fire Bolt | 1 | 5 | 1 |
-
-
 # 17. - Succubus
 
 Charming shapechangers, these demons are experts at infiltration and deception.
@@ -764,8 +732,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 5 | 5 |
 | Fire Bolt | 1 | 5 | 1 |
-
-
 # 18. - Vrock
 
 A winged demon capable of stunning with its dreadful screech, and able to poison enemies with spores.
@@ -805,8 +771,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 6 | 5 |
 | Talons | 1 | 6 | 5 |
-
-
 # 19. - Vrock
 
 A winged demon capable of stunning with its dreadful screech, and able to poison enemies with spores.
@@ -846,8 +810,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 6 | 5 |
 | Talons | 1 | 6 | 5 |
-
-
 # 20. - Vrockling
 
 A small winged-demon offspring.
@@ -887,8 +849,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 5 | 5 |
 | Talons | 1 | 5 | 5 |
-
-
 # 21. - Vrockling
 
 A small winged-demon offspring.
@@ -928,6 +888,4 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 5 | 5 |
 | Talons | 1 | 5 | 5 |
-
-
 
