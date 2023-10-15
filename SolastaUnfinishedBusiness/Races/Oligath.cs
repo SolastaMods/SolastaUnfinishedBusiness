@@ -226,9 +226,9 @@ internal static class RaceOligathBuilder
 
             // allow stone endurance when prone
             if (rulesetMe is not { IsDeadOrUnconscious: false }
-                || rulesetMe.HasConditionOfType(ConditionIncapacitated)
-                || rulesetMe.HasConditionOfType(ConditionStunned)
-                || rulesetMe.HasConditionOfType(ConditionParalyzed))
+                || rulesetMe.HasConditionOfTypeOrSubType(ConditionIncapacitated)
+                || rulesetMe.HasConditionOfTypeOrSubType(ConditionStunned)
+                || rulesetMe.HasConditionOfTypeOrSubType(ConditionParalyzed))
             {
                 yield break;
             }

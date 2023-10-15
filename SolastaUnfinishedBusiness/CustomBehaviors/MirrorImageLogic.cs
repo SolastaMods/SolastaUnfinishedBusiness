@@ -96,7 +96,7 @@ public class MirrorImageLogic
             return;
         }
 
-        if (attacker.HasConditionOfType(RuleDefinitions.ConditionBlinded))
+        if (attacker.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded))
         {
             ReportAttackerIsBlind(attacker);
             return;
