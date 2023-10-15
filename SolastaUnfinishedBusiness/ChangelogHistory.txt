@@ -3,8 +3,8 @@
 - added additional sample portraits under Portraits/Personal [by Artyoan]
 - added Interface > Game UI > 'Enable alternate voting system' [weight = votes * hero CHA modifier]
 - added Interface > Game UI > 'Also each hero adds a D20 roll to weight' [sums D20 to above]
-- added Vexing Hex, Tomb of Frost, and Inexorable Hex invocations
-- fixed issues on 2 very specific scenarios you probably haven't noticed at all [real crazy sh.t]
+- added Pernicious Cloak, Tomb of Frost, Vexing Hex 5th level, and Inexorable Hex 7th level invocations
+- fixed very rare issues with Burning Blade and Duelist you probably haven't noticed at all
 - improved Chilling, Corrosive, Fiery, Fulminate, Necrotic, Poisonous, Psychic, Radiant, and Thunder invocations effects
 
 1.5.94.24:

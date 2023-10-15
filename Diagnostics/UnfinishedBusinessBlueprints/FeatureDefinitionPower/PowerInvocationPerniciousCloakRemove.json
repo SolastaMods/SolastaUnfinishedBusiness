@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Position",
+    "targetType": "Self",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "No",
+    "recurrentEffect": "OnActivation, OnTurnStart",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
+    "targetSide": "All",
     "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Motion",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,12 +76,41 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "motionForm": {
-          "$type": "MotionForm, Assembly-CSharp",
-          "type": "TeleportToDestination",
-          "distance": 0,
-          "forceTurnTowardsSourceCharacterAfterPush": false,
-          "forceSourceCharacterTurnTowardsTargetAfterPush": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionInvocationPerniciousCloak",
+          "conditionDefinition": "Definition:ConditionInvocationPerniciousCloak:89100c0f-759c-58e5-829c-a5e75e1861f4",
+          "operation": "Remove",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionInvocationPerniciousCloakSelf",
+          "conditionDefinition": "Definition:ConditionInvocationPerniciousCloakSelf:8b75daef-33c8-5612-a7ca-f5fa5b2ef9cf",
+          "operation": "Remove",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -113,7 +142,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "dae9742ef3a3d8a46be3f5d11695e852",
+        "m_AssetGUID": "926d3775a95842642888296706e55459",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -137,7 +166,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "993b66c579edb0e4cb121149b724c751",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -290,7 +319,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -326,13 +355,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Invocation/&InvocationInexorableHexTitle",
-    "description": "Invocation/&InvocationInexorableHexDescription",
+    "title": "Feature/&PowerInvocationPerniciousCloakRemoveTitle",
+    "description": "Feature/&PowerInvocationPerniciousCloakRemoveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f2582a82a487aad49910c5263c7830ce",
-      "m_SubObjectName": "ShadowDodge",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "386e38f4-0f6a-5883-9985-b7e7714d3d41",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -347,7 +376,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "36f08d5e-fccf-5d4d-97e7-b52b2e9d6ef6",
+  "guid": "f968d22a-b5a4-5f53-a2cb-6c154653170f",
   "contentPack": 9999,
-  "name": "PowerInvocationInexorableHexInexorableHex"
+  "name": "PowerInvocationPerniciousCloakRemove"
 }

@@ -2,8 +2,10 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
-  "features": [],
+  "conditionType": "Neutral",
+  "features": [
+    "Definition:AbilityCheckAffinityInvocationPerniciousCloak:36dbc460-a18e-529a-a6bc-9e5340c00cab"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -39,20 +41,20 @@
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "7555abbf49e578245a13aeb234720e0b",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "aab7e6aec01b6794eb79caf9c321d440",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
@@ -127,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionInvocationPerniciousCloakSelfTitle",
+    "description": "Condition/&ConditionInvocationPerniciousCloakSelfDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "6f6332b4e90598d429c91c2e6862a8f3",
+      "m_SubObjectName": "Pentagram",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "89100c0f-759c-58e5-829c-a5e75e1861f4",
+  "guid": "8b75daef-33c8-5612-a7ca-f5fa5b2ef9cf",
   "contentPack": 9999,
-  "name": "ConditionInvocationPerniciousCloak"
+  "name": "ConditionInvocationPerniciousCloakSelf"
 }

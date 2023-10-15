@@ -62,6 +62,7 @@ Mirror Image=Mirror Image
 Mobile=Mobile
 Nature's Shroud=Nature's Veil
 Path of the Spirits=Path of the Totem Warrior
+Pernicious Cloak=Cloak of Flies
 Piercer=Piercer
 Polearm Expert=Polearm Master
 Power Word Heal=Power Word: Heal

@@ -304,7 +304,7 @@
     "description": "Invocation/&InvocationTombOfFrostDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "ef7c5ff3-01e1-51d6-a719-703cd6dce5b4",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

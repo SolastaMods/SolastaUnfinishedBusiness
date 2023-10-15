@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnTurnStart",
+    "recurrentEffect": "OnActivation, OnTurnStart",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -30,9 +30,9 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Instantaneous",
-    "durationParameter": 1,
+    "targetSide": "All",
+    "durationType": "UntilAnyRest",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -63,8 +63,8 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
-        "addBonusMode": "AbilityBonus",
+        "formType": "Condition",
+        "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
@@ -76,22 +76,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 0,
-          "dieType": "D1",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 0,
-          "damageType": "DamagePoison",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionInvocationPerniciousCloak",
+          "conditionDefinition": "Definition:ConditionInvocationPerniciousCloak:89100c0f-759c-58e5-829c-a5e75e1861f4",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -113,8 +105,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInvocationPerniciousCloak",
-          "conditionDefinition": "Definition:ConditionInvocationPerniciousCloak:89100c0f-759c-58e5-829c-a5e75e1861f4",
+          "conditionDefinitionName": "ConditionInvocationPerniciousCloakSelf",
+          "conditionDefinition": "Definition:ConditionInvocationPerniciousCloakSelf:8b75daef-33c8-5612-a7ca-f5fa5b2ef9cf",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -150,7 +142,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "926d3775a95842642888296706e55459",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -175,8 +167,8 @@
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "effectSubTargetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -333,7 +325,7 @@
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": 9000,
+  "reactionContext": "None",
   "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
@@ -367,7 +359,7 @@
     "description": "Invocation/&InvocationPerniciousCloakDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "386e38f4-0f6a-5883-9985-b7e7714d3d41",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

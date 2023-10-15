@@ -340,8 +340,8 @@
     "description": "Invocation/&InvocationVexingHexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c0ead0251ff3ba4ca05fc28e4ba5647",
-      "m_SubObjectName": "VengefulSpirits",
+      "m_AssetGUID": "2f63c0981457f2c4e80fd3f061cde8b4",
+      "m_SubObjectName": "Blindness",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
