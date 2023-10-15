@@ -452,33 +452,6 @@ internal static class DocumentationContext
             outString.AppendLine();
         }
 
-        if (!Main.Settings.EnableBetaContent)
-        {
-            outString.AppendLine();
-            outString.AppendLine();
-
-            return outString.ToString();
-        }
-
-        outString.AppendLine();
-        outString.AppendLine("*Battle Decisions:*");
-        outString.AppendLine("| Name | Weight | Cooldown |");
-        outString.AppendLine("| ---- | ------ | -------- |");
-
-        foreach (var weightedDecision in monsterDefinition.DefaultBattleDecisionPackage.Package.WeightedDecisions
-                     .OrderBy(x => x.Weight))
-        {
-            var name = weightedDecision.DecisionDefinition.ToString()
-                .Replace("_", string.Empty)
-                .Replace("(TA.AI.DecisionDefinition)", string.Empty)
-                .SplitCamelCase();
-
-            outString.AppendLine($"| {name} | {weightedDecision.Weight} | {weightedDecision.Cooldown} |");
-        }
-
-        outString.AppendLine();
-        outString.AppendLine();
-
         return outString.ToString();
     }
 

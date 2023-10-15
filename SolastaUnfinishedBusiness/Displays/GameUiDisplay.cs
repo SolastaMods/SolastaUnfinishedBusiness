@@ -155,12 +155,6 @@ internal static class GameUiDisplay
             }
         }
 
-        toggle = Main.Settings.EnableLogDialoguesToConsole;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableLogDialoguesToConsole = toggle;
-        }
-
         if (Main.Settings.EnableAdditionalIconsOnLevelMap)
         {
             toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
@@ -168,6 +162,12 @@ internal static class GameUiDisplay
             {
                 Main.Settings.MarkInvisibleTeleportersOnLevelMap = toggle;
             }
+        }
+
+        toggle = Main.Settings.EnableLogDialoguesToConsole;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableLogDialoguesToConsole = toggle;
         }
 
         toggle = Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered;
