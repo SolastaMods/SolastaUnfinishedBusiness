@@ -40,6 +40,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildGraspingBlast());
         LoadInvocation(BuildHinderingBlast());
         LoadInvocation(BuildImprovedPactWeapon());
+        LoadInvocation(BuildInexorableHex());
         LoadInvocation(BuildKinesis());
         LoadInvocation(BuildNecroticBlast());
         LoadInvocation(BuildPsychicBlast());

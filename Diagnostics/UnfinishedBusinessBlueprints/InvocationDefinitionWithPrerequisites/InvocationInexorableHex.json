@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 7,
+  "requiredPact": null,
+  "grantedFeature": "Definition:PowerInvocationInexorableHexInexorableHex:36f08d5e-fccf-5d4d-97e7-b52b2e9d6ef6",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationInexorableHexTitle",
+    "description": "Invocation/&InvocationInexorableHexDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "15b275f3-08cd-5a6e-ba08-163467332c6f",
+  "contentPack": 9999,
+  "name": "InvocationInexorableHex"
+}

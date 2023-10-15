@@ -77,9 +77,8 @@ public static class CursorLocationSelectPositionPatcher
             }
 
             //PATCH: supports `IFilterTargetingPosition`
-            foreach (var iFilter in __instance.ActionParams.ActingCharacter.RulesetCharacter.AllConditions
-                         .Select(condition =>
-                             condition.ConditionDefinition.GetFirstSubFeatureOfType<IFilterTargetingPosition>()))
+            foreach (var iFilter in __instance.ActionParams.ActingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IFilterTargetingPosition>())
             {
                 iFilter?.Filter(__instance);
             }

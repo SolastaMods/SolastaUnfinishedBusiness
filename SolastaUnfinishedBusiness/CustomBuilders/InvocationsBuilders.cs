@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Subclasses;
+using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -973,12 +974,9 @@ internal static class InvocationsBuilders
                 return true;
             }
 
-            var isValid =
-                target.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionMalediction.Name)
-                || target.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name)
-                || target.RulesetCharacter.HasConditionOfTypeOrSubType("ConditionPatronSoulbladeHexDefender");
+            var isValid = CanApplyHex(target);
 
-            if (!isValid)
+            if (!CanApplyHex(target))
             {
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
             }
@@ -1044,6 +1042,13 @@ internal static class InvocationsBuilders
 
     #region HELPERS
 
+    private static bool CanApplyHex(GameLocationCharacter target)
+    {
+        return target.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionMalediction.Name)
+               || target.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name)
+               || target.RulesetCharacter.HasConditionOfTypeOrSubType("ConditionPatronSoulbladeHexDefender");
+    }
+
     private static (bool, string) ValidateHex(InvocationDefinition invocationDefinition, RulesetCharacterHero hero)
     {
         var hasMalediction = hero.SpellRepertoires.Any(x => x.HasKnowledgeOfSpell(Malediction));
@@ -1057,6 +1062,75 @@ internal static class InvocationsBuilders
         var guiFormat = Gui.Localize("Tooltip/&MustHaveMaledictionCurseOrHex");
 
         return !hasHex ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+    }
+
+    #endregion
+
+    #region Inexorable Hex
+
+    internal static InvocationDefinition BuildInexorableHex()
+    {
+        const string Name = "InvocationInexorableHex";
+
+        var powerInexorableHex = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}InexorableHex")
+            .SetGuiPresentation(Name, Category.Invocation, PowerMelekTeleport)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build())
+                    .SetParticleEffectParameters(PowerMelekTeleport)
+                    .Build())
+            .AddCustomSubFeatures(new FilterTargetingPositionInexorableHex())
+            .AddToDB();
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Invocation)
+            .SetRequirements(7)
+            .SetValidators(ValidateHex)
+            .SetGrantedFeature(powerInexorableHex)
+            .AddToDB();
+    }
+
+    private sealed class FilterTargetingPositionInexorableHex : IFilterTargetingPosition
+    {
+        public void Filter(CursorLocationSelectPosition __instance)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                return;
+            }
+
+            var source = __instance.ActionParams.ActingCharacter;
+            var positions = new List<int3>();
+
+            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
+                         .Where(x => x.IsOppositeSide(source.Side)
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                     && CanApplyHex(x))
+                         .ToList())
+            {
+                var boxInt = new BoxInt(
+                    gameLocationCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1));
+
+                foreach (var position in boxInt.EnumerateAllPositionsWithin())
+                {
+                    positions.Add(position);
+                }
+            }
+
+            __instance.validPositionsCache.RemoveAll(x => !positions.Contains(x));
+        }
     }
 
     #endregion

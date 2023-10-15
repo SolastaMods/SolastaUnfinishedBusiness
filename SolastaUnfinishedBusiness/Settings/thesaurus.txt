@@ -43,6 +43,7 @@ Heavy Armor Master=Heavy Armor Master
 Heroic Infusion=Tenser's Transformation
 Hunger of The Void=Hunger of Hadar
 Incineration=Immolation
+Inexorable Hex=Relentless Hex
 Infernal Constitution=Infernal Constitution
 Inspiring Leader=Inspiring Leader
 Interception=Interception
