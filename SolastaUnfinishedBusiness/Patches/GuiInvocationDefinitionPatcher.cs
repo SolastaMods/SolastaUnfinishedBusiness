@@ -41,6 +41,26 @@ public static class GuiInvocationDefinitionPatcher
                     new CodeInstruction(OpCodes.Call,
                         new Func<RulesetCharacterHero, string, int>(TryGetAttributeValue).Method));
         }
+        
+        [UsedImplicitly]
+        public static void Postfix(
+            ref bool __result,
+            InvocationDefinition invocation,
+            RulesetCharacterHero hero,
+            ref string prerequisiteOutput)
+        {
+            //PATCH: Enforces Invocations With PreRequisites
+            if (invocation is not InvocationDefinitionWithPrerequisites invocationDefinitionWithPrerequisites
+                || invocationDefinitionWithPrerequisites.Validators.Count == 0)
+            {
+                return;
+            }
+
+            var (result, output) = invocationDefinitionWithPrerequisites.Validate(invocationDefinitionWithPrerequisites, hero);
+
+            __result = __result && result;
+            prerequisiteOutput += '\n' + output;
+        }
     }
 
     [HarmonyPatch(typeof(GuiInvocationDefinition), nameof(GuiInvocationDefinition.Subtitle), MethodType.Getter)]
