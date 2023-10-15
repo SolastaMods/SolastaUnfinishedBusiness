@@ -55,6 +55,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildUltimatePactWeapon());
         LoadInvocation(BuildUndyingServitude());
         LoadInvocation(BuildVerdantArmor());
+        LoadInvocation(BuildVexingHex());
 
         // sorting
         Invocations = Invocations.OrderBy(x => x.FormatTitle()).ToHashSet();

@@ -342,6 +342,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionConjuredCreature { get; } =
             GetDefinition<ConditionDefinition>("ConditionConjuredCreature");
 
+        internal static ConditionDefinition ConditionCursed { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCursed");
+
         internal static ConditionDefinition ConditionCursedByBestowCurseAttackRoll { get; } =
             GetDefinition<ConditionDefinition>("ConditionCursedByBestowCurseAttackRoll");
 
@@ -2199,6 +2202,9 @@ internal static partial class DatabaseHelper
 
         internal static InvocationDefinition RepellingBlast { get; } =
             GetDefinition<InvocationDefinition>("RepellingBlast");
+
+        internal static InvocationDefinition SignIllOmen { get; } =
+            GetDefinition<InvocationDefinition>("SignIllOmen");
 
         internal static InvocationDefinition VoiceChainMaster { get; } =
             GetDefinition<InvocationDefinition>("VoiceChainMaster");
