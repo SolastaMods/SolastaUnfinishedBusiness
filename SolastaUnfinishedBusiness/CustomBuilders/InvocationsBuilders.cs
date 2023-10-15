@@ -685,17 +685,20 @@ internal static class InvocationsBuilders
             .SetFeatures(abilityCheckAffinityPerniciousCloak)
             .AddToDB();
 
+        conditionPerniciousCloakSelf.conditionStartParticleReference =
+            ConditionDefinitions.ConditionOnAcidPilgrim.conditionStartParticleReference;
+        conditionPerniciousCloakSelf.conditionParticleReference =
+            ConditionDefinitions.ConditionOnAcidPilgrim.conditionParticleReference;
+        conditionPerniciousCloakSelf.conditionEndParticleReference =
+            ConditionDefinitions.ConditionOnAcidPilgrim.conditionEndParticleReference;
+
         conditionPerniciousCloakSelf.specialDuration = false;
 
         var conditionPerniciousCloak = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionOnAcidPilgrim, $"Condition{Name}")
+            .Create($"Condition{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetConditionType(ConditionType.Detrimental)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures()
             .AddToDB();
-
-        conditionPerniciousCloak.specialDuration = false;
 
         conditionPerniciousCloak.AddCustomSubFeatures(
             new CharacterTurnStartListenerPerniciousCloak(conditionPerniciousCloak));
@@ -739,6 +742,9 @@ internal static class InvocationsBuilders
             .AddCustomSubFeatures(
                 new CustomBehaviorPerniciousCloakRemove(powerPerniciousCloak, conditionPerniciousCloakSelf))
             .AddToDB();
+
+        powerPerniciousCloakRemove.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainOblivionMarkOfFate.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var featureSetPerniciousCloak = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}")

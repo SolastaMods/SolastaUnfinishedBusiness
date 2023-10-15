@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerInvocationPerniciousCloakRemove:f968d22a-b5a4-5f53-a2cb-6c154653170f",
-    "Definition:PowerInvocationPerniciousCloak:d703fd29-edaf-5fa2-b750-7ed67699cf2f"
+    "Definition:PowerInvocationPerniciousCloak:d703fd29-edaf-5fa2-b750-7ed67699cf2f",
+    "Definition:PowerInvocationPerniciousCloakRemove:f968d22a-b5a4-5f53-a2cb-6c154653170f"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
