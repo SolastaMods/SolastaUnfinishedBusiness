@@ -1,4 +1,12 @@
-﻿1.5.94.24:
+﻿1.5.94.25:
+
+- added additional portraits samples [by Artyoan]
+- added Interface > Game UI > 'Enable alternate voting system' [choice weight = votes * hero Charisma modifier]
+- added Interface > Game UI > 'Also each hero adds a D20 roll to weight for a bit of randomness' [adds D20 to above]
+- fixed issues on 2 specific scenarios you probably haven't noticed at all [unless you're Qeltar or PrOZacKU3]
+- improved blast damage type change invocations' effects
+
+1.5.94.24:
 
 - mod takes ~120 hours a month to get new content and fixes
 - monthly cost with internet and services is ~$120 but only making $50 currently
