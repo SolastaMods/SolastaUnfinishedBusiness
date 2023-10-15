@@ -102,7 +102,7 @@ Feature/&ToolGainChoicesSingleDescription=Escolha uma destas ferramentas: {1}
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} dá um bônus de {1}, o novo resultado é {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rola para manter {1} {2} contra CD {3}, rola {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} rola para manter {1} contra CD {2}, rola {3} = {4}
-Feedback/&DishearteningPerformanceUsedSuccessLine={0} lança uma escolha narrativa {1} com um resultado {2}.
+Feedback/&NarrativeChoiceRoll={0} lança uma escolha narrativa {1} com um resultado {2}.
 Feedback/&FlankingAttack=Flanqueando
 Feedback/&HigherGroundAttack=Terreno mais elevado
 Feedback/&ReturningWeaponActivates={1} retorna para {0}!

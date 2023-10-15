@@ -41,7 +41,7 @@ public static class NarrativeStateAnswerChoicePatcher
 
                 DiceRolls.Add(gameLocationCharacter.Guid, dieRoll);
 
-                entry = new GameConsoleEntry("Feedback/&DishearteningPerformanceUsedSuccessLine",
+                entry = new GameConsoleEntry("Feedback/&NarrativeChoiceRoll",
                     console.consoleTableDefinition) { Indent = true };
 
                 console.AddCharacterEntry(gameLocationCharacter.RulesetCharacter, entry);

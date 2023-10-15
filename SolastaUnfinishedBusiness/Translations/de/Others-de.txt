@@ -102,7 +102,7 @@ Feature/&ToolGainChoicesSingleDescription=Wählen Sie eines dieser Tools: {1}
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} gibt einen Bonus von {1}, neues Ergebnis ist {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} würfelt, um {1} {2} gegen DC {3} aufrechtzuerhalten, würfelt {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} würfelt, um {1} gegen DC {2} aufrechtzuerhalten, würfelt {3} = {4}
-Feedback/&DishearteningPerformanceUsedSuccessLine={0} würfelt eine Erzählauswahl von {1} mit einem Ergebnis von {2}.
+Feedback/&NarrativeChoiceRoll={0} würfelt eine Erzählauswahl von {1} mit einem Ergebnis von {2}.
 Feedback/&FlankingAttack=Flankierend
 Feedback/&HigherGroundAttack=Eine höhere Ebene
 Feedback/&ReturningWeaponActivates={1} kehrt zu {0} zurück!
