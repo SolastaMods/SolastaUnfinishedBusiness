@@ -10,11 +10,12 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
 
@@ -39,7 +40,7 @@ internal static class InvocationsBuilders
                     .SetDamageDice(DieType.D8, 0)
                     .SetSpecificDamageType(DamageTypeForce)
                     .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
-                    .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
+                    .SetImpactParticleReference(EldritchBlast)
                     .AddCustomSubFeatures(
                         WarlockHolder.Instance,
                         new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
@@ -76,9 +77,9 @@ internal static class InvocationsBuilders
         // cast Invisibility at will
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.Invisibility)
+            .SetGuiPresentation(Category.Invocation, Invisibility)
             .SetRequirements(15)
-            .SetGrantedSpell(SpellDefinitions.Invisibility)
+            .SetGrantedSpell(Invisibility)
             .AddToDB();
     }
 
@@ -88,8 +89,8 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.FogCloud)
-            .SetGrantedSpell(SpellDefinitions.FogCloud)
+            .SetGuiPresentation(Category.Invocation, FogCloud)
+            .SetGrantedSpell(FogCloud)
             .AddToDB();
     }
 
@@ -98,7 +99,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationVerdantArmor";
 
         var barkskinNoConcentration = SpellDefinitionBuilder
-            .Create(SpellDefinitions.Barkskin, "BarkskinNoConcentration")
+            .Create(Barkskin, "BarkskinNoConcentration")
             .SetRequiresConcentration(false)
             .AddToDB();
 
@@ -116,8 +117,8 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.ConjureAnimals)
-            .SetGrantedSpell(SpellDefinitions.ConjureAnimals, true, true)
+            .SetGuiPresentation(Category.Invocation, ConjureAnimals)
+            .SetGrantedSpell(ConjureAnimals, true, true)
             .SetRequirements(5)
             .AddToDB();
     }
@@ -128,8 +129,8 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.InsectPlague)
-            .SetGrantedSpell(SpellDefinitions.InsectPlague, true, true)
+            .SetGuiPresentation(Category.Invocation, InsectPlague)
+            .SetGrantedSpell(InsectPlague, true, true)
             .SetRequirements(9, pact: FeatureSetPactChain)
             .AddToDB();
     }
@@ -156,7 +157,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationTrickstersEscape";
 
         var spellTrickstersEscape = SpellDefinitionBuilder
-            .Create(SpellDefinitions.FreedomOfMovement, "TrickstersEscape")
+            .Create(FreedomOfMovement, "TrickstersEscape")
             .AddToDB();
 
         spellTrickstersEscape.EffectDescription.targetType = TargetType.Self;
@@ -204,7 +205,7 @@ internal static class InvocationsBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
             .SetGrantedFeature(powerInvocationGraspingBlast)
-            .SetRequirements(spell: SpellDefinitions.EldritchBlast)
+            .SetRequirements(spell: EldritchBlast)
             .AddToDB();
     }
 
@@ -220,11 +221,11 @@ internal static class InvocationsBuilders
                     .Create($"AdditionalDamage{NAME}")
                     .SetGuiPresentationNoContent(true)
                     .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
-                    .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
+                    .SetRequiredSpecificSpell(EldritchBlast)
                     .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
                         ConditionDefinitions.ConditionHindered_By_Frost)
                     .AddToDB())
-            .SetRequirements(spell: SpellDefinitions.EldritchBlast)
+            .SetRequirements(spell: EldritchBlast)
             .AddToDB();
     }
 
@@ -359,7 +360,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationKinesis";
 
         var spellKinesis = SpellDefinitionBuilder
-            .Create(SpellDefinitions.Haste, "Kinesis")
+            .Create(Haste, "Kinesis")
             .AddToDB();
 
         var effect = spellKinesis.EffectDescription;
@@ -382,7 +383,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationStasis";
 
         var spellStasis = SpellDefinitionBuilder
-            .Create(SpellDefinitions.Slow, "Stasis")
+            .Create(Slow, "Stasis")
             .SetRequiresConcentration(false)
             .AddToDB();
 
@@ -398,6 +399,8 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationChillingBlast";
 
+        var rayOfFrostParticles = RayOfFrost.EffectDescription.EffectParticleParameters;
+
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
             .SetOrUpdateGuiPresentation(Category.Invocation)
@@ -408,7 +411,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeCold,
-                            SpellDefinitions.RayOfFrost.EffectDescription.EffectParticleParameters))
+                            rayOfFrostParticles.casterParticleReference,
+                            rayOfFrostParticles.effectParticleReference,
+                            rayOfFrostParticles.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -427,7 +432,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeAcid,
-                            SpellDefinitions.AcidSplash.EffectDescription.EffectParticleParameters))
+                            AcidSplash.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            AcidArrow.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            AcidArrow.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -435,6 +442,8 @@ internal static class InvocationsBuilders
     internal static InvocationDefinition BuildFieryBlast()
     {
         const string NAME = "InvocationFieryBlast";
+
+        var fireBoltParticles = FireBolt.EffectDescription.EffectParticleParameters;
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
@@ -446,7 +455,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeFire,
-                            SpellDefinitions.FireBolt.EffectDescription.EffectParticleParameters))
+                            fireBoltParticles.casterParticleReference,
+                            fireBoltParticles.effectParticleReference,
+                            fireBoltParticles.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -454,6 +465,8 @@ internal static class InvocationsBuilders
     internal static InvocationDefinition BuildFulminateBlast()
     {
         const string NAME = "InvocationFulminateBlast";
+
+        var lightningBoltParticles = LightningBolt.EffectDescription.EffectParticleParameters;
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
@@ -465,7 +478,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeLightning,
-                            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters))
+                            lightningBoltParticles.casterParticleReference,
+                            lightningBoltParticles.effectParticleReference,
+                            lightningBoltParticles.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -484,7 +499,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeNecrotic,
-                            SpellDefinitions.ChillTouch.EffectDescription.EffectParticleParameters))
+                            RayOfEnfeeblement.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            ChillTouch.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -492,13 +509,6 @@ internal static class InvocationsBuilders
     internal static InvocationDefinition BuildPoisonousBlast()
     {
         const string NAME = "InvocationPoisonousBlast";
-
-        var effectDescription = EffectDescriptionBuilder.Create(SpellDefinitions.PoisonSpray.EffectDescription).Build();
-
-        effectDescription.EffectParticleParameters.impactParticleReference =
-            effectDescription.EffectParticleParameters.effectParticleReference;
-
-        effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
@@ -510,7 +520,10 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypePoison,
-                            effectDescription.EffectParticleParameters))
+                            PoisonSpray.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            AcidSplash.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            // it's indeed effect here
+                            PoisonSpray.EffectDescription.EffectParticleParameters.effectParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -529,7 +542,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypePsychic,
-                            SpellDefinitions.BrandingSmite.EffectDescription.EffectParticleParameters))
+                            Blur.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            ShadowDagger.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            ShadowDagger.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -548,7 +563,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeRadiant,
-                            SpellDefinitions.BrandingSmite.EffectDescription.EffectParticleParameters))
+                            BrandingSmite.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            GuidingBolt.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            BrandingSmite.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -556,6 +573,8 @@ internal static class InvocationsBuilders
     internal static InvocationDefinition BuildThunderBlast()
     {
         const string NAME = "InvocationThunderBlast";
+
+        var thunderwaveParticles = Thunderwave.EffectDescription.EffectParticleParameters;
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
@@ -567,7 +586,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeThunder,
-                            SpellDefinitions.Thunderwave.EffectDescription.EffectParticleParameters))
+                            thunderwaveParticles.casterParticleReference,
+                            thunderwaveParticles.effectParticleReference,
+                            thunderwaveParticles.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -577,7 +598,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationSpectralShield";
 
         var spellSpectralShield = SpellDefinitionBuilder
-            .Create(SpellDefinitions.ShieldOfFaith, "SpectralShield")
+            .Create(ShieldOfFaith, "SpectralShield")
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -593,7 +614,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationGiftOfTheHunter";
 
         var spellGiftOfTheHunter = SpellDefinitionBuilder
-            .Create(SpellDefinitions.PassWithoutTrace, "GiftOfTheHunter")
+            .Create(PassWithoutTrace, "GiftOfTheHunter")
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -610,7 +631,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationDiscerningGaze";
 
         var spellDiscerningGaze = SpellDefinitionBuilder
-            .Create(SpellDefinitions.DetectEvilAndGood, "DiscerningGaze")
+            .Create(DetectEvilAndGood, "DiscerningGaze")
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -626,7 +647,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationBreakerAndBanisher";
 
         var spellBreakerAndBanisher = SpellDefinitionBuilder
-            .Create(SpellDefinitions.DispelEvilAndGood, "BreakerAndBanisher")
+            .Create(DispelEvilAndGood, "BreakerAndBanisher")
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -740,14 +761,18 @@ internal static class InvocationsBuilders
     private sealed class ModifyEffectDescriptionEldritchBlast : IModifyEffectDescription
     {
         private readonly string _damageType;
-        private readonly EffectParticleParameters _effectParticleParameters;
+        private readonly EffectParticleParameters _effectParticleParameters = new();
 
         public ModifyEffectDescriptionEldritchBlast(
             string damageType,
-            EffectParticleParameters effectParticleParameters)
+            AssetReference caster,
+            AssetReference effect,
+            AssetReference impact)
         {
             _damageType = damageType;
-            _effectParticleParameters = effectParticleParameters;
+            _effectParticleParameters.casterParticleReference = caster;
+            _effectParticleParameters.effectParticleReference = effect;
+            _effectParticleParameters.impactParticleReference = impact;
         }
 
         public bool IsValid(
@@ -755,7 +780,7 @@ internal static class InvocationsBuilders
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == SpellDefinitions.EldritchBlast;
+            return definition == EldritchBlast;
         }
 
         public EffectDescription GetEffectDescription(BaseDefinition definition,
