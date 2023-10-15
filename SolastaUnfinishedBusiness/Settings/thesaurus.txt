@@ -97,6 +97,7 @@ The Soulblade=The Hexblade
 Thorny Vines=Thorn Whip
 Thunderous Smite=Thunderous Smite
 Time Stop=Time Stop
+Tomb of Frost=Tomb of Levistus
 Vexing Hex=Maddening Hex
 Vile Brew=Tasha's Caustic Brew
 Vitality Transfer=Life Transference

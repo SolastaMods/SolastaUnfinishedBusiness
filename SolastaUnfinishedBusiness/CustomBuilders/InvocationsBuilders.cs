@@ -1134,4 +1134,93 @@ internal static class InvocationsBuilders
     }
 
     #endregion
+
+    #region Tomb of Frost
+
+    internal static InvocationDefinition BuildTombOfFrost()
+    {
+        const string Name = "InvocationTombOfFrost";
+
+        var conditionTombOfFrost = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}TombOfFrost")
+            .SetGuiPresentation(Name, Category.Invocation, ConditionFrozen)
+            .SetConditionType(ConditionType.Detrimental)
+            .AddFeatures(DamageAffinityFireVulnerability)
+            .AddToDB();
+
+        conditionTombOfFrost.GuiPresentation.description = Gui.NoLocalization;
+
+        var powerTombOfFrost = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}TombOfFrost")
+            .SetGuiPresentation(Name, Category.Invocation)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.None)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm()
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(new CustomBehaviorTombOfFrost(conditionTombOfFrost))
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Invocation)
+            .SetRequirements(5)
+            .SetGrantedFeature(powerTombOfFrost)
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorTombOfFrost :
+        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe, IActionFinishedByMe
+    {
+        private readonly ConditionDefinition _conditionTombOfFrost;
+
+        public CustomBehaviorTombOfFrost(ConditionDefinition conditionTombOfFrost)
+        {
+            _conditionTombOfFrost = conditionTombOfFrost;
+        }
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            // empty
+
+            yield break;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield break;
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield break;
+        }
+    }
+
+    #endregion
 }

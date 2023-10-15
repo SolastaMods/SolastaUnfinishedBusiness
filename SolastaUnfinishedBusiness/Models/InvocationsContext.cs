@@ -52,6 +52,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildStasis());
         LoadInvocation(BuildSuperiorPactWeapon());
         LoadInvocation(BuildTenaciousPlague());
+        LoadInvocation(BuildTombOfFrost());
         LoadInvocation(BuildTrickstersEscape());
         LoadInvocation(BuildUltimatePactWeapon());
         LoadInvocation(BuildUndyingServitude());

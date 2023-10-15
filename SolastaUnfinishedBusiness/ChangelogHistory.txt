@@ -1,11 +1,11 @@
 ﻿1.5.94.25:
 
-- added additional portraits samples [by Artyoan]
-- added Interface > Game UI > 'Enable alternate voting system' [choice weight = votes * hero Charisma modifier]
-- added Interface > Game UI > 'Also each hero adds a D20 roll to weight for a bit of randomness' [sums D20 to above]
-- added Vexing Hex invocation at 5th and Inexorable Hex at 7th
-- fixed issues on 2 specific scenarios you probably haven't noticed at all [unless you're Qeltar or PrOZacKU3]
-- improved blast damage type change invocations' effects
+- added additional sample portraits under Portraits/Personal [by Artyoan]
+- added Interface > Game UI > 'Enable alternate voting system' [weight = votes * hero CHA modifier]
+- added Interface > Game UI > 'Also each hero adds a D20 roll to weight' [sums D20 to above]
+- added Vexing Hex, Tomb of Frost, and Inexorable Hex invocations
+- fixed issues on 2 very specific scenarios you probably haven't noticed at all [real crazy sh.t]
+- improved Chilling, Corrosive, Fiery, Fulminate, Necrotic, Poisonous, Psychic, Radiant, and Thunder invocations effects
 
 1.5.94.24:
 
