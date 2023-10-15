@@ -102,9 +102,9 @@ Feature/&ToolGainChoicesSingleDescription=Choose one of these tools: {1}
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} gives a bonus of {1}, new result is {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rolls to maintain {1} {2} versus DC {3}, rolls {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} rolls to maintain {1} versus DC {2}, rolls {3} = {4}
-Feedback/&NarrativeChoiceRoll={0} rolls a {1} narrative choice with a {2} result.
 Feedback/&FlankingAttack=Flanking
 Feedback/&HigherGroundAttack=Higher Ground
+Feedback/&NarrativeChoiceRoll={0} rolls a {1} narrative choice with a {2} result.
 Feedback/&ReturningWeaponActivates={1} returns to {0}!
 Feedback/&TriggerFeatureLine={0} triggers {1}
 Feedback/&TriggerRerollLine={0} activates the {1} power to reroll {2} = {3}

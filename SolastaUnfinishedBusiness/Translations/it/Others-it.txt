@@ -102,9 +102,9 @@ Feature/&ToolGainChoicesSingleDescription=Scegli uno di questi strumenti: {1}
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} dà un bonus di {1}, il nuovo risultato è {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} tira per mantenere {1} {2} contro DC {3}, tira {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} tira per mantenere {1} contro DC {2}, tira {3} = {4}
-Feedback/&NarrativeChoiceRoll={0} lancia una scelta narrativa {1} con un risultato {2}.
 Feedback/&FlankingAttack=Fiancheggiamento
 Feedback/&HigherGroundAttack=Terreno più elevato
+Feedback/&NarrativeChoiceRoll={0} lancia una scelta narrativa {1} con un risultato {2}.
 Feedback/&ReturningWeaponActivates={1} torna a {0}!
 Feedback/&TriggerFeatureLine={0} trigger {1}
 Feedback/&TriggerRerollLine={0} attiva il potere {1} per ripetere il tiro {2} = {3}

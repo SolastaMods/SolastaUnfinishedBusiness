@@ -102,9 +102,9 @@ Feature/&ToolGainChoicesSingleDescription=다음 도구 중 하나를 선택합�
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0}이 {1}의 보너스를 제공하여, 새 결과는 {2}(DC: {3})입니다
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 굴려 {1} {2} 대 DC {3} 유지, {4} = {5} 굴림
 Feedback/&ConcentrationEffectCheckRolledLine={0} 굴려 {1} 대 DC {2} 유지, {3} = {4} 굴림
-Feedback/&NarrativeChoiceRoll={0}는 {2} 결과와 함께 {1} 설명 선택을 굴립니다.
 Feedback/&FlankingAttack=측면 공격
 Feedback/&HigherGroundAttack=고지대
+Feedback/&NarrativeChoiceRoll={0}는 {2} 결과와 함께 {1} 설명 선택을 굴립니다.
 Feedback/&ReturningWeaponActivates={1}이 {0}으로 돌아감!
 Feedback/&TriggerFeatureLine={0}이 {1}을 촉발
 Feedback/&TriggerRerollLine={0} 이 {1} 을 활성화, {2} = {3} 다시 굴림
