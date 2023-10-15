@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 5,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerInvocationPerniciousCloak:d703fd29-edaf-5fa2-b750-7ed67699cf2f",
+  "grantedFeature": "Definition:FeatureSetInvocationPerniciousCloak:9adbf458-44d8-59d7-ae6f-bf837effcd34",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -15,7 +15,7 @@
     "description": "Invocation/&InvocationPerniciousCloakDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "386e38f4-0f6a-5883-9985-b7e7714d3d41",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

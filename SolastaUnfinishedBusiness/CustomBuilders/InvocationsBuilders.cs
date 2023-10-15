@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine.AddressableAssets;
@@ -469,8 +470,6 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationFulminateBlast";
 
-        var lightningBoltParticles = LightningBolt.EffectDescription.EffectParticleParameters;
-
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
             .SetOrUpdateGuiPresentation(Category.Invocation)
@@ -481,9 +480,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeLightning,
-                            lightningBoltParticles.casterParticleReference,
-                            lightningBoltParticles.effectParticleReference,
-                            lightningBoltParticles.impactParticleReference))
+                            LightningBolt.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            EldritchBlast.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            LightningBolt.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -546,8 +545,8 @@ internal static class InvocationsBuilders
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypePsychic,
                             Blur.EffectDescription.EffectParticleParameters.casterParticleReference,
-                            ShadowDagger.EffectDescription.EffectParticleParameters.effectParticleReference,
-                            ShadowDagger.EffectDescription.EffectParticleParameters.impactParticleReference))
+                            EldritchBlast.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            Power_HornOfBlasting.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -666,6 +665,8 @@ internal static class InvocationsBuilders
     {
         const string Name = "InvocationPerniciousCloak";
 
+        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerPerniciousCloak, 128, 128);
+
         var abilityCheckAffinityPerniciousCloak = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}")
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
@@ -676,43 +677,185 @@ internal static class InvocationsBuilders
                 (AttributeDefinitions.Charisma, SkillDefinitions.Persuasion))
             .AddToDB();
 
-        var conditionPerniciousCloak = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentation(Name, Category.Invocation, ConditionDefinitions.ConditionConjuredCreature)
+        var conditionPerniciousCloakSelf = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Self")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
             .SetConditionType(ConditionType.Neutral)
-            .AddFeatures(abilityCheckAffinityPerniciousCloak)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(abilityCheckAffinityPerniciousCloak)
             .AddToDB();
 
-        conditionPerniciousCloak.GuiPresentation.description = Gui.NoLocalization;
+        conditionPerniciousCloakSelf.specialDuration = false;
+
+        var conditionPerniciousCloak = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionOnAcidPilgrim, $"Condition{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures()
+            .AddToDB();
+
+        conditionPerniciousCloak.specialDuration = false;
+
+        conditionPerniciousCloak.AddCustomSubFeatures(
+            new CharacterTurnStartListenerPerniciousCloak(conditionPerniciousCloak));
 
         var powerPerniciousCloak = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Invocation)
+            .SetGuiPresentation(Name, Category.Invocation, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None)
-            .SetReactionContext(ExtraReactionContext.Custom)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart)
+                    .SetDurationData(DurationType.UntilAnyRest)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetBonusMode(AddBonusMode.AbilityBonus)
-                            .SetDamageForm(DamageTypePoison)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(conditionPerniciousCloak, ConditionForm.ConditionOperation.Add,
-                            true))
+                        EffectFormBuilder.ConditionForm(conditionPerniciousCloak),
+                        EffectFormBuilder.ConditionForm(conditionPerniciousCloakSelf,
+                            ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(PowerDomainOblivionMarkOfFate)
                     .Build())
+            .AddToDB();
+
+        powerPerniciousCloak.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
+
+        var powerPerniciousCloakRemove = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Remove")
+            .SetGuiPresentation(Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            conditionPerniciousCloak, ConditionForm.ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(
+                            conditionPerniciousCloakSelf, ConditionForm.ConditionOperation.Remove))
+                    .Build())
+            .AddCustomSubFeatures(
+                new CustomBehaviorPerniciousCloakRemove(powerPerniciousCloak, conditionPerniciousCloakSelf))
+            .AddToDB();
+
+        var featureSetPerniciousCloak = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerPerniciousCloak, powerPerniciousCloakRemove)
             .AddToDB();
 
         return InvocationDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, sprite)
             .SetRequirements(5)
-            .SetGrantedFeature(powerPerniciousCloak)
+            .SetGrantedFeature(featureSetPerniciousCloak)
             .AddToDB();
+    }
+
+    private sealed class CharacterTurnStartListenerPerniciousCloak : ICharacterTurnStartListener
+    {
+        private readonly ConditionDefinition _conditionPerniciousCloak;
+
+        public CharacterTurnStartListenerPerniciousCloak(ConditionDefinition conditionPerniciousCloak)
+        {
+            _conditionPerniciousCloak = conditionPerniciousCloak;
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionPerniciousCloak.Name,
+                    out var activeCondition))
+            {
+                return;
+            }
+
+            var caster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (caster is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            if (rulesetCharacter == caster)
+            {
+                return;
+            }
+
+            var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                caster.TryGetAttributeValue(AttributeDefinitions.Charisma));
+
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypePoison, DieType = DieType.D1, DiceNumber = 0, BonusDamage = charismaModifier
+            };
+
+            var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
+
+            if (gameLocationCaster != null)
+            {
+                EffectHelpers.StartVisualEffect(
+                    gameLocationCaster, locationCharacter, PoisonSpray, EffectHelpers.EffectType.Effect);
+            }
+
+            RulesetActor.InflictDamage(
+                charismaModifier,
+                damageForm,
+                damageForm.DamageType,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetCharacter },
+                rulesetCharacter,
+                false,
+                caster.Guid,
+                false,
+                new List<string>(),
+                new RollInfo(DieType.D1, new List<int>(), charismaModifier),
+                true,
+                out _);
+        }
+    }
+
+    private sealed class CustomBehaviorPerniciousCloakRemove : IMagicEffectFinishedByMe, IValidatePowerUse
+    {
+        private readonly ConditionDefinition _conditionPerniciousCloakSelf;
+        private readonly FeatureDefinitionPower _powerPerniciousCloak;
+
+        public CustomBehaviorPerniciousCloakRemove(
+            FeatureDefinitionPower powerPerniciousCloak,
+            ConditionDefinition conditionPerniciousCloakSelf)
+        {
+            _powerPerniciousCloak = powerPerniciousCloak;
+            _conditionPerniciousCloakSelf = conditionPerniciousCloakSelf;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetEffectPower = EffectHelpers.GetAllEffectsBySourceGuid(rulesetCharacter.Guid)
+                .OfType<RulesetEffectPower>()
+                .FirstOrDefault(x => x.PowerDefinition == _powerPerniciousCloak);
+
+            if (rulesetEffectPower != null)
+            {
+                rulesetCharacter.TerminatePower(rulesetEffectPower);
+            }
+
+            yield break;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return character.HasAnyConditionOfType(_conditionPerniciousCloakSelf.Name);
+        }
     }
 
     #endregion
@@ -979,7 +1122,7 @@ internal static class InvocationsBuilders
 
         var powerInvocationVexingHex = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Invocation, PowerSorcererHauntedSoulVengefulSpirits)
+            .SetGuiPresentation(NAME, Category.Invocation, Blindness)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(
@@ -1002,7 +1145,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, Blindness)
             .SetRequirements(5)
             .SetValidators(ValidateHex)
             .SetGrantedFeature(powerInvocationVexingHex)
@@ -1151,7 +1294,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionWithPrerequisitesBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, PowerMelekTeleport)
             .SetRequirements(7)
             .SetValidators(ValidateHex)
             .SetGrantedFeature(powerInexorableHex)
@@ -1200,6 +1343,8 @@ internal static class InvocationsBuilders
     {
         const string Name = "InvocationTombOfFrost";
 
+        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerTombOfFrost, 128, 128);
+
         var conditionTombOfFrost = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}")
             .SetGuiPresentation(Name, Category.Invocation, ConditionDefinitions.ConditionChilled)
@@ -1229,7 +1374,7 @@ internal static class InvocationsBuilders
 
         var powerTombOfFrost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Invocation)
+            .SetGuiPresentation(Name, Category.Invocation, sprite)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.None)
             .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
@@ -1248,7 +1393,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, sprite)
             .SetRequirements(5)
             .SetGrantedFeature(powerTombOfFrost)
             .AddToDB();
@@ -1381,6 +1526,14 @@ internal static class InvocationsBuilders
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            if (glc != null)
+            {
+                EffectHelpers.StartVisualEffect(
+                    glc, glc, PowerDomainElementalHeraldOfTheElementsCold, EffectHelpers.EffectType.Effect);
+            }
+
             target.InflictCondition(
                 _conditionTombOfFrost.Name,
                 _conditionTombOfFrost.DurationType,

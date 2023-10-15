@@ -26,7 +26,7 @@ internal static class CreditsDisplay
             "Oath of Hatred, Oath of Thunder, Path of the Elements, Path of the Reaver, Path of the Savagery, Path of the Yeoman, Ranger Hellwalker, " +
             "Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, Martial Arcane Archer, Martial Defender, Martial Royal Knight, " +
             "Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Way of Weal and Woe, Innovation Artillerist, " +
-            "Innovation Vitriolist, Innovation Vivisectionist, Patron Mountain, Level 20, Multiclass"),
+            "Innovation Vitriolist, Innovation Vivisectionist, Patron Celestial, Patron Mountain, Level 20, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
             "quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, " +
