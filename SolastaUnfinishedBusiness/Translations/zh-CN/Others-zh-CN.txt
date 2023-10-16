@@ -104,6 +104,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 掷骰以维持 {1}
 Feedback/&ConcentrationEffectCheckRolledLine={0} 掷骰以维持 {1} 对抗 DC {2}，掷骰 {3} = {4}
 Feedback/&FlankingAttack=背后夹击
 Feedback/&HigherGroundAttack=高处攻击
+Feedback/&NarrativeChoiceRoll={0} 滚动 {1} 个叙述选项，结果为 {2}。
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！
 Feedback/&TriggerFeatureLine={0} 触发 {1}
 Feedback/&TriggerRerollLine={0} 激活 {1} 以重投 {2} = {3}

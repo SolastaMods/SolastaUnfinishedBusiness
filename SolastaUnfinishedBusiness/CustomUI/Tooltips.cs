@@ -19,20 +19,6 @@ internal static class Tooltips
         item.GuiTooltip.Context = character;
     }
 
-    internal static void AddContextToPowerBoxTooltip(UsablePowerBox box)
-    {
-#if false
-        CharacterControlPanel panel = box.GetComponentInParent<CharacterControlPanelExploration>();
-        panel ??= box.GetComponentInParent<CharacterControlPanelBattle>();
-
-        if (panel != null)
-        {
-            box.GuiTooltip.Context = panel.GuiCharacter?.RulesetCharacter;
-        }
-#endif
-        box.GuiTooltip.Context = Global.CurrentCharacter;
-    }
-
     internal static void UpdatePowerUses(ITooltip tooltip, TooltipFeaturePowerParameters parameters)
     {
         if (tooltip.DataProvider is not GuiPowerDefinition guiPowerDefinition)

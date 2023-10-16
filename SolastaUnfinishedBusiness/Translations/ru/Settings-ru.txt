@@ -35,7 +35,7 @@ ModUi/&Backgrounds=<color=#F0DAA0>Предыстории</color>
 ModUi/&BackgroundsAndRaces=Предыстории и расы
 ModUi/&Basic=<color=#F0DAA0>Обычный:</color>
 ModUi/&Bestiary=Бестиарий
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Наложить проклятие</color> не требует концентрации, когда наложено с помощью ячейки заклинания 5-го уровня и выше
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Проклятие</color> не требует концентрации, когда наложено с помощью ячейки заклинания 5-го уровня и выше
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity=Состояние <color=#D89555>Ослеплённый</color> не позволяет совершать атаку по возможности
 ModUi/&Blueprints=Чертежи
 ModUi/&Campaigns=<color=#F0DAA0>Кампании:</color>
@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Включить отображение 
 ModUi/&EnableAdditionalIconsOnLevelMap=Включить дополнительные значки для лагерей, выходов и телепортов на карте уровня
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Добавить новые предметы в Создатель Подземелий</i>
 ModUi/&EnableAlternateHuman=Включить альтернативное происхождение <color=#D89555>Человека</color> <i><color=#F0DAA0>[+1 черта / +2 очка характеристик / +1 навык]</color></i>
+ModUi/&EnableAlternateVotingSystem=Включить альтернативную систему голосования <i><color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Включить <color=#D89555>Варварам</color> выбор <b>Боевого стиля</b> на уровне 2
 ModUi/&EnableBetaContent=Включить бета-контент <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Включить отмену действия правым кликом мыши
@@ -124,6 +125,7 @@ ModUi/&EnableRogueSteadyAim=Включить <color=#D89555>Плутам</color>
 ModUi/&EnableSaveByLocation=Включить сохранения по кампаниям/локациям
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ассетов в редакторе Создателя Подземелий
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику на всплывающей подсказке о герое <i><color=#F0DAA0>[например: критические удары, критические промахи и т.д.]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=. Также каждый герой добавляет к весомости результат броска D20 для привнесения элемента случайности <i><color=#F0DAA0>[весомость выбора = голоса * модификатор Харизмы героя + бросок D20]</color></i>
 ModUi/&EnableTeleportParty=Включить телепорт группы по нажатию <color=#1E81B0>CTRL-SHIFT-(T)</color> <i><color=#F0DAA0>[вы можете сломать квесты, если телепортируетесь в ещё не открытую область]</color></i>
 ModUi/&EnableThesaurus=Включить тезаурус <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Включить в списке персонажей возможность выбирать группу по умолчанию

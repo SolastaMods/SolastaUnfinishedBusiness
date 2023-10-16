@@ -15,7 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Como uma ação livre, você
 Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro em busca do coração
 Feedback/&AdditionalDamageSniperAimFormat=Mira do atirador
 Feedback/&AdditionalDamageSniperAimLine=Mira do Sniper causa +{2} de dano extra!
-Feedback/&TriggerRerollLine={0} rola {1} = {2}. Heart-Seeking Shot forçará um acerto crítico.
+Feedback/&TriggerRavenScionRerollLine={0} rola {1} = {2}. Heart-Seeking Shot forçará um acerto crítico.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Use seu foco mortal para tentar novamente o ataque.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Use seu foco mortal para tentar novamente o ataque.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Tentar novamente o ataque

@@ -365,7 +365,7 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction, ConditionInterruption.Moved)
             .AddCustomSubFeatures(
                 new AddUsablePowerFromCondition(powerTeleport),
-                new OnConditionAddedOrRemovedSteelWhirlwind())
+                new CustomBehaviorSteelWhirlwind())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -401,14 +401,25 @@ internal static partial class SpellBuilders
     // keep a tab of all allowed conditions for filtering
     // ContextualFormation is only used by the game when spawning new locations
     // as far as no other feature uses this collection should be safe
-    private sealed class OnConditionAddedOrRemovedSteelWhirlwind : IOnConditionAddedOrRemoved, IFilterTargetingPosition
+    private sealed class CustomBehaviorSteelWhirlwind : IOnConditionAddedOrRemoved, IFilterTargetingPosition
     {
-        public void Filter(CursorLocationSelectPosition __instance)
+        public IEnumerator Filter(CursorLocationSelectPosition __instance)
         {
             var source = __instance.ActionParams.ActingCharacter;
-            var positions = __instance.validPositionsCache;
+            var positions = __instance.validPositionsCache.ToList();
 
-            positions.RemoveAll(x => source.ContextualFormation != null && !source.ContextualFormation.Contains(x));
+            foreach (var position in positions)
+            {
+                if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
+                }
+
+                if (!source.ContextualFormation.Contains(position))
+                {
+                    __instance.validPositionsCache.Remove(position);
+                }
+            }
         }
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)

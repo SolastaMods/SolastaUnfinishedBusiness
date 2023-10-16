@@ -33,8 +33,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 8 | 1 |
-
-
 # 2. - Kutkartal
 
 A celestial eagle.
@@ -73,8 +71,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 8 | 1 |
 | Talons | 1 | 8 | 1 |
-
-
 # 3. - Melek
 
 A celestial angel.
@@ -114,6 +110,4 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Longbow | 1 | 6 | 1 |
 | Mace | 1 | 6 | 1 |
-
-
 

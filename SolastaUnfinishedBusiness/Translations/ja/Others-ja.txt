@@ -104,6 +104,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} ロールで {1} �
 Feedback/&ConcentrationEffectCheckRolledLine={0} ロールで {1} 対難易度 {2} を維持、ロール {3} = {4}
 Feedback/&FlankingAttack=側面攻撃
 Feedback/&HigherGroundAttack=高いところ
+Feedback/&NarrativeChoiceRoll={0} は、{1} の物語の選択肢をロールして、{2} の結果をもたらします。
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします
 Feedback/&TriggerRerollLine={0} は、{2} = {3} を再ロールするための {1} パワーを有効にします

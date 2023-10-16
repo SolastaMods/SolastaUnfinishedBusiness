@@ -342,6 +342,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionConjuredCreature { get; } =
             GetDefinition<ConditionDefinition>("ConditionConjuredCreature");
 
+        internal static ConditionDefinition ConditionCursed { get; } =
+            GetDefinition<ConditionDefinition>("ConditionCursed");
+
         internal static ConditionDefinition ConditionCursedByBestowCurseAttackRoll { get; } =
             GetDefinition<ConditionDefinition>("ConditionCursedByBestowCurseAttackRoll");
 
@@ -1252,6 +1255,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityColdImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityColdImmunity");
 
+        internal static FeatureDefinitionDamageAffinity DamageAffinityFireVulnerability { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireVulnerability");
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityColdResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityColdResistance");
 
@@ -1686,6 +1692,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerFunctionWandFearCone { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCone");
+
+        internal static FeatureDefinitionPower Power_HornOfBlasting { get; } =
+            GetDefinition<FeatureDefinitionPower>("Power_HornOfBlasting");
 
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
@@ -2199,6 +2208,9 @@ internal static partial class DatabaseHelper
 
         internal static InvocationDefinition RepellingBlast { get; } =
             GetDefinition<InvocationDefinition>("RepellingBlast");
+
+        internal static InvocationDefinition SignIllOmen { get; } =
+            GetDefinition<InvocationDefinition>("SignIllOmen");
 
         internal static InvocationDefinition VoiceChainMaster { get; } =
             GetDefinition<InvocationDefinition>("VoiceChainMaster");

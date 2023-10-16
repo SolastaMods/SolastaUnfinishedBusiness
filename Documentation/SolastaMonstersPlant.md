@@ -31,8 +31,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 7 | 1 |
-
-
 # 2. - Shambling Mound
 
 A huge, living plant.
@@ -66,6 +64,4 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Slam | 1 | 7 | 1 |
-
-
 

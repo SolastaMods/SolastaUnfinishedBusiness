@@ -247,6 +247,14 @@
     <value>../Resources/Powers/PowerBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="PowerPerniciousCloak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerPerniciousCloak.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PowerTombOfFrost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerTombOfFrost.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="PowerRingOfBlades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerRingOfBlades.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>

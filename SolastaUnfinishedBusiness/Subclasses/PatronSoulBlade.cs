@@ -22,6 +22,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class PatronSoulBlade : AbstractSubclass
 {
     private const string Name = "SoulBlade";
+    internal const string FullName = $"Patron{Name}";
 
     public PatronSoulBlade()
     {
@@ -201,7 +202,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create($"Patron{Name}")
+            .Create(FullName)
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.PatronSoulBlade, 256))
             .AddFeaturesAtLevel(1,

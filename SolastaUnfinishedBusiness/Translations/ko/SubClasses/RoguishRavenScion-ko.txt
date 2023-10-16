@@ -15,7 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=자유 행동으로, 다음 
 Feature/&PowerRavenScionHeartSeekingShotTitle=마음을 찾는 사격
 Feedback/&AdditionalDamageSniperAimFormat=스나이퍼의 목표
 Feedback/&AdditionalDamageSniperAimLine=스나이퍼의 조준은 추가 +{2} 피해를 입힙니다!
-Feedback/&TriggerRerollLine={0}은 {1} = {2}을 굴립니다. 심장 추적 사격은 치명타를 발생시킵니다.
+Feedback/&TriggerRavenScionRerollLine={0}은 {1} = {2}을 굴립니다. 심장 추적 사격은 치명타를 발생시킵니다.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=치명적인 집중력을 사용하여 공격을 다시 시도하세요.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=치명적인 집중력을 사용하여 공격을 다시 시도하세요.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=재시도 공격

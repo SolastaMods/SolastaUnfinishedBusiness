@@ -155,12 +155,6 @@ internal static class GameUiDisplay
             }
         }
 
-        toggle = Main.Settings.EnableLogDialoguesToConsole;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableLogDialoguesToConsole = toggle;
-        }
-
         if (Main.Settings.EnableAdditionalIconsOnLevelMap)
         {
             toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
@@ -170,10 +164,36 @@ internal static class GameUiDisplay
             }
         }
 
+        toggle = Main.Settings.EnableLogDialoguesToConsole;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableLogDialoguesToConsole = toggle;
+        }
+
         toggle = Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered;
         if (UI.Toggle(Gui.Localize("ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered = toggle;
+        }
+
+        toggle = Main.Settings.EnableAlternateVotingSystem;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateVotingSystem"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAlternateVotingSystem = toggle;
+
+            if (!toggle)
+            {
+                Main.Settings.EnableSumD20OnAlternateVotingSystem = false;
+            }
+        }
+
+        if (Main.Settings.EnableAlternateVotingSystem)
+        {
+            toggle = Main.Settings.EnableSumD20OnAlternateVotingSystem;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableSumD20OnAlternateVotingSystem"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnableSumD20OnAlternateVotingSystem = toggle;
+            }
         }
 
         UI.Label();

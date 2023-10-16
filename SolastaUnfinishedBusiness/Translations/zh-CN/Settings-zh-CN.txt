@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景�
 ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和传送器启用额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
+ModUi/&EnableAlternateVotingSystem=启用替代投票系统<i><color=#F0DAA0>[使用英雄魅力修正来确定选择权重]</color></i>
 ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=启用鼠标右键取消动作
@@ -124,6 +125,7 @@ ModUi/&EnableRogueSteadyAim=在等级 3 时启用<color=#D89555>盗贼</color><b
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=。此外，每个英雄都增加了 D20 骰子重量以获得一点随机性
 ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color>传送队伍<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></i>
 ModUi/&EnableThesaurus=启用同义词库<b><i><color=#C04040E0>[需要重新启动]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设置默认的游戏和测试队伍

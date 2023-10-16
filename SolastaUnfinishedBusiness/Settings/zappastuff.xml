@@ -203,7 +203,6 @@
       </value>
     </item>
   </DisplaySpellListsToggle>
-  <UseExperimentalFlankingRules>false</UseExperimentalFlankingRules>
   <EnableCtrlClickOnlySwapsMainHand>true</EnableCtrlClickOnlySwapsMainHand>
   <EnableDisplaySorceryPointBoxSorcererOnly>true</EnableDisplaySorceryPointBoxSorcererOnly>
   <EnableSameWidthFeatSelection>true</EnableSameWidthFeatSelection>
@@ -213,11 +212,9 @@
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
   <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
   <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-  <EnableActionSwitching>true</EnableActionSwitching>
   <DisableUpdateMessage>false</DisableUpdateMessage>
   <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
   <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
-  <EnableBetaContent>false</EnableBetaContent>
   <EnablePcgRandom>true</EnablePcgRandom>
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>
@@ -233,32 +230,19 @@
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
-  <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
+  <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
+  <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
+  <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <EnableAlternateHuman>true</EnableAlternateHuman>
   <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
-  <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
-  <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
-  <EnableRangerNatureShroudAt10>false</EnableRangerNatureShroudAt10>
+  <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
-  <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-  <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
-  <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-  <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
-  <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
-  <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
-  <EnableMonkFightingStyle>true</EnableMonkFightingStyle>
-  <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
-  <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
-  <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
-  <EnableRogueFightingStyle>true</EnableRogueFightingStyle>
-  <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
@@ -266,6 +250,20 @@
   <EnableRelearnSpells>false</EnableRelearnSpells>
   <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
   <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
+  <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
+  <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
+  <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+  <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
+  <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
+  <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
+  <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
+  <EnableRangerNatureShroudAt10>false</EnableRangerNatureShroudAt10>
+  <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
+  <EnableMonkFightingStyle>true</EnableMonkFightingStyle>
+  <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
+  <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
+  <EnableRogueFightingStyle>true</EnableRogueFightingStyle>
+  <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
   <OfferAdditionalLoreFriendlyNames>true</OfferAdditionalLoreFriendlyNames>
   <UnlockAllNpcFaces>true</UnlockAllNpcFaces>
   <AllowUnmarkedSorcerers>true</AllowUnmarkedSorcerers>
@@ -277,7 +275,6 @@
   <UnlockSkinColors>true</UnlockSkinColors>
   <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
   <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
-  <FixEldritchBlastRange>true</FixEldritchBlastRange>
   <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
   <UseMathFlankingRules>true</UseMathFlankingRules>
   <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
@@ -287,13 +284,9 @@
   <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
   <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
   <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
-  <StealthBreaksWhenCastingMaterial>false</StealthBreaksWhenCastingMaterial>
-  <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
-  <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
-  <StealthDoesNotBreakWithSubtle>false</StealthDoesNotBreakWithSubtle>
-  <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
   <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
   <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>true</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
+  <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
   <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
   <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
   <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
@@ -304,8 +297,15 @@
   <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
   <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
   <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
+  <FixEldritchBlastRange>true</FixEldritchBlastRange>
+  <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
   <IdentifyAfterRest>true</IdentifyAfterRest>
   <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
+  <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
+  <StealthBreaksWhenCastingMaterial>false</StealthBreaksWhenCastingMaterial>
+  <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
+  <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
+  <StealthDoesNotBreakWithSubtle>false</StealthDoesNotBreakWithSubtle>
   <AllowHasteCasting>true</AllowHasteCasting>
   <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
   <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
@@ -328,9 +328,6 @@
   <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
   <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
   <AddPickPocketableLoot>true</AddPickPocketableLoot>
-  <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
-  <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
-  <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
   <RecipeCost>200</RecipeCost>
   <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
   <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
@@ -760,6 +757,7 @@
           <string>PatronMountain</string>
           <string>PatronRiftWalker</string>
           <string>PatronSoulBlade</string>
+          <string>PatronCelestial</string>
         </ArrayOfString>
       </value>
     </item>
@@ -979,8 +977,10 @@
     <string>InvocationGraspingBlast</string>
     <string>InvocationHinderingBlast</string>
     <string>InvocationImprovedPactWeapon</string>
+    <string>InvocationInexorableHex</string>
     <string>InvocationKinesis</string>
     <string>InvocationNecroticBlast</string>
+    <string>InvocationPerniciousCloak</string>
     <string>InvocationPoisonousBlast</string>
     <string>InvocationPsychicBlast</string>
     <string>InvocationRadiantBlast</string>
@@ -990,10 +990,12 @@
     <string>InvocationSuperiorPactWeapon</string>
     <string>InvocationTenaciousPlague</string>
     <string>InvocationThunderBlast</string>
+    <string>InvocationTombOfFrost</string>
     <string>InvocationTrickstersEscape</string>
     <string>InvocationUltimatePactWeapon</string>
     <string>InvocationUndyingServitude</string>
     <string>InvocationVerdantArmor</string>
+    <string>InvocationVexingHex</string>
   </InvocationEnabled>
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>
@@ -1380,18 +1382,22 @@
   </SpellListSpellEnabled>
   <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
-  <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
-  <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
-  <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
-  <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
   <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
-  <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
+  <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
   <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
+  <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
+  <EnableAlternateVotingSystem>true</EnableAlternateVotingSystem>
+  <EnableSumD20OnAlternateVotingSystem>true</EnableSumD20OnAlternateVotingSystem>
   <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
   <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-  <FormationGridSelectedSet>0</FormationGridSelectedSet>
+  <EnableActionSwitching>true</EnableActionSwitching>
   <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
+  <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
   <EnableCustomPortraits>true</EnableCustomPortraits>
+  <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
+  <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
+  <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
+  <FormationGridSelectedSet>0</FormationGridSelectedSet>
   <FormationGridSets>
     <ArrayOfArrayOfInt>
       <ArrayOfInt>
@@ -1593,6 +1599,7 @@
   <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
   <EnableInvisibleCrownOfTheMagister>false</EnableInvisibleCrownOfTheMagister>
   <DontDisplayHelmets>false</DontDisplayHelmets>
+  <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
   <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
   <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
   <HideMonsterHitPoints>true</HideMonsterHitPoints>

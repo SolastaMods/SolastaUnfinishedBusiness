@@ -104,6 +104,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rolls to maintain {
 Feedback/&ConcentrationEffectCheckRolledLine={0} rolls to maintain {1} versus DC {2}, rolls {3} = {4}
 Feedback/&FlankingAttack=Flanking
 Feedback/&HigherGroundAttack=Higher Ground
+Feedback/&NarrativeChoiceRoll={0} rolls a {1} narrative choice with a {2} result.
 Feedback/&ReturningWeaponActivates={1} returns to {0}!
 Feedback/&TriggerFeatureLine={0} triggers {1}
 Feedback/&TriggerRerollLine={0} activates the {1} power to reroll {2} = {3}

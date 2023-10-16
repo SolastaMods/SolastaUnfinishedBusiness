@@ -842,7 +842,6 @@ internal static class OtherFeats
                             .SetConditionForm(ConditionDefinitions.ConditionPoisoned,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
                     .Build())
             .AddToDB();
 
@@ -969,7 +968,9 @@ internal static class OtherFeats
                 .AddAsActivePowerToSource();
             actionParams.TargetCharacters.SetRange(target);
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteAction(actionParams, null, false);
         }
     }
 

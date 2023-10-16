@@ -1,6 +1,8 @@
-﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using System.Collections;
+
+namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IFilterTargetingPosition
 {
-    public void Filter(CursorLocationSelectPosition cursorLocationSelectPosition);
+    public IEnumerator Filter(CursorLocationSelectPosition cursorLocationSelectPosition);
 }

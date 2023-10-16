@@ -40,21 +40,25 @@ internal static class InvocationsContext
         LoadInvocation(BuildGraspingBlast());
         LoadInvocation(BuildHinderingBlast());
         LoadInvocation(BuildImprovedPactWeapon());
+        LoadInvocation(BuildInexorableHex());
         LoadInvocation(BuildKinesis());
         LoadInvocation(BuildNecroticBlast());
-        LoadInvocation(BuildPsychicBlast());
+        LoadInvocation(BuildPerniciousCloak());
         LoadInvocation(BuildPoisonousBlast());
+        LoadInvocation(BuildPsychicBlast());
         LoadInvocation(BuildRadiantBlast());
-        LoadInvocation(BuildThunderBlast());
         LoadInvocation(BuildShroudOfShadow());
         LoadInvocation(BuildSpectralShield());
         LoadInvocation(BuildStasis());
         LoadInvocation(BuildSuperiorPactWeapon());
         LoadInvocation(BuildTenaciousPlague());
+        LoadInvocation(BuildThunderBlast());
+        LoadInvocation(BuildTombOfFrost());
         LoadInvocation(BuildTrickstersEscape());
         LoadInvocation(BuildUltimatePactWeapon());
         LoadInvocation(BuildUndyingServitude());
         LoadInvocation(BuildVerdantArmor());
+        LoadInvocation(BuildVexingHex());
 
         // sorting
         Invocations = Invocations.OrderBy(x => x.FormatTitle()).ToHashSet();

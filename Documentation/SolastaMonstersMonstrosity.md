@@ -39,8 +39,6 @@ Size: *Huge*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 11 | 1 |
-
-
 # 2. - Bulette
 
 Also called a sand shark, this monster can burrow beneath your feet and literally eat your legs.
@@ -73,8 +71,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 7 | 1 |
-
-
 # 3. - Crimson Spider
 
 A giant spider from the underground acid lakes of the Badlands.
@@ -110,8 +106,6 @@ Size: *Large*
 | Acid Bite | 1 | 8 | 1 |
 | Claws | 1 | 10 | 1 |
 | Acid Spit | 1 | 8 | 1 |
-
-
 # 4. - Crimson Spider
 
 A giant spider from the underground acid lakes of the Badlands.
@@ -147,8 +141,6 @@ Size: *Large*
 | Claws | 1 | 10 | 1 |
 | Acid Spit | 1 | 8 | 1 |
 | Acid Bite | 1 | 8 | 1 |
-
-
 # 5. - Crimson Spiderling
 
 A small - relatively speaking - crimson spider.
@@ -184,8 +176,6 @@ Size: *Medium*
 | Acid Bite | 1 | 6 | 1 |
 | Claws | 1 | 5 | 1 |
 | Acid Spit | 1 | 6 | 1 |
-
-
 # 6. - Greymane Minotaur
 
 From the ranks of the powerful minotaurs, Greymane arise as superior fighters and receive extra training, enough to master deadly skills, and even more strength and power than their brothers.
@@ -220,8 +210,6 @@ Size: *Large*
 | Gore | 1 | 9 | 1 |
 | Charge | 1 | 9 | 1 |
 | Greataxe | 1 | 9 | 1 |
-
-
 # 7. - Juggernaut
 
 This gigantic redeemer is clearly at the top of its family's food chain.
@@ -264,8 +252,6 @@ Size: *Huge*
 | Shocking Antenna | 1 | 9 | 1 |
 | Bite | 1 | 9 | 1 |
 | Claws | 1 | 9 | 1 |
-
-
 # 8. - Juggernaut
 
 This gigantic redeemer is clearly at the top of its family's food chain.
@@ -308,8 +294,6 @@ Size: *Huge*
 | Shocking Antenna | 1 | 9 | 1 |
 | Bite | 1 | 9 | 1 |
 | Claws | 1 | 9 | 1 |
-
-
 # 9. - Minotaur
 
 This monstrosity is the result of Manacalon wizards' efforts to create yet another race of slave creatures.
@@ -340,8 +324,6 @@ Size: *Large*
 | Charge | 1 | 6 | 1 |
 | Gore | 1 | 6 | 1 |
 | Greataxe | 1 | 6 | 1 |
-
-
 # 10. - Minotaur Elite
 
 From the ranks of the powerful minotaurs, some arise as superior fighters and receive extra training, enough to master deadly skills, and even more strength and power than their brothers.
@@ -372,8 +354,6 @@ Size: *Large*
 | Charge | 1 | 8 | 1 |
 | Gore | 1 | 8 | 1 |
 | Greataxe | 1 | 8 | 1 |
-
-
 # 11. - Minotaur Elite
 
 From the ranks of the powerful minotaurs, some arise as superior fighters and receive extra training, enough to master deadly skills, and even more strength and power than their brothers.
@@ -405,8 +385,6 @@ Size: *Large*
 | Charge | 1 | 8 | 1 |
 | Gore | 1 | 8 | 1 |
 | Greataxe | 1 | 8 | 1 |
-
-
 # 12. - Minotaur Elite
 
 From the ranks of the powerful minotaurs, some arise as superior fighters and receive extra training, enough to master deadly skills, and even more strength and power than their brothers.
@@ -438,8 +416,6 @@ Size: *Large*
 | Charge | 1 | 8 | 1 |
 | Gore | 1 | 8 | 1 |
 | Greataxe | 1 | 8 | 1 |
-
-
 # 13. - Mutant Minotaur
 
 An enormous minotaur, transformed by unspeakable experiments.
@@ -476,8 +452,6 @@ Size: *Large*
 | Charge | 1 | 8 | 1 |
 | Gore | 1 | 9 | 1 |
 | Greataxe | 1 | 9 | 1 |
-
-
 # 14. - Mutated Dire Wolf
 
 A magically mutated dire wolf, more aggressive and dangerous than the normal kind.
@@ -508,8 +482,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 7 | 1 |
-
-
 # 15. - Peak Abomination
 
 These huge and brutal creatures are more dangerous even than the Peak Terrors, hunting travelers and wildlife across their cold and barren territory.
@@ -544,8 +516,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 6 | 1 |
 | Rock | 1 | 6 | 5 |
-
-
 # 16. - Peak Abomination
 
 These huge and brutal creatures are more dangerous even than the Peak Terrors, hunting travelers and wildlife across their cold and barren territory.
@@ -580,8 +550,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 6 | 1 |
 | Rock | 1 | 6 | 5 |
-
-
 # 17. - Peak Terror
 
 Brutish, furry humanoids that wander the remotest mountains in small groups, preying on whatever unfortunate creatures cross their path.
@@ -615,8 +583,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 6 | 1 |
 | Rock | 1 | 6 | 5 |
-
-
 # 18. - Peak Terror
 
 Brutish, furry humanoids that wander the remotest mountains in small groups, preying on whatever unfortunate creatures cross their path.
@@ -650,8 +616,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 6 | 1 |
 | Rock | 1 | 6 | 5 |
-
-
 # 19. - Phase Spider
 
 A monstrous spider able to travel freely to and from the ethereal plane.
@@ -683,8 +647,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 4 | 1 |
-
-
 # 20. - Pilgrim
 
 A large insect that is a member of the Redeemer species, its bite is acidic and it can spray pheromones that trigger a frenzy among its ranks.
@@ -720,8 +682,6 @@ Size: *Medium*
 | Bite | 1 | 6 | 1 |
 | Claws | 1 | 6 | 1 |
 | Pheromone Spray | 1 | 5 | 1 |
-
-
 # 21. - Remorhaz
 
 A monstrous insect capable of swallowing an adventurer whole!
@@ -757,8 +717,6 @@ Size: *Huge*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 11 | 1 |
-
-
 # 22. - Remorhaz Offspring
 
 The offspring of the apex predator are terrifying little monsters.
@@ -794,8 +752,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 7 | 1 |
-
-
 # 23. - Snow Bulette
 
 A dreadful predator of the icy lands of the Snow Alliance, able to burrow through ice and rip through any armor.
@@ -843,8 +799,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 11 | 1 |
-
-
 # 24. - Sorr-Akkath Abomination
 
 A very large type of Sorr-Akkath, much stronger and deadlier than its smaller comrades, and apparently less intelligent.
@@ -886,8 +840,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 8 | 1 |
-
-
 # 25. - Sorr-Akkath Abomination
 
 A very large type of Sorr-Akkath, much stronger and deadlier than its smaller comrades, and apparently less intelligent.
@@ -929,8 +881,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 8 | 1 |
-
-
 # 26. - Sorr-Akkath Devastator
 
 Although similar to abominations, devastators are even more dangerous!
@@ -978,8 +928,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 10 | 1 |
-
-
 # 27. - Sorr-Akkath Devastator
 
 Although similar to abominations, devastators are even more dangerous!
@@ -1026,8 +974,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Claws | 1 | 10 | 1 |
-
-
 # 28. - Spider Queen
 
 A gigantic spider that must have lived centuries in the dark.
@@ -1074,8 +1020,6 @@ Size: *Huge*
 | Poisonous Bite | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
 | Poison Web | 1 | 7 | 1 |
-
-
 # 29. - Spiderlings
 
 Offspring of the Old Queen. She loves them so much that she eats them once in a while.
@@ -1107,8 +1051,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 5 | 1 |
-
-
 # 30. - Werebear
 
 A monstruous lycanthrope turned into a huge bear, almost impossible to hurt.
@@ -1140,8 +1082,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
-
-
 # 31. - Winter Wolf
 
 A large arctic wolf with a cold breath attack.
@@ -1176,8 +1116,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 6 | 1 |
-
-
 # 32. - Winter Wolf
 
 A large arctic wolf with a cold breath attack.
@@ -1212,8 +1150,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 6 | 1 |
-
-
 # 33. - Zealot
 
 A very large insect that is a member of the Redeemer species, with a capacity to attack with electric shocks.
@@ -1249,6 +1185,4 @@ Size: *Large*
 | Bite | 1 | 8 | 1 |
 | Claws | 1 | 8 | 1 |
 | Shocking Antenna | 1 | 8 | 1 |
-
-
 

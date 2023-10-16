@@ -1759,7 +1759,7 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;

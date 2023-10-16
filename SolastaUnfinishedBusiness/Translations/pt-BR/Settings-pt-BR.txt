@@ -80,6 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Ativar exibição adicional de históric
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de níveis
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 opções de atributo / +1 habilidade]</color></i>
+ModUi/&EnableAlternateVotingSystem=Ativar sistema de votação alternativo <i><color=#F0DAA0>[use o modificador de Carisma do herói para determinar o peso da escolha]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Habilite a opção <color=#D89555>Bárbaro</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
@@ -124,6 +125,7 @@ ModUi/&EnableRogueSteadyAim=Habilite <color=#D89555>Rogue</color> <b>Steady Aim<
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas / locais
 ModUi/&EnableSortingDungeonMakerAssets=Ativar classificação de recursos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=. Além disso, cada herói adiciona um teste D20 ao peso para um pouco de aleatoriedade
 ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper as missões se teletransportar para um lugar desconhecido]</color></i>
 ModUi/&EnableThesaurus=Ativar dicionário de sinônimos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste

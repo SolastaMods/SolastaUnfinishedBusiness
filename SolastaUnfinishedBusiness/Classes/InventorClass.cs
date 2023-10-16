@@ -776,6 +776,7 @@ internal static class InventorClass
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
             .AddCustomSubFeatures(InventorClassHolder.Marker)
+            .SetCosts(new[] { 0, 0, 0, 0, 0 })
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
                 .SetChargesCapitalNumber(6) //TODO: try to make this based off Inventor's INT bonus x2

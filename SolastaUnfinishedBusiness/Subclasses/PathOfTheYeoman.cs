@@ -366,7 +366,9 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                     && battleManager.IsWithinXCells(defender, x, 3))
                 .ToList());
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteAction(actionParams, null, false);
         }
     }
 }

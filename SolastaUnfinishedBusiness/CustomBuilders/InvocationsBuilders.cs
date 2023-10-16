@@ -9,12 +9,17 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
+using TA;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
 
@@ -39,7 +44,7 @@ internal static class InvocationsBuilders
                     .SetDamageDice(DieType.D8, 0)
                     .SetSpecificDamageType(DamageTypeForce)
                     .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
-                    .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
+                    .SetImpactParticleReference(EldritchBlast)
                     .AddCustomSubFeatures(
                         WarlockHolder.Instance,
                         new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
@@ -76,9 +81,9 @@ internal static class InvocationsBuilders
         // cast Invisibility at will
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.Invisibility)
+            .SetGuiPresentation(Category.Invocation, Invisibility)
             .SetRequirements(15)
-            .SetGrantedSpell(SpellDefinitions.Invisibility)
+            .SetGrantedSpell(Invisibility)
             .AddToDB();
     }
 
@@ -88,8 +93,8 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.FogCloud)
-            .SetGrantedSpell(SpellDefinitions.FogCloud)
+            .SetGuiPresentation(Category.Invocation, FogCloud)
+            .SetGrantedSpell(FogCloud)
             .AddToDB();
     }
 
@@ -98,7 +103,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationVerdantArmor";
 
         var barkskinNoConcentration = SpellDefinitionBuilder
-            .Create(SpellDefinitions.Barkskin, "BarkskinNoConcentration")
+            .Create(Barkskin, "BarkskinNoConcentration")
             .SetRequiresConcentration(false)
             .AddToDB();
 
@@ -116,8 +121,8 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.ConjureAnimals)
-            .SetGrantedSpell(SpellDefinitions.ConjureAnimals, true, true)
+            .SetGuiPresentation(Category.Invocation, ConjureAnimals)
+            .SetGrantedSpell(ConjureAnimals, true, true)
             .SetRequirements(5)
             .AddToDB();
     }
@@ -128,8 +133,8 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, SpellDefinitions.InsectPlague)
-            .SetGrantedSpell(SpellDefinitions.InsectPlague, true, true)
+            .SetGuiPresentation(Category.Invocation, InsectPlague)
+            .SetGrantedSpell(InsectPlague, true, true)
             .SetRequirements(9, pact: FeatureSetPactChain)
             .AddToDB();
     }
@@ -156,7 +161,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationTrickstersEscape";
 
         var spellTrickstersEscape = SpellDefinitionBuilder
-            .Create(SpellDefinitions.FreedomOfMovement, "TrickstersEscape")
+            .Create(FreedomOfMovement, "TrickstersEscape")
             .AddToDB();
 
         spellTrickstersEscape.EffectDescription.targetType = TargetType.Self;
@@ -190,7 +195,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationGraspingBlast";
 
         var powerInvocationGraspingBlast = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerInvocationRepellingBlast, "PowerInvocationGraspingBlast")
+            .Create(PowerInvocationRepellingBlast, "PowerInvocationGraspingBlast")
             .SetGuiPresentation(NAME, Category.Invocation)
             .AddToDB();
 
@@ -204,7 +209,7 @@ internal static class InvocationsBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
             .SetGrantedFeature(powerInvocationGraspingBlast)
-            .SetRequirements(spell: SpellDefinitions.EldritchBlast)
+            .SetRequirements(spell: EldritchBlast)
             .AddToDB();
     }
 
@@ -220,11 +225,11 @@ internal static class InvocationsBuilders
                     .Create($"AdditionalDamage{NAME}")
                     .SetGuiPresentationNoContent(true)
                     .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
-                    .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
+                    .SetRequiredSpecificSpell(EldritchBlast)
                     .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
                         ConditionDefinitions.ConditionHindered_By_Frost)
                     .AddToDB())
-            .SetRequirements(spell: SpellDefinitions.EldritchBlast)
+            .SetRequirements(spell: EldritchBlast)
             .AddToDB();
     }
 
@@ -262,14 +267,14 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationBondOfTheTalisman";
 
         var power = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerSorakShadowEscape, $"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
+            .Create(PowerSorakShadowEscape, $"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Invocation, PowerSorakShadowEscape)
             .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .DelegatedToAction()
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(FeatureDefinitionPowers.PowerSorakShadowEscape)
+                    .Create(PowerSorakShadowEscape)
                     .UseQuickAnimations()
                     .Build())
             .AddToDB();
@@ -359,7 +364,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationKinesis";
 
         var spellKinesis = SpellDefinitionBuilder
-            .Create(SpellDefinitions.Haste, "Kinesis")
+            .Create(Haste, "Kinesis")
             .AddToDB();
 
         var effect = spellKinesis.EffectDescription;
@@ -382,7 +387,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationStasis";
 
         var spellStasis = SpellDefinitionBuilder
-            .Create(SpellDefinitions.Slow, "Stasis")
+            .Create(Slow, "Stasis")
             .SetRequiresConcentration(false)
             .AddToDB();
 
@@ -398,6 +403,8 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationChillingBlast";
 
+        var rayOfFrostParticles = RayOfFrost.EffectDescription.EffectParticleParameters;
+
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
             .SetOrUpdateGuiPresentation(Category.Invocation)
@@ -408,7 +415,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeCold,
-                            SpellDefinitions.RayOfFrost.EffectDescription.EffectParticleParameters))
+                            rayOfFrostParticles.casterParticleReference,
+                            rayOfFrostParticles.effectParticleReference,
+                            rayOfFrostParticles.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -427,7 +436,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeAcid,
-                            SpellDefinitions.AcidSplash.EffectDescription.EffectParticleParameters))
+                            AcidSplash.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            AcidArrow.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            AcidArrow.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -435,6 +446,8 @@ internal static class InvocationsBuilders
     internal static InvocationDefinition BuildFieryBlast()
     {
         const string NAME = "InvocationFieryBlast";
+
+        var fireBoltParticles = FireBolt.EffectDescription.EffectParticleParameters;
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
@@ -446,7 +459,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeFire,
-                            SpellDefinitions.FireBolt.EffectDescription.EffectParticleParameters))
+                            fireBoltParticles.casterParticleReference,
+                            fireBoltParticles.effectParticleReference,
+                            fireBoltParticles.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -465,7 +480,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeLightning,
-                            SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters))
+                            LightningBolt.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            EldritchBlast.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            LightningBolt.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -484,7 +501,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeNecrotic,
-                            SpellDefinitions.ChillTouch.EffectDescription.EffectParticleParameters))
+                            RayOfEnfeeblement.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            BurningHands_B.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -492,13 +511,6 @@ internal static class InvocationsBuilders
     internal static InvocationDefinition BuildPoisonousBlast()
     {
         const string NAME = "InvocationPoisonousBlast";
-
-        var effectDescription = EffectDescriptionBuilder.Create(SpellDefinitions.PoisonSpray.EffectDescription).Build();
-
-        effectDescription.EffectParticleParameters.impactParticleReference =
-            effectDescription.EffectParticleParameters.effectParticleReference;
-
-        effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
@@ -510,7 +522,10 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypePoison,
-                            effectDescription.EffectParticleParameters))
+                            PoisonSpray.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            AcidSplash.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            // it's indeed effect here
+                            PoisonSpray.EffectDescription.EffectParticleParameters.effectParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -529,7 +544,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypePsychic,
-                            SpellDefinitions.BrandingSmite.EffectDescription.EffectParticleParameters))
+                            Blur.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            EldritchBlast.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            Power_HornOfBlasting.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -548,7 +565,10 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeRadiant,
-                            SpellDefinitions.BrandingSmite.EffectDescription.EffectParticleParameters))
+                            BrandingSmite.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            GuidingBolt.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            PowerTraditionLightBlindingFlash.EffectDescription.EffectParticleParameters
+                                .impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -567,7 +587,9 @@ internal static class InvocationsBuilders
                     .AddCustomSubFeatures(
                         new ModifyEffectDescriptionEldritchBlast(
                             DamageTypeThunder,
-                            SpellDefinitions.Thunderwave.EffectDescription.EffectParticleParameters))
+                            Thunderwave.EffectDescription.EffectParticleParameters.casterParticleReference,
+                            Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference,
+                            Thunderwave.EffectDescription.EffectParticleParameters.impactParticleReference))
                     .AddToDB())
             .AddToDB();
     }
@@ -577,7 +599,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationSpectralShield";
 
         var spellSpectralShield = SpellDefinitionBuilder
-            .Create(SpellDefinitions.ShieldOfFaith, "SpectralShield")
+            .Create(ShieldOfFaith, "SpectralShield")
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -593,7 +615,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationGiftOfTheHunter";
 
         var spellGiftOfTheHunter = SpellDefinitionBuilder
-            .Create(SpellDefinitions.PassWithoutTrace, "GiftOfTheHunter")
+            .Create(PassWithoutTrace, "GiftOfTheHunter")
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -610,7 +632,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationDiscerningGaze";
 
         var spellDiscerningGaze = SpellDefinitionBuilder
-            .Create(SpellDefinitions.DetectEvilAndGood, "DiscerningGaze")
+            .Create(DetectEvilAndGood, "DiscerningGaze")
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -626,7 +648,7 @@ internal static class InvocationsBuilders
         const string NAME = "InvocationBreakerAndBanisher";
 
         var spellBreakerAndBanisher = SpellDefinitionBuilder
-            .Create(SpellDefinitions.DispelEvilAndGood, "BreakerAndBanisher")
+            .Create(DispelEvilAndGood, "BreakerAndBanisher")
             .AddToDB();
 
         return InvocationDefinitionBuilder
@@ -636,6 +658,215 @@ internal static class InvocationsBuilders
             .SetGrantedSpell(spellBreakerAndBanisher, true, true)
             .AddToDB();
     }
+
+    #region Pernicious Cloak
+
+    internal static InvocationDefinition BuildPerniciousCloak()
+    {
+        const string Name = "InvocationPerniciousCloak";
+
+        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerPerniciousCloak, 128, 128);
+
+        var abilityCheckAffinityPerniciousCloak = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create($"AbilityCheckAffinity{Name}")
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                (AttributeDefinitions.Charisma, SkillDefinitions.Intimidation))
+            .BuildAndAddAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
+                (AttributeDefinitions.Charisma, SkillDefinitions.Deception),
+                (AttributeDefinitions.Charisma, SkillDefinitions.Performance),
+                (AttributeDefinitions.Charisma, SkillDefinitions.Persuasion))
+            .AddToDB();
+
+        var conditionPerniciousCloakSelf = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Self")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConjuredCreature)
+            .SetConditionType(ConditionType.Neutral)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(abilityCheckAffinityPerniciousCloak)
+            .AddToDB();
+
+        conditionPerniciousCloakSelf.conditionStartParticleReference =
+            ConditionDefinitions.ConditionOnAcidPilgrim.conditionStartParticleReference;
+        conditionPerniciousCloakSelf.conditionParticleReference =
+            ConditionDefinitions.ConditionOnAcidPilgrim.conditionParticleReference;
+        conditionPerniciousCloakSelf.conditionEndParticleReference =
+            ConditionDefinitions.ConditionOnAcidPilgrim.conditionEndParticleReference;
+
+        conditionPerniciousCloakSelf.specialDuration = false;
+
+        var conditionPerniciousCloak = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        conditionPerniciousCloak.AddCustomSubFeatures(
+            new CharacterTurnStartListenerPerniciousCloak(conditionPerniciousCloak));
+
+        var powerPerniciousCloak = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Invocation, sprite)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.UntilAnyRest)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionPerniciousCloak),
+                        EffectFormBuilder.ConditionForm(conditionPerniciousCloakSelf,
+                            ConditionForm.ConditionOperation.Add, true))
+                    .SetParticleEffectParameters(PowerDomainOblivionMarkOfFate)
+                    .Build())
+            .AddToDB();
+
+        powerPerniciousCloak.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
+
+        var powerPerniciousCloakRemove = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Remove")
+            .SetGuiPresentation(Category.Feature, sprite)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            conditionPerniciousCloak, ConditionForm.ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(
+                            conditionPerniciousCloakSelf, ConditionForm.ConditionOperation.Remove))
+                    .Build())
+            .AddCustomSubFeatures(
+                new CustomBehaviorPerniciousCloakRemove(powerPerniciousCloak, conditionPerniciousCloakSelf))
+            .AddToDB();
+
+        powerPerniciousCloakRemove.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainOblivionMarkOfFate.EffectDescription.EffectParticleParameters.casterParticleReference;
+
+        var featureSetPerniciousCloak = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerPerniciousCloak, powerPerniciousCloakRemove)
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Invocation, sprite)
+            .SetRequirements(5)
+            .SetGrantedFeature(featureSetPerniciousCloak)
+            .AddToDB();
+    }
+
+    private sealed class CharacterTurnStartListenerPerniciousCloak : ICharacterTurnStartListener
+    {
+        private readonly ConditionDefinition _conditionPerniciousCloak;
+
+        public CharacterTurnStartListenerPerniciousCloak(ConditionDefinition conditionPerniciousCloak)
+        {
+            _conditionPerniciousCloak = conditionPerniciousCloak;
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect,
+                    _conditionPerniciousCloak.Name,
+                    out var activeCondition))
+            {
+                return;
+            }
+
+            var caster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (caster is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            if (rulesetCharacter == caster)
+            {
+                return;
+            }
+
+            var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                caster.TryGetAttributeValue(AttributeDefinitions.Charisma));
+
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypePoison, DieType = DieType.D1, DiceNumber = 0, BonusDamage = charismaModifier
+            };
+
+            var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
+
+            if (gameLocationCaster != null)
+            {
+                EffectHelpers.StartVisualEffect(
+                    gameLocationCaster, locationCharacter, PoisonSpray, EffectHelpers.EffectType.Effect);
+            }
+
+            RulesetActor.InflictDamage(
+                charismaModifier,
+                damageForm,
+                damageForm.DamageType,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetCharacter },
+                rulesetCharacter,
+                false,
+                caster.Guid,
+                false,
+                new List<string>(),
+                new RollInfo(DieType.D1, new List<int>(), charismaModifier),
+                true,
+                out _);
+        }
+    }
+
+    private sealed class CustomBehaviorPerniciousCloakRemove : IMagicEffectFinishedByMe, IValidatePowerUse
+    {
+        private readonly ConditionDefinition _conditionPerniciousCloakSelf;
+        private readonly FeatureDefinitionPower _powerPerniciousCloak;
+
+        public CustomBehaviorPerniciousCloakRemove(
+            FeatureDefinitionPower powerPerniciousCloak,
+            ConditionDefinition conditionPerniciousCloakSelf)
+        {
+            _powerPerniciousCloak = powerPerniciousCloak;
+            _conditionPerniciousCloakSelf = conditionPerniciousCloakSelf;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetEffectPower = EffectHelpers.GetAllEffectsBySourceGuid(rulesetCharacter.Guid)
+                .OfType<RulesetEffectPower>()
+                .FirstOrDefault(x => x.PowerDefinition == _powerPerniciousCloak);
+
+            if (rulesetEffectPower != null)
+            {
+                rulesetCharacter.TerminatePower(rulesetEffectPower);
+            }
+
+            yield break;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return character.HasAnyConditionOfType(_conditionPerniciousCloakSelf.Name);
+        }
+    }
+
+    #endregion
+
+    #region Chain Master
 
     internal static InvocationDefinition BuildAbilitiesOfTheChainMaster()
     {
@@ -698,7 +929,6 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-
     /*
      
     Celestial Blessing
@@ -740,14 +970,18 @@ internal static class InvocationsBuilders
     private sealed class ModifyEffectDescriptionEldritchBlast : IModifyEffectDescription
     {
         private readonly string _damageType;
-        private readonly EffectParticleParameters _effectParticleParameters;
+        private readonly EffectParticleParameters _effectParticleParameters = new();
 
         public ModifyEffectDescriptionEldritchBlast(
             string damageType,
-            EffectParticleParameters effectParticleParameters)
+            AssetReference caster,
+            AssetReference effect,
+            AssetReference impact)
         {
             _damageType = damageType;
-            _effectParticleParameters = effectParticleParameters;
+            _effectParticleParameters.casterParticleReference = caster;
+            _effectParticleParameters.effectParticleReference = effect;
+            _effectParticleParameters.impactParticleReference = impact;
         }
 
         public bool IsValid(
@@ -755,7 +989,7 @@ internal static class InvocationsBuilders
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == SpellDefinitions.EldritchBlast;
+            return definition == EldritchBlast;
         }
 
         public EffectDescription GetEffectDescription(BaseDefinition definition,
@@ -815,25 +1049,25 @@ internal static class InvocationsBuilders
             {
                 if (rulesetCharacter.IsPowerActive(power))
                 {
-                    if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainImp &&
+                    if (power.PowerDefinition == PowerPactChainImp &&
                         !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionImpAbility.name))
                     {
                         SetChainBuff(rulesetCharacter, _conditionImpAbility);
                     }
-                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainQuasit &&
+                    else if (power.PowerDefinition == PowerPactChainQuasit &&
                              !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                                  _conditionQuasitAbility.name))
                     {
                         SetChainBuff(rulesetCharacter, _conditionQuasitAbility);
                     }
-                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainSprite &&
+                    else if (power.PowerDefinition == PowerPactChainSprite &&
                              !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                                  _conditionSpriteAbility.name))
                     {
                         SetChainBuff(rulesetCharacter, _conditionSpriteAbility);
                     }
-                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainPseudodragon &&
+                    else if (power.PowerDefinition == PowerPactChainPseudodragon &&
                              !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                                  _conditionPseudoAbility.name))
                     {
@@ -842,22 +1076,22 @@ internal static class InvocationsBuilders
                 }
                 else
                 {
-                    if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainImp)
+                    if (power.PowerDefinition == PowerPactChainImp)
                     {
                         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionImpAbility.name);
                     }
-                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainQuasit)
+                    else if (power.PowerDefinition == PowerPactChainQuasit)
                     {
                         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionQuasitAbility.name);
                     }
-                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainSprite)
+                    else if (power.PowerDefinition == PowerPactChainSprite)
                     {
                         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionSpriteAbility.name);
                     }
-                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainPseudodragon)
+                    else if (power.PowerDefinition == PowerPactChainPseudodragon)
                     {
                         rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionPseudoAbility.name);
@@ -883,4 +1117,454 @@ internal static class InvocationsBuilders
                 0);
         }
     }
+
+    #endregion
+
+    #region Vexing Hex
+
+    internal static InvocationDefinition BuildVexingHex()
+    {
+        const string NAME = "InvocationVexingHex";
+
+        var powerInvocationVexingHex = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Invocation, Blindness)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetBonusMode(AddBonusMode.AbilityBonus)
+                        .SetDamageForm(DamageTypePsychic)
+                        .Build())
+                    .SetParticleEffectParameters(PowerSorakDreadLaughter)
+                    .Build())
+            .AddToDB();
+
+        powerInvocationVexingHex.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerPactChainPseudodragon.EffectDescription.EffectParticleParameters.casterParticleReference;
+
+        powerInvocationVexingHex.AddCustomSubFeatures(new FilterTargetingCharacterVexingHex(powerInvocationVexingHex));
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, Blindness)
+            .SetRequirements(5)
+            .SetValidators(ValidateHex)
+            .SetGrantedFeature(powerInvocationVexingHex)
+            .AddToDB();
+    }
+
+    private sealed class FilterTargetingCharacterVexingHex : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerVexingHex;
+
+        public FilterTargetingCharacterVexingHex(FeatureDefinitionPower powerVexingHex)
+        {
+            _powerVexingHex = powerVexingHex;
+        }
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
+                || rulesetEffectPower.PowerDefinition != _powerVexingHex)
+            {
+                return true;
+            }
+
+            var rulesetCharacter = target.RulesetCharacter;
+
+            if (rulesetCharacter == null)
+            {
+                return true;
+            }
+
+            var isValid = CanApplyHex(rulesetCharacter);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveMaledictionCurseOrHex");
+            }
+
+            return isValid;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+            var defender = action.ActionParams.TargetCharacters[0];
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma));
+
+            // apply damage to all targets
+            foreach (var rulesetDefender in gameLocationBattleService.Battle.AllContenders
+                         .Where(x => x.IsOppositeSide(attacker.Side)
+                                     && x != defender
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                     && gameLocationBattleService.IsWithin1Cell(defender, x))
+                         .ToList() // avoid changing enumerator
+                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
+            {
+                var damageForm = new DamageForm
+                {
+                    DamageType = DamageTypePsychic,
+                    DieType = DieType.D6,
+                    DiceNumber = 0,
+                    BonusDamage = charismaModifier
+                };
+                var rolls = new List<int>();
+                var damageRoll = rulesetAttacker.RollDamage(
+                    damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+                EffectHelpers.StartVisualEffect(attacker, defender, PowerSorakDreadLaughter);
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damageForm,
+                    damageForm.DamageType,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                    rulesetDefender,
+                    false,
+                    attacker.Guid,
+                    false,
+                    new List<string>(),
+                    new RollInfo(damageForm.DieType, rolls, 0),
+                    false,
+                    out _);
+            }
+        }
+    }
+
+    #endregion
+
+    #region HELPERS
+
+    private static bool CanApplyHex(RulesetActor rulesetCharacter)
+    {
+        return rulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionMalediction.Name)
+               || rulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionCursed.Name)
+               || rulesetCharacter.HasConditionOfTypeOrSubType("ConditionPatronSoulbladeHexDefender");
+    }
+
+    private static (bool, string) ValidateHex(InvocationDefinition invocationDefinition, RulesetCharacterHero hero)
+    {
+        var hasMalediction = hero.SpellRepertoires.Any(x => x.HasKnowledgeOfSpell(Malediction));
+        var hasBestowCurse = hero.SpellRepertoires.Any(x => x.HasKnowledgeOfSpell(BestowCurse));
+        var hasSignIllOmen = hero.TrainedInvocations.Any(x => x == InvocationDefinitions.SignIllOmen)
+                             || hero.GetHeroBuildingData().LevelupTrainedInvocations.Any(x =>
+                                 x.Value.Any(y => y == InvocationDefinitions.SignIllOmen));
+        var isSoulblade = hero.GetSubclassLevel(CharacterClassDefinitions.Warlock, PatronSoulBlade.FullName) > 0;
+        var hasHex = hasMalediction || hasBestowCurse || hasSignIllOmen || isSoulblade;
+
+        var guiFormat = Gui.Localize("Tooltip/&MustHaveMaledictionCurseOrHex");
+
+        return !hasHex ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+    }
+
+    #endregion
+
+    #region Inexorable Hex
+
+    internal static InvocationDefinition BuildInexorableHex()
+    {
+        const string Name = "InvocationInexorableHex";
+
+        var powerInexorableHex = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Invocation, PowerMelekTeleport)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build())
+                    .SetParticleEffectParameters(PowerMelekTeleport)
+                    .Build())
+            .AddCustomSubFeatures(new CustomBehaviorInexorableHex())
+            .AddToDB();
+
+        return InvocationDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Invocation, PowerMelekTeleport)
+            .SetRequirements(7)
+            .SetValidators(ValidateHex)
+            .SetGrantedFeature(powerInexorableHex)
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorInexorableHex : IFilterTargetingPosition, IValidatePowerUse
+    {
+        public IEnumerator Filter(CursorLocationSelectPosition __instance)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var source = __instance.ActionParams.ActingCharacter;
+            var positions = new List<int3>();
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
+                         .Where(x => x.IsOppositeSide(source.Side)
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                     && CanApplyHex(x.RulesetCharacter))
+                         .ToList())
+            {
+                var boxInt = new BoxInt(
+                    gameLocationCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1));
+
+                foreach (var position in boxInt.EnumerateAllPositionsWithin())
+                {
+                    positions.Add(position);
+
+                    if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                    {
+                        yield return null;
+                    }
+                }
+            }
+
+            __instance.validPositionsCache.RemoveAll(x => !positions.Contains(x));
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return Gui.Battle != null;
+        }
+    }
+
+    #endregion
+
+    #region Tomb of Frost
+
+    internal static InvocationDefinition BuildTombOfFrost()
+    {
+        const string Name = "InvocationTombOfFrost";
+
+        var sprite = Sprites.GetSprite($"Power{Name}", Resources.PowerTombOfFrost, 128, 128);
+
+        var conditionTombOfFrost = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionIncapacitated, $"Condition{Name}")
+            .SetGuiPresentation(Name, Category.Invocation, ConditionDefinitions.ConditionChilled)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration()
+            .AddFeatures(DamageAffinityFireVulnerability)
+            .AddToDB();
+
+        conditionTombOfFrost.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionTombOfFrost.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionTombOfFrost.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
+        conditionTombOfFrost.GuiPresentation.description = Gui.NoLocalization;
+
+        var conditionTombOfFrostLazy = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Lazy")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedTombOfFrostLazy(conditionTombOfFrost))
+            .AddToDB();
+
+        var powerTombOfFrost = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Invocation, sprite)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.None)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
+                    .Build())
+            .AddToDB();
+
+        powerTombOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference =
+            RayOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference;
+
+        powerTombOfFrost.AddCustomSubFeatures(
+            new CustomBehaviorTombOfFrost(powerTombOfFrost, conditionTombOfFrostLazy));
+
+        return InvocationDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Invocation, sprite)
+            .SetRequirements(5)
+            .SetGrantedFeature(powerTombOfFrost)
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorTombOfFrost : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+    {
+        private readonly ConditionDefinition _conditionTombOfFrostLazy;
+        private readonly FeatureDefinitionPower _powerTombOfFrost;
+
+        public CustomBehaviorTombOfFrost(
+            FeatureDefinitionPower powerTombOfFrost,
+            ConditionDefinition conditionTombOfFrostLazy)
+        {
+            _powerTombOfFrost = powerTombOfFrost;
+            _conditionTombOfFrostLazy = conditionTombOfFrostLazy;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (rulesetEffect == null)
+            {
+                yield return HandleReaction(defender);
+            }
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandleReaction(defender);
+        }
+
+        private IEnumerator HandleReaction(GameLocationCharacter defender)
+        {
+            var gameLocationBattleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationBattleManager is not { IsBattleInProgress: true } || gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            if (!defender.CanReact())
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.GetRemainingPowerCharges(_powerTombOfFrost) <= 0)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "TombOfFrost"
+                };
+
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleManager.WaitForReactions(
+                defender, gameLocationActionManager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetDefender.UpdateUsageForPower(_powerTombOfFrost, _powerTombOfFrost.CostPerUse);
+
+            var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var tempHitPoints = classLevel * 10;
+
+            var activeCondition = rulesetDefender.InflictCondition(
+                _conditionTombOfFrostLazy.Name,
+                _conditionTombOfFrostLazy.DurationType,
+                _conditionTombOfFrostLazy.DurationParameter,
+                _conditionTombOfFrostLazy.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.Guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+
+            rulesetDefender.ReceiveTemporaryHitPoints(
+                tempHitPoints, DurationType.Round, 0, TurnOccurenceType.EndOfTurn, activeCondition.Guid);
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedTombOfFrostLazy : IOnConditionAddedOrRemoved
+    {
+        private readonly ConditionDefinition _conditionTombOfFrost;
+
+        public OnConditionAddedOrRemovedTombOfFrostLazy(ConditionDefinition conditionTombOfFrost)
+        {
+            _conditionTombOfFrost = conditionTombOfFrost;
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            if (glc != null)
+            {
+                EffectHelpers.StartVisualEffect(
+                    glc, glc, PowerDomainElementalHeraldOfTheElementsCold, EffectHelpers.EffectType.Effect);
+            }
+
+            target.InflictCondition(
+                _conditionTombOfFrost.Name,
+                _conditionTombOfFrost.DurationType,
+                _conditionTombOfFrost.DurationParameter,
+                _conditionTombOfFrost.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                target.Guid,
+                target.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
+
+    #endregion
 }

@@ -1137,7 +1137,7 @@ internal static class FlankingAndHigherGroundRules
             return;
         }
 
-        if (Main.Settings.UseMathFlankingRules || Main.Settings.UseExperimentalFlankingRules)
+        if (Main.Settings.UseMathFlankingRules)
         {
             if (!IsFlankingWithMath(attacker, defender))
             {

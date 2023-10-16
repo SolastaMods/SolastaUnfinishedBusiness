@@ -15,7 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Come azione gratuita, puoi f
 Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro al cuore
 Feedback/&AdditionalDamageSniperAimFormat=Obiettivo del cecchino
 Feedback/&AdditionalDamageSniperAimLine=La Mira del cecchino infligge +{2} danni extra!
-Feedback/&TriggerRerollLine={0} tira {1} = {2}. Il Tiro al Cuore imporrà un colpo critico.
+Feedback/&TriggerRavenScionRerollLine={0} tira {1} = {2}. Il Tiro al Cuore imporrà un colpo critico.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Usa la tua concentrazione letale per ritentare l'attacco.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Usa la tua concentrazione letale per ritentare l'attacco.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Riprova l'attacco

@@ -1,8 +1,22 @@
-﻿1.5.94.24:
+﻿1.5.94.25:
+
+- mod takes ~120 hours a month to get new content and fixes
+- only taking requests from patrons or users supporting in other areas [QA, translations, etc.]
+- looking for additional patrons to make it at least break even on costs [mod UI > General > Tools for donation]
+
+- added additional sample portraits under Portraits/Personal [by Artyoan]
+- added Interface > Game UI > 'Enable alternate voting system' [weight = votes * hero CHA modifier]
+- added Interface > Game UI > 'Also each hero adds a D20 roll to weight' [sums D20 to above]
+- added Pernicious Cloak, Tomb of Frost, Vexing Hex 5th level, and Inexorable Hex 7th level invocations
+- fixed Inventor spell storing wand feature items price [now cost is zero]
+- fixed 2 very rare interactions between Burning Blade / Spell Shield and Duelist / Poisonous Skin
+- improved Chilling, Corrosive, Fiery, Fulminate, Necrotic, Poisonous, Psychic, Radiant, and Thunder invocations effects
+
+1.5.94.24:
 
 - mod takes ~120 hours a month to get new content and fixes
 - monthly cost with internet and services is ~$120 but only making $50 currently
-- looking for additional patrons to make it at least break even [mod UI > General > Tools for donation]
+- looking for additional patrons to make it at least break even on costs [mod UI > General > Tools for donation]
 
 - added Gameplay > General > 'Disable cast spell pre-requisites on feats provided by this mod'
 - added Interface > Game UI > 'Enable Extended Proficiencies display setting'

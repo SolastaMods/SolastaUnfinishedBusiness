@@ -104,6 +104,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} würfelt, um {1} {2
 Feedback/&ConcentrationEffectCheckRolledLine={0} würfelt, um {1} gegen DC {2} aufrechtzuerhalten, würfelt {3} = {4}
 Feedback/&FlankingAttack=Flankierend
 Feedback/&HigherGroundAttack=Eine höhere Ebene
+Feedback/&NarrativeChoiceRoll={0} würfelt eine Erzählauswahl von {1} mit einem Ergebnis von {2}.
 Feedback/&ReturningWeaponActivates={1} kehrt zu {0} zurück!
 Feedback/&TriggerFeatureLine={0} löst {1} aus
 Feedback/&TriggerRerollLine={0} aktiviert die Kraft {1}, um {2} = {3} erneut zu würfeln.

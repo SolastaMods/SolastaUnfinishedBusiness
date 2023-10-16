@@ -24,8 +24,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Punch | 1 | 6 | 1 |
 | Rock | 1 | 6 | 5 |
-
-
 # 2. - Badlands Bear
 
 Another beast that was horribly mutated by the magic of the Badlands over generations, and resulted in a monstrosity.
@@ -54,8 +52,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 8 | 1 |
 | Claws | 1 | 8 | 1 |
-
-
 # 3. - Badlands Bear
 
 Another beast that was horribly mutated by the magic of the Badlands over generations, and resulted in a monstrosity.
@@ -84,8 +80,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 8 | 1 |
 | Claws | 1 | 8 | 1 |
-
-
 # 4. - Badlands Eagle
 
 A giant eagle, corrupted by the magical fluxes of the Badlands.
@@ -117,8 +111,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 5 | 1 |
 | Talons | 1 | 5 | 1 |
-
-
 # 5. - Badlands Eagle
 
 A giant eagle, corrupted by the magical fluxes of the Badlands.
@@ -150,8 +142,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 7 | 1 |
 | Talons | 1 | 7 | 1 |
-
-
 # 6. - Badlands Spider
 
 Larger than your usual house spider, this creature is quite dangerous.
@@ -182,8 +172,6 @@ Size: *Small*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 5 | 1 |
-
-
 # 7. - Badlands Spider
 
 Larger than your usual house spider, this creature is quite dangerous.
@@ -214,8 +202,6 @@ Size: *Small*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 6 | 1 |
-
-
 # 8. - Black Bear
 
 A dangerous beast, commonly encounted in caves and forests.
@@ -243,8 +229,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 4 | 1 |
 | Claws | 1 | 4 | 1 |
-
-
 # 9. - Black Bear
 
 A dangerous beast, commonly encounted in caves and forests.
@@ -272,8 +256,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 4 | 1 |
 | Claws | 1 | 4 | 1 |
-
-
 # 10. - Brimstone Viper
 
 A winged snake found in the Badlands.
@@ -304,8 +286,6 @@ Size: *Tiny*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 6 | 1 |
-
-
 # 11. - Brown Bear
 
 A savage beast, commonly met everywhere in the known world.
@@ -333,8 +313,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 6 | 1 |
 | Claws | 1 | 5 | 1 |
-
-
 # 12. - Brown Bear
 
 A savage beast, commonly met everywhere in the known world.
@@ -362,8 +340,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 6 | 1 |
 | Claws | 1 | 6 | 1 |
-
-
 # 13. - Deep Spider
 
 Very large spiders, they live in the depths of the Badlands and are sensitive to light.
@@ -397,8 +373,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 5 | 1 |
 | Poison Web | 1 | 5 | 1 |
-
-
 # 14. - Deep Spider
 
 Very large spiders, they live in the depths of the Badlands and are sensitive to light.
@@ -432,8 +406,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 5 | 1 |
 | Poison Web | 1 | 5 | 1 |
-
-
 # 15. - Dire Bear
 
 The omnivorous dire bear usually does not bother creatures that try to avoid it, but will aggressively defend a kill or other source of food. It will not hesitate to rip apart anything that might contain something edible.
@@ -461,8 +433,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
-
-
 # 16. - Dire Wolf
 
 A particularly large wolf.
@@ -490,8 +460,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 5 | 1 |
-
-
 # 17. - Dire Wolf
 
 A particularly large wolf.
@@ -521,8 +489,6 @@ Size: *Large*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 5 | 1 |
-
-
 # 18. - Eagle Matriarch
 
 A very large eagle found in the Marches.
@@ -553,8 +519,6 @@ Size: *Small*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Talons | 1 | 4 | 1 |
-
-
 # 19. - Giant Ape
 
 This monstrous ape is much larger and tougher than a normal one.
@@ -581,8 +545,6 @@ Size: *Huge*
 | ---- | ----- | --------- | -------- |
 | Punch | 2 | 9 | 1 |
 | Rock | 1 | 9 | 5 |
-
-
 # 20. - Giant Beetle
 
 A huge insect from the Badlands. It might have been an ancestor of the dreadful Redeemers.
@@ -615,8 +577,6 @@ Size: *Small*
 | ---- | ----- | --------- | -------- |
 | Acid Spray | 1 | 4 | 1 |
 | Claws | 1 | 4 | 1 |
-
-
 # 21. - Giant Beetle
 
 A huge insect from the Badlands. It might have been an ancestor of the dreadful Redeemers.
@@ -649,8 +609,6 @@ Size: *Small*
 | ---- | ----- | --------- | -------- |
 | Acid Spray | 1 | 4 | 1 |
 | Claws | 1 | 4 | 1 |
-
-
 # 22. - Giant Crow
 
 A huge bird that seems to be aggressive enough to attack human-size threats.
@@ -683,8 +641,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Beak | 1 | 5 | 1 |
 | Talons | 1 | 5 | 1 |
-
-
 # 23. - Gorilla
 
 A large, powerful ape, typical of the jungles of the Old Empire.
@@ -711,8 +667,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Punch | 1 | 5 | 1 |
 | Rock | 1 | 5 | 5 |
-
-
 # 24. - Gorilla
 
 A large, powerful ape, typical of the jungles of the Old Empire.
@@ -739,8 +693,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Punch | 1 | 5 | 1 |
 | Rock | 1 | 5 | 5 |
-
-
 # 25. - Gorilla
 
 A large, powerful ape, typical of the jungles of the Old Empire.
@@ -768,8 +720,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Punch | 1 | 7 | 1 |
 | Rock | 1 | 7 | 1 |
-
-
 # 26. - Poisonous Snake
 
 [TEMP] TBD
@@ -795,8 +745,6 @@ Size: *Tiny*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 5 | 1 |
-
-
 # 27. - Polar Bear
 
 A typical beast of the Snow Alliance, this wild animal ferociously attacks whoever roams in his territory.
@@ -833,8 +781,6 @@ Size: *Large*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 9 | 1 |
 | Claws | 1 | 9 | 1 |
-
-
 # 28. - Starving Wolf
 
 A wandering wolf, looking skinny and weak, but famished.
@@ -868,8 +814,6 @@ Size: *Small*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 1 | 1 |
-
-
 # 29. - Tiger Drake
 
 A large flying snake with terrible poison in its fangs.
@@ -903,8 +847,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 6 | 1 |
-
-
 # 30. - Tiger Drake
 
 A large flying snake with terrible poison in its fangs.
@@ -937,8 +879,6 @@ Size: *Medium*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Poisonous Bite | 1 | 6 | 1 |
-
-
 # 31. - Tundra Tiger
 
 A large beast accustomed to the harsh conditions of northern Solasta.
@@ -975,8 +915,6 @@ Size: *Large*
 | Bite | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
-
-
 # 32. - Tundra Tiger
 
 A large beast accustomed to the harsh conditions of northern Solasta.
@@ -1008,8 +946,6 @@ Size: *Medium*
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 7 | 1 |
 | Claws | 1 | 7 | 1 |
-
-
 # 33. - Wolf
 
 A typical wild beast from Solasta's grasslands and forests.
@@ -1037,8 +973,6 @@ Size: *Small*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 4 | 1 |
-
-
 # 34. - Wolf
 
 A typical wild beast from Solasta's grasslands and forests.
@@ -1068,6 +1002,4 @@ Size: *Small*
 | Type | Reach | Hit Bonus | Max Uses |
 | ---- | ----- | --------- | -------- |
 | Bite | 1 | 4 | 1 |
-
-
 

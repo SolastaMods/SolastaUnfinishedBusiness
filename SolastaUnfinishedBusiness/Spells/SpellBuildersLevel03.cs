@@ -1063,14 +1063,14 @@ internal static partial class SpellBuilders
             }
 
             // leap damage on enemies within 10 ft from target
-            var actionParamsLeap = action.ActionParams.Clone();
-            var usablePowerLeap = UsablePowersProvider.Get(_powerLightningArrowLeap, rulesetAttacker);
+            var actionParams = action.ActionParams.Clone();
+            var usablePower = UsablePowersProvider.Get(_powerLightningArrowLeap, rulesetAttacker);
 
-            actionParamsLeap.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParamsLeap.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePowerLeap, false)
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                 .AddAsActivePowerToSource();
-            actionParamsLeap.TargetCharacters.SetRange(battleManager.Battle.AllContenders
+            actionParams.TargetCharacters.SetRange(battleManager.Battle.AllContenders
                 .Where(x =>
                     x.IsOppositeSide(attacker.Side)
                     && x != defender
@@ -1078,7 +1078,9 @@ internal static partial class SpellBuilders
                     && battleManager.IsWithinXCells(defender, x, 2))
                 .ToList());
 
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsLeap));
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteAction(actionParams, null, false);
         }
     }
 

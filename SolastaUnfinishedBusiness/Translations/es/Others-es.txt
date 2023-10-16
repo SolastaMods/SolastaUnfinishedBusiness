@@ -104,6 +104,7 @@ Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} tira para mantener 
 Feedback/&ConcentrationEffectCheckRolledLine={0} tira para mantener {1} versus DC {2}, tira {3} = {4}
 Feedback/&FlankingAttack=Flanqueando
 Feedback/&HigherGroundAttack=Terreno más alto
+Feedback/&NarrativeChoiceRoll={0} lanza una elección narrativa {1} con un resultado {2}.
 Feedback/&ReturningWeaponActivates=¡{1} vuelve a {0}!
 Feedback/&TriggerFeatureLine={0} activa {1}
 Feedback/&TriggerRerollLine={0} activa el poder {1} para volver a tirar {2} = {3}

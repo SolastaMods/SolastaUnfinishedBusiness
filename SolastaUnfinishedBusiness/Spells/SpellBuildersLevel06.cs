@@ -432,7 +432,7 @@ internal static partial class SpellBuilders
                 .Build())
             .AddToDB();
 
-        spell.AddCustomSubFeatures(new FilterTargetingMagicEffectFlashFreeze(spell));
+        spell.AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze(spell));
 
         spell.EffectDescription.EffectParticleParameters.casterParticleReference =
             SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
@@ -446,11 +446,11 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class FilterTargetingMagicEffectFlashFreeze : IFilterTargetingMagicEffect
+    private sealed class FilterTargetingCharacterFlashFreeze : IFilterTargetingCharacter
     {
         private readonly SpellDefinition _spellFlashFreeze;
 
-        public FilterTargetingMagicEffectFlashFreeze(SpellDefinition spellFlashFreeze)
+        public FilterTargetingCharacterFlashFreeze(SpellDefinition spellFlashFreeze)
         {
             _spellFlashFreeze = spellFlashFreeze;
         }
