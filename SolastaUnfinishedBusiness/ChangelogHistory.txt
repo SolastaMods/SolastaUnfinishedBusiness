@@ -1,4 +1,9 @@
-﻿1.5.94.25:
+﻿1.5.94.26:
+
+- fixed Conjure Elementals, Summon Animals, etc. not able to select a location
+- fixed a vanilla issue with global active effects registration causing exceptions on load
+
+1.5.94.25:
 
 - mod takes ~120 hours a month to get new content and fixes
 - only taking requests from patrons or users supporting in other areas [QA, translations, etc.]

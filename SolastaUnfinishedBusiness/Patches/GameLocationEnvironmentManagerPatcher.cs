@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -61,6 +62,31 @@ public static class GameLocationEnvironmentManagerPatcher
             }
 
             return guid;
+        }
+    }
+
+    //BUGFIX: removes LOG and TRACE message
+    [HarmonyPatch(typeof(GameLocationEnvironmentManager),
+        nameof(GameLocationEnvironmentManager.RegisterGlobalActiveEffect))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RegisterGlobalActiveEffect_Patch
+    {
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static,
+                Type.DefaultBinder, new[] { typeof(string) }, null);
+            var logExceptionMethod = typeof(Trace).GetMethod("LogException", BindingFlags.Public | BindingFlags.Static);
+
+            return instructions
+                .ReplaceCalls(
+                    logErrorMethod, "GameLocationEnvironmentManager.RegisterGlobalActiveEffect.LogError",
+                    new CodeInstruction(OpCodes.Pop))
+                .ReplaceCalls(
+                    logExceptionMethod, "GameLocationEnvironmentManager.RegisterGlobalActiveEffect.LogException",
+                    new CodeInstruction(OpCodes.Pop));
         }
     }
 }
