@@ -356,6 +356,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMelekTeleport)
                     .Build())
+            .AddCustomSubFeatures(new FilterTargetingPositionSteelWhirlwind())
             .AddToDB();
 
         var conditionTeleport = ConditionDefinitionBuilder
@@ -365,7 +366,7 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction, ConditionInterruption.Moved)
             .AddCustomSubFeatures(
                 new AddUsablePowerFromCondition(powerTeleport),
-                new CustomBehaviorSteelWhirlwind())
+                new OnConditionAddedOrRemovedSteelWhirlwind())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -401,7 +402,7 @@ internal static partial class SpellBuilders
     // keep a tab of all allowed conditions for filtering
     // ContextualFormation is only used by the game when spawning new locations
     // as far as no other feature uses this collection should be safe
-    private sealed class CustomBehaviorSteelWhirlwind : IOnConditionAddedOrRemoved, IFilterTargetingPosition
+    private sealed class OnConditionAddedOrRemovedSteelWhirlwind : IOnConditionAddedOrRemoved, IFilterTargetingPosition
     {
         public IEnumerator Filter(CursorLocationSelectPosition __instance)
         {
@@ -454,6 +455,28 @@ internal static partial class SpellBuilders
             }
 
             glc.contextualFormation = null;
+        }
+    }
+
+    private sealed class FilterTargetingPositionSteelWhirlwind : IFilterTargetingPosition
+    {
+        public IEnumerator Filter(CursorLocationSelectPosition __instance)
+        {
+            var source = __instance.ActionParams.ActingCharacter;
+            var positions = __instance.validPositionsCache.ToList();
+
+            foreach (var position in positions)
+            {
+                if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
+                }
+
+                if (!source.ContextualFormation.Contains(position))
+                {
+                    __instance.validPositionsCache.Remove(position);
+                }
+            }
         }
     }
 

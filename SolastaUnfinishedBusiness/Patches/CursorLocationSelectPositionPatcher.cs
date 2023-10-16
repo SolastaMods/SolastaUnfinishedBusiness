@@ -97,7 +97,15 @@ public static class CursorLocationSelectPositionPatcher
         {
             actionResult = CursorDefinitions.CursorActionResult.None;
 
-            return __instance.validPositionsCache.Contains(__instance.HoveredLocation);
+            var actionParams = __instance.ActionParams;
+
+            if (actionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower
+                && rulesetEffectPower.PowerDefinition.HasSubFeatureOfType<IFilterTargetingPosition>())
+            {
+                return __instance.validPositionsCache.Contains(__instance.HoveredLocation);
+            }
+
+            return true;
         }
     }
 }
