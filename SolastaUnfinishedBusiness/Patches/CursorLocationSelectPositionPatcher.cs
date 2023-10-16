@@ -83,4 +83,21 @@ public static class CursorLocationSelectPositionPatcher
             }
         }
     }
+
+    //PATCH: supports `IFilterTargetingPosition`
+    [HarmonyPatch(typeof(CursorLocationSelectPosition), nameof(CursorLocationSelectPosition.OnClickMainPointer))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class OnClickMainPointer_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            CursorLocationSelectPosition __instance,
+            out CursorDefinitions.CursorActionResult actionResult)
+        {
+            actionResult = CursorDefinitions.CursorActionResult.None;
+
+            return __instance.validPositionsCache.Contains(__instance.HoveredLocation);
+        }
+    }
 }
