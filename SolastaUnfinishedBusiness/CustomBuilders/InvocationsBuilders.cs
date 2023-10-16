@@ -1295,7 +1295,7 @@ internal static class InvocationsBuilders
                             .Build())
                     .SetParticleEffectParameters(PowerMelekTeleport)
                     .Build())
-            .AddCustomSubFeatures(new FilterTargetingPositionInexorableHex())
+            .AddCustomSubFeatures(new CustomBehaviorInexorableHex())
             .AddToDB();
 
         return InvocationDefinitionWithPrerequisitesBuilder
@@ -1307,21 +1307,21 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class FilterTargetingPositionInexorableHex : IFilterTargetingPosition
+    private sealed class CustomBehaviorInexorableHex : IFilterTargetingPosition, IValidatePowerUse
     {
-        public void Filter(CursorLocationSelectPosition __instance)
+        public IEnumerator Filter(CursorLocationSelectPosition __instance)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
-                return;
+                yield break;
             }
 
             var source = __instance.ActionParams.ActingCharacter;
             var positions = new List<int3>();
 
-            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.IsOppositeSide(source.Side)
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
@@ -1334,10 +1334,24 @@ internal static class InvocationsBuilders
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
                     positions.Add(position);
+
+                    if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                    {
+                        yield return null;
+                    }
                 }
             }
 
             __instance.validPositionsCache.RemoveAll(x => !positions.Contains(x));
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return Gui.Battle != null
+                   && Gui.Battle.AllContenders
+                       .Any(x => x.IsOppositeSide(character.Side)
+                                 && x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }
+                                 && CanApplyHex(x.RulesetCharacter));
         }
     }
 
@@ -1497,10 +1511,7 @@ internal static class InvocationsBuilders
             var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
             var tempHitPoints = classLevel * 10;
 
-            rulesetDefender.ReceiveTemporaryHitPoints(
-                tempHitPoints, DurationType.Round, 1, TurnOccurenceType.EndOfTurn, rulesetDefender.Guid);
-
-            rulesetDefender.InflictCondition(
+            var activeCondition = rulesetDefender.InflictCondition(
                 _conditionTombOfFrostLazy.Name,
                 _conditionTombOfFrostLazy.DurationType,
                 _conditionTombOfFrostLazy.DurationParameter,
@@ -1513,6 +1524,9 @@ internal static class InvocationsBuilders
                 0,
                 0,
                 0);
+
+            rulesetDefender.ReceiveTemporaryHitPoints(
+                tempHitPoints, DurationType.Round, 0, TurnOccurenceType.EndOfTurn, activeCondition.Guid);
         }
     }
 

@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -80,7 +79,7 @@ public static class CursorLocationSelectPositionPatcher
             foreach (var iFilter in __instance.ActionParams.ActingCharacter.RulesetCharacter
                          .GetSubFeaturesByType<IFilterTargetingPosition>())
             {
-                iFilter?.Filter(__instance);
+                yield return iFilter?.Filter(__instance);
             }
         }
     }
