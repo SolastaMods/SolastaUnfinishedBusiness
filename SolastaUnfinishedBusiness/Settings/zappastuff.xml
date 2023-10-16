@@ -977,8 +977,10 @@
     <string>InvocationGraspingBlast</string>
     <string>InvocationHinderingBlast</string>
     <string>InvocationImprovedPactWeapon</string>
+    <string>InvocationInexorableHex</string>
     <string>InvocationKinesis</string>
     <string>InvocationNecroticBlast</string>
+    <string>InvocationPerniciousCloak</string>
     <string>InvocationPoisonousBlast</string>
     <string>InvocationPsychicBlast</string>
     <string>InvocationRadiantBlast</string>
@@ -988,10 +990,12 @@
     <string>InvocationSuperiorPactWeapon</string>
     <string>InvocationTenaciousPlague</string>
     <string>InvocationThunderBlast</string>
+    <string>InvocationTombOfFrost</string>
     <string>InvocationTrickstersEscape</string>
     <string>InvocationUltimatePactWeapon</string>
     <string>InvocationUndyingServitude</string>
     <string>InvocationVerdantArmor</string>
+    <string>InvocationVexingHex</string>
   </InvocationEnabled>
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>
