@@ -18,7 +18,8 @@ internal class InvocationDefinitionWithPrerequisitesBuilder
     }
 
     internal InvocationDefinitionWithPrerequisitesBuilder SetValidators(
-        params Func<InvocationDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>[] validators)
+        params Func<InvocationDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>[]
+            validators)
     {
         Definition.Validators.AddRange(validators);
 

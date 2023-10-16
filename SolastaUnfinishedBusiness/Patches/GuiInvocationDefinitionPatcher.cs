@@ -41,7 +41,7 @@ public static class GuiInvocationDefinitionPatcher
                     new CodeInstruction(OpCodes.Call,
                         new Func<RulesetCharacterHero, string, int>(TryGetAttributeValue).Method));
         }
-        
+
         [UsedImplicitly]
         public static void Postfix(
             ref bool __result,
@@ -56,7 +56,8 @@ public static class GuiInvocationDefinitionPatcher
                 return;
             }
 
-            var (result, output) = invocationDefinitionWithPrerequisites.Validate(invocationDefinitionWithPrerequisites, hero);
+            var (result, output) =
+                invocationDefinitionWithPrerequisites.Validate(invocationDefinitionWithPrerequisites, hero);
 
             __result = __result && result;
             prerequisiteOutput += '\n' + output;
