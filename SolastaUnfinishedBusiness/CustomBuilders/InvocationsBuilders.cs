@@ -1347,11 +1347,7 @@ internal static class InvocationsBuilders
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
-            return Gui.Battle != null
-                   && Gui.Battle.AllContenders
-                       .Any(x => x.IsOppositeSide(character.Side)
-                                 && x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }
-                                 && CanApplyHex(x.RulesetCharacter));
+            return Gui.Battle != null;
         }
     }
 
