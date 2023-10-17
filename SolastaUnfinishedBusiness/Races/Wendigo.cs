@@ -64,7 +64,7 @@ internal static class RaceWendigoBuilder
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create("AdditionalDamageSuckerPunch")
                         .SetGuiPresentationNoContent(true)
-                        .SetDamageDice(DieType.D6, 2)
+                        .SetDamageDice(DieType.D6, 1)
                         .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                         .SetNotificationTag("SuckerPunch")
                         .AddToDB()
