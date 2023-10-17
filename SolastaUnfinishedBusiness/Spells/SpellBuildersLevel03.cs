@@ -1096,10 +1096,8 @@ internal static partial class SpellBuilders
         var conditionCorruptingBolt = ConditionDefinitionBuilder
             .Create(ConditionEyebiteSickened, $"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
-            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            //.SetSpecialInterruptions(ConditionInterruption.Damaged)
             .SetFeatures()
             .AddToDB();
 
@@ -1164,12 +1162,18 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
+            if (characterAction.ActionParams.TargetCharacters.Count == 0 ||
+                characterAction.ActionParams.TargetCharacters[0] != target)
+            {
+                yield break;
+            }
+
             if (characterAction.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
 
-            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0]?.RulesetCharacter;
+            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
 
             if (rulesetDefender == null)
             {
