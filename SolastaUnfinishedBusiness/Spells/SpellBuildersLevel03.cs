@@ -13,11 +13,11 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -1099,9 +1099,11 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Damaged)
+            //.SetSpecialInterruptions(ConditionInterruption.Damaged)
             .SetFeatures()
             .AddToDB();
+
+        conditionCorruptingBolt.AddCustomSubFeatures(new ActionFinishedByEnemyCorruptingBolt(conditionCorruptingBolt));
 
         foreach (var damageDefinition in DatabaseRepository.GetDatabase<DamageDefinition>())
         {
@@ -1149,6 +1151,41 @@ internal static partial class SpellBuilders
             Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
+    }
+
+    private sealed class ActionFinishedByEnemyCorruptingBolt : IActionFinishedByEnemy
+    {
+        private readonly ConditionDefinition _conditionCorruptingBolt;
+
+        public ActionFinishedByEnemyCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
+        {
+            _conditionCorruptingBolt = conditionCorruptingBolt;
+        }
+
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            if (characterAction.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0]?.RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                yield break;
+            }
+
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat,
+                    _conditionCorruptingBolt.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetDefender.RemoveCondition(activeCondition);
+        }
     }
 
     private sealed class MagicEffectFinishedByMeCorruptingBolt : IMagicEffectFinishedByMe
