@@ -6,6 +6,7 @@ Condition/&ConditionAbilityQuasitDescription=Gana un ataque principal adicional 
 Condition/&ConditionAbilityQuasitTitle=Habilidad de Qausit
 Condition/&ConditionAbilitySpriteDescription=Obtenga una puntuación de clase de armadura de al menos 16 y los atacantes tienen una desventaja cuando lo atacan.
 Condition/&ConditionAbilitySpriteTitle=Habilidad de Sprite
+Condition/&ConditionInvocationPerniciousCloakSelfDescription=Tienes ventaja en las pruebas de Carisma (Intimidación), pero desventaja en todas las demás pruebas de Carisma. Cualquier otra criatura que comience su turno a 5 pies de ti sufre un daño de veneno igual a tu modificador de Carisma.
 Condition/&ConditionInvocationPerniciousCloakSelfTitle=Capa perniciosa
 Feature/&AttackModifierHitAndDamagePlus1Description=El arma gana una bonificación de +1 a sus tiradas de ataque y daño.
 Feature/&AttackModifierHitAndDamagePlus1Title=Mejora de armas del pacto
