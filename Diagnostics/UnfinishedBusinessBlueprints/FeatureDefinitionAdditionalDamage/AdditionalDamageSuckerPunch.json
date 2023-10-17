@@ -18,7 +18,7 @@
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D6",
-  "damageDiceNumber": 2,
+  "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "Radiant",
   "ancestryTypeForDamageType": "Sorcerer",
