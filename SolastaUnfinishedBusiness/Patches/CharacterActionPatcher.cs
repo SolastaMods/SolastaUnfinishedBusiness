@@ -114,21 +114,23 @@ public static class CharacterActionPatcher
                 {
                     yield return actionFinished.OnActionFinishedByMe(__instance);
                 }
+            }
 
-                //PATCH: support for `IActionFinishedByEnemy`
-                if (Gui.Battle != null && rulesetCharacter.Side != Side.Ally)
+            //PATCH: support for `IActionFinishedByEnemy`
+            if (Gui.Battle != null)
+            {
+                foreach (var target in Gui.Battle.AllContenders
+                             .Where(x =>
+                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                 && x.IsOppositeSide(actingCharacter.Side))
+                             .ToList()) // avoid changing enumerator
                 {
-                    foreach (var target in Gui.Battle.AllContenders
-                                 .Where(x => x.IsOppositeSide(actingCharacter.Side) && x.CanAct())
-                                 .ToList()) // avoid changing enumerator
-                    {
-                        var rulesetTarget = target.RulesetCharacter;
+                    var rulesetTarget = target.RulesetCharacter;
 
-                        foreach (var actionFinishedByEnemy in rulesetTarget
-                                     .GetSubFeaturesByType<IActionFinishedByEnemy>())
-                        {
-                            yield return actionFinishedByEnemy.OnActionFinishedByEnemy(__instance, target);
-                        }
+                    foreach (var actionFinishedByEnemy in rulesetTarget
+                                 .GetSubFeaturesByType<IActionFinishedByEnemy>())
+                    {
+                        yield return actionFinishedByEnemy.OnActionFinishedByEnemy(__instance, target);
                     }
                 }
             }
