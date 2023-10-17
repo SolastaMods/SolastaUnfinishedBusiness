@@ -6,13 +6,11 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using TA;
 using static AttributeDefinitions;
 using static FeatureDefinitionSavingThrowAffinity;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -262,12 +260,18 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!ShouldTrigger(battleManager, defender, helper))
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == helper)
             {
                 yield break;
             }
 
-            var attackMode = helper.FindActionAttackMode(ActionDefinitions.Id.AttackOpportunity);
+            if (!ShouldTrigger(defender, helper))
+            {
+                yield break;
+            }
+
+            var attackMode = helper.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
             {
@@ -276,7 +280,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
             var actionModifier = new ActionModifier();
             var attackParam = new BattleDefinitions.AttackEvaluationParams();
-            var removedSneakAttackMark = attacker.UsedSpecialFeatures.Remove(AdditionalDamageRogueSneakAttack.Name);
 
             if (attackMode.Ranged)
             {
@@ -301,28 +304,19 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 ActionDefinitions.Id.AttackOpportunity,
                 helper.RulesetCharacter.AttackModes[0],
                 defender,
-                actionModifier);
+                actionModifier) { stringParameter2 = "SeizeTheChance" };
 
             actionService.ReactForOpportunityAttack(reactionParams);
 
             yield return battleManager.WaitForReactions(helper, actionService, count);
-
-            // put back the sneak attack mark if it's removed and reaction was discarded
-            if (!reactionParams.ReactionValidated && removedSneakAttackMark)
-            {
-                attacker.UsedSpecialFeatures.Add(AdditionalDamageRogueSneakAttack.Name, 1);
-            }
         }
 
         private static bool ShouldTrigger(
-            IGameLocationBattleService battleService,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
             return helper.CanReact()
-                   && defender.IsOppositeSide(helper.Side)
-                   && helper.CanPerformOpportunityAttackOnCharacter(
-                       defender, defender.LocationPosition, int3.zero, out _, out _, true, battleService, true);
+                   && defender.IsOppositeSide(helper.Side);
         }
     }
 }
