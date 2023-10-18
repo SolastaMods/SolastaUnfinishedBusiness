@@ -1,10 +1,10 @@
 ﻿1.5.94.27:
 
-- fixed an issue introduce on v25 allowing infinite attacks under certain scenarios
-- fixed an issue introduce on v25 locking battles when casting under certain scenarios
-- changed Corrupting Bolt spell to apply vulnerability to all income damage forms
-- changed Opportunist debilitating strike to trigger before cunning strike
-- changed Wendigo sucker punch to 1d6 damage with additional die at 9th and 17th
+- fixed an issue introduced on v25 allowing infinite attacks under certain scenarios
+- fixed an issue introduced on v25 locking game when casting under certain scenarios
+- changed Corrupting Bolt spell to double damage on all incoming attack damage forms
+- changed Opportunist debilitating strike saving debuff to trigger before cunning strike
+- changed Wendigo sucker punch to 1d6 damage with additional dice at 9th and 17th levels
 
 1.5.94.26:
 
