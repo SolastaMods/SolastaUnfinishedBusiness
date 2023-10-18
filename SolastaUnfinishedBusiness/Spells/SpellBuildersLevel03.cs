@@ -1101,8 +1101,6 @@ internal static partial class SpellBuilders
             .SetFeatures()
             .AddToDB();
 
-        conditionCorruptingBolt.AddCustomSubFeatures(new ActionFinishedByEnemyCorruptingBolt(conditionCorruptingBolt));
-
         foreach (var damageDefinition in DatabaseRepository.GetDatabase<DamageDefinition>())
         {
             var damageType = damageDefinition.Name;
@@ -1148,20 +1146,33 @@ internal static partial class SpellBuilders
         spell.EffectDescription.EffectParticleParameters.effectParticleReference =
             Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference;
 
+        conditionCorruptingBolt.AddCustomSubFeatures(
+            new ActionFinishedByEnemyCorruptingBolt(conditionCorruptingBolt, spell));
+
         return spell;
     }
 
     private sealed class ActionFinishedByEnemyCorruptingBolt : IActionFinishedByEnemy
     {
         private readonly ConditionDefinition _conditionCorruptingBolt;
+        private readonly SpellDefinition _spellCorruptingBolt;
 
-        public ActionFinishedByEnemyCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
+        public ActionFinishedByEnemyCorruptingBolt(
+            ConditionDefinition conditionCorruptingBolt,
+            SpellDefinition spellCorruptingBolt)
         {
             _conditionCorruptingBolt = conditionCorruptingBolt;
+            _spellCorruptingBolt = spellCorruptingBolt;
         }
 
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
+            if (characterAction is CharacterActionCastSpell actionCastSpell &&
+                actionCastSpell.activeSpell.SpellDefinition == _spellCorruptingBolt)
+            {
+                yield break;
+            }
+
             if (characterAction.ActionParams.TargetCharacters.Count == 0 ||
                 characterAction.ActionParams.TargetCharacters[0] != target)
             {
