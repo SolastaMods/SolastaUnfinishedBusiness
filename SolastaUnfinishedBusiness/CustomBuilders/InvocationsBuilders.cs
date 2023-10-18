@@ -669,6 +669,7 @@ internal static class InvocationsBuilders
 
         var abilityCheckAffinityPerniciousCloak = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}")
+            .SetGuiPresentation($"Condition{Name}Self", Category.Condition)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
                 (AttributeDefinitions.Charisma, SkillDefinitions.Intimidation))
             .BuildAndAddAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
