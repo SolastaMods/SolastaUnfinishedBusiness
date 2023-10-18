@@ -663,17 +663,17 @@ internal static partial class SpellBuilders
                     .ExcludeCaster()
                     .SetParticleEffectParameters(Thunderwave)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
+            .AddCustomSubFeatures(new MagicEffectInitiatedByMeBoomingStep(powerExplode))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeBoomingStep : IMagicEffectInitiatedByMe
+    private sealed class MagicEffectInitiatedByMeBoomingStep : IMagicEffectInitiatedByMe
     {
         private readonly FeatureDefinitionPower _powerExplode;
 
-        public MagicEffectFinishedByMeBoomingStep(FeatureDefinitionPower powerExplode)
+        public MagicEffectInitiatedByMeBoomingStep(FeatureDefinitionPower powerExplode)
         {
             _powerExplode = powerExplode;
         }
@@ -703,6 +703,7 @@ internal static partial class SpellBuilders
                             && gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());
 
+            // special case don't ExecuteAction on MagicEffectInitiated
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
