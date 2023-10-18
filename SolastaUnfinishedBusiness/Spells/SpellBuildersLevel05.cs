@@ -426,15 +426,16 @@ internal static partial class SpellBuilders
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var glc = GameLocationCharacter.GetFromActor(target);
+            var currentAction = Global.CurrentAction;
 
-            if (glc == null || Global.CurrentAction == null)
+            if (glc == null || currentAction == null)
             {
                 return;
             }
 
             glc.contextualFormation = new List<int3>();
 
-            foreach (var boxInt in Global.CurrentAction.actionParams.TargetCharacters
+            foreach (var boxInt in currentAction.ActionParams.TargetCharacters
                          .Select(targetCharacter => new BoxInt(
                              targetCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1))))
             {
