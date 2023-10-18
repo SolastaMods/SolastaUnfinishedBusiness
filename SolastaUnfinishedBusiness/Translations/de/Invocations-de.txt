@@ -6,6 +6,7 @@ Condition/&ConditionAbilityQuasitDescription=Erhalten Sie einen zusätzlichen Ha
 Condition/&ConditionAbilityQuasitTitle=Qausits Fähigkeit
 Condition/&ConditionAbilitySpriteDescription=Erreiche einen Rüstungsklassenwert von mindestens 16 und Angreifer haben einen Nachteil, wenn sie dich angreifen.
 Condition/&ConditionAbilitySpriteTitle=Sprites Fähigkeit
+Condition/&ConditionInvocationPerniciousCloakSelfDescription=Du hast einen Vorteil bei Charisma-Würfen (Einschüchterung), aber einen Nachteil bei allen anderen Charisma-Würfen. Jede andere Kreatur, die ihren Zug innerhalb von 5 Fuß um dich herum beginnt, erleidet Giftschaden in Höhe deines Charisma-Modifikators.
 Condition/&ConditionInvocationPerniciousCloakSelfTitle=Verderblicher Umhang
 Feature/&AttackModifierHitAndDamagePlus1Description=Die Waffe erhält einen Bonus von +1 auf ihre Angriffs- und Schadenswürfe.
 Feature/&AttackModifierHitAndDamagePlus1Title=Paktwaffenverbesserung

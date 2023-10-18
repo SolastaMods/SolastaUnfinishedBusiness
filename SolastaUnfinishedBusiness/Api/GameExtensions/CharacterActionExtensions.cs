@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
@@ -64,8 +65,9 @@ internal static class CharacterActionExtensions
             : magicEffect.SourceDefinition.FormatTitle();
     }
 
-    internal static bool ActionShouldKeepConcentration(this CharacterAction action)
+    internal static bool ActionShouldKeepConcentration()
     {
+        var action = Global.CurrentAction;
         var isProtectedUsePower = action is CharacterActionUsePower { activePower: not null } actionUsePower
                                   && actionUsePower.activePower.PowerDefinition
                                       .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();

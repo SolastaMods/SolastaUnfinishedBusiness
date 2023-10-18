@@ -13,11 +13,11 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -663,17 +663,17 @@ internal static partial class SpellBuilders
                     .ExcludeCaster()
                     .SetParticleEffectParameters(Thunderwave)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeBoomingStep(powerExplode))
+            .AddCustomSubFeatures(new MagicEffectInitiatedByMeBoomingStep(powerExplode))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectFinishedByMeBoomingStep : IMagicEffectInitiatedByMe
+    private sealed class MagicEffectInitiatedByMeBoomingStep : IMagicEffectInitiatedByMe
     {
         private readonly FeatureDefinitionPower _powerExplode;
 
-        public MagicEffectFinishedByMeBoomingStep(FeatureDefinitionPower powerExplode)
+        public MagicEffectInitiatedByMeBoomingStep(FeatureDefinitionPower powerExplode)
         {
             _powerExplode = powerExplode;
         }
@@ -703,6 +703,7 @@ internal static partial class SpellBuilders
                             && gameLocationBattleService.IsWithinXCells(attacker, x, 2))
                 .ToList());
 
+            // special case don't ExecuteAction on MagicEffectInitiated
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
         }
     }
@@ -1080,7 +1081,8 @@ internal static partial class SpellBuilders
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-            actionService.ExecuteAction(actionParams, null, false);
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            actionService.ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -1095,10 +1097,8 @@ internal static partial class SpellBuilders
         var conditionCorruptingBolt = ConditionDefinitionBuilder
             .Create(ConditionEyebiteSickened, $"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
-            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Damaged)
             .SetFeatures()
             .AddToDB();
 
@@ -1147,7 +1147,61 @@ internal static partial class SpellBuilders
         spell.EffectDescription.EffectParticleParameters.effectParticleReference =
             Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference;
 
+        conditionCorruptingBolt.AddCustomSubFeatures(
+            new ActionFinishedByEnemyCorruptingBolt(conditionCorruptingBolt, spell));
+
         return spell;
+    }
+
+    private sealed class ActionFinishedByEnemyCorruptingBolt : IActionFinishedByEnemy
+    {
+        private readonly ConditionDefinition _conditionCorruptingBolt;
+        private readonly SpellDefinition _spellCorruptingBolt;
+
+        public ActionFinishedByEnemyCorruptingBolt(
+            ConditionDefinition conditionCorruptingBolt,
+            SpellDefinition spellCorruptingBolt)
+        {
+            _conditionCorruptingBolt = conditionCorruptingBolt;
+            _spellCorruptingBolt = spellCorruptingBolt;
+        }
+
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            if (characterAction is CharacterActionCastSpell actionCastSpell &&
+                actionCastSpell.activeSpell.SpellDefinition == _spellCorruptingBolt)
+            {
+                yield break;
+            }
+
+            if (characterAction.ActionParams.TargetCharacters.Count == 0 ||
+                characterAction.ActionParams.TargetCharacters[0] != target)
+            {
+                yield break;
+            }
+
+            if (characterAction.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                yield break;
+            }
+
+            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat,
+                    _conditionCorruptingBolt.Name,
+                    out var activeCondition))
+            {
+                yield break;
+            }
+
+            rulesetDefender.RemoveCondition(activeCondition);
+        }
     }
 
     private sealed class MagicEffectFinishedByMeCorruptingBolt : IMagicEffectFinishedByMe

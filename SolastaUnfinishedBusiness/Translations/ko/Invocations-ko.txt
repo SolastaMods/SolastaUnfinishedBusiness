@@ -6,6 +6,7 @@ Condition/&ConditionAbilityQuasitDescription=다중공격 능력을 얻고, 민�
 Condition/&ConditionAbilityQuasitTitle=콰짓의 능력
 Condition/&ConditionAbilitySpriteDescription=AC 최소치가 16이 되고, 자신을 대상으로 한 명중굴림에 불리점이 부여됩니다.
 Condition/&ConditionAbilitySpriteTitle=스프라이트의 능력
+Condition/&ConditionInvocationPerniciousCloakSelfDescription=당신은 카리스마(협박) 판정에 유리하지만 다른 모든 카리스마 판정에는 불리합니다. 당신으로부터 5피트 이내에서 차례를 시작하는 다른 생물은 당신의 카리스마 수정치만큼 독 피해를 입습니다.
 Condition/&ConditionInvocationPerniciousCloakSelfTitle=악성 망토
 Feature/&AttackModifierHitAndDamagePlus1Description=무기의 명중굴림과 피해굴림에 +1 보너스가 부여됩니다.
 Feature/&AttackModifierHitAndDamagePlus1Title=계약 무기 강화

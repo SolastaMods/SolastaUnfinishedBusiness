@@ -1519,9 +1519,7 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix()
         {
-            var currentAction = Global.CurrentAction;
-
-            return !currentAction.ActionShouldKeepConcentration(); // abort if should keep
+            return CharacterActionExtensions.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 
@@ -1534,9 +1532,7 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix()
         {
-            var currentAction = Global.CurrentAction;
-
-            return !currentAction.ActionShouldKeepConcentration(); // abort if should keep
+            return CharacterActionExtensions.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 

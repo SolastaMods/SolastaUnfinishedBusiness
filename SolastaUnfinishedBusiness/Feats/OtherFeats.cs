@@ -970,7 +970,8 @@ internal static class OtherFeats
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-            actionService.ExecuteAction(actionParams, null, false);
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            actionService.ExecuteAction(actionParams, null, true);
         }
     }
 

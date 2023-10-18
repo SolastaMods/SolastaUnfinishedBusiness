@@ -1358,13 +1358,13 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         feat.AddCustomSubFeatures(
-            new PhysicalAttackAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
+            new PhysicalAttackFinishedByMeFeatFellHanded(fellHandedAdvantage, weaponTypes),
             new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
         return feat;
     }
 
-    private sealed class PhysicalAttackAfterDamageFeatFellHanded : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeFeatFellHanded : IPhysicalAttackFinishedByMe
     {
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
@@ -1373,7 +1373,8 @@ internal static class MeleeCombatFeats
         private readonly FeatureDefinitionPower _power;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
 
-        public PhysicalAttackAfterDamageFeatFellHanded(FeatureDefinitionPower power,
+        public PhysicalAttackFinishedByMeFeatFellHanded(
+            FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             _power = power;
@@ -1445,7 +1446,8 @@ internal static class MeleeCombatFeats
 
                         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-                        actionService.ExecuteAction(actionParams, null, false);
+                        // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+                        actionService.ExecuteAction(actionParams, null, true);
                     }
 
                     break;

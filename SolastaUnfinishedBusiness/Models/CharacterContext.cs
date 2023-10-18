@@ -1582,7 +1582,7 @@ internal static class CharacterContext
             .AddToDB();
     }
 
-    private static bool IsRogueCunningStrikeValid(
+    internal static bool IsSneakAttackValid(
         ActionModifier attackModifier,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -1698,7 +1698,7 @@ internal static class CharacterContext
                 yield break;
             }
 
-            if (!IsRogueCunningStrikeValid(attackModifier, attacker, defender, attackMode))
+            if (!IsSneakAttackValid(attackModifier, attacker, defender, attackMode))
             {
                 yield break;
             }
@@ -1794,7 +1794,8 @@ internal static class CharacterContext
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-            actionService.ExecuteAction(actionParams, null, false);
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            actionService.ExecuteAction(actionParams, null, true);
         }
     }
 

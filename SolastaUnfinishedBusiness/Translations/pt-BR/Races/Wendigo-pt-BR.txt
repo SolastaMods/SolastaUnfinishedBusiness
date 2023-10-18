@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageWendigoSuckerPunchDescription=Na primeira rodada de combate, se você acertar uma criatura com uma jogada de ataque e a iniciativa dela for menor que a sua, a criatura sofre 2d6 de dano extra.
+Feature/&AdditionalDamageWendigoSuckerPunchDescription=Na primeira rodada de combate, se você acertar uma criatura com uma jogada de ataque e sua iniciativa for menor que a sua, a criatura sofre 1d6 de dano extra. Este dano aumenta para 2d6 no 9º nível e 3d6 no 17º nível.
 Feature/&AdditionalDamageWendigoSuckerPunchTitle=Golaço
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseDescription=Destreza +1
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseTitle=Aumento de atributo

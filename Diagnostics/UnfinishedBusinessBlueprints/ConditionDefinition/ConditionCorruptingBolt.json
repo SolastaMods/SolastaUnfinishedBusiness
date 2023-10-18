@@ -30,9 +30,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfSourceTurn",
-  "specialInterruptions": [
-    "Damaged"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -237,7 +235,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,

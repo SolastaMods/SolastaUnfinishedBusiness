@@ -6,6 +6,7 @@ Condition/&ConditionAbilityQuasitDescription=Ottieni un attacco principale aggiu
 Condition/&ConditionAbilityQuasitTitle=L'abilità di Qausit
 Condition/&ConditionAbilitySpriteDescription=Ottieni un punteggio di classe armatura di almeno 16 e gli attaccanti hanno uno svantaggio quando ti prendono di mira.
 Condition/&ConditionAbilitySpriteTitle=L'abilità di Sprite
+Condition/&ConditionInvocationPerniciousCloakSelfDescription=Hai vantaggio sulle prove di Carisma (Intimidazione), ma svantaggio su tutte le altre prove di Carisma. Qualsiasi altra creatura che inizia il suo turno entro 1,5 metri da te subisce danni da veleno pari al tuo modificatore di Carisma.
 Condition/&ConditionInvocationPerniciousCloakSelfTitle=Mantello Pernicioso
 Feature/&AttackModifierHitAndDamagePlus1Description=L'arma ottiene un bonus di +1 ai tiri per colpire e per i danni.
 Feature/&AttackModifierHitAndDamagePlus1Title=Miglioramento delle armi del patto

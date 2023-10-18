@@ -209,7 +209,7 @@ You teleport yourself to an unoccupied space you can see within range. Immediate
 
 # 50. - Corrupting Bolt (V,S) level 3 Necromancy
 
-You can fire a pulse of necrotic energy that causes a creature's body to begin to wither and decay. Make a ranged attack against a creature. On a hit, the target takes 4d8 necrotic damage and must succeed a Constitution saving throw. On a failed saving throw, that creature suffers vulnerability to the next damage roll against it until the end of your next turn as its body is corrupted by necrotic magic. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
+You can fire a pulse of necrotic energy that causes a creature's body to begin to wither and decay. Make a ranged attack against a creature. On a hit, the target takes 4d8 necrotic damage and must succeed a Constitution saving throw. On a failed saving throw, the next time you or an ally of yours hits the corrupted creature with an attack before the end of your next turn, the creature has vulnerability to all of that attack's damage, and then the corruption ends. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
 
 # 51. - Crusader's Mantle (V) level 3 Evocation [Concentration]
 

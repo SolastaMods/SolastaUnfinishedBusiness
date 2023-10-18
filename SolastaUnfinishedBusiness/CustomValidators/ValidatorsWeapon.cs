@@ -111,6 +111,7 @@ internal static class ValidatorsWeapon
             return false;
         }
 
+        // this patch is required for all the special smite use cases integration with vanilla ones
         var currentAction = Global.CurrentAction;
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 

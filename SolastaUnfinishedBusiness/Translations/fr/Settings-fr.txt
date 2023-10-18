@@ -58,7 +58,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer 
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinités</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
-ModUi/&DisableCastSpellPreRequisitesOnModFeats=Désactivez les pré-requis pour lancer des sorts sur les dons fournis par ce mod <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=Désactivez les pré-requis de lancer de sort pour les dons fournis par ce mod <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les pré-requis de niveau sur les dons fournis par ce mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis d'Ascendance sur les dons fournis par ce mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactiver <color=#D89555>Vision dans le noir</color> de toutes les Ascendances jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -80,7 +80,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage d'éléments d'histo
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte du niveau
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter les nouveaux objets au Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Activer l'<color=#D89555>Humain</color> alternatif <i><color=#F0DAA0>[+1 Don / +2 choix de Caractéristiques / +1 Compétence]</color></i>
-ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[utiliser le modificateur de charisme du héros pour déterminer le poids du choix]</color></i>
+ModUi/&EnableAlternateVotingSystem=Activer un système de vote alternatif <i><color=#F0DAA0>[utiliser le modificateur de charisme du héros pour déterminer le poids de son choix]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Activer pour le <color=#D89555>Barbare</color> le choix d'un <b>Style de combat</b> au niveau 2
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer l'annulation des actions avec un clic droit de la souris
@@ -93,7 +93,7 @@ ModUi/&EnableCustomPortraits=Activer les portraits personnalisés
 ModUi/&EnableCustomPortraitsHelp=. Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>< /b></i>, du nom du prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n. Utilisez des images PNG, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les ressources de tous les environnements]</color></i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat et répartition "épique" de 35 points <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=Activer l'affichage du panneau de compétences étendues <i><color=#F0DAA0>[Tirs arcaniques, infusions, Gambits et polyvalences]</color></i>
+ModUi/&EnableExtendedProficienciesPanelDisplay=Activer l'affichage du panneau de compétences étendues <i><color=#F0DAA0>[Tirs arcaniques, Infusions, Gambits et Adaptations]</color></i>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des Dons aux niveaux de classe 2, 10 et 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des Dons aux niveaux de classe 6 et 14
 ModUi/&EnableFighterWeaponSpecialization=Activer la <b>Spécialisation d'arme</b> pour le <color=#D89555>Guerrier</color> aux niveaux de classe 8 et 16 <i><color=#F0DAA0>[obtenez +1 à la touche et aux dégâts avec l'arme en question mais le désavantage avec n'importe quel autre type d'arme]</color></i>
@@ -115,17 +115,17 @@ ModUi/&EnableMonkFightingStyle=Activer le choix de <b>Style de combat</b> du <co
 ModUi/&EnableMonkWeaponSpecialization=Activez la <b>Spécialisation d'arme</b> pour le <color=#D89555>Moine</color> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer la possibilité de multiclasser son personnage <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme pour la génération de nombres aléatoires (RNG) <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
-ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité <color=#D89555>Ranger</color> <b>Nature's Shroud</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité du <color=#D89555>Rôdeur</color> <b>Camouflage naturel</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour reformer le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Autoriser la sélection de sorts et sorts mineurs déjà appris d'autres classes</i>
 ModUi/&EnableRespec=Autoriser la respécialisation des personnages après une action de repos
-ModUi/&EnableRogueCunningStrike=Activez la <b>Frappe Rusée</b> pour le <color=#D89555>Roublard</color> au niveau de classe 5 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets supplémentaires sur l'attaque]</color ></i>
-ModUi/&EnableRogueFightingStyle=Activer le choix <color=#D89555>Voleur</color> <b>Style de combat</b> au niveau 2
-ModUi/&EnableRogueSteadyAim=Activez <color=#D89555>Rogue</color> <b>Steady Aim</b> au niveau de classe 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous n'ai pas encore bougé]</color></i>
+ModUi/&EnableRogueCunningStrike=Activer la <b>Frappe Rusée</b> pour le <color=#D89555>Roublard</color> au niveau de classe 5 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets supplémentaires sur l'attaque]</color ></i>
+ModUi/&EnableRogueFightingStyle=Activer le choix de <b>Style de combat</b> du <color=#D89555>Roublard</color> au niveau 2
+ModUi/&EnableRogueSteadyAim=Activez la <b>Visée Stable</b> du <color=#D89555>Roublard</color> au niveau de classe 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
 ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localités
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
-ModUi/&EnableSumD20OnAlternateVotingSystem=. De plus, chaque héros ajoute un jet de D20 au poids pour un peu de hasard.
+ModUi/&EnableSumD20OnAlternateVotingSystem=. De plus, chaque héros ajoute un jet de D20 au poids de leur vote pour rajouter un peu d'aléatoire.
 ModUi/&EnableTeleportParty=Acutoriser <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pouvez bloquer des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&EnableThesaurus=Activer le thésaurus <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
@@ -234,12 +234,12 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans
 ModUi/&ShowDescriptions=Afficher les descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>Filtre par niveau de sort</color> <color=#F0DAA0>[-1 affiche tout]</color></i></b>
 ModUi/&SpellsMenu=Sorts
-ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort frappe
-ModUi/&StealthBreaksWhenAttackMisses=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort échoue
-ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de matériel <i><color=#F0DAA0>[tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
-ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de <i><color=#F0DAA0>somatique [tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
-ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement verbeux de <i><color=#F0DAA0>[tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
-ModUi/&StealthDoesNotBreakWithSubtle=Activer la furtivité sans interruption si <color=#D89555>Métamagie subtile</color> et aucun composant matériel
+ModUi/&StealthBreaksWhenAttackHits=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort touche
+ModUi/&StealthBreaksWhenAttackMisses=Activer la perte de furtivité lorsqu'une attaque avec une arme ou un sort râte
+ModUi/&StealthBreaksWhenCastingMaterial=Activer la perte de furtivité lors du lancement de sort à composantes <color=#D89555>matérielles</color> <i><color=#F0DAA0> [tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthBreaksWhenCastingSomatic=Activer la perte de furtivité lors du lancement de sort à composantes <color=#D89555>somatiques</color> <i><color=#F0DAA0> [tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthBreaksWhenCastingVerbose=Activer la perte de furtivité lors du lancement de sort à composantes <color=#D89555>verbales</color> <i><color=#F0DAA0> [tout sort non-attaque avec la cible TOUS ou ENNEMI]</color></i>
+ModUi/&StealthDoesNotBreakWithSubtle=Désactiver l'interruption de la furtivité en cas de sort sous <color=#D89555>Métamagie subtile</color> et sans composante matérielle
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Approvisionner le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Approvisionner le magasin de Gorim avec tous les instruments de musique non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Approvisionner le magasin d'Hugo avec des <color=#D89555>Bâton d'Arcane</color>, <color=#D89555>Collier de Druide</color>, <color=#D89555>Bâton</color> et <color=#D89555>Gourdin</color> définis comme des focalisateurs de sort
