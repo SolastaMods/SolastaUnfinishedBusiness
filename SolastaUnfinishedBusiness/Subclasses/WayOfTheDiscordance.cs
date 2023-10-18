@@ -29,6 +29,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     private const string Name = "WayOfTheDiscordance";
     private const int TurmoilLevel = 6;
     private const int EntropicStrikesLevel = 11;
+    private static CharacterAction CurrentAttackAction => Global.CurrentAttackAction;
 
     public WayOfTheDiscordance()
     {
@@ -68,8 +69,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                     (OperationType.Set,
                         (ValidatorsWeapon.IsUnarmed(character, mode)
-                         && Global.CurrentAttackAction != null
-                         && !Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                         && CurrentAttackAction != null
+                         && !CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
                              .HasConditionOfType(conditionHadDiscordanceDamageThisTurn))
                         || character.GetClassLevel(CharacterClassDefinitions.Monk) >= EntropicStrikesLevel)))
             .AddToDB();
@@ -95,9 +96,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         powerDiscordanceDamage.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
                 character =>
-                    Global.CurrentAttackAction != null
-                    && ValidatorsWeapon.IsUnarmed(character, Global.CurrentAttackAction.ActionParams.AttackMode)
-                    && Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                    CurrentAttackAction != null
+                    && ValidatorsWeapon.IsUnarmed(character, CurrentAttackAction.ActionParams.AttackMode)
+                    && CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
                         .HasConditionOfType(conditionDiscordance)),
             new ModifyEffectDescriptionDiscordance(powerDiscordanceDamage));
 
@@ -225,11 +226,11 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         // it also hasn't been removed so far by the Discordance damage power
         powerTurmoil.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                Global.CurrentAttackAction != null
-                && ValidatorsWeapon.IsUnarmed(character, Global.CurrentAttackAction.ActionParams.AttackMode)
-                && !Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                CurrentAttackAction != null
+                && ValidatorsWeapon.IsUnarmed(character, CurrentAttackAction.ActionParams.AttackMode)
+                && !CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
                     .HasConditionOfType(conditionHadTurmoil)
-                && Global.CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
+                && CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
                     .HasConditionOfType(conditionDiscordance)));
 
         // LEVEL 11
@@ -468,6 +469,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 .AddAsActivePowerToSource();
             actionParamsDiscordance.TargetCharacters.SetRange(targets);
 
+            // special case don't ExecuteAction here
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsDiscordance));
 
             // Turmoil
@@ -496,6 +498,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 .AddAsActivePowerToSource();
             actionParamsTurmoil.TargetCharacters.SetRange(targets);
 
+            // special case don't ExecuteAction here
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParamsTurmoil));
         }
     }

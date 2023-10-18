@@ -48,13 +48,14 @@ internal static class Global
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; set; }
 
-    // BUGFIX: saving throw not passing correct saving delta on attack actions / Way of Discordance validator logic
+    // BUGFIX: saving throw not passing correct saving delta on attack actions
+    // PATCH: Way of Discordance validator logic
     internal static CharacterAction CurrentAttackAction { get; set; }
 
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 
-    // keep a tab on last rolled dices
+    // keep a tab on last rolled dices (devastating strike, fell handed)
     internal static int FirstAttackRoll { get; set; }
     internal static int SecondAttackRoll { get; set; }
 
