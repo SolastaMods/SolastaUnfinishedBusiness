@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -65,6 +66,8 @@ internal static class RaceWendigoBuilder
                         .Create("AdditionalDamageSuckerPunch")
                         .SetGuiPresentationNoContent(true)
                         .SetDamageDice(DieType.D6, 1)
+                        .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
+                            DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (9, 1), (17, 2)))
                         .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                         .SetNotificationTag("SuckerPunch")
                         .AddToDB()

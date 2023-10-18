@@ -1,4 +1,12 @@
-﻿1.5.94.26:
+﻿1.5.94.27:
+
+- fixed an issue introduce on v25 allowing infinite attacks under certain scenarios
+- fixed an issue introduce on v25 locking battles when casting under certain scenarios
+- changed Corrupting Bolt spell to apply vulnerability to all income damage forms
+- changed Opportunist debilitating strike to trigger before cunning strike
+- changed Wendigo sucker punch to 1d6 damage with additional die at 9th and 17th
+
+1.5.94.26:
 
 - fixed Conjure Elementals, Summon Animals, etc. not able to select a location
 - fixed a vanilla issue with global active effects registration causing exceptions on load
