@@ -116,7 +116,7 @@ public static class CharacterActionCastSpellPatcher
         [UsedImplicitly]
         public static bool Prefix()
         {
-            return CharacterActionExtensions.ActionShouldKeepConcentration(); // abort if should keep
+            return !CharacterActionExtensions.ActionShouldKeepConcentration(); // abort if should keep
         }
     }
 
