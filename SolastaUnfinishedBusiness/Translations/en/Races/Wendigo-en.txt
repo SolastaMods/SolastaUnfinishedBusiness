@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageWendigoSuckerPunchDescription=On the first round of combat, if you hit a creature with an attack roll and it's initiative is lower than you, the creature takes an extra 1d6 damage. This damage increases to 2d6 at 9th level, and 3d6 at 17th level.
+Feature/&AdditionalDamageWendigoSuckerPunchDescription=On the first round of combat, if you hit a creature with an attack roll and it's initiative is lower than you, the creature takes an extra 2d6 damage.
 Feature/&AdditionalDamageWendigoSuckerPunchTitle=Sucker Punch
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseDescription=Dexterity +1
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseTitle=Attribute Increase

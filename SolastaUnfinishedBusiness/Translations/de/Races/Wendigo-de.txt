@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageWendigoSuckerPunchDescription=Wenn du in der ersten Kampfrunde eine Kreatur mit einem Angriffswurf triffst und ihre Initiative geringer ist als deine selbst, erleidet die Kreatur zusätzlich 1W6 Schaden. Dieser Schaden erhöht sich auf 2W6 auf der 9. Stufe und auf 3W6 auf der 17. Stufe.
+Feature/&AdditionalDamageWendigoSuckerPunchDescription=Wenn du in der ersten Kampfrunde eine Kreatur mit einem Angriffswurf triffst und ihre Initiative geringer ist als deine selbst, erleidet die Kreatur zusätzlich 2W6 Schaden.
 Feature/&AdditionalDamageWendigoSuckerPunchTitle=Sucker Punch
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseDescription=Geschicklichkeit +1
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseTitle=Attributerhöhung

@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageWendigoSuckerPunchDescription=В первом раунде боя, если вы попали по существу броском атаки и его инициатива ниже вашей, существо получает дополнительные 1d6 урона. Этот урон увеличивается до 2d6 на 9 уровне и до 3d6 на 17 уровне.
+Feature/&AdditionalDamageWendigoSuckerPunchDescription=В первом раунде боя, если вы попали по существу броском атаки и его инициатива ниже вашей, существо получает дополнительные 2d6 урона.
 Feature/&AdditionalDamageWendigoSuckerPunchTitle=Удар исподтишка
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseDescription=Ловкость +1
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseTitle=Увеличение характеристик

@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageWendigoSuckerPunchDescription=Nel primo round di combattimento, se colpisci una creatura con un tiro per colpire e la sua iniziativa è inferiore alla tua, la creatura subisce 1d6 danni aggiuntivi. Questo danno aumenta a 2d6 al 9° livello e 3d6 al 17° livello.
+Feature/&AdditionalDamageWendigoSuckerPunchDescription=Nel primo round di combattimento, se colpisci una creatura con un tiro per colpire e la sua iniziativa è inferiore alla tua, la creatura subisce 2d6 danni aggiuntivi.
 Feature/&AdditionalDamageWendigoSuckerPunchTitle=Sucker Punch
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseDescription=Destrezza +1
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseTitle=Aumento degli attributi
