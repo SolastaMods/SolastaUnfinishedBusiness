@@ -1517,9 +1517,10 @@ public static class RulesetCharacterPatcher
     public static class TerminateSpell_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix()
+        public static bool Prefix(RulesetCharacter __instance)
         {
-            return !CharacterActionExtensions.ActionShouldKeepConcentration(); // abort if should keep
+            return !CharacterActionExtensions
+                .ShouldKeepConcentrationOnPowerUseOrSpend(__instance); // abort if should keep
         }
     }
 
@@ -1530,9 +1531,10 @@ public static class RulesetCharacterPatcher
     public static class TerminatePower_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix()
+        public static bool Prefix(RulesetCharacter __instance)
         {
-            return !CharacterActionExtensions.ActionShouldKeepConcentration(); // abort if should keep
+            return !CharacterActionExtensions
+                .ShouldKeepConcentrationOnPowerUseOrSpend(__instance); // abort if should keep
         }
     }
 

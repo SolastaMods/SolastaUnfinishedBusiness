@@ -114,9 +114,12 @@ public static class CharacterActionCastSpellPatcher
         }
 
         [UsedImplicitly]
-        public static bool Prefix()
+        public static bool Prefix(CharacterActionCastSpell __instance)
         {
-            return !CharacterActionExtensions.ActionShouldKeepConcentration(); // abort if should keep
+            var character = __instance.ActingCharacter.RulesetCharacter;
+
+            return !CharacterActionExtensions
+                .ShouldKeepConcentrationOnPowerUseOrSpend(character); // abort if should keep
         }
     }
 

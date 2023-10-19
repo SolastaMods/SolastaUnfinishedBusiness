@@ -65,22 +65,12 @@ internal static class CharacterActionExtensions
             : magicEffect.SourceDefinition.FormatTitle();
     }
 
-    internal static bool ActionShouldKeepConcentration()
+    internal const string ShouldKeepConcentration = "ActionShouldKeepConcentration";
+
+    internal static bool ShouldKeepConcentrationOnPowerUseOrSpend(RulesetCharacter character)
     {
-        var action = Global.CurrentAction;
-        var isProtectedUsePower = action is CharacterActionUsePower { activePower: not null } actionUsePower
-                                  && actionUsePower.activePower.PowerDefinition
-                                      .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
+        var glc = GameLocationCharacter.GetFromActor(character);
 
-        if (isProtectedUsePower)
-        {
-            return true;
-        }
-
-        var isProtectedSpendPower = action is CharacterActionSpendPower { activePower: not null } actionSpendPower
-                                    && actionSpendPower.activePower.PowerDefinition
-                                        .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
-
-        return isProtectedSpendPower;
+        return glc != null && glc.UsedSpecialFeatures.ContainsKey(ShouldKeepConcentration);
     }
 }

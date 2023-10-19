@@ -6,8 +6,9 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal static class Global
 {
     // true if in a multiplayer game
-    internal static bool IsMultiplayer => IsSettingUpMultiplayer
-                                          || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+    internal static bool IsMultiplayer =>
+        IsSettingUpMultiplayer
+        || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
     internal static bool IsSettingUpMultiplayer { get; set; }
 
@@ -41,18 +42,19 @@ internal static class Global
         }
     }
 
-    internal static RulesetCharacter CurrentCharacter => InspectedHero
-                                                         ?? LevelUpHero
-                                                         ?? ControlledLocationCharacter?.RulesetCharacter;
+    internal static RulesetCharacter CurrentCharacter =>
+        InspectedHero
+        ?? LevelUpHero
+        ?? ControlledLocationCharacter?.RulesetCharacter;
+
+    // VANILLA BUGFIX: saving throw not passing correct saving delta on attack actions
+    internal static CharacterAction CurrentAttackAction { get; set; }
 
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 
-    // current action from any character on the map [ActionShouldKeepConcentration / Steel Whirlwind]
+    // keep a tab on current action [Steel Whirlwind]
     internal static CharacterAction CurrentAction { get; set; }
-
-    // VANILLA BUGFIX: saving throw not passing correct saving delta on attack actions
-    internal static CharacterAction CurrentAttackAction { get; set; }
 
     // keep a tab on last rolled dices [Devastating strike, Fell handed]
     internal static int FirstAttackRoll { get; set; }
