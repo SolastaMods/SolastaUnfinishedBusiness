@@ -1355,9 +1355,10 @@ internal static class MeleeCombatFeats
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
+            .SetFeatures(fellHandedAdvantage)
             .AddToDB();
 
-        feat.AddCustomSubFeatures(
+        fellHandedAdvantage.AddCustomSubFeatures(
             new PhysicalAttackFinishedByMeFeatFellHanded(fellHandedAdvantage, weaponTypes),
             new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
@@ -1440,8 +1441,8 @@ internal static class MeleeCombatFeats
 
                         actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
                         actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                            .AddAsActivePowerToSource();
+                            //CHECK: no need for AddAsActivePowerToSource
+                            .InstantiateEffectPower(rulesetAttacker, usablePower, false);
                         actionParams.TargetCharacters.SetRange(defender);
 
                         var actionService = ServiceRepository.GetService<IGameLocationActionService>();

@@ -56,6 +56,24 @@ public static class CharacterActionPatcher
     [UsedImplicitly]
     public static class Execute_Patch
     {
+        private static bool ActionShouldKeepConcentration(CharacterAction action)
+        {
+            var isProtectedUsePower = action is CharacterActionUsePower { activePower: not null } actionUsePower
+                                      && actionUsePower.activePower.PowerDefinition
+                                          .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
+
+            if (isProtectedUsePower)
+            {
+                return true;
+            }
+
+            var isProtectedSpendPower = action is CharacterActionSpendPower { activePower: not null } actionSpendPower
+                                        && actionSpendPower.activePower.PowerDefinition
+                                            .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
+
+            return isProtectedSpendPower;
+        }
+
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
@@ -64,6 +82,18 @@ public static class CharacterActionPatcher
 
             //PATCH: support for character action tracking
             Global.CurrentAction = __instance;
+
+            //PATCH: support `IPreventRemoveConcentrationOnPowerUse`
+            if (ActionShouldKeepConcentration(__instance))
+            {
+                __instance.ActingCharacter.UsedSpecialFeatures.TryAdd(
+                    CharacterActionExtensions.ShouldKeepConcentration, 0);
+            }
+            else
+            {
+                __instance.ActingCharacter.UsedSpecialFeatures.Remove(
+                    CharacterActionExtensions.ShouldKeepConcentration); 
+            }
 
             switch (__instance)
             {

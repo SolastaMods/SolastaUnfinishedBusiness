@@ -38,6 +38,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfThunderBifrostDamage:8de52ff9-ba38-5451-9c03-c596d35d8ceb",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetOathOfThunderStormHerald:549e20a6-3a45-57f5-8d06-de20d0bee905",
       "level": 20
     }

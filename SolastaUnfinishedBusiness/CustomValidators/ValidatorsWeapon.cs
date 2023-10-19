@@ -112,14 +112,14 @@ internal static class ValidatorsWeapon
         }
 
         // this patch is required for all the special smite use cases integration with vanilla ones
-        var currentAction = Global.CurrentAction;
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (gameLocationBattleService is { IsBattleInProgress: true }
-            && currentAction is CharacterActionAttack actionAttack)
+        if (gameLocationBattleService is { IsBattleInProgress: true } &&
+            gameLocationBattleService.Battle.attackerContender != null &&
+            gameLocationBattleService.Battle.defenderContender != null)
         {
             return gameLocationBattleService.IsWithinXCells(
-                actionAttack.ActingCharacter, actionAttack.ActionParams.TargetCharacters[0], attackMode.ReachRange);
+                gameLocationBattleService.Battle.attackerContender, gameLocationBattleService.Battle.defenderContender, attackMode.ReachRange);
         }
 
         // fallback should never happen

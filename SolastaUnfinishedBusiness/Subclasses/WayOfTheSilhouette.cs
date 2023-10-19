@@ -314,8 +314,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    //CHECK: no need for AddAsActivePowerToSource
                     .InstantiateEffectPower(rulesetMe, usablePower, false)
-                    .AddAsActivePowerToSource()
             };
 
             actionParams.TargetCharacters.SetRange(me);

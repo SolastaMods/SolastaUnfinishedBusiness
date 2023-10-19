@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageWendigoSuckerPunchDescription=En la primera ronda de combate, si golpeas a una criatura con una tirada de ataque y su iniciativa es menor que la tuya, la criatura sufre 1d6 de daño adicional. Este daño aumenta a 2d6 en el nivel 9 y a 3d6 en el nivel 17.
+Feature/&AdditionalDamageWendigoSuckerPunchDescriptio1n=En la primera ronda de combate, si golpeas a una criatura con una tirada de ataque y su iniciativa es menor que la tuya, la criatura sufre 2d6 de daño adicional.
 Feature/&AdditionalDamageWendigoSuckerPunchTitle=Lo inevitable
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseDescription=Destreza +1
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseTitle=Aumento de atributo

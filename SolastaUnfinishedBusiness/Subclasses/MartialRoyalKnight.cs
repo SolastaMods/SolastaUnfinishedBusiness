@@ -293,8 +293,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 StringParameter = ReactionName,
                 StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
                 RulesetEffect = rulesService
+                    //CHECK: no need for AddAsActivePowerToSource
                     .InstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
-                    .AddAsActivePowerToSource()
             };
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;

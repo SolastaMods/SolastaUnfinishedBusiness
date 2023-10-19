@@ -1,4 +1,10 @@
-﻿1.5.94.27:
+﻿1.5.94.28:
+
+- added initial gamepad support on extended Load / Save menus
+- fixed a bad refactoring that inverted a sign and unleashed hell on game behaviors
+- fixed stunning strike getting offered on range even if not a Distant Hand at 11th
+
+1.5.94.27:
 
 - fixed an issue introduced on v25 allowing infinite attacks under certain scenarios
 - fixed an issue introduced on v25 locking game when casting under certain scenarios

@@ -11,7 +11,9 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PowerFeatFellHandedAdvantage:6634f39d-7b2f-57ee-ac9b-bdd86bdc4b1e"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

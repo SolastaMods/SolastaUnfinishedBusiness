@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -21,7 +20,7 @@ internal sealed class Merciless : AbstractFightingStyle
 {
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
-        .SetGuiPresentation("Merciless", Category.FightingStyle)
+        .SetGuiPresentation("Merciless", Category.FightingStyle, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -48,6 +47,7 @@ internal sealed class Merciless : AbstractFightingStyle
         .Create("Merciless")
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Merciless", Resources.Merciless, 256))
         .SetFeatures(
+            PowerFightingStyleMerciless,
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
@@ -97,8 +97,8 @@ internal sealed class Merciless : AbstractFightingStyle
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                    .AddAsActivePowerToSource(),
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .InstantiateEffectPower(rulesetAttacker, usablePower, false),
                 targetCharacters = gameLocationBattleService.Battle.EnemyContenders
                     .Where(x =>
                         x.IsOppositeSide(attacker.Side)

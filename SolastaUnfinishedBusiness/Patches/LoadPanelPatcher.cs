@@ -14,12 +14,16 @@ public static class LoadPanelPatcher
     public static class OnBeginShow_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix([NotNull] LoadPanel __instance)
+        public static void Prefix([NotNull] LoadPanel __instance)
         {
             //PATCH: EnableSaveByLocation
             if (Main.Settings.EnableSaveByLocation && !__instance.ImportSaveMode)
             {
-                return LoadPanelOnBeginShowSaveByLocationBehavior(__instance);
+                LoadPanelOnBeginShowSaveByLocationBehavior(__instance);
+            }
+            else
+            {
+                Dropdown?.SetActive(false);
             }
 
             //PATCH: Allow import any campaign if override min max level is on
@@ -30,15 +34,30 @@ public static class LoadPanelPatcher
             // {
             //     __instance.CampaignForImportSaveMode.maxLevelImport = Level20Context.ModMaxLevel;
             // }
+        }
+    }
 
-#pragma warning disable IDE0031
-            if (Dropdown != null && Dropdown.activeSelf)
-#pragma warning restore IDE0031
-            {
-                Dropdown.SetActive(false);
-            }
+    [HarmonyPatch(typeof(LoadPanel), nameof(LoadPanel.OnEndHide))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class OnBeginHide_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix()
+        {
+            Dropdown?.SetActive(false);
+        }
+    }
 
-            return true;
+    [HarmonyPatch(typeof(LoadPanel), nameof(LoadPanel.HandleInputControlSchemeChangedForShow))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleInputControlSchemeChangedForShow_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix()
+        {
+            Dropdown?.UpdateControls();
         }
     }
 }

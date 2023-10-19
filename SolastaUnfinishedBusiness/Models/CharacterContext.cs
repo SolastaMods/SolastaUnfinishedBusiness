@@ -1716,8 +1716,8 @@ internal static class CharacterContext
                 StringParameter = _powerRogueCunningStrike.Name,
                 TargetCharacters = { defender },
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    //CHECK: no need for AddAsActivePowerToSource
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                    .AddAsActivePowerToSource()
             };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestSpendBundlePower(reactionParams);
@@ -1789,8 +1789,8 @@ internal static class CharacterContext
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
