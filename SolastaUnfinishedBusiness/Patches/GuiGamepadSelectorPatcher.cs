@@ -91,40 +91,43 @@ public static class GuiGamepadSelectorPatcher
         public static bool Prefix([NotNull] GuiGamepadSelector __instance, InputAction.CallbackContext context)
         {
             //PATCH: completely replace method to allow reacting to gamepad input even if not focused
-            
-            if (!__instance.IsInteractable())
+            HandleInput(__instance, context);
+            return false;
+        }
+
+        private static void HandleInput(GuiGamepadSelector selector, InputAction.CallbackContext context)
+        {
+            if (!selector.IsInteractable())
             {
-                return false;
+                return;
             }
 
-            if (!(Gui.InputService.CurrentSelectedGameObject == __instance.gameObject) && !__instance.IsGlobal())
+            if (!(Gui.InputService.CurrentSelectedGameObject == selector.gameObject) && !selector.IsGlobal())
             {
-                return false;
+                return;
             }
 
-            if (__instance.ItemsNumber <= 0)
+            if (selector.ItemsNumber <= 0)
             {
-                return false;
+                return;
             }
 
             if (context.ReadValue<float>() < 0.0)
             {
-                __instance.currentSelection = (__instance.currentSelection + (__instance.ItemsNumber - 1)) %
-                                              __instance.ItemsNumber;
-                __instance.RefreshCurrent();
-                __instance.SelectionChanged?.Invoke();
+                selector.currentSelection = (selector.currentSelection + (selector.ItemsNumber - 1)) %
+                                            selector.ItemsNumber;
+                selector.RefreshCurrent();
+                selector.SelectionChanged?.Invoke();
             }
             else if (context.ReadValue<float>() > 0.0)
             {
-                __instance.currentSelection = (__instance.currentSelection + 1) % __instance.ItemsNumber;
-                __instance.RefreshCurrent();
-                __instance.SelectionChanged?.Invoke();
+                selector.currentSelection = (selector.currentSelection + 1) % selector.ItemsNumber;
+                selector.RefreshCurrent();
+                selector.SelectionChanged?.Invoke();
             }
 
-            ServiceRepository.GetService<IAudioService>()?.PostGuiEvent(__instance.onChangeValueEvent);
-            __instance.bindingModifier.StartAnimation(true);
-
-            return false;
+            ServiceRepository.GetService<IAudioService>()?.PostGuiEvent(selector.onChangeValueEvent);
+            selector.bindingModifier.StartAnimation(true);
         }
     }
 }
