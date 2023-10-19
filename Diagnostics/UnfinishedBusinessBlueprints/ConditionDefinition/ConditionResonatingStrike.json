@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageResonatingStrike:bc01f142-4efe-5133-bb7f-d1c4f2f0bbdf"
+    "Definition:AdditionalDamageResonatingStrike:bc01f142-4efe-5133-bb7f-d1c4f2f0bbdf",
+    "Definition:PowerResonatingStrike:0f7e45fc-1c0a-549e-b05c-5246d5f68e78"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,

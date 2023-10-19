@@ -1,6 +1,7 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
+    "Definition:PowerFightingStyleMerciless:2500343e-570f-57ec-bf7c-02225d302cba",
     "Definition:TargetReducedToZeroHpFightingStyleMerciless:915fb6af-6989-5e40-9087-1ce64a2bbfba"
   ],
   "condition": "RangedWeaponAttack",
