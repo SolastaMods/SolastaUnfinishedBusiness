@@ -196,7 +196,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         powerDiscordance.AddCustomSubFeatures(new CustomBehaviorDiscordance(
             powerDiscordance, conditionDiscordance, conditionHadDiscordanceDamageThisTurn,
-            powerTurmoil, conditionTurmoil));
+            powerTurmoil, conditionTurmoil, conditionHadTurmoil));
 
         // LEVEL 11
 
@@ -344,6 +344,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         private readonly ConditionDefinition _conditionDiscordance;
         private readonly ConditionDefinition _conditionHadDiscordanceDamageThisTurn;
         private readonly ConditionDefinition _conditionTurmoil;
+        private readonly ConditionDefinition _conditionHadTurmoil;
         private readonly FeatureDefinitionPower _powerDiscordance;
         private readonly FeatureDefinitionPower _powerTurmoil;
 
@@ -352,13 +353,15 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             ConditionDefinition conditionDiscordance,
             ConditionDefinition conditionHadDiscordanceDamageThisTurn,
             FeatureDefinitionPower powerTurmoil,
-            ConditionDefinition conditionTurmoil)
+            ConditionDefinition conditionTurmoil,
+            ConditionDefinition conditionHadTurmoil)
         {
             _powerDiscordance = powerDiscordance;
             _conditionDiscordance = conditionDiscordance;
             _conditionHadDiscordanceDamageThisTurn = conditionHadDiscordanceDamageThisTurn;
             _powerTurmoil = powerTurmoil;
             _conditionTurmoil = conditionTurmoil;
+            _conditionHadTurmoil = conditionHadTurmoil;
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -433,7 +436,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             if (monkLevel >= TurmoilLevel &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                !defender.RulesetCharacter.HasConditionOfType(_conditionTurmoil))
+                !defender.RulesetCharacter.HasConditionOfType(_conditionHadTurmoil))
             {
                 SpendPower(action, rulesetAttacker, _powerTurmoil);
             }
