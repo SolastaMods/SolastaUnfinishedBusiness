@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
@@ -451,7 +452,50 @@ internal static class FixesContext
     {
         //BEHAVIOR: Makes `Stunning Strike` context check if any monk weapon instead on OnAttackMeleeHitAuto
         //Required for it to work with monk weapon specialization and/or way of distant hand
-        FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.OnAttackHitAuto;
+        FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.NoCost;
+        FeatureDefinitionPowers.PowerMonkStunningStrike.GuiPresentation.hidden = true;
+        FeatureDefinitionPowers.PowerMonkStunningStrike.AddCustomSubFeatures(
+            new PhysicalAttackFinishedByMeStunningStrike());
+    }
+
+    private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var wayOfTheDistantHandLevels = rulesetAttacker.GetSubclassLevel(Monk, "WayOfTheDistantHand");
+
+            if (!ValidatorsWeapon.IsMelee(attackMode) && wayOfTheDistantHandLevels < 11)
+            {
+                yield break;
+            }
+
+            var actionParams = action.ActionParams.Clone();
+            var usablePower =
+                UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            actionService.ExecuteAction(actionParams, null, true);
+        }
     }
 
     private static void FixTwinnedMetamagic()
