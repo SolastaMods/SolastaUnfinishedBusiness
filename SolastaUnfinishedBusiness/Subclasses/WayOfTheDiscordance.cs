@@ -29,7 +29,6 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     private const string Name = "WayOfTheDiscordance";
     private const int TurmoilLevel = 6;
     private const int EntropicStrikesLevel = 11;
-    private static CharacterAction CurrentAttackAction => Global.CurrentAttackAction;
 
     public WayOfTheDiscordance()
     {
@@ -68,17 +67,17 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                     (OperationType.Set,
-                        (ValidatorsWeapon.IsUnarmed(character, mode)
-                         && CurrentAttackAction != null
-                         && !CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
-                             .HasConditionOfType(conditionHadDiscordanceDamageThisTurn))
-                        || character.GetClassLevel(CharacterClassDefinitions.Monk) >= EntropicStrikesLevel)))
+                        Gui.Battle != null &&
+                        ((ValidatorsWeapon.IsUnarmed(character, mode) &&
+                          !Gui.Battle.DefenderContender.RulesetCharacter.HasConditionOfType(
+                              conditionHadDiscordanceDamageThisTurn)) ||
+                         character.GetClassLevel(CharacterClassDefinitions.Monk) >= EntropicStrikesLevel))))
             .AddToDB();
 
         var powerDiscordanceDamage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Discordance")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -91,16 +90,6 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     .SetParticleEffectParameters(PowerSorakDreadLaughter)
                     .Build())
             .AddToDB();
-
-        // when powers are checked for validation, the additional condition from Discordance additional damage hasn't been added already
-        powerDiscordanceDamage.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(
-                character =>
-                    CurrentAttackAction != null
-                    && ValidatorsWeapon.IsUnarmed(character, CurrentAttackAction.ActionParams.AttackMode)
-                    && CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
-                        .HasConditionOfType(conditionDiscordance)),
-            new ModifyEffectDescriptionDiscordance(powerDiscordanceDamage));
 
         var featureSetDiscordance = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Discordance")
@@ -203,7 +192,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         var powerTurmoil = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Turmoil")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -220,18 +209,15 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerSorakDreadLaughter)
                     .Build())
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        // when powers are checked for validation, the additional condition from Discordance additional damage hasn't been added already
-        // it also hasn't been removed so far by the Discordance damage power
-        powerTurmoil.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(character =>
-                CurrentAttackAction != null
-                && ValidatorsWeapon.IsUnarmed(character, CurrentAttackAction.ActionParams.AttackMode)
-                && !CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
-                    .HasConditionOfType(conditionHadTurmoil)
-                && CurrentAttackAction.ActionParams.TargetCharacters[0].RulesetCharacter
-                    .HasConditionOfType(conditionDiscordance)));
+        //
+        // FINALIZE DISCORDANCE BEHAVIOR
+        //
+
+        powerDiscordanceDamage.AddCustomSubFeatures(new CustomBehaviorDiscordance(
+            powerDiscordanceDamage, conditionDiscordance, powerTurmoil, conditionTurmoil));
 
         // LEVEL 11
 
@@ -363,21 +349,31 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
-    // Discordance
+    // Discordance [Also handles Turmoil]
     //
 
-    private sealed class ModifyEffectDescriptionDiscordance : IModifyEffectDescription
+    private sealed class CustomBehaviorDiscordance : IPhysicalAttackFinishedByMe, IModifyEffectDescription
     {
-        private readonly BaseDefinition _powerDefinition;
+        private readonly ConditionDefinition _conditionDiscordance;
+        private readonly ConditionDefinition _conditionTurmoil;
+        private readonly FeatureDefinitionPower _powerDiscordance;
+        private readonly FeatureDefinitionPower _powerTurmoil;
 
-        public ModifyEffectDescriptionDiscordance(BaseDefinition powerDefinition)
+        public CustomBehaviorDiscordance(
+            FeatureDefinitionPower powerDiscordance,
+            ConditionDefinition conditionDiscordance,
+            FeatureDefinitionPower powerTurmoil,
+            ConditionDefinition conditionTurmoil)
         {
-            _powerDefinition = powerDefinition;
+            _powerDiscordance = powerDiscordance;
+            _conditionDiscordance = conditionDiscordance;
+            _powerTurmoil = powerTurmoil;
+            _conditionTurmoil = conditionTurmoil;
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _powerDefinition;
+            return definition == _powerDiscordance;
         }
 
         public EffectDescription GetEffectDescription(
@@ -394,6 +390,55 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 .Find(x => x.Rank == monkLevel).DieType;
 
             return effectDescription;
+        }
+
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode)
+                || defender.RulesetCharacter.AllConditions.Count(
+                    x => x.ConditionDefinition == _conditionDiscordance) <= 1)
+            {
+                yield break;
+            }
+
+            SpendPower(action, rulesetAttacker, _powerDiscordance);
+
+            var monkLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
+
+            if (monkLevel >= 6 &&
+                defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                !defender.RulesetCharacter.HasConditionOfType(_conditionTurmoil))
+            {
+                SpendPower(action, rulesetAttacker, _powerTurmoil);
+            }
+        }
+
+        private static void SpendPower(
+            CharacterAction action,
+            RulesetCharacter rulesetAttacker,
+            FeatureDefinitionPower featureDefinitionPower)
+        {
+            var actionParams = action.ActionParams.Clone();
+            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetAttacker);
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                .AddAsActivePowerToSource();
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            actionService.ExecuteAction(actionParams, null, true);
         }
     }
 
