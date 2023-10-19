@@ -983,7 +983,7 @@ As an action you shout and provoke all hostile creatures within 30ft of you. Eac
 
 * Aegis Assault
 
-When using a shield to attack an enemy, you can push them back or knock them prone.
+When using a shield to attack an enemy, you can knock them prone.
 
 * Shield Mastery
 
