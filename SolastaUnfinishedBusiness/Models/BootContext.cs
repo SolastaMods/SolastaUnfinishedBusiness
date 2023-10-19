@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
+using UnityEngine.InputSystem;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;
 #endif
@@ -18,6 +19,22 @@ internal static class BootContext
         ItemDefinitionVerification.Load();
         EffectFormVerification.Load();
 #endif
+
+        #region Modify Action Maps
+
+        var service = ServiceRepository.GetService<IInputService>();
+        
+        //copy `GamepadSelector` action from `CharacterEdition` map into `ModalListBrowse` - needed for save by location to be able to scroll through save location selector
+        var map = service.InputActionAsset.FindActionMap("ModalListBrowse");
+        var action = map.AddAction("GamepadSelector", InputActionType.Value);
+
+        var oldMap = service.InputActionAsset.FindActionMap("CharacterEdition").FindAction("GamepadSelector");
+        foreach (var oldMapBinding in oldMap.bindings)
+        {
+            action.AddBinding(oldMapBinding);
+        }
+
+        #endregion
 
         // STEP 0: Cache TA definitions for diagnostics and export
         DiagnosticsContext.CacheTaDefinitions();
