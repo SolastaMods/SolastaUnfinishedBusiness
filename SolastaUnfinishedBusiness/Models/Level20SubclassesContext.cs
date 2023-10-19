@@ -1677,8 +1677,8 @@ internal static class Level20SubclassesContext
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                    .AddAsActivePowerToSource(),
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
                 targetCharacters = { source }
             };
 

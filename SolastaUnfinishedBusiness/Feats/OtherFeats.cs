@@ -964,8 +964,8 @@ internal static class OtherFeats
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(me, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(me, usablePower, false);
             actionParams.TargetCharacters.SetRange(target);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

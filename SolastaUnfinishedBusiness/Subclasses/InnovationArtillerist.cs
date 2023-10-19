@@ -1048,8 +1048,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var targets = new List<GameLocationCharacter>();
             var usablePower = UsablePowersProvider.Get(_powerEldritchDetonation, rulesetCharacter);
             var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
                 selectedTarget, effectPower.EffectDescription, targets, new List<ActionModifier>());

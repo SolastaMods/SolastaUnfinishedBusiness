@@ -1555,9 +1555,10 @@ internal static partial class SpellBuilders
             .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Gui.NoLocalization,
                 ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(powerThunderousSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetFeatures(powerThunderousSmite)
             .AddCustomSubFeatures(
+                new AddUsablePowersFromCondition(),
                 new PhysicalAttackFinishedByMeThunderousSmite(powerThunderousSmite))
             .AddToDB();
 
@@ -1622,8 +1623,8 @@ internal static partial class SpellBuilders
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -1726,7 +1727,7 @@ internal static partial class SpellBuilders
 
         var powerSpikeBarrage = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell)
+            .SetGuiPresentation(NAME, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -1752,6 +1753,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionSpikeBarrage.AddCustomSubFeatures(
+            new AddUsablePowersFromCondition(),
             new PhysicalAttackFinishedByMeSpikeBarrage(powerSpikeBarrage, conditionSpikeBarrage));
 
         var spell = SpellDefinitionBuilder
@@ -1862,8 +1864,8 @@ internal static partial class SpellBuilders
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = rulesetImplementationService
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(targets);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

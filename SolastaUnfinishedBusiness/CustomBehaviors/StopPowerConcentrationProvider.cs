@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -40,7 +39,8 @@ internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvi
             SkipAnimationsAndVFX = true,
             TargetCharacters = { locationCharacter },
             ActionModifiers = { new ActionModifier() },
-            RulesetEffect = rules.InstantiateEffectPower(character, usable, true).AddAsActivePowerToSource()
+            //CHECK: no need for AddAsActivePowerToSource
+            RulesetEffect = rules.InstantiateEffectPower(character, usable, true)
         };
 
         ServiceRepository.GetService<ICommandService>()

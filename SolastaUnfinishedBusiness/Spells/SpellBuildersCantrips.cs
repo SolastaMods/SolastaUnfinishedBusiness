@@ -829,14 +829,14 @@ internal static partial class SpellBuilders
             .Create("ConditionResonatingStrike")
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(additionalDamageResonatingStrike)
+            .SetFeatures(additionalDamageResonatingStrike, powerResonatingStrike)
             .AddToDB();
 
         var customBehavior =
             new CustomBehaviorResonatingStrike(powerResonatingStrike, conditionResonatingStrike);
 
         powerResonatingStrike.AddCustomSubFeatures(customBehavior);
-        conditionResonatingStrike.AddCustomSubFeatures(customBehavior);
+        conditionResonatingStrike.AddCustomSubFeatures(customBehavior, new AddUsablePowersFromCondition());
 
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
@@ -969,8 +969,8 @@ internal static partial class SpellBuilders
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
             actionParams.RulesetEffect = rulesetImplementationService
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(_secondTarget);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

@@ -432,8 +432,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -510,8 +510,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             actionParamsDiscordance.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParamsDiscordance.RulesetEffect = rulesetImplementationService
-                .InstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false);
             actionParamsDiscordance.TargetCharacters.SetRange(targets);
 
             // special case don't ExecuteAction here
@@ -539,8 +539,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             actionParamsTurmoil.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParamsTurmoil.RulesetEffect = rulesetImplementationService
-                .InstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false);
             actionParamsTurmoil.TargetCharacters.SetRange(targets);
 
             // special case don't ExecuteAction here
@@ -630,8 +630,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectPower(rulesetAlly, usablePower, false)
-                    .AddAsActivePowerToSource(),
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .InstantiateEffectPower(rulesetAlly, usablePower, false),
                 targetCharacters = { ally }
             };
 

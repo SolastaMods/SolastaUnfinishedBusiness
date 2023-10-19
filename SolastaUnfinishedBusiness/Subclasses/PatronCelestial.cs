@@ -398,8 +398,8 @@ public class PatronCelestial : AbstractSubclass
                 .ToList();
 
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(targets);
 
             EffectHelpers.StartVisualEffect(

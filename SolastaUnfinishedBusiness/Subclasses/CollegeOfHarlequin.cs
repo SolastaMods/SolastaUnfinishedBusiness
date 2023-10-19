@@ -293,8 +293,8 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                    .AddAsActivePowerToSource(),
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .InstantiateEffectPower(rulesetAttacker, usablePower, false),
                 targetCharacters = gameLocationBattleService.Battle.AllContenders
                     .Where(enemy => enemy.IsOppositeSide(attacker.Side)
                                     && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }

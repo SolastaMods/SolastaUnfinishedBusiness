@@ -606,16 +606,9 @@ internal static partial class SpellBuilders
     {
         const string Name = "BoomingStep";
 
-        var conditionExplode = ConditionDefinitionBuilder
-            .Create($"Condition{Name}Explode")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
         var powerExplode = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Explode")
-            .SetGuiPresentation(Name, Category.Spell)
+            .SetGuiPresentation(Name, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -632,6 +625,15 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Thunderwave)
                     .Build())
+            .AddToDB();
+
+        var conditionExplode = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Explode")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures(powerExplode)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
         powerExplode.AddCustomSubFeatures(
@@ -694,8 +696,8 @@ internal static partial class SpellBuilders
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                             && x != attacker
@@ -855,15 +857,9 @@ internal static partial class SpellBuilders
     {
         const string Name = "LightningArrow";
 
-        var conditionLightningArrow = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentation(Category.Condition, ConditionFeatTakeAim)
-            .SetPossessive()
-            .AddToDB();
-
         var powerLightningArrowLeap = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Leap")
-            .SetGuiPresentation(Name, Category.Spell)
+            .SetGuiPresentation(Name, Category.Spell, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -879,6 +875,13 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(LightningBolt)
                     .Build())
+            .AddToDB();
+
+        var conditionLightningArrow = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionFeatTakeAim)
+            .SetPossessive()
+            .SetFeatures(powerLightningArrowLeap)
             .AddToDB();
 
         powerLightningArrowLeap.AddCustomSubFeatures(
@@ -1069,8 +1072,8 @@ internal static partial class SpellBuilders
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false)
-                .AddAsActivePowerToSource();
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(battleManager.Battle.AllContenders
                 .Where(x =>
                     x.IsOppositeSide(attacker.Side)
