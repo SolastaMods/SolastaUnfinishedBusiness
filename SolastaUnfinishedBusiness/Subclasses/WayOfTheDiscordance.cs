@@ -68,9 +68,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                     (OperationType.Set,
                         Gui.Battle != null &&
-                        ((ValidatorsWeapon.IsUnarmed(character, mode) &&
-                          !Gui.Battle.DefenderContender.RulesetCharacter.HasConditionOfType(
-                              conditionHadDiscordanceDamageThisTurn)) ||
+                        ValidatorsWeapon.IsUnarmed(character, mode) &&
+                        (!Gui.Battle.AttackerContender.RulesetCharacter
+                             .HasConditionOfType(conditionHadDiscordanceDamageThisTurn) ||
                          character.GetClassLevel(CharacterClassDefinitions.Monk) >= EntropicStrikesLevel))))
             .AddToDB();
 
@@ -348,6 +348,14 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    private static DieType GetDieType(RulesetCharacter character)
+    {
+        var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
+        var dieType = AttackModifierMonkMartialArtsImprovedDamage.DieTypeByRankTable
+            .Find(x => x.Rank == monkLevel).DieType;
+
+        return dieType;
+    }
     //
     // Discordance [Also handles Turmoil]
     //
@@ -382,12 +390,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
             var damageForm = effectDescription.FindFirstDamageForm();
 
             damageForm.BonusDamage = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
-            damageForm.DieType = AttackModifierMonkMartialArtsImprovedDamage.DieTypeByRankTable
-                .Find(x => x.Rank == monkLevel).DieType;
+            damageForm.DieType = GetDieType(character);
 
             return effectDescription;
         }
@@ -414,7 +420,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var monkLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
 
-            if (monkLevel >= 6 &&
+            if (monkLevel >= TurmoilLevel &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 !defender.RulesetCharacter.HasConditionOfType(_conditionTurmoil))
             {
@@ -578,17 +584,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var temporaryHitPointsForm = effectDescription.EffectForms[0].TemporaryHitPointsForm;
-            var levels = character.GetClassLevel(CharacterClassDefinitions.Monk);
-            var dieType = levels switch
-            {
-                >= 17 => DieType.D10,
-                >= 11 => DieType.D8,
-                >= 5 => DieType.D6,
-                _ => DieType.D4
-            };
+            var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
 
-            temporaryHitPointsForm.dieType = dieType;
-            temporaryHitPointsForm.bonusHitPoints = (levels + 1) / 2;
+            temporaryHitPointsForm.DieType = GetDieType(character);
+            temporaryHitPointsForm.BonusHitPoints = (monkLevel + 1) / 2;
 
             return effectDescription;
         }
