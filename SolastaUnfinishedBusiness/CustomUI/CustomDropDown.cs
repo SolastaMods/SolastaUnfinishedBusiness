@@ -114,37 +114,14 @@ public class CustomDropDown
 
     internal static GuiGamepadSelector MakeSelector(string name, Transform transform)
     {
-        // IInputService service = ServiceRepository.GetService<IInputService>();
         // ReSharper disable once Unity.UnknownResource
         var gameObject =
             Object.Instantiate(Resources.Load<GameObject>("Gui/Prefabs/Component/GamepadSelector"), transform);
         gameObject.name = name;
         var component = gameObject.GetComponent<GuiGamepadSelector>();
-        // Main.Log2($"MakeSelector action: '{component.actionName}' map: '{component.actionMapName}' current: {FormatIMap(service.CurrentActionMap)}");
-
-        // var map = service.CurrentActionMap;
-
-        // map.AddAction("action9",InputActionType.Value, binding: "<Gamepad>/buttonWest");
         component.actionMapName = "ModalListBrowse";
         component.actionName = "GamepadSelector";
 
-        // foreach (var actionMap in service.InputActionAsset.actionMaps)
-        // {
-        //     Main.Log2($"MAP {FormatIMap(actionMap)}");
-        // }
-
-
         return component;
     }
-    //
-    // static string FormatIMap(InputActionMap map)
-    // {
-    //     return $"'{map.name}' actions:\n\t{String.Join("\n\t", map.actions.Select(FormatAction))}";
-    // }
-    //
-    // static string FormatAction(InputAction a)
-    // {
-    //     return
-    //         $"{a.name}({String.Join("|", a.controls.Select(c => c.name))})<{String.Join(":", a.bindings.Select(b => b.name))}>";
-    // }
 }
