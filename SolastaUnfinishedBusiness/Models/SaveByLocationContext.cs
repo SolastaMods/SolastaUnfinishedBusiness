@@ -4,9 +4,11 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Patches;
 using TMPro;
 using UnityEngine;
-using Object = UnityEngine.Object;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -32,7 +34,7 @@ internal static class SaveByLocationContext
     private static List<UserLocation> _allUserLocations;
     private static List<UserCampaign> _allUserCampaigns;
 
-    internal static GameObject Dropdown { get; private set; }
+    internal static CustomDropDown Dropdown { get; private set; }
 
     internal static bool UseLightEnumeration { get; private set; }
 
@@ -220,13 +222,8 @@ internal static class SaveByLocationContext
         return 0;
     }
 
-    internal static bool LoadPanelOnBeginShowSaveByLocationBehavior(LoadPanel __instance)
+    internal static void LoadPanelOnBeginShowSaveByLocationBehavior(LoadPanel panel)
     {
-        // From OnBeginShow
-        __instance.StartAllModifiers(true);
-        __instance.loadSaveLinesScrollview.normalizedPosition = new Vector2(0.0f, 1f);
-        __instance.Reset();
-
         // The Load Panel is being shown.
         // 1) create/activate a dropdown next to the load save button
         // 2) populate with list of campaign and location names
@@ -248,15 +245,15 @@ internal static class SaveByLocationContext
         // add them together - each block sorted - can we have separators?
         var userContentList =
             AllUserCampaigns
-                .Select(l => new { LocationType = LocationType.CustomCampaign, l.Title })
+                .Select(l => new {LocationType = LocationType.CustomCampaign, l.Title})
                 .OrderBy(l => l.Title)
                 .Concat(AllUserLocations
-                    .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
+                    .Select(l => new {LocationType = LocationType.UserLocation, l.Title})
                     .OrderBy(l => l.Title))
                 .ToList();
 
         guiDropdown.AddOptions(
-            Enumerable.Repeat(new { LocationType = LocationType.Default, Title = "Default" }, 1)
+            Enumerable.Repeat(new {LocationType = LocationType.Default, Title = "Default"}, 1)
                 .Union(officialCampaigns)
                 .Union(userContentList)
                 .Select(opt => new
@@ -281,31 +278,29 @@ internal static class SaveByLocationContext
         // ReSharper disable once InvocationIsSkipped
         Main.Log($"LoadPanel: selected={selectedCampaign.CampaignOrLocationName}, {selectedCampaign.LocationType}");
 
-        var option = guiDropdown.options
+        var option = guiDropdown.Options
             .Cast<LocationOptionData>()
-            .Select((o, i) => new { o.CampaignOrLocation, o.LocationType, Index = i })
+            .Select((o, i) => new {o.CampaignOrLocation, o.LocationType, Index = i})
             .Where(opt => opt.LocationType == selectedCampaign.LocationType)
             .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
         var newValue = option?.Index ?? 0;
 
-        if (guiDropdown.value == newValue)
+        if (guiDropdown.Selected == newValue)
         {
             if (newValue == 0)
             {
                 // I think we only want to do this on first open
                 // or we refresh the list when we don't need to.
                 // May need to change slightly.
-                ValueChanged(guiDropdown);
+                ValueChanged(guiDropdown.Options[0]);
             }
         }
         else
         {
             // This will trigger a ValueChanged
-            guiDropdown.value = newValue;
+            guiDropdown.SetSelected(newValue);
         }
-
-        return false;
 
         string GetTitle(LocationType locationType, string title)
         {
@@ -325,53 +320,67 @@ internal static class SaveByLocationContext
             }
         }
 
-        void ValueChanged([NotNull] GuiDropdown dropdown)
+        void ValueChanged([NotNull] TMP_Dropdown.OptionData selected)
         {
             // update selected campaign
             var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
-            if (dropdown.options.Skip(dropdown.value).FirstOrDefault() is not LocationOptionData selected)
+            if (selected is not LocationOptionData locationData)
             {
                 return;
             }
 
             // ReSharper disable once InvocationIsSkipped
             Main.Log(
-                $"ValueChanged: {dropdown.value}, selected={selected.LocationType}, {selected.text}, {selected.CampaignOrLocation}");
+                $"ValueChanged: selected={locationData.LocationType}, {locationData.text}, {locationData.CampaignOrLocation}");
 
-            selectedCampaignService.SetCampaignLocation(selected);
-
-            dropdown.UpdateTooltip();
-
-            // From OnBeginShow
+            selectedCampaignService.SetCampaignLocation(locationData);
 
             // reload the save file list
-            __instance.StartCoroutine(__instance.EnumerateSaveLines());
+            panel.StartCoroutine(panel.EnumerateSaveLines());
         }
 
-        GuiDropdown CreateOrActivateDropdown()
+        CustomDropDown CreateOrActivateDropdown()
         {
             if (Dropdown == null)
             {
-                // ReSharper disable once Unity.UnknownResource
-                var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
+                var root = panel.loadButton.transform.parent.parent;
 
-                Dropdown = Object.Instantiate(dropdownPrefab, __instance.loadButton.transform.parent.parent);
-                Dropdown.name = "LoadMenuDropDown";
+                Dropdown = new CustomDropDown(CustomDropDown.MakeDropdown("LoadMenuDropDown", root),
+                    CustomDropDown.MakeSelector("LoadMenuSelector", root));
+                Dropdown.OnValueChaged += ValueChanged;
 
-                var dropdown = Dropdown.GetComponent<GuiDropdown>();
-                var dropDownRect = Dropdown.GetComponent<RectTransform>();
+                var rect = Dropdown.DropList.GetComponent<RectTransform>();
+                rect.anchoredPosition = new Vector2(72f, 230f);
+                rect.sizeDelta = new Vector2(320f, 30f);
 
-                dropdown.onValueChanged.AddListener(delegate { ValueChanged(dropdown); });
-                dropDownRect.anchoredPosition = new Vector2(72f, 230f);
-                dropDownRect.sizeDelta = new Vector2(320f, 30f);
+                Dropdown.Selector.MarkGlobal();
+                Dropdown.Selector.Unbind();
+
+                rect = Dropdown.Selector.GetComponent<RectTransform>();
+                rect.anchorMin = new Vector2(0, 0);
+                rect.anchorMax = new Vector2(0, 1);
+                rect.anchoredPosition = new Vector2(175f, 250f);
+                rect.sizeDelta = new Vector2(350, 50f);
+
+                var hlayout = Dropdown.Selector.GetComponent<HorizontalLayoutGroup>();
+                hlayout.childControlWidth = false;
+
+                var selectorTransform = Dropdown.Selector.transform;
+
+                rect = selectorTransform.Find("Box").GetComponent<RectTransform>();
+                rect.sizeDelta = new Vector2(245, 50f);
+
+                selectorTransform.Find("CountLabel").GetComponent<RectTransform>().sizeDelta = new Vector2(55, 25);
+
+                var obj = selectorTransform.Find("Binding");
+                obj.GetComponent<RectTransform>().sizeDelta = new Vector2(40, 40);
+                obj.GetComponent<Image>().preserveAspect = true;
             }
-            else
-            {
-                Dropdown.SetActive(true);
-            }
 
-            return Dropdown.GetComponent<GuiDropdown>();
+            Dropdown.SetActive(true);
+
+            return Dropdown;
         }
     }
 
