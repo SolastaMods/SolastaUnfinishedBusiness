@@ -82,13 +82,13 @@ internal static class GambitsBuilders
 
         #region Helpers
 
-        var spendDieOnAttackHit = new AddUsablePowerFromCondition(
+        var powerReactionSpendGambitDieOnAttackHit =
             FeatureDefinitionPowerSharedPoolBuilder
                 .Create("PowerReactionSpendGambitDieOnAttackHit")
                 .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
                 .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
-                .AddToDB());
+                .AddToDB();
 
         //power that is used spends gambit die
         var spendDiePower = FeatureDefinitionPowerSharedPoolBuilder
@@ -141,8 +141,6 @@ internal static class GambitsBuilders
             ForcePowerUseInSpendPowerAction.Marker,
             new ModifyEffectDescriptionSavingThrow(reactionPower));
 
-        IOnConditionAddedOrRemoved reaction = new AddUsablePowerFromCondition(reactionPower);
-
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -162,11 +160,11 @@ internal static class GambitsBuilders
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{name}")
                                     .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                    .AddCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                     .SetSilent(Silent.None)
                                     .SetPossessive()
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                    .SetFeatures(GambitDieDamage)
+                                    .SetFeatures(GambitDieDamage, powerReactionSpendGambitDieOnAttackHit, reactionPower)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -208,8 +206,6 @@ internal static class GambitsBuilders
             ForcePowerUseInSpendPowerAction.Marker,
             new ModifyEffectDescriptionSavingThrow(reactionPower));
 
-        reaction = new AddUsablePowerFromCondition(reactionPower);
-
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -229,11 +225,11 @@ internal static class GambitsBuilders
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{name}")
                                     .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                    .AddCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                     .SetSilent(Silent.None)
                                     .SetPossessive()
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                    .SetFeatures(GambitDieDamage)
+                                    .SetFeatures(GambitDieDamage, powerReactionSpendGambitDieOnAttackHit, reactionPower)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -282,8 +278,6 @@ internal static class GambitsBuilders
             ForcePowerUseInSpendPowerAction.Marker,
             new ModifyEffectDescriptionSavingThrow(reactionPower));
 
-        reaction = new AddUsablePowerFromCondition(reactionPower);
-
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -303,11 +297,11 @@ internal static class GambitsBuilders
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{name}")
                                     .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                    .AddCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                     .SetSilent(Silent.None)
                                     .SetPossessive()
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                    .SetFeatures(GambitDieDamage)
+                                    .SetFeatures(GambitDieDamage, powerReactionSpendGambitDieOnAttackHit, reactionPower)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -349,8 +343,6 @@ internal static class GambitsBuilders
             PowerVisibilityModifier.Hidden,
             new ModifyEffectDescriptionSavingThrow(reactionPower));
 
-        reaction = new AddUsablePowerFromCondition(reactionPower);
-
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -370,11 +362,11 @@ internal static class GambitsBuilders
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{name}")
                                     .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                    .AddCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                     .SetSilent(Silent.None)
                                     .SetPossessive()
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                    .SetFeatures(GambitDieDamage)
+                                    .SetFeatures(GambitDieDamage, powerReactionSpendGambitDieOnAttackHit, reactionPower)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -421,8 +413,6 @@ internal static class GambitsBuilders
             PowerVisibilityModifier.Hidden,
             new ModifyEffectDescriptionSavingThrow(reactionPower));
 
-        reaction = new AddUsablePowerFromCondition(reactionPower);
-
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -442,11 +432,11 @@ internal static class GambitsBuilders
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{name}Trigger")
                                     .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                    .AddCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                     .SetSilent(Silent.None)
                                     .SetPossessive()
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                    .SetFeatures(GambitDieDamage)
+                                    .SetFeatures(GambitDieDamage, powerReactionSpendGambitDieOnAttackHit, reactionPower)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -502,8 +492,6 @@ internal static class GambitsBuilders
             ForcePowerUseInSpendPowerAction.Marker,
             new ModifyEffectDescriptionSavingThrow(reactionPower));
 
-        reaction = new AddUsablePowerFromCondition(reactionPower);
-
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -523,11 +511,11 @@ internal static class GambitsBuilders
                                 ConditionDefinitionBuilder
                                     .Create($"Condition{name}")
                                     .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                                    .AddCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                     .SetSilent(Silent.None)
                                     .SetPossessive()
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                                    .SetFeatures(GambitDieDamage)
+                                    .SetFeatures(GambitDieDamage, powerReactionSpendGambitDieOnAttackHit, reactionPower)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())

@@ -1039,7 +1039,7 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
             .AddFeatures(powerStrikeWithTheWind)
-            .AddCustomSubFeatures(new AddUsablePowerFromCondition(powerStrikeWithTheWind))
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
             .AddToDB();
 
