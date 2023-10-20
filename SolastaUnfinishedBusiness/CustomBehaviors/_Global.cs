@@ -10,6 +10,7 @@ internal static class Global
         IsSettingUpMultiplayer
         || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
 
+    // true if on multiplayer setup screen
     internal static bool IsSettingUpMultiplayer { get; set; }
 
     //PATCH: Keeps last level up hero selected
@@ -57,7 +58,4 @@ internal static class Global
     // keep a tab on last rolled dices [Devastating Strike, Fell Handed]
     internal static int LowestAttackRoll { get; set; }
     internal static int HighestAttackRoll { get; set; }
-
-    // keep a tab on last attack status [Booming Blade, Burning Blade, Resonating Strike]
-    internal static bool LastAttackWasCantripWeaponAttackHit { get; set; }
 }

@@ -77,9 +77,6 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
-            // keep a tab on last cantrip weapon attack status
-            Global.LastAttackWasCantripWeaponAttackHit = false;
-
             //PATCH: support `IPreventRemoveConcentrationOnPowerUse`
             if (ActionShouldKeepConcentration(__instance))
             {

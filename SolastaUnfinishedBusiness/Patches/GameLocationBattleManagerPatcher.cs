@@ -14,7 +14,6 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Spells;
 using TA;
 using static RuleDefinitions;
 
@@ -335,11 +334,6 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            // keep a tab on last cantrip weapon attack status
-            Global.LastAttackWasCantripWeaponAttackHit =
-                attackMode is { AttackTags: not null } &&
-                attackMode.AttackTags.Contains(SpellBuilders.CantripWeaponAttack);
-
             //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
             // should also happen outside battles
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
