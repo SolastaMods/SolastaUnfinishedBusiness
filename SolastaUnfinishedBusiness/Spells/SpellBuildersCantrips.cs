@@ -830,13 +830,13 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(additionalDamageResonatingStrike, powerResonatingStrike)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
         var customBehavior =
             new CustomBehaviorResonatingStrike(powerResonatingStrike, conditionResonatingStrike);
 
         powerResonatingStrike.AddCustomSubFeatures(customBehavior);
-        conditionResonatingStrike.AddCustomSubFeatures(customBehavior, new AddUsablePowersFromCondition());
 
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")

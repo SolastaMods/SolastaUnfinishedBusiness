@@ -1,4 +1,11 @@
-﻿1.5.94.28:
+﻿1.5.94.29:
+
+- added additional sample portraits under Portraits [Artyoan]
+- fixed gamepad support on extended load and save menus
+- fixed Stunning Strike not checking if toggle was enabled
+- improved Inexorable Hex and Steel Whirlwind filtering logic
+
+1.5.94.28:
 
 - added initial gamepad support on extended Load / Save menus
 - fixed a bad refactoring that inverted a sign and unleashed hell on game behaviors

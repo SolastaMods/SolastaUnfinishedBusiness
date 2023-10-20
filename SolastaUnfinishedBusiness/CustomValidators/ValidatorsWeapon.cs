@@ -119,7 +119,8 @@ internal static class ValidatorsWeapon
             gameLocationBattleService.Battle.defenderContender != null)
         {
             return gameLocationBattleService.IsWithinXCells(
-                gameLocationBattleService.Battle.attackerContender, gameLocationBattleService.Battle.defenderContender, attackMode.ReachRange);
+                gameLocationBattleService.Battle.attackerContender, gameLocationBattleService.Battle.defenderContender,
+                attackMode.ReachRange);
         }
 
         // fallback should never happen

@@ -80,9 +80,6 @@ public static class CharacterActionPatcher
             // keep a tab on last cantrip weapon attack status
             Global.LastAttackWasCantripWeaponAttackHit = false;
 
-            //PATCH: support for character action tracking
-            Global.CurrentAction = __instance;
-
             //PATCH: support `IPreventRemoveConcentrationOnPowerUse`
             if (ActionShouldKeepConcentration(__instance))
             {
@@ -92,7 +89,7 @@ public static class CharacterActionPatcher
             else
             {
                 __instance.ActingCharacter.UsedSpecialFeatures.Remove(
-                    CharacterActionExtensions.ShouldKeepConcentration); 
+                    CharacterActionExtensions.ShouldKeepConcentration);
             }
 
             switch (__instance)
@@ -113,7 +110,7 @@ public static class CharacterActionPatcher
                     PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                     break;
 
-                // BUGFIX: saving throw not passing correct saving delta on attack actions
+                //BUGFIX: saving throw not passing correct saving delta on attack actions
                 case CharacterActionAttack:
                     Global.CurrentAttackAction = __instance;
                     break;
@@ -165,10 +162,7 @@ public static class CharacterActionPatcher
                 }
             }
 
-            //PATCH: support for character action tracking
-            Global.CurrentAction = null;
-
-            // BUGFIX: saving throw not passing correct saving delta on attack actions
+            //BUGFIX: saving throw not passing correct saving delta on attack actions
             Global.CurrentAttackAction = null;
         }
     }

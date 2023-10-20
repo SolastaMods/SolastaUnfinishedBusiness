@@ -1582,7 +1582,7 @@ internal static class CharacterContext
             .AddToDB();
     }
 
-    internal static bool IsSneakAttackValid(
+    private static bool IsSneakAttackValid(
         ActionModifier attackModifier,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

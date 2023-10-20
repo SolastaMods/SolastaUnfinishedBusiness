@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -364,9 +365,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction, ConditionInterruption.Moved)
-            .AddCustomSubFeatures(
-                new AddUsablePowerFromCondition(powerTeleport),
-                new OnConditionAddedOrRemovedSteelWhirlwind())
+            .SetFeatures(powerTeleport)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -391,6 +391,7 @@ internal static partial class SpellBuilders
                             conditionTeleport, ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(GravitySlam)
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeSteelWhirlwind())
             .AddToDB();
 
         spell.EffectDescription.EffectParticleParameters.impactParticleReference =
@@ -399,85 +400,45 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    // keep a tab of all allowed conditions for filtering
-    // ContextualFormation is only used by the game when spawning new locations
-    // as far as no other feature uses this collection should be safe
-    private sealed class OnConditionAddedOrRemovedSteelWhirlwind : IOnConditionAddedOrRemoved, IFilterTargetingPosition
+    // keep a tab of all allowed positions for filtering using ContextualFormation collection
+    // ContextualFormation is only used by the game when spawning new locations so it's safe in this context
+    private sealed class MagicEffectFinishedByMeSteelWhirlwind : IMagicEffectFinishedByMe
     {
-        public IEnumerator Filter(CursorLocationSelectPosition __instance)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var source = __instance.ActionParams.ActingCharacter;
-            var positions = __instance.validPositionsCache.ToList();
+            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var source = action.ActingCharacter;
 
-            foreach (var position in positions)
-            {
-                if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                {
-                    yield return null;
-                }
+            source.contextualFormation = new List<int3>();
 
-                if (!source.ContextualFormation.Contains(position))
-                {
-                    __instance.validPositionsCache.Remove(position);
-                }
-            }
-        }
-
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            var glc = GameLocationCharacter.GetFromActor(target);
-            var currentAction = Global.CurrentAction;
-
-            if (glc == null || currentAction == null)
-            {
-                return;
-            }
-
-            glc.contextualFormation = new List<int3>();
-
-            foreach (var boxInt in currentAction.ActionParams.TargetCharacters
+            foreach (var boxInt in action.ActionParams.TargetCharacters
                          .Select(targetCharacter => new BoxInt(
                              targetCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1))))
             {
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
-                    glc.ContextualFormation.Add(position);
+                    if (gameLocationPositioningService.CanPlaceCharacter(
+                            source, position, CellHelpers.PlacementMode.Station) &&
+                        gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                            source, position, onlyCheckCellsWithRealGround: true))
+                    {
+                        source.ContextualFormation.Add(position);
+                    }
                 }
             }
-        }
 
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            var glc = GameLocationCharacter.GetFromActor(target);
-
-            if (glc == null)
-            {
-                return;
-            }
-
-            glc.contextualFormation = null;
+            yield break;
         }
     }
 
     private sealed class FilterTargetingPositionSteelWhirlwind : IFilterTargetingPosition
     {
-        public IEnumerator Filter(CursorLocationSelectPosition __instance)
+        public void EnumerateValidPositions(
+            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
         {
-            var source = __instance.ActionParams.ActingCharacter;
-            var positions = __instance.validPositionsCache.ToList();
+            var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
-            foreach (var position in positions)
-            {
-                if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                {
-                    yield return null;
-                }
-
-                if (!source.ContextualFormation.Contains(position))
-                {
-                    __instance.validPositionsCache.Remove(position);
-                }
-            }
+            validPositions.SetRange(source.ContextualFormation);
         }
     }
 

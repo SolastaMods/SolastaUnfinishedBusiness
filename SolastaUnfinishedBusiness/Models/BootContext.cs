@@ -23,10 +23,10 @@ internal static class BootContext
         #region Modify Action Maps
 
         var service = ServiceRepository.GetService<IInputService>();
-        
+
         //copy `GamepadSelector` action from `CharacterEdition` map into `ModalListBrowse` - needed for save by location to be able to scroll through save location selector
         var map = service.InputActionAsset.FindActionMap("ModalListBrowse");
-        var action = map.AddAction("GamepadSelector", InputActionType.Value);
+        var action = map.AddAction("GamepadSelector");
 
         var oldMap = service.InputActionAsset.FindActionMap("CharacterEdition").FindAction("GamepadSelector");
         foreach (var oldMapBinding in oldMap.bindings)

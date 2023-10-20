@@ -1,12 +1,12 @@
 ﻿using System;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class CharacterActionExtensions
 {
+    internal const string ShouldKeepConcentration = "ActionShouldKeepConcentration";
+
     // ReSharper disable once InconsistentNaming
     internal static int GetSaveDC(this CharacterAction action)
     {
@@ -64,8 +64,6 @@ internal static class CharacterActionExtensions
             ? Gui.Localize("Action/&AttackTitle")
             : magicEffect.SourceDefinition.FormatTitle();
     }
-
-    internal const string ShouldKeepConcentration = "ActionShouldKeepConcentration";
 
     internal static bool ShouldKeepConcentrationOnPowerUseOrSpend(RulesetCharacter character)
     {

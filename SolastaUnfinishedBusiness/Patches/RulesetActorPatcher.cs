@@ -575,8 +575,8 @@ public static class RulesetActorPatcher
                 return result;
             }
 
-            Global.FirstAttackRoll = firstRoll;
-            Global.SecondAttackRoll = secondRoll;
+            Global.LowestAttackRoll = Math.Min(firstRoll, secondRoll);
+            Global.HighestAttackRoll = Math.Max(firstRoll, secondRoll);
 
             return result;
         }

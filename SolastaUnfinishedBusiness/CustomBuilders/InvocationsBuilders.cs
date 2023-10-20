@@ -1310,19 +1310,20 @@ internal static class InvocationsBuilders
 
     private sealed class CustomBehaviorInexorableHex : IFilterTargetingPosition, IValidatePowerUse
     {
-        public IEnumerator Filter(CursorLocationSelectPosition __instance)
+        public void EnumerateValidPositions(
+            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
-                yield break;
+                return;
             }
 
-            var source = __instance.ActionParams.ActingCharacter;
-            var positions = new List<int3>();
+            var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
             foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.IsOppositeSide(source.Side)
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
@@ -1334,16 +1335,15 @@ internal static class InvocationsBuilders
 
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
-                    positions.Add(position);
-
-                    if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                    if (gameLocationPositioningService.CanPlaceCharacter(
+                            source, position, CellHelpers.PlacementMode.Station) &&
+                        gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                            source, position, onlyCheckCellsWithRealGround: true))
                     {
-                        yield return null;
+                        validPositions.Add(position);
                     }
                 }
             }
-
-            __instance.validPositionsCache.RemoveAll(x => !positions.Contains(x));
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)

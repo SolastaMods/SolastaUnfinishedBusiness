@@ -458,46 +458,6 @@ internal static class FixesContext
             new PhysicalAttackFinishedByMeStunningStrike());
     }
 
-    private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe
-    {
-        public IEnumerator OnAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
-            int damageAmount)
-        {
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-            var wayOfTheDistantHandLevels = rulesetAttacker.GetSubclassLevel(Monk, "WayOfTheDistantHand");
-
-            if (!ValidatorsWeapon.IsMelee(attackMode) && wayOfTheDistantHandLevels < 11)
-            {
-                yield break;
-            }
-
-            var actionParams = action.ActionParams.Clone();
-            var usablePower =
-                UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
-
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
-                //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
-        }
-    }
-
     private static void FixTwinnedMetamagic()
     {
         //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
@@ -582,5 +542,50 @@ internal static class FixesContext
     private static void FixGrantBardicInspirationForActionSwitchingFeature()
     {
         DatabaseHelper.ActionDefinitions.GrantBardicInspiration.classNameOverride = "UsePower";
+    }
+
+    private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe
+    {
+        public IEnumerator OnAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var wayOfTheDistantHandLevels = rulesetAttacker.GetSubclassLevel(Monk, "WayOfTheDistantHand");
+
+            if (!ValidatorsWeapon.IsMelee(attackMode) && wayOfTheDistantHandLevels < 11)
+            {
+                yield break;
+            }
+
+            var actionParams = action.ActionParams.Clone();
+            var usablePower =
+                UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                //CHECK: no need for AddAsActivePowerToSource
+                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            actionService.ExecuteAction(actionParams, null, true);
+        }
     }
 }
