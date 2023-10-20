@@ -12,7 +12,7 @@ public class CustomDropDown
     public readonly GuiDropdown DropList;
     public readonly GuiGamepadSelector Selector;
 
-    public OnValueChanged OnValueChaged;
+    public OnValueChanged OnValueChangedHandler;
 
     public int Selected { get; private set; }
 
@@ -80,7 +80,7 @@ public class CustomDropDown
 
     private void NotifyValueChange()
     {
-        OnValueChaged?.Invoke(Options[Selected]);
+        OnValueChangedHandler?.Invoke(Options[Selected]);
     }
 
     private void OnDropdownValueChanged(int newValue)

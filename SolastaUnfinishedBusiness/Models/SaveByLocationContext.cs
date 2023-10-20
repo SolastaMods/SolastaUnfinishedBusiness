@@ -348,7 +348,7 @@ internal static class SaveByLocationContext
 
                 Dropdown = new CustomDropDown(CustomDropDown.MakeDropdown("LoadMenuDropDown", root),
                     CustomDropDown.MakeSelector("LoadMenuSelector", root));
-                Dropdown.OnValueChaged += ValueChanged;
+                Dropdown.OnValueChangedHandler += ValueChanged;
 
                 var rect = Dropdown.DropList.GetComponent<RectTransform>();
                 rect.anchoredPosition = new Vector2(72f, 230f);
