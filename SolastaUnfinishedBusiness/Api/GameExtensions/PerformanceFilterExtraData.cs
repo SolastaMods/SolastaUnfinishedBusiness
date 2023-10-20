@@ -103,12 +103,12 @@ internal class PerformanceFilterExtraData
         switch (type)
         {
             case ActionDefinitions.ActionType.Main:
-                Main.Info(
+                Main.Log(
                     $"StoreAttacks [{character.Name}] type: {type} number: {number ?? character.UsedMainAttacks} {ToString()}");
                 character.UsedSpecialFeatures[Key(MainAttacks)] = number ?? character.UsedMainAttacks;
                 break;
             case ActionDefinitions.ActionType.Bonus:
-                Main.Info(
+                Main.Log(
                     $"StoreAttacks [{character.Name}] type: {type} number: {number ?? character.UsedBonusAttacks} {ToString()}");
                 character.UsedSpecialFeatures[Key(BonusAttacks)] = number ?? character.UsedBonusAttacks;
                 break;
@@ -126,14 +126,14 @@ internal class PerformanceFilterExtraData
                 character.UsedMainAttacks = character.UsedSpecialFeatures.TryGetValue(Key(MainAttacks), out number)
                     ? number
                     : 0;
-                Main.Info(
+                Main.Log(
                     $"LoadAttacks [{character.Name}] type: {type} number: {character.UsedMainAttacks} {ToString()}");
                 break;
             case ActionDefinitions.ActionType.Bonus:
                 character.UsedBonusAttacks = character.UsedSpecialFeatures.TryGetValue(Key(BonusAttacks), out number)
                     ? number
                     : 0;
-                Main.Info(
+                Main.Log(
                     $"LoadAttacks [{character.Name}] type: {type} number: {character.UsedBonusAttacks} {ToString()}");
                 break;
         }
@@ -150,7 +150,7 @@ internal class PerformanceFilterExtraData
         character.UsedSpecialFeatures[key] = (character.UsedMainSpell ? MainSpell : 0)
                                              + (character.UsedMainCantrip ? MainCantrip : 0)
                                              + (character.UsedBonusSpell ? BonusSpell : 0);
-        Main.Info(
+        Main.Log(
             $"StoreSpellcasting [{character.Name}] type: {type} '{key}' flags: {character.UsedSpecialFeatures[key]} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
     }
 
@@ -171,7 +171,7 @@ internal class PerformanceFilterExtraData
         character.usedMainCantrip = (flags & MainCantrip) > 0;
         character.usedBonusSpell = (flags & BonusSpell) > 0;
 
-        Main.Info(
+        Main.Log(
             $"LoadSpellcasting [{character.Name}] type: {type} '{key}' flags: {flags} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
     }
 
