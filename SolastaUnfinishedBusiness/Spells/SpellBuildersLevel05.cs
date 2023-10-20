@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -405,9 +406,10 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var attacker = action.ActingCharacter;
+            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var source = action.ActingCharacter;
 
-            attacker.contextualFormation = new List<int3>();
+            source.contextualFormation = new List<int3>();
 
             foreach (var boxInt in action.ActionParams.TargetCharacters
                          .Select(targetCharacter => new BoxInt(
@@ -415,7 +417,13 @@ internal static partial class SpellBuilders
             {
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
-                    attacker.ContextualFormation.Add(position);
+                    if (gameLocationPositioningService.CanPlaceCharacter(
+                            source, position, CellHelpers.PlacementMode.Station) &&
+                        gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                            source, position, onlyCheckCellsWithRealGround: true))
+                    {
+                        source.ContextualFormation.Add(position);
+                    }
                 }
             }
 
@@ -425,23 +433,12 @@ internal static partial class SpellBuilders
 
     private sealed class FilterTargetingPositionSteelWhirlwind : IFilterTargetingPosition
     {
-        public IEnumerator Filter(CursorLocationSelectPosition __instance)
+        public void EnumerateValidPositions(
+            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
         {
-            var source = __instance.ActionParams.ActingCharacter;
-            var positions = __instance.validPositionsCache.ToList();
+            var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
-            foreach (var position in positions)
-            {
-                if (__instance.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                {
-                    yield return null;
-                }
-
-                if (!source.ContextualFormation.Contains(position))
-                {
-                    __instance.validPositionsCache.Remove(position);
-                }
-            }
+            validPositions.SetRange(source.ContextualFormation);
         }
     }
 
