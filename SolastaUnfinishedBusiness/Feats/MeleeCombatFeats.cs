@@ -1252,17 +1252,19 @@ internal static class MeleeCombatFeats
 
             if (advantageType == AdvantageType.Advantage)
             {
+                attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
+
                 var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-                var lowestRoll = Global.LowestAttackRoll;
-                var lowOutcome = GameLocationBattleManagerTweaks.GetAttackResult(lowestRoll, modifier, rulesetDefender);
+                var lowOutcome = GameLocationBattleManagerTweaks.GetAttackResult(
+                    lowestAttackRoll, modifier, rulesetDefender);
 
                 Gui.Game.GameConsole.AttackRolled(
                     rulesetAttacker,
                     rulesetDefender,
                     attackMode.SourceDefinition,
                     lowOutcome,
-                    lowestRoll + modifier,
-                    lowestRoll,
+                    lowestAttackRoll + modifier,
+                    lowestAttackRoll,
                     modifier,
                     attackModifier.AttacktoHitTrends,
                     new List<TrendInfo>());
@@ -1416,18 +1418,18 @@ internal static class MeleeCombatFeats
             switch (advantageType)
             {
                 case AdvantageType.Advantage when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
-                    var lowestRoll = Global.LowestAttackRoll;
+                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
 
                     var lowOutcome =
-                        GameLocationBattleManagerTweaks.GetAttackResult(lowestRoll, modifier, rulesetDefender);
+                        GameLocationBattleManagerTweaks.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
 
                     Gui.Game.GameConsole.AttackRolled(
                         rulesetAttacker,
                         rulesetDefender,
                         _power,
                         lowOutcome,
-                        lowestRoll + modifier,
-                        lowestRoll,
+                        lowestAttackRoll + modifier,
+                        lowestAttackRoll,
                         modifier,
                         attackModifier.AttacktoHitTrends,
                         new List<TrendInfo>());
@@ -1451,7 +1453,7 @@ internal static class MeleeCombatFeats
 
                     break;
                 case AdvantageType.Disadvantage when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
-                    var highestRoll = Global.HighestAttackRoll;
+                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var highestAttackRoll);
 
                     var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
@@ -1462,7 +1464,7 @@ internal static class MeleeCombatFeats
                     }
 
                     var higherOutcome =
-                        GameLocationBattleManagerTweaks.GetAttackResult(highestRoll, modifier, rulesetDefender);
+                        GameLocationBattleManagerTweaks.GetAttackResult(highestAttackRoll, modifier, rulesetDefender);
 
                     if (higherOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
                     {

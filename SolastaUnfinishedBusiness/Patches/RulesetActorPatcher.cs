@@ -575,8 +575,25 @@ public static class RulesetActorPatcher
                 return result;
             }
 
-            Global.LowestAttackRoll = Math.Min(firstRoll, secondRoll);
-            Global.HighestAttackRoll = Math.Max(firstRoll, secondRoll);
+            var glc = GameLocationCharacter.GetFromActor(actor);
+
+            if (glc == null)
+            {
+                return result;
+            }
+
+            var lowestAttackRoll = Math.Min(firstRoll, secondRoll);
+            var highestAttackRoll = Math.Max(firstRoll, secondRoll);
+
+            if (!glc.UsedSpecialFeatures.TryAdd("LowestAttackRoll", lowestAttackRoll))
+            {
+                glc.UsedSpecialFeatures["LowestAttackRoll"] = lowestAttackRoll;
+            }
+
+            if (!glc.UsedSpecialFeatures.TryAdd("HighestAttackRoll", highestAttackRoll))
+            {
+                glc.UsedSpecialFeatures["HighestAttackRoll"] = highestAttackRoll;
+            }
 
             return result;
         }
