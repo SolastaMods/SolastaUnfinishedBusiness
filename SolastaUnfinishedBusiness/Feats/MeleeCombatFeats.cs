@@ -804,11 +804,10 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
+                IgnoreInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerCleavingAttack);
 
         var powerTurnOffCleavingAttack = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TurnOff")
@@ -825,9 +824,8 @@ internal static class MeleeCombatFeats
                             .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerTurnOffCleavingAttack);
 
         var featCleavingAttack = FeatDefinitionBuilder
             .Create(Name)
@@ -1610,10 +1608,9 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
+                IgnoreInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerAttack);
 
         var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TurnOff")
@@ -1630,9 +1627,8 @@ internal static class MeleeCombatFeats
                             .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);
 
         var featPowerAttack = FeatDefinitionBuilder
             .Create(Name)

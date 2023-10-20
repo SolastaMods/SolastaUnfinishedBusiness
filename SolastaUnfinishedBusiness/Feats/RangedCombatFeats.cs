@@ -132,10 +132,9 @@ internal static class RangedCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
+                IgnoreInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerDeadeye);
 
         var powerTurnOffDeadeye = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TurnOff")
@@ -152,9 +151,8 @@ internal static class RangedCombatFeats
                             .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerTurnOffDeadeye);
 
         var featDeadeye = FeatDefinitionBuilder
             .Create(Name)

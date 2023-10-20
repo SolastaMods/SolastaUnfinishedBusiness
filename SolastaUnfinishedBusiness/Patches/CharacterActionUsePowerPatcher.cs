@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -26,7 +27,7 @@ public static class CharacterActionUsePowerPatcher
                 return false;
             }
 
-            return !Global.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
+            return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInterruptionCheck>();
         }
     }
 
@@ -46,7 +47,7 @@ public static class CharacterActionUsePowerPatcher
                 return false;
             }
 
-            return !Global.PowersThatIgnoreInterruptions.Contains(__instance.activePower.PowerDefinition);
+            return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInterruptionCheck>();
         }
     }
 

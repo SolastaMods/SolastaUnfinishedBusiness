@@ -130,6 +130,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                             .SetConditionForm(conditionBulwark, ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
             .AddToDB();
 
         var powerBulwarkTurnOff = FeatureDefinitionPowerBuilder
@@ -147,6 +148,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                             .SetConditionForm(conditionBulwark, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
             .AddToDB();
 
         movementAffinityBulwark.AddCustomSubFeatures(new StopPowerConcentrationProvider(
@@ -156,9 +158,6 @@ public sealed class PathOfTheYeoman : AbstractSubclass
         {
             StopPower = powerBulwarkTurnOff
         });
-
-        Global.PowersThatIgnoreInterruptions.Add(powerBulwark);
-        Global.PowersThatIgnoreInterruptions.Add(powerBulwarkTurnOff);
 
         // LEVEL 14
 
