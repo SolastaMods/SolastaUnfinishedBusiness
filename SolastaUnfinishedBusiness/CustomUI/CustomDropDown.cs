@@ -72,21 +72,15 @@ public class CustomDropDown
 
     public void SetSelected(int newValue)
     {
-        DoSelect(newValue);
+        Selected = newValue;
+        DropList.SetValueWithoutNotify(newValue);
+        Selector.currentSelection = newValue;
         NotifyValueChange();
     }
 
     private void NotifyValueChange()
     {
         OnValueChaged?.Invoke(Options[Selected]);
-    }
-
-    private void DoSelect(int newValue)
-    {
-        Selected = newValue;
-        DropList.SetValueWithoutNotify(newValue);
-        Selector.currentSelection = newValue;
-        NotifyValueChange();
     }
 
     private void OnDropdownValueChanged(int newValue)
