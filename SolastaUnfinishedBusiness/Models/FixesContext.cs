@@ -474,6 +474,11 @@ internal static class FixesContext
                 yield break;
             }
 
+            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
             var wayOfTheDistantHandLevels = rulesetAttacker.GetSubclassLevel(Monk, "WayOfTheDistantHand");
 
