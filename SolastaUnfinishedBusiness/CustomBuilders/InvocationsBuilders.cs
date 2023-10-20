@@ -1340,7 +1340,7 @@ internal static class InvocationsBuilders
                         gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
                             source, position, onlyCheckCellsWithRealGround: true))
                     {
-                        source.ContextualFormation.Add(position);
+                        validPositions.Add(position);
                     }
                 }
             }
