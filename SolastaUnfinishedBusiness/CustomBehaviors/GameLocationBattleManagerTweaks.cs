@@ -15,8 +15,10 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal static class GameLocationBattleManagerTweaks
 {
     // ReSharper disable once InconsistentNaming
-    private static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
+    private static int ComputeSavingThrowDC(GameLocationCharacter glc, IAdditionalDamageProvider provider)
     {
+        var character = glc.RulesetCharacter;
+
         // ReSharper disable once ConvertSwitchStatementToSwitchExpression
         switch (provider.DcComputation)
         {
@@ -26,13 +28,24 @@ internal static class GameLocationBattleManagerTweaks
             case RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature:
             {
                 //BUGFIX: original game code considers first repertoire
-                return character.SpellRepertoires
+                var usedRepertoire = glc.GetUsedSpellRepertoire();
+
+                return usedRepertoire?.SaveDC ?? character.SpellRepertoires
                     .Select(x => x.SaveDC)
                     .Max();
             }
             case RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency:
             {
                 //BUGFIX: original game code considers first repertoire
+                var usedRepertoire = glc.GetUsedSpellRepertoire();
+
+                if (usedRepertoire != null)
+                {
+                    return RuleDefinitions.ComputeAbilityScoreBasedDC(
+                        character.TryGetAttributeValue(usedRepertoire.SpellCastingFeature.SpellcastingAbility),
+                        character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus));
+                }
+
                 return character.SpellRepertoires
                     .Select(x => RuleDefinitions.ComputeAbilityScoreBasedDC(
                         character.TryGetAttributeValue(x.SpellCastingFeature.SpellcastingAbility),
@@ -633,7 +646,7 @@ internal static class GameLocationBattleManagerTweaks
                     // var rulesetImplementationService =
                     //     ServiceRepository.GetService<IRulesetImplementationService>();
                     // ReSharper disable once InconsistentNaming
-                    var saveDC = ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
+                    var saveDC = ComputeSavingThrowDC(attacker, provider);
                     newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
                         saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
                 }
@@ -693,7 +706,7 @@ internal static class GameLocationBattleManagerTweaks
                     // var rulesetImplementationService =
                     //     ServiceRepository.GetService<IRulesetImplementationService>();
                     // ReSharper disable once InconsistentNaming
-                    var saveDC = ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
+                    var saveDC = ComputeSavingThrowDC(attacker, provider);
                     newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
                         saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
                 }

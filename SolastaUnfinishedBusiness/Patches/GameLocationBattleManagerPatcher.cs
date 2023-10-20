@@ -1168,6 +1168,9 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            // store the index of the used repertoire
+            caster.SetUsedSpellRepertoire(selectedRepertoire);
+
             // This also allows utilities out of battle
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var allyCharacters = gameLocationCharacterService.PartyCharacters.Select(x => x.RulesetCharacter);

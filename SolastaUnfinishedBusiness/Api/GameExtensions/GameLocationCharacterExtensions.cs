@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -330,5 +332,34 @@ public static class GameLocationCharacterExtensions
         }
 
         return false;
+    }
+
+    const string RepertoireKey = nameof(RulesetSpellRepertoire);
+
+    internal static void SetUsedSpellRepertoire(this GameLocationCharacter caster, RulesetSpellRepertoire repertoire)
+    {
+        if (repertoire == null)
+        {
+            return;
+        }
+
+        var selectedRepertoireIndex = caster.RulesetCharacter.SpellRepertoires.IndexOf(repertoire);
+
+        if (!caster.UsedSpecialFeatures.TryAdd(RepertoireKey, selectedRepertoireIndex))
+        {
+            caster.UsedSpecialFeatures[RepertoireKey] = selectedRepertoireIndex;
+        }
+    }
+
+    [CanBeNull]
+    internal static RulesetSpellRepertoire GetUsedSpellRepertoire(this GameLocationCharacter caster)
+    {
+        if (!caster.UsedSpecialFeatures.TryGetValue(RepertoireKey, out var selectedRepertoireIndex)
+            || selectedRepertoireIndex > caster.RulesetCharacter.SpellRepertoires.Count)
+        {
+            return null;
+        }
+
+        return caster.RulesetCharacter.SpellRepertoires[selectedRepertoireIndex];
     }
 }
