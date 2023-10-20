@@ -191,7 +191,7 @@ public static class ActionSwitching
 
     internal static void PrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type, int index)
     {
-        Main.Info($"PrioritizeAction [{character.Name}] {type}");
+        Main.Log($"PrioritizeAction [{character.Name}] {type}");
         var service = ServiceRepository.GetService<IGameLocationActionService>();
         var actionParams = new CharacterActionParams
         {
@@ -206,7 +206,7 @@ public static class ActionSwitching
     internal static void DoPrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type,
         int index)
     {
-        Main.Info($"DoPrioritizeAction [{character.Name}] {type}");
+        Main.Log($"DoPrioritizeAction [{character.Name}] {type}");
         var rank = character.CurrentActionRankByType[type];
         if (index <= rank)
         {
@@ -282,13 +282,13 @@ public static class ActionSwitching
 
         if (rank == wasRank)
         {
-            Main.Info($"CheckIfActionSwitched [{character.Name}] {type} rank: {rank} - NO CHANGE");
+            Main.Log($"CheckIfActionSwitched [{character.Name}] {type} rank: {rank} - NO CHANGE");
             newData?.StoreAttacks(character, type);
             newData?.StoreSpellcasting(character, type);
             return false;
         }
 
-        Main.Info($"CheckIfActionSwitched [{character.Name}] {type} was: {wasRank} new: {rank}");
+        Main.Log($"CheckIfActionSwitched [{character.Name}] {type} was: {wasRank} new: {rank}");
 
         if (wasRank >= filters.Count)
         {
@@ -394,7 +394,7 @@ public static class ActionSwitching
         var filters = character.ActionPerformancesByType[type];
         var filtersCount = filters.Count;
 
-        Main.Info(
+        Main.Log(
             $"ResortPerformancesOfType [{character.Name}] {type} filters: {filtersCount} features: [{string.Join(", ", features.Select(x => $"<{x.feature.Name}|{x.origin}>"))}]");
 
         for (var i = 0; i < filtersCount; i++)
@@ -413,7 +413,7 @@ public static class ActionSwitching
         var rank = character.CurrentActionRankByType[type];
         var list = LoadIndexes(character.UsedSpecialFeatures, type, filtersCount);
 
-        Main.Info($"ResortPerformancesOfType [{character.Name}] {type} : [{string.Join(", ", list)}] rank: {rank}");
+        Main.Log($"ResortPerformancesOfType [{character.Name}] {type} : [{string.Join(", ", list)}] rank: {rank}");
 
         var sorted = list.Select(k => filters[k]).ToList();
 
@@ -437,7 +437,7 @@ public static class ActionSwitching
 
         if (locCharacter == null)
         {
-            Main.Info($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO LOC CHAR");
+            Main.Log($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO LOC CHAR");
             return;
         }
 
@@ -447,7 +447,7 @@ public static class ActionSwitching
 
         if (conditionFeatures.Empty())
         {
-            Main.Info($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO ACTIONS");
+            Main.Log($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO ACTIONS");
             return;
         }
 
@@ -455,7 +455,7 @@ public static class ActionSwitching
 
         if (features == null)
         {
-            Main.Info($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO FEATURES");
+            Main.Log($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO FEATURES");
             return;
         }
 
@@ -474,8 +474,8 @@ public static class ActionSwitching
             var max = filters.Count;
             var list = LoadIndexes(locCharacter.UsedSpecialFeatures, type, max);
 
-            Main.Info($"AccountRemovedCondition [{character.Name}] '{conditionFeature.Name}' from '{origin}'");
-            Main.Info($"AccountRemovedCondition [{character.Name}] WAS: [{string.Join(", ", list)}]");
+            Main.Log($"AccountRemovedCondition [{character.Name}] '{conditionFeature.Name}' from '{origin}'");
+            Main.Log($"AccountRemovedCondition [{character.Name}] WAS: [{string.Join(", ", list)}]");
 
             var k = -1;
 
@@ -499,7 +499,7 @@ public static class ActionSwitching
 
             var rank = locCharacter.CurrentActionRankByType[type];
 
-            Main.Info($"AccountRemovedCondition [{character.Name}] remove at: {k} rank was: {rank}");
+            Main.Log($"AccountRemovedCondition [{character.Name}] remove at: {k} rank was: {rank}");
 
             if (rank > k)
             {
@@ -518,7 +518,7 @@ public static class ActionSwitching
                 }
             }
 
-            Main.Info($"AccountRemovedCondition [{character.Name}] BECAME: [{string.Join(", ", list)}]");
+            Main.Log($"AccountRemovedCondition [{character.Name}] BECAME: [{string.Join(", ", list)}]");
 
             SaveIndexes(locCharacter.UsedSpecialFeatures, type, list);
         }
@@ -551,7 +551,7 @@ public static class ActionSwitching
             return;
         }
 
-        Main.Info($"SpendActionType [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
+        Main.Log($"SpendActionType [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
         data.StoreAttacks(character, type);
         data.StoreSpellcasting(character, type);
@@ -593,12 +593,12 @@ public static class ActionSwitching
 
         var filters = character.actionPerformancesByType[type];
 
-        Main.Info($"RefundActionUse [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
+        Main.Log($"RefundActionUse [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
         //PATCH: fixed action switching interaction with actions that offer further selections in a modal and get cancelled by player
         if (filters.Count <= rank)
         {
-            Main.Info($"RefundActionUse ABORTED [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
+            Main.Log($"RefundActionUse ABORTED [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
             return;
         }
