@@ -245,15 +245,15 @@ internal static class SaveByLocationContext
         // add them together - each block sorted - can we have separators?
         var userContentList =
             AllUserCampaigns
-                .Select(l => new {LocationType = LocationType.CustomCampaign, l.Title})
+                .Select(l => new { LocationType = LocationType.CustomCampaign, l.Title })
                 .OrderBy(l => l.Title)
                 .Concat(AllUserLocations
-                    .Select(l => new {LocationType = LocationType.UserLocation, l.Title})
+                    .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
                     .OrderBy(l => l.Title))
                 .ToList();
 
         guiDropdown.AddOptions(
-            Enumerable.Repeat(new {LocationType = LocationType.Default, Title = "Default"}, 1)
+            Enumerable.Repeat(new { LocationType = LocationType.Default, Title = "Default" }, 1)
                 .Union(officialCampaigns)
                 .Union(userContentList)
                 .Select(opt => new
@@ -280,7 +280,7 @@ internal static class SaveByLocationContext
 
         var option = guiDropdown.Options
             .Cast<LocationOptionData>()
-            .Select((o, i) => new {o.CampaignOrLocation, o.LocationType, Index = i})
+            .Select((o, i) => new { o.CampaignOrLocation, o.LocationType, Index = i })
             .Where(opt => opt.LocationType == selectedCampaign.LocationType)
             .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
@@ -363,8 +363,8 @@ internal static class SaveByLocationContext
                 rect.anchoredPosition = new Vector2(175f, 250f);
                 rect.sizeDelta = new Vector2(350, 50f);
 
-                var hlayout = Dropdown.Selector.GetComponent<HorizontalLayoutGroup>();
-                hlayout.childControlWidth = false;
+                var hLayout = Dropdown.Selector.GetComponent<HorizontalLayoutGroup>();
+                hLayout.childControlWidth = false;
 
                 var selectorTransform = Dropdown.Selector.transform;
 

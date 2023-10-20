@@ -334,7 +334,7 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    const string RepertoireKey = nameof(RulesetSpellRepertoire);
+    private const string RepertoireKey = nameof(RulesetSpellRepertoire);
 
     internal static void SetUsedSpellRepertoire(this GameLocationCharacter caster, RulesetSpellRepertoire repertoire)
     {

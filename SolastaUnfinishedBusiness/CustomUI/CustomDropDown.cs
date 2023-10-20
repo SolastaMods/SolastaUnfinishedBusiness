@@ -10,20 +10,17 @@ public class CustomDropDown
     public delegate void OnValueChanged(TMP_Dropdown.OptionData selected);
 
     public readonly GuiDropdown DropList;
+    public readonly List<TMP_Dropdown.OptionData> Options = new();
     public readonly GuiGamepadSelector Selector;
+
+    private bool _active = true;
 
     public OnValueChanged OnValueChangedHandler;
 
-    public int Selected { get; private set; }
-
-    private bool active = true;
-
-    public readonly List<TMP_Dropdown.OptionData> Options = new();
-
     public CustomDropDown(GuiDropdown dropList, GuiGamepadSelector selector)
     {
-        this.DropList = dropList;
-        this.Selector = selector;
+        DropList = dropList;
+        Selector = selector;
 
         ClearOptions();
 
@@ -31,9 +28,11 @@ public class CustomDropDown
         selector.SelectionChanged += OnSelectorSelectionChanged;
     }
 
+    public int Selected { get; private set; }
+
     public void SetActive(bool value)
     {
-        active = value;
+        _active = value;
         UpdateControls();
     }
 
@@ -41,8 +40,8 @@ public class CustomDropDown
     {
         var gamepadActive = Gui.GamepadActive;
 
-        DropList.gameObject.SetActive(active && !gamepadActive);
-        Selector.gameObject.SetActive(active && gamepadActive);
+        DropList.gameObject.SetActive(_active && !gamepadActive);
+        Selector.gameObject.SetActive(_active && gamepadActive);
 
         if (gamepadActive)
         {

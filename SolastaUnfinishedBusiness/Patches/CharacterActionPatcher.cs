@@ -89,7 +89,7 @@ public static class CharacterActionPatcher
             else
             {
                 __instance.ActingCharacter.UsedSpecialFeatures.Remove(
-                    CharacterActionExtensions.ShouldKeepConcentration); 
+                    CharacterActionExtensions.ShouldKeepConcentration);
             }
 
             switch (__instance)

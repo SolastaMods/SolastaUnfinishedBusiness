@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -11,7 +12,7 @@ public static class GuiGamepadSelectorPatcher
     //Is it better to use marker component instead of modifying name?
     private const string GlobalMarker = "|@Global";
 
-    private static bool IsGlobal(this GuiGamepadSelector selector)
+    private static bool IsGlobal(this Object selector)
     {
         return selector.name.Contains(GlobalMarker);
     }

@@ -1323,7 +1323,7 @@ internal static class InvocationsBuilders
 
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
             foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.IsOppositeSide(source.Side)
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }

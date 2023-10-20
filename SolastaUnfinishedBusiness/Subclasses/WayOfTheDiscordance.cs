@@ -196,7 +196,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
         powerDiscordance.AddCustomSubFeatures(new CustomBehaviorDiscordance(
             powerDiscordance, conditionDiscordance, conditionHadDiscordanceDamageThisTurn,
-            powerTurmoil, conditionTurmoil, conditionHadTurmoil));
+            powerTurmoil, conditionHadTurmoil));
 
         // LEVEL 11
 
@@ -343,7 +343,6 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     {
         private readonly ConditionDefinition _conditionDiscordance;
         private readonly ConditionDefinition _conditionHadDiscordanceDamageThisTurn;
-        private readonly ConditionDefinition _conditionTurmoil;
         private readonly ConditionDefinition _conditionHadTurmoil;
         private readonly FeatureDefinitionPower _powerDiscordance;
         private readonly FeatureDefinitionPower _powerTurmoil;
@@ -353,14 +352,12 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             ConditionDefinition conditionDiscordance,
             ConditionDefinition conditionHadDiscordanceDamageThisTurn,
             FeatureDefinitionPower powerTurmoil,
-            ConditionDefinition conditionTurmoil,
             ConditionDefinition conditionHadTurmoil)
         {
             _powerDiscordance = powerDiscordance;
             _conditionDiscordance = conditionDiscordance;
             _conditionHadDiscordanceDamageThisTurn = conditionHadDiscordanceDamageThisTurn;
             _powerTurmoil = powerTurmoil;
-            _conditionTurmoil = conditionTurmoil;
             _conditionHadTurmoil = conditionHadTurmoil;
         }
 

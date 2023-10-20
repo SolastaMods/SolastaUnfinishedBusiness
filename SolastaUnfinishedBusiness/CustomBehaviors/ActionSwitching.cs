@@ -191,6 +191,7 @@ public static class ActionSwitching
 
     internal static void PrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type, int index)
     {
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"PrioritizeAction [{character.Name}] {type}");
         var service = ServiceRepository.GetService<IGameLocationActionService>();
         var actionParams = new CharacterActionParams
@@ -206,6 +207,7 @@ public static class ActionSwitching
     internal static void DoPrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type,
         int index)
     {
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"DoPrioritizeAction [{character.Name}] {type}");
         var rank = character.CurrentActionRankByType[type];
         if (index <= rank)
@@ -282,12 +284,14 @@ public static class ActionSwitching
 
         if (rank == wasRank)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"CheckIfActionSwitched [{character.Name}] {type} rank: {rank} - NO CHANGE");
             newData?.StoreAttacks(character, type);
             newData?.StoreSpellcasting(character, type);
             return false;
         }
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"CheckIfActionSwitched [{character.Name}] {type} was: {wasRank} new: {rank}");
 
         if (wasRank >= filters.Count)
@@ -394,6 +398,7 @@ public static class ActionSwitching
         var filters = character.ActionPerformancesByType[type];
         var filtersCount = filters.Count;
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log(
             $"ResortPerformancesOfType [{character.Name}] {type} filters: {filtersCount} features: [{string.Join(", ", features.Select(x => $"<{x.feature.Name}|{x.origin}>"))}]");
 
@@ -413,6 +418,7 @@ public static class ActionSwitching
         var rank = character.CurrentActionRankByType[type];
         var list = LoadIndexes(character.UsedSpecialFeatures, type, filtersCount);
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"ResortPerformancesOfType [{character.Name}] {type} : [{string.Join(", ", list)}] rank: {rank}");
 
         var sorted = list.Select(k => filters[k]).ToList();
@@ -437,6 +443,7 @@ public static class ActionSwitching
 
         if (locCharacter == null)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO LOC CHAR");
             return;
         }
@@ -447,6 +454,7 @@ public static class ActionSwitching
 
         if (conditionFeatures.Empty())
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO ACTIONS");
             return;
         }
@@ -455,6 +463,7 @@ public static class ActionSwitching
 
         if (features == null)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO FEATURES");
             return;
         }
@@ -474,7 +483,9 @@ public static class ActionSwitching
             var max = filters.Count;
             var list = LoadIndexes(locCharacter.UsedSpecialFeatures, type, max);
 
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"AccountRemovedCondition [{character.Name}] '{conditionFeature.Name}' from '{origin}'");
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"AccountRemovedCondition [{character.Name}] WAS: [{string.Join(", ", list)}]");
 
             var k = -1;
@@ -499,6 +510,7 @@ public static class ActionSwitching
 
             var rank = locCharacter.CurrentActionRankByType[type];
 
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"AccountRemovedCondition [{character.Name}] remove at: {k} rank was: {rank}");
 
             if (rank > k)
@@ -518,6 +530,7 @@ public static class ActionSwitching
                 }
             }
 
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"AccountRemovedCondition [{character.Name}] BECAME: [{string.Join(", ", list)}]");
 
             SaveIndexes(locCharacter.UsedSpecialFeatures, type, list);
@@ -551,6 +564,7 @@ public static class ActionSwitching
             return;
         }
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"SpendActionType [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
         data.StoreAttacks(character, type);
@@ -593,11 +607,13 @@ public static class ActionSwitching
 
         var filters = character.actionPerformancesByType[type];
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"RefundActionUse [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
         //PATCH: fixed action switching interaction with actions that offer further selections in a modal and get cancelled by player
         if (filters.Count <= rank)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"RefundActionUse ABORTED [{character.Name}] {type} rank: {rank}, filters: {filters.Count}");
 
             return;
