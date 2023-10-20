@@ -1,6 +1,13 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -13,11 +20,17 @@ public static class LoadPanelPatcher
     [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+
+        private static bool NeedsCustomLogic(LoadPanel panel)
+        {
+            return Main.Settings.EnableSaveByLocation && !panel.ImportSaveMode;
+        }
+
         [UsedImplicitly]
         public static void Prefix([NotNull] LoadPanel __instance)
         {
             //PATCH: EnableSaveByLocation
-            if (Main.Settings.EnableSaveByLocation && !__instance.ImportSaveMode)
+            if (NeedsCustomLogic(__instance))
             {
                 LoadPanelOnBeginShowSaveByLocationBehavior(__instance);
             }
@@ -34,6 +47,29 @@ public static class LoadPanelPatcher
             // {
             //     __instance.CampaignForImportSaveMode.maxLevelImport = Level20Context.ModMaxLevel;
             // }
+        }
+        
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: EnableSaveByLocation - do not enumerate saves if custom logic applies
+            var oldMethod = typeof(LoadPanel).GetMethod(nameof(LoadPanel.EnumerateSaveLines));
+            var newMethod = new Func<LoadPanel, IEnumerator>(CustomEnumerate).Method;
+
+            return instructions.ReplaceCalls(oldMethod, "LoadPanel.OnBeginShow",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, newMethod));
+        }
+
+        private static IEnumerator CustomEnumerate(LoadPanel panel)
+        {
+            if (NeedsCustomLogic(panel))
+            {
+                yield break;
+            }
+
+            yield return panel.EnumerateSaveLines();
         }
     }
 
