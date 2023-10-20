@@ -627,7 +627,8 @@ internal static class EldritchVersatility
             // We just remove the power from power used by me list.
             public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
             {
-                Main.Info("Condition Versatility interrupted");
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log("Condition Versatility interrupted");
 
                 if (target.CurrentHitPoints <= 0)
                 {
