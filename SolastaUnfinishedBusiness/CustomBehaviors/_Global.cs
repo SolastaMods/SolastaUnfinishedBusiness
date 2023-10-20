@@ -47,14 +47,11 @@ internal static class Global
         ?? LevelUpHero
         ?? ControlledLocationCharacter?.RulesetCharacter;
 
-    // VANILLA BUGFIX: saving throw not passing correct saving delta on attack actions
+    //BUGFIX: saving throw not passing correct saving delta on attack actions
     internal static CharacterAction CurrentAttackAction { get; set; }
 
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
-
-    // keep a tab on current action [Steel Whirlwind]
-    internal static CharacterAction CurrentAction { get; set; }
 
     // keep a tab on last rolled dices [Devastating strike, Fell handed]
     internal static int FirstAttackRoll { get; set; }
