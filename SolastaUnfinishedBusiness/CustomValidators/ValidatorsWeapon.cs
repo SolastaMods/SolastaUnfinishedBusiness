@@ -103,6 +103,11 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee([CanBeNull] RulesetAttackMode attackMode)
     {
+        if (attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } })
+        {
+            return true;
+        }
+
         if (attackMode == null
             || attackMode.Ranged
             || attackMode.SourceDefinition is not ItemDefinition itemDefinition
