@@ -222,6 +222,10 @@
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/PhotonRealtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Cinemachine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
 
   <Target Name="ZipTranslations" BeforeTargets="Build;Clean">
