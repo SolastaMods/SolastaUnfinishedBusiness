@@ -790,7 +790,7 @@ internal static class Level20Context
 
     private sealed class PhysicalAttackInitiatedOnMeRogueElusive : IPhysicalAttackInitiatedOnMe
     {
-        public IEnumerator OnAttackInitiatedOnMe(
+        public IEnumerator OnPhysicalAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

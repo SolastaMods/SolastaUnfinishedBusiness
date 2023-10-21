@@ -435,7 +435,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         }
 
         // add extra movement on any attack
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

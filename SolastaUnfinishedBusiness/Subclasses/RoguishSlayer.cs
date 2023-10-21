@@ -260,7 +260,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -503,7 +503,7 @@ public sealed class RoguishSlayer : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedByMeFatalStrike : IPhysicalAttackInitiatedByMe
     {
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

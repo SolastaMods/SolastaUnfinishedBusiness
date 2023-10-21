@@ -465,7 +465,7 @@ internal static class MeleeCombatFeats
             _featHammerThePoint = featHammerThePoint;
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -729,7 +729,7 @@ internal static class MeleeCombatFeats
             _weaponTypeDefinition = weaponTypeDefinition;
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1012,7 +1012,7 @@ internal static class MeleeCombatFeats
             _criticalConditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1381,7 +1381,7 @@ internal static class MeleeCombatFeats
             };
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

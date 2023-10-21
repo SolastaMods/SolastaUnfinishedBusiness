@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 // On spell being cast
 internal interface IMagicalAttackCastedSpell
 {
-    IEnumerator OnSpellCast(
+    IEnumerator OnMagicalAttackCastedSpell(
         RulesetCharacter featureOwner,
         GameLocationCharacter caster,
         CharacterActionCastSpell castAction,

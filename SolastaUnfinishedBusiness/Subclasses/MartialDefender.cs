@@ -228,7 +228,7 @@ public sealed class MartialDefender : AbstractSubclass
             _conditionAegisParagon = conditionAegisParagon;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

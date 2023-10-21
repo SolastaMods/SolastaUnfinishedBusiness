@@ -799,7 +799,7 @@ internal static partial class SpellBuilders
             yield break;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1595,7 +1595,7 @@ internal static partial class SpellBuilders
             _powerThunderousSmite = powerThunderousSmite;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1825,7 +1825,7 @@ internal static partial class SpellBuilders
             return effectDescription;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

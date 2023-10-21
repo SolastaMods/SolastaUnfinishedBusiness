@@ -1758,7 +1758,7 @@ internal static class CharacterContext
                 0);
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

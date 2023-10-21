@@ -327,7 +327,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             return effectDescription;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

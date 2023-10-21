@@ -166,7 +166,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             rulesetDefender.DamageHalved(rulesetDefender, _featureDefinition);
         }
 
-        public IEnumerator OnAttackFinishedOnMe(
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

@@ -195,7 +195,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             _powerTrialMark = powerTrialMark;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
