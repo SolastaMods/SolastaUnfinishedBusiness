@@ -1247,7 +1247,6 @@ internal static class MeleeCombatFeats
             }
 
             var bonusDamage = 0;
-
             var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
 
             if (advantageType == AdvantageType.Advantage)
@@ -1293,23 +1292,18 @@ internal static class MeleeCombatFeats
             {
                 DamageType = originalDamageForm.DamageType,
                 DieType = originalDamageForm.DieType,
-                DiceNumber = 0,
+                DiceNumber = outcome == RollOutcome.CriticalSuccess ? 1 : 0,
                 BonusDamage = bonusDamage
             };
-            var damageRoll = 0;
-
-            if (outcome is RollOutcome.CriticalSuccess)
-            {
-                damageForm.DiceNumber = 1;
-                damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, bonusDamage, 0, 1, false, false, false,
-                    rolls);
-            }
+            var damageRoll = rulesetAttacker.RollDamage(
+                damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
             rulesetAttacker.LogCharacterAffectsTarget(
                 rulesetDefender,
                 DevastatingStrikesTitle,
                 "Feedback/&FeatFeatFellHandedDisadvantage",
                 tooltipContent: DevastatingStrikesDescription);
+
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
