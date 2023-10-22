@@ -1,4 +1,11 @@
-﻿1.5.94.29:
+﻿1.5.94.30:
+
+- new content development is halted until December [only fix releases if any are planned in between]
+- fixed Devastating Strike incorrectly doubling the bonus damage on hit
+- fixed IsMelee issuing false negatives under some scenarios with Power Attacks, Smites, Wildshape, etc.
+- fixed Sorcerous Psion not adding CHA modifier to damage when all original damage forms were Psychic
+
+1.5.94.29:
 
 - added additional sample portraits under Portraits [Artyoan]
 - fixed gamepad support on extended load and save menus
