@@ -17,6 +17,7 @@ internal static class GameServicesDisplay
     {
         { "None", null },
         { "Game", () => ServiceRepository.GetService<IGameService>()?.Game },
+        { "ICameraService", ServiceRepository.GetService<ICameraService> },
         { "ICharacterBuildingService", ServiceRepository.GetService<ICharacterBuildingService> },
         { "ICharacterPoolService", ServiceRepository.GetService<ICharacterPoolService> },
         { "IGameCampaignService", ServiceRepository.GetService<IGameCampaignService> },

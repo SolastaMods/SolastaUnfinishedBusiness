@@ -92,6 +92,9 @@ internal static class GameUiContext
     private const InputCommands.Id CtrlShift4 = (InputCommands.Id)44440013;
     private const InputCommands.Id CtrlShift5 = (InputCommands.Id)44440014;
 
+    // VTT Tactical Mode
+    private const InputCommands.Id CtrlShiftV = (InputCommands.Id)44440015;
+
     private static readonly List<RectTransform> SpellLineTables = new();
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
@@ -893,6 +896,10 @@ internal static class GameUiContext
             (int)KeyCode.LeftControl);
         inputService.RegisterCommand(CtrlShift5, (int)KeyCode.Alpha5, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
+
+        // VTT Tactical Mode
+        inputService.RegisterCommand(CtrlShiftV, (int)KeyCode.V, (int)KeyCode.LeftShift,
+            (int)KeyCode.LeftControl);
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
@@ -914,6 +921,13 @@ internal static class GameUiContext
                 break;
             case CtrlShiftR when Main.Settings.EnableRejoinParty:
                 Teleporter.ConfirmTeleportParty(Teleporter.GetLeaderPosition);
+                break;
+            case CtrlShiftV when Main.Settings.EnableVttCamera:
+                var cameraService = ServiceRepository.GetService<ICameraService>();
+
+                cameraService.DebugCameraEnabled = !cameraService.DebugCameraEnabled;
+                cameraService.DebugCamera.currentMode = DebugCamera.DebugCameraMode.OrbitalPlacement;
+
                 break;
             case CtrlShiftS when EncountersSpawnContext.EncounterCharacters.Count > 0:
                 EncountersSpawnContext.ConfirmStageEncounter();

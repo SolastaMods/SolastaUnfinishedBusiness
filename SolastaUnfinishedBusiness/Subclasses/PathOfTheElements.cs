@@ -655,7 +655,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnAttackFinishedOnMe(
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

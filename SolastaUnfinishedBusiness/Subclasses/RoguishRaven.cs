@@ -214,10 +214,10 @@ public sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
+            .AddCustomSubFeatures(
+                IgnoreInterruptionCheck.Marker,
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);
 
         var powerRavenTurnOffHeartSeekingShot = FeatureDefinitionPowerBuilder
             .Create("PowerRavenTurnOffHeartSeekingShot")
@@ -240,9 +240,9 @@ public sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
             .AddToDB();
 
-        Global.PowersThatIgnoreInterruptions.Add(powerRavenTurnOffHeartSeekingShot);
         concentrationProvider.StopPower = powerRavenTurnOffHeartSeekingShot;
 
         return FeatureDefinitionFeatureSetBuilder

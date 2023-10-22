@@ -208,7 +208,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             _powerBloodBath = powerBloodBath;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -327,7 +327,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             _powerBloodBath = powerBloodBath;
         }
 
-        public IEnumerator OnAttackFinishedOnMe(
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

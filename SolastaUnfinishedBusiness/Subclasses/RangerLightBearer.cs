@@ -459,7 +459,7 @@ public sealed class RangerLightBearer : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedOnMeOrAllyWardingLight : IPhysicalAttackInitiatedOnMeOrAlly
     {
-        public IEnumerator OnAttackInitiatedOnMeOrAlly(
+        public IEnumerator OnPhysicalAttackInitiatedOnMeOrAlly(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

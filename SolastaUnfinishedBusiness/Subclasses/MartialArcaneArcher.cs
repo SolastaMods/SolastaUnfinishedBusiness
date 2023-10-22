@@ -687,7 +687,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         }
 
         // apply arrow behavior after attack finishes
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

@@ -182,7 +182,7 @@ internal static class RaceImpBuilder
                 rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

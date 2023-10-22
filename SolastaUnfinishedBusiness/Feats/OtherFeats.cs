@@ -901,7 +901,7 @@ internal static class OtherFeats
         }
 
         //Poison target if I attack with unarmed
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter me,
@@ -926,7 +926,7 @@ internal static class OtherFeats
         }
 
         //Poison melee attacker
-        public IEnumerator OnAttackFinishedOnMe(
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

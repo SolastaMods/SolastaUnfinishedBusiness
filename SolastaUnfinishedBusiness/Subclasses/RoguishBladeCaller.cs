@@ -227,7 +227,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             _powerHailOfBlades = powerHailOfBlades;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -305,7 +305,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 0);
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

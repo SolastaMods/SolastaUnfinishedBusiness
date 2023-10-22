@@ -465,7 +465,7 @@ internal static class MeleeCombatFeats
             _featHammerThePoint = featHammerThePoint;
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -729,7 +729,7 @@ internal static class MeleeCombatFeats
             _weaponTypeDefinition = weaponTypeDefinition;
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -804,11 +804,10 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
+                IgnoreInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerCleavingAttack);
 
         var powerTurnOffCleavingAttack = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TurnOff")
@@ -825,9 +824,8 @@ internal static class MeleeCombatFeats
                             .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerTurnOffCleavingAttack);
 
         var featCleavingAttack = FeatDefinitionBuilder
             .Create(Name)
@@ -1014,7 +1012,7 @@ internal static class MeleeCombatFeats
             _criticalConditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1249,22 +1247,23 @@ internal static class MeleeCombatFeats
             }
 
             var bonusDamage = 0;
-
             var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
 
             if (advantageType == AdvantageType.Advantage)
             {
+                attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
+
                 var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-                var lowestRoll = Global.LowestAttackRoll;
-                var lowOutcome = GameLocationBattleManagerTweaks.GetAttackResult(lowestRoll, modifier, rulesetDefender);
+                var lowOutcome = GameLocationBattleManagerTweaks.GetAttackResult(
+                    lowestAttackRoll, modifier, rulesetDefender);
 
                 Gui.Game.GameConsole.AttackRolled(
                     rulesetAttacker,
                     rulesetDefender,
                     attackMode.SourceDefinition,
                     lowOutcome,
-                    lowestRoll + modifier,
-                    lowestRoll,
+                    lowestAttackRoll + modifier,
+                    lowestAttackRoll,
                     modifier,
                     attackModifier.AttacktoHitTrends,
                     new List<TrendInfo>());
@@ -1293,23 +1292,18 @@ internal static class MeleeCombatFeats
             {
                 DamageType = originalDamageForm.DamageType,
                 DieType = originalDamageForm.DieType,
-                DiceNumber = 0,
+                DiceNumber = outcome == RollOutcome.CriticalSuccess ? 1 : 0,
                 BonusDamage = bonusDamage
             };
-            var damageRoll = 0;
-
-            if (outcome is RollOutcome.CriticalSuccess)
-            {
-                damageForm.DiceNumber = 1;
-                damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, bonusDamage, 0, 1, false, false, false,
-                    rolls);
-            }
+            var damageRoll = rulesetAttacker.RollDamage(
+                damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
             rulesetAttacker.LogCharacterAffectsTarget(
                 rulesetDefender,
                 DevastatingStrikesTitle,
                 "Feedback/&FeatFeatFellHandedDisadvantage",
                 tooltipContent: DevastatingStrikesDescription);
+
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
@@ -1387,7 +1381,7 @@ internal static class MeleeCombatFeats
             };
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1418,18 +1412,18 @@ internal static class MeleeCombatFeats
             switch (advantageType)
             {
                 case AdvantageType.Advantage when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
-                    var lowestRoll = Global.LowestAttackRoll;
+                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
 
                     var lowOutcome =
-                        GameLocationBattleManagerTweaks.GetAttackResult(lowestRoll, modifier, rulesetDefender);
+                        GameLocationBattleManagerTweaks.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
 
                     Gui.Game.GameConsole.AttackRolled(
                         rulesetAttacker,
                         rulesetDefender,
                         _power,
                         lowOutcome,
-                        lowestRoll + modifier,
-                        lowestRoll,
+                        lowestAttackRoll + modifier,
+                        lowestAttackRoll,
                         modifier,
                         attackModifier.AttacktoHitTrends,
                         new List<TrendInfo>());
@@ -1453,7 +1447,7 @@ internal static class MeleeCombatFeats
 
                     break;
                 case AdvantageType.Disadvantage when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
-                    var highestRoll = Global.HighestAttackRoll;
+                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var highestAttackRoll);
 
                     var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
@@ -1464,7 +1458,7 @@ internal static class MeleeCombatFeats
                     }
 
                     var higherOutcome =
-                        GameLocationBattleManagerTweaks.GetAttackResult(highestRoll, modifier, rulesetDefender);
+                        GameLocationBattleManagerTweaks.GetAttackResult(highestAttackRoll, modifier, rulesetDefender);
 
                     if (higherOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
                     {
@@ -1610,10 +1604,9 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
+                IgnoreInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerAttack);
 
         var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TurnOff")
@@ -1630,9 +1623,8 @@ internal static class MeleeCombatFeats
                             .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
             .AddToDB();
-
-        Global.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);
 
         var featPowerAttack = FeatDefinitionBuilder
             .Create(Name)

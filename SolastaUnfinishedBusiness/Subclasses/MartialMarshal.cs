@@ -387,7 +387,7 @@ public sealed class MartialMarshal : AbstractSubclass
 
     private sealed class ReactToAttackFinishedByMeMarshalCoordinatedAttack : IPhysicalAttackFinishedByMe
     {
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -606,7 +606,7 @@ public sealed class MartialMarshal : AbstractSubclass
 
     private class PhysicalAttackInitiatedOnMeKnowledgeableDefense : IPhysicalAttackInitiatedOnMe
     {
-        public IEnumerator OnAttackInitiatedOnMe(
+        public IEnumerator OnPhysicalAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

@@ -310,7 +310,8 @@ public sealed class MartialTactician : AbstractSubclass
         {
             if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess))
             {
-                Main.Info("AdaptiveStrategy: not critical. exiting.");
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log("AdaptiveStrategy: not critical. exiting.");
                 return;
             }
 
@@ -322,7 +323,8 @@ public sealed class MartialTactician : AbstractSubclass
             // once per turn
             if (!attacker.OncePerTurnIsValid("AdaptiveStrategy"))
             {
-                Main.Info("AdaptiveStrategy: once per turn. exiting.");
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log("AdaptiveStrategy: once per turn. exiting.");
                 return;
             }
 
@@ -335,14 +337,16 @@ public sealed class MartialTactician : AbstractSubclass
 
             if (character.GetRemainingPowerUses(_power) >= character.GetMaxUsesForPool(_power))
             {
-                Main.Info("AdaptiveStrategy: nothing to refuel. exiting.");
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log("AdaptiveStrategy: nothing to refuel. exiting.");
                 return;
             }
 
             character.LogCharacterUsedFeature(_feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
             character.UpdateUsageForPower(_power, -1);
-            Main.Info("AdaptiveStrategy: refueled.");
+            // ReSharper disable once InvocationIsSkipped
+            Main.Log("AdaptiveStrategy: refueled.");
         }
     }
 
@@ -370,7 +374,8 @@ public sealed class MartialTactician : AbstractSubclass
 
             if (downedCreature.RulesetCharacter.HasConditionOfType(MarkDamagedByGambit))
             {
-                Main.Info("OvercomingStrategy: enemy is marked. exiting.");
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log("OvercomingStrategy: enemy is marked. exiting.");
                 yield break;
             }
 
@@ -382,7 +387,8 @@ public sealed class MartialTactician : AbstractSubclass
             // once per turn
             if (!attacker.OncePerTurnIsValid("OvercomingStrategy"))
             {
-                Main.Info("OvercomingStrategy: once per turn. exiting.");
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log("OvercomingStrategy: once per turn. exiting.");
                 yield break;
             }
 
@@ -395,14 +401,16 @@ public sealed class MartialTactician : AbstractSubclass
 
             if (character.GetRemainingPowerUses(_power) >= character.GetMaxUsesForPool(_power))
             {
-                Main.Info("OvercomingStrategy: nothing to refuel. exiting.");
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log("OvercomingStrategy: nothing to refuel. exiting.");
                 yield break;
             }
 
             character.LogCharacterUsedFeature(_feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(_power, -1);
-            Main.Info("OvercomingStrategy: refueled.");
+            // ReSharper disable once InvocationIsSkipped
+            Main.Log("OvercomingStrategy: refueled.");
         }
     }
 
@@ -542,7 +550,7 @@ public sealed class MartialTactician : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

@@ -439,7 +439,7 @@ public sealed class OathOfDread : AbstractSubclass
             _conditionMarkOfTheSubmission = conditionMarkOfTheSubmission;
         }
 
-        public IEnumerator OnAttackFinishedOnMeOrAlly(
+        public IEnumerator OnPhysicalAttackFinishedOnMeOrAlly(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

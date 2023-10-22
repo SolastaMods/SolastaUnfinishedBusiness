@@ -11,6 +11,22 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GuiPatcher
 {
+    //PATCH: avoid too much missing translation messages during mod boot
+    [HarmonyPatch(typeof(Gui), nameof(Gui.LocalizeImpl))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class LocalizeImpl_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(ref bool silent)
+        {
+            if (!silent)
+            {
+                silent = !Main.Enabled;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(Gui), nameof(Gui.FormatEffectRange))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -34,7 +50,7 @@ public static class GuiPatcher
     {
         [UsedImplicitly]
         public static bool Prefix(
-            ref string __result,
+            out string __result,
             string output,
             List<TrendInfo> trends,
             bool ignoreZero)

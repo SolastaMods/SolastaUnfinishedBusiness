@@ -938,9 +938,6 @@ internal static class UpcastConjureElementalAndFey
 
         _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
-        // ReSharper disable once InvocationIsSkipped
-        _filteredSubspells.ForEach(s => Main.Info($"{Gui.Localize(s.GuiPresentation.Title)}"));
-
         return _filteredSubspells;
     }
 }

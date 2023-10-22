@@ -627,7 +627,8 @@ internal static class EldritchVersatility
             // We just remove the power from power used by me list.
             public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
             {
-                Main.Info("Condition Versatility interrupted");
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log("Condition Versatility interrupted");
 
                 if (target.CurrentHitPoints <= 0)
                 {
@@ -685,7 +686,7 @@ internal static class EldritchVersatility
         }
 
         // Spend reserved points on cast EB if success
-        public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster,
+        public IEnumerator OnMagicalAttackCastedSpell(RulesetCharacter featureOwner, GameLocationCharacter caster,
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
             RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
@@ -800,7 +801,7 @@ internal static class EldritchVersatility
 
     private sealed class BattlefieldShorthandCopySpells : IMagicalAttackCastedSpell
     {
-        public IEnumerator OnSpellCast(
+        public IEnumerator OnMagicalAttackCastedSpell(
             RulesetCharacter featureOwner,
             GameLocationCharacter caster,
             CharacterActionCastSpell castAction,
@@ -1420,7 +1421,7 @@ internal static class EldritchVersatility
         }
 
         // Spend reserved points on cast EB
-        public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster,
+        public IEnumerator OnMagicalAttackCastedSpell(RulesetCharacter featureOwner, GameLocationCharacter caster,
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
             RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
@@ -1443,7 +1444,7 @@ internal static class EldritchVersatility
     // Split this part to become a sub feature of invocation definition to make sure that the spells get removed even when the invocation is toggled off.
     private class BattlefieldShorthandRemoveCopiedSpells : IMagicalAttackCastedSpell
     {
-        public IEnumerator OnSpellCast(RulesetCharacter featureOwner, GameLocationCharacter caster,
+        public IEnumerator OnMagicalAttackCastedSpell(RulesetCharacter featureOwner, GameLocationCharacter caster,
             CharacterActionCastSpell castAction, [UsedImplicitly] RulesetEffectSpell selectEffectSpell,
             [UsedImplicitly] RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {

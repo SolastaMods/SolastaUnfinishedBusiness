@@ -14,7 +14,6 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Spells;
 using TA;
 using static RuleDefinitions;
 
@@ -335,11 +334,6 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            // keep a tab on last cantrip weapon attack status
-            Global.LastAttackWasCantripWeaponAttackHit =
-                attackMode is { AttackTags: not null } &&
-                attackMode.AttackTags.Contains(SpellBuilders.CantripWeaponAttack);
-
             //PATCH: support for `IAttackBeforeHitConfirmedOnEnemy`
             // should also happen outside battles
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
@@ -970,7 +964,7 @@ public static class GameLocationBattleManagerPatcher
                 foreach (var attackInitiated in
                          attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedByMe>())
                 {
-                    yield return attackInitiated.OnAttackInitiatedByMe(
+                    yield return attackInitiated.OnPhysicalAttackInitiatedByMe(
                         __instance, action, attacker, defender, attackModifier, attackerAttackMode);
                 }
             }
@@ -981,7 +975,7 @@ public static class GameLocationBattleManagerPatcher
                 foreach (var attackInitiated in
                          defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMe>())
                 {
-                    yield return attackInitiated.OnAttackInitiatedOnMe(
+                    yield return attackInitiated.OnPhysicalAttackInitiatedOnMe(
                         __instance, action, attacker, defender, attackModifier, attackerAttackMode);
                 }
             }
@@ -997,7 +991,7 @@ public static class GameLocationBattleManagerPatcher
                     foreach (var physicalAttackInitiatedOnMeOrAlly in ally.RulesetCharacter
                                  .GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
                     {
-                        yield return physicalAttackInitiatedOnMeOrAlly.OnAttackInitiatedOnMeOrAlly(
+                        yield return physicalAttackInitiatedOnMeOrAlly.OnPhysicalAttackInitiatedOnMeOrAlly(
                             __instance, action, attacker, defender, ally, attackModifier, attackerAttackMode);
                     }
                 }
@@ -1084,7 +1078,7 @@ public static class GameLocationBattleManagerPatcher
                     foreach (var feature in attacker.RulesetCharacter
                                  .GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
                     {
-                        yield return feature.OnAttackFinishedByMe(
+                        yield return feature.OnPhysicalAttackFinishedByMe(
                             __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                             damageAmount);
                     }
@@ -1096,7 +1090,7 @@ public static class GameLocationBattleManagerPatcher
                     foreach (var feature in defender.RulesetCharacter
                                  .GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
                     {
-                        yield return feature.OnAttackFinishedOnMe(
+                        yield return feature.OnPhysicalAttackFinishedOnMe(
                             __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                             damageAmount);
                     }
@@ -1137,7 +1131,7 @@ public static class GameLocationBattleManagerPatcher
 
                         foreach (var feature in allyFeatures)
                         {
-                            yield return feature.OnAttackFinishedOnMeOrAlly(
+                            yield return feature.OnPhysicalAttackFinishedOnMeOrAlly(
                                 __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
                                 attackRollOutcome,
                                 damageAmount);
@@ -1181,7 +1175,7 @@ public static class GameLocationBattleManagerPatcher
 
                 foreach (var magicalAttackCastedSpell in magicalAttackCastedSpells)
                 {
-                    yield return magicalAttackCastedSpell.OnSpellCast(
+                    yield return magicalAttackCastedSpell.OnMagicalAttackCastedSpell(
                         allyCharacter, caster, castAction, selectEffectSpell, selectedRepertoire,
                         selectedSpellDefinition);
                 }

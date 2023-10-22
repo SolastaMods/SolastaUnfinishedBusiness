@@ -930,7 +930,7 @@ internal static class GambitsBuilders
             _pool = pool;
         }
 
-        public IEnumerator OnAttackFinishedOnMe(
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
