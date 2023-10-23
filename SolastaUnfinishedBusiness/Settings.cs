@@ -320,6 +320,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCharacterExport { get; set; }
     public bool EnableTeleportParty { get; set; }
     public bool EnableRejoinParty { get; set; }
+    public bool EnableVttCamera { get; set; }
     public bool EnableCancelEditOnRightMouseClick { get; set; }
 
     // Inventory and Items

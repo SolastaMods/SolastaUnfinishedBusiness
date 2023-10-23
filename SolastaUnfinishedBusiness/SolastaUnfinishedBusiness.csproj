@@ -3,7 +3,7 @@
   <PropertyGroup>
     <LangVersion>10</LangVersion>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.5.94.29</AssemblyVersion>
+    <AssemblyVersion>1.5.94.30</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug Install;Release Install</Configurations>
@@ -220,6 +220,10 @@
     </Reference>
     <Reference Include="PhotonRealtime">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/PhotonRealtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Cinemachine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

@@ -721,7 +721,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             yield return HandleReaction(defender);
         }
 
-        public IEnumerator OnAttackFinishedOnMe(
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

@@ -112,7 +112,7 @@ internal sealed class Merciless : AbstractFightingStyle
                 ?.ExecuteAction(actionParams, null, true);
         }
 
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

@@ -398,7 +398,7 @@ public sealed class DomainSmith : AbstractSubclass
             _conditionBlessedMetal = conditionBlessedMetal;
         }
 
-        public IEnumerator OnAttackInitiatedOnMe(
+        public IEnumerator OnPhysicalAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

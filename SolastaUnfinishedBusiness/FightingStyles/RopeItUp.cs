@@ -45,7 +45,7 @@ internal class RopeItUp : AbstractFightingStyle
             attackMode.maxRange += 2;
         }
 
-        public IEnumerator OnAttackInitiatedByMe(
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

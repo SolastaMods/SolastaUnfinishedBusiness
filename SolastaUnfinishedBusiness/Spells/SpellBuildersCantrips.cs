@@ -937,7 +937,7 @@ internal static partial class SpellBuilders
         }
 
         // STEP 2: remove the resonance condition and chain the second target damage if a hit
-        public IEnumerator OnAttackFinishedByMe(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
