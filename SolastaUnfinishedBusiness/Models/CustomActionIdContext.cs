@@ -402,6 +402,12 @@ public static class CustomActionIdContext
 
                 return;
             }
+            case (Id)ExtraActionId.CrystalDefenseOff:
+            {
+                result = character.HasConditionOfType("ConditionCrystalDefense") 
+                        ? ActionStatus.Available : ActionStatus.Unavailable;
+                return;
+            }
         }
 
         var isInvocationAction = IsInvocationActionId(actionId);

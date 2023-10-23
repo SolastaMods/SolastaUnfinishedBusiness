@@ -55,10 +55,173 @@ internal static class RaceWyrmkinBuilder
 
         RacesContext.RaceScaleMap[raceWyrmkin] = 7.0f / 6.4f;
         raceWyrmkin.subRaces =
-            new List<CharacterRaceDefinition> { BuildHighWyrmkin(raceWyrmkin), BuildCaveWyrmkin(raceWyrmkin) };
+            new List<CharacterRaceDefinition> { 
+                BuildHighWyrmkin(raceWyrmkin), 
+                BuildCaveWyrmkin(raceWyrmkin), 
+                BuildCrystalWyrmkin(raceWyrmkin) 
+            };
 
         return raceWyrmkin;
     }
+
+    #region Crystal Wyrmkin
+    private static CharacterRaceDefinition BuildCrystalWyrmkin(CharacterRaceDefinition raceWyrmkin)
+    {
+        const string Name = "CrystalWyrmkin";
+
+        var featureSetCrystalWyrmkinAbilityScoreIncrease = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AbilityScoreIncrease")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddFeatureSet(
+                FeatureDefinitionAttributeModifiers.AttributeModifierDragonbornAbilityScoreIncreaseStr,
+                FeatureDefinitionAttributeModifiers.AttributeModifierDwarfHillAbilityScoreIncrease)
+            .AddToDB();
+
+        // need to check interaction with other AC increasing features
+        var featureCrystalWyrmkinHardScales = FeatureDefinitionBuilder
+            .Create($"Feature{Name}HardScales")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(
+                new CrystalWyrmkinModifyAC(),
+                new ModifyWeaponAttackModeCrystalWyrmkinClaws())
+            .AddToDB();
+
+
+        var actionAffinityCrystalWyrmkinConditionCrystalDefense = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}ConditionCrystalDefense")
+            .SetGuiPresentationNoContent()
+            .SetAllowedActionTypes(false, true, false, false, false, false)
+            .SetAuthorizedActions((Id)ExtraActionId.CrystalDefenseOff)
+            .SetRestrictedActions((Id)ExtraActionId.CrystalDefenseOff)
+            .AddToDB();
+
+        ConditionDefinitionBuilder.Create("ConditionCrystalDefense")
+            .SetConditionType(ConditionType.Neutral)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAuraOfProtection)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
+                actionAffinityCrystalWyrmkinConditionCrystalDefense
+                )
+            .AddToDB();
+
+        var actionAffinityCrystalWyrmkinCrystalDefense = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}CrystalDefense")
+            .SetGuiPresentation(Category.Feature)
+            .SetAllowedActionTypes()
+            .SetAuthorizedActions((Id)ExtraActionId.CrystalDefenseOn)
+            .AddToDB();
+
+        ActionDefinitionBuilder.Create("CrystalDefenseOn")
+            .SetActionId(ExtraActionId.CrystalDefenseOn)
+            .SetActionType(ActionType.Main)
+            .SetFormType(ActionFormType.Large)
+            .RequiresAuthorization()
+            .SetGuiPresentation(Category.Action, Sprites.ActionCrystalDefense, 20)
+            .SetActionScope(ActionScope.All)
+            .AddToDB();
+
+        ActionDefinitionBuilder.Create("CrystalDefenseOff")
+            .SetActionId(ExtraActionId.CrystalDefenseOff)
+            .SetActionType(ActionType.Bonus)
+            .SetFormType(ActionFormType.Large)
+            .RequiresAuthorization()
+            .SetGuiPresentation(Category.Action, Sprites.ActionCrystalDefense, 20)
+            .SetActionScope(ActionScope.All)
+            .AddToDB();
+
+        var pointPoolCrystalWyrmkinInnateKnowledge = FeatureDefinitionPointPoolBuilder
+            .Create($"PointPool{Name}InnateKnowledge")
+            .SetGuiPresentation(Category.Feature)
+            .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+            .RestrictChoices(
+                SkillDefinitions.AnimalHandling,
+                SkillDefinitions.Medecine,
+                SkillDefinitions.Survival,
+                SkillDefinitions.Stealth,
+                SkillDefinitions.Nature,
+                SkillDefinitions.Perception)
+            .AddToDB();
+
+        var raceCrystalWyrmkin = CharacterRaceDefinitionBuilder
+            .Create(raceWyrmkin, $"Race{Name}")
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite(RaceName, Resources.Wyrmkin, 1024, 512))
+            .SetFeaturesAtLevel(1,
+                featureCrystalWyrmkinHardScales,
+                featureSetCrystalWyrmkinAbilityScoreIncrease,
+                actionAffinityCrystalWyrmkinCrystalDefense,
+                pointPoolCrystalWyrmkinInnateKnowledge
+                )
+            .AddToDB();
+        raceCrystalWyrmkin.RacePresentation.preferedSkinColors = Main.Settings.UnlockSkinColors
+            ? new RangedInt(57, 59)
+            : new RangedInt(3, 5);
+
+        return raceCrystalWyrmkin;
+    }
+
+    private class CrystalWyrmkinModifyAC : IModifyAC
+    {
+        public void ModifyAC(RulesetCharacter owner, 
+            [UsedImplicitly] bool callRefresh, 
+            [UsedImplicitly] bool dryRun, 
+            [UsedImplicitly] FeatureDefinition dryRunFeature, 
+            RulesetAttribute armorClass)
+        {
+            if (owner.IsWearingArmor())
+            {
+                return;
+            }
+
+            // Hack to remove dex modifier to base AC manually because it is always included
+            // Removing the dex modifier will cause other AC calculation like unarmored defense to not work.
+            var targetAc = 17;
+            if (owner.HasConditionOfType("ConditionCrystalDefense"))
+            {
+                targetAc = 21;
+            }
+
+            var dexModifier = AttributeDefinitions.ComputeAbilityScoreModifier(owner.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+            var baseAc = targetAc - dexModifier;
+
+            var attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(
+                AttributeModifierOperation.SetWithDexPlusOtherAbilityScoreBonusIfBetter,
+                baseAc, AttributeDefinitions.TagRace);
+            var trendInfo = new TrendInfo(baseAc, FeatureSourceType.CharacterFeature, "AttributeModifierCrystalWyrmkinCrystalSkin", null,
+                attributeModifier);
+
+            armorClass.AddModifier(attributeModifier);
+            armorClass.ValueTrends.Add(trendInfo);
+        }
+    }
+
+
+    private sealed class ModifyWeaponAttackModeCrystalWyrmkinClaws : IModifyWeaponAttackMode
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(character, attackMode) || attackMode.ranged)
+            {
+                return;
+            }
+
+            var effectDescription = attackMode.EffectDescription;
+            var damage = effectDescription.FindFirstDamageForm();
+            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
+
+            if (k < 0 || damage == null)
+            {
+                return;
+            }
+
+            if (damage.DieType < DieType.D6)
+            {
+                damage.DieType = DieType.D6;
+            }
+        }
+    }
+
+    #endregion
 
     private static CharacterRaceDefinition BuildCaveWyrmkin(CharacterRaceDefinition characterRaceDefinition)
     {

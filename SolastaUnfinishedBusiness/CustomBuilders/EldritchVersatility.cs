@@ -1177,17 +1177,20 @@ internal static class EldritchVersatility
 
             private class EldritchAegisModifyAC : IModifyAC
             {
-                public void GetAC(RulesetCharacter owner, [UsedImplicitly] bool callRefresh,
-                    [UsedImplicitly] bool dryRun, [UsedImplicitly] FeatureDefinition dryRunFeature,
-                    out RulesetAttributeModifier attributeModifier, out TrendInfo trendInfo)
+
+                public void ModifyAC(RulesetCharacter owner, [UsedImplicitly] bool callRefresh,
+                    [UsedImplicitly] bool dryRun, [UsedImplicitly] FeatureDefinition dryRunFeature, RulesetAttribute armorClass)
                 {
                     GetCustomConditionFromCharacter(owner, out var supportCondition);
                     var acBonus = supportCondition.ACBonus;
-                    attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(
+                    var attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(
                         AttributeModifierOperation.Additive,
                         acBonus, AttributeDefinitions.TagCombat);
-                    trendInfo = new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name, null,
+                    var trendInfo = new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name, null,
                         attributeModifier);
+
+                    armorClass.AddModifier(attributeModifier);
+                    armorClass.ValueTrends.Add(trendInfo);
                 }
             }
         }
