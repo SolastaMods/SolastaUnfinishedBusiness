@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageWendigoSuckerPunchDescriptio1n=전투의 첫 번째 라운드에서 당신이 명중 굴림으로 생물을 명중시켰고 그 생물의 주도권이 당신보다 낮다면, 그 생물은 추가로 2d6의 피해를 입습니다.
+Feature/&AdditionalDamageWendigoSuckerPunchDescription=전투의 첫 번째 라운드에서 당신이 명중 굴림으로 생물을 명중시켰고 그 생물의 주도권이 당신보다 낮다면, 그 생물은 추가로 2d6의 피해를 입습니다.
 Feature/&AdditionalDamageWendigoSuckerPunchTitle=불시의 일격
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseDescription=민첩 +1
 Feature/&AttributeModifierWendigoDexterityAbilityScoreIncreaseTitle=능력치 증가

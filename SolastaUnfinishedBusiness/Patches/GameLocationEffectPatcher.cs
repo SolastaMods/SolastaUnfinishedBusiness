@@ -45,19 +45,13 @@ public static class GameLocationEffectPatcher
 
             if (RulesetEntity.TryGetEntity(guid, out __instance.rulesetEffect))
             {
+                Main.Info($"SERIALIZATION: {__instance.rulesetEffect.Name}");
                 __instance.rulesetEffect.EntityImplementation = __instance;
             }
-            //PATCH: don't show trace messages
-#if false
             else
             {
-                Trace.LogError("Cannot reconcile RulesetEffect {0} of id {1}", __instance.effectSourceName,
-                    guid.ToString());
-                Trace.LogException(new Exception(
-                    "[Tactical - Invisible for players] Cannot reconcile RulesetEffect " + __instance.effectSourceName +
-                    "."));
+                Main.Info($"Cannot reconcile RulesetEffect {__instance.effectSourceName} of id {guid}");
             }
-#endif
 
             __instance.position = serializer.SerializeAttribute("Position", __instance.position);
             __instance.position2 = serializer.SerializeAttribute("Position2", __instance.position2);

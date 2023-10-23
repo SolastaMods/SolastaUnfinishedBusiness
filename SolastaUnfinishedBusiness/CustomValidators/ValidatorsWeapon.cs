@@ -103,6 +103,11 @@ internal static class ValidatorsWeapon
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMelee([CanBeNull] RulesetAttackMode attackMode)
     {
+        if (attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } })
+        {
+            return true;
+        }
+
         if (attackMode == null
             || attackMode.Ranged
             || attackMode.SourceDefinition is not ItemDefinition itemDefinition
@@ -111,20 +116,34 @@ internal static class ValidatorsWeapon
             return false;
         }
 
-        // this patch is required for all the special smite use cases integration with vanilla ones
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        if (gameLocationBattleService is { IsBattleInProgress: true } &&
-            gameLocationBattleService.Battle.attackerContender != null &&
-            gameLocationBattleService.Battle.defenderContender != null)
+        // most melee weapons will fallback here
+        if (!attackMode.thrown)
         {
-            return gameLocationBattleService.IsWithinXCells(
-                gameLocationBattleService.Battle.attackerContender, gameLocationBattleService.Battle.defenderContender,
-                attackMode.ReachRange);
+            return true;
         }
 
-        // fallback should never happen
-        return true;
+        // unfortunately game sets thrown true even when attack is at melee distance
+        // this will handle thrown melee weapons like daggers, javelin, etc.
+        var currentAttackAction = Global.CurrentAttackAction;
+
+        // trying to be super safe here with any null scenario
+        if (currentAttackAction?.ActionParams?.TargetCharacters == null ||
+            currentAttackAction.ActionParams.TargetCharacters.Count == 0)
+        {
+            return false;
+        }
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return false;
+        }
+
+        return gameLocationBattleService.IsWithinXCells(
+            currentAttackAction.ActingCharacter,
+            currentAttackAction.ActionParams.TargetCharacters[0],
+            attackMode.ReachRange);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
