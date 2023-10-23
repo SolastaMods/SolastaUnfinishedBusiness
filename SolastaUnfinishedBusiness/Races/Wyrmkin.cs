@@ -117,7 +117,7 @@ internal static class RaceWyrmkinBuilder
             .SetActionType(ActionType.Main)
             .SetFormType(ActionFormType.Large)
             .RequiresAuthorization()
-            .SetGuiPresentation(Category.Action, Sprites.ActionCrystalDefense, 20)
+            .SetGuiPresentation(Category.Action, Sprites.ActionCrystalDefenseOn, 20)
             .SetActionScope(ActionScope.All)
             .AddToDB();
 
@@ -126,7 +126,7 @@ internal static class RaceWyrmkinBuilder
             .SetActionType(ActionType.Bonus)
             .SetFormType(ActionFormType.Large)
             .RequiresAuthorization()
-            .SetGuiPresentation(Category.Action, Sprites.ActionCrystalDefense, 20)
+            .SetGuiPresentation(Category.Action, Sprites.ActionCrystalDefenseOff, 20)
             .SetActionScope(ActionScope.All)
             .AddToDB();
 
@@ -187,7 +187,7 @@ internal static class RaceWyrmkinBuilder
             var attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(
                 AttributeModifierOperation.SetWithDexPlusOtherAbilityScoreBonusIfBetter,
                 baseAc, AttributeDefinitions.TagRace);
-            var trendInfo = new TrendInfo(baseAc, FeatureSourceType.CharacterFeature, "AttributeModifierCrystalWyrmkinCrystalSkin", null,
+            var trendInfo = new TrendInfo(baseAc, FeatureSourceType.CharacterFeature, "FeatureCrystalWyrmkinHardScales", null,
                 attributeModifier);
 
             armorClass.AddModifier(attributeModifier);
