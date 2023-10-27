@@ -66,13 +66,10 @@ public sealed class RangerSurvivalist : AbstractSubclass
         var additionalDamageDisablingStrike = FeatureDefinitionPowerBuilder
             .Create($"AdditionalDamage{Name}DisablingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto, RechargeRate.TurnStart)
             .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
-                    (OperationType.Set,
-                        mode != null
-                        && GameLocationCharacter.GetFromActor(character)?.OncePerTurnIsValid("DisablingStrike") ==
-                        true)))
+                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
+                    (OperationType.Set, mode != null)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
