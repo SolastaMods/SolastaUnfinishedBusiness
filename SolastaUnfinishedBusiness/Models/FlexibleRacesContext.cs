@@ -151,6 +151,7 @@ internal static class FlexibleRacesContext
                 "AttributeModifierHighWyrmkinStrengthAbilityScoreIncrease"
             }
         },
+        { "RaceCrystalWyrmkin", new List<string> { "FeatureSetCrystalWyrmkinAbilityScoreIncrease" } },
         { "RaceTiefling", new List<string> { "AttributeModifierTieflingAbilityScoreIncreaseCha" } },
         { "RaceTieflingDevilTongue", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
         { "RaceTieflingFeral", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } },
