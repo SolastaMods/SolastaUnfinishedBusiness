@@ -10,30 +10,26 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "featureDefinition": "Definition:FeatureSetCrystalWyrmkinAbilityScoreIncrease:c0bc389d-8efb-5837-9533-70ab939b2f4a",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyRaceWyrmkinLanguages:1dac8533-161a-5f6d-9687-1a1445e35351",
+      "featureDefinition": "Definition:ActionAffinityCrystalWyrmkinCrystalDefense:e8479afd-3a9b-58cd-9834-82ab704a749c",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "featureDefinition": "Definition:FeatureCrystalWyrmkinHardScales:6b38a03a-45bc-5688-8e0e-32088ebcb9f8",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "featureDefinition": "Definition:PointPoolCrystalWyrmkinInnateKnowledge:c50af733-f8f6-5645-a9fd-1757be3ba088",
       "level": 1
     }
   ],
-  "subRaces": [
-    "Definition:RaceHighWyrmkin:30836d16-29ff-56c2-9012-7ee8640c45e1",
-    "Definition:RaceCaveWyrmkin:2d02059d-4630-581e-87b2-0d0c03b5aa74",
-    "Definition:RaceCrystalWyrmkin:48a08f2f-7f77-5284-a02f-5aa39f54de07"
-  ],
+  "subRaces": [],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],
   "languageAutolearnPreference": [
@@ -197,8 +193,8 @@
     },
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 29,
-      "maxValue": 29
+      "minValue": 3,
+      "maxValue": 5
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
@@ -216,8 +212,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceWyrmkinTitle",
-    "description": "Race/&RaceWyrmkinDescription",
+    "title": "Race/&RaceCrystalWyrmkinTitle",
+    "description": "Race/&RaceCrystalWyrmkinDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "babeeb3e-0165-55b6-957c-88accad030e8",
@@ -237,7 +233,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0a37e25d-47de-5d9f-90a5-0b7fd411eea3",
+  "guid": "48a08f2f-7f77-5284-a02f-5aa39f54de07",
   "contentPack": 9999,
-  "name": "RaceWyrmkin"
+  "name": "RaceCrystalWyrmkin"
 }

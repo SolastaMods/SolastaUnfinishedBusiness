@@ -2,11 +2,10 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Neutral",
   "features": [
-    "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481",
-    "Definition:PowerGambitDebilitateReact:6314b54e-7811-5516-a284-9166f5de1ae8",
-    "Definition:PowerReactionSpendGambitDieOnAttackHit:9917585f-9be0-5ec6-a214-53b50dbb733a"
+    "Definition:ActionAffinityCrystalWyrmkinConditionCrystalDefense:1274559b-34e5-5c07-acbe-9d51d149959e",
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -19,9 +18,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacks"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -91,7 +88,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -134,13 +131,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitDebilitateTitle",
-    "description": "Feature/&GambitDebilitateDescription",
+    "title": "Condition/&ConditionCrystalDefenseTitle",
+    "description": "Condition/&ConditionCrystalDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e3406fd2-9d2e-52af-9294-4710da714bb4",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
+      "m_SubObjectName": "ConditionShieldedByFaith",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -155,7 +152,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "cf8ce16d-8680-5066-b215-e8db80b8bc43",
+  "guid": "9f04a1bd-b2f4-5e66-9939-cc140c9fd83f",
   "contentPack": 9999,
-  "name": "ConditionGambitDebilitateTrigger"
+  "name": "ConditionCrystalDefense"
 }

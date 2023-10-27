@@ -1,18 +1,18 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9044,
-  "actionType": "NoCost",
+  "id": 9043,
+  "actionType": "Bonus",
   "actionScope": "All",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "PrioritizeAction",
+  "classNameOverride": "",
   "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
   "parameter": "None",
-  "formType": "Small",
+  "formType": "Large",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
   "focusCameraOnAction": true,
@@ -29,29 +29,16 @@
   "targetType": "Sphere",
   "targetParameter": 1,
   "matchingCondition": "",
-  "particlePrefab": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "soundEvent": {
-    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
-    "idInternal": 0,
-    "valueGuidInternal": {
-      "$type": "System.Byte[], mscorlib",
-      "$value": ""
-    }
-  },
+  "particlePrefab": null,
+  "soundEvent": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Action/&CrystalDefenseOffTitle",
+    "description": "Action/&CrystalDefenseOffDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "ddb89560-ba48-517c-9aac-1b034e4aef36",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -63,12 +50,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 20,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "118b1701-a7f2-509d-9ce2-90050c30e17c",
+  "guid": "3121900e-10f3-5e28-8efb-08d7bafbaed0",
   "contentPack": 9999,
-  "name": "PrioritizeAction"
+  "name": "CrystalDefenseOff"
 }
