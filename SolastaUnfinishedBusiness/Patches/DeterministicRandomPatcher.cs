@@ -19,45 +19,20 @@ public static class DeterministicRandomPatcher
 
     private static Random.State MyStateToRandomState(ulong myState)
     {
-        var ms = new MyState { State = myState };
+        MyState ms = new MyState { State = myState };
 
-        Object o = ms;
-
-        return CopyStruct<Random.State>(ref o);
+        unsafe
+        {
+            return *(Random.State*)(void*)&ms;
+        }
     }
 
     private static ulong RandomStateToMyState(Random.State state)
     {
-        Object o = state;
-
-        var ms = CopyStruct<MyState>(ref o);
-
-        return ms.State;
-    }
-
-    // is a better implementation but introduces external DLL dependencies
-#if false
-        private static Random.State MyStateToRandomState(ulong myState)
-    {
-        Span<MyState> s = new[] { new MyState { State = myState } };
-        return MemoryMarshal.Cast<MyState, Random.State>(s)[0];
-    }
-
-    private static ulong RandomStateToMyState(Random.State state)
-    {
-        Span<Random.State> s = new[] { state };
-        return MemoryMarshal.Cast<Random.State, MyState>(s)[0].State;
-    }
-#endif
-
-    private static T CopyStruct<T>(ref object s1)
-    {
-        var handle = GCHandle.Alloc(s1, GCHandleType.Pinned);
-        var typedStruct = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
-
-        handle.Free();
-
-        return typedStruct;
+        unsafe
+        {
+            return *(ulong*)(void*)&state;
+        }
     }
 
     private static float Next(double minValue, double maxValue)
