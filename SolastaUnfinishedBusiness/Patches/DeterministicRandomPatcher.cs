@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Runtime.InteropServices;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -19,11 +18,11 @@ public static class DeterministicRandomPatcher
 
     private static Random.State MyStateToRandomState(ulong myState)
     {
-        MyState ms = new MyState { State = myState };
+        var ms = new MyState { State = myState };
 
         unsafe
         {
-            return *(Random.State*)(void*)&ms;
+            return *(Random.State*)(&ms);
         }
     }
 
@@ -31,7 +30,7 @@ public static class DeterministicRandomPatcher
     {
         unsafe
         {
-            return *(ulong*)(void*)&state;
+            return *(ulong*)&state;
         }
     }
 
