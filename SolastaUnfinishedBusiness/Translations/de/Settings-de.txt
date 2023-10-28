@@ -131,6 +131,7 @@ ModUi/&EnableThesaurus=Aktivieren Sie den Thesaurus <b><i><color=#C04040E0>[Neus
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Distanz im Tooltip des Panels, wenn Sie im Kampf mit der Maus über einen Charakter fahren
 ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Fee beschwören</color>
+ModUi/&EnableVttCamera=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(V)</color>, um die VTT-Kamera umzuschalten <i><color=#F0DAA0>[Ziehen Sie mit gedrückter rechter Maustaste, um die Kamera zu positionieren, WASD zum Schwenken und PgUp/ Bild nach unten zum Zoomen]</color></i>
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Leistungsauswahl <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Legen Sie die prozentuale Chance auf zufällige Begegnungen fest</color>
 ModUi/&Encounters=Begegnungen

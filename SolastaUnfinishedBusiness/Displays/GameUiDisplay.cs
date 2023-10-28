@@ -345,6 +345,12 @@ internal static class GameUiDisplay
             Main.Settings.EnableRejoinParty = toggle;
         }
 
+        toggle = Main.Settings.EnableVttCamera;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableVttCamera"), ref toggle))
+        {
+            Main.Settings.EnableVttCamera = toggle;
+        }
+
         toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle))
         {

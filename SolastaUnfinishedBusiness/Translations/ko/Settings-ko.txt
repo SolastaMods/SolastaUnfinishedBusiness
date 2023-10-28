@@ -131,6 +131,7 @@ ModUi/&EnableThesaurus=동의어 사전 활성화 <b><i><color=#C04040E0>[다시
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=캐릭터 풀에서 토글로 기본 플레이 및 테스트 파티를 설정 활성화
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올리면 툴팁에 거리 표시 활성화 <i><color=#F0DAA0>[규칙에 따라 공식 거리 계산 옵션과 함께 사용하도록 권장]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 소환 주문</color>과 <color=#D89555>페이 소환 주문</color>의 강화 시전 활성화
+ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color>를 활성화하여 VTT 카메라를 전환합니다. <i><color=#F0DAA0>[마우스 오른쪽 버튼을 누른 채 드래그하여 카메라 위치를 지정하고 WASD를 사용하여 팬 및 PgUp/ PgDown으로 확대]</color></i>
 ModUi/&EnablesAsiAndFeat=능력치 증가와 재주 선택을 동시에 받기 <i><color=#F0DAA0>[기존엔 둘 중 하나만 선택 가능]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>랜덤 인카운터 확률 조정</color>
 ModUi/&Encounters=조우(인카운터)

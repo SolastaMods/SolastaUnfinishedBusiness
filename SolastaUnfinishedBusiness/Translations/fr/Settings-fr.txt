@@ -131,6 +131,7 @@ ModUi/&EnableThesaurus=Activer le thésaurus <b><i><color=#C04040E0>[Nécessite 
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans l'info-bulle du panneau lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la possibilité d'incanter <color=#D89555>Invocation d'élémentaire</color> et <color=#D89555>Invocation de fée</color> à des niveaux d'emplacements de sorts supérieurs
+ModUi/&EnableVttCamera=Activez <color=#1E81B0>CTRL-SHIFT-(V)</color> pour basculer la caméra VTT <i><color=#F0DAA0>[faites glisser avec le bouton droit de la souris enfoncé pour positionner la caméra, WASD pour effectuer un panoramique et PgUp/ PgDown pour zoomer]</color></i>
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation de Caractéristiques et la sélection des Dons lors des changement de niveaux concernés <i><color=#F0DAA0>[au lieu d'un choix mutuellement exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir un pourcentage de chances de rencontres aléatoires</color>
 ModUi/&Encounters=Rencontres
