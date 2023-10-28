@@ -1,4 +1,13 @@
-﻿1.5.94.30:
+﻿1.5.94.31:
+
+- added additional sample portraits [by Artyoan]
+- added Crystal Wyrmkin sub race [by otearaisu]
+- added Interface > Game UI > 'Enable CTRL-SHIFT-(V) to toggle the VTT camera'
+- fixed Divine Wrath spell to not require concentration
+- fixed Earth Tremor spell proxy title and description
+- fixed Ranger Survivalist disabling strike to trigger once per turn
+
+1.5.94.30:
 
 - new content development is halted until December [only fix releases if any are planned in between]
 - fixed Devastating Strike incorrectly doubling the bonus damage on hit

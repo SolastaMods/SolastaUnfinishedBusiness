@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EnableDiagsDump>0</EnableDiagsDump>
-  <EnableThesaurus>false</EnableThesaurus>
+  <EnableThesaurus>true</EnableThesaurus>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <SelectedTab>0</SelectedTab>
   <DisplayRacesToggle>true</DisplayRacesToggle>
@@ -1592,6 +1592,7 @@
   <EnableCharacterExport>true</EnableCharacterExport>
   <EnableTeleportParty>true</EnableTeleportParty>
   <EnableRejoinParty>true</EnableRejoinParty>
+  <EnableVttCamera>true</EnableVttCamera>
   <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
   <DisableAutoEquip>true</DisableAutoEquip>
   <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
