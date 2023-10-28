@@ -47,6 +47,7 @@ public static class DebugCameraPatcher
             }
             // ZOOM IN / OUT with mouse wheel
             else
+            {
                 // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (Event.current.type)
                 {
@@ -105,6 +106,7 @@ public static class DebugCameraPatcher
                         break;
                     }
                 }
+            }
 
             return false;
         }

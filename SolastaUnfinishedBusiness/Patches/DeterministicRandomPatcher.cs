@@ -43,6 +43,7 @@ public static class DeterministicRandomPatcher
 
     private struct MyState
     {
+        // ReSharper disable once NotAccessedField.Local
         public ulong State;
 #pragma warning disable CS0169
 #pragma warning disable IDE0051
