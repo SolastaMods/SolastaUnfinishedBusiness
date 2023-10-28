@@ -558,6 +558,7 @@ internal static class ItemsAndCraftingDisplay
 
     private static void DisplayItemsBox()
     {
+        var service = ServiceRepository.GetService<IGamingPlatformService>();
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var rulesetItemFactoryService = ServiceRepository.GetService<IRulesetItemFactoryService>();
         var characterName = characterInspectionScreen.InspectedCharacter.Name;
@@ -567,6 +568,7 @@ internal static class ItemsAndCraftingDisplay
             .Where(x => ItemsFilters[CurrentItemsFilterIndex].Item2(x))
             .Where(x => ItemsItemTagsFilters[CurrentItemsItemTagsFilterIndex].Item2(x))
             .Where(x => ItemsWeaponTagsFilters[CurrentItemsWeaponTagsFilterIndex].Item2(x))
+            .Where(x => service.IsContentPackAvailable(x.ContentPack))
             .OrderBy(x => x.FormatTitle());
 
         using var scrollView =
