@@ -238,6 +238,8 @@ internal enum ExtraActionId
     EldritchVersatilityNoCost = 9039,
     MindSculptToggle = 9040,
     SupremeWillToggle = 9041,
+    CrystalDefenseOn = 9042,
+    CrystalDefenseOff = 9043,
     PrioritizeAction
 }
 

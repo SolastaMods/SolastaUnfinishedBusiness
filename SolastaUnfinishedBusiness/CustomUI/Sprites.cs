@@ -183,6 +183,12 @@ public static class Sprites
     internal static AssetReferenceSprite ActionInfuse =>
         GetSprite("ActionInfuse", Resources.ActionInfuse, 80);
 
+    internal static AssetReferenceSprite ActionCrystalDefenseOff =>
+        GetSprite("ActionCrystalDefenseOff", Resources.ActionCrystalDefenseOff, 80);
+
+    internal static AssetReferenceSprite ActionCrystalDefenseOn =>
+        GetSprite("ActionCrystalDefenseOn", Resources.ActionCrystalDefenseOn, 80);
+
     internal static AssetReferenceSprite ActionGambit =>
         GetSprite("ActionGambit", Resources.ActionGambit, 80);
 

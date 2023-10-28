@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -400,6 +401,13 @@ public static class CustomActionIdContext
                     result = ActionStatus.Unavailable;
                 }
 
+                return;
+            }
+            case (Id)ExtraActionId.CrystalDefenseOff:
+            {
+                result = character.HasConditionOfType(RaceWyrmkinBuilder.ConditionCrystalDefenseName)
+                    ? ActionStatus.Available
+                    : ActionStatus.Unavailable;
                 return;
             }
         }

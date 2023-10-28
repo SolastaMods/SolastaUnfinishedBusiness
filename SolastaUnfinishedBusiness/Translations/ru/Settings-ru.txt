@@ -131,6 +131,7 @@ ModUi/&EnableThesaurus=Включить тезаурус <b><i><color=#C04040E0>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Включить в списке персонажей возможность выбирать группу по умолчанию
 ModUi/&EnableTooltipDistance=Включить отображение расстояния во всплывающей подсказке панели при наведении курсора на персонажа в бою <i><color=#F0DAA0>[рекомендуется использовать с опцией официального расчёта расстояния в соответствии с правилами]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Включить возможность накладывать на высоких уровнях <color=#D89555>Призыв элементаля</color> и <color=#D89555>Призыв феи</color>
+ModUi/&EnableVttCamera=Включать камеру виртуальной настольной игры по нажатию <color=#1E81B0>CTRL-SHIFT-(V)</color> <i><color=#F0DAA0>[позиционирование камеры правой кнопкой мыши, WASD для панорамного вида и зум по нажатию Page Up/Page Down]</color></i>
 ModUi/&EnablesAsiAndFeat=Включить возможность и повышать характеристики, и выбирать черту одновременно <i><color=#F0DAA0>[вместо того, чтобы делать выбор между этими вариантами]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Вероятность случайных событий в процентах</color>
 ModUi/&Encounters=События

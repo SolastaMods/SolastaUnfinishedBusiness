@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttributeModifierDwarfHillAbilityScoreIncrease:9a0a7079762266c4886d1bb26ca96a59",
+    "Definition:AttributeModifierDragonbornAbilityScoreIncreaseStr:eb0d5d32a3399a14bb3d7f93129e8b57"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetCrystalWyrmkinAbilityScoreIncreaseTitle",
+    "description": "Feature/&FeatureSetCrystalWyrmkinAbilityScoreIncreaseDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c0bc389d-8efb-5837-9533-70ab939b2f4a",
+  "contentPack": 9999,
+  "name": "FeatureSetCrystalWyrmkinAbilityScoreIncrease"
+}

@@ -282,6 +282,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionAsleep { get; } =
             GetDefinition<ConditionDefinition>("ConditionAsleep");
 
+        internal static ConditionDefinition ConditionAuraOfProtection { get; } =
+            GetDefinition<ConditionDefinition>("ConditionAuraOfProtection");
+
         internal static ConditionDefinition ConditionBaned { get; } =
             GetDefinition<ConditionDefinition>("ConditionBaned");
 
@@ -1010,6 +1013,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierDragonbornAbilityScoreIncreaseCha { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDragonbornAbilityScoreIncreaseCha");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDragonbornAbilityScoreIncreaseStr { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDragonbornAbilityScoreIncreaseStr");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDwarfHillAbilityScoreIncrease { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDwarfHillAbilityScoreIncrease");
 
         internal static FeatureDefinitionAttributeModifier
             AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3 { get; } =

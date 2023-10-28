@@ -131,6 +131,7 @@ ModUi/&EnableThesaurus=启用同义词库<b><i><color=#C04040E0>[需要重新启
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设置默认的游戏和测试队伍
 ModUi/&EnableTooltipDistance=当鼠标悬停在战斗中的角色上时，启用在面板的工具提示上显示距离
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素召唤</color>和<color=#D89555>精类召唤</color>的升环
+ModUi/&EnableVttCamera=启用 <color=#1E81B0>CTRL-SHIFT-(V)</color> 切换 VTT 摄像头<i><color=#F0DAA0>[右键单击并拖动以定位摄像头，WASD 进行平移和 Page Up/向下翻页放大]</color></i>
 ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
 ModUi/&Encounters=遭遇

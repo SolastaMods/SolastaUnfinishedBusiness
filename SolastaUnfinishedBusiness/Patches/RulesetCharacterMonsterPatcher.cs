@@ -94,10 +94,7 @@ public static class RulesetCharacterMonsterPatcher
         {
             foreach (var feature in __instance.GetSubFeaturesByType<IModifyAC>())
             {
-                feature.GetAC(
-                    __instance, callRefresh, dryRun, dryRunFeature, out var attributeModifier, out var trendInfo);
-                __result.AddModifier(attributeModifier);
-                __result.valueTrends.Add(trendInfo);
+                feature.ModifyAC(__instance, callRefresh, dryRun, dryRunFeature, __result);
             }
 
             RulesetAttributeModifier.SortAttributeModifiersList(__result.ActiveModifiers);

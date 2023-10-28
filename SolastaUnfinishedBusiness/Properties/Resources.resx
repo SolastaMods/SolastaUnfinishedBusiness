@@ -886,6 +886,14 @@
     <value>../Resources/Actions/ActionGambit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ActionCrystalDefenseOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Actions/ActionCrystalDefenseOff.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ActionCrystalDefenseOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value> ../Resources/Actions/ActionCrystalDefenseOn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ConditionFlightSuspended" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Conditions/ConditionFlightSuspended.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a</value>

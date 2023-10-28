@@ -131,6 +131,7 @@ ModUi/&EnableThesaurus=Habilitar diccionario de sinónimos <b><i><color=#C04040E
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas del panel al pasar el mouse sobre un personaje en combate
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
+ModUi/&EnableVttCamera=Habilite <color=#1E81B0>CTRL-SHIFT-(V)</color> para alternar la cámara VTT <i><color=#F0DAA0>[haga clic derecho y arrastre para posicionar la cámara, WASD para desplazarse y Re Pág/ Avance de página para hacer zoom]</color></i>
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de probabilidad de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros

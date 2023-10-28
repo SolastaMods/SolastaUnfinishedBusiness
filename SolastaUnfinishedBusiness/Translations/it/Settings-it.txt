@@ -131,6 +131,7 @@ ModUi/&EnableThesaurus=Abilita il dizionario dei sinonimi <b><i><color=#C04040E0
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Attiva/disattiva il pool di personaggi per impostare il gruppo di gioco e di prova predefinito
 ModUi/&EnableTooltipDistance=Abilita la visualizzazione della distanza sulla descrizione comandi del pannello quando passi sopra un personaggio in combattimento
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555> Evoca Elementale</color> e <color=#D89555> Evoca Folletto</color>
+ModUi/&EnableVttCamera=Abilita <color=#1E81B0>CTRL-SHIFT-(V)</color> per attivare/disattivare la telecamera VTT <i><color=#F0DAA0>[fai clic con il pulsante destro del mouse e trascina per posizionare la telecamera, WASD per eseguire la panoramica e Pagina su/ Pagina giù per ingrandire]</color></i>
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Imposta probabilità percentuali di incontri casuali</color>
 ModUi/&Encounters=Incontri
