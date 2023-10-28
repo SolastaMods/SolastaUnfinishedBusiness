@@ -157,7 +157,7 @@ internal static partial class SpellBuilders
 
         var rubbleProxy = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyGrease, "EarthTremorRubbleProxy")
-            .SetGuiPresentation(Category.Spell, NAME)
+            .SetGuiPresentation(NAME, Category.Spell)
             .AddToDB();
 
         var effectDescription = EffectDescriptionBuilder

@@ -131,7 +131,7 @@ ModUi/&EnableThesaurus=Enable thesaurus <b><i><color=#C04040E0>[Requires Restart
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat <i><color=#F0DAA0>[advised to use with the official distance calculation option under rules]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
-ModUi/&EnableVttCamera=Enable <color=#1E81B0>CTRL-SHIFT-(V)</color> to toggle the VTT camera <i><color=#F0DAA0>[drag with right mouse button pressed to position the camera, WASD to pan and PgUp/PgDown to zoom]</color></i>
+ModUi/&EnableVttCamera=Enable <color=#1E81B0>CTRL-SHIFT-(V)</color> to toggle the VTT camera <i><color=#F0DAA0>[right-click and drag to position the camera, WASD to pan and Page Up/Page Down to zoom]</color></i>
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
