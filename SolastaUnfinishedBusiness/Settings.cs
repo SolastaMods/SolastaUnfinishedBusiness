@@ -21,15 +21,15 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public int EnableDiagsDump { get; set; }
-    public bool EnableThesaurus { get; set; }
     public bool HideWelcomeMessage { get; set; }
     public int SelectedTab { get; set; }
 
     //
     // SETTINGS UI TOGGLES
     //
-    public bool DisplayRacesToggle { get; set; } = true;
-    public bool DisplayBackgroundsToggle { get; set; } = true;
+
+    public bool DisplayRacesToggle { get; set; }
+    public bool DisplayBackgroundsToggle { get; set; }
     public bool DisplayFeatsToggle { get; set; }
     public bool DisplayFeatGroupsToggle { get; set; }
     public bool DisplayFightingStylesToggle { get; set; }
@@ -55,7 +55,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
 
-    //TA made level ups of more than 1 level at a time (like when starting PoI with low level party) disallow unlearning spells/invocations to streamline process. Setting this to true disables that.
+    // TA made level ups of more than 1 level at a time disallowing unlearning spells/invocations to streamline process
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
 
     //
@@ -354,6 +354,7 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Translations
     //
 
+    public bool EnableThesaurus { get; set; }
     public string SelectedLanguageCode { get; set; } = TranslatorContext.English;
 
     //
