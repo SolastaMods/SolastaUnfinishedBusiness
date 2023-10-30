@@ -62,6 +62,19 @@ internal static class CharacterDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
+        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
+            CharacterContext.SwitchDarkSensitivity();
+        }
+
+        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
+        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
@@ -127,7 +140,6 @@ internal static class CharacterDisplay
             Main.Settings.EnableMulticlass = toggle;
             Main.Settings.MaxAllowedClasses = MulticlassContext.DefaultClasses;
             Main.Settings.EnableMinInOutAttributes = true;
-            Main.Settings.EnableRelearnSpells = false;
             Main.Settings.DisplayAllKnownSpellsDuringLevelUp = true;
             Main.Settings.DisplayPactSlotsOnSpellSelectionPanel = true;
         }
@@ -152,12 +164,6 @@ internal static class CharacterDisplay
             }
 
             UI.Label();
-
-            toggle = Main.Settings.EnableRelearnSpells;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.EnableRelearnSpells = toggle;
-            }
 
             toggle = Main.Settings.DisplayAllKnownSpellsDuringLevelUp;
             if (UI.Toggle(Gui.Localize("ModUi/&DisplayAllKnownSpellsDuringLevelUp"), ref toggle, UI.AutoWidth()))
@@ -196,6 +202,12 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
             CharacterContext.SwitchEveryFourLevelsFeats(true);
+        }
+
+        toggle = Main.Settings.EnableRelearnSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRelearnSpells = toggle;
         }
 
         UI.Label();

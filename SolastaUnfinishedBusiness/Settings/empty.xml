@@ -947,6 +947,7 @@
   <EnableCharacterExport>false</EnableCharacterExport>
   <EnableTeleportParty>false</EnableTeleportParty>
   <EnableRejoinParty>false</EnableRejoinParty>
+  <EnableVttCamera>false</EnableVttCamera>
   <EnableCancelEditOnRightMouseClick>false</EnableCancelEditOnRightMouseClick>
   <DisableAutoEquip>false</DisableAutoEquip>
   <EnableInventoryFilteringAndSorting>false</EnableInventoryFilteringAndSorting>

@@ -2,6 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Добавлять все кости от
 ModUi/&AddAllToStore=Всё в магазин
 ModUi/&AddBleedingToLesserRestoration=Добавить <color=#D89555>Кровотечение</color> к состояниям, снимаемым <color=#D89555>Высшим</color> и <color=#D89555>Малым восстановлением</color>
 ModUi/&AddCustomIconsToOfficialItems=Добавить кастомные значки к официальным игровым предметам <i><color=#F0DAA0>[боеприпасы, рецепты, наборы и т.д.]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Добавьте <color=#D89555>Восприимчивость к тьме</color> к <color=#D89555>Темному эльфу</color>, <color=#D89555>Темному кобольду</color> и <color=#D89555>Серому карлику</color>. color> <i><color=#F0DAA0>[преимущество на проверках восприятия в темноте]</color></i>
 ModUi/&AddHelpActionToAllRaces=Добавить действие <color=#D89555>Помощь</color> всем игровым расам <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать другое существо, находящееся в пределах 1 клетки от вас]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Добавить гуманоида в список предпочтительных противников для <color=#D89555>Следопытов</color>
 ModUi/&AddNewBrightEyeColors=Добавить новые яркие цвета глаз
@@ -131,6 +132,7 @@ ModUi/&EnableThesaurus=Включить тезаурус <b><i><color=#C04040E0>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Включить в списке персонажей возможность выбирать группу по умолчанию
 ModUi/&EnableTooltipDistance=Включить отображение расстояния во всплывающей подсказке панели при наведении курсора на персонажа в бою <i><color=#F0DAA0>[рекомендуется использовать с опцией официального расчёта расстояния в соответствии с правилами]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Включить возможность накладывать на высоких уровнях <color=#D89555>Призыв элементаля</color> и <color=#D89555>Призыв феи</color>
+ModUi/&EnableVttCamera=Включать камеру виртуальной настольной игры по нажатию <color=#1E81B0>CTRL-SHIFT-(V)</color> <i><color=#F0DAA0>[позиционирование камеры правой кнопкой мыши, WASD для панорамного вида и зум по нажатию Page Up/Page Down]</color></i>
 ModUi/&EnablesAsiAndFeat=Включить возможность и повышать характеристики, и выбирать черту одновременно <i><color=#F0DAA0>[вместо того, чтобы делать выбор между этими вариантами]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Вероятность случайных событий в процентах</color>
 ModUi/&Encounters=События
@@ -200,6 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>Патчи:</color>
 ModUi/&PortraitsOpenFolder=Открыть папку с портретами
 ModUi/&PrimedItems=Подготовленные предметы
 ModUi/&Progression=<color=#F0DAA0>Развитие:</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Включите <color=#D89555>Светочувствительность</color> на <color=#D89555>Darkelf</color>, <color=#D89555>Темном кобольде</color> и <color=#D89555>Сером карлике</ color> для срабатывания только на открытом воздухе\n<i><color=#F0DAA0>[внутренние зоны на открытом воздухе, доступные без экрана загрузки, считаются движком игры открытыми]</color></i>
 ModUi/&Races=<color=#F0DAA0>Расы</color>
 ModUi/&RecipeCost=<color=white>Стоимость рецепта</color>
 ModUi/&RecipesInDm=Рецепты в СП

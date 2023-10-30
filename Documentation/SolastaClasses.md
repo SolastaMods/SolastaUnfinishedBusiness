@@ -808,10 +808,6 @@ Starting at the 4th level, you can use your reaction when you fall to reduce any
 
 You can attack twice, rather than once, when you use the attack or shove actions.
 
-* Stunning Strike
-
-Starting at the 5th level, you can interfere with the flow of Ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 Ki point to attempt a stunning strike. The target must succeed on a constitution saving throw or be stunned until the end of your next turn.
-
 
 ## Level 6
 

@@ -2836,7 +2836,7 @@ During the first round of combat, you roll all attack rolls with advantage. In a
 
 * Seize the Chance
 
-Starting at 9th level, when an enemy fails a saving throw and it is not your turn, you can use your reaction to make an attack of opportunity against it.
+Starting at 9th level, when an enemy first fails a saving throw and it is not your turn, you can use your reaction to make an attack of opportunity against it.
 
 
 ### Level 13

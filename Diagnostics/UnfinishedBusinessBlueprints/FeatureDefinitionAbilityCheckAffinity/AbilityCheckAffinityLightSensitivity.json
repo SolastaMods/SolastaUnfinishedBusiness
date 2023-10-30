@@ -11,7 +11,7 @@
       "abilityCheckModifierDiceNumber": 0,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "None",
-      "lightingContext": "BrightLight"
+      "lightingContext": "Irrelevant"
     }
   ],
   "substractBardicDieRoll": false,
@@ -20,13 +20,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionLightSensitiveTitle",
-    "description": "Rules/&ConditionLightSensitiveDescription",
+    "title": "Feature/&AbilityCheckAffinityLightSensitivityTitle",
+    "description": "Feature/&AbilityCheckAffinityLightSensitivityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cd10433f24101be46898ed600f8c537b",
-      "m_SubObjectName": "ConditionLightSensitiveSaboteur",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

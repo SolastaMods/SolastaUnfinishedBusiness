@@ -926,8 +926,6 @@ internal static class GameUiContext
                 var cameraService = ServiceRepository.GetService<ICameraService>();
 
                 cameraService.DebugCameraEnabled = !cameraService.DebugCameraEnabled;
-                cameraService.DebugCamera.currentMode = DebugCamera.DebugCameraMode.OrbitalPlacement;
-
                 break;
             case CtrlShiftS when EncountersSpawnContext.EncounterCharacters.Count > 0:
                 EncountersSpawnContext.ConfirmStageEncounter();

@@ -31,7 +31,8 @@
   ],
   "subRaces": [
     "Definition:RaceHighWyrmkin:30836d16-29ff-56c2-9012-7ee8640c45e1",
-    "Definition:RaceCaveWyrmkin:2d02059d-4630-581e-87b2-0d0c03b5aa74"
+    "Definition:RaceCaveWyrmkin:2d02059d-4630-581e-87b2-0d0c03b5aa74",
+    "Definition:RaceCrystalWyrmkin:48a08f2f-7f77-5284-a02f-5aa39f54de07"
   ],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],

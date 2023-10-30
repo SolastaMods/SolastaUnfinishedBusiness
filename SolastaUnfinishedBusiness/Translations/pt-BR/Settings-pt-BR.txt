@@ -2,6 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Adicione todos os dados do dano básico d
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Adicione <color=#D89555>Darkness Perceptive</color> a <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</ color> <i><color=#F0DAA0>[vantagem em testes de percepção no escuro]</color></i>
 ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
@@ -131,6 +132,7 @@ ModUi/&EnableThesaurus=Ativar dicionário de sinônimos <b><i><color=#C04040E0>[
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
 ModUi/&EnableTooltipDistance=Ative a exibição da distância na dica de ferramenta do painel ao passar o mouse sobre um personagem em combate
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
+ModUi/&EnableVttCamera=Ative <color=#1E81B0>CTRL-SHIFT-(V)</color> para alternar a câmera VTT <i><color=#F0DAA0>[clique com o botão direito e arraste para posicionar a câmera, WASD para panoramizar e Page Up/ Desça a página para ampliar]</color></i>
 ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
 ModUi/&Encounters=Encontros
@@ -200,6 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>Aplicativos:</color>
 ModUi/&PortraitsOpenFolder=Abra a pasta de retratos
 ModUi/&PrimedItems=Itens com Primer
 ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Ative a <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</ color> para acionar apenas em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo de jogo]</color></i>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
 ModUi/&RecipesInDm=Receitas na DM
