@@ -62,6 +62,19 @@ internal static class CharacterDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
+        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
+            CharacterContext.SwitchDarkSensitivity();
+        }
+
+        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
+        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;

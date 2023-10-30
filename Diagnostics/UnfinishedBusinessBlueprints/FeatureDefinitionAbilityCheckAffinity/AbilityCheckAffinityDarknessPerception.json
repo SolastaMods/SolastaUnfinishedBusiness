@@ -6,7 +6,7 @@
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "proficiencyName": "Perception",
-      "affinity": "Disadvantage",
+      "affinity": "Advantage",
       "abilityCheckGroupOperation": "AddDie",
       "abilityCheckModifierDiceNumber": 0,
       "abilityCheckModifierDieType": "D1",
@@ -20,8 +20,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AbilityCheckAffinityLightSensitivityTitle",
-    "description": "Feature/&AbilityCheckAffinityLightSensitivityDescription",
+    "title": "Feature/&AbilityCheckAffinityDarknessPerceptionTitle",
+    "description": "Feature/&AbilityCheckAffinityDarknessPerceptionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a49458aa-f228-5369-a4de-e10b3cd3a02b",
+  "guid": "5d34bbab-d968-5a2a-a3a8-6af05688fa8f",
   "contentPack": 9999,
-  "name": "AbilityCheckAffinityLightSensitivity"
+  "name": "AbilityCheckAffinityDarknessPerception"
 }

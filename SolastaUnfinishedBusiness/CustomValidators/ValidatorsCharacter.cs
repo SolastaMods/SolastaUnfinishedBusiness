@@ -106,6 +106,11 @@ internal static class ValidatorsCharacter
             LocationDefinitions.LightingState.Unlit,
             LocationDefinitions.LightingState.Dim)(character);
 
+    internal static readonly IsCharacterValidHandler IsUnlitOrDarkness = character =>
+        HasAnyOfLightingStates(
+            LocationDefinitions.LightingState.Darkness,
+            LocationDefinitions.LightingState.Unlit)(character);
+
     internal static IsCharacterValidHandler HasAvailablePowerUsage(FeatureDefinitionPower power)
     {
         return character => character.CanUsePower(power);

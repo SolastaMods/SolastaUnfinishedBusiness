@@ -2,6 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=将来自基础武器伤害的所有骰�
 ModUi/&AddAllToStore=全部添加到商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血状态</color>添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=为<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>添加<color=#D89555>黑暗感知力</color> color> <i><color=#F0DAA0>[黑暗下感知检查的优势]</color></i>
 ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5尺以内的生物]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>游侠</color>添加人形敌人宿敌
 ModUi/&AddNewBrightEyeColors=添加新的亮色眼睛颜色
@@ -202,6 +203,7 @@ ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PortraitsOpenFolder=打开肖像文件夹
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进度：</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>光敏感度</color> color> 仅在室外触发\n<i><color=#F0DAA0>[无需加载屏幕即可访问的室外位置的室内区域被游戏引擎视为室外]</color></i>
 ModUi/&Races=<color=#F0DAA0>种族</color>
 ModUi/&RecipeCost=<color=white>配方成本</color>
 ModUi/&RecipesInDm=地城中的配方
