@@ -22,7 +22,8 @@ public static class ActiveCharacterPanelPatcher
             IconsOnPortrait.CharacterPanelRefresh(__instance);
 
             //PATCH: support for button that shows info about non-Hero characters
-            if (Main.Settings.ShowButtonWithControlledMonsterInfo)
+            if (Main.Settings.ShowButtonWithControlledMonsterInfo &&
+                __instance.GuiCharacter.RulesetCharacter is RulesetCharacterMonster)
             {
                 CustomCharacterStatsPanel.Instance.Refresh();
             }

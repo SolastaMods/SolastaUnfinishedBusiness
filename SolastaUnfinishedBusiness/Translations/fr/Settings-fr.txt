@@ -2,6 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Ajoutez tous les dés de dégâts d'arme 
 ModUi/&AddAllToStore=Ajouter tout au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par <color=#D89555>Restauration suprême</color> et <color=#D89555>Restauration partielle</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux objets officiels du jeu <i><color=#F0DAA0>[munitions, recettes, outils, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Ajoutez <color=#D89555>Darkness Perceptive</color> à <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</ color> <i><color=#F0DAA0>[avantage sur les contrôles de perception dans l'obscurité]</color></i>
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les Ascendances jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous, lui donnant l'avantage]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter Humanoïde à la liste d'Ennemis jurés des <color=#D89555>Rôdeurs</color>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
@@ -131,6 +132,7 @@ ModUi/&EnableThesaurus=Activer le thésaurus <b><i><color=#C04040E0>[Nécessite 
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans l'info-bulle du panneau lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la possibilité d'incanter <color=#D89555>Invocation d'élémentaire</color> et <color=#D89555>Invocation de fée</color> à des niveaux d'emplacements de sorts supérieurs
+ModUi/&EnableVttCamera=Activez <color=#1E81B0>CTRL-SHIFT-(V)</color> pour basculer la caméra VTT <i><color=#F0DAA0>[cliquez avec le bouton droit et faites glisser pour positionner la caméra, WASD pour effectuer un panoramique et Page précédente/ Page suivante pour zoomer]</color></i>
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation de Caractéristiques et la sélection des Dons lors des changement de niveaux concernés <i><color=#F0DAA0>[au lieu d'un choix mutuellement exclusif]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Définir un pourcentage de chances de rencontres aléatoires</color>
 ModUi/&Encounters=Rencontres
@@ -200,6 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>Correctifs :</color>
 ModUi/&PortraitsOpenFolder=Ouvrir le dossier des portraits
 ModUi/&PrimedItems=Objets Préparés
 ModUi/&Progression=<color=#F0DAA0>Progression :</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Activez la <color=#D89555>Sensibilité à la lumière</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</ color> pour déclencher uniquement en extérieur\n<i><color=#F0DAA0>[les zones intérieures des emplacements extérieurs accessibles sans écran de chargement sont considérées comme extérieures par le moteur de jeu]</color></i>
 ModUi/&Races=<color=#F0DAA0>Ascendances</color>
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
 ModUi/&RecipesInDm=Recettes dans le DM

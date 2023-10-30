@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Races;
 
-internal class CharacterActionCrystalDefenseOn : CharacterAction
+//This should have default namespace so that it can be properly created by `CharacterActionPatcher`
+// ReSharper disable once CheckNamespace
+[UsedImplicitly]
+#pragma warning disable CA1050
+public class CharacterActionCrystalDefenseOn : CharacterAction
+#pragma warning restore CA1050
 {
     public CharacterActionCrystalDefenseOn(CharacterActionParams actionParams) : base(actionParams)
     {
@@ -13,17 +15,32 @@ internal class CharacterActionCrystalDefenseOn : CharacterAction
 
     public override IEnumerator ExecuteImpl()
     {
-        var RulesetCharacter = ActingCharacter.RulesetCharacter;
-        if (!RulesetCharacter.HasConditionOfCategoryAndType("12Status", "ConditionCrystalDefense"))
+        var rulesetCharacter = ActingCharacter.RulesetCharacter;
+
+        if (rulesetCharacter.HasConditionOfCategoryAndType(
+                AttributeDefinitions.TagStatus, RaceWyrmkinBuilder.ConditionCrystalDefenseName))
         {
-            ConditionDefinition element = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement("ConditionCrystalDefense");
-            RulesetCondition newCondition = RulesetCondition.CreateActiveCondition(RulesetCharacter.Guid, element, RuleDefinitions.DurationType.Irrelevant, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn, RulesetCharacter.Guid, RulesetCharacter.CurrentFaction.Name);
-            RulesetCharacter.AddConditionOfCategory("12Status", newCondition);
-            if (ActingCharacter.SetProne(value: true))
-            {
-                yield return ActingCharacter.EventSystem.WaitForEvent(GameLocationCharacterEventSystem.Event.ProneInAnimationEnd);
-            }
+            yield break;
         }
-        yield return null;
+
+        rulesetCharacter.InflictCondition(
+            RaceWyrmkinBuilder.ConditionCrystalDefenseName,
+            RuleDefinitions.DurationType.Irrelevant,
+            0,
+            RuleDefinitions.TurnOccurenceType.StartOfTurn,
+            AttributeDefinitions.TagStatus,
+            rulesetCharacter.Guid,
+            rulesetCharacter.CurrentFaction.Name,
+            0,
+            string.Empty,
+            0,
+            0,
+            0);
+
+        if (ActingCharacter.SetProne(true))
+        {
+            yield return ActingCharacter.EventSystem.WaitForEvent(
+                GameLocationCharacterEventSystem.Event.ProneInAnimationEnd);
+        }
     }
 }

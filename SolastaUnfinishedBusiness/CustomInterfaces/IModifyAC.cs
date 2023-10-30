@@ -1,5 +1,4 @@
 ﻿using JetBrains.Annotations;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 

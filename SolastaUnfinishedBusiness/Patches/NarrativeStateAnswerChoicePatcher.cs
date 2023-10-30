@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -19,7 +20,9 @@ public static class NarrativeStateAnswerChoicePatcher
         [UsedImplicitly]
         public static void Postfix(NarrativeStateAnswerChoice __instance)
         {
-            if (!Main.Settings.EnableAlternateVotingSystem || !Main.Settings.EnableSumD20OnAlternateVotingSystem)
+            if (!Global.IsMultiplayer ||
+                !Main.Settings.EnableAlternateVotingSystem ||
+                !Main.Settings.EnableSumD20OnAlternateVotingSystem)
             {
                 return;
             }
@@ -28,7 +31,13 @@ public static class NarrativeStateAnswerChoicePatcher
 
             DiceRolls.Clear();
 
-            var actorLine = __instance.narrativeSequence.AdventureLogInfos.Last()?.ActorLine ?? string.Empty;
+            var actorLine = string.Empty;
+
+            if (__instance.narrativeSequence.AdventureLogInfos.Count > 0)
+            {
+                actorLine = __instance.narrativeSequence.AdventureLogInfos.Last().ActorLine;
+            }
+
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry(actorLine, console.consoleTableDefinition) { Indent = false };
 
@@ -62,7 +71,8 @@ public static class NarrativeStateAnswerChoicePatcher
         [UsedImplicitly]
         public static bool Prefix(NarrativeStateAnswerChoice __instance, ref int selectedIndex, ref bool everyoneVoted)
         {
-            if (!Main.Settings.EnableAlternateVotingSystem)
+            if (!Global.IsMultiplayer ||
+                !Main.Settings.EnableAlternateVotingSystem)
             {
                 return true;
             }

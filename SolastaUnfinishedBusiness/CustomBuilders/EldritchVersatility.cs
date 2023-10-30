@@ -1177,9 +1177,12 @@ internal static class EldritchVersatility
 
             private class EldritchAegisModifyAC : IModifyAC
             {
-
-                public void ModifyAC(RulesetCharacter owner, [UsedImplicitly] bool callRefresh,
-                    [UsedImplicitly] bool dryRun, [UsedImplicitly] FeatureDefinition dryRunFeature, RulesetAttribute armorClass)
+                public void ModifyAC(
+                    RulesetCharacter owner,
+                    [UsedImplicitly] bool callRefresh,
+                    [UsedImplicitly] bool dryRun,
+                    [UsedImplicitly] FeatureDefinition dryRunFeature,
+                    RulesetAttribute armorClass)
                 {
                     GetCustomConditionFromCharacter(owner, out var supportCondition);
                     var acBonus = supportCondition.ACBonus;

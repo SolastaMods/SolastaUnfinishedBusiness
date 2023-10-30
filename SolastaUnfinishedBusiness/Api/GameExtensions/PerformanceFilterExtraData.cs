@@ -25,6 +25,7 @@ internal class PerformanceFilterExtraData
 
     private static readonly Dictionary<ActionPerformanceFilter, PerformanceFilterExtraData> DataMap = new();
     private static readonly Stack<PerformanceFilterExtraData> Pool = new();
+
     private bool _customSpellcasting;
     private string _name;
 
@@ -49,6 +50,7 @@ internal class PerformanceFilterExtraData
     private static void Return(PerformanceFilterExtraData data)
     {
         data.Clear();
+
         if (Pool.Count < 30)
         {
             Pool.Push(data);
@@ -69,9 +71,12 @@ internal class PerformanceFilterExtraData
     internal static void AddData(ActionPerformanceFilter filter, FeatureDefinition feature, string origin)
     {
         var data = GetOrMakeData(filter);
+
         data.Feature = feature;
         data.Origin = origin;
+#pragma warning disable IDE0031
         data._name = feature != null ? feature.Name : null;
+#pragma warning restore IDE0031
         data._customSpellcasting = feature != null && feature.HasSubFeatureOfType<ActionWithCustomSpellTracking>();
     }
 
@@ -103,11 +108,13 @@ internal class PerformanceFilterExtraData
         switch (type)
         {
             case ActionDefinitions.ActionType.Main:
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log(
                     $"StoreAttacks [{character.Name}] type: {type} number: {number ?? character.UsedMainAttacks} {ToString()}");
                 character.UsedSpecialFeatures[Key(MainAttacks)] = number ?? character.UsedMainAttacks;
                 break;
             case ActionDefinitions.ActionType.Bonus:
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log(
                     $"StoreAttacks [{character.Name}] type: {type} number: {number ?? character.UsedBonusAttacks} {ToString()}");
                 character.UsedSpecialFeatures[Key(BonusAttacks)] = number ?? character.UsedBonusAttacks;
@@ -126,6 +133,7 @@ internal class PerformanceFilterExtraData
                 character.UsedMainAttacks = character.UsedSpecialFeatures.TryGetValue(Key(MainAttacks), out number)
                     ? number
                     : 0;
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log(
                     $"LoadAttacks [{character.Name}] type: {type} number: {character.UsedMainAttacks} {ToString()}");
                 break;
@@ -133,6 +141,7 @@ internal class PerformanceFilterExtraData
                 character.UsedBonusAttacks = character.UsedSpecialFeatures.TryGetValue(Key(BonusAttacks), out number)
                     ? number
                     : 0;
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log(
                     $"LoadAttacks [{character.Name}] type: {type} number: {character.UsedBonusAttacks} {ToString()}");
                 break;
@@ -147,9 +156,11 @@ internal class PerformanceFilterExtraData
         }
 
         var key = _customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
+
         character.UsedSpecialFeatures[key] = (character.UsedMainSpell ? MainSpell : 0)
                                              + (character.UsedMainCantrip ? MainCantrip : 0)
                                              + (character.UsedBonusSpell ? BonusSpell : 0);
+        // ReSharper disable once InvocationIsSkipped
         Main.Log(
             $"StoreSpellcasting [{character.Name}] type: {type} '{key}' flags: {character.UsedSpecialFeatures[key]} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
     }
@@ -162,6 +173,7 @@ internal class PerformanceFilterExtraData
         }
 
         var key = _customSpellcasting ? Key(SpellFlags) : DefaultSpellFlags;
+
         if (!character.UsedSpecialFeatures.TryGetValue(key, out var flags))
         {
             flags = 0;
@@ -171,6 +183,7 @@ internal class PerformanceFilterExtraData
         character.usedMainCantrip = (flags & MainCantrip) > 0;
         character.usedBonusSpell = (flags & BonusSpell) > 0;
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log(
             $"LoadSpellcasting [{character.Name}] type: {type} '{key}' flags: {flags} ms: {character.UsedMainSpell}, mc: {character.UsedMainCantrip}, bs: {character.UsedBonusSpell} {ToString()}");
     }
@@ -183,6 +196,7 @@ internal class PerformanceFilterExtraData
         }
 
         var title = Feature.FormatTitle();
+
         if (string.IsNullOrEmpty(title) || Feature.GuiPresentation.Title == GuiPresentationBuilder.EmptyString)
         {
             title = ToString() + " (NO TITLE!)";

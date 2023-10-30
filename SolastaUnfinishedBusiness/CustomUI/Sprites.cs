@@ -185,6 +185,7 @@ public static class Sprites
 
     internal static AssetReferenceSprite ActionCrystalDefenseOff =>
         GetSprite("ActionCrystalDefenseOff", Resources.ActionCrystalDefenseOff, 80);
+
     internal static AssetReferenceSprite ActionCrystalDefenseOn =>
         GetSprite("ActionCrystalDefenseOn", Resources.ActionCrystalDefenseOn, 80);
 
