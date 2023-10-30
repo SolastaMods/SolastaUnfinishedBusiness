@@ -50,7 +50,9 @@ internal static class ValidatorsCharacter
         character.HasFreeHandSlot() &&
         !ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(), TagsDefinitions.WeaponTagTwoHanded);
 
-    internal static readonly IsCharacterValidHandler HasFreeHand = character => character.HasFreeHandSlot();
+    internal static readonly IsCharacterValidHandler HasFreeHand = character =>
+        character.HasFreeHandSlot() ||
+        character is RulesetCharacterMonster;
 
     internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhand(character);
