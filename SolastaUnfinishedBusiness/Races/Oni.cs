@@ -98,14 +98,16 @@ internal class RaceOniBuilder
                 proficiencyOniOgreMight)
             .AddToDB();
 
-        var list = raceOni.RacePresentation.AvailableMorphotypeCategories.ToList();
+        var racePresentation = raceOni.RacePresentation;
+
+        var list = racePresentation.AvailableMorphotypeCategories.ToList();
         list.Add(MorphotypeElementDefinition.ElementCategory.Horns);
-        raceOni.RacePresentation.availableMorphotypeCategories = list.ToArray();
-        raceOni.RacePresentation.maleHornsOptions = new List<string>();
-        raceOni.RacePresentation.hornsTailAssetPrefix = Tiefling.RacePresentation.hornsTailAssetPrefix;
-        raceOni.RacePresentation.maleHornsOptions.AddRange(Tiefling.RacePresentation.maleHornsOptions);
-        raceOni.RacePresentation.femaleHornsOptions = new List<string>();
-        raceOni.RacePresentation.femaleHornsOptions.AddRange(Tiefling.RacePresentation.femaleHornsOptions);
+        racePresentation.availableMorphotypeCategories = list.ToArray();
+        racePresentation.maleHornsOptions = new List<string>();
+        racePresentation.hornsTailAssetPrefix = Tiefling.RacePresentation.hornsTailAssetPrefix;
+        racePresentation.maleHornsOptions.AddRange(Tiefling.RacePresentation.maleHornsOptions);
+        racePresentation.femaleHornsOptions = new List<string>();
+        racePresentation.femaleHornsOptions.AddRange(Tiefling.RacePresentation.femaleHornsOptions);
         RacesContext.RaceScaleMap[raceOni] = 7.4f / 6.4f;
         return raceOni;
     }
