@@ -2192,14 +2192,12 @@ namespace SolastaUnfinishedBusiness.Properties {
                 return ((byte[])(obj));
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] Oni
-        {
-            get
-            {
+        public static byte[] Oni {
+            get {
                 object obj = ResourceManager.GetObject("Oni", resourceCulture);
                 return ((byte[])(obj));
             }
@@ -3971,6 +3969,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] Wendigo {
             get {
                 object obj = ResourceManager.GetObject("Wendigo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Wildling {
+            get {
+                object obj = ResourceManager.GetObject("Wildling", resourceCulture);
                 return ((byte[])(obj));
             }
         }

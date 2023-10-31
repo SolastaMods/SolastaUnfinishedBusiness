@@ -72,6 +72,7 @@ internal static class FlexibleRacesContext
         { "RaceWendigo", AttributeChoiceThree },
         { "RaceTiefling", AttributeChoiceThree },
         { "RaceWyrmkin", AttributeChoiceThree },
+        { "RaceWildling", AttributeChoiceThree },
         { "RaceOni", AttributeChoiceThree }
     };
 
@@ -116,6 +117,7 @@ internal static class FlexibleRacesContext
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
         { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } },
         { "RaceMalakh", new List<string> { "FeatureSetMalakhAbilityScoreIncrease" } },
+        { "RaceWildling", new List<string> { "FeatureSetWildlingAbilityScoreIncrease" } },
         { "RaceOni", new List<string> { "FeatureSetOniAbilityScoreIncrease" } },
         { "RaceImpInfernal", new List<string> { "FeatureSetImpInfernalAbilityScoreIncrease" } },
         { "RaceImpForest", new List<string> { "FeatureSetImpForestAbilityScoreIncrease" } },

@@ -940,6 +940,11 @@
     <value>../Resources/Races/Wendigo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Wildling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Races/Wildling.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="Wyrmkin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Wyrmkin.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
