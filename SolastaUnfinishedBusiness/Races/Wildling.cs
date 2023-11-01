@@ -86,10 +86,6 @@ internal class RaceWildlingBuilder
             .Create(CharacterRaceDefinitions.Human, $"Race{RaceName}")
             .SetGuiPresentation(Category.Race, Sprites.GetSprite(RaceName, Resources.Wildling, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
-            .SetBaseHeight(92)
-            .SetBaseWeight(185)
-            .SetMinimalAge(18)
-            .SetMaximalAge(750)
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
                 FeatureDefinitionMoveModes.MoveModeClimb6,
@@ -103,7 +99,7 @@ internal class RaceWildlingBuilder
             .AddToDB();
 
         var racePresentation = raceWildling.RacePresentation;
-        racePresentation.originOptions.RemoveRange(1, racePresentation.originOptions.Count - 1);
+        racePresentation.originOptions = new List<string>() { racePresentation.originOptions[2] };
 
         var list = racePresentation.AvailableMorphotypeCategories.ToList();
         list.Add(MorphotypeElementDefinition.ElementCategory.Horns);
