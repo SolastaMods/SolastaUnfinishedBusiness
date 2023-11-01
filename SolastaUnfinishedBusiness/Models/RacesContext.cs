@@ -17,6 +17,7 @@ internal static class RacesContext
     {
         Morphotypes.Load();
 
+        LoadRace(RaceBattlebornBuilder.RaceBattleborn);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceFairyBuilder.RaceFairy);
         LoadRace(RaceHalfElfBuilder.RaceHalfElfVariant);

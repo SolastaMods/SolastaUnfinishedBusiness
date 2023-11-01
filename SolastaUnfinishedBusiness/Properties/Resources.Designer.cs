@@ -583,6 +583,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Battleborn {
+            get {
+                object obj = ResourceManager.GetObject("Battleborn", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] BattlefieldConversion {
             get {
                 object obj = ResourceManager.GetObject("BattlefieldConversion", resourceCulture);
