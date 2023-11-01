@@ -1,6 +1,6 @@
 Feature/&AttackModifierEnchantWeaponDescription=当在武器上激活时，它的攻击算作魔法攻击，你可以使用你的法术施法修正值来进行攻击和伤害检定。
 Feature/&AttackModifierEnchantWeaponTitle=奥术武器
-Feature/&AttributeModifierCasterFightingExtraAttackDescription=每个战斗回合, 当你使用攻击或 推撞动作时, 你可以额外攻击一次。
+Feature/&AttributeModifierCasterFightingExtraAttackDescription=每个战斗回合, 当你使用攻击或推撞动作时, 你可以额外攻击一次。
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=额外攻击
 Feature/&AttributeModifierThirdExtraAttackDescription=你获得一次额外攻击，现在在你的回合中最多可以攻击 3 次。
 Feature/&AttributeModifierThirdExtraAttackTitle=额外攻击

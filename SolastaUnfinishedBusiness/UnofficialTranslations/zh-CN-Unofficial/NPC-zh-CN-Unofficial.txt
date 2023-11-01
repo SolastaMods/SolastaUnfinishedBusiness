@@ -307,6 +307,7 @@ NPC/&NPC_DL3_GarradSoldier_05=韦恩·泰勒
 NPC/&NPC_DL3_GarradSoldier_06=哈里·瑟里奇
 NPC/&NPC_DL3_GarradSoldier_07=布莱伦·林加德
 NPC/&NPC_DL3_GarradSoldier_08=埃塞恩·库克
+NPC/&NPC_DL3_GarradSoldier_09=
 NPC/&NPC_DLC1_Anfarel_Noble=艾拉莉亚·安法雷尔
 NPC/&NPC_DLC1_Drooly_Description=某种宠物狼。它看起来像一只可爱的小狗——不过长着大大的尖牙。
 NPC/&NPC_DLC1_Drooly_Title=哈喇喇

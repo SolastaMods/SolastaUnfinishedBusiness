@@ -91,7 +91,7 @@ ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-(E)</color>导出�
 ModUi/&EnableCharactersOnFireToEmitLight=使火焰生物发光<i><color=#F0DAA0>[光之立方体、火元素、火焰小丑、火焰鹗、火蜘蛛，以及其他火系生物]</color></i>
 ModUi/&EnableCheatMenu=启用作弊菜单
 ModUi/&EnableCustomPortraits=启用自定义肖像
-ModUi/&EnableCustomPortraitsHelp=。将您的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color>< /b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
+ModUi/&EnableCustomPortraitsHelp=。将您的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150和200x200的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
 ModUi/&EnableEpicPointsAndArray=启用史诗级35点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注入、开局和多功能]</color></i>
@@ -111,7 +111,7 @@ ModUi/&EnableLevel20=启用20级<b><i><color=#C04040E0>[需要重启]</color></i
 ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游戏控制台
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=在自定义活动中启用记录无效引用
 ModUi/&EnableMinInOutAttributes=<i>+强制能力得分最低的前置条件</i>
-ModUi/&EnableMonkAbundantKi=在1级启用<color=#D89555>武僧</color><b>丰富的Ki</b><i><color=#F0DAA0>[获得额外的Ki等于熟练加值的一半]</color> </i>
+ModUi/&EnableMonkAbundantKi=在1级启用<color=#D89555>武僧</color><b>丰富的气</b><i><color=#F0DAA0>[获得额外的Ki等于熟练加值的一半]</color> </i>
 ModUi/&EnableMonkFightingStyle=在第 2 级启用<color=#D89555>武僧</color><b>战斗风格</b>选择
 ModUi/&EnableMonkWeaponSpecialization=在等级2和11启用<color=#D89555>僧侣</color><b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的僧侣武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
@@ -177,7 +177,7 @@ ModUi/&Input=<color=#F0DAA0>输入：</color>
 ModUi/&Interface=界面
 ModUi/&InventoryAndItems=<color=#F0DAA0>库存和物品：</color>
 ModUi/&InvertAltBehaviorOnTooltips=反转工具提示上的<color=#1E81B0>ALT</color>键行为
-ModUi/&Invocations=<color=#F0DAA0>调用</color>
+ModUi/&Invocations=<color=#F0DAA0>祈唤</color>
 ModUi/&ItemInDm=地城中的项目
 ModUi/&Items=<color=#F0DAA0>项目：</color>
 ModUi/&ItemsCraftingMerchants=物品、手工艺和商人

@@ -1,11 +1,11 @@
-Background/&BackgroundDevotedDescription=经过多年漫无目的的徘徊和徒劳的寻找，你已经找到了你的目标。无论是神灵还是宗教、政治运动、哲学运动，或者只是推广塔金大师的优质啤酒和蜂蜜酒，您都已经看到了曙光，并全心全意地致力于推进您所选择的事业。
-Background/&BackgroundDevotedTitle=虔诚
+Background/&BackgroundDevotedDescription=经过多年漫无目的的徘徊和徒劳的寻找，你已经找到了你的目标。无论是神灵还是宗教、政治运动、哲学运动，或者只是推广塔金大师的优质啤酒和蜂蜜酒，你都已经看到了曙光，并全心全意地致力于推进您所选择的事业。
+Background/&BackgroundDevotedTitle=虔诚者
 Background/&BackgroundFarmerDescription=自出生起，你就在土地上辛苦耕作，以养家糊口。作为一个农民，你日出而耕，日落而归。如今，你抛弃了这种平凡的生活，开始追求刺激、名利和冒险。
 Background/&BackgroundFarmerTitle=农民
-Feature/&BonusCantripsBackgroundDevotedDescription=获得戏法<b>神圣火焰</b>。
-Feature/&BonusCantripsBackgroundDevotedTitle=虔诚的魔法
-Feature/&ProficiencyBackgroundDevotedSkillsDescription=洞察力、调查和宗教
-Feature/&ProficiencyBackgroundDevotedSkillsTitle=专注技能
+Feature/&BonusCantripsBackgroundDevotedDescription=获得戏法<b>圣火术</b>。
+Feature/&BonusCantripsBackgroundDevotedTitle=虔诚者法术
+Feature/&ProficiencyBackgroundDevotedSkillsDescription=洞悉、调查和宗教
+Feature/&ProficiencyBackgroundDevotedSkillsTitle=虔诚者技能
 Feature/&ProficiencyBackgroundFarmerSkillsDescription=驯兽、自然和感知
 Feature/&ProficiencyBackgroundFarmerSkillsTitle=农民技能
 Feature/&ProficiencyBackgroundFarmerWeaponsDescription=获得木棒和手斧的熟练项，使用这两种武器时，你的攻击检定获得+1加值。
