@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Добавлять все кости от
 ModUi/&AddAllToStore=Всё в магазин
 ModUi/&AddBleedingToLesserRestoration=Добавить <color=#D89555>Кровотечение</color> к состояниям, снимаемым <color=#D89555>Высшим</color> и <color=#D89555>Малым восстановлением</color>
 ModUi/&AddCustomIconsToOfficialItems=Добавить кастомные значки к официальным игровым предметам <i><color=#F0DAA0>[боеприпасы, рецепты, наборы и т.д.]</color></i> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Добавьте <color=#D89555>Восприимчивость к тьме</color> к <color=#D89555>Темному эльфу</color>, <color=#D89555>Темному кобольду</color> и <color=#D89555>Серому карлику</color>. color> <i><color=#F0DAA0>[преимущество на проверках восприятия в темноте]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Добавить <color=#D89555>Восприятие тьмы</color> расам <color=#D89555>Тёмных эльфов</color>, <color=#D89555>Тёмных кобольдов</color> и <color=#D89555>Серых дварфов</color> <i><color=#F0DAA0>[преимущество при проверках восприятия в темноте]</color></i>
 ModUi/&AddHelpActionToAllRaces=Добавить действие <color=#D89555>Помощь</color> всем игровым расам <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать другое существо, находящееся в пределах 1 клетки от вас]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Добавить гуманоида в список предпочтительных противников для <color=#D89555>Следопытов</color>
 ModUi/&AddNewBrightEyeColors=Добавить новые яркие цвета глаз
@@ -202,7 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>Патчи:</color>
 ModUi/&PortraitsOpenFolder=Открыть папку с портретами
 ModUi/&PrimedItems=Подготовленные предметы
 ModUi/&Progression=<color=#F0DAA0>Развитие:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Включите <color=#D89555>Светочувствительность</color> на <color=#D89555>Darkelf</color>, <color=#D89555>Темном кобольде</color> и <color=#D89555>Сером карлике</ color> для срабатывания только на открытом воздухе\n<i><color=#F0DAA0>[внутренние зоны на открытом воздухе, доступные без экрана загрузки, считаются движком игры открытыми]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Включить срабатывание <color=#D89555>Чувствительности к свету</color> для рас <color=#D89555>Тёмных эльфов</color>, <color=#D89555>Тёмных кобольдов</color> и <color=#D89555>Серых дварфов</color> только вне помещений\n<i><color=#F0DAA0>[помещения в открытых локациях, доступные без экрана загрузки, считаются открытыми с точки зрения движка игры]</color></i>
 ModUi/&Races=<color=#F0DAA0>Расы</color>
 ModUi/&RecipeCost=<color=white>Стоимость рецепта</color>
 ModUi/&RecipesInDm=Рецепты в СП
