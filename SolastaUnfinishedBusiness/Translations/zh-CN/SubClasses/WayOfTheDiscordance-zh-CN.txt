@@ -19,4 +19,4 @@ Feature/&PowerWayOfTheDiscordanceTidesOfChaosTitle=混沌之潮
 Feature/&PowerWayOfTheDiscordanceTurmoilDescription=从第 6 级开始，当一个生物受到你的不和谐特性的伤害时，它必须成功通过魅力豁免（DC 8 + 熟练加值 + 感知调整值），否则会受到混乱状态长达一分钟，所有攻击检定和豁免检定受到 –1d4 减值。豁免失败的生物可以在每个回合结束时重复豁免。如果一个生物通过了豁免检定或效果结束，则该生物免疫进一步的混乱效果。
 Feature/&PowerWayOfTheDiscordanceTurmoilTitle=动荡
 Subclass/&WayOfTheDiscordanceDescription=虽然大多数僧侣通过沉思寻求启蒙并实现内心的平静，但另一方面，不谐之道的僧侣则专注于驾驭宇宙的混乱能量。这些神秘的不谐学者通过操纵敌人的气来利用敌人的内心冲突，用扭曲的能量爆发来摧毁他们。
-Subclass/&WayOfTheDiscordanceTitle=不谐之道
+Subclass/&WayOfTheDiscordanceTitle=不谐宗

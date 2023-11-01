@@ -9,5 +9,5 @@ Feature/&FeatureWayOfWealAndWoeWealTitle=福
 Feature/&FeatureWayOfWealAndWoeWoeDescription=当你使用武僧武器或徒手攻击进行一次攻击检定并严重失手后，你会受到相当于你的武术骰一次检定的伤害。
 Feature/&FeatureWayOfWealAndWoeWoeTitle=祸
 Feedback/&WoeReroll=由于 {1} {2} 重新投掷攻击骰子，从 {3} 变为 {4}
-Subclass/&WayOfWealAndWoeDescription=福祸之道的僧人，善于利用顺境与逆境同敌人作战。
-Subclass/&WayOfWealAndWoeTitle=福祸之道
+Subclass/&WayOfWealAndWoeDescription=福祸宗的僧人，善于利用顺境与逆境同敌人作战。
+Subclass/&WayOfWealAndWoeTitle=福祸宗

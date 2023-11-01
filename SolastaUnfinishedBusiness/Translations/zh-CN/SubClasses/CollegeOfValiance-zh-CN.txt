@@ -12,5 +12,5 @@ Feature/&PowerCollegeOfValianceHeroicInspirationDescription=你可以使用附�
 Feature/&PowerCollegeOfValianceHeroicInspirationTitle=英雄激励
 Feedback/&DishearteningPerformanceUsedFailureLine={0}花费了{1}个激励骰子来改变结果，在激励骰子上投掷{2}，但没有改变结果，这仍然是成功。
 Feedback/&DishearteningPerformanceUsedSuccessLine={0}花费了{1}个激励骰子来改变结果，在激励骰子上投掷{2}，并将结果更改为失败！
-Subclass/&CollegeOfValianceDescription=英勇学院的吟游诗人们用音乐和坚定不移的决心来鼓舞盟友，同时挫伤敌人的士气。这些吟游诗人从古代英雄的故事、伟大事迹和非凡事件中汲取灵感，为维护自己的理想而勇敢地奋斗，给周围的人留下了持久的印象。
-Subclass/&CollegeOfValianceTitle=英勇学院
+Subclass/&CollegeOfValianceDescription=无畏学院的吟游诗人们用音乐和坚定不移的决心来鼓舞盟友，同时挫伤敌人的士气。这些吟游诗人从古代英雄的故事、伟大事迹和非凡事件中汲取灵感，为维护自己的理想而勇敢地奋斗，给周围的人留下了持久的印象。
+Subclass/&CollegeOfValianceTitle=无畏学院
