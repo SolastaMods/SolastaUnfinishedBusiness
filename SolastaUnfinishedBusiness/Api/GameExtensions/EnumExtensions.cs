@@ -240,7 +240,7 @@ internal enum ExtraActionId
     SupremeWillToggle = 9041,
     CrystalDefenseOn = 9042,
     CrystalDefenseOff = 9043,
-    WildlingDash = 9044,
+    WildlingFeralAgility = 9044,
     PrioritizeAction
 }
 

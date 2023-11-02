@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using SolastaUnfinishedBusiness.Races;
 
-internal class CharacterActionWildlingDash : CharacterAction
+internal class CharacterActionWildlingFeralAgility : CharacterAction
 {
-    public CharacterActionWildlingDash(CharacterActionParams actionParams) : base(actionParams)
+    public CharacterActionWildlingFeralAgility(CharacterActionParams actionParams) : base(actionParams)
     {
     }
 
@@ -12,10 +12,10 @@ internal class CharacterActionWildlingDash : CharacterAction
         var rulesetCharacter = ActingCharacter.RulesetCharacter;
 
         if (!rulesetCharacter.HasConditionOfCategoryAndType(
-                AttributeDefinitions.TagCombat, RaceWildlingBuilder.ConditionWildlingFeralDashName))
+                AttributeDefinitions.TagCombat, RaceWildlingBuilder.ConditionWildlingAgileName))
         {
             rulesetCharacter.InflictCondition(
-                RaceWildlingBuilder.ConditionWildlingFeralDashName,
+                RaceWildlingBuilder.ConditionWildlingAgileName,
                 RuleDefinitions.DurationType.Round,
                 0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn,

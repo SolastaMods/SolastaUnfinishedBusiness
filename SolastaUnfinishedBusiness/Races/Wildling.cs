@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Races;
 internal class RaceWildlingBuilder
 {
     public const string ConditionWildlingTiredName = "ConditionWildlingTired";
-    public const string ConditionWildlingFeralDashName = "ConditionWildlingFeralDash";
+    public const string ConditionWildlingAgileName = "ConditionWildlingAgile";
 
     private const string RaceName = "Wildling";
     internal static CharacterRaceDefinition RaceWildling { get; } = BuildWildling();
@@ -28,7 +28,7 @@ internal class RaceWildlingBuilder
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddFeatureSet(
                 FeatureDefinitionAttributeModifiers.AttributeModifierHalflingAbilityScoreIncrease,
-                FeatureDefinitionAttributeModifiers.AttributeModifierHalfElfAbilityScoreIncreaseCha)
+                FeatureDefinitionAttributeModifiers.AttributeModifierDragonbornAbilityScoreIncreaseCha)
             .AddToDB();
         var featureWildlingClaws = FeatureDefinitionBuilder
             .Create($"Feature{RaceName}Claws")
@@ -37,21 +37,21 @@ internal class RaceWildlingBuilder
             .AddToDB();
 
         var proficiencyWildlingNaturalInstincts = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{RaceName}NaturalInstincts ")
+            .Create($"Proficiency{RaceName}NaturalInstincts")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(RuleDefinitions.ProficiencyType.Skill, SkillDefinitions.Stealth, SkillDefinitions.Perception)
             .AddToDB();
 
         var actionAffinityWildlingFeralAgility = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{RaceName}Agility")
+            .Create($"ActionAffinity{RaceName}FeralAgility")
             .SetGuiPresentation(Category.Feature)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.WildlingDash)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.WildlingFeralAgility)
             .AddToDB();
 
-        ActionDefinitionBuilder.Create("WildlingDash")
-            .SetOrUpdateGuiPresentation(Category.Action, DatabaseHelper.ActionDefinitions.DashMain)
+        ActionDefinitionBuilder.Create("WildlingFeralAgility")
+            .SetOrUpdateGuiPresentation(Category.Action, DatabaseHelper.ActionDefinitions.DashBonus)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.WildlingDash)
+            .SetActionId(ExtraActionId.WildlingFeralAgility)
             .SetFormType(ActionDefinitions.ActionFormType.Large)
             .SetActionScope(ActionDefinitions.ActionScope.Battle)
             .SetActionType(ActionDefinitions.ActionType.NoCost)
@@ -60,8 +60,8 @@ internal class RaceWildlingBuilder
         var actionAffinityWildlingTired = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{RaceName}Tired")
             .SetGuiPresentationNoContent()
-            .SetForbiddenActions((ActionDefinitions.Id)ExtraActionId.WildlingDash)
-            .AddCustomSubFeatures(new TiredOnTurnEnd())
+            .SetForbiddenActions((ActionDefinitions.Id)ExtraActionId.WildlingFeralAgility)
+            .AddCustomSubFeatures(new WildlingTiredOnTurnEnd())
             .AddToDB();
 
         ConditionDefinitionBuilder
@@ -72,11 +72,11 @@ internal class RaceWildlingBuilder
             .AddToDB();
 
         ConditionDefinitionBuilder
-            .Create(ConditionWildlingFeralDashName)
+            .Create(ConditionWildlingAgileName)
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionReckless)
             .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
             .SetFeatures(FeatureDefinitionMovementAffinityBuilder
-                .Create($"MovementAffinity{RaceName}FeralDash")
+                .Create($"MovementAffinity{RaceName}Agile")
                 .SetGuiPresentationNoContent()
                 .SetBaseSpeedMultiplicativeModifier(2f)
                 .AddToDB())
@@ -114,7 +114,7 @@ internal class RaceWildlingBuilder
     }
 }
 
-internal class TiredOnTurnEnd : ICharacterTurnEndListener
+internal class WildlingTiredOnTurnEnd : ICharacterTurnEndListener
 {
 
     public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
