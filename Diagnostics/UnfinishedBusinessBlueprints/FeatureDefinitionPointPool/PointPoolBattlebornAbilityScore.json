@@ -3,11 +3,11 @@
   "poolType": "AbilityScore",
   "poolAmount": 1,
   "restrictedChoices": [
-    "Charisma",
+    "Strength",
     "Dexterity",
     "Intelligence",
-    "Strength",
-    "Wisdom"
+    "Wisdom",
+    "Charisma"
   ],
   "uniqueChoices": false,
   "spellListOverride": null,

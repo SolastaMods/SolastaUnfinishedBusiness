@@ -18,10 +18,6 @@ You were created to have remarkable fortitude, represented by the following bene
 - You are immune to disease.
 - You don't need to sleep, and magic can't put you to sleep.
 
-* Darkvision
-
-See normally in dim light, and in natural darkness as if in dim light.
-
 * Languages
 
 Common and one language of your choice.
