@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EnableDiagsDump>0</EnableDiagsDump>
-  <EnableThesaurus>false</EnableThesaurus>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <SelectedTab>0</SelectedTab>
   <DisplayRacesToggle>true</DisplayRacesToggle>
-  <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
+  <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -234,8 +233,10 @@
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
+  <AddDarknessPerceptiveToDarkRaces>false</AddDarknessPerceptiveToDarkRaces>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <EnableAlternateHuman>false</EnableAlternateHuman>
+  <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
   <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
   <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
@@ -967,6 +968,7 @@
   <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
   <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
   <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
+  <EnableThesaurus>false</EnableThesaurus>
   <SelectedLanguageCode>en</SelectedLanguageCode>
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
