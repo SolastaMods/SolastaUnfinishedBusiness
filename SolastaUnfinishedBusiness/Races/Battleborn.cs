@@ -17,6 +17,22 @@ internal static class RaceBattlebornBuilder
 
     private static CharacterRaceDefinition BuildBattleborn()
     {
+        var pointPoolBattlebornAbilityScore =
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPool{RaceName}AbilityScore")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
+                    .AddToDB();
+        // manually add to prevent sorting in the builder:
+        pointPoolBattlebornAbilityScore.restrictedChoices = new List<string>()
+        {
+            AttributeDefinitions.Strength,
+            AttributeDefinitions.Dexterity,
+            AttributeDefinitions.Intelligence,
+            AttributeDefinitions.Wisdom,
+            AttributeDefinitions.Charisma
+        };
+
         var featureSetBattlebornAbilityScoreIncrease = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{RaceName}AbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
@@ -26,17 +42,7 @@ internal static class RaceBattlebornBuilder
                     .SetGuiPresentationNoContent(true)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Constitution, 2)
                     .AddToDB(),
-                FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPool{RaceName}AbilityScore")
-                    .SetGuiPresentationNoContent(true)
-                    .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
-                    .RestrictChoices(
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Charisma)
-                    .AddToDB())
+                pointPoolBattlebornAbilityScore)
             .AddToDB();
 
         var featureSetBattlebornSpecializedInfusion = FeatureDefinitionFeatureSetBuilder
@@ -74,7 +80,6 @@ internal static class RaceBattlebornBuilder
             .SetGuiPresentation(Category.Race, Sprites.GetSprite(RaceName, Resources.Battleborn, 1024, 512))
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
-                FeatureDefinitionSenses.SenseDarkvision,
                 FeatureDefinitionSenses.SenseNormalVision,
                 FlexibleRacesContext.FeatureSetLanguageCommonPlusOne,
                 featureSetBattlebornAbilityScoreIncrease,
