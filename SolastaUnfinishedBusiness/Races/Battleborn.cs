@@ -18,13 +18,14 @@ internal static class RaceBattlebornBuilder
     private static CharacterRaceDefinition BuildBattleborn()
     {
         var pointPoolBattlebornAbilityScore =
-                FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPool{RaceName}AbilityScore")
-                    .SetGuiPresentationNoContent(true)
-                    .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
-                    .AddToDB();
-        // manually add to prevent sorting in the builder:
-        pointPoolBattlebornAbilityScore.restrictedChoices = new List<string>()
+            FeatureDefinitionPointPoolBuilder
+                .Create($"PointPool{RaceName}AbilityScore")
+                .SetGuiPresentationNoContent(true)
+                .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
+                .AddToDB();
+
+        // manually add to prevent sorting in the builder and cause UI to go wack
+        pointPoolBattlebornAbilityScore.restrictedChoices = new List<string>
         {
             AttributeDefinitions.Strength,
             AttributeDefinitions.Dexterity,

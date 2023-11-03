@@ -179,7 +179,6 @@ public sealed class RangerLightBearer : AbstractSubclass
                     .SetGuiPresentation($"Condition{Name}AngelicForm", Category.Condition, Gui.NoLocalization)
                     // cannot use SetMagicalWeapon as it doesn't trigger with flurry of blows
                     .AddCustomSubFeatures(new ModifyAttackActionModifierAngelicForm())
-                    .SetMagicalWeapon()
                     .AddToDB())
             .AddToDB();
 
