@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal static class GameLocationBattleManagerTweaks
 {
     // ReSharper disable once InconsistentNaming
-    private static int ComputeSavingThrowDC(GameLocationCharacter glc, IAdditionalDamageProvider provider)
+    private static int ComputeSavingThrowDC(IControllableCharacter glc, IAdditionalDamageProvider provider)
     {
         var character = glc.RulesetCharacter;
 

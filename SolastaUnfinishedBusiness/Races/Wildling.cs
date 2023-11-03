@@ -12,12 +12,14 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Races.RaceWyrmkinBuilder;
 
 namespace SolastaUnfinishedBusiness.Races;
-internal class RaceWildlingBuilder
+
+internal static class RaceWildlingBuilder
 {
-    public const string ConditionWildlingTiredName = "ConditionWildlingTired";
-    public const string ConditionWildlingAgileName = "ConditionWildlingAgile";
+    internal const string ConditionWildlingTiredName = "ConditionWildlingTired";
+    internal const string ConditionWildlingAgileName = "ConditionWildlingAgile";
 
     private const string RaceName = "Wildling";
+
     internal static CharacterRaceDefinition RaceWildling { get; } = BuildWildling();
 
     private static CharacterRaceDefinition BuildWildling()
@@ -30,6 +32,7 @@ internal class RaceWildlingBuilder
                 FeatureDefinitionAttributeModifiers.AttributeModifierHalflingAbilityScoreIncrease,
                 FeatureDefinitionAttributeModifiers.AttributeModifierDragonbornAbilityScoreIncreaseCha)
             .AddToDB();
+
         var featureWildlingClaws = FeatureDefinitionBuilder
             .Create($"Feature{RaceName}Claws")
             .SetGuiPresentation(Category.Feature)
@@ -39,7 +42,8 @@ internal class RaceWildlingBuilder
         var proficiencyWildlingNaturalInstincts = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{RaceName}NaturalInstincts")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Skill, SkillDefinitions.Stealth, SkillDefinitions.Perception)
+            .SetProficiencies(RuleDefinitions.ProficiencyType.Skill, SkillDefinitions.Stealth,
+                SkillDefinitions.Perception)
             .AddToDB();
 
         var actionAffinityWildlingFeralAgility = FeatureDefinitionActionAffinityBuilder
@@ -48,8 +52,9 @@ internal class RaceWildlingBuilder
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.WildlingFeralAgility)
             .AddToDB();
 
-        ActionDefinitionBuilder.Create("WildlingFeralAgility")
-            .SetOrUpdateGuiPresentation(Category.Action, DatabaseHelper.ActionDefinitions.DashBonus)
+        ActionDefinitionBuilder
+            .Create("WildlingFeralAgility")
+            .SetGuiPresentation(Category.Action, DatabaseHelper.ActionDefinitions.DashBonus)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.WildlingFeralAgility)
             .SetFormType(ActionDefinitions.ActionFormType.Large)
@@ -59,7 +64,7 @@ internal class RaceWildlingBuilder
 
         var actionAffinityWildlingTired = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{RaceName}Tired")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetForbiddenActions((ActionDefinitions.Id)ExtraActionId.WildlingFeralAgility)
             .AddCustomSubFeatures(new WildlingTiredOnTurnEnd())
             .AddToDB();
@@ -99,29 +104,41 @@ internal class RaceWildlingBuilder
             .AddToDB();
 
         var racePresentation = raceWildling.RacePresentation;
-        racePresentation.originOptions = new List<string>() { racePresentation.originOptions[2] };
 
-        var list = racePresentation.AvailableMorphotypeCategories.ToList();
-        list.Add(MorphotypeElementDefinition.ElementCategory.Horns);
-        racePresentation.availableMorphotypeCategories = list.ToArray();
+        racePresentation.originOptions = new List<string> { racePresentation.originOptions[2] };
+
+        var availableMorphotypeCategories = racePresentation.AvailableMorphotypeCategories.ToList();
+
+        availableMorphotypeCategories.Add(MorphotypeElementDefinition.ElementCategory.Horns);
+
+        racePresentation.availableMorphotypeCategories = availableMorphotypeCategories.ToArray();
         racePresentation.maleHornsOptions = new List<string>();
-        racePresentation.hornsTailAssetPrefix = 
+        racePresentation.hornsTailAssetPrefix =
             CharacterRaceDefinitions.Tiefling.RacePresentation.hornsTailAssetPrefix;
         racePresentation.maleHornsOptions.AddRange(CharacterRaceDefinitions.Tiefling.RacePresentation.maleHornsOptions);
         racePresentation.femaleHornsOptions = new List<string>();
-        racePresentation.femaleHornsOptions.AddRange(CharacterRaceDefinitions.Tiefling.RacePresentation.femaleHornsOptions);
+        racePresentation.femaleHornsOptions.AddRange(
+            CharacterRaceDefinitions.Tiefling.RacePresentation.femaleHornsOptions);
+
         return raceWildling;
     }
 }
 
 internal class WildlingTiredOnTurnEnd : ICharacterTurnEndListener
 {
-
     public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
     {
         // remove tired condition
-        if (!locationCharacter.RulesetCharacter.HasConditionOfType(RaceWildlingBuilder.ConditionWildlingTiredName)) return;
-        if (locationCharacter.UsedTacticalMoves > 0) return;
+        if (!locationCharacter.RulesetCharacter.HasConditionOfType(RaceWildlingBuilder.ConditionWildlingTiredName))
+        {
+            return;
+        }
+
+        if (locationCharacter.UsedTacticalMoves > 0)
+        {
+            return;
+        }
+
         locationCharacter.RulesetCharacter.RemoveAllConditionsOfType(RaceWildlingBuilder.ConditionWildlingTiredName);
     }
 }

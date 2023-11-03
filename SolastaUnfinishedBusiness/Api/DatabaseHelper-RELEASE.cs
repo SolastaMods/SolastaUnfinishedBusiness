@@ -13,6 +13,7 @@ internal static partial class DatabaseHelper
     {
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
+        internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition DisengageMain { get; } = GetDefinition<ActionDefinition>("DisengageMain");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
 
@@ -128,6 +129,7 @@ internal static partial class DatabaseHelper
         internal static CharacterRaceDefinition ElfSylvan { get; } =
             GetDefinition<CharacterRaceDefinition>("ElfSylvan");
 
+        internal static CharacterRaceDefinition HalfOrc { get; } = GetDefinition<CharacterRaceDefinition>("HalfOrc");
         internal static CharacterRaceDefinition HalfElf { get; } = GetDefinition<CharacterRaceDefinition>("HalfElf");
         internal static CharacterRaceDefinition Halfling { get; } = GetDefinition<CharacterRaceDefinition>("Halfling");
 
@@ -579,6 +581,12 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionRangerHideInPlainSight { get; } =
             GetDefinition<ConditionDefinition>("ConditionRangerHideInPlainSight");
+
+        internal static ConditionDefinition ConditionReckless { get; } =
+            GetDefinition<ConditionDefinition>("ConditionReckless");
+
+        internal static ConditionDefinition ConditionRecklessVulnerability { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRecklessVulnerability");
 
         internal static ConditionDefinition ConditionRestrained { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrained");
@@ -1193,8 +1201,14 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityDemonicInfluenceImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityDemonicInfluenceImmunity");
 
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityDiseaseImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityDiseaseImmunity");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharm { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharm");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestrySleep { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestrySleep");
 
         internal static FeatureDefinitionConditionAffinity
             ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } =
@@ -1468,6 +1482,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionMoveModes
     {
+        internal static FeatureDefinitionMoveMode MoveModeClimb6 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeClimb6");
+
         internal static FeatureDefinitionMoveMode MoveModeFly2 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly2");
 

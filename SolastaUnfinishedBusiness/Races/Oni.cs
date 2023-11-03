@@ -1,26 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
-using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionEquipmentAffinitys;
+
 namespace SolastaUnfinishedBusiness.Races;
-internal class RaceOniBuilder
+
+internal static class RaceOniBuilder
 {
     private const string Name = "Oni";
+
     internal static CharacterRaceDefinition RaceOni { get; } = BuildOni();
 
     [NotNull]
@@ -34,7 +29,7 @@ internal class RaceOniBuilder
                 FeatureDefinitionAttributeModifiers.AttributeModifierDragonbornAbilityScoreIncreaseStr,
                 FeatureDefinitionAttributeModifiers.AttributeModifierDwarfHillAbilityScoreIncrease)
             .AddToDB();
-        
+
         var proficiencyOniThirdEye = FeatureDefinitionProficiencyBuilder.Create($"Proficiency{Name}ThirdEye")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Perception)
@@ -46,9 +41,9 @@ internal class RaceOniBuilder
             .AddToDB();
 
         var spellListOni = SpellListDefinitionBuilder
-                    .Create($"SpellList{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .AddToDB();
+            .Create($"SpellList{Name}")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
         // SpellListDefinitionBuilder doesn't seem to work for Cantrip-less spell list
         // and I don't want to break it
         spellListOni.hasCantrips = false;
@@ -56,11 +51,7 @@ internal class RaceOniBuilder
         spellListOni.spellsByLevel.Clear();
         spellListOni.spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
         {
-            level = 1,
-            spells = new List<SpellDefinition>
-            {
-                SpellsContext.ThunderousSmite
-            }
+            level = 1, spells = new List<SpellDefinition> { SpellsContext.ThunderousSmite }
         });
 
         var castSpellOniOgreMagic = FeatureDefinitionCastSpellBuilder
@@ -70,15 +61,17 @@ internal class RaceOniBuilder
             .SetSpellList(spellListOni)
             .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
             .AddToDB();
+
         castSpellOniOgreMagic.slotsPerLevels.Clear();
+
         for (var level = 1; level <= 20; level++)
         {
             castSpellOniOgreMagic.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
-                Level = level,
-                Slots = new List<int> { level >= 3 ? 1 : 0 }
+                Level = level, Slots = new List<int> { level >= 3 ? 1 : 0 }
             });
         }
+
         var raceOni = CharacterRaceDefinitionBuilder
             .Create(HalfOrc, $"Race{Name}")
             .SetGuiPresentation(Category.Race, Sprites.GetSprite(Name, Resources.Oni, 1024, 512))
@@ -99,16 +92,18 @@ internal class RaceOniBuilder
             .AddToDB();
 
         var racePresentation = raceOni.RacePresentation;
+        var availableMorphotypeCategories = racePresentation.AvailableMorphotypeCategories.ToList();
 
-        var list = racePresentation.AvailableMorphotypeCategories.ToList();
-        list.Add(MorphotypeElementDefinition.ElementCategory.Horns);
-        racePresentation.availableMorphotypeCategories = list.ToArray();
+        availableMorphotypeCategories.Add(MorphotypeElementDefinition.ElementCategory.Horns);
+
+        racePresentation.availableMorphotypeCategories = availableMorphotypeCategories.ToArray();
         racePresentation.maleHornsOptions = new List<string>();
         racePresentation.hornsTailAssetPrefix = Tiefling.RacePresentation.hornsTailAssetPrefix;
         racePresentation.maleHornsOptions.AddRange(Tiefling.RacePresentation.maleHornsOptions);
         racePresentation.femaleHornsOptions = new List<string>();
         racePresentation.femaleHornsOptions.AddRange(Tiefling.RacePresentation.femaleHornsOptions);
         RacesContext.RaceScaleMap[raceOni] = 7.4f / 6.4f;
+
         return raceOni;
     }
 }
