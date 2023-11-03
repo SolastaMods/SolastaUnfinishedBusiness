@@ -118,7 +118,7 @@ ModUi/&EnableMulticlass=멀티클래스 활성화 <b><i><color=#C04040E0>[재시
 ModUi/&EnablePcgRandom=더 나은 무작위 생성 알고리즘 사용 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=레벨 10에서 <color=#D89555>레인저</color> <b>자연의 장막</b> 기능을 활성화하세요. <i><color=#F0DAA0>[보너스 액션으로 다음 턴이 시작될 때까지 마법처럼 투명해질 수 있습니다 ]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color>을 눌러 선택한 영웅 또는 리더를 중심으로 파티에 다시 합류 기능 활성화 <i><color=#F0DAA0>[5명 또는 6명의 파티에 유용]</color></i>
-ModUi/&EnableRelearnSpells=<i>+ 다른 직업에서 이미 배운 캔트립이나 주문을 선택할 수 있음</i>
+ModUi/&EnableRelearnSpells=다른 소스에서 이미 배운 캔트립이나 주문 선택 활성화
 ModUi/&EnableRespec=휴식 후 캐릭터 재설정 가능
 ModUi/&EnableRogueCunningStrike=<color=#D89555>로그</color> 5 레벨과 14 레벨에 <b>교활한 일격</b>과 <b>비열한 습격</b> 활성화<i><color=#F0DAA0>[추가 효과를 위해 은신 주사위를 일부 소모합니다]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>도적</color> <b>격투 스타일</b> 선택 활성화
