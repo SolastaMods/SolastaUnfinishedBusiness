@@ -1,10 +1,10 @@
-Feature/&CastSpellOniOgreMagicDescription=На 3-м уровне вы можете использовать <b>Громовую кару</b> один раз за длительный отдых. <b>Мудрость</b> — это ваша способность к заклинаниям.
-Feature/&CastSpellOniOgreMagicTitle=Огрская магия
+Feature/&CastSpellOniOgreMagicDescription=На 3-м уровне вы можете использовать <b>Громовую кару</b> один раз до длительного отдыха. <b>Мудрость</b> является вашей заклинательной характеристикой.
+Feature/&CastSpellOniOgreMagicTitle=Магия огра
 Feature/&FeatureSetOniAbilityScoreIncreaseDescription=Сила +2, Мудрость +1
-Feature/&FeatureSetOniAbilityScoreIncreaseTitle=Увеличение атрибута
-Feature/&ProficiencyOniOgreMightDescription=Вы владеете <b>боевым оружием</b>.
-Feature/&ProficiencyOniOgreMightTitle=Огрская мощь
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=Увеличение характеристик
+Feature/&ProficiencyOniOgreMightDescription=Вы владеете <b>воинским оружием</b>.
+Feature/&ProficiencyOniOgreMightTitle=Мощь огра
 Feature/&ProficiencyOniThirdEyeDescription=Вы владеете навыком <b>Восприятие</b>.
 Feature/&ProficiencyOniThirdEyeTitle=Третий глаз
-Race/&RaceOniDescription=Они — демоноподобные существа из дальневосточного островного королевства Химото. Они пришли в Соласту через активированные главные врата.
-Race/&RaceOniTitle=Oni
+Race/&RaceOniDescription=Они - демоноподобные существа из островного королевства Химото далеко на востоке. Они попали в Соласту через активированные большие врата.
+Race/&RaceOniTitle=Они
