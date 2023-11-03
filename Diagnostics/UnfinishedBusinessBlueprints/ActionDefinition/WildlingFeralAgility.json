@@ -1,18 +1,18 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9045,
+  "id": 9044,
   "actionType": "NoCost",
-  "actionScope": "All",
+  "actionScope": "Battle",
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
-  "classNameOverride": "PrioritizeAction",
+  "classNameOverride": "",
   "requiresAuthorization": true,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
   "parameter": "None",
-  "formType": "Small",
+  "formType": "Large",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
   "focusCameraOnAction": true,
@@ -29,31 +29,18 @@
   "targetType": "Sphere",
   "targetParameter": 1,
   "matchingCondition": "",
-  "particlePrefab": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "soundEvent": {
-    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
-    "idInternal": 0,
-    "valueGuidInternal": {
-      "$type": "System.Byte[], mscorlib",
-      "$value": ""
-    }
-  },
+  "particlePrefab": null,
+  "soundEvent": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Action/&WildlingFeralAgilityTitle",
+    "description": "Action/&WildlingFeralAgilityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "05491b1b47419ce42beee1838e3e62b5",
+      "m_SubObjectName": "Dash",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -68,7 +55,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "118b1701-a7f2-509d-9ce2-90050c30e17c",
+  "guid": "7602b2b6-ee3b-5c99-bb6a-5c6fe3d82a40",
   "contentPack": 9999,
-  "name": "PrioritizeAction"
+  "name": "WildlingFeralAgility"
 }

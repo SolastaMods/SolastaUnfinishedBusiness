@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttributeModifierBattlebornBonusAC:9e20f8c4-0304-50f3-abf9-3fa673bbb54c",
+    "Definition:ConditionAffinityBattlebornPoisonResilience:8020a254-1a2d-5772-833d-d1136733149e",
+    "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
+    "Definition:ConditionAffinityDiseaseImmunity:1913ab33c64e94f4b88b23ce63268cb1",
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetBattlebornArcaneResilienceTitle",
+    "description": "Feature/&FeatureSetBattlebornArcaneResilienceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "27ddc4ef-d4b4-548b-93b6-d557be9334e0",
+  "contentPack": 9999,
+  "name": "FeatureSetBattlebornArcaneResilience"
+}
