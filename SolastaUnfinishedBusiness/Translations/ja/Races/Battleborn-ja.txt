@@ -1,0 +1,9 @@
+Feature/&AttributeModifierBattlebornBonusACTitle=難解な回復力
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=体質+2、他のスコア1点を1点増加。
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=能力値増加
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=あなたは驚くべき不屈の精神を持って生まれており、次のような利点があります。\n\n- アーマー クラスに +1 ボーナスを獲得します。\n- 毒に対してセーヴィング スローで有利になり、毒に対する耐性を持ちます。毒によるダメージ。\n- あなたは病気の影響を受けません。\n- 眠る必要はありません。魔法では眠らせることはできません。
+Feature/&FeatureSetBattlebornArcaneResilienceTitle=難解な回復力
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=あなたは、選択したスキル熟練度とツール熟練度を 1 つずつ獲得します。
+Feature/&FeatureSetBattlebornSpecializedInfusionTitle=特殊な輸液
+Race/&RaceBattlebornDescription=バトルボーンは、肉体、錬金術、魔法をブレンドして完璧な戦場の兵士を作り出す、難解な実験の結果です。兵器として作られた彼らは、戦争を超えた目的を見つけなければなりません。バトルボーンは忠実な同盟者になることも、冷酷な殺人機械になることも、目的と意味を求めてさまよう魂になることもできます。
+Race/&RaceBattlebornTitle=バトルボーン

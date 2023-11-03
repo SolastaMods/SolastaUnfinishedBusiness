@@ -1,0 +1,10 @@
+Feature/&CastSpellOniOgreMagicDescription=3 レベルでは、 長い休息ごとに 1 回<b>サンダース・ スマイト</b>を唱えることができます。 <b>知恵</b> は、そのための呪文を唱える能力です。
+Feature/&CastSpellOniOgreMagicTitle=オーガマジック
+Feature/&FeatureSetOniAbilityScoreIncreaseDescription=力+2、知恵+1
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=属性増加
+Feature/&ProficiencyOniOgreMightDescription=あなたは<b>格闘武器</b>に熟練しています。
+Feature/&ProficiencyOniOgreMightTitle=オーガマイト
+Feature/&ProficiencyOniThirdEyeDescription=あなたは<b>知覚</b> スキルに習熟しています。
+Feature/&ProficiencyOniThirdEyeTitle=第三の目
+Race/&RaceOniDescription=オニは、極東の島国ヒモトに住む悪魔のような生き物です。彼らは作動した主要なゲートを通ってソラスタにやって来ました。
+Race/&RaceOniTitle=Oni

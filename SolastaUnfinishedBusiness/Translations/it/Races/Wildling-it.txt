@@ -1,0 +1,16 @@
+Action/&WildlingFeralAgilityDescription=La tua velocità di movimento raddoppia per un singolo turno. Una volta che usi questo tratto, non puoi usarlo di nuovo finché non ti sposti di 0 piedi in uno dei tuoi turni.
+Action/&WildlingFeralAgilityTitle=Agilità selvaggia
+Condition/&ConditionWildlingAgileDescription=Hai una velocità di movimento doppia fino alla fine del tuo turno.
+Condition/&ConditionWildlingAgileTitle=Agile
+Condition/&ConditionWildlingTiredDescription=Non puoi usare l'Agilità Ferale finché non ti sposti di 0 piedi in uno dei tuoi turni.
+Condition/&ConditionWildlingTiredTitle=Stanco
+Feature/&ActionAffinityWildlingFeralAgilityDescription=I tuoi riflessi e la tua agilità ti permettono di muoverti con grande velocità. Quando ti muovi nel tuo turno in combattimento, puoi raddoppiare la tua velocità fino alla fine del turno. Una volta utilizzato questo tratto, non puoi utilizzarlo nuovamente finché non ti sposti di 0 piedi in uno dei tuoi turni.
+Feature/&ActionAffinityWildlingFeralAgilityTitle=Agilità selvaggia
+Feature/&FeatureSetWildlingAbilityScoreIncreaseDescription=Destrezza +2, Carisma +1
+Feature/&FeatureSetWildlingAbilityScoreIncreaseTitle=Aumento del punteggio di abilità
+Feature/&FeatureWildlingClawsDescription=Il tuo colpo senz'armi infligge 1d6 + il tuo modificatore di Forza danni taglienti, invece dei danni contundenti normali per un colpo senz'armi.
+Feature/&FeatureWildlingClawsTitle=Artigli
+Feature/&ProficiencyWildlingNaturalInstinctsDescription=Hai competenza nelle abilità di Percezione e Furtività.
+Feature/&ProficiencyWildlingNaturalInstinctsTitle=Istinti naturali
+Race/&RaceWildlingDescription=I bruti sono discendenti di umani e tiefling che hanno ereditato per lo più le caratteristiche feroci dei genitori tiefling. Diversi nell'aspetto e nella natura, i bruti hanno trascorso gran parte della loro vita nelle foreste o in altre regioni meno abitate di Solasta come cacciatori e viaggiatori autosufficienti.
+Race/&RaceWildlingTitle=Bruti

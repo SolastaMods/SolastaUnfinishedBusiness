@@ -1,0 +1,9 @@
+Feature/&AttributeModifierBattlebornBonusACTitle=Чародейская устойчивость
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Телосложение +2, увеличьте 1 другой показатель на 1 очко.
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Увеличение очков способностей
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Вы созданы обладать замечательной стойкостью, представленной следующими преимуществами:\n\n- Вы получаете бонус +1 к Классу брони.\n- У вас есть преимущество в спасбросках от отравления, и у вас есть устойчивость к урон ядом.\n- У вас иммунитет к болезням.\n- Вам не нужно спать, и магия не может вас усыпить.
+Feature/&FeatureSetBattlebornArcaneResilienceTitle=Чародейская устойчивость
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Вы получаете один навык и один навык инструмента по вашему выбору.
+Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Специализированный настой
+Race/&RaceBattlebornDescription=Рожденные в бою — это результат тайных экспериментов, в которых смешиваются плоть, алхимия и магия для создания идеальных солдат на поле боя. Созданные в качестве оружия, они теперь должны найти цель, выходящую за рамки войны. Рожденный в бою может быть верным союзником, бессердечной машиной для убийств или странствующей душой, ищущей цель и смысл.
+Race/&RaceBattlebornTitle=Рожденный в битве

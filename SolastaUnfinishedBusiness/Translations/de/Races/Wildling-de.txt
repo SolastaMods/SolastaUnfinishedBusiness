@@ -1,0 +1,16 @@
+Action/&WildlingFeralAgilityDescription=Deine Bewegungsgeschwindigkeit verdoppelt sich für eine Runde. Sobald Sie diese Eigenschaft verwenden, können Sie sie nicht erneut verwenden, bis Sie in einem Ihrer Züge 0 Fuß zurückgelegt haben.
+Action/&WildlingFeralAgilityTitle=Wilde Beweglichkeit
+Condition/&ConditionWildlingAgileDescription=Bis zum Ende deines Zuges hast du die doppelte Bewegungsgeschwindigkeit.
+Condition/&ConditionWildlingAgileTitle=Agil
+Condition/&ConditionWildlingTiredDescription=Sie können „Wilde Beweglichkeit“ erst nutzen, wenn Sie sich in einem Ihrer Züge 0 Fuß weit bewegen.
+Condition/&ConditionWildlingTiredTitle=Müde
+Feature/&ActionAffinityWildlingFeralAgilityDescription=Ihre Reflexe und Ihre Beweglichkeit ermöglichen es Ihnen, sich rasant zu bewegen. Wenn du dich in deinem Zug im Kampf bewegst, kannst du deine Geschwindigkeit bis zum Ende des Zuges verdoppeln. Sobald Sie diese Eigenschaft verwendet haben, können Sie sie nicht erneut verwenden, bis Sie sich in einer Ihrer Runden um 0 Fuß bewegt haben.
+Feature/&ActionAffinityWildlingFeralAgilityTitle=Wilde Beweglichkeit
+Feature/&FeatureSetWildlingAbilityScoreIncreaseDescription=Geschicklichkeit +2, Charisma +1
+Feature/&FeatureSetWildlingAbilityScoreIncreaseTitle=Erhöhung des Fähigkeitswerts
+Feature/&FeatureWildlingClawsDescription=Ihr unbewaffneter Schlag verursacht 1W6 + Ihren Stärkemodifikator Hiebschaden, anstelle des bei einem unbewaffneten Schlag üblichen Wuchtschadens.
+Feature/&FeatureWildlingClawsTitle=Krallen
+Feature/&ProficiencyWildlingNaturalInstinctsDescription=Sie verfügen über Kenntnisse in Wahrnehmung und Heimlichkeit.
+Feature/&ProficiencyWildlingNaturalInstinctsTitle=Natürliche Instinkte
+Race/&RaceWildlingDescription=Wildlinge sind Nachkommen von Menschen und Tieflingen, die größtenteils die wilden Eigenschaften der Tiefling-Eltern geerbt haben. Wildlinge unterscheiden sich in Aussehen und Natur und haben den größten Teil ihres Lebens als autarke Jäger und Reisende in Wäldern oder anderen weniger besiedelten Regionen von Solasta verbracht.
+Race/&RaceWildlingTitle=Wildling

@@ -1,0 +1,16 @@
+Action/&WildlingFeralAgilityDescription=Ваша скорость передвижения удваивается за один ход. Использовав эту черту, вы не сможете использовать ее снова, пока не переместитесь на 0 футов за один из своих ходов.
+Action/&WildlingFeralAgilityTitle=Дикая ловкость
+Condition/&ConditionWildlingAgileDescription=У вас удвоенная скорость передвижения до конца вашего хода.
+Condition/&ConditionWildlingAgileTitle=Гибкий
+Condition/&ConditionWildlingTiredDescription=Вы не можете использовать «Свирепую ловкость», пока не переместитесь на 0 футов за один из своих ходов.
+Condition/&ConditionWildlingTiredTitle=Усталый
+Feature/&ActionAffinityWildlingFeralAgilityDescription=Ваши рефлексы и ловкость позволяют вам двигаться с огромной скоростью. Когда вы двигаетесь в бою в свой ход, вы можете удвоить свою скорость до конца хода. Использовав эту черту, вы не сможете использовать ее снова, пока не переместитесь на 0 футов за один из своих ходов.
+Feature/&ActionAffinityWildlingFeralAgilityTitle=Дикая ловкость
+Feature/&FeatureSetWildlingAbilityScoreIncreaseDescription=Ловкость +2, Харизма +1
+Feature/&FeatureSetWildlingAbilityScoreIncreaseTitle=Увеличение очков способностей
+Feature/&FeatureWildlingClawsDescription=Ваш безоружный удар наносит рубящий урон 1d6 + ваш модификатор Силы вместо дробящего урона, обычного для безоружного удара.
+Feature/&FeatureWildlingClawsTitle=Когти
+Feature/&ProficiencyWildlingNaturalInstinctsDescription=Вы владеете навыками Восприятия и Скрытности.
+Feature/&ProficiencyWildlingNaturalInstinctsTitle=Естественные инстинкты
+Race/&RaceWildlingDescription=Одичалые — это потомки людей и тифлингов, которые в основном унаследовали дикие характеристики родителей-тифлингов. Разные по внешности и характеру, одичалые провели большую часть своей жизни в лесах или других менее населенных регионах Соласты как самостоятельные охотники и путешественники.
+Race/&RaceWildlingTitle=Одичалый

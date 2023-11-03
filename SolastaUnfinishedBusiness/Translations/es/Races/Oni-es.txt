@@ -1,0 +1,10 @@
+Feature/&CastSpellOniOgreMagicDescription=En el nivel 3, puedes lanzar <b>Golpe atronador</b> una vez por cada descanso prolongado. La <b>Sabiduría</b> es tu habilidad para lanzar hechizos.
+Feature/&CastSpellOniOgreMagicTitle=Magia de ogro
+Feature/&FeatureSetOniAbilityScoreIncreaseDescription=Fuerza +2, Sabiduría +1
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=Aumento de atributos
+Feature/&ProficiencyOniOgreMightDescription=Eres competente con <b>armas marciales</b>.
+Feature/&ProficiencyOniOgreMightTitle=Poder del ogro
+Feature/&ProficiencyOniThirdEyeDescription=Tienes competencia con la habilidad <b>Percepción</b>.
+Feature/&ProficiencyOniThirdEyeTitle=Tercer ojo
+Race/&RaceOniDescription=Los oni son criaturas parecidas a demonios del reino insular de Himoto, en el lejano oriente. Llegaron a Solasta a través de puertas principales activadas.
+Race/&RaceOniTitle=Oni

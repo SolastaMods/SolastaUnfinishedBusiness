@@ -1,0 +1,10 @@
+Feature/&CastSpellOniOgreMagicDescription=На 3-м уровне вы можете использовать <b>Громовую кару</b> один раз за длительный отдых. <b>Мудрость</b> — это ваша способность к заклинаниям.
+Feature/&CastSpellOniOgreMagicTitle=Огрская магия
+Feature/&FeatureSetOniAbilityScoreIncreaseDescription=Сила +2, Мудрость +1
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=Увеличение атрибута
+Feature/&ProficiencyOniOgreMightDescription=Вы владеете <b>боевым оружием</b>.
+Feature/&ProficiencyOniOgreMightTitle=Огрская мощь
+Feature/&ProficiencyOniThirdEyeDescription=Вы владеете навыком <b>Восприятие</b>.
+Feature/&ProficiencyOniThirdEyeTitle=Третий глаз
+Race/&RaceOniDescription=Они — демоноподобные существа из дальневосточного островного королевства Химото. Они пришли в Соласту через активированные главные врата.
+Race/&RaceOniTitle=Oni

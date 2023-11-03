@@ -1,3 +1,5 @@
+Background/&PointPoolBackgroundSkillSelect1Description=Выберите 1 навык.
+Background/&PointPoolBackgroundSkillSelect1Title=Навыки
 Background/&PointPoolBackgroundSkillSelect2Description=Выберите 2 навыка.
 Background/&PointPoolBackgroundSkillSelect2Title=Навыки
 Background/&PointPoolBackgroundSkillSelect3Description=Выберите 3 навыка.

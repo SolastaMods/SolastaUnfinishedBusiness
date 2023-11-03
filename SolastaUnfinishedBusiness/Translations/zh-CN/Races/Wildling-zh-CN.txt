@@ -1,0 +1,16 @@
+Action/&WildlingFeralAgilityDescription=单回合你的移动速度加倍。一旦你使用了这个特性，你就不能再次使用它，直到你在一个回合中移动 0 英尺。
+Action/&WildlingFeralAgilityTitle=野性敏捷
+Condition/&ConditionWildlingAgileDescription=在回合结束之前，你的移动速度会加倍。
+Condition/&ConditionWildlingAgileTitle=敏捷
+Condition/&ConditionWildlingTiredDescription=在您的一个回合中移动 0 英尺之前，您无法使用野性敏捷。
+Condition/&ConditionWildlingTiredTitle=疲劳的
+Feature/&ActionAffinityWildlingFeralAgilityDescription=你的反应能力和敏捷性让你能够快速移动。当你在战斗中进入回合时，你可以将速度加倍，直到回合结束。一旦你使用了这个特性，你就不能再次使用它，直到你在一个回合中移动 0 英尺。
+Feature/&ActionAffinityWildlingFeralAgilityTitle=野性敏捷
+Feature/&FeatureSetWildlingAbilityScoreIncreaseDescription=敏捷+2，魅力+1
+Feature/&FeatureSetWildlingAbilityScoreIncreaseTitle=能力值增加
+Feature/&FeatureWildlingClawsDescription=你的徒手攻击会造成 1d6 + 你的力量调整值的挥砍伤害，而不是徒手攻击通常造成的钝击伤害。
+Feature/&FeatureWildlingClawsTitle=利爪
+Feature/&ProficiencyWildlingNaturalInstinctsDescription=您精通感知和隐秘技能。
+Feature/&ProficiencyWildlingNaturalInstinctsTitle=天性
+Race/&RaceWildlingDescription=野人是人类和提夫林的后代，他们大多继承了提夫林父母的野性特征。野人的外貌和本性各不相同，他们一生的大部分时间都在索拉斯塔的森林或其他人烟稀少的地区度过，作为自给自足的猎人和旅行者。
+Race/&RaceWildlingTitle=野人

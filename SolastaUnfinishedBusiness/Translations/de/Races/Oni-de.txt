@@ -1,0 +1,10 @@
+Feature/&CastSpellOniOgreMagicDescription=Auf der 3. Stufe können Sie einmal pro langer Pause <b>Thunderous Smite</b> wirken. <b>Weisheit</b> ist Ihre Zauberfähigkeit dafür.
+Feature/&CastSpellOniOgreMagicTitle=Ogermagie
+Feature/&FeatureSetOniAbilityScoreIncreaseDescription=Stärke +2, Weisheit +1
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=Attributerhöhung
+Feature/&ProficiencyOniOgreMightDescription=Sie beherrschen den Umgang mit <b>Kampfwaffen</b>.
+Feature/&ProficiencyOniOgreMightTitle=Ogermacht
+Feature/&ProficiencyOniThirdEyeDescription=Sie verfügen über Kenntnisse in der <b>Wahrnehmung</b>.
+Feature/&ProficiencyOniThirdEyeTitle=Drittes Auge
+Race/&RaceOniDescription=Oni sind dämonenähnliche Kreaturen aus dem fernöstlichen Inselreich Himoto. Sie kamen durch aktivierte Haupttore nach Solasta.
+Race/&RaceOniTitle=Oni

@@ -1,3 +1,5 @@
+Background/&PointPoolBackgroundSkillSelect1Description=选择1个技能熟练度。
+Background/&PointPoolBackgroundSkillSelect1Title=技能
 Background/&PointPoolBackgroundSkillSelect2Description=选择2个技能熟练项。
 Background/&PointPoolBackgroundSkillSelect2Title=技能
 Background/&PointPoolBackgroundSkillSelect3Description=选择3个技能熟练项。

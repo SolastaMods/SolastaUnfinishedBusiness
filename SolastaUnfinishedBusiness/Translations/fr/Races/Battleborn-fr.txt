@@ -1,0 +1,9 @@
+Feature/&AttributeModifierBattlebornBonusACTitle=Résilience arcanique
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Constitution +2, augmente 1 autre score de 1 point.
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Augmentation du score de capacité
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Vous avez été créé pour avoir un courage remarquable, représenté par les avantages suivants :\n\n- Vous gagnez un bonus de +1 à la classe d'armure.\n- Vous avez un avantage aux jets de sauvegarde contre l'empoisonnement et vous avez une résistance à l'empoisonnement. dégâts de poison.\n- Vous êtes immunisé contre les maladies.\n- Vous n'avez pas besoin de dormir et la magie ne peut pas vous endormir.
+Feature/&FeatureSetBattlebornArcaneResilienceTitle=Résilience arcanique
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Vous gagnez une maîtrise de compétence et une maîtrise d’outil de votre choix.
+Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Infusion spécialisée
+Race/&RaceBattlebornDescription=Les Battleborn sont le résultat d'expériences arcaniques, mélangeant chair, alchimie et magie pour créer de parfaits soldats de champ de bataille. Créés pour servir d’armes, ils doivent désormais trouver une utilité au-delà de la guerre. Un né au combat peut être un allié fidèle, une machine à tuer sans pitié ou une âme errante à la recherche d’un but et d’un sens.
+Race/&RaceBattlebornTitle=Guerrier-né

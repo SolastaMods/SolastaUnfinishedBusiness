@@ -1,3 +1,5 @@
+Background/&PointPoolBackgroundSkillSelect1Description=スキル熟練度を1つ選択します。
+Background/&PointPoolBackgroundSkillSelect1Title=スキル
 Background/&PointPoolBackgroundSkillSelect2Description=スキル熟練度を2つ選択します。
 Background/&PointPoolBackgroundSkillSelect2Title=スキル
 Background/&PointPoolBackgroundSkillSelect3Description=スキル熟練度を3つ選択します。

@@ -1,3 +1,5 @@
+Background/&PointPoolBackgroundSkillSelect1Description=Wählen Sie 1 Fertigkeitskompetenz aus.
+Background/&PointPoolBackgroundSkillSelect1Title=Fähigkeiten
 Background/&PointPoolBackgroundSkillSelect2Description=Wählen Sie 2 Fertigkeitskompetenzen aus.
 Background/&PointPoolBackgroundSkillSelect2Title=Fähigkeiten
 Background/&PointPoolBackgroundSkillSelect3Description=Wählen Sie 3 Fertigkeitskompetenzen aus.

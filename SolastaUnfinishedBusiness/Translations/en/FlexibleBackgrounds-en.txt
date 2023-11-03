@@ -1,3 +1,5 @@
+Background/&PointPoolBackgroundSkillSelect1Description=Select 1 skill proficiency.
+Background/&PointPoolBackgroundSkillSelect1Title=Skills
 Background/&PointPoolBackgroundSkillSelect2Description=Select 2 skill proficiencies.
 Background/&PointPoolBackgroundSkillSelect2Title=Skills
 Background/&PointPoolBackgroundSkillSelect3Description=Select 3 skill proficiencies.
