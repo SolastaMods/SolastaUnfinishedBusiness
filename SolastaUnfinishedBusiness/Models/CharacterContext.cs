@@ -210,7 +210,7 @@ internal static class CharacterContext
         BuildRogueCunningStrike();
         SwitchAsiAndFeat();
         SwitchBarbarianFightingStyle();
-        SwitchDarkSensitivity();
+        SwitchDarknessPerceptive();
         SwitchDragonbornElementalBreathUsages();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
         SwitchEveryFourLevelsFeats();
@@ -758,7 +758,7 @@ internal static class CharacterContext
         }
     }
 
-    internal static void SwitchDarkSensitivity()
+    internal static void SwitchDarknessPerceptive()
     {
         var races = new List<CharacterRaceDefinition>
         {
@@ -767,7 +767,7 @@ internal static class CharacterContext
             SubraceGrayDwarfBuilder.SubraceGrayDwarf
         };
 
-        if (Main.Settings.AddHelpActionToAllRaces)
+        if (Main.Settings.AddDarknessPerceptiveToDarkRaces)
         {
             foreach (var characterRaceDefinition in races
                          .Where(a => !a.FeatureUnlocks.Exists(x =>

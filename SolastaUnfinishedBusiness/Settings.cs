@@ -92,10 +92,10 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool AddHelpActionToAllRaces { get; set; }
     public bool AddDarknessPerceptiveToDarkRaces { get; set; }
-    public bool EnableFlexibleRaces { get; set; }
-    public bool EnableAlternateHuman { get; set; }
-    public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
     public bool ChangeDragonbornElementalBreathUsages { get; set; }
+    public bool EnableFlexibleRaces { get; set; }
+    public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
+    public bool EnableAlternateHuman { get; set; }
     public bool DisableLevelPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
     public bool DisableCastSpellPreRequisitesOnModFeats { get; set; }

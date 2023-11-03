@@ -34,25 +34,18 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
+            CharacterContext.SwitchDarknessPerceptive();
+        }
+
         toggle = Main.Settings.AddHelpActionToAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddHelpActionToAllRaces = toggle;
             CharacterContext.SwitchHelpPower();
-        }
-
-        toggle = Main.Settings.EnableFlexibleRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFlexibleRaces = toggle;
-            FlexibleRacesContext.SwitchFlexibleRaces();
-        }
-
-        toggle = Main.Settings.EnableAlternateHuman;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableAlternateHuman = toggle;
-            CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
         toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
@@ -62,17 +55,26 @@ internal static class CharacterDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
-        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableFlexibleRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleRaces"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
-            CharacterContext.SwitchDarkSensitivity();
+            Main.Settings.EnableFlexibleRaces = toggle;
+            FlexibleRacesContext.SwitchFlexibleRaces();
         }
 
         toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
         if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableAlternateHuman;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAlternateHuman = toggle;
+            CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
         UI.Label();
