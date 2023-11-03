@@ -1,0 +1,16 @@
+Action/&WildlingFeralAgilityDescription=Your movement speed doubles for single turn. Once you use this trait, you can't use this again until you move 0 feet on one of your turns.
+Action/&WildlingFeralAgilityTitle=Feral Agility
+Condition/&ConditionWildlingAgileDescription=You have double movement speed until the end of your turn.
+Condition/&ConditionWildlingAgileTitle=Agile
+Condition/&ConditionWildlingTiredDescription=You are unable to use Feral Agility until you move 0 feet on one of your turns.
+Condition/&ConditionWildlingTiredTitle=Tired
+Feature/&ActionAffinityWildlingFeralAgilityDescription=Your reflexes and agility allow you to move with a burst of speed. When you move on your turn in combat, you can double your speed until the end of the turn. Once you use this trait, you can't use it again until you move 0 feet on one of your turns.
+Feature/&ActionAffinityWildlingFeralAgilityTitle=Feral Agility
+Feature/&FeatureSetWildlingAbilityScoreIncreaseDescription=Dexterity +2, Charisma +1
+Feature/&FeatureSetWildlingAbilityScoreIncreaseTitle=Ability Score Increase
+Feature/&FeatureWildlingClawsDescription=Your unarmed strike deals 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike.
+Feature/&FeatureWildlingClawsTitle=Claws
+Feature/&ProficiencyWildlingNaturalInstinctsDescription=You have proficiency in Perception and Stealth skills.
+Feature/&ProficiencyWildlingNaturalInstinctsTitle=Natural Instincts
+Race/&RaceWildlingDescription=Wildlings are offsprings of humans and tieflings that mostly inherited the tiefling parent's feral characteristics. Different in looks and nature, wildlings have spent most of their lives in forests or other less inhabited regions of Solasta as self-sufficient hunters and travelers.
+Race/&RaceWildlingTitle=Wildling

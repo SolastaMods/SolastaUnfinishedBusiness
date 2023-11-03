@@ -106,7 +106,7 @@ internal static class RaceWyrmkinBuilder
             .AddToDB();
 
         featureCaveWyrmkinPowerfulClaws.AddCustomSubFeatures(
-            new ModifyWeaponAttackModeCaveWyrmkinClaws(),
+            new ModifyWeaponAttackModeClaws(),
             new CaveWyrmkinShovingAttack(featureCaveWyrmkinPowerfulClaws, conditionCaveWyrmkinShovingAttack));
 
         var conditionChargingStrike = ConditionDefinitionBuilder
@@ -328,7 +328,8 @@ internal static class RaceWyrmkinBuilder
         }
     }
 
-    private sealed class ModifyWeaponAttackModeCaveWyrmkinClaws : IModifyWeaponAttackMode
+    // maybe place it somewhere accessible
+    internal class ModifyWeaponAttackModeClaws : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {

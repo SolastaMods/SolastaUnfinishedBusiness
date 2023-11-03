@@ -21,7 +21,13 @@ internal static class FlexibleBackgroundsContext
         .SetPool(HeroDefinitions.PointsPoolType.Skill, 2)
         .AddToDB();
 
-    private static readonly FeatureDefinition ToolChoice = FeatureDefinitionPointPoolBuilder
+    internal static readonly FeatureDefinition SkillOne = FeatureDefinitionPointPoolBuilder
+        .Create("PointPoolBackgroundSkillSelect1")
+        .SetGuiPresentation(Category.Background)
+        .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+        .AddToDB();
+
+    internal static readonly FeatureDefinition ToolChoice = FeatureDefinitionPointPoolBuilder
         .Create("PointPoolBackgroundToolSelect")
         .SetGuiPresentation(Category.Background)
         .SetPool(HeroDefinitions.PointsPoolType.Tool, 1)

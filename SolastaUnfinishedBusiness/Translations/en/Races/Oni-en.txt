@@ -1,0 +1,10 @@
+Feature/&FeatureSetOniAbilityScoreIncreaseDescription=Strength +2, Wisdom +1
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=Attribute Increase
+Feature/&ProficiencyOniThirdEyeDescription=You have proficiency with <b>Perception</b> skill.
+Feature/&ProficiencyOniThirdEyeTitle=Third-eye
+Feature/&CastSpellOniOgreMagicDescription=At 3rd level, you can cast <b>Thunderous Smite</b> once per long rest. <b>Wisdom</b> is your spellcasting ability for it.
+Feature/&CastSpellOniOgreMagicTitle=Ogre Magic
+Feature/&ProficiencyOniOgreMightDescription=You are proficient with <b>Martial Weapons</b>.
+Feature/&ProficiencyOniOgreMightTitle=Ogre Might
+Race/&RaceOniDescription=Oni are Demon-like creatures from far eastern island kingdom of Himoto. They came to Solasta through activated major gates.
+Race/&RaceOniTitle=Oni
