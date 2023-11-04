@@ -666,7 +666,7 @@ internal static class MeleeCombatFeats
             var rulesetCharacter = attacker.RulesetCharacter;
 
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
-                !(ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)))
+                (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
             {
                 return;
             }
@@ -1653,7 +1653,7 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(character, attackMode))
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }
