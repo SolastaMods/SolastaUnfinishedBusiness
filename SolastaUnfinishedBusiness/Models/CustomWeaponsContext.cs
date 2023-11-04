@@ -50,6 +50,8 @@ internal static class CustomWeaponsContext
 
     internal static ItemDefinition HandXbowAcid;
 
+    internal static ItemDefinition UnarmedStrikeClaws;
+
     internal static void Load()
     {
         BuildHandwraps();
@@ -60,6 +62,7 @@ internal static class CustomWeaponsContext
         WeaponizeProducedFlame();
         BuildThunderGauntlet();
         BuildLightningLauncher();
+        BuildUnarmedStrikeClaws();
     }
 
     [NotNull]
@@ -717,6 +720,22 @@ internal static class CustomWeaponsContext
             baseDescription, Sprites.GetSprite("ItemGemLightning", Resources.ItemGemLightning, 128),
             properties: new[] { LightningImpactVFX });
         LightningLauncher.inDungeonEditor = false;
+    }
+
+    private static void BuildUnarmedStrikeClaws()
+    {
+        var baseItem = ItemDefinitions.UnarmedStrikeBase;
+        var basePresentation = baseItem.ItemPresentation;
+        var baseDescription = new WeaponDescription(baseItem.WeaponDescription);
+        var damageForm = baseDescription.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+
+        damageForm.dieType = DieType.D6;
+        damageForm.diceNumber = 1;
+        damageForm.damageType = DamageTypeSlashing;
+
+        UnarmedStrikeClaws = BuildWeapon("CEUnarmedStrikeClaws", baseItem, 0, true, Common,
+            basePresentation, baseDescription, Sprites.GetSprite("UnarmedStrikeClaws", Resources.UnarmedStrikeClaws, 128));
     }
 
     internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero,

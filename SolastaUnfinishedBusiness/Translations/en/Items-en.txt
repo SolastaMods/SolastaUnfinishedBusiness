@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=This enchanted weapon was created using the a
 Item/&CEPike_Whiteburn_Title=Whiteburn Pike
 Item/&CEProducedFlameDartTitle=Hurl Flame
 Item/&CEProducedFlameTitle=Produced Flame
+Item/&CEUnarmedStrikeClawsTitle=Bare Claws
 Item/&ChainMail_Deflection_Description=This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 Item/&ChainMail_Deflection_Title=Chain Mail of Deflection
 Item/&ChainMail_FlameDancing_Description=This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
