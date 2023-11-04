@@ -762,6 +762,7 @@ internal static class CharacterContext
     {
         var races = new List<CharacterRaceDefinition>
         {
+            RaceHalfElfBuilder.RaceHalfElfDarkVariant,
             RaceKoboldBuilder.SubraceDarkKobold,
             SubraceDarkelfBuilder.SubraceDarkelf,
             SubraceGrayDwarfBuilder.SubraceGrayDwarf
