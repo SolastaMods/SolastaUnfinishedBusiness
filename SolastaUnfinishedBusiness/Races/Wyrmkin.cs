@@ -9,9 +9,9 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -106,7 +106,7 @@ internal static class RaceWyrmkinBuilder
             .AddToDB();
 
         featureCaveWyrmkinPowerfulClaws.AddCustomSubFeatures(
-            new ModifyWeaponAttackModeClaws(),
+            new CommonBuilders.ModifyWeaponAttackModeClaws(),
             new CaveWyrmkinShovingAttack(featureCaveWyrmkinPowerfulClaws, conditionCaveWyrmkinShovingAttack));
 
         var conditionChargingStrike = ConditionDefinitionBuilder
@@ -328,34 +328,6 @@ internal static class RaceWyrmkinBuilder
         }
     }
 
-    // maybe place it somewhere accessible
-    internal class ModifyWeaponAttackModeClaws : IModifyWeaponAttackMode
-    {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            if (!ValidatorsWeapon.IsUnarmed(character, attackMode) || attackMode.ranged)
-            {
-                return;
-            }
-
-            var effectDescription = attackMode.EffectDescription;
-            var damage = effectDescription.FindFirstDamageForm();
-            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
-
-            if (k < 0 || damage == null)
-            {
-                return;
-            }
-
-            if (damage.DieType < DieType.D6)
-            {
-                damage.DieType = DieType.D6;
-            }
-
-            damage.DamageType = DamageTypeSlashing;
-        }
-    }
-
     private class ReactToAttackOnMeReactiveRetribution : IPhysicalAttackFinishedOnMe
     {
         private readonly FeatureDefinitionPower _pool;
@@ -463,7 +435,7 @@ internal static class RaceWyrmkinBuilder
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
                 new CrystalWyrmkinModifyAC(),
-                new ModifyWeaponAttackModeCrystalWyrmkinClaws())
+                new CommonBuilders.ModifyWeaponAttackModeClaws())
             .AddToDB();
 
         var actionAffinityCrystalWyrmkinConditionCrystalDefense = FeatureDefinitionActionAffinityBuilder
@@ -572,31 +544,6 @@ internal static class RaceWyrmkinBuilder
 
             armorClass.AddModifier(attributeModifier);
             armorClass.ValueTrends.Add(trendInfo);
-        }
-    }
-
-    private sealed class ModifyWeaponAttackModeCrystalWyrmkinClaws : IModifyWeaponAttackMode
-    {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            if (!ValidatorsWeapon.IsUnarmed(character, attackMode) || attackMode.ranged)
-            {
-                return;
-            }
-
-            var effectDescription = attackMode.EffectDescription;
-            var damage = effectDescription.FindFirstDamageForm();
-            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
-
-            if (k < 0 || damage == null)
-            {
-                return;
-            }
-
-            if (damage.DieType < DieType.D6)
-            {
-                damage.DieType = DieType.D6;
-            }
         }
     }
 

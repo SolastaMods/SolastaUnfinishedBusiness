@@ -8,8 +8,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Races.RaceWyrmkinBuilder;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -36,7 +36,7 @@ internal static class RaceWildlingBuilder
         var featureWildlingClaws = FeatureDefinitionBuilder
             .Create($"Feature{RaceName}Claws")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new ModifyWeaponAttackModeClaws())
+            .AddCustomSubFeatures(new CommonBuilders.ModifyWeaponAttackModeClaws())
             .AddToDB();
 
         var proficiencyWildlingNaturalInstincts = FeatureDefinitionProficiencyBuilder

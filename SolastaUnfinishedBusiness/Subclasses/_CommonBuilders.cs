@@ -241,4 +241,31 @@ internal static class CommonBuilders
                 0);
         }
     }
+
+    internal class ModifyWeaponAttackModeClaws : IModifyWeaponAttackMode
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                return;
+            }
+
+            var effectDescription = attackMode.EffectDescription;
+            var damage = effectDescription.FindFirstDamageForm();
+            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
+
+            if (k < 0 || damage == null)
+            {
+                return;
+            }
+
+            if (damage.DieType < DieType.D6)
+            {
+                damage.DieType = DieType.D6;
+            }
+
+            damage.DamageType = DamageTypeSlashing;
+        }
+    }
 }
