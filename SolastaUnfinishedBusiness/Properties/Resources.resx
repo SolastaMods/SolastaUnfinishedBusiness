@@ -440,6 +440,11 @@
     <value>../Resources/Items/Halberd+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="UnarmedStrikeClaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Items/UnarmedStrikeClaws.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="LongMace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Items/LongMace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>

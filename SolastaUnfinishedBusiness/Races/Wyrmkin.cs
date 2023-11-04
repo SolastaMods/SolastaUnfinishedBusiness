@@ -106,7 +106,7 @@ internal static class RaceWyrmkinBuilder
             .AddToDB();
 
         featureCaveWyrmkinPowerfulClaws.AddCustomSubFeatures(
-            new CommonBuilders.ModifyWeaponAttackModeClaws(),
+            new CommonBuilders.AddExtraUnarmedStrikeClawAttack(),
             new CaveWyrmkinShovingAttack(featureCaveWyrmkinPowerfulClaws, conditionCaveWyrmkinShovingAttack));
 
         var conditionChargingStrike = ConditionDefinitionBuilder
@@ -435,7 +435,7 @@ internal static class RaceWyrmkinBuilder
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
                 new CrystalWyrmkinModifyAC(),
-                new CommonBuilders.ModifyWeaponAttackModeClaws())
+                new CommonBuilders.ModifyWeaponAttackUnarmedStrikeDamage(DieType.D6))
             .AddToDB();
 
         var actionAffinityCrystalWyrmkinConditionCrystalDefense = FeatureDefinitionActionAffinityBuilder

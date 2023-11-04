@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -36,7 +37,7 @@ internal static class RaceWildlingBuilder
         var featureWildlingClaws = FeatureDefinitionBuilder
             .Create($"Feature{RaceName}Claws")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CommonBuilders.ModifyWeaponAttackModeClaws())
+            .AddCustomSubFeatures(new CommonBuilders.AddExtraUnarmedStrikeClawAttack())
             .AddToDB();
 
         var proficiencyWildlingNaturalInstincts = FeatureDefinitionProficiencyBuilder
@@ -87,13 +88,19 @@ internal static class RaceWildlingBuilder
                 .AddToDB())
             .AddToDB();
 
+        var movementAffinityWildlingExpertClimber = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{RaceName}ExpertClimber")
+            .SetGuiPresentation(Category.Feature)
+            .SetClimbing(true, true)
+            .AddToDB();
+
         var raceWildling = CharacterRaceDefinitionBuilder
             .Create(CharacterRaceDefinitions.Human, $"Race{RaceName}")
             .SetGuiPresentation(Category.Race, Sprites.GetSprite(RaceName, Resources.Wildling, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
-                FeatureDefinitionMoveModes.MoveModeClimb6,
+                movementAffinityWildlingExpertClimber,
                 FeatureDefinitionSenses.SenseDarkvision,
                 FeatureDefinitionSenses.SenseNormalVision,
                 FlexibleRacesContext.FeatureSetLanguageCommonPlusOne,
