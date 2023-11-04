@@ -417,7 +417,7 @@ internal static class Level20Context
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(featureRogueElusive, 19), new(FeatureSetAbilityScoreChoice, 19), new(powerRogueStrokeOfLuck, 20)
+            new(featureRogueElusive, 18), new(FeatureSetAbilityScoreChoice, 19), new(powerRogueStrokeOfLuck, 20)
         });
     }
 
