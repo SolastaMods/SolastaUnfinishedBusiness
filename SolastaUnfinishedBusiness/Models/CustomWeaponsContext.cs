@@ -735,7 +735,8 @@ internal static class CustomWeaponsContext
         damageForm.damageType = DamageTypeSlashing;
 
         UnarmedStrikeClaws = BuildWeapon("CEUnarmedStrikeClaws", baseItem, 0, true, Common,
-            basePresentation, baseDescription, Sprites.GetSprite("UnarmedStrikeClaws", Resources.UnarmedStrikeClaws, 128));
+            basePresentation, baseDescription,
+            Sprites.GetSprite("UnarmedStrikeClaws", Resources.UnarmedStrikeClaws, 128));
     }
 
     internal static void ProcessProducedFlameAttack([NotNull] RulesetCharacterHero hero,

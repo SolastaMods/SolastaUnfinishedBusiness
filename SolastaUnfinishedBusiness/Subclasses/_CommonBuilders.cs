@@ -10,13 +10,13 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -245,12 +245,13 @@ internal static class CommonBuilders
 
     internal class ModifyWeaponAttackUnarmedStrikeDamage : IModifyWeaponAttackMode
     {
-        private DieType dieType;
+        private readonly DieType _dieType;
 
         public ModifyWeaponAttackUnarmedStrikeDamage(DieType dieType)
         {
-            this.dieType = dieType;
+            _dieType = dieType;
         }
+
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode))
@@ -260,19 +261,19 @@ internal static class CommonBuilders
 
             var effectDescription = attackMode.EffectDescription;
             var damage = effectDescription.FindFirstDamageForm();
-            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
 
-            if (k < 0 || damage == null)
+            if (damage == null)
             {
                 return;
             }
 
-            if (damage.DieType < dieType)
+            if (damage.DieType < _dieType)
             {
-                damage.DieType = dieType;
+                damage.DieType = _dieType;
             }
         }
     }
+
     internal class AddExtraUnarmedStrikeClawAttack : AddExtraAttackBase
     {
         public AddExtraUnarmedStrikeClawAttack()
@@ -280,44 +281,52 @@ internal static class CommonBuilders
         {
         }
 
-        // process subfeature later than unarmed strikes
-        public override int Priority() => 1;
+        // process sub feature after unarmed strikes
+        public override int Priority()
+        {
+            return 1;
+        }
 
         // move before base unarmed strikes are added
         protected override AttackModeOrder GetOrder(RulesetCharacter character)
         {
             return AttackModeOrder.Start;
         }
+
         protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
-            var hero = character as RulesetCharacterHero;
-            if (hero == null)
+            if (character is not RulesetCharacterHero hero)
             {
                 return null;
             }
+
             var attackModifiers = hero.attackModifiers;
 
             // find attack mode that is unarmed strike
             var attackModes = new List<RulesetAttackMode>();
 
-            hero.attackModes.ForEach(attackMode => {
-                if (attackMode.SourceDefinition == hero.UnarmedStrikeDefinition)
+            hero.attackModes.ForEach(attackMode =>
+            {
+                if (attackMode.SourceDefinition != hero.UnarmedStrikeDefinition)
                 {
-                    var newAttackMode = character.TryRefreshAttackMode(
-                        attackMode.actionType,
-                        CustomWeaponsContext.UnarmedStrikeClaws,
-                        CustomWeaponsContext.UnarmedStrikeClaws.WeaponDescription,
-                        ValidatorsCharacter.IsFreeOffhandVanilla(character),
-                        true,
-                        attackMode.SlotName,
-                        attackModifiers,
-                        character.FeaturesOrigin,
-                        null
-                    );
-                    newAttackMode.attacksNumber = attackMode.attacksNumber;
-                    attackModes.Add(newAttackMode);
+                    return;
                 }
+
+                var newAttackMode = character.TryRefreshAttackMode(
+                    attackMode.actionType,
+                    CustomWeaponsContext.UnarmedStrikeClaws,
+                    CustomWeaponsContext.UnarmedStrikeClaws.WeaponDescription,
+                    ValidatorsCharacter.IsFreeOffhandVanilla(character),
+                    true,
+                    attackMode.SlotName,
+                    attackModifiers,
+                    character.FeaturesOrigin
+                );
+
+                newAttackMode.attacksNumber = attackMode.attacksNumber;
+                attackModes.Add(newAttackMode);
             });
+
             return attackModes;
         }
     }
