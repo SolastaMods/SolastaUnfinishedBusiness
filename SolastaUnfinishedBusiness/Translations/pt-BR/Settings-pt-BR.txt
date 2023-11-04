@@ -211,6 +211,8 @@ ModUi/&RemoveAttunementRequirements=Remova os requisitos de sintonização <b><i
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por visuais alternativos no jogo <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remova o filtro humanoide em <color=#D89555>Gargalhada</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Aplique o efeito <color=#D89555>Enredar</color> apenas no momento da conjuração <i><color=#F0DAA0>[ou seja: sem efeito recorrente]</color></i>
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remover restrições escolares do <color=#D89555>Shadowcaster</color>
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Remover restrições escolares do <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Reabastecer Antiquários <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Reabastecer Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Reabastecer Círculo de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>

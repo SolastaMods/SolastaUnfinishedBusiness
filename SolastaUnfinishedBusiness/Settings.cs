@@ -180,6 +180,8 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowHasteCasting { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool EnableCantripsTriggeringOnWarMagic { get; set; }
+    public bool RemoveSchoolRestrictionsFromShadowCaster { get; set; }
+    public bool RemoveSchoolRestrictionsFromSpellBlade { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool AllowClubsToBeThrown { get; set; }

@@ -3,7 +3,10 @@
 - added Battleborn, Oni, and Wildling races [by otearaisu]
 - added Gameplay > General > 'Add Darkness Perceptive to Darkelf, Dark Kobold, and Gray Dwarf [perception checks adv]'
 - added Gameplay > General > 'Enable Light Sensitivity on Darkelf, Dark Kobold, and Gray Dwarf to only trigger outdoors'
+- added Gameplay > Rules > 'Remove school restrictions from Shadowcaster'
+- added Gameplay > Rules > 'Remove school restrictions from Spellblade'
 - fixed the alternate voting system causing a rare narrative sequence crash on official campaigns
+- fixed Rogue Elusive incorrectly set at 19th instead of level 18th
 - improved Circle of The Night primal strike feature to trigger with flurry of blows attacks
 - improved Pugilist fighting style to trigger while in wildshape form
 - improved Ranger Lightbearer angelic form feature to trigger with flurry of blows attacks

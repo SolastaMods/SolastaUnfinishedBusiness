@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -102,7 +103,41 @@ internal static class SrdAndHouseRulesContext
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
         SwitchHastedCasing();
+        SwitchSchoolRestrictionsFromShadowCaster();
+        SwitchSchoolRestrictionsFromSpellBlade();
         ActionSwitching.Load();
+    }
+
+    internal static void SwitchSchoolRestrictionsFromShadowCaster()
+    {
+        if (Main.Settings.RemoveSchoolRestrictionsFromShadowCaster)
+        {
+            FeatureDefinitionCastSpells.CastSpellShadowcaster.RestrictedSchools.Clear();
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellShadowcaster.RestrictedSchools.SetRange(
+                SchoolAbjuration,
+                SchoolDivination,
+                SchoolIllusion,
+                SchoolNecromancy);
+        }
+    }
+
+    internal static void SwitchSchoolRestrictionsFromSpellBlade()
+    {
+        if (Main.Settings.RemoveSchoolRestrictionsFromSpellBlade)
+        {
+            FeatureDefinitionCastSpells.CastSpellMartialSpellBlade.RestrictedSchools.Clear();
+        }
+        else
+        {
+            FeatureDefinitionCastSpells.CastSpellMartialSpellBlade.RestrictedSchools.SetRange(
+                SchoolConjuration,
+                SchoolEnchantement,
+                SchoolEvocation,
+                SchoolTransmutation);
+        }
     }
 
     internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)

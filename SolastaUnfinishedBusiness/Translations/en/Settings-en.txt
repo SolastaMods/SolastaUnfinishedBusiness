@@ -211,6 +211,8 @@ ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=
 ModUi/&RemoveBugVisualModels=Replace spider like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time <i><color=#F0DAA0>[i.e.: no recurring effect]</color></i>
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Remove school restrictions from <color=#D89555>Shadowcaster</color>
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Remove school restrictions from <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>

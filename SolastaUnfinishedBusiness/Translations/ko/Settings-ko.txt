@@ -211,6 +211,8 @@ ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C0
 ModUi/&RemoveBugVisualModels=거미 등의 벌레 모델링을 다른 모습으로 대체 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>소름끼치는 웃음 주문</color>에서 인간형 제약 제거
 ModUi/&RemoveRecurringEffectOnEntangle=시전한 턴에만<color=#D89555>얽힘 주문</color> 효과 적용 <i><color=#F0DAA0>[반복 효과 없어짐]</color></i>
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<color=#D89555>Shadowcaster</color>에서 학교 제한을 제거하세요.
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=<color=#D89555>Spellblade</color>에서 학교 제한을 제거하세요.
 ModUi/&RestockAntiquarians=고고학 길드 <i><color=#F0DAA0>[할만 서머]</color></i> 재입고
 ModUi/&RestockArcaneum=아케니움 <i><color=#F0DAA0>[헤들론 슈어스펠]</color></i> 재입고
 ModUi/&RestockCircleOfDanantar=다난타르 서클 <i><color=#F0DAA0>[조리엘 폭스아이]</color></i> 재입고

@@ -211,6 +211,8 @@ ModUi/&RemoveAttunementRequirements=Einstimmungsanforderungen entfernen <b><i><c
 ModUi/&RemoveBugVisualModels=Ersetzen Sie spinnenartige Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Entferne den Humanoidenfilter für <color=#D89555>Abscheuliches Lachen</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Wende den <color=#D89555>Entangle</color>-Effekt nur zum Zeitpunkt des Wirkens an <i><color=#F0DAA0>[d. h.: kein wiederkehrender Effekt]</color></i>
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Schulbeschränkungen aus <color=#D89555>Shadowcaster</color> entfernen
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Entferne die Schulbeschränkungen von <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Antiquare <i><color=#F0DAA0>[Halman Summer]</color></i> auffüllen
 ModUi/&RestockArcaneum=Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i> auffüllen
 ModUi/&RestockCircleOfDanantar=Füllen Sie den Kreis von Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i> auf
