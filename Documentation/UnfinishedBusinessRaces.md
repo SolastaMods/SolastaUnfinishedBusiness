@@ -94,7 +94,7 @@ If you use dash as an action, you can use unarmed strike as a bonus action.
 
 * Powerful Claws
 
-Your unarmed strike deal 1d6 slashing damage instead of 1. When you hit a target with a melee attack, you can use shove as a bonus action.
+You can use your claws to make unarmed strike. Attacking with them deals 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike. When you hit a target with a melee attack, you can use shove as a bonus action.
 
 
 
@@ -778,11 +778,15 @@ Dexterity +2, Charisma +1
 
 * Claws
 
-Your unarmed strike deals 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike.
+You can use your claws to make unarmed strike. Attacking with them deals 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike.
 
 * Darkvision
 
 See normally in dim light, and in natural darkness as if in dim light.
+
+* Expert Climber
+
+Your climbing speed is same as your walking speed.
 
 * Feral Agility
 

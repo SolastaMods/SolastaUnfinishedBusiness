@@ -25,6 +25,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MovementAffinityWildlingExpertClimber:5aa7533c-1485-51e6-b146-81c2004f6ed5",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityWildlingFeralAgility:af067fe9-75c8-5ab4-91c5-5b7d41da4d92",
       "level": 1
     },
@@ -41,11 +46,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyWildlingNaturalInstincts:d90f70fc-899e-5028-a398-369bd78410a3",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeClimb6:19890dffe2c3e2945bb85799822bc6c1",
       "level": 1
     },
     {

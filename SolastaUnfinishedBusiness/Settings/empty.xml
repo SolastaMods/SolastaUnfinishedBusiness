@@ -3,7 +3,7 @@
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <SelectedTab>0</SelectedTab>
-  <DisplayRacesToggle>true</DisplayRacesToggle>
+  <DisplayRacesToggle>false</DisplayRacesToggle>
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
@@ -234,10 +234,10 @@
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
   <AddDarknessPerceptiveToDarkRaces>false</AddDarknessPerceptiveToDarkRaces>
-  <EnableFlexibleRaces>false</EnableFlexibleRaces>
-  <EnableAlternateHuman>false</EnableAlternateHuman>
-  <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
   <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
+  <EnableFlexibleRaces>false</EnableFlexibleRaces>
+  <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
+  <EnableAlternateHuman>false</EnableAlternateHuman>
   <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
   <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
@@ -310,6 +310,8 @@
   <AllowHasteCasting>false</AllowHasteCasting>
   <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
   <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
+  <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
+  <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
   <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
   <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
