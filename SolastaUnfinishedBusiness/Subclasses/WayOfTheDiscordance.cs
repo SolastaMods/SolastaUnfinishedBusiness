@@ -396,7 +396,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
-            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode))
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }
@@ -467,7 +467,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsUnarmed(character, attackMode))
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }

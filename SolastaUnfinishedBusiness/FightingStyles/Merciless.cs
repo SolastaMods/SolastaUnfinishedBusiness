@@ -77,8 +77,8 @@ internal sealed class Merciless : AbstractFightingStyle
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (activeEffect != null || (!ValidatorsWeapon.IsMelee(attackMode)
-                                         && !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode)))
+            if (activeEffect != null ||
+                (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
             {
                 yield break;
             }

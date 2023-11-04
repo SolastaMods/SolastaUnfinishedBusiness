@@ -430,7 +430,7 @@ internal static class OtherFeats
     {
         static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
         {
-            return ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
+            return ValidatorsWeapon.IsUnarmed(attackMode);
         }
 
         return FeatDefinitionBuilder
@@ -917,7 +917,7 @@ internal static class OtherFeats
             }
 
             //Not unarmed attack: skipping
-            if (!ValidatorsWeapon.IsUnarmed(me.RulesetCharacter, attackMode))
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }

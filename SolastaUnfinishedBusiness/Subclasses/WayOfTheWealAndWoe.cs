@@ -166,7 +166,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                 return;
             }
 
-            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode) &&
+            if (!ValidatorsWeapon.IsUnarmed(attackMode) &&
                 !rulesetAttacker.IsMonkWeapon(attackMode?.SourceDefinition as ItemDefinition))
             {
                 return;
