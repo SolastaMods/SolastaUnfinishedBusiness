@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=这把附魔武器是使用魔纳卡隆的铁
 Item/&CEPike_Whiteburn_Title=白燃长矛
 Item/&CEProducedFlameDartTitle=投掷火焰
 Item/&CEProducedFlameTitle=燃火术
+Item/&CEUnarmedStrikeClawsTitle=赤裸的利爪
 Item/&ChainMail_Deflection_Description=这件魔法盔甲是使用魔纳卡隆的军械大师的古老知识创造的。 伊杜瑞尔·强手为皇帝的贴身卫队打造了第一件盔甲。
 Item/&ChainMail_Deflection_Title=偏斜锁子甲
 Item/&ChainMail_FlameDancing_Description=这件魔法盔甲是使用魔纳卡隆的军械大师的古老知识创造的。 伊杜瑞尔·强手为皇帝的贴身卫队打造了第一件盔甲。

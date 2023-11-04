@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=Esta arma encantada foi criada usando o antig
 Item/&CEPike_Whiteburn_Title=Whiteburn Pike
 Item/&CEProducedFlameDartTitle=Arremessar Chama
 Item/&CEProducedFlameTitle=Chama Produzida
+Item/&CEUnarmedStrikeClawsTitle=Garras nuas
 Item/&ChainMail_Deflection_Description=Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
 Item/&ChainMail_Deflection_Title=Cota de malha de deflexão
 Item/&ChainMail_FlameDancing_Description=Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.

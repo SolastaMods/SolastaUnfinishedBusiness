@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=이 마법 무기는 마나칼론 대장장�
 Item/&CEPike_Whiteburn_Title=백색불꽃 파이크
 Item/&CEProducedFlameDartTitle=불꽃 내던지기
 Item/&CEProducedFlameTitle=불꽃 생성
+Item/&CEUnarmedStrikeClawsTitle=맨발톱
 Item/&ChainMail_Deflection_Description=이 마법이 부여된 방어구는 마나칼론의 갑옷 장인들의 고대 지식을 이용해 만들어졌습니다. 일두리알 스트롱핸드는 그 중 처음으로 탄생한 갑옷들을 황제의 근위병들을 위해 벼려 바쳤습니다.
 Item/&ChainMail_Deflection_Title=굴절의 체인 메일
 Item/&ChainMail_FlameDancing_Description=이 마법이 부여된 방어구는 마나칼론의 갑옷 장인들의 고대 지식을 이용해 만들어졌습니다. 일두리알 스트롱핸드는 그 중 처음으로 탄생한 갑옷들을 황제의 근위병들을 위해 벼려 바쳤습니다.
