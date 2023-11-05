@@ -21,6 +21,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class GameUiContext
 {
+    internal static bool IsVttCameraEnabled;
+
     private static readonly int[][][] FormationGridSetTemplates =
     {
         new[] // default
@@ -925,7 +927,8 @@ internal static class GameUiContext
             case CtrlShiftV when Main.Settings.EnableVttCamera:
                 var cameraService = ServiceRepository.GetService<ICameraService>();
 
-                cameraService.DebugCameraEnabled = !cameraService.DebugCameraEnabled;
+                IsVttCameraEnabled = !IsVttCameraEnabled;
+                cameraService.DebugCameraEnabled = IsVttCameraEnabled;
                 break;
             case CtrlShiftS when EncountersSpawnContext.EncounterCharacters.Count > 0:
                 EncountersSpawnContext.ConfirmStageEncounter();

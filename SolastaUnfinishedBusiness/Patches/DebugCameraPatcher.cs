@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 using TA;
 using UnityEngine;
 
@@ -26,7 +27,15 @@ public static class DebugCameraPatcher
         [UsedImplicitly]
         public static bool Prefix(DebugCamera __instance)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (!GameUiContext.IsVttCameraEnabled)
+            {
+                return true;
+            }
+
+            // handle ROTATE in orbital mode
+            if (Input.GetKeyDown(KeyCode.Mouse1) ||
+                Input.GetKeyDown(KeyCode.Q) ||
+                Input.GetKeyDown(KeyCode.E))
             {
                 __instance.currentMode = DebugCamera.DebugCameraMode.Orbital;
                 __instance.StorePreviousState();
@@ -120,23 +129,37 @@ public static class DebugCameraPatcher
         [UsedImplicitly]
         public static bool Prefix(DebugCamera __instance)
         {
-            if (Input.GetKeyUp(KeyCode.Mouse1))
+            if (!GameUiContext.IsVttCameraEnabled)
+            {
+                return true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Mouse1) ||
+                Input.GetKeyUp(KeyCode.Q) ||
+                Input.GetKeyUp(KeyCode.E))
             {
                 __instance.currentMode = DebugCamera.DebugCameraMode.Free;
                 __instance.StorePreviousState();
             }
             else
             {
-                __instance.theta = Mathf.Clamp(
-                    __instance.theta - (Input.GetAxis("Mouse Y") * __instance.inclinationSpeed), 0.14f,
-                    1.56079638f);
-                __instance.phi -= Input.GetAxis("Mouse X") * __instance.azimuthSpeed;
+                // __instance.theta = Mathf.Clamp(
+                //     __instance.theta - (Input.GetAxis("Mouse Y") * __instance.inclinationSpeed), 0.14f,
+                //     1.56079638f);
 
-                var service = ServiceRepository.GetService<IGraphicsLocationPostProcessService>();
+                __instance.theta = 1.56079638f;
 
-                if (service != null)
+                if (Input.GetKey(KeyCode.Q))
                 {
-                    service.FocusDistance = __instance.radius;
+                    __instance.phi += __instance.azimuthSpeed;
+                }
+                else if (Input.GetKey(KeyCode.E))
+                {
+                    __instance.phi -= __instance.azimuthSpeed;
+                }
+                else
+                {
+                    __instance.phi -= Input.GetAxis("Mouse X") * __instance.azimuthSpeed;
                 }
 
                 UpdateCamera(__instance);

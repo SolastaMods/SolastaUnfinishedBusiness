@@ -12,6 +12,7 @@
 - fixed Ranger Lightbearer angelic form feature to trigger with flurry of blows attacks
 - fixed Rogue Elusive feature incorrectly set at level 19th instead of level 18th
 - fixed the alternate voting system causing a narrative sequence crash on official campaigns
+- improved the VTT camera with QE keys to rotate and forced top-down view
 
 1.5.94.31:
 
