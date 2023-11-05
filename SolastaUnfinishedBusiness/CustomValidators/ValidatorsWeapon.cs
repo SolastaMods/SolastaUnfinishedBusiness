@@ -211,12 +211,12 @@ internal static class ValidatorsWeapon
         // even worse, on thrown attacks, game will at some point consider melee as hero becomes unarmed
         // this will handle thrown melee weapons like daggers, javelins, spears, etc.
         // assume it's within range if not in combat so any off combat stats / tooltips work correctly
-        var currentAttackAction = Global.CurrentAttackAction.Peek();
-
-        if (currentAttackAction == null || currentAttackAction.ActionParams.TargetCharacters.Count == 0)
+        if (Global.CurrentAttackAction.Count == 0)
         {
             return true;
         }
+
+        var currentAttackAction = Global.CurrentAttackAction.Peek();
 
         // handle combat situations and ensure we don't validate if attack not within range
         return ServiceRepository.GetService<IGameLocationBattleService>().IsWithinXCells(
