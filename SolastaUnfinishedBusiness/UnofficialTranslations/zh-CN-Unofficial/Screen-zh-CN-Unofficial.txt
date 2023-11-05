@@ -604,6 +604,7 @@ Screen/&HiddenQuestTypeTitle=隐藏
 Screen/&HitDiceItemStatusDeadTitle=死亡
 Screen/&HitDiceItemStatusFullHPTitle=满生命值
 Screen/&HitDiceItemStatusOutofHDTitle=
+Screen/&HitDiceItemStatusRollTitle=掷骰
 Screen/&HitDiceItemStatusUnconsciousTitle=昏迷
 Screen/&HostIsAnsweringChoiceTitle={0}选择了一个回答
 Screen/&IdentifyRitualDescription=通过施展法术仪式鉴定物品，无需使用法术位。

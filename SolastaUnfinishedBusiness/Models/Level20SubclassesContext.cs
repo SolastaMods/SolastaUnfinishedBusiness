@@ -641,11 +641,13 @@ internal static class Level20SubclassesContext
                     .Create()
                     .SetBonusMode(AddBonusMode.Proficiency)
                     .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.HalfMaximumHitPoints)
+                    .SetCreatedBy()
                     .Build(),
                 EffectFormBuilder
                     .Create()
                     .SetBonusMode(AddBonusMode.Proficiency)
                     .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
+                    .SetCreatedBy()
                     .Build())
             .AddToDB();
 
@@ -1481,7 +1483,7 @@ internal static class Level20SubclassesContext
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                conditionExhausted.Name,
                 0,
                 0,
                 0);
@@ -1667,7 +1669,7 @@ internal static class Level20SubclassesContext
                 attacker.Guid,
                 attacker.RulesetCharacter?.CurrentFaction.Name ?? string.Empty,
                 1,
-                null,
+                ConditionDodging,
                 0,
                 0,
                 0);
@@ -1857,7 +1859,7 @@ internal static class Level20SubclassesContext
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                condition.Name,
                 0,
                 0,
                 0);
@@ -2097,7 +2099,7 @@ internal static class Level20SubclassesContext
                     rulesetCharacter.Guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionDarkAssault.Name,
                     0,
                     0,
                     0);

@@ -1,8 +1,8 @@
 {
   "$type": "EffectProxyDefinition, Assembly-CSharp",
-  "canMove": true,
+  "canMove": false,
   "canRotate": false,
-  "canMoveOnCharacters": true,
+  "canMoveOnCharacters": false,
   "canAttack": false,
   "canTriggerPower": false,
   "autoTerminateOnTriggerPower": false,
@@ -80,13 +80,7 @@
   },
   "startEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": {
-      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
-      "objectName": "Play_Vfx_TRA_SpikeGrowth_Surface_Start",
-      "id": 2682581383,
-      "guid": "6D068E4C-4894-41A8-8A23-3E3B600D946E",
-      "name": "6D068E4C-4894-41A8-8A23-3E3B600D946E"
-    },
+    "WwiseObjectReference": null,
     "idInternal": 0,
     "valueGuidInternal": {
       "$type": "System.Byte[], mscorlib",
@@ -122,12 +116,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&SpikeGrowthTitle",
-    "description": "Spell/&SpikeGrowthDescription",
+    "title": "Spell/&SpellWebTitle",
+    "description": "Spell/&SpellWebDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "208062c7f85b58542808ed3ba0d821dc",
-      "m_SubObjectName": "SpikeGrowth",
+      "m_AssetGUID": "c571f03ae5d85da49b693a0b987e42cf",
+      "m_SubObjectName": "SleetStorm",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -143,7 +137,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6aabc7d1-2a74-59b8-919d-7d7f6a317f7c",
+  "guid": "4b62aa30-af66-5c43-880a-bb4379eeba5a",
   "contentPack": 9999,
-  "name": "EffectProxyMantleOfThorns"
+  "name": "ProxySpellWeb"
 }

@@ -1,0 +1,9 @@
+Feature/&AttributeModifierBattlebornBonusACTitle=Resiliência Arcana
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Constituição +2, aumenta 1 outro valor em 1 ponto.
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Aumento da pontuação de habilidade
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Você foi criado para ter uma fortaleza notável, representada pelos seguintes benefícios:\n\n- Você ganha um bônus de +1 na Classe de Armadura.\n- Você tem vantagem em testes de resistência contra envenenamento e tem resistência a dano de veneno.\n- Você é imune a doenças.\n- Você não precisa dormir e a magia não pode fazer você dormir.
+Feature/&FeatureSetBattlebornArcaneResilienceTitle=Resiliência Arcana
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Você ganha uma proficiência em habilidade e uma proficiência em ferramenta de sua escolha.
+Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Infusão Especializada
+Race/&RaceBattlebornDescription=Os nascidos em batalha são resultados de experimentos misteriosos, misturando carne, alquimia e magia para criar soldados perfeitos no campo de batalha. Criados para servir como armas, devem agora encontrar um propósito além da guerra. Um nascido em batalha pode ser um aliado leal, uma máquina de matar de coração frio ou uma alma errante em busca de propósito e significado.
+Race/&RaceBattlebornTitle=Nascido para a batalha

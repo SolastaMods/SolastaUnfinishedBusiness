@@ -50,7 +50,9 @@ internal static class ValidatorsCharacter
         character.HasFreeHandSlot() &&
         !ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(), TagsDefinitions.WeaponTagTwoHanded);
 
-    internal static readonly IsCharacterValidHandler HasFreeHand = character => character.HasFreeHandSlot();
+    internal static readonly IsCharacterValidHandler HasFreeHand = character =>
+        character.HasFreeHandSlot() ||
+        character is RulesetCharacterMonster;
 
     internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhand(character);
@@ -105,6 +107,11 @@ internal static class ValidatorsCharacter
             LocationDefinitions.LightingState.Darkness,
             LocationDefinitions.LightingState.Unlit,
             LocationDefinitions.LightingState.Dim)(character);
+
+    internal static readonly IsCharacterValidHandler IsUnlitOrDarkness = character =>
+        HasAnyOfLightingStates(
+            LocationDefinitions.LightingState.Darkness,
+            LocationDefinitions.LightingState.Unlit)(character);
 
     internal static IsCharacterValidHandler HasAvailablePowerUsage(FeatureDefinitionPower power)
     {

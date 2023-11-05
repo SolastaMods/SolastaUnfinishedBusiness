@@ -3,6 +3,7 @@ Arcane Archer=Arcane Archer
 Aura of Perseverance=Aura of Purity
 Aura of Vivacity=Aura of Life
 Banishing Smite=Banishing Smite
+Battleborn=Warforged
 Blade Dancer=Bladesinger
 Blade Mastery=Blade Mastery
 Blade Ward=Blade Ward

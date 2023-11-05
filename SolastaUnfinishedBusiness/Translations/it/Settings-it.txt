@@ -2,6 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Aggiungi tutti i dadi del danno base dell
 ModUi/&AddAllToStore=Aggiungi tutto al negozio
 ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555> Sanguinamento</color> a quelle rimosse da <color=#D89555> Maggiore</color> e <color=#D89555> Restauro minore</color>
 ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti di gioco ufficiali <i><color=#F0DAA0>[munizioni, ricette, kit, ecc.]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio] </color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Alfo scuro</color>, <color=#D89555>Coboldo scuro</color>, <color=#D89555>Mezzo-Oscuro</color> color> e <color=#D89555>Nano grigio</color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando è spento o nell'oscurità magica]</color></i>
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1,5 metri da te]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aggiungi il nemico preferito umanoide ai <color=#D89555>Ranger</color>
 ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori luminosi per gli occhi
@@ -117,7 +118,7 @@ ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il 
 ModUi/&EnablePcgRandom=Abilita un migliore algoritmo generatore casuale <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Abilita la funzione <color=#D89555>Ranger</color> <b>Sudario della Natura</b> al livello 10 <i><color=#F0DAA0>[come azione bonus, puoi diventare magicamente invisibile fino all'inizio del turno successivo ]</color></i>
 ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per ricongiungersi al gruppo attorno all'eroe selezionato o al leader se non ne è selezionato nessuno <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
-ModUi/&EnableRelearnSpells=<i>+ Può selezionare trucchetti o incantesimi già appresi da altre classi</i>
+ModUi/&EnableRelearnSpells=Abilita la selezione di trucchetti o incantesimi già appresi da altre fonti
 ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
 ModUi/&EnableRogueCunningStrike=Abilita <color=#D89555>Ladro</color> <b>Colpo astuto</b> e <b>Colpo subdolo</b> ai livelli di classe 5 e 14 <i><color=#F0DAA0>[lascia perdere 1 dado di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
 ModUi/&EnableRogueFightingStyle=Abilita la scelta dello <color=#D89555>Ladro</color> <b>Stile di combattimento</b> al livello 2
@@ -201,6 +202,7 @@ ModUi/&Patches=<color=#F0DAA0> Patch:</color>
 ModUi/&PortraitsOpenFolder=Apri la cartella dei ritratti
 ModUi/&PrimedItems=Articoli innescati
 ModUi/&Progression=<color=#F0DAA0>Progressione:</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Abilita <color=#D89555> Sensibilità alla luce</color> su <color=#D89555> Darkelf</color>, <color=#D89555> Dark Coboldo</color>, <color=#D89555> Half-Darkelf</ color> e <color=#D89555>Gray Dwarf</color> si attiveranno solo all'aperto\n<i><color=#F0DAA0>[le aree interne in luoghi esterni accessibili senza schermata di caricamento sono considerate esterne dal motore di gioco ]</color></i>
 ModUi/&Races=<color=#F0DAA0>Gare</color>
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
@@ -209,6 +211,8 @@ ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di attivazione <b><i><co
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con effetti visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi il filtro umanoide su <color=#D89555>Risate orribili</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Applica solo l'effetto <color=#D89555>Intralcio</color> al momento del lancio <i><color=#F0DAA0>[es.: nessun effetto ricorrente]</color></i>
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <color=#D89555>Incantatrice</color>
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Rimuovi le restrizioni scolastiche da <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Rifornisci Antiquari <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Rifornisci Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Rifornisci il Circolo di Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>

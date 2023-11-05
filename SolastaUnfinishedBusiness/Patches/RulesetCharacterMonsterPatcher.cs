@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -167,6 +168,7 @@ public static class RulesetCharacterMonsterPatcher
 
             //PATCH: Allows adding extra attack modes
             __instance.GetSubFeaturesByType<IAddExtraAttack>()
+                .OrderBy(provider => provider.Priority()).ToList()
                 .ForEach(provider => provider.TryAddExtraAttack(__instance));
 
             //PATCH: Allows changing damage and other stats of an attack mode

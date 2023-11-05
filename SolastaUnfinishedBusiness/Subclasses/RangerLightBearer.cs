@@ -177,7 +177,8 @@ public sealed class RangerLightBearer : AbstractSubclass
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"AttackModifier{Name}AngelicForm")
                     .SetGuiPresentation($"Condition{Name}AngelicForm", Category.Condition, Gui.NoLocalization)
-                    .SetMagicalWeapon()
+                    // cannot use SetMagicalWeapon as it doesn't trigger with flurry of blows
+                    .AddCustomSubFeatures(new ModifyAttackActionModifierAngelicForm())
                     .AddToDB())
             .AddToDB();
 
@@ -450,6 +451,19 @@ public sealed class RangerLightBearer : AbstractSubclass
                 classLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
 
             yield break;
+        }
+    }
+
+    private sealed class ModifyAttackActionModifierAngelicForm : IModifyAttackActionModifier
+    {
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
         }
     }
 

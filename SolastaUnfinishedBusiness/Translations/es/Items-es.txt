@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=Esta arma encantada fue creada usando el anti
 Item/&CEPike_Whiteburn_Title=Lucio de Whiteburn
 Item/&CEProducedFlameDartTitle=Lanzar llama
 Item/&CEProducedFlameTitle=Llama producida
+Item/&CEUnarmedStrikeClawsTitle=Garras desnudas
 Item/&ChainMail_Deflection_Description=Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
 Item/&ChainMail_Deflection_Title=Cota de malla de desviación
 Item/&ChainMail_FlameDancing_Description=Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.

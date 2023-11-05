@@ -41,7 +41,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
+    "createdByCharacter": true,
     "difficultyClassComputation": "AbilityScoreAndProficiency",
     "savingThrowDifficultyAbility": "Intelligence",
     "fixedSavingThrowDifficultyClass": 10,
@@ -170,7 +170,7 @@
             "diceNumber": 3
           }
         ],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
         "savingThrowAffinity": "HalfDamage",

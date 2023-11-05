@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=Cette arme enchantée a été créée en util
 Item/&CEPike_Whiteburn_Title=Pique de Brûlure blanche
 Item/&CEProducedFlameDartTitle=Lancer de flammes
 Item/&CEProducedFlameTitle=Flammes
+Item/&CEUnarmedStrikeClawsTitle=Griffes Nues
 Item/&ChainMail_Deflection_Description=Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Fortemain a forgé la première de ces armures pour la garde personnelle de l'Empereur.
 Item/&ChainMail_Deflection_Title=Cotte de mailles déflectrice
 Item/&ChainMail_FlameDancing_Description=Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Fortemain a forgé la première de ces armures pour la garde personnelle de l'Empereur.

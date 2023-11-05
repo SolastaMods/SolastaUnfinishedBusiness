@@ -562,7 +562,7 @@ internal static class ClassFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                ConditionDisengaging,
                 0,
                 0,
                 0);

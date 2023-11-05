@@ -196,7 +196,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);

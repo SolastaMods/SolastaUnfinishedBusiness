@@ -230,7 +230,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             rulesetCharacter.guid,
             rulesetCharacter.CurrentFaction.Name,
             1,
-            null,
+            condition.Name,
             0,
             0,
             0);

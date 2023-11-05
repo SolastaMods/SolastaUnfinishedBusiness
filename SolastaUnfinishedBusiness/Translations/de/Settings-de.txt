@@ -2,6 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Fügen Sie alle Würfel vom Basiswaffensc
 ModUi/&AddAllToStore=Alles zum Speichern hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> und <color=#D89555>Grauer Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen, wenn er nicht beleuchtet ist oder in magischer Dunkelheit herrscht]</color></i>
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur in einem Umkreis von 5 Fuß um dich anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge humanoiden bevorzugten Feind zu <color=#D89555>Rangers</color> hinzu
 ModUi/&AddNewBrightEyeColors=Fügen Sie neue leuchtende Augenfarben hinzu
@@ -117,7 +118,7 @@ ModUi/&EnableMulticlass=Aktivieren Sie Multiclass <b><i><color=#C04040E0>[Neusta
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Aktiviere die Funktion <color=#D89555>Ranger</color> <b>Nature's Shroud</b> auf Stufe 10 <i><color=#F0DAA0>[als Bonusaktion kannst du bis zum Beginn der nächsten Runde auf magische Weise unsichtbar werden ]</color></i>
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen von 5 oder 6 Personen ]</color></i>
-ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen gelernt wurden</i>
+ModUi/&EnableRelearnSpells=Aktivieren Sie die Auswahl von Cantrips oder Zaubersprüchen, die bereits aus anderen Quellen gelernt wurden
 ModUi/&EnableRespec=Aktivieren Sie die RESPEC-Nach-Ruhe-Aktion
 ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>Cunning Strike</b> und <b>Devious Strike</b> auf den Klassenstufen 5 und 14 <i><color=#F0DAA0>[Sie lassen darauf verzichten 1 Hinterhältiger Angriffswürfel für zusätzliche Treffereffekte]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schurken</color> <b>Kampfstils</b> auf Stufe 2
@@ -201,6 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Öffnen Sie den Ordner „Porträts“.
 ModUi/&PrimedItems=Vorbereitete Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> und <color=#D89555>Gray Dwarf</color>, um nur im Freien auszulösen\n<i><color=#F0DAA0>[Innenbereiche an Orten im Freien, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als im Freien betrachtet ]</color></i>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
 ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
 ModUi/&RecipesInDm=Rezepte in DM
@@ -209,6 +211,8 @@ ModUi/&RemoveAttunementRequirements=Einstimmungsanforderungen entfernen <b><i><c
 ModUi/&RemoveBugVisualModels=Ersetzen Sie spinnenartige Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Entferne den Humanoidenfilter für <color=#D89555>Abscheuliches Lachen</color>
 ModUi/&RemoveRecurringEffectOnEntangle=Wende den <color=#D89555>Entangle</color>-Effekt nur zum Zeitpunkt des Wirkens an <i><color=#F0DAA0>[d. h.: kein wiederkehrender Effekt]</color></i>
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Schulbeschränkungen aus <color=#D89555>Shadowcaster</color> entfernen
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Entferne die Schulbeschränkungen von <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Antiquare <i><color=#F0DAA0>[Halman Summer]</color></i> auffüllen
 ModUi/&RestockArcaneum=Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i> auffüllen
 ModUi/&RestockCircleOfDanantar=Füllen Sie den Kreis von Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i> auf

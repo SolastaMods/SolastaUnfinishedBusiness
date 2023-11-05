@@ -179,12 +179,11 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildPetalStorm()
     {
         const string NAME = "PetalStorm";
-        const string ProxyPetalStormName = $"Proxy{NAME}";
 
         var sprite = Sprites.GetSprite(NAME, Resources.PetalStorm, 128);
 
-        _ = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyInsectPlague, ProxyPetalStormName)
+        var proxyPetalStorm = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyInsectPlague, $"Proxy{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, sprite)
             .SetCanMove()
             .SetIsEmptyPresentation(false)
@@ -216,19 +215,19 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.Strength,
                         false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeSlashing, 3, DieType.D4)
+                            .Build(),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.SightImpaired, true),
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyPetalStorm)
+                            .Build())
                     .Build())
             .AddToDB();
-
-        //TODO: move this into a builder
-        var effectDescription = spell.EffectDescription;
-
-        effectDescription.EffectForms[0].hasSavingThrow = true;
-        effectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.Negates;
-        effectDescription.EffectForms[0].DamageForm.diceNumber = 3;
-        effectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
-        effectDescription.EffectForms[0].DamageForm.damageType = DamageTypeSlashing;
-        effectDescription.EffectForms[0].levelMultiplier = 1;
-        effectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
 
         return spell;
     }
@@ -241,24 +240,23 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildProtectThreshold()
     {
         const string NAME = "ProtectThreshold";
-        const string ProxyPetalStormName = "ProxyProtectThreshold";
 
-        EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyGuardianOfFaith, ProxyPetalStormName)
+        var proxyProtectThreshold = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyGuardianOfFaith, $"Proxy{NAME}")
             .SetOrUpdateGuiPresentation(NAME, Category.Spell)
             .AddToDB();
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.ProtectThreshold, 128);
-
         var spell = SpellDefinitionBuilder
-            .Create(GuardianOfFaith, "ProtectThreshold")
-            .SetGuiPresentation(Category.Spell, spriteReference)
+            .Create(GuardianOfFaith, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ProtectThreshold, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(2)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetRequiresConcentration(false)
+            .SetRitualCasting(ActivationTime.Minute10)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpikeGrowth.EffectDescription)
@@ -271,21 +269,20 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.Wisdom,
                         false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyProtectThreshold)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypePsychic, 4, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, true))
                     .Build())
-            .SetRequiresConcentration(false)
-            .SetRitualCasting(ActivationTime.Minute10)
             .AddToDB();
-
-        //TODO: move this into a builder
-        var effectDescription = spell.EffectDescription;
-
-        effectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
-        effectDescription.EffectForms[1].hasSavingThrow = true;
-        effectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
-        effectDescription.EffectForms[1].DamageForm.diceNumber = 4;
-        effectDescription.EffectForms[1].DamageForm.dieType = DieType.D6;
-        effectDescription.EffectForms[1].DamageForm.damageType = DamageTypePsychic;
-        effectDescription.EffectForms[1].levelMultiplier = 1;
 
         return spell;
     }
@@ -296,8 +293,10 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildWeb()
     {
+        const string NAME = "SpellWeb";
+
         var conditionRestrainedBySpellWeb = ConditionDefinitionBuilder
-            .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedSpellWeb")
+            .Create(ConditionGrappledRestrainedRemorhaz, $"ConditionGrappledRestrained{NAME}")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionRestrainedByWeb)
             .AddToDB();
@@ -306,7 +305,7 @@ internal static partial class SpellBuilders
         conditionRestrainedBySpellWeb.specialInterruptions.Clear();
 
         var conditionAffinityGrappledRestrainedSpellWebImmunity = FeatureDefinitionConditionAffinityBuilder
-            .Create("ConditionAffinityGrappledRestrainedSpellWebImmunity")
+            .Create($"ConditionAffinityGrappledRestrained{NAME}Immunity")
             .SetGuiPresentationNoContent(true)
             .SetConditionType(conditionRestrainedBySpellWeb)
             .SetConditionAffinityType(ConditionAffinityType.Immunity)
@@ -318,9 +317,14 @@ internal static partial class SpellBuilders
             monsterDefinition.Features.Add(conditionAffinityGrappledRestrainedSpellWebImmunity);
         }
 
+        var proxyWeb = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyEntangle, $"Proxy{NAME}")
+            .SetOrUpdateGuiPresentation(NAME, Category.Spell)
+            .AddToDB();
+
         var spell = SpellDefinitionBuilder
-            .Create("SpellWeb")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellWeb", Resources.Web, 128))
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Web, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(2)
             .SetMaterialComponent(MaterialComponentType.Mundane)
@@ -340,8 +344,14 @@ internal static partial class SpellBuilders
                         false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
-                        Entangle.EffectDescription.EffectForms[0],
-                        Entangle.EffectDescription.EffectForms[1],
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyWeb)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTopologyForm(TopologyForm.Type.DifficultThrough, false)
+                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionRestrainedBySpellWeb, ConditionForm.ConditionOperation.Add)
@@ -810,8 +820,8 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.TagCombat,
                         caster.guid,
                         caster.CurrentFaction.Name,
-                        0,
-                        null,
+                        1,
+                        condition.Name,
                         0,
                         0,
                         0));

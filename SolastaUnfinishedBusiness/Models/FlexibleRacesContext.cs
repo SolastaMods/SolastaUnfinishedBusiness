@@ -62,6 +62,7 @@ internal static class FlexibleRacesContext
         { "HalfOrc", AttributeChoiceThree },
         { "Tiefling", AttributeChoiceThree },
         // unofficial races
+        { "RaceBattleborn", AttributeChoiceThree },
         { "RaceBolgrif", AttributeChoiceThree },
         { "RaceHalfElfVariant", AttributeChoiceFour },
         { "RaceImp", AttributeChoiceThree },
@@ -71,7 +72,9 @@ internal static class FlexibleRacesContext
         { "RaceOligath", AttributeChoiceThree },
         { "RaceWendigo", AttributeChoiceThree },
         { "RaceTiefling", AttributeChoiceThree },
-        { "RaceWyrmkin", AttributeChoiceThree }
+        { "RaceWyrmkin", AttributeChoiceThree },
+        { "RaceWildling", AttributeChoiceThree },
+        { "RaceOni", AttributeChoiceThree }
     };
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
@@ -115,6 +118,9 @@ internal static class FlexibleRacesContext
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
         { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } },
         { "RaceMalakh", new List<string> { "FeatureSetMalakhAbilityScoreIncrease" } },
+        { "RaceWildling", new List<string> { "FeatureSetWildlingAbilityScoreIncrease" } },
+        { "RaceBattleborn", new List<string> { "FeatureSetBattlebornAbilityScoreIncrease" } },
+        { "RaceOni", new List<string> { "FeatureSetOniAbilityScoreIncrease" } },
         { "RaceImpInfernal", new List<string> { "FeatureSetImpInfernalAbilityScoreIncrease" } },
         { "RaceImpForest", new List<string> { "FeatureSetImpForestAbilityScoreIncrease" } },
         { "RaceIronbornDwarf", new List<string> { "AttributeModifierIronbornDwarfStrengthAbilityScoreIncrease" } },

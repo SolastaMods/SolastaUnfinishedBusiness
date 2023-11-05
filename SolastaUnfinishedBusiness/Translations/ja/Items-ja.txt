@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=この魔法の武器は、マナカロンの
 Item/&CEPike_Whiteburn_Title=ホワイトバーン パイク
 Item/&CEProducedFlameDartTitle=炎を投げつける
 Item/&CEProducedFlameTitle=生み出された炎
+Item/&CEUnarmedStrikeClawsTitle=ベア・クロウ
 Item/&ChainMail_Deflection_Description=この魔法の鎧は、マナカロンの熟練鎧職人の古代の知識を使用して作成されました。イルドゥリアル・ストロングハンドは、皇帝の個人護衛のためにそれらの鎧の最初のものを鍛造しました。
 Item/&ChainMail_Deflection_Title=偏向の鎖帷子
 Item/&ChainMail_FlameDancing_Description=この魔法の鎧は、マナカロンの熟練鎧職人の古代の知識を使用して作成されました。イルドゥリアル・ストロングハンドは、皇帝の個人護衛のためにそれらの鎧の最初のものを鍛造しました。

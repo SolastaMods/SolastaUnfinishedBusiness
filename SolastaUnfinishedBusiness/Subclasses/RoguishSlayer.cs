@@ -484,7 +484,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionChainOfExecutionBeneficial.Name,
                 0,
                 0,
                 0);

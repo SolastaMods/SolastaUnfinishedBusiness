@@ -21,6 +21,13 @@ internal class FeatureDefinitionConditionAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionConditionAffinityBuilder SetSavingThrowAdvantageType(AdvantageType value)
+    {
+        Definition.savingThrowAdvantageType = value;
+        return this;
+    }
+
+
     #region Constructors
 
     protected FeatureDefinitionConditionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

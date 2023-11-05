@@ -180,6 +180,7 @@ Item/&CEPike_Whiteburn_Description=Diese verzauberte Waffe wurde mithilfe des al
 Item/&CEPike_Whiteburn_Title=Whiteburn Pike
 Item/&CEProducedFlameDartTitle=Flamme schleudern
 Item/&CEProducedFlameTitle=Erzeugte Flamme
+Item/&CEUnarmedStrikeClawsTitle=Nackte Krallen
 Item/&ChainMail_Deflection_Description=Diese verzauberte Rüstung wurde auf der Grundlage des alten Wissens der Waffenmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die Leibgarde des Imperators.
 Item/&ChainMail_Deflection_Title=Kettenhemd der Ablenkung
 Item/&ChainMail_FlameDancing_Description=Diese verzauberte Rüstung wurde auf der Grundlage des alten Wissens der Waffenmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die Leibgarde des Imperators.

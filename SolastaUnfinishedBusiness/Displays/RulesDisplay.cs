@@ -270,6 +270,20 @@ internal static class RulesDisplay
             Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
         }
 
+        toggle = Main.Settings.RemoveSchoolRestrictionsFromShadowCaster;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromShadowCaster"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveSchoolRestrictionsFromShadowCaster = toggle;
+            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromShadowCaster();
+        }
+
+        toggle = Main.Settings.RemoveSchoolRestrictionsFromSpellBlade;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveSchoolRestrictionsFromSpellBlade"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveSchoolRestrictionsFromSpellBlade = toggle;
+            SrdAndHouseRulesContext.SwitchSchoolRestrictionsFromSpellBlade();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;

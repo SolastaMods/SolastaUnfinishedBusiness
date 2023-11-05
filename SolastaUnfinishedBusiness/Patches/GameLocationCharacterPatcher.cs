@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
@@ -381,6 +382,111 @@ public static class GameLocationCharacterPatcher
         public static void Postfix(EntityDescription entityDescription)
         {
             Tooltips.AddDistanceToTooltip(entityDescription);
+        }
+    }
+
+    //PATCH: supports RaceLightSensitivityApplyOutdoorsOnly
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CheckLightingAffinityEffects))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CheckLightingAffinityEffects_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance)
+        {
+            __instance.RulesetCharacter.TryGetFirstConditionOfCategory(AttributeDefinitions.TagLightSensitivity,
+                out var activeCondition);
+            __instance.RulesetCharacter.RemoveAllConditionsOfCategory(AttributeDefinitions.TagLightSensitivity, false);
+
+            for (var index = __instance.affectingLightEffects.Count - 1; index >= 0; --index)
+            {
+                __instance.affectingLightEffects[index].Terminate(false);
+            }
+
+            __instance.affectingLightEffects.Clear();
+
+            var affinityFeatures = __instance.RulesetCharacter.GetLightAffinityFeatures();
+
+            RulesetCondition newCondition = null;
+
+            foreach (var lightingEffectAndConditionList in affinityFeatures
+                         .Select(featureDefinition =>
+                             (featureDefinition as ILightingAffinityProvider)?.LightingEffectAndConditionList)
+                         .Where(lightingEffectAndConditionList => lightingEffectAndConditionList != null))
+            {
+                foreach (var effectAndCondition in lightingEffectAndConditionList.Where(effectAndCondition =>
+                             effectAndCondition.lightingState == __instance.lightingState))
+                {
+                    //BEGIN PATCH
+                    if (Main.Settings.RaceLightSensitivityApplyOutdoorsOnly &&
+                        __instance.lightingState == LocationDefinitions.LightingState.Bright)
+                    {
+                        var isExterior = false;
+
+                        if (__instance is IIlluminable illuminable)
+                        {
+                            var gameLocationVisibilityManager =
+                                ServiceRepository.GetService<IGameLocationVisibilityService>() as
+                                    GameLocationVisibilityManager;
+
+                            if (gameLocationVisibilityManager != null)
+                            {
+                                illuminable.GetAllPositionsToCheck(gameLocationVisibilityManager.positionCache);
+
+                                var gridAccessor = new GridAccessor(gameLocationVisibilityManager.positionCache[0]);
+
+                                isExterior = gridAccessor.sector.IsExterior;
+                            }
+                        }
+
+                        if (effectAndCondition.condition == CustomConditionsContext.LightSensitivity && !isExterior)
+                        {
+                            continue;
+                        }
+                    }
+                    //END PATCH
+
+                    if (effectAndCondition.condition != null)
+                    {
+                        newCondition = RulesetCondition.CreateActiveCondition(
+                            __instance.RulesetCharacter.Guid,
+                            effectAndCondition.condition,
+                            DurationType.Irrelevant,
+                            0,
+                            TurnOccurenceType.StartOfTurn,
+                            __instance.Guid,
+                            __instance.RulesetCharacter.CurrentFaction.Name);
+
+                        __instance.RulesetCharacter.AddConditionOfCategory(
+                            AttributeDefinitions.TagLightSensitivity, newCondition, false);
+                    }
+
+                    if (effectAndCondition.effect != null)
+                    {
+                        var rulesetImplementationService =
+                            ServiceRepository.GetService<IRulesetImplementationService>();
+
+                        __instance.affectingLightEffects.Add(rulesetImplementationService
+                            .InstantiateEffectEnvironment(
+                                __instance.RulesetCharacter, effectAndCondition.effect, -1, 0, false, new BoxInt(),
+                                new int3(), string.Empty, false));
+                    }
+
+                    break;
+                }
+            }
+
+            if ((activeCondition == null || (newCondition != null &&
+                                             newCondition.ConditionDefinition.Name ==
+                                             activeCondition.ConditionDefinition.Name)) &&
+                (activeCondition != null || newCondition == null))
+            {
+                return false;
+            }
+
+            __instance.RulesetCharacter.RefreshAll();
+
+            return false;
         }
     }
 }

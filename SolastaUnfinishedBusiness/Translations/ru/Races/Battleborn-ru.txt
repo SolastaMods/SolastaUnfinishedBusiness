@@ -1,0 +1,9 @@
+Feature/&AttributeModifierBattlebornBonusACTitle=Магическая стойкость
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Телосложение +2, значение любой другой характеристики по вашему выбору +1.
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Увеличение характеристик
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Вы были созданы для того, чтобы обладать невероятной прочностью, что дало вам следующие преимущества:\n• Вы получаете +1 к КД.\n• Вы совершаете с преимуществом спасброски от отравления, а также вы получаете сопротивление урону ядом.\n• У вас есть иммунитет к болезням.\n• Вам не нужно спать, и вас нельзя магически усыпить.
+Feature/&FeatureSetBattlebornArcaneResilienceTitle=Магическая стойкость
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Вы получаете владения одним из навыков по вашему выбору и одним инструментом по вашему выбору.
+Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Специальная инфузия
+Race/&RaceBattlebornDescription=Рождённые в битве являются результатом магических экспериментов, объединяющих плоть, алхимию и волшебство для создания идеальных полевых бойцов. Созданные в качестве оружия, они должны теперь найти свою цель, когда война окончена. Рождённые в битве могут стать верными союзниками, хладнокровными убийцами или блуждающей душой в поисках цели и смысла.
+Race/&RaceBattlebornTitle=Рождённый в битве

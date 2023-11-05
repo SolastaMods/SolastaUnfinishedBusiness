@@ -224,7 +224,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _condition.Name,
                 0,
                 0,
                 0);

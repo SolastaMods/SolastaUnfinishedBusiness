@@ -1,4 +1,4 @@
 Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=你可以使用你的奥术力量来保护自己作为反应。这会让你的护甲等级+3，直到你的下一个回合。
-Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=肠道偏转
+Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=奥术偏转
 Subclass/&CollegeOfGutsDescription=勇气学院的吟游诗人聚集在蜂蜜酒大厅或篝火旁，歌唱过去和现在的伟人的事迹。他们走遍大地，亲眼目睹重大事件，并确保对这些事件的记忆不会从世界上消失。通过他们的歌曲，他们激励其他人达到与古代英雄相同的成就高度。
 Subclass/&CollegeOfGutsTitle=勇气学院

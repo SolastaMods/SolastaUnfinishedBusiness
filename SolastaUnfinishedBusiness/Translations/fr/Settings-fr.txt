@@ -2,6 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Ajoutez tous les dés de dégâts d'arme 
 ModUi/&AddAllToStore=Ajouter tout au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par <color=#D89555>Restauration suprême</color> et <color=#D89555>Restauration partielle</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux objets officiels du jeu <i><color=#F0DAA0>[munitions, recettes, outils, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Activer <color=#D89555>Perception des ténèbres</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Demi-Darkelf</color> color> et <color=#D89555>Grey Dwarf</color> <i><color=#F0DAA0>\n[accorde un avantage sur les tests de perception lorsqu'il n'est pas éclairé ou dans l'obscurité magique]</color></i>
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les Ascendances jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous, lui donnant l'avantage]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter Humanoïde à la liste d'Ennemis jurés des <color=#D89555>Rôdeurs</color>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
@@ -117,7 +118,7 @@ ModUi/&EnableMulticlass=Activer la possibilité de multiclasser son personnage <
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme pour la génération de nombres aléatoires (RNG) <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=Activez la fonctionnalité du <color=#D89555>Rôdeur</color> <b>Camouflage naturel</b> au niveau 10 <i><color=#F0DAA0>[en tant qu'action bonus, vous pouvez devenir invisible par magie jusqu'au début du prochain tour. ]</color></i>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour reformer le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 ]</color></i>
-ModUi/&EnableRelearnSpells=<i>+ Autoriser la sélection de sorts et sorts mineurs déjà appris d'autres classes</i>
+ModUi/&EnableRelearnSpells=Activer la sélection de cantrips ou de sorts déjà appris à partir d'autres sources
 ModUi/&EnableRespec=Autoriser la respécialisation des personnages après une action de repos
 ModUi/&EnableRogueCunningStrike=Activer la <b>Frappe Rusée</b> pour le <color=#D89555>Roublard</color> au niveau de classe 5 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets supplémentaires sur l'attaque]</color ></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix de <b>Style de combat</b> du <color=#D89555>Roublard</color> au niveau 2
@@ -201,6 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>Correctifs :</color>
 ModUi/&PortraitsOpenFolder=Ouvrir le dossier des portraits
 ModUi/&PrimedItems=Objets Préparés
 ModUi/&Progression=<color=#F0DAA0>Progression :</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Activer la <color=#D89555>Sensibilité à la lumière</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Demi-Darkelf</color> color> et <color=#D89555>Gray Dwarf</color> pour déclencher uniquement à l'extérieur\n<i><color=#F0DAA0>[les zones intérieures des emplacements extérieurs accessibles sans écran de chargement sont considérées comme extérieures par le moteur de jeu ]</color></i>
 ModUi/&Races=<color=#F0DAA0>Ascendances</color>
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
 ModUi/&RecipesInDm=Recettes dans le DM
@@ -209,6 +211,8 @@ ModUi/&RemoveAttunementRequirements=Supprimer les exigences de Lien des objets m
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des visuels alternatifs dans le jeu <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre Humanoïde sur <color=#D89555>Hideous Laughter</color>
 ModUi/&RemoveRecurringEffectOnEntangle=N'applique l'effet <color=#D89555>Enchevêtrement</color> qu'au moment de l'incantation <i><color=#F0DAA0>[c'est-à-dire : pas d'effet récurrent lors des prochains tours]</color></i>
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Supprimer les restrictions scolaires de <color=#D89555>Shadowcaster</color>
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Supprimer les restrictions scolaires de <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Réapprovisionner les Antiquaires <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Réapprovisionner l'Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Réapprovisionner le Cercle de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>

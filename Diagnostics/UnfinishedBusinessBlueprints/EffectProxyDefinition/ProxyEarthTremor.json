@@ -126,9 +126,9 @@
     "description": "Spell/&EarthTremorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "c3892af55fbec8d4ebf89090a667f9de",
+      "m_SubObjectName": "Grease",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -143,7 +143,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "091216b0-c7db-5de3-ac32-43c23e8dbf6b",
+  "guid": "fdec4a73-e825-5a14-9f0e-1faca83c21d3",
   "contentPack": 9999,
-  "name": "EarthTremorRubbleProxy"
+  "name": "ProxyEarthTremor"
 }

@@ -1,0 +1,289 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "ChaoticNeutral",
+  "dualSex": true,
+  "minimalAge": 750,
+  "maximalAge": 180,
+  "baseHeight": 92,
+  "baseWeight": 185,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetOniAbilityScoreIncrease:a47bfd40-8b27-561e-925d-9e5dbf351d7e",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetLanguageCommonPlusOne:1126ecfe-540b-5e61-a9b9-923a1c0da0e8",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyOniOgreMight:628fdfa0-b74d-546d-98cf-cd0668eb060f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyOniThirdEye:b65c5c75-11cf-53bc-9753-db6c5e7435fb",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellOniOgreMagic:16f271c8-db8b-5854-b6ad-e54b0352fd06",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "HalforcFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Orc",
+    "Language_Tirmarian"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 6.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Human",
+    "armorAssetPrefix": "Human",
+    "helmetAssetPrefix": "Human",
+    "faceShapeAssetPrefix": "Human",
+    "hairShapeAssetPrefix": "Human",
+    "beardShapeAssetPrefix": "Human",
+    "hornsTailAssetPrefix": "Tiefling",
+    "maleNameOptions": [
+      "Race/&HalfOrcMaleName1Title",
+      "Race/&HalfOrcMaleName2Title",
+      "Race/&HalfOrcMaleName3Title",
+      "Race/&HalfOrcMaleName4Title",
+      "Race/&HalfOrcMaleName5Title",
+      "Race/&HalfOrcMaleName6Title",
+      "Race/&HalfOrcMaleName6Title",
+      "Race/&HalfOrcMaleName7Title",
+      "Race/&HalfOrcMaleName8Title",
+      "Race/&HalfOrcMaleName9Title",
+      "Race/&HalfOrcMaleName10Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&HalfOrcFemaleName1Title",
+      "Race/&HalfOrcFemaleName2Title",
+      "Race/&HalfOrcFemaleName3Title",
+      "Race/&HalfOrcFemaleName4Title",
+      "Race/&HalfOrcFemaleName5Title",
+      "Race/&HalfOrcFemaleName6Title",
+      "Race/&HalfOrcFemaleName7Title",
+      "Race/&HalfOrcFemaleName8Title",
+      "Race/&HalfOrcFemaleName9Title",
+      "Race/&HalfOrcFemaleName10Title"
+    ],
+    "hasSurName": false,
+    "surNameTitle": "",
+    "surNameOptions": [
+      "Race/&HalfOrcSurName1Title",
+      "Race/&HalfOrcSurName2Title",
+      "Race/&HalfOrcSurName3Title",
+      "Race/&HalfOrcSurName4Title",
+      "Race/&HalfOrcSurName5Title"
+    ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars",
+      "Musculature",
+      "Horns"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 0,
+    "originOptions": [
+      "Origin_HO"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_HO_A",
+      "FaceShape_HO_B",
+      "FaceShape_HO_C",
+      "FaceShape_HO_D",
+      "FaceShape_HO_E",
+      "FaceShape_HO_NPC_Badri"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_HO_A",
+      "FaceShape_HO_B",
+      "FaceShape_HO_C",
+      "FaceShape_HO_D",
+      "FaceShape_HO_E"
+    ],
+    "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_None"
+    ],
+    "maleHornsOptions": [
+      "Horns_None",
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
+      "Horns_F"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None",
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
+      "Horns_F"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_None",
+      "BeardShape_D",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P",
+      "BeardShape_C"
+    ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
+    "hasSpecificBodyDecorationForFaceshape": false,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 28,
+      "maxValue": 48
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    },
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "HalfOrc"
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&RaceOniTitle",
+    "description": "Race/&RaceOniDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d8c3405e-a83f-54c1-b6cb-c874af06ee24",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ec4e9ce3-0316-5543-8fb3-16f3be578482",
+  "contentPack": 9999,
+  "name": "RaceOni"
+}

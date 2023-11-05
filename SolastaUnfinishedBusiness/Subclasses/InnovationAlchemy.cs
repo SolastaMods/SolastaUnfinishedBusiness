@@ -398,7 +398,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
         const string SAVE = AttributeDefinitions.Constitution;
         const DieType DIE_TYPE = DieType.D6;
         var (toggle, validator) = MakeElementToggleMarker(DAMAGE);
-        var effect = EffectFormBuilder.Create()
+        var effect = EffectFormBuilder
+            .Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(
                 ConditionDefinitionBuilder
@@ -410,6 +411,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DAMAGE, dieType: DIE_TYPE, diceNumber: 2)
+                            .SetCreatedBy()
                             .Build())
                     .SetSpecialDuration(DurationType.Round, 1)
                     .AddToDB(), ConditionForm.ConditionOperation.Add)

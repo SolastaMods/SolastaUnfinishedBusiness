@@ -1,0 +1,10 @@
+Feature/&CastSpellOniOgreMagicDescription=Al 3° livello, puoi lanciare <b>Punizione Tonante</b> una volta per riposo lungo. La <b>Saggezza</b> è la tua abilità da incantatore.
+Feature/&CastSpellOniOgreMagicTitle=Magia dell'Orco
+Feature/&FeatureSetOniAbilityScoreIncreaseDescription=Forza +2, Saggezza +1
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=Aumento degli attributi
+Feature/&ProficiencyOniOgreMightDescription=Sei esperto nelle <b>armi marziali</b>.
+Feature/&ProficiencyOniOgreMightTitle=Potenza dell'Orco
+Feature/&ProficiencyOniThirdEyeDescription=Hai competenza nell'abilità <b>Percezione</b>.
+Feature/&ProficiencyOniThirdEyeTitle=Terzo occhio
+Race/&RaceOniDescription=Gli Oni sono creature simili a demoni provenienti dal regno dell'isola dell'estremo oriente di Himoto. Sono arrivati a Solasta attraverso i cancelli principali attivati.
+Race/&RaceOniTitle=Oni

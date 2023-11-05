@@ -13,7 +13,7 @@
   "additionalDamageDice": 0,
   "canDualWieldNonLight": false,
   "canAddAbilityBonusToSecondary": false,
-  "magicalWeapon": true,
+  "magicalWeapon": false,
   "followUpStrike": false,
   "followUpDamageDie": "D4",
   "followUpAddAbilityBonus": true,

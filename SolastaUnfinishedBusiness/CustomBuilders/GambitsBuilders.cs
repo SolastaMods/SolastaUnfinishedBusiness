@@ -1006,7 +1006,7 @@ internal static class GambitsBuilders
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _condition.Name,
                 0,
                 0,
                 0);
@@ -1067,7 +1067,8 @@ internal static class GambitsBuilders
                 AttributeDefinitions.TagCombat,
                 caster.Guid,
                 caster.CurrentFaction.Name,
-                1, null,
+                1,
+                condition.Name,
                 0,
                 0,
                 0);
@@ -1107,7 +1108,7 @@ internal static class GambitsBuilders
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _condition.Name,
                 0,
                 0,
                 0);

@@ -166,7 +166,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                 return;
             }
 
-            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode) &&
+            if (!ValidatorsWeapon.IsUnarmed(attackMode) &&
                 !rulesetAttacker.IsMonkWeapon(attackMode?.SourceDefinition as ItemDefinition))
             {
                 return;
@@ -190,7 +190,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
-                        null,
+                        _conditionWeal.Name,
                         0,
                         0,
                         0);

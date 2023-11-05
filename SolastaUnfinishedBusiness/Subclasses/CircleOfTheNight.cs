@@ -55,14 +55,12 @@ public sealed class CircleOfTheNight : AbstractSubclass
 
         // Primal Strike
 
-        var powerCircleOfTheNightPrimalStrike = FeatureDefinitionAttackModifierBuilder
+        // kept name for backward compatibility
+        var attackModifierCircleOfTheNightPrimalStrike = FeatureDefinitionAttackModifierBuilder
             .Create("PowerCircleOfTheNightPrimalStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetMagicalWeapon()
-            .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, _, _) =>
-                    (OperationType.Set,
-                        ValidatorsCharacter.HasAnyOfConditions(ConditionWildShapeSubstituteForm)(character))))
+            // cannot use SetMagicalWeapon as it doesn't trigger with flurry of blows
+            .AddCustomSubFeatures(new ModifyAttackActionModifierPrimalStrike())
             .AddToDB();
 
         // Improved Combat Healing
@@ -123,7 +121,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
                 actionAffinityWildshape,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
-                powerCircleOfTheNightPrimalStrike,
+                attackModifierCircleOfTheNightPrimalStrike,
                 powerCircleOfTheNightWildShapeImprovedHealing)
             .AddFeaturesAtLevel(10,
                 featureSetCircleOfTheNightElementalForms,
@@ -402,6 +400,23 @@ public sealed class CircleOfTheNight : AbstractSubclass
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             rulesetCharacter.UsePower(UsablePowersProvider.Get(_featureDefinitionPower, rulesetCharacter));
+        }
+    }
+
+    private sealed class ModifyAttackActionModifierPrimalStrike : IModifyAttackActionModifier
+    {
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (myself.HasConditionOfType(ConditionWildShapeSubstituteForm)
+                && attackProximity == BattleDefinitions.AttackProximity.PhysicalReach)
+            {
+                attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
+            }
         }
     }
 }

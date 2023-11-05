@@ -1,3 +1,5 @@
+Background/&PointPoolBackgroundSkillSelect1Description=Sélectionnez 1 compétence.
+Background/&PointPoolBackgroundSkillSelect1Title=Compétences
 Background/&PointPoolBackgroundSkillSelect2Description=Sélectionnez 2 maîtrises de compétence.
 Background/&PointPoolBackgroundSkillSelect2Title=Compétences
 Background/&PointPoolBackgroundSkillSelect3Description=Sélectionnez 3 maîtrises de compétences.

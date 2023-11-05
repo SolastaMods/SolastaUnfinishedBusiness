@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -235,10 +236,98 @@ internal static class CommonBuilders
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);
+        }
+    }
+
+    internal class ModifyWeaponAttackUnarmedStrikeDamage : IModifyWeaponAttackMode
+    {
+        private readonly DieType _dieType;
+
+        public ModifyWeaponAttackUnarmedStrikeDamage(DieType dieType)
+        {
+            _dieType = dieType;
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (!ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                return;
+            }
+
+            var effectDescription = attackMode.EffectDescription;
+            var damage = effectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            if (damage.DieType < _dieType)
+            {
+                damage.DieType = _dieType;
+            }
+        }
+    }
+
+    internal class AddExtraUnarmedStrikeClawAttack : AddExtraAttackBase
+    {
+        public AddExtraUnarmedStrikeClawAttack()
+            : base(ActionDefinitions.ActionType.None)
+        {
+        }
+
+        // process sub feature after unarmed strikes
+        public override int Priority()
+        {
+            return 1;
+        }
+
+        // move before base unarmed strikes are added
+        protected override AttackModeOrder GetOrder(RulesetCharacter character)
+        {
+            return AttackModeOrder.Start;
+        }
+
+        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
+        {
+            if (character is not RulesetCharacterHero hero)
+            {
+                return null;
+            }
+
+            var attackModifiers = hero.attackModifiers;
+
+            // find attack mode that is unarmed strike
+            var attackModes = new List<RulesetAttackMode>();
+
+            hero.attackModes.ForEach(attackMode =>
+            {
+                if (attackMode.SourceDefinition != hero.UnarmedStrikeDefinition)
+                {
+                    return;
+                }
+
+                var newAttackMode = character.TryRefreshAttackMode(
+                    attackMode.actionType,
+                    CustomWeaponsContext.UnarmedStrikeClaws,
+                    CustomWeaponsContext.UnarmedStrikeClaws.WeaponDescription,
+                    ValidatorsCharacter.IsFreeOffhandVanilla(character),
+                    true,
+                    attackMode.SlotName,
+                    attackModifiers,
+                    character.FeaturesOrigin
+                );
+
+                newAttackMode.attacksNumber = attackMode.attacksNumber;
+                attackModes.Add(newAttackMode);
+            });
+
+            return attackModes;
         }
     }
 }

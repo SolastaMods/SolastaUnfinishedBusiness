@@ -297,7 +297,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                conditionDamage.Name,
                 0,
                 0,
                 0);
@@ -666,7 +666,7 @@ internal static class MeleeCombatFeats
             var rulesetCharacter = attacker.RulesetCharacter;
 
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
-                !(ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)))
+                (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
             {
                 return;
             }
@@ -680,7 +680,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);
@@ -864,7 +864,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (activeEffect != null || !ValidateCleavingAttack(attackMode))
+            if (!ValidateCleavingAttack(attackMode))
             {
                 yield break;
             }
@@ -899,7 +899,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionCleavingAttackFinish.Name,
                 0,
                 0,
                 0);
@@ -908,6 +908,9 @@ internal static class MeleeCombatFeats
 
     private sealed class ModifyWeaponAttackModeFeatCleavingAttack : IModifyWeaponAttackMode
     {
+        private const int ToHit = -5;
+        private const int ToDamage = +10;
+
         private readonly FeatDefinition _featDefinition;
 
         public ModifyWeaponAttackModeFeatCleavingAttack(FeatDefinition featDefinition)
@@ -922,6 +925,9 @@ internal static class MeleeCombatFeats
                 return;
             }
 
+            attackMode.ToHitBonus += ToHit;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(ToHit, FeatureSourceType.Feat,
+                _featDefinition.Name, _featDefinition));
             var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
@@ -929,26 +935,18 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            const int TO_HIT = -5;
-            const int TO_DAMAGE = +10;
-
-            attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat,
-                _featDefinition.Name, _featDefinition));
-
-            damage.BonusDamage += TO_DAMAGE;
-            damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat,
+            damage.BonusDamage += ToDamage;
+            damage.DamageBonusTrends.Add(new TrendInfo(ToDamage, FeatureSourceType.Feat,
                 _featDefinition.Name, _featDefinition));
         }
     }
 
     private static bool ValidateCleavingAttack(RulesetAttackMode attackMode, bool validateHeavy = false)
     {
-        return !attackMode.Ranged &&
-               ValidatorsWeapon.IsMelee(attackMode) &&
+        return ValidatorsWeapon.IsMelee(attackMode) &&
                (!validateHeavy ||
-                ValidatorsWeapon.HasAnyWeaponTag(attackMode.SourceDefinition as ItemDefinition,
-                    TagsDefinitions.WeaponTagHeavy));
+                ValidatorsWeapon.HasAnyWeaponTag(
+                    attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy));
     }
 
     #endregion
@@ -1041,7 +1039,7 @@ internal static class MeleeCombatFeats
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    null,
+                    _criticalConditionDefinition.Name,
                     0,
                     0,
                     0);
@@ -1205,7 +1203,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionBypassResistance.Name,
                 0,
                 0,
                 0);
@@ -1643,7 +1641,10 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode
+        // thrown is allowed on power attack
+        //, IPhysicalAttackInitiatedByMe
     {
+        private const int ToHit = 3;
         private readonly FeatDefinition _featDefinition;
 
         public ModifyWeaponAttackModeFeatPowerAttack(FeatDefinition featDefinition)
@@ -1653,30 +1654,68 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(character, attackMode))
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 return;
             }
 
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var toDamage = ToHit + proficiency;
+
+            attackMode.ToHitBonus -= ToHit;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(-ToHit, FeatureSourceType.Feat, _featDefinition.Name,
+                _featDefinition));
+
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null)
             {
                 return;
             }
 
-            const int TO_HIT = -3;
-            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var toDamage = 3 + proficiency;
-
-            attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat, _featDefinition.Name,
-                _featDefinition));
-
             damage.BonusDamage += toDamage;
             damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, _featDefinition.Name,
                 _featDefinition));
         }
+
+// thrown is allowed on power attack
+#if false
+        // this is required to handle thrown scenarios
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var isMelee = ValidatorsWeapon.IsMelee(attackMode);
+            var isUnarmed = ValidatorsWeapon.IsUnarmed(attackMode);
+            var isPowerAttackValid = isMelee || isUnarmed;
+
+            if (isPowerAttackValid)
+            {
+                yield break;
+            }
+
+            attackModifier.AttacktoHitTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            attackMode.ToHitBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            attackMode.ToHitBonus += ToHit;
+
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                yield break;
+            }
+
+            var proficiency = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var toDamage = ToHit + proficiency;
+
+            damageForm.DamageBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            damageForm.BonusDamage -= toDamage;
+        }
+#endif
     }
 
     #endregion
@@ -1795,7 +1834,7 @@ internal static class MeleeCombatFeats
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionDefinition.Name,
                     0,
                     0,
                     0);
@@ -1815,7 +1854,7 @@ internal static class MeleeCombatFeats
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _criticalConditionDefinition.Name,
                 0,
                 0,
                 0);

@@ -183,7 +183,9 @@ public class PatronMountain : AbstractSubclass
             .SetConditionOperations(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
-                conditionDefinition = conditionIceboundSoul
+                conditionDefinition = conditionIceboundSoul,
+                hasSavingThrow = true,
+                saveAffinity = EffectSavingThrowType.Negates
             })
             .AddToDB();
 
@@ -343,7 +345,7 @@ public class PatronMountain : AbstractSubclass
                 rulesetMe.Guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);

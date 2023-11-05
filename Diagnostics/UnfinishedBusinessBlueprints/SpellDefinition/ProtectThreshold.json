@@ -79,7 +79,7 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
@@ -87,16 +87,16 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "summonForm": {
           "$type": "SummonForm, Assembly-CSharp",
           "summonType": "EffectProxy",
           "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "Adam_The_Twelth",
+          "monsterDefinitionName": "",
           "number": 0,
           "conditionDefinition": null,
-          "persistOnConcentrationLoss": false,
+          "persistOnConcentrationLoss": true,
           "decisionPackage": null,
           "effectProxyDefinitionName": "ProxyProtectThreshold"
         },
@@ -117,7 +117,7 @@
         "savingThrowAffinity": "HalfDamage",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
@@ -132,7 +132,7 @@
           "hitPointsFloor": 0,
           "forceKillOnZeroHp": false,
           "specialDeathCondition": null,
-          "ignoreFlyingCharacters": true,
+          "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         },
         "hasFilterId": false,
@@ -144,7 +144,7 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
@@ -152,11 +152,11 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
-          "changeType": "DifficultThrough",
-          "impactsFlyingCharacters": false
+          "changeType": "DangerousZone",
+          "impactsFlyingCharacters": true
         },
         "hasFilterId": false,
         "filterId": 0
@@ -167,7 +167,7 @@
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
@@ -175,11 +175,11 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
-          "changeType": "DangerousZone",
-          "impactsFlyingCharacters": false
+          "changeType": "DifficultThrough",
+          "impactsFlyingCharacters": true
         },
         "hasFilterId": false,
         "filterId": 0

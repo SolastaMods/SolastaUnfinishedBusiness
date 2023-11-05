@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=Это зачарованное оружие 
 Item/&CEPike_Whiteburn_Title=Пика Белого Пламени
 Item/&CEProducedFlameDartTitle=Бросок пламени
 Item/&CEProducedFlameTitle=Рождённое пламя
+Item/&CEUnarmedStrikeClawsTitle=Обнажённые когти
 Item/&ChainMail_Deflection_Description=Эти зачарованные доспехи были созданы с применением древних знаний мастеров-бронников Манакалона. Илдуриал Стронгхенд выковал первые такие доспехи для личной охраны императора.
 Item/&ChainMail_Deflection_Title=Кольчуга Отражения
 Item/&ChainMail_FlameDancing_Description=Эти зачарованные доспехи были созданы с применением древних знаний мастеров-бронников Манакалона. Илдуриал Стронгхенд выковал первые такие доспехи для личной охраны императора.

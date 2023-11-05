@@ -35,7 +35,6 @@ internal static class CustomConditionsContext
     private static FeatureDefinitionPower FlightResume { get; set; }
 
     private static ConditionDefinition ConditionInvisibilityEveryRoundRevealed { get; set; }
-
     private static ConditionDefinition ConditionInvisibilityEveryRoundHidden { get; set; }
 
     internal static void Load()
@@ -102,15 +101,14 @@ internal static class CustomConditionsContext
     {
         var abilityCheckAffinityLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityLightSensitivity")
-            .SetGuiPresentation(CombatAffinitySensitiveToLight.GuiPresentation)
+            .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
 
-        abilityCheckAffinityLightSensitivity.AffinityGroups[0].lightingContext = LightingContext.BrightLight;
-
         var combatAffinityDarkelfLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(CombatAffinitySensitiveToLight, "CombatAffinityLightSensitivity")
+            .SetGuiPresentation(Category.Feature)
             .SetMyAttackAdvantage(AdvantageType.None)
             .SetMyAttackModifierSign(AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(DieType.D4)
@@ -124,6 +122,8 @@ internal static class CustomConditionsContext
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(abilityCheckAffinityLightSensitivity, combatAffinityDarkelfLightSensitivity)
             .AddToDB();
+
+        conditionLightSensitive.GuiPresentation.description = Gui.NoLocalization;
 
         return conditionLightSensitive;
     }
@@ -245,7 +245,7 @@ internal static class CustomConditionsContext
                 source.guid,
                 target.CurrentFaction.Name,
                 1,
-                null,
+                rulesetCondition.effectDefinitionName,
                 0,
                 0,
                 0);
@@ -280,7 +280,7 @@ internal static class CustomConditionsContext
                 source.guid,
                 target.CurrentFaction.Name,
                 1,
-                null,
+                "ConditionFlightSuspendedConcentrationTracker",
                 0,
                 0,
                 0);

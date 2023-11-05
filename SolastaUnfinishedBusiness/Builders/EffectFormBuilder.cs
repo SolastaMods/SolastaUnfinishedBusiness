@@ -18,7 +18,7 @@ internal class EffectFormBuilder
 
     private EffectFormBuilder()
     {
-        _effectForm = new EffectForm();
+        _effectForm = new EffectForm { createdByCharacter = true };
     }
 
     internal EffectForm Build()
@@ -46,6 +46,13 @@ internal class EffectFormBuilder
     internal EffectFormBuilder SetBonusMode(AddBonusMode bonusMode)
     {
         _effectForm.AddBonusMode = bonusMode;
+        return this;
+    }
+
+    internal EffectFormBuilder SetCreatedBy(bool createdByCharacter = false, bool createdByCondition = true)
+    {
+        _effectForm.createdByCharacter = createdByCharacter;
+        _effectForm.createdByCondition = createdByCondition;
         return this;
     }
 

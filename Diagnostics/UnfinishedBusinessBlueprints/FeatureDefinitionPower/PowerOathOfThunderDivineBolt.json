@@ -41,7 +41,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
+    "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 10,
@@ -175,7 +175,7 @@
             "diceNumber": 3
           }
         ],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
         "savingThrowAffinity": "HalfDamage",
@@ -210,7 +210,7 @@
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",

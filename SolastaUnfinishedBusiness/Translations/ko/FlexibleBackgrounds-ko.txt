@@ -1,3 +1,5 @@
+Background/&PointPoolBackgroundSkillSelect1Description=스킬 숙련도를 1개 선택하세요.
+Background/&PointPoolBackgroundSkillSelect1Title=기술
 Background/&PointPoolBackgroundSkillSelect2Description=기술 숙련 2종을 선택합니다.
 Background/&PointPoolBackgroundSkillSelect2Title=기술
 Background/&PointPoolBackgroundSkillSelect3Description=기술 숙련 3종을 선택합니다.

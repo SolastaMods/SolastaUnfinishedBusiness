@@ -1339,15 +1339,18 @@ You have acquired greater mental strength. You gain proficiency in Wisdom saving
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
+## Level 18
+
+* Elusive
+
+You are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.
+
+
 ## Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
-
-* Elusive
-
-You are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.
 
 
 ## Level 20

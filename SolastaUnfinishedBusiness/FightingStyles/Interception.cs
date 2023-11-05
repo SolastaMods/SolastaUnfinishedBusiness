@@ -140,7 +140,7 @@ internal sealed class Interception : AbstractFightingStyle
                 unitCharacter.guid,
                 unitCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 reducedDamage,
                 0,
                 0);

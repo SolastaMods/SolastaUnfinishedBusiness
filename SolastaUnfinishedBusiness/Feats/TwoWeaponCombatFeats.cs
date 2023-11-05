@@ -147,7 +147,7 @@ internal static class TwoWeaponCombatFeats
                 hero.guid,
                 hero.CurrentFaction.Name,
                 1,
-                null,
+                condition.Name,
                 0,
                 0,
                 0);

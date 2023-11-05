@@ -143,6 +143,11 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
                && automaticHit
                && afterChargeOnly;
     }
+
+    public virtual int Priority()
+    {
+        return 0;
+    }
 }
 
 internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase

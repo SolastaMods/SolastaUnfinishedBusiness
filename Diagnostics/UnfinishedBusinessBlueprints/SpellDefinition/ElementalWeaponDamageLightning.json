@@ -182,7 +182,7 @@
             "diceNumber": 19
           }
         ],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
@@ -343,7 +343,7 @@
             "diceNumber": 19
           }
         ],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",

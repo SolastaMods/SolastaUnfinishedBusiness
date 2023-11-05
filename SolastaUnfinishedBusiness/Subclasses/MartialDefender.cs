@@ -277,7 +277,7 @@ public sealed class MartialDefender : AbstractSubclass
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionAegisParagon.Name,
                     0,
                     0,
                     0);

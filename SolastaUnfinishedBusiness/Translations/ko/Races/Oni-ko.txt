@@ -1,0 +1,10 @@
+Feature/&CastSpellOniOgreMagicDescription=3레벨에서는 긴 휴식마다 <b>Thunderous Smite</b>를 한 번 시전할 수 있습니다. <b>지혜</b>는 주문 시전 능력입니다.
+Feature/&CastSpellOniOgreMagicTitle=오우거 마법
+Feature/&FeatureSetOniAbilityScoreIncreaseDescription=힘 +2, 지혜 +1
+Feature/&FeatureSetOniAbilityScoreIncreaseTitle=속성 증가
+Feature/&ProficiencyOniOgreMightDescription=당신은 <b>군용 무기</b>에 능숙합니다.
+Feature/&ProficiencyOniOgreMightTitle=오우거의 힘
+Feature/&ProficiencyOniThirdEyeDescription=당신은 <b>지각</b> 기술에 능숙합니다.
+Feature/&ProficiencyOniThirdEyeTitle=제 3의 눈
+Race/&RaceOniDescription=오니는 극동 섬 왕국 히모토의 악마 같은 생물입니다. 그들은 활성화된 주요 관문을 통해 솔라스타에 왔습니다.
+Race/&RaceOniTitle=Oni

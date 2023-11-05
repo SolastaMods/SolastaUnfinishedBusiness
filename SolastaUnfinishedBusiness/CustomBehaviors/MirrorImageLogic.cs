@@ -289,7 +289,7 @@ public class MirrorImageLogic
                     target.guid,
                     target.CurrentFaction.Name,
                     1,
-                    null,
+                    Condition.Name,
                     0,
                     0,
                     0);

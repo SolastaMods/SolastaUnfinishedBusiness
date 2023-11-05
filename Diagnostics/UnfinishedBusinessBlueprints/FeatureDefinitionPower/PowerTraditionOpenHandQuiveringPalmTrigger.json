@@ -41,7 +41,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
+    "createdByCharacter": true,
     "difficultyClassComputation": "AbilityScoreAndProficiency",
     "savingThrowDifficultyAbility": "Dexterity",
     "fixedSavingThrowDifficultyClass": 10,

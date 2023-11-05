@@ -19,6 +19,7 @@ namespace SolastaUnfinishedBusiness.Races;
 internal static class RaceKoboldBuilder
 {
     internal static CharacterRaceDefinition RaceKobold { get; } = BuildKobold();
+    internal static CharacterRaceDefinition SubraceDarkKobold { get; private set; }
 
     [NotNull]
     private static CharacterRaceDefinition BuildKobold()
@@ -46,8 +47,10 @@ internal static class RaceKoboldBuilder
                 proficiencyKoboldLanguages)
             .AddToDB();
 
+        SubraceDarkKobold = BuildDarkKobold(raceKobold);
+
         raceKobold.subRaces =
-            new List<CharacterRaceDefinition> { BuildDarkKobold(raceKobold), BuildDraconicKobold(raceKobold) };
+            new List<CharacterRaceDefinition> { SubraceDarkKobold, BuildDraconicKobold(raceKobold) };
         RacesContext.RaceScaleMap[raceKobold] = 6f / 9.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
 

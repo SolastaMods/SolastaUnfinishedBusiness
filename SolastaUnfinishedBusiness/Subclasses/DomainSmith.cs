@@ -422,7 +422,7 @@ public sealed class DomainSmith : AbstractSubclass
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                null,
+                _conditionBlessedMetal.Name,
                 0,
                 0,
                 0);

@@ -153,46 +153,14 @@ internal static partial class SpellBuilders
     {
         const string NAME = "EarthTremor";
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.EarthTremor, 128, 128);
-
-        var rubbleProxy = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyGrease, "EarthTremorRubbleProxy")
-            .SetGuiPresentation(NAME, Category.Spell)
+        var proxyEarthTremor = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyGrease, "ProxyEarthTremor")
+            .SetOrUpdateGuiPresentation(NAME, Category.Spell)
             .AddToDB();
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Dexterity,
-                false,
-                EffectDifficultyClassComputation.SpellCastingFeature)
-            .SetDurationData(DurationType.Minute, 1)
-            .SetParticleEffectParameters(Grease)
-            .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 2, 1)
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetSummonEffectProxyForm(rubbleProxy)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(MotionForm.MotionType.FallProne, 1)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                    .Build(),
-                Grease.EffectDescription.EffectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
-            .Build();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.EarthTremor, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -200,7 +168,36 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetParticleEffectParameters(Grease)
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 2, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyEarthTremor)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne, 1)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
+                    .Build())
             .AddToDB();
 
         return spell;
@@ -223,6 +220,7 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
+                    .SetCreatedBy()
                     .Build())
             .AddToDB();
 
@@ -656,7 +654,12 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
-            .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 2, DieType.D4))
+            .SetRecurrentEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeAcid, 2, DieType.D4)
+                    .SetCreatedBy()
+                    .Build())
             .AddToDB();
 
         conditionVileBrew.possessive = false;
@@ -1091,8 +1094,8 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.TagEffect,
                 target.guid,
                 target.CurrentFaction.Name,
-                0,
-                null,
+                1,
+                _conditionStrikeWithTheWindMovement.Name,
                 0,
                 0,
                 0);
@@ -1432,7 +1435,7 @@ internal static partial class SpellBuilders
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                null,
+                _conditionReduceDamage.Name,
                 0,
                 0,
                 0);

@@ -271,7 +271,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 rulesetAttacker.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                null,
+                _conditionTrialMark.Name,
                 0,
                 0,
                 0);

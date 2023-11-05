@@ -1,3 +1,5 @@
+Background/&PointPoolBackgroundSkillSelect1Description=Seleccione 1 habilidad de dominio.
+Background/&PointPoolBackgroundSkillSelect1Title=Habilidades
 Background/&PointPoolBackgroundSkillSelect2Description=Seleccione 2 competencias de habilidades.
 Background/&PointPoolBackgroundSkillSelect2Title=Habilidades
 Background/&PointPoolBackgroundSkillSelect3Description=Seleccione 3 competencias de habilidades.

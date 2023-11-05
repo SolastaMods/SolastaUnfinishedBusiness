@@ -1,0 +1,338 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "Neutral",
+  "dualSex": true,
+  "minimalAge": 18,
+  "maximalAge": 99,
+  "baseHeight": 72,
+  "baseWeight": 110,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetBattlebornAbilityScoreIncrease:263f71a9-eeac-5384-8461-ec16588318d2",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetBattlebornArcaneResilience:27ddc4ef-d4b4-548b-93b6-d557be9334e0",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetLanguageCommonPlusOne:1126ecfe-540b-5e61-a9b9-923a1c0da0e8",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetBattlebornSpecializedInfusion:fefc9f99-d6bd-5de5-84b4-01a9cf23cb5d",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "HumanFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 6.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Human",
+    "armorAssetPrefix": "Human",
+    "helmetAssetPrefix": "Human",
+    "faceShapeAssetPrefix": "Human",
+    "hairShapeAssetPrefix": "Human",
+    "beardShapeAssetPrefix": "Human",
+    "hornsTailAssetPrefix": "",
+    "maleNameOptions": [
+      "Race/&HumanMaleName1Title",
+      "Race/&HumanMaleName2Title",
+      "Race/&HumanMaleName3Title",
+      "Race/&HumanMaleName4Title",
+      "Race/&HumanMaleName5Title",
+      "Race/&HumanMaleName6Title",
+      "Race/&HumanMaleName7Title",
+      "Race/&HumanMaleName8Title",
+      "Race/&HumanMaleName9Title",
+      "Race/&HumanMaleName10Title",
+      "Race/&HumanMaleName11Title",
+      "Race/&HumanMaleName12Title",
+      "Race/&HumanMaleName13Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&HumanFemaleName1Title",
+      "Race/&HumanFemaleName2Title",
+      "Race/&HumanFemaleName3Title",
+      "Race/&HumanFemaleName4Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&HumanSurNameTitle",
+    "surNameOptions": [
+      "Race/&HumanSurName1Title",
+      "Race/&HumanSurName2Title",
+      "Race/&HumanSurName3Title",
+      "Race/&HumanSurName4Title",
+      "Race/&HumanSurName5Title",
+      "Race/&HumanSurName6Title",
+      "Race/&HumanSurName7Title",
+      "Race/&HumanSurName8Title",
+      "Race/&HumanSurName9Title",
+      "Race/&HumanSurName10Title",
+      "Race/&HumanSurName11Title",
+      "Race/&HumanSurName12Title",
+      "Race/&HumanSurName13Title"
+    ],
+    "availableMorphotypeCategories": [
+      "Origin",
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Musculature",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 0,
+    "originOptions": [
+      "Origin_AS"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_CA_D",
+      "FaceShape_CA_E",
+      "FaceShape_CA_F",
+      "FaceShape_CA_A",
+      "FaceShape_CA_B",
+      "FaceShape_CA_C",
+      "FaceShape_AF_D",
+      "FaceShape_AF_E",
+      "FaceShape_AF_F",
+      "FaceShape_AF_A",
+      "FaceShape_AF_B",
+      "FaceShape_AF_C",
+      "FaceShape_AS_D",
+      "FaceShape_AS_E",
+      "FaceShape_AS_F",
+      "FaceShape_AS_A",
+      "FaceShape_AS_B",
+      "FaceShape_AS_C",
+      "FaceShape_NPC_Beric_Sunblaze",
+      "FaceShape_NPC_Robar_Sharp",
+      "FaceShape_NPC_Dalon_Lark",
+      "FaceShape_NPC_Halman_Summer",
+      "FaceShape_NPC_Arwin_Merton",
+      "FaceShape_NPC_Morden_Kyre",
+      "FaceShape_NPC_Razan_Holarant",
+      "FaceShape_NPC_Talbut_the_Grey",
+      "FaceShape_NPC_Ron",
+      "FaceShape_NPC_Marin_Ving",
+      "FaceShape_NPC_Citizen",
+      "FaceShape_NPC_Rivers",
+      "FaceShape_NPC_Rassell",
+      "FaceShape_NPC_GallivanOfficer",
+      "FaceShape_AF_G",
+      "FaceShape_AS_G",
+      "FaceShape_CA_G"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_CA_D",
+      "FaceShape_CA_E",
+      "FaceShape_CA_F",
+      "FaceShape_CA_A",
+      "FaceShape_CA_B",
+      "FaceShape_CA_C",
+      "FaceShape_AF_D",
+      "FaceShape_AF_E",
+      "FaceShape_AF_F",
+      "FaceShape_AF_A",
+      "FaceShape_AF_B",
+      "FaceShape_AF_C",
+      "FaceShape_AS_D",
+      "FaceShape_AS_E",
+      "FaceShape_AS_F",
+      "FaceShape_AS_A",
+      "FaceShape_AS_B",
+      "FaceShape_AS_C",
+      "FaceShape_NPC_Aksha",
+      "FaceShape_NPC_Morgan",
+      "FaceShape_NPC_Leira_Kean",
+      "FaceShape_NPC_Lena",
+      "FaceShape_NPC_Heather_Merran",
+      "FaceShape_NPC_Atima_Bladeburn",
+      "FaceShape_NPC_Lisbath_Townsend",
+      "FaceShape_NPC_Priestess_of_Pakri",
+      "FaceShape_NPC_Sima_Temple",
+      "FaceShape_NPC_EsmaBlunt",
+      "FaceShape_AF_G",
+      "FaceShape_AS_G",
+      "FaceShape_CA_G"
+    ],
+    "dontSortFaceShapes": false,
+    "maxRandomFaceShapeIndex": 0,
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_None"
+    ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_None",
+      "BeardShape_D",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P",
+      "BeardShape_C"
+    ],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
+    "hasSpecificBodyDecorationForFaceshape": false,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM1",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    },
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "Human"
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&RaceBattlebornTitle",
+    "description": "Race/&RaceBattlebornDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1384b288-3c18-5411-8635-4222fc4d3cd6",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "cebf4905-ad78-5318-a3fb-8c12c070640c",
+  "contentPack": 9999,
+  "name": "RaceBattleborn"
+}

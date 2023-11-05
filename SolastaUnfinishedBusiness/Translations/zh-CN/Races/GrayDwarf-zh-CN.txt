@@ -1,6 +1,6 @@
 Condition/&ConditionGrayDwarfStoneStrengthDescription=在力量检定和豁免检定上具有优势。 +1d4 近战力量武器伤害。
 Condition/&ConditionGrayDwarfStoneStrengthTitle=石头之力
-Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=力量+1
+Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=力量 +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=能力值增加
 Feature/&FeatureSetGrayDwarfAncestryDescription=对抗魅惑、麻痹和幻觉的豁免优势
 Feature/&FeatureSetGrayDwarfAncestryTitle=灰矮人祖先

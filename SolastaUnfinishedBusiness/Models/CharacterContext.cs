@@ -98,6 +98,15 @@ internal static class CharacterContext
             .SetSituationalContext(SituationalContext.NotWearingArmorOrShield)
             .AddToDB();
 
+    private static readonly FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityDarknessPerceptive =
+        FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create("AbilityCheckAffinityDarknessPerceptive")
+            .SetGuiPresentation(Category.Feature)
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
+                abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
+            .AddCustomSubFeatures(ValidatorsCharacter.IsUnlitOrDarkness)
+            .AddToDB();
+
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolMonkWeaponSpecialization")
@@ -201,6 +210,7 @@ internal static class CharacterContext
         BuildRogueCunningStrike();
         SwitchAsiAndFeat();
         SwitchBarbarianFightingStyle();
+        SwitchDarknessPerceptive();
         SwitchDragonbornElementalBreathUsages();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
         SwitchEveryFourLevelsFeats();
@@ -744,6 +754,38 @@ internal static class CharacterContext
             {
                 characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
                     x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
+            }
+        }
+    }
+
+    internal static void SwitchDarknessPerceptive()
+    {
+        var races = new List<CharacterRaceDefinition>
+        {
+            RaceHalfElfBuilder.RaceHalfElfDarkVariant,
+            RaceKoboldBuilder.SubraceDarkKobold,
+            SubraceDarkelfBuilder.SubraceDarkelf,
+            SubraceGrayDwarfBuilder.SubraceGrayDwarf
+        };
+
+        if (Main.Settings.AddDarknessPerceptiveToDarkRaces)
+        {
+            foreach (var characterRaceDefinition in races
+                         .Where(a => !a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive)))
+            {
+                characterRaceDefinition.FeatureUnlocks.Add(
+                    new FeatureUnlockByLevel(AbilityCheckAffinityDarknessPerceptive, 1));
+            }
+        }
+        else
+        {
+            foreach (var characterRaceDefinition in races
+                         .Where(a => a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive)))
+            {
+                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
+                    x.Level == 1 && x.FeatureDefinition == AbilityCheckAffinityDarknessPerceptive);
             }
         }
     }
@@ -1752,7 +1794,7 @@ internal static class CharacterContext
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _conditionReduceSneakDice.Name,
                 _selectedPower.CostPerUse,
                 0,
                 0);
@@ -1826,7 +1868,7 @@ internal static class CharacterContext
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDazedOnlyMovement.Name,
                 0,
                 0,
                 0);

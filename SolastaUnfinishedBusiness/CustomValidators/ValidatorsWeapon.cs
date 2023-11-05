@@ -116,34 +116,7 @@ internal static class ValidatorsWeapon
             return false;
         }
 
-        // most melee weapons will fallback here
-        if (!attackMode.thrown)
-        {
-            return true;
-        }
-
-        // unfortunately game sets thrown true even when attack is at melee distance
-        // this will handle thrown melee weapons like daggers, javelin, etc.
-        var currentAttackAction = Global.CurrentAttackAction;
-
-        // trying to be super safe here with any null scenario
-        if (currentAttackAction?.ActionParams?.TargetCharacters == null ||
-            currentAttackAction.ActionParams.TargetCharacters.Count == 0)
-        {
-            return false;
-        }
-
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        if (gameLocationBattleService is not { IsBattleInProgress: true })
-        {
-            return false;
-        }
-
-        return gameLocationBattleService.IsWithinXCells(
-            currentAttackAction.ActingCharacter,
-            currentAttackAction.ActionParams.TargetCharacters[0],
-            attackMode.ReachRange);
+        return IsWithinReach(attackMode.ReachRange);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -206,16 +179,15 @@ internal static class ValidatorsWeapon
         return itemDefinition == null
                || (itemDefinition.IsWeapon
                    && itemDefinition.WeaponDescription != null
-                   && itemDefinition.WeaponDescription.WeaponTypeDefinition == UnarmedStrikeType);
+                   && itemDefinition.WeaponDescription.WeaponTypeDefinition == UnarmedStrikeType
+                   && IsWithinReach(attackMode?.ReachRange ?? 1));
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsUnarmed(
-        [CanBeNull] RulesetCharacter rulesetCharacter,
-        [CanBeNull] RulesetAttackMode attackMode)
+    internal static bool IsUnarmed([CanBeNull] RulesetAttackMode attackMode)
     {
-        return (rulesetCharacter is RulesetCharacterMonster && IsMelee(attackMode))
-               || IsUnarmed((ItemDefinition)null, attackMode);
+        return attackMode is { SourceDefinition: MonsterAttackDefinition { proximity: AttackProximity.Melee } }
+               || IsUnarmed(null, attackMode);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -231,5 +203,29 @@ internal static class ValidatorsWeapon
     internal static bool HasAnyWeaponTag([CanBeNull] RulesetItem rulesetItem, [NotNull] params string[] tags)
     {
         return rulesetItem != null && HasAnyWeaponTag(rulesetItem.ItemDefinition, tags);
+    }
+
+    private static bool IsWithinReach(int reach)
+    {
+        // unfortunately game sets thrown true even when attack is at melee distance
+        // even worse, on thrown attacks, game will at some point consider melee as hero becomes unarmed
+        // this will handle thrown melee weapons like daggers, javelin, etc.
+        var currentAttackAction = Global.CurrentAttackAction;
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        // trying to be super safe here with any null scenario
+        // if not in combat assume it's within range so any off combat stats / tooltips work correctly
+        if (currentAttackAction?.ActionParams?.TargetCharacters == null ||
+            currentAttackAction.ActionParams.TargetCharacters.Count == 0 ||
+            gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return true;
+        }
+
+        // this handles combat situations and ensures we don't validate if attack not within range
+        return gameLocationBattleService.IsWithinXCells(
+            currentAttackAction.ActingCharacter,
+            currentAttackAction.ActionParams.TargetCharacters[0],
+            reach);
     }
 }

@@ -154,7 +154,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             yield break;
         }
 
-        if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode))
+        if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
         {
             yield break;
         }
@@ -279,7 +279,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
         {
             var isValid =
                 attackMode?.thrown == false &&
-                (ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
+                (ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(attackMode)) &&
                 ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
                 ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
 

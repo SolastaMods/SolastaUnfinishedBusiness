@@ -2,6 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=基本武器ダメージからのすべ�
 ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>より小さな修復</color>によって除去された状態に追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>
+ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>ハーフダークエルフ</color>で<color=#D89555>闇の知覚</color>を有効にするcolor>、<color=#D89555>グレイ ドワーフ</color> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックに有利になる]</color></i>
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加<i><color=#F0DAA0>[味方のクリーチャーが自分から5フィート以内のクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color>に人型の優先敵を追加する
 ModUi/&AddNewBrightEyeColors=新しい明るい目の色を追加
@@ -117,7 +118,7 @@ ModUi/&EnableMulticlass=マルチクラス <b><i><color=#C04040E0>[再起動が�
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRangerNatureShroudAt10=<color=#D89555>レンジャー</color> の<b>自然のシュラウド</b>機能をレベル 10 で有効にします<i><color=#F0DAA0>[ボーナス アクションとして、次のターンの開始時まで魔法のように透明になることができます]</color></i>
 ModUi/&EnableRejoinParty=<color=#1E81B0>CTRL-SHIFT-(R)</color> を有効にすると、何も選択されていない場合、選択したヒーローまたはリーダーを中心としたパーティーに再参加できます<i><color=#F0DAA0>[5 人または 6 人のパーティーで便利です]</color></i>
-ModUi/&EnableRelearnSpells=<i>+ 他のクラスからすでに学習したキャントリップまたは呪文を選択できます</i>
+ModUi/&EnableRelearnSpells=他のソースからすでに学習したキャントリップまたは呪文の選択を有効にする
 ModUi/&EnableRespec=休息後の RESPEC アクションを有効にする
 ModUi/&EnableRogueCunningStrike=<color=#D89555>ローグ</color> の<b>狡猾な攻撃</b>と<b>邪悪な攻撃</b>をクラスレベル5と14で有効にします<i><color=#F0DAA0>[放棄しました]追加のヒット効果のための急所攻撃ダイス 1 個]</color></i>
 ModUi/&EnableRogueFightingStyle=レベル 2 で<color=#D89555>ローグ</color>の<b>戦闘スタイル</b>の選択が可能になります
@@ -201,6 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
 ModUi/&PortraitsOpenFolder=ポートレートフォルダーを開く
 ModUi/&PrimedItems=プライムアイテム
 ModUi/&Progression=<color=#F0DAA0>進行状況:</color>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>ハーフダークエルフ</color>の<color=#D89555>光感度</color>を有効にするcolor>、および屋外のみをトリガーする <color=#D89555>Grey Dwarf</color>\n<i><color=#F0DAA0>[ロード画面なしでアクセスできる屋外の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
 ModUi/&RecipesInDm=レシピはDMにて
@@ -209,6 +211,8 @@ ModUi/&RemoveAttunementRequirements=アチューンメント要件を削除<b><i
 ModUi/&RemoveBugVisualModels=ゲーム内のクモのようなモデルを別のビジュアルに置き換えます<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>おぞましい笑い</color>の人型フィルターを削除
 ModUi/&RemoveRecurringEffectOnEntangle=<color=#D89555>エンタングル</color>効果は詠唱時にのみ適用されます<i><color=#F0DAA0>[例: 繰り返し効果なし]</color></i>
+ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<color=#D89555>シャドウキャスター</color>から学校の制限を削除する
+ModUi/&RemoveSchoolRestrictionsFromSpellBlade=<color=#D89555>スペルブレード</color>から学校の制限を削除する
 ModUi/&RestockAntiquarians=古物収集者 <i><color=#F0DAA0>[ハルマン サマー]</color></i> を補充する
 ModUi/&RestockArcaneum=Arcaneum <i><color=#F0DAA0>[ヘドロン・シュアスペル]</color></i> を補充する
 ModUi/&RestockCircleOfDanantar=サークル オブ ダナンタル <i><color=#F0DAA0>[ジョリエル フォックスアイ]</color></i> を再入荷

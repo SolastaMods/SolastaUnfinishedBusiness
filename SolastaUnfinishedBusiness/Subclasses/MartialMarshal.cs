@@ -184,6 +184,7 @@ public sealed class MartialMarshal : AbstractSubclass
                                 EffectFormBuilder
                                     .Create()
                                     .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
+                                    .SetCreatedBy(false, false)
                                     .Build())
                             .Build())
                     .SetMagical()
@@ -647,7 +648,7 @@ public sealed class MartialMarshal : AbstractSubclass
                 rulesetMe.guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                null,
+                $"{ConditionMarshalKnowledgeableDefenseACName}{level}",
                 0,
                 0,
                 0);

@@ -122,8 +122,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&StinkingCloudTitle",
-    "description": "EffectProxy/&ProxyStinkingCloudDescription",
+    "title": "Feature/&PowerWayOfTheDragonElementalBreathGreenTitle",
+    "description": "Feature/&PowerWayOfTheDragonElementalBreathGreenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e09812b1baeec448be4d3187861a517",

@@ -329,6 +329,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, 1, DieType.D8)
+                            .SetCreatedBy(false, false)
                             .Build())
                     .Build())
             .AddToDB();
@@ -574,7 +575,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _condition.Name,
                 0,
                 0,
                 0);

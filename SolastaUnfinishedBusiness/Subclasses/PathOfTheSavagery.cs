@@ -194,7 +194,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionUnbridledFerocity.Name,
                     0,
                     0,
                     0);

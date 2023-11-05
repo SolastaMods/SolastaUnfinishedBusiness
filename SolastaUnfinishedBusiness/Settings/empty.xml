@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EnableDiagsDump>0</EnableDiagsDump>
-  <EnableThesaurus>false</EnableThesaurus>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <SelectedTab>0</SelectedTab>
-  <DisplayRacesToggle>true</DisplayRacesToggle>
-  <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
+  <DisplayRacesToggle>false</DisplayRacesToggle>
+  <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -234,22 +233,24 @@
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
-  <EnableFlexibleRaces>false</EnableFlexibleRaces>
-  <EnableAlternateHuman>false</EnableAlternateHuman>
   <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
-  <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
-  <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
+  <EnableAlternateHuman>false</EnableAlternateHuman>
+  <EnableFlexibleRaces>false</EnableFlexibleRaces>
+  <AddDarknessPerceptiveToDarkRaces>false</AddDarknessPerceptiveToDarkRaces>
+  <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
   <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
   <ImproveLevelUpFeaturesSelection>false</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
+  <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
+  <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
+  <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
   <EnableLevel20>false</EnableLevel20>
   <EnableMulticlass>false</EnableMulticlass>
-  <MaxAllowedClasses>0</MaxAllowedClasses>
-  <EnableMinInOutAttributes>false</EnableMinInOutAttributes>
+  <MaxAllowedClasses>3</MaxAllowedClasses>
+  <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
   <EnableRelearnSpells>false</EnableRelearnSpells>
-  <DisplayAllKnownSpellsDuringLevelUp>false</DisplayAllKnownSpellsDuringLevelUp>
-  <DisplayPactSlotsOnSpellSelectionPanel>false</DisplayPactSlotsOnSpellSelectionPanel>
+  <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
+  <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
@@ -309,6 +310,8 @@
   <AllowHasteCasting>false</AllowHasteCasting>
   <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
   <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
+  <RemoveSchoolRestrictionsFromShadowCaster>false</RemoveSchoolRestrictionsFromShadowCaster>
+  <RemoveSchoolRestrictionsFromSpellBlade>false</RemoveSchoolRestrictionsFromSpellBlade>
   <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
   <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
@@ -967,6 +970,7 @@
   <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
   <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
   <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
+  <EnableThesaurus>false</EnableThesaurus>
   <SelectedLanguageCode>en</SelectedLanguageCode>
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>

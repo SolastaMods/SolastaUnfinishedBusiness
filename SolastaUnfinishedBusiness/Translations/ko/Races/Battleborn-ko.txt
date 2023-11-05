@@ -1,0 +1,9 @@
+Feature/&AttributeModifierBattlebornBonusACTitle=비전 탄력성
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=체력 +2, 다른 1개의 점수가 1점 증가합니다.
+Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=능력치 증가
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=당신은 다음과 같은 이점으로 대표되는 놀라운 강인함을 갖도록 창조되었습니다.\n\n- 방어구 클래스에 +1 보너스를 얻습니다.\n- 중독에 대한 내성 굴림에 이점이 있으며 중독에 대한 저항력이 있습니다. 독 피해.\n- 당신은 질병에 면역입니다.\n- 당신은 잠을 잘 필요가 없으며 마법도 당신을 잠들게 할 수 없습니다.
+Feature/&FeatureSetBattlebornArcaneResilienceTitle=비전 탄력성
+Feature/&FeatureSetBattlebornSpecializedInfusionDescription=당신은 원하는 기술 숙련도 1개와 도구 숙련도 1개를 얻습니다.
+Feature/&FeatureSetBattlebornSpecializedInfusionTitle=전문 주입
+Race/&RaceBattlebornDescription=전투태생은 완벽한 전장 병사를 만들기 위해 육체, 연금술, 마법을 혼합한 신비로운 실험의 결과입니다. 무기로 사용되도록 만들어진 그들은 이제 전쟁 이상의 목적을 찾아야 합니다. 배틀본은 충성스러운 동맹자일 수도 있고, 냉혹한 살인 기계일 수도 있고, 목적과 의미를 찾아 방황하는 영혼일 수도 있습니다.
+Race/&RaceBattlebornTitle=배틀본

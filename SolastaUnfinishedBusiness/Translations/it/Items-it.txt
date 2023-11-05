@@ -179,6 +179,7 @@ Item/&CEPike_Whiteburn_Description=Quest'arma incantata è stata creata utilizza
 Item/&CEPike_Whiteburn_Title=Luccio bianco
 Item/&CEProducedFlameDartTitle=Lancia Fiamme
 Item/&CEProducedFlameTitle=Fiamma prodotta
+Item/&CEUnarmedStrikeClawsTitle=Artigli nudi
 Item/&ChainMail_Deflection_Description=Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armaioli di Manacalon. Ildurial Stronghand ha forgiato la prima di quelle armature per la guardia personale dell'Imperatore.
 Item/&ChainMail_Deflection_Title=Cotta di maglia della deviazione
 Item/&ChainMail_FlameDancing_Description=Questa armatura incantata è stata creata utilizzando l'antica conoscenza dei maestri armaioli di Manacalon. Ildurial Stronghand ha forgiato la prima di quelle armature per la guardia personale dell'Imperatore.
