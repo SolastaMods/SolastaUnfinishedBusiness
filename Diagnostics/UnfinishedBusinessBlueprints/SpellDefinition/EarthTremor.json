@@ -98,7 +98,7 @@
           "conditionDefinition": null,
           "persistOnConcentrationLoss": true,
           "decisionPackage": null,
-          "effectProxyDefinitionName": "EarthTremorRubbleProxy"
+          "effectProxyDefinitionName": "ProxyEarthTremor"
         },
         "hasFilterId": false,
         "filterId": 0

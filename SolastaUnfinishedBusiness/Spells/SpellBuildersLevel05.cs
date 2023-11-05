@@ -67,28 +67,9 @@ internal static partial class SpellBuilders
     {
         const string NAME = "MantleOfThorns";
 
-        //Leaving this proxy in case someone already has spell in effect
-        EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxySpikeGrowth, $"EffectProxy{NAME}")
-            .SetCanMove()
-            .SetCanMoveOnCharacters()
-            .AddToDB();
-
-        var effectDescription = EffectDescriptionBuilder.Create()
-            .SetParticleEffectParameters(SpikeGrowth)
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
-            .SetDurationData(DurationType.Minute, 1)
-            .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnMove | RecurrentEffect.OnTurnStart)
-            .AddEffectForms(
-                EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8),
-                EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
-                EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
-            .Build();
-
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("MantleOfThorns", Resources.MantleOfThorns, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MantleOfThorns, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.Action)
@@ -97,7 +78,18 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetRequiresConcentration(true)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(SpikeGrowth)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnMove | RecurrentEffect.OnTurnStart)
+                    .AddEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
+                    .Build())
             .AddToDB();
 
         return spell;
