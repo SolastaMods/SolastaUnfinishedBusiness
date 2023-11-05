@@ -39,7 +39,7 @@
       "levelMultiplier": 1,
       "diceByLevelTable": [],
       "createdByCharacter": false,
-      "createdByCondition": false,
+      "createdByCondition": true,
       "hasSavingThrow": false,
       "savingThrowAffinity": "None",
       "dcModifier": 0,

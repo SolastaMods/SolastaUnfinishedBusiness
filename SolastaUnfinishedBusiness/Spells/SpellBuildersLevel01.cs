@@ -220,6 +220,7 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
+                    .SetCreatedByCondition()
                     .Build())
             .AddToDB();
 
@@ -653,7 +654,12 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionAcidArrowed)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
-            .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeAcid, 2, DieType.D4))
+            .SetRecurrentEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeAcid, 2, DieType.D4)
+                    .SetCreatedByCondition()
+                    .Build())
             .AddToDB();
 
         conditionVileBrew.possessive = false;

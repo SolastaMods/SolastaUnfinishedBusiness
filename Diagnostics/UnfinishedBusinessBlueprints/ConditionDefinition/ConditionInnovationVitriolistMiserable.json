@@ -139,7 +139,7 @@
         }
       ],
       "createdByCharacter": false,
-      "createdByCondition": false,
+      "createdByCondition": true,
       "hasSavingThrow": false,
       "savingThrowAffinity": "None",
       "dcModifier": 0,

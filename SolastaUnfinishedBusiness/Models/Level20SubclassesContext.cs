@@ -641,11 +641,13 @@ internal static class Level20SubclassesContext
                     .Create()
                     .SetBonusMode(AddBonusMode.Proficiency)
                     .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.HalfMaximumHitPoints)
+                    .SetCreatedByCondition()
                     .Build(),
                 EffectFormBuilder
                     .Create()
                     .SetBonusMode(AddBonusMode.Proficiency)
                     .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
+                    .SetCreatedByCondition()
                     .Build())
             .AddToDB();
 

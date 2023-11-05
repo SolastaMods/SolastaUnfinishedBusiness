@@ -119,6 +119,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                     .Create()
                     .SetDamageForm(DamageTypeAcid, 2, DieType.D4)
                     .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 20, (7, 1), (14, 2), (18, 3))
+                    .SetCreatedByCondition()
                     .Build())
             .AddToDB();
 

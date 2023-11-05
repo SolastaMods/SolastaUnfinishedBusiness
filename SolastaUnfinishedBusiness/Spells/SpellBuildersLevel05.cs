@@ -158,7 +158,12 @@ internal static partial class SpellBuilders
         var conditionIncineration = ConditionDefinitionBuilder
             .Create(ConditionOnFire, $"Condition{NAME}")
             .SetSpecialInterruptions(ConditionInterruption.Revive)
-            .SetRecurrentEffectForms(EffectFormBuilder.DamageForm(DamageTypeFire, 4, DieType.D6))
+            .SetRecurrentEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeFire, 4, DieType.D6)
+                    .SetCreatedByCondition()
+                    .Build())
             .AddToDB();
 
         conditionIncineration.specialDuration = false;
