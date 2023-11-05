@@ -1674,7 +1674,9 @@ internal static class MeleeCombatFeats
         return featPowerAttack;
     }
 
-    private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode, IPhysicalAttackInitiatedByMe
+    private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode
+        // thrown is allowed on power attack
+        //, IPhysicalAttackInitiatedByMe
     {
         private const int ToHit = 3;
         private readonly FeatDefinition _featDefinition;
@@ -1710,6 +1712,8 @@ internal static class MeleeCombatFeats
                 _featDefinition));
         }
 
+// thrown is allowed on power attack
+#if false
         // this is required to handle thrown scenarios
         public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
@@ -1745,6 +1749,7 @@ internal static class MeleeCombatFeats
             damageForm.DamageBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
             damageForm.BonusDamage -= toDamage;
         }
+#endif
     }
 
     #endregion
