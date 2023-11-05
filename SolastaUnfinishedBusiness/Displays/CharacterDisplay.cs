@@ -34,13 +34,6 @@ internal static class CharacterDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
-            CharacterContext.SwitchDarknessPerceptive();
-        }
-
         toggle = Main.Settings.AddHelpActionToAllRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&AddHelpActionToAllRaces"), ref toggle, UI.AutoWidth()))
         {
@@ -55,12 +48,30 @@ internal static class CharacterDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
+        toggle = Main.Settings.EnableAlternateHuman;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAlternateHuman = toggle;
+            CharacterContext.SwitchFirstLevelTotalFeats();
+        }
+
         toggle = Main.Settings.EnableFlexibleRaces;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleRaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFlexibleRaces = toggle;
             FlexibleRacesContext.SwitchFlexibleRaces();
         }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
+            CharacterContext.SwitchDarknessPerceptive();
+        }
+
+        UI.Label();
 
         toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
         if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
@@ -69,11 +80,30 @@ internal static class CharacterDisplay
         }
 
         UI.Label();
+        UI.Label();
 
-        toggle = Main.Settings.EnableAlternateHuman;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableEpicPointsAndArray;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableAlternateHuman = toggle;
+            Main.Settings.EnableEpicPointsAndArray = toggle;
+        }
+
+        toggle = Main.Settings.ImproveLevelUpFeaturesSelection;
+        if (UI.Toggle(Gui.Localize("ModUi/&ImproveLevelUpFeaturesSelection"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ImproveLevelUpFeaturesSelection = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        UI.Label();
+        UI.Label();
+
+        var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
+        if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
+                CharacterContext.MinInitialFeats, CharacterContext.MaxInitialFeats, 0, "",
+                UI.AutoWidth()))
+        {
+            Main.Settings.TotalFeatsGrantedFirstLevel = intValue;
             CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
@@ -95,35 +125,6 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&DisableCastSpellPreRequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableCastSpellPreRequisitesOnModFeats = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnableEpicPointsAndArray;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableEpicPointsAndArray = toggle;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.ImproveLevelUpFeaturesSelection;
-        if (UI.Toggle(Gui.Localize("ModUi/&ImproveLevelUpFeaturesSelection"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ImproveLevelUpFeaturesSelection = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
-        }
-
-        UI.Label();
-        UI.Label();
-
-        var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;
-        if (UI.Slider(Gui.Localize("ModUi/&TotalFeatsGrantedFirstLevel"), ref intValue,
-                CharacterContext.MinInitialFeats, CharacterContext.MaxInitialFeats, 0, "",
-                UI.AutoWidth()))
-        {
-            Main.Settings.TotalFeatsGrantedFirstLevel = intValue;
-            CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
         UI.Label();
@@ -181,6 +182,13 @@ internal static class CharacterDisplay
 
             UI.Label();
             UI.Label(Gui.Localize("ModUi/&MulticlassKeyHelp"));
+            UI.Label();
+        }
+
+        toggle = Main.Settings.EnableRelearnSpells;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRelearnSpells = toggle;
         }
 
         UI.Label();
@@ -204,12 +212,6 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
             CharacterContext.SwitchEveryFourLevelsFeats(true);
-        }
-
-        toggle = Main.Settings.EnableRelearnSpells;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRelearnSpells"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRelearnSpells = toggle;
         }
 
         UI.Label();

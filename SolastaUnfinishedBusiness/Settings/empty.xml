@@ -233,24 +233,24 @@
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
-  <AddDarknessPerceptiveToDarkRaces>false</AddDarknessPerceptiveToDarkRaces>
   <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
-  <EnableFlexibleRaces>false</EnableFlexibleRaces>
-  <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
   <EnableAlternateHuman>false</EnableAlternateHuman>
-  <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
-  <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
+  <EnableFlexibleRaces>false</EnableFlexibleRaces>
+  <AddDarknessPerceptiveToDarkRaces>false</AddDarknessPerceptiveToDarkRaces>
+  <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
   <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
   <ImproveLevelUpFeaturesSelection>false</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
+  <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
+  <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
+  <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
   <EnableLevel20>false</EnableLevel20>
   <EnableMulticlass>false</EnableMulticlass>
-  <MaxAllowedClasses>0</MaxAllowedClasses>
-  <EnableMinInOutAttributes>false</EnableMinInOutAttributes>
+  <MaxAllowedClasses>3</MaxAllowedClasses>
+  <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
   <EnableRelearnSpells>false</EnableRelearnSpells>
-  <DisplayAllKnownSpellsDuringLevelUp>false</DisplayAllKnownSpellsDuringLevelUp>
-  <DisplayPactSlotsOnSpellSelectionPanel>false</DisplayPactSlotsOnSpellSelectionPanel>
+  <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
+  <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>

@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Add all dice from base weapon damage to f
 ModUi/&AddAllToStore=Add all to store
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Add <color=#D89555>Darkness Perceptive</color> to <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>[advantage on perception checks under darkness]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
@@ -59,9 +59,9 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any dama
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deities</color>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
-ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on feats provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on feats provided by this mod
-ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on feats provided by this mod
+ModUi/&DisableCastSpellPreRequisitesOnModFeats=Disable cast spell pre-requisites on <color=#D89555>feats</color> provided by this mod <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on <color=#D89555>feats</color> provided by this mod
+ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on <color=#D89555>feats</color> provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Disable unofficial translations support to speed up mod <i><color=#F0DAA0>[unless I speak Chinese, Italian, Japanese, Korean or Spanish]</color></i>
@@ -95,8 +95,8 @@ ModUi/&EnableCustomPortraitsHelp=. Place your custom portraits under subfolders 
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Gambits, and Versatilities]</color></i>
-ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 10 and 18
-ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable feats selection at class levels 6 and 14
+ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at class levels 2, 10 and 18
+ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selection at class levels 6 and 14
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
@@ -133,7 +133,7 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat <i><color=#F0DAA0>[advised to use with the official distance calculation option under rules]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVttCamera=Enable <color=#1E81B0>CTRL-SHIFT-(V)</color> to toggle the VTT camera <i><color=#F0DAA0>[right-click and drag to position the camera, WASD to pan and Page Up/Page Down to zoom]</color></i>
-ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
+ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and <color=#D89555>feats</color> selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
 ModUi/&ExpandAll=Expand All
@@ -141,7 +141,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify fac
 ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
 ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
-ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
+ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar <color=#D89555>feats</color> <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -202,7 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Open portraits folder
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Enable <color=#D89555>Light Sensitivity</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> to only trigger outdoors\n<i><color=#F0DAA0>[indoor areas in outdoor locations accessible without a load screen are considered outdoor by the game engine]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Enable <color=#D89555>Light Sensitivity</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</color>, and <color=#D89555>Gray Dwarf</color> to only trigger outdoors\n<i><color=#F0DAA0>[indoor areas in outdoor locations accessible without a load screen are considered outdoor by the game engine]</color></i>
 ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RecipesInDm=Recipes in DM
@@ -253,7 +253,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in 
 ModUi/&TargetLanguage=Target Language
 ModUi/&Tools=Tools
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
-ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total feats granted at first level</color>
+ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total <color=#D89555>feats</color> granted at first level</color>
 ModUi/&Translate=Translate
 ModUi/&TranslateCancel=Cancel {0} at {1}
 ModUi/&Translations=Translations

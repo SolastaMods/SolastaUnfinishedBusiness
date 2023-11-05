@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Fügen Sie alle Würfel vom Basiswaffensc
 ModUi/&AddAllToStore=Alles zum Speichern hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Füge <color=#D89555>Darkness Perceptive</color> zu <color=#D89555>Darkelf</color>, <color=#D89555>Dunkler Kobold</color> und <color=#D89555>Grauer Zwerg</ hinzu. Farbe> <i><color=#F0DAA0>[Vorteil bei Wahrnehmungsprüfungen bei Dunkelheit]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> und <color=#D89555>Grauer Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen, wenn er nicht beleuchtet ist oder in magischer Dunkelheit herrscht]</color></i>
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur in einem Umkreis von 5 Fuß um dich anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge humanoiden bevorzugten Feind zu <color=#D89555>Rangers</color> hinzu
 ModUi/&AddNewBrightEyeColors=Fügen Sie neue leuchtende Augenfarben hinzu
@@ -202,7 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Öffnen Sie den Ordner „Porträts“.
 ModUi/&PrimedItems=Vorbereitete Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</ color> soll nur im Freien ausgelöst werden\n<i><color=#F0DAA0>[Innenbereiche an Orten im Freien, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als im Freien betrachtet]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> und <color=#D89555>Gray Dwarf</color>, um nur im Freien auszulösen\n<i><color=#F0DAA0>[Innenbereiche an Orten im Freien, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als im Freien betrachtet ]</color></i>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
 ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
 ModUi/&RecipesInDm=Rezepte in DM

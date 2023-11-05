@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=基本武器ダメージからのすべ�
 ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>より小さな修復</color>によって除去された状態に追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークネス・パーセプティブ</color>を<color=#D89555>ダークエルフ</color>、<color=#D89555>ダーク・コボルト</color>、<color=#D89555>グレイ・ドワーフ</color>に追加color> <i><color=#F0DAA0>[暗闇での知覚チェックに有利]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>ハーフダークエルフ</color>で<color=#D89555>闇の知覚</color>を有効にするcolor>、<color=#D89555>グレイ ドワーフ</color> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックに有利になる]</color></i>
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加<i><color=#F0DAA0>[味方のクリーチャーが自分から5フィート以内のクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color>に人型の優先敵を追加する
 ModUi/&AddNewBrightEyeColors=新しい明るい目の色を追加
@@ -202,7 +202,7 @@ ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
 ModUi/&PortraitsOpenFolder=ポートレートフォルダーを開く
 ModUi/&PrimedItems=プライムアイテム
 ModUi/&Progression=<color=#F0DAA0>進行状況:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>光感度</color>を有効にするcolor> 屋外のみをトリガーする\n<i><color=#F0DAA0>[ロード画面なしでアクセスできる屋外の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>ハーフダークエルフ</color>の<color=#D89555>光感度</color>を有効にするcolor>、および屋外のみをトリガーする <color=#D89555>Grey Dwarf</color>\n<i><color=#F0DAA0>[ロード画面なしでアクセスできる屋外の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
 ModUi/&RecipesInDm=レシピはDMにて
