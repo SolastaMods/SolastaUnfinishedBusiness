@@ -746,10 +746,7 @@ public static class RulesetImplementationManagerPatcher
             ref int saveOutcomeDelta)
         {
             // BUGFIX: saving throw not passing correct saving delta on attack actions
-            if (Global.CurrentAttackAction != null)
-            {
-                Global.CurrentAttackAction.SaveOutcomeDelta = saveOutcomeDelta;
-            }
+            Global.SetAttackActionSaveOutcomeDelta(saveOutcomeDelta);
 
             //PATCH: supports ITryAlterOutcomeSavingThrow interface
             foreach (var tryAlterOutcomeSavingThrow in target.GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
@@ -779,10 +776,7 @@ public static class RulesetImplementationManagerPatcher
             }
 
             // BUGFIX: saving throw not passing correct saving delta on attack actions
-            if (Global.CurrentAttackAction != null)
-            {
-                Global.CurrentAttackAction.SaveOutcomeDelta = saveOutcomeDelta;
-            }
+            Global.SetAttackActionSaveOutcomeDelta(saveOutcomeDelta);
         }
     }
 

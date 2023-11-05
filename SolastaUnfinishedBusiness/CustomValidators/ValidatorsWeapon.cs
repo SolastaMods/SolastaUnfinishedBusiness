@@ -209,21 +209,17 @@ internal static class ValidatorsWeapon
     {
         // unfortunately game sets thrown true even when attack is at melee distance
         // even worse, on thrown attacks, game will at some point consider melee as hero becomes unarmed
-        // this will handle thrown melee weapons like daggers, javelin, etc.
-        var currentAttackAction = Global.CurrentAttackAction;
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        // this will handle thrown melee weapons like daggers, javelins, spears, etc.
+        // assume it's within range if not in combat so any off combat stats / tooltips work correctly
+        var currentAttackAction = Global.CurrentAttackAction.Peek();
 
-        // trying to be super safe here with any null scenario
-        // if not in combat assume it's within range so any off combat stats / tooltips work correctly
-        if (currentAttackAction?.ActionParams?.TargetCharacters == null ||
-            currentAttackAction.ActionParams.TargetCharacters.Count == 0 ||
-            gameLocationBattleService is not { IsBattleInProgress: true })
+        if (currentAttackAction == null || currentAttackAction.ActionParams.TargetCharacters.Count == 0)
         {
             return true;
         }
 
-        // this handles combat situations and ensures we don't validate if attack not within range
-        return gameLocationBattleService.IsWithinXCells(
+        // handle combat situations and ensure we don't validate if attack not within range
+        return ServiceRepository.GetService<IGameLocationBattleService>().IsWithinXCells(
             currentAttackAction.ActingCharacter,
             currentAttackAction.ActionParams.TargetCharacters[0],
             reach);
