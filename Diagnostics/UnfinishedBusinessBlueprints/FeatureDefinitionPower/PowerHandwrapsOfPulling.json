@@ -69,7 +69,7 @@
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",

@@ -220,7 +220,7 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
-                    .SetCreatedByCondition()
+                    .SetCreatedBy()
                     .Build())
             .AddToDB();
 
@@ -658,7 +658,7 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeAcid, 2, DieType.D4)
-                    .SetCreatedByCondition()
+                    .SetCreatedBy()
                     .Build())
             .AddToDB();
 

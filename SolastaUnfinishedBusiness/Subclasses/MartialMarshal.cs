@@ -184,6 +184,7 @@ public sealed class MartialMarshal : AbstractSubclass
                                 EffectFormBuilder
                                     .Create()
                                     .SetDamageForm(DamageTypeSlashing, 2, DieType.D6, 2)
+                                    .SetCreatedBy(false, false)
                                     .Build())
                             .Build())
                     .SetMagical()

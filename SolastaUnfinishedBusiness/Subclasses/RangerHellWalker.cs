@@ -69,7 +69,7 @@ public sealed class RangerHellWalker : AbstractSubclass
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeFire, 1, DieType.D6)
-                    .SetCreatedByCondition()
+                    .SetCreatedBy()
                     .Build())
             .AddToDB();
 
@@ -129,7 +129,7 @@ public sealed class RangerHellWalker : AbstractSubclass
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
-                    .SetCreatedByCondition()
+                    .SetCreatedBy()
                     .Build())
             .AddToDB();
 

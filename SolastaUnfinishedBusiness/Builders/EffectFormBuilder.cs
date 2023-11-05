@@ -49,10 +49,10 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder SetCreatedByCondition()
+    internal EffectFormBuilder SetCreatedBy(bool createdByCharacter = false, bool createdByCondition = true)
     {
-        _effectForm.createdByCharacter = false;
-        _effectForm.createdByCondition = true;
+        _effectForm.createdByCharacter = createdByCharacter;
+        _effectForm.createdByCondition = createdByCondition;
         return this;
     }
 

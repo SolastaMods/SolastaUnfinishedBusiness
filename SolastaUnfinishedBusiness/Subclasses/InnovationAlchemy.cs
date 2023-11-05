@@ -411,7 +411,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DAMAGE, dieType: DIE_TYPE, diceNumber: 2)
-                            .SetCreatedByCondition()
+                            .SetCreatedBy()
                             .Build())
                     .SetSpecialDuration(DurationType.Round, 1)
                     .AddToDB(), ConditionForm.ConditionOperation.Add)

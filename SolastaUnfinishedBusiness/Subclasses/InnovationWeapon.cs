@@ -329,6 +329,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, 1, DieType.D8)
+                            .SetCreatedBy(false, false)
                             .Build())
                     .Build())
             .AddToDB();

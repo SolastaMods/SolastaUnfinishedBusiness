@@ -153,6 +153,7 @@ internal static class CustomWeaponsContext
             EffectFormBuilder
                 .Create()
                 .SetDamageForm(DamageTypeForce, 1, DieType.D4)
+                .SetCreatedBy(false, false)
                 .Build());
 
         HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
@@ -181,6 +182,7 @@ internal static class CustomWeaponsContext
                                     EffectFormBuilder
                                         .Create()
                                         .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                                        .SetCreatedBy(false, false)
                                         .Build())
                                 .Build())
                         .AddToDB())
@@ -292,6 +294,7 @@ internal static class CustomWeaponsContext
             EffectFormBuilder
                 .Create()
                 .SetDamageForm(DamageTypeLightning, 1, DieType.D8)
+                .SetCreatedBy(false, false)
                 .Build());
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdLightning, 14, 18,
             HalberdPrimed,
@@ -391,6 +394,7 @@ internal static class CustomWeaponsContext
             EffectFormBuilder
                 .Create()
                 .SetDamageForm(DamageTypePsychic, 1, DieType.D8)
+                .SetCreatedBy(false, false)
                 .Build());
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePsychic, 14, 18,
             PikePrimed,
@@ -481,6 +485,7 @@ internal static class CustomWeaponsContext
             EffectFormBuilder
                 .Create()
                 .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
+                .SetCreatedBy(false, false)
                 .Build());
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMaceThunder, 14, 18,
             LongMacePrimed,
@@ -579,6 +584,7 @@ internal static class CustomWeaponsContext
             EffectFormBuilder
                 .Create()
                 .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
+                .SetCreatedBy(false, false)
                 .Build());
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowAcid, 14, 18,
             HandXbowPrimed,
@@ -608,6 +614,7 @@ internal static class CustomWeaponsContext
             EffectFormBuilder
                 .Create()
                 .SetDamageForm(DamageTypeFire, 1, DieType.D8)
+                .SetCreatedBy(false, false)
                 .Build());
         flame.staticProperties.Add(
             BuildFrom(

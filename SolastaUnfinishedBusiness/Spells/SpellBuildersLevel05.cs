@@ -162,7 +162,7 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeFire, 4, DieType.D6)
-                    .SetCreatedByCondition()
+                    .SetCreatedBy()
                     .Build())
             .AddToDB();
 
