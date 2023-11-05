@@ -906,8 +906,12 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class ModifyWeaponAttackModeFeatCleavingAttack : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeFeatCleavingAttack :
+        IModifyWeaponAttackMode, IPhysicalAttackInitiatedByMe
     {
+        private const int ToHit = -5;
+        private const int ToDamage = +10;
+
         private readonly FeatDefinition _featDefinition;
 
         public ModifyWeaponAttackModeFeatCleavingAttack(FeatDefinition featDefinition)
@@ -922,6 +926,9 @@ internal static class MeleeCombatFeats
                 return;
             }
 
+            attackMode.ToHitBonus += ToHit;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(ToHit, FeatureSourceType.Feat,
+                _featDefinition.Name, _featDefinition));
             var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
@@ -929,16 +936,41 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            const int TO_HIT = -5;
-            const int TO_DAMAGE = +10;
-
-            attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat,
+            damage.BonusDamage += ToDamage;
+            damage.DamageBonusTrends.Add(new TrendInfo(ToDamage, FeatureSourceType.Feat,
                 _featDefinition.Name, _featDefinition));
+        }
 
-            damage.BonusDamage += TO_DAMAGE;
-            damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat,
-                _featDefinition.Name, _featDefinition));
+
+        // this is required to handle thrown scenarios
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var isCleavingAttackValid = ValidateCleavingAttack(attackMode, true);
+
+            if (isCleavingAttackValid)
+            {
+                yield break;
+            }
+
+            attackModifier.AttacktoHitTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            attackMode.ToHitBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            attackMode.ToHitBonus += ToHit;
+
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                yield break;
+            }
+
+            damageForm.DamageBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            damageForm.BonusDamage -= ToDamage;
         }
     }
 
@@ -1642,8 +1674,9 @@ internal static class MeleeCombatFeats
         return featPowerAttack;
     }
 
-    private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode, IPhysicalAttackInitiatedByMe
     {
+        private const int ToHit = 3;
         private readonly FeatDefinition _featDefinition;
 
         public ModifyWeaponAttackModeFeatPowerAttack(FeatDefinition featDefinition)
@@ -1658,24 +1691,59 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var toDamage = ToHit + proficiency;
+
+            attackMode.ToHitBonus -= ToHit;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(-ToHit, FeatureSourceType.Feat, _featDefinition.Name,
+                _featDefinition));
+
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null)
             {
                 return;
             }
 
-            const int TO_HIT = -3;
-            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var toDamage = 3 + proficiency;
-
-            attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat, _featDefinition.Name,
-                _featDefinition));
-
             damage.BonusDamage += toDamage;
             damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, _featDefinition.Name,
                 _featDefinition));
+        }
+
+        // this is required to handle thrown scenarios
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var isMelee = ValidatorsWeapon.IsMelee(attackMode);
+            var isUnarmed = ValidatorsWeapon.IsUnarmed(attackMode);
+            var isPowerAttackValid = isMelee || isUnarmed;
+
+            if (isPowerAttackValid)
+            {
+                yield break;
+            }
+
+            attackModifier.AttacktoHitTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            attackMode.ToHitBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            attackMode.ToHitBonus += ToHit;
+
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                yield break;
+            }
+
+            var proficiency = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var toDamage = ToHit + proficiency;
+
+            damageForm.DamageBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
+            damageForm.BonusDamage -= toDamage;
         }
     }
 

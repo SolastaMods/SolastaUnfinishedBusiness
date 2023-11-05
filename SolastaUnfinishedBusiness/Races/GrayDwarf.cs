@@ -1,4 +1,6 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -155,7 +157,7 @@ internal static class SubraceGrayDwarfBuilder
         return raceGrayDwarf;
     }
 
-    private sealed class AdditionalDamageGrayDwarfStoneStrength : IModifyWeaponAttackMode
+    private sealed class AdditionalDamageGrayDwarfStoneStrength : IModifyWeaponAttackMode, IPhysicalAttackInitiatedByMe
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
@@ -179,7 +181,31 @@ internal static class SubraceGrayDwarfBuilder
                 .SetDamageForm(damage.damageType, 1, DieType.D4)
                 .Build();
 
+            additionalDice.dcModifier = Int32.MinValue; // mark this damage form if we need to remove later
             effectDescription.EffectForms.Insert(k + 1, additionalDice);
+        }
+
+        // this is required to handle thrown scenarios
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            var isStrength = attackMode.abilityScore == AttributeDefinitions.Strength;
+            var isMelee = ValidatorsWeapon.IsMelee(attackMode);
+            var isUnarmed = ValidatorsWeapon.IsUnarmed(attackMode);
+            var isStoneStrengthValid = isStrength && (isMelee || isUnarmed);
+
+            if (isStoneStrengthValid)
+            {
+                yield break;
+            }
+
+            // remove marked damage form as it's a thrown attack
+            attackMode.EffectDescription.EffectForms.RemoveAll(x => x.dcModifier == Int32.MinValue);
         }
     }
 }
