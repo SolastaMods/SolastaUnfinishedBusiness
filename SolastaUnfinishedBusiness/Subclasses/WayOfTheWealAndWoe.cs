@@ -190,7 +190,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
-                        null,
+                        _conditionWeal.Name,
                         0,
                         0,
                         0);

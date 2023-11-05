@@ -297,7 +297,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                conditionDamage.Name,
                 0,
                 0,
                 0);
@@ -680,7 +680,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);
@@ -899,7 +899,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionCleavingAttackFinish.Name,
                 0,
                 0,
                 0);
@@ -1073,7 +1073,7 @@ internal static class MeleeCombatFeats
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    null,
+                    _criticalConditionDefinition.Name,
                     0,
                     0,
                     0);
@@ -1237,7 +1237,7 @@ internal static class MeleeCombatFeats
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionBypassResistance.Name,
                 0,
                 0,
                 0);
@@ -1868,7 +1868,7 @@ internal static class MeleeCombatFeats
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionDefinition.Name,
                     0,
                     0,
                     0);
@@ -1888,7 +1888,7 @@ internal static class MeleeCombatFeats
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _criticalConditionDefinition.Name,
                 0,
                 0,
                 0);

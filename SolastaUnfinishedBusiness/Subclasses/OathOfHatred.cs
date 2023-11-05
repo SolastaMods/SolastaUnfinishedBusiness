@@ -246,7 +246,7 @@ public sealed class OathOfHatred : AbstractSubclass
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDauntlessPursuerAfterAttack.Name,
                 0,
                 0,
                 0);

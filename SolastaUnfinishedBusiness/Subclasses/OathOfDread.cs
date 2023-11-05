@@ -340,7 +340,7 @@ public sealed class OathOfDread : AbstractSubclass
             caster.guid,
             caster.CurrentFaction.Name,
             1,
-            null,
+            ConditionAspectOfDreadEnemy.Name,
             0,
             0,
             0);
@@ -390,7 +390,7 @@ public sealed class OathOfDread : AbstractSubclass
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                CustomConditionsContext.StopMovement.Name,
                 0,
                 0,
                 0);

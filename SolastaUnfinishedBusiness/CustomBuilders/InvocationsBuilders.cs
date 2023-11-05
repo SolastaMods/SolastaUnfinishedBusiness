@@ -1112,7 +1112,7 @@ internal static class InvocationsBuilders
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);
@@ -1517,7 +1517,7 @@ internal static class InvocationsBuilders
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                null,
+                _conditionTombOfFrostLazy.Name,
                 0,
                 0,
                 0);
@@ -1560,7 +1560,7 @@ internal static class InvocationsBuilders
                 target.Guid,
                 target.CurrentFaction.Name,
                 1,
-                null,
+                _conditionTombOfFrost.Name,
                 0,
                 0,
                 0);

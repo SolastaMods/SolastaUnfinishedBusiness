@@ -31,8 +31,8 @@ internal class CharacterActionWildlingFeralAgility : CharacterAction
             AttributeDefinitions.TagCombat,
             rulesetCharacter.Guid,
             rulesetCharacter.CurrentFaction.Name,
-            0,
-            string.Empty,
+            1,
+            RaceWildlingBuilder.ConditionWildlingAgileName,
             0,
             0,
             0);
@@ -45,8 +45,8 @@ internal class CharacterActionWildlingFeralAgility : CharacterAction
             AttributeDefinitions.TagCombat,
             rulesetCharacter.Guid,
             rulesetCharacter.CurrentFaction.Name,
-            0,
-            string.Empty,
+            1,
+            RaceWildlingBuilder.ConditionWildlingTiredName,
             0,
             0,
             0);

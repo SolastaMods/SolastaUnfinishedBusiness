@@ -245,7 +245,7 @@ internal static class CustomConditionsContext
                 source.guid,
                 target.CurrentFaction.Name,
                 1,
-                null,
+                rulesetCondition.effectDefinitionName,
                 0,
                 0,
                 0);
@@ -280,7 +280,7 @@ internal static class CustomConditionsContext
                 source.guid,
                 target.CurrentFaction.Name,
                 1,
-                null,
+                "ConditionFlightSuspendedConcentrationTracker",
                 0,
                 0,
                 0);

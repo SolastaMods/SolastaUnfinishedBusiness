@@ -634,7 +634,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    null,
+                    CustomConditionsContext.StopMovement.Name,
                     0,
                     0,
                     0);

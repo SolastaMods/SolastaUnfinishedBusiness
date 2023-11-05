@@ -268,7 +268,7 @@ internal static class EldritchVersatility
             sourceCharacter.guid,
             sourceCharacter.CurrentFaction.Name,
             1,
-            null,
+            condition.Name,
             0,
             0,
             0);

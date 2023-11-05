@@ -421,7 +421,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionDiscordance.Name,
                     0,
                     0,
                     0);

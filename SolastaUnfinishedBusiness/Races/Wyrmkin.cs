@@ -277,7 +277,7 @@ internal static class RaceWyrmkinBuilder
                 character.guid,
                 character.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);
@@ -321,7 +321,7 @@ internal static class RaceWyrmkinBuilder
                 character.guid,
                 character.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);

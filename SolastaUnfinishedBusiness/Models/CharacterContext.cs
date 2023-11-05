@@ -1794,7 +1794,7 @@ internal static class CharacterContext
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _conditionReduceSneakDice.Name,
                 _selectedPower.CostPerUse,
                 0,
                 0);
@@ -1868,7 +1868,7 @@ internal static class CharacterContext
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDazedOnlyMovement.Name,
                 0,
                 0,
                 0);

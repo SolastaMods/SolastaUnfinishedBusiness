@@ -358,7 +358,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
-                        null,
+                        _conditionGiftOfTheWindAttacked.Name,
                         0,
                         0,
                         0);

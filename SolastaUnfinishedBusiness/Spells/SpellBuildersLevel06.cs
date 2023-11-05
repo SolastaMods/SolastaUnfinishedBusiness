@@ -192,8 +192,8 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.TagEffect,
                 target.guid,
                 target.CurrentFaction.Name,
-                0,
-                null,
+                1,
+                _conditionExhausted.Name,
                 0,
                 0,
                 0);

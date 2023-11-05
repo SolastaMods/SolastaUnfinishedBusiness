@@ -948,7 +948,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                debuff.Name,
                 0,
                 0,
                 0);

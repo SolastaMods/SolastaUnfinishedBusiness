@@ -647,7 +647,7 @@ public sealed class MartialMarshal : AbstractSubclass
                 rulesetMe.guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                null,
+                $"{ConditionMarshalKnowledgeableDefenseACName}{level}",
                 0,
                 0,
                 0);

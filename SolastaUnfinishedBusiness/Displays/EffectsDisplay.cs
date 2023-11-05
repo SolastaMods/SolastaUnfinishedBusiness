@@ -215,7 +215,7 @@ internal static class EffectsDisplay
                             rulesetCharacter.guid,
                             rulesetCharacter.CurrentFaction.Name,
                             1,
-                            null,
+                            DummyCondition.Name,
                             0,
                             0,
                             0);

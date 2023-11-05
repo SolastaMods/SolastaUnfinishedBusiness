@@ -5,14 +5,14 @@
 - added Gameplay > General > 'Enable Light Sensitivity on Darkelf, Dark Kobold, and Gray Dwarf to only trigger outdoors'
 - added Gameplay > Rules > 'Remove school restrictions from Shadowcaster'
 - added Gameplay > Rules > 'Remove school restrictions from Spellblade'
+- fixed Circle of The Night primal strike feature to trigger with flurry of blows attacks
+- fixed Cleaving Attack, and Gray Dwarf Stone Strength to not trigger with thrown attacks
 - fixed Patron Mountain icebound soul always applying blind condition regardless of saving result
 - fixed Petal Storm, Way of The Dragon elemental breath, and Web effect proxy tooltips
+- fixed Pugilist fighting style to also deal additional damage while in wildshape form
+- fixed Ranger Lightbearer angelic form feature to trigger with flurry of blows attacks
 - fixed Rogue Elusive feature incorrectly set at level 19th instead of level 18th
 - fixed the alternate voting system causing a narrative sequence crash on official campaigns
-- improved Circle of The Night primal strike feature to trigger with flurry of blows attacks
-- improved Cleaving Attack, Power Attack, and Stone Strength to not trigger with thrown attacks
-- improved Pugilist fighting style to also deal additional damage while in wildshape form
-- improved Ranger Lightbearer angelic form feature to trigger with flurry of blows attacks
 
 1.5.94.31:
 

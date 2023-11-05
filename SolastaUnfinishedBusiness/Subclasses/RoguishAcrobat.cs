@@ -273,7 +273,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 rulesetMe.guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);

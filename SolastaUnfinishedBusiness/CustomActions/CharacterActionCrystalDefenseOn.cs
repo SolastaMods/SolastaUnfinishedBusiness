@@ -31,8 +31,8 @@ public class CharacterActionCrystalDefenseOn : CharacterAction
             AttributeDefinitions.TagStatus,
             rulesetCharacter.Guid,
             rulesetCharacter.CurrentFaction.Name,
-            0,
-            string.Empty,
+            1,
+            RaceWyrmkinBuilder.ConditionCrystalDefenseName,
             0,
             0,
             0);

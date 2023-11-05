@@ -205,7 +205,7 @@ public class CustomRagingAura :
                     sourceCharacter.guid,
                     sourceCharacter.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionDefinition.Name,
                     0,
                     0,
                     0);
@@ -232,7 +232,7 @@ public class CustomRagingAura :
                     sourceCharacter.guid,
                     sourceCharacter.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionDefinition.Name,
                     0,
                     0,
                     0);

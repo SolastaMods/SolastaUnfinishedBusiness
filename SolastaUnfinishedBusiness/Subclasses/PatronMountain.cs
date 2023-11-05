@@ -345,7 +345,7 @@ public class PatronMountain : AbstractSubclass
                 rulesetMe.Guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                null,
+                _conditionDefinition.Name,
                 0,
                 0,
                 0);

@@ -592,7 +592,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             rulesetAttacker.guid,
             rulesetAttacker.CurrentFaction.Name,
             1,
-            null,
+            arcaneArcherData.DebuffCondition.Name,
             0,
             0,
             0);

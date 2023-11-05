@@ -268,7 +268,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
-                        null,
+                        _conditionBladeSurge.Name,
                         0,
                         0,
                         0);
@@ -299,7 +299,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _conditionBladeMark.Name,
                 0,
                 0,
                 0);

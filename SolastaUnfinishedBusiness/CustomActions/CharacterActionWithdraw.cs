@@ -31,8 +31,8 @@ public class CharacterActionWithdraw : CharacterAction
                 AttributeDefinitions.TagCombat,
                 ActingCharacter.RulesetCharacter.Guid,
                 ActingCharacter.RulesetCharacter.CurrentFaction.Name,
-                0,
-                string.Empty,
+                1,
+                ConditionDisengaging,
                 0,
                 0,
                 0);

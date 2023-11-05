@@ -1088,8 +1088,8 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.TagEffect,
                 target.guid,
                 target.CurrentFaction.Name,
-                0,
-                null,
+                1,
+                _conditionStrikeWithTheWindMovement.Name,
                 0,
                 0,
                 0);
@@ -1429,7 +1429,7 @@ internal static partial class SpellBuilders
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                null,
+                _conditionReduceDamage.Name,
                 0,
                 0,
                 0);

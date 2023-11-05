@@ -272,7 +272,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 unitCharacter.guid,
                 unitCharacter.CurrentFaction.Name,
                 1,
-                null,
+                ConditionShielded.Name,
                 0,
                 0,
                 0);

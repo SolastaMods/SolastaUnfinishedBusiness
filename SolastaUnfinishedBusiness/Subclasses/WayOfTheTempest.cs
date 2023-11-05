@@ -282,7 +282,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                ConditionDisengaging,
                 0,
                 0,
                 0);

@@ -820,8 +820,8 @@ internal static partial class SpellBuilders
                         AttributeDefinitions.TagCombat,
                         caster.guid,
                         caster.CurrentFaction.Name,
-                        0,
-                        null,
+                        1,
+                        condition.Name,
                         0,
                         0,
                         0));

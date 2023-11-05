@@ -131,7 +131,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
                 attacker.RulesetCharacter.guid,
                 attacker.RulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _condition.Name,
                 0,
                 0,
                 0);

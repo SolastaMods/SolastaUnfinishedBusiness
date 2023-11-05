@@ -308,7 +308,7 @@ public sealed class OathOfAncients : AbstractSubclass
             caster.guid,
             caster.CurrentFaction.Name,
             1,
-            null,
+            ConditionElderChampionEnemy.Name,
             0,
             0,
             0);
@@ -343,7 +343,7 @@ public sealed class OathOfAncients : AbstractSubclass
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                null,
+                _conditionWardingAura.Name,
                 0,
                 0,
                 0);
@@ -387,7 +387,7 @@ public sealed class OathOfAncients : AbstractSubclass
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                null,
+                _conditionElderChampionAdditionalAttack.Name,
                 0,
                 0,
                 0);

@@ -1236,7 +1236,7 @@ internal static partial class SpellBuilders
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                null,
+                _conditionCorruptingBolt.Name,
                 0,
                 0,
                 0);

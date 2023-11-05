@@ -320,7 +320,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionDefensiveWhirl.Name,
                     firstRoll,
                     0,
                     0);
@@ -342,7 +342,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    null,
+                    conditionDisengaging.Name,
                     0,
                     0,
                     0);
@@ -462,7 +462,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     attacker.RulesetCharacter.guid,
                     attacker.RulesetCharacter.CurrentFaction.Name,
                     1,
-                    null,
+                    _conditionExtraMovement.Name,
                     0,
                     0,
                     0);
