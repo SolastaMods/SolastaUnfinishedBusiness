@@ -864,7 +864,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (activeEffect != null || !ValidateCleavingAttack(attackMode))
+            if (!ValidateCleavingAttack(attackMode))
             {
                 yield break;
             }
@@ -906,8 +906,7 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class ModifyWeaponAttackModeFeatCleavingAttack :
-        IModifyWeaponAttackMode, IPhysicalAttackInitiatedByMe
+    private sealed class ModifyWeaponAttackModeFeatCleavingAttack : IModifyWeaponAttackMode
     {
         private const int ToHit = -5;
         private const int ToDamage = +10;
@@ -940,47 +939,14 @@ internal static class MeleeCombatFeats
             damage.DamageBonusTrends.Add(new TrendInfo(ToDamage, FeatureSourceType.Feat,
                 _featDefinition.Name, _featDefinition));
         }
-
-
-        // this is required to handle thrown scenarios
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            var isCleavingAttackValid = ValidateCleavingAttack(attackMode, true);
-
-            if (isCleavingAttackValid)
-            {
-                yield break;
-            }
-
-            attackModifier.AttacktoHitTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            attackMode.ToHitBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            attackMode.ToHitBonus += ToHit;
-
-            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
-            {
-                yield break;
-            }
-
-            damageForm.DamageBonusTrends.RemoveAll(x => x.sourceName == _featDefinition.Name);
-            damageForm.BonusDamage -= ToDamage;
-        }
     }
 
     private static bool ValidateCleavingAttack(RulesetAttackMode attackMode, bool validateHeavy = false)
     {
-        return !attackMode.Ranged &&
-               ValidatorsWeapon.IsMelee(attackMode) &&
+        return ValidatorsWeapon.IsMelee(attackMode) &&
                (!validateHeavy ||
-                ValidatorsWeapon.HasAnyWeaponTag(attackMode.SourceDefinition as ItemDefinition,
-                    TagsDefinitions.WeaponTagHeavy));
+                ValidatorsWeapon.HasAnyWeaponTag(
+                    attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy));
     }
 
     #endregion

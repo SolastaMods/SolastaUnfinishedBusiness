@@ -3,10 +3,9 @@
 - added Battleborn, Oni, and Wildling races [by otearaisu]
 - added Gameplay > General > 'Add Darkness Perceptive to Darkelf, Dark Kobold, and Gray Dwarf [perception checks adv]'
 - added Gameplay > General > 'Enable Light Sensitivity on Darkelf, Dark Kobold, and Gray Dwarf to only trigger outdoors'
-- added Gameplay > Rules > 'Remove school restrictions from Shadowcaster'
-- added Gameplay > Rules > 'Remove school restrictions from Spellblade'
+- added Gameplay > Rules > 'Remove school restrictions from Shadowcaster', 'Remove school restrictions from Spellblade'
 - fixed Circle of The Night primal strike feature to trigger with flurry of blows attacks
-- fixed Cleaving Attack, and Gray Dwarf Stone Strength to not trigger with thrown attacks
+- fixed Cleaving Attack and Power Attack not triggering with daggers, javelins, spears, etc.
 - fixed Patron Mountain icebound soul always applying blind condition regardless of saving result
 - fixed Petal Storm, Way of The Dragon elemental breath, and Web effect proxy tooltips
 - fixed Pugilist fighting style to also deal additional damage while in wildshape form
