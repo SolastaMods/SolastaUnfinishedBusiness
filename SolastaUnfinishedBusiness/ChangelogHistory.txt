@@ -6,6 +6,7 @@
 - added Gameplay > Rules > 'Remove school restrictions from Shadowcaster'
 - added Gameplay > Rules > 'Remove school restrictions from Spellblade'
 - fixed Patron Mountain icebound soul always applying blind condition regardless of saving result
+- fixed Petal Storm, Way of The Dragon elemental breath, and Web effect proxy tooltips
 - fixed Rogue Elusive feature incorrectly set at level 19th instead of level 18th
 - fixed the alternate voting system causing a narrative sequence crash on official campaigns
 - improved Circle of The Night primal strike feature to trigger with flurry of blows attacks

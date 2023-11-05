@@ -273,30 +273,31 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         var powerGreenElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGreen, $"Power{Name}ElementalBreathGreen")
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGreen)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDragonbornBreathWeaponGreen.EffectDescription)
                     .SetParticleEffectParameters(StinkingCloud)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                     .SetDurationData(DurationType.Round, 3)
-                    .AddEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonEffectProxyForm(
-                                EffectProxyDefinitionBuilder
-                                    .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
-                                    .AddToDB())
-                            .Build(),
-                        StinkingCloud.EffectDescription
-                            .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Dexterity,
                         false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                         AttributeDefinitions.Wisdom,
                         20)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(
+                                EffectProxyDefinitionBuilder
+                                    .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+                                    .SetOrUpdateGuiPresentation($"Power{Name}ElementalBreathGreen", Category.Feature)
+                                    .AddToDB())
+                            .Build(),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.SightImpaired, true),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true))
                     .Build())
             .AddToDB();
 

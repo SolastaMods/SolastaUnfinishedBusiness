@@ -693,6 +693,9 @@ internal static partial class DatabaseHelper
         internal static EffectProxyDefinition ProxyArcaneSword { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyArcaneSword");
 
+        internal static EffectProxyDefinition ProxyEntangle { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyEntangle");
+
         internal static EffectProxyDefinition ProxyGrease { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyGrease");
 
@@ -701,9 +704,6 @@ internal static partial class DatabaseHelper
 
         internal static EffectProxyDefinition ProxyInsectPlague { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyInsectPlague");
-
-        internal static EffectProxyDefinition ProxySpikeGrowth { get; } =
-            GetDefinition<EffectProxyDefinition>("ProxySpikeGrowth");
 
         internal static EffectProxyDefinition ProxyStinkingCloud { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyStinkingCloud");
