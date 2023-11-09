@@ -179,6 +179,7 @@ internal static class RaceImpBuilder
 
             yield return HandleImpishWrath(attacker,
                 defender,
+                new List<string>(),
                 rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
@@ -200,14 +201,16 @@ internal static class RaceImpBuilder
             yield return HandleImpishWrath(
                 attacker,
                 defender,
+                attackerAttackMode.attackTags,
                 attackerAttackMode.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
         private IEnumerator HandleImpishWrath(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            List<string> attackTags,
             string damageType = DamageTypeBludgeoning)
-        {
+        {   
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
@@ -279,11 +282,18 @@ internal static class RaceImpBuilder
                 position = defender.LocationPosition
             };
 
-            implementationService.ApplyEffectForms(
-                new List<EffectForm> { new() { damageForm = damageForm } },
+            RulesetActor.InflictDamage(
+                bonusDamage,
+                damageForm,
+                damageType,
                 applyFormsParams,
-                new List<string> { damageType },
-                out _,
+                rulesetDefender,
+                false,
+                attacker.Guid,
+                false,
+                attackTags,
+                new RollInfo(DieType.D1, new List<int>(), bonusDamage),
+                true,
                 out _);
         }
     }
