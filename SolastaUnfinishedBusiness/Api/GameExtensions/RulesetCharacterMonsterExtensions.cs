@@ -188,9 +188,8 @@ public static class RulesetCharacterMonsterExtensions
             {
                 Trace.LogException(new Exception("[Tactical - Invisible for players] attackModifier is null"));
             }
-            else if (hero != null
-                     && service.IsValidContextForAttackModificationProvider(attackModifier, hero, itemDefinition,
-                         weaponType, attackMode)
+            else if (service.IsValidContextForRestrictedContextProvider(
+                         attackModifier, monster, itemDefinition, attackMode.Ranged, attackMode, null)
                      && attackModifier.DamageRollModifierMethod != AttackModifierMethod.None)
             {
                 var num = attackModifier.DamageRollModifier;

@@ -872,7 +872,7 @@ public static class RulesetImplementationManagerPatcher
                 (provider.TriggerCondition != AttackModificationTriggerCondition.NotWearingArmorOrMageArmorOrShield ||
                  (!hero.IsWearingArmor() &&
                   !hero.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
-                  (!hero.IsWearingShield() || hero.HasMonkShieldExpert()))) &&
+                  (!hero.IsWearingShield() /* BEGIN PATCH */ || hero.HasMonkShieldExpert() /* END PATCH */))) &&
                 __instance.IsValidContextForRestrictedContextProvider(
                     provider, hero, itemDefinition, attackMode.Ranged, attackMode, null);
 
