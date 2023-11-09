@@ -1,4 +1,8 @@
-﻿1.5.94.32:
+﻿1.5.94.33:
+
+- fixed Air Elemental wildshape using strength instead of dexterity on flurry of blows unarmed attacks
+
+1.5.94.32:
 
 - added Battleborn, Oni, and Wildling races [by otearaisu]
 - added Gameplay > General > 'Add Darkness Perceptive to Darkelf, Dark Kobold, and Gray Dwarf [perception checks adv]'
