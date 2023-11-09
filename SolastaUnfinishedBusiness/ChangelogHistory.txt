@@ -1,5 +1,6 @@
 ﻿1.5.94.33:
 
+- added additional sample portraits [by Artyoan]
 - fixed Air Elemental wildshape using strength instead of dexterity on flurry of blows unarmed attacks
 - fixed Forest Imp wrath feature not considering attack tags like magical weapon, etc.
 
