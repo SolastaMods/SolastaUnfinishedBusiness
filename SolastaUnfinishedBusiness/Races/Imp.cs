@@ -210,7 +210,7 @@ internal static class RaceImpBuilder
             GameLocationCharacter defender,
             List<string> attackTags,
             string damageType = DamageTypeBludgeoning)
-        {   
+        {
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =

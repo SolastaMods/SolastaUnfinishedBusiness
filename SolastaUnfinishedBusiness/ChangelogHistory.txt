@@ -1,6 +1,7 @@
 ﻿1.5.94.33:
 
 - fixed Air Elemental wildshape using strength instead of dexterity on flurry of blows unarmed attacks
+- fixed Forest Imp wrath feature not considering attack tags like magical weapon, etc.
 
 1.5.94.32:
 
