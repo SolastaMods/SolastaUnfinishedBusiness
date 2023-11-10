@@ -61,6 +61,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
+        powerForestGuardianImprovedBarkWard.EffectDescription.EffectParticleParameters.impactParticleReference =
+            PowerPatronTreeExplosiveGrowth.EffectDescription.EffectParticleParameters.impactParticleReference;
+
         var powerForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SuperiorBarkWard")
             .SetGuiPresentationNoContent()
@@ -77,6 +80,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
+        powerForestGuardianSuperiorBarkWard.EffectDescription.EffectParticleParameters.impactParticleReference =
+            PowerPatronTreeExplosiveGrowth.EffectDescription.EffectParticleParameters.impactParticleReference;
+
         var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}BarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
@@ -90,6 +96,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .Build())
             .AddToDB();
+
+        powerSharedPoolForestGuardianBarkWard.EffectDescription.EffectParticleParameters.casterParticleReference =
+            SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}ImprovedBarkWard")
@@ -126,6 +135,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetOverriddenPower(powerSharedPoolForestGuardianBarkWard)
             .AddToDB();
 
+        powerSharedPoolForestGuardianImprovedBarkWard.EffectDescription.EffectParticleParameters
+                .casterParticleReference =
+            SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
+
         var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
@@ -160,6 +173,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .Build())
             .SetOverriddenPower(powerSharedPoolForestGuardianImprovedBarkWard)
             .AddToDB();
+
+        powerSharedPoolForestGuardianSuperiorBarkWard.EffectDescription.EffectParticleParameters
+                .casterParticleReference =
+            SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"CircleOfThe{Name}")

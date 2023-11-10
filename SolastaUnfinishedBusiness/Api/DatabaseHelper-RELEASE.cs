@@ -1809,6 +1809,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPatronTimekeeperTimeShift { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperTimeShift");
 
+        internal static FeatureDefinitionPower PowerPatronTreeExplosiveGrowth { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTreeExplosiveGrowth");
+
         internal static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight");
 
