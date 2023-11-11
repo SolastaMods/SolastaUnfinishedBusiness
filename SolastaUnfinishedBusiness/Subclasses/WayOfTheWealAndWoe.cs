@@ -252,14 +252,10 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             }
 
             var criticalSuccess = outcome == RollOutcome.CriticalSuccess;
-            var level = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
-            var dieType = level switch
-            {
-                >= 17 => DieType.D10,
-                >= 11 => DieType.D8,
-                >= 5 => DieType.D6,
-                _ => DieType.D4
-            };
+            var monkLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
+            var dieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
+                .DieTypeByRankTable
+                .Find(x => x.Rank == monkLevel).DieType;
             var rolls = new List<int>();
             var damageForm = new DamageForm
             {

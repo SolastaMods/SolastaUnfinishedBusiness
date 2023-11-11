@@ -30,17 +30,22 @@ public static class GameLocationBattleManagerPatcher
     {
         [UsedImplicitly]
         public static void Postfix(
-            GameLocationBattleManager __instance,
             ref bool __result,
             RulesetCharacter caster,
             RulesetUsablePower usablePower)
         {
-            //PATCH: ensure Zen Archer Hail of Arrows will only trigger Martial Arts once
+            //PATCH: ensure Zen Archer Hail of Arrows won't trigger PowerMonkMartialArts
             if (__result &&
-                usablePower.PowerDefinition == DatabaseHelper.FeatureDefinitionPowers.PowerMonkMartialArts &&
-                __instance.Battle.ActiveContender.UsedSpecialFeatures.ContainsKey(WayOfZenArchery.HailOfArrows))
+                usablePower.PowerDefinition == DatabaseHelper.FeatureDefinitionPowers.PowerMonkMartialArts)
             {
-                __result = false;
+                var currentAttackAction = Global.CurrentAttackAction;
+
+                if (currentAttackAction.Count > 0 &&
+                    currentAttackAction.Peek().ActionParams.AttackMode.AttackTags
+                        .Contains(WayOfZenArchery.HailOfArrows))
+                {
+                    __result = false;
+                }
             }
 
             //PATCH: support for `IValidatePowerUse` when trying to react with power 
