@@ -2,6 +2,7 @@
 
 - added additional sample portraits [by Artyoan, Thaladar]
 - added Way of Zen Archery subclass
+- changed Way of Discordance tides of chaos to give monk level temporary hit points
 - fixed Air Elemental wildshape using STR instead of DEX on flurry of blows attacks
 - fixed Forest Imp wrath feature not considering attack tags like magical weapon, etc.
 - improved Circle of The Forest Guardian bark ward effects
