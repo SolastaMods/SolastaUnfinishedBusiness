@@ -242,7 +242,7 @@ internal enum ExtraActionId
     CrystalDefenseOff = 9043,
     WildlingFeralAgility = 9044,
     ImpishWrathToggle = 9045,
-    PrioritizeAction
+    PrioritizeAction = 10000
 }
 
 #if false

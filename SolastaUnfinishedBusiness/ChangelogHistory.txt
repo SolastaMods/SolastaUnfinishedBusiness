@@ -1,4 +1,11 @@
-﻿1.5.94.32:
+﻿1.5.94.33:
+
+- added additional sample portraits [by Artyoan, Thaladar]
+- fixed Air Elemental wildshape using strength instead of dexterity on flurry of blows unarmed attacks
+- fixed Forest Imp wrath feature not considering attack tags like magical weapon, etc.
+- improved Circle of The Forest Guardian bark ward effects
+
+1.5.94.32:
 
 - added Battleborn, Oni, and Wildling races [by otearaisu]
 - added Gameplay > General > 'Add Darkness Perceptive to Darkelf, Dark Kobold, and Gray Dwarf [perception checks adv]'

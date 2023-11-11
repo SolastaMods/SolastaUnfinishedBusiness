@@ -36,6 +36,13 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
         return this;
     }
 
+    internal ActionDefinitionBuilder SetStealthBreakerBehavior(
+        ActionDefinitions.StealthBreakerBehavior stealthBreakerBehavior)
+    {
+        Definition.stealthBreakerBehavior = stealthBreakerBehavior;
+        return this;
+    }
+
     internal ActionDefinitionBuilder SetFormType(ActionDefinitions.ActionFormType form)
     {
         Definition.formType = form;
