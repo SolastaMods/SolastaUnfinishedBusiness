@@ -63,6 +63,7 @@ internal static class CreditsDisplay
         ("Vess", "QA, homebrew design [Innovation Vitriolist]"),
         ("Holic75", "spells, Bolgrif"),
         ("Artyoan", "pre-gen heroes and sample portraits"),
+        ("Thaladar", "sample portraits"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [feats, Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",
