@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -173,7 +172,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                         .SetSpecialInterruptions(
                             ConditionInterruption.BattleEnd,
                             ConditionInterruption.AnyBattleTurnEnd)
-                        .AddCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
+                        .AddCustomSubFeatures(new AddExtraFlurryOfArrowsAttack())
                         .AddToDB()))
             .SetShowCasting(false)
             .AddToDB();
@@ -181,9 +180,8 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
             .Create($"Feature{Name}KiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(
-                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, null,
-                    ValidatorsCharacter.HasBowWithoutArmor))
+            .AddCustomSubFeatures(new AddTagToWeaponWeaponAttack(
+                TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid, ValidatorsCharacter.HasBowWithoutArmor))
             .AddToDB();
 
         //
@@ -453,63 +451,6 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-    }
-
-    private sealed class AddFlurryOfArrowsAttacks : AddExtraAttackBase
-    {
-        private AddFlurryOfArrowsAttacks() :
-            base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield)
-        {
-        }
-
-        public static AddFlurryOfArrowsAttacks Mark { get; } = new();
-
-        protected override AttackModeOrder GetOrder(RulesetCharacter character)
-        {
-            return AttackModeOrder.Start;
-        }
-
-        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
-        {
-            if (character is not RulesetCharacterHero hero)
-            {
-                return null;
-            }
-
-            var mainHandItem = hero.GetMainWeapon();
-
-            // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
-            var strikeDefinition = mainHandItem?.ItemDefinition;
-
-#pragma warning disable IDE0270
-            if (strikeDefinition == null)
-#pragma warning restore IDE0270
-            {
-                strikeDefinition = hero.UnarmedStrikeDefinition;
-            }
-
-            if (!hero.IsMonkWeapon(strikeDefinition))
-            {
-                return null;
-            }
-
-            var attackModifiers = hero.attackModifiers;
-            var attackMode = hero.RefreshAttackMode(
-                ActionType,
-                strikeDefinition,
-                strikeDefinition.WeaponDescription,
-                ValidatorsCharacter.IsFreeOffhandVanilla(hero),
-                true,
-                EquipmentDefinitions.SlotTypeMainHand,
-                attackModifiers,
-                hero.FeaturesOrigin,
-                mainHandItem
-            );
-
-            attackMode.attacksNumber = 1;
-
-            return new List<RulesetAttackMode> { attackMode };
         }
     }
 }

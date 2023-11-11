@@ -48,7 +48,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new AddExtraAttackBaseFlurryOfArrows())
+            .AddCustomSubFeatures(new AddExtraFlurryOfArrowsAttack())
             .AddToDB();
 
         var featureFlurryOfArrows = FeatureDefinitionBuilder
@@ -66,9 +66,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
         var featureKiEmpoweredArrows = FeatureDefinitionBuilder
             .Create($"Feature{Name}KiEmpoweredArrows")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(
-                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, null,
-                    ValidatorsCharacter.HasBowWithoutArmor))
+            .AddCustomSubFeatures(new AddTagToWeaponWeaponAttack(
+                TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid, ValidatorsCharacter.HasBowWithoutArmor))
             .AddToDB();
 
         //
@@ -203,44 +202,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-    }
-
-    private sealed class AddExtraAttackBaseFlurryOfArrows : AddExtraAttackBase
-    {
-        public AddExtraAttackBaseFlurryOfArrows() :
-            base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield)
-        {
-        }
-
-        protected override AttackModeOrder GetOrder(RulesetCharacter character)
-        {
-            return AttackModeOrder.Start;
-        }
-
-        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
-        {
-            if (character is not RulesetCharacterHero hero || !ValidatorsCharacter.HasBowWithoutArmor(hero))
-            {
-                return null;
-            }
-
-            var mainHandItem = hero.GetMainWeapon();
-            var attackModifiers = hero.attackModifiers;
-            var attackMode = hero.RefreshAttackMode(
-                ActionType,
-                mainHandItem!.ItemDefinition,
-                mainHandItem.ItemDefinition.WeaponDescription,
-                false,
-                true,
-                EquipmentDefinitions.SlotTypeMainHand,
-                attackModifiers,
-                hero.FeaturesOrigin,
-                mainHandItem);
-
-            attackMode.attacksNumber = 1;
-
-            return new List<RulesetAttackMode> { attackMode };
         }
     }
 
