@@ -30,6 +30,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.MindSculptToggle,
         (Id)ExtraActionId.SupremeWillToggle,
+        (Id)ExtraActionId.ImpishWrathToggle,
         (Id)ExtraActionId.QuiveringPalmToggle // defined in sub class
     };
 

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
@@ -18,6 +20,9 @@ namespace SolastaUnfinishedBusiness.Races;
 internal static class RaceImpBuilder
 {
     private const string Name = "Imp";
+
+    private const ActionDefinitions.Id ImpishWrathToggle = (ActionDefinitions.Id)ExtraActionId.ImpishWrathToggle;
+
     internal static CharacterRaceDefinition RaceImp { get; } = BuildImp();
 
     [NotNull]
@@ -127,11 +132,38 @@ internal static class RaceImpBuilder
             .Create($"Power{NAME}ImpishWrath")
             .SetGuiPresentation(Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.Reaction)
+            .DelegatedToAction(true)
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
+        var toggle = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "ImpishWrathToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.ImpishWrathToggle)
+            .SetActivatedPower(powerImpForestImpishWrath)
+            .AddToDB();
+        toggle.parameter = ActionDefinitions.ActionParameter.ActivatePower;
+
+        var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle, "ActionAffinityImpishWrathToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions(ImpishWrathToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerImpForestImpishWrath)))
+            .AddToDB();
+        
         powerImpForestImpishWrath.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedImpishWrath(powerImpForestImpishWrath));
+            new AttackBeforeHitConfirmedImpishWrath(powerImpForestImpishWrath, actionAffinityImpishWrathToggle));
+
+        var featureSetImpForestImpishWrath = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}ImpishWrath")
+            .SetGuiPresentation(Category.Feature)
+            .SetFeatureSet(powerImpForestImpishWrath, actionAffinityImpishWrathToggle)
+            .AddToDB();
+
+        featureSetImpForestImpishWrath.guiPresentation.title = powerImpForestImpishWrath.guiPresentation.title;
+        featureSetImpForestImpishWrath.guiPresentation.description = powerImpForestImpishWrath.guiPresentation.description;
 
         var raceImpForest = CharacterRaceDefinitionBuilder
             .Create(raceImp, $"Race{NAME}")
@@ -139,7 +171,7 @@ internal static class RaceImpBuilder
             .SetFeaturesAtLevel(1,
                 featureSetImpForestAbilityScoreIncrease,
                 actionAffinityImpForestInnateCunning,
-                powerImpForestImpishWrath,
+                featureSetImpForestImpishWrath,
                 FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry)
             .AddToDB();
 
@@ -151,10 +183,13 @@ internal static class RaceImpBuilder
     private class AttackBeforeHitConfirmedImpishWrath : IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerPool;
+        private readonly FeatureDefinitionActionAffinity _actionAffinityImpishWrathToggle;
 
-        public AttackBeforeHitConfirmedImpishWrath(FeatureDefinitionPower powerPool)
+        public AttackBeforeHitConfirmedImpishWrath(FeatureDefinitionPower powerPool, 
+            FeatureDefinitionActionAffinity actionAffinityImpishWrathToggle)
         {
             _powerPool = powerPool;
+            _actionAffinityImpishWrathToggle = actionAffinityImpishWrathToggle;
         }
 
         public IEnumerator OnMagicalAttackFinishedByMe(
@@ -216,6 +251,13 @@ internal static class RaceImpBuilder
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            // check action affinity for backward compatibility
+            if (attacker.RulesetCharacter.HasAnyFeature(_actionAffinityImpishWrathToggle) &&
+                !attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
+            {
+                yield break;
+            }
 
             if (implementationService == null
                 || gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
