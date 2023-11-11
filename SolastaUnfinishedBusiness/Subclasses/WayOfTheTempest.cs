@@ -99,6 +99,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Action)
             .SetActionId(ExtraActionId.TempestFury)
             .SetActivatedPower(powerTempestFury, ActionDefinitions.ActionParameter.ActivatePower, false)
+            .SetStealthBreakerBehavior(ActionDefinitions.StealthBreakerBehavior.RollIfTargets)
             .OverrideClassName("UsePower")
             .AddToDB();
 

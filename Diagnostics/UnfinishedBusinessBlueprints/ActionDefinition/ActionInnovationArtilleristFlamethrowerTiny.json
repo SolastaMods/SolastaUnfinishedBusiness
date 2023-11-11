@@ -7,7 +7,7 @@
   "usesPerTurn": -1,
   "classNameOverride": "UsePower",
   "requiresAuthorization": true,
-  "stealthBreakerBehavior": "None",
+  "stealthBreakerBehavior": "RollIfTargets",
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
