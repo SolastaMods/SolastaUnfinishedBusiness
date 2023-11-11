@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -778,34 +779,33 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            TryGetAncestryDamageTypeFromCharacter(
-                defender.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon, out var damageType);
-
-            var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
-
-            var damageInt = classLevel switch
+            if (!TryGetAncestryDamageTypeFromCharacter(
+                    defender.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon, out var damageType))
             {
-                <= 4 => 8,
-                <= 10 => 12,
-                <= 16 => 16,
-                <= 20 => 20,
-                _ => 0
-            };
+                yield break;
+            }
+
+            var dieType = rulesetCharacter.GetMonkDieType();
+            var rolls = new List<int>();
 
             switch (damageType)
             {
-                case null:
-                    yield break;
+                //
+                // ACID
+                //
+
                 case DamageTypeAcid when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
                     ConditionAcidArrowed.Name):
                 {
                     var damageForm = new DamageForm
                     {
-                        DamageType = DamageTypeAcid, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
+                        DamageType = DamageTypeAcid, DieType = dieType, DiceNumber = 2, BonusDamage = 0
                     };
+                    var damageRoll =
+                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     RulesetActor.InflictDamage(
-                        damageInt,
+                        damageRoll,
                         damageForm,
                         DamageTypeAcid,
                         new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
@@ -814,28 +814,33 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         rulesetAttacker.Guid,
                         false,
                         attackerAttackMode.AttackTags,
-                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        new RollInfo(dieType, rolls, 0),
                         true,
                         out _);
+                    EffectHelpers.StartVisualEffect(attacker, defender, PowerDragonbornBreathWeaponBlack);
 
                     yield break;
                 }
                 case DamageTypeAcid:
                     ApplyCondition(attacker.RulesetCharacter, ConditionAcidArrowed);
                     yield break;
+
+                //
+                // LIGHTNING
+                //
+
                 case DamageTypeLightning when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
                     ConditionShocked.Name):
                 {
                     var damageForm = new DamageForm
                     {
-                        DamageType = DamageTypeLightning,
-                        DieType = DieType.D1,
-                        DiceNumber = 0,
-                        BonusDamage = damageInt
+                        DamageType = DamageTypeLightning, DieType = dieType, DiceNumber = 2, BonusDamage = 0
                     };
+                    var damageRoll =
+                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     RulesetActor.InflictDamage(
-                        damageInt,
+                        damageRoll,
                         damageForm,
                         DamageTypeLightning,
                         new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
@@ -844,25 +849,33 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         rulesetAttacker.Guid,
                         false,
                         attackerAttackMode?.AttackTags,
-                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        new RollInfo(dieType, rolls, 0),
                         true,
                         out _);
+                    EffectHelpers.StartVisualEffect(attacker, defender, PowerDragonbornBreathWeaponBlue);
 
                     yield break;
                 }
                 case DamageTypeLightning:
                     ApplyCondition(attacker.RulesetCharacter, ConditionShocked);
                     yield break;
+
+                //
+                // FIRE
+                //
+
                 case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
                     ConditionOnFire.Name):
                 {
                     var damageForm = new DamageForm
                     {
-                        DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
+                        DamageType = DamageTypeFire, DieType = dieType, DiceNumber = 2, BonusDamage = 0
                     };
+                    var damageRoll =
+                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     RulesetActor.InflictDamage(
-                        damageInt,
+                        damageRoll,
                         damageForm,
                         DamageTypeFire,
                         new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
@@ -871,25 +884,33 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         rulesetAttacker.Guid,
                         false,
                         attackerAttackMode.AttackTags,
-                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        new RollInfo(dieType, rolls, 0),
                         true,
                         out _);
+                    EffectHelpers.StartVisualEffect(attacker, defender, PowerDragonbornBreathWeaponGold);
 
                     yield break;
                 }
                 case DamageTypeFire:
                     ApplyCondition(attacker.RulesetCharacter, ConditionOnFire);
                     yield break;
+
+                //
+                // POISON
+                //
+
                 case DamageTypePoison when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
                     ConditionDefinitions.ConditionPoisoned.Name):
                 {
                     var damageForm = new DamageForm
                     {
-                        DamageType = DamageTypePoison, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
+                        DamageType = DamageTypePoison, DieType = dieType, DiceNumber = 2, BonusDamage = 0
                     };
+                    var damageRoll =
+                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     RulesetActor.InflictDamage(
-                        damageInt,
+                        damageRoll,
                         damageForm,
                         DamageTypePoison,
                         new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
@@ -898,25 +919,33 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         rulesetAttacker.Guid,
                         false,
                         attackerAttackMode.AttackTags,
-                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        new RollInfo(dieType, rolls, 0),
                         true,
                         out _);
+                    EffectHelpers.StartVisualEffect(attacker, defender, PowerDragonbornBreathWeaponGreen);
 
                     yield break;
                 }
                 case DamageTypePoison:
                     ApplyCondition(attacker.RulesetCharacter, ConditionDefinitions.ConditionPoisoned);
                     yield break;
+
+                //
+                // COLD
+                //
+
                 case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
                     ConditionHindered_By_Frost.Name):
                 {
                     var damageForm = new DamageForm
                     {
-                        DamageType = DamageTypeCold, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
+                        DamageType = DamageTypeCold, DieType = dieType, DiceNumber = 2, BonusDamage = 0
                     };
+                    var damageRoll =
+                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     RulesetActor.InflictDamage(
-                        damageInt,
+                        damageRoll,
                         damageForm,
                         DamageTypeCold,
                         new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
@@ -925,9 +954,10 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         rulesetAttacker.Guid,
                         false,
                         attackerAttackMode.AttackTags,
-                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        new RollInfo(dieType, rolls, 0),
                         true,
                         out _);
+                    EffectHelpers.StartVisualEffect(attacker, defender, PowerDragonbornBreathWeaponSilver);
 
                     yield break;
                 }

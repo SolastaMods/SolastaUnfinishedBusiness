@@ -78,7 +78,7 @@
         "saveOccurence": "EndOfTurn",
         "temporaryHitPointsForm": {
           "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 1,
+          "diceNumber": 0,
           "dieType": "D4",
           "bonusHitPoints": 0,
           "applyToSelf": true
