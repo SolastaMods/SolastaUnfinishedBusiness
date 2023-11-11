@@ -42,6 +42,16 @@ internal static class RulesetCharacterExtensions
         return hero.GetClassLevel(klass);
     }
 
+    internal static DieType GetMonkDieType(this RulesetCharacter character)
+    {
+        var monkLevel = character.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk);
+        var dieType = DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
+            .DieTypeByRankTable
+            .Find(x => x.Rank == monkLevel).DieType;
+
+        return dieType;
+    }
+
     internal static RulesetItem GetMainWeapon(this RulesetCharacter hero)
     {
         return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
