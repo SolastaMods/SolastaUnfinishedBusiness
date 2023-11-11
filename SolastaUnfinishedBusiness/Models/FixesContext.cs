@@ -560,15 +560,42 @@ internal static class FixesContext
                 yield break;
             }
 
-            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            // ensure Zen Archer Hail of Arrows won't trigger stunning strike without ki points
+            if (attackMode.AttackTags.Contains(WayOfZenArchery.HailOfArrows))
+            {
+                var hasTab = attacker.UsedSpecialFeatures.TryGetValue(WayOfZenArchery.HailOfArrows, out var attacks);
+
+                if (hasTab)
+                {
+                    attacker.UsedSpecialFeatures[WayOfZenArchery.HailOfArrows] += 1;
+                }
+                else
+                {
+                    attacker.UsedSpecialFeatures.Add(WayOfZenArchery.HailOfArrows, 1);
+                }
+
+                if (rulesetAttacker.RemainingKiPoints - attacks <= 0)
+                {
+                    yield break;
+                }
+            }
+
+            if (!rulesetAttacker.IsToggleEnabled(ActionDefinitions.Id.StunningStrikeToggle))
             {
                 yield break;
             }
 
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-            var wayOfTheDistantHandLevels = rulesetAttacker.GetSubclassLevel(Monk, "WayOfTheDistantHand");
+            var wayOfZenArcheryLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfZenArchery.Name);
+            var wayOfTheDistantHandLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfTheDistantHand.Name);
 
-            if (!ValidatorsWeapon.IsMelee(attackMode) && wayOfTheDistantHandLevels < 11)
+            // Zen Archery get stunning strike with bows at 6 and Distant Hand with bows at 11
+            if (!ValidatorsWeapon.IsMelee(attackMode) &&
+                (wayOfZenArcheryLevels < WayOfZenArchery.StunningStrikeWithBowAllowedLevel ||
+                 !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)) &&
+                (wayOfTheDistantHandLevels < WayOfTheDistantHand.StunningStrikeWithBowAllowedLevel ||
+                 !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)))
             {
                 yield break;
             }

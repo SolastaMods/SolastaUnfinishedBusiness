@@ -18,7 +18,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class WayOfTheDistantHand : AbstractSubclass
 {
-    private const string ZenArrowTag = "ZenArrow";
+    internal const string Name = "WayOfTheDistantHand";
+    internal const int StunningStrikeWithBowAllowedLevel = 11;
 
     public WayOfTheDistantHand()
     {
@@ -30,28 +31,24 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
 
         var featureWayOfTheDistantHandCombat =
             FeatureDefinitionBuilder
-                .Create("FeatureWayOfTheDistantHandCombat")
+                .Create($"Feature{Name}Combat")
                 .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(
                     new CustomLevelUpLogicWayOfTheDistantHandCombat(),
-                    new RangedAttackInMeleeDisadvantageRemover(
-                        ValidatorsWeapon.IsZenArrowAttack,
-                        ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
-                    new AddTagToWeaponWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
+                    new RangedAttackInMeleeDisadvantageRemover(ValidatorsCharacter.HasBowWithoutArmor))
                 .AddToDB();
 
         // ZEN ARROW
 
         var powerWayOfTheDistantHandZenArrowTechnique = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandZenArrowTechnique")
+            .Create($"Power{Name}ZenArrowTechnique")
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .AddCustomSubFeatures(
                 IsPowerPool.Marker,
-                new RestrictReactionAttackMode((_, attacker, _, attackMode, _) =>
-                    attackMode != null &&
-                    attackMode.AttackTags.Contains(ZenArrowTag) &&
+                new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) &&
                     attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -61,7 +58,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowProne = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandZenArrowProne")
+            .Create($"Power{Name}ZenArrowProne")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
@@ -86,7 +83,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowPush = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandZenArrowPush")
+            .Create($"Power{Name}ZenArrowPush")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
@@ -111,7 +108,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandZenArrowDistract")
+            .Create($"Power{Name}ZenArrowDistract")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
@@ -131,15 +128,15 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
-                                    .Create("ConditionWayOfTheDistantHandDistract")
+                                    .Create($"Condition{Name}Distract")
                                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                                     .SetConditionType(ConditionType.Detrimental)
                                     .SetSpecialDuration(DurationType.Round, 1)
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                     .SetFeatures(
                                         FeatureDefinitionCombatAffinityBuilder
-                                            .Create("CombatAffinityWayOfTheDistantHandDistract")
-                                            .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract",
+                                            .Create($"CombatAffinity{Name}Distract")
+                                            .SetGuiPresentation($"Power{Name}ZenArrowDistract",
                                                 Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                             .AddToDB())
@@ -162,14 +159,14 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         //
 
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
+            .Create($"Power{Name}ZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .AddCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 new UpgradeFlurry(
                     ConditionDefinitionBuilder
-                        .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
+                        .Create($"Condition{Name}AttackedWithMonkWeapon")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
@@ -182,10 +179,11 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         var wayOfDistantHandsKiPoweredArrows = FeatureDefinitionBuilder
-            .Create("FeatureWayOfTheDistantHandKiPoweredArrows")
+            .Create($"Feature{Name}KiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
-                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.IsZenArrowAttack))
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, null,
+                    ValidatorsCharacter.HasBowWithoutArmor))
             .AddToDB();
 
         //
@@ -193,23 +191,22 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         //
 
         var wayOfDistantHandsZenArcherStunningArrows = FeatureDefinitionBuilder
-            .Create("FeatureWayOfTheDistantHandZenArcherStunningArrows")
+            .Create($"Feature{Name}ZenArcherStunningArrows")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         // UPGRADE ZEN ARROW
 
         var powerWayOfTheDistantHandZenArrowUpgradedTechnique = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandZenArrowUpgradedTechnique")
+            .Create($"Power{Name}ZenArrowUpgradedTechnique")
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .AddCustomSubFeatures(
                 IsPowerPool.Marker,
-                new RestrictReactionAttackMode((_, attacker, _, attackMode, _) =>
-                    attackMode != null &&
-                    attackMode.AttackTags.Contains(ZenArrowTag) &&
+                new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) &&
                     attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -219,7 +216,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowUpgradedProne = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandZenArrowUpgradedProne")
+            .Create($"Power{Name}ZenArrowUpgradedProne")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
@@ -244,14 +241,14 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
-                                    .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
+                                    .Create($"Condition{Name}ZenArrowUpgradedSlow")
                                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
                                     .SetConditionType(ConditionType.Detrimental)
                                     .SetSpecialDuration(DurationType.Round, 1)
                                     .SetFeatures(
                                         FeatureDefinitionMovementAffinityBuilder
-                                            .Create("MovementAffinityWayOfTheDistantHandUpgradedSlow")
-                                            .SetGuiPresentation("ConditionWayOfTheDistantHandZenArrowUpgradedSlow",
+                                            .Create($"MovementAffinity{Name}UpgradedSlow")
+                                            .SetGuiPresentation($"Condition{Name}ZenArrowUpgradedSlow",
                                                 Category.Condition, Gui.NoLocalization)
                                             .SetBaseSpeedMultiplicativeModifier(0)
                                             .AddToDB())
@@ -262,7 +259,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedPush = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandUpgradedPush")
+            .Create($"Power{Name}UpgradedPush")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
@@ -287,7 +284,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedDistract = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfTheDistantHandUpgradedDistract")
+            .Create($"Power{Name}UpgradedDistract")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
@@ -307,14 +304,14 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
-                                    .Create("ConditionWayOfTheDistantHandUpgradedDistract")
+                                    .Create($"Condition{Name}UpgradedDistract")
                                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                                     .SetConditionType(ConditionType.Detrimental)
                                     .SetSpecialDuration(DurationType.Round, 1)
                                     .SetFeatures(
                                         FeatureDefinitionCombatAffinityBuilder
-                                            .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
-                                            .SetGuiPresentation("PowerWayOfTheDistantHandUpgradedDistract",
+                                            .Create($"CombatAffinity{Name}UpgradedDistract")
+                                            .SetGuiPresentation($"Power{Name}UpgradedDistract",
                                                 Category.Feature, Gui.NoLocalization)
                                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                             .AddToDB())
@@ -336,7 +333,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         //
 
         var attackModifierWayOfTheDistantHandUnseenEyes = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierWayOfTheDistantHandUnseenEyes")
+            .Create($"AttackModifier{Name}UnseenEyes")
             .SetGuiPresentation(Category.Feature)
             .SetDamageRollModifier(0, AttackModifierMethod.AddProficiencyBonus, AttributeDefinitions.Wisdom)
             .AddCustomSubFeatures(
@@ -349,9 +346,8 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         //
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WayOfTheDistantHand")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("WayOfTheDistantHand", Resources.WayOfTheDistantHand, 256))
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheDistantHand, 256))
             .AddFeaturesAtLevel(3,
                 GameUiContext.ActionAffinityMonkKiPointsToggle,
                 featureWayOfTheDistantHandCombat,
@@ -387,23 +383,10 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
-            var alreadyThere = !hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
                 "CustomInvocationMonkWeaponSpecializationShortbowType"));
-
-            // don't invert the order because of short circuit evaluation
-            alreadyThere = !hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
-                               "CustomInvocationMonkWeaponSpecializationLongbowType"))
-                           || alreadyThere;
-            alreadyThere = !hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
-                               "CustomInvocationMonkWeaponSpecializationCEHandXbowType"))
-                           || alreadyThere;
-
-            // grant a rapier if by any chance one of above weapons were already specialized in
-            if (alreadyThere)
-            {
-                hero.TrainedInvocations.TryAdd(
-                    GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationRapierType"));
-            }
+            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+                "CustomInvocationMonkWeaponSpecializationLongbowType"));
         }
 
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
@@ -524,7 +507,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                 mainHandItem
             );
 
-            attackMode.attacksNumber = 2;
+            attackMode.attacksNumber = 1;
 
             return new List<RulesetAttackMode> { attackMode };
         }

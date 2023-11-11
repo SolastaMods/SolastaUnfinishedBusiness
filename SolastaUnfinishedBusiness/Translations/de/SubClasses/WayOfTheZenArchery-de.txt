@@ -1,0 +1,12 @@
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Wann immer Sie die Funktion „Flurry of Blows“ verwenden, können Sie einen unbewaffneten Angriff durch einen Bogenangriff ersetzen.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Pfeilhagel
+Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ihre Bogenangriffe gelten als magisch, wenn es darum geht, Widerstand und Immunität gegenüber nicht-magischen Angriffen und Schaden zu überwinden. Sie können jetzt auch die Funktion „Atemberaubender Schlag“ bei Bogenangriffen nutzen.
+Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Ki-verstärkte Pfeile
+Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Du erhältst die Hälfte deines Fähigkeitsbonus (abgerundet) als Bonus auf alle Angriffs- und Schadenswürfe mit Bögen.
+Feature/&FeatureWayOfZenArcheryUnerringPrecisionTitle=Unfehlbare Präzision
+Feature/&PowerWayOfZenArcheryHailOfArrowsDescription=Du kannst deine Aktion nutzen und 3 Ki ausgeben, um eine Flut von Pfeilen abzufeuern. Sie führen einen Bogenangriff gegen jede feindliche Kreatur aus, die Sie in einem 45-Fuß-Kegel sehen können.
+Feature/&PowerWayOfZenArcheryHailOfArrowsTitle=Pfeilhagel
+Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=Sie beherrschen den Umgang mit Kurz- und Langbogen. Diese Waffen gelten für dich nun als Mönchswaffen. Sie erwerben außerdem Kenntnisse im Umgang mit Schmiedewerkzeugen.
+Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=Einer mit dem Bogen
+Subclass/&WayOfZenArcheryDescription=Eine Waffe ist eine Erweiterung von uns selbst und eine schlichte Wiedergabe desjenigen, der sie führt. Mönche des Weges des Zen-Bogenschießens wissen das gut. Die Schönheit und Präzision der Kampfkünste hat diesen Mönchen die Werkzeuge gegeben, mit denen sie die Waffe ihrer Wahl meistern können – den Bogen. Sie führen es mit unvergleichlicher Geschicklichkeit und zeigen mit jedem Zug an der Sehne ihre Meisterschaft im Bogenschießen.
+Subclass/&WayOfZenArcheryTitle=Weg des Zen-Bogenschießens

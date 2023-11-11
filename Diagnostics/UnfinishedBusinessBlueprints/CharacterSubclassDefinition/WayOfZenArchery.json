@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfZenArcheryFlurryOfArrows:aa397331-7988-5d0d-bfca-a75061378755",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWayOfZenArcheryOneWithTheBow:523a5d40-1c1f-517a-b44b-028d1e31f7a9",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfZenArcheryKiEmpoweredArrows:37998ef5-a3d4-5e28-ae5d-0a31bdfe6115",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureWayOfZenArcheryUnerringPrecision:cc60f69d-f5bd-590f-bf6c-e74f2c1af67f",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfZenArcheryHailOfArrows:b80f0451-b6ae-5cc8-96ad-e376adb76c79",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityWayOfZenArcheryHailOfArrows:695be6c6-8f66-5be9-9353-a935e0b70d61",
+      "level": 17
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WayOfZenArcheryTitle",
+    "description": "Subclass/&WayOfZenArcheryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b06ef32d-8f8a-55c2-885e-d115221a1041",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7de09d9e-4c86-5c18-a319-a2483a7b3ec4",
+  "contentPack": 9999,
+  "name": "WayOfZenArchery"
+}

@@ -1732,7 +1732,7 @@ Target must succeed Strength saving throw or be pushed 10 ft away from you.
 
 * Flurry of Arrows
 
-You can shoot your bow instead of performing unarmed strike granted by Flurry of Blows.
+Whenever you use your Flurry of Blows feature, you can replace one unarmed attack with a bow attack.
 
 * Ki-Empowered Arrows
 
@@ -1931,6 +1931,44 @@ After you make an attack roll with a monk weapon or a unarmed attack, and critic
 * Their Woe
 
 After you make an attack roll with a monk weapon or a unarmed attack, and critically miss, you instead deal the Woe damage to the target instead of yourself.
+
+
+
+## 7. Way of Zen Archery
+
+A weapon is an extension of oneself, and a plain rendition of the one that wields it. Monks of the Way of Zen Archery know this well. The beauty and precision of martial arts has given these monks the tools to master their weapon of choice – the bow. They wield it with peerless skill and display their mastery of archery with each pull of the string.
+
+
+### Level 3
+
+* Flurry of Arrows
+
+Whenever you use your Flurry of Blows feature, you can replace one unarmed attack with a bow attack.
+
+* One with the Bow
+
+You become proficient with shortbow and longbow. These weapons now count as monk weapons for you. You also gain proficiency with smithing tools.
+
+
+### Level 6
+
+* Ki-Empowered Arrows
+
+Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage, and you can now use your Stunning Strike feature with bow attacks.
+
+
+### Level 11
+
+* Unerring Precision
+
+You gain half your proficiency bonus (rounded down) as bonus to all attack and damage rolls with bows.
+
+
+### Level 17
+
+* Hail of Arrows
+
+You can use your action and spend 3 ki to fire a barrage of arrows. You make one bow attack against each enemy creature you can see in a 45-foot-cone.
 
 
 

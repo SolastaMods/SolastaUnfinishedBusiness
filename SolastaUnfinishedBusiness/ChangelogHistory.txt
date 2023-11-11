@@ -1,7 +1,8 @@
 ﻿1.5.94.33:
 
 - added additional sample portraits [by Artyoan, Thaladar]
-- fixed Air Elemental wildshape using strength instead of dexterity on flurry of blows unarmed attacks
+- added Way of Zen Archery subclass
+- fixed Air Elemental wildshape using STR instead of DEX on flurry of blows attacks
 - fixed Forest Imp wrath feature not considering attack tags like magical weapon, etc.
 - improved Circle of The Forest Guardian bark ward effects
 - improved Forest Imp with a toggle to enable/disable wrath

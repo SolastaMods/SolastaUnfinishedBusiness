@@ -19,10 +19,6 @@ internal static class ValidatorsWeapon
 {
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
-    internal static readonly IsWeaponValidHandler IsZenArrowAttack =
-        (attackMode, _, character) => attackMode is { Ranged: true }
-                                      && character.IsMonkWeapon(attackMode.SourceDefinition as ItemDefinition);
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsWeaponValidHandler IsOfDamageType(string damageType)
     {

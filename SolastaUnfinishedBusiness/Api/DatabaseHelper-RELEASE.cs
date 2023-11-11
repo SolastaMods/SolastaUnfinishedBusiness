@@ -33,6 +33,7 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition UseBardicInspiration { get; } =
             GetDefinition<ActionDefinition>("UseBardicInspiration");
 
+        internal static ActionDefinition Volley { get; } = GetDefinition<ActionDefinition>("Volley");
         internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }
 
@@ -1736,6 +1737,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMonkFlurryOfBlows { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkFlurryOfBlows");
+
+        internal static FeatureDefinitionPower PowerMonkMartialArts { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkMartialArts");
 
         internal static FeatureDefinitionPower PowerMonkPatientDefense { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense");

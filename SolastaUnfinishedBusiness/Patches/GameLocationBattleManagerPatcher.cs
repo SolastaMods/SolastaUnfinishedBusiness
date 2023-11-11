@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using static RuleDefinitions;
 
@@ -29,12 +30,21 @@ public static class GameLocationBattleManagerPatcher
     {
         [UsedImplicitly]
         public static void Postfix(
+            GameLocationBattleManager __instance,
             ref bool __result,
             RulesetCharacter caster,
             RulesetUsablePower usablePower)
         {
+            //PATCH: ensure Zen Archer Hail of Arrows will only trigger Martial Arts once
+            if (__result &&
+                usablePower.PowerDefinition == DatabaseHelper.FeatureDefinitionPowers.PowerMonkMartialArts &&
+                __instance.Battle.ActiveContender.UsedSpecialFeatures.ContainsKey(WayOfZenArchery.HailOfArrows))
+            {
+                __result = false;
+            }
+
             //PATCH: support for `IValidatePowerUse` when trying to react with power 
-            if (!caster.CanUsePower(usablePower.PowerDefinition))
+            if (__result && !caster.CanUsePower(usablePower.PowerDefinition))
             {
                 __result = false;
             }
@@ -739,7 +749,7 @@ public static class GameLocationBattleManagerPatcher
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleTargetReducedToZeroHP))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    // ReSharper disable once InconsistentNaming
+// ReSharper disable once InconsistentNaming
     public static class HandleTargetReducedToZeroHP_Patch
     {
         [UsedImplicitly]
