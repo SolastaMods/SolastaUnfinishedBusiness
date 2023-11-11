@@ -359,10 +359,16 @@ internal static class CharacterContext
                 .SetGuiPresentationNoContent(true)
                 .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
                 .AddCustomSubFeatures(
-                    new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important,
-                        ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)),
                     new MonkWeaponSpecialization { WeaponType = weaponTypeDefinition })
                 .AddToDB();
+
+            if (!weaponTypeDefinition.IsBow && !weaponTypeDefinition.IsCrossbow)
+            {
+                featureMonkWeaponSpecialization.AddCustomSubFeatures(
+                    new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important,
+                        ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition))
+                );
+            }
 
             // ensure we get dice upgrade on these
             FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage.AddCustomSubFeatures(
