@@ -132,7 +132,7 @@ internal static class RaceImpBuilder
             .Create($"Power{NAME}ImpishWrath")
             .SetGuiPresentation(Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.Reaction)
-            .DelegatedToAction(true)
+            .DelegatedToAction()
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
@@ -146,13 +146,15 @@ internal static class RaceImpBuilder
         toggle.parameter = ActionDefinitions.ActionParameter.ActivatePower;
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle, "ActionAffinityImpishWrathToggle")
+            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityImpishWrathToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(ImpishWrathToggle)
             .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerImpForestImpishWrath)))
+                new ValidateDefinitionApplication(
+                    ValidatorsCharacter.HasAvailablePowerUsage(powerImpForestImpishWrath)))
             .AddToDB();
-        
+
         powerImpForestImpishWrath.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedImpishWrath(powerImpForestImpishWrath, actionAffinityImpishWrathToggle));
 
@@ -163,7 +165,8 @@ internal static class RaceImpBuilder
             .AddToDB();
 
         featureSetImpForestImpishWrath.guiPresentation.title = powerImpForestImpishWrath.guiPresentation.title;
-        featureSetImpForestImpishWrath.guiPresentation.description = powerImpForestImpishWrath.guiPresentation.description;
+        featureSetImpForestImpishWrath.guiPresentation.description =
+            powerImpForestImpishWrath.guiPresentation.description;
 
         var raceImpForest = CharacterRaceDefinitionBuilder
             .Create(raceImp, $"Race{NAME}")
@@ -182,10 +185,10 @@ internal static class RaceImpBuilder
 
     private class AttackBeforeHitConfirmedImpishWrath : IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerPool;
         private readonly FeatureDefinitionActionAffinity _actionAffinityImpishWrathToggle;
+        private readonly FeatureDefinitionPower _powerPool;
 
-        public AttackBeforeHitConfirmedImpishWrath(FeatureDefinitionPower powerPool, 
+        public AttackBeforeHitConfirmedImpishWrath(FeatureDefinitionPower powerPool,
             FeatureDefinitionActionAffinity actionAffinityImpishWrathToggle)
         {
             _powerPool = powerPool;

@@ -1,3 +1,5 @@
+Action/&ImpishWrathToggleDescription=Activar/desactivar Ira traviesa
+Action/&ImpishWrathToggleTitle=Ira traviesa
 Feature/&ActionAffinityImpForestInnateCunningDescription=Usas tu acción adicional para retirarte o esconderte.
 Feature/&ActionAffinityImpForestInnateCunningTitle=Astucia innata
 Feature/&CastSpellImpInfernalDescription=Conoces el truco de la Burla viciosa. Cuando alcanzas el nivel 3, puedes lanzar Invisibilidad una vez cada descanso prolongado. Carisma es tu habilidad de lanzamiento de hechizos para estos hechizos.

@@ -1,3 +1,5 @@
+Action/&ImpishWrathToggleDescription=Activer/désactiver Impish Wrath
+Action/&ImpishWrathToggleTitle=Colère espiègle
 Feature/&ActionAffinityImpForestInnateCunningDescription=Vous utilisez votre action bonus pour vous désengager ou vous cacher.
 Feature/&ActionAffinityImpForestInnateCunningTitle=Ruse innée
 Feature/&CastSpellImpInfernalDescription=Vous connaissez le sort mineur Vicious Mockery. Lorsque vous atteignez le niveau 3, vous pouvez lancer Invisibilité une fois par repos long. Le charisme est votre capacité d'incantation pour ces sorts.

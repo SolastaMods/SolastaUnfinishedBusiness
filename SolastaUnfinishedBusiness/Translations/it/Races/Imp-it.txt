@@ -1,3 +1,5 @@
+Action/&ImpishWrathToggleDescription=Attiva/disattiva Ira Impish
+Action/&ImpishWrathToggleTitle=Ira maligna
 Feature/&ActionAffinityImpForestInnateCunningDescription=Usi la tua azione bonus per Disimpegnarti o Nasconderti.
 Feature/&ActionAffinityImpForestInnateCunningTitle=Astuzia innata
 Feature/&CastSpellImpInfernalDescription=Conosci il trucchetto di Vicious Mockery. Quando raggiungi il livello 3, puoi lanciare Invisibilità una volta ogni riposo lungo. Carisma è la tua capacità di lanciare incantesimi per questi incantesimi.

@@ -1,3 +1,5 @@
+Action/&ImpishWrathToggleDescription=Impish Wrath 활성화/비활성화
+Action/&ImpishWrathToggleTitle=사악한 분노
 Feature/&ActionAffinityImpForestInnateCunningDescription=이탈이나 숨기 사용시 추가 행동을 소모합니다.
 Feature/&ActionAffinityImpForestInnateCunningTitle=타고난 기민함
 Feature/&CastSpellImpInfernalDescription=잔혹한 모욕 캔트립을 습득합니다. 3레벨 도달 시, 긴 휴식 종료당 1회 투명화 주문을 시전할 수 있습니다. 이 주문들의 주문 시전 능력치는 매력입니다.

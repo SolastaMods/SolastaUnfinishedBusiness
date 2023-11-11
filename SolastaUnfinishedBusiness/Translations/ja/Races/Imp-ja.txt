@@ -1,3 +1,5 @@
+Action/&ImpishWrathToggleDescription=Impish Wrathの有効化/無効化
+Action/&ImpishWrathToggleTitle=インピッシュの怒り
 Feature/&ActionAffinityImpForestInnateCunningDescription=ボーナスアクションを使用して、離脱または非表示を行います。
 Feature/&ActionAffinityImpForestInnateCunningTitle=生来の狡猾さ
 Feature/&CastSpellImpInfernalDescription=Vicious Mockery キャントリップをご存知ですか。レベル 3 に達すると、長い休息ごとに 1 回、Invisibility を唱えることができます。カリスマ性は、これらの呪文を唱える能力です。

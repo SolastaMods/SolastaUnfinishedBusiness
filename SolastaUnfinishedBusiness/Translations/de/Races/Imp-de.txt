@@ -1,3 +1,5 @@
+Action/&ImpishWrathToggleDescription=Impish Wrath aktivieren/deaktivieren
+Action/&ImpishWrathToggleTitle=Schelmischer Zorn
 Feature/&ActionAffinityImpForestInnateCunningDescription=Sie nutzen Ihre Bonusaktion, um sich zu lösen oder zu verstecken.
 Feature/&ActionAffinityImpForestInnateCunningTitle=Angeborene List
 Feature/&CastSpellImpInfernalDescription=Sie kennen den Cantrip „Vicious Mockery“. Wenn du Level 3 erreichst, kannst du jede längere Pause einmal Unsichtbarkeit wirken. Charisma ist Ihre Zauberfähigkeit für diese Zauber.
