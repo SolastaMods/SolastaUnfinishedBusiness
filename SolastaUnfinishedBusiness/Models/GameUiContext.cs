@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Patches;
 using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.GadgetBlueprints;
@@ -115,6 +116,21 @@ internal static class GameUiContext
             > 0f => 0.25f,
             _ => ratio
         };
+    }
+
+    internal static void ModifyActionMaps()
+    {
+        var service = ServiceRepository.GetService<IInputService>();
+
+        //copy `GamepadSelector` action from `CharacterEdition` map into `ModalListBrowse` - needed for save by location to be able to scroll through save location selector
+        var map = service.InputActionAsset.FindActionMap("ModalListBrowse");
+        var action = map.AddAction("GamepadSelector");
+        var oldMap = service.InputActionAsset.FindActionMap("CharacterEdition").FindAction("GamepadSelector");
+
+        foreach (var oldMapBinding in oldMap.bindings)
+        {
+            action.AddBinding(oldMapBinding);
+        }
     }
 
     internal static void RefreshMetamagicOffering(MetaMagicSubPanel __instance)
