@@ -18,7 +18,6 @@ using static FeatureDefinitionSavingThrowAffinity;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -293,7 +292,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetTempHpForm(0, DieType.D4, 1, true)
+                            .SetTempHpForm(0, DieType.D4, 0, true)
                             .Build())
                     .SetParticleEffectParameters(PowerPactChainPseudodragon)
                     .Build())
@@ -327,14 +326,6 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static DieType GetDieType(RulesetCharacter character)
-    {
-        var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
-        var dieType = AttackModifierMonkMartialArtsImprovedDamage.DieTypeByRankTable
-            .Find(x => x.Rank == monkLevel).DieType;
-
-        return dieType;
-    }
     //
     // Discordance [Also handles Turmoil]
     //
@@ -374,8 +365,13 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         {
             var damageForm = effectDescription.FindFirstDamageForm();
 
+            if (damageForm == null)
+            {
+                return effectDescription;
+            }
+
             damageForm.BonusDamage = ComputeAbilityScoreModifier(character.TryGetAttributeValue(Wisdom));
-            damageForm.DieType = GetDieType(character);
+            damageForm.DieType = character.GetMonkDieType();
 
             return effectDescription;
         }
@@ -600,8 +596,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var temporaryHitPointsForm = effectDescription.EffectForms[0].TemporaryHitPointsForm;
             var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
 
-            temporaryHitPointsForm.DieType = GetDieType(character);
-            temporaryHitPointsForm.BonusHitPoints = (monkLevel + 1) / 2;
+            temporaryHitPointsForm.BonusHitPoints = monkLevel;
 
             return effectDescription;
         }

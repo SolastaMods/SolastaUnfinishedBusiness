@@ -1,4 +1,15 @@
-﻿1.5.94.32:
+﻿1.5.94.33:
+
+- added additional sample portraits [by Artyoan, Thaladar]
+- added Way of Zen Archery subclass
+- changed Way of Discordance tides of chaos to give monk level temporary hit points
+- changed Way of Dragon reactive hide to reactive skin, and changed damage to 2x your martial arts die
+- fixed Air Elemental wildshape using STR instead of DEX on flurry of blows attacks
+- fixed Forest Imp wrath not considering attack tags like magical weapon, etc.
+- improved Circle of The Forest Guardian bark ward caster and impact effects
+- improved Forest Imp wrath with a toggle to enable/disable the reaction prompt
+
+1.5.94.32:
 
 - added Battleborn, Oni, and Wildling races [by otearaisu]
 - added Gameplay > General > 'Add Darkness Perceptive to Darkelf, Dark Kobold, and Gray Dwarf [perception checks adv]'

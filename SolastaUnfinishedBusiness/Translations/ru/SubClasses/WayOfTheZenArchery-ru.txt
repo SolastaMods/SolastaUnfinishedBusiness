@@ -1,0 +1,12 @@
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Каждый раз, когда вы используете способность Шквал ударов, вы можете заменить одну безоружную атаку на выстрел из лука.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Шквал стрел
+Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Ваши выстрелы из лука считаются магическими при определении преодоления сопротивления и иммунитета к немагическим атакам и урону, также теперь вы можете использовать умение Ошеломляющий удар, стреляя из лука.
+Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Энергетические стрелы
+Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Вы получаете бонус ко всем броскам атаки и урона при использовании лука, равный половине вашего бонуса мастерства (с округлением вниз).
+Feature/&FeatureWayOfZenArcheryUnerringPrecisionTitle=Безупречная точность
+Feature/&PowerWayOfZenArcheryHailOfArrowsDescription=Действием вы можете потратить 3 очка ци, чтобы выпустить залп стрел. Вы совершаете один выстрел из лука по каждому враждебному существу, которое видите в 45-футовом конусе.
+Feature/&PowerWayOfZenArcheryHailOfArrowsTitle=Град стрел
+Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=Вы получаете владение короткими и длинными луками. Теперь это оружие считается оружием монаха. Вы также получаете владение инструментами кузнеца.
+Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=Единство с луком
+Subclass/&WayOfZenArcheryDescription=Оружие - это продолжение того, кто им владеет, и полное его воплощение. Монахи Пути дзен-cтрельбы из лука хорошо знают это. Красота и точность боевых искусств позволили этим монахам овладеть их излюбленным оружием - луком. Они прекрасно управляются с ним и при каждом натяжении тетивы демонстрируют своё мастерство.
+Subclass/&WayOfZenArcheryTitle=Путь дзен-стрельбы из лука

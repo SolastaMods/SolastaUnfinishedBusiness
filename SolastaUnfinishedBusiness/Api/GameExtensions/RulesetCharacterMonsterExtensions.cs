@@ -17,14 +17,15 @@ public static class RulesetCharacterMonsterExtensions
     {
         var slotName = EquipmentDefinitions.SlotTypeMainHand;
         var hero = monster.OriginalFormCharacter as RulesetCharacterHero;
-
         var attackMode = RulesetAttackMode.AttackModesPool.Get();
+
         attackMode.Clear();
         attackMode.FreeOffHand = true;
         attackMode.ActionType = actionType;
         attackMode.SourceDefinition = itemDefinition;
         attackMode.SlotName = slotName;
         attackMode.SourceObject = null;
+
         if (actionType == ActionDefinitions.ActionType.Main)
         {
             attackMode.AttacksNumber = monster.TryGetAttributeValue(AttributeDefinitions.AttacksNumber);
@@ -32,6 +33,7 @@ public static class RulesetCharacterMonsterExtensions
 
         var weaponType = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
             .GetElement(weaponDescription.WeaponType);
+
         attackMode.AbilityScore = weaponType.WeaponProximity == AttackProximity.Melee
             ? AttributeDefinitions.Strength
             : AttributeDefinitions.Dexterity;
@@ -55,6 +57,7 @@ public static class RulesetCharacterMonsterExtensions
         attackMode.Thrown = weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
         attackMode.Reach = weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagReach);
         attackMode.ReachRange = attackMode.Reach ? weaponDescription.ReachRange : 1;
+
         if (attackMode.Ranged || attackMode.Thrown)
         {
             attackMode.CloseRange = weaponDescription.CloseRange;
@@ -64,6 +67,7 @@ public static class RulesetCharacterMonsterExtensions
         if (monster.IsProficientWithItem(itemDefinition) || (hero != null && hero.IsProficientWithItem(itemDefinition)))
         {
             var currentValue = monster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
             attackMode.ToHitBonus += currentValue;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(currentValue,
                 FeatureSourceType.Proficiency, string.Empty, null));
@@ -72,20 +76,22 @@ public static class RulesetCharacterMonsterExtensions
         attackMode.EffectDescription.Copy(weaponDescription.EffectDescription);
         attackMode.UseVersatileDamage =
             weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagVersatile) & true;
+
         foreach (var itemTag in itemDefinition.ItemTags)
         {
             attackMode.AddAttackTagAsNeeded(itemTag);
         }
 
         var service = ServiceRepository.GetService<IRulesetImplementationService>();
+
         foreach (var attackModifier in attackModifiers)
         {
             if (attackModifier == null)
             {
                 Trace.LogException(new Exception("[Tactical - Invisible for players] attackModifier is null"));
             }
-            else if (hero != null && service.IsValidContextForAttackModificationProvider(attackModifier, hero,
-                         itemDefinition, weaponType, attackMode))
+            else if (service.IsValidContextForRestrictedContextProvider(
+                         attackModifier, monster, itemDefinition, attackMode.Ranged, attackMode, null))
             {
                 if (attackModifier.MagicalWeapon)
                 {
@@ -93,8 +99,11 @@ public static class RulesetCharacterMonsterExtensions
                 }
 
                 var attackRollModifier = attackModifier.AttackRollModifier;
+
                 attackMode.ToHitBonus += attackRollModifier;
+
                 var key = attackModifier as FeatureDefinition;
+
                 if (key != null && featuresOrigin.TryGetValue(key, out var value))
                 {
                     attackMode.ToHitBonusTrends.Add(new TrendInfo(attackRollModifier, value.sourceType,
@@ -116,6 +125,7 @@ public static class RulesetCharacterMonsterExtensions
                 if (attackModifier.DamageDieReplacement != DamageDieReplacement.None)
                 {
                     var firstDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
                     if (firstDamageForm != null)
                     {
                         // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
@@ -155,53 +165,56 @@ public static class RulesetCharacterMonsterExtensions
         attackMode.ToHitBonus += abilityScoreModifier;
         attackMode.ToHitBonusTrends.Add(new TrendInfo(abilityScoreModifier,
             FeatureSourceType.AbilityScore, attackMode.AbilityScore, null));
+
         var firstDamageForm1 = attackMode.EffectDescription.FindFirstDamageForm();
+
         if (firstDamageForm1 == null)
         {
             return attackMode;
         }
 
+        firstDamageForm1.DamageBonusTrends.Clear();
+
+        if (canAddAbilityDamageBonus)
         {
-            firstDamageForm1.DamageBonusTrends.Clear();
-            if (canAddAbilityDamageBonus)
+            firstDamageForm1.BonusDamage += abilityScoreModifier;
+            firstDamageForm1.DamageBonusTrends.Add(new TrendInfo(abilityScoreModifier,
+                FeatureSourceType.AbilityScore, attackMode.AbilityScore, null));
+        }
+
+        foreach (var attackModifier in attackModifiers)
+        {
+            if (attackModifier == null)
             {
-                firstDamageForm1.BonusDamage += abilityScoreModifier;
-                firstDamageForm1.DamageBonusTrends.Add(new TrendInfo(abilityScoreModifier,
-                    FeatureSourceType.AbilityScore, attackMode.AbilityScore, null));
+                Trace.LogException(new Exception("[Tactical - Invisible for players] attackModifier is null"));
             }
-
-            foreach (var attackModifier in attackModifiers)
+            else if (service.IsValidContextForRestrictedContextProvider(
+                         attackModifier, monster, itemDefinition, attackMode.Ranged, attackMode, null)
+                     && attackModifier.DamageRollModifierMethod != AttackModifierMethod.None)
             {
-                if (attackModifier == null)
-                {
-                    Trace.LogException(new Exception("[Tactical - Invisible for players] attackModifier is null"));
-                }
-                else if (hero != null
-                         && service.IsValidContextForAttackModificationProvider(attackModifier, hero, itemDefinition,
-                             weaponType, attackMode)
-                         && attackModifier.DamageRollModifierMethod != AttackModifierMethod.None)
-                {
-                    var num = attackModifier.DamageRollModifier;
-                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                    switch (attackModifier.DamageRollModifierMethod)
-                    {
-                        case AttackModifierMethod.SourceConditionAmount:
-                            num = monster.FindFirstConditionHoldingFeature(attackModifier as FeatureDefinition).Amount;
-                            break;
-                        case AttackModifierMethod.AddAbilityScoreBonus
-                            when !string.IsNullOrEmpty(attackModifier.DamageRollAbilityScore):
-                            num += AttributeDefinitions.ComputeAbilityScoreModifier(
-                                monster.TryGetAttributeValue(attackModifier.DamageRollAbilityScore));
-                            break;
-                    }
+                var num = attackModifier.DamageRollModifier;
 
-                    firstDamageForm1.BonusDamage += num;
-                    var key = attackModifier as FeatureDefinition;
-                    if (key != null && featuresOrigin.TryGetValue(key, out var value))
-                    {
-                        firstDamageForm1.DamageBonusTrends.Add(new TrendInfo(num, value.sourceType,
-                            featuresOrigin[key].sourceName, featuresOrigin[key].source));
-                    }
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (attackModifier.DamageRollModifierMethod)
+                {
+                    case AttackModifierMethod.SourceConditionAmount:
+                        num = monster.FindFirstConditionHoldingFeature(attackModifier as FeatureDefinition).Amount;
+                        break;
+                    case AttackModifierMethod.AddAbilityScoreBonus
+                        when !string.IsNullOrEmpty(attackModifier.DamageRollAbilityScore):
+                        num += AttributeDefinitions.ComputeAbilityScoreModifier(
+                            monster.TryGetAttributeValue(attackModifier.DamageRollAbilityScore));
+                        break;
+                }
+
+                firstDamageForm1.BonusDamage += num;
+
+                var key = attackModifier as FeatureDefinition;
+
+                if (key != null && featuresOrigin.TryGetValue(key, out var value))
+                {
+                    firstDamageForm1.DamageBonusTrends.Add(new TrendInfo(num, value.sourceType,
+                        featuresOrigin[key].sourceName, featuresOrigin[key].source));
                 }
             }
         }

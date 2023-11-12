@@ -1,9 +1,13 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class Global
 {
+    //required to correctly determine isMelee as well as saving thrown delta bugfix
+    internal static readonly Stack<CharacterActionAttack> CurrentAttackAction = new();
+
     // true if in a multiplayer game
     internal static bool IsMultiplayer =>
         IsSettingUpMultiplayer
@@ -51,5 +55,11 @@ internal static class Global
         ?? SelectedLocationCharacter?.RulesetCharacter;
 
     //BUGFIX: saving throw not passing correct saving delta on attack actions
-    internal static CharacterAction CurrentAttackAction { get; set; }
+    internal static void SetAttackActionSaveOutcomeDelta(int saveOutcomeDelta)
+    {
+        if (CurrentAttackAction.Count > 0)
+        {
+            CurrentAttackAction.Peek().saveOutcomeDelta = saveOutcomeDelta;
+        }
+    }
 }

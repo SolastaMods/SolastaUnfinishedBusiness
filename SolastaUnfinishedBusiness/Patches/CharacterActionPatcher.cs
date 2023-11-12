@@ -107,9 +107,8 @@ public static class CharacterActionPatcher
                     PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                     break;
 
-                //BUGFIX: saving throw not passing correct saving delta on attack actions
-                case CharacterActionAttack:
-                    Global.CurrentAttackAction = __instance;
+                case CharacterActionAttack characterActionAttack:
+                    Global.CurrentAttackAction.Push(characterActionAttack);
                     break;
             }
         }
@@ -159,8 +158,10 @@ public static class CharacterActionPatcher
                 }
             }
 
-            //BUGFIX: saving throw not passing correct saving delta on attack actions
-            Global.CurrentAttackAction = null;
+            if (__instance is CharacterActionAttack)
+            {
+                Global.CurrentAttackAction.Pop();
+            }
         }
     }
 

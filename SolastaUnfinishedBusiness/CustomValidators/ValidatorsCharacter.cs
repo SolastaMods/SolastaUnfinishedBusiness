@@ -113,6 +113,12 @@ internal static class ValidatorsCharacter
             LocationDefinitions.LightingState.Darkness,
             LocationDefinitions.LightingState.Unlit)(character);
 
+    internal static bool HasBowWithoutArmor(RulesetCharacter character)
+    {
+        return HasNoArmor(character) &&
+               ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), ShortbowType, LongbowType);
+    }
+
     internal static IsCharacterValidHandler HasAvailablePowerUsage(FeatureDefinitionPower power)
     {
         return character => character.CanUsePower(power);

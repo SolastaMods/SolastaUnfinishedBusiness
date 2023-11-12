@@ -2081,7 +2081,7 @@ namespace SolastaUnfinishedBusiness.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ﻿Dwarf	Female	Abagtha
+        ///   Looks up a localized string similar to Dwarf	Female	Abagtha
         ///Dwarf	Female	Bera
         ///Dwarf	Female	Birsha
         ///Dwarf	Female	Brallesyl

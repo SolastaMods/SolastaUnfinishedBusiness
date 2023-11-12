@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -12,7 +13,9 @@ public interface IAttackAfterMagicEffect
         GameLocationCharacter target,
         out string failure);
 
-    public delegate List<CharacterActionParams> GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
+    [CanBeNull]
+    public delegate IEnumerable<CharacterActionParams> GetAttackAfterUseHandler(
+        CharacterActionMagicEffect actionMagicEffect);
 
     public CanUseHandler CanBeUsedToAttack { get; }
     public GetAttackAfterUseHandler PerformAttackAfterUse { get; }

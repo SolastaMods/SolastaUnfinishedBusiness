@@ -1,3 +1,5 @@
+Action/&ImpishWrathToggleDescription=Activate/deactivate Impish Wrath
+Action/&ImpishWrathToggleTitle=Impish Wrath
 Feature/&ActionAffinityImpForestInnateCunningDescription=You use your bonus action to Disengage or Hide.
 Feature/&ActionAffinityImpForestInnateCunningTitle=Innate Cunning
 Feature/&CastSpellImpInfernalDescription=You know the Vicious Mockery cantrip. When you reach level 3, you can cast Invisibility once every long rest. Charisma is your spellcasting ability for these spells.

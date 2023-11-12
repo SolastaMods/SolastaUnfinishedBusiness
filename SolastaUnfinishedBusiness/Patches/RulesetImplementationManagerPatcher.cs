@@ -746,10 +746,7 @@ public static class RulesetImplementationManagerPatcher
             ref int saveOutcomeDelta)
         {
             // BUGFIX: saving throw not passing correct saving delta on attack actions
-            if (Global.CurrentAttackAction != null)
-            {
-                Global.CurrentAttackAction.SaveOutcomeDelta = saveOutcomeDelta;
-            }
+            Global.SetAttackActionSaveOutcomeDelta(saveOutcomeDelta);
 
             //PATCH: supports ITryAlterOutcomeSavingThrow interface
             foreach (var tryAlterOutcomeSavingThrow in target.GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
@@ -779,10 +776,7 @@ public static class RulesetImplementationManagerPatcher
             }
 
             // BUGFIX: saving throw not passing correct saving delta on attack actions
-            if (Global.CurrentAttackAction != null)
-            {
-                Global.CurrentAttackAction.SaveOutcomeDelta = saveOutcomeDelta;
-            }
+            Global.SetAttackActionSaveOutcomeDelta(saveOutcomeDelta);
         }
     }
 
@@ -878,7 +872,7 @@ public static class RulesetImplementationManagerPatcher
                 (provider.TriggerCondition != AttackModificationTriggerCondition.NotWearingArmorOrMageArmorOrShield ||
                  (!hero.IsWearingArmor() &&
                   !hero.HasConditionOfTypeOrSubType(ConditionMagicallyArmored) &&
-                  (!hero.IsWearingShield() || hero.HasMonkShieldExpert()))) &&
+                  (!hero.IsWearingShield() /* BEGIN PATCH */ || hero.HasMonkShieldExpert() /* END PATCH */))) &&
                 __instance.IsValidContextForRestrictedContextProvider(
                     provider, hero, itemDefinition, attackMode.Ranged, attackMode, null);
 

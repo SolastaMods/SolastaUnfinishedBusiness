@@ -1,0 +1,12 @@
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsDescription=Sempre que você usa o recurso Flurry of Blows, você pode substituir um ataque desarmado por um ataque com arco.
+Feature/&FeatureWayOfZenArcheryFlurryOfArrowsTitle=Rajada de Flechas
+Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsDescription=Seus ataques com arco contam como mágicos com o propósito de superar a resistência e imunidade a ataques e danos não mágicos, e agora você pode usar seu recurso Stunning Strike com ataques com arco.
+Feature/&FeatureWayOfZenArcheryKiEmpoweredArrowsTitle=Flechas com poder de Ki
+Feature/&FeatureWayOfZenArcheryUnerringPrecisionDescription=Você ganha metade do seu bônus de proficiência (arredondado para baixo) como bônus em todas as jogadas de ataque e dano com arcos.
+Feature/&FeatureWayOfZenArcheryUnerringPrecisionTitle=Precisão infalível
+Feature/&PowerWayOfZenArcheryHailOfArrowsDescription=Você pode usar sua ação e gastar 3 ki para disparar uma saraivada de flechas. Você faz um ataque com arco contra cada criatura inimiga que você pode ver em um cone de 15 metros.
+Feature/&PowerWayOfZenArcheryHailOfArrowsTitle=Granizo de Flechas
+Feature/&ProficiencyWayOfZenArcheryOneWithTheBowDescription=Você se torna proficiente com arco curto e arco longo. Essas armas agora contam como armas de monge para você. Você também ganha proficiência com ferramentas de forja.
+Feature/&ProficiencyWayOfZenArcheryOneWithTheBowTitle=Um com o arco
+Subclass/&WayOfZenArcheryDescription=Uma arma é uma extensão de si mesmo e uma representação clara daquele que a empunha. Os monges do Caminho do Tiro com Arco Zen sabem disso muito bem. A beleza e a precisão das artes marciais deram a estes monges as ferramentas para dominarem a sua arma preferida – o arco. Eles o manejam com habilidade incomparável e demonstram seu domínio do arco e flecha a cada puxão da corda.
+Subclass/&WayOfZenArcheryTitle=Caminho do Tiro com Arco Zen

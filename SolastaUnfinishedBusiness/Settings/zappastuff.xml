@@ -3,8 +3,8 @@
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <SelectedTab>0</SelectedTab>
-  <DisplayRacesToggle>true</DisplayRacesToggle>
-  <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
+  <DisplayRacesToggle>false</DisplayRacesToggle>
+  <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -227,28 +227,28 @@
   <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
   <OverridePartySize>2</OverridePartySize>
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
-  <FasterTimeModifier>1.5</FasterTimeModifier>
+  <FasterTimeModifier>3</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
-  <AddDarknessPerceptiveToDarkRaces>false</AddDarknessPerceptiveToDarkRaces>
   <ChangeDragonbornElementalBreathUsages>true</ChangeDragonbornElementalBreathUsages>
-  <EnableFlexibleRaces>false</EnableFlexibleRaces>
-  <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
   <EnableAlternateHuman>true</EnableAlternateHuman>
-  <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
-  <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
+  <EnableFlexibleRaces>false</EnableFlexibleRaces>
+  <AddDarknessPerceptiveToDarkRaces>true</AddDarknessPerceptiveToDarkRaces>
+  <RaceLightSensitivityApplyOutdoorsOnly>true</RaceLightSensitivityApplyOutdoorsOnly>
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
+  <DisableLevelPrerequisitesOnModFeats>true</DisableLevelPrerequisitesOnModFeats>
+  <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
+  <DisableCastSpellPreRequisitesOnModFeats>true</DisableCastSpellPreRequisitesOnModFeats>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
   <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
-  <EnableRelearnSpells>false</EnableRelearnSpells>
+  <EnableRelearnSpells>true</EnableRelearnSpells>
   <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
   <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
@@ -258,7 +258,7 @@
   <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
-  <EnableRangerNatureShroudAt10>false</EnableRangerNatureShroudAt10>
+  <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
   <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
   <EnableMonkFightingStyle>true</EnableMonkFightingStyle>
   <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
@@ -486,8 +486,11 @@
     <string>RaceMalakh</string>
     <string>RaceObsidianDwarf</string>
     <string>RaceOligath</string>
+    <string>RaceOni</string>
     <string>RaceTiefling</string>
+    <string>RaceBattleborn</string>
     <string>RaceWendigo</string>
+    <string>RaceWildling</string>
     <string>RaceWyrmkin</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
@@ -684,6 +687,7 @@
           <string>WayOfSilhouette</string>
           <string>WayOfTheTempest</string>
           <string>WayOfWealAndWoe</string>
+          <string>WayOfZenArchery</string>
         </ArrayOfString>
       </value>
     </item>
@@ -754,13 +758,13 @@
       </key>
       <value>
         <ArrayOfString>
+          <string>PatronCelestial</string>
           <string>PatronEldritchSurge</string>
           <string>PatronElementalist</string>
           <string>PatronMoonlit</string>
           <string>PatronMountain</string>
           <string>PatronRiftWalker</string>
           <string>PatronSoulBlade</string>
-          <string>PatronCelestial</string>
         </ArrayOfString>
       </value>
     </item>
@@ -813,13 +817,12 @@
     <string>FeatGroupCelestialTouched</string>
     <string>FeatCharismaticDefense</string>
     <string>FeatCharismaticPrecision</string>
-    <string>FeatCleavingAttack</string>
     <string>FeatGroupCloseQuarters</string>
     <string>FeatCrippling</string>
+    <string>FeatRangedExpert</string>
     <string>FeatCrossbowMastery</string>
     <string>FeatGroupCrusher</string>
     <string>FeatCunningEscape</string>
-    <string>FeatDeadeye</string>
     <string>FeatDefense</string>
     <string>FeatDefensiveDuelist</string>
     <string>FeatDevastatingStrikes</string>
@@ -842,6 +845,7 @@
     <string>FeatGroupFlameTouched</string>
     <string>FeatFrostAdaptation</string>
     <string>FeatGreatWeapon</string>
+    <string>FeatCleavingAttack</string>
     <string>FeatHammerThePoint</string>
     <string>FeatHandAndAHalf</string>
     <string>FeatGroupHardy</string>
@@ -856,6 +860,7 @@
     <string>FeatLongswordFinesse</string>
     <string>FeatLunger</string>
     <string>FeatGroupMagicInitiate</string>
+    <string>FeatTacticianAdept</string>
     <string>FeatGroupMediumArmor</string>
     <string>FeatMediumArmorMaster</string>
     <string>FeatMerciless</string>
@@ -877,7 +882,6 @@
     <string>FeatGroupPrimalRage</string>
     <string>FeatProtection</string>
     <string>FeatPugilist</string>
-    <string>FeatRangedExpert</string>
     <string>FeatRecklessAttack</string>
     <string>FeatGroupRetinueTouched</string>
     <string>FeatGroupRevenantGreatSword</string>
@@ -886,6 +890,7 @@
     <string>FeatCraftyScriber</string>
     <string>FeatSentinel</string>
     <string>FeatGroupShadowTouched</string>
+    <string>FeatDeadeye</string>
     <string>FeatShieldExpert</string>
     <string>FeatShieldTechniques</string>
     <string>FeatGroupSlasher</string>
@@ -896,7 +901,6 @@
     <string>FeatGroupSquatNimbleness</string>
     <string>FeatSteadyAim</string>
     <string>FeatSuperiorCritical</string>
-    <string>FeatTacticianAdept</string>
     <string>FeatGroupTelekinetic</string>
     <string>FeatTorchbearer</string>
     <string>FeatTough</string>
@@ -947,6 +951,7 @@
     <string>Crippling</string>
     <string>Executioner</string>
     <string>HandAndAHalf</string>
+    <string>Interception</string>
     <string>Lunger</string>
     <string>Merciless</string>
     <string>MonkShieldExpert</string>
@@ -957,7 +962,6 @@
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
     <string>ZenArcher</string>
-    <string>Interception</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
@@ -967,6 +971,7 @@
     <string>InvocationBreathOfTheNight</string>
     <string>InvocationCallOfTheBeast</string>
     <string>InvocationChillingBlast</string>
+    <string>InvocationPerniciousCloak</string>
     <string>InvocationCorrosiveBlast</string>
     <string>InvocationDiscerningGaze</string>
     <string>InvocationEldritchMind</string>
@@ -980,13 +985,13 @@
     <string>InvocationGraspingBlast</string>
     <string>InvocationHinderingBlast</string>
     <string>InvocationImprovedPactWeapon</string>
-    <string>InvocationInexorableHex</string>
     <string>InvocationKinesis</string>
+    <string>InvocationVexingHex</string>
     <string>InvocationNecroticBlast</string>
-    <string>InvocationPerniciousCloak</string>
     <string>InvocationPoisonousBlast</string>
     <string>InvocationPsychicBlast</string>
     <string>InvocationRadiantBlast</string>
+    <string>InvocationInexorableHex</string>
     <string>InvocationShroudOfShadow</string>
     <string>InvocationSpectralShield</string>
     <string>InvocationStasis</string>
@@ -998,7 +1003,6 @@
     <string>InvocationUltimatePactWeapon</string>
     <string>InvocationUndyingServitude</string>
     <string>InvocationVerdantArmor</string>
-    <string>InvocationVexingHex</string>
   </InvocationEnabled>
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>

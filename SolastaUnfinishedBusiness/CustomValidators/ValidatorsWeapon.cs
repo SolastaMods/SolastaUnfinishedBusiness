@@ -19,10 +19,6 @@ internal static class ValidatorsWeapon
 {
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
-    internal static readonly IsWeaponValidHandler IsZenArrowAttack =
-        (attackMode, _, character) => attackMode is { Ranged: true }
-                                      && character.IsMonkWeapon(attackMode.SourceDefinition as ItemDefinition);
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsWeaponValidHandler IsOfDamageType(string damageType)
     {
@@ -209,21 +205,17 @@ internal static class ValidatorsWeapon
     {
         // unfortunately game sets thrown true even when attack is at melee distance
         // even worse, on thrown attacks, game will at some point consider melee as hero becomes unarmed
-        // this will handle thrown melee weapons like daggers, javelin, etc.
-        var currentAttackAction = Global.CurrentAttackAction;
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        // trying to be super safe here with any null scenario
-        // if not in combat assume it's within range so any off combat stats / tooltips work correctly
-        if (currentAttackAction?.ActionParams?.TargetCharacters == null ||
-            currentAttackAction.ActionParams.TargetCharacters.Count == 0 ||
-            gameLocationBattleService is not { IsBattleInProgress: true })
+        // this will handle thrown melee weapons like daggers, javelins, spears, etc.
+        // assume it's within range if not in combat so any off combat stats / tooltips work correctly
+        if (Global.CurrentAttackAction.Count == 0)
         {
             return true;
         }
 
-        // this handles combat situations and ensures we don't validate if attack not within range
-        return gameLocationBattleService.IsWithinXCells(
+        var currentAttackAction = Global.CurrentAttackAction.Peek();
+
+        // handle combat situations and ensure we don't validate if attack not within range
+        return ServiceRepository.GetService<IGameLocationBattleService>().IsWithinXCells(
             currentAttackAction.ActingCharacter,
             currentAttackAction.ActionParams.TargetCharacters[0],
             reach);

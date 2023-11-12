@@ -1,3 +1,5 @@
+Action/&ImpishWrathToggleDescription=激活/停用小鬼之怒
+Action/&ImpishWrathToggleTitle=顽皮的愤怒
 Feature/&ActionAffinityImpForestInnateCunningDescription=您可以使用奖励动作来脱离或隐藏。
 Feature/&ActionAffinityImpForestInnateCunningTitle=与生俱来的狡猾
 Feature/&CastSpellImpInfernalDescription=你熟知恶毒嘲讽戏法。当你达到3级时，你可以在每次长休后施放一次隐身术。你使用魅力调整值作为这些法术的施法属性。

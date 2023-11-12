@@ -19,10 +19,9 @@ internal enum AttackModeOrder
 
 internal abstract class AddExtraAttackBase : IAddExtraAttack
 {
-    protected readonly ActionDefinitions.ActionType ActionType;
-
     // private readonly List<string> additionalTags = new();
     private readonly IsCharacterValidHandler[] _validators;
+    protected readonly ActionDefinitions.ActionType ActionType;
 
     protected AddExtraAttackBase(
         ActionDefinitions.ActionType actionType,
@@ -82,15 +81,10 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
         }
     }
 
-#if false
-    [NotNull]
-    internal AddExtraAttackBase SetTags([NotNull] params string[] tags)
+    public virtual int Priority()
     {
-        additionalTags.AddRange(tags);
-
-        return this;
+        return 0;
     }
-#endif
 
     protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacter character);
 
@@ -142,11 +136,6 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
                && freeOffHand
                && automaticHit
                && afterChargeOnly;
-    }
-
-    public virtual int Priority()
-    {
-        return 0;
     }
 }
 
@@ -217,7 +206,9 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
         var strikeDefinition = mainHandItem?.ItemDefinition;
 
+#pragma warning disable IDE0270
         if (strikeDefinition == null)
+#pragma warning restore IDE0270
         {
             strikeDefinition = hero.UnarmedStrikeDefinition;
         }
@@ -322,10 +313,6 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
-
-        // doesn't make sense to add a bonus attack from an offhand slot that already uses your bonus action
-
-        // AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
 
         return result;
     }
@@ -508,7 +495,6 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         attackMode.Ranged = false;
         attackMode.Thrown = false;
         attackMode.AutomaticHit = true;
-
         attackMode.EffectDescription.Clear();
         attackMode.EffectDescription.Copy(_torchPower.EffectDescription);
 
@@ -519,5 +505,43 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
             8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
 
         attackModes.Add(attackMode);
+    }
+}
+
+internal sealed class AddExtraFlurryOfArrowsAttack : AddExtraAttackBase
+{
+    public AddExtraFlurryOfArrowsAttack() :
+        base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasBowWithoutArmor)
+    {
+    }
+
+    protected override AttackModeOrder GetOrder(RulesetCharacter character)
+    {
+        return AttackModeOrder.Start;
+    }
+
+    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
+    {
+        if (character is not RulesetCharacterHero hero || !ValidatorsCharacter.HasBowWithoutArmor(hero))
+        {
+            return null;
+        }
+
+        var mainHandItem = hero.GetMainWeapon();
+        var attackModifiers = hero.attackModifiers;
+        var attackMode = hero.RefreshAttackMode(
+            ActionType,
+            mainHandItem!.ItemDefinition,
+            mainHandItem.ItemDefinition.WeaponDescription,
+            false,
+            true,
+            EquipmentDefinitions.SlotTypeMainHand,
+            attackModifiers,
+            hero.FeaturesOrigin,
+            mainHandItem);
+
+        attackMode.attacksNumber = 1;
+
+        return new List<RulesetAttackMode> { attackMode };
     }
 }
