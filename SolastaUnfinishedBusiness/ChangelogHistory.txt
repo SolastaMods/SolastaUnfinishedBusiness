@@ -2,13 +2,12 @@
 
 - added additional sample portraits [by Artyoan, Thaladar]
 - added Way of Zen Archery subclass
-- changed Way of Discordance tides of chaos feature to give monk level temporary hit points
-- changed Way of Dragon reactive hide feature to deal elemental damage equal to 2x your martial arts die
+- changed Way of Discordance tides of chaos to give monk level temporary hit points
+- changed Way of Dragon reactive hide to reactive skin, and changed damage to 2x your martial arts die
 - fixed Air Elemental wildshape using STR instead of DEX on flurry of blows attacks
-- fixed Forest Imp wrath feature not considering attack tags like magical weapon, etc.
-- improved Circle of The Forest Guardian bark ward feature caster and impact effects
-- improved Forest Imp wrath feature with a toggle to enable/disable it
-- improved Way of Dragon reactive hide feature elemental damage impact effects
+- fixed Forest Imp wrath not considering attack tags like magical weapon, etc.
+- improved Circle of The Forest Guardian bark ward caster and impact effects
+- improved Forest Imp wrath with a toggle to enable/disable the reaction prompt
 
 1.5.94.32:
 
