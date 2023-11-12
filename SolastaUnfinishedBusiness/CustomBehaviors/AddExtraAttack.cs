@@ -19,10 +19,9 @@ internal enum AttackModeOrder
 
 internal abstract class AddExtraAttackBase : IAddExtraAttack
 {
-    protected readonly ActionDefinitions.ActionType ActionType;
-
     // private readonly List<string> additionalTags = new();
     private readonly IsCharacterValidHandler[] _validators;
+    protected readonly ActionDefinitions.ActionType ActionType;
 
     protected AddExtraAttackBase(
         ActionDefinitions.ActionType actionType,
@@ -82,6 +81,11 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
         }
     }
 
+    public virtual int Priority()
+    {
+        return 0;
+    }
+
     protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacter character);
 
     protected virtual AttackModeOrder GetOrder(RulesetCharacter character)
@@ -132,11 +136,6 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
                && freeOffHand
                && automaticHit
                && afterChargeOnly;
-    }
-
-    public virtual int Priority()
-    {
-        return 0;
     }
 }
 

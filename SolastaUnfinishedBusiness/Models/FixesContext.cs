@@ -582,7 +582,7 @@ internal static class FixesContext
                 }
             }
 
-            if (!rulesetAttacker.IsToggleEnabled(ActionDefinitions.Id.StunningStrikeToggle))
+            if (!attacker.IsActionOnGoing(ActionDefinitions.Id.StunningStrikeToggle))
             {
                 yield break;
             }

@@ -285,7 +285,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
         }
 
         [CanBeNull]
-        private static IEnumerable<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
+        private static IEnumerable<CharacterActionParams> DefaultAttackHandler(
+            [CanBeNull] CharacterActionMagicEffect effect)
         {
             var actionParams = effect?.ActionParams;
 
