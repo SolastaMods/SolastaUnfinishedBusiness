@@ -246,11 +246,11 @@
   <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
   <EnableLevel20>false</EnableLevel20>
   <EnableMulticlass>false</EnableMulticlass>
-  <MaxAllowedClasses>3</MaxAllowedClasses>
-  <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
+  <MaxAllowedClasses>0</MaxAllowedClasses>
+  <EnableMinInOutAttributes>false</EnableMinInOutAttributes>
   <EnableRelearnSpells>false</EnableRelearnSpells>
-  <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
-  <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
+  <DisplayAllKnownSpellsDuringLevelUp>false</DisplayAllKnownSpellsDuringLevelUp>
+  <DisplayPactSlotsOnSpellSelectionPanel>false</DisplayPactSlotsOnSpellSelectionPanel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
