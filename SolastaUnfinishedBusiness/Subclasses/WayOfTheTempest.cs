@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -75,7 +74,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Round)
-                    .SetParticleEffectParameters(PowerMonkFlurryOfBlows)
+                    .SetParticleEffectParameters(ShockingGrasp)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -330,22 +329,21 @@ public sealed class WayOfTheTempest : AbstractSubclass
             return battleService.CanAttack(evalParams);
         }
 
-        [NotNull]
-        private static List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
+        [CanBeNull]
+        private static IEnumerable<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
         {
-            var attacks = new List<CharacterActionParams>();
             var actionParams = effect?.ActionParams;
 
             if (actionParams == null)
             {
-                return attacks;
+                return null;
             }
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (battleService is not { IsBattleInProgress: true })
             {
-                return attacks;
+                return null;
             }
 
             var caster = actionParams.ActingCharacter;
@@ -355,14 +353,14 @@ public sealed class WayOfTheTempest : AbstractSubclass
 
             if (targets.Empty())
             {
-                return attacks;
+                return null;
             }
 
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
 
             if (attackMode == null)
             {
-                return attacks;
+                return null;
             }
 
             //get copy to be sure we don't break existing mode
@@ -377,19 +375,13 @@ public sealed class WayOfTheTempest : AbstractSubclass
 
             var attackModifier = new ActionModifier();
 
-            foreach (var target in targets.Where(t => CanMeleeAttack(caster, t)))
-            {
-                var attackActionParams =
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
-
-                attackActionParams.TargetCharacters.Add(target);
-                attackActionParams.ActionModifiers.Add(attackModifier);
-                attacks.Add(attackActionParams);
-            }
-
-            EffectHelpers.StartVisualEffect(caster, caster, ShockingGrasp, EffectHelpers.EffectType.Caster);
-
-            return attacks;
+            return targets
+                .Where(t => CanMeleeAttack(caster, t))
+                .Select(target =>
+                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
+                    {
+                        AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+                    });
         }
 
         private static bool DefaultCanUseHandler(

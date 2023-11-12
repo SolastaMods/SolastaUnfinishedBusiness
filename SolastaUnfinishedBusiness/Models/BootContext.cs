@@ -4,7 +4,6 @@ using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
-using UnityEngine.InputSystem;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;
 #endif

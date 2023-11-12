@@ -284,22 +284,21 @@ public sealed class WayOfZenArchery : AbstractSubclass
             return battleService.CanAttack(evalParams);
         }
 
-        [NotNull]
-        private static List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
+        [CanBeNull]
+        private static IEnumerable<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
         {
-            var attacks = new List<CharacterActionParams>();
             var actionParams = effect?.ActionParams;
 
             if (actionParams == null)
             {
-                return attacks;
+                return null;
             }
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (battleService is not { IsBattleInProgress: true })
             {
-                return attacks;
+                return null;
             }
 
             var caster = actionParams.ActingCharacter;
@@ -307,14 +306,14 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
             if (targets.Count == 0)
             {
-                return attacks;
+                return null;
             }
 
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
             {
-                return attacks;
+                return null;
             }
 
             //get copy to be sure we don't break existing mode
@@ -330,17 +329,13 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
             var attackModifier = new ActionModifier();
 
-            foreach (var target in targets.Where(t => CanBowAttack(caster, t)))
-            {
-                var attackActionParams =
-                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
-
-                attackActionParams.TargetCharacters.Add(target);
-                attackActionParams.ActionModifiers.Add(attackModifier);
-                attacks.Add(attackActionParams);
-            }
-
-            return attacks;
+            return targets
+                .Where(t => CanBowAttack(caster, t))
+                .Select(target =>
+                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree)
+                    {
+                        AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+                    });
         }
 
         private static bool DefaultCanUseHandler(
