@@ -58,6 +58,9 @@ public class Settings : UnityModManager.ModSettings
     // TA made level ups of more than 1 level at a time disallowing unlearning spells/invocations to streamline process
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
 
+    public List<String> DemotedSubclasses { get; set; } =
+        new() { "CollegeOfHarlequin", "RoguishRaven", "WayOfTheDistantHand" };
+
     //
     // Gameplay - Tools
     //

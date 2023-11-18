@@ -32,7 +32,8 @@ internal static class SubclassesContext
         foreach (var abstractSubClassInstance in typeof(AbstractSubclass)
                      .Assembly.GetTypes()
                      .Where(t => t.IsSubclassOf(typeof(AbstractSubclass)) && !t.IsAbstract)
-                     .Select(t => (AbstractSubclass)Activator.CreateInstance(t)))
+                     .Select(t => (AbstractSubclass)Activator.CreateInstance(t))
+                     .Where(t => !Main.Settings.DemotedSubclasses.Contains(t.Subclass.Name)))
         {
             LoadSubclass(abstractSubClassInstance);
         }
