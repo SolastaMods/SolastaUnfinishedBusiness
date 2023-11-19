@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
@@ -30,6 +31,9 @@ public static class GameLocationCharacterPatcher
         {
             //PATCH: acts as a callback for the character's combat turn started event
             CharacterBattleListenersPatch.OnCharacterTurnStarted(__instance);
+
+            //PATCH: handle Martial Guardian Vigilance feature particular case
+            MartialGuardian.HandleVigilance(__instance);
         }
     }
 

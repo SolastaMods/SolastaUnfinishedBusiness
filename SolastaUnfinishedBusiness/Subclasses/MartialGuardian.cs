@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -13,6 +14,7 @@ using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
@@ -22,6 +24,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class MartialGuardian : AbstractSubclass
 {
     private const string Name = "MartialGuardian";
+    private const string FullName = $"Martial{Name}";
+    private const string ConditionVigilanceName = $"Condition{Name}Vigilance";
 
     public MartialGuardian()
     {
@@ -120,6 +124,12 @@ public sealed class MartialGuardian : AbstractSubclass
 
         // Vigilance
 
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionVigilanceName)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
         var perceptionAffinityVigilance = FeatureDefinitionPerceptionAffinityBuilder
             .Create($"PerceptionAffinity{Name}Vigilance")
             .SetGuiPresentation(Category.Feature)
@@ -151,7 +161,7 @@ public sealed class MartialGuardian : AbstractSubclass
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create($"Martial{Name}")
+            .Create(FullName)
             .SetGuiPresentation(Category.Subclass, FightingStyleDefinitions.Protection)
             .AddFeaturesAtLevel(3, actionAffinityCompellingStrike, proficiencySentinel)
             .AddFeaturesAtLevel(7, savingThrowAffinityUnyielding)
@@ -161,7 +171,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .AddToDB();
     }
 
-    internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Fighter;
+    internal override CharacterClassDefinition Klass => Fighter;
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -170,6 +180,44 @@ public sealed class MartialGuardian : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Vigilance
+    //
+
+    internal static void HandleVigilance(GameLocationCharacter __instance)
+    {
+        if (__instance.RulesetCharacter.GetSubclassLevel(Fighter, FullName) > 0)
+        {
+            return;
+        }
+
+        foreach (var guardian in Gui.Battle.PlayerContenders
+                     .Where(x => x.RulesetCharacter.GetSubclassLevel(Fighter, FullName) > 0))
+        {
+            var rulesetGuardian = guardian.RulesetCharacter;
+
+            if (guardian.CanReact() || rulesetGuardian.HasConditionOfType(ConditionVigilanceName))
+            {
+                continue;
+            }
+
+            guardian.RefundActionUse(ActionDefinitions.ActionType.Reaction);
+            rulesetGuardian.InflictCondition(
+                ConditionVigilanceName,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetGuardian.Guid,
+                rulesetGuardian.CurrentFaction.Name,
+                1,
+                ConditionVigilanceName,
+                0,
+                0,
+                0);
+        }
+    }
 
     //
     // Compelling Strike
