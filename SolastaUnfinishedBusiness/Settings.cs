@@ -59,7 +59,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
 
     // change this at your own risk as these subclasses will be fully removed from mod in the near future
-    public List<String> DemotedSubclasses { get; set; } =
+    public List<String> DeprecatedSubclasses { get; set; } =
         new() { "CollegeOfHarlequin", "MartialDefender", "RoguishRaven", "WayOfTheDistantHand" };
 
     //
