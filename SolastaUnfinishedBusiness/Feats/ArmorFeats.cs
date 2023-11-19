@@ -129,11 +129,11 @@ internal static class ArmorFeats
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(actionAffinityShieldTechniques, powerShieldTechniques)
-            .SetArmorProficiencyPrerequisite(LightArmorCategory)
+            .SetArmorProficiencyPrerequisite(ShieldCategory)
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, ITryAlterOutcomeFailedSavingThrow
+    private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, IAttackBeforeHitConfirmedOnMe
     {
         private readonly FeatureDefinitionPower _powerShieldTechniques;
 
@@ -159,34 +159,37 @@ internal static class ArmorFeats
             ActionModifier actionModifier,
             string attribute)
         {
-            actionModifier.SavingThrowModifier += 2;
             // for some reason this isn't displaying on log
+            actionModifier.SavingThrowModifier += 2;
             actionModifier.SavingThrowModifierTrends.Add(
                 new TrendInfo(2, FeatureSourceType.Power, _powerShieldTechniques.Name, _powerShieldTechniques));
 
             return attribute;
         }
 
-        // offer to reroll DEX saving on self or ally
-        public IEnumerator OnFailedSavingTryAlterOutcome(
+        // halve any damage taken
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var savingThrowAbility = action.ActionParams.RulesetEffect?.EffectDescription.SavingThrowAbility
-                                     ?? action.ActionParams.AttackMode?.EffectDescription.SavingThrowAbility;
-
-            if (savingThrowAbility != AttributeDefinitions.Dexterity)
+            if (!defender.CanReact() || !defender.RulesetCharacter.IsWearingShield())
             {
                 yield break;
             }
 
-            if (!ShouldTrigger(battleManager, defender, helper))
+            if (rulesetEffect == null ||
+                !rulesetEffect.EffectDescription.HasSavingThrow ||
+                rulesetEffect.EffectDescription.SavingThrowAbility != AttributeDefinitions.Dexterity ||
+                !actualEffectForms.Exists(x => x.FormType == EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
@@ -199,71 +202,21 @@ internal static class ArmorFeats
             }
 
             var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = FormatReactionDescription(action, attacker, defender, helper)
-                };
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("ShieldTechniques", reactionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(helper, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(defender, manager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            helper.RulesetCharacter.LogCharacterUsedPower(_powerShieldTechniques);
-            action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
-        }
-
-        private static bool ShouldTrigger(
-            IGameLocationBattleService gameLocationBattleService,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            return helper.CanReact()
-                   && helper.RulesetCharacter.IsWearingShield()
-                   && !defender.IsOppositeSide(helper.Side)
-                   && gameLocationBattleService.IsWithin1Cell(helper, defender);
-        }
-
-        private static bool TryModifyRoll(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier saveModifier,
-            bool hasHitVisual)
-        {
-            var actionParams = action.ActionParams;
-
-            action.RolledSaveThrow = actionParams.RulesetEffect == null
-                ? actionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter,
-                    defender.RulesetActor, saveModifier, actionParams.AttackMode.EffectDescription.EffectForms,
-                    out var saveOutcome, out var saveOutcomeDelta)
-                : actionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
-                    defender.RulesetActor, saveModifier, actionParams.RulesetEffect.EffectDescription.EffectForms,
-                    hasHitVisual, out saveOutcome, out saveOutcomeDelta);
-
-            action.SaveOutcome = saveOutcome;
-            action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            return true;
-        }
-
-        private static string FormatReactionDescription(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            var text = defender == helper
-                ? "Reaction/&CustomReactionShieldTechniquesDescriptionSelf"
-                : "Reaction/&CustomReactionShieldTechniquesDescriptionAlly";
-
-            return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+            defender.RulesetCharacter.LogCharacterUsedPower(_powerShieldTechniques);
+            attackModifier.defenderDamageMultiplier = 0.5f;
         }
     }
 }
