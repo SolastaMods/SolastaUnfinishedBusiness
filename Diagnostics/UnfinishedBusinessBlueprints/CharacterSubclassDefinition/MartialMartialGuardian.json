@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityMartialGuardianCompellingStrike:ccbd571c-47a1-5915-95ee-f78e50539f19",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyMartialGuardianSentinel:e8fcd6dd-8e93-5062-8b61-c0b4556f6f1c",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SavingThrowAffinityMartialGuardianUnyielding:f3847e1f-6185-5986-b81c-4f298e6007d2",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialGuardianGrandChallenge:015d6844-d0f7-5ca9-b3d3-5a69e616fa0b",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PerceptionAffinityMartialGuardianVigilance:b0c29b41-a91c-5a72-acb5-8c0f38bb3b58",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialGuardianImperviousProtector:3e98033c-3c61-5da9-8e69-4263af451797",
+      "level": 18
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&MartialMartialGuardianTitle",
+    "description": "Subclass/&MartialMartialGuardianDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "5d71490e307b6f84081ecb6b0c44b658",
+      "m_SubObjectName": "Protection",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "407b965d-4858-5466-a836-6bb42bf821b2",
+  "contentPack": 9999,
+  "name": "MartialMartialGuardian"
+}
