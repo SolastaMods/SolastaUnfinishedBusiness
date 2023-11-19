@@ -22,15 +22,16 @@ public static class CustomActionIdContext
     {
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
+        (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
-        (Id)ExtraActionId.MasterfulWhirlToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
+        (Id)ExtraActionId.HailOfBladesToggle,
+        (Id)ExtraActionId.MasterfulWhirlToggle,
+        (Id)ExtraActionId.MindSculptToggle,
         (Id)ExtraActionId.MonkKiPointsToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
-        (Id)ExtraActionId.HailOfBladesToggle,
-        (Id)ExtraActionId.MindSculptToggle,
         (Id)ExtraActionId.SupremeWillToggle,
-        (Id)ExtraActionId.ImpishWrathToggle,
+        (Id)ExtraActionId.ImpishWrathToggle, // defined in sub race
         (Id)ExtraActionId.QuiveringPalmToggle // defined in sub class
     };
 
@@ -269,6 +270,13 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.SupremeWillToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "CompellingStrikeToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CompellingStrikeToggle)
             .AddToDB();
     }
 

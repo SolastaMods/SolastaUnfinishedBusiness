@@ -243,6 +243,7 @@ internal enum ExtraActionId
     WildlingFeralAgility = 9044,
     ImpishWrathToggle = 9045,
     HailOfArrows = 9046,
+    CompellingStrikeToggle = 9047,
     PrioritizeAction = 10000
 }
 
