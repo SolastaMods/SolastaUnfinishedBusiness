@@ -1,0 +1,16 @@
+Action/&CompellingStrikeToggleDescription=„Überzeugender Schlag“ aktivieren/deaktivieren
+Action/&CompellingStrikeToggleTitle=Überzeugender Schlag
+Condition/&ConditionMartialGuardianGrandChallengeDescription=Du bist gegenüber jedem anderen Feind im Nachteil, nicht nur gegenüber dem Spötter.
+Condition/&ConditionMartialGuardianGrandChallengeTitle=Große Herausforderung
+Feature/&FeatureSetMartialGuardianImperviousProtectorDescription=Solange du schwere Rüstung trägst, erhältst du Widerstand gegen alle nicht-magischen Wucht-, Stich- und Hiebschäden. Wenn du die Initiative würfelst und mindestens eine Nutzung deiner „Große Herausforderung“-Funktion verpasst, erhältst du eine weitere Nutzung davon.
+Feature/&FeatureSetMartialGuardianImperviousProtectorTitle=Undurchdringlicher Beschützer
+Feature/&PerceptionAffinityMartialGuardianVigilanceDescription=Sie und Ihre Verbündeten können nicht mehr überrascht werden, und Sie können Ihre Reaktion zweimal pro Runde statt nur einmal, sondern nur einmal pro Runde einsetzen.
+Feature/&PerceptionAffinityMartialGuardianVigilanceTitle=Wachsamkeit
+Feature/&PowerMartialGuardianGrandChallengeDescription=Als Bonusaktion verspotten Sie alle feindlichen Kreaturen, die Sie in einem Umkreis von 30 Fuß um Sie sehen können. Jeder betroffenen gegnerischen Kreatur muss ein Weisheitsrettungswurf gelingen (SG 8 + dein Fähigkeitsbonus + dein Konstitutionsmodifikator) oder sie wird bis zum Beginn deines nächsten Zuges verspottet. Eine von dir verspottete Kreatur hat bei jedem Angriffswurf, der nicht auf dich abzielt, einen Nachteil. Dieser Effekt endet vorzeitig, wenn ein anderer Verbündeter die Kreatur verspottet, wenn Sie sich mehr als 30 Fuß von der Kreatur entfernen oder Ihren Zug beenden, ohne die Kreatur zu sehen. Sie können diese Funktion pro langer Pause mehrmals in Höhe Ihres Leistungsbonus nutzen.
+Feature/&PowerMartialGuardianGrandChallengeTitle=Große Herausforderung
+Feature/&ProficiencyMartialGuardianSentinelDescription=Du beherrschst Techniken, um jeden Verlust in der Abwehr eines Feindes auszunutzen:\n• Wenn du eine Kreatur mit einem Gelegenheitsangriff triffst, wird die Geschwindigkeit der Kreatur für den Rest der Runde auf 0 gesetzt.\n• Kreaturen provozieren Gelegenheitsangriffe von Sie selbst, wenn sie die Aktion „Entfernen“ ausführen, bevor sie Ihre Reichweite verlassen.\n• Sie können Ihre Reaktion nutzen, um einen Nahkampfwaffenangriff gegen die angreifende Kreatur durchzuführen, wenn eine Kreatur ein anderes Ziel als Sie angreift.
+Feature/&ProficiencyMartialGuardianSentinelTitle=Standhafte Front
+Feature/&SavingThrowAffinityMartialGuardianUnyieldingDescription=LEER
+Feature/&SavingThrowAffinityMartialGuardianUnyieldingTitle=LEER
+Subclass/&MartialMartialGuardianDescription=Wächter sind unerschütterliche Krieger, die Spott und unüberwindliche Verteidigungsmaßnahmen nutzen, um eine lebendige Mauer zwischen ihren Verbündeten und dem sicheren Untergang zu bilden. Ob ein Wächter ein tapferer Ritter, ein sturer Söldner oder ein kampferprobter General ist, es gibt niemanden, den man besser an seiner Seite haben kann, wenn die Situation am schlimmsten ist.
+Subclass/&MartialMartialGuardianTitle=Wächter
