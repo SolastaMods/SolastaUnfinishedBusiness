@@ -8,7 +8,6 @@ Feat/&FeatMediumArmorStrDescription=Augmentez votre Force de 1, jusqu'à un maxi
 Feat/&FeatMediumArmorStrTitle=Armure moyenne [For]
 Feat/&FeatShieldTechniquesDescription=Vous utilisez des boucliers non seulement pour vous protéger mais aussi pour vous attaquer. Vous bénéficiez des avantages suivants lorsque vous utilisez un bouclier :\n• Si vous effectuez l'action d'attaque à votre tour, vous pouvez utiliser une action bonus pour essayer de pousser une créature à moins de 1,50 mètre de vous avec votre bouclier.\n • Si vous n'êtes pas incapable d'agir, bénéficiez d'un bonus de +2 à tous les jets de sauvegarde de Dextérité que vous effectuez.\n• Chaque fois qu'un sort dommageable vous oblige à lancer un jet de sauvegarde de Dextérité, vous pouvez utiliser votre réaction pour réduire de moitié les dégâts subis.
 Feat/&FeatShieldTechniquesTitle=Techniques de bouclier
-Reaction/&CustomReactionShieldTechniquesDescription=Utilisez vos techniques de bouclier pour réduire de moitié tous les dégâts causés aux revenus.
 Reaction/&CustomReactionShieldTechniquesReactDescription=Utilisez vos techniques de bouclier pour vous aider avec le jet de sauvegarde.
 Reaction/&CustomReactionShieldTechniquesReactTitle=Techniques de bouclier
 Reaction/&CustomReactionShieldTechniquesTitle=Techniques de bouclier

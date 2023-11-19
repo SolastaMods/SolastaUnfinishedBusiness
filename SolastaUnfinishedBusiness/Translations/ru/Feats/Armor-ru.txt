@@ -8,7 +8,6 @@ Feat/&FeatMediumArmorStrDescription=Увеличьте значение Силы
 Feat/&FeatMediumArmorStrTitle=Знаток средних доспехов [СИЛ]
 Feat/&FeatShieldTechniquesDescription=Вы используете щиты не только для защиты, но и для нападения. Пока вы держите щит, вы получаете следующие преимущества:\n• Если вы выполняете атакующее действие в свой ход, вы можете бонусным действием попытаться оттолкнуть своим щитом существо в пределах 5 футов от вас.\n • Если вы не выведены из строя, получите бонус +2 ко всем спасброскам Ловкости, которые вы совершаете.\n• Всякий раз, когда наносящее урон заклинание заставляет вас совершить спасбросок Ловкости, вы можете использовать свою реакцию, чтобы вдвое уменьшить полученный урон.
 Feat/&FeatShieldTechniquesTitle=Мастерство щита
-Reaction/&CustomReactionShieldTechniquesDescription=Используйте свои техники щита, чтобы вдвое уменьшить весь ущерб, наносимый доходом.
 Reaction/&CustomReactionShieldTechniquesReactDescription=Используйте своё мастерство щита, чтобы помочь со спасброском.
 Reaction/&CustomReactionShieldTechniquesReactTitle=Мастерство щита
 Reaction/&CustomReactionShieldTechniquesTitle=Мастерство щита

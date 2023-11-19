@@ -8,7 +8,6 @@ Feat/&FeatMediumArmorStrDescription=Aumenta la tua Forza di 1, fino a un massimo
 Feat/&FeatMediumArmorStrTitle=Armatura media [For]
 Feat/&FeatShieldTechniquesDescription=Usi gli scudi non solo per protezione ma anche per offesa. Ottieni i seguenti benefici mentre impugni uno scudo:\n• Se esegui l'azione Attacco durante il tuo turno, puoi usare un'azione bonus per provare a spingere una creatura entro 1,5 piedi da te con il tuo scudo.\n • Se non sei Incapacitato, ottieni bonus +2 a tutti i tiri salvezza su Destrezza che effettui.\n• Ogni volta che un incantesimo dannoso ti obbliga a effettuare un tiro salvezza su Destrezza, puoi usare la tua reazione per dimezzare qualsiasi danno subito.
 Feat/&FeatShieldTechniquesTitle=Tecniche di scudo
-Reaction/&CustomReactionShieldTechniquesDescription=Usa le tue tecniche di scudo per dimezzare tutti i danni alle entrate.
 Reaction/&CustomReactionShieldTechniquesReactDescription=Usa le tue tecniche di scudo per aiutarti con il tiro salvezza.
 Reaction/&CustomReactionShieldTechniquesReactTitle=Tecniche di scudo
 Reaction/&CustomReactionShieldTechniquesTitle=Tecniche di scudo

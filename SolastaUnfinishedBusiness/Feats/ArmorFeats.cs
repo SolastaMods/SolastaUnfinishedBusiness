@@ -199,7 +199,10 @@ internal static class ArmorFeats
             }
 
             var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "Reaction/&CustomReactionShieldTechniquesReactDescription"
+                };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("ShieldTechniques", reactionParams);
 
