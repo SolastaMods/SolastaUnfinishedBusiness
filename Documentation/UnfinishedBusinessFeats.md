@@ -80,7 +80,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 # 18. - Cleaving Attack
 
 You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes:
-• On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a main action.
+• On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.
 • Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
 
 # 19. - Close Quarters
@@ -429,7 +429,7 @@ You have trained in the use of a shield as a weapon. It becomes a melee weapon t
 You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:
 • If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.
 • If you aren't incapacitated, gain +2 bonus to all Dexterity saving throws you make.
-• Whenever you or one of your allies that you can see within 5 feet fails a Dexterity saving throw, you can use your reaction to reroll the save.
+• Whenever a damaging spell forces you to roll a Dexterity saving throw, you can use your reaction to halve any damage taken.
 
 # 93. - Slasher
 

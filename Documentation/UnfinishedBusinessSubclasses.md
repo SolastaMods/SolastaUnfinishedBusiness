@@ -319,54 +319,7 @@ You can use your arcane powers to shield yourself as a reaction. This gives you 
 
 
 
-## 3. College of Harlequin
-
-College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
-
-
-### Level 3
-
-* Combat Inspiration
-
-You are inspired when bathing in the heat of a fight. You can roll a bardic inspiration die with advantage and add the roll to your weapon attack, and movement speed.
-
-* Martial Art Training
-
-Proficient with all simple and martial art weapons.
-
-* Terrific Performance
-
-You strike down your enemies in a magnificent way that inspired fear in those who are still alive. Whenever you kill an enemy all other enemies within 15' of you must make a Wisdom saving throw against your spell DC to avoid being terrified. A terrified creature has disadvantage on attack and saving throw. The effect last until the end of your next turn.
-
-* Two-Weapon Fighting Style Training
-
-When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
-
-* War Casting
-
-Advantage on concentration checks, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
-
-
-### Level 6
-
-* Improved Combat Inspiration
-
-You regain a bardic inspiration die whenever you strike down an enemy.
-
-* War Magic
-
-You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
-
-
-### Level 14
-
-* Improved Terrific Performance
-
-You strike down your enemies in a magnificent way that inspired fear in those who are still alive. Whenever you kill an enemy all other enemies within 30' of you must make a Wisdom saving throw against your spell DC to avoid being terrified. A terrified creature take psychic damage equal to twice the size of your bardic inspiration dice and has disadvantage on attack and saving throw. The effect last until the end of your next turn.
-
-
-
-## 4. College of Life
+## 3. College of Life
 
 Masters of manipulating both matter and life energy.
 
@@ -398,6 +351,49 @@ You can use your action a number of times a day equal to your proficiency bonus,
 * Harden to Necrotic
 
 You have immunity to necrotic damage, and your hit point maximum can't be reduced.
+
+
+
+## 4. College of Thespian
+
+College of Thespian bards see no distinction between art and war. They see it as their duty to keep the legend of the great battle of the Cataclysm alive through their performance, either on stage, or on the battlefield.
+
+
+### Level 3
+
+* Combat Inspiration
+
+You are inspired when bathing in the heat of a fight. Once during your turn as a free action, you can roll a bardic inspiration, adding the roll to your movement speed and gaining advantage on the next attack roll you make before your turn ends.
+
+* Macabre Instruments
+
+You can use your weapons as spellcasting focus and are able to perform somatic components of spells while holding items.
+
+* Terrific Performance
+
+You strike down your enemies in a terrifying way that instills fear in those who are still alive. Whenever you reduce a creature to 0 hit points with a melee weapon attack, all other enemy creatures within 15 feet of it must make a Wisdom saving throw against your spell DC or become frightened until the end of your next turn.
+
+* Two-Weapon Fighting Style
+
+When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+
+
+### Level 6
+
+* Extra Attack
+
+You gain an extra attack and can now attack up to 2 times in your turn.
+
+* Finale
+
+You regain a bardic inspiration die whenever you reduce a creature to 0 hit points.
+
+
+### Level 14
+
+* Improved Terrific Performance
+
+Any creature that fails its saving throw against your Terrific Performance also receives psychic damage equal to two bardic die rolls in addition to being frightened.
 
 
 
@@ -1009,7 +1005,55 @@ Your mastery with the shield grants you +1 AC. This bonus increases to +2 at 10t
 
 
 
-## 3. Marshal
+## 3. Guardian
+
+Guardians are stalwart warriors who use taunts and impregnable defenses to become a living wall between their allies and certain doom. Whether a guardian is a valiant knight, a stubborn sellsword, or a battle-hardened general, there is no one better to have at your side when the situation is at its most dire.
+
+
+### Level 3
+
+* Compelling Strike
+
+Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or end your turn without having sight of the creature.
+
+* Stalwart Front
+
+You have mastered techniques to take advantage of every drop in any enemy's guard:
+• When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
+• Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
+• You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
+
+
+### Level 7
+
+* Unyielding
+
+You gain proficiency in Wisdom saving throws. You are also treated as having half-cover while you are wearing heavy armor and aren't incapacitated.
+
+
+### Level 10
+
+* Grand Challenge
+
+As a bonus action, you taunt all hostile creatures that you can see within 30ft of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC is 8 + your proficiency bonus + your Constitution modifier) or become taunted until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or end your turn without having sight of the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
+
+
+### Level 15
+
+* Vigilance
+
+You can no longer be surprised, and you can use your reaction twice per round instead of only once, but only once per turn.
+
+
+### Level 18
+
+* Impervious Protector
+
+You gain resistance to all non magical bludgeoning, piercing and slashing damage as long as you are wearing heavy armor, and if you roll initiative and are missing at least one use of your Grand Challenge feature, you regain one use of it.
+
+
+
+## 4. Marshal
 
 Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 
@@ -1062,7 +1106,7 @@ Your knowledge and experience with creatures allows you to better defend yoursel
 
 
 
-## 4. Royal Knight
+## 5. Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -1103,7 +1147,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-## 5. Spell Shield
+## 6. Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -1152,7 +1196,7 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 
 
-## 6. Tactician
+## 7. Tactician
 
 The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 
@@ -1236,7 +1280,7 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-## 7. Weapon Master
+## 8. Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
@@ -1697,83 +1741,11 @@ A creature damaged by Discordance can now continue receiving Discordance conditi
 
 * Tides of Chaos
 
-Starting at 17th level, when a creature you can see within 30 feet of you is affected by Turmoil condition and gets reduced to 0 hit points, you gain temporary hit points equal to your martial arts die + half your monk level and 1 ki point. This effect can occur only once per turn.
+Starting at 17th level, when a creature you can see within 30 feet of you is affected by Turmoil condition and gets reduced to 0 hit points, you gain temporary hit points equal to your monk level and 1 ki point. This effect can occur only once per turn.
 
 
 
-## 2. Way of Distant Hand
-
-Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
-
-
-### Level 3
-
-* Distant Hand Technique
-
-You can manipulate your enemy's Ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 Ki to impose one of the following effects on that target:
-• It must succeed on a Dexterity saving throw or be knocked prone.
-• It must succeed Strength saving throw or be pushed 10 ft away from you.
-• It must succeed on a Wisdom saving throw or have disadvantage on next attack until end of its next turn.
-
-* Distract
-
-Target must succeed Wisdom saving throw or have disadvantage on next attack until end of its next turn.
-
-* Knock Down
-
-Target must succeed Dexterity saving throw or be knocked prone.
-
-* Push Away
-
-Target must succeed Strength saving throw or be pushed 10 ft away from you.
-
-
-### Level 6
-
-* Flurry of Arrows
-
-Whenever you use your Flurry of Blows feature, you can replace one unarmed attack with a bow attack.
-
-* Ki-Empowered Arrows
-
-Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
-
-
-### Level 11
-
-* Distract
-
-Target must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn.
-
-* Improved Distant Hand Technique
-
-You improve on your ability to manipulate Ki. All effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 Ki to impose one of the following effects on that target:
-• It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.
-• It must succeed Strength saving throw or be pushed 20 ft away from you.
-• It must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn.
-
-* Knock Down
-
-Target must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.
-
-* Push Away
-
-Target must succeed on a Strength saving throw or be pushed 20 ft away from you.
-
-* Stunning Arrows
-
-You can interfere with the flow of Ki in an opponent's body. When you hit another creature that is not stunned with a arrow attack, you can spend 1 Ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
-
-
-### Level 17
-
-* Unseen Eyes
-
-Your Wisdom score increases by 2, and your Wisdom score maximum becomes 22. Additionally, your bow attacks deal extra damage equal to your proficiency bonus.
-
-
-
-## 3. Way of Dragon
+## 2. Way of Dragon
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 
@@ -1788,10 +1760,10 @@ You have resistance to the damage type associated with your draconic ancestry.
 
 You choose one type of dragon as your ancestor. The damage type associated with your choice is used by the features you gain later.
 
-* Reactive Hide
+* Reactive Skin
 
 Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they must also pass a Constitution saving throw each time they hit you, or receive a detrimental condition depending on your Dragon Ancestry feature.
-A creature affected by one of the detrimental conditions must still pass a Constitution saving throw each time they hit you with a melee attack, but instead of receiving the same condition, they receive elemental damage equal to maximum values of 2x your martial arts dice. 
+A creature affected by one of the detrimental conditions must still pass a Constitution saving throw each time they hit you with a melee attack, but instead of receiving the same condition, they receive elemental damage equal to 2x your martial arts die. 
 
 
 ### Level 6
@@ -1816,7 +1788,7 @@ You can use your bonus action to sprout a pair of wings, gaining flying speed eq
 
 
 
-## 4. Way of Silhouette
+## 3. Way of Silhouette
 
 Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
@@ -1862,7 +1834,7 @@ When a creature is about to hit you with an attack, you can pay 3 Ki and use you
 
 
 
-## 5. Way of Tempest
+## 4. Way of Tempest
 
 Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
 
@@ -1896,7 +1868,7 @@ Starting at 17th level, whenever you hit a creature with a monk weapon or unarme
 
 
 
-## 6. Way of Weal and Woe
+## 5. Way of Weal and Woe
 
 Monks of the Way of Weal and Woe focus on both prosperity and adversity to engage their enemies in battle.
 
@@ -1934,7 +1906,7 @@ After you make an attack roll with a monk weapon or a unarmed attack, and critic
 
 
 
-## 7. Way of Zen Archery
+## 6. Way of Zen Archery
 
 A weapon is an extension of oneself, and a plain rendition of the one that wields it. Monks of the Way of Zen Archery know this well. The beauty and precision of martial arts has given these monks the tools to master their weapon of choice – the bow. They wield it with peerless skill and display their mastery of archery with each pull of the string.
 
@@ -2934,49 +2906,7 @@ You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
 
 
 
-## 7. Raven Uncut
-
-Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
-
-
-### Level 3
-
-* Heart Seeking Shot
-
-You aim at a vital spot of an enemy. When you make an attack with a two-handed ranged weapon you suffer a -4 penalty to the attack roll but your critical threat range increases by 2. In addition, your attack deals an extra 1d6 damage. The extra damage increases by 1d6 every 4 Rogue levels.
-
-* Sharp Shooter
-
-You are proficient with all two handed ranged weapons. In addition when you make a ranged attack you can ignore cover and long range disadvantage.
-
-
-### Level 9
-
-* Killing Spree
-
-You can make extra 2-handed ranged attack the first time you kill an enemy on your turn with 2-handed ranged weapon. In addition, each time you kill an enemy, your sneak attack can be reused on same turn.
-
-* Pain Maker
-
-You reroll any 1s when rolling for damage. You must keep the second roll.
-
-
-### Level 13
-
-* Deadly Aim
-
-Starting at 13th level, if you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest.
-
-
-### Level 17
-
-* Perfect Shot
-
-You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
-
-
-
-## 8. Slayer
+## 7. Slayer
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
