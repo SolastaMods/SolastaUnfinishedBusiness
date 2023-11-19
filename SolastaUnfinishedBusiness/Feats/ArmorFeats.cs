@@ -11,8 +11,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using static RuleDefinitions;
 using static EquipmentDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -116,6 +117,26 @@ internal static class ArmorFeats
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
+        var conditionShieldTechniquesResistance = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Resistance")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
         var powerShieldTechniques = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat)
@@ -123,7 +144,8 @@ internal static class ArmorFeats
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerShieldTechniques.AddCustomSubFeatures(new CustomBehaviorShieldTechniques(powerShieldTechniques));
+        powerShieldTechniques.AddCustomSubFeatures(
+            new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionShieldTechniquesResistance));
 
         return FeatDefinitionBuilder
             .Create(Name)
@@ -133,13 +155,79 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, IAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, IMagicalAttackBeforeHitConfirmedOnMe
     {
+        private readonly ConditionDefinition _conditionShieldTechniquesResistance;
         private readonly FeatureDefinitionPower _powerShieldTechniques;
 
-        public CustomBehaviorShieldTechniques(FeatureDefinitionPower powerShieldTechniques)
+        public CustomBehaviorShieldTechniques(
+            FeatureDefinitionPower powerShieldTechniques,
+            ConditionDefinition conditionShieldTechniquesResistance)
         {
             _powerShieldTechniques = powerShieldTechniques;
+            _conditionShieldTechniquesResistance = conditionShieldTechniquesResistance;
+        }
+
+        // halve any damage taken
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!defender.CanReact() || !defender.RulesetCharacter.IsWearingShield())
+            {
+                yield break;
+            }
+
+            if (!rulesetEffect.EffectDescription.HasSavingThrow ||
+                rulesetEffect.EffectDescription.SavingThrowAbility != AttributeDefinitions.Dexterity ||
+                !actualEffectForms.Exists(x => x.FormType == EffectForm.EffectFormType.Damage))
+            {
+                yield break;
+            }
+
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (manager == null || battleManager == null)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("ShieldTechniques", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(defender, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.LogCharacterUsedPower(_powerShieldTechniques);
+            rulesetDefender.InflictCondition(
+                _conditionShieldTechniquesResistance.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.Guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                _conditionShieldTechniquesResistance.Name,
+                0,
+                0,
+                0);
         }
 
         // validate savings bonus to only be DEX wielding shield
@@ -162,61 +250,10 @@ internal static class ArmorFeats
             // for some reason this isn't displaying on log
             actionModifier.SavingThrowModifier += 2;
             actionModifier.SavingThrowModifierTrends.Add(
-                new TrendInfo(2, FeatureSourceType.Power, _powerShieldTechniques.Name, _powerShieldTechniques));
+                new TrendInfo(2, FeatureSourceType.Condition, _conditionShieldTechniquesResistance.Name,
+                    _conditionShieldTechniquesResistance));
 
             return attribute;
-        }
-
-        // halve any damage taken
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (!defender.CanReact() || !defender.RulesetCharacter.IsWearingShield())
-            {
-                yield break;
-            }
-
-            if (rulesetEffect == null ||
-                !rulesetEffect.EffectDescription.HasSavingThrow ||
-                rulesetEffect.EffectDescription.SavingThrowAbility != AttributeDefinitions.Dexterity ||
-                !actualEffectForms.Exists(x => x.FormType == EffectForm.EffectFormType.Damage))
-            {
-                yield break;
-            }
-
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null)
-            {
-                yield break;
-            }
-
-            var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction);
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("ShieldTechniques", reactionParams);
-
-            manager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(defender, manager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            defender.RulesetCharacter.LogCharacterUsedPower(_powerShieldTechniques);
-            attackModifier.defenderDamageMultiplier = 0.5f;
         }
     }
 }
