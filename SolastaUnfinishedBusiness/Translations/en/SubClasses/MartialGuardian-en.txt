@@ -1,7 +1,9 @@
 Action/&CompellingStrikeToggleDescription=Activate/deactivate Compelling Strike
 Action/&CompellingStrikeToggleTitle=Compelling Strike
-Condition/&ConditionMartialGuardianGrandChallengeDescription=You have disadvantage against any other enemy rather than the taunter.
-Condition/&ConditionMartialGuardianGrandChallengeTitle=Grand Challenge
+Condition/&ConditionMartialGuardianTauntedDescription=You have disadvantage against any other enemy rather than the taunter.
+Condition/&ConditionMartialGuardianTauntedTitle=Taunted
+Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or end your turn without having sight of the creature.
+Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Compelling Strike
 Feature/&FeatureSetMartialGuardianImperviousProtectorDescription=You gain resistance to all non magical bludgeoning, piercing and slashing damage as long as you are wearing heavy armor, and if you roll initiative and are missing at least one use of your Grand Challenge feature, you regain one use of it.
 Feature/&FeatureSetMartialGuardianImperviousProtectorTitle=Impervious Protector
 Feature/&PerceptionAffinityMartialGuardianVigilanceDescription=You and your allies can no longer be surprised, and you can use your reaction twice per round instead of only once, but only once per turn.

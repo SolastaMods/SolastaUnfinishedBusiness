@@ -1,7 +1,9 @@
 Action/&CompellingStrikeToggleDescription=Активировать/деактивировать «Принудительный удар»
 Action/&CompellingStrikeToggleTitle=Убедительный удар
-Condition/&ConditionMartialGuardianGrandChallengeDescription=У вас есть недостаток против любого другого врага, кроме насмешки.
-Condition/&ConditionMartialGuardianGrandChallengeTitle=Грандиозный вызов
+Condition/&ConditionMartialGuardianTauntedDescription=У вас есть недостаток против любого другого врага, кроме насмешки.
+Condition/&ConditionMartialGuardianTauntedTitle=Насмехается
+Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Каждый раз, когда вы поражаете существо рукопашной атакой оружием, вы можете насмехаться над этим существом до начала вашего следующего хода. Существо, над которым вы насмехаетесь, имеет помеху при любом броске атаки, целью которого не является вы. Этот эффект заканчивается раньше, если другой союзник насмехается над существом, если вы отодвигаетесь более чем на 30 футов от существа или заканчиваете свой ход, не видя существа.
+Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Убедительный удар
 Feature/&FeatureSetMartialGuardianImperviousProtectorDescription=Вы получаете устойчивость ко всем немагическим дробящим, колющим и режущим повреждениям, пока носите тяжелую броню, и если вы совершаете бросок инициативы и пропускаете хотя бы одно использование своей функции «Большое испытание», вы восстанавливаете одно ее использование.
 Feature/&FeatureSetMartialGuardianImperviousProtectorTitle=Неуязвимый защитник
 Feature/&PerceptionAffinityMartialGuardianVigilanceDescription=Вы и ваши союзники больше не сможете быть застигнуты врасплох, и вы сможете использовать свою реакцию дважды за раунд вместо одного, а только один раз за ход.

@@ -1,7 +1,9 @@
 Action/&CompellingStrikeToggleDescription=Activar/desactivar Golpe convincente
 Action/&CompellingStrikeToggleTitle=Golpe convincente
-Condition/&ConditionMartialGuardianGrandChallengeDescription=Tienes desventaja contra cualquier otro enemigo además del provocador.
-Condition/&ConditionMartialGuardianGrandChallengeTitle=Gran Desafío
+Condition/&ConditionMartialGuardianTauntedDescription=Tienes desventaja contra cualquier otro enemigo además del provocador.
+Condition/&ConditionMartialGuardianTauntedTitle=Burlado
+Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Siempre que golpeas a una criatura con un ataque de arma cuerpo a cuerpo, puedes burlarte de ella hasta el comienzo de tu siguiente turno. Una criatura provocada por ti tiene desventaja en cualquier tirada de ataque que no te tenga como objetivo. Este efecto termina temprano si otro aliado se burla de la criatura, si te alejas más de 30 pies de la criatura o terminas tu turno sin poder verla.
+Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Golpe convincente
 Feature/&FeatureSetMartialGuardianImperviousProtectorDescription=Obtienes resistencia a todo daño contundente, perforante y cortante no mágico siempre que uses una armadura pesada, y si tiras iniciativa y te falta al menos un uso de tu función Gran Desafío, recuperas un uso de ella.
 Feature/&FeatureSetMartialGuardianImperviousProtectorTitle=Protector impermeable
 Feature/&PerceptionAffinityMartialGuardianVigilanceDescription=Tú y tus aliados ya no podrán ser sorprendidos y podrán usar su reacción dos veces por ronda en lugar de solo una vez, pero solo una vez por turno.

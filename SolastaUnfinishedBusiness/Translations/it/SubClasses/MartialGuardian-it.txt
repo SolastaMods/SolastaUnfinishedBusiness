@@ -1,7 +1,9 @@
 Action/&CompellingStrikeToggleDescription=Attiva/disattiva Colpo avvincente
 Action/&CompellingStrikeToggleTitle=Colpo avvincente
-Condition/&ConditionMartialGuardianGrandChallengeDescription=Hai svantaggio contro qualsiasi altro nemico piuttosto che contro il provocatore.
-Condition/&ConditionMartialGuardianGrandChallengeTitle=Grande sfida
+Condition/&ConditionMartialGuardianTauntedDescription=Hai svantaggio contro qualsiasi altro nemico piuttosto che contro il provocatore.
+Condition/&ConditionMartialGuardianTauntedTitle=Provocato
+Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Ogni volta che colpisci una creatura con un attacco con arma da mischia, puoi provocarla fino all'inizio del tuo turno successivo. Una creatura provocata da te ha svantaggio su qualsiasi tiro per colpire che non ti prende di mira. Questo effetto termina anticipatamente se un altro alleato provoca la creatura, se ti allontani a più di 9 metri dalla creatura o finisci il tuo turno senza poter vedere la creatura.
+Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Colpo avvincente
 Feature/&FeatureSetMartialGuardianImperviousProtectorDescription=Ottieni resistenza a tutti i danni contundenti, perforanti e taglienti non magici finché indossi un'armatura pesante e, se tiri l'iniziativa e perdi almeno un uso del tuo privilegio Grande Sfida, ne recuperi un uso.
 Feature/&FeatureSetMartialGuardianImperviousProtectorTitle=Protettore impervio
 Feature/&PerceptionAffinityMartialGuardianVigilanceDescription=Tu e i tuoi alleati non potete più essere sorpresi e potete usare la vostra reazione due volte per round invece che solo una, ma solo una volta per turno.

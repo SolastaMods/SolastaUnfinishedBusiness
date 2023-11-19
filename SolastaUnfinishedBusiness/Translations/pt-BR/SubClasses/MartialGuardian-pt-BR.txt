@@ -1,7 +1,9 @@
 Action/&CompellingStrikeToggleDescription=Ativar/desativar Ataque Contundente
 Action/&CompellingStrikeToggleTitle=Ataque convincente
-Condition/&ConditionMartialGuardianGrandChallengeDescription=Você tem desvantagem contra qualquer outro inimigo que não seja o provocador.
-Condition/&ConditionMartialGuardianGrandChallengeTitle=Grande Desafio
+Condition/&ConditionMartialGuardianTauntedDescription=Você tem desvantagem contra qualquer outro inimigo que não seja o provocador.
+Condition/&ConditionMartialGuardianTauntedTitle=Provocado
+Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Sempre que você acertar uma criatura com um ataque de arma corpo a corpo, você pode provocar a criatura até o início do seu próximo turno. Uma criatura provocada por você tem desvantagem em qualquer jogada de ataque que não tenha como alvo você. Este efeito termina mais cedo se outro aliado provocar a criatura, se você se afastar mais de 9 metros da criatura ou terminar seu turno sem ver a criatura.
+Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Ataque convincente
 Feature/&FeatureSetMartialGuardianImperviousProtectorDescription=Você ganha resistência a todos os danos não mágicos de concussão, perfurantes e cortantes enquanto estiver usando armadura pesada, e se você rolar a iniciativa e perder pelo menos um uso de seu recurso Grande Desafio, você recupera um uso dele.
 Feature/&FeatureSetMartialGuardianImperviousProtectorTitle=Protetor Impermeável
 Feature/&PerceptionAffinityMartialGuardianVigilanceDescription=Você e seus aliados não podem mais ser surpreendidos e podem usar sua reação duas vezes por rodada, em vez de apenas uma vez, mas apenas uma vez por turno.

@@ -1,7 +1,9 @@
 Action/&CompellingStrikeToggleDescription=강력한 일격 활성화/비활성화
 Action/&CompellingStrikeToggleTitle=강력한 일격
-Condition/&ConditionMartialGuardianGrandChallengeDescription=당신은 조롱하는 적보다 다른 적에 대해 불이익을 받습니다.
-Condition/&ConditionMartialGuardianGrandChallengeTitle=그랜드 챌린지
+Condition/&ConditionMartialGuardianTauntedDescription=당신은 조롱하는 적보다 다른 적에 대해 불이익을 받습니다.
+Condition/&ConditionMartialGuardianTauntedTitle=도발됨
+Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=근접 무기 공격으로 생물을 공격할 때마다 다음 턴이 시작될 때까지 생물을 도발할 수 있습니다. 당신이 조롱한 생물은 당신을 목표로 삼지 않는 모든 공격 굴림에 불리함을 갖습니다. 이 효과는 다른 아군이 생물을 도발하는 경우, 생물로부터 30피트 이상 멀리 이동하거나 생물을 보지 못한 채 턴을 종료하는 경우 일찍 종료됩니다.
+Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=강력한 일격
 Feature/&FeatureSetMartialGuardianImperviousProtectorDescription=무거운 갑옷을 입고 있는 동안 마법이 아닌 모든 타격, 관통 및 베기 피해에 대한 저항력을 얻습니다. 주도권을 굴리고 그랜드 챌린지 기능을 한 번 이상 사용하지 못한 경우 해당 기능을 한 번 다시 사용할 수 있습니다.
 Feature/&FeatureSetMartialGuardianImperviousProtectorTitle=불침투성 수호자
 Feature/&PerceptionAffinityMartialGuardianVigilanceDescription=당신과 당신의 동료들은 더 이상 놀라지 않을 것이며, 반응을 한 번만 사용하는 대신 라운드당 두 번 사용할 수 있지만 턴당 한 번만 사용할 수 있습니다.
