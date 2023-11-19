@@ -1240,4 +1240,31 @@ public static class GameLocationBattleManagerPatcher
             }
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.ComputeCover))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeCover_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(
+            GameLocationCharacter attacker,
+            int3 attackerPosition,
+            GameLocationCharacter defender,
+            int3 defenderPosition,
+            ActionModifier attackModifier,
+            ref CoverType bestCoverType,
+            bool ignoreCoverFromCharacters)
+        {
+            var modifiers = defender.RulesetCharacter.GetSubFeaturesByType<IModifyCoverType>();
+
+            foreach (var modifier in modifiers)
+            {
+                modifier.ModifyCoverType(
+                    attacker, attackerPosition,
+                    defender, defenderPosition,
+                    attackModifier, ref bestCoverType, ignoreCoverFromCharacters);
+            }
+        }
+    }
 }
