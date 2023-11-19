@@ -770,14 +770,12 @@ internal static class MeleeCombatFeats
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
-                FeatureDefinitionAdditionalActionBuilder
-                    .Create($"AdditionalAction{Name}Finish")
-                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition,
-                        Gui.NoLocalization)
-                    .AddCustomSubFeatures(AdditionalActionAttackValidator.MeleeOnly)
-                    .SetActionType(ActionDefinitions.ActionType.Main)
-                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                    .SetMaxAttacksNumber(1)
+                FeatureDefinitionBuilder
+                    .Create($"Feature{Name}Finish")
+                    .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, Gui.NoLocalization)
+                    .AddCustomSubFeatures(
+                        AdditionalActionAttackValidator.MeleeOnly,
+                        new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
                     .AddToDB())
             .AddToDB();
 

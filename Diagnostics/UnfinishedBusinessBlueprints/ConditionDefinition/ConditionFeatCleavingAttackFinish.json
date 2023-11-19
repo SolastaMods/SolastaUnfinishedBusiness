@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalActionFeatCleavingAttackFinish:8a2875ec-189d-52f9-878e-71c8e1632ab9"
+    "Definition:FeatureFeatCleavingAttackFinish:1f5fa1d9-38ef-5a58-99e3-a691fcbdc8eb"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
