@@ -755,9 +755,9 @@ internal static class ClassFeats
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var repertoire = character.GetClassSpellRepertoire(Druid);
-            var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
+            var rulesetUsablePower = UsablePowersProvider.Get(PowerDruidWildShape, character);
 
-            if (repertoire == null || rulesetUsablePower == null)
+            if (repertoire == null)
             {
                 yield break;
             }
@@ -785,12 +785,9 @@ internal static class ClassFeats
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
-            var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
+            var rulesetUsablePower = UsablePowersProvider.Get(PowerDruidWildShape, character);
 
-            if (rulesetUsablePower != null)
-            {
-                character.UpdateUsageForPowerPool(1, rulesetUsablePower);
-            }
+            character.UpdateUsageForPowerPool(1, rulesetUsablePower);
 
             yield break;
         }

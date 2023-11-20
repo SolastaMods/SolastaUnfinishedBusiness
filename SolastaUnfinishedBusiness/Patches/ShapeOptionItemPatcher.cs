@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -32,11 +32,8 @@ public static class ShapeOptionItemPatcher
 
             // special Circle of the Night that requires 2 shapes available on some forms
             var isCircleOfTheNight = shapeDefinition.CreatureTags.Contains(CircleOfTheNight.Name);
-            var rulesetUsablePower = shifter.UsablePowers.FirstOrDefault(x =>
-                x.PowerDefinition == DatabaseHelper.FeatureDefinitionPowers.PowerDruidWildShape);
-            var hasAtLeastTwoShapes =
-                rulesetUsablePower != null && shifter.GetRemainingUsesOfPower(rulesetUsablePower) > 1;
-
+            var rulesetUsablePower = UsablePowersProvider.Get(PowerDruidWildShape, rulesetCharacterHero);
+            var hasAtLeastTwoShapes = shifter.GetRemainingUsesOfPower(rulesetUsablePower) > 1;
             var isShapeOptionAvailable = requiredLevel <= levels && (!isCircleOfTheNight || hasAtLeastTwoShapes);
 
             __instance.levelLabel.TMP_Text.color = isShapeOptionAvailable

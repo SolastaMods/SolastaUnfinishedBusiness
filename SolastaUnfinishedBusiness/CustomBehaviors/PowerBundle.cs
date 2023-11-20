@@ -121,7 +121,7 @@ internal static class PowerBundle
 
         var poolPower = pool.GetUsagePoolPower();
 
-        return character.UsablePowers.FirstOrDefault(usablePower => usablePower.PowerDefinition == poolPower);
+        return UsablePowersProvider.Get(poolPower, character);
     }
 
     internal static int GetMaxUsesForPool(this RulesetCharacter character,
@@ -132,9 +132,9 @@ internal static class PowerBundle
             power = poolPower.GetUsagePoolPower();
         }
 
-        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+        var usablePower = UsablePowersProvider.Get(power, character);
 
-        return usablePower == null ? 0 : character.GetMaxUsesOfPower(usablePower);
+        return character.GetMaxUsesOfPower(usablePower);
     }
 
     internal static void UpdateUsageForPower(this RulesetCharacter character,
@@ -146,12 +146,9 @@ internal static class PowerBundle
             power = poolPower.GetUsagePoolPower();
         }
 
-        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+        var usablePower = UsablePowersProvider.Get(power, character);
 
-        if (usablePower != null)
-        {
-            UpdateUsageForPowerPool(character, poolUsage, usablePower);
-        }
+        UpdateUsageForPowerPool(character, poolUsage, usablePower);
     }
 
     internal static void UpdateUsageForPower(this RulesetCharacter character,
@@ -163,7 +160,8 @@ internal static class PowerBundle
         if (modifiedPower.PowerDefinition is IPowerSharedPool sharedPoolPower)
         {
             var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
-            usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == pointPoolPower);
+
+            usablePower = UsablePowersProvider.Get(pointPoolPower, character);
         }
         else if (modifiedPower.PowerDefinition.HasSubFeatureOfType<IsPowerPool>())
         {
@@ -257,12 +255,7 @@ internal static class PowerBundle
             return GetRemainingPowerPoolUses(character, poolPower) / power.CostPerUse;
         }
 
-        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
-
-        if (usablePower == null)
-        {
-            return 0;
-        }
+        var usablePower = UsablePowersProvider.Get(power, character);
 
         return usablePower.RemainingUses / power.CostPerUse;
     }
@@ -275,9 +268,9 @@ internal static class PowerBundle
             return GetRemainingPowerPoolUses(character, poolPower);
         }
 
-        var usablePower = character.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
+        var usablePower = UsablePowersProvider.Get(power, character);
 
-        return usablePower?.RemainingUses ?? 0;
+        return usablePower.RemainingUses;
     }
 
     private static int GetRemainingPowerPoolUses(
@@ -286,10 +279,7 @@ internal static class PowerBundle
     {
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
-        return character.UsablePowers
-            .Where(x => x.PowerDefinition == pointPoolPower)
-            .Select(poolPower => poolPower.RemainingUses)
-            .FirstOrDefault();
+        return UsablePowersProvider.Get(pointPoolPower, character).RemainingUses;
     }
 
     internal static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
