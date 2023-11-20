@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static MetricsDefinitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
@@ -278,8 +279,13 @@ internal static class MetamagicBuilders
         ref string failure)
     {
         var effect = rulesetEffectSpell.EffectDescription;
+        var shapeType = BuildShapeTypeFromTargetType(effect.TargetType);
 
-        if (effect.targetType is TargetType.Cone or TargetType.Cube or TargetType.Cylinder or TargetType.Sphere)
+        if (shapeType
+            is GeometricShapeType.Cone
+            or GeometricShapeType.Cube
+            or GeometricShapeType.Cylinder
+            or GeometricShapeType.Sphere)
         {
             return;
         }
