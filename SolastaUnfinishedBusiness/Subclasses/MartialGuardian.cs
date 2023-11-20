@@ -17,6 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -37,6 +38,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .Create($"Condition{Name}TauntedSelf")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new ActionFinishedByMeTauntedSelf())
             .AddToDB();
 
         var combatAffinityGrandChallengeAlly = FeatureDefinitionCombatAffinityBuilder
@@ -48,9 +50,10 @@ public sealed class MartialGuardian : AbstractSubclass
             .AddToDB();
 
         var conditionTaunted = ConditionDefinitionBuilder
-            .Create($"Condition{Name}Taunted")
+            .Create(ConditionDefinitions.ConditionUnderDemonicInfluence, $"Condition{Name}Taunted")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
             .AddFeatures(combatAffinityGrandChallengeAlly)
+            .AddCustomSubFeatures(new ActionFinishedByMeTaunted())
             .AddToDB();
 
         // Compelling Strike
@@ -80,10 +83,10 @@ public sealed class MartialGuardian : AbstractSubclass
 
         // Unyielding
 
-        var savingThrowAffinityUnyielding = FeatureDefinitionSavingThrowAffinityBuilder
+        var savingThrowAffinityUnyielding = FeatureDefinitionProficiencyBuilder
             .Create($"SavingThrowAffinity{Name}Unyielding")
             .SetGuiPresentation(Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Wisdom)
+            .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Wisdom)
             .AddCustomSubFeatures(new ModifyCoverTypeUnyielding())
             .AddToDB();
 
@@ -101,9 +104,8 @@ public sealed class MartialGuardian : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .ExcludeCaster()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 7)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution)
                     .SetParticleEffectParameters(SpellDefinitions.Confusion)
@@ -117,6 +119,9 @@ public sealed class MartialGuardian : AbstractSubclass
                             ConditionForm.ConditionOperation.Add, true, true))
                     .Build())
             .AddToDB();
+
+        powerGrandChallenge.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerMartialCommanderInvigoratingShout.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         //
         // LEVEL 15
@@ -220,6 +225,92 @@ public sealed class MartialGuardian : AbstractSubclass
     }
 
     //
+    // Taunted
+    //
+
+    private sealed class ActionFinishedByMeTauntedSelf : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            if (characterAction.ActionType != ActionDefinitions.ActionType.Move)
+            {
+                yield break;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            var targets = gameLocationBattleService.Battle.AllContenders
+                .Where(enemy => enemy.IsOppositeSide(actingCharacter.Side)
+                                && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } rulesetTaunted
+                                && rulesetTaunted.AllConditions.Any(x =>
+                                    x.ConditionDefinition.Name == $"Condition{Name}Taunted" &&
+                                    x.SourceGuid == rulesetCharacter.Guid)
+                                && (!actingCharacter.PerceivedFoes.Contains(enemy)
+                                    || !gameLocationBattleService.IsWithinXCells(actingCharacter, enemy, 5)))
+                .ToList();
+
+            foreach (var target in targets)
+            {
+                target.RulesetCharacter.AllConditions.RemoveAll(x =>
+                    x.ConditionDefinition.Name == $"Condition{Name}Taunted" &&
+                    x.SourceGuid == rulesetCharacter.Guid);
+            }
+        }
+    }
+
+    private sealed class ActionFinishedByMeTaunted : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            if (characterAction.ActionType != ActionDefinitions.ActionType.Move)
+            {
+                yield break;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var rulesetCondition in rulesetCharacter.AllConditions
+                         .Where(x =>
+                             x.ConditionDefinition.Name == $"Condition{Name}Taunted")
+                         .ToList())
+            {
+                var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+                var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
+
+                if (caster == null)
+                {
+                    continue;
+                }
+
+                if (!caster.PerceivedFoes.Contains(actingCharacter) ||
+                    !gameLocationBattleService.IsWithinXCells(caster, actingCharacter, 5))
+                {
+                    rulesetCaster.AllConditions.RemoveAll(x =>
+                        x.ConditionDefinition.Name == $"Condition{Name}Taunted" &&
+                        x.SourceGuid == rulesetCharacter.Guid);
+                }
+            }
+        }
+    }
+
+    //
     // Compelling Strike
     //
 
@@ -261,7 +352,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
@@ -277,7 +368,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
@@ -303,7 +394,9 @@ public sealed class MartialGuardian : AbstractSubclass
             ref CoverType bestCoverType,
             bool ignoreCoverFromCharacters)
         {
-            if (bestCoverType < CoverType.Half)
+            if (bestCoverType < CoverType.Half &&
+                ValidatorsCharacter.HasHeavyArmor(defender.RulesetCharacter) &&
+                !defender.RulesetCharacter.IsIncapacitated)
             {
                 bestCoverType = CoverType.Half;
             }
@@ -375,7 +468,7 @@ public sealed class MartialGuardian : AbstractSubclass
 
             var rulesetUsablePower = UsablePowersProvider.Get(_powerImperviousProtector, rulesetCharacter);
 
-            if (rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0)
+            if (rulesetUsablePower.RemainingUses > 0)
             {
                 return;
             }

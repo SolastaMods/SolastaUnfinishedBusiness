@@ -60,7 +60,7 @@ public class Settings : UnityModManager.ModSettings
 
     // change this at your own risk as these subclasses will be fully removed from mod in the near future
     public List<String> DeprecatedSubclasses { get; set; } =
-        new() { "CollegeOfHarlequin", "MartialDefender", "RoguishRaven", "WayOfTheDistantHand" };
+        new() { "CollegeOfHarlequin", "MartialMartialDefender", "RoguishRaven", "WayOfTheDistantHand" };
 
     //
     // Gameplay - Tools

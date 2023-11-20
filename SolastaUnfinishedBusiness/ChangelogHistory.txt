@@ -1,4 +1,13 @@
-﻿1.5.94.33:
+﻿1.5.94.34:
+
+- added an entry in settings.xml with a list of deprecated subclasses [not offered or supported anymore]
+- added College of Thespian and Martial Guardian subclasses [based of deprecated Harlequin and Defender]
+- changed Cleaving Attack feat extra attack on kill to a bonus action type
+- changed Shielding Techniques feat to halve all income damage on reactions
+- deprecated College of Harlequin, Martial Defender, Raven Uncut, and Way of Distant Hand subclasses
+- fixed Psychic Whip freezing combat when enemy tries to dash as very first action [spell won't trigger]
+
+1.5.94.33:
 
 - added additional sample portraits [by Artyoan, Thaladar]
 - added Way of Zen Archery subclass

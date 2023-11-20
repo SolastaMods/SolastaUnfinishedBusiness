@@ -1,27 +1,10 @@
 {
-  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
-  "useControllerSavingThrows": false,
-  "priorityAbilityScore": "",
-  "affinityGroups": [
-    {
-      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "affinity": "Advantage",
-      "savingThrowModifierType": "AddDice",
-      "savingThrowModifierDiceNumber": 0,
-      "savingThrowModifierDieType": "D1",
-      "restrictedForms": [],
-      "restrictedSchools": [],
-      "restrictedSpells": [],
-      "restrictedPowers": [],
-      "savingThrowContext": "None"
-    }
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "SavingThrow",
+  "proficiencies": [
+    "Wisdom"
   ],
-  "indomitableSavingThrows": 0,
-  "canBorrowLuck": false,
-  "canUseDiamondSoul": false,
-  "myselfFamilyRestrictions": [],
-  "otherCharacterFamilyRestrictions": [],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

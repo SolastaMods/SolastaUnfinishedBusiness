@@ -219,7 +219,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
             var title = GuiPresentationBuilder.CreateTitleKey(Feature, Category.Feature);
             var description = GuiPresentationBuilder.CreateDescriptionKey(Feature, Category.Feature);
 
-            target.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.Advantage, title: title);
+            target.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.None, title: title);
             target.LogCharacterActivatesAbility(title, Line, tooltipContent: description,
                 indent: true,
                 extra: new[]
@@ -304,6 +304,17 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 yield break;
             }
 
+            var targets = gameLocationBattleService.Battle.AllContenders
+                .Where(enemy => enemy.IsOppositeSide(attacker.Side)
+                                && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                                && gameLocationBattleService.IsWithinXCells(downedCreature, enemy, 3))
+                .ToList();
+
+            if (targets.Empty())
+            {
+                yield break;
+            }
+
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = classLevel < 14 ? _powerTerrificPerformance : _powerImprovedTerrificPerformance;
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
@@ -313,11 +324,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                     //CHECK: no need for AddAsActivePowerToSource
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false),
-                targetCharacters = gameLocationBattleService.Battle.AllContenders
-                    .Where(enemy => enemy.IsOppositeSide(attacker.Side)
-                                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                    && gameLocationBattleService.IsWithinXCells(downedCreature, enemy, 3))
-                    .ToList()
+                targetCharacters = targets
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
