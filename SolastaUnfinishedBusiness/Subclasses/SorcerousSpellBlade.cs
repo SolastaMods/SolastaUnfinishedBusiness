@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -257,12 +256,14 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             effectDescription.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
 
             //TODO: refactor this - we should not do actions when modifying effect descriptions
-            if (_baseDefinition == _powerManaShieldPoints)
+            if (_baseDefinition != _powerManaShieldPoints)
             {
-                character.UsablePowers
-                    .FirstOrDefault(x => x.PowerDefinition == _powerManaShieldPoints)
-                    ?.RepayUse();
+                return effectDescription;
             }
+
+            var usablePower = UsablePowersProvider.Get(_powerManaShieldPoints, character);
+
+            character.RepayPowerUse(usablePower);
 
             return effectDescription;
         }
