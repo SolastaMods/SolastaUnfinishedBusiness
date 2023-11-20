@@ -1,6 +1,5 @@
 Condition/&ConditionGambitDebilitateDescription=Tem desvantagem em testes de resistência.
 Condition/&ConditionGambitDebilitateTitle=Debilitado
-Condition/&ConditionGambitGoadingEffectTitle=Incitado
 Condition/&ConditionGambitSwitchBadDescription=A classe de armadura é diminuída pelo bônus de proficiência do estrategista que infligiu este efeito.
 Condition/&ConditionGambitSwitchBadTitle=Isca
 Condition/&ConditionGambitSwitchGoodDescription=A classe de armadura é aumentada pelo bônus de proficiência do estrategista que infligiu este efeito.
@@ -13,7 +12,7 @@ Feature/&GambitDebilitateDescription=Se seu próximo ataque atingir uma criatura
 Feature/&GambitDebilitateTitle=Debilidade
 Feature/&GambitFeintDescription=Se você atacar antes do início do seu próximo turno, você gastará <b>dado de gambito</b> e o ataque terá vantagem e causará dano adicional igual à rolagem do <b>dado de gambito</b>.
 Feature/&GambitFeintTitle=Finta
-Feature/&GambitGoadingDescription=Se seu próximo ataque atingir uma criatura, você gastará um <b>dado de gambito</b> para causar dano adicional igual à rolagem do <b>dado de gambito</b> e dará desvantagem a ela em todos os ataques contra alvos que não sejam você até o final de seu turno.
+Feature/&GambitGoadingDescription=Se seu próximo ataque atingir uma criatura, você gastará um <b>dado de gambito</b> para causar dano adicional igual ao <b>dado de gambito</b> e provocar a criatura. Uma criatura provocada por você tem desvantagem em qualquer jogada de ataque que não tenha como alvo você. Este efeito termina mais cedo se outro aliado provocar a criatura, se você se afastar mais de 9 metros da criatura ou perdê-la de vista.
 Feature/&GambitGoadingTitle=Provocar
 Feature/&GambitKnockdownDescription=Se seu próximo ataque atingir uma criatura, você gastará um <b>dado de gambito</b> para causar dano adicional igual à rolagem do <b>dado de gambito</b> e a derrubará se falhar no teste de resistência de Força contra seu Gambito DC.
 Feature/&GambitKnockdownTitle=Derrubar

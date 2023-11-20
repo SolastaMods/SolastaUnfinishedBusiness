@@ -651,27 +651,11 @@ internal static class CustomWeaponsContext
         damageForm.diceNumber = 1;
         damageForm.damageType = DamageTypeThunder;
 
-        const string CONDITION_NAME = "ConditionThunderGauntletDistract";
-
         baseDescription.EffectDescription.EffectForms.Add(
-            EffectFormBuilder
-                .Create()
-                .SetConditionForm(
-                    ConditionDefinitionBuilder
-                        .Create(CONDITION_NAME)
-                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-                        .SetPossessive()
-                        .SetConditionType(ConditionType.Detrimental)
-                        .SetSpecialDuration(DurationType.Round, 1)
-                        .SetFeatures(
-                            FeatureDefinitionCombatAffinityBuilder
-                                .Create("CombatAffinityThunderGauntletDistract")
-                                .SetGuiPresentation(CONDITION_NAME, Category.Condition, Gui.NoLocalization)
-                                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                                .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-                                .AddToDB())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                .Build());
+            EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted));
+        baseDescription.EffectDescription.EffectForms.Add(
+            EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunter,
+                ConditionForm.ConditionOperation.Add, true, true));
 
         var effectParticleParameters = new EffectParticleParameters();
 

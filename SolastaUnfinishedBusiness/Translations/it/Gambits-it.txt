@@ -1,6 +1,5 @@
 Condition/&ConditionGambitDebilitateDescription=Ha svantaggio ai tiri salvezza.
 Condition/&ConditionGambitDebilitateTitle=Debilitato
-Condition/&ConditionGambitGoadingEffectTitle=Spinto
 Condition/&ConditionGambitSwitchBadDescription=La classe armatura è ridotta dal bonus di competenza del Tattico che ha inflitto questo effetto.
 Condition/&ConditionGambitSwitchBadTitle=Adescato
 Condition/&ConditionGambitSwitchGoodDescription=La classe armatura è aumentata dal bonus di competenza del Tattico che ha inflitto questo effetto.
@@ -13,7 +12,7 @@ Feature/&GambitDebilitateDescription=Se il tuo prossimo attacco colpisce una cre
 Feature/&GambitDebilitateTitle=Debolezza
 Feature/&GambitFeintDescription=Se attacchi prima dell'inizio del tuo prossimo turno, spenderai il <b>dado di azzardo</b> e l'attacco avrà vantaggio e infliggerà danni aggiuntivi pari al tiro di <b>dado di azzardo</b>.
 Feature/&GambitFeintTitle=Finta
-Feature/&GambitGoadingDescription=Se il tuo prossimo attacco colpisce una creatura, spenderai un <b>dado azzardo</b> per infliggere danni aggiuntivi pari al tiro di <b>dado azzardo</b> e darle svantaggio su tutti gli attacchi contro bersagli diversi da te fino alla fine del suo turno.
+Feature/&GambitGoadingDescription=Se il tuo prossimo attacco colpisce una creatura, spenderai un <b>dado azzardo</b> per infliggere danni aggiuntivi pari al tiro del <b>dado azzardo</b> e schernire la creatura. Una creatura provocata da te ha svantaggio su qualsiasi tiro per colpire che non ti prende di mira. Questo effetto termina anticipatamente se un altro alleato provoca la creatura, se ci si allontana di più di 9 metri dalla creatura o se si perde di vista la creatura.
 Feature/&GambitGoadingTitle=Provocare
 Feature/&GambitKnockdownDescription=Se il tuo prossimo attacco colpisce una creatura, spenderai un <b>dado azzardo</b> per infliggere danni aggiuntivi pari al tiro di <b>dado azzardo</b> e farlo cadere prono se fallisce il tiro salvezza su Forza contro il tuo Azzardo DC.
 Feature/&GambitKnockdownTitle=Stendere

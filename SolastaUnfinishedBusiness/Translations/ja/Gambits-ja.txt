@@ -1,6 +1,5 @@
 Condition/&ConditionGambitDebilitateDescription=セーヴィングスローに不利あり。
 Condition/&ConditionGambitDebilitateTitle=衰弱した
-Condition/&ConditionGambitGoadingEffectTitle=刺激された
 Condition/&ConditionGambitSwitchBadDescription=アーマークラスは、この効果を与えた軍師の熟練度ボーナスによって減少します。
 Condition/&ConditionGambitSwitchBadTitle=餌付けされた
 Condition/&ConditionGambitSwitchGoodDescription=アーマークラスは、この効果を与えた軍師の熟練度ボーナスによって増加します。
@@ -13,7 +12,7 @@ Feature/&GambitDebilitateDescription=次の攻撃がクリーチャーに命中�
 Feature/&GambitDebilitateTitle=衰弱
 Feature/&GambitFeintDescription=次のターンの開始前に攻撃すると<b>ギャンビット ダイス</b>を消費し、 攻撃が有利となり<b>ギャンビット ダイス</b>のロールに等しい追加ダメージを与えます。
 Feature/&GambitFeintTitle=フェイント
-Feature/&GambitGoadingDescription=次の攻撃がクリーチャーに命中した場合、<b>ガンビット ダイス</b>を消費して<b>ガンビット ダイス</b>のロールに等しい追加ダメージを与え、自分以外のターゲットに対するすべての攻撃に不利を与えます。ターンの終わりまで。
+Feature/&GambitGoadingDescription=次の攻撃がクリーチャーに命中した場合、 あなたは<b>ギャンビット ダイス</b>を消費して<b>ギャンビット ダイス</b>のロールに等しい追加ダメージを与え、クリーチャーを挑発します。あなたに挑発されたクリーチャーは、あなたを対象としない攻撃ロールに対して不利になります。他の味方がクリーチャーを挑発した場合、クリーチャーから30フィート以上離れた場合、またはクリーチャーを見失った場合、この効果は早期に終了します。
 Feature/&GambitGoadingTitle=挑発する
 Feature/&GambitKnockdownDescription=次の攻撃がクリーチャーに命中した場合、<b>ガンビット ダイス</b>を消費して<b>ガンビット ダイス</b>のロールに等しい追加ダメージを与え、体力セーヴィング スローに失敗した場合は伏せさせます。ガンビットDC。
 Feature/&GambitKnockdownTitle=倒す

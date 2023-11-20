@@ -466,24 +466,11 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create($"Condition{name}Effect")
-                                    .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
-                                        ConditionDefinitions.ConditionDistracted)
-                                    .SetConditionType(ConditionType.Detrimental)
-                                    .SetFeatures(
-                                        FeatureDefinitionCombatAffinityBuilder
-                                            .Create($"CombatAffinity{name}")
-                                            .SetGuiPresentation(name, Category.Feature, Gui.NoLocalization)
-                                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                                            .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-                                            .AddToDB())
-                                    //Lasts until the end of the target's turn
-                                    .SetSpecialDuration(DurationType.Round, 1)
-                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(CustomConditionsContext.Taunted, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunter,
+                            ConditionForm.ConditionOperation.Add, true, true))
                     .Build())
             .AddToDB();
 
