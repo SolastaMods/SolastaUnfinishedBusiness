@@ -8,8 +8,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&SavingThrowAffinityMartialGuardianUnyieldingTitle",
-    "description": "Feature/&SavingThrowAffinityMartialGuardianUnyieldingDescription",
+    "title": "Feature/&ProficiencyMartialGuardianUnyieldingTitle",
+    "description": "Feature/&ProficiencyMartialGuardianUnyieldingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f3847e1f-6185-5986-b81c-4f298e6007d2",
+  "guid": "3377a4a1-b5e8-5838-aa80-4b332878779b",
   "contentPack": 9999,
-  "name": "SavingThrowAffinityMartialGuardianUnyielding"
+  "name": "ProficiencyMartialGuardianUnyielding"
 }

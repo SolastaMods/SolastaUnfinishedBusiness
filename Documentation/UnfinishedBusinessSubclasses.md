@@ -944,68 +944,7 @@ You gain one additional usage of your Arcane Shot technique.
 
 
 
-## 2. Defender
-
-The Defender recognizes their greater strength than their smaller allies. In response, they choose to shove whatever they can, be it their large shield or their own body, between enemies and allies. Martial Defenders use the size of their shields to interfere with enemy attacks and the bulk and weight of such a fighter and their defense can taunt monsters regardless of how the weapon hits.
-
-
-### Level 3
-
-* Protection Fighting Training
-
-When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
-
-* Shield Expert Training
-
-You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
-
-* Shield Mastery
-
-Your mastery with the shield grants you +1 AC. This bonus increases to +2 at 10th, and +3 at 18th level.
-
-
-### Level 7
-
-* Aegis Finesse
-
-While wielding a shield, you can shove or push a target as a bonus action.
-
-* Shout of Provocation
-
-As an action you shout and provoke all hostile creatures within 30ft of you. Each creature must succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or it will have disadvantage on all attacks against targets other than you but has advantage on all attacks targeting you until the start of your next turn.
-
-
-### Level 10
-
-* Aegis Assault
-
-When using a shield to attack an enemy, you can knock them prone.
-
-* Shield Mastery
-
-Your mastery with the shield grants you +1 AC. This bonus increases to +2 at 10th, and +3 at 18th level.
-
-
-### Level 15
-
-* Brutal Aegis
-
-The damage dealt when attacking with your shield is increased from 1d4 to 1d6.
-
-
-### Level 18
-
-* Aegis Paragon  
-
-When you attack an enemy with your shield you can make another bonus action attack with your shield.
-
-* Shield Mastery
-
-Your mastery with the shield grants you +1 AC. This bonus increases to +2 at 10th, and +3 at 18th level.
-
-
-
-## 3. Guardian
+## 2. Guardian
 
 Guardians are stalwart warriors who use taunts and impregnable defenses to become a living wall between their allies and certain doom. Whether a guardian is a valiant knight, a stubborn sellsword, or a battle-hardened general, there is no one better to have at your side when the situation is at its most dire.
 
@@ -1053,7 +992,7 @@ You gain resistance to all non magical bludgeoning, piercing and slashing damage
 
 
 
-## 4. Marshal
+## 3. Marshal
 
 Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 
@@ -1106,7 +1045,7 @@ Your knowledge and experience with creatures allows you to better defend yoursel
 
 
 
-## 5. Royal Knight
+## 4. Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -1147,7 +1086,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-## 6. Spell Shield
+## 5. Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -1196,7 +1135,7 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 
 
-## 7. Tactician
+## 6. Tactician
 
 The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 
@@ -1280,7 +1219,7 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-## 8. Weapon Master
+## 7. Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 

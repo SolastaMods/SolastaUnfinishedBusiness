@@ -25,7 +25,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class MartialGuardian : AbstractSubclass
 {
     private const string Name = "MartialGuardian";
-    private const string FullName = $"Martial{Name}";
     private const string ConditionVigilanceName = $"Condition{Name}Vigilance";
 
     public MartialGuardian()
@@ -50,9 +49,12 @@ public sealed class MartialGuardian : AbstractSubclass
             .AddToDB();
 
         var conditionTaunted = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionUnderDemonicInfluence, $"Condition{Name}Taunted")
+            .Create($"Condition{Name}Taunted")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
-            .AddFeatures(combatAffinityGrandChallengeAlly)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetConditionParticleReference(
+                ConditionDefinitions.ConditionUnderDemonicInfluence.conditionParticleReference)
+            .SetFeatures(combatAffinityGrandChallengeAlly)
             .AddCustomSubFeatures(new ActionFinishedByMeTaunted())
             .AddToDB();
 
@@ -84,7 +86,7 @@ public sealed class MartialGuardian : AbstractSubclass
         // Unyielding
 
         var savingThrowAffinityUnyielding = FeatureDefinitionProficiencyBuilder
-            .Create($"SavingThrowAffinity{Name}Unyielding")
+            .Create($"Proficiency{Name}Unyielding")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Wisdom)
             .AddCustomSubFeatures(new ModifyCoverTypeUnyielding())
@@ -105,7 +107,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.PerceivingWithinDistance, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution)
                     .SetParticleEffectParameters(SpellDefinitions.Confusion)
@@ -166,7 +168,7 @@ public sealed class MartialGuardian : AbstractSubclass
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(FullName)
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass, FightingStyleDefinitions.Protection)
             .AddFeaturesAtLevel(3, actionAffinityCompellingStrike, proficiencySentinel)
             .AddFeaturesAtLevel(7, savingThrowAffinityUnyielding)
@@ -192,13 +194,13 @@ public sealed class MartialGuardian : AbstractSubclass
 
     internal static void HandleVigilance(GameLocationCharacter __instance)
     {
-        if (__instance.RulesetCharacter.GetSubclassLevel(Fighter, FullName) > 0)
+        if (__instance.RulesetCharacter.GetSubclassLevel(Fighter, Name) > 0)
         {
             return;
         }
 
         foreach (var guardian in Gui.Battle.PlayerContenders
-                     .Where(x => x.RulesetCharacter.GetSubclassLevel(Fighter, FullName) > 0))
+                     .Where(x => x.RulesetCharacter.GetSubclassLevel(Fighter, Name) > 0))
         {
             var rulesetGuardian = guardian.RulesetCharacter;
 
@@ -246,22 +248,24 @@ public sealed class MartialGuardian : AbstractSubclass
 
             var actingCharacter = characterAction.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-
             var targets = gameLocationBattleService.Battle.AllContenders
-                .Where(enemy => enemy.IsOppositeSide(actingCharacter.Side)
-                                && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } rulesetTaunted
-                                && rulesetTaunted.AllConditions.Any(x =>
-                                    x.ConditionDefinition.Name == $"Condition{Name}Taunted" &&
-                                    x.SourceGuid == rulesetCharacter.Guid)
-                                && (!actingCharacter.PerceivedFoes.Contains(enemy)
-                                    || !gameLocationBattleService.IsWithinXCells(actingCharacter, enemy, 5)))
+                .Where(enemy =>
+                    enemy.IsOppositeSide(actingCharacter.Side)
+                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                    && (!actingCharacter.PerceivedFoes.Contains(enemy) ||
+                        !gameLocationBattleService.IsWithinXCells(actingCharacter, enemy, 5)))
                 .ToList();
 
             foreach (var target in targets)
             {
-                target.RulesetCharacter.AllConditions.RemoveAll(x =>
+                var rulesetCondition = target.RulesetCharacter.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition.Name == $"Condition{Name}Taunted" &&
                     x.SourceGuid == rulesetCharacter.Guid);
+
+                if (rulesetCondition != null)
+                {
+                    target.RulesetCharacter.RemoveCondition(rulesetCondition);
+                }
             }
         }
     }
@@ -285,27 +289,19 @@ public sealed class MartialGuardian : AbstractSubclass
             var actingCharacter = characterAction.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var rulesetCondition in rulesetCharacter.AllConditions
-                         .Where(x =>
-                             x.ConditionDefinition.Name == $"Condition{Name}Taunted")
-                         .ToList())
+                         .Where(x => x.ConditionDefinition.Name == $"Condition{Name}Taunted")
+                         .ToList()
+                         .Select(a => new { a, rulesetCaster = EffectHelpers.GetCharacterByGuid(a.SourceGuid) })
+                         .Where(t => t.rulesetCaster != null)
+                         .Select(b => new { b, caster = GameLocationCharacter.GetFromActor(b.rulesetCaster) })
+                         .Where(t =>
+                             t.caster != null &&
+                             (!t.caster.PerceivedFoes.Contains(actingCharacter) ||
+                              !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, 5)))
+                         .Select(c => c.b.a))
             {
-                var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
-                var caster = GameLocationCharacter.GetFromActor(rulesetCaster);
-
-                if (caster == null)
-                {
-                    continue;
-                }
-
-                if (!caster.PerceivedFoes.Contains(actingCharacter) ||
-                    !gameLocationBattleService.IsWithinXCells(caster, actingCharacter, 5))
-                {
-                    rulesetCaster.AllConditions.RemoveAll(x =>
-                        x.ConditionDefinition.Name == $"Condition{Name}Taunted" &&
-                        x.SourceGuid == rulesetCharacter.Guid);
-                }
+                rulesetCharacter.RemoveCondition(rulesetCondition);
             }
         }
     }

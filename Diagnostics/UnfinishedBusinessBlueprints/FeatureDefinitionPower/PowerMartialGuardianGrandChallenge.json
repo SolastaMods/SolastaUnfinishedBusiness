@@ -6,7 +6,7 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
+    "targetType": "PerceivingWithinDistance",
     "itemSelectionType": "None",
     "targetParameter": 6,
     "targetParameter2": 2,

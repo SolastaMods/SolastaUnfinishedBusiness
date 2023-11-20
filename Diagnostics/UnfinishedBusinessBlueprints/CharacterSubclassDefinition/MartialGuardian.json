@@ -13,7 +13,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SavingThrowAffinityMartialGuardianUnyielding:f3847e1f-6185-5986-b81c-4f298e6007d2",
+      "featureDefinition": "Definition:ProficiencyMartialGuardianUnyielding:3377a4a1-b5e8-5838-aa80-4b332878779b",
       "level": 7
     },
     {
@@ -37,8 +37,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&MartialMartialGuardianTitle",
-    "description": "Subclass/&MartialMartialGuardianDescription",
+    "title": "Subclass/&MartialGuardianTitle",
+    "description": "Subclass/&MartialGuardianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "5d71490e307b6f84081ecb6b0c44b658",
@@ -58,7 +58,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "407b965d-4858-5466-a836-6bb42bf821b2",
+  "guid": "5030d8f8-f4c4-5ee5-85e3-9a2da9ea8907",
   "contentPack": 9999,
-  "name": "MartialMartialGuardian"
+  "name": "MartialGuardian"
 }
