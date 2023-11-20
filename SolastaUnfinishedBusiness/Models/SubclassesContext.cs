@@ -38,6 +38,20 @@ internal static class SubclassesContext
             LoadSubclass(abstractSubClassInstance);
         }
 
+        // settings paring
+        var subclasses = Main.Settings.KlassListSubclassEnabled
+            .SelectMany(x => x.Value)
+            .Where(name => KlassListContextTab
+                .SelectMany(x => x.Value.AllSubClasses)
+                .All(y => y.Name != name))
+            .ToList();
+
+        foreach (var kvp in Main.Settings.KlassListSubclassEnabled)
+        {
+            kvp.Value.RemoveAll(x => subclasses.Contains(x));
+        }
+
+        // sorting
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()

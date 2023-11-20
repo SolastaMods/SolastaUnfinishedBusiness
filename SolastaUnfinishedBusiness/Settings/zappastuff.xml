@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DisplayModMessage>20</DisplayModMessage>
   <EnableDiagsDump>0</EnableDiagsDump>
-  <HideWelcomeMessage>true</HideWelcomeMessage>
   <SelectedTab>0</SelectedTab>
   <DisplayRacesToggle>false</DisplayRacesToggle>
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
@@ -211,6 +211,16 @@
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
   <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
   <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
+  <DeprecatedSubclasses>
+    <string>CollegeOfHarlequin</string>
+    <string>MartialMartialDefender</string>
+    <string>RoguishRaven</string>
+    <string>WayOfTheDistantHand</string>
+    <string>CollegeOfHarlequin</string>
+    <string>MartialMartialDefender</string>
+    <string>RoguishRaven</string>
+    <string>WayOfTheDistantHand</string>
+  </DeprecatedSubclasses>
   <DisableUpdateMessage>false</DisableUpdateMessage>
   <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
   <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -253,7 +263,7 @@
   <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
-  <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+  <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
   <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
   <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
@@ -628,8 +638,8 @@
         <ArrayOfString>
           <string>CollegeOfAudacity</string>
           <string>CollegeOfGuts</string>
-          <string>CollegeOfHarlequin</string>
           <string>CollegeOfLife</string>
+          <string>CollegeOfThespian</string>
           <string>CollegeOfValiance</string>
           <string>CollegeOfWarDancer</string>
         </ArrayOfString>
@@ -666,7 +676,7 @@
       <value>
         <ArrayOfString>
           <string>MartialArcaneArcher</string>
-          <string>MartialMartialDefender</string>
+          <string>MartialGuardian</string>
           <string>MartialMarshal</string>
           <string>MartialRoyalKnight</string>
           <string>MartialSpellShield</string>
@@ -682,7 +692,6 @@
       <value>
         <ArrayOfString>
           <string>WayOfTheDiscordance</string>
-          <string>WayOfTheDistantHand</string>
           <string>WayOfTheDragon</string>
           <string>WayOfSilhouette</string>
           <string>WayOfTheTempest</string>
@@ -732,7 +741,6 @@
           <string>RoguishBladeCaller</string>
           <string>RoguishDuelist</string>
           <string>RoguishOpportunist</string>
-          <string>RoguishRaven</string>
           <string>RoguishRavenScion</string>
           <string>RoguishSlayer</string>
         </ArrayOfString>
