@@ -20,6 +20,7 @@ public class Settings : UnityModManager.ModSettings
     // UI Saved State
     //
 
+    public int DisplayModMessage { get; set; }
     public int EnableDiagsDump { get; set; }
     public int SelectedTab { get; set; }
 
