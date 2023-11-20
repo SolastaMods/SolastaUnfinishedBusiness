@@ -27,11 +27,9 @@ internal static class UpdateContext
         {
             DisplayUpdateMessage();
         }
-        else if (!Main.Settings.HideWelcomeMessage)
+        else
         {
             DisplayWelcomeMessage();
-
-            Main.Settings.HideWelcomeMessage = true;
         }
     }
 

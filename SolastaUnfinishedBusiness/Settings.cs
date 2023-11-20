@@ -21,7 +21,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public int EnableDiagsDump { get; set; }
-    public bool HideWelcomeMessage { get; set; }
     public int SelectedTab { get; set; }
 
     //
