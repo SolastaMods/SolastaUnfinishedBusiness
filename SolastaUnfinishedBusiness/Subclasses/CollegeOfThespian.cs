@@ -268,8 +268,8 @@ public sealed class CollegeOfThespian : AbstractSubclass
 
     private sealed class OnReducedToZeroHpByMeTerrificPerformance : IOnReducedToZeroHpByMe
     {
-        private readonly FeatureDefinitionPower _powerTerrificPerformance;
         private readonly FeatureDefinitionPower _powerImprovedTerrificPerformance;
+        private readonly FeatureDefinitionPower _powerTerrificPerformance;
 
         public OnReducedToZeroHpByMeTerrificPerformance(
             FeatureDefinitionPower powerTerrificPerformance,

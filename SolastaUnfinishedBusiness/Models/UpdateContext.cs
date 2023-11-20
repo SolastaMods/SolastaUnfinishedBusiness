@@ -23,7 +23,7 @@ internal static class UpdateContext
     {
         LatestVersion = GetLatestVersion(out var shouldUpdate);
 
-        int day = DateTime.Now.Date.Day;
+        var day = DateTime.Now.Date.Day;
 
         if (shouldUpdate && !Main.Settings.DisableUpdateMessage)
         {
