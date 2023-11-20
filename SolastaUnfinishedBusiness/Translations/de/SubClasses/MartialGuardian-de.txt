@@ -1,7 +1,5 @@
 Action/&CompellingStrikeToggleDescription=„Überzeugender Schlag“ aktivieren/deaktivieren
 Action/&CompellingStrikeToggleTitle=Überzeugender Schlag
-Condition/&ConditionMartialGuardianTauntedDescription=Bei Angriffswürfen gegen andere Kreaturen als den Spotter hast du einen Nachteil.
-Condition/&ConditionMartialGuardianTauntedTitle=Verspottet
 Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Immer wenn du eine Kreatur mit einem Nahkampfwaffenangriff triffst, kannst du die Kreatur bis zum Beginn deines nächsten Zuges verspotten. Eine von dir verspottete Kreatur hat bei jedem Angriffswurf, der nicht auf dich abzielt, einen Nachteil. Dieser Effekt endet vorzeitig, wenn ein anderer Verbündeter die Kreatur verspottet, wenn Sie sich mehr als 30 Fuß von der Kreatur entfernen oder die Kreatur aus den Augen verlieren.
 Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Überzeugender Schlag
 Feature/&FeatureMartialGuardianImperviousProtectorDescription=Solange du schwere Rüstung trägst, erhältst du Widerstand gegen alle nicht-magischen Wucht-, Stich- und Hiebschäden. Wenn du die Initiative würfelst und mindestens eine Nutzung deiner „Große Herausforderung“-Funktion verpasst, erhältst du eine weitere Nutzung davon.

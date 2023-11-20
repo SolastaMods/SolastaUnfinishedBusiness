@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -10,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
@@ -25,38 +25,10 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class MartialGuardian : AbstractSubclass
 {
     private const string Name = "MartialGuardian";
-    private const string ConditionVigilanceName = $"Condition{Name}Vigilance";
 
     public MartialGuardian()
     {
         // LEVEL 03
-
-        // Taunted Conditions
-
-        var conditionTauntedSelf = ConditionDefinitionBuilder
-            .Create($"Condition{Name}TauntedSelf")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new ActionFinishedByMeTauntedSelf())
-            .AddToDB();
-
-        var combatAffinityGrandChallengeAlly = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}Taunted")
-            .SetGuiPresentation($"Condition{Name}Taunted", Category.Condition, Gui.NoLocalization)
-            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .SetSituationalContext(
-                (SituationalContext)ExtraSituationalContext.TargetDoesNotHaveCondition, conditionTauntedSelf)
-            .AddToDB();
-
-        var conditionTaunted = ConditionDefinitionBuilder
-            .Create($"Condition{Name}Taunted")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetConditionParticleReference(
-                ConditionDefinitions.ConditionUnderDemonicInfluence.conditionParticleReference)
-            .SetFeatures(combatAffinityGrandChallengeAlly)
-            .AddCustomSubFeatures(new ActionFinishedByMeTaunted())
-            .AddToDB();
 
         // Compelling Strike
 
@@ -66,9 +38,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CompellingStrikeToggle)
             .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield),
-                new AttackBeforeHitConfirmedOnEnemyCompellingStrike(
-                    conditionTauntedSelf,
-                    conditionTaunted))
+                new AttackBeforeHitConfirmedOnEnemyCompellingStrike())
             .AddToDB();
 
         // Stalwart Front (Sentinel FS)
@@ -110,20 +80,17 @@ public sealed class MartialGuardian : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.PerceivingWithinDistance, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution)
-                    .SetParticleEffectParameters(SpellDefinitions.Confusion)
+                    .SetParticleEffectParameters(PowerMartialCommanderInvigoratingShout)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(conditionTaunted, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(CustomConditionsContext.Taunted, ConditionForm.ConditionOperation.Add)
                             .Build(),
-                        EffectFormBuilder.ConditionForm(conditionTauntedSelf,
+                        EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunter,
                             ConditionForm.ConditionOperation.Add, true, true))
                     .Build())
             .AddToDB();
-
-        powerGrandChallenge.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerMartialCommanderInvigoratingShout.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         //
         // LEVEL 15
@@ -131,16 +98,16 @@ public sealed class MartialGuardian : AbstractSubclass
 
         // Vigilance
 
-        _ = ConditionDefinitionBuilder
-            .Create(ConditionVigilanceName)
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
         var perceptionAffinityVigilance = FeatureDefinitionPerceptionAffinityBuilder
             .Create($"PerceptionAffinity{Name}Vigilance")
             .SetGuiPresentation(Category.Feature)
             .CannotBeSurprised()
+            .AddToDB();
+
+        var featureSetVigilance = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Vigilance")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(ActionAffinityReactive, perceptionAffinityVigilance)
             .AddToDB();
 
         //
@@ -173,7 +140,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .AddFeaturesAtLevel(3, actionAffinityCompellingStrike, proficiencySentinel)
             .AddFeaturesAtLevel(7, savingThrowAffinityUnyielding)
             .AddFeaturesAtLevel(10, powerGrandChallenge)
-            .AddFeaturesAtLevel(15, perceptionAffinityVigilance)
+            .AddFeaturesAtLevel(15, featureSetVigilance)
             .AddFeaturesAtLevel(18, featureImperviousProtector)
             .AddToDB();
     }
@@ -189,140 +156,11 @@ public sealed class MartialGuardian : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
-    // Vigilance
-    //
-
-    internal static void HandleVigilance(GameLocationCharacter __instance)
-    {
-        if (__instance.RulesetCharacter.GetSubclassLevel(Fighter, Name) > 0)
-        {
-            return;
-        }
-
-        foreach (var guardian in Gui.Battle.PlayerContenders
-                     .Where(x => x.RulesetCharacter.GetSubclassLevel(Fighter, Name) > 0))
-        {
-            var rulesetGuardian = guardian.RulesetCharacter;
-
-            if (guardian.CanReact() || rulesetGuardian.HasConditionOfType(ConditionVigilanceName))
-            {
-                continue;
-            }
-
-            guardian.RefundActionUse(ActionDefinitions.ActionType.Reaction);
-            rulesetGuardian.InflictCondition(
-                ConditionVigilanceName,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetGuardian.Guid,
-                rulesetGuardian.CurrentFaction.Name,
-                1,
-                ConditionVigilanceName,
-                0,
-                0,
-                0);
-        }
-    }
-
-    //
-    // Taunted
-    //
-
-    private sealed class ActionFinishedByMeTauntedSelf : IActionFinishedByMe
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            if (characterAction.ActionType != ActionDefinitions.ActionType.Move)
-            {
-                yield break;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterAction.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var targets = gameLocationBattleService.Battle.AllContenders
-                .Where(enemy =>
-                    enemy.IsOppositeSide(actingCharacter.Side)
-                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                    && (!actingCharacter.PerceivedFoes.Contains(enemy) ||
-                        !gameLocationBattleService.IsWithinXCells(actingCharacter, enemy, 5)))
-                .ToList();
-
-            foreach (var target in targets)
-            {
-                var rulesetCondition = target.RulesetCharacter.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition.Name == $"Condition{Name}Taunted" &&
-                    x.SourceGuid == rulesetCharacter.Guid);
-
-                if (rulesetCondition != null)
-                {
-                    target.RulesetCharacter.RemoveCondition(rulesetCondition);
-                }
-            }
-        }
-    }
-
-    private sealed class ActionFinishedByMeTaunted : IActionFinishedByMe
-    {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
-        {
-            if (characterAction.ActionType != ActionDefinitions.ActionType.Move)
-            {
-                yield break;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterAction.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            foreach (var rulesetCondition in rulesetCharacter.AllConditions
-                         .Where(x => x.ConditionDefinition.Name == $"Condition{Name}Taunted")
-                         .ToList()
-                         .Select(a => new { a, rulesetCaster = EffectHelpers.GetCharacterByGuid(a.SourceGuid) })
-                         .Where(t => t.rulesetCaster != null)
-                         .Select(b => new { b, caster = GameLocationCharacter.GetFromActor(b.rulesetCaster) })
-                         .Where(t =>
-                             t.caster != null &&
-                             (!t.caster.PerceivedFoes.Contains(actingCharacter) ||
-                              !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, 5)))
-                         .Select(c => c.b.a))
-            {
-                rulesetCharacter.RemoveCondition(rulesetCondition);
-            }
-        }
-    }
-
-    //
     // Compelling Strike
     //
 
     private sealed class AttackBeforeHitConfirmedOnEnemyCompellingStrike : IAttackBeforeHitConfirmedOnEnemy
     {
-        private readonly ConditionDefinition _conditionDefinitionEnemy;
-        private readonly ConditionDefinition _conditionDefinitionSelf;
-
-        public AttackBeforeHitConfirmedOnEnemyCompellingStrike(
-            ConditionDefinition conditionDefinitionSelf,
-            ConditionDefinition conditionDefinitionEnemy)
-        {
-            _conditionDefinitionSelf = conditionDefinitionSelf;
-            _conditionDefinitionEnemy = conditionDefinitionEnemy;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -344,7 +182,7 @@ public sealed class MartialGuardian : AbstractSubclass
             }
 
             rulesetAttacker.InflictCondition(
-                _conditionDefinitionSelf.Name,
+                CustomConditionsContext.Taunter.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -352,7 +190,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionDefinitionSelf.Name,
+                CustomConditionsContext.Taunter.Name,
                 0,
                 0,
                 0);
@@ -360,7 +198,7 @@ public sealed class MartialGuardian : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.InflictCondition(
-                _conditionDefinitionEnemy.Name,
+                CustomConditionsContext.Taunted.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -368,7 +206,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionDefinitionEnemy.Name,
+                CustomConditionsContext.Taunted.Name,
                 0,
                 0,
                 0);
@@ -408,14 +246,14 @@ public sealed class MartialGuardian : AbstractSubclass
     {
         private const string Line = "Feedback/&ActivateRepaysLine";
         private readonly ConditionDefinition _conditionImperviousProtector;
-        private readonly FeatureDefinitionPower _powerImperviousProtector;
+        private readonly FeatureDefinitionPower _powerGrandChallenge;
 
         public CustomBehaviorImperviousProtector(
             ConditionDefinition conditionImperviousProtector,
-            FeatureDefinitionPower powerImperviousProtector)
+            FeatureDefinitionPower powerGrandChallenge)
         {
             _conditionImperviousProtector = conditionImperviousProtector;
-            _powerImperviousProtector = powerImperviousProtector;
+            _powerGrandChallenge = powerGrandChallenge;
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
@@ -462,15 +300,15 @@ public sealed class MartialGuardian : AbstractSubclass
                 return;
             }
 
-            var rulesetUsablePower = UsablePowersProvider.Get(_powerImperviousProtector, rulesetCharacter);
+            var rulesetUsablePower = UsablePowersProvider.Get(_powerGrandChallenge, rulesetCharacter);
 
-            if (rulesetUsablePower.RemainingUses > 0)
+            if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
             {
                 return;
             }
 
-            rulesetCharacter.LogCharacterUsedPower(_powerImperviousProtector, Line);
-            rulesetUsablePower.RepayUse();
+            rulesetCharacter.LogCharacterUsedPower(_powerGrandChallenge, Line);
+            rulesetCharacter.RepayPowerUse(rulesetUsablePower);
         }
     }
 }

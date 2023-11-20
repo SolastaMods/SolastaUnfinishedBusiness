@@ -31,9 +31,6 @@ public static class GameLocationCharacterPatcher
         {
             //PATCH: acts as a callback for the character's combat turn started event
             CharacterBattleListenersPatch.OnCharacterTurnStarted(__instance);
-
-            //PATCH: handle Martial Guardian Vigilance feature particular case
-            MartialGuardian.HandleVigilance(__instance);
         }
     }
 

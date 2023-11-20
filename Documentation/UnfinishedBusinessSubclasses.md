@@ -953,7 +953,7 @@ Guardians are stalwart warriors who use taunts and impregnable defenses to becom
 
 * Compelling Strike
 
-Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the end of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or end your turn without having sight of the creature.
+Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature.
 
 * Stalwart Front
 
@@ -974,7 +974,7 @@ You gain proficiency in Wisdom saving throws. You are also treated as having hal
 
 * Grand Challenge
 
-As a bonus action, you taunt all hostile creatures that you can see within 30ft of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC is 8 + your proficiency bonus + your Constitution modifier) or become taunted until the end of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or end your turn without having sight of the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
+As a bonus action, you taunt all hostile creatures that you can see within 30-foot-sphere of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC is 8 + your proficiency bonus + your Constitution modifier) or become taunted until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
 
 
 ### Level 15

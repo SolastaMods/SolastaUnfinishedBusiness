@@ -1,7 +1,5 @@
 Action/&CompellingStrikeToggleDescription=Ativar/desativar Ataque Contundente
 Action/&CompellingStrikeToggleTitle=Ataque convincente
-Condition/&ConditionMartialGuardianTauntedDescription=Você tem desvantagem nas jogadas de ataque contra criaturas que não sejam o provocador.
-Condition/&ConditionMartialGuardianTauntedTitle=Provocado
 Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Sempre que você acertar uma criatura com um ataque de arma corpo a corpo, você pode provocar a criatura até o início do seu próximo turno. Uma criatura provocada por você tem desvantagem em qualquer jogada de ataque que não tenha como alvo você. Este efeito termina mais cedo se outro aliado provocar a criatura, se você se afastar mais de 9 metros da criatura ou perdê-la de vista.
 Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Ataque convincente
 Feature/&FeatureMartialGuardianImperviousProtectorDescription=Você ganha resistência a todos os danos não mágicos de concussão, perfurantes e cortantes enquanto estiver usando armadura pesada, e se você rolar a iniciativa e perder pelo menos um uso de seu recurso Grande Desafio, você recupera um uso dele.

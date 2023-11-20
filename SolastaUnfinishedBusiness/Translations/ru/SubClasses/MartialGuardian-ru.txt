@@ -1,7 +1,5 @@
 Action/&CompellingStrikeToggleDescription=Активировать/деактивировать Принуждающий удар
 Action/&CompellingStrikeToggleTitle=Принуждающий удар
-Condition/&ConditionMartialGuardianTauntedDescription=Вы совершаете с помехой броски атаки по существам, отличным от провокатора.
-Condition/&ConditionMartialGuardianTauntedTitle=Спровоцирован
 Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Каждый раз, когда вы поражаете существо атакой рукопашным оружием, вы можете спровоцировать его до конца вашего следующего хода. Существо, которое вы спровоцировали, совершает с помехой броски атаки, направленные на любое существо, отличное от вас. Этот эффект оканчивается досрочно, если существо провоцирует другой союзник, вы удаляетесь от него на расстояние более 30 футов или завершаете свой ход, не имея его в поле зрения.
 Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Принуждающий удар
 Feature/&FeatureMartialGuardianImperviousProtectorDescription=Пока вы носите тяжёлые доспехи, вы получаете сопротивление всему немагическому дробящему, колющему и рубящему урону, а если при броске инициативы у вас нет хотя бы одного использования вашего умения Великий поединок, вы восстанавливаете одно его использование.
