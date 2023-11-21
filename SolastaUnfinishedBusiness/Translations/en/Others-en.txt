@@ -45,6 +45,7 @@ Feature/&AncestryLevelUpDraconicDescription=Your draconic ancestry gives you an 
 Feature/&AttributeModifierMonkAbundantKiDescription=Add half your proficiency bonus (rounded up) to your Ki Points pool.
 Feature/&AttributeModifierMonkAbundantKiTitle=Abundant Ki
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&EnhancedIndomitableResistanceDescription=If you fail a saving throw, you can reroll it with a bonus equal to your Fighter level. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Expanded Spells
 Feature/&FighterExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.

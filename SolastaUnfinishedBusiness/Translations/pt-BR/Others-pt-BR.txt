@@ -45,6 +45,7 @@ Feature/&AncestryLevelUpDraconicDescription=Sua ascendência dracônica lhe dá 
 Feature/&AttributeModifierMonkAbundantKiDescription=Adicione metade do seu bônus de proficiência (arredondado para cima) à sua reserva de Ki Points.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki Abundante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&EnhancedIndomitableResistanceDescription=Se você falhar em um teste de resistência, poderá jogá-lo novamente com um bônus igual ao seu nível de Lutador. Se fizer isso, você deverá usar o novo teste e não poderá usar esse recurso novamente até terminar um descanso longo.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Feitiços Expandidos
 Feature/&FighterExtraAttackDescription=Você pode atacar duas vezes, em vez de uma vez, ao usar as ações de ataque ou empurrão.

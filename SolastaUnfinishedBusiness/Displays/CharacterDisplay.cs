@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -223,18 +224,30 @@ internal static class CharacterDisplay
             CharacterContext.SwitchBarbarianFightingStyle();
         }
 
-        toggle = Main.Settings.EnableFighterWeaponSpecialization;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableFighterWeaponSpecialization = toggle;
-            CharacterContext.SwitchFighterWeaponSpecialization();
-        }
-
         toggle = Main.Settings.GrantScimitarSpecializationToBardRogue;
         if (UI.Toggle(Gui.Localize("ModUi/&GrantScimitarSpecializationToBarkMonkRogue"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.GrantScimitarSpecializationToBardRogue = toggle;
             CharacterContext.SwitchScimitarWeaponSpecialization();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
+
+            DatabaseHelper.ActionDefinitions.UseIndomitableResistance.GuiPresentation.description = toggle
+                ? "Feature/&EnhancedIndomitableResistanceDescription"
+                : "Feature/&IndomitableResistanceDescription";
+        }
+
+        toggle = Main.Settings.EnableFighterWeaponSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterWeaponSpecialization = toggle;
+            CharacterContext.SwitchFighterWeaponSpecialization();
         }
 
         UI.Label();

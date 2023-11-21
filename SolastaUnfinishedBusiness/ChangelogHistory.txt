@@ -2,9 +2,10 @@
 
 - added an entry in settings.xml with a list of deprecated subclasses [not offered or supported anymore]
 - added College of Thespian and Martial Guardian subclasses [based of deprecated Harlequin and Defender]
+- added Gameplay > General > 'Add Fighter level to indomitable resistance saving throw reroll'
 - changed Cleaving Attack feat extra attack on kill to a bonus action type instead of a main action one
 - changed Shielding Techniques feat on reaction to halve all income magic damage requiring a DEX save
-- consolidated Taunted condition and logic on Martial Guardian, Provoke Gambit, and Thunder Gauntlet
+- changed Taunted condition to be the same on Martial Guardian, Provoke Gambit, and Thunder Gauntlet
 - deprecated College of Harlequin, Martial Defender, Raven Uncut, and Way of Distant Hand subclasses
 - fixed Psychic Whip freezing combat when enemy tries to dash as very first action [spell won't trigger]
 

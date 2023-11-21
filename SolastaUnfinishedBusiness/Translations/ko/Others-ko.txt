@@ -45,6 +45,7 @@ Feature/&AncestryLevelUpDraconicDescription=당신의 드래곤 선조로 인해
 Feature/&AttributeModifierMonkAbundantKiDescription=숙련도 보너스의 절반(반올림)을 기 포인트 풀에 추가합니다.
 Feature/&AttributeModifierMonkAbundantKiTitle=풍부한 기
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&EnhancedIndomitableResistanceDescription=내성 굴림에 실패하면 파이터 레벨과 동일한 보너스를 받아 다시 굴릴 수 있습니다. 그럴 경우 새 롤을 사용해야 하며, 긴 휴식을 마칠 때까지 이 기능을 다시 사용할 수 없습니다.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=확장된 주문
 Feature/&FighterExtraAttackDescription=공격 또는 밀치기를 사용할 때 한 번이 아닌 두 번 공격할 수 있습니다.

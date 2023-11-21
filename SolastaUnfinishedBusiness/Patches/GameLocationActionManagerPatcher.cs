@@ -7,12 +7,39 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
 public static class GameLocationActionManagerPatcher
 {
+    //PATCH: supports `AddFighterLevelToIndomitableSavingReroll`
+    [HarmonyPatch(typeof(GameLocationActionManager),
+        nameof(GameLocationActionManager.ReactToIndomitableResistSavingThrow))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ReactToIndomitableResistSavingThrow_Patch
+    {
+        private const string SourceName = "Feature/&IndomitableResistanceTitle";
+
+        [UsedImplicitly]
+        public static void Prefix(CharacterActionParams reactionParams)
+        {
+            if (!Main.Settings.AddFighterLevelToIndomitableSavingReroll)
+            {
+                return;
+            }
+
+            var classLevel = reactionParams.ActingCharacter.RulesetCharacter.GetClassLevel(Fighter);
+            var actionModifier = reactionParams.ActionModifiers[0];
+
+            actionModifier.SavingThrowModifier += classLevel;
+            actionModifier.SavingThrowModifierTrends.Add(
+                new TrendInfo(classLevel, FeatureSourceType.CharacterFeature, SourceName, null));
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.ReactToSpendSpellSlot))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

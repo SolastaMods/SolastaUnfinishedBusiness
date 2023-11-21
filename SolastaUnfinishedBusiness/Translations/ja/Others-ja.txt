@@ -45,6 +45,7 @@ Feature/&AncestryLevelUpDraconicDescription=あなたの竜の祖先は、あな
 Feature/&AttributeModifierMonkAbundantKiDescription=熟練度ボーナスの半分（切り上げ）を Ki ポイントプールに追加します。
 Feature/&AttributeModifierMonkAbundantKiTitle=豊かな気
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&EnhancedIndomitableResistanceDescription=セーヴィング スローに失敗した場合は、ファイター レベルに等しいボーナスを獲得して再ロールできます。その場合は、新しいロールを使用する必要があり、長い休憩が終了するまでこの機能を再度使用することはできません。
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=拡張された呪文
 Feature/&FighterExtraAttackDescription=攻撃や突き飛ばしアクションを使用すると、1回ではなく2回攻撃することができます。

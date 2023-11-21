@@ -45,6 +45,7 @@ Feature/&AncestryLevelUpDraconicDescription=Votre Ascendance Draconique vous don
 Feature/&AttributeModifierMonkAbundantKiDescription=Ajoutez la moitié de votre bonus de compétence (arrondi au supérieur) à votre réserve de points Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abondant
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&EnhancedIndomitableResistanceDescription=Si vous échouez à un jet de sauvegarde, vous pouvez le relancer avec un bonus égal à votre niveau de Combattant. Si vous le faites, vous devez utiliser le nouveau jet et vous ne pourrez plus utiliser cette fonctionnalité tant que vous n'aurez pas terminé un repos long.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Sorts étendus
 Feature/&FighterExtraAttackDescription=Vous pouvez attaquer deux fois au lieu d'une lorsque vous utilisez les actions d'Attaque ou de Bousculade.
