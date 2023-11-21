@@ -32,10 +32,10 @@ public static class GameLocationActionManagerPatcher
             }
 
             var classLevel = reactionParams.ActingCharacter.RulesetCharacter.GetClassLevel(Fighter);
-            var actionModifier = reactionParams.ActionModifiers[0];
+            var saveModifier = GameLocationBattleManagerPatcher.HandleFailedSavingThrow_Patch.SaveModifier;
 
-            actionModifier.SavingThrowModifier += classLevel;
-            actionModifier.SavingThrowModifierTrends.Add(
+            saveModifier.SavingThrowModifier += classLevel;
+            saveModifier.SavingThrowModifierTrends.Add(
                 new TrendInfo(classLevel, FeatureSourceType.CharacterFeature, SourceName, null));
         }
     }
