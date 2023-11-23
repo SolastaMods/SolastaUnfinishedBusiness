@@ -204,7 +204,7 @@ public sealed class OathOfAncients : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-            .SetMaxAttacksNumber(1)
+            .SetMaxAttacksNumber(2)
             .AddToDB();
 
         var conditionElderChampionAdditionalAttack = ConditionDefinitionBuilder
