@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -65,8 +64,6 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
             .AddToDB();
-
-        featureFuriousDefense.AddCustomSubFeatures(new ModifySavingThrowFuriousDefense(featureFuriousDefense));
 
         // LEVEL 10
 
@@ -153,6 +150,33 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         return (diceNumber, upgradeDiceMap[dieType], upgradeDiceMap[versatileDieType]);
     }
 
+
+    internal static void OnRollSavingThrowFuriousDefense(RulesetActor defender, ref string abilityScoreName)
+    {
+        if (abilityScoreName != AttributeDefinitions.Dexterity ||
+            !defender.HasAnyConditionOfType(ConditionRaging))
+        {
+            return;
+        }
+
+        var dexSavingThrowBonus =
+            AttributeDefinitions.ComputeAbilityScoreModifier(
+                defender.TryGetAttributeValue(AttributeDefinitions.Dexterity)) +
+            defender.ComputeBaseSavingThrowBonus(AttributeDefinitions.Dexterity, new List<TrendInfo>());
+
+        var strSavingThrowBonus =
+            AttributeDefinitions.ComputeAbilityScoreModifier(
+                defender.TryGetAttributeValue(AttributeDefinitions.Strength)) +
+            defender.ComputeBaseSavingThrowBonus(AttributeDefinitions.Strength, new List<TrendInfo>());
+
+        if (dexSavingThrowBonus >= strSavingThrowBonus)
+        {
+            return;
+        }
+
+        abilityScoreName = AttributeDefinitions.Strength;
+    }
+
     private sealed class PhysicalAttackAfterDamageUnbridledFerocity : IPhysicalAttackAfterDamage
     {
         private readonly ConditionDefinition _conditionUnbridledFerocity;
@@ -202,38 +226,6 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         }
     }
 
-    private sealed class ModifySavingThrowFuriousDefense : IModifySavingThrow
-    {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public ModifySavingThrowFuriousDefense(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
-        public bool IsValid(
-            RulesetActor rulesetActor,
-            RulesetActor rulesetCaster,
-            IEnumerable<EffectForm> effectForms,
-            string attributeScore)
-        {
-            return attributeScore == AttributeDefinitions.Dexterity &&
-                   rulesetActor.HasAnyConditionOfType(ConditionRaging);
-        }
-
-        public string AttributeAndActionModifier(
-            RulesetActor rulesetActor,
-            ActionModifier actionModifier,
-            string attribute)
-        {
-            (rulesetActor as RulesetCharacter)!.LogCharacterUsedFeature(_featureDefinition);
-
-            actionModifier.SavingThrowAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
-
-            return AttributeDefinitions.Strength;
-        }
-    }
 
     private sealed class ActionFinishedByMeWrathAndFury : IActionFinishedByMe
     {

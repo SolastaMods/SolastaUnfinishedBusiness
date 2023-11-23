@@ -155,7 +155,8 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, IMagicalAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorShieldTechniques :
+        IRollSavingThrowInitiated, IMagicalAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionShieldTechniquesResistance;
         private readonly FeatureDefinitionPower _powerShieldTechniques;
@@ -233,30 +234,30 @@ internal static class ArmorFeats
                 0);
         }
 
-        // validate savings bonus to only be DEX wielding shield
-        public bool IsValid(
-            RulesetActor rulesetActor,
-            RulesetActor rulesetCaster,
-            IEnumerable<EffectForm> effectForms,
-            string attributeScore)
-        {
-            return attributeScore == AttributeDefinitions.Dexterity
-                   && rulesetActor is RulesetCharacterHero hero && hero.IsWearingShield();
-        }
-
         // add +2 on DEX savings
-        public string AttributeAndActionModifier(
-            RulesetActor rulesetActor,
-            ActionModifier actionModifier,
-            string attribute)
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta, List<EffectForm> effectForms)
         {
-            // for some reason this isn't displaying on log
-            actionModifier.SavingThrowModifier += 2;
-            actionModifier.SavingThrowModifierTrends.Add(
+            if (abilityScoreName != AttributeDefinitions.Dexterity || !defender.IsWearingShield())
+            {
+                return;
+            }
+
+            rollModifier += 2;
+            modifierTrends.Add(
                 new TrendInfo(2, FeatureSourceType.Condition, _conditionShieldTechniquesResistance.Name,
                     _conditionShieldTechniquesResistance));
-
-            return attribute;
         }
     }
 }

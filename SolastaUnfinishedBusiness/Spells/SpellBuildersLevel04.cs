@@ -310,7 +310,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByMe, IModifySavingThrow
+    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByMe, IRollSavingThrowInitiated
     {
         private readonly SpellDefinition _spellDefinition;
 
@@ -331,24 +331,25 @@ internal static partial class SpellBuilders
             yield break;
         }
 
-        public bool IsValid(
-            RulesetActor rulesetActor,
-            RulesetActor rulesetCaster,
-            IEnumerable<EffectForm> effectForms,
-            string attributeScore)
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta, List<EffectForm> effectForms)
         {
-            return attributeScore == AttributeDefinitions.Constitution;
-        }
-
-        public string AttributeAndActionModifier(
-            RulesetActor rulesetActor,
-            ActionModifier actionModifier,
-            string attribute)
-        {
-            actionModifier.SavingThrowAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
-
-            return attribute;
+            if (abilityScoreName == AttributeDefinitions.Constitution)
+            {
+                advantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
+            }
         }
     }
 
@@ -468,7 +469,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifySavingThrowAuraOfPerseverance : IModifySavingThrow
+    private sealed class ModifySavingThrowAuraOfPerseverance : IRollSavingThrowInitiated
     {
         private readonly SpellDefinition _spellDefinition;
 
@@ -477,32 +478,35 @@ internal static partial class SpellBuilders
             _spellDefinition = spellDefinition;
         }
 
-        public bool IsValid(
-            RulesetActor rulesetActor,
-            RulesetActor rulesetCaster,
-            IEnumerable<EffectForm> effectForms,
-            string attributeScore)
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier, int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
         {
-            return effectForms.Any(x =>
-                x.FormType == EffectForm.EffectFormType.Condition
-                && (x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionBlinded.Name)
-                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name)
-                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionDeafened.Name)
-                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionFrightened.Name)
-                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionParalyzed.Name)
-                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionPoisoned.Name)
-                    || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionStunned.Name)));
-        }
-
-        public string AttributeAndActionModifier(
-            RulesetActor rulesetActor,
-            ActionModifier actionModifier,
-            string attribute)
-        {
-            actionModifier.SavingThrowAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
-
-            return attribute;
+            if (effectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Condition
+                    && (x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionBlinded.Name)
+                        || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name)
+                        || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionDeafened.Name)
+                        || x.ConditionForm.ConditionDefinition.IsSubtypeOf(
+                            ConditionDefinitions.ConditionFrightened.Name)
+                        || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionParalyzed.Name)
+                        || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionPoisoned.Name)
+                        || x.ConditionForm.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionStunned
+                            .Name))))
+            {
+                advantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
+            }
         }
     }
 
@@ -670,7 +674,7 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class CustomBehaviorTree : IModifyAttackActionModifier, IModifySavingThrow
+    private sealed class CustomBehaviorTree : IModifyAttackActionModifier, IRollSavingThrowInitiated
     {
         private readonly ConditionDefinition _conditionTree;
 
@@ -698,24 +702,25 @@ internal static partial class SpellBuilders
             }
         }
 
-        public bool IsValid(
-            RulesetActor rulesetActor,
-            RulesetActor rulesetCaster,
-            IEnumerable<EffectForm> effectForms,
-            string attributeScore)
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta, List<EffectForm> effectForms)
         {
-            return attributeScore == AttributeDefinitions.Constitution;
-        }
-
-        public string AttributeAndActionModifier(
-            RulesetActor rulesetActor,
-            ActionModifier actionModifier,
-            string attribute)
-        {
-            actionModifier.SavingThrowAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
-
-            return attribute;
+            if (abilityScoreName == AttributeDefinitions.Constitution)
+            {
+                advantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
+            }
         }
     }
 
@@ -785,7 +790,7 @@ internal static partial class SpellBuilders
                                 .Create($"Condition{NAME}ForceFailOnCharmed")
                                 .SetGuiPresentationNoContent(true)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
-                                .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowIrresistiblePerformance())
+                                .AddCustomSubFeatures(new RollSavingThrowFinishedIrresistiblePerformance())
                                 .AddToDB()),
                         EffectFormBuilder
                             .Create()
@@ -802,46 +807,38 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class TryAlterOutcomeSavingThrowIrresistiblePerformance : ITryAlterOutcomeSavingThrow
+    private sealed class RollSavingThrowFinishedIrresistiblePerformance : IRollSavingThrowFinished
     {
-        public void OnSavingTryAlterOutcome(
+        public void OnSavingThrowFinished(
             RulesetCharacter caster,
-            Side sourceSide,
-            RulesetActor target,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasSavingThrow,
-            string savingThrowAbility,
-            int saveDC,
-            bool disableSavingThrowOnAllies,
-            bool advantageForEnemies,
-            bool ignoreCover,
-            FeatureSourceType featureSourceType,
-            List<EffectForm> effectForms,
-            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
-            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
-            string sourceName,
+            RulesetCharacter defender,
+            int saveBonus,
+            string abilityScoreName,
             BaseDefinition sourceDefinition,
-            string schoolOfMagic,
-            MetamagicOptionDefinition metamagicOption,
-            ref RollOutcome saveOutcome,
-            ref int saveOutcomeDelta)
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
         {
-            if (saveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }
 
-            if (!target.AllConditions.Any(x =>
-                    (x.ConditionDefinition == ConditionDefinitions.ConditionCharmed
-                     || x.ConditionDefinition.parentCondition == ConditionDefinitions.ConditionCharmed)
-                    && x.SourceGuid == caster.Guid))
+            if (!defender.AllConditions.Any(x =>
+                    (x.ConditionDefinition == ConditionDefinitions.ConditionCharmed ||
+                     x.ConditionDefinition.parentCondition == ConditionDefinitions.ConditionCharmed) &&
+                    x.SourceGuid == caster.Guid))
             {
                 return;
             }
 
-            saveOutcome = RollOutcome.Failure;
-            saveOutcomeDelta = -1;
+            outcome = RollOutcome.Failure;
+            outcomeDelta = -1;
         }
     }
 

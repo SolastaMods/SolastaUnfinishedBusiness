@@ -601,7 +601,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation :
-        IMagicalAttackBeforeHitConfirmedOnMe, ITryAlterOutcomeSavingThrow
+        IMagicalAttackBeforeHitConfirmedOnMe, IRollSavingThrowFinished
     {
         private readonly ConditionDefinition _conditionCircleOfMagicalNegation;
         private RollOutcome _saveOutcome;
@@ -634,30 +634,22 @@ internal static partial class SpellBuilders
             defender.RulesetCharacter.LogCharacterAffectedByCondition(_conditionCircleOfMagicalNegation);
         }
 
-        public void OnSavingTryAlterOutcome(
+        public void OnSavingThrowFinished(
             RulesetCharacter caster,
-            Side sourceSide,
-            RulesetActor target,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasSavingThrow,
-            string savingThrowAbility,
-            int saveDC,
-            bool disableSavingThrowOnAllies,
-            bool advantageForEnemies,
-            bool ignoreCover,
-            FeatureSourceType featureSourceType,
-            List<EffectForm> effectForms,
-            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
-            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
-            string sourceName,
+            RulesetCharacter defender,
+            int saveBonus,
+            string abilityScoreName,
             BaseDefinition sourceDefinition,
-            string schoolOfMagic,
-            MetamagicOptionDefinition metamagicOption,
-            ref RollOutcome saveOutcome,
-            ref int saveOutcomeDelta)
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
         {
-            _saveOutcome = saveOutcome;
+            _saveOutcome = outcome;
         }
     }
 

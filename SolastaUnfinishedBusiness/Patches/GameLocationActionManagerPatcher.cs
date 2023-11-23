@@ -6,8 +6,8 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -21,8 +21,6 @@ public static class GameLocationActionManagerPatcher
     [UsedImplicitly]
     public static class ReactToIndomitableResistSavingThrow_Patch
     {
-        private const string SourceName = "Feature/&IndomitableResistanceTitle";
-
         [UsedImplicitly]
         public static void Prefix(CharacterActionParams reactionParams)
         {
@@ -31,12 +29,21 @@ public static class GameLocationActionManagerPatcher
                 return;
             }
 
-            var classLevel = reactionParams.ActingCharacter.RulesetCharacter.GetClassLevel(Fighter);
-            var saveModifier = GameLocationBattleManagerPatcher.HandleFailedSavingThrow_Patch.SaveModifier;
+            var rulesetCharacter = reactionParams.ActingCharacter.RulesetCharacter;
 
-            saveModifier.SavingThrowModifier += classLevel;
-            saveModifier.SavingThrowModifierTrends.Add(
-                new TrendInfo(classLevel, FeatureSourceType.CharacterFeature, SourceName, null));
+            rulesetCharacter.InflictCondition(
+                CharacterContext.ConditionIndomitableSaving.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                CharacterContext.ConditionIndomitableSaving.Name,
+                0,
+                0,
+                0);
         }
     }
 

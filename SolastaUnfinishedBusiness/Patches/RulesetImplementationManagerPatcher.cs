@@ -651,48 +651,80 @@ public static class RulesetImplementationManagerPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
+            var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
+            var myRollSavingThrowMethod = typeof(TryRollSavingThrow_Patch).GetMethod("RollSavingThrow");
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(
-                "RulesetImplementationManager.TryRollSavingThrow", EnumerateFeatureDefinitionSavingThrowAffinity);
+            return instructions
+                .ReplaceCalls(rollSavingThrowMethod,
+                    "RulesetImplementationManager.TryRollSavingThrow.RollSavingThrow",
+                    new CodeInstruction(OpCodes.Ldarg, 1),
+                    new CodeInstruction(OpCodes.Ldarg, 13),
+                    new CodeInstruction(OpCodes.Call, myRollSavingThrowMethod))
+                .ReplaceEnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(
+                    "RulesetImplementationManager.TryRollSavingThrow.EnumerateFeatureDefinitionSavingThrowAffinity",
+                    EnumerateFeatureDefinitionSavingThrowAffinity);
         }
 
-        private static void GetBestSavingThrowAbilityScore(
-            RulesetActor rulesetActor,
-            RulesetActor rulesetCaster,
-            ActionModifier actionModifier,
-            IReadOnlyCollection<EffectForm> effectForms,
-            ref string attributeScore)
+        [UsedImplicitly]
+        public static void RollSavingThrow(
+            RulesetCharacter __instance,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            RulesetCharacter caster,
+            List<EffectForm> effectForms)
         {
-            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            //PATCH: supports `IRollSavingThrowFinished` interface
+            foreach (var rollSavingThrowInitiated in __instance.GetSubFeaturesByType<IRollSavingThrowInitiated>())
             {
-                return;
+                rollSavingThrowInitiated.OnSavingThrowInitiated(
+                    caster,
+                    __instance,
+                    ref saveBonus,
+                    ref abilityScoreName,
+                    sourceDefinition,
+                    modifierTrends,
+                    advantageTrends,
+                    ref rollModifier,
+                    saveDC,
+                    hasHitVisual,
+                    ref outcome,
+                    ref outcomeDelta,
+                    effectForms);
             }
 
-            var savingThrowBonus =
-                AttributeDefinitions.ComputeAbilityScoreModifier(
-                    rulesetCharacter.TryGetAttributeValue(attributeScore)) +
-                rulesetCharacter.ComputeBaseSavingThrowBonus(attributeScore, new List<TrendInfo>());
+            __instance.RollSavingThrow(
+                saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
+                rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);
 
-            var attr = attributeScore;
-
-            foreach (var attribute in rulesetCharacter
-                         .GetSubFeaturesByType<IModifySavingThrow>()
-                         .Where(x => x.IsValid(rulesetCharacter, rulesetCaster, effectForms, attr))
-                         .Select(x => x.AttributeAndActionModifier(rulesetCharacter, actionModifier, attr)))
+            //PATCH: supports `IRollSavingThrowFinished` interface
+            foreach (var rollSavingThrowFinished in __instance.GetSubFeaturesByType<IRollSavingThrowFinished>())
             {
-                var newSavingThrowBonus =
-                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCharacter.TryGetAttributeValue(attribute)) +
-                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<TrendInfo>());
-
-                // get the last one instead unless we start using this with other subs and then need to decide which one is better
-                if (newSavingThrowBonus <= savingThrowBonus)
-                {
-                    continue;
-                }
-
-                attributeScore = attribute;
-                savingThrowBonus = newSavingThrowBonus;
+                rollSavingThrowFinished.OnSavingThrowFinished(
+                    caster,
+                    __instance,
+                    saveBonus,
+                    abilityScoreName,
+                    sourceDefinition,
+                    modifierTrends,
+                    advantageTrends,
+                    rollModifier,
+                    saveDC,
+                    hasHitVisual,
+                    ref outcome,
+                    ref outcomeDelta,
+                    effectForms);
             }
+
+            // BUGFIX: saving throw not passing correct saving delta on attack actions
+            Global.SetAttackActionSaveOutcomeDelta(outcomeDelta);
         }
 
         [UsedImplicitly]
@@ -704,79 +736,22 @@ public static class RulesetImplementationManagerPatcher
             List<EffectForm> effectForms,
             BaseDefinition sourceDefinition)
         {
+            //PATCH: supports Patch of Savagery furious defense
+            PathOfTheSavagery.OnRollSavingThrowFuriousDefense(target, ref savingThrowAbility);
+
             //PATCH: supports Oath of Ancients / Oath of Dread level 20 powers
-            //TODO: convert to an interface
             var hasSmiteCondition = effectForms.Any(x =>
                 x.FormType == EffectForm.EffectFormType.Condition &&
                 x.ConditionForm.ConditionDefinition != null &&
                 x.ConditionForm.ConditionDefinition.Name.Contains("Smite"));
 
-            if (hasSmiteCondition)
+            if (!hasSmiteCondition)
             {
-                OathOfAncients.OnRollSavingThrowElderChampion(caster, target, sourceDefinition);
-                OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
+                return;
             }
 
-            //PATCH: supports IModifySavingThrow interface
-            GetBestSavingThrowAbilityScore(target, caster, actionModifier, effectForms, ref savingThrowAbility);
-        }
-
-        [UsedImplicitly]
-        public static void Postfix(
-            RulesetCharacter caster,
-            Side sourceSide,
-            RulesetActor target,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasSavingThrow,
-            string savingThrowAbility,
-            int saveDC,
-            bool disableSavingThrowOnAllies,
-            bool advantageForEnemies,
-            bool ignoreCover,
-            FeatureSourceType featureSourceType,
-            List<EffectForm> effectForms,
-            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
-            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
-            string sourceName,
-            BaseDefinition sourceDefinition,
-            string schoolOfMagic,
-            MetamagicOptionDefinition metamagicOption,
-            ref RollOutcome saveOutcome,
-            ref int saveOutcomeDelta)
-        {
-            // BUGFIX: saving throw not passing correct saving delta on attack actions
-            Global.SetAttackActionSaveOutcomeDelta(saveOutcomeDelta);
-
-            //PATCH: supports ITryAlterOutcomeSavingThrow interface
-            foreach (var tryAlterOutcomeSavingThrow in target.GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
-            {
-                tryAlterOutcomeSavingThrow.OnSavingTryAlterOutcome(
-                    caster,
-                    sourceSide,
-                    target,
-                    actionModifier,
-                    hasHitVisual,
-                    hasSavingThrow,
-                    savingThrowAbility,
-                    saveDC,
-                    disableSavingThrowOnAllies,
-                    advantageForEnemies,
-                    ignoreCover,
-                    featureSourceType,
-                    effectForms,
-                    savingThrowAffinitiesBySense,
-                    savingThrowAffinitiesByFamily,
-                    sourceName,
-                    sourceDefinition,
-                    schoolOfMagic,
-                    metamagicOption,
-                    ref saveOutcome,
-                    ref saveOutcomeDelta);
-            }
-
-            // BUGFIX: saving throw not passing correct saving delta on attack actions
-            Global.SetAttackActionSaveOutcomeDelta(saveOutcomeDelta);
+            OathOfAncients.OnRollSavingThrowElderChampion(caster, target, sourceDefinition);
+            OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
         }
     }
 
