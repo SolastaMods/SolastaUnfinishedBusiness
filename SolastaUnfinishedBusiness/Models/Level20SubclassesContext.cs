@@ -1524,12 +1524,7 @@ internal static class Level20SubclassesContext
                 return;
             }
 
-            if (defender is not RulesetCharacter rulesetCharacter)
-            {
-                return;
-            }
-
-            var hero = rulesetCharacter.GetOriginalHero();
+            var hero = defender.GetOriginalHero();
 
             if (hero == null)
             {

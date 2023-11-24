@@ -915,8 +915,6 @@ public static class GameLocationBattleManagerPatcher
     [UsedImplicitly]
     public static class HandleFailedSavingThrow_Patch
     {
-        internal static ActionModifier SaveModifier;
-
         [UsedImplicitly]
         public static IEnumerator Postfix(
             IEnumerator values,
@@ -928,9 +926,6 @@ public static class GameLocationBattleManagerPatcher
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            //PATCH: supports `AddFighterLevelToIndomitableSavingReroll`
-            SaveModifier = saveModifier;
-
             while (values.MoveNext())
             {
                 yield return values.Current;
