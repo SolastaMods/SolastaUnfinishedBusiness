@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionMartialGuardianTaunted",
-          "conditionDefinition": "Definition:ConditionMartialGuardianTaunted:ed393674-98cc-5eac-b3e7-9144515977f6",
+          "conditionDefinitionName": "ConditionTaunted",
+          "conditionDefinition": "Definition:ConditionTaunted:4684284a-a3b2-54f9-9b40-0badf8e95081",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -105,8 +105,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionMartialGuardianTauntedSelf",
-          "conditionDefinition": "Definition:ConditionMartialGuardianTauntedSelf:9f8f8a83-0979-54ee-888e-9effc80b758f",
+          "conditionDefinitionName": "ConditionTaunter",
+          "conditionDefinition": "Definition:ConditionTaunter:44ef4a88-e18c-5b4f-862b-0cf1ed14b71e",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

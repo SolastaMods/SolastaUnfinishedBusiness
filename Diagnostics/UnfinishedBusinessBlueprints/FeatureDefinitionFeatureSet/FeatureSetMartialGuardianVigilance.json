@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PerceptionAffinityMartialGuardianVigilance:b0c29b41-a91c-5a72-acb5-8c0f38bb3b58",
+    "Definition:ActionAffinityReactive:854f270500ab55f4bb62380075fa7907"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetMartialGuardianVigilanceTitle",
+    "description": "Feature/&FeatureSetMartialGuardianVigilanceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ab16ae90-e9b6-5712-9f94-35104a862b53",
+  "contentPack": 9999,
+  "name": "FeatureSetMartialGuardianVigilance"
+}

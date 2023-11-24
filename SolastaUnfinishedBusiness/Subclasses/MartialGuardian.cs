@@ -100,7 +100,7 @@ public sealed class MartialGuardian : AbstractSubclass
 
         var perceptionAffinityVigilance = FeatureDefinitionPerceptionAffinityBuilder
             .Create($"PerceptionAffinity{Name}Vigilance")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation($"FeatureSet{Name}Vigilance", Category.Feature)
             .CannotBeSurprised()
             .AddToDB();
 

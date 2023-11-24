@@ -2,22 +2,23 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityGambitGoading:347be83f-7970-5414-ab33-3f4edd12bead"
-  ],
+  "conditionType": "Beneficial",
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "AnyBattleTurnEnd",
+    "Attacked"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -129,14 +130,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionGambitGoadingEffectTitle",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
-      "m_SubObjectName": "ConditionConfused",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +152,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b91ad71f-ab9f-5ff6-ba9d-b966e1e6143e",
+  "guid": "6d19f207-ab7b-5291-82ee-e81ff0e2c31d",
   "contentPack": 9999,
-  "name": "ConditionGambitGoadingEffect"
+  "name": "ConditionIndomitableSaving"
 }
