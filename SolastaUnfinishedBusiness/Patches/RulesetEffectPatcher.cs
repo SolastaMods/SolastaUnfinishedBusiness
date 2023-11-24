@@ -87,9 +87,14 @@ public static class RulesetEffectPatcher
                 return;
             }
 
-            //PATCH: supports Oath of Ancients / Oath of Dread level 20 powers
-            OathOfAncients.OnRollSavingThrowElderChampion(caster, __instance, sourceDefinition);
-            OathOfDread.OnRollSavingThrowAspectOfDread(caster, __instance, sourceDefinition);
+            //PATCH: supports Oath of Ancients / Oath of Dread Path of The Savagery
+            RulesetImplementationManagerPatcher.TryRollSavingThrow_Patch.OnRollSavingThrowOath(caster, __instance,
+                sourceDefinition, OathOfAncients.ConditionElderChampionName,
+                OathOfAncients.ConditionElderChampionEnemy);
+            RulesetImplementationManagerPatcher.TryRollSavingThrow_Patch.OnRollSavingThrowOath(caster, __instance,
+                sourceDefinition, OathOfDread.ConditionAspectOfDreadName,
+                OathOfDread.ConditionAspectOfDreadEnemy);
+            PathOfTheSavagery.OnRollSavingThrowFuriousDefense(__instance, ref abilityScoreName);
 
             //PATCH: supports `IRollSavingThrowFinished` interface
             foreach (var rollSavingThrowInitiated in __instance.GetSubFeaturesByType<IRollSavingThrowInitiated>())

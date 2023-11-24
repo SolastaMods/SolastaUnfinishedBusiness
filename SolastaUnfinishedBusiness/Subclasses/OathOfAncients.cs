@@ -22,16 +22,18 @@ public sealed class OathOfAncients : AbstractSubclass
 {
     private const string Name = "OathOfAncients";
 
-    private static readonly ConditionDefinition ConditionElderChampionEnemy = ConditionDefinitionBuilder
+    internal const string ConditionElderChampionName = $"Condition{Name}ElderChampion";
+
+    internal static readonly ConditionDefinition ConditionElderChampionEnemy = ConditionDefinitionBuilder
         .Create($"Condition{Name}ElderChampionEnemy")
-        .SetGuiPresentation($"Condition{Name}ElderChampion", Category.Condition)
+        .SetGuiPresentation(ConditionElderChampionName, Category.Condition)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .SetFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"SavingThrowAffinity{Name}ElderChampionEnemy")
-                .SetGuiPresentation($"Condition{Name}ElderChampion", Category.Condition, Gui.NoLocalization)
+                .SetGuiPresentation(ConditionElderChampionName, Category.Condition, Gui.NoLocalization)
                 .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                     AttributeDefinitions.Strength,
                     AttributeDefinitions.Dexterity,
@@ -217,7 +219,7 @@ public sealed class OathOfAncients : AbstractSubclass
             .AddToDB();
 
         var conditionElderChampion = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ElderChampion")
+            .Create(ConditionElderChampionName)
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainImp)
             .SetPossessive()
             .AddCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionAdditionalAttack))
@@ -264,55 +266,6 @@ public sealed class OathOfAncients : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    //
-    // Elder Champion
-    //
-
-    internal static void OnRollSavingThrowElderChampion(
-        RulesetCharacter caster,
-        RulesetActor target,
-        BaseDefinition sourceDefinition)
-    {
-        if (sourceDefinition is not ItemDefinition &&
-            sourceDefinition is not FeatureDefinitionAdditionalDamage &&
-            sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
-            sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
-        {
-            return;
-        }
-
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-        var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
-        var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
-
-        if (gameLocationCaster == null ||
-            gameLocationTarget == null ||
-            gameLocationBattleService == null ||
-            !gameLocationBattleService.IsWithinXCells(gameLocationCaster, gameLocationTarget, 2))
-        {
-            return;
-        }
-
-        if (!caster.HasAnyConditionOfType($"Condition{Name}ElderChampion"))
-        {
-            return;
-        }
-
-        target.InflictCondition(
-            ConditionElderChampionEnemy.Name,
-            ConditionElderChampionEnemy.DurationType,
-            ConditionElderChampionEnemy.DurationParameter,
-            ConditionElderChampionEnemy.TurnOccurence,
-            AttributeDefinitions.TagCombat,
-            caster.guid,
-            caster.CurrentFaction.Name,
-            1,
-            ConditionElderChampionEnemy.Name,
-            0,
-            0,
-            0);
-    }
 
     private sealed class MagicalAttackBeforeHitConfirmedOnMeAuraWarding : IMagicalAttackBeforeHitConfirmedOnMe
     {

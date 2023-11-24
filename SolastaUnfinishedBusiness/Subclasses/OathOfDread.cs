@@ -25,16 +25,18 @@ public sealed class OathOfDread : AbstractSubclass
 {
     private const string Name = "OathOfDread";
 
-    private static readonly ConditionDefinition ConditionAspectOfDreadEnemy = ConditionDefinitionBuilder
+    internal const string ConditionAspectOfDreadName = $"Condition{Name}AspectOfDread";
+
+    internal static readonly ConditionDefinition ConditionAspectOfDreadEnemy = ConditionDefinitionBuilder
         .Create($"Condition{Name}AspectOfDreadEnemy")
-        .SetGuiPresentation($"Condition{Name}AspectOfDread", Category.Condition)
+        .SetGuiPresentation(ConditionAspectOfDreadName, Category.Condition)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .SetFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"SavingThrowAffinity{Name}AspectOfDreadEnemy")
-                .SetGuiPresentation($"Condition{Name}AspectOfDread", Category.Condition, Gui.NoLocalization)
+                .SetGuiPresentation(ConditionAspectOfDreadName, Category.Condition, Gui.NoLocalization)
                 .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                     AttributeDefinitions.Strength,
                     AttributeDefinitions.Dexterity,
@@ -229,7 +231,7 @@ public sealed class OathOfDread : AbstractSubclass
             .AddToDB();
 
         var conditionAspectOfDread = ConditionDefinitionBuilder
-            .Create($"Condition{Name}AspectOfDread")
+            .Create(ConditionAspectOfDreadName)
             .SetGuiPresentation(Category.Condition, ConditionPactChainImp)
             .SetPossessive()
             .AddFeatures(additionalDamageAspectOfDread, featureAspectOfDread, featureSetAspectOfDread)
@@ -296,55 +298,6 @@ public sealed class OathOfDread : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    //
-    // Aspect of Dread
-    //
-
-    internal static void OnRollSavingThrowAspectOfDread(
-        RulesetCharacter caster,
-        RulesetActor target,
-        BaseDefinition sourceDefinition)
-    {
-        if (sourceDefinition is not ItemDefinition && // for smite spells but can bleed
-            sourceDefinition is not FeatureDefinitionAdditionalDamage && // for smite spells but can bleed
-            sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
-            sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
-        {
-            return;
-        }
-
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-        var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
-        var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
-
-        if (gameLocationCaster == null ||
-            gameLocationTarget == null ||
-            gameLocationBattleService == null ||
-            !gameLocationBattleService.IsWithinXCells(gameLocationCaster, gameLocationTarget, 2))
-        {
-            return;
-        }
-
-        if (!caster.HasAnyConditionOfType($"Condition{Name}AspectOfDread"))
-        {
-            return;
-        }
-
-        target.InflictCondition(
-            ConditionAspectOfDreadEnemy.Name,
-            ConditionAspectOfDreadEnemy.DurationType,
-            ConditionAspectOfDreadEnemy.DurationParameter,
-            ConditionAspectOfDreadEnemy.TurnOccurence,
-            AttributeDefinitions.TagCombat,
-            caster.guid,
-            caster.CurrentFaction.Name,
-            1,
-            ConditionAspectOfDreadEnemy.Name,
-            0,
-            0,
-            0);
-    }
 
     //
     // Aura of Domination

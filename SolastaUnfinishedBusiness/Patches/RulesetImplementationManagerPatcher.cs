@@ -736,22 +736,58 @@ public static class RulesetImplementationManagerPatcher
             List<EffectForm> effectForms,
             BaseDefinition sourceDefinition)
         {
-            //PATCH: supports Patch of Savagery furious defense
+            //PATCH: supports Oath of Ancients / Oath of Dread Path of The Savagery
+            OnRollSavingThrowOath(caster, target, sourceDefinition, OathOfAncients.ConditionElderChampionName,
+                OathOfAncients.ConditionElderChampionEnemy);
+            OnRollSavingThrowOath(caster, target, sourceDefinition, OathOfDread.ConditionAspectOfDreadName,
+                OathOfDread.ConditionAspectOfDreadEnemy);
             PathOfTheSavagery.OnRollSavingThrowFuriousDefense(target, ref savingThrowAbility);
+        }
 
-            //PATCH: supports Oath of Ancients / Oath of Dread level 20 powers
-            var hasSmiteCondition = effectForms.Any(x =>
-                x.FormType == EffectForm.EffectFormType.Condition &&
-                x.ConditionForm.ConditionDefinition != null &&
-                x.ConditionForm.ConditionDefinition.Name.Contains("Smite"));
-
-            if (!hasSmiteCondition)
+        internal static void OnRollSavingThrowOath(
+            RulesetCharacter caster,
+            RulesetActor target,
+            BaseDefinition sourceDefinition,
+            string selfConditionName,
+            ConditionDefinition conditionDefinitionEnemy)
+        {
+            if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+                sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity } &&
+                !caster.AllConditions.Any(x => x.Name.Contains("Smite")))
             {
                 return;
             }
 
-            OathOfAncients.OnRollSavingThrowElderChampion(caster, target, sourceDefinition);
-            OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
+            if (!caster.HasAnyConditionOfType(selfConditionName))
+            {
+                return;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
+            var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
+
+            if (gameLocationCaster == null ||
+                gameLocationTarget == null ||
+                gameLocationBattleService == null ||
+                !gameLocationBattleService.IsWithinXCells(gameLocationCaster, gameLocationTarget, 2))
+            {
+                return;
+            }
+
+            target.InflictCondition(
+                conditionDefinitionEnemy.Name,
+                conditionDefinitionEnemy.DurationType,
+                conditionDefinitionEnemy.DurationParameter,
+                conditionDefinitionEnemy.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                caster.guid,
+                caster.CurrentFaction.Name,
+                1,
+                conditionDefinitionEnemy.Name,
+                0,
+                0,
+                0);
         }
     }
 
