@@ -105,6 +105,8 @@ internal static class ArmorFeats
             SturdinessOfTheTundra);
     }
 
+    internal const string ConditionShieldTechniquesResistanceName = "ConditionShieldTechniquesResistance";
+
     private static FeatDefinition BuildFeatShieldTechniques()
     {
         const string Name = "FeatShieldTechniques";
@@ -118,9 +120,10 @@ internal static class ArmorFeats
             .AddToDB();
 
         var conditionShieldTechniquesResistance = ConditionDefinitionBuilder
-            .Create($"Condition{Name}Resistance")
-            .SetGuiPresentation(Name, Category.Feat)
+            .Create(ConditionShieldTechniquesResistanceName)
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+#if false
             .SetFeatures(
                 DamageAffinityAcidResistance,
                 DamageAffinityBludgeoningResistance,
@@ -134,6 +137,7 @@ internal static class ArmorFeats
                 DamageAffinityRadiantResistance,
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
+#endif
             .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 

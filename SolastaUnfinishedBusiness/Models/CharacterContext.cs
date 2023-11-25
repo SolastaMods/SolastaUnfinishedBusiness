@@ -47,7 +47,7 @@ internal static class CharacterContext
         .Create("ConditionIndomitableSaving")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd, ConditionInterruption.Attacked)
+        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving())
         .AddToDB();
 
