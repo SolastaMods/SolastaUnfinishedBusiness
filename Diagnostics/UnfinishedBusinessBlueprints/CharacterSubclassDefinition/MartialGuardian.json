@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetMartialGuardianVigilance:ab16ae90-e9b6-5712-9f94-35104a862b53",
+      "featureDefinition": "Definition:PerceptionAffinityMartialGuardianVigilance:b0c29b41-a91c-5a72-acb5-8c0f38bb3b58",
       "level": 15
     },
     {

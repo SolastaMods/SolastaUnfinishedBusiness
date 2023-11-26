@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -25,6 +26,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class MartialGuardian : AbstractSubclass
 {
     private const string Name = "MartialGuardian";
+    private const string ConditionVigilanceName = $"Condition{Name}Vigilance";
 
     public MartialGuardian()
     {
@@ -98,16 +100,16 @@ public sealed class MartialGuardian : AbstractSubclass
 
         // Vigilance
 
-        var perceptionAffinityVigilance = FeatureDefinitionPerceptionAffinityBuilder
-            .Create($"PerceptionAffinity{Name}Vigilance")
-            .SetGuiPresentation($"FeatureSet{Name}Vigilance", Category.Feature)
-            .CannotBeSurprised()
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionVigilanceName)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        var featureSetVigilance = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Vigilance")
+        var perceptionAffinityVigilance = FeatureDefinitionPerceptionAffinityBuilder
+            .Create($"PerceptionAffinity{Name}Vigilance")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(ActionAffinityReactive, perceptionAffinityVigilance)
+            .CannotBeSurprised()
             .AddToDB();
 
         //
@@ -140,7 +142,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .AddFeaturesAtLevel(3, actionAffinityCompellingStrike, proficiencySentinel)
             .AddFeaturesAtLevel(7, savingThrowAffinityUnyielding)
             .AddFeaturesAtLevel(10, powerGrandChallenge)
-            .AddFeaturesAtLevel(15, featureSetVigilance)
+            .AddFeaturesAtLevel(15, perceptionAffinityVigilance)
             .AddFeaturesAtLevel(18, featureImperviousProtector)
             .AddToDB();
     }
@@ -154,6 +156,42 @@ public sealed class MartialGuardian : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static void HandleVigilance(RulesetCharacter rulesetCharacter)
+    {
+        if (rulesetCharacter.GetSubclassLevel(Fighter, Name) > 0)
+        {
+            return;
+        }
+
+        foreach (var guardian in Gui.Battle.AllContenders
+                     .Where(x => x.RulesetCharacter.GetSubclassLevel(Fighter, Name) > 0))
+        {
+            var rulesetGuardian = guardian.RulesetCharacter;
+
+            if (guardian.CanReact() || rulesetGuardian.HasConditionOfType(ConditionVigilanceName))
+            {
+                continue;
+            }
+
+            guardian.RefundActionUse(ActionDefinitions.ActionType.Reaction);
+            guardian.ActionRefunded?.Invoke(guardian, ActionDefinitions.ActionType.Reaction);
+
+            rulesetGuardian.InflictCondition(
+                ConditionVigilanceName,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetGuardian.Guid,
+                rulesetGuardian.CurrentFaction.Name,
+                1,
+                ConditionVigilanceName,
+                0,
+                0,
+                0);
+        }
+    }
 
     //
     // Compelling Strike

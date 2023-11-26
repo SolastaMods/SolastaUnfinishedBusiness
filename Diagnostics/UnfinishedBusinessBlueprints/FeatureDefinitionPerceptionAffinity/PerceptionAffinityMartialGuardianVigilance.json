@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetAffinityMartialGuardianVigilanceTitle",
-    "description": "Feature/&FeatureSetAffinityMartialGuardianVigilanceDescription",
+    "title": "Feature/&PerceptionAffinityMartialGuardianVigilanceTitle",
+    "description": "Feature/&PerceptionAffinityMartialGuardianVigilanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

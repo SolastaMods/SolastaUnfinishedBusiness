@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -43,15 +44,15 @@ public static class CharacterBattleListenersPatch
             return;
         }
 
-        var character = locationCharacter.RulesetCharacter;
-        var listeners = character?.GetSubFeaturesByType<ICharacterTurnStartListener>();
-
-        if (listeners == null)
+        if (locationCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } rulesetCharacter)
         {
             return;
         }
 
-        foreach (var listener in listeners)
+        //PATCH: supports vigilance feature on Martial Guardian
+        MartialGuardian.HandleVigilance(rulesetCharacter);
+
+        foreach (var listener in rulesetCharacter.GetSubFeaturesByType<ICharacterTurnStartListener>())
         {
             listener.OnCharacterTurnStarted(locationCharacter);
         }
@@ -68,13 +69,12 @@ public static class CharacterBattleListenersPatch
             return;
         }
 
-        var character = locationCharacter.RulesetCharacter;
-        var listeners = character?.GetSubFeaturesByType<ICharacterTurnEndListener>();
-
-        if (listeners == null)
+        if (locationCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } rulesetCharacter)
         {
             return;
         }
+
+        var listeners = rulesetCharacter.GetSubFeaturesByType<ICharacterTurnEndListener>();
 
         foreach (var listener in listeners)
         {
@@ -93,13 +93,12 @@ public static class CharacterBattleListenersPatch
             return;
         }
 
-        var character = locationCharacter.RulesetCharacter;
-        var listeners = character?.GetSubFeaturesByType<ICharacterBattleStartedListener>();
-
-        if (listeners == null)
+        if (locationCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } rulesetCharacter)
         {
             return;
         }
+
+        var listeners = rulesetCharacter.GetSubFeaturesByType<ICharacterBattleStartedListener>();
 
         foreach (var listener in listeners)
         {
@@ -118,13 +117,12 @@ public static class CharacterBattleListenersPatch
             return;
         }
 
-        var character = locationCharacter.RulesetCharacter;
-        var listeners = character?.GetSubFeaturesByType<ICharacterBattleEndedListener>();
-
-        if (listeners == null)
+        if (locationCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } rulesetCharacter)
         {
             return;
         }
+
+        var listeners = rulesetCharacter.GetSubFeaturesByType<ICharacterBattleEndedListener>();
 
         foreach (var listener in listeners)
         {
