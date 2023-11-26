@@ -248,7 +248,7 @@ public static class GameLocationCharacterPatcher
         {
             //PATCH: support for action switching
             ActionSwitching.RefundActionUse(__instance, actionType);
-            
+
             //PATCH: fix reaction counted as not available even after refund
             if (actionType == ActionDefinitions.ActionType.Reaction)
             {
