@@ -764,6 +764,7 @@ internal static partial class SpellBuilders
             var actionType = characterAction.ActionType;
             var conditions = new List<ConditionDefinition>();
 
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (actionType)
             {
                 case ActionDefinitions.ActionType.Main:
@@ -777,13 +778,6 @@ internal static partial class SpellBuilders
                 case ActionDefinitions.ActionType.Move:
                     conditions.Add(_conditionNoBonus);
                     conditions.Add(_conditionNoMain);
-                    break;
-                case ActionDefinitions.ActionType.FreeOnce:
-                case ActionDefinitions.ActionType.Reaction:
-                case ActionDefinitions.ActionType.NoCost:
-                case ActionDefinitions.ActionType.Max:
-                case ActionDefinitions.ActionType.None:
-                default:
                     break;
             }
 
@@ -806,6 +800,12 @@ internal static partial class SpellBuilders
             if (caster is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
+            }
+
+            // game freezes when enemy tries to Dash so best we can do here is allow this exception on the spell
+            if (characterAction is CharacterActionDash)
+            {
+                conditions.Remove(_conditionNoMove);
             }
 
             if (characterAction.ActingCharacter.RulesetCharacter is

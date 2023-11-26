@@ -2,18 +2,18 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityGambitGoading:347be83f-7970-5414-ab33-3f4edd12bead"
+    "Definition:MovementAffinityCollegeOfThespianCombatInspiration:348667be-16ec-53e5-8fb2-a5cc8b571eae"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
@@ -87,8 +87,8 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
-  "amountOrigin": "None",
+  "possessive": true,
+  "amountOrigin": "Fixed",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -130,12 +130,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionGambitGoadingEffectTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Condition/&ConditionCollegeOfThespianCombatInspirationMovementTitle",
+    "description": "Condition/&ConditionCollegeOfThespianCombatInspirationMovementDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
-      "m_SubObjectName": "ConditionConfused",
+      "m_AssetGUID": "0d141b75b2bd30943a5fdde92b747da3",
+      "m_SubObjectName": "ConditionDisengaging",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b91ad71f-ab9f-5ff6-ba9d-b966e1e6143e",
+  "guid": "8fb4a5b0-92b5-546f-b7bb-732be8851e14",
   "contentPack": 9999,
-  "name": "ConditionGambitGoadingEffect"
+  "name": "ConditionCollegeOfThespianCombatInspirationMovement"
 }

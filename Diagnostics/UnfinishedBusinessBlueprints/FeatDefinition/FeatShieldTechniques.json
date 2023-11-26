@@ -7,7 +7,7 @@
   "minimalAbilityScoreValue": 13,
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": true,
-  "armorProficiencyCategory": "LightArmorCategory",
+  "armorProficiencyCategory": "ShieldCategory",
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],

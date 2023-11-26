@@ -23,15 +23,16 @@ internal static class UpdateContext
     {
         LatestVersion = GetLatestVersion(out var shouldUpdate);
 
+        var day = DateTime.Now.Date.Day;
+
         if (shouldUpdate && !Main.Settings.DisableUpdateMessage)
         {
             DisplayUpdateMessage();
         }
-        else if (!Main.Settings.HideWelcomeMessage)
+        else if (Main.Settings.DisplayModMessage != day)
         {
+            Main.Settings.DisplayModMessage = day;
             DisplayWelcomeMessage();
-
-            Main.Settings.HideWelcomeMessage = true;
         }
     }
 

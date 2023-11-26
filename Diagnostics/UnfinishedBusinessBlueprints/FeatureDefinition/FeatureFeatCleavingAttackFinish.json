@@ -1,13 +1,5 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "AttackMain"
-  ],
-  "maxAttacksNumber": 1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8a2875ec-189d-52f9-878e-71c8e1632ab9",
+  "guid": "1f5fa1d9-38ef-5a58-99e3-a691fcbdc8eb",
   "contentPack": 9999,
-  "name": "AdditionalActionFeatCleavingAttackFinish"
+  "name": "FeatureFeatCleavingAttackFinish"
 }

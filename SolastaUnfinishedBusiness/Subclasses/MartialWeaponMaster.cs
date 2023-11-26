@@ -437,15 +437,15 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             // Focused Strikes
 
             var powerFocusedStrikes = GetDefinition<FeatureDefinitionPower>($"Power{Name}FocusedStrikes");
-            var rulesetUsablePower = rulesetCharacter.UsablePowers.Find(x => x.PowerDefinition == powerFocusedStrikes);
+            var rulesetUsablePower = UsablePowersProvider.Get(powerFocusedStrikes, rulesetCharacter);
 
-            if (rulesetUsablePower == null || rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0)
+            if (rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0)
             {
                 return;
             }
 
             rulesetCharacter.LogCharacterUsedPower(powerFocusedStrikes, Line);
-            rulesetUsablePower.RepayUse();
+            rulesetCharacter.RepayPowerUse(rulesetUsablePower);
         }
     }
 

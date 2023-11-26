@@ -33,6 +33,9 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition UseBardicInspiration { get; } =
             GetDefinition<ActionDefinition>("UseBardicInspiration");
 
+        internal static ActionDefinition UseIndomitableResistance { get; } =
+            GetDefinition<ActionDefinition>("UseIndomitableResistance");
+
         internal static ActionDefinition Volley { get; } = GetDefinition<ActionDefinition>("Volley");
         internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }
@@ -864,6 +867,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
+
+        internal static FeatureDefinitionActionAffinity ActionAffinityReactive { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityReactive");
 
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");

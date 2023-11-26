@@ -1,6 +1,5 @@
 Condition/&ConditionGambitDebilitateDescription=Имеет помеху на спасброски.
 Condition/&ConditionGambitDebilitateTitle=Ослаблен
-Condition/&ConditionGambitGoadingEffectTitle=Спровоцирован
 Condition/&ConditionGambitSwitchBadDescription=Класс доспеха уменьшается на бонус мастерства Тактика, наложившего этот эффект.
 Condition/&ConditionGambitSwitchBadTitle=Попался
 Condition/&ConditionGambitSwitchGoodDescription=Класс доспеха увеличивается на бонус мастерства Тактика, наложившего этот эффект.
@@ -13,7 +12,7 @@ Feature/&GambitDebilitateDescription=Если ваша следующая ата
 Feature/&GambitDebilitateTitle=Ослабление
 Feature/&GambitFeintDescription=Если вы атакуете до начала вашего следующего хода, вы тратите <b>кость уловки</b>, атака будет иметь преимущество и нанесет дополнительный урон, равный броску <b>кости уловки</b>.
 Feature/&GambitFeintTitle=Финт
-Feature/&GambitGoadingDescription=Если ваша следующая атака попадает по существу, вы тратите <b>кость уловки</b>, нанося дополнительный урон, равный броску <b>кости уловки</b>, также это существо получает помеху при атаке любых целей, отличных от вас, до конца своего хода.
+Feature/&GambitGoadingDescription=Если ваша следующая атака попадает по существу, вы тратите <b>кость уловки</b>, нанося дополнительный урон, равный броску <b>кости уловки</b>, и провоцируете существо. Существо, спровоцированное вами, совершает с помехой атаки по целям, отличным от вас. Этот эффект оканчивается досрочно, если существо провоцирует другой союзник, вы удаляетесь от него на расстояние более 30 футов или теряете его из поля зрения.
 Feature/&GambitGoadingTitle=Провокация
 Feature/&GambitKnockdownDescription=Если ваша следующая атака попадает по существу, вы тратите <b>кость уловки</b>, нанося дополнительный урон, равный броску <b>кости уловки</b>, и сбивая его с ног, если оно провалит спасбросок Силы против вашей Сл спасброска Уловки.
 Feature/&GambitKnockdownTitle=Нокдаун

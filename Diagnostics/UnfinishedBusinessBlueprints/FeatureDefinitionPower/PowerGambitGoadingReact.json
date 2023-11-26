@@ -78,12 +78,39 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionGambitGoadingEffect",
-          "conditionDefinition": "Definition:ConditionGambitGoadingEffect:b91ad71f-ab9f-5ff6-ba9d-b966e1e6143e",
+          "conditionDefinitionName": "ConditionTaunted",
+          "conditionDefinition": "Definition:ConditionTaunted:4684284a-a3b2-54f9-9b40-0badf8e95081",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionTaunter",
+          "conditionDefinition": "Definition:ConditionTaunter:44ef4a88-e18c-5b4f-862b-0cf1ed14b71e",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": true
         },
         "hasFilterId": false,
         "filterId": 0

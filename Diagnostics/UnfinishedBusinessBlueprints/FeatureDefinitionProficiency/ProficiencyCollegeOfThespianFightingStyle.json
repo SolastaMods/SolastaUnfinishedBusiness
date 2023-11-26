@@ -1,10 +1,15 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "FightingStyle",
+  "proficiencies": [
+    "TwoWeapon"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureOathOfDreadAspectOfDreadTitle",
-    "description": "Feature/&FeatureOathOfDreadAspectOfDreadDescription",
+    "title": "Feature/&ProficiencyCollegeOfThespianFightingStyleTitle",
+    "description": "Feature/&ProficiencyCollegeOfThespianFightingStyleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e9f32c57-ef15-5fe8-bb3a-2951dd16377a",
+  "guid": "6db1feee-9ed0-5c15-b85d-9c8088a7d884",
   "contentPack": 9999,
-  "name": "FeatureOathOfDreadAspectOfDread"
+  "name": "ProficiencyCollegeOfThespianFightingStyle"
 }

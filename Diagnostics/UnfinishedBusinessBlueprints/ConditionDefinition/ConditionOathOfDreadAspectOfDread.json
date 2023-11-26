@@ -5,7 +5,6 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AdditionalDamageOathOfDreadAspectOfDread:8743996f-14b7-5c9f-bf1d-4aba623d82c4",
-    "Definition:FeatureOathOfDreadAspectOfDread:e9f32c57-ef15-5fe8-bb3a-2951dd16377a",
     "Definition:FeatureSetOathOfDreadAspectOfDreadDamageResistance:39ffff33-e0de-539a-ae97-97b10c1b457e"
   ],
   "allowMultipleInstances": false,

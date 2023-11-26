@@ -1,6 +1,5 @@
 Condition/&ConditionGambitDebilitateDescription=Tiene desventaja en las tiradas de salvación.
 Condition/&ConditionGambitDebilitateTitle=Debilitado
-Condition/&ConditionGambitGoadingEffectTitle=Aguijoneado
 Condition/&ConditionGambitSwitchBadDescription=La clase de armadura se reduce por la bonificación de competencia del táctico que infligió este efecto.
 Condition/&ConditionGambitSwitchBadTitle=Cebado
 Condition/&ConditionGambitSwitchGoodDescription=La clase de armadura aumenta con la bonificación de competencia del táctico que infligió este efecto.
@@ -13,7 +12,7 @@ Feature/&GambitDebilitateDescription=Si tu próximo ataque golpea a una criatura
 Feature/&GambitDebilitateTitle=Debilidad
 Feature/&GambitFeintDescription=Si atacas antes del comienzo de tu próximo turno, gastarás <b>dado de gambito</b> y el ataque tendrá ventaja e infligirá un daño adicional igual al resultado del <b>dado de gambito</b>.
 Feature/&GambitFeintTitle=Finta
-Feature/&GambitGoadingDescription=Si tu próximo ataque golpea a una criatura, gastarás un <b>dado de gambito</b> para infligir daño adicional igual a la tirada del <b>dado de gambito</b> y le darás desventaja en todos los ataques contra objetivos que no sean tú. hasta el final de su turno.
+Feature/&GambitGoadingDescription=Si tu próximo ataque golpea a una criatura, gastarás un <b>dado de gambito</b> para infligir daño adicional igual a la tirada del <b>dado de gambito</b> y provocarás a la criatura. Una criatura provocada por ti tiene desventaja en cualquier tirada de ataque que no te tenga como objetivo. Este efecto termina antes de tiempo si otro aliado se burla de la criatura, si te alejas más de 30 pies de la criatura o la pierdes de vista.
 Feature/&GambitGoadingTitle=Provocar
 Feature/&GambitKnockdownDescription=Si tu próximo ataque golpea a una criatura, gastarás un <b>dado de gambito</b> para infligir daño adicional igual a la tirada del <b>dado de gambito</b> y la tumbarás si falla la tirada de salvación de Fuerza contra tu criatura. Gambito DC.
 Feature/&GambitKnockdownTitle=Derribar

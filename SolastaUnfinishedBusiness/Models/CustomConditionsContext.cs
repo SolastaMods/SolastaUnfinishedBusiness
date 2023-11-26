@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -23,13 +24,17 @@ internal static class CustomConditionsContext
 {
     internal static ConditionDefinition Distracted;
 
+    internal static ConditionDefinition FlightSuspended;
+
     internal static ConditionDefinition InvisibilityEveryRound;
 
     internal static ConditionDefinition LightSensitivity;
 
     internal static ConditionDefinition StopMovement;
 
-    internal static ConditionDefinition FlightSuspended;
+    internal static ConditionDefinition Taunted;
+
+    internal static ConditionDefinition Taunter;
 
     private static FeatureDefinitionPower FlightSuspend { get; set; }
     private static FeatureDefinitionPower FlightResume { get; set; }
@@ -39,18 +44,6 @@ internal static class CustomConditionsContext
 
     internal static void Load()
     {
-        StopMovement = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrained, "ConditionStopMovement")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
-                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
-            .AddToDB();
-
-        InvisibilityEveryRound = BuildInvisibilityEveryRound();
-
-        LightSensitivity = BuildLightSensitivity();
-
         Distracted = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
@@ -65,6 +58,41 @@ internal static class CustomConditionsContext
             .AddToDB();
 
         FlightSuspended = BuildFlightSuspended();
+
+        InvisibilityEveryRound = BuildInvisibilityEveryRound();
+
+        LightSensitivity = BuildLightSensitivity();
+
+        StopMovement = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionRestrained, "ConditionStopMovement")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
+            .AddToDB();
+
+        Taunted = ConditionDefinitionBuilder
+            .Create("ConditionTaunted")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetConditionParticleReference(
+                ConditionDefinitions.ConditionUnderDemonicInfluence.conditionParticleReference)
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityTaunted")
+                    .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
+                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                    .AddToDB())
+            .AddCustomSubFeatures(new ActionFinishedByMeTaunted())
+            .AddToDB();
+
+        Taunter = ConditionDefinitionBuilder
+            .Create("ConditionTaunter")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new ActionFinishedByMeTaunter())
+            .AddToDB();
     }
 
     private static ConditionDefinition BuildInvisibilityEveryRound()
@@ -564,6 +592,90 @@ internal static class CustomConditionsContext
                     Main.Log(
                         $"OnConditionAddedOrRemovedFlightSuspendBehavior RemoveFeature EXCEPTION {ex} {ex.StackTrace}");
                 }
+            }
+        }
+    }
+
+    //
+    // Taunter
+    //
+
+    private sealed class ActionFinishedByMeTaunter : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            if (characterAction.ActionType != ActionType.Move)
+            {
+                yield break;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var targets = gameLocationBattleService.Battle.AllContenders
+                .Where(enemy =>
+                    enemy.IsOppositeSide(actingCharacter.Side)
+                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
+                    && (!actingCharacter.PerceivedFoes.Contains(enemy) ||
+                        !gameLocationBattleService.IsWithinXCells(actingCharacter, enemy, 5)))
+                .ToList();
+
+            foreach (var target in targets)
+            {
+                var rulesetCondition = target.RulesetCharacter.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition.Name == "ConditionTaunted" &&
+                    x.SourceGuid == rulesetCharacter.Guid);
+
+                if (rulesetCondition != null)
+                {
+                    target.RulesetCharacter.RemoveCondition(rulesetCondition);
+                }
+            }
+        }
+    }
+
+    //
+    // Taunted
+    //
+
+    private sealed class ActionFinishedByMeTaunted : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            if (characterAction.ActionType != ActionType.Move)
+            {
+                yield break;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            foreach (var rulesetCondition in rulesetCharacter.AllConditions
+                         .Where(x => x.ConditionDefinition.Name == "ConditionTaunted")
+                         .ToList()
+                         .Select(a => new { a, rulesetCaster = EffectHelpers.GetCharacterByGuid(a.SourceGuid) })
+                         .Where(t => t.rulesetCaster != null)
+                         .Select(b => new { b, caster = GameLocationCharacter.GetFromActor(b.rulesetCaster) })
+                         .Where(t =>
+                             t.caster != null &&
+                             (!t.caster.PerceivedFoes.Contains(actingCharacter) ||
+                              !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, 5)))
+                         .Select(c => c.b.a))
+            {
+                rulesetCharacter.RemoveCondition(rulesetCondition);
             }
         }
     }

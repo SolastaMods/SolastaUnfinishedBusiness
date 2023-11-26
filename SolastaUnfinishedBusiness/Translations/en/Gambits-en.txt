@@ -1,6 +1,5 @@
 Condition/&ConditionGambitDebilitateDescription=Has disadvantage on saving throws.
 Condition/&ConditionGambitDebilitateTitle=Debilitated
-Condition/&ConditionGambitGoadingEffectTitle=Goaded
 Condition/&ConditionGambitSwitchBadDescription=Armor class is decreased by the proficiency bonus of Tactician who inflicted this effect.
 Condition/&ConditionGambitSwitchBadTitle=Baited
 Condition/&ConditionGambitSwitchGoodDescription=Armor class is increased by the proficiency bonus of Tactician who inflicted this effect.
@@ -13,7 +12,7 @@ Feature/&GambitDebilitateDescription=If your next attack hits a creature, you wi
 Feature/&GambitDebilitateTitle=Debilitate
 Feature/&GambitFeintDescription=If you attack before the start of your next turn, you will spend <b>gambit die</b> and attack will have advantage and deal additional damage equal to the <b>gambit die</b> roll.
 Feature/&GambitFeintTitle=Feint
-Feature/&GambitGoadingDescription=If your next attack hits a creature, you will spend a <b>gambit die</b> to deal additional damage equal to the <b>gambit die</b> roll and give it disadvantage on all attacks against targets other than you until the end of its turn.
+Feature/&GambitGoadingDescription=If your next attack hits a creature, you will spend a <b>gambit die</b> to deal additional damage equal to the <b>gambit die</b> roll and taunt the creature. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature.
 Feature/&GambitGoadingTitle=Provoke
 Feature/&GambitKnockdownDescription=If your next attack hits a creature, you will spend a <b>gambit die</b> to deal additional damage equal to the <b>gambit die</b> roll and knock it prone if it fails Strength saving throw against your Gambit DC.
 Feature/&GambitKnockdownTitle=Knockdown

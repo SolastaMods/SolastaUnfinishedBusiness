@@ -165,12 +165,39 @@
           "saveOccurence": "EndOfTurn",
           "conditionForm": {
             "$type": "ConditionForm, Assembly-CSharp",
-            "conditionDefinitionName": "ConditionThunderGauntletDistract",
-            "conditionDefinition": "Definition:ConditionThunderGauntletDistract:74f50bae-04d6-56d6-94fe-9202a88a1173",
+            "conditionDefinitionName": "ConditionTaunted",
+            "conditionDefinition": "Definition:ConditionTaunted:4684284a-a3b2-54f9-9b40-0badf8e95081",
             "operation": "Add",
             "conditionsList": [],
             "applyToSelf": false,
             "forceOnSelf": false
+          },
+          "hasFilterId": false,
+          "filterId": 0
+        },
+        {
+          "$type": "EffectForm, Assembly-CSharp",
+          "formType": "Condition",
+          "addBonusMode": "None",
+          "applyLevel": "No",
+          "levelType": "ClassLevel",
+          "levelMultiplier": 1,
+          "diceByLevelTable": [],
+          "createdByCharacter": true,
+          "createdByCondition": false,
+          "hasSavingThrow": false,
+          "savingThrowAffinity": "None",
+          "dcModifier": 0,
+          "canSaveToCancel": false,
+          "saveOccurence": "EndOfTurn",
+          "conditionForm": {
+            "$type": "ConditionForm, Assembly-CSharp",
+            "conditionDefinitionName": "ConditionTaunter",
+            "conditionDefinition": "Definition:ConditionTaunter:44ef4a88-e18c-5b4f-862b-0cf1ed14b71e",
+            "operation": "Add",
+            "conditionsList": [],
+            "applyToSelf": true,
+            "forceOnSelf": true
           },
           "hasFilterId": false,
           "filterId": 0

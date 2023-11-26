@@ -1,6 +1,5 @@
 Condition/&ConditionGambitDebilitateDescription=Hat einen Nachteil bei Rettungswürfen.
 Condition/&ConditionGambitDebilitateTitle=Geschwächt
-Condition/&ConditionGambitGoadingEffectTitle=Angespornt
 Condition/&ConditionGambitSwitchBadDescription=Die Rüstungsklasse wird um den Fähigkeitsbonus des Taktikers verringert, der diesen Effekt verursacht hat.
 Condition/&ConditionGambitSwitchBadTitle=Geködert
 Condition/&ConditionGambitSwitchGoodDescription=Die Rüstungsklasse wird um den Fähigkeitsbonus des Taktikers erhöht, der diesen Effekt verursacht hat.
@@ -13,7 +12,7 @@ Feature/&GambitDebilitateDescription=Wenn Ihr nächster Angriff eine Kreatur tri
 Feature/&GambitDebilitateTitle=Schwäche
 Feature/&GambitFeintDescription=Wenn Sie vor Beginn Ihres nächsten Zuges angreifen, geben Sie <b>Gambit-Würfel</b> aus und der Angriff hat einen Vorteil und verursacht zusätzlichen Schaden in Höhe des <b>Gambit-Würfels</b>-Wurfs.
 Feature/&GambitFeintTitle=Finte
-Feature/&GambitGoadingDescription=Wenn Ihr nächster Angriff eine Kreatur trifft, geben Sie einen <b>Gambit-Würfel</b> aus, um zusätzlichen Schaden in Höhe des <b>Gambit-Würfelwurfs</b> zu verursachen und ihm einen Nachteil bei allen Angriffen gegen andere Ziele als Sie zu verschaffen bis zum Ende seines Zuges.
+Feature/&GambitGoadingDescription=Wenn Ihr nächster Angriff eine Kreatur trifft, geben Sie einen <b>Gambit-Würfel</b> aus, um zusätzlichen Schaden in Höhe des <b>Gambit-Würfelwurfs</b> zu verursachen und die Kreatur zu verspotten. Eine von dir verspottete Kreatur hat bei jedem Angriffswurf, der nicht auf dich abzielt, einen Nachteil. Dieser Effekt endet vorzeitig, wenn ein anderer Verbündeter die Kreatur verspottet, wenn Sie sich mehr als 30 Fuß von der Kreatur entfernen oder die Kreatur aus den Augen verlieren.
 Feature/&GambitGoadingTitle=Provozieren
 Feature/&GambitKnockdownDescription=Wenn Ihr nächster Angriff eine Kreatur trifft, geben Sie einen <b>Gambit-Würfel</b> aus, um zusätzlichen Schaden in Höhe des <b>Gambit-Würfelwurfs</b> zu verursachen, und schlagen sie zu Boden, wenn der Kraftsparwurf gegen Sie fehlschlägt Gambit DC.
 Feature/&GambitKnockdownTitle=Niederschlagen

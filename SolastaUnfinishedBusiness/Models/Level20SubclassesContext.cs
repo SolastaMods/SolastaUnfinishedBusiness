@@ -1243,7 +1243,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerSorcererManaPainterMasterDrain.AddCustomSubFeatures(
-            new TryAlterOutcomeSavingThrowManaOverflow(featureSetSorcererManaPainterManaOverflow));
+            new RollSavingThrowFinishedManaOverflow(featureSetSorcererManaPainterManaOverflow));
 
         SorcerousManaPainter.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(featureSetSorcererManaPainterManaOverflow, 18));
@@ -1368,7 +1368,7 @@ internal static class Level20SubclassesContext
     // Holy Nimbus
     //
 
-    private sealed class ModifySavingThrowHolyNimbus : IModifySavingThrow
+    private sealed class ModifySavingThrowHolyNimbus : IRollSavingThrowInitiated
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -1377,25 +1377,26 @@ internal static class Level20SubclassesContext
             _featureDefinition = featureDefinition;
         }
 
-        public bool IsValid(
-            RulesetActor rulesetActor,
-            RulesetActor rulesetCaster,
-            IEnumerable<EffectForm> effectForms,
-            string attributeScore)
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier, int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
         {
-            return attributeScore == AttributeDefinitions.Wisdom
-                   && rulesetCaster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" };
-        }
-
-        public string AttributeAndActionModifier(
-            RulesetActor rulesetActor,
-            ActionModifier actionModifier,
-            string attribute)
-        {
-            actionModifier.SavingThrowAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
-
-            return attribute;
+            if (abilityScoreName == AttributeDefinitions.Wisdom
+                && caster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" })
+            {
+                advantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+            }
         }
     }
 
@@ -1494,61 +1495,47 @@ internal static class Level20SubclassesContext
     // Mana Overflow
     //
 
-    private sealed class TryAlterOutcomeSavingThrowManaOverflow : ITryAlterOutcomeSavingThrow
+    private sealed class RollSavingThrowFinishedManaOverflow : IRollSavingThrowFinished
     {
         private readonly FeatureDefinition _featureManaOverflow;
 
-        public TryAlterOutcomeSavingThrowManaOverflow(FeatureDefinition featureManaOverflow)
+        public RollSavingThrowFinishedManaOverflow(FeatureDefinition featureManaOverflow)
         {
             _featureManaOverflow = featureManaOverflow;
         }
 
-        public void OnSavingTryAlterOutcome(
+        public void OnSavingThrowFinished(
             RulesetCharacter caster,
-            Side sourceSide,
-            RulesetActor target,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasSavingThrow,
-            string savingThrowAbility,
-            int saveDC,
-            bool disableSavingThrowOnAllies,
-            bool advantageForEnemies,
-            bool ignoreCover,
-            FeatureSourceType featureSourceType,
-            List<EffectForm> effectForms,
-            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
-            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
-            string sourceName,
+            RulesetCharacter defender,
+            int saveBonus,
+            string abilityScoreName,
             BaseDefinition sourceDefinition,
-            string schoolOfMagic,
-            MetamagicOptionDefinition metamagicOption,
-            ref RollOutcome saveOutcome,
-            ref int saveOutcomeDelta)
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
         {
-            if (saveOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 return;
             }
 
-            if (target is not RulesetCharacter rulesetCharacter)
-            {
-                return;
-            }
-
-            var hero = rulesetCharacter.GetOriginalHero();
+            var hero = defender.GetOriginalHero();
 
             if (hero == null)
             {
                 return;
             }
 
-            var attacker = GameLocationCharacter.GetFromActor(hero);
-            var defender = GameLocationCharacter.GetFromActor(target);
+            var character = GameLocationCharacter.GetFromActor(hero);
 
-            if (attacker != null && defender != null)
+            if (character != null)
             {
-                EffectHelpers.StartVisualEffect(attacker, defender, MageArmor, EffectHelpers.EffectType.Caster);
+                EffectHelpers.StartVisualEffect(character, character, MageArmor, EffectHelpers.EffectType.Caster);
             }
 
             hero.LogCharacterUsedFeature(_featureManaOverflow);

@@ -429,7 +429,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
             var usablePower = UsablePowersProvider.Get(_powerHailOfBlades, rulesetAttacker);
 
-            usablePower.RepayUse();
+            rulesetAttacker.RepayPowerUse(usablePower);
         }
     }
 }

@@ -45,6 +45,7 @@ Feature/&AncestryLevelUpDraconicDescription=La tua discendenza draconica ti dà 
 Feature/&AttributeModifierMonkAbundantKiDescription=Aggiungi metà del tuo bonus di competenza (arrotondato per eccesso) al tuo pool di punti Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abbondante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&EnhancedIndomitableResistanceDescription=Se fallisci un tiro salvezza, puoi lanciarlo nuovamente con un bonus pari al tuo livello da Guerriero. Se lo fai, devi utilizzare il nuovo tiro e non potrai utilizzare nuovamente questo privilegio finché non avrai terminato un riposo lungo.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Incantesimi espansi
 Feature/&FighterExtraAttackDescription=Puoi attaccare due volte, anziché una volta, quando usi le azioni di attacco o spinta.
@@ -52,6 +53,7 @@ Feature/&FlightResumeDescription=Riprende l'effetto di volo sospeso
 Feature/&FlightResumeTitle=Riprendi il volo
 Feature/&FlightSuspendDescription=Sospende il tuo effetto di volo in modo che tu possa camminare sul terreno
 Feature/&FlightSuspendTitle=Sospendi volo
+Feature/&IndomitableResistanceDescription=Se fallisci un tiro salvezza, puoi lanciarlo nuovamente con un bonus pari al tuo livello da Guerriero. Se lo fai, devi utilizzare il nuovo tiro e non potrai utilizzare nuovamente questo privilegio finché non avrai terminato un riposo lungo.
 Feature/&InvocationPoolAngelicFormChoiceLearnDescription=Seleziona una forma angelica.
 Feature/&InvocationPoolAngelicFormChoiceLearnTitle=Forma Angelica
 Feature/&InvocationPoolArcaneShotChoiceLearnDescription=Seleziona un colpo arcano.
@@ -114,7 +116,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\n\
 Message/&CharacterExportEmptyNameErrorDescription=Esportazione annullata:\n\nprova con un nome non vuoto.
 Message/&CharacterExportModalContentDescription=Inserisci il nome dell'eroe da esportare:
 Message/&CharacterExportModalTitleDescription=Esporta {0}
-Message/&MessageModWelcomeDescription=La Mod Unfinished Business è ricca di funzionalità entusiasmanti, ma per impostazione predefinita nessuna è abilitata. Premi <color=#F0DAA0>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Unfinished Business" per aprire le pagine delle impostazioni. Esplora le opzioni e seleziona quelle che preferisci.\nIl pulsante Dona ti porterà a PayPal per impostazione predefinita. Ci sono altre opzioni di donazione in Mod UI> Personaggio.
+Message/&MessageModWelcomeDescription=La modalità Unfinished Business è ricca di funzionalità interessanti, ma per impostazione predefinita nessuna è abilitata. Premi <color=#F0DAA0>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Unfinished Business" per aprire le pagine delle impostazioni. Esplora le opzioni e seleziona quelle che ti piacciono.\n<b>Fai una donazione se puoi perché aiuta con i costi mensili e mantiene alta la motivazione dopo 3 anni di sviluppo e manutenzione ininterrotti.</b> Il pulsante sotto ti porterà a <color=#F0DAA0>PayPal</color> per impostazione predefinita, ma puoi anche utilizzare <color=#F0DAA0>Patreon</color> o <color=#F0DAA0>GitHub</color> in Mod UI > Carattere .
 Message/&MessageModWelcomeTitle=Affari incompiuti Mod
 Message/&ModErrorWarningDescription=Solasta ha rilevato un'instabilità. Chiedi a tutti i giocatori di chiudere il gioco, prendere il file <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> e condividere questi registri e il file di salvataggio con la community di mod di Unfinished Business.
 Message/&ModErrorWarningTitle=Avviso di gioco!

@@ -45,6 +45,7 @@ Feature/&AncestryLevelUpDraconicDescription=あなたの竜の祖先は、あな
 Feature/&AttributeModifierMonkAbundantKiDescription=熟練度ボーナスの半分（切り上げ）を Ki ポイントプールに追加します。
 Feature/&AttributeModifierMonkAbundantKiTitle=豊かな気
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&EnhancedIndomitableResistanceDescription=セーヴィング スローに失敗した場合は、ファイター レベルに等しいボーナスを獲得して再ロールできます。その場合は、新しいロールを使用する必要があり、長い休憩が終了するまでこの機能を再度使用することはできません。
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=拡張された呪文
 Feature/&FighterExtraAttackDescription=攻撃や突き飛ばしアクションを使用すると、1回ではなく2回攻撃することができます。
@@ -114,7 +115,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=エクスポートがキ�
 Message/&CharacterExportEmptyNameErrorDescription=エクスポートがキャンセルされました:\n\n空でない名前を試してください。
 Message/&CharacterExportModalContentDescription=エクスポートするヒーロー名を入力してください:
 Message/&CharacterExportModalTitleDescription={0}をエクスポート
-Message/&MessageModWelcomeDescription=Unfinished Business Mod にはエキサイティングな機能が満載ですが、デフォルトではどれも有効になっていません。 <color=#F0DAA0>Ctrl-F10</color> を押して Unity Mod Manager UI [UMM] を開き、「Unfinished Business」の横にある設定アイコンをクリックして設定ページを開きます。オプションを調べて、気に入ったものを選択してください。\n[寄付] ボタンをクリックすると、デフォルトで PayPal に移動します。 Mod UI> Character には他の寄付オプションもあります。
+Message/&MessageModWelcomeDescription=Unfinished Business Mod にはエキサイティングな機能が満載ですが、デフォルトではどれも有効になっていません。 <color=#F0DAA0>Ctrl-F10</color> を押して Unity Mod Manager UI [UMM] を開き、「Unfinished Business」の横にある設定アイコンをクリックして設定ページを開きます。オプションを調べて、気に入ったものを選択してください。\n<b>月々のコストを軽減し、3 年間ノンストップで開発とメンテナンスを行った後のモチベーションを高く保つことができますので、可能であれば寄付してください。</b> 下のボタンデフォルトでは <color=#F0DAA0>PayPal</color> に移動しますが、[Mod UI] > [Character] で <color=#F0DAA0>Patreon</color> または <color=#F0DAA0>GitHub</color> を使用することもできます。 。
 Message/&MessageModWelcomeTitle=未完成のビジネス Mod
 Message/&ModErrorWarningDescription=ソラスタは不安定性を検出しました。すべてのプレイヤーに、ゲームを終了し、ファイル <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> を取得し、これらのログと保存ファイルを Unfinished Business MOD コミュニティと共有するよう依頼してください。
 Message/&ModErrorWarningTitle=ゲームの警告!

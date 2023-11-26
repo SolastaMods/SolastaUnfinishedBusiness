@@ -1,6 +1,5 @@
 Condition/&ConditionGambitDebilitateDescription=A un désavantage aux jets de sauvegarde.
 Condition/&ConditionGambitDebilitateTitle=Affaibli
-Condition/&ConditionGambitGoadingEffectTitle=Aiguillonné
 Condition/&ConditionGambitSwitchBadDescription=La classe d'armure est diminuée du bonus de maîtrise du Tacticien qui a infligé cet effet.
 Condition/&ConditionGambitSwitchBadTitle=Appâté
 Condition/&ConditionGambitSwitchGoodDescription=La classe d'armure est augmentée du bonus de maîtrise du Tacticien qui a infligé cet effet.
@@ -13,7 +12,7 @@ Feature/&GambitDebilitateDescription=Si votre prochaine attaque touche une créa
 Feature/&GambitDebilitateTitle=Affaiblissement
 Feature/&GambitFeintDescription=Si vous attaquez avant le début de votre prochain tour, vous dépenserez un <b>dé de gambit</b> et l'attaque aura l'avantage et infligera des dégâts supplémentaires égaux au jet de <b>dé de gambit</b>.
 Feature/&GambitFeintTitle=Feinte
-Feature/&GambitGoadingDescription=Si votre prochaine attaque touche une créature, vous dépenserez un <b>dé de gambit</b> pour infliger des dégâts supplémentaires égaux au jet de <b>dé de gambit</b> et lui donnerez le désavantage sur toutes les attaques contre des cibles autres que vous, et ce jusqu'à la fin de son tour.
+Feature/&GambitGoadingDescription=Si votre prochaine attaque touche une créature, vous dépenserez un <b>dé de gambit</b> pour infliger des dégâts supplémentaires égaux au <b>jet de dé de gambit</b> et narguer la créature. Une créature que vous provoquez a un désavantage à tout jet d'attaque qui ne vous cible pas. Cet effet se termine plus tôt si un autre allié nargue la créature, si vous vous éloignez de plus de 9 mètres de la créature ou si vous perdez de vue la créature.
 Feature/&GambitGoadingTitle=Provocation
 Feature/&GambitKnockdownDescription=Si votre prochaine attaque touche une créature, vous dépenserez un <b>dé de gambit</b> pour lui infliger des dégâts supplémentaires égaux au jet de <b>dé de gambit</b> et le mettre à terre s'il échoue un jet de sauvegarde de Force contre votre Degré de Difficulté de Gambit.
 Feature/&GambitKnockdownTitle=Fauchage

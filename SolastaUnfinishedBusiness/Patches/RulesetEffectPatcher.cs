@@ -1,6 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -13,33 +18,124 @@ public static class RulesetEffectPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     // ReSharper disable once InconsistentNaming
-    public static class EffectDescription_Getter_Patch
+    public static class ConditionSaveRerollRequested_Patch
     {
-        [UsedImplicitly]
-        public static void Prefix(
+        private static bool TryGetCasterAndEffectForms(
             RulesetEffect __instance,
-            RulesetActor character)
+            out RulesetCharacter rulesetCharacter,
+            out List<EffectForm> effectForms)
         {
             switch (__instance)
             {
                 case RulesetEffectSpell rulesetEffectSpell:
                 {
-                    var caster = rulesetEffectSpell.Caster;
-                    var sourceDefinition = rulesetEffectSpell.SourceDefinition;
+                    rulesetCharacter = rulesetEffectSpell.Caster;
+                    effectForms = rulesetEffectSpell.EffectDescription.EffectForms;
 
-                    OathOfAncients.OnRollSavingThrowElderChampion(caster, character, sourceDefinition);
-                    OathOfDread.OnRollSavingThrowAspectOfDread(caster, character, sourceDefinition);
-                    break;
+                    return true;
                 }
                 case RulesetEffectPower rulesetEffectPower:
                 {
-                    var caster = rulesetEffectPower.User;
-                    var sourceDefinition = rulesetEffectPower.SourceDefinition;
+                    rulesetCharacter = rulesetEffectPower.User;
+                    effectForms = rulesetEffectPower.EffectDescription.EffectForms;
 
-                    OathOfAncients.OnRollSavingThrowElderChampion(caster, character, sourceDefinition);
-                    OathOfDread.OnRollSavingThrowAspectOfDread(caster, character, sourceDefinition);
-                    break;
+                    return true;
                 }
+                default:
+                    rulesetCharacter = null;
+                    effectForms = null;
+
+                    return false;
+            }
+        }
+
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var rollSavingThrowMethod = typeof(RulesetActor).GetMethod("RollSavingThrow");
+            var myRollSavingThrowMethod =
+                typeof(ConditionSaveRerollRequested_Patch).GetMethod("RollSavingThrow");
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions
+                .ReplaceCalls(rollSavingThrowMethod,
+                    "RulesetEffect.ConditionSaveRerollRequested",
+                    new CodeInstruction(OpCodes.Ldarg, 0),
+                    new CodeInstruction(OpCodes.Call, myRollSavingThrowMethod));
+        }
+
+        [UsedImplicitly]
+        public static void RollSavingThrow(
+            RulesetCharacter __instance,
+            int saveBonus,
+            string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<RuleDefinitions.TrendInfo> modifierTrends,
+            List<RuleDefinitions.TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RuleDefinitions.RollOutcome outcome,
+            ref int outcomeDelta,
+            RulesetEffect rulesetEffect)
+        {
+            if (!TryGetCasterAndEffectForms(rulesetEffect, out var caster, out var effectForms))
+            {
+                __instance.RollSavingThrow(
+                    saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
+                    rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);
+
+                return;
+            }
+
+            //PATCH: supports Oath of Ancients / Oath of Dread Path of The Savagery
+            RulesetImplementationManagerPatcher.TryRollSavingThrow_Patch.OnRollSavingThrowOath(caster, __instance,
+                sourceDefinition, OathOfAncients.ConditionElderChampionName,
+                OathOfAncients.ConditionElderChampionEnemy);
+            RulesetImplementationManagerPatcher.TryRollSavingThrow_Patch.OnRollSavingThrowOath(caster, __instance,
+                sourceDefinition, OathOfDread.ConditionAspectOfDreadName,
+                OathOfDread.ConditionAspectOfDreadEnemy);
+            PathOfTheSavagery.OnRollSavingThrowFuriousDefense(__instance, ref abilityScoreName);
+
+            //PATCH: supports `IRollSavingThrowFinished` interface
+            foreach (var rollSavingThrowInitiated in __instance.GetSubFeaturesByType<IRollSavingThrowInitiated>())
+            {
+                rollSavingThrowInitiated.OnSavingThrowInitiated(
+                    caster,
+                    __instance,
+                    ref saveBonus,
+                    ref abilityScoreName,
+                    sourceDefinition,
+                    modifierTrends,
+                    advantageTrends,
+                    ref rollModifier,
+                    saveDC,
+                    hasHitVisual,
+                    ref outcome,
+                    ref outcomeDelta,
+                    effectForms);
+            }
+
+            __instance.RollSavingThrow(
+                saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
+                rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);
+
+            //PATCH: supports `IRollSavingThrowFinished` interface
+            foreach (var rollSavingThrowFinished in __instance.GetSubFeaturesByType<IRollSavingThrowFinished>())
+            {
+                rollSavingThrowFinished.OnSavingThrowFinished(
+                    caster,
+                    __instance,
+                    saveBonus,
+                    abilityScoreName,
+                    sourceDefinition,
+                    modifierTrends,
+                    advantageTrends,
+                    rollModifier,
+                    saveDC,
+                    hasHitVisual,
+                    ref outcome,
+                    ref outcomeDelta,
+                    effectForms);
             }
         }
     }

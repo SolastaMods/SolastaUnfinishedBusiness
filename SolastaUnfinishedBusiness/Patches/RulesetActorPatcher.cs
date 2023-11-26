@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
@@ -459,6 +460,16 @@ public static class RulesetActorPatcher
                 featuresToBrowse.AddRange(equipedItem.DynamicItemProperties
                     .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
                     .Where(definition => definition is IDamageAffinityProvider));
+            }
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(RulesetActor __instance, ref int __result)
+        {
+            //TODO: convert to an interface if ever required
+            if (__instance.HasConditionOfType(ArmorFeats.ConditionShieldTechniquesResistanceName))
+            {
+                __result /= 2;
             }
         }
     }

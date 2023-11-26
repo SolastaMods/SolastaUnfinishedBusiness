@@ -11,13 +11,15 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using static RuleDefinitions;
 using static EquipmentDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ArmorFeats
 {
+    internal const string ConditionShieldTechniquesResistanceName = "ConditionShieldTechniquesResistance";
+
     // this is entirely implemented on rulesetCharacterHero transpiler using context validations below
     // they change max dexterity to 3 and remove any instance of Stealth Disadvantage checks
     private static readonly FeatDefinition FeatMediumArmorMaster = FeatDefinitionBuilder
@@ -116,6 +118,28 @@ internal static class ArmorFeats
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasShield, ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
+        var conditionShieldTechniquesResistance = ConditionDefinitionBuilder
+            .Create(ConditionShieldTechniquesResistanceName)
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+#if false
+            .SetFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
+#endif
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
         var powerShieldTechniques = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat)
@@ -123,147 +147,120 @@ internal static class ArmorFeats
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerShieldTechniques.AddCustomSubFeatures(new CustomBehaviorShieldTechniques(powerShieldTechniques));
+        powerShieldTechniques.AddCustomSubFeatures(
+            new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionShieldTechniquesResistance));
 
         return FeatDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(actionAffinityShieldTechniques, powerShieldTechniques)
-            .SetArmorProficiencyPrerequisite(LightArmorCategory)
+            .SetArmorProficiencyPrerequisite(ShieldCategory)
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorShieldTechniques : IModifySavingThrow, ITryAlterOutcomeFailedSavingThrow
+    private sealed class CustomBehaviorShieldTechniques :
+        IRollSavingThrowInitiated, IMagicalAttackBeforeHitConfirmedOnMe
     {
+        private readonly ConditionDefinition _conditionShieldTechniquesResistance;
         private readonly FeatureDefinitionPower _powerShieldTechniques;
 
-        public CustomBehaviorShieldTechniques(FeatureDefinitionPower powerShieldTechniques)
+        public CustomBehaviorShieldTechniques(
+            FeatureDefinitionPower powerShieldTechniques,
+            ConditionDefinition conditionShieldTechniquesResistance)
         {
             _powerShieldTechniques = powerShieldTechniques;
+            _conditionShieldTechniquesResistance = conditionShieldTechniquesResistance;
         }
 
-        // validate savings bonus to only be DEX wielding shield
-        public bool IsValid(
-            RulesetActor rulesetActor,
-            RulesetActor rulesetCaster,
-            IEnumerable<EffectForm> effectForms,
-            string attributeScore)
-        {
-            return attributeScore == AttributeDefinitions.Dexterity
-                   && rulesetActor is RulesetCharacterHero hero && hero.IsWearingShield();
-        }
-
-        // add +2 on DEX savings
-        public string AttributeAndActionModifier(
-            RulesetActor rulesetActor,
-            ActionModifier actionModifier,
-            string attribute)
-        {
-            actionModifier.SavingThrowModifier += 2;
-            // for some reason this isn't displaying on log
-            actionModifier.SavingThrowModifierTrends.Add(
-                new TrendInfo(2, FeatureSourceType.Power, _powerShieldTechniques.Name, _powerShieldTechniques));
-
-            return attribute;
-        }
-
-        // offer to reroll DEX saving on self or ally
-        public IEnumerator OnFailedSavingTryAlterOutcome(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
+        // halve any damage taken
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var savingThrowAbility = action.ActionParams.RulesetEffect?.EffectDescription.SavingThrowAbility
-                                     ?? action.ActionParams.AttackMode?.EffectDescription.SavingThrowAbility;
-
-            if (savingThrowAbility != AttributeDefinitions.Dexterity)
+            if (!defender.CanReact() || !defender.RulesetCharacter.IsWearingShield())
             {
                 yield break;
             }
 
-            if (!ShouldTrigger(battleManager, defender, helper))
+            if (!rulesetEffect.EffectDescription.HasSavingThrow ||
+                rulesetEffect.EffectDescription.SavingThrowAbility != AttributeDefinitions.Dexterity ||
+                !actualEffectForms.Exists(x => x.FormType == EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (manager == null)
+            if (manager == null || battleManager == null)
             {
                 yield break;
             }
 
             var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = FormatReactionDescription(action, attacker, defender, helper)
+                    StringParameter = "Reaction/&CustomReactionShieldTechniquesReactDescription"
                 };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("ShieldTechniques", reactionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(helper, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(defender, manager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            helper.RulesetCharacter.LogCharacterUsedPower(_powerShieldTechniques);
-            action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
+            var rulesetDefender = defender.RulesetCharacter;
+
+            rulesetDefender.LogCharacterUsedPower(_powerShieldTechniques);
+            rulesetDefender.InflictCondition(
+                _conditionShieldTechniquesResistance.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.Guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                _conditionShieldTechniquesResistance.Name,
+                0,
+                0,
+                0);
         }
 
-        private static bool ShouldTrigger(
-            IGameLocationBattleService gameLocationBattleService,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
+        // add +2 on DEX savings
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta, List<EffectForm> effectForms)
         {
-            return helper.CanReact()
-                   && helper.RulesetCharacter.IsWearingShield()
-                   && !defender.IsOppositeSide(helper.Side)
-                   && gameLocationBattleService.IsWithin1Cell(helper, defender);
-        }
+            if (abilityScoreName != AttributeDefinitions.Dexterity || !defender.IsWearingShield())
+            {
+                return;
+            }
 
-        private static bool TryModifyRoll(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier saveModifier,
-            bool hasHitVisual)
-        {
-            var actionParams = action.ActionParams;
-
-            action.RolledSaveThrow = actionParams.RulesetEffect == null
-                ? actionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter,
-                    defender.RulesetActor, saveModifier, actionParams.AttackMode.EffectDescription.EffectForms,
-                    out var saveOutcome, out var saveOutcomeDelta)
-                : actionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
-                    defender.RulesetActor, saveModifier, actionParams.RulesetEffect.EffectDescription.EffectForms,
-                    hasHitVisual, out saveOutcome, out saveOutcomeDelta);
-
-            action.SaveOutcome = saveOutcome;
-            action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            return true;
-        }
-
-        private static string FormatReactionDescription(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            var text = defender == helper
-                ? "Reaction/&CustomReactionShieldTechniquesDescriptionSelf"
-                : "Reaction/&CustomReactionShieldTechniquesDescriptionAlly";
-
-            return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+            rollModifier += 2;
+            modifierTrends.Add(
+                new TrendInfo(2, FeatureSourceType.Condition, _conditionShieldTechniquesResistance.Name,
+                    _conditionShieldTechniquesResistance));
         }
     }
 }

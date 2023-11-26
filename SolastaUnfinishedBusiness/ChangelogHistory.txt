@@ -1,4 +1,26 @@
-﻿1.5.94.33:
+﻿1.5.94.34:
+
+ATTENTION: 
+
+- Zappastuff, mod maintainer and head developer, burned his development box RTX 2060 graphics card
+- he's looking for support to buy a RTX 4060 that sells for US$300 [donations are appreciated]
+- this version celebrates the 1 year UB anniversary and the 3 years Solasta modding anniversary
+
+CHANGES:
+
+- added an entry in settings.xml with a list of deprecated subclasses [not offered or supported anymore]
+- added College of Thespian and Martial Guardian subclasses [based of deprecated Harlequin and Defender]
+- added Gameplay > General > 'Add Fighter level to indomitable resistance saving throw reroll'
+- changed Cleaving Attack feat extra attack on kill to a bonus action type instead of a main action one
+- changed Shield Techniques feat on reaction to halve all income magic damage requiring a DEX save
+- changed Taunted condition to be the same on Martial Guardian, Provoke Gambit, and Thunder Gauntlet
+- deprecated College of Harlequin, Martial Defender, Raven Uncut, and Way of Distant Hand subclasses
+- fixed a vanilla issue with some monsters not triggering more than 1 reaction per turn when allowed
+- fixed Oath of Ancients and Oath of Dread level 20 features not forcing disadvantage on enemies savings 
+- fixed Psychic Whip freezing combat when enemy tries to dash as very first action [spell won't trigger]
+- fixed Shield Techniques not displaying the saving bonus on combat log tooltip
+
+1.5.94.33:
 
 - added additional sample portraits [by Artyoan, Thaladar]
 - added Way of Zen Archery subclass

@@ -35,7 +35,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionThunderGauntletDistractTitle",
+    "title": "Condition/&ConditionTauntedTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -56,7 +56,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "04d5a49c-802c-5f48-97ca-4d42b9e6b4c6",
+  "guid": "8a9c32ac-8aaa-5888-8a17-1f78d723b3a4",
   "contentPack": 9999,
-  "name": "CombatAffinityThunderGauntletDistract"
+  "name": "CombatAffinityTaunted"
 }

@@ -20,8 +20,8 @@ public class Settings : UnityModManager.ModSettings
     // UI Saved State
     //
 
+    public int DisplayModMessage { get; set; }
     public int EnableDiagsDump { get; set; }
-    public bool HideWelcomeMessage { get; set; }
     public int SelectedTab { get; set; }
 
     //
@@ -57,6 +57,10 @@ public class Settings : UnityModManager.ModSettings
 
     // TA made level ups of more than 1 level at a time disallowing unlearning spells/invocations to streamline process
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
+
+    // change this at your own risk as these subclasses will be fully removed from mod in the near future
+    public List<String> DeprecatedSubclasses { get; set; } =
+        new() { "CollegeOfHarlequin", "MartialMartialDefender", "RoguishRaven", "WayOfTheDistantHand" };
 
     //
     // Gameplay - Tools
@@ -115,8 +119,9 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
     public bool EnableBarbarianFightingStyle { get; set; }
-    public bool EnableFighterWeaponSpecialization { get; set; }
     public bool GrantScimitarSpecializationToBardRogue { get; set; }
+    public bool AddFighterLevelToIndomitableSavingReroll { get; set; }
+    public bool EnableFighterWeaponSpecialization { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt10 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }

@@ -304,8 +304,14 @@ public sealed class InnovationVivisectionist : AbstractSubclass
 
             rulesetAttacker.UpdateUsageForPower(_powerOrganDonation, _powerOrganDonation.CostPerUse);
             rulesetAttacker.LogCharacterUsedPower(_powerOrganDonation);
-            UsablePowersProvider.Get(_powerEmergencyCure, rulesetAttacker).RepayUse();
-            UsablePowersProvider.Get(_powerEmergencySurgery, rulesetAttacker).RepayUse();
+
+            var usablePowerEmergencyCure = UsablePowersProvider.Get(_powerEmergencyCure, rulesetAttacker);
+
+            rulesetAttacker.RepayPowerUse(usablePowerEmergencyCure);
+
+            var usablePowerEmergencySurgery = UsablePowersProvider.Get(_powerEmergencySurgery, rulesetAttacker);
+
+            rulesetAttacker.RepayPowerUse(usablePowerEmergencySurgery);
         }
     }
 }

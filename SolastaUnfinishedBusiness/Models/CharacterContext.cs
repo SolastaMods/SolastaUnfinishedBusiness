@@ -43,6 +43,14 @@ internal static class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
+    internal static readonly ConditionDefinition ConditionIndomitableSaving = ConditionDefinitionBuilder
+        .Create("ConditionIndomitableSaving")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+        .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving())
+        .AddToDB();
+
     internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
         FeatureDefinitionFightingStyleChoiceBuilder
             .Create("FightingStyleChoiceBarbarian")
@@ -1301,6 +1309,32 @@ internal static class CharacterContext
     {
         return DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
+    }
+
+    private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated
+    {
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            var classLevel = defender!.GetClassLevel(Fighter);
+
+            saveBonus += classLevel;
+            modifierTrends.Add(
+                new TrendInfo(classLevel, FeatureSourceType.CharacterFeature, "Feature/&IndomitableResistanceTitle",
+                    null));
+        }
     }
 
     internal sealed class MonkWeaponSpecialization

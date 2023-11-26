@@ -41,7 +41,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
             .AddToDB();
 
         conditionDishearteningPerformance.AddCustomSubFeatures(
-            new OnFailedSavingThrowAfterRollDishearteningPerformance(conditionDishearteningPerformance));
+            new RollSavingThrowFinishedDishearteningPerformance(conditionDishearteningPerformance));
 
         var powerSteadfastDishearteningPerformance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DishearteningPerformance")
@@ -159,45 +159,37 @@ public sealed class CollegeOfValiance : AbstractSubclass
         }
     }
 
-    private sealed class OnFailedSavingThrowAfterRollDishearteningPerformance : ITryAlterOutcomeSavingThrow
+    private sealed class RollSavingThrowFinishedDishearteningPerformance : IRollSavingThrowFinished
     {
         private readonly ConditionDefinition _conditionDishearteningPerformance;
 
-        public OnFailedSavingThrowAfterRollDishearteningPerformance(
+        public RollSavingThrowFinishedDishearteningPerformance(
             ConditionDefinition conditionDishearteningPerformance)
         {
             _conditionDishearteningPerformance = conditionDishearteningPerformance;
         }
 
-        public void OnSavingTryAlterOutcome(
+        public void OnSavingThrowFinished(
             RulesetCharacter caster,
-            Side sourceSide,
-            RulesetActor target,
-            ActionModifier actionModifier,
-            bool hasHitVisual,
-            bool hasSavingThrow,
-            string savingThrowAbility,
-            int saveDC,
-            bool disableSavingThrowOnAllies,
-            bool advantageForEnemies,
-            bool ignoreCover,
-            FeatureSourceType featureSourceType,
-            List<EffectForm> effectForms,
-            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
-            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
-            string sourceName,
+            RulesetCharacter defender,
+            int saveBonus,
+            string abilityScoreName,
             BaseDefinition sourceDefinition,
-            string schoolOfMagic,
-            MetamagicOptionDefinition metamagicOption,
-            ref RollOutcome saveOutcome,
-            ref int saveOutcomeDelta)
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
         {
-            if (saveOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }
 
-            target.TryGetConditionOfCategoryAndType(
+            defender.TryGetConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect,
                 _conditionDishearteningPerformance.Name,
                 out var activeCondition);
@@ -217,7 +209,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
             // this is almost the same code as RollBardicInspirationDie but dup here for better combat log messages
             var dieType = bardCharacter.GetBardicInspirationDieValue();
             var inspirationDie = RollDie(dieType, AdvantageType.None, out _, out _);
-            var baseLine = inspirationDie > saveOutcomeDelta
+            var baseLine = inspirationDie > outcomeDelta
                 ? "Feedback/&DishearteningPerformanceUsedSuccessLine"
                 : "Feedback/&DishearteningPerformanceUsedFailureLine";
             var console = Gui.Game.GameConsole;
@@ -228,14 +220,14 @@ public sealed class CollegeOfValiance : AbstractSubclass
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, inspirationDie.ToString());
             console.AddEntry(entry);
 
-            saveOutcomeDelta -= inspirationDie;
+            outcomeDelta -= inspirationDie;
 
-            if (saveOutcomeDelta < 0)
+            if (outcomeDelta < 0)
             {
-                saveOutcome = RollOutcome.Failure;
+                outcome = RollOutcome.Failure;
             }
 
-            target.RemoveCondition(activeCondition);
+            defender.RemoveCondition(activeCondition);
         }
     }
 }

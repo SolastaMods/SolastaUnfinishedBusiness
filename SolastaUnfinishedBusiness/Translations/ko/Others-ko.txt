@@ -45,6 +45,7 @@ Feature/&AncestryLevelUpDraconicDescription=당신의 드래곤 선조로 인해
 Feature/&AttributeModifierMonkAbundantKiDescription=숙련도 보너스의 절반(반올림)을 기 포인트 풀에 추가합니다.
 Feature/&AttributeModifierMonkAbundantKiTitle=풍부한 기
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&EnhancedIndomitableResistanceDescription=내성 굴림에 실패하면 파이터 레벨과 동일한 보너스를 받아 다시 굴릴 수 있습니다. 그럴 경우 새 롤을 사용해야 하며, 긴 휴식을 마칠 때까지 이 기능을 다시 사용할 수 없습니다.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=확장된 주문
 Feature/&FighterExtraAttackDescription=공격 또는 밀치기를 사용할 때 한 번이 아닌 두 번 공격할 수 있습니다.
@@ -114,7 +115,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n\
 Message/&CharacterExportEmptyNameErrorDescription=내보내기 취소됨:\n\n빈 칸 없이 이름을 입력해 주세요.
 Message/&CharacterExportModalContentDescription=내보낼 영웅 이름을 입력합니다:
 Message/&CharacterExportModalTitleDescription={0} 내보내기
-Message/&MessageModWelcomeDescription=끝내지 못한 일 모드에는 흥미로운 기능이 가득하지만 기본적으로 활성화된 기능은 없습니다. <color=#F0DAA0>Ctrl-F10</color>를 눌러 Unity 모드 관리자 UI [UMM]을 연 다음 '끝내지 못한 일' 옆의 설정 아이콘을 클릭하여 설정 페이지를 엽니다. 옵션을 살펴보고 원하는 옵션을 선택합니다.\n기부 버튼은 기본적으로 PayPal로 이동합니다. 모드 UI > 캐릭터에 다른 기부 옵션이 있습니다.
+Message/&MessageModWelcomeDescription=미완성 비즈니스 모드는 흥미로운 기능으로 가득 차 있지만 기본적으로 활성화된 기능은 없습니다. <color=#F0DAA0>Ctrl-F10</color>을 눌러 Unity Mod Manager UI[UMM]를 연 다음 '미완성 비즈니스' 옆에 있는 설정 아이콘을 클릭하여 설정 페이지를 엽니다. 옵션을 살펴보고 마음에 드는 옵션을 선택하세요.\n<b>월 비용에 도움이 되고 3년 간의 논스톱 개발 및 유지 관리를 통해 높은 동기를 부여할 수 있도록 기부해 주세요.</b> 아래 버튼 기본적으로 <color=#F0DAA0>PayPal</color>로 연결되지만 Mod UI > Character에서 <color=#F0DAA0>Patreon</color> 또는 <color=#F0DAA0>GitHub</color>를 사용할 수도 있습니다. .
 Message/&MessageModWelcomeTitle=끝내지 못한 일 모드
 Message/&ModErrorWarningDescription=솔라스타가 불안정을 감지했습니다. 모든 플레이어에게 게임을 종료하고 <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> 파일을 가져와서 이 로그와 저장 파일을 'Unfinished Business' 모드 커뮤니티에 공유해 달라고 요청해 주세요.
 Message/&ModErrorWarningTitle=주의!
