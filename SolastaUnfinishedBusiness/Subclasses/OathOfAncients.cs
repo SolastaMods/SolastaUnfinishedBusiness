@@ -28,6 +28,7 @@ public sealed class OathOfAncients : AbstractSubclass
         .Create($"Condition{Name}ElderChampionEnemy")
         .SetGuiPresentation(ConditionElderChampionName, Category.Condition)
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetPossessive()
         .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .SetFeatures(

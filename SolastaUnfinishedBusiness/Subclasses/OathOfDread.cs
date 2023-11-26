@@ -31,6 +31,7 @@ public sealed class OathOfDread : AbstractSubclass
         .Create($"Condition{Name}AspectOfDreadEnemy")
         .SetGuiPresentation(ConditionAspectOfDreadName, Category.Condition)
         .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetPossessive()
         .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .SetFeatures(
