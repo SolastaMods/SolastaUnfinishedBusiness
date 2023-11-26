@@ -15,9 +15,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "SavingThrow"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6d19f207-ab7b-5291-82ee-e81ff0e2c31d",
+  "guid": "074331ef-ead0-5653-9b36-149e87ed3279",
   "contentPack": 9999,
-  "name": "ConditionIndomitableSaving"
+  "name": "ConditionMartialGuardianVigilance"
 }

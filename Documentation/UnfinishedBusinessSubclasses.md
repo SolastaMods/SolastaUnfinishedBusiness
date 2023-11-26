@@ -2003,7 +2003,7 @@ Your Aura of Warding range increased to 30 ft.
 As an action, you gain the following benefits for one minute:
 • At the start of each of your turns, you regain 10 hit points.
 • Whenever you cast a paladin spell that has a casting time of 1 action, you can make two weapon attacks as a part of the same action.
-• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity options.
+• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity powers.
 
 Once you use this feature, you can't use it again until you finish a long rest.
 
@@ -2127,7 +2127,7 @@ Your Aura of Domination range increased to 30 ft.
 As an action, you gain the following benefits for one minute:
 • You have resistance to all damage.
 • All your weapon attacks deal an additional 1d8 psychic damage.
-• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Dreadful Presence.
+• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells  and Channel Divinity powers.
 
 Once you use this feature, you can't use it again until you finish a long rest.
 

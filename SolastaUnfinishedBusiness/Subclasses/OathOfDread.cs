@@ -220,11 +220,6 @@ public sealed class OathOfDread : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddToDB();
 
-        var featureAspectOfDread = FeatureDefinitionBuilder
-            .Create($"Feature{Name}AspectOfDread")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
         var featureSetAspectOfDread = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AspectOfDreadDamageResistance")
             .SetGuiPresentation(Category.Feature)
@@ -234,7 +229,7 @@ public sealed class OathOfDread : AbstractSubclass
             .Create(ConditionAspectOfDreadName)
             .SetGuiPresentation(Category.Condition, ConditionPactChainImp)
             .SetPossessive()
-            .AddFeatures(additionalDamageAspectOfDread, featureAspectOfDread, featureSetAspectOfDread)
+            .AddFeatures(additionalDamageAspectOfDread, featureSetAspectOfDread)
             .AddToDB();
 
         foreach (var damage in DatabaseRepository.GetDatabase<DamageDefinition>())
