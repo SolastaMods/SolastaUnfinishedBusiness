@@ -13,12 +13,13 @@ using static RuleDefinitions;
 using static EquipmentDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class ArmorFeats
 {
+    internal const string ConditionShieldTechniquesResistanceName = "ConditionShieldTechniquesResistance";
+
     // this is entirely implemented on rulesetCharacterHero transpiler using context validations below
     // they change max dexterity to 3 and remove any instance of Stealth Disadvantage checks
     private static readonly FeatDefinition FeatMediumArmorMaster = FeatDefinitionBuilder
@@ -105,8 +106,6 @@ internal static class ArmorFeats
             SturdinessOfTheTundra);
     }
 
-    internal const string ConditionShieldTechniquesResistanceName = "ConditionShieldTechniquesResistance";
-
     private static FeatDefinition BuildFeatShieldTechniques()
     {
         const string Name = "FeatShieldTechniques";
@@ -121,7 +120,7 @@ internal static class ArmorFeats
 
         var conditionShieldTechniquesResistance = ConditionDefinitionBuilder
             .Create(ConditionShieldTechniquesResistanceName)
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Name, Category.Feat)
             .SetSilent(Silent.WhenAddedOrRemoved)
 #if false
             .SetFeatures(
