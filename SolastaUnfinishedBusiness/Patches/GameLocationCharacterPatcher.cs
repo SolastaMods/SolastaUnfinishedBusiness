@@ -194,6 +194,18 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for custom invocation action ids
             CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
                 ignoreMovePoints);
+
+            //PATCH: support `EnableMonkDoNotRequireAttackActionForFlurry`
+            if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry &&
+                actionId
+                    is (ActionDefinitions.Id)ExtraActionId.TempestFury
+                    or ActionDefinitions.Id.FlurryOfBlows
+                    or ActionDefinitions.Id.FlurryOfBlowsSwiftSteps
+                    or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes &&
+                __result == ActionDefinitions.ActionStatus.CannotPerform)
+            {
+                __result = ActionDefinitions.ActionStatus.Available;
+            }
         }
     }
 

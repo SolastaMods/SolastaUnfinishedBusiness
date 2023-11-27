@@ -113,6 +113,7 @@ ModUi/&EnableLogDialoguesToConsole=Habilite los diálogos de registro en la cons
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Habilitar el registro de referencias no válidas en campañas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos previos mínimos de entrada y salida de las puntuaciones de habilidad</i>
 ModUi/&EnableMonkAbundantKi=Activar <color=#D89555>Monje</color> <b>Abundante Ki</b> en el nivel 2 <i><color=#F0DAA0>[obtener Ki adicional igual a la mitad de la bonificación de competencia redondeada]</color> </i>
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Habilite <color=#D89555>Monje</color> <b>Ráfaga de golpes</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkFightingStyle=Activa la opción <color=#D89555>Monje</color> <b>Estilo de lucha</b> en el nivel 2
 ModUi/&EnableMonkWeaponSpecialization=Activa <color=#D89555>Monje</color> <b>Especialización en armas</b> en los niveles de clase 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>

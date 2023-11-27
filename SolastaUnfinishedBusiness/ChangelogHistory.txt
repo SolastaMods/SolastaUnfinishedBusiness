@@ -1,4 +1,8 @@
-﻿1.5.94.34:
+﻿1.5.94.35:
+
+- added Gameplay > General > 'Enable Monk Flurry of Blows to not require an attack action before usage'
+
+1.5.94.34:
 
 ATTENTION: 
 

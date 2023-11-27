@@ -113,6 +113,7 @@ ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registrazione sulla con
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Abilita la registrazione di riferimenti non validi nelle campagne personalizzate
 ModUi/&EnableMinInOutAttributes=<i>+ Imponi i punteggi di abilità minimi pre-requisiti in entrata e in uscita</i>
 ModUi/&EnableMonkAbundantKi=Abilita <color=#D89555>Monaco</color> <b>K Ki abbondante</b> al livello 2 <i><color=#F0DAA0>[ottieni Ki aggiuntivo pari alla metà del bonus di competenza arrotondato per eccesso]</color> </i>
+ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Abilita <color=#D89555>Mistico</color> <b>Raffica di Colpi</b> per non richiedere un'azione di attacco prima dell'uso
 ModUi/&EnableMonkFightingStyle=Abilita la scelta <color=#D89555>Monaco</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>Specializzazione arma</b> ai livelli di classe 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa un'arma monaco per te]</color></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

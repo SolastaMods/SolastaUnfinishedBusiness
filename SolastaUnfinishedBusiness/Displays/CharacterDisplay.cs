@@ -282,6 +282,12 @@ internal static class CharacterDisplay
             CharacterContext.SwitchMonkFightingStyle();
         }
 
+        toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForFlurry"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry = toggle;
+        }
+
         toggle = Main.Settings.EnableMonkWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {

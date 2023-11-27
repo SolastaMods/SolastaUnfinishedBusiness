@@ -125,6 +125,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableRangerNatureShroudAt10 { get; set; }
     public bool EnableMonkAbundantKi { get; set; }
+    public bool EnableMonkDoNotRequireAttackActionForFlurry { get; set; }
     public bool EnableMonkFightingStyle { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableRogueCunningStrike { get; set; }
