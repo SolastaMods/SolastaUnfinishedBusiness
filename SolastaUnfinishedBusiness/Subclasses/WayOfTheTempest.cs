@@ -24,6 +24,18 @@ public sealed class WayOfTheTempest : AbstractSubclass
 {
     private const string Name = "WayOfTheTempest";
 
+    internal static readonly FeatureDefinitionActionAffinity ActionAffinityTempestFury =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}TempestFury")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(
+                    ValidatorsCharacter.HasAttacked,
+                    ValidatorsCharacter.HasAvailableBonusAction,
+                    ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)))
+            .AddToDB();
+
     public WayOfTheTempest()
     {
         // LEVEL 03
@@ -102,21 +114,10 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .OverrideClassName("UsePower")
             .AddToDB();
 
-        var actionAffinityTempestFury = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{Name}TempestFury")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(
-                    ValidatorsCharacter.HasAttacked,
-                    ValidatorsCharacter.HasAvailableBonusAction,
-                    ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)))
-            .AddToDB();
-
         var featureSetTempestFury = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}TempestFury")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(actionAffinityTempestFury, powerTempestFury)
+            .AddFeatureSet(ActionAffinityTempestFury, powerTempestFury)
             .AddToDB();
 
         // LEVEL 17

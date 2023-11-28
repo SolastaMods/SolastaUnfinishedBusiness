@@ -32,6 +32,22 @@ internal static class CustomizedSubFeatureDefinitions
         GetOrCreateForKey(definition).AddRange(subFeatures);
     }
 
+    internal static void RemoveCustomSubFeatures<T>(
+        [NotNull] this T definition,
+        [NotNull] params object[] subFeatures)
+        where T : BaseDefinition
+    {
+        if (!CustomSubFeatures.ContainsKey(definition))
+        {
+            return;
+        }
+
+        foreach (var subFeature in subFeatures)
+        {
+            CustomSubFeatures[definition].Remove(subFeature);
+        }
+    }
+
     [NotNull]
     internal static List<T> GetAllSubFeaturesOfType<T>([CanBeNull] this BaseDefinition definition) where T : class
     {

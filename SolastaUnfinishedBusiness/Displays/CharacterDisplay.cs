@@ -286,6 +286,7 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForFlurry"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry = toggle;
+            CharacterContext.SwitchMonkDoNotRequireAttackActionForFlurry();
         }
 
         toggle = Main.Settings.EnableMonkWeaponSpecialization;
