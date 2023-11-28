@@ -66,10 +66,16 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .AddToDB();
 
         var conditionVerdancy14 = ConditionDefinitionBuilder
-            .Create(conditionVerdancy, ConditionVerdancy14)
+            .Create(ConditionVerdancy14)
+            .SetGuiPresentation(ConditionVerdancy, Category.Condition, ConditionChildOfDarkness_DimLight)
             // uses 4 but it will trigger 5 times as required because of the time we add it
             .SetSpecialDuration(DurationType.Round, 4, TurnOccurenceType.EndOfSourceTurn)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedVerdancy())
+            .SetPossessive()
+            .CopyParticleReferences(ConditionAided)
+            .AllowMultipleInstances()
+            .AddCustomSubFeatures(
+                new OnConditionAddedOrRemovedVerdancy(),
+                new CharacterTurnStartListenerVerdancy())
             .AddToDB();
 
         var featureVerdancy = FeatureDefinitionBuilder
