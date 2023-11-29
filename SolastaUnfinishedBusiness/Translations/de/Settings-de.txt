@@ -113,7 +113,7 @@ ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie die Protokollierung von Dialog
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Aktivieren Sie die Protokollierung ungültiger Referenzen in benutzerdefinierten Kampagnen
 ModUi/&EnableMinInOutAttributes=<i>+ Erzwingen Sie die Mindestein- und -aus-Voraussetzungen für Fähigkeitswerte</i>
 ModUi/&EnableMonkAbundantKi=Aktivieren Sie <color=#D89555>Mönch</color> <b>reichlich vorhandenes Ki</b> auf Stufe 2 <i><color=#F0DAA0>[Sie erhalten zusätzliches Ki, das der Hälfte des aufgerundeten Fähigkeitsbonus entspricht]</color> </i>
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Aktivieren Sie <color=#D89555>Mönch</color> <b>Kampfkunst</b>, um vor der Verwendung keine Angriffsaktion zu erfordern
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Aktivieren Sie <color=#D89555>Mönch</color> <b>Kampfkunst – Bonus für unbewaffnete Schläge</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Aktivieren Sie <color=#D89555>Mönch</color> <b>Flurry of Blows</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
 ModUi/&EnableMonkFightingStyle=Aktiviere die Wahl des <color=#D89555>Mönchs</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Mönch</color> <b>Verbesserte ungepanzerte Bewegung</b>, um sich auf Mauern zu bewegen und schwieriges Gelände zu ignorieren

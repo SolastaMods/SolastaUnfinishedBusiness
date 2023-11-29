@@ -113,7 +113,7 @@ ModUi/&EnableLogDialoguesToConsole=연속 스토리 장면 중 게임 콘솔에 
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=사용자 지정 캠페인에서 유효하지 않은 참조 로깅 활성화
 ModUi/&EnableMinInOutAttributes=<i>+ 최소 능력치 인/아웃 전제 조건 적용</i>
 ModUi/&EnableMonkAbundantKi=<color=#D89555>몽크</color> 2레벨에<i> <b>풍부한 기</b> 활성화<color=#F0DAA0>[숙련도 보너스의 반올림에 해당하는 기를 추가로 얻습니다]</color></i>
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>몽크</color> <b>무술</b>을 활성화하여 사용 전에 공격 행동이 필요하지 않도록 하세요.
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>몽크</color> <b>무술 - 보너스 비무장 공격</b>을 활성화하여 사용 전에 공격 조치가 필요하지 않도록 하세요.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>몽크</color> <b>Flurry of Blows</b>를 활성화하면 사용 전에 공격 조치가 필요하지 않습니다.
 ModUi/&EnableMonkFightingStyle=2레벨 <color=#D89555>몽크</color>에게 <b>전투 특화</b> 선택 활성화
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>몽크</color> <b>향상된 비무장 이동</b>을 활성화하여 벽 위로 이동하고 어려운 지형을 무시합니다.

@@ -113,7 +113,7 @@ ModUi/&EnableLogDialoguesToConsole=Ativar diálogos de registro no console do jo
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Ativar o registro de referências inválidas em campanhas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Aplicar pontuações mínimas de habilidade dentro e fora dos pré-requisitos</i>
 ModUi/&EnableMonkAbundantKi=Habilite <color=#D89555>Monk</color> <b>Abundant Ki</b> no nível 2 <i><color=#F0DAA0>[ganhe Ki adicional igual a metade do bônus de proficiência arredondado]</color> </i>
-ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Ative <color=#D89555>Monk</color> <b>Artes Marciais</b> para não exigir uma ação de ataque antes do uso
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Ative <color=#D89555>Monk</color> <b>Artes Marciais - Ataques Desarmados Bônus</b> para não exigir uma ação de ataque antes do uso
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Ative <color=#D89555>Monk</color> <b>Flurry of Blows</b> para não exigir uma ação de ataque antes do uso
 ModUi/&EnableMonkFightingStyle=Habilite a opção <color=#D89555>Monge</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Ative o <color=#D89555>Monge</color> <b>Movimento Sem Armadura Aprimorado</b> para se mover em paredes e ignorar terrenos difíceis
