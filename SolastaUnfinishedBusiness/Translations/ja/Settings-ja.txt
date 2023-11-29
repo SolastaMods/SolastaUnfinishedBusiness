@@ -113,8 +113,10 @@ ModUi/&EnableLogDialoguesToConsole=物語シーケンス中にゲームコンソ
 ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=カスタム キャンペーンで無効な参照のログを有効にする
 ModUi/&EnableMinInOutAttributes=<i>+ 前提条件の最小値と最小値の能力スコアを強制する</i>
 ModUi/&EnableMonkAbundantKi=<color=#D89555>モンク</color> の<b>豊富な気力</b>をレベル 2 で有効にする<i><color=#F0DAA0>[熟練度ボーナスの切り上げの半分に等しい追加気力を獲得]</color> </i>
+ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>モンク</color>の<b>格闘技</b>を有効にして、使用前に攻撃アクションを必要としないようにします
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>モンク</color> の<b>連打</b>を有効にして、使用前に攻撃アクションを必要としないようにします
 ModUi/&EnableMonkFightingStyle=レベル 2 で<color=#D89555>モンク</color>の<b>戦闘スタイル</b>の選択が可能になります
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>モンク</color> の<b>非武装での移動の改善</b>を有効にし、困難な地形を無視して壁の上を移動できるようにします
 ModUi/&EnableMonkWeaponSpecialization=クラスレベル 2 と 11 で<color=#D89555>モンク</color>の<b>武器特化</b>を有効にします<i><color=#F0DAA0>[選択した武器タイプがモンク武器になります]</color></i>
 ModUi/&EnableMulticlass=マルチクラス <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
 ModUi/&EnablePcgRandom=より優れたランダム生成アルゴリズムを有効にする <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

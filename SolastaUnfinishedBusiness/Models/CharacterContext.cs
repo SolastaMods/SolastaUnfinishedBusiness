@@ -846,38 +846,54 @@ internal static class CharacterContext
         }
     }
 
-    internal static void SwitchMonkDoNotRequireAttackActionForFlurry()
+    internal static void SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack()
     {
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
         {
             AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.description =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
             AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.title =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle";
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
-                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsTitle";
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.title =
-                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
             Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(AttackModifierMonkMartialArtsUnarmedStrikeBonus, 1));
             Monk.FeatureUnlocks
                 .RemoveAll(x => x.level == 1 && x.FeatureDefinition == PowerMonkMartialArts);
-            WayOfTheTempest.ActionAffinityTempestFury.RemoveCustomSubFeatures(ValidatorsCharacter.HasAttacked);
         }
         else
         {
             AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.description = string.Empty;
             AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.title = string.Empty;
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.description = "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
-            FeatureSetMonkFlurryOfBlows.GuiPresentation.title = "Feature/&FeatureSetMonkFlurryOfBlowsTitle";
             Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerMonkMartialArts, 1));
             Monk.FeatureUnlocks
                 .RemoveAll(x => x.level == 1 && x.FeatureDefinition == AttackModifierMonkMartialArtsUnarmedStrikeBonus);
-            WayOfTheTempest.ActionAffinityTempestFury.AddCustomSubFeatures(ValidatorsCharacter.HasAttacked);
         }
 
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
         {
             Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchMonkDoNotRequireAttackActionForFlurry()
+    {
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
+        {
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
+                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.title =
+                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsTitle";
+            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.description =
+                "Feature/&FeatureSetWayOfTheTempestAlternateTempestFuryDescription";
+            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.title =
+                "Feature/&FeatureSetWayOfTheTempestAlternateTempestFuryTitle";
+        }
+        else
+        {
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.description = "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.title = "Feature/&FeatureSetMonkFlurryOfBlowsTitle";
+            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.description =
+                "Feature/&FeatureSetWayOfTheTempestTempestFuryDescription";
+            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.title =
+                "Feature/&FeatureSetWayOfTheTempestTempestFuryTitle";
         }
     }
 

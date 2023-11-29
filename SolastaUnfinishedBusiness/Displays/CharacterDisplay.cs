@@ -289,6 +289,25 @@ internal static class CharacterDisplay
             CharacterContext.SwitchMonkDoNotRequireAttackActionForFlurry();
         }
 
+        toggle = Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall = toggle;
+            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityMonkUnarmoredMovementImproved
+                .canMoveOnWalls = toggle;
+            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityMonkUnarmoredMovementImproved
+                .immuneDifficultTerrain = toggle;
+        }
+
+        toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack = toggle;
+            CharacterContext.SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
+        }
+
         toggle = Main.Settings.EnableMonkWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {

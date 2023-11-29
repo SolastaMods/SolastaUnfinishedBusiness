@@ -1,6 +1,8 @@
 ﻿1.5.94.35:
 
 - added Gameplay > General > 'Enable Monk Flurry of Blows to not require an attack action before usage'
+- added Gameplay > General > 'Enable Monk Improved Unarmored Movement to move on walls and ignore difficult terrain'
+- added Gameplay > General > 'Enable Monk Martial Arts to not require an attack action before usage'
 - fixed Circle of The Life verdancy feature not healing on turn start from level 14th onwards
 
 1.5.94.34:
