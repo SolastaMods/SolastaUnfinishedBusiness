@@ -26,6 +26,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
@@ -894,6 +895,26 @@ internal static class CharacterContext
                 "Feature/&FeatureSetWayOfTheTempestTempestFuryDescription";
             WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.title =
                 "Feature/&FeatureSetWayOfTheTempestTempestFuryTitle";
+        }
+    }
+
+    internal static void SwitchMonkMonkImprovedUnarmoredMovementToMoveOnTheWall()
+    {
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
+        {
+            MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.description =
+                "Feature/&MonkAlternateUnarmoredMovementImprovedDescription";
+            MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.title =
+                "Feature/&MonkAlternateUnarmoredMovementImprovedTitle";
+            MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = true;
+        }
+        else
+        {
+            MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.description =
+                "Feature/&MonkUnarmoredMovementImprovedDescription";
+            MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.title =
+                "Feature/&MonkUnarmoredMovementImprovedTitle";
+            MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = true;
         }
     }
 

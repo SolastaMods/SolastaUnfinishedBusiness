@@ -294,10 +294,7 @@ internal static class CharacterDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall = toggle;
-            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityMonkUnarmoredMovementImproved
-                .canMoveOnWalls = toggle;
-            DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinityMonkUnarmoredMovementImproved
-                .immuneDifficultTerrain = toggle;
+            CharacterContext.SwitchMonkMonkImprovedUnarmoredMovementToMoveOnTheWall();
         }
 
         toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;

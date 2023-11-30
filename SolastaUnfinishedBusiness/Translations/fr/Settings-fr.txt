@@ -116,7 +116,7 @@ ModUi/&EnableMonkAbundantKi=Activez le <b>Ki abondant</b> du <color=#D89555>Moin
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Activez <color=#D89555>Moine</color> <b>Arts martiaux - Bonus de frappes à mains nues</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Activez <color=#D89555>Moine</color> <b>Flurry of Blows</b> pour ne pas nécessiter d'action d'attaque avant utilisation.
 ModUi/&EnableMonkFightingStyle=Activer le choix de <b>Style de combat</b> du <color=#D89555>Moine</color> au niveau 2
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Permet au <color=#D89555>Moine</color> <b>Déplacement sans armure amélioré</b> de se déplacer sur les murs et d'ignorer les terrains difficiles.
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Permet au <color=#D89555>Moine</color> <b>Mouvement sans armure amélioré</b> de se déplacer le long des surfaces verticales sans tomber.
 ModUi/&EnableMonkWeaponSpecialization=Activez la <b>Spécialisation d'arme</b> pour le <color=#D89555>Moine</color> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer la possibilité de multiclasser son personnage <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnablePcgRandom=Activer un meilleur algorithme pour la génération de nombres aléatoires (RNG) <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

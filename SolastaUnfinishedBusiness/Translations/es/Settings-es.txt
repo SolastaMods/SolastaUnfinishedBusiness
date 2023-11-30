@@ -116,7 +116,7 @@ ModUi/&EnableMonkAbundantKi=Activar <color=#D89555>Monje</color> <b>Abundante Ki
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Habilite <color=#D89555>Monje</color> <b>Artes marciales: ataques extra sin armas</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Habilite <color=#D89555>Monje</color> <b>Ráfaga de golpes</b> para que no requiera una acción de ataque antes de su uso.
 ModUi/&EnableMonkFightingStyle=Activa la opción <color=#D89555>Monje</color> <b>Estilo de lucha</b> en el nivel 2
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Monje</color> <b>Movimiento sin armadura mejorado</b> para moverse por las paredes e ignorar el terreno difícil.
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Habilite <color=#D89555>Monje</color> <b>Movimiento sin armadura mejorado</b> para moverse a lo largo de superficies verticales sin caerse.
 ModUi/&EnableMonkWeaponSpecialization=Activa <color=#D89555>Monje</color> <b>Especialización en armas</b> en los niveles de clase 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnablePcgRandom=Habilite un mejor algoritmo generador aleatorio <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

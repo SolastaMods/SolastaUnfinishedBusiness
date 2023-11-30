@@ -116,7 +116,7 @@ ModUi/&EnableMonkAbundantKi=<color=#D89555>몽크</color> 2레벨에<i> <b>풍�
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=<color=#D89555>몽크</color> <b>무술 - 보너스 비무장 공격</b>을 활성화하여 사용 전에 공격 조치가 필요하지 않도록 하세요.
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=<color=#D89555>몽크</color> <b>Flurry of Blows</b>를 활성화하면 사용 전에 공격 조치가 필요하지 않습니다.
 ModUi/&EnableMonkFightingStyle=2레벨 <color=#D89555>몽크</color>에게 <b>전투 특화</b> 선택 활성화
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=<color=#D89555>몽크</color> <b>향상된 비무장 이동</b>을 활성화하여 벽 위로 이동하고 어려운 지형을 무시합니다.
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=추락하지 않고 수직 표면을 따라 이동하려면 <color=#D89555>몽크</color> <b>향상된 비무장 이동</b>을 활성화하세요.
 ModUi/&EnableMonkWeaponSpecialization=<color=#D89555>몽크</color> 2 레벨과 11레벨에 <b>무기 특화</b> 활성화 <i><color=#F0DAA0>[선택한 무기 유형이 몽크 무기로 취급됩니다]</color></i>
 ModUi/&EnableMulticlass=멀티클래스 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&EnablePcgRandom=더 나은 무작위 생성 알고리즘 사용 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

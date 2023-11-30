@@ -116,7 +116,7 @@ ModUi/&EnableMonkAbundantKi=Enable <color=#D89555>Monk</color> <b>Abundant Ki</b
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Enable <color=#D89555>Monk</color> <b>Martial Arts - Bonus Unarmed Strikes</b> to not require an attack action before usage
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Enable <color=#D89555>Monk</color> <b>Flurry of Blows</b> to not require an attack action before usage
 ModUi/&EnableMonkFightingStyle=Enable <color=#D89555>Monk</color> <b>Fighting Style</b> choice at level 2
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Monk</color> <b>Improved Unarmored Movement</b> to move on walls and ignore difficult terrain
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>Monk</color> <b>Improved Unarmored Movement</b> to move along vertical surfaces without falling
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Monk</color> <b>Weapon Specialization</b> at class levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>

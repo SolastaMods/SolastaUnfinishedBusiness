@@ -116,7 +116,7 @@ ModUi/&EnableMonkAbundantKi=Aktivieren Sie <color=#D89555>Mönch</color> <b>reic
 ModUi/&EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack=Aktivieren Sie <color=#D89555>Mönch</color> <b>Kampfkunst – Bonus für unbewaffnete Schläge</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
 ModUi/&EnableMonkDoNotRequireAttackActionForFlurry=Aktivieren Sie <color=#D89555>Mönch</color> <b>Flurry of Blows</b>, damit vor der Verwendung keine Angriffsaktion erforderlich ist
 ModUi/&EnableMonkFightingStyle=Aktiviere die Wahl des <color=#D89555>Mönchs</color> <b>Kampfstils</b> auf Stufe 2
-ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Mönch</color> <b>Verbesserte ungepanzerte Bewegung</b>, um sich auf Mauern zu bewegen und schwieriges Gelände zu ignorieren
+ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Aktivieren Sie <color=#D89555>Mönch</color> <b>Verbesserte ungepanzerte Bewegung</b>, um sich entlang vertikaler Flächen zu bewegen, ohne zu fallen
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie Multiclass <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgenerator-Algorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
