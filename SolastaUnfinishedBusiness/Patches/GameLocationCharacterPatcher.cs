@@ -198,8 +198,7 @@ public static class GameLocationCharacterPatcher
             //PATCH: support `EnableMonkDoNotRequireAttackActionForFlurry`
             if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry &&
                 actionId
-                    is (ActionDefinitions.Id)ExtraActionId.TempestFury
-                    or ActionDefinitions.Id.FlurryOfBlows
+                    is ActionDefinitions.Id.FlurryOfBlows
                     or ActionDefinitions.Id.FlurryOfBlowsSwiftSteps
                     or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes &&
                 __result == ActionDefinitions.ActionStatus.CannotPerform)
