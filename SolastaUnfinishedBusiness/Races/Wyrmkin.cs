@@ -516,7 +516,7 @@ internal static class RaceWyrmkinBuilder
             [UsedImplicitly] FeatureDefinition dryRunFeature,
             RulesetAttribute armorClass)
         {
-            if (owner.IsWearingArmor())
+            if (owner.IsWearingArmor() || owner is RulesetCharacterMonster)
             {
                 return;
             }

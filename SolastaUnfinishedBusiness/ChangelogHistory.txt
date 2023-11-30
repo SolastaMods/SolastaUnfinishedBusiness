@@ -4,6 +4,7 @@
 - added Gameplay > General > 'Enable Monk Improved Unarmored Movement to move on walls and ignore difficult terrain'
 - added Gameplay > General > 'Enable Monk Martial Arts to not require an attack action before usage'
 - fixed Circle of The Life verdancy feature not healing on turn start from level 14th onwards
+- fixed Wyrmkin crystal defense interaction with Druid wildshape leading to a soft lock in game
 
 1.5.94.34:
 
