@@ -261,12 +261,16 @@
   <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
   <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
-  <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
   <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
+  <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
+  <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
   <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
   <EnableRangerNatureShroudAt10>false</EnableRangerNatureShroudAt10>
   <EnableMonkAbundantKi>false</EnableMonkAbundantKi>
+  <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>false</EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
+  <EnableMonkDoNotRequireAttackActionForFlurry>false</EnableMonkDoNotRequireAttackActionForFlurry>
   <EnableMonkFightingStyle>false</EnableMonkFightingStyle>
+  <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>false</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
   <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
   <EnableRogueCunningStrike>false</EnableRogueCunningStrike>
   <EnableRogueFightingStyle>false</EnableRogueFightingStyle>

@@ -824,7 +824,7 @@ internal static partial class SpellBuilders
             ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (caster == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }

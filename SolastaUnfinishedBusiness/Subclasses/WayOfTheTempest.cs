@@ -24,6 +24,11 @@ public sealed class WayOfTheTempest : AbstractSubclass
 {
     private const string Name = "WayOfTheTempest";
 
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetTempestFury = FeatureDefinitionFeatureSetBuilder
+        .Create($"FeatureSet{Name}TempestFury")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+
     public WayOfTheTempest()
     {
         // LEVEL 03
@@ -102,22 +107,20 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .OverrideClassName("UsePower")
             .AddToDB();
 
-        var actionAffinityTempestFury = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{Name}TempestFury")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(
-                    ValidatorsCharacter.HasAttacked,
-                    ValidatorsCharacter.HasAvailableBonusAction,
-                    ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)))
-            .AddToDB();
+        var actionAffinityTempestFury =
+            FeatureDefinitionActionAffinityBuilder
+                .Create($"ActionAffinity{Name}TempestFury")
+                .SetGuiPresentationNoContent(true)
+                .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
+                .AddCustomSubFeatures(
+                    new ValidateDefinitionApplication(
+                        character => Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry ||
+                                     character.ExecutedAttacks > 0,
+                        ValidatorsCharacter.HasAvailableBonusAction,
+                        ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)))
+                .AddToDB();
 
-        var featureSetTempestFury = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}TempestFury")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(actionAffinityTempestFury, powerTempestFury)
-            .AddToDB();
+        FeatureSetTempestFury.FeatureSet.AddRange(actionAffinityTempestFury, powerTempestFury);
 
         // LEVEL 17
 
@@ -242,7 +245,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheTempest, 256))
             .AddFeaturesAtLevel(3, movementAffinityTempestSwiftness)
             .AddFeaturesAtLevel(6, featureSetGatheringStorm)
-            .AddFeaturesAtLevel(11, featureSetTempestFury)
+            .AddFeaturesAtLevel(11, FeatureSetTempestFury)
             .AddFeaturesAtLevel(17, featureSetEyeOfTheStorm)
             .AddToDB();
     }

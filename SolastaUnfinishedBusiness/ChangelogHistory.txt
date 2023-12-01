@@ -1,4 +1,23 @@
-﻿1.5.94.34:
+﻿1.5.94.35:
+
+- SPECIAL THANKS to SpaceHamster, ImpPhil, ChrisJohnDigital, TPABOBAP, and HiddenHax as without them UB wouldn't exist
+
+	- SpaceHamster: Blueprints dumper and original code and ideas on former SolastaModApi
+	- ChrisJohnDigital: Wrote the best mods during Solasta kickstarter beta and game first year
+	- ImpPhil: QoL features, builders improvement, code standardization, code reviews and improvement
+	- TPABOBAP: QoL and UI features, custom features patterns, tons of content, code reviews and improvement
+	- HiddenHax: Designed a good 25% of mod content, spent countless hours on QA, SFX ideas, balancing
+
+- LET'S ALL CELEBRATE ONE YEAR UB ANNIVERSARY AND 3 YEARS SOLASTA MODDING!!! @Zappastuff, developer and maintainer.
+
+- added Gameplay > General > 'Enable Monk Flurry of Blows to not require an attack action before usage'
+- added Gameplay > General > 'Enable Monk Improved Unarmored Movement to move along vertical surfaces without falling'
+- added Gameplay > General > 'Enable Monk Martial Arts to not require an attack action before usage'
+- fixed Circle of The Life verdancy feature not healing on turn start from level 14th onwards
+- fixed null exceptions on Irresistible Performance, Oath of Ancients, and Oath of Dread when dealing with gadgets
+- fixed Wyrmkin crystal defense interaction with Druid wildshape leading to a soft lock in game
+
+1.5.94.34:
 
 ATTENTION: 
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <DisplayModMessage>20</DisplayModMessage>
+  <DisplayModMessage>0</DisplayModMessage>
   <EnableDiagsDump>0</EnableDiagsDump>
   <SelectedTab>0</SelectedTab>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -216,10 +216,6 @@
     <string>MartialMartialDefender</string>
     <string>RoguishRaven</string>
     <string>WayOfTheDistantHand</string>
-    <string>CollegeOfHarlequin</string>
-    <string>MartialMartialDefender</string>
-    <string>RoguishRaven</string>
-    <string>WayOfTheDistantHand</string>
   </DeprecatedSubclasses>
   <DisableUpdateMessage>false</DisableUpdateMessage>
   <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
@@ -265,12 +261,16 @@
   <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
   <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
-  <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
+  <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
+  <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
   <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
+  <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>true</EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>
+  <EnableMonkDoNotRequireAttackActionForFlurry>true</EnableMonkDoNotRequireAttackActionForFlurry>
   <EnableMonkFightingStyle>true</EnableMonkFightingStyle>
+  <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
   <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
   <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
   <EnableRogueFightingStyle>true</EnableRogueFightingStyle>

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -20,12 +19,16 @@ using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
@@ -195,7 +198,7 @@ internal static class CharacterContext
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionInvisible))
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDruidCircleBalanceBalanceOfPower)
+                .SetParticleEffectParameters(PowerDruidCircleBalanceBalanceOfPower)
                 .Build())
         .AddToDB();
 
@@ -379,7 +382,7 @@ internal static class CharacterContext
             }
 
             // ensure we get dice upgrade on these
-            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage.AddCustomSubFeatures(
+            AttackModifierMonkMartialArtsImprovedDamage.AddCustomSubFeatures(
                 new MonkWeaponSpecializationDiceUpgrade(weaponTypeDefinition));
 
             _ = CustomInvocationDefinitionBuilder
@@ -844,6 +847,77 @@ internal static class CharacterContext
         }
     }
 
+    internal static void SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack()
+    {
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
+        {
+            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.description =
+                "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
+            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.title =
+                "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle";
+            Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(AttackModifierMonkMartialArtsUnarmedStrikeBonus, 1));
+            Monk.FeatureUnlocks
+                .RemoveAll(x => x.level == 1 && x.FeatureDefinition == PowerMonkMartialArts);
+        }
+        else
+        {
+            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.description = string.Empty;
+            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.title = string.Empty;
+            Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerMonkMartialArts, 1));
+            Monk.FeatureUnlocks
+                .RemoveAll(x => x.level == 1 && x.FeatureDefinition == AttackModifierMonkMartialArtsUnarmedStrikeBonus);
+        }
+
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
+        {
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchMonkDoNotRequireAttackActionForFlurry()
+    {
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
+        {
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.description =
+                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsDescription";
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.title =
+                "Feature/&FeatureSetAlternateMonkFlurryOfBlowsTitle";
+            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.description =
+                "Feature/&FeatureSetWayOfTheTempestAlternateTempestFuryDescription";
+            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.title =
+                "Feature/&FeatureSetWayOfTheTempestAlternateTempestFuryTitle";
+        }
+        else
+        {
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.description = "Feature/&FeatureSetMonkFlurryOfBlowsDescription";
+            FeatureSetMonkFlurryOfBlows.GuiPresentation.title = "Feature/&FeatureSetMonkFlurryOfBlowsTitle";
+            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.description =
+                "Feature/&FeatureSetWayOfTheTempestTempestFuryDescription";
+            WayOfTheTempest.FeatureSetTempestFury.GuiPresentation.title =
+                "Feature/&FeatureSetWayOfTheTempestTempestFuryTitle";
+        }
+    }
+
+    internal static void SwitchMonkMonkImprovedUnarmoredMovementToMoveOnTheWall()
+    {
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
+        {
+            MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.description =
+                "Feature/&MonkAlternateUnarmoredMovementImprovedDescription";
+            MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.title =
+                "Feature/&MonkAlternateUnarmoredMovementImprovedTitle";
+            MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = true;
+        }
+        else
+        {
+            MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.description =
+                "Feature/&MonkUnarmoredMovementImprovedDescription";
+            MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.title =
+                "Feature/&MonkUnarmoredMovementImprovedTitle";
+            MovementAffinityMonkUnarmoredMovementImproved.canMoveOnWalls = true;
+        }
+    }
+
     internal static void SwitchMonkWeaponSpecialization()
     {
         var levels = new[] { 2, 11 };
@@ -878,9 +952,9 @@ internal static class CharacterContext
 
         var elementalFuriesSprites = new Dictionary<string, BaseDefinition>
         {
-            { "Storm", FeatureDefinitionPowers.PowerDomainElementalLightningBlade },
-            { "Blizzard", FeatureDefinitionPowers.PowerDomainElementalIceLance },
-            { "Wildfire", FeatureDefinitionPowers.PowerDomainElementalFireBurst }
+            { "Storm", PowerDomainElementalLightningBlade },
+            { "Blizzard", PowerDomainElementalIceLance },
+            { "Wildfire", PowerDomainElementalFireBurst }
         };
 
         foreach (var featureDefinitionAncestry in elementalFuries.OfType<FeatureDefinitionAncestry>())
@@ -1480,7 +1554,7 @@ internal static class CharacterContext
         // Withdraw
 
         _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.StepBack, "Withdraw")
+            .Create(StepBack, "Withdraw")
             .SetOrUpdateGuiPresentation(Category.Action)
             .SetActionId(ExtraActionId.Withdraw)
             .SetActionType(ActionDefinitions.ActionType.NoCost)
@@ -1869,7 +1943,7 @@ internal static class CharacterContext
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
+            actionParams.ActionDefinition = SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
