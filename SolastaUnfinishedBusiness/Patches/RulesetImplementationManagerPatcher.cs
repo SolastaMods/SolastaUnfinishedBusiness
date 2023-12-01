@@ -758,7 +758,7 @@ public static class RulesetImplementationManagerPatcher
                 return;
             }
 
-            if (!caster.HasAnyConditionOfType(selfConditionName) || caster.Side == target.Side)
+            if (caster == null || !caster.HasAnyConditionOfType(selfConditionName) || caster.Side == target.Side)
             {
                 return;
             }
