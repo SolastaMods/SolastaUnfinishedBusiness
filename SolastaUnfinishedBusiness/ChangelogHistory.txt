@@ -1,4 +1,8 @@
-﻿1.5.94.35:
+﻿1.5.94.36:
+
+- fixed a null exception on gadgets saving throws
+
+1.5.94.35:
 
 - SPECIAL THANKS to SpaceHamster, ImpPhil, ChrisJohnDigital, TPABOBAP, and HiddenHax as without them UB wouldn't exist
 

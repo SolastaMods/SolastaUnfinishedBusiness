@@ -751,14 +751,14 @@ public static class RulesetImplementationManagerPatcher
             string selfConditionName,
             ConditionDefinition conditionDefinitionEnemy)
         {
-            if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
-                sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity } &&
-                !caster.AllConditions.Any(x => x.Name.Contains("Smite")))
+            if (caster == null || !caster.HasAnyConditionOfType(selfConditionName) || caster.Side == target.Side)
             {
                 return;
             }
 
-            if (caster == null || !caster.HasAnyConditionOfType(selfConditionName) || caster.Side == target.Side)
+            if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+                sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity } &&
+                !caster.AllConditions.Any(x => x.Name.Contains("Smite")))
             {
                 return;
             }
