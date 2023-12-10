@@ -97,9 +97,6 @@ public class PatronMountain : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerBarrierOfStone.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone, conditionBarrierOfStone));
-
         // Knowledge of Aeons
 
         var proficiencyNatureSurvival = FeatureDefinitionProficiencyBuilder
@@ -150,8 +147,8 @@ public class PatronMountain : AbstractSubclass
             .SetOverriddenPower(powerBarrierOfStone)
             .AddToDB();
 
-        powerEternalGuardian.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerEternalGuardian, conditionBarrierOfStone));
+        powerBarrierOfStone.AddCustomSubFeatures(new AttackBeforeHitConfirmedOnMeBarrierOfStone(
+                powerBarrierOfStone, powerEternalGuardian, conditionBarrierOfStone));
 
         // LEVEL 10
 
@@ -230,13 +227,16 @@ public class PatronMountain : AbstractSubclass
         IAttackBeforeHitConfirmedOnMeOrAlly, IMagicalAttackBeforeHitConfirmedOnMeOrAlly
     {
         private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly FeatureDefinitionPower _powerBarrierOfStone;
+        private readonly FeatureDefinitionPower _powerEternalGuardian;
 
         public AttackBeforeHitConfirmedOnMeBarrierOfStone(
-            FeatureDefinitionPower featureDefinitionPower,
+            FeatureDefinitionPower powerBarrierOfStone,
+            FeatureDefinitionPower powerEternalGuardian,
             ConditionDefinition conditionDefinition)
         {
-            _featureDefinitionPower = featureDefinitionPower;
+            _powerBarrierOfStone = powerBarrierOfStone;
+            _powerEternalGuardian = powerEternalGuardian;
             _conditionDefinition = conditionDefinition;
         }
 
@@ -309,13 +309,15 @@ public class PatronMountain : AbstractSubclass
             }
 
             var rulesetMe = me.RulesetCharacter;
+            var levels = rulesetMe.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var power = levels < 6 ? _powerBarrierOfStone : _powerEternalGuardian;
 
-            if (rulesetMe.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
+            if (rulesetMe.GetRemainingPowerCharges(power) <= 0)
             {
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
+            var usablePower = UsablePowersProvider.Get(power, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
@@ -335,7 +337,7 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+            rulesetMe.UpdateUsageForPower(power, power.CostPerUse);
             rulesetDefender.InflictCondition(
                 _conditionDefinition.Name,
                 _conditionDefinition.DurationType,

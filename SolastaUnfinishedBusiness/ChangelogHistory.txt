@@ -1,7 +1,8 @@
 ﻿1.5.94.37:
 
 - fixed Path of The Reaver eviscerate power updating usage before reaction was confirmed
-
+- fixed Patron Mountain still offering Barrier of Stone reaction from level 6 instead of Eternal Guardian one
+ 
 1.5.94.36:
 
 - fixed a null exception on gadgets saving throws
