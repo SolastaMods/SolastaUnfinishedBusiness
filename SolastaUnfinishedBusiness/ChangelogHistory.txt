@@ -1,4 +1,8 @@
-﻿1.5.94.36:
+﻿1.5.94.37:
+
+- fixed Path of The Reaver eviscerate power updating usage before reaction was confirmed
+
+1.5.94.36:
 
 - fixed a null exception on gadgets saving throws
 

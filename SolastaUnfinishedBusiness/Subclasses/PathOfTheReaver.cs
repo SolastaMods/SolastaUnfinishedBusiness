@@ -164,8 +164,6 @@ public sealed class PathOfTheReaver : AbstractSubclass
             yield break;
         }
 
-        rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
-
         var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
         var totalHealing = 2 * classLevel;
         var reactionParams =
@@ -187,6 +185,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             yield break;
         }
 
+        rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
         rulesetAttacker.LogCharacterUsedPower(featureDefinitionPower);
         ReceiveHealing(attacker, totalHealing);
     }
