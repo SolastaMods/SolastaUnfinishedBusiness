@@ -280,4 +280,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Instead of advantage grant +1 to attack roll</i>
 ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use official <color=#D89555>small races rules</color> when wielding heavy weapons <i><color=#F0DAA0>[your attacks have disadvantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

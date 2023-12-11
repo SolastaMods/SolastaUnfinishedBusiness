@@ -113,6 +113,7 @@ Feedback/&FlankingAttack=側面攻撃
 Feedback/&HigherGroundAttack=高いところ
 Feedback/&NarrativeChoiceRoll={0} は、{1} の物語の選択肢をロールして、{2} の結果をもたらします。
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
+Feedback/&SmallRace=スモールレース
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします
 Feedback/&TriggerRerollLine={0} は、{2} = {3} を再ロールするための {1} パワーを有効にします
 Format/&LevelAndExperienceFormat=レベル: {0}\n経験値: {1}\n{2} ポイントがレベル {3} に到達するために必要です

@@ -280,4 +280,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les at
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également pour les attaques par armes avec Allonge</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilisez les <color=#D89555>règles officielles des petites races</color> lorsque vous maniez des armes lourdes <i><color=#F0DAA0>[vos attaques ont un désavantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

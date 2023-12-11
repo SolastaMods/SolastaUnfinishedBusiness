@@ -280,4 +280,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também para ataques à
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também para ataques de alcance</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Em vez de conceder vantagem +1 para jogada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial de 2 libras
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use as <color=#D89555>regras oficiais de pequenas raças</color> ao empunhar armas pesadas <i><color=#F0DAA0>[seus ataques têm desvantagem]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

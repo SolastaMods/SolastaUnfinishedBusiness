@@ -113,6 +113,7 @@ Feedback/&FlankingAttack=측면 공격
 Feedback/&HigherGroundAttack=고지대
 Feedback/&NarrativeChoiceRoll={0}는 {2} 결과와 함께 {1} 설명 선택을 굴립니다.
 Feedback/&ReturningWeaponActivates={1}이 {0}으로 돌아감!
+Feedback/&SmallRace=소규모 경주
 Feedback/&TriggerFeatureLine={0}이 {1}을 촉발
 Feedback/&TriggerRerollLine={0} 이 {1} 을 활성화, {2} = {3} 다시 굴림
 Format/&LevelAndExperienceFormat=레벨: {0}\n경험치: 레벨 {3}에 도달하는 데 필요한 포인트: {1}\n{2} 포인트

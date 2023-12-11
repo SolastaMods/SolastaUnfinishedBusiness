@@ -280,4 +280,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernkampfangriffe ak
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Benutze die offiziellen <color=#D89555>Regeln für kleine Rassen</color>, wenn du schwere Waffen führst <i><color=#F0DAA0>[deine Angriffe haben Nachteile]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

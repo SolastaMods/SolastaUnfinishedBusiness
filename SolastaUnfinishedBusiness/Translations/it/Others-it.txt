@@ -114,6 +114,7 @@ Feedback/&FlankingAttack=Fiancheggiamento
 Feedback/&HigherGroundAttack=Terreno più elevato
 Feedback/&NarrativeChoiceRoll={0} lancia una scelta narrativa {1} con un risultato {2}.
 Feedback/&ReturningWeaponActivates={1} torna a {0}!
+Feedback/&SmallRace=Piccola Razza
 Feedback/&TriggerFeatureLine={0} trigger {1}
 Feedback/&TriggerRerollLine={0} attiva il potere {1} per ripetere il tiro {2} = {3}
 Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti richiesti per raggiungere il livello {3}

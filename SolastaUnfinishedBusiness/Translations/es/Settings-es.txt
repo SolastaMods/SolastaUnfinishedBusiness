@@ -280,4 +280,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Habilitar también para ataque
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Habilitar también para ataques de alcance</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ En lugar de ventaja otorga +1 a la tirada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilice <color=#D89555>ración de alimentos</color> con un peso oficial de 2 libras
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Usa las <color=#D89555>reglas oficiales de razas pequeñas</color> cuando empuñas armas pesadas <i><color=#F0DAA0>[tus ataques tienen desventaja]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>

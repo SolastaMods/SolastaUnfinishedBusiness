@@ -53,6 +53,9 @@ public static class AttackEvaluationParamsPatcher
             //PATCH: apply higher ground rules
             FlankingAndHigherGroundRules.HandleHigherGround(__instance);
 
+            //PATCH: apply small races rules
+            SrdAndHouseRulesContext.HandleSmallRaces(__instance);
+
             //PATCH: allow for `MeleeHit` effects to have reach changed, unless `Distant Spell` metamagic is used
             if (metamagicOption is { Type: MetamagicType.DistantSpell })
             {
@@ -79,6 +82,9 @@ public static class AttackEvaluationParamsPatcher
 
             //PATCH: apply higher ground rules
             FlankingAndHigherGroundRules.HandleHigherGround(__instance);
+
+            //PATCH: apply small races rules
+            SrdAndHouseRulesContext.HandleSmallRaces(__instance);
         }
     }
 
@@ -98,6 +104,9 @@ public static class AttackEvaluationParamsPatcher
 
             //PATCH: apply higher ground rules
             FlankingAndHigherGroundRules.HandleHigherGround(__instance);
+
+            //PATCH: apply small races rules
+            SrdAndHouseRulesContext.HandleSmallRaces(__instance);
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿1.5.94.37:
 
+- added Gameplay > Rules > 'Use official small races rules when wielding heavy weapons'
 - fixed Path of The Reaver eviscerate power updating usage before reaction was confirmed
 - fixed Patron Mountain still offering Barrier of Stone reaction from level 6 instead of Eternal Guardian one
 - fixed vanilla Insect Plague spell not rolling a constitution saving throw

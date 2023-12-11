@@ -716,6 +716,24 @@ internal static class SrdAndHouseRulesContext
                && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name;
     }
 
+    internal static void HandleSmallRaces(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    {
+        if (!Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons)
+        {
+            return;
+        }
+
+        var hero = evaluationParams.attacker.RulesetCharacter.GetOriginalHero();
+
+        if (hero?.RaceDefinition.SizeDefinition == CharacterSizeDefinitions.Small &&
+            evaluationParams.attackMode != null &&
+            evaluationParams.attackMode.AttackTags.Contains(TagsDefinitions.WeaponTagHeavy))
+        {
+            evaluationParams.attackModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(-1, FeatureSourceType.Unknown, "Feedback/&SmallRace", null));
+        }
+    }
+
     private sealed class CanIdentifyOnRest : IValidatePowerUse
     {
         private CanIdentifyOnRest()
@@ -1135,6 +1153,7 @@ internal static class FlankingAndHigherGroundRules
             }
 
             var allyCenter = new FlankingMathExtensions.Point3D(ally.LocationBattleBoundingBox.Center);
+
             result = FlankingMathExtensions.LineIntersectsCubeOppositeSides(attackerCenter, allyCenter, defenderCube);
 
             if (result)

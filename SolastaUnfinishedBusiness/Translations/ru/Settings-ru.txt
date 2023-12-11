@@ -280,4 +280,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Включить эти пра
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Также включить для атак досягаемости</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Вместо преимущества давать +1 к броскам атаки</i>
 ModUi/&UseOfficialFoodRationsWeight=Использовать официальный вес <color=#D89555>Рационов</color> (2 фунта)
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Используйте официальные <color=#D89555>правила малых гонок</color> при использовании тяжелого оружия <i><color=#F0DAA0>[ваши атаки имеют недостаток]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Визуальные настройки:</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>

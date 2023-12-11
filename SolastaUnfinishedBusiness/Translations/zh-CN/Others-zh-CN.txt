@@ -113,6 +113,7 @@ Feedback/&FlankingAttack=背后夹击
 Feedback/&HigherGroundAttack=高处攻击
 Feedback/&NarrativeChoiceRoll={0} 滚动 {1} 个叙述选项，结果为 {2}。
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！
+Feedback/&SmallRace=小赛
 Feedback/&TriggerFeatureLine={0} 触发 {1}
 Feedback/&TriggerRerollLine={0} 激活 {1} 以重投 {2} = {3}
 Format/&LevelAndExperienceFormat=等级：{0}\n经验：{1}\n升到{3}级需要 {2} 经验
