@@ -113,7 +113,7 @@ Feedback/&FlankingAttack=Угроза с фланга
 Feedback/&HigherGroundAttack=Возвышенность
 Feedback/&NarrativeChoiceRoll={0} бросает нарративный выбор {1} с результатом {2}.
 Feedback/&ReturningWeaponActivates={1} возвращается к {0}!
-Feedback/&SmallRace=Малая гонка
+Feedback/&SmallRace=Раса маленького размера
 Feedback/&TriggerFeatureLine={0} вызывает срабатывание {1}
 Feedback/&TriggerRerollLine={0} активирует силу {1}, чтобы перебросить {2} = {3}
 Format/&LevelAndExperienceFormat=Level: {0}\nОпыт: {1}\n{2} очков до уровня {3}
