@@ -61,6 +61,7 @@ public static class CharacterActionBreakFreePatcher
                     __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
                     yield break;
                 case "ConditionGrappledRestrainedSpellWeb":
+                case "ConditionRestrainedByEntangle":
                 {
                     if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
                     {

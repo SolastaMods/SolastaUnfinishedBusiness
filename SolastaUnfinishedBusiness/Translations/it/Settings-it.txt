@@ -214,7 +214,7 @@ ModUi/&RelicForgeries=Falsi di reliquie
 ModUi/&RemoveAttunementRequirements=Rimuovi i requisiti di attivazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveBugVisualModels=Sostituisci i modelli simili a ragni con effetti visivi alternativi nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Rimuovi il filtro umanoide su <color=#D89555>Risate orribili</color>
-ModUi/&RemoveRecurringEffectOnEntangle=Applica solo l'effetto <color=#D89555>Intralcio</color> al momento del lancio <i><color=#F0DAA0>[es.: nessun effetto ricorrente]</color></i>
+ModUi/&RemoveRecurringEffectOnEntangle=Applica l'effetto <color=#D89555>Intralcia</color> solo al momento del lancio e forza anche un controllo di forza per liberarsi dai rampicanti
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Rimuovi le restrizioni scolastiche da <color=#D89555>Incantatrice</color>
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Rimuovi le restrizioni scolastiche da <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Rifornisci Antiquari <i><color=#F0DAA0>[Halman Summer]</color></i>

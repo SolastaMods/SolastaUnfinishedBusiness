@@ -25,6 +25,7 @@ internal static class AiContext
         BuildDecisionBreakFreeFromCondition("ConditionFlashFreeze", DoStrengthCheckCasterDC);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", DoStrengthCheckCasterDC);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", DoStrengthCheckCasterDC);
+        BuildDecisionBreakFreeFromCondition("ConditionRestrainedByEntangle", DoStrengthCheckCasterDC); // vanilla
     }
 
     // boolParameter false won't do any ability check
