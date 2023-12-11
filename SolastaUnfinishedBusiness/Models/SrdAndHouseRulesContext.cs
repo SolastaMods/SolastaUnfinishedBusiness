@@ -365,12 +365,14 @@ internal static class SrdAndHouseRulesContext
         {
             // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
             Entangle.effectDescription.recurrentEffect = RecurrentEffect.OnActivation;
+            Entangle.effectDescription.EffectForms[2].canSaveToCancel = false;
             ConditionRestrainedByEntangle.Features.Add(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
         }
         else
         {
             Entangle.effectDescription.recurrentEffect =
                 RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd | RecurrentEffect.OnEnter;
+            Entangle.effectDescription.EffectForms[2].canSaveToCancel = true;
             ConditionRestrainedByEntangle.Features.Remove(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
         }
     }
