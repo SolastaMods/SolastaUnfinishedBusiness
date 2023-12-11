@@ -407,6 +407,33 @@ internal static class FixesContext
         ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
         RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
 
+        //BUGFIX: Wall of Fire should have a DEX saving throw
+        WallOfFire.EffectDescription.hasSavingThrow = true;
+        WallOfFire.EffectDescription.savingThrowAbility = AttributeDefinitions.Dexterity;
+        WallOfFire.EffectDescription.EffectForms[0].hasSavingThrow = true;
+        WallOfFire.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+
+        WallOfFireLine.EffectDescription.hasSavingThrow = true;
+        WallOfFireLine.EffectDescription.savingThrowAbility = AttributeDefinitions.Dexterity;
+        WallOfFireLine.EffectDescription.EffectForms[0].hasSavingThrow = true;
+        WallOfFireLine.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+
+        WallOfFireRing_Inner.EffectDescription.hasSavingThrow = true;
+        WallOfFireRing_Inner.EffectDescription.savingThrowAbility = AttributeDefinitions.Dexterity;
+        WallOfFireRing_Inner.EffectDescription.EffectForms[0].hasSavingThrow = true;
+        WallOfFireRing_Inner.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+
+        WallOfFireRing_Outer.EffectDescription.hasSavingThrow = true;
+        WallOfFireRing_Outer.EffectDescription.savingThrowAbility = AttributeDefinitions.Dexterity;
+        WallOfFireRing_Outer.EffectDescription.EffectForms[0].hasSavingThrow = true;
+        WallOfFireRing_Outer.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+
+        //BUGFIX: Insect Plague should have a CON saving throw
+        InsectPlague.EffectDescription.hasSavingThrow = true;
+        InsectPlague.EffectDescription.savingThrowAbility = AttributeDefinitions.Constitution;
+        InsectPlague.EffectDescription.EffectForms[0].hasSavingThrow = true;
+        InsectPlague.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+
         //BUGFIX: Shows Concentration tag in UI
         BladeBarrier.requiresConcentration = true;
 

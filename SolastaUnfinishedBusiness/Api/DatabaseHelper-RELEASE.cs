@@ -3562,6 +3562,14 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition VenomousSpike { get; } = GetDefinition<SpellDefinition>("VenomousSpike");
         internal static SpellDefinition ViciousMockery { get; } = GetDefinition<SpellDefinition>("ViciousMockery");
         internal static SpellDefinition WallOfFire { get; } = GetDefinition<SpellDefinition>("WallOfFire");
+        internal static SpellDefinition WallOfFireLine { get; } = GetDefinition<SpellDefinition>("WallOfFireLine");
+
+        internal static SpellDefinition WallOfFireRing_Inner { get; } =
+            GetDefinition<SpellDefinition>("WallOfFireRing_Inner");
+
+        internal static SpellDefinition WallOfFireRing_Outer { get; } =
+            GetDefinition<SpellDefinition>("WallOfFireRing_Outer");
+
         internal static SpellDefinition WallOfForce { get; } = GetDefinition<SpellDefinition>("WallOfForce");
 
         internal static SpellDefinition WallOfThornsWallLine { get; } =

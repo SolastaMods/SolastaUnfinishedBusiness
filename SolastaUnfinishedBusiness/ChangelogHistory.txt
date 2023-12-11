@@ -2,7 +2,9 @@
 
 - fixed Path of The Reaver eviscerate power updating usage before reaction was confirmed
 - fixed Patron Mountain still offering Barrier of Stone reaction from level 6 instead of Eternal Guardian one
- 
+- fixed vanilla Insect Plague spell not rolling a constitution saving throw
+- fixed vanilla Wall of Fire spell not rolling a dexterity saving throw
+
 1.5.94.36:
 
 - fixed a null exception on gadgets saving throws
