@@ -728,8 +728,9 @@ internal static class SrdAndHouseRulesContext
         var hero = evaluationParams.attacker.RulesetCharacter.GetOriginalHero();
 
         if (hero?.RaceDefinition.SizeDefinition == CharacterSizeDefinitions.Small &&
-            evaluationParams.attackMode != null &&
-            evaluationParams.attackMode.AttackTags.Contains(TagsDefinitions.WeaponTagHeavy))
+            ((evaluationParams.attackMode is { SourceDefinition: ItemDefinition { IsWeapon: true } itemDefinition } &&
+              itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagHeavy)) ||
+             evaluationParams.attackMode is { SourceDefinition: ItemDefinition { IsArmor: true } }))
         {
             evaluationParams.attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(-1, FeatureSourceType.Unknown, "Feedback/&SmallRace", null));
