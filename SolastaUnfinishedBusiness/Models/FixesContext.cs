@@ -18,6 +18,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
@@ -433,6 +434,9 @@ internal static class FixesContext
         InsectPlague.EffectDescription.savingThrowAbility = AttributeDefinitions.Constitution;
         InsectPlague.EffectDescription.EffectForms[0].hasSavingThrow = true;
         InsectPlague.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+
+        //BUGFIX: Sorcerers should have Insect Plague at level 5
+        SpellListSorcerer.SpellsByLevel.FirstOrDefault(x => x.Level == 5)!.Spells.Add(InsectPlague);
 
         //BUGFIX: Shows Concentration tag in UI
         BladeBarrier.requiresConcentration = true;

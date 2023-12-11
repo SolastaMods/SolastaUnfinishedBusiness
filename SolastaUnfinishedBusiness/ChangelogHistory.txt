@@ -5,6 +5,7 @@
 - fixed Path of The Reaver eviscerate power updating usage before reaction was confirmed
 - fixed Patron Mountain still offering Barrier of Stone reaction from level 6 instead of Eternal Guardian one
 - fixed vanilla Insect Plague spell not rolling a constitution saving throw
+- fixed vanilla Sorcerer spells list not having Insect Plague at level 5
 - fixed vanilla Wall of Fire spell not rolling a dexterity saving throw
 - improved 'Only apply Entangle effect at casting time and also force a strength check to break free from the vines'
 
