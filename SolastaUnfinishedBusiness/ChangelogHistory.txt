@@ -2,6 +2,7 @@
 
 - added Gameplay > Rules > 'Use official small races rules when wielding heavy weapons'
 - fixed `HideExitsAndTeleportersGizmosIfNotDiscovered` not displaying gizmos under certain scenarios
+- fixed action switching integration with some custom campaigns NPCs preventing locations loading
 - fixed Circle of the Eternal Grove verdancy feature healing way too much on turn start
 - fixed Path of The Reaver eviscerate power updating usage before reaction was confirmed
 - fixed Patron Mountain still offering Barrier of Stone reaction from level 6 instead of Eternal Guardian one
