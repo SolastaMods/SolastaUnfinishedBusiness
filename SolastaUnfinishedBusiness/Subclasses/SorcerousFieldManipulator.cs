@@ -59,7 +59,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 12)
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())

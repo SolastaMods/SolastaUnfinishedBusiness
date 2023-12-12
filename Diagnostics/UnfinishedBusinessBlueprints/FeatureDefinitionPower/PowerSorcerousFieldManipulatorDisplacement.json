@@ -79,7 +79,7 @@
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
           "type": "TeleportToDestination",
-          "distance": 12,
+          "distance": 0,
           "forceTurnTowardsSourceCharacterAfterPush": false,
           "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
