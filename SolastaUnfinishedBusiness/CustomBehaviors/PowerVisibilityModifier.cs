@@ -30,6 +30,7 @@ internal class PowerVisibilityModifier
 
     internal static readonly PowerVisibilityModifier Hidden = new((_, _, _) => false);
     internal static readonly PowerVisibilityModifier Visible = new((_, _, _) => true);
+    internal static readonly PowerVisibilityModifier NotInCombat = new((_, _, _) => Gui.Battle == null);
 
     private readonly IsPowerVisibleHandler _handler;
 

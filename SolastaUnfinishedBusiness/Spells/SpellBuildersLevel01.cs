@@ -1463,7 +1463,10 @@ internal static partial class SpellBuilders
                 FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
                 MovementAffinityNoClimb,
                 MovementAffinityNoSpecialMoves,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
+                CharacterContext.FeatureDefinitionPowerHelpAction,
+                CharacterContext.PowerTeleportSummon,
+                CharacterContext.PowerVanishSummon)
             .SetMonsterPresentation(
                 MonsterPresentationBuilder
                     .Create()
@@ -1488,7 +1491,6 @@ internal static partial class SpellBuilders
             .SetFullyControlledWhenAllied(true)
             .SetDefaultFaction(FactionDefinitions.Party)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
