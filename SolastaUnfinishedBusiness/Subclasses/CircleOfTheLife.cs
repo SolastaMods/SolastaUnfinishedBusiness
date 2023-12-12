@@ -211,6 +211,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
     private sealed class CharacterTurnStartListenerVerdancy : ICharacterTurnStartListener
     {
+        private const string VerdancyHealedTag = "VerdancyHealed";
+
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
@@ -219,6 +221,13 @@ public sealed class CircleOfTheLife : AbstractSubclass
             {
                 return;
             }
+
+            if (locationCharacter.UsedSpecialFeatures.ContainsKey(VerdancyHealedTag))
+            {
+                return;
+            }
+
+            locationCharacter.UsedSpecialFeatures.Add(VerdancyHealedTag, 1);
 
             foreach (var rulesetCondition in rulesetCharacter.AllConditions
                          .Where(x => x.ConditionDefinition.Name is ConditionVerdancy or ConditionVerdancy14)
@@ -231,10 +240,9 @@ public sealed class CircleOfTheLife : AbstractSubclass
                     continue;
                 }
 
-                var levels = caster.GetClassLevel(Druid);
                 var bonus = rulesetCondition.EffectLevel;
 
-                rulesetCharacter.ReceiveHealing(levels + bonus, true, caster.Guid);
+                rulesetCharacter.ReceiveHealing(bonus, true, caster.Guid);
             }
         }
     }
