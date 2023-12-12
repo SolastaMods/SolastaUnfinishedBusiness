@@ -1,15 +1,17 @@
 ﻿1.5.94.37:
 
+- added additional sample portraits [by Artyoan]
 - added Gameplay > Rules > 'Use official small races rules when wielding heavy weapons'
-- fixed `HideExitsAndTeleportersGizmosIfNotDiscovered` not displaying gizmos under certain scenarios
-- fixed action switching integration with some custom campaigns NPCs preventing locations loading
+- added Gameplay > Rules > 'Only apply Entangle effect at casting time and also force a strength check to break free from the vines'
+- fixed Interface > Game UI > 'Hide exits and teleporters visual effects if not discovered yet' not displaying gizmos under certain scenarios
+- fixed action switching integration with some custom campaigns NPCs preventing loading locations
 - fixed Circle of the Eternal Grove verdancy feature healing way too much on turn start
 - fixed Path of The Reaver eviscerate power updating usage before reaction was confirmed
 - fixed Patron Mountain still offering Barrier of Stone reaction from level 6 instead of Eternal Guardian one
 - fixed vanilla Insect Plague spell not rolling a constitution saving throw
 - fixed vanilla Sorcerer spells list not having Insect Plague at level 5
 - fixed vanilla Wall of Fire spell not rolling a dexterity saving throw
-- improved 'Only apply Entangle effect at casting time and also force a strength check to break free from the vines'
+- removed Gameplay > Rules > 'Only apply Entangle effect at casting time'
 
 1.5.94.36:
 
