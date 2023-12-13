@@ -214,7 +214,7 @@ ModUi/&RelicForgeries=위조 유물
 ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&RemoveBugVisualModels=거미 등의 벌레 모델링을 다른 모습으로 대체 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>소름끼치는 웃음 주문</color>에서 인간형 제약 제거
-ModUi/&RemoveRecurringEffectOnEntangle=시전한 턴에만<color=#D89555>얽힘 주문</color> 효과 적용 <i><color=#F0DAA0>[반복 효과 없어짐]</color></i>
+ModUi/&RemoveRecurringEffectOnEntangle=시전 시에만 <color=#D89555>얽힘</color> 효과를 적용하고 덩굴에서 벗어나기 위해 강도 검사를 강제 적용합니다
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=<color=#D89555>Shadowcaster</color>에서 학교 제한을 제거하세요.
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=<color=#D89555>Spellblade</color>에서 학교 제한을 제거하세요.
 ModUi/&RestockAntiquarians=고고학 길드 <i><color=#F0DAA0>[할만 서머]</color></i> 재입고
@@ -280,4 +280,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격에도 적용<
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 장병기 공격에도 적용</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족 규칙</color>을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>비주얼:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>

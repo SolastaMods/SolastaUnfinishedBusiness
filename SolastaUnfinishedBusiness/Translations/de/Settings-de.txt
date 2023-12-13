@@ -214,7 +214,7 @@ ModUi/&RelicForgeries=Reliktfälschungen
 ModUi/&RemoveAttunementRequirements=Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBugVisualModels=Ersetzen Sie spinnenartige Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Entferne den Humanoidenfilter für <color=#D89555>Abscheuliches Lachen</color>
-ModUi/&RemoveRecurringEffectOnEntangle=Wende den <color=#D89555>Entangle</color>-Effekt nur zum Zeitpunkt des Wirkens an <i><color=#F0DAA0>[d. h.: kein wiederkehrender Effekt]</color></i>
+ModUi/&RemoveRecurringEffectOnEntangle=Wenden Sie beim Wirken nur den Effekt <color=#D89555>Verwickeln</color> an und erzwingen Sie außerdem eine Stärkeprüfung, um sich von den Ranken zu befreien
 ModUi/&RemoveSchoolRestrictionsFromShadowCaster=Schulbeschränkungen aus <color=#D89555>Shadowcaster</color> entfernen
 ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Entferne die Schulbeschränkungen von <color=#D89555>Spellblade</color>
 ModUi/&RestockAntiquarians=Antiquare <i><color=#F0DAA0>[Halman Summer]</color></i> auffüllen
@@ -280,4 +280,5 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernkampfangriffe ak
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren</i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Benutze die offiziellen <color=#D89555>Regeln für kleine Rassen</color>, wenn du schwere Waffen führst <i><color=#F0DAA0>[deine Angriffe haben Nachteile]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

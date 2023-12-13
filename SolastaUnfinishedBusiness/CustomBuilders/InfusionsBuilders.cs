@@ -439,7 +439,7 @@ internal static class InventorInfusions
     {
         power.AddCustomSubFeatures(
             new ModifyEffectDescriptionOnLevels(
-                InventorClass.ClassName,
+                InventorClass.Class,
                 power,
                 (level, BuildInfuseItemWithFeaturesEffect(features))));
     }

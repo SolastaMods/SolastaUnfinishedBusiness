@@ -16,6 +16,7 @@ using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
+using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -32,6 +33,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -188,9 +190,44 @@ internal static class CharacterContext
         .SetUniqueInstance()
         .AddToDB();
 
+    internal static readonly FeatureDefinitionPower PowerTeleportSummon = FeatureDefinitionPowerBuilder
+        .Create("PowerTeleportSummon")
+        .SetGuiPresentation(Category.Feature, DimensionDoor)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                        .Build())
+                .UseQuickAnimations()
+                .Build())
+        .AddCustomSubFeatures(PowerVisibilityModifier.NotInCombat, new FilterTargetingPositionPowerTeleportSummon())
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerVanishSummon = FeatureDefinitionPowerBuilder
+        .Create("PowerVanishSummon")
+        .SetGuiPresentation(Category.Feature, PowerSorcererCreateSpellSlot)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetKillForm(KillCondition.Always)
+                        .Build())
+                .UseQuickAnimations()
+                .Build())
+        .AddToDB();
+
     private static readonly FeatureDefinitionPower FeatureDefinitionPowerNatureShroud = FeatureDefinitionPowerBuilder
         .Create("PowerRangerNatureShroud")
-        .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
+        .SetGuiPresentation(Category.Feature, Invisibility)
         .SetUsesProficiencyBonus(ActivationTime.BonusAction)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -1383,6 +1420,30 @@ internal static class CharacterContext
     {
         return DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
+    }
+
+    private sealed class FilterTargetingPositionPowerTeleportSummon : IFilterTargetingPosition
+    {
+        public void EnumerateValidPositions(
+            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
+        {
+            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var summoner = source.RulesetCharacter.GetMySummoner();
+            var boxInt = new BoxInt(
+                summoner.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1));
+
+            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (gameLocationPositioningService.CanPlaceCharacter(
+                        source, position, CellHelpers.PlacementMode.Station) &&
+                    gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                        source, position, onlyCheckCellsWithRealGround: true))
+                {
+                    validPositions.Add(position);
+                }
+            }
+        }
     }
 
     private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated

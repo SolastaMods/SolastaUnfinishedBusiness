@@ -55,8 +55,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
         var conditionVerdancy = ConditionDefinitionBuilder
             .Create(ConditionVerdancy)
             .SetGuiPresentation(Category.Condition, ConditionChildOfDarkness_DimLight)
-            // uses 2 but it will trigger 3 times as required because of the time we add it
-            .SetSpecialDuration(DurationType.Round, 2, TurnOccurenceType.EndOfSourceTurn)
+            // used End of Source Turn but in reality we manage this on TurnStartEvent
+            .SetSpecialDuration(DurationType.Round, 3, TurnOccurenceType.EndOfSourceTurn)
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
@@ -68,8 +68,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
         var conditionVerdancy14 = ConditionDefinitionBuilder
             .Create(ConditionVerdancy14)
             .SetGuiPresentation(ConditionVerdancy, Category.Condition, ConditionChildOfDarkness_DimLight)
-            // uses 4 but it will trigger 5 times as required because of the time we add it
-            .SetSpecialDuration(DurationType.Round, 4, TurnOccurenceType.EndOfSourceTurn)
+            // used End of Source Turn but in reality we manage this on TurnStartEvent
+            .SetSpecialDuration(DurationType.Round, 5, TurnOccurenceType.EndOfSourceTurn)
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
@@ -181,7 +181,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
     {
         var caster = EffectHelpers.GetCharacterByGuid(guid);
 
-        return caster?.GetClassLevel(DruidClass) ?? 0;
+        return caster?.GetClassLevel(Druid) ?? 0;
     }
 
     private static bool IsAuthorizedSpell(EffectDescription effectDescription, BaseDefinition baseDefinition)
@@ -211,6 +211,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
     private sealed class CharacterTurnStartListenerVerdancy : ICharacterTurnStartListener
     {
+        private const string VerdancyHealedTag = "VerdancyHealed";
+
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
@@ -219,6 +221,13 @@ public sealed class CircleOfTheLife : AbstractSubclass
             {
                 return;
             }
+
+            if (locationCharacter.UsedSpecialFeatures.ContainsKey(VerdancyHealedTag))
+            {
+                return;
+            }
+
+            locationCharacter.UsedSpecialFeatures.Add(VerdancyHealedTag, 1);
 
             foreach (var rulesetCondition in rulesetCharacter.AllConditions
                          .Where(x => x.ConditionDefinition.Name is ConditionVerdancy or ConditionVerdancy14)
@@ -231,10 +240,17 @@ public sealed class CircleOfTheLife : AbstractSubclass
                     continue;
                 }
 
+                var effectLevel = rulesetCondition.EffectLevel;
                 var levels = caster.GetClassLevel(Druid);
-                var bonus = rulesetCondition.EffectLevel;
+                var harmoniousBloomBonus = levels >= 14 ? 1 : 0;
 
-                rulesetCharacter.ReceiveHealing(levels + bonus, true, caster.Guid);
+                rulesetCharacter.ReceiveHealing(effectLevel + harmoniousBloomBonus, true, caster.Guid);
+
+                // have to manually handle condition removal as vanilla is a bit odd depending on initiative order
+                if (rulesetCondition.RemainingRounds == 0)
+                {
+                    rulesetCharacter.RemoveCondition(rulesetCondition);
+                }
             }
         }
     }
@@ -303,20 +319,29 @@ public sealed class CircleOfTheLife : AbstractSubclass
                 return;
             }
 
-            foreach (var rulesetCondition in rulesetCharacter.AllConditions
-                         .Where(x => x.ConditionDefinition.Name == ConditionSeedOfLife)
-                         .ToList())
+            var rulesetCondition = rulesetCharacter.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition.Name == ConditionSeedOfLife);
+
+            if (rulesetCondition == null)
             {
-                var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+                return;
+            }
 
-                if (caster is not { IsDeadOrDyingOrUnconscious: false })
-                {
-                    continue;
-                }
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
-                var pb = caster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            if (caster is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
 
-                rulesetCharacter.ReceiveHealing(pb, true, caster.Guid);
+            var pb = caster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            rulesetCharacter.ReceiveHealing(pb, true, caster.Guid);
+
+            // have to manually handle condition removal as vanilla is a bit odd depending on initiative order
+            if (rulesetCondition.RemainingRounds == 0)
+            {
+                rulesetCharacter.RemoveCondition(rulesetCondition);
             }
         }
     }

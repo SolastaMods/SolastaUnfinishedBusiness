@@ -365,11 +365,15 @@ internal static class SrdAndHouseRulesContext
         {
             // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
             Entangle.effectDescription.recurrentEffect = RecurrentEffect.OnActivation;
+            Entangle.effectDescription.EffectForms[2].canSaveToCancel = false;
+            ConditionRestrainedByEntangle.Features.Add(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
         }
         else
         {
             Entangle.effectDescription.recurrentEffect =
                 RecurrentEffect.OnActivation | RecurrentEffect.OnTurnEnd | RecurrentEffect.OnEnter;
+            Entangle.effectDescription.EffectForms[2].canSaveToCancel = true;
+            ConditionRestrainedByEntangle.Features.Remove(FeatureDefinitionActionAffinitys.ActionAffinityGrappled);
         }
     }
 
@@ -712,6 +716,24 @@ internal static class SrdAndHouseRulesContext
         return off == item
                && main != null
                && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name;
+    }
+
+    internal static void HandleSmallRaces(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    {
+        if (!Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons)
+        {
+            return;
+        }
+
+        var hero = evaluationParams.attacker.RulesetCharacter.GetOriginalHero();
+
+        if (hero?.RaceDefinition.SizeDefinition == CharacterSizeDefinitions.Small &&
+            evaluationParams.attackMode is { SourceDefinition: ItemDefinition { IsWeapon: true } itemDefinition } &&
+            itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagHeavy))
+        {
+            evaluationParams.attackModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(-1, FeatureSourceType.Unknown, "Feedback/&SmallRace", null));
+        }
     }
 
     private sealed class CanIdentifyOnRest : IValidatePowerUse
@@ -1133,6 +1155,7 @@ internal static class FlankingAndHigherGroundRules
             }
 
             var allyCenter = new FlankingMathExtensions.Point3D(ally.LocationBattleBoundingBox.Center);
+
             result = FlankingMathExtensions.LineIntersectsCubeOppositeSides(attackerCenter, allyCenter, defenderCube);
 
             if (result)

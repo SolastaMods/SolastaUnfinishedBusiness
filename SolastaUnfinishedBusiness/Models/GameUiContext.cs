@@ -500,13 +500,17 @@ internal static class GameUiContext
         __instance.revealed = false;
         __result = false;
 
-        var x = (int)__instance.FeedbackPosition.x;
-        var y = (int)__instance.FeedbackPosition.z;
-
-        var feedbackPosition = new int3(x, 0, y);
-        var referenceBoundingBox = new BoxInt(feedbackPosition, feedbackPosition);
-
+        var referenceBoundingBox = __instance.ReferenceBoundingBox;
         var gridAccessor = GridAccessor.Default;
+
+        // required for gadgets that are enabled from conditional states
+        if (!referenceBoundingBox.IsValid)
+        {
+            __instance.revealed = true;
+            __result = true;
+
+            return;
+        }
 
         foreach (var position in referenceBoundingBox.EnumerateAllPositionsWithin())
         {

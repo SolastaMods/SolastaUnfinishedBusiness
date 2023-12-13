@@ -285,7 +285,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
-            var level = attacker.RulesetCharacter.GetClassLevel(BardClass);
+            var level = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = level >= 14 ? _power14 : _power6;
 
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);

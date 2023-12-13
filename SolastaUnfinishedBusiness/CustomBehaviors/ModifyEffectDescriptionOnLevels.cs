@@ -6,16 +6,16 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
 {
-    private readonly string _className;
+    private readonly CharacterClassDefinition _class;
     private readonly (int level, EffectDescription description)[] _effects;
     private readonly FeatureDefinitionPower _power;
 
     public ModifyEffectDescriptionOnLevels(
-        string className,
+        CharacterClassDefinition klass,
         FeatureDefinitionPower power,
         params (int, EffectDescription)[] effects)
     {
-        _className = className;
+        _class = klass;
         _power = power;
         _effects = effects;
     }
@@ -51,8 +51,8 @@ public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
 
     private int GetLevel(RulesetCharacter character)
     {
-        return string.IsNullOrEmpty(_className)
+        return _class == null
             ? character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)
-            : character.GetClassLevel(_className);
+            : character.GetClassLevel(_class);
     }
 }

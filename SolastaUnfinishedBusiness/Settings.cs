@@ -159,6 +159,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
+    public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool DontEndTurnAfterReady { get; set; }

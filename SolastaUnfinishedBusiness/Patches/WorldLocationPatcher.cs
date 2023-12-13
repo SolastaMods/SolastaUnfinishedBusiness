@@ -36,8 +36,6 @@ public static class WorldLocationPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var roomTransformPos = Main.IsDebugBuild ? 8 : 4;
-            var userRoomPos = Main.IsDebugBuild ? 4 : 2;
             var setLocalPositionMethod = typeof(Transform).GetMethod("set_localPosition");
             var setupFlatRoomsMethod = new Action<Transform, UserRoom>(DmProRendererContext.SetupFlatRooms).Method;
             var addVegetationMaskAreaMethod =
@@ -46,12 +44,12 @@ public static class WorldLocationPatcher
             return instructions.ReplaceCall(setLocalPositionMethod,
                 1,
                 "WorldLocationPatcher.BindFromUserLocation",
-                new CodeInstruction(OpCodes.Ldloc_S, roomTransformPos),
-                new CodeInstruction(OpCodes.Ldloc_S, userRoomPos),
+                new CodeInstruction(OpCodes.Ldloc_S, 4),
+                new CodeInstruction(OpCodes.Ldloc_S, 2),
                 new CodeInstruction(OpCodes.Call, addVegetationMaskAreaMethod),
                 new CodeInstruction(OpCodes.Call, setLocalPositionMethod), // checked for Call vs CallVirtual
-                new CodeInstruction(OpCodes.Ldloc_S, roomTransformPos),
-                new CodeInstruction(OpCodes.Ldloc_S, userRoomPos),
+                new CodeInstruction(OpCodes.Ldloc_S, 4),
+                new CodeInstruction(OpCodes.Ldloc_S, 2),
                 new CodeInstruction(OpCodes.Call, setupFlatRoomsMethod));
         }
     }
