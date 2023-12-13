@@ -181,7 +181,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
     {
         var caster = EffectHelpers.GetCharacterByGuid(guid);
 
-        return caster?.GetClassLevel(DruidClass) ?? 0;
+        return caster?.GetClassLevel(Druid) ?? 0;
     }
 
     private static bool IsAuthorizedSpell(EffectDescription effectDescription, BaseDefinition baseDefinition)
@@ -241,8 +241,10 @@ public sealed class CircleOfTheLife : AbstractSubclass
                 }
 
                 var effectLevel = rulesetCondition.EffectLevel;
+                var levels = caster.GetClassLevel(Druid);
+                var harmoniousBloomBonus = levels >= 14 ? 1 : 0;
 
-                rulesetCharacter.ReceiveHealing(effectLevel, true, caster.Guid);
+                rulesetCharacter.ReceiveHealing(effectLevel + harmoniousBloomBonus, true, caster.Guid);
 
                 // have to manually handle condition removal as vanilla is a bit odd depending on initiative order
                 if (rulesetCondition.RemainingRounds == 0)
