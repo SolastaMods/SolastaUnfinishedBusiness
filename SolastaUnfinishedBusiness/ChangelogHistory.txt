@@ -1,6 +1,7 @@
 ﻿1.5.94.38:
 
 - added additional sample portraits [by Artyoan]
+- fixed Sorcerer cannot cast Metamagic targeted spell
 
 1.5.94.37:
 

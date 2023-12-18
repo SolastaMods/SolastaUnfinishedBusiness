@@ -279,7 +279,18 @@ internal static class MetamagicBuilders
         ref string failure)
     {
         var effect = rulesetEffectSpell.EffectDescription;
-        var shapeType = BuildShapeTypeFromTargetType(effect.TargetType);
+        var shapeType = effect.TargetType switch
+        {
+            TargetType.Line => GeometricShapeType.Line,
+            TargetType.Cone => GeometricShapeType.Cone,
+            TargetType.Cube or TargetType.CubeWithOffset => GeometricShapeType.Cube,
+            TargetType.Cylinder or TargetType.CylinderWithDiameter => GeometricShapeType.Cylinder,
+            TargetType.Sphere or TargetType.PerceivingWithinDistance or TargetType.InLineOfSightWithinDistance
+                or TargetType.ClosestWithinDistance => GeometricShapeType.Sphere,
+            TargetType.WallLine => GeometricShapeType.WallLine,
+            TargetType.WallRing => GeometricShapeType.WallRing,
+            _ => GeometricShapeType.None,
+        };
 
         if (shapeType
             is GeometricShapeType.Cone
