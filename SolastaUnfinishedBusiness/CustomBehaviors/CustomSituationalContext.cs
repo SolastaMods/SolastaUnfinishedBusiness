@@ -88,6 +88,9 @@ internal static class CustomSituationalContext
                                                                   !contextParams.target.HasConditionOfType(contextParams
                                                                       .condition),
 
+            ExtraSituationalContext.SourceDoesNotHaveCondition => contextParams.condition != null &&
+                                                                  !contextParams.source.HasConditionOfType(contextParams
+                                                                      .condition),
             // supports Monk Shield Expert scenarios
             (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
                 !contextParams.source.IsWearingArmor() &&
