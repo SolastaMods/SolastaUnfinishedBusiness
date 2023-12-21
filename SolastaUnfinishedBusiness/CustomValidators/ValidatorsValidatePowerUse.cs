@@ -13,6 +13,31 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
 
     public static readonly IValidatePowerUse InCombat = new ValidatorsValidatePowerUse(_ => Gui.Battle != null);
 
+    public static readonly IValidatePowerUse HasMainAttackAvailable = new ValidatorsValidatePowerUse(character =>
+    {
+        const ActionDefinitions.ActionType ACTION_TYPE = ActionDefinitions.ActionType.Main;
+
+        var glc = GameLocationCharacter.GetFromActor(character);
+
+        if (glc == null)
+        {
+            return false;
+        }
+
+        var isMainAvailable = glc.GetActionTypeStatus(ACTION_TYPE) == ActionDefinitions.ActionStatus.Available;
+
+        if (!isMainAvailable && !glc.HasAttackedSinceLastTurn)
+        {
+            return false;
+        }
+
+        var maxAttacksNumber = character.AttackModes
+            .Where(attackMode => attackMode.ActionType == ACTION_TYPE)
+            .Max(attackMode => attackMode.AttacksNumber);
+
+        return maxAttacksNumber - character.ExecutedAttacks > 0;
+    });
+
     private readonly IsPowerUseValidHandler[] _validators;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
