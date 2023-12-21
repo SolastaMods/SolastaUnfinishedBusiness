@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PointPoolTacticianSharpMindSkill:7a987cf5-d9a8-5b9b-86ef-0c9c413650aa"
+    "Definition:PointPoolTacticianSharpMindExpertise:ccc6b1b8-3fc3-5a24-8401-bd5e40cdef40"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetTacticianSharpMindTitle",
-    "description": "Feature/&FeatureSetTacticianSharpMindDescription",
+    "title": "Feature/&FeatureSetTacticianHonedCraftTitle",
+    "description": "Feature/&FeatureSetTacticianHonedCraftDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4db7f8bb-dad9-5fa6-a85b-db8a535e0484",
+  "guid": "c3440a1e-19b8-5765-9b3a-682310d7f982",
   "contentPack": 9999,
-  "name": "FeatureSetTacticianSharpMind"
+  "name": "FeatureSetTacticianHonedCraft"
 }
