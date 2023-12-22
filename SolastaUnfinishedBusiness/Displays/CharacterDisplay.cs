@@ -93,7 +93,6 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ImproveLevelUpFeaturesSelection"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ImproveLevelUpFeaturesSelection = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
         }
 
         UI.Label();
@@ -294,7 +293,7 @@ internal static class CharacterDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall = toggle;
-            CharacterContext.SwitchMonkMonkImprovedUnarmoredMovementToMoveOnTheWall();
+            CharacterContext.SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
         }
 
         toggle = Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack;

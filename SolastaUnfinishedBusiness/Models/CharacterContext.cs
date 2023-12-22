@@ -268,6 +268,9 @@ internal static class CharacterContext
         SwitchHelpPower();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
+        SwitchMonkDoNotRequireAttackActionForFlurry();
+        SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
+        SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
@@ -935,9 +938,9 @@ internal static class CharacterContext
         }
     }
 
-    internal static void SwitchMonkMonkImprovedUnarmoredMovementToMoveOnTheWall()
+    internal static void SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall()
     {
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
+        if (Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall)
         {
             MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.description =
                 "Feature/&MonkAlternateUnarmoredMovementImprovedDescription";
