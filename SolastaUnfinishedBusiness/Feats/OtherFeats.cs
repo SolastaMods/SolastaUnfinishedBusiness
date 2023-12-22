@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomBuilders;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -128,7 +127,7 @@ internal static class OtherFeats
 
     #region Arcane Archer Adept
 
-    private static FeatDefinitionWithPrerequisites BuildArcaneArcherAdept()
+    private static FeatDefinition BuildArcaneArcherAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatArcaneArcherAdept")
@@ -146,7 +145,7 @@ internal static class OtherFeats
 
     #region Eldritch Adept
 
-    private static FeatDefinitionWithPrerequisites BuildEldritchAdept()
+    private static FeatDefinition BuildEldritchAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(FeatEldritchAdept)
@@ -187,7 +186,7 @@ internal static class OtherFeats
 
     #region Tactician Adept
 
-    private static FeatDefinitionWithPrerequisites BuildTacticianAdept()
+    private static FeatDefinition BuildTacticianAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatTacticianAdept")
@@ -204,7 +203,7 @@ internal static class OtherFeats
 
     #region Infusions Adept
 
-    private static FeatDefinitionWithPrerequisites BuildInfusionsAdept()
+    private static FeatDefinition BuildInfusionsAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatInfusionsAdept")
@@ -399,7 +398,7 @@ internal static class OtherFeats
 
     #region Metamagic Adept
 
-    private static FeatDefinitionWithPrerequisites BuildMetamagicAdept()
+    private static FeatDefinition BuildMetamagicAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatMetamagicAdept")
@@ -429,6 +428,11 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildAstralArms()
     {
+        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
+        {
+            return ValidatorsWeapon.IsUnarmed(attackMode);
+        }
+
         return FeatDefinitionBuilder
             .Create("FeatAstralArms")
             .SetGuiPresentation(Category.Feat)
@@ -438,11 +442,6 @@ internal static class OtherFeats
                 new CanMakeAoOOnReachEntered { AllowRange = false, WeaponValidator = ValidWeapon },
                 new IncreaseWeaponReach(1, ValidWeapon))
             .AddToDB();
-
-        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
-        {
-            return ValidatorsWeapon.IsUnarmed(attackMode);
-        }
     }
 
     #endregion

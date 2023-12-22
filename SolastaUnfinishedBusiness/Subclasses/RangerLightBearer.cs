@@ -374,10 +374,10 @@ public sealed class RangerLightBearer : AbstractSubclass
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } gameLocationBattleService)
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>()
+                as GameLocationBattleManager;
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }

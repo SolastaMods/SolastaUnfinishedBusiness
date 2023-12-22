@@ -14,8 +14,6 @@ internal static class CharacterExportContext
 {
     internal const string InputModalMark = "Message/&CharacterExportModalContentDescription";
 
-    private static readonly char[] Separator = { ' ' };
-
     internal static TMP_InputField InputField { get; private set; }
 
     internal static void Load()
@@ -56,7 +54,6 @@ internal static class CharacterExportContext
         messageModal.Show(MessageModal.Severity.Informative1,
             Gui.Format("Message/&CharacterExportModalTitleDescription", hero.Name), InputModalMark,
             "Message/&MessageOkTitle", "Message/&MessageCancelTitle", MessageValidated, null);
-        return;
 
         void MessageValidated()
         {
@@ -79,7 +76,7 @@ internal static class CharacterExportContext
             {
                 if (newFirstName.Contains(" "))
                 {
-                    var a = newFirstName.Split(Separator, 2);
+                    var a = newFirstName.Split(new[] { ' ' }, 2);
 
                     newFirstName = ParseText(a[0]);
                     newSurname = hasSurname ? ParseText(a[1]) : string.Empty;

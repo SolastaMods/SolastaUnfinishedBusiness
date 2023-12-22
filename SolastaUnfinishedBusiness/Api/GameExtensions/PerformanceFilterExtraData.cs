@@ -34,15 +34,12 @@ internal class PerformanceFilterExtraData
 
     private static PerformanceFilterExtraData GetOrMakeData([NotNull] ActionPerformanceFilter filter)
     {
-        if (DataMap.TryGetValue(filter, out var value))
+        if (!DataMap.ContainsKey(filter))
         {
-            return value;
+            DataMap.Add(filter, Get());
         }
 
-        value = Get();
-        DataMap.Add(filter, value);
-
-        return value;
+        return DataMap[filter];
     }
 
     private static PerformanceFilterExtraData Get()

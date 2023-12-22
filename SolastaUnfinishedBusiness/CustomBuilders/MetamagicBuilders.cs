@@ -289,7 +289,7 @@ internal static class MetamagicBuilders
                 or TargetType.ClosestWithinDistance => GeometricShapeType.Sphere,
             TargetType.WallLine => GeometricShapeType.WallLine,
             TargetType.WallRing => GeometricShapeType.WallRing,
-            _ => GeometricShapeType.None
+            _ => GeometricShapeType.None,
         };
 
         if (shapeType

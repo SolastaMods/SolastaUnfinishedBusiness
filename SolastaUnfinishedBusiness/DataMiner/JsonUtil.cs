@@ -8,77 +8,78 @@ using Newtonsoft.Json.Converters;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace SolastaUnfinishedBusiness.DataMiner;
-
-internal static class JsonUtil
+namespace SolastaUnfinishedBusiness.DataMiner
 {
-    internal static JsonSerializerSettings CreateSettings(PreserveReferencesHandling referencesHandling)
+    internal static class JsonUtil
     {
-        var refJsonSerializerSettings = new JsonSerializerSettings
+        internal static JsonSerializerSettings CreateSettings(PreserveReferencesHandling referencesHandling)
         {
-            CheckAdditionalContent = false,
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            ContractResolver = new DataMinerContractResolver(),
-            DateFormatHandling = DateFormatHandling.IsoDateFormat,
-            DateParseHandling = DateParseHandling.DateTime,
-            DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
-            DefaultValueHandling = DefaultValueHandling.Include,
-            FloatFormatHandling = FloatFormatHandling.String,
-            FloatParseHandling = FloatParseHandling.Double,
-            Formatting = Formatting.Indented,
-            MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead,
-            MissingMemberHandling = MissingMemberHandling.Ignore,
-            NullValueHandling = NullValueHandling.Include,
-            ObjectCreationHandling = ObjectCreationHandling.Replace,
-            PreserveReferencesHandling = referencesHandling,
-            ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
-            StringEscapeHandling = StringEscapeHandling.Default,
-            TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple,
-            TypeNameHandling = TypeNameHandling.Objects
-        };
+            var refJsonSerializerSettings = new JsonSerializerSettings
+            {
+                CheckAdditionalContent = false,
+                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                ContractResolver = new DataMinerContractResolver(),
+                DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                DateParseHandling = DateParseHandling.DateTime,
+                DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
+                DefaultValueHandling = DefaultValueHandling.Include,
+                FloatFormatHandling = FloatFormatHandling.String,
+                FloatParseHandling = FloatParseHandling.Double,
+                Formatting = Formatting.Indented,
+                MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Include,
+                ObjectCreationHandling = ObjectCreationHandling.Replace,
+                PreserveReferencesHandling = referencesHandling,
+                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+                StringEscapeHandling = StringEscapeHandling.Default,
+                TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple,
+                TypeNameHandling = TypeNameHandling.Objects
+            };
 
-        refJsonSerializerSettings.Converters.Add(new StringEnumConverter());
+            refJsonSerializerSettings.Converters.Add(new StringEnumConverter());
 
-        return refJsonSerializerSettings;
-    }
-
-    internal static IEnumerable<MemberInfo> GetUnitySerializableMembers(Type objectType)
-    {
-        if (objectType == null)
-        {
-            return new List<MemberInfo>();
+            return refJsonSerializerSettings;
         }
 
-        IEnumerable<MemberInfo> publicFields =
-            objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
-                .Where(f => !f.IsInitOnly);
+        internal static IEnumerable<MemberInfo> GetUnitySerializableMembers(Type objectType)
+        {
+            if (objectType == null)
+            {
+                return new List<MemberInfo>();
+            }
 
-        IEnumerable<MemberInfo> privateFields =
-            objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+            IEnumerable<MemberInfo> publicFields =
+                objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
+                    .Where(f => !f.IsInitOnly);
 
-        IEnumerable<MemberInfo> newtonsoftFields =
-            objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic |
-                                 BindingFlags.DeclaredOnly)
-                .Where(f => ((f.IsPublic && f.IsInitOnly) || f.IsPrivate) &&
-                            Attribute.IsDefined(f, typeof(JsonPropertyAttribute)));
+            IEnumerable<MemberInfo> privateFields =
+                objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
-        IEnumerable<MemberInfo> newtonsoftProperties =
-            objectType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic |
+            IEnumerable<MemberInfo> newtonsoftFields =
+                objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic |
                                      BindingFlags.DeclaredOnly)
-                .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)));
+                    .Where(f => ((f.IsPublic && f.IsInitOnly) || f.IsPrivate) &&
+                                Attribute.IsDefined(f, typeof(JsonPropertyAttribute)));
 
-        IEnumerable<MemberInfo> nameProperty = objectType == typeof(Object)
-            ? new MemberInfo[] { objectType.GetProperty("name") }
-            : Array.Empty<MemberInfo>();
+            IEnumerable<MemberInfo> newtonsoftProperties =
+                objectType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic |
+                                         BindingFlags.DeclaredOnly)
+                    .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)));
 
-        return privateFields
-            .Where(field => Attribute.IsDefined(field, typeof(SerializeField)))
-            .Concat(publicFields)
-            .Concat(GetUnitySerializableMembers(objectType.BaseType))
-            .Concat(nameProperty)
-            .Concat(newtonsoftProperties)
-            .Concat(newtonsoftFields)
-            .ToList();
+            IEnumerable<MemberInfo> nameProperty = objectType == typeof(Object)
+                ? new MemberInfo[] { objectType.GetProperty("name") }
+                : Array.Empty<MemberInfo>();
+
+            return privateFields
+                .Where(field => Attribute.IsDefined(field, typeof(SerializeField)))
+                .Concat(publicFields)
+                .Concat(GetUnitySerializableMembers(objectType.BaseType))
+                .Concat(nameProperty)
+                .Concat(newtonsoftProperties)
+                .Concat(newtonsoftFields)
+                .ToList();
+        }
     }
 }
 #endif

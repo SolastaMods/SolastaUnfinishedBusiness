@@ -149,8 +149,7 @@ internal static class TranspileHelper
         return code;
     }
 
-    // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-    private static List<CodeInstruction> ReplaceCodeImpl(
+    private static IEnumerable<CodeInstruction> ReplaceCodeImpl(
         this IEnumerable<CodeInstruction> instructions,
         Predicate<CodeInstruction> match,
         int occurrence,

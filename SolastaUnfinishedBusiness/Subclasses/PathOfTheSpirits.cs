@@ -146,7 +146,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionPower BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
+    private static FeatureDefinition BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
     {
         var effectDescription = EffectDescriptionBuilder
             .Create(spellDefinition.EffectDescription)
@@ -174,7 +174,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower PowerPathOfTheSpiritsBearResistance()
+    private static FeatureDefinition PowerPathOfTheSpiritsBearResistance()
     {
         var conditionPathOfTheSpiritsBearResistance = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsBearResistance")
@@ -216,7 +216,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionAttributeModifier AttributeModifierBearDurability()
+    private static FeatureDefinition AttributeModifierBearDurability()
     {
         return FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierPathOfTheSpiritsBearDurability")
@@ -225,7 +225,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower PowerPathOfTheSpiritsWolfLeadership()
+    private static FeatureDefinition PowerPathOfTheSpiritsWolfLeadership()
     {
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsWolfLeadershipPack")
@@ -271,7 +271,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         return powerPathOfTheSpiritsWolfLeadership;
     }
 
-    private static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityPathOfTheSpiritsBearMight()
+    private static FeatureDefinition AbilityCheckAffinityPathOfTheSpiritsBearMight()
     {
         return FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityPathOfTheSpiritsBearMight")
@@ -281,7 +281,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower PowerSpiritGuardian()
+    private static FeatureDefinition PowerSpiritGuardian()
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsSpiritGuardians")
@@ -296,7 +296,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedBear()
+    private static FeatureDefinition PowerPathOfTheSpiritsHonedBear()
     {
         var conditionHonedAnimalAspectsBear = ConditionDefinitionBuilder
             .Create($"Condition{Name}HonedAnimalAspectsBear")
@@ -345,7 +345,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         return powerHonedAnimalAspectsBear;
     }
 
-    private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedEagle()
+    private static FeatureDefinition PowerPathOfTheSpiritsHonedEagle()
     {
         var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlying12, $"Condition{Name}HonedAnimalAspectsEagle")
@@ -374,7 +374,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         return powerHonedAnimalAspectsEagle;
     }
 
-    private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedWolf()
+    private static FeatureDefinition PowerPathOfTheSpiritsHonedWolf()
     {
         var actionAffinityHonedAnimalAspectsWolf = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinityMountaineerShieldCharge, "ActionAffinityHonedAnimalAspectsWolf")

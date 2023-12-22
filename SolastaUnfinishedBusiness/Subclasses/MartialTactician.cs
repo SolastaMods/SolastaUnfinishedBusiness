@@ -65,7 +65,7 @@ public sealed class MartialTactician : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => null;
 
-    private static FeatureDefinitionFeatureSet BuildSharpMind()
+    private static FeatureDefinition BuildSharpMind()
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTacticianSharpMind")
@@ -79,7 +79,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionFeatureSet BuildHonedCraft()
+    private static FeatureDefinition BuildHonedCraft()
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTacticianHonedCraft")
@@ -93,7 +93,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionAttributeModifier BuildEverVigilant()
+    private static FeatureDefinition BuildEverVigilant()
     {
         return FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTacticianEverVigilant")
@@ -102,7 +102,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildSharedVigilance()
+    private static FeatureDefinition BuildSharedVigilance()
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerTacticianSharedVigilance")
@@ -140,11 +140,13 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionFeatureSet BuildBattleClarity()
+    private static FeatureDefinition BuildBattleClarity()
     {
         var features = new FeatureDefinition[]
         {
+            // FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfEinar, // Fighter already has STR
             FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMisaye,
+            // FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun, // Fighter already has CON
             FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri,
             FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
             FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta
@@ -166,7 +168,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPowerUseModifier BuildGambitPoolIncrease()
+    private static FeatureDefinition BuildGambitPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerUseModifierTacticianGambitPool{_gambitPoolIncreases++:D2}")
@@ -184,7 +186,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionFeatureSet BuildStrategicPlan()
+    private static FeatureDefinition BuildStrategicPlan()
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSefTacticianStrategicPlan")
@@ -209,7 +211,7 @@ public sealed class MartialTactician : AbstractSubclass
         return feature;
     }
 
-    private static FeatureDefinitionFeatureSet BuildImproviseStrategy()
+    private static FeatureDefinition BuildImproviseStrategy()
     {
         var feature = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureImproviseStrategy")
@@ -265,7 +267,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionFeatureSet BuildTacticalAwareness()
+    private static FeatureDefinition BuildTacticalAwareness()
     {
         var additionalDamageTacticalAwareness = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageTacticianTacticalAwareness")

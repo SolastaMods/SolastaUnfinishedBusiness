@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -53,8 +52,7 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    [CanBeNull]
-    private static EffectForm[] HandleEldritchSmiteKnockProne(
+    private static IEnumerable<EffectForm> HandleEldritchSmiteKnockProne(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         IAdditionalDamageProvider provider)

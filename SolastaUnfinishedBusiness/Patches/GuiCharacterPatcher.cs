@@ -285,39 +285,34 @@ public static class GuiCharacterPatcher
             // A hero has __instance.RulesetCharacterHero != null and __instance.RulesetCharacter != null
             // A hero with wildshape has __instance.RulesetCharacterMonster != null, __instance.RulesetCharacter != null and __instance.RulesetCharacter.IsSubstitute == true
 
-            if (!__instance.HasHitPointsKnowledge || !IsMonster())
+            if (__instance.HasHitPointsKnowledge && IsMonster())
             {
-                return;
+                // Our heroes now have enough bestiary knowledge to display the monster's hit points
+                // which makes picking off damaged monsters easier than it might be.
+
+                // Make the following changes:
+                // 1) Full hit points are still displayed, e.g. 28/28
+                // 2) Less than full hit points are hidden, but the number of digits is shown, so **/28 or */28.
+                // Standard health colours will still be in effect.  Green (50%-100%), Orange (25%-50%), Red (0-25%).
+
+                // Normal text formatting runs before the patch so the healthLabel text at this point is
+                // "?? / ??" (if HasHitPointsKnowledge=false), or <#color>current_hp</color>/max_hp
+
+                var text = healthLabel.Text;
+
+                // extract current and max hp
+                var match = HitPointRegex.Match(text);
+
+                if (match.Success && match.Groups["current_hp"].Value != match.Groups["max_hp"].Value)
+                {
+                    var hp = match.Groups["current_hp"].Value;
+                    var hpLen = hp.Length;
+                    var stars = new string('*', hpLen);
+
+                    // replace with asterisks
+                    healthLabel.Text = text.Replace($">{hp}<", $">{stars}<");
+                }
             }
-            // Our heroes now have enough bestiary knowledge to display the monster's hit points
-            // which makes picking off damaged monsters easier than it might be.
-
-            // Make the following changes:
-            // 1) Full hit points are still displayed, e.g. 28/28
-            // 2) Less than full hit points are hidden, but the number of digits is shown, so **/28 or */28.
-            // Standard health colours will still be in effect.  Green (50%-100%), Orange (25%-50%), Red (0-25%).
-
-            // Normal text formatting runs before the patch so the healthLabel text at this point is
-            // "?? / ??" (if HasHitPointsKnowledge=false), or <#color>current_hp</color>/max_hp
-
-            var text = healthLabel.Text;
-
-            // extract current and max hp
-            var match = HitPointRegex.Match(text);
-
-            if (!match.Success || match.Groups["current_hp"].Value == match.Groups["max_hp"].Value)
-            {
-                return;
-            }
-
-            var hp = match.Groups["current_hp"].Value;
-            var hpLen = hp.Length;
-            var stars = new string('*', hpLen);
-
-            // replace with asterisks
-            healthLabel.Text = text.Replace($">{hp}<", $">{stars}<");
-
-            return;
 
             bool IsMonster()
             {

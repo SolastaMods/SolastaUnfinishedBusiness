@@ -688,11 +688,9 @@ internal static class MulticlassGameUiContext
 
     private static void CollectAllAutoPreparedSpells(
         [NotNull] SpellsByLevelGroup __instance,
-        // ReSharper disable once SuggestBaseTypeForParameter
-        [NotNull] RulesetCharacterHero hero,
+        [NotNull] RulesetCharacter hero,
         [NotNull] List<SpellDefinition> allSpells,
-        // ReSharper disable once SuggestBaseTypeForParameter
-        [NotNull] List<SpellDefinition> auToPreparedSpells)
+        [NotNull] ICollection<SpellDefinition> auToPreparedSpells)
     {
         // Collect all the auto prepared spells.
         // Also filter the prepped spells by level this group is displaying.

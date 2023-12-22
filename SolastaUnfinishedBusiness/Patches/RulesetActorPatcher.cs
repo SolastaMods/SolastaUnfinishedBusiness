@@ -316,12 +316,12 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.conditionsByCategory.ContainsKey(category))
             {
                 return;
             }
 
-            foreach (var rulesetCondition in value)
+            foreach (var rulesetCondition in character.conditionsByCategory[category])
             {
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }
@@ -347,13 +347,13 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.conditionsByCategory.ContainsKey(category))
             {
                 return;
             }
 
-            foreach (var rulesetCondition in value.Where(rulesetCondition =>
-                         !sources.Contains(rulesetCondition.SourceGuid)))
+            foreach (var rulesetCondition in character.conditionsByCategory[category]
+                         .Where(rulesetCondition => !sources.Contains(rulesetCondition.SourceGuid)))
             {
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }
@@ -379,14 +379,14 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.TryGetValue(category, out var value))
+            if (!character.conditionsByCategory.ContainsKey(category))
             {
                 return;
             }
 
-            foreach (var rulesetCondition in value.Where(rulesetCondition =>
-                         rulesetCondition.ConditionDefinition.Name == type ||
-                         rulesetCondition.ConditionDefinition.IsSubtypeOf(type)))
+            foreach (var rulesetCondition in character.conditionsByCategory[category]
+                         .Where(rulesetCondition => rulesetCondition.ConditionDefinition.Name == type ||
+                                                    rulesetCondition.ConditionDefinition.IsSubtypeOf(type)))
             {
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }
@@ -618,6 +618,13 @@ public static class RulesetActorPatcher
         {
             var karmic = rollAlterationScore != 0.0;
 
+            int DoRoll()
+            {
+                return karmic
+                    ? RollKarmicDie(diceType, rollAlterationScore)
+                    : 1 + DeterministicRandom.Range(0, DiceMaxValue[(int)diceType]);
+            }
+
             var roll1 = DoRoll();
             var roll2 = DoRoll();
             var roll3 = DoRoll();
@@ -641,13 +648,6 @@ public static class RulesetActorPatcher
             secondRoll = roll3;
 
             return Mathf.Max(firstRoll, secondRoll);
-
-            int DoRoll()
-            {
-                return karmic
-                    ? RollKarmicDie(diceType, rollAlterationScore)
-                    : 1 + DeterministicRandom.Range(0, DiceMaxValue[(int)diceType]);
-            }
         }
 
         // TODO: make this more generic

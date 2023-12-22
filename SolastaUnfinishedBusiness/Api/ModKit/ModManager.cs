@@ -57,7 +57,7 @@ internal sealed class ModManager<TCore, TSettings>
                 foreach (var type in types)
                 {
                     var harmonyMethods = HarmonyMethodExtensions.GetFromType(type);
-                    if (harmonyMethods == null || harmonyMethods.Count == 0)
+                    if (harmonyMethods == null || !harmonyMethods.Any())
                     {
                         continue;
                     }

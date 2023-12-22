@@ -85,18 +85,16 @@ internal sealed class MenuManager : INotifyPropertyChanged
             }
         }
 
+        static int Comparison(IMenuPage x, IMenuPage y)
+        {
+            return x.Priority - y.Priority;
+        }
+
         _topPages.Sort(Comparison);
         _selectablePages.Sort(Comparison);
         _bottomPages.Sort(Comparison);
 
         modEntry.OnGUI += OnGUI;
-
-        return;
-
-        static int Comparison(IMenuPage x, IMenuPage y)
-        {
-            return x.Priority - y.Priority;
-        }
     }
 
     private void OnGUI(UnityModManager.ModEntry modEntry)

@@ -88,20 +88,6 @@ internal static class SpellsDisplay
                 .Where(x => SpellLevelFilter == ShowAll || x.SpellLevel == SpellLevelFilter)
                 .ToHashSet();
 
-            ModUi.DisplayDefinitions(
-                kvp.Key.Khaki(),
-                spellListContext.Switch,
-                allowedSpells,
-                spellEnabled,
-                ref displayToggle,
-                ref sliderPos,
-                additionalRendering: AdditionalRendering);
-
-            Main.Settings.DisplaySpellListsToggle[name] = displayToggle;
-            Main.Settings.SpellListSliderPosition[name] = sliderPos;
-
-            continue;
-
             void AdditionalRendering()
             {
                 toggle = spellListContext.IsAllSetSelected;
@@ -116,6 +102,18 @@ internal static class SpellsDisplay
                     spellListContext.SelectSuggestedSetInternal(toggle);
                 }
             }
+
+            ModUi.DisplayDefinitions(
+                kvp.Key.Khaki(),
+                spellListContext.Switch,
+                allowedSpells,
+                spellEnabled,
+                ref displayToggle,
+                ref sliderPos,
+                additionalRendering: AdditionalRendering);
+
+            Main.Settings.DisplaySpellListsToggle[name] = displayToggle;
+            Main.Settings.SpellListSliderPosition[name] = sliderPos;
         }
 
         UI.Label();

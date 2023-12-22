@@ -2,36 +2,34 @@
 using System;
 using Newtonsoft.Json;
 
-namespace SolastaUnfinishedBusiness.DataMiner;
-
-internal class DefinitionConverter : JsonConverter
+namespace SolastaUnfinishedBusiness.DataMiner
 {
-    private bool _cannotWrite;
-
-    public override bool CanWrite => !_cannotWrite;
-
-    public override bool CanRead => true;
-
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    internal class DefinitionConverter : JsonConverter
     {
-        using (new PushValue<bool>(true, () => _cannotWrite, canWrite => _cannotWrite = canWrite))
+        private bool _cannotWrite;
+
+        public override bool CanWrite => !_cannotWrite;
+
+        public override bool CanRead => true;
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            serializer.Serialize(writer, value);
+            using (new PushValue<bool>(true, () => _cannotWrite, canWrite => _cannotWrite = canWrite))
+            {
+                serializer.Serialize(writer, value);
+            }
         }
-    }
 
-    public override object ReadJson(
-        JsonReader reader,
-        Type objectType,
-        object existingValue,
-        JsonSerializer serializer)
-    {
-        return null;
-    }
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
 
-    public override bool CanConvert(Type objectType)
-    {
-        return typeof(BaseDefinition).IsAssignableFrom(objectType);
+        public override bool CanConvert(Type objectType)
+        {
+            return typeof(BaseDefinition).IsAssignableFrom(objectType);
+        }
     }
 }
 #endif

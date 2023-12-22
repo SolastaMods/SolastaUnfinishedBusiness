@@ -234,10 +234,7 @@ internal static class EldritchVersatility
             .AddToDB();
     }
 
-    // ReSharper disable once SuggestBaseTypeForParameter
-    private static int GetAbilityScoreModifier(
-        RulesetCharacter ownerCharacter,
-        string abilityScore,
+    private static int GetAbilityScoreModifier(RulesetEntity ownerCharacter, string abilityScore,
         VersatilitySupportRulesetCondition supportCondition)
     {
         return AttributeDefinitions.ComputeAbilityScoreModifier(Math.Max(Math.Max(
@@ -296,8 +293,6 @@ internal static class EldritchVersatility
     internal class VersatilitySupportRulesetCondition :
         RulesetConditionCustom<VersatilitySupportRulesetCondition>, IBindToRulesetConditionCustom
     {
-        private static readonly int[] SourceArray = { 1, 5, 11, 17 };
-
         static VersatilitySupportRulesetCondition()
         {
             Category = "EldritchVersatility";
@@ -433,7 +428,7 @@ internal static class EldritchVersatility
             }
             else
             {
-                BeamNumber = SourceArray.Count(x => characterLevel >= x);
+                BeamNumber = new[] { 1, 5, 11, 17 }.Count(x => characterLevel >= x);
             }
 
             if (ownerHero.TrainedFeats.Contains(FeatEldritchVersatilityAdept))
@@ -1307,8 +1302,7 @@ internal static class EldritchVersatility
         }
 
         private static bool ShouldTrigger(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationBattleManager gameLocationBattleService,
+            IGameLocationBattleService gameLocationBattleService,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {

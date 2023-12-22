@@ -352,6 +352,26 @@ internal static partial class SpellBuilders
 
         const string ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION = "Feature/&AttackModifierElementalWeaponDescription";
 
+        static string AdditionalDamageElementalWeaponDescription(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION, x);
+        }
+
+        static string AdditionalDamageElementalWeaponDescription1(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION1, x);
+        }
+
+        static string AdditionalDamageElementalWeaponDescription2(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION2, x);
+        }
+
+        static string AttackModifierElementalWeaponDescription(int x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION, x.ToString());
+        }
+
         var additionalDamageElementalWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{damageType}ElementalWeapon")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
@@ -464,26 +484,6 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
-
-        static string AdditionalDamageElementalWeaponDescription2(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION2, x);
-        }
-
-        static string AttackModifierElementalWeaponDescription(int x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION, x.ToString());
-        }
-
-        static string AdditionalDamageElementalWeaponDescription1(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION1, x);
-        }
-
-        static string AdditionalDamageElementalWeaponDescription(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION, x);
-        }
     }
 
     #endregion
@@ -1382,8 +1382,7 @@ internal static partial class SpellBuilders
         }
 
         private void InflictDamage(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            string damageType, RulesetCharacter rulesetActor, IMagicEffect magicEffect, bool rollSaving = false)
+            string damageType, RulesetActor rulesetActor, IMagicEffect magicEffect, bool rollSaving = false)
         {
             if (rulesetActor == null)
             {

@@ -32,14 +32,13 @@ public static class FeatureDefinitionMagicAffinityPatcher
 
             foreach (var duplet in instance.ExtendedSpellList.SpellsByLevel)
             {
-                if (!spells.TryGetValue(duplet.Level, out var value))
+                if (!spells.ContainsKey(duplet.Level))
                 {
-                    value = new List<SpellDefinition>();
-                    spells.Add(duplet.Level, value);
+                    spells.Add(duplet.Level, new List<SpellDefinition>());
                     levels.Add(duplet.Level);
                 }
 
-                value.AddRange(duplet.Spells);
+                spells[duplet.Level].AddRange(duplet.Spells);
             }
 
             foreach (var level in levels

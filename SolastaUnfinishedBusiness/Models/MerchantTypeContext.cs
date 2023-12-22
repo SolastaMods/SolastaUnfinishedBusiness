@@ -278,8 +278,7 @@ internal static class RecipeHelper
     }
 
     [NotNull]
-    // ReSharper disable once SuggestBaseTypeForParameter
-    private static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe, ItemDefinition item, string termTag)
+    private static ItemDefinition BuildManual([NotNull] RecipeDefinition recipe, BaseDefinition item, string termTag)
     {
         var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
         var manual = ItemDefinitionBuilder

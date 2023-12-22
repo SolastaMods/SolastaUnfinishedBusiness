@@ -323,7 +323,7 @@ internal static class CharacterContext
 
         foreach (var line in lines)
         {
-            var columns = line.Split(Separator, 3);
+            var columns = line.Split(new[] { '\t' }, 3);
 
             if (columns.Length != 3)
             {
@@ -708,6 +708,12 @@ internal static class CharacterContext
                 var featureUnlockPointPool1 = new FeatureUnlockByLevel(pointPool1BonusFeats, level);
                 var featureUnlockPointPool2 = new FeatureUnlockByLevel(pointPool2BonusFeats, level);
 
+                bool ShouldBe2Points()
+                {
+                    return (characterClassDefinition == Rogue && level is 10 && !isMiddle) ||
+                           (characterClassDefinition == Fighter && level is 6 or 14 && isMiddle);
+                }
+
                 if (enable)
                 {
                     characterClassDefinition.FeatureUnlocks.Add(ShouldBe2Points()
@@ -726,14 +732,6 @@ internal static class CharacterContext
                         characterClassDefinition.FeatureUnlocks.RemoveAll(x =>
                             x.FeatureDefinition == pointPool1BonusFeats && x.level == level);
                     }
-                }
-
-                continue;
-
-                bool ShouldBe2Points()
-                {
-                    return (characterClassDefinition == Rogue && level is 10 && !isMiddle) ||
-                           (characterClassDefinition == Fighter && level is 6 or 14 && isMiddle);
                 }
             }
 
@@ -1511,7 +1509,6 @@ internal static class CharacterContext
     private static ConditionDefinition _conditionReduceSneakDice;
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
     private static FeatureDefinitionFeatureSet _featureSetRogueDeviousStrike;
-    private static readonly char[] Separator = { '\t' };
 
     private static void BuildRogueCunningStrike()
     {

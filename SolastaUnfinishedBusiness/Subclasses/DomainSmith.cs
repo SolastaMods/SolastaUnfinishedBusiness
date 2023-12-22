@@ -58,6 +58,16 @@ public sealed class DomainSmith : AbstractSubclass
 
         // Reinforce Armor - 1, 6, 11, 16
 
+        static string PowerReinforceDescription(int x)
+        {
+            return Gui.Format("Feature/&PowerDomainSmithReinforceArmorDescription", x.ToString());
+        }
+
+        static string AttributeReinforceDescription(int x)
+        {
+            return Gui.Format("Feature/&AttributeModifierDomainSmithReinforceArmorDescription", x.ToString());
+        }
+
         var spriteReference = MageArmor.guiPresentation.SpriteReference;
 
         var powerReinforceArmor1 = FeatureDefinitionPowerBuilder
@@ -356,18 +366,6 @@ public sealed class DomainSmith : AbstractSubclass
             .AddFeaturesAtLevel(17,
                 featureBlessedMetal)
             .AddToDB();
-
-        return;
-
-        static string AttributeReinforceDescription(int x)
-        {
-            return Gui.Format("Feature/&AttributeModifierDomainSmithReinforceArmorDescription", x.ToString());
-        }
-
-        static string PowerReinforceDescription(int x)
-        {
-            return Gui.Format("Feature/&PowerDomainSmithReinforceArmorDescription", x.ToString());
-        }
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Cleric;

@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -743,8 +742,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     #region SMALL CANNON POWER
 
-    private static FeatureDefinitionPowerSharedPool BuildFlamethrowerPower(FeatureDefinitionPower sharedPoolPower,
-        int level,
+    private static FeatureDefinitionPower BuildFlamethrowerPower(FeatureDefinitionPower sharedPoolPower, int level,
         params FeatureDefinition[] monsterAdditionalFeatures)
     {
         var additionalFeatures = monsterAdditionalFeatures.ToList();
@@ -754,8 +752,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         return BuildEldritchCannonPower(Flamethrower, sharedPoolPower, Fire_Spider, level, additionalFeatures);
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildForceBallistaPower(FeatureDefinitionPower sharedPoolPower,
-        int level,
+    private static FeatureDefinitionPower BuildForceBallistaPower(FeatureDefinitionPower sharedPoolPower, int level,
         params FeatureDefinition[] monsterAdditionalFeatures)
     {
         var additionalFeatures = monsterAdditionalFeatures.ToList();
@@ -765,8 +762,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         return BuildEldritchCannonPower(ForceBallista, sharedPoolPower, PhaseSpider, level, additionalFeatures);
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildProtectorPower(FeatureDefinitionPower sharedPoolPower,
-        int level,
+    private static FeatureDefinitionPower BuildProtectorPower(FeatureDefinitionPower sharedPoolPower, int level,
         params FeatureDefinition[] monsterAdditionalFeatures)
     {
         var additionalFeatures = monsterAdditionalFeatures.ToList();
@@ -776,7 +772,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
         return BuildEldritchCannonPower(Protector, sharedPoolPower, SpectralSpider, level, additionalFeatures);
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildEldritchCannonPower(
+    private static FeatureDefinitionPower BuildEldritchCannonPower(
         string powerName,
         FeatureDefinitionPower sharedPoolPower,
         MonsterDefinition monsterDefinition,
@@ -866,25 +862,22 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
     #region TINY CANNON POWER
 
-    private static FeatureDefinitionPowerSharedPool BuildTinyFlamethrowerPower(FeatureDefinitionPower sharedPoolPower,
-        int level)
+    private static FeatureDefinitionPower BuildTinyFlamethrowerPower(FeatureDefinitionPower sharedPoolPower, int level)
     {
         return BuildTinyEldritchCannonPower(Flamethrower, sharedPoolPower, level, ConditionFlamethrowerTiny);
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildTinyForceBallistaPower(FeatureDefinitionPower sharedPoolPower,
-        int level)
+    private static FeatureDefinitionPower BuildTinyForceBallistaPower(FeatureDefinitionPower sharedPoolPower, int level)
     {
         return BuildTinyEldritchCannonPower(ForceBallista, sharedPoolPower, level, ConditionForceBallistaTiny);
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildTinyProtectorPower(FeatureDefinitionPower sharedPoolPower,
-        int level)
+    private static FeatureDefinitionPower BuildTinyProtectorPower(FeatureDefinitionPower sharedPoolPower, int level)
     {
         return BuildTinyEldritchCannonPower(Protector, sharedPoolPower, level, ConditionProtectorTiny);
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildTinyEldritchCannonPower(
+    private static FeatureDefinitionPower BuildTinyEldritchCannonPower(
         string powerName, FeatureDefinitionPower sharedPoolPower, int level, ConditionDefinition conditionDefinition)
     {
         var name = PowerSummonCannon + powerName + "Tiny";

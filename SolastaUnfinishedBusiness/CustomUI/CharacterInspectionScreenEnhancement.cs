@@ -74,8 +74,7 @@ internal static class CharacterInspectionScreenEnhancement
     }
 
     [NotNull]
-    // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-    private static HashSet<FightingStyleDefinition> GetTrainedFightingStyles()
+    private static IEnumerable<FightingStyleDefinition> GetTrainedFightingStyles()
     {
         var fightingStyleIdx = 0;
         var classBadges = new HashSet<FightingStyleDefinition>();

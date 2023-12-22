@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -182,6 +183,14 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        static bool CanUseEssenceTheft(RulesetCharacter character)
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            return gameLocationCharacter != null &&
+                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(AdditionalDamageRogueSneakAttack.Name);
+        }
+
         var powerEssenceTheft = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EssenceTheft")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
@@ -243,16 +252,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddFeaturesAtLevel(19,
                 featureSetPremeditationSlot)
             .AddToDB();
-
-        return;
-
-        static bool CanUseEssenceTheft(RulesetCharacter character)
-        {
-            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-
-            return gameLocationCharacter != null &&
-                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(AdditionalDamageRogueSneakAttack.Name);
-        }
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Rogue;
@@ -387,7 +386,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             // we might need to change this to a proper interface if others start using it
             var hasSneakAttackDieTypeChange = actingCharacter.RulesetCharacter
                 .GetSubFeaturesByType<DamageDieProviderFromCharacter>()
-                .Count != 0;
+                .Any();
 
             if (!hasSneakAttackDieTypeChange)
             {

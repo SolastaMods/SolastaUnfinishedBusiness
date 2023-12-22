@@ -903,10 +903,9 @@ internal static partial class SpellBuilders
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -924,7 +923,7 @@ internal static partial class SpellBuilders
 
             var resistanceDamageTypes = AllowedDamageTypes.Intersect(attackDamageTypes).ToList();
 
-            if (resistanceDamageTypes.Count == 0)
+            if (!resistanceDamageTypes.Any())
             {
                 yield break;
             }

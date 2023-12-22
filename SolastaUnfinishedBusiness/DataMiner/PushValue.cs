@@ -2,30 +2,31 @@
 using System;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
-namespace SolastaUnfinishedBusiness.DataMiner;
-
-internal class PushValue<T> : Disposable
+namespace SolastaUnfinishedBusiness.DataMiner
 {
-    private readonly T _oldValue;
-    private Action<T> _setValue;
-
-    internal PushValue(T value, Func<T> getValue, Action<T> setValue)
+    internal class PushValue<T> : Disposable
     {
-        if (getValue == null) { throw new ArgumentNullException(nameof(getValue)); }
+        private readonly T _oldValue;
+        private Action<T> _setValue;
 
-        _setValue = setValue ?? throw new ArgumentNullException(nameof(setValue));
-        _oldValue = getValue();
-        setValue(value);
+        internal PushValue(T value, Func<T> getValue, Action<T> setValue)
+        {
+            if (getValue == null) { throw new ArgumentNullException(nameof(getValue)); }
+
+            _setValue = setValue ?? throw new ArgumentNullException(nameof(setValue));
+            _oldValue = getValue();
+            setValue(value);
+        }
+
+        #region IDisposable Members
+
+        protected override void Dispose(bool disposing)
+        {
+            _setValue?.Invoke(_oldValue);
+            _setValue = null;
+        }
+
+        #endregion
     }
-
-    #region IDisposable Members
-
-    protected override void Dispose(bool disposing)
-    {
-        _setValue?.Invoke(_oldValue);
-        _setValue = null;
-    }
-
-    #endregion
 }
 #endif

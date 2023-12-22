@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -85,7 +84,7 @@ internal static class ClassFeats
 
     #region Call for Charge
 
-    private static FeatDefinitionWithPrerequisites BuildCallForCharge()
+    private static FeatDefinition BuildCallForCharge()
     {
         const string NAME = "FeatCallForCharge";
 
@@ -212,7 +211,7 @@ internal static class ClassFeats
 
     #region Expand the Hunt
 
-    private static FeatDefinitionWithPrerequisites BuildExpandTheHunt()
+    private static FeatDefinition BuildExpandTheHunt()
     {
         const string Name = "FeatExpandTheHunt";
 
@@ -242,29 +241,6 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureCloseQuarters.AddCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
-
-        var closeQuartersDex = FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{Name}Dex")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
-            .SetFeatFamily(Family)
-            .SetValidators(HasSneakAttack)
-            .AddToDB();
-
-        var closeQuartersInt = FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{Name}Int")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Pakri)
-            .SetFeatFamily(Family)
-            .SetValidators(HasSneakAttack)
-            .AddToDB();
-
-        feats.AddRange(closeQuartersDex, closeQuartersInt);
-
-        return GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupCloseQuarters", Family, HasSneakAttack, closeQuartersDex, closeQuartersInt);
-
         DieType UpgradeCloseQuartersDice(
             FeatureDefinitionAdditionalDamage additionalDamage,
             DamageForm damageForm,
@@ -288,6 +264,8 @@ internal static class ClassFeats
             return DieType.D8;
         }
 
+        featureCloseQuarters.AddCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
+
         static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
         {
             var hasSneakAttack = hero.GetFeaturesByType<FeatureDefinitionAdditionalDamage>()
@@ -297,13 +275,34 @@ internal static class ClassFeats
 
             return hasSneakAttack ? (true, guiFormat) : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         }
+
+        var closeQuartersDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
+            .SetFeatFamily(Family)
+            .SetValidators(HasSneakAttack)
+            .AddToDB();
+
+        var closeQuartersInt = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Pakri)
+            .SetFeatFamily(Family)
+            .SetValidators(HasSneakAttack)
+            .AddToDB();
+
+        feats.AddRange(closeQuartersDex, closeQuartersInt);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupCloseQuarters", Family, HasSneakAttack, closeQuartersDex, closeQuartersInt);
     }
 
     #endregion
 
     #region Poisoner
 
-    private static FeatDefinitionWithPrerequisites BuildPoisoner()
+    private static FeatDefinition BuildPoisoner()
     {
         const string Name = "FeatPoisoner";
 
@@ -337,7 +336,7 @@ internal static class ClassFeats
 
     #region Exploiter
 
-    private static FeatDefinitionWithPrerequisites BuildExploiter()
+    private static FeatDefinition BuildExploiter()
     {
         const string Name = "FeatExploiter";
 
@@ -533,7 +532,7 @@ internal static class ClassFeats
 
     #region Cunning Escape
 
-    private static FeatDefinitionWithPrerequisites BuildCunningEscape()
+    private static FeatDefinition BuildCunningEscape()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCunningEscape")
@@ -637,7 +636,7 @@ internal static class ClassFeats
 
     #region Natural Fluidity
 
-    private static FeatDefinitionWithPrerequisites BuildNaturalFluidity()
+    private static FeatDefinition BuildNaturalFluidity()
     {
         const string NAME = "FeatNaturalFluidity";
 
@@ -907,7 +906,7 @@ internal static class ClassFeats
 
     #region Spiritual Fluidity
 
-    private static FeatDefinitionWithPrerequisites BuildSpiritualFluidity()
+    private static FeatDefinition BuildSpiritualFluidity()
     {
         const string NAME = "FeatSpiritualFluidity";
 
@@ -1086,7 +1085,7 @@ internal static class ClassFeats
 
     #region Slay the Enemies
 
-    private static FeatDefinitionWithPrerequisites BuildSlayTheEnemies()
+    private static FeatDefinition BuildSlayTheEnemies()
     {
         const string NAME = "FeatSlayTheEnemies";
 

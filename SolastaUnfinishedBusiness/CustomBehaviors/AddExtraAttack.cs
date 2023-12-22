@@ -258,8 +258,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
     }
 
     private void AddItemAttack(
-        // ReSharper disable once SuggestBaseTypeForParameter
-        List<RulesetAttackMode> attackModes,
+        ICollection<RulesetAttackMode> attackModes,
         [NotNull] string slot,
         [NotNull] RulesetCharacterHero hero)
     {
@@ -319,8 +318,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
     }
 
     private void AddItemAttack(
-        // ReSharper disable once SuggestBaseTypeForParameter
-        List<RulesetAttackMode> attackModes,
+        ICollection<RulesetAttackMode> attackModes,
         [NotNull] string slot,
         [NotNull] RulesetCharacterHero hero)
     {
@@ -469,8 +467,7 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
     }
 
     private void AddItemAttack(
-        // ReSharper disable once SuggestBaseTypeForParameter
-        List<RulesetAttackMode> attackModes,
+        ICollection<RulesetAttackMode> attackModes,
         [NotNull] string slot,
         [NotNull] RulesetCharacterHero hero)
     {

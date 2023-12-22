@@ -53,7 +53,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells()
+    private static FeatureDefinition BuildAutoPreparedSpells()
     {
         return FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsInnovationAlchemy")
@@ -771,7 +771,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         return power;
     }
 
-    private static FeatureDefinitionPower BuildRefundPool(FeatureDefinitionPower powerPool)
+    private static FeatureDefinition BuildRefundPool(FeatureDefinitionPower powerPool)
     {
         var powerRefundPool = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyRefundPool")

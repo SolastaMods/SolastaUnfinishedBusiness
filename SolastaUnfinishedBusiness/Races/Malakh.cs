@@ -172,7 +172,7 @@ internal static class RaceMalakhBuilder
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildAngelicVisage(FeatureDefinition additionalDamageMalakhAngelicForm)
+    private static FeatureDefinition BuildAngelicVisage(FeatureDefinition additionalDamageMalakhAngelicForm)
     {
         var conditionAngelicVisage = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicVisage")
@@ -209,7 +209,7 @@ internal static class RaceMalakhBuilder
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildAngelicFlight(FeatureDefinition additionalDamageMalakhAngelicForm)
+    private static FeatureDefinition BuildAngelicFlight(FeatureDefinition additionalDamageMalakhAngelicForm)
     {
         var conditionAngelicFlight = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}AngelicFlight")
@@ -236,7 +236,7 @@ internal static class RaceMalakhBuilder
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildAngelicRadiance(FeatureDefinition additionalDamageMalakhAngelicForm)
+    private static FeatureDefinition BuildAngelicRadiance(FeatureDefinition additionalDamageMalakhAngelicForm)
     {
         var conditionAngelicRadiance = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicRadiance")

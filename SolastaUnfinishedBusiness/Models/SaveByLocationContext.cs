@@ -302,8 +302,6 @@ internal static class SaveByLocationContext
             guiDropdown.SetSelected(newValue);
         }
 
-        return;
-
         string GetTitle(LocationType locationType, string title)
         {
             switch (locationType)

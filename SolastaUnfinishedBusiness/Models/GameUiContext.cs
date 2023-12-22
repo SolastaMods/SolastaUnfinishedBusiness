@@ -975,8 +975,6 @@ internal static class GameUiContext
                 break;
         }
 
-        return;
-
         [CanBeNull]
         GuiPanel GetInitiativeOrPartyPanel()
         {
