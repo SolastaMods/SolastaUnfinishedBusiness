@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -84,7 +85,7 @@ internal static class ClassFeats
 
     #region Call for Charge
 
-    private static FeatDefinition BuildCallForCharge()
+    private static FeatDefinitionWithPrerequisites BuildCallForCharge()
     {
         const string NAME = "FeatCallForCharge";
 
@@ -211,7 +212,7 @@ internal static class ClassFeats
 
     #region Expand the Hunt
 
-    private static FeatDefinition BuildExpandTheHunt()
+    private static FeatDefinitionWithPrerequisites BuildExpandTheHunt()
     {
         const string Name = "FeatExpandTheHunt";
 
@@ -302,7 +303,7 @@ internal static class ClassFeats
 
     #region Poisoner
 
-    private static FeatDefinition BuildPoisoner()
+    private static FeatDefinitionWithPrerequisites BuildPoisoner()
     {
         const string Name = "FeatPoisoner";
 
@@ -336,7 +337,7 @@ internal static class ClassFeats
 
     #region Exploiter
 
-    private static FeatDefinition BuildExploiter()
+    private static FeatDefinitionWithPrerequisites BuildExploiter()
     {
         const string Name = "FeatExploiter";
 
@@ -532,7 +533,7 @@ internal static class ClassFeats
 
     #region Cunning Escape
 
-    private static FeatDefinition BuildCunningEscape()
+    private static FeatDefinitionWithPrerequisites BuildCunningEscape()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatCunningEscape")
@@ -636,7 +637,7 @@ internal static class ClassFeats
 
     #region Natural Fluidity
 
-    private static FeatDefinition BuildNaturalFluidity()
+    private static FeatDefinitionWithPrerequisites BuildNaturalFluidity()
     {
         const string NAME = "FeatNaturalFluidity";
 
@@ -906,7 +907,7 @@ internal static class ClassFeats
 
     #region Spiritual Fluidity
 
-    private static FeatDefinition BuildSpiritualFluidity()
+    private static FeatDefinitionWithPrerequisites BuildSpiritualFluidity()
     {
         const string NAME = "FeatSpiritualFluidity";
 
@@ -1085,7 +1086,7 @@ internal static class ClassFeats
 
     #region Slay the Enemies
 
-    private static FeatDefinition BuildSlayTheEnemies()
+    private static FeatDefinitionWithPrerequisites BuildSlayTheEnemies()
     {
         const string NAME = "FeatSlayTheEnemies";
 

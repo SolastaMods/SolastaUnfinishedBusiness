@@ -685,12 +685,14 @@ internal static class MulticlassGameUiContext
             allSpells.RemoveAll(x => !allowedSpells.Contains(x));
         }
     }
-
+    
     private static void CollectAllAutoPreparedSpells(
         [NotNull] SpellsByLevelGroup __instance,
-        [NotNull] RulesetCharacter hero,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        [NotNull] RulesetCharacterHero hero,
         [NotNull] List<SpellDefinition> allSpells,
-        [NotNull] ICollection<SpellDefinition> auToPreparedSpells)
+        // ReSharper disable once SuggestBaseTypeForParameter
+        [NotNull] List<SpellDefinition> auToPreparedSpells)
     {
         // Collect all the auto prepared spells.
         // Also filter the prepped spells by level this group is displaying.

@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -413,7 +414,7 @@ public sealed class RangerWildMaster : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionPower BuildSpiritBeastPower(
+    private static FeatureDefinitionPowerSharedPool BuildSpiritBeastPower(
         FeatureDefinitionPower sharedPoolPower,
         MonsterDefinition monsterDefinition,
         int level,
@@ -468,7 +469,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildSpiritBeastAffinityLevel03()
+    private static FeatureDefinitionSummoningAffinity BuildSpiritBeastAffinityLevel03()
     {
         var acBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierWildMasterSummonSpiritBeastAC")
@@ -550,7 +551,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildSpiritBeastAffinityLevel07()
+    private static FeatureDefinitionSummoningAffinity BuildSpiritBeastAffinityLevel07()
     {
         return FeatureDefinitionSummoningAffinityBuilder
             .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritMagicalSpirit,
@@ -559,7 +560,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildSpiritBeastAffinityLevel11()
+    private static FeatureDefinitionSummoningAffinity BuildSpiritBeastAffinityLevel11()
     {
         return FeatureDefinitionSummoningAffinityBuilder
             .Create("SummoningAffinityWildMasterSummonSpiritBeast11")
@@ -587,7 +588,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildCommandSpiritBeast()
+    private static FeatureDefinitionPower BuildCommandSpiritBeast()
     {
         var condition = ConditionDefinitionBuilder
             .Create(CommandSpiritBeastCondition)

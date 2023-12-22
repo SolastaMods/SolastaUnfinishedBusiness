@@ -405,7 +405,7 @@ internal static class InventorClass
         }
     }
 
-    private static FeatureDefinition BuildToolExpertise()
+    private static FeatureDefinitionProficiency BuildToolExpertise()
     {
         return FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyInventorToolExpertise")
@@ -419,7 +419,7 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildRightToolForTheJob()
+    private static FeatureDefinitionPointPool BuildRightToolForTheJob()
     {
         return FeatureDefinitionPointPoolBuilder
             .Create("PointPoolInventorRightToolForTheJob")
@@ -550,7 +550,7 @@ internal static class InventorClass
         return castSpellsInventor;
     }
 
-    private static FeatureDefinition BuildRitualCasting()
+    private static FeatureDefinitionFeatureSet BuildRitualCasting()
     {
         return FeatureDefinitionFeatureSetBuilder.Create("FeatureSetInventorRituals")
             .SetGuiPresentationNoContent(true)
@@ -637,7 +637,7 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildMagicAdept()
+    private static FeatureDefinitionCraftingAffinity BuildMagicAdept()
     {
         return FeatureDefinitionCraftingAffinityBuilder
             .Create("CraftingAffinityInventorMagicItemAdept")
@@ -654,7 +654,7 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildMagicItemSavant()
+    private static FeatureDefinitionMagicAffinity BuildMagicItemSavant()
     {
         return FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityInventorMagicItemSavant")
@@ -698,7 +698,7 @@ internal static class InventorClass
         Class.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
-    private static FeatureDefinition BuildSpellStoringItem()
+    private static FeatureDefinitionPower BuildSpellStoringItem()
     {
         var spells = SpellsContext.Spells
             .Where(x => x.SpellLevel is 1 or 2 && x.castingTime == ActivationTime.Action);
@@ -792,7 +792,7 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildFlashOfGenius()
+    private static FeatureDefinitionFeatureSet BuildFlashOfGenius()
     {
         const string TEXT = "PowerInventorFlashOfGenius";
         var sprite = Sprites.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
@@ -945,7 +945,8 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
         reactionParams.RulesetEffect.Terminate(true);
     }
 
-    private static int GetBonus(RulesetEntity helper)
+    // ReSharper disable once SuggestBaseTypeForParameter
+    private static int GetBonus(RulesetActor helper)
     {
         var intelligence = helper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
 

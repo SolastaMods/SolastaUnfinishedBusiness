@@ -19,7 +19,8 @@ internal static class CustomizedSubFeatureDefinitions
     }
 
     [CanBeNull]
-    private static IEnumerable<object> GetForKey([NotNull] BaseDefinition definition)
+    // ReSharper disable once ReturnTypeCanBeEnumerable.Local
+    private static List<object> GetForKey([NotNull] BaseDefinition definition)
     {
         return !CustomSubFeatures.ContainsKey(definition) ? null : CustomSubFeatures[definition];
     }

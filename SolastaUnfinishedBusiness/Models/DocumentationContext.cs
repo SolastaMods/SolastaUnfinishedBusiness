@@ -455,7 +455,8 @@ internal static class DocumentationContext
         return outString.ToString();
     }
 
-    private static string GetMonsterFeatureBlock(BaseDefinition featureDefinition)
+    // ReSharper disable once SuggestBaseTypeForParameter
+    private static string GetMonsterFeatureBlock(FeatureDefinition featureDefinition)
     {
         var outString = new StringBuilder();
 

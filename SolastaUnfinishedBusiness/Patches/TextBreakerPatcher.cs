@@ -117,7 +117,8 @@ public static class TextBreakerPatcher
             }
         }
 
-        private static IEnumerable<string> SplitText(string textLine)
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
+        private static List<string> SplitText(string textLine)
         {
             var texts = textLine.Split(' ');
             var fragments = new List<string>();

@@ -98,7 +98,8 @@ internal static class Level20Context
     }
 
     [NotNull]
-    private static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    // ReSharper disable once SuggestBaseTypeForParameter
+    private static List<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
         var code = new List<CodeInstruction>(instructions);
 
@@ -590,7 +591,7 @@ internal static class Level20Context
     // HELPERS
     //
 
-    private static FeatureDefinition BuildWizardSpellMastery()
+    private static FeatureDefinitionGrantInvocations BuildWizardSpellMastery()
     {
         const string SPELL_MASTERY = "SpellMastery";
 
@@ -642,7 +643,7 @@ internal static class Level20Context
         return grantInvocationsSpellMastery;
     }
 
-    private static FeatureDefinition BuildWizardSignatureSpells()
+    private static FeatureDefinitionCustomInvocationPool BuildWizardSignatureSpells()
     {
         const string SIGNATURE_SPELLS = "SignatureSpells";
 

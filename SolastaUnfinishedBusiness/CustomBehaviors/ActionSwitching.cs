@@ -312,7 +312,8 @@ public static class ActionSwitching
         return true;
     }
 
-    private static List<int> LoadIndexes(IReadOnlyDictionary<string, int> map, ActionDefinitions.ActionType type,
+    // ReSharper disable once SuggestBaseTypeForParameter
+    private static List<int> LoadIndexes(Dictionary<string, int> map, ActionDefinitions.ActionType type,
         int max)
     {
         var list = new List<int>();

@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -183,7 +184,7 @@ internal static class MeleeCombatFeats
 
     #region Reckless Attack
 
-    private static FeatDefinition BuildRecklessAttack()
+    private static FeatDefinitionWithPrerequisites BuildRecklessAttack()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatRecklessAttack")
@@ -370,7 +371,7 @@ internal static class MeleeCombatFeats
 
     #region Longsword Finesse
 
-    private static FeatDefinition BuildLongswordFinesse()
+    private static FeatDefinitionWithPrerequisites BuildLongswordFinesse()
     {
         const string Name = "FeatLongswordFinesse";
 

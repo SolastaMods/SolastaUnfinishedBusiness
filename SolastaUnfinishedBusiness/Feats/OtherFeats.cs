@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomBuilders;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -127,7 +128,7 @@ internal static class OtherFeats
 
     #region Arcane Archer Adept
 
-    private static FeatDefinition BuildArcaneArcherAdept()
+    private static FeatDefinitionWithPrerequisites BuildArcaneArcherAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatArcaneArcherAdept")
@@ -145,7 +146,7 @@ internal static class OtherFeats
 
     #region Eldritch Adept
 
-    private static FeatDefinition BuildEldritchAdept()
+    private static FeatDefinitionWithPrerequisites BuildEldritchAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(FeatEldritchAdept)
@@ -186,7 +187,7 @@ internal static class OtherFeats
 
     #region Tactician Adept
 
-    private static FeatDefinition BuildTacticianAdept()
+    private static FeatDefinitionWithPrerequisites BuildTacticianAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatTacticianAdept")
@@ -203,7 +204,7 @@ internal static class OtherFeats
 
     #region Infusions Adept
 
-    private static FeatDefinition BuildInfusionsAdept()
+    private static FeatDefinitionWithPrerequisites BuildInfusionsAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatInfusionsAdept")
@@ -398,7 +399,7 @@ internal static class OtherFeats
 
     #region Metamagic Adept
 
-    private static FeatDefinition BuildMetamagicAdept()
+    private static FeatDefinitionWithPrerequisites BuildMetamagicAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatMetamagicAdept")

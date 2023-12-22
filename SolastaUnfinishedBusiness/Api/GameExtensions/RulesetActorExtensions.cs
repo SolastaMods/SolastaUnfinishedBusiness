@@ -51,7 +51,8 @@ internal static class RulesetActorExtensions
     }
 
     [NotNull]
-    private static IEnumerable<BaseDefinition> AllActiveDefinitions([CanBeNull] RulesetActor actor)
+    // ReSharper disable once ReturnTypeCanBeEnumerable.Local
+    private static List<BaseDefinition> AllActiveDefinitions([CanBeNull] RulesetActor actor)
     {
         var list = FeaturesByType<BaseDefinition>(actor);
 
