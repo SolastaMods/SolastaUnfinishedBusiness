@@ -931,19 +931,19 @@ internal static class InvocationsBuilders
     }
 
     /*
-     
+
     Celestial Blessing
 
         Prerequisites: Celestial Subclass, 9th level
 
-        You can cast Bless as a 1st level spell at will without maintaining concentration. You can use this feature a number of times equal to your charisma modifier. You regain any extended uses after completing a long rest. 
+        You can cast Bless as a 1st level spell at will without maintaining concentration. You can use this feature a number of times equal to your charisma modifier. You regain any extended uses after completing a long rest.
 
     Ally of Nature
 
         Prerequisite: 9th level
 
         You can cast awaken once using a warlock spell slot. You can't do so again until you finish a long rest.
-         
+
     Witching Blade
 
         Prerequisite: Pact of the Blade

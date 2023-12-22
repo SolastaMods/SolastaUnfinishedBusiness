@@ -50,8 +50,8 @@ public static class ActionSwitching
         // extra null checks required as some custom campaigns NPCs might produce a null here
         foreach (var feature in parentList
                      .Where(feature =>
-                         feature != null && feature.AllowsDuplicate ||
-                         features != null && features.All(x => x.feature != feature)))
+                         (feature != null && feature.AllowsDuplicate) ||
+                         (features != null && features.All(x => x.feature != feature))))
         {
             switch (feature)
             {

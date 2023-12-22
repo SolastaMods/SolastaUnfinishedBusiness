@@ -350,7 +350,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
             };
 
             effectDescription.EffectForms.FirstOrDefault(x => x.FormType == EffectForm.EffectFormType.Summon)!
-                .SummonForm.effectProxyDefinitionName = $"ProxyPactWeapon{dice}";
+                    .SummonForm.effectProxyDefinitionName = $"ProxyPactWeapon{dice}";
 
             return effectDescription;
         }

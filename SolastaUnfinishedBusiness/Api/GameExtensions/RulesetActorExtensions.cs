@@ -189,12 +189,12 @@ internal static class RulesetActorExtensions
                && !character.HasConditionOfType(ConditionLevitate);
         /*
          * For future use, when can allow flying wildshape to temporarily walk
-         * 
+         *
         || (actor.HasConditionOfType(RuleDefinitions.ConditionWildShapeSubstituteForm)
                 && actor is RulesetCharacterMonster monster
                 && monster.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly)
                 && !actor.HasConditionOfType("ConditionFlightSuspended")
-        
+
         );*/
     }
 

@@ -22,11 +22,11 @@ internal static partial class UI
 //    public static Vector2[] ummScrollPosition;
 
     /*** UI Builders
-     * 
-     * This is a simple UI framework that simulates the style of SwiftUI.  
-     * 
+     *
+     * This is a simple UI framework that simulates the style of SwiftUI.
+     *
      * Usage - these are intended to be called from any OnGUI render path used in your mod
-     * 
+     *
      * Elements will be defined like this
             UI.Section("Cheap Tricks", () =>
             {

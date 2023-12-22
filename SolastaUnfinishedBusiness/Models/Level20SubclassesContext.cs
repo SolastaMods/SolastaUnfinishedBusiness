@@ -163,9 +163,9 @@ internal static class Level20SubclassesContext
         //
 
         /*
-        
+
         Cleric of Law: Executioner - Whenever you break an enemies concentration, they must make a WIS saving throw, or take psychic damage equal to your cleric level.
-        
+
         */
 
         //

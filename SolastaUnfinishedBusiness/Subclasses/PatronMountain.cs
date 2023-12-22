@@ -148,7 +148,7 @@ public class PatronMountain : AbstractSubclass
             .AddToDB();
 
         powerBarrierOfStone.AddCustomSubFeatures(new AttackBeforeHitConfirmedOnMeBarrierOfStone(
-                powerBarrierOfStone, powerEternalGuardian, conditionBarrierOfStone));
+            powerBarrierOfStone, powerEternalGuardian, conditionBarrierOfStone));
 
         // LEVEL 10
 
