@@ -1032,10 +1032,13 @@ internal static class GambitsBuilders
                 .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
                 .Max(x => x.AttacksNumber);
 
-            if (maxAttacksNumber - actingCharacter.UsedMainAttacks <= 0)
+            if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
             {
-                actingCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
+                yield break;
             }
+
+            actingCharacter.currentActionRankByType[ActionDefinitions.ActionType.Main]++;
+            actingCharacter.UsedMainAttacks = 0;
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
