@@ -29,8 +29,8 @@ internal enum ExtraSituationalContext
     TargetIsFavoriteEnemy = 1013,
     HasShieldInHands = 1014,
     TargetDoesNotHaveCondition = 1015,
-    SourceDoesNotHaveCondition = 1016,
-    HasSimpleOrMartialWeaponInHands = 1017
+    HasSimpleOrMartialWeaponInHands = 1016,
+    IsNotSourceOfCondition = 1017
 }
 
 internal enum ExtraCombatAffinityValueDetermination
