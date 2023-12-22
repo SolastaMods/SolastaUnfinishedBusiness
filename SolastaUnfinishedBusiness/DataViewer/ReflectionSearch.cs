@@ -158,13 +158,9 @@ internal class ReflectionSearch : MonoBehaviour
 
             if (instanceID is { } instID)
             {
-                if (VisitedInstanceIDs.Contains(instID))
+                if (!VisitedInstanceIDs.Add(instID))
                 {
                     alreadyVisited = true;
-                }
-                else
-                {
-                    VisitedInstanceIDs.Add(instID);
                 }
             }
 

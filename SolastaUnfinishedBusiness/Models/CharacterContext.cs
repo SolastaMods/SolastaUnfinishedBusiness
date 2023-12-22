@@ -323,7 +323,7 @@ internal static class CharacterContext
 
         foreach (var line in lines)
         {
-            var columns = line.Split(new[] { '\t' }, 3);
+            var columns = line.Split(Separator, 3);
 
             if (columns.Length != 3)
             {
@@ -1509,6 +1509,7 @@ internal static class CharacterContext
     private static ConditionDefinition _conditionReduceSneakDice;
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
     private static FeatureDefinitionFeatureSet _featureSetRogueDeviousStrike;
+    private static readonly char[] Separator = { '\t' };
 
     private static void BuildRogueCunningStrike()
     {

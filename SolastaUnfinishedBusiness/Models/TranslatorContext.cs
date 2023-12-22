@@ -47,6 +47,8 @@ internal static class TranslatorContext
 
     private static readonly Regex RegexHasCJK = new(@"\p{IsCJKUnifiedIdeographs}", RegexOptions.Compiled);
 
+    private static readonly char[] Separator = { '=' };
+
     /// <summary>
     ///     Maps unofficial language codes to official language codes.
     /// </summary>
@@ -210,7 +212,7 @@ internal static class TranslatorContext
 
                     try
                     {
-                        var split = line.Split(new[] { '=' }, 2);
+                        var split = line.Split(Separator, 2);
                         var term = split[0];
                         var text = split[1];
 
@@ -340,7 +342,7 @@ internal static class TranslatorContext
         {
             try
             {
-                var columns = line.Split(new[] { '=' }, 2);
+                var columns = line.Split(Separator, 2);
 
                 words.Add(columns[0], columns[1]);
             }
@@ -400,7 +402,7 @@ internal static class TranslatorContext
                 continue;
             }
 
-            var split = line.Split(new[] { '=' }, 2);
+            var split = line.Split(Separator, 2);
 
             if (split.Length != 2)
             {
@@ -494,7 +496,7 @@ internal static class TranslatorContext
 
         var termsToAdd = englishTerms.Keys.Except(currentLanguageTerms.Keys).ToList();
 
-        if (termsToAdd.Any())
+        if (termsToAdd.Count != 0)
         {
             Main.Info("ADD THESE TERMS:");
 

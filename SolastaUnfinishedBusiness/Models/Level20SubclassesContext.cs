@@ -1325,7 +1325,7 @@ internal static class Level20SubclassesContext
                 gameLocationBattleService.Battle?.AllContenders ??
                 ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
 
-            if (contenders.Any())
+            if (contenders.Count != 0)
             {
                 rulesetAlly.LogCharacterUsedFeature(_featureKeeperOfOblivion);
             }

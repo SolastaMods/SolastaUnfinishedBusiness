@@ -16,6 +16,8 @@ internal static class DmProRendererContext
     private const int FlatRoomSize = 12;
     private const string FlatRoomTag = "Flat";
 
+    private static readonly char[] Separator = { '~' };
+
     private static VegetationMaskArea TemplateVegetationMaskArea { get; set; }
 
     private static bool IsFlatRoom([NotNull] UserRoom userRoom)
@@ -265,7 +267,7 @@ internal static class DmProRendererContext
         }
 
         //PATCH: ensures custom props display the proper icon (DMP)
-        var a = propBlueprint.Name.Split(new[] { '~' }, 3);
+        var a = propBlueprint.Name.Split(Separator, 3);
 
         if (a.Length != 3)
         {

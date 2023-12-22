@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -13,6 +12,9 @@ public static class AttributeDefinitionsPatcher
     [UsedImplicitly]
     public static class ComputeCostToRaiseAbility_Patch
     {
+        private static readonly int[] Array = { 15, 16 };
+        private static readonly int[] Array0 = { 17, 18 };
+
         [UsedImplicitly]
         public static void Postfix(int previousValue, ref int __result)
         {
@@ -22,11 +24,11 @@ public static class AttributeDefinitionsPatcher
                 return;
             }
 
-            if (Array.IndexOf(new[] { 15, 16 }, previousValue) != -1)
+            if (System.Array.IndexOf(Array, previousValue) != -1)
             {
                 __result = 3;
             }
-            else if (Array.IndexOf(new[] { 17, 18 }, previousValue) != -1)
+            else if (System.Array.IndexOf(Array0, previousValue) != -1)
             {
                 __result = 4;
             }

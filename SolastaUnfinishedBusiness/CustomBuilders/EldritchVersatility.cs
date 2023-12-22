@@ -296,6 +296,8 @@ internal static class EldritchVersatility
     internal class VersatilitySupportRulesetCondition :
         RulesetConditionCustom<VersatilitySupportRulesetCondition>, IBindToRulesetConditionCustom
     {
+        private static readonly int[] ProficiencyIncreaseLevels = { 1, 5, 11, 17 };
+
         static VersatilitySupportRulesetCondition()
         {
             Category = "EldritchVersatility";
@@ -431,7 +433,7 @@ internal static class EldritchVersatility
             }
             else
             {
-                BeamNumber = new[] { 1, 5, 11, 17 }.Count(x => characterLevel >= x);
+                BeamNumber = ProficiencyIncreaseLevels.Count(x => characterLevel >= x);
             }
 
             if (ownerHero.TrainedFeats.Contains(FeatEldritchVersatilityAdept))

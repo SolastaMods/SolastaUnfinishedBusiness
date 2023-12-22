@@ -42,6 +42,8 @@ internal static class InventorClass
             RechargeRate.LongRest)
         .AddToDB();
 
+    private static readonly int[] Costs = { 0, 0, 0, 0, 0 };
+
     private static FeatureDefinitionCastSpell SpellCasting => _spellCasting ??= BuildSpellCasting();
 
     internal static CharacterClassDefinition Class { get; private set; }
@@ -776,7 +778,7 @@ internal static class InventorClass
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
             .AddCustomSubFeatures(InventorClassHolder.Marker)
-            .SetCosts(new[] { 0, 0, 0, 0, 0 })
+            .SetCosts(Costs)
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
                 .SetChargesCapitalNumber(6) //TODO: try to make this based off Inventor's INT bonus x2

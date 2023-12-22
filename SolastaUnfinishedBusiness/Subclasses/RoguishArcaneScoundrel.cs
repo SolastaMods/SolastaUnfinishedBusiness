@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -386,7 +385,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             // we might need to change this to a proper interface if others start using it
             var hasSneakAttackDieTypeChange = actingCharacter.RulesetCharacter
                 .GetSubFeaturesByType<DamageDieProviderFromCharacter>()
-                .Any();
+                .Count != 0;
 
             if (!hasSneakAttackDieTypeChange)
             {
