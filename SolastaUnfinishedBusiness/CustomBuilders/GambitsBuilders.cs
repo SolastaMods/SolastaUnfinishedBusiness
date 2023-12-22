@@ -677,6 +677,12 @@ internal static class GambitsBuilders
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{name}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -700,18 +706,14 @@ internal static class GambitsBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create($"Condition{name}")
-                                    .SetGuiPresentationNoContent(true)
-                                    .AddCustomSubFeatures(new ApplyConditionDependingOnSide(good, bad, self))
-                                    .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(SpellDefinitions.Haste)
                     .Build())
             .AddToDB();
+
+        condition.AddCustomSubFeatures(new ApplyConditionDependingOnSide(power, good, bad, self));
 
         power.AddCustomSubFeatures(
             PowerFromInvocation.Marker,
@@ -1030,9 +1032,7 @@ internal static class GambitsBuilders
                 .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
                 .Max(x => x.AttacksNumber);
 
-            if (maxAttacksNumber - actingCharacter.UsedMainAttacks <= 0 &&
-                actingCharacter.GetActionStatus(ActionDefinitions.Id.AttackMain,
-                    ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available)
+            if (maxAttacksNumber - actingCharacter.UsedMainAttacks <= 0)
             {
                 actingCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
             }
@@ -1272,12 +1272,15 @@ internal static class GambitsBuilders
     private sealed class ApplyConditionDependingOnSide : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _good, _bad, _self;
+        private readonly FeatureDefinitionPower _power;
 
         public ApplyConditionDependingOnSide(
+            FeatureDefinitionPower power,
             ConditionDefinition good,
             ConditionDefinition bad,
             ConditionDefinition self)
         {
+            _power = power;
             _good = good;
             _bad = bad;
             _self = self;
@@ -1329,18 +1332,10 @@ internal static class GambitsBuilders
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
             caster.ShowDieRoll(dieType, dieRoll, title: _good.GuiPresentation.Title);
-
-            var console = Gui.Game.GameConsole;
-            var entry = new GameConsoleEntry("Feedback/&GambitSwitchACIncrease", console.consoleTableDefinition)
-            {
-                Indent = true
-            };
-
-            console.AddCharacterEntry(caster, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType));
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, target.Name);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString());
-            console.AddEntry(entry);
+            caster.LogCharacterUsedPower(_power, "Feedback/&GambitSwitchACIncrease", true,
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                (ConsoleStyleDuplet.ParameterType.Player, target.Name),
+                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
 
             target.InflictCondition(
                 _good.Name,
