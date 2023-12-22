@@ -35,7 +35,7 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
             .Where(attackMode => attackMode.ActionType == ACTION_TYPE)
             .Max(attackMode => attackMode.AttacksNumber);
 
-        return maxAttacksNumber - character.ExecutedAttacks > 0;
+        return maxAttacksNumber - character.UsedMainAttacks > 0;
     });
 
     private readonly IsPowerUseValidHandler[] _validators;
