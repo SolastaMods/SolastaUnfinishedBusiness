@@ -1148,7 +1148,7 @@ You gain four D8 dice called Gambit Die that you can spend to use various gambit
 
 * Gambits
 
-Learn 3 gambits - special maneuvers that use Gambit Die and usually add roll of the Gambit Die to the attack's damage. Some of the gambits allow target to make saving throw to avoid effects, DC of those gambits is 8 + your proficiency bonus + your Strength or Dexterity modifier, whichever is higher.
+You learn three special maneuvers called gambits. Using a gambit costs one Gambit Die. Most gambits enhance your attacks in a way and add the Gambit Die's roll to the attack's damage. Some of your gambits require your target to make a saving throw to avoid its detrimental effects. The DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher. 
 
 * Sharp Mind
 
@@ -1169,12 +1169,20 @@ Learn 2 more gambits.
 
 Gain expertise with a skill or tool of your choice.
 
+* Replace Gambit
+
+You can replace one gambit you know with a new one.
+
 
 ### Level 10
 
 * Gambit Die Size (d10)
 
 Your Gambit Die is upgraded to D10.
+
+* Replace Gambit
+
+You can replace one gambit you know with a new one.
 
 * Select Strategic Plan
 
@@ -1195,12 +1203,20 @@ Learn 2 more gambits.
 
 Gain proficiency with a saving throw of your choice.
 
+* Replace Gambit
+
+You can replace one gambit you know with a new one.
+
 
 ### Level 18
 
 * Gambit Die Size (d12)
 
 Your Gambit Die is upgraded to D12.
+
+* Replace Gambit
+
+You can replace one gambit you know with a new one.
 
 * Tactical Awareness
 
