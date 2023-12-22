@@ -259,19 +259,6 @@ internal static class InventoryManagementContext
     {
         var sortOrder = BySortGroup.Inverted ? -1 : 1;
 
-        int SortByName([NotNull] RulesetItem a, [NotNull] RulesetItem b)
-        {
-            var at = Gui.Localize(a.ItemDefinition.GuiPresentation.Title);
-            var bt = Gui.Localize(b.ItemDefinition.GuiPresentation.Title);
-
-            if (at == bt)
-            {
-                return sortOrder * (a.StackCount - b.StackCount);
-            }
-
-            return sortOrder * String.Compare(at, bt, StringComparison.CurrentCultureIgnoreCase);
-        }
-
         switch (SortGuiDropdown.value)
         {
             case 0: // Name
@@ -352,6 +339,21 @@ internal static class InventoryManagementContext
                 });
 
                 break;
+        }
+
+        return;
+
+        int SortByName([NotNull] RulesetItem a, [NotNull] RulesetItem b)
+        {
+            var at = Gui.Localize(a.ItemDefinition.GuiPresentation.Title);
+            var bt = Gui.Localize(b.ItemDefinition.GuiPresentation.Title);
+
+            if (at == bt)
+            {
+                return sortOrder * (a.StackCount - b.StackCount);
+            }
+
+            return sortOrder * String.Compare(at, bt, StringComparison.CurrentCultureIgnoreCase);
         }
     }
 

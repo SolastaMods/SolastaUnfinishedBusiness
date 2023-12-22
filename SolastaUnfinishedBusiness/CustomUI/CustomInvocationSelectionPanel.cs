@@ -474,7 +474,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         {
             var poolId = new PoolId(featureSet.PoolType.Name, poolTag, featureSet.IsUnlearn);
 
-            if (!tags.ContainsKey(poolId))
+            if (!tags.TryGetValue(poolId, out var value))
             {
                 var pool = new FeaturePool(poolId) { Max = featureSet.Points, Used = 0, Type = featureSet.PoolType };
 
@@ -483,7 +483,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             }
             else
             {
-                tags[poolId].Max += featureSet.Points;
+                value.Max += featureSet.Points;
             }
         }
 
@@ -1151,8 +1151,10 @@ internal static class SpellsByLevelGroupExtensions
     private static void RefreshLearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         InvocationPoolTypeCustom pool,
-        ICollection<InvocationDefinitionCustom> learned,
-        ICollection<InvocationDefinitionCustom> unlearnedFeatures,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        List<InvocationDefinitionCustom> learned,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        List<InvocationDefinitionCustom> unlearnedFeatures,
         bool canAcquireFeatures)
     {
         foreach (Transform transform in instance.spellsTable)
@@ -1188,7 +1190,8 @@ internal static class SpellsByLevelGroupExtensions
     private static void RefreshUnlearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         InvocationPoolTypeCustom pool,
-        ICollection<InvocationDefinitionCustom> unlearnedSpells,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        List<InvocationDefinitionCustom> unlearnedSpells,
         bool canUnlearnInvocations)
     {
         foreach (Transform transform in instance.spellsTable)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static RuleDefinitions;
@@ -41,7 +40,7 @@ internal class SpellDefinitionBuilder : DefinitionBuilder<SpellDefinition, Spell
     {
         Definition.spellsBundle = true;
         Definition.SubspellsList.SetRange(subspells);
-        Definition.spellsBundle = subspells.Any();
+        Definition.spellsBundle = subspells.Length != 0;
         return this;
     }
 

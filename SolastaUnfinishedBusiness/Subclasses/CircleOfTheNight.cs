@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -143,7 +144,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => null;
 
-    private static FeatureDefinitionPower BuildWildShapePower()
+    private static FeatureDefinitionPowerSharedPool BuildWildShapePower()
     {
         const string NAME = "PowerCircleOfTheNightWildShapeCombat";
 

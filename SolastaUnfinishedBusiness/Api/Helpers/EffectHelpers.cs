@@ -103,8 +103,9 @@ internal static class EffectHelpers
                 break;
             case RuleDefinitions.EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency:
                 break;
+            // ReSharper disable once RedundantEmptySwitchSection
             default:
-                throw new ArgumentException("effectDescription.DifficultyClassComputation");
+                break;
         }
 
         return def;

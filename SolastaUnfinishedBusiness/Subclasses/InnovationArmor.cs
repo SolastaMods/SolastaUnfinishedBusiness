@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -25,6 +26,7 @@ public sealed class InnovationArmor : AbstractSubclass
     private const string GuardianMarkerName = "ConditionInnovationArmorGuardianMode";
     private const string InfiltratorMarkerName = "ConditionInnovationArmorInfiltratorMode";
 
+    // ReSharper disable once ConvertConstructorToMemberInitializers
     public InnovationArmor()
     {
         Subclass = CharacterSubclassDefinitionBuilder
@@ -44,7 +46,7 @@ public sealed class InnovationArmor : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinition BuildArmoredUp()
+    private static FeatureDefinitionFeatureSet BuildArmoredUp()
     {
         var proficiency = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyInnovationArmorArmoredUp")
@@ -65,7 +67,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildAutoPreparedSpells()
+    private static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells()
     {
         return FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsInnovationArmor")
@@ -80,7 +82,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildArmorModes()
+    private static FeatureDefinitionFeatureSet BuildArmorModes()
     {
         var pool = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorModeSelectorPool")
@@ -196,7 +198,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildArmorModification()
+    private static FeatureDefinitionPowerUseModifier BuildArmorModification()
     {
         return FeatureDefinitionPowerUseModifierBuilder
             .Create("PowerUseModifierInventorInfusionPoolArmorModification")
@@ -206,7 +208,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildPerfectedArmor()
+    private static FeatureDefinitionFeatureSet BuildPerfectedArmor()
     {
         var guardian = FeatureDefinitionPowerBuilder
             .Create("PowerInventorArmorerPerfectedArmorGuardian")

@@ -96,7 +96,7 @@ internal static class RaceOligathBuilder
         return raceOligath;
     }
 
-    private static FeatureDefinition BuildPowerOligathStoneEndurance()
+    private static FeatureDefinitionPower BuildPowerOligathStoneEndurance()
     {
         var powerOligathStoneEndurance = FeatureDefinitionPowerBuilder
             .Create("PowerOligathStoneEndurance")

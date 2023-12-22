@@ -207,12 +207,6 @@ internal static class RulesetCharacterExtensions
         SpellDefinition cantrip,
         [CanBeNull] out RulesetSpellRepertoire spellRepertoire)
     {
-        bool Matches(SpellDefinition knownCantrip)
-        {
-            return knownCantrip == cantrip ||
-                   (knownCantrip.SpellsBundle && knownCantrip.SubspellsList.Contains(cantrip));
-        }
-
         spellRepertoire = null;
 
         foreach (var repertoire in character.spellRepertoires.Where(repertoire => repertoire.KnownCantrips.Any(Matches)
@@ -224,6 +218,12 @@ internal static class RulesetCharacterExtensions
         }
 
         return false;
+
+        bool Matches(SpellDefinition knownCantrip)
+        {
+            return knownCantrip == cantrip ||
+                   (knownCantrip.SpellsBundle && knownCantrip.SubspellsList.Contains(cantrip));
+        }
     }
 
 #if false

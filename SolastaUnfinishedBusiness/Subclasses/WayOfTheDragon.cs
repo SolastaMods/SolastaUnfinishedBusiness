@@ -193,7 +193,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         return FeatureSetPathOfTheDragonDisciple;
     }
 
-    private static FeatureDefinition BuildDragonFeatureSet()
+    private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
     {
         var diceByLevelTable = new List<DiceByRank>
         {

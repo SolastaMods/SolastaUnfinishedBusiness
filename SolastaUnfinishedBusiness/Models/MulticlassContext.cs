@@ -466,7 +466,7 @@ internal static class MulticlassContext
     }
 
     // support class filtered feature unlocks
-    private static IEnumerable<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(
+    private static List<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(
         CharacterClassDefinition characterClassDefinition, [NotNull] RulesetCharacterHero rulesetCharacterHero)
     {
         var firstClass = rulesetCharacterHero.ClassesHistory[0];

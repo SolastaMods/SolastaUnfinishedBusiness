@@ -86,7 +86,8 @@ internal static class ObjectExtensions
     private static void CopyFields(
         object originalObject, IDictionary<object, object> visited,
         object cloneObject,
-        [NotNull] IReflect typeToReflect,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        [NotNull] Type typeToReflect,
         BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public |
                                     BindingFlags.FlattenHierarchy, [CanBeNull] Func<FieldInfo, bool> filter = null)
     {

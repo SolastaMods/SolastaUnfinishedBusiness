@@ -47,12 +47,14 @@ internal static class ItemPropertyDescriptionsContext
     }
 #endif
 
-    private static FeatureDefinition BuildAttackVFXFromSpell([NotNull] SpellDefinition spell)
+    private static FeatureDefinitionAttackModifier BuildAttackVFXFromSpell([NotNull] SpellDefinition spell)
     {
         return BuildAttackVFXFromEffect($"AttackImpact{spell.Name}SpellVFX", spell.EffectDescription);
     }
 
-    private static FeatureDefinition BuildAttackVFXFromEffect(string name, [NotNull] EffectDescription effect)
+    private static FeatureDefinitionAttackModifier BuildAttackVFXFromEffect(
+        string name,
+        [NotNull] EffectDescription effect)
     {
         return FeatureDefinitionAttackModifierBuilder
             .Create(name)

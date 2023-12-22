@@ -50,7 +50,7 @@ public sealed class InnovationWeapon : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinition BuildBattleReady()
+    private static FeatureDefinitionProficiency BuildBattleReady()
     {
         return FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyInnovationWeaponBattleReady")
@@ -61,7 +61,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildAutoPreparedSpells()
+    private static FeatureDefinitionAutoPreparedSpells BuildAutoPreparedSpells()
     {
         return FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsInnovationWeapon")
@@ -76,7 +76,8 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildSteelDefenderFeatureSet(out FeatureDefinitionPower steelDefenderPower,
+    private static FeatureDefinitionFeatureSet BuildSteelDefenderFeatureSet(
+        out FeatureDefinitionPower steelDefenderPower,
         out MonsterDefinition monsterDefinition)
     {
         steelDefenderPower = BuildSteelDefenderPower(out monsterDefinition);
@@ -93,7 +94,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildSteelDefenderShortRestRecovery()
+    private static FeatureDefinitionPower BuildSteelDefenderShortRestRecovery()
     {
         const string NAME = "PowerInnovationWeaponSteelDefenderRecuperate";
 
@@ -198,7 +199,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildAdvancedSteelDefenderPower(
+    private static FeatureDefinitionPower BuildAdvancedSteelDefenderPower(
         FeatureDefinitionPower overridenPower,
         MonsterDefinition steelDefenderMonster)
     {
@@ -230,7 +231,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildSteelDefenderAffinity()
+    private static FeatureDefinitionSummoningAffinity BuildSteelDefenderAffinity()
     {
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierInnovationWeaponSummonSteelDefenderHP")
@@ -432,7 +433,7 @@ public sealed class InnovationWeapon : AbstractSubclass
         return monster;
     }
 
-    private static FeatureDefinition BuildCommandSteelDefender()
+    private static FeatureDefinitionPower BuildCommandSteelDefender()
     {
         var condition = ConditionDefinitionBuilder
             .Create(CommandSteelDefenderCondition)
@@ -463,7 +464,7 @@ public sealed class InnovationWeapon : AbstractSubclass
         return power;
     }
 
-    private static FeatureDefinition BuildArcaneJolt()
+    private static FeatureDefinitionPower BuildArcaneJolt()
     {
         //TODO: make Steel defender able to trigger this power
         //TODO: bonus points if we manage to add healing part of this ability
@@ -491,7 +492,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildImprovedDefenderFeatureSet(
+    private static FeatureDefinitionFeatureSet BuildImprovedDefenderFeatureSet(
         FeatureDefinitionPower steelDefenderPower,
         MonsterDefinition steelDefenderMonster)
     {

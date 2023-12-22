@@ -328,16 +328,10 @@ internal static class PowerBundle
         BaseDefinition metamagic,
         EffectDescription effect)
     {
-        Dictionary<string, EffectDescription> effects;
-
-        if (!SpellEffectCache.ContainsKey(caster.Guid))
+        if (!SpellEffectCache.TryGetValue(caster.Guid, out var effects))
         {
             effects = new Dictionary<string, EffectDescription>();
             SpellEffectCache.Add(caster.Guid, effects);
-        }
-        else
-        {
-            effects = SpellEffectCache[caster.Guid];
         }
 
         effects.AddOrReplace(Key(definition, metamagic), effect);
@@ -548,9 +542,7 @@ internal static class PowerBundle
     // This method fixes that
     internal static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
     {
-        var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
-
-        if (activePower is not { OriginItem: null })
+        if (action.ActionParams.RulesetEffect is not RulesetEffectPower { OriginItem: null } activePower)
         {
             return;
         }

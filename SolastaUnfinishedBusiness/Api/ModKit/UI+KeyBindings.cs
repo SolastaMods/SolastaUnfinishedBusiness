@@ -50,7 +50,7 @@ internal static partial class UI
             }
 
             var enumerable = conflicts as string[] ?? conflicts.ToArray();
-            if (enumerable.Any())
+            if (enumerable.Length != 0)
             {
                 Label("conflicts".Orange().Bold() + "\n" + string.Join("\n", enumerable));
             }

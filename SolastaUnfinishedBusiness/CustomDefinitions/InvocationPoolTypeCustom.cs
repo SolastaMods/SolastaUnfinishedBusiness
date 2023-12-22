@@ -150,16 +150,14 @@ internal class InvocationPoolTypeCustom
 
     private List<InvocationDefinitionCustom> GetOrMakeLevelFeatures(int level)
     {
-        List<InvocationDefinitionCustom> levelFeatures;
-        if (!_privateFeaturesByLevel.ContainsKey(level))
+        if (_privateFeaturesByLevel.TryGetValue(level, out var levelFeatures))
         {
-            levelFeatures = new List<InvocationDefinitionCustom>();
-            _privateFeaturesByLevel.Add(level, levelFeatures);
+            return levelFeatures;
         }
-        else
-        {
-            levelFeatures = _privateFeaturesByLevel[level];
-        }
+
+        levelFeatures = new List<InvocationDefinitionCustom>();
+
+        _privateFeaturesByLevel.Add(level, levelFeatures);
 
         return levelFeatures;
     }

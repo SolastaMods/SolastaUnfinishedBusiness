@@ -47,6 +47,8 @@ internal static class TranslatorContext
 
     private static readonly Regex RegexHasCJK = new(@"\p{IsCJKUnifiedIdeographs}", RegexOptions.Compiled);
 
+    private static readonly char[] Separator = { '=' };
+
     /// <summary>
     ///     Maps unofficial language codes to official language codes.
     /// </summary>
@@ -210,7 +212,7 @@ internal static class TranslatorContext
 
                     try
                     {
-                        var split = line.Split(new[] { '=' }, 2);
+                        var split = line.Split(Separator, 2);
                         var term = split[0];
                         var text = split[1];
 
@@ -340,7 +342,7 @@ internal static class TranslatorContext
         {
             try
             {
-                var columns = line.Split(new[] { '=' }, 2);
+                var columns = line.Split(Separator, 2);
 
                 words.Add(columns[0], columns[1]);
             }
@@ -400,7 +402,7 @@ internal static class TranslatorContext
                 continue;
             }
 
-            var split = line.Split(new[] { '=' }, 2);
+            var split = line.Split(Separator, 2);
 
             if (split.Length != 2)
             {
@@ -436,22 +438,6 @@ internal static class TranslatorContext
 
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
-
-        void AddTerm(string term, string text)
-        {
-            var termData = languageSourceData.GetTermData(term);
-
-            if (termData?.Languages[languageIndex] != null)
-            {
-                // ReSharper disable once InvocationIsSkipped
-                Main.Log($"term {term} overwritten with text {text}");
-                termData.Languages[languageIndex] = text;
-            }
-            else
-            {
-                languageSourceData.AddTerm(term).Languages[languageIndex] = text;
-            }
-        }
 
         // loads mod translations
         // we loop on default EN terms collection as this is the one to be trusted
@@ -494,7 +480,7 @@ internal static class TranslatorContext
 
         var termsToAdd = englishTerms.Keys.Except(currentLanguageTerms.Keys).ToList();
 
-        if (termsToAdd.Any())
+        if (termsToAdd.Count != 0)
         {
             Main.Info("ADD THESE TERMS:");
 
@@ -516,6 +502,24 @@ internal static class TranslatorContext
         foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
         {
             Main.Info($"{term} must be deleted from {languageCode} translation assets");
+        }
+
+        return;
+
+        void AddTerm(string term, string text)
+        {
+            var termData = languageSourceData.GetTermData(term);
+
+            if (termData?.Languages[languageIndex] != null)
+            {
+                // ReSharper disable once InvocationIsSkipped
+                Main.Log($"term {term} overwritten with text {text}");
+                termData.Languages[languageIndex] = text;
+            }
+            else
+            {
+                languageSourceData.AddTerm(term).Languages[languageIndex] = text;
+            }
         }
     }
 
@@ -551,12 +555,12 @@ internal static class TranslatorContext
 
         internal static void Cancel([NotNull] string exportName)
         {
-            if (!CurrentExports.ContainsKey(exportName) || CurrentExports[exportName].Coroutine == null)
+            if (!CurrentExports.TryGetValue(exportName, out var value) || value.Coroutine == null)
             {
                 return;
             }
 
-            Exporter.StopCoroutine(CurrentExports[exportName].Coroutine);
+            Exporter.StopCoroutine(value.Coroutine);
             CurrentExports.Remove(exportName);
         }
 
@@ -610,14 +614,6 @@ internal static class TranslatorContext
                 userCampaign.UserEncounterTables.Count +
                 userCampaign.userEncounters.Count +
                 userCampaign.campaignMapNodes.Count;
-
-            IEnumerator Update()
-            {
-                current++;
-                CurrentExports[exportName].PercentageComplete = (float)current / total;
-
-                yield return null;
-            }
 
             userCampaign.Description = Translate(userCampaign.Description, languageCode);
             userCampaign.TechnicalInfo = UbTranslationTag + Translate(userCampaign.TechnicalInfo, languageCode);
@@ -837,6 +833,15 @@ internal static class TranslatorContext
             var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
             userCampaignPoolService.SaveUserCampaign(userCampaign);
+            yield break;
+
+            IEnumerator Update()
+            {
+                current++;
+                CurrentExports[exportName].PercentageComplete = (float)current / total;
+
+                yield return null;
+            }
         }
 
         internal sealed class ExportStatus

@@ -455,7 +455,7 @@ internal static class DocumentationContext
         return outString.ToString();
     }
 
-    private static string GetMonsterFeatureBlock(BaseDefinition featureDefinition)
+    private static string GetMonsterFeatureBlock(FeatureDefinition featureDefinition)
     {
         var outString = new StringBuilder();
 

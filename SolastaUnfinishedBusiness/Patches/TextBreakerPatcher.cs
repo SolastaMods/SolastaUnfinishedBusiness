@@ -117,7 +117,8 @@ public static class TextBreakerPatcher
             }
         }
 
-        private static IEnumerable<string> SplitText(string textLine)
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
+        private static List<string> SplitText(string textLine)
         {
             var texts = textLine.Split(' ');
             var fragments = new List<string>();
@@ -226,9 +227,10 @@ public static class TextBreakerPatcher
 
                 fragmentInfo.y = -currentY;
 
-                if (i < textBreaker.fragments.Count - 1 &&
-                    textBreaker.fragments[i + 1].contentValue.IndexOf(',') != 0 &&
-                    fragmentInfo.contentValue.IndexOf('+') != fragmentInfo.contentValue.Length - 1)
+                if ((i < textBreaker.fragments.Count - 1 &&
+                     textBreaker.fragments[i + 1].contentValue.Length == 0) ||
+                    (textBreaker.fragments[i + 1].contentValue[0] != ',' &&
+                     fragmentInfo.contentValue.IndexOf('+') != fragmentInfo.contentValue.Length - 1))
                 {
                     // BEGIN CHANGE
                     if (!TranslatorContext.HasCJKCharQuick(textBreaker.fragments[i].contentValue))
