@@ -253,7 +253,7 @@ public sealed class MartialTactician : AbstractSubclass
     {
         return CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitUnlearn")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 1, true)
             .AddToDB();
     }
