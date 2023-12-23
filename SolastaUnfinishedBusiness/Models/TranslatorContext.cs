@@ -47,8 +47,6 @@ internal static class TranslatorContext
 
     private static readonly Regex RegexHasCJK = new(@"\p{IsCJKUnifiedIdeographs}", RegexOptions.Compiled);
 
-    private static readonly char[] Separator = { '=' };
-
     /// <summary>
     ///     Maps unofficial language codes to official language codes.
     /// </summary>
@@ -198,6 +196,7 @@ internal static class TranslatorContext
             // add terms
             var directoryInfo = new DirectoryInfo(language.Directory);
             var files = directoryInfo.GetFiles("*.txt");
+            var separator = new[] { '=' };
 
             foreach (var file in files)
             {
@@ -212,7 +211,7 @@ internal static class TranslatorContext
 
                     try
                     {
-                        var split = line.Split(Separator, 2);
+                        var split = line.Split(separator, 2);
                         var term = split[0];
                         var text = split[1];
 
@@ -338,11 +337,13 @@ internal static class TranslatorContext
             return words;
         }
 
+        var separator = new[] { '=' };
+
         foreach (var line in File.ReadLines(path))
         {
             try
             {
-                var columns = line.Split(Separator, 2);
+                var columns = line.Split(separator, 2);
 
                 words.Add(columns[0], columns[1]);
             }
@@ -388,6 +389,7 @@ internal static class TranslatorContext
         Func<string, string, bool> validate)
     {
         var result = new Dictionary<string, string>();
+        var separator = new[] { '=' };
 
         if (SourceCodeCache.TryGetValue(languageCode, out var sourceCode))
         {
@@ -402,7 +404,7 @@ internal static class TranslatorContext
                 continue;
             }
 
-            var split = line.Split(Separator, 2);
+            var split = line.Split(separator, 2);
 
             if (split.Length != 2)
             {
