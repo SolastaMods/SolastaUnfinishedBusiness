@@ -891,21 +891,15 @@ internal static class CharacterContext
     {
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
         {
-            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.description =
+            PowerMonkMartialArts.GuiPresentation.description =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
-            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.title =
+            PowerMonkMartialArts.GuiPresentation.title =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle";
-            Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(AttackModifierMonkMartialArtsUnarmedStrikeBonus, 1));
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 1 && x.FeatureDefinition == PowerMonkMartialArts);
         }
         else
         {
-            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.description = string.Empty;
-            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.title = string.Empty;
-            Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerMonkMartialArts, 1));
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 1 && x.FeatureDefinition == AttackModifierMonkMartialArtsUnarmedStrikeBonus);
+            PowerMonkMartialArts.GuiPresentation.description = "Action/&MartialArtsDescription";
+            PowerMonkMartialArts.GuiPresentation.title = "Action/&MartialArtsTitle";
         }
 
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
