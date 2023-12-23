@@ -79,12 +79,13 @@ internal static class ItemRecipeGenerationHelper
                 var craftingManual = RecipeHelper.BuildRecipeManual(newItem, itemData.Recipe.CraftingHours,
                     itemData.Recipe.CraftingDC, ingredients.ToArray());
 
-                if (!RecipeBooks.ContainsKey(baseItem.Name))
+                if (!RecipeBooks.TryGetValue(baseItem.Name, out var value1))
                 {
-                    RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
+                    value1 = new List<ItemDefinition>();
+                    RecipeBooks.Add(baseItem.Name, value1);
                 }
 
-                RecipeBooks[baseItem.Name].Add(craftingManual);
+                value1.Add(craftingManual);
 
                 if (!Main.Settings.CraftingInStore.Contains(baseItem.Name))
                 {

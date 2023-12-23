@@ -120,7 +120,9 @@ internal static class BlueprintDisplay
                 {
                     try
                     {
+#pragma warning disable CA1862
                         return (f.GetValue(bp)?.ToString().ToLower().Contains(searchText) ?? false) !=
+#pragma warning restore CA1862
                                _searchReversed;
                     }
                     catch
@@ -135,7 +137,9 @@ internal static class BlueprintDisplay
                 {
                     try
                     {
+#pragma warning disable CA1862
                         return (p.GetValue(bp)?.ToString().ToLower().Contains(searchText) ?? false) !=
+#pragma warning restore CA1862
                                _searchReversed;
                     }
                     catch

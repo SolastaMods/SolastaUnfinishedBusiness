@@ -555,12 +555,12 @@ internal static class TranslatorContext
 
         internal static void Cancel([NotNull] string exportName)
         {
-            if (!CurrentExports.ContainsKey(exportName) || CurrentExports[exportName].Coroutine == null)
+            if (!CurrentExports.TryGetValue(exportName, out var value) || value.Coroutine == null)
             {
                 return;
             }
 
-            Exporter.StopCoroutine(CurrentExports[exportName].Coroutine);
+            Exporter.StopCoroutine(value.Coroutine);
             CurrentExports.Remove(exportName);
         }
 

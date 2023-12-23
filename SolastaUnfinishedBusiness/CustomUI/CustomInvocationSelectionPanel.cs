@@ -474,16 +474,16 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         {
             var poolId = new PoolId(featureSet.PoolType.Name, poolTag, featureSet.IsUnlearn);
 
-            if (!tags.ContainsKey(poolId))
+            if (!tags.TryGetValue(poolId, out var value))
             {
-                var pool = new FeaturePool(poolId) { Max = featureSet.Points, Used = 0, Type = featureSet.PoolType };
+                value = new FeaturePool(poolId) { Max = featureSet.Points, Used = 0, Type = featureSet.PoolType };
 
-                tags.Add(poolId, pool);
-                _allPools.Add(pool);
+                tags.Add(poolId, value);
+                _allPools.Add(value);
             }
             else
             {
-                tags[poolId].Max += featureSet.Points;
+                value.Max += featureSet.Points;
             }
         }
 

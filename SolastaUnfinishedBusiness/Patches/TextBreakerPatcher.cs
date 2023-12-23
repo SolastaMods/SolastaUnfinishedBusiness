@@ -228,7 +228,9 @@ public static class TextBreakerPatcher
                 fragmentInfo.y = -currentY;
 
                 if (i < textBreaker.fragments.Count - 1 &&
+#pragma warning disable CA1858
                     textBreaker.fragments[i + 1].contentValue.IndexOf(',') != 0 &&
+#pragma warning restore CA1858
                     fragmentInfo.contentValue.IndexOf('+') != fragmentInfo.contentValue.Length - 1)
                 {
                     // BEGIN CHANGE

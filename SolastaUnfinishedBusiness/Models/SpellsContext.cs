@@ -86,12 +86,13 @@ internal static class SpellsContext
                         foreach (var spell in featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(
                                      x => x.Spells))
                         {
-                            if (!SpellSpellListMap.ContainsKey(spell))
+                            if (!SpellSpellListMap.TryGetValue(spell, out var value))
                             {
-                                SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
+                                value = new List<SpellListDefinition>();
+                                SpellSpellListMap.Add(spell, value);
                             }
 
-                            SpellSpellListMap[spell].Add(featureDefinitionMagicAffinity.ExtendedSpellList);
+                            value.Add(featureDefinitionMagicAffinity.ExtendedSpellList);
                         }
 
                         break;
@@ -103,12 +104,13 @@ internal static class SpellsContext
                         foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(
                                      x => x.Spells))
                         {
-                            if (!SpellSpellListMap.ContainsKey(spell))
+                            if (!SpellSpellListMap.TryGetValue(spell, out var value))
                             {
-                                SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
+                                value = new List<SpellListDefinition>();
+                                SpellSpellListMap.Add(spell, value);
                             }
 
-                            SpellSpellListMap[spell].Add(featureDefinitionCastSpell.SpellListDefinition);
+                            value.Add(featureDefinitionCastSpell.SpellListDefinition);
                         }
 
                         break;
@@ -139,12 +141,13 @@ internal static class SpellsContext
                 foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(
                              x => x.Spells))
                 {
-                    if (!SpellSpellListMap.ContainsKey(spell))
+                    if (!SpellSpellListMap.TryGetValue(spell, out var value))
                     {
-                        SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
+                        value = new List<SpellListDefinition>();
+                        SpellSpellListMap.Add(spell, value);
                     }
 
-                    SpellSpellListMap[spell].Add(featureDefinitionCastSpell.SpellListDefinition);
+                    value.Add(featureDefinitionCastSpell.SpellListDefinition);
                 }
             }
 

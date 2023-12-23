@@ -316,12 +316,12 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.ContainsKey(category))
+            if (!character.conditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
 
-            foreach (var rulesetCondition in character.conditionsByCategory[category])
+            foreach (var rulesetCondition in value)
             {
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }
@@ -347,13 +347,13 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.ContainsKey(category))
+            if (!character.conditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
 
-            foreach (var rulesetCondition in character.conditionsByCategory[category]
-                         .Where(rulesetCondition => !sources.Contains(rulesetCondition.SourceGuid)))
+            foreach (var rulesetCondition in value.Where(rulesetCondition =>
+                         !sources.Contains(rulesetCondition.SourceGuid)))
             {
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }
@@ -379,14 +379,14 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            if (!character.conditionsByCategory.ContainsKey(category))
+            if (!character.conditionsByCategory.TryGetValue(category, out var value))
             {
                 return;
             }
 
-            foreach (var rulesetCondition in character.conditionsByCategory[category]
-                         .Where(rulesetCondition => rulesetCondition.ConditionDefinition.Name == type ||
-                                                    rulesetCondition.ConditionDefinition.IsSubtypeOf(type)))
+            foreach (var rulesetCondition in value.Where(rulesetCondition =>
+                         rulesetCondition.ConditionDefinition.Name == type ||
+                         rulesetCondition.ConditionDefinition.IsSubtypeOf(type)))
             {
                 ActionSwitching.AccountRemovedCondition(character, rulesetCondition);
             }

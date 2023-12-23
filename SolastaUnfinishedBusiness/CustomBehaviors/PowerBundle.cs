@@ -328,19 +328,13 @@ internal static class PowerBundle
         BaseDefinition metamagic,
         EffectDescription effect)
     {
-        Dictionary<string, EffectDescription> effects;
-
-        if (!SpellEffectCache.ContainsKey(caster.Guid))
+        if (!SpellEffectCache.TryGetValue(caster.Guid, out var value))
         {
-            effects = new Dictionary<string, EffectDescription>();
-            SpellEffectCache.Add(caster.Guid, effects);
-        }
-        else
-        {
-            effects = SpellEffectCache[caster.Guid];
+            value = new Dictionary<string, EffectDescription>();
+            SpellEffectCache.Add(caster.Guid, value);
         }
 
-        effects.AddOrReplace(Key(definition, metamagic), effect);
+        value.AddOrReplace(Key(definition, metamagic), effect);
     }
 
     internal static void ClearSpellEffectCache(RulesetCharacter caster)
