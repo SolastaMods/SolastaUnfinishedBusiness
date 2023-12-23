@@ -280,41 +280,6 @@ internal static class MeleeCombatFeats
                     .AddToDB())
             .AddToDB();
 
-        IEnumerator AddCondition(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            GameLocationBattleManager manager,
-            GameLocationActionManager actionManager,
-            ReactionRequest request)
-        {
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            rulesetCharacter.InflictCondition(
-                conditionDamage.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                conditionDamage.Name,
-                0,
-                0,
-                0);
-
-            yield break;
-        }
-
-        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
-            GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
-        {
-            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
-                conditionDamage.Name);
-
-            yield break;
-        }
-
         var conditionFeatSpearMasteryCharge = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Charge")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
@@ -365,6 +330,41 @@ internal static class MeleeCombatFeats
                         new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
             .AddToDB();
+
+        IEnumerator AddCondition(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationBattleManager manager,
+            GameLocationActionManager actionManager,
+            ReactionRequest request)
+        {
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                conditionDamage.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionDamage.Name,
+                0,
+                0,
+                0);
+
+            yield break;
+        }
+
+        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
+            GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
+        {
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
+                conditionDamage.Name);
+
+            yield break;
+        }
     }
 
     #endregion

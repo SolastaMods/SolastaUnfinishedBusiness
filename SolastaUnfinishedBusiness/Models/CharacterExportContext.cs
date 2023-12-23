@@ -57,6 +57,8 @@ internal static class CharacterExportContext
             Gui.Format("Message/&CharacterExportModalTitleDescription", hero.Name), InputModalMark,
             "Message/&MessageOkTitle", "Message/&MessageCancelTitle", MessageValidated, null);
 
+        return;
+
         void MessageValidated()
         {
             var newFirstName = InputField.text;

@@ -325,6 +325,8 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
 #endif
         LocalInitializeCollectionFields(Definition.GetType());
 
+        return;
+
         void LocalInitializeCollectionFields(Type type)
         {
             while (true)

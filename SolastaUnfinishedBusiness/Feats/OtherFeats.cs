@@ -429,11 +429,6 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildAstralArms()
     {
-        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
-        {
-            return ValidatorsWeapon.IsUnarmed(attackMode);
-        }
-
         return FeatDefinitionBuilder
             .Create("FeatAstralArms")
             .SetGuiPresentation(Category.Feat)
@@ -443,6 +438,11 @@ internal static class OtherFeats
                 new CanMakeAoOOnReachEntered { AllowRange = false, WeaponValidator = ValidWeapon },
                 new IncreaseWeaponReach(1, ValidWeapon))
             .AddToDB();
+
+        static bool ValidWeapon(RulesetAttackMode attackMode, RulesetItem item, RulesetCharacter character)
+        {
+            return ValidatorsWeapon.IsUnarmed(attackMode);
+        }
     }
 
     #endregion

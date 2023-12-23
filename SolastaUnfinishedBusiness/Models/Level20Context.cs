@@ -595,26 +595,6 @@ internal static class Level20Context
     {
         const string SPELL_MASTERY = "SpellMastery";
 
-        static IsInvocationValidHandler IsValid()
-        {
-            return (character, invocation) =>
-            {
-                var spellRepertoire = character.GetClassSpellRepertoire(Wizard);
-
-                if (spellRepertoire == null)
-                {
-                    return false;
-                }
-
-                // get the first 2 non reaction prepared spells of 1st or 2nd level
-                var preparedSpells = spellRepertoire.PreparedSpells
-                    .Where(x => x.SpellLevel is 1 or 2 && x.ActivationTime != ActivationTime.Reaction)
-                    .Take(2);
-
-                return preparedSpells.Contains(invocation.GrantedSpell);
-            };
-        }
-
         // any non reaction spell of 1st or 2nd level
         var allPossibleSpells = SpellListAllSpells.SpellsByLevel
             .Where(x => x.level is 1 or 2)
@@ -641,6 +621,26 @@ internal static class Level20Context
             .AddToDB();
 
         return grantInvocationsSpellMastery;
+
+        static IsInvocationValidHandler IsValid()
+        {
+            return (character, invocation) =>
+            {
+                var spellRepertoire = character.GetClassSpellRepertoire(Wizard);
+
+                if (spellRepertoire == null)
+                {
+                    return false;
+                }
+
+                // get the first 2 non reaction prepared spells of 1st or 2nd level
+                var preparedSpells = spellRepertoire.PreparedSpells
+                    .Where(x => x.SpellLevel is 1 or 2 && x.ActivationTime != ActivationTime.Reaction)
+                    .Take(2);
+
+                return preparedSpells.Contains(invocation.GrantedSpell);
+            };
+        }
     }
 
     private static FeatureDefinitionCustomInvocationPool BuildWizardSignatureSpells()

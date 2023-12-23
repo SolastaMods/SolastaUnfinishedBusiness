@@ -352,26 +352,6 @@ internal static partial class SpellBuilders
 
         const string ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION = "Feature/&AttackModifierElementalWeaponDescription";
 
-        static string AdditionalDamageElementalWeaponDescription(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION, x);
-        }
-
-        static string AdditionalDamageElementalWeaponDescription1(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION1, x);
-        }
-
-        static string AdditionalDamageElementalWeaponDescription2(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION2, x);
-        }
-
-        static string AttackModifierElementalWeaponDescription(int x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION, x.ToString());
-        }
-
         var additionalDamageElementalWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{damageType}ElementalWeapon")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
@@ -484,6 +464,26 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+
+        static string AdditionalDamageElementalWeaponDescription(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION, x);
+        }
+
+        static string AdditionalDamageElementalWeaponDescription1(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION1, x);
+        }
+
+        static string AdditionalDamageElementalWeaponDescription2(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION2, x);
+        }
+
+        static string AttackModifierElementalWeaponDescription(int x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION, x.ToString());
+        }
     }
 
     #endregion

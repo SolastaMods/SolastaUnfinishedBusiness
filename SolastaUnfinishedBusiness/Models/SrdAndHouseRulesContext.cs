@@ -470,6 +470,8 @@ internal static class SrdAndHouseRulesContext
             SetHeight(Grease, 0);
         }
 
+        return;
+
         static void SetHeight([NotNull] IMagicEffect spellDefinition, int height)
         {
             spellDefinition.EffectDescription.targetParameter2 = height;
@@ -599,6 +601,8 @@ internal static class SrdAndHouseRulesContext
         ConfigureAdvancement(ConjureElemental);
         ConfigureAdvancement(ConjureMinorElementals);
         ConjureElemental.SubspellsList.Add(ConjureElementalInvisibleStalker);
+
+        return;
 
         // Set advancement at spell level, not sub-spell
         static void ConfigureAdvancement([NotNull] IMagicEffect spell)

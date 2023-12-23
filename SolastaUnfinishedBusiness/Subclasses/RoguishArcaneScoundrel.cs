@@ -182,14 +182,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        static bool CanUseEssenceTheft(RulesetCharacter character)
-        {
-            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-
-            return gameLocationCharacter != null &&
-                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(AdditionalDamageRogueSneakAttack.Name);
-        }
-
         var powerEssenceTheft = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EssenceTheft")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
@@ -251,6 +243,16 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddFeaturesAtLevel(19,
                 featureSetPremeditationSlot)
             .AddToDB();
+
+        return;
+
+        static bool CanUseEssenceTheft(RulesetCharacter character)
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            return gameLocationCharacter != null &&
+                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(AdditionalDamageRogueSneakAttack.Name);
+        }
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Rogue;

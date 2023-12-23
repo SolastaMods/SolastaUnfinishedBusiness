@@ -711,12 +711,6 @@ internal static class CharacterContext
                 var featureUnlockPointPool1 = new FeatureUnlockByLevel(pointPool1BonusFeats, level);
                 var featureUnlockPointPool2 = new FeatureUnlockByLevel(pointPool2BonusFeats, level);
 
-                bool ShouldBe2Points()
-                {
-                    return (characterClassDefinition == Rogue && level is 10 && !isMiddle) ||
-                           (characterClassDefinition == Fighter && level is 6 or 14 && isMiddle);
-                }
-
                 if (enable)
                 {
                     characterClassDefinition.FeatureUnlocks.Add(ShouldBe2Points()
@@ -735,6 +729,14 @@ internal static class CharacterContext
                         characterClassDefinition.FeatureUnlocks.RemoveAll(x =>
                             x.FeatureDefinition == pointPool1BonusFeats && x.level == level);
                     }
+                }
+
+                continue;
+
+                bool ShouldBe2Points()
+                {
+                    return (characterClassDefinition == Rogue && level is 10 && !isMiddle) ||
+                           (characterClassDefinition == Fighter && level is 6 or 14 && isMiddle);
                 }
             }
 

@@ -314,6 +314,8 @@ public static class GuiCharacterPatcher
                 }
             }
 
+            return;
+
             bool IsMonster()
             {
                 if (__instance.RulesetCharacterMonster == null)

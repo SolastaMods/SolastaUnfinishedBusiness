@@ -136,32 +136,6 @@ internal static class DmProRendererContext
 
     internal static void SetupFlatRooms(Transform roomTransform, [NotNull] UserRoom userRoom)
     {
-        static void DisableWalls([NotNull] Transform transform)
-        {
-            for (var i = 0; i < transform.childCount; i++)
-            {
-                DisableWalls(transform.GetChild(i));
-            }
-
-            var name = transform.gameObject.name;
-
-            if ((!name.Contains("Wall") || name.Contains("Drain")) && !name.Contains("Column") &&
-                !name.Contains("DM_Dirt_Pack"))
-            {
-                return;
-            }
-
-            // need to keep parents around otherwise pure flat locations don't render correctly
-            if (transform.childCount > 0)
-            {
-                transform.position = new Vector3(-1f, 0f, -1f);
-            }
-            else
-            {
-                transform.gameObject.SetActive(false);
-            }
-        }
-
         if (!IsFlatRoom(userRoom))
         {
             return;
@@ -204,6 +178,34 @@ internal static class DmProRendererContext
 
         // adds a hint to fix the reflection probe later on
         roomTransform.name = FlatRoomTag + roomTransform.name;
+
+        return;
+
+        static void DisableWalls([NotNull] Transform transform)
+        {
+            for (var i = 0; i < transform.childCount; i++)
+            {
+                DisableWalls(transform.GetChild(i));
+            }
+
+            var name = transform.gameObject.name;
+
+            if ((!name.Contains("Wall") || name.Contains("Drain")) && !name.Contains("Column") &&
+                !name.Contains("DM_Dirt_Pack"))
+            {
+                return;
+            }
+
+            // need to keep parents around otherwise pure flat locations don't render correctly
+            if (transform.childCount > 0)
+            {
+                transform.position = new Vector3(-1f, 0f, -1f);
+            }
+            else
+            {
+                transform.gameObject.SetActive(false);
+            }
+        }
     }
 
     internal static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)

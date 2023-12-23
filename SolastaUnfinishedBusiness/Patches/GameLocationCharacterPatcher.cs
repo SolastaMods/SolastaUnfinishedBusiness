@@ -162,19 +162,19 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            //PATCH: Support for Pugilist Fighting Style
-            // Removes check that makes `ShoveBonus` action unavailable if character has no shield
-            static bool True(RulesetActor actor)
-            {
-                return true;
-            }
-
             var isWearingShieldMethod = typeof(RulesetCharacter).GetMethod("IsWearingShield");
             var trueMethod = new Func<RulesetActor, bool>(True).Method;
 
             return instructions.ReplaceCalls(isWearingShieldMethod,
                 "GameLocationCharacter.GetActionStatus",
                 new CodeInstruction(OpCodes.Call, trueMethod));
+
+            //PATCH: Support for Pugilist Fighting Style
+            // Removes check that makes `ShoveBonus` action unavailable if character has no shield
+            static bool True(RulesetActor actor)
+            {
+                return true;
+            }
         }
 
         [UsedImplicitly]

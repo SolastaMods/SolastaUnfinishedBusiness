@@ -618,13 +618,6 @@ public static class RulesetActorPatcher
         {
             var karmic = rollAlterationScore != 0.0;
 
-            int DoRoll()
-            {
-                return karmic
-                    ? RollKarmicDie(diceType, rollAlterationScore)
-                    : 1 + DeterministicRandom.Range(0, DiceMaxValue[(int)diceType]);
-            }
-
             var roll1 = DoRoll();
             var roll2 = DoRoll();
             var roll3 = DoRoll();
@@ -648,6 +641,13 @@ public static class RulesetActorPatcher
             secondRoll = roll3;
 
             return Mathf.Max(firstRoll, secondRoll);
+
+            int DoRoll()
+            {
+                return karmic
+                    ? RollKarmicDie(diceType, rollAlterationScore)
+                    : 1 + DeterministicRandom.Range(0, DiceMaxValue[(int)diceType]);
+            }
         }
 
         // TODO: make this more generic

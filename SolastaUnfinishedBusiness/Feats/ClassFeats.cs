@@ -242,6 +242,29 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        featureCloseQuarters.AddCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
+
+        var closeQuartersDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
+            .SetFeatFamily(Family)
+            .SetValidators(HasSneakAttack)
+            .AddToDB();
+
+        var closeQuartersInt = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Pakri)
+            .SetFeatFamily(Family)
+            .SetValidators(HasSneakAttack)
+            .AddToDB();
+
+        feats.AddRange(closeQuartersDex, closeQuartersInt);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupCloseQuarters", Family, HasSneakAttack, closeQuartersDex, closeQuartersInt);
+
         DieType UpgradeCloseQuartersDice(
             FeatureDefinitionAdditionalDamage additionalDamage,
             DamageForm damageForm,
@@ -265,8 +288,6 @@ internal static class ClassFeats
             return DieType.D8;
         }
 
-        featureCloseQuarters.AddCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
-
         static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
         {
             var hasSneakAttack = hero.GetFeaturesByType<FeatureDefinitionAdditionalDamage>()
@@ -276,27 +297,6 @@ internal static class ClassFeats
 
             return hasSneakAttack ? (true, guiFormat) : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         }
-
-        var closeQuartersDex = FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{Name}Dex")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
-            .SetFeatFamily(Family)
-            .SetValidators(HasSneakAttack)
-            .AddToDB();
-
-        var closeQuartersInt = FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{Name}Int")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Pakri)
-            .SetFeatFamily(Family)
-            .SetValidators(HasSneakAttack)
-            .AddToDB();
-
-        feats.AddRange(closeQuartersDex, closeQuartersInt);
-
-        return GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupCloseQuarters", Family, HasSneakAttack, closeQuartersDex, closeQuartersInt);
     }
 
     #endregion
