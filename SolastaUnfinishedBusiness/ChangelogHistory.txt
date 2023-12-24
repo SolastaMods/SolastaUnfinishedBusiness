@@ -1,6 +1,9 @@
 ﻿1.5.94.38:
 
 - added additional sample portraits [by Artyoan]
+- added Arcane Shots documentation [https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/UB-Arcane-Shots]
+- added Gambits documentation [https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/UB-Gambits]
+- added Infusions documentation [https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/UB-Infusions]
 - fixed Sorcerer cannot cast Metamagic targeted spells
 - changed Gambits and Martial Tactician to be closer to TT
 - removed halo effect from Malakh race

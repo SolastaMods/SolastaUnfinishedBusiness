@@ -1096,9 +1096,10 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorFeint : IModifyAttackActionModifier, IPhysicalAttackFinishedByMe,
-        IPhysicalAttackInitiatedByMe
+    private sealed class CustomBehaviorFeint : 
+        IModifyAttackActionModifier, IPhysicalAttackFinishedByMe, IPhysicalAttackInitiatedByMe
     {
+        private const string ConditionGambitFeint = "ConditionGambitFeint";
         private readonly FeatureDefinitionPower _pool;
 
         public CustomBehaviorFeint(FeatureDefinitionPower pool)
@@ -1121,7 +1122,7 @@ internal static class GambitsBuilders
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Condition, "ConditionGambitFeint", null));
+                new TrendInfo(1, FeatureSourceType.Condition, ConditionGambitFeint, null));
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -1158,7 +1159,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            attacker.RulesetCharacter.RemoveAllConditionsOfType("ConditionGambitFeint");
+            attacker.RulesetCharacter.RemoveAllConditionsOfType(ConditionGambitFeint);
         }
     }
 

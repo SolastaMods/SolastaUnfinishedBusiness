@@ -293,6 +293,7 @@
   <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
   <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
   <UseOfficialDistanceCalculation>false</UseOfficialDistanceCalculation>
+  <UseOfficialSmallRacesDisWithHeavyWeapons>false</UseOfficialSmallRacesDisWithHeavyWeapons>
   <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
   <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>
   <DontEndTurnAfterReady>false</DontEndTurnAfterReady>

@@ -262,7 +262,7 @@
   <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
   <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
   <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
-  <AddFighterLevelToIndomitableSavingReroll>false</AddFighterLevelToIndomitableSavingReroll>
+  <AddFighterLevelToIndomitableSavingReroll>true</AddFighterLevelToIndomitableSavingReroll>
   <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
@@ -293,6 +293,7 @@
   <UseOfficialFlankingRulesAlsoForReach>true</UseOfficialFlankingRulesAlsoForReach>
   <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
   <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
+  <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
   <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
   <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
   <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
@@ -311,12 +312,12 @@
   <FixEldritchBlastRange>true</FixEldritchBlastRange>
   <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
   <IdentifyAfterRest>true</IdentifyAfterRest>
-  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
+  <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
   <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
   <StealthBreaksWhenCastingMaterial>false</StealthBreaksWhenCastingMaterial>
   <StealthBreaksWhenCastingVerbose>false</StealthBreaksWhenCastingVerbose>
   <StealthBreaksWhenCastingSomatic>false</StealthBreaksWhenCastingSomatic>
-  <StealthDoesNotBreakWithSubtle>false</StealthDoesNotBreakWithSubtle>
+  <StealthDoesNotBreakWithSubtle>true</StealthDoesNotBreakWithSubtle>
   <AllowHasteCasting>true</AllowHasteCasting>
   <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
   <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
