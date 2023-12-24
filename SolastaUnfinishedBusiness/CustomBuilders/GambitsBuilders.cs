@@ -600,7 +600,6 @@ internal static class GambitsBuilders
                             .Create()
                             .SetTempHpForm()
                             .Build())
-                    .SetParticleEffectParameters(SpellDefinitions.PrayerOfHealing)
                     .Build())
             .AddToDB();
 
@@ -887,20 +886,22 @@ internal static class GambitsBuilders
             var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
             var charisma = character.TryGetAttributeValue(AttributeDefinitions.Charisma);
-
             var modifier = Math.Max(Math.Max(
                     AttributeDefinitions.ComputeAbilityScoreModifier(intelligence),
                     AttributeDefinitions.ComputeAbilityScoreModifier(wisdom)),
                 AttributeDefinitions.ComputeAbilityScoreModifier(charisma));
-
             var dieType = GetGambitDieSize(character);
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
             var bonusHitPoints = modifier + dieRoll;
+            var target = action.ActionParams.TargetCharacters[0];
 
             character.ShowDieRoll(dieType, dieRoll, title: _powerRallyActivate.GuiPresentation.Title);
             character.LogCharacterUsedPower(_powerRallyActivate, "Feedback/&GambitGrantTempHP", true,
                 (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                 (ConsoleStyleDuplet.ParameterType.Positive, bonusHitPoints.ToString()));
+
+            EffectHelpers.StartVisualEffect(target, target, FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice,
+                EffectHelpers.EffectType.Caster);
 
             action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0]
                 .TemporaryHitPointsForm.BonusHitPoints = bonusHitPoints;
@@ -909,7 +910,8 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorUrgentOrder : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorUrgentOrder : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe,
+        IFilterTargetingCharacter
     {
         private readonly FeatureDefinitionPower _powerSelectEnemy;
 
@@ -1013,7 +1015,7 @@ internal static class GambitsBuilders
             var targetCharacters = action.ActionParams.TargetCharacters;
             var ally = targetCharacters[0];
             var target = targetCharacters[1];
-            
+
             // issue ally attack
             var attackMode = ally.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
@@ -1056,6 +1058,23 @@ internal static class GambitsBuilders
             actingCharacter.UsedMainAttacks = 0;
         }
 
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var targetCharacters = action.ActionParams.TargetCharacters;
+
+            if (targetCharacters[0].Side == Side.Enemy)
+            {
+                (targetCharacters[0], targetCharacters[1]) = (targetCharacters[1], targetCharacters[0]);
+            }
+
+            var target = targetCharacters[1];
+
+            EffectHelpers.StartVisualEffect(target, target, FeatureDefinitionPowers.PowerKnightLeadership,
+                EffectHelpers.EffectType.Caster);
+
+            yield break;
+        }
+
         private static bool IsValidAttack(
             CursorLocationSelectTarget __instance,
             RulesetAttackMode attackMode,
@@ -1080,23 +1099,6 @@ internal static class GambitsBuilders
                 targetedCharacter, targetedCharacter.LocationPosition, __instance.actionModifier);
 
             return __instance.BattleService.CanAttack(attackParams2);
-        }
-
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var targetCharacters = action.ActionParams.TargetCharacters;
-
-            if (targetCharacters[0].Side == Side.Enemy)
-            {
-                (targetCharacters[0], targetCharacters[1]) = (targetCharacters[1], targetCharacters[0]);
-            }
-
-            var target = targetCharacters[1];
-            
-            EffectHelpers.StartVisualEffect(target, target, FeatureDefinitionPowers.PowerKnightLeadership,
-                EffectHelpers.EffectType.Caster);
-            
-            yield break;
         }
     }
 
