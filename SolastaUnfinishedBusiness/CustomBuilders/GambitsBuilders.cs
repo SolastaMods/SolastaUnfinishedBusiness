@@ -585,7 +585,6 @@ internal static class GambitsBuilders
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetShowCasting(false)
             .AddCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
             .SetUniqueInstance()
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
@@ -600,6 +599,7 @@ internal static class GambitsBuilders
                             .Create()
                             .SetTempHpForm()
                             .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
                     .Build())
             .AddToDB();
 
@@ -1037,26 +1037,25 @@ internal static class GambitsBuilders
             }
 
             //get copy to be sure we don't break existing mode
-            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
-            rulesetAttackModeCopy.Copy(attackMode);
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
 
-            //set action type to be same as the one used for the magic effect
-            rulesetAttackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
-
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var attackModifier = new ActionModifier();
             var attackActionParams =
-                new CharacterActionParams(ally, ActionDefinitions.Id.AttackOpportunity) { AttackMode = attackMode };
+                new CharacterActionParams(ally, ActionDefinitions.Id.AttackOpportunity) { AttackMode = attackModeCopy };
 
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            EffectHelpers.StartVisualEffect(actingCharacter, ally, FeatureDefinitionPowers.PowerKnightLeadership,
+                EffectHelpers.EffectType.Caster);
 
             actionService.ExecuteAction(attackActionParams, null, false);
-
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             // burn one main attack
             actingCharacter.UsedMainAttacks++;
