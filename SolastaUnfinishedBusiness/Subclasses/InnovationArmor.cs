@@ -26,6 +26,7 @@ public sealed class InnovationArmor : AbstractSubclass
     private const string GuardianMarkerName = "ConditionInnovationArmorGuardianMode";
     private const string InfiltratorMarkerName = "ConditionInnovationArmorInfiltratorMode";
 
+    // ReSharper disable once ConvertConstructorToMemberInitializers
     public InnovationArmor()
     {
         Subclass = CharacterSubclassDefinitionBuilder

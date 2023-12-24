@@ -163,6 +163,7 @@ public static class CharacterActionPatcher
                 rulesetCharacter.ProcessConditionsMatchingInterruption(
                     (ConditionInterruption)ExtraConditionInterruption.UsesBonusAction);
             }
+
             // ReSharper disable once InvertIf
             if (__instance is CharacterActionAttack actionAttack)
             {

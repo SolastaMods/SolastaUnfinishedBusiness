@@ -357,7 +357,12 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                     }
                 }
 
+                // So travel down the hierarchy
+                type = type.BaseType;
+
 #if DEBUG
+                continue;
+
                 static void LogFieldInitialization(string message)
                 {
                     if (Main.Settings.DebugLogFieldInitialization)
@@ -366,9 +371,6 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                     }
                 }
 #endif
-
-                // So travel down the hierarchy
-                type = type.BaseType;
             }
         }
     }

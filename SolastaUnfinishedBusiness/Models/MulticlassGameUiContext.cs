@@ -685,7 +685,7 @@ internal static class MulticlassGameUiContext
             allSpells.RemoveAll(x => !allowedSpells.Contains(x));
         }
     }
-    
+
     private static void CollectAllAutoPreparedSpells(
         [NotNull] SpellsByLevelGroup __instance,
         // ReSharper disable once SuggestBaseTypeForParameter

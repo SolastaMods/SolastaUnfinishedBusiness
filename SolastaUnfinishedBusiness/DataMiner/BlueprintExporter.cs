@@ -78,11 +78,12 @@ internal class BlueprintExporter : MonoBehaviour
         SetExport(exportId, Exporter.StartCoroutine(coroutine), 0f);
     }
 
+    // ReSharper disable once SuggestBaseTypeForParameter
     private static IEnumerator ExportMany(
         int exportId,
         IReadOnlyList<BaseDefinition> baseDefinitions,
         Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
-        IReadOnlyDictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
+        Dictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
         bool exportOriginalCopy,
         string path)
     {
@@ -167,6 +168,8 @@ internal class BlueprintExporter : MonoBehaviour
         SetExport(exportId, null, 0f);
 
         Main.Log($"Export finished: {DateTime.UtcNow}, {DateTime.UtcNow - start}.");
+
+        yield break;
 
         BaseDefinition GetDefinitionCopy(BaseDefinition definition)
         {
