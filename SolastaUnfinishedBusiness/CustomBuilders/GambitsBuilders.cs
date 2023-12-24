@@ -56,7 +56,7 @@ internal static class GambitsBuilders
         var gambitDieDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageGambitDie")
             .SetGuiPresentationNoContent(true)
-            .SetDamageDice(DieType.D4, 1)
+            .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
             .SetConditionOperations(
@@ -777,7 +777,7 @@ internal static class GambitsBuilders
             >= 18 => DieType.D12,
             >= 10 => DieType.D10,
             >= 3 => DieType.D8,
-            _ => DieType.D4
+            _ => DieType.D6
         };
     }
 
@@ -843,7 +843,7 @@ internal static class GambitsBuilders
             IAdditionalDamageProvider provider,
             DamageForm damageForm)
         {
-            if (provider.NotificationTag != "GambitUrgent")
+            if (provider.NotificationTag != "GambitDie")
             {
                 return damageForm;
             }
@@ -899,7 +899,7 @@ internal static class GambitsBuilders
             character.ShowDieRoll(dieType, dieRoll, title: _powerRallyActivate.GuiPresentation.Title);
             character.LogCharacterUsedPower(_powerRallyActivate, "Feedback/&GambitGrantTempHP", true,
                 (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
-                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
+                (ConsoleStyleDuplet.ParameterType.Positive, bonusHitPoints.ToString()));
 
             action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0]
                 .TemporaryHitPointsForm.BonusHitPoints = bonusHitPoints;
@@ -1304,20 +1304,14 @@ internal static class GambitsBuilders
 
             var actingCharacter = __instance.ActionParams.ActingCharacter;
 
-            if (actingCharacter.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
-                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfIsIncapacitatedOrRestrained");
-
-                return false;
-            }
-
             // ReSharper disable once InvertIf
-            if (target.Side != Side.Enemy &&
-                target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
-                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
+            if (actingCharacter.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained) ||
+                (target.Side != Side.Enemy &&
+                 target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                     ConditionIncapacitated, ConditionParalyzed, ConditionRestrained)))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetIsIncapacitatedOrRestrained");
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
 
                 return false;
             }
