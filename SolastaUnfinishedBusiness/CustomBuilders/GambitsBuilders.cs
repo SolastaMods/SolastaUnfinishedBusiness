@@ -1337,11 +1337,6 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            var dieType = GetGambitDieSize(caster);
-            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
-            caster.ShowDieRoll(dieType, dieRoll, title: _good.GuiPresentation.Title);
-
             var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
@@ -1359,6 +1354,12 @@ internal static class GambitsBuilders
             manager.AddInterruptRequest(reactionRequest);
 
             yield return battle.WaitForReactions(actingCharacter, manager, previousReactionCount);
+
+            
+            var dieType = GetGambitDieSize(caster);
+            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+            caster.ShowDieRoll(dieType, dieRoll, title: _good.GuiPresentation.Title);
 
             var finalTarget = !reactionParams.ReactionValidated ? caster : target;
 
