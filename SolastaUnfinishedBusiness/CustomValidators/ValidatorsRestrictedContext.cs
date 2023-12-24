@@ -26,10 +26,6 @@ public static class ValidatorsRestrictedContext
         new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
             (OperationType.Set, ValidatorsWeapon.IsMelee(mode)));
 
-    public static readonly IValidateContextInsteadOfRestrictedProperty IsWeaponAttackAndHasAvailableBonusAction =
-        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
-            (OperationType.Set, mode != null && ValidatorsCharacter.HasAvailableBonusAction(character)));
-
     public static readonly IValidateContextInsteadOfRestrictedProperty IsOathOfThunder =
         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
             (OperationType.Set, character.GetSubclassLevel(Paladin, OathOfThunder.Name) >= 3 &&

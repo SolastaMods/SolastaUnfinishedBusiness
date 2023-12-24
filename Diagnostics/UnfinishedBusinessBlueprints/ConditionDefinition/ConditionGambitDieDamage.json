@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageGambitDieReaction:1ed9d552-10b8-5a91-9991-b3162ffc5752"
+    "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -17,7 +17,10 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "AnyBattleTurnEnd",
+    9001
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",

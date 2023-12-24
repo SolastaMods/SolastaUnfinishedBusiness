@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageGambitUrgent:d9a863f5-cc70-5397-b412-cd77785a7941"
+    "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -19,7 +19,7 @@
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
     "Attacked",
-    "Attacks"
+    9001
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",

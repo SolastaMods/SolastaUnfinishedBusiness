@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "MeleeHit",
@@ -33,17 +33,17 @@
     "targetSide": "Enemy",
     "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "StartOfTurn",
+    "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Strength",
+    "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Intelligence",
+    "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
@@ -63,31 +63,6 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Motion",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "motionForm": {
-          "$type": "MotionForm, Assembly-CSharp",
-          "type": "PushFromOrigin",
-          "distance": 1,
-          "forceTurnTowardsSourceCharacterAfterPush": false,
-          "forceSourceCharacterTurnTowardsTargetAfterPush": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
         "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
@@ -103,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionStopMovement",
-          "conditionDefinition": "Definition:ConditionStopMovement:fc5e117a-fd71-5022-b457-042edb57b0e8",
+          "conditionDefinitionName": "ConditionFrightened",
+          "conditionDefinition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -333,7 +308,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -353,11 +328,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitRepelTitle",
-    "description": "Feature/&GambitRepelDescription",
+    "title": "Feature/&GambitThreatenTitle",
+    "description": "Feature/&GambitThreatenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2e38f845-2e9b-54d1-87c1-0f824891d0c7",
+      "m_AssetGUID": "abd09d9b-7323-5962-b1ef-a2f8a8ae1b2c",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -374,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7c875e7d-d73d-5cff-b08c-eabfda3dba02",
+  "guid": "80e20d99-a5f1-5e01-8ce3-97d4243e40e8",
   "contentPack": 9999,
-  "name": "PowerGambitRepelReact"
+  "name": "PowerGambitThreatenReact"
 }

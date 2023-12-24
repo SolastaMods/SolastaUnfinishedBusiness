@@ -61,6 +61,7 @@ Reaction/&ReactionAttackGambitRiposteDescription={0} промахнулся по
 Reaction/&ReactionAttackGambitRiposteReactDescription=Потратьте кость Уловки, чтобы контратаковать.
 Reaction/&ReactionAttackGambitRiposteReactTitle=Потратить кость
 Reaction/&ReactionAttackGambitRiposteTitle=Уловка: Контратака
+Tooltip/&AllyIsIncapacitated=Элли недееспособен
 Tooltip/&AllyMustBeAbleToReact=Союзник должен иметь возможность совершать реакцию
 Tooltip/&AlreadySelectedAnAlly=Союзник уже выбран
 Tooltip/&AlreadySelectedAnEnemy=Противник уже выбран

@@ -5,8 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481",
-    "Definition:PowerGambitThreatenReact:80e20d99-a5f1-5e01-8ce3-97d4243e40e8",
-    "Definition:PowerReactionSpendGambitDieOnAttackHit:9917585f-9be0-5ec6-a214-53b50dbb733a"
+    "Definition:PowerGambitThreatenReact:80e20d99-a5f1-5e01-8ce3-97d4243e40e8"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -20,7 +19,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "Attacks"
+    9001
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",

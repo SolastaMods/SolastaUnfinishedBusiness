@@ -1137,18 +1137,18 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 ## 6. Tactician
 
-The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
+For tacticians, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
 
 
 ### Level 3
 
 * Gambit Die
 
-You gain four D8 dice called Gambit Die that you can spend to use various gambits. Spent dice recharge on short or long rest. On certain levels these dice increase in size.
+You gain four D8 dice called gambit dice that you can spend to use various gambits. Spent dice recharge whenever you take a short or long rest. On certain levels these dice increase in size.
 
 * Gambits
 
-You learn three special maneuvers called gambits. Using a gambit costs one Gambit Die. Most gambits enhance your attacks in a way and add the Gambit Die's roll to the attack's damage. Some of your gambits require your target to make a saving throw to avoid its detrimental effects. The DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher. 
+You learn three special maneuvers called gambits. Using a gambit costs one gambit die. Most gambits enhance your attacks in a way and add the gambit die's roll to the attack's damage. You can only have one gambit active at a time. Some of your gambits require your target to make a saving throw to avoid its detrimental effects. The Gambit DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher. 
 
 * Sharp Mind
 
@@ -1159,7 +1159,7 @@ Gain proficiency with a skill of your choice.
 
 * Additional Gambit Die
 
-You gain an additional Gambit Die.
+You gain an additional gambit die.
 
 * Additional Gambits
 
@@ -1178,7 +1178,7 @@ You can replace one gambit you know with a new one.
 
 * Gambit Die Size (d10)
 
-Your Gambit Die is upgraded to D10.
+Your gambit die is upgraded to D10.
 
 * Replace Gambit
 
@@ -1186,14 +1186,14 @@ You can replace one gambit you know with a new one.
 
 * Select Strategic Plan
 
-Select your strategy to deal with prolonged encounters - ability that would allow you to regain some Gambit Die under certain circumstances.
+You can choose a strategy to deal with prolonged encounters - abilities that would allow you to gain gambit dice under certain circumstances.
 
 
 ### Level 15
 
 * Additional Gambit Die
 
-You gain an additional Gambit Die.
+You gain an additional gambit die.
 
 * Additional Gambits
 
@@ -1212,7 +1212,7 @@ You can replace one gambit you know with a new one.
 
 * Gambit Die Size (d12)
 
-Your Gambit Die is upgraded to D12.
+Your gambit die is upgraded to D12.
 
 * Replace Gambit
 
