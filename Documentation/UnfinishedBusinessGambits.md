@@ -36,7 +36,7 @@ The next weapon or unarmed attack that hits a creature before your turn ends wil
 
 # 10. - Rally
 
-You can use your bonus action and spend a gambit die to bolster the resolve of one of your companions. When you do so, choose a friendly creature who can see or hear you. That creature gains temporary hit points equal to the gambit die roll + your Charisma modifier.
+You can use your bonus action and spend a gambit die to bolster the resolve of one of your companions. When you do so, choose a friendly creature who can see or hear you. That creature gains temporary hit points equal to the gambit die roll + your Intelligence, Wisdom or Charisma modifier, whichever is higher.
 
 # 11. - Reach
 
