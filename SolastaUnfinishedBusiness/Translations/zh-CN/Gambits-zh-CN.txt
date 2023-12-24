@@ -72,5 +72,5 @@ Tooltip/&AllyMustBeAbleToReact=盟友必须能够做出反应
 Tooltip/&AlreadySelectedAnAlly=已经选择了盟友
 Tooltip/&AlreadySelectedAnEnemy=已经选择了一个敌人
 Tooltip/&MustBeAbleToAttackTarget=盟友必须能够攻击目标
-Tooltip/&SelfIsIncapacitatedOrRestrained=自我无行为能力或受到限制
-Tooltip/&TargetIsIncapacitatedOrRestrained=目标丧失行为能力或受到限制
+Tooltip/&SelfIsIncapacitatedOrRestrained=自我丧失行为能力、瘫痪或受到限制
+Tooltip/&TargetIsIncapacitatedOrRestrained=目标丧失能力、瘫痪或受到限制

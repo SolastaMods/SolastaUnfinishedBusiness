@@ -282,7 +282,7 @@ internal static class DocumentationContext
         var counter = 1;
 
         foreach (var featureDefinition in db
-                     .Where(x => filter(x))
+                     .Where(filter)
                      .OrderBy(x =>
                          x is SpellDefinition spellDefinition
                              ? spellDefinition.SpellLevel + x.FormatTitle()

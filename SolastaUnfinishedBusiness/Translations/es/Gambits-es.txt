@@ -72,5 +72,5 @@ Tooltip/&AllyMustBeAbleToReact=El aliado debe poder reaccionar.
 Tooltip/&AlreadySelectedAnAlly=Ya seleccioné un aliado
 Tooltip/&AlreadySelectedAnEnemy=Ya seleccionó un enemigo
 Tooltip/&MustBeAbleToAttackTarget=El aliado debe poder atacar al objetivo.
-Tooltip/&SelfIsIncapacitatedOrRestrained=El yo está incapacitado o restringido
-Tooltip/&TargetIsIncapacitatedOrRestrained=El objetivo está incapacitado o restringido.
+Tooltip/&SelfIsIncapacitatedOrRestrained=El yo está incapacitado, paralizado o restringido.
+Tooltip/&TargetIsIncapacitatedOrRestrained=El objetivo está incapacitado, paralizado o restringido.

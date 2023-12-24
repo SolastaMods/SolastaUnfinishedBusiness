@@ -72,5 +72,5 @@ Tooltip/&AllyMustBeAbleToReact=Союзник должен иметь возмо
 Tooltip/&AlreadySelectedAnAlly=Союзник уже выбран
 Tooltip/&AlreadySelectedAnEnemy=Противник уже выбран
 Tooltip/&MustBeAbleToAttackTarget=Союзник должен иметь возможность атаковать цель
-Tooltip/&SelfIsIncapacitatedOrRestrained=Вы опутаны или недееспособны
-Tooltip/&TargetIsIncapacitatedOrRestrained=Цель опутана или недееспособна
+Tooltip/&SelfIsIncapacitatedOrRestrained=Вы опутаны, парализованы или недееспособны
+Tooltip/&TargetIsIncapacitatedOrRestrained=Цель опутана, парализована или недееспособна
