@@ -1,8 +1,8 @@
 ﻿1.5.94.38:
 
 - added additional sample portraits [by Artyoan]
-- fixed Sorcerer cannot cast Metamagic targeted spell
-- changed Gambits and Martial Tactician
+- fixed Sorcerer cannot cast Metamagic targeted spells
+- changed Gambits and Martial Tactician to be closer to TT
 - removed halo effect from Malakh race
 
 1.5.94.37:
