@@ -195,7 +195,7 @@ internal static class OtherFeats
             .SetFeatures(
                 GambitsBuilders.GambitPool,
                 GambitsBuilders.Learn2Gambit,
-                MartialTactician.BuildGambitPoolIncrease(2, "FeatTacticianAdept"))
+                MartialTactician.BuildGambitPoolIncrease(1, "FeatTacticianAdept"))
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
     }
