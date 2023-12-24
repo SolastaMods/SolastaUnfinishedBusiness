@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -51,16 +52,23 @@ internal static class DocumentationContext
             x => x.ContentPack != CeContentPackContext.CeContentPack);
         DumpOthers<ItemDefinition>("UnfinishedBusinessItems",
             x => x.ContentPack == CeContentPackContext.CeContentPack &&
-                 x is ItemDefinition item &&
-                 (item.IsArmor || item.IsWeapon));
+                 (x.IsArmor || x.IsWeapon));
         DumpOthers<ItemDefinition>("SolastaItems",
             x => x.ContentPack != CeContentPackContext.CeContentPack &&
-                 x is ItemDefinition item &&
-                 (item.IsArmor || item.IsWeapon));
+                 (x.IsArmor || x.IsWeapon));
         DumpOthers<MetamagicOptionDefinition>("UnfinishedBusinessMetamagic",
             x => MetamagicContext.Metamagic.Contains(x));
         DumpOthers<MetamagicOptionDefinition>("SolastaMetamagic",
             x => x.ContentPack != CeContentPackContext.CeContentPack);
+        DumpOthers<InvocationDefinition>("UnfinishedBusinessGambits",
+            x => x is InvocationDefinitionCustom y &&
+                 y.PoolType == InvocationPoolTypeCustom.Pools.Gambit);
+        DumpOthers<InvocationDefinition>("UnfinishedBusinessArcaneShots",
+            x => x is InvocationDefinitionCustom y &&
+                 y.PoolType == InvocationPoolTypeCustom.Pools.ArcaneShotChoice);
+        DumpOthers<InvocationDefinition>("UnfinishedBusinessInfusions",
+            x => x is InvocationDefinitionCustom y &&
+                 y.PoolType == InvocationPoolTypeCustom.Pools.Infusion);
     }
 
     private static string LazyManStripXml(string input)
@@ -267,7 +275,7 @@ internal static class DocumentationContext
         sw.WriteLine(outString.ToString());
     }
 
-    private static void DumpOthers<T>(string groupName, Func<BaseDefinition, bool> filter) where T : BaseDefinition
+    private static void DumpOthers<T>(string groupName, Func<T, bool> filter) where T : BaseDefinition
     {
         var outString = new StringBuilder();
         var db = DatabaseRepository.GetDatabase<T>();
