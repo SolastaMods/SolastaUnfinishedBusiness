@@ -1296,9 +1296,16 @@ internal static class GambitsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _powerSwitchActivate)
+            {
+                return true;
+            }
+
             var actingCharacter = __instance.ActionParams.ActingCharacter;
 
-            if (actingCharacter.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated, ConditionRestrained))
+            if (actingCharacter.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
             {
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfIsIncapacitatedOrRestrained");
 
@@ -1307,7 +1314,8 @@ internal static class GambitsBuilders
 
             // ReSharper disable once InvertIf
             if (target.Side != Side.Enemy &&
-                target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated, ConditionRestrained))
+                target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
             {
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetIsIncapacitatedOrRestrained");
 

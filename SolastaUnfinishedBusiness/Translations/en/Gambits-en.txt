@@ -72,5 +72,5 @@ Tooltip/&AllyMustBeAbleToReact=Ally must be able to react
 Tooltip/&AlreadySelectedAnAlly=Already selected an ally
 Tooltip/&AlreadySelectedAnEnemy=Already selected an enemy
 Tooltip/&MustBeAbleToAttackTarget=Ally must be able to attack target
-Tooltip/&SelfIsIncapacitatedOrRestrained=Self is incapacitated or restrained
-Tooltip/&TargetIsIncapacitatedOrRestrained=Target is incapacitated or restrained
+Tooltip/&SelfIsIncapacitatedOrRestrained=Self is incapacitated, paralyzed or restrained
+Tooltip/&TargetIsIncapacitatedOrRestrained=Target is incapacitated, paralyzed or restrained

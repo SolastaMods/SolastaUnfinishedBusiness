@@ -72,5 +72,5 @@ Tooltip/&AllyMustBeAbleToReact=Ally doit être capable de réagir
 Tooltip/&AlreadySelectedAnAlly=Déjà sélectionné un allié
 Tooltip/&AlreadySelectedAnEnemy=Déjà sélectionné un ennemi
 Tooltip/&MustBeAbleToAttackTarget=L'allié doit être capable d'attaquer la cible
-Tooltip/&SelfIsIncapacitatedOrRestrained=Le soi est incapable ou retenu
-Tooltip/&TargetIsIncapacitatedOrRestrained=La cible est frappée d'incapacité ou immobilisée
+Tooltip/&SelfIsIncapacitatedOrRestrained=Le soi est incapable, paralysé ou retenu
+Tooltip/&TargetIsIncapacitatedOrRestrained=La cible est frappée d'incapacité, paralysée ou immobilisée
