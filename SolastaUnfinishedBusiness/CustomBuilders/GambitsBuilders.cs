@@ -577,6 +577,38 @@ internal static class GambitsBuilders
 
         #endregion
 
+        #region Rally
+
+        name = "GambitRally";
+        sprite = Sprites.GetSprite(name, Resources.GambitResourceIcon, 64);
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.BonusAction, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm()
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new ModifyEffectDescriptionRally(power));
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
         #region Bait and Switch
 
         name = "GambitSwitch";
@@ -851,95 +883,43 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorUrgentOrder : IActionFinishedByMe, IFilterTargetingCharacter
+    private sealed class ModifyEffectDescriptionRally : IMagicEffectInitiatedByMe
+    {
+        private readonly FeatureDefinitionPower _powerRallyActivate;
+
+        public ModifyEffectDescriptionRally(FeatureDefinitionPower powerRallyActivate)
+        {
+            _powerRallyActivate = powerRallyActivate;
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var character = action.ActingCharacter.RulesetCharacter;
+            var charisma = character.TryGetAttributeValue(AttributeDefinitions.Charisma);
+            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
+            var dieType = GetGambitDieSize(character);
+            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+            var bonusHitPoints = modifier + dieRoll;
+
+            character.ShowDieRoll(dieType, dieRoll, title: _powerRallyActivate.GuiPresentation.Title);
+            character.LogCharacterUsedPower(_powerRallyActivate, "Feedback/&GambitGrantTempHP", true,
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
+
+            action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0]
+                .TemporaryHitPointsForm.BonusHitPoints = bonusHitPoints;
+
+            yield break;
+        }
+    }
+
+    private sealed class CustomBehaviorUrgentOrder : IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly FeatureDefinitionPower _powerSelectEnemy;
 
         public CustomBehaviorUrgentOrder(FeatureDefinitionPower powerSelectEnemy)
         {
             _powerSelectEnemy = powerSelectEnemy;
-        }
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionUsePower characterActionUsePower
-                || characterActionUsePower.activePower.PowerDefinition != _powerSelectEnemy)
-            {
-                yield break;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            GameLocationCharacter ally = null;
-            GameLocationCharacter target = null;
-
-            foreach (var targetCharacter in action.ActionParams.TargetCharacters)
-            {
-                if (targetCharacter.Side == Side.Enemy)
-                {
-                    target = targetCharacter;
-                }
-                else
-                {
-                    ally = targetCharacter;
-                }
-            }
-
-            if (ally == null || target == null)
-            {
-                yield break;
-            }
-
-            var attackMode = ally.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-
-            if (attackMode == null)
-            {
-                yield break;
-            }
-
-            //get copy to be sure we don't break existing mode
-            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
-
-            rulesetAttackModeCopy.Copy(attackMode);
-
-            //set action type to be same as the one used for the magic effect
-            rulesetAttackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
-
-            var attackModifier = new ActionModifier();
-            var attackActionParams =
-                new CharacterActionParams(ally, ActionDefinitions.Id.AttackOpportunity) { AttackMode = attackMode };
-
-            attackActionParams.TargetCharacters.Add(target);
-            attackActionParams.ActionModifiers.Add(attackModifier);
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            actionService.ExecuteAction(attackActionParams, null, false);
-
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            // burn one main attack
-            actingCharacter.UsedMainAttacks++;
-            rulesetCharacter.ExecutedAttacks++;
-            rulesetCharacter.RefreshAttackModes();
-
-            var maxAttacksNumber = rulesetCharacter.AttackModes
-                .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
-                .Max(x => x.AttacksNumber);
-
-            if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
-            {
-                yield break;
-            }
-
-            actingCharacter.currentActionRankByType[ActionDefinitions.ActionType.Main]++;
-            actingCharacter.UsedMainAttacks = 0;
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -1023,6 +1003,82 @@ internal static class GambitsBuilders
             }
 
             return true;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            GameLocationCharacter ally = null;
+            GameLocationCharacter target = null;
+
+            foreach (var targetCharacter in action.ActionParams.TargetCharacters)
+            {
+                if (targetCharacter.Side == Side.Enemy)
+                {
+                    target = targetCharacter;
+                }
+                else
+                {
+                    ally = targetCharacter;
+                }
+            }
+
+            if (ally == null || target == null)
+            {
+                yield break;
+            }
+
+            var attackMode = ally.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            //get copy to be sure we don't break existing mode
+            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            rulesetAttackModeCopy.Copy(attackMode);
+
+            //set action type to be same as the one used for the magic effect
+            rulesetAttackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
+
+            var attackModifier = new ActionModifier();
+            var attackActionParams =
+                new CharacterActionParams(ally, ActionDefinitions.Id.AttackOpportunity) { AttackMode = attackMode };
+
+            attackActionParams.TargetCharacters.Add(target);
+            attackActionParams.ActionModifiers.Add(attackModifier);
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            actionService.ExecuteAction(attackActionParams, null, false);
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            // burn one main attack
+            actingCharacter.UsedMainAttacks++;
+            rulesetCharacter.ExecutedAttacks++;
+            rulesetCharacter.RefreshAttackModes();
+
+            var maxAttacksNumber = rulesetCharacter.AttackModes
+                .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
+                .Max(x => x.AttacksNumber);
+
+            if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
+            {
+                yield break;
+            }
+
+            actingCharacter.currentActionRankByType[ActionDefinitions.ActionType.Main]++;
+            actingCharacter.UsedMainAttacks = 0;
         }
 
         private static bool IsValidAttack(
