@@ -580,7 +580,7 @@ internal static class GambitsBuilders
         #region Rally
 
         name = "GambitRally";
-        sprite = Sprites.GetSprite(name, Resources.GambitResourceIcon, 64);
+        sprite = SpellDefinitions.Guidance.GuiPresentation.SpriteReference;
 
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
@@ -646,12 +646,6 @@ internal static class GambitsBuilders
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        var condition = ConditionDefinitionBuilder
-            .Create($"Condition{name}")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -670,19 +664,13 @@ internal static class GambitsBuilders
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(ExtraMotionType.CustomSwap, 1)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(SpellDefinitions.Haste)
                     .Build())
             .AddToDB();
 
-        condition.AddCustomSubFeatures(new ApplyConditionDependingOnSide(power, good, bad, self));
         power.AddCustomSubFeatures(
-            new FilterTargetingCharacterSwitch(),
+            new CustomBehaviorSwitch(power, good, bad, self),
             new ModifyEffectDescriptionSavingThrow(power));
 
         BuildFeatureInvocation(name, sprite, power);
@@ -1281,8 +1269,23 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class FilterTargetingCharacterSwitch : IFilterTargetingCharacter
+    private sealed class CustomBehaviorSwitch : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
+        private readonly ConditionDefinition _good, _bad, _self;
+        private readonly FeatureDefinitionPower _powerSwitchActivate;
+
+        public CustomBehaviorSwitch(
+            FeatureDefinitionPower powerSwitchActivate,
+            ConditionDefinition good,
+            ConditionDefinition bad,
+            ConditionDefinition self)
+        {
+            _powerSwitchActivate = powerSwitchActivate;
+            _good = good;
+            _bad = bad;
+            _self = self;
+        }
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated))
@@ -1294,33 +1297,12 @@ internal static class GambitsBuilders
 
             return false;
         }
-    }
 
-    private sealed class ApplyConditionDependingOnSide : IOnConditionAddedOrRemoved
-    {
-        private readonly ConditionDefinition _good, _bad, _self;
-        private readonly FeatureDefinitionPower _power;
-
-        public ApplyConditionDependingOnSide(
-            FeatureDefinitionPower power,
-            ConditionDefinition good,
-            ConditionDefinition bad,
-            ConditionDefinition self)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            _power = power;
-            _good = good;
-            _bad = bad;
-            _self = self;
-        }
-
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
-
-            if (caster == null)
-            {
-                return;
-            }
+            var actingCharacter = action.ActingCharacter;
+            var caster = actingCharacter.RulesetCharacter;
+            var target = action.ActionParams.TargetCharacters[0].RulesetCharacter;
 
             if (caster.IsOppositeSide(target.Side))
             {
@@ -1352,7 +1334,7 @@ internal static class GambitsBuilders
                     0,
                     0);
 
-                return;
+                yield break;
             }
 
             var dieType = GetGambitDieSize(caster);
@@ -1360,12 +1342,27 @@ internal static class GambitsBuilders
 
             caster.ShowDieRoll(dieType, dieRoll, title: _good.GuiPresentation.Title);
 
-            caster.LogCharacterUsedPower(_power, "Feedback/&GambitSwitchACIncrease", true,
-                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
-                (ConsoleStyleDuplet.ParameterType.Player, target.Name),
-                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            target.InflictCondition(
+            if (battle is not { IsBattleInProgress: true } || manager == null)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(actingCharacter, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("GambitSwitch", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(actingCharacter, manager, previousReactionCount);
+
+            var finalTarget = !reactionParams.ReactionValidated ? caster : target;
+
+            finalTarget.InflictCondition(
                 _good.Name,
                 DurationType.Round,
                 0,
@@ -1378,11 +1375,11 @@ internal static class GambitsBuilders
                 dieRoll,
                 0,
                 0);
-        }
 
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // empty
+            caster.LogCharacterUsedPower(_powerSwitchActivate, "Feedback/&GambitSwitchACIncrease", true,
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                (ConsoleStyleDuplet.ParameterType.Player, finalTarget.Name),
+                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
         }
     }
 
