@@ -1,4 +1,18 @@
-﻿1.5.94.37:
+﻿1.5.94.38:
+
+MERRY CHRISTMAS / FELIZ NATAL / FELIZ NAVIDAD! Santa heard your wishes and invited a Battlemaster to the table
+
+- added additional sample portraits [by Artyoan]
+- added Arcane Shots, Gambits, and Infusions doc buttons under General > Character > Proficiencies
+- changed Martial Tactician Gambits to be closer to Battlemaster Maneuvers
+- changed Martial Tactician to be closer to Battlemaster
+- changed Tactician Adept feat to grant one d6 gambit die and 2 gambits
+- fixed `Enable Flurry of Blows to not require an attack action before usage` still offered if BA consumed
+- fixed `Enable Martial Arts - Bonus Unarmed Strikes to not require an attack action before usage` not working at all
+- fixed Sorcerer cannot cast Metamagic targeted spells
+- removed halo effect from Malakh race
+
+1.5.94.37:
 
 - added additional sample portraits [by Artyoan]
 - added Gameplay > Rules > 'Only apply Entangle effect at casting time and also force a strength check to break free from the vines'

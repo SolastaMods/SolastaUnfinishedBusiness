@@ -1,8 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PointPoolTacticianSharpMindSkill:7a987cf5-d9a8-5b9b-86ef-0c9c413650aa",
-    "Definition:PointPoolTacticianSharpMindExpertise:ccc6b1b8-3fc3-5a24-8401-bd5e40cdef40"
+    "Definition:PointPoolTacticianSharpMindSkill:7a987cf5-d9a8-5b9b-86ef-0c9c413650aa"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

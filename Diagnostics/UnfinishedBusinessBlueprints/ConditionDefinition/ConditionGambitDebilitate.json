@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:SavingThrowAffinityPatronHiveWeakeningPheromones:efba1b9e43d4abc4abc123dca4ac3e87"
   ],

@@ -51,7 +51,8 @@ internal static class RulesetActorExtensions
     }
 
     [NotNull]
-    private static IEnumerable<BaseDefinition> AllActiveDefinitions([CanBeNull] RulesetActor actor)
+    // ReSharper disable once ReturnTypeCanBeEnumerable.Local
+    private static List<BaseDefinition> AllActiveDefinitions([CanBeNull] RulesetActor actor)
     {
         var list = FeaturesByType<BaseDefinition>(actor);
 
@@ -189,12 +190,12 @@ internal static class RulesetActorExtensions
                && !character.HasConditionOfType(ConditionLevitate);
         /*
          * For future use, when can allow flying wildshape to temporarily walk
-         * 
+         *
         || (actor.HasConditionOfType(RuleDefinitions.ConditionWildShapeSubstituteForm)
                 && actor is RulesetCharacterMonster monster
                 && monster.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly)
                 && !actor.HasConditionOfType("ConditionFlightSuspended")
-        
+
         );*/
     }
 

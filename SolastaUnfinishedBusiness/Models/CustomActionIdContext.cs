@@ -188,15 +188,17 @@ public static class CustomActionIdContext
             return;
         }
 
+        foreach (var id in ExtraActionIdToggles.Where(actions.Contains))
+        {
+            DoReorder(id);
+        }
+
+        return;
+
         void DoReorder(Id actionId, int overrideIndex = -1)
         {
             actions.Remove(actionId);
             actions.Insert(overrideIndex < 0 ? powerNdx : overrideIndex, actionId);
-        }
-
-        foreach (var id in ExtraActionIdToggles.Where(actions.Contains))
-        {
-            DoReorder(id);
         }
     }
 

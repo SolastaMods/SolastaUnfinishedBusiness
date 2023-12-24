@@ -83,10 +83,11 @@ internal static class ObjectExtensions
             BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
     }
 
+    // ReSharper disable once SuggestBaseTypeForParameter
     private static void CopyFields(
         object originalObject, IDictionary<object, object> visited,
         object cloneObject,
-        [NotNull] IReflect typeToReflect,
+        [NotNull] Type typeToReflect,
         BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public |
                                     BindingFlags.FlattenHierarchy, [CanBeNull] Func<FieldInfo, bool> filter = null)
     {

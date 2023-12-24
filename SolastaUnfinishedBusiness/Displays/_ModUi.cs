@@ -25,248 +25,247 @@ using static SolastaUnfinishedBusiness.Displays.TranslationsDisplay;
 #if DEBUG
 #endif
 
-namespace SolastaUnfinishedBusiness.Displays
+namespace SolastaUnfinishedBusiness.Displays;
+
+// ReSharper disable once ClassNeverInstantiated.Global
+internal static class ModUi
 {
-    // ReSharper disable once ClassNeverInstantiated.Global
-    internal static class ModUi
+    internal const int DontDisplayDescription = 4;
+    internal const float PixelsPerColumn = 220;
+
+    internal static void DisplaySubMenu(ref int selectedPane, string title = null, params NamedAction[] actions)
     {
-        internal const int DontDisplayDescription = 4;
-        internal const float PixelsPerColumn = 220;
-
-        internal static void DisplaySubMenu(ref int selectedPane, string title = null, params NamedAction[] actions)
+        if (!Main.Enabled)
         {
-            if (!Main.Enabled)
-            {
-                return;
-            }
-
-            if (title != null)
-            {
-                UI.Div();
-                UI.Label(title);
-                UI.Space((float)7);
-            }
-
-            UI.SubMenu(ref selectedPane, title != null, null, actions);
+            return;
         }
 
-        internal static void DisplayDefinitions<T>(
-            string label,
-            Action<T, bool> switchAction,
-            [NotNull] HashSet<T> registeredDefinitions,
-            [NotNull] List<string> selectedDefinitions,
-            ref bool displayToggle,
-            ref int sliderPosition,
-            bool useAlternateDescription = false,
-            [CanBeNull] Action headerRendering = null,
-            [CanBeNull] Action additionalRendering = null) where T : BaseDefinition
+        if (title != null)
         {
-            if (registeredDefinitions.Count == 0)
+            UI.Div();
+            UI.Label(title);
+            UI.Space((float)7);
+        }
+
+        UI.SubMenu(ref selectedPane, title != null, null, actions);
+    }
+
+    internal static void DisplayDefinitions<T>(
+        string label,
+        Action<T, bool> switchAction,
+        [NotNull] HashSet<T> registeredDefinitions,
+        [NotNull] List<string> selectedDefinitions,
+        ref bool displayToggle,
+        ref int sliderPosition,
+        bool useAlternateDescription = false,
+        [CanBeNull] Action headerRendering = null,
+        [CanBeNull] Action additionalRendering = null) where T : BaseDefinition
+    {
+        if (registeredDefinitions.Count == 0)
+        {
+            return;
+        }
+
+        var selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
+
+        UI.Label();
+
+        var toggle = displayToggle;
+
+        if (UI.DisclosureToggle($"{label}:", ref toggle, 200))
+        {
+            displayToggle = toggle;
+        }
+
+        if (!displayToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        headerRendering?.Invoke();
+
+        using (UI.HorizontalScope())
+        {
+            if (additionalRendering != null)
             {
-                return;
+                additionalRendering.Invoke();
             }
-
-            var selectAll = selectedDefinitions.Count == registeredDefinitions.Count;
-
-            UI.Label();
-
-            var toggle = displayToggle;
-
-            if (UI.DisclosureToggle($"{label}:", ref toggle, 200))
+            else if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref selectAll, UI.Width(PixelsPerColumn)))
             {
-                displayToggle = toggle;
-            }
-
-            if (!displayToggle)
-            {
-                return;
-            }
-
-            UI.Label();
-
-            headerRendering?.Invoke();
-
-            using (UI.HorizontalScope())
-            {
-                if (additionalRendering != null)
+                foreach (var registeredDefinition in registeredDefinitions)
                 {
-                    additionalRendering.Invoke();
+                    switchAction.Invoke(registeredDefinition, selectAll);
                 }
-                else if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref selectAll, UI.Width(PixelsPerColumn)))
+            }
+
+            toggle = sliderPosition == 1;
+
+            if (UI.Toggle(Gui.Localize("ModUi/&ShowDescriptions"), ref toggle, UI.Width(PixelsPerColumn)))
+            {
+                sliderPosition = toggle ? 1 : 4;
+            }
+        }
+
+        // UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
+
+        UI.Label();
+
+        var flip = false;
+        var current = 0;
+        var count = registeredDefinitions.Count;
+
+        using (UI.VerticalScope())
+        {
+            while (current < count)
+            {
+                var columns = sliderPosition;
+
+                using (UI.HorizontalScope())
                 {
-                    foreach (var registeredDefinition in registeredDefinitions)
+                    while (current < count && columns-- > 0)
                     {
-                        switchAction.Invoke(registeredDefinition, selectAll);
-                    }
-                }
+                        var definition = registeredDefinitions.ElementAt(current);
+                        var title = definition.FormatTitle();
 
-                toggle = sliderPosition == 1;
-
-                if (UI.Toggle(Gui.Localize("ModUi/&ShowDescriptions"), ref toggle, UI.Width(PixelsPerColumn)))
-                {
-                    sliderPosition = toggle ? 1 : 4;
-                }
-            }
-
-            // UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
-
-            UI.Label();
-
-            var flip = false;
-            var current = 0;
-            var count = registeredDefinitions.Count;
-
-            using (UI.VerticalScope())
-            {
-                while (current < count)
-                {
-                    var columns = sliderPosition;
-
-                    using (UI.HorizontalScope())
-                    {
-                        while (current < count && columns-- > 0)
+                        if (flip)
                         {
-                            var definition = registeredDefinitions.ElementAt(current);
-                            var title = definition.FormatTitle();
+                            title = title.Khaki();
+                        }
+
+                        toggle = selectedDefinitions.Contains(definition.Name);
+
+                        if (UI.Toggle(title, ref toggle, UI.Width(PixelsPerColumn)))
+                        {
+                            switchAction.Invoke(definition, toggle);
+                        }
+
+                        if (sliderPosition == 1)
+                        {
+                            var description = useAlternateDescription
+                                ? Gui.Localize($"ModUi/&{definition.Name}Description")
+                                : definition.FormatDescription();
 
                             if (flip)
                             {
-                                title = title.Khaki();
+                                description = description.Khaki();
                             }
 
-                            toggle = selectedDefinitions.Contains(definition.Name);
+                            UI.Label(description, UI.Width(PixelsPerColumn * 3));
 
-                            if (UI.Toggle(title, ref toggle, UI.Width(PixelsPerColumn)))
-                            {
-                                switchAction.Invoke(definition, toggle);
-                            }
-
-                            if (sliderPosition == 1)
-                            {
-                                var description = useAlternateDescription
-                                    ? Gui.Localize($"ModUi/&{definition.Name}Description")
-                                    : definition.FormatDescription();
-
-                                if (flip)
-                                {
-                                    description = description.Khaki();
-                                }
-
-                                UI.Label(description, UI.Width(PixelsPerColumn * 3));
-
-                                flip = !flip;
-                            }
-
-                            current++;
+                            flip = !flip;
                         }
+
+                        current++;
                     }
                 }
             }
         }
     }
+}
 
-    [UsedImplicitly]
-    internal sealed class GameplayViewer : IMenuSelectablePage
+[UsedImplicitly]
+internal sealed class GameplayViewer : IMenuSelectablePage
+{
+    private int _gamePlaySelectedPane;
+    public string Name => Gui.Localize("ModUi/&Gameplay");
+
+    public int Priority => 100;
+
+    public void OnGUI(UnityModManager.ModEntry modEntry)
     {
-        private int _gamePlaySelectedPane;
-        public string Name => Gui.Localize("ModUi/&Gameplay");
-
-        public int Priority => 100;
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            ModUi.DisplaySubMenu(ref _gamePlaySelectedPane, Name,
-                new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools),
-                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayCharacter),
-                new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
-                new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting));
-        }
+        ModUi.DisplaySubMenu(ref _gamePlaySelectedPane, Name,
+            new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools),
+            new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayCharacter),
+            new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
+            new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting));
     }
+}
 
-    [UsedImplicitly]
-    internal sealed class CharacterViewer : IMenuSelectablePage
+[UsedImplicitly]
+internal sealed class CharacterViewer : IMenuSelectablePage
+{
+    private int _characterSelectedPane;
+    public string Name => Gui.Localize("ModUi/&Character");
+
+    public int Priority => 200;
+
+    public void OnGUI(UnityModManager.ModEntry modEntry)
     {
-        private int _characterSelectedPane;
-        public string Name => Gui.Localize("ModUi/&Character");
-
-        public int Priority => 200;
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            ModUi.DisplaySubMenu(ref _characterSelectedPane, Name,
-                new NamedAction(Gui.Localize("ModUi/&BackgroundsAndRaces"),
-                    DisplayBackgroundsAndDeities),
-                new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
-                    DisplayProficiencies),
-                new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
-                    DisplaySpells),
-                new NamedAction(Gui.Localize("ModUi/&Subclasses"),
-                    DisplaySubclasses));
-        }
+        ModUi.DisplaySubMenu(ref _characterSelectedPane, Name,
+            new NamedAction(Gui.Localize("ModUi/&BackgroundsAndRaces"),
+                DisplayBackgroundsAndDeities),
+            new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
+                DisplayProficiencies),
+            new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
+                DisplaySpells),
+            new NamedAction(Gui.Localize("ModUi/&Subclasses"),
+                DisplaySubclasses));
     }
+}
 
-    [UsedImplicitly]
-    internal sealed class InterfaceViewer : IMenuSelectablePage
+[UsedImplicitly]
+internal sealed class InterfaceViewer : IMenuSelectablePage
+{
+    private int _interfaceSelectedPane;
+    public string Name => Gui.Localize("ModUi/&Interface");
+
+    public int Priority => 300;
+
+    public void OnGUI(UnityModManager.ModEntry modEntry)
     {
-        private int _interfaceSelectedPane;
-        public string Name => Gui.Localize("ModUi/&Interface");
-
-        public int Priority => 300;
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            ModUi.DisplaySubMenu(ref _interfaceSelectedPane, Name,
-                new NamedAction(Gui.Localize("ModUi/&GameUi"), DisplayGameUi),
-                new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"), DisplayDungeonMaker),
-                new NamedAction(Gui.Localize("ModUi/&Translations"), DisplayTranslations));
-        }
+        ModUi.DisplaySubMenu(ref _interfaceSelectedPane, Name,
+            new NamedAction(Gui.Localize("ModUi/&GameUi"), DisplayGameUi),
+            new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"), DisplayDungeonMaker),
+            new NamedAction(Gui.Localize("ModUi/&Translations"), DisplayTranslations));
     }
+}
 
-    [UsedImplicitly]
-    internal sealed class PartyEditorViewer : IMenuSelectablePage
+[UsedImplicitly]
+internal sealed class PartyEditorViewer : IMenuSelectablePage
+{
+    public string Name => "PartyEditor".Localized();
+
+    public int Priority => 400;
+
+    public void OnGUI(UnityModManager.ModEntry modEntry)
     {
-        public string Name => "PartyEditor".Localized();
-
-        public int Priority => 400;
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            PartyEditor.OnGUI();
-        }
+        PartyEditor.OnGUI();
     }
+}
 
-    [UsedImplicitly]
-    internal sealed class EncountersViewer : IMenuSelectablePage
+[UsedImplicitly]
+internal sealed class EncountersViewer : IMenuSelectablePage
+{
+    private int _encountersSelectedPane;
+    public string Name => Gui.Localize("ModUi/&Encounters");
+
+    public int Priority => 500;
+
+    public void OnGUI(UnityModManager.ModEntry modEntry)
     {
-        private int _encountersSelectedPane;
-        public string Name => Gui.Localize("ModUi/&Encounters");
-
-        public int Priority => 500;
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            ModUi.DisplaySubMenu(ref _encountersSelectedPane, Name,
-                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayEncountersGeneral),
-                new NamedAction(Gui.Localize("ModUi/&Bestiary"), DisplayBestiary),
-                new NamedAction(Gui.Localize("ModUi/&CharactersPool"), DisplayNpcs));
-        }
+        ModUi.DisplaySubMenu(ref _encountersSelectedPane, Name,
+            new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayEncountersGeneral),
+            new NamedAction(Gui.Localize("ModUi/&Bestiary"), DisplayBestiary),
+            new NamedAction(Gui.Localize("ModUi/&CharactersPool"), DisplayNpcs));
     }
+}
 
-    [UsedImplicitly]
-    internal sealed class CreditsAndDiagnosticsViewer : IMenuSelectablePage
+[UsedImplicitly]
+internal sealed class CreditsAndDiagnosticsViewer : IMenuSelectablePage
+{
+    private int _creditsSelectedPane;
+    public string Name => Gui.Localize("ModUi/&CreditsAndDiagnostics");
+
+    public int Priority => 999;
+
+    public void OnGUI(UnityModManager.ModEntry modEntry)
     {
-        private int _creditsSelectedPane;
-        public string Name => Gui.Localize("ModUi/&CreditsAndDiagnostics");
-
-        public int Priority => 999;
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            ModUi.DisplaySubMenu(ref _creditsSelectedPane, null,
-                new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
-                new NamedAction("Effects", DisplayEffects),
-                new NamedAction(Gui.Localize("ModUi/&Blueprints"), DisplayBlueprints),
-                new NamedAction(Gui.Localize("ModUi/&Services"), DisplayGameServices));
-        }
+        ModUi.DisplaySubMenu(ref _creditsSelectedPane, null,
+            new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
+            new NamedAction("Effects", DisplayEffects),
+            new NamedAction(Gui.Localize("ModUi/&Blueprints"), DisplayBlueprints),
+            new NamedAction(Gui.Localize("ModUi/&Services"), DisplayGameServices));
     }
 }

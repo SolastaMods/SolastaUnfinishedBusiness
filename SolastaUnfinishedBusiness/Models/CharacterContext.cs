@@ -268,6 +268,9 @@ internal static class CharacterContext
         SwitchHelpPower();
         SwitchMonkAbundantKi();
         SwitchMonkFightingStyle();
+        SwitchMonkDoNotRequireAttackActionForFlurry();
+        SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall();
+        SwitchMonkDoNotRequireAttackActionForBonusUnarmoredAttack();
         SwitchMonkWeaponSpecialization();
         SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchRangerHumanoidFavoredEnemy();
@@ -323,7 +326,7 @@ internal static class CharacterContext
 
         foreach (var line in lines)
         {
-            var columns = line.Split(new[] { '\t' }, 3);
+            var columns = line.Split(Separator, 3);
 
             if (columns.Length != 3)
             {
@@ -708,12 +711,6 @@ internal static class CharacterContext
                 var featureUnlockPointPool1 = new FeatureUnlockByLevel(pointPool1BonusFeats, level);
                 var featureUnlockPointPool2 = new FeatureUnlockByLevel(pointPool2BonusFeats, level);
 
-                bool ShouldBe2Points()
-                {
-                    return (characterClassDefinition == Rogue && level is 10 && !isMiddle) ||
-                           (characterClassDefinition == Fighter && level is 6 or 14 && isMiddle);
-                }
-
                 if (enable)
                 {
                     characterClassDefinition.FeatureUnlocks.Add(ShouldBe2Points()
@@ -732,6 +729,14 @@ internal static class CharacterContext
                         characterClassDefinition.FeatureUnlocks.RemoveAll(x =>
                             x.FeatureDefinition == pointPool1BonusFeats && x.level == level);
                     }
+                }
+
+                continue;
+
+                bool ShouldBe2Points()
+                {
+                    return (characterClassDefinition == Rogue && level is 10 && !isMiddle) ||
+                           (characterClassDefinition == Fighter && level is 6 or 14 && isMiddle);
                 }
             }
 
@@ -888,21 +893,17 @@ internal static class CharacterContext
     {
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
         {
-            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.description =
+            PowerMonkMartialArts.GuiPresentation.description =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
-            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.title =
+            PowerMonkMartialArts.GuiPresentation.title =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle";
-            Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(AttackModifierMonkMartialArtsUnarmedStrikeBonus, 1));
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 1 && x.FeatureDefinition == PowerMonkMartialArts);
+            PowerMonkMartialArts.activationTime = ActivationTime.Reaction;
         }
         else
         {
-            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.description = string.Empty;
-            AttackModifierMonkMartialArtsUnarmedStrikeBonus.GuiPresentation.title = string.Empty;
-            Monk.FeatureUnlocks.TryAdd(new FeatureUnlockByLevel(PowerMonkMartialArts, 1));
-            Monk.FeatureUnlocks
-                .RemoveAll(x => x.level == 1 && x.FeatureDefinition == AttackModifierMonkMartialArtsUnarmedStrikeBonus);
+            PowerMonkMartialArts.GuiPresentation.description = "Action/&MartialArtsDescription";
+            PowerMonkMartialArts.GuiPresentation.title = "Action/&MartialArtsTitle";
+            PowerMonkMartialArts.activationTime = ActivationTime.OnAttackHitMartialArts;
         }
 
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
@@ -935,9 +936,9 @@ internal static class CharacterContext
         }
     }
 
-    internal static void SwitchMonkMonkImprovedUnarmoredMovementToMoveOnTheWall()
+    internal static void SwitchMonkImprovedUnarmoredMovementToMoveOnTheWall()
     {
-        if (Main.Settings.EnableMonkDoNotRequireAttackActionForFlurry)
+        if (Main.Settings.EnableMonkImprovedUnarmoredMovementToMoveOnTheWall)
         {
             MovementAffinityMonkUnarmoredMovementImproved.GuiPresentation.description =
                 "Feature/&MonkAlternateUnarmoredMovementImprovedDescription";
@@ -1509,6 +1510,7 @@ internal static class CharacterContext
     private static ConditionDefinition _conditionReduceSneakDice;
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
     private static FeatureDefinitionFeatureSet _featureSetRogueDeviousStrike;
+    private static readonly char[] Separator = { '\t' };
 
     private static void BuildRogueCunningStrike()
     {

@@ -1137,35 +1137,27 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 ## 6. Tactician
 
-The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
+For tacticians, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
 
 
 ### Level 3
 
-* Ever Vigilant
+* Gambit Die
 
-Gain your Intelligence modifier bonus (minimum 1) to your initiative rolls.
-
-* Gambit Dice
-
-You gain four D6 dice called gambit dice that you can spend to use various gambits. Spent dice recharge on short or long rest. On certain levels these dice increase in size.
+You gain four D8 dice called gambit dice that you can spend to use various gambits. Spent dice recharge whenever you take a short or long rest. On certain levels these dice increase in size.
 
 * Gambits
 
-Learn 4 gambits - special maneuvers that use gambit dice and usually add roll of the gambit dice to the attack's damage. Some of the gambits allow target to make saving throw to avoid effects, DC of those gambits is 8 + your proficiency bonus + your Strength or Dexterity or Intelligence modifier, whichever is higher.
+You learn three special techniques called gambits. Using a gambit costs one gambit die. Most gambits enhance your attacks in a way and add the gambit die's roll to the attack's damage. You can only have one gambit active at a time. Some of your gambits require your target to make a saving throw to avoid its detrimental effects. The Gambit DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher. 
 
 * Sharp Mind
 
-Gain proficiency in one skill and expertise in one skill or tool.
+Gain proficiency with a skill of your choice.
 
 
 ### Level 7
 
-* <b>gambit die</b> Size (d8)
-
-Your gambit die is upgraded to D8.
-
-* Additional <b>gambit die</b>
+* Additional Gambit Die
 
 You gain an additional gambit die.
 
@@ -1173,25 +1165,33 @@ You gain an additional gambit die.
 
 Learn 2 more gambits.
 
-* Shared Vigilance
+* Honed Skill
 
-Ever Vigilant now grants double Intelligence modifier to initiative for you, and grants base version to all allies within 30ft.
+Gain expertise with a skill or tool of your choice.
+
+* Replace Gambit
+
+You can replace one gambit you know with a new one.
 
 
 ### Level 10
 
-* <b>gambit die</b> Size (d10)
+* Gambit Die Size (d10)
 
 Your gambit die is upgraded to D10.
 
+* Replace Gambit
+
+You can replace one gambit you know with a new one.
+
 * Select Strategic Plan
 
-Select your strategy to deal with prolonged encounters - ability that would allow you to regain some gambit dice under certain circumstances.
+You can choose a strategy to deal with prolonged encounters - abilities that would allow you to gain gambit dice under certain circumstances.
 
 
 ### Level 15
 
-* Additional <b>gambit die</b>
+* Additional Gambit Die
 
 You gain an additional gambit die.
 
@@ -1201,14 +1201,22 @@ Learn 2 more gambits.
 
 * Battle Clarity
 
-Gain proficiency in Intelligence and Wisdom saving throws.
+Gain proficiency with a saving throw of your choice.
+
+* Replace Gambit
+
+You can replace one gambit you know with a new one.
 
 
 ### Level 18
 
-* <b>gambit die</b> Size (d12)
+* Gambit Die Size (d12)
 
 Your gambit die is upgraded to D12.
+
+* Replace Gambit
+
+You can replace one gambit you know with a new one.
 
 * Tactical Awareness
 

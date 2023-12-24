@@ -88,6 +88,7 @@ internal static class CustomSituationalContext
                                                                   !contextParams.target.HasConditionOfType(contextParams
                                                                       .condition),
 
+            ExtraSituationalContext.IsNotSourceOfCondition => IsNotSourceOfCondition(contextParams),
             // supports Monk Shield Expert scenarios
             (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
                 !contextParams.source.IsWearingArmor() &&
@@ -101,6 +102,21 @@ internal static class CustomSituationalContext
 
             _ => def
         };
+    }
+
+    private static bool IsNotSourceOfCondition(
+        RulesetImplementationDefinitions.SituationalContextParams contextParams)
+    {
+        var target = contextParams.target;
+        var condition = contextParams.condition;
+        var rulesetCondition = target.AllConditions.FirstOrDefault(x => x.ConditionDefinition == condition);
+
+        if (rulesetCondition == null)
+        {
+            return false;
+        }
+
+        return contextParams.source.Guid != rulesetCondition.SourceGuid;
     }
 
     private static bool MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(

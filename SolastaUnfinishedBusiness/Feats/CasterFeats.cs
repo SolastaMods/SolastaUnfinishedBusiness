@@ -557,7 +557,7 @@ internal static class CasterFeats
     }
 
     [NotNull]
-    private static FeatureDefinition BuildTelekinesis(
+    private static FeatureDefinitionGrantInvocations BuildTelekinesis(
         string savingThrowDifficultyAbility, MotionForm.MotionType motionType)
     {
         const string NAME = "FeatTelekinetic";

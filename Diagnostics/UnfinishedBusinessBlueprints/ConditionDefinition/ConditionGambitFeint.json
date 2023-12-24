@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481",
-    "Definition:CombatAffinityGambitFeint:d78996e8-218b-5535-b250-f24b50e07f01"
+    "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -19,7 +18,8 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "Attacks"
+    9002,
+    9001
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",

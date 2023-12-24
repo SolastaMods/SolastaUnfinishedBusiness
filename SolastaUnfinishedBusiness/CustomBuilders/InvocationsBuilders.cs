@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -52,7 +53,8 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private static IEnumerable<EffectForm> HandleEldritchSmiteKnockProne(
+    [CanBeNull]
+    private static EffectForm[] HandleEldritchSmiteKnockProne(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         IAdditionalDamageProvider provider)
@@ -931,19 +933,19 @@ internal static class InvocationsBuilders
     }
 
     /*
-     
+
     Celestial Blessing
 
         Prerequisites: Celestial Subclass, 9th level
 
-        You can cast Bless as a 1st level spell at will without maintaining concentration. You can use this feature a number of times equal to your charisma modifier. You regain any extended uses after completing a long rest. 
+        You can cast Bless as a 1st level spell at will without maintaining concentration. You can use this feature a number of times equal to your charisma modifier. You regain any extended uses after completing a long rest.
 
     Ally of Nature
 
         Prerequisite: 9th level
 
         You can cast awaken once using a warlock spell slot. You can't do so again until you finish a long rest.
-         
+
     Witching Blade
 
         Prerequisite: Pact of the Blade

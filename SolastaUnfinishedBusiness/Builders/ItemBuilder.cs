@@ -94,7 +94,8 @@ internal static class ItemBuilder
     }
 
     [NotNull]
-    private static IEnumerable<ItemPropertyDescription> FilterItemProperty(
+    // ReSharper disable once ReturnTypeCanBeEnumerable.Local
+    private static List<ItemPropertyDescription> FilterItemProperty(
         [NotNull] IEnumerable<ItemPropertyDescription> listToFilter, BaseDefinition toFilter)
     {
         return listToFilter.Where(ip => !ip.FeatureDefinition.GUID.Equals(toFilter.GUID)).ToList();

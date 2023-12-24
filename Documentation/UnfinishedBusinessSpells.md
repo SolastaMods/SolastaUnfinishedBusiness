@@ -39,28 +39,28 @@ You drive a disorienting spike of psychic energy into the mind of one creature y
 
 You drain life energy from a hostile creature that you can see within 30 feet. Deal 1d8 necrotic damage to target on hit and heal for half the damage dealt. This spell has no effect on undead and constructs. The damage gains an additional die at levels 5th, 11th and 17th.
 
-# 11. - Sound Burst (V,S) level 0 Evocation
+# 11. - Resonating Blade (M,S) level 0 Evocation
+
+Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.
+At 5th level, the melee attack and the damage the target takes for moving deals extra 1d8 thunder damage. Both damage rolls increase by 1d8 at 11th and 17th levels.
+
+# 12. - Sound Burst (V,S) level 0 Evocation
 
 Create a burst of thundering sound, forcing creatures adjacent to you to make a Constitution saving throw or take 1d6 thunder damage.
 This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
 
-# 12. - Sunlit Blade (M,S) level 0 Evocation
+# 13. - Sunlit Blade (M,S) level 0 Evocation
 
 Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
 
-# 13. - Sword Storm (V,S) level 0 Enchantment
+# 14. - Sword Storm (V,S) level 0 Enchantment
 
 You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 ft of you must each succeed on a Dexterity saving throw or take 1d6 force damage.
 
-# 14. - Thorny Vines (V,S) level 0 Transmutation
+# 15. - Thorny Vines (V,S) level 0 Transmutation
 
 You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 ft closer to you.
-
-# 15. - Thriving Blade (M,S) level 0 Evocation
-
-Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.
-At 5th level, the melee attack and the damage the target takes for moving deals extra 1d8 thunder damage. Both damage rolls increase by 1d8 at 11th and 17th levels.
 
 # 16. - Wrack (V,S) level 0 Necromancy
 

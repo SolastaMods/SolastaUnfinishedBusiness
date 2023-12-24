@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
@@ -216,7 +217,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionPower BuildHerbalBrew(
+    private static FeatureDefinitionPowerSharedPool BuildHerbalBrew(
         FeatureDefinitionPower pool,
         string type,
         ItemDefinition baseItem)
@@ -262,7 +263,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildHerbalBrew(
+    private static FeatureDefinitionPowerSharedPool BuildHerbalBrew(
         FeatureDefinitionPower pool,
         FeatureDefinition featureDefinitionDamageAffinity,
         ItemDefinition baseItem)

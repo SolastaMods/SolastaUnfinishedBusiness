@@ -158,9 +158,22 @@ public static class CharacterActionPatcher
                 }
             }
 
-            if (__instance is CharacterActionAttack)
+            if (__instance.ActionType == ActionDefinitions.ActionType.Bonus)
+            {
+                rulesetCharacter.ProcessConditionsMatchingInterruption(
+                    (ConditionInterruption)ExtraConditionInterruption.UsesBonusAction);
+            }
+
+            // ReSharper disable once InvertIf
+            if (__instance is CharacterActionAttack actionAttack)
             {
                 Global.CurrentAttackAction.Pop();
+
+                if (actionAttack.ActionParams.AttackMode != null)
+                {
+                    rulesetCharacter.ProcessConditionsMatchingInterruption(
+                        (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed);
+                }
             }
         }
     }

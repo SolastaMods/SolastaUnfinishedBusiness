@@ -457,7 +457,9 @@ internal static partial class UI
             if (searchText?.Length > 0)
             {
                 var searchStr = searchText.ToLower();
+#pragma warning disable CA1862
                 items = items.Where(i => titleFunc(i).ToLower().Contains(searchStr)).ToList();
+#pragma warning restore CA1862
             }
         }
 

@@ -33,12 +33,13 @@ public static class FeatureDefinitionAutoPreparedSpellsPatcher
                 {
                     var spellLevel = spell.SpellLevel;
 
-                    if (!spells.ContainsKey(spellLevel))
+                    if (!spells.TryGetValue(spellLevel, out var value))
                     {
-                        spells.Add(spellLevel, new List<SpellDefinition>());
+                        value = new List<SpellDefinition>();
+                        spells.Add(spellLevel, value);
                     }
 
-                    spells[spellLevel].Add(spell);
+                    value.Add(spell);
                 }
             }
 

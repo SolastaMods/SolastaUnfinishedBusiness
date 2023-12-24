@@ -29,7 +29,8 @@ internal enum ExtraSituationalContext
     TargetIsFavoriteEnemy = 1013,
     HasShieldInHands = 1014,
     TargetDoesNotHaveCondition = 1015,
-    HasSimpleOrMartialWeaponInHands = 1016
+    HasSimpleOrMartialWeaponInHands = 1016,
+    IsNotSourceOfCondition = 1017
 }
 
 internal enum ExtraCombatAffinityValueDetermination
@@ -144,7 +145,9 @@ internal enum ExtraAdditionalDamageTriggerCondition
 public enum ExtraConditionInterruption
 {
     //Interrupts after attack was made against this target, unlike `ConditionInterruption.Attacked` that triggers at the very start
-    AfterWasAttacked = 9000
+    AfterWasAttacked = 9000,
+    AttacksWithWeaponOrUnarmed = 9001,
+    UsesBonusAction = 9002
 }
 
 #if false

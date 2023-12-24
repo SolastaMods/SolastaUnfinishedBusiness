@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
-using Debug = UnityEngine.Debug;
 
 namespace SolastaUnfinishedBusiness;
 

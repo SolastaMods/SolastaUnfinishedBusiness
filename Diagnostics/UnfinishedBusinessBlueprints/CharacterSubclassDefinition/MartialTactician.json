@@ -3,11 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierTacticianEverVigilant:e0b4172a-9b57-5871-a28e-15b5f50e6c82",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerPoolTacticianGambit:20212eff-ee31-5717-969d-22b9b8da2c95",
       "level": 3
     },
@@ -23,11 +18,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD8:2e930de2-ade4-5563-b5cb-f65b3d4ba395",
-      "level": 7
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool00:7e5c2ac6-dfd6-5490-87ec-963cee6378ba",
       "level": 7
     },
@@ -38,12 +28,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolGambitUnlearn:444d8f27-2c19-580a-bb72-1fe476ae5ec6",
+      "featureDefinition": "Definition:FeatureSetTacticianHonedCraft:c3440a1e-19b8-5765-9b3a-682310d7f982",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerTacticianSharedVigilance:3581ed42-7ce9-5464-a495-910e3bd168a9",
+      "featureDefinition": "Definition:InvocationPoolGambitUnlearn:444d8f27-2c19-580a-bb72-1fe476ae5ec6",
       "level": 7
     },
     {

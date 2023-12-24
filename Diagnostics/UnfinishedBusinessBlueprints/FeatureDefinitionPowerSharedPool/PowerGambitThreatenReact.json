@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "MeleeHit",
@@ -33,17 +33,17 @@
     "targetSide": "Enemy",
     "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "StartOfTurn",
+    "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Constitution",
+    "savingThrowAbility": "Wisdom",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Intelligence",
+    "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBlinded",
-          "conditionDefinition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
+          "conditionDefinitionName": "ConditionFrightened",
+          "conditionDefinition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -308,7 +308,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -328,11 +328,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitBlindTitle",
-    "description": "Feature/&GambitBlindDescription",
+    "title": "Feature/&GambitThreatenTitle",
+    "description": "Feature/&GambitThreatenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1d63a6c8-ad10-5f83-9e61-b2860f191db5",
+      "m_AssetGUID": "abd09d9b-7323-5962-b1ef-a2f8a8ae1b2c",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "642769d1-561a-52c4-844a-d2e3a6e8da37",
+  "guid": "80e20d99-a5f1-5e01-8ce3-97d4243e40e8",
   "contentPack": 9999,
-  "name": "PowerGambitBlindReact"
+  "name": "PowerGambitThreatenReact"
 }

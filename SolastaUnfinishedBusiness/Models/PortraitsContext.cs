@@ -99,8 +99,9 @@ public static class PortraitsContext
         return TryGetPortrait(CustomMonsterPortraits, name, filename, original, out texture);
     }
 
+    // ReSharper disable once SuggestBaseTypeForParameter
     private static bool TryGetPortrait(
-        IDictionary<string, Texture2D> dict, string name, string filename, RawImage original, out Texture2D texture)
+        Dictionary<string, Texture2D> dict, string name, string filename, RawImage original, out Texture2D texture)
     {
         if (dict.TryGetValue(name, out texture))
         {

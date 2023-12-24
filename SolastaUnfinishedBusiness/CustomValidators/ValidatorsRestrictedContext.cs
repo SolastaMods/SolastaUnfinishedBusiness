@@ -19,7 +19,8 @@ public static class ValidatorsRestrictedContext
                 or RuleDefinitions.RangeType.MeleeHit));
 
     public static readonly IValidateContextInsteadOfRestrictedProperty IsWeaponAttack =
-        new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) => (OperationType.Set, mode != null));
+        new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
+            (OperationType.Set, mode != null));
 
     public static readonly IValidateContextInsteadOfRestrictedProperty IsMeleeWeaponAttack =
         new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
@@ -37,6 +38,6 @@ public static class ValidatorsRestrictedContext
 
     public static readonly IValidateContextInsteadOfRestrictedProperty IsZenArrowAttack =
         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
-            (OperationType.Set, mode is { Ranged: true }
-                                && character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition)));
+            (OperationType.Set, mode is { Ranged: true } &&
+                                character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition)));
 }

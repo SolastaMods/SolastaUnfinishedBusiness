@@ -163,9 +163,9 @@ internal static class Level20SubclassesContext
         //
 
         /*
-        
+
         Cleric of Law: Executioner - Whenever you break an enemies concentration, they must make a WIS saving throw, or take psychic damage equal to your cleric level.
-        
+
         */
 
         //
@@ -1325,7 +1325,7 @@ internal static class Level20SubclassesContext
                 gameLocationBattleService.Battle?.AllContenders ??
                 ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
 
-            if (contenders.Any())
+            if (contenders.Count != 0)
             {
                 rulesetAlly.LogCharacterUsedFeature(_featureKeeperOfOblivion);
             }

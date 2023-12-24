@@ -352,26 +352,6 @@ internal static partial class SpellBuilders
 
         const string ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION = "Feature/&AttackModifierElementalWeaponDescription";
 
-        static string AdditionalDamageElementalWeaponDescription(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION, x);
-        }
-
-        static string AdditionalDamageElementalWeaponDescription1(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION1, x);
-        }
-
-        static string AdditionalDamageElementalWeaponDescription2(string x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION2, x);
-        }
-
-        static string AttackModifierElementalWeaponDescription(int x)
-        {
-            return Gui.Format(ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION, x.ToString());
-        }
-
         var additionalDamageElementalWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{damageType}ElementalWeapon")
             .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
@@ -484,6 +464,26 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+
+        static string AdditionalDamageElementalWeaponDescription(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION, x);
+        }
+
+        static string AdditionalDamageElementalWeaponDescription1(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION1, x);
+        }
+
+        static string AdditionalDamageElementalWeaponDescription2(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION2, x);
+        }
+
+        static string AttackModifierElementalWeaponDescription(int x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION, x.ToString());
+        }
     }
 
     #endregion
@@ -1381,15 +1381,16 @@ internal static partial class SpellBuilders
             InflictDamage(DamageTypeCold, locationCharacter.RulesetCharacter, ConeOfCold);
         }
 
+        // ReSharper disable once SuggestBaseTypeForParameter
         private void InflictDamage(
-            string damageType, RulesetActor rulesetActor, IMagicEffect magicEffect, bool rollSaving = false)
+            string damageType, RulesetCharacter rulesetCharacter, IMagicEffect magicEffect, bool rollSaving = false)
         {
-            if (rulesetActor == null)
+            if (rulesetCharacter == null)
             {
                 return;
             }
 
-            if (!rulesetActor.TryGetConditionOfCategoryAndType(
+            if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
                     _conditionHungerOfTheVoid.Name,
                     out var activeCondition))
@@ -1407,12 +1408,12 @@ internal static partial class SpellBuilders
             if (rollSaving)
             {
                 var casterSaveDC = 8 + activeCondition.SourceAbilityBonus + activeCondition.SourceProficiencyBonus;
-                var modifierTrend = rulesetActor.actionModifier.savingThrowModifierTrends;
-                var advantageTrends = rulesetActor.actionModifier.savingThrowAdvantageTrends;
+                var modifierTrend = rulesetCharacter.actionModifier.savingThrowModifierTrends;
+                var advantageTrends = rulesetCharacter.actionModifier.savingThrowAdvantageTrends;
                 var dexterityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                    rulesetActor.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+                    rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
-                rulesetActor.RollSavingThrow(
+                rulesetCharacter.RollSavingThrow(
                     0, AttributeDefinitions.Dexterity, null, modifierTrend, advantageTrends, dexterityModifier,
                     casterSaveDC,
                     false, out var savingOutcome, out _);
@@ -1433,10 +1434,10 @@ internal static partial class SpellBuilders
 
             var rolls = new List<int>();
             var damageForm = new DamageForm { DamageType = damageType, DiceNumber = diceNumber, DieType = DieType.D6 };
-            var totalDamage = rulesetActor.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var totalDamage = rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
             var attacker = GameLocationCharacter.GetFromActor(rulesetCaster);
-            var defender = GameLocationCharacter.GetFromActor(rulesetActor);
+            var defender = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
             if (attacker != null && defender != null)
             {
@@ -1447,8 +1448,8 @@ internal static partial class SpellBuilders
                 totalDamage,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetActor },
-                rulesetActor,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetCharacter },
+                rulesetCharacter,
                 false,
                 activeCondition.SourceGuid,
                 false,

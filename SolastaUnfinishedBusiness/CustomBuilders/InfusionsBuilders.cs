@@ -351,7 +351,7 @@ internal static class InventorInfusions
         #endregion
     }
 
-    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(
+    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPowerInvocation(
         int level,
         string name,
         AssetReferenceSprite icon,
@@ -517,12 +517,14 @@ internal static class InventorInfusions
         return replica;
     }
 
-    private static string GuiReplicaTitle(BaseDefinition item)
+    // ReSharper disable once SuggestBaseTypeForParameter
+    private static string GuiReplicaTitle(ItemDefinition item)
     {
         return Gui.Format(ReplicaItemTitleFormat, item.FormatTitle());
     }
 
-    private static string BuildReplicaDescription(BaseDefinition item)
+    // ReSharper disable once SuggestBaseTypeForParameter
+    private static string BuildReplicaDescription(ItemDefinition item)
     {
         return Gui.Format(ReplicaItemTitleDescription, item.FormatTitle(), item.FormatDescription());
     }

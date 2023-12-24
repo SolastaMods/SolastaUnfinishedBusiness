@@ -469,9 +469,9 @@ Your critical threshold is lowered by 1.
 
 # 101. - Tactician Adept
 
-You have martial training that allows you to perform special combat maneuvers:
-• You learn two maneuvers of your choice from the Tactician subclass. If the maneuver requires a saving throw, the DC is equal to 8 + your proficiency bonus + your Intelligence modifier.
-• You gain 2 superiority die. The type is a d4, and it doesn't increase, if you are not a Tactician. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
+You have martial training that allows you to perform special combat techniques called gambits:
+• You learn two gambits of your choice from the Tactician subclass. The Gambit DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
+• You gain 1 Gambit Die. The die is a d6 and it doesn't increase in size if you are not a Tactician. This die is used to fuel your gambits. It is expended when you use it, and is regained when you finish a short or long rest.
 
 # 102. - Telekinetic
 

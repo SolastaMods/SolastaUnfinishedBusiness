@@ -35,11 +35,13 @@ public static class CursorLocationBattleActionExecutingPatcher
                 RulesetAttackMode, // optionalAttackMode,
                 bool, // ignoreMovePoints,
                 bool, // allowUsingDelegatedPowersAsPowers
+                CharacterAction, // action
                 ActionDefinitions.ActionStatus // result
             >(GetActionStatus).Method;
 
             return instructions.ReplaceCall(method, 1,
                 "CursorLocationBattleActionExecuting.ActionExecute",
+                new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, custom));
         }
 
@@ -50,8 +52,17 @@ public static class CursorLocationBattleActionExecutingPatcher
             ActionDefinitions.ActionStatus actionTypeStatus,
             RulesetAttackMode optionalAttackMode,
             bool ignoreMovePoints,
-            bool allowUsingDelegatedPowersAsPowers)
+            bool allowUsingDelegatedPowersAsPowers,
+            CharacterAction action)
         {
+            // some NoCost powers without Recharge offering the selection again (i.e.: Urgent Orders Gambit)
+            if (action is CharacterActionUsePower actionUsePower &&
+                actionUsePower.activePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.NoCost &&
+                actionUsePower.activePower.EffectDescription.RangeType == RuleDefinitions.RangeType.Distance)
+            {
+                return ActionDefinitions.ActionStatus.Unavailable;
+            }
+
             if (CustomActionIdContext.IsInvocationActionId(actionId))
             {
                 return ActionDefinitions.ActionStatus.Unavailable;

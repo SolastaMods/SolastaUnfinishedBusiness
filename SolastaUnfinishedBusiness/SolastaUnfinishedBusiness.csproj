@@ -3,7 +3,7 @@
   <PropertyGroup>
     <LangVersion>10</LangVersion>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.5.94.37</AssemblyVersion>
+    <AssemblyVersion>1.5.94.38</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug Install;Release Install</Configurations>
@@ -58,6 +58,7 @@
 
   <ItemGroup>
     <!-- <PackageReference Include="System.Memory" Version="4.5.5" /> -->
+    <Reference Include="System.Collections" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />

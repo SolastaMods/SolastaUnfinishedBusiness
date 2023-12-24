@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Subclasses;
 
@@ -51,6 +52,25 @@ public static class CharacterBattleListenersPatch
 
         //PATCH: supports vigilance feature on Martial Guardian
         MartialGuardian.HandleVigilance(rulesetCharacter);
+
+        //PATCH: supports EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack
+        if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
+            rulesetCharacter.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk) > 0)
+        {
+            rulesetCharacter.InflictCondition(
+                "ConditionMonkMartialArtsUnarmedStrikeBonus",
+                RuleDefinitions.DurationType.Round,
+                0,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                "ConditionMonkMartialArtsUnarmedStrikeBonus",
+                0,
+                0,
+                0);
+        }
 
         foreach (var listener in rulesetCharacter.GetSubFeaturesByType<ICharacterTurnStartListener>())
         {

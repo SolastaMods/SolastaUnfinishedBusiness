@@ -234,7 +234,10 @@ internal static class EldritchVersatility
             .AddToDB();
     }
 
-    private static int GetAbilityScoreModifier(RulesetEntity ownerCharacter, string abilityScore,
+    // ReSharper disable once SuggestBaseTypeForParameter
+    private static int GetAbilityScoreModifier(
+        RulesetCharacter ownerCharacter,
+        string abilityScore,
         VersatilitySupportRulesetCondition supportCondition)
     {
         return AttributeDefinitions.ComputeAbilityScoreModifier(Math.Max(Math.Max(
@@ -293,6 +296,8 @@ internal static class EldritchVersatility
     internal class VersatilitySupportRulesetCondition :
         RulesetConditionCustom<VersatilitySupportRulesetCondition>, IBindToRulesetConditionCustom
     {
+        private static readonly int[] ProficiencyIncreaseLevels = { 1, 5, 11, 17 };
+
         static VersatilitySupportRulesetCondition()
         {
             Category = "EldritchVersatility";
@@ -428,7 +433,7 @@ internal static class EldritchVersatility
             }
             else
             {
-                BeamNumber = new[] { 1, 5, 11, 17 }.Count(x => characterLevel >= x);
+                BeamNumber = ProficiencyIncreaseLevels.Count(x => characterLevel >= x);
             }
 
             if (ownerHero.TrainedFeats.Contains(FeatEldritchVersatilityAdept))
@@ -1301,15 +1306,16 @@ internal static class EldritchVersatility
             console.AddEntry(entry);
         }
 
+        // ReSharper disable once SuggestBaseTypeForParameter
         private static bool ShouldTrigger(
-            IGameLocationBattleService gameLocationBattleService,
+            GameLocationBattleManager gameLocationBattleManager,
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
             return helper.CanReact()
                    && !defender.IsOppositeSide(helper.Side)
-                   && gameLocationBattleService.IsWithinXCells(helper, defender, 7)
-                   && gameLocationBattleService.CanAttackerSeeCharacterFromPosition(
+                   && gameLocationBattleManager.IsWithinXCells(helper, defender, 7)
+                   && gameLocationBattleManager.CanAttackerSeeCharacterFromPosition(
                        defender.LocationPosition, helper.LocationPosition, defender, helper);
         }
     }

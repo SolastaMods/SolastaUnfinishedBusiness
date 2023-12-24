@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -29,13 +30,18 @@ public sealed class MartialTactician : AbstractSubclass
     {
         var unlearn = BuildUnlearn();
 
+        // backward compatibility
+        _ = BuildEverVigilant();
+        _ = BuildSharedVigilance();
+        _ = BuildGambitDieSize(DieType.D8);
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.MartialTactician, 256))
-            .AddFeaturesAtLevel(3, BuildEverVigilant(), BuildSharpMind(), GambitsBuilders.GambitPool,
-                GambitsBuilders.Learn4Gambit)
-            .AddFeaturesAtLevel(7, BuildSharedVigilance(), BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D8),
+            .AddFeaturesAtLevel(3, BuildSharpMind(), GambitsBuilders.GambitPool,
+                GambitsBuilders.Learn3Gambit)
+            .AddFeaturesAtLevel(7, BuildHonedCraft(), BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit,
                 unlearn)
             .AddFeaturesAtLevel(10, BuildStrategicPlan(), BuildGambitDieSize(DieType.D10),
@@ -59,7 +65,7 @@ public sealed class MartialTactician : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => null;
 
-    private static FeatureDefinition BuildSharpMind()
+    private static FeatureDefinitionFeatureSet BuildSharpMind()
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTacticianSharpMind")
@@ -69,7 +75,16 @@ public sealed class MartialTactician : AbstractSubclass
                     .Create("PointPoolTacticianSharpMindSkill")
                     .SetGuiPresentationNoContent()
                     .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
-                    .AddToDB(),
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionFeatureSet BuildHonedCraft()
+    {
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianHonedCraft")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
                 FeatureDefinitionPointPoolBuilder
                     .Create("PointPoolTacticianSharpMindExpertise")
                     .SetGuiPresentationNoContent()
@@ -78,7 +93,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildEverVigilant()
+    private static FeatureDefinitionAttributeModifier BuildEverVigilant()
     {
         return FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTacticianEverVigilant")
@@ -87,7 +102,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildSharedVigilance()
+    private static FeatureDefinitionPower BuildSharedVigilance()
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerTacticianSharedVigilance")
@@ -125,18 +140,33 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildBattleClarity()
+    private static FeatureDefinitionFeatureSet BuildBattleClarity()
     {
+        var features = new FeatureDefinition[]
+        {
+            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMisaye,
+            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri,
+            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
+            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta
+        };
+
+        foreach (var feature in features.OfType<FeatureDefinitionSavingThrowAffinity>())
+        {
+            var term = $"Attribute/&{feature.affinityGroups[0].abilityScoreName}TitleLong";
+
+            feature.GuiPresentation.title = term;
+            feature.GuiPresentation.description = term;
+        }
+
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTacticianBattleClarity")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
-                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddFeatureSet(features)
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildGambitPoolIncrease()
+    private static FeatureDefinitionPowerUseModifier BuildGambitPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerUseModifierTacticianGambitPool{_gambitPoolIncreases++:D2}")
@@ -154,7 +184,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildStrategicPlan()
+    private static FeatureDefinitionFeatureSet BuildStrategicPlan()
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSefTacticianStrategicPlan")
@@ -179,7 +209,7 @@ public sealed class MartialTactician : AbstractSubclass
         return feature;
     }
 
-    private static FeatureDefinition BuildImproviseStrategy()
+    private static FeatureDefinitionFeatureSet BuildImproviseStrategy()
     {
         var feature = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureImproviseStrategy")
@@ -221,7 +251,7 @@ public sealed class MartialTactician : AbstractSubclass
     {
         return CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitUnlearn")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 1, true)
             .AddToDB();
     }
@@ -235,7 +265,7 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildTacticalAwareness()
+    private static FeatureDefinitionFeatureSet BuildTacticalAwareness()
     {
         var additionalDamageTacticalAwareness = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageTacticianTacticalAwareness")

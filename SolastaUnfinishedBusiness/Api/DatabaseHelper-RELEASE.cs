@@ -868,9 +868,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
 
-        internal static FeatureDefinitionActionAffinity ActionAffinityReactive { get; } =
-            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityReactive");
-
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
 
@@ -1732,6 +1729,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
 
+        internal static FeatureDefinitionPower PowerKnightLeadership { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerKnightLeadership");
+
         internal static FeatureDefinitionPower PowerMagebaneSpellCrusher { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMagebaneSpellCrusher");
 
@@ -2085,6 +2085,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfMaraike { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfMaraike");
+
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfMisaye { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfMisaye");
 
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfPakri { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfPakri");

@@ -50,8 +50,8 @@ public static class ActionSwitching
         // extra null checks required as some custom campaigns NPCs might produce a null here
         foreach (var feature in parentList
                      .Where(feature =>
-                         feature != null && feature.AllowsDuplicate ||
-                         features != null && features.All(x => x.feature != feature)))
+                         (feature != null && feature.AllowsDuplicate) ||
+                         (features != null && features.All(x => x.feature != feature))))
         {
             switch (feature)
             {
@@ -312,7 +312,8 @@ public static class ActionSwitching
         return true;
     }
 
-    private static List<int> LoadIndexes(IReadOnlyDictionary<string, int> map, ActionDefinitions.ActionType type,
+    // ReSharper disable once SuggestBaseTypeForParameter
+    private static List<int> LoadIndexes(Dictionary<string, int> map, ActionDefinitions.ActionType type,
         int max)
     {
         var list = new List<int>();

@@ -336,10 +336,10 @@ internal static class GameLocationBattleManagerTweaks
          * ######################################
          */
         /*
-        * ######################################
-        * [CE] EDIT START
-        * Support for wild-shaped characters
-        */
+         * ######################################
+         * [CE] EDIT START
+         * Support for wild-shaped characters
+         */
 
         //Commented out original check
         //else if (attacker.RulesetCharacter is RulesetCharacterHero &&
@@ -1353,10 +1353,10 @@ internal static class GameLocationBattleManagerTweaks
             // }
 
             /*
-            * Support for extra types of Smite (like eldritch smite)
-            * [CE] EDIT END
-            * ######################################
-            */
+             * Support for extra types of Smite (like eldritch smite)
+             * [CE] EDIT END
+             * ######################################
+             */
 
             // ReSharper disable once InvertIf
             if (validTrigger && validProperty)

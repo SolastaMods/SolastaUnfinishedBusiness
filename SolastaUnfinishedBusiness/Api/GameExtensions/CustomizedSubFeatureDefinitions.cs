@@ -10,18 +10,22 @@ internal static class CustomizedSubFeatureDefinitions
 
     private static List<object> GetOrCreateForKey([NotNull] BaseDefinition definition)
     {
-        if (!CustomSubFeatures.ContainsKey(definition))
+        if (CustomSubFeatures.TryGetValue(definition, out var value))
         {
-            CustomSubFeatures.Add(definition, new List<object>());
+            return value;
         }
 
-        return CustomSubFeatures[definition];
+        value = new List<object>();
+        CustomSubFeatures.Add(definition, value);
+
+        return value;
     }
 
     [CanBeNull]
-    private static IEnumerable<object> GetForKey([NotNull] BaseDefinition definition)
+    // ReSharper disable once ReturnTypeCanBeEnumerable.Local
+    private static List<object> GetForKey([NotNull] BaseDefinition definition)
     {
-        return !CustomSubFeatures.ContainsKey(definition) ? null : CustomSubFeatures[definition];
+        return !CustomSubFeatures.TryGetValue(definition, out var value) ? null : value;
     }
 
     internal static void AddCustomSubFeatures<T>(
@@ -30,22 +34,6 @@ internal static class CustomizedSubFeatureDefinitions
         where T : BaseDefinition
     {
         GetOrCreateForKey(definition).AddRange(subFeatures);
-    }
-
-    internal static void RemoveCustomSubFeatures<T>(
-        [NotNull] this T definition,
-        [NotNull] params object[] subFeatures)
-        where T : BaseDefinition
-    {
-        if (!CustomSubFeatures.ContainsKey(definition))
-        {
-            return;
-        }
-
-        foreach (var subFeature in subFeatures)
-        {
-            CustomSubFeatures[definition].Remove(subFeature);
-        }
     }
 
     [NotNull]

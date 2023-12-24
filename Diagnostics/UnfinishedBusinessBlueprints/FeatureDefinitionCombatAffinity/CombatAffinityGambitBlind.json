@@ -4,12 +4,12 @@
   "canRageToOvercomeSurprise": false,
   "attackOfOpportunityImmunity": false,
   "attackOfOpportunityOnMeAdvantageType": "None",
-  "attackOnMeAdvantage": "None",
+  "attackOnMeAdvantage": "Advantage",
   "attackOnMeCountLimit": -1,
   "autoCritical": false,
   "criticalHitImmunity": false,
   "myAttackAffinityFilter": "Always",
-  "myAttackAdvantage": "Advantage",
+  "myAttackAdvantage": "None",
   "ignoreCover": false,
   "permanentCover": "None",
   "ignoreRangeAdvantage": false,
@@ -21,8 +21,8 @@
   "myDamageReductionValueDetermination": "None",
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
-  "situationalContext": "None",
-  "requiredCondition": null,
+  "situationalContext": 1017,
+  "requiredCondition": "Definition:ConditionGambitBlindDistracted:7e76c4c3-151a-5227-a288-6604c44cedc3",
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,
@@ -35,7 +35,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitFeintTitle",
+    "title": "Condition/&ConditionGambitBlindDistractedTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -56,7 +56,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d78996e8-218b-5535-b250-f24b50e07f01",
+  "guid": "83fa51b9-4655-5b47-a9bc-8e32d6cb2c7e",
   "contentPack": 9999,
-  "name": "CombatAffinityGambitFeint"
+  "name": "CombatAffinityGambitBlind"
 }
