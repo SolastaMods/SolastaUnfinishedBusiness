@@ -585,6 +585,7 @@ internal static class GambitsBuilders
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
             .AddCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
             .SetUniqueInstance()
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
@@ -599,7 +600,7 @@ internal static class GambitsBuilders
                             .Create()
                             .SetTempHpForm()
                             .Build())
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
+                    .SetParticleEffectParameters(SpellDefinitions.PrayerOfHealing)
                     .Build())
             .AddToDB();
 
@@ -908,7 +909,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorUrgentOrder : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorUrgentOrder : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly FeatureDefinitionPower _powerSelectEnemy;
 
@@ -1009,26 +1010,11 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            GameLocationCharacter ally = null;
-            GameLocationCharacter target = null;
-
-            foreach (var targetCharacter in action.ActionParams.TargetCharacters)
-            {
-                if (targetCharacter.Side == Side.Enemy)
-                {
-                    target = targetCharacter;
-                }
-                else
-                {
-                    ally = targetCharacter;
-                }
-            }
-
-            if (ally == null || target == null)
-            {
-                yield break;
-            }
-
+            var targetCharacters = action.ActionParams.TargetCharacters;
+            var ally = targetCharacters[0];
+            var target = targetCharacters[1];
+            
+            // issue ally attack
             var attackMode = ally.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
@@ -1036,7 +1022,6 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            //get copy to be sure we don't break existing mode
             var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
             attackModeCopy.Copy(attackMode);
@@ -1051,10 +1036,6 @@ internal static class GambitsBuilders
 
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);
-
-            EffectHelpers.StartVisualEffect(actingCharacter, ally, FeatureDefinitionPowers.PowerKnightLeadership,
-                EffectHelpers.EffectType.Caster);
-
             actionService.ExecuteAction(attackActionParams, null, false);
 
             // burn one main attack
@@ -1099,6 +1080,23 @@ internal static class GambitsBuilders
                 targetedCharacter, targetedCharacter.LocationPosition, __instance.actionModifier);
 
             return __instance.BattleService.CanAttack(attackParams2);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var targetCharacters = action.ActionParams.TargetCharacters;
+
+            if (targetCharacters[0].Side == Side.Enemy)
+            {
+                (targetCharacters[0], targetCharacters[1]) = (targetCharacters[1], targetCharacters[0]);
+            }
+
+            var target = targetCharacters[1];
+            
+            EffectHelpers.StartVisualEffect(target, target, FeatureDefinitionPowers.PowerKnightLeadership,
+                EffectHelpers.EffectType.Caster);
+            
+            yield break;
         }
     }
 
