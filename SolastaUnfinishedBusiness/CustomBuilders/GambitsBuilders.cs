@@ -883,8 +883,15 @@ internal static class GambitsBuilders
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var character = action.ActingCharacter.RulesetCharacter;
+            var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
             var charisma = character.TryGetAttributeValue(AttributeDefinitions.Charisma);
-            var modifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
+
+            var modifier = Math.Max(Math.Max(
+                    AttributeDefinitions.ComputeAbilityScoreModifier(intelligence),
+                    AttributeDefinitions.ComputeAbilityScoreModifier(wisdom)),
+                AttributeDefinitions.ComputeAbilityScoreModifier(charisma));
+
             var dieType = GetGambitDieSize(character);
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
             var bonusHitPoints = modifier + dieRoll;
@@ -1096,7 +1103,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorFeint : 
+    private sealed class CustomBehaviorFeint :
         IModifyAttackActionModifier, IPhysicalAttackFinishedByMe, IPhysicalAttackInitiatedByMe
     {
         private const string ConditionGambitFeint = "ConditionGambitFeint";
@@ -1289,14 +1296,32 @@ internal static class GambitsBuilders
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
+            var actingCharacter = __instance.ActionParams.ActingCharacter;
+            
+            if (actingCharacter.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionRestrained))
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfIsRestrained");
+
+                return false;
+            }
+            
+            if (target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionRestrained) &&
+                target.Side != Side.Enemy)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyIsRestrained");
+
+                return false;
+            }
+
             if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated))
             {
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyIsIncapacitated");
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetIsIncapacitated");
+                
+            return true;
 
-            return false;
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1347,7 +1372,10 @@ internal static class GambitsBuilders
             }
 
             var reactionParams =
-                new CharacterActionParams(actingCharacter, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+                new CharacterActionParams(actingCharacter, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter = "Reaction/&CustomReactionGambitSwitchDescription"
+                };
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitSwitch", reactionParams);
@@ -1356,7 +1384,7 @@ internal static class GambitsBuilders
 
             yield return battle.WaitForReactions(actingCharacter, manager, previousReactionCount);
 
-            
+
             var dieType = GetGambitDieSize(caster);
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
