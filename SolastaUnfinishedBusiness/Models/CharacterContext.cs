@@ -897,11 +897,13 @@ internal static class CharacterContext
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
             PowerMonkMartialArts.GuiPresentation.title =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle";
+            PowerMonkMartialArts.activationTime = ActivationTime.Reaction;
         }
         else
         {
             PowerMonkMartialArts.GuiPresentation.description = "Action/&MartialArtsDescription";
             PowerMonkMartialArts.GuiPresentation.title = "Action/&MartialArtsTitle";
+            PowerMonkMartialArts.activationTime = ActivationTime.OnAttackHitMartialArts;
         }
 
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack)
