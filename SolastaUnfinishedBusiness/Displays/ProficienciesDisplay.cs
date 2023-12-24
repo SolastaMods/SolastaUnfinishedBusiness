@@ -8,6 +8,10 @@ internal static class ProficienciesDisplay
 {
     internal static void DisplayProficiencies()
     {
+        UI.Label();
+        
+        OtherHeaders();
+
         var displayToggle = Main.Settings.DisplayFeatsToggle;
         var sliderPos = Main.Settings.FeatSliderPosition;
         ModUi.DisplayDefinitions(
@@ -134,5 +138,20 @@ internal static class ProficienciesDisplay
         }
 
         UI.Label();
+    }
+    
+    private static void OtherHeaders()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("Arcane Shots docs".Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessArcaneShots.md"), UI.Width((float)200));
+            2.Space();
+            UI.ActionButton("Gambits docs".Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessGambits.md"), UI.Width((float)200));
+            2.Space();
+            UI.ActionButton("Infusions docs".Bold().Khaki(),
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessInfusions.md"), UI.Width((float)200));
+        }
     }
 }
