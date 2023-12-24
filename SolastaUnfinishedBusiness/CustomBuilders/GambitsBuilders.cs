@@ -1297,31 +1297,24 @@ internal static class GambitsBuilders
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             var actingCharacter = __instance.ActionParams.ActingCharacter;
-            
-            if (actingCharacter.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionRestrained))
-            {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfIsRestrained");
 
-                return false;
-            }
-            
-            if (target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionRestrained) &&
-                target.Side != Side.Enemy)
+            if (actingCharacter.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated, ConditionRestrained))
             {
-                __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyIsRestrained");
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfIsIncapacitatedOrRestrained");
 
                 return false;
             }
 
-            if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated))
+            // ReSharper disable once InvertIf
+            if (target.Side != Side.Enemy &&
+                target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated, ConditionRestrained))
             {
-                return true;
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetIsIncapacitatedOrRestrained");
+
+                return false;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&TargetIsIncapacitated");
-                
             return true;
-
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)

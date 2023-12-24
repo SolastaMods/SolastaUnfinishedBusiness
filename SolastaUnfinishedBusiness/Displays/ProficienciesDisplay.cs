@@ -9,7 +9,7 @@ internal static class ProficienciesDisplay
     internal static void DisplayProficiencies()
     {
         UI.Label();
-        
+
         OtherHeaders();
 
         var displayToggle = Main.Settings.DisplayFeatsToggle;
@@ -139,7 +139,7 @@ internal static class ProficienciesDisplay
 
         UI.Label();
     }
-    
+
     private static void OtherHeaders()
     {
         using (UI.HorizontalScope())
