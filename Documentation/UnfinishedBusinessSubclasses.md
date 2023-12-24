@@ -1148,7 +1148,7 @@ You gain four D8 dice called gambit dice that you can spend to use various gambi
 
 * Gambits
 
-You learn three special maneuvers called gambits. Using a gambit costs one gambit die. Most gambits enhance your attacks in a way and add the gambit die's roll to the attack's damage. You can only have one gambit active at a time. Some of your gambits require your target to make a saving throw to avoid its detrimental effects. The Gambit DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher. 
+You learn three special techniques called gambits. Using a gambit costs one gambit die. Most gambits enhance your attacks in a way and add the gambit die's roll to the attack's damage. You can only have one gambit active at a time. Some of your gambits require your target to make a saving throw to avoid its detrimental effects. The Gambit DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher. 
 
 * Sharp Mind
 
