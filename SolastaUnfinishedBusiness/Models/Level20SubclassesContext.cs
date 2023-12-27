@@ -1761,6 +1761,8 @@ internal static class Level20SubclassesContext
             _conditionDefinition = conditionDefinition;
         }
 
+        public bool EnforceFullSelection => false;
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower

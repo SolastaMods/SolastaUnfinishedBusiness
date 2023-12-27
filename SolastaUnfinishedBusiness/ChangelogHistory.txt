@@ -1,4 +1,8 @@
-﻿1.5.94.38:
+﻿1.5.94.39:
+
+- fixed Tactical Strike gambit not enforcing second target selection
+
+1.5.94.38:
 
 MERRY CHRISTMAS / FELIZ NATAL / FELIZ NAVIDAD! Santa heard your wishes and invited a Battlemaster to the table
 

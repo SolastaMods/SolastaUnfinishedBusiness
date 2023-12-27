@@ -1170,6 +1170,8 @@ internal static class InvocationsBuilders
             _powerVexingHex = powerVexingHex;
         }
 
+        public bool EnforceFullSelection => false;
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower

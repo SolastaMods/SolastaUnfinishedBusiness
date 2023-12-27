@@ -910,8 +910,8 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorUrgentOrder : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe,
-        IFilterTargetingCharacter
+    private sealed class CustomBehaviorUrgentOrder :
+        IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly FeatureDefinitionPower _powerSelectEnemy;
 
@@ -919,6 +919,8 @@ internal static class GambitsBuilders
         {
             _powerSelectEnemy = powerSelectEnemy;
         }
+
+        public bool EnforceFullSelection => true;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
@@ -1292,6 +1294,8 @@ internal static class GambitsBuilders
             _bad = bad;
             _self = self;
         }
+
+        public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {

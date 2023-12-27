@@ -455,6 +455,8 @@ internal static partial class SpellBuilders
             _spellFlashFreeze = spellFlashFreeze;
         }
 
+        public bool EnforceFullSelection => false;
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell

@@ -145,4 +145,210 @@ public static class CursorLocationSelectTargetPatcher
             }
         }
     }
+
+    //PATCH: support EnforceFullSelection on IFilterTargetingCharacter (vanilla code except for patch block)
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.RefreshCaption))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshCaption_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(CursorLocationSelectTarget __instance)
+        {
+            if (CursorLocation.CaptionLineChanged == null)
+            {
+                return false;
+            }
+
+            var captionCounter = string.Empty;
+            var str = string.Empty;
+
+            if (__instance.effectDescription != null)
+            {
+                if (__instance.effectDescription.TargetType == TargetType.Position &&
+                    __instance.effectDescription.InviteOptionalAlly)
+                {
+                    CursorLocation.CaptionLineChanged(__instance.captionTitle,
+                        Gui.Localize("Caption/&InviteOptionalAllyCaption"), captionCounter, string.Empty, string.Empty,
+                        string.Empty, true, true);
+
+                    return false;
+                }
+
+                if (__instance.effectDescription.TargetFilteringMethod is TargetFilteringMethod.AllCharacterAndGadgets
+                    or TargetFilteringMethod.CharacterOnly or TargetFilteringMethod.CharacterGadgetEffectProxy)
+                {
+                    switch (__instance.TargetSide)
+                    {
+                        case Side.All:
+                            str += Gui.Localize("Caption/&TargetFilteringCreature");
+                            break;
+                        case Side.Ally:
+                            str += Gui.Localize("Caption/&TargetFilteringAllyCreature");
+                            break;
+                        case Side.Enemy:
+                            str += Gui.Localize("Caption/&TargetFilteringEnemyCreature");
+                            break;
+                    }
+                }
+
+                if (__instance.effectDescription.TargetFilteringMethod is TargetFilteringMethod.AllCharacterAndGadgets
+                    or TargetFilteringMethod.GadgetOnly or TargetFilteringMethod.CharacterGadgetEffectProxy)
+                {
+                    if (!string.IsNullOrEmpty(str))
+                    {
+                        str += Gui.ListSeparator();
+                    }
+
+                    str += Gui.Localize("Caption/&TargetFilteringGadget");
+                }
+
+                if (__instance.effectDescription.TargetFilteringMethod ==
+                    TargetFilteringMethod.CharacterGadgetEffectProxy)
+                {
+                    if (!string.IsNullOrEmpty(str))
+                    {
+                        str += Gui.ListSeparator();
+                    }
+
+                    str += Gui.Localize("Caption/&TargetFilteringEffectProxy");
+                }
+            }
+            else
+            {
+                str = __instance.TargetSide != Side.Ally
+                    ? str + Gui.Localize("Caption/&TargetFilteringCreature")
+                    : str + Gui.Localize("Caption/&TargetFilteringAllyCreature");
+            }
+
+            string captionContent;
+            if (__instance.effectDescription is { TargetType: TargetType.SharedAmongIndividuals })
+            {
+                captionContent = Gui.Format("Caption/&TargetShareUniqueCaption", str,
+                    __instance.GameLocationSelectionService.SelectedTargets.Count.ToString());
+            }
+            else
+            {
+                string baseText;
+
+                if (__instance.maxTargets == 1)
+                {
+                    baseText = "Caption/&TargetSingleCaption";
+                }
+                else
+                {
+                    baseText = !__instance.uniqueTargets
+                        ? "Caption/&TargetMultipleCaption"
+                        : "Caption/&TargetMultipleUniqueCaption";
+                    captionCounter = Gui.FormatCurrentOverMax(__instance.maxTargets - __instance.remainingTargets,
+                        __instance.maxTargets);
+                }
+
+                captionContent = Gui.Format(baseText, str, __instance.remainingTargets.ToString());
+            }
+
+            var captionProximity = string.Empty;
+
+            if (__instance.effectDescription is { RequiresTargetProximity: true, TargetProximityDistance: > 0 })
+            {
+                captionProximity = Gui.Format(
+                    __instance.effectDescription.TargetProximityDistance == 1
+                        ? "Caption/&TargetProximitySingleCaption"
+                        : "Caption/&TargetProximityMultipleCaption",
+                    __instance.effectDescription.TargetProximityDistance.ToString());
+            }
+
+            if (__instance.effectDescription is { TargetType: TargetType.ArcFromIndividual })
+            {
+                var targetParameter = __instance.ActionParams.RulesetEffect.ComputeTargetParameter();
+                var targetParameter2 = __instance.ActionParams.RulesetEffect.ComputeTargetParameter2();
+
+                captionProximity +=
+                    Gui.Format(
+                        targetParameter <= 1
+                            ? "Caption/&TargetArcSubtargetSingleCaption"
+                            : "Caption/&TargetArcSubtargetMultipleCaption", targetParameter.ToString(),
+                        targetParameter2.ToString());
+            }
+
+            var captionRequiredCondition = string.Empty;
+
+            if (__instance.effectDescription != null && __instance.effectDescription.TargetCondition != null)
+            {
+                captionRequiredCondition = Gui.Format("Caption/&TargetRequiredConditionCaption",
+                    __instance.effectDescription.TargetCondition.GuiPresentation.Title);
+            }
+
+            if (__instance.effectDescription is { RestrictedCreatureFamilies.Count: > 0 })
+            {
+                if (!string.IsNullOrEmpty(captionRequiredCondition))
+                {
+                    captionRequiredCondition += " ";
+                }
+
+                captionRequiredCondition += Gui.Format("Caption/&TargetRequiredCreatureTypeCaption",
+                    __instance.effectDescription.EnumerateRestrictedCreatureFamilies());
+            }
+
+            if (__instance.effectDescription != null &&
+                (__instance.effectDescription.TargetFilteringTag & TargetFilteringTag.Unarmored) !=
+                TargetFilteringTag.No)
+            {
+                if (!string.IsNullOrEmpty(captionRequiredCondition))
+                {
+                    captionRequiredCondition += " ";
+                }
+
+                captionRequiredCondition += Gui.Localize("Caption/&TargetRequiredUnarmoredCaption");
+            }
+
+            if (__instance.effectDescription != null &&
+                (__instance.effectDescription.TargetFilteringTag & TargetFilteringTag.MetalArmor) !=
+                TargetFilteringTag.No)
+            {
+                if (!string.IsNullOrEmpty(captionRequiredCondition))
+                {
+                    captionRequiredCondition += " ";
+                }
+
+                captionRequiredCondition += Gui.Localize("Caption/&TargetRequiredMetalArmorCaption");
+            }
+
+            var creatureSizeCaption =
+                CursorLocationSelectTarget.GenerateCreatureSizeCaption(__instance.effectDescription);
+
+            // BEGIN PATCH
+            // var canProceed = __instance.maxTargets < 0 || (__instance.maxTargets > 1 && __instance.remainingTargets < __instance.maxTargets);
+
+            bool canProceed;
+            var enforceFullSelection = false;
+
+            if (__instance.actionParams is { RulesetEffect: RulesetEffectPower rulesetEffectPower })
+            {
+                var modifier = rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingCharacter>();
+
+                if (modifier != null)
+                {
+                    enforceFullSelection = modifier.EnforceFullSelection;
+                }
+            }
+
+            if (enforceFullSelection)
+            {
+                canProceed = __instance.maxTargets < 0 ||
+                             (__instance.maxTargets > 1 && __instance.remainingTargets == 0);
+            }
+            else
+            {
+                canProceed = __instance.maxTargets < 0 ||
+                             (__instance.maxTargets > 1 && __instance.remainingTargets < __instance.maxTargets);
+            }
+            // END PATCH
+
+            CursorLocation.CaptionLineChanged(__instance.captionTitle, captionContent, captionCounter, captionProximity,
+                captionRequiredCondition, creatureSizeCaption, canProceed, true);
+
+            return false;
+        }
+    }
 }
