@@ -473,6 +473,7 @@ internal static class GambitsBuilders
             .Create($"Power{name}Command")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MistyStep)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -530,8 +531,6 @@ internal static class GambitsBuilders
                                 .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                 .AddToDB()))
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions($"Condition{name}React")))
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
@@ -647,6 +646,46 @@ internal static class GambitsBuilders
         power.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.HasMainAttackAvailable,
             new CustomBehaviorUrgentOrder(power));
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Elusive Movement
+
+        name = "GambitElusiveMovement";
+        sprite = Sprites.GetSprite(name, Resources.GambitElusiveMovement, 128);
+
+        var conditionElusiveMovement = ConditionDefinitionBuilder
+            .Create($"Condition{name}")
+            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{name}")
+                    .SetGuiPresentation(name, Category.Feature)
+                    .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
+                    .AddToDB())
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceGambitDieRoll)
+            .AddToDB();
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.NoCost, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElusiveMovement))
+                    .Build())
+            .AddToDB();
+
+        conditionElusiveMovement.AddCustomSubFeatures(new ElusiveMovement(power));
 
         BuildFeatureInvocation(name, sprite, power);
 
@@ -843,7 +882,7 @@ internal static class GambitsBuilders
             .AddToDB();
     }
 
-    private static DieType GetGambitDieSize(RulesetCharacter character)
+    internal static DieType GetGambitDieSize(RulesetCharacter character)
     {
         var level = character.GetSubclassLevel(CharacterClassDefinitions.Fighter, MartialTactician.Name);
 
@@ -1126,7 +1165,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            actingCharacter.currentActionRankByType[ActionDefinitions.ActionType.Main]++;
+            actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Main]++;
             actingCharacter.UsedMainAttacks = 0;
         }
 
@@ -1220,7 +1259,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            attacker.currentActionRankByType[ActionDefinitions.ActionType.Bonus]++;
+            attacker.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus]++;
             rulesetCharacter.UpdateUsageForPower(_pool, 1);
         }
 
@@ -1818,6 +1857,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
+            var actingCharacter = action.ActingCharacter;
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
             var targetPosition = action.ActionParams.Positions[0];
@@ -1841,7 +1881,37 @@ internal static class GambitsBuilders
                 0,
                 0,
                 0);
+
+            EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
+                FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Caster);
+
+            targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
             actionService.ExecuteAction(actionParams, null, false);
+        }
+    }
+
+    private sealed class ElusiveMovement : IOnConditionAddedOrRemoved
+    {
+        private readonly FeatureDefinitionPower _powerElusiveMovement;
+
+        public ElusiveMovement(FeatureDefinitionPower powerElusiveMovement)
+        {
+            _powerElusiveMovement = powerElusiveMovement;
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var dieType = GetGambitDieSize(target);
+            var dieRoll = rulesetCondition.Amount;
+
+            target.LogCharacterUsedPower(_powerElusiveMovement, "Feedback/&GambitElusiveMovementACIncrease", true,
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
         }
     }
 

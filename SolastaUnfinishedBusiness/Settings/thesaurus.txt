@@ -29,6 +29,7 @@ Earth Tremor=Earth Tremor
 Eldritch Adept=Eldritch Adept
 Elemental Adept=Elemental Adept
 Elemental Weapon=Elemental Weapon
+Elusive Movement=Evasive Footwork
 Elven Accuracy=Elven Accuracy
 Enduring Sting=Sapping Sting
 Ensnaring Strike=Ensnaring Strike

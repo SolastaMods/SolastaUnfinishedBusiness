@@ -183,7 +183,7 @@ public static class RulesetActorPatcher
                     var dieType = GambitsBuilders.GetGambitDieSize(sourceCharacter);
                     var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-                    sourceCharacter.ShowDieRoll(dieType, dieRoll, title: "Feature/&PowerPoolTacticianGambitTitle");
+                    sourceCharacter.ShowDieRoll(dieType, dieRoll, title: "Feedback/&AdditionalDamageGambitDieFormat");
                     sourceAmount = dieRoll;
                     break;
 

@@ -1,12 +1,12 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Self",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDisengaging",
-          "conditionDefinition": "Definition:ConditionDisengaging:9d3de19ca17c6554ea5485fbc3eabd25",
+          "conditionDefinitionName": "ConditionGambitElusiveMovement",
+          "conditionDefinition": "Definition:ConditionGambitElusiveMovement:df03d72a-a58c-555e-aa7e-c80952abe8c9",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -308,7 +308,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "None",
+  "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -320,7 +320,7 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -328,13 +328,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerGambitCoordinatedAttackCommandTitle",
-    "description": "Feature/&PowerGambitCoordinatedAttackCommandDescription",
+    "title": "Feature/&GambitElusiveMovementTitle",
+    "description": "Feature/&GambitElusiveMovementDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e6cd80b881b7074d88a122382fd2103",
-      "m_SubObjectName": "MistyStep",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "7112a1fe-e21a-5a65-bb06-eb34eebdcff6",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "99c8c8d2-590c-502d-b060-5e8aa24c4e87",
+  "guid": "65eaf125-d4c2-5f88-8afa-ae4a54f6a86f",
   "contentPack": 9999,
-  "name": "PowerGambitCoordinatedAttackCommand"
+  "name": "PowerGambitElusiveMovementActivate"
 }

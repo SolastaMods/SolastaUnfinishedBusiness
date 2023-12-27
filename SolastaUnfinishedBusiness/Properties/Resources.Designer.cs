@@ -1323,6 +1323,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] GambitElusiveMovement {
+            get {
+                object obj = ResourceManager.GetObject("GambitElusiveMovement", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] GambitBrace {
             get {
                 object obj = ResourceManager.GetObject("GambitBrace", resourceCulture);
