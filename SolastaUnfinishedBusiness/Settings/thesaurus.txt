@@ -1,4 +1,4 @@
-Accuracy Attack=Precision Attack
+Accurate Attack=Precision Attack
 Air Blast=Gust
 Arcane Archer=Arcane Archer
 Aura of Perseverance=Aura of Purity

@@ -723,6 +723,33 @@ internal static class GambitsBuilders
 
         #endregion
 
+        #region Swift Throw
+
+        name = "GambitSwiftThrow";
+        sprite = Sprites.GetSprite(name, Resources.GambitSwiftThrow, 128);
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.BonusAction, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D4))
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new ModifyEffectDescriptionSwiftThrow(power));
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
         #region Bait and Switch
 
         name = "GambitSwitch";
@@ -1021,6 +1048,73 @@ internal static class GambitsBuilders
                 .TemporaryHitPointsForm.BonusHitPoints = bonusHitPoints;
 
             yield break;
+        }
+    }
+
+    private sealed class ModifyEffectDescriptionSwiftThrow : IModifyEffectDescription, IModifyAttackActionModifier
+    {
+        private readonly FeatureDefinitionPower _powerSwiftThrow;
+
+        public ModifyEffectDescriptionSwiftThrow(FeatureDefinitionPower powerSwiftThrow)
+        {
+            _powerSwiftThrow = powerSwiftThrow;
+        }
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            var strength = myself.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var dexterity = myself.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+            var pb = myself.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var attributeModifier = Math.Max(
+                AttributeDefinitions.ComputeAbilityScoreModifier(strength),
+                AttributeDefinitions.ComputeAbilityScoreModifier(dexterity));
+
+            attackModifier.attackRollModifier = attributeModifier + pb;
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                return;
+            }
+
+            var glcMyself = GameLocationCharacter.GetFromActor(myself);
+            var glcDefender = GameLocationCharacter.GetFromActor(defender);
+
+            if (!gameLocationBattleService.IsWithinXCells(glcMyself, glcDefender, 4))
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
+            }
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == _powerSwiftThrow;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var dexterity = character.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+            var dieType = GetGambitDieSize(character);
+            var bonusDamage = Math.Max(
+                AttributeDefinitions.ComputeAbilityScoreModifier(strength),
+                AttributeDefinitions.ComputeAbilityScoreModifier(dexterity));
+
+            effectDescription.EffectForms.Add(
+                EffectFormBuilder.DamageForm(DamageTypePiercing, 1, dieType, bonusDamage));
+
+            return effectDescription;
         }
     }
 
