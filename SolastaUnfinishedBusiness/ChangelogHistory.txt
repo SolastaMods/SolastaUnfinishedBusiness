@@ -1,5 +1,6 @@
 ﻿1.5.94.39:
 
+- fixed Blade Mastery feat granting AC regardless of wielded weapon
 - fixed Tactical Strike gambit not enforcing second target selection
 
 1.5.94.38:

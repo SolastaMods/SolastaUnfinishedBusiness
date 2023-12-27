@@ -708,6 +708,7 @@ internal static class MeleeCombatFeats
                     .SetModifier(
                         AttributeModifierOperation.Additive,
                         AttributeDefinitions.ArmorClass, 1)
+                    .SetSituationalContext(ExtraSituationalContext.HasBladeMasteryWeaponTypesInHands)
                     .AddToDB())
             .AddToDB();
 
