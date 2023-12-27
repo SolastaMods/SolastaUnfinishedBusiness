@@ -3,7 +3,8 @@
 - added Coordinated Attack (Maneuvering Attack) gambit
 - added Elusive Movement (Evasive Footwork) gambit
 - fixed Blade Mastery feat granting AC regardless of wielded weapon
-- fixed Tactical Strike (Commander's Strike) gambit not enforcing second target selection
+- fixed Tactical Strike gambit not enforcing second target selection
+- renamed gambits using official maneuvers names
 
 1.5.94.38:
 
