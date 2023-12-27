@@ -6,3 +6,7 @@ public interface IFilterTargetingCharacter
 
     public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target);
 }
+
+public interface ISelectPositionAfterCharacter
+{
+}

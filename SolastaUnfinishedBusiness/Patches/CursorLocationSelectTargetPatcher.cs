@@ -1,10 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Spells;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Subclasses.SorcerousFieldManipulator;
@@ -347,6 +349,180 @@ public static class CursorLocationSelectTargetPatcher
 
             CursorLocation.CaptionLineChanged(__instance.captionTitle, captionContent, captionCounter, captionProximity,
                 captionRequiredCondition, creatureSizeCaption, canProceed, true);
+
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.OnClickMainPointer))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class OnClickMainPointer_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            CursorLocationSelectTarget __instance,
+            out CursorDefinitions.CursorActionResult actionResult)
+        {
+            actionResult = CursorDefinitions.CursorActionResult.None;
+            if (__instance.RefreshTargetedCharacter())
+            {
+                __instance.actionModifier.Reset();
+
+                var isValid = false;
+                var isMagic = false;
+
+                if (ActionDefinitions.IsAttackAction(__instance.ActionParams.ActionDefinition.Id))
+                {
+                    if (__instance.IsValidAttack(__instance.ActionParams.AttackMode, out _))
+                    {
+                        isValid = true;
+                    }
+                }
+                else if (__instance.effectDescription != null)
+                {
+                    var rangeType = __instance.effectDescription.RangeType;
+                    var targetType = __instance.effectDescription.TargetType;
+
+                    switch (rangeType)
+                    {
+                        case RangeType.Touch:
+                        case RangeType.Distance:
+                            if (__instance.IsValidMagicTarget(out _))
+                            {
+                                isMagic = true;
+                                isValid = true;
+                            }
+
+                            break;
+                        case RangeType.MeleeHit:
+                        case RangeType.RangeHit:
+                            if (__instance.IsValidMagicAttack(out var _))
+                            {
+                                isMagic = true;
+                                isValid = true;
+                            }
+
+                            break;
+                        default:
+                            if (targetType == TargetType.Position && __instance.effectDescription.InviteOptionalAlly &&
+                                __instance.IsValidMagicTarget(out var _))
+                            {
+                                isMagic = true;
+                                isValid = true;
+                            }
+
+                            break;
+                    }
+                }
+
+                if (!isValid)
+                {
+                    return false;
+                }
+
+                __instance.GameLocationSelectionService.SelectTarget(__instance.targetedCharacter);
+                __instance.actionModifiersList.Add(__instance.actionModifier.Clone());
+
+                if (__instance.maxTargets > 0)
+                {
+                    --__instance.remainingTargets;
+
+                    if (__instance.remainingTargets > 0)
+                    {
+                        actionResult = CursorDefinitions.CursorActionResult.SelectTarget;
+                        __instance.RefreshCaption();
+                    }
+                    else
+                    {
+                        // BEGIN PATCH
+                        //
+                        // haven't found a better way to pass the selected characters over
+                        // for now adding the GUID of first selected character to actor used features
+                        //
+                        if ((__instance.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower &&
+                             rulesetEffectPower.PowerDefinition.HasSubFeatureOfType<ISelectPositionAfterCharacter>()) ||
+                            (__instance.ActionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
+                             rulesetEffectSpell.SpellDefinition.HasSubFeatureOfType<ISelectPositionAfterCharacter>()))
+                        {
+                            if (!__instance.ActionParams.ActingCharacter.UsedSpecialFeatures
+                                    .TryAdd("SelectedCharacter",
+                                        (int)__instance.SelectionService.SelectedTargets[0].Guid))
+                            {
+                                __instance.ActionParams.ActingCharacter.UsedSpecialFeatures["SelectedCharacter"] =
+                                    (int)__instance.SelectionService.SelectedTargets[0].Guid;
+                            }
+
+                            __instance.CursorService.ActivateCursor<CursorLocationSelectPosition>(__instance
+                                .ActionParams);
+
+                            return false;
+                        }
+                        // END PATCH
+
+                        actionResult = isMagic
+                            ? CursorDefinitions.CursorActionResult.CastSpell
+                            : CursorDefinitions.CursorActionResult.Attack;
+
+                        if (isMagic)
+                        {
+                            var flag3 = true;
+
+                            if (__instance.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffect)
+                            {
+                                if (rulesetEffect.PowerDefinition.RechargeRate == RechargeRate.HealingPool &&
+                                    rulesetEffect.PowerDefinition.CostPerUse <= 0)
+                                {
+                                    if (__instance.effectDescription.EffectForms.Any(effectForm =>
+                                            effectForm.FormType == EffectForm.EffectFormType.Healing &&
+                                            effectForm.HealingForm.HealingComputation == HealingComputation.Pool &&
+                                            effectForm.HealingForm.VariablePool))
+                                    {
+                                        flag3 = false;
+
+                                        var num = Mathf.Min(rulesetEffect.UsablePower.SpentPoints,
+                                            __instance.targetedCharacter.RulesetCharacter.MissingHitPoints);
+
+                                        Gui.GuiService.GetScreen<NumberSelectionModal>()
+                                            .ShowPower(rulesetEffect.PowerDefinition, 1, num, num,
+                                                rulesetEffect.UsablePower);
+                                    }
+                                }
+                            }
+
+                            if (!flag3)
+                            {
+                                return false;
+                            }
+
+                            Gui.GuiService.GetScreen<CursorCaptionScreen>().ProceedCb();
+                        }
+                        else
+                        {
+                            __instance.ProcessAction();
+                        }
+                    }
+                }
+                else
+                {
+                    if (__instance.maxTargets >= 0)
+                    {
+                        return false;
+                    }
+
+                    actionResult = CursorDefinitions.CursorActionResult.SelectTarget;
+                    __instance.RefreshCaption();
+                }
+            }
+            else
+            {
+                if (__instance.SelectionService.HoveredCharacters.Count != 1)
+                {
+                    return false;
+                }
+
+                actionResult = CursorDefinitions.CursorActionResult.Invalid;
+            }
 
             return false;
         }
