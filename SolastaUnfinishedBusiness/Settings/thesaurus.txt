@@ -19,6 +19,7 @@ Cleaving Attack=Great Weapon Master
 College of Audacity=College of Swords
 College of Guts=College of Valor
 College of Valiance=College of Eloquence
+Coordinated Attack=Maneuvering Attack
 Crusader's Mantle=Crusader's Mantle
 Crusher=Crusher
 Deadeye=Sharpshooter

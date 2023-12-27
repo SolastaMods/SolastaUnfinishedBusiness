@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -457,6 +458,80 @@ internal static class GambitsBuilders
                                 .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                 .AddToDB()))
                     .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Coordinated Attack
+
+        name = "GambitCoordinatedAttack";
+        sprite = SpellDefinitions.TrueStrike.GuiPresentation.SpriteReference;
+
+        var powerCoordinatedAttack = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Command")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.MistyStep)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
+                    .Build())
+            .AddToDB();
+
+        powerCoordinatedAttack.AddCustomSubFeatures(new CustomBehaviorCoordinatedAttack(powerCoordinatedAttack));
+
+        reactionPower = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}React")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{name}React")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetFeatures(powerCoordinatedAttack)
+                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddToDB()))
+                    .Build())
+            .AddToDB();
+
+        reactionPower.AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker);
+
+        power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionGambitDieDamage),
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetPossessive()
+                                .SetFeatures(reactionPower)
+                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddToDB()))
+                    .Build())
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions($"Condition{name}React")))
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
@@ -926,11 +1001,6 @@ internal static class GambitsBuilders
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != _powerSelectEnemy)
-            {
-                return true;
-            }
-
-            if (target.RulesetCharacter == null)
             {
                 return true;
             }
@@ -1677,6 +1747,101 @@ internal static class GambitsBuilders
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, reduction.ToString())
                 });
+        }
+    }
+
+    private sealed class CustomBehaviorCoordinatedAttack :
+        ISelectPositionAfterCharacter, IMagicEffectFinishedByMe, IFilterTargetingCharacter, IFilterTargetingPosition
+    {
+        private readonly FeatureDefinitionPower _powerCoordinatedAttack;
+
+        public CustomBehaviorCoordinatedAttack(FeatureDefinitionPower powerCoordinatedAttack)
+        {
+            _powerCoordinatedAttack = powerCoordinatedAttack;
+        }
+
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _powerCoordinatedAttack)
+            {
+                return true;
+            }
+
+            if (target.CanReact())
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
+
+            return false;
+        }
+
+        public void EnumerateValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition,
+            List<int3> validPositions)
+        {
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+
+            if (!actingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
+            {
+                return;
+            }
+
+            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
+            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+            var halfMaxTacticalMoves = targetCharacter.MaxTacticalMoves / 2;
+            var boxInt = new BoxInt(
+                targetCharacter.LocationPosition,
+                new int3(-halfMaxTacticalMoves, -halfMaxTacticalMoves, -halfMaxTacticalMoves),
+                new int3(halfMaxTacticalMoves, halfMaxTacticalMoves, halfMaxTacticalMoves));
+
+            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (gameLocationPositioningService.CanPlaceCharacter(
+                        targetCharacter, position, CellHelpers.PlacementMode.Station) &&
+                    gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                        targetCharacter, position, onlyCheckCellsWithRealGround: true))
+                {
+                    validPositions.Add(position);
+                }
+            }
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (!action.ActingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
+            {
+                yield break;
+            }
+
+            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
+            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+            var targetPosition = action.ActionParams.Positions[0];
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var actionParams =
+                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
+                {
+                    Positions = { targetPosition }
+                };
+
+            targetRulesetCharacter.InflictCondition(
+                ConditionDisengaging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                targetRulesetCharacter.Guid,
+                targetRulesetCharacter.CurrentFaction.Name,
+                1,
+                ConditionDisengaging,
+                0,
+                0,
+                0);
+            actionService.ExecuteAction(actionParams, null, false);
         }
     }
 

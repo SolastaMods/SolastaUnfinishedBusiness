@@ -1,7 +1,8 @@
 ﻿1.5.94.39:
 
+- added Coordinated Attack (Maneuvering Attack) gambit
 - fixed Blade Mastery feat granting AC regardless of wielded weapon
-- fixed Tactical Strike gambit not enforcing second target selection
+- fixed Tactical Strike (Commander's Strike) gambit not enforcing second target selection
 
 1.5.94.38:
 
