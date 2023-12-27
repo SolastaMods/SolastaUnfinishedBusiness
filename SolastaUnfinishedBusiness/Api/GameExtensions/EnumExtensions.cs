@@ -113,7 +113,8 @@ internal enum ExtraOriginOfAmount
 
     SourceCopyAttributeFromSummoner =
         9005, //Attribute name should be in the `additionalDamageType` field of the condition
-    SourceProficiencyAndAbilityBonus = 9006
+    SourceProficiencyAndAbilityBonus = 9006,
+    SourceGambitDieRoll = 9007
 }
 
 internal enum ExtraAdditionalDamageTriggerCondition

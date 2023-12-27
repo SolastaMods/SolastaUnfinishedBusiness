@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -176,6 +177,14 @@ public static class RulesetActorPatcher
                     sourceAmount =
                         sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) +
                         AttributeDefinitions.ComputeAbilityScoreModifier(sourceCharacter.TryGetAttributeValue(source));
+                    break;
+
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceGambitDieRoll:
+                    var dieType = GambitsBuilders.GetGambitDieSize(sourceCharacter);
+                    var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+                    sourceCharacter.ShowDieRoll(dieType, dieRoll, title: "Feature/&PowerPoolTacticianGambitTitle");
+                    sourceAmount = dieRoll;
                     break;
 
                 //Do nothing for default origins
