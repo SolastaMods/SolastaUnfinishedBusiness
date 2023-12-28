@@ -488,7 +488,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            yield return __instance.Battle.AllContenders
+            using var onPhysicalAttackInitiatedOnMeOrAlly = __instance.Battle.AllContenders
                 .Where(opposingContender =>
                     opposingContender.IsOppositeSide(attacker.Side) &&
                     opposingContender != defender &&
@@ -501,6 +501,8 @@ public sealed class RangerLightBearer : AbstractSubclass
                     opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
                     additionalTargetCharacter: defender))
                 .GetEnumerator();
+
+            yield return onPhysicalAttackInitiatedOnMeOrAlly;
         }
     }
 }

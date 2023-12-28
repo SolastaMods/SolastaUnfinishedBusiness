@@ -380,12 +380,10 @@ internal static class SpellsContext
         int suggestedStartsAt = 0,
         params SpellListDefinition[] registeredSpellLists)
     {
-        if (Spells.Contains(spellDefinition))
+        if (!Spells.Add(spellDefinition))
         {
             return;
         }
-
-        Spells.Add(spellDefinition);
 
         for (var i = 0; i < registeredSpellLists.Length; i++)
         {
