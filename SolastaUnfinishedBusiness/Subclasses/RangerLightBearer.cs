@@ -461,6 +461,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);

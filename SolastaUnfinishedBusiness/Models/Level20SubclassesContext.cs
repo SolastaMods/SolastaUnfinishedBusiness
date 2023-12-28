@@ -1418,6 +1418,7 @@ internal static class Level20SubclassesContext
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             // only weapon attacks

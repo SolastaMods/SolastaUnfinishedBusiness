@@ -7,5 +7,6 @@ public interface IModifyAttackActionModifier
         RulesetCharacter defender,
         BattleDefinitions.AttackProximity attackProximity,
         RulesetAttackMode attackMode,
+        string effectName,
         ref ActionModifier attackModifier);
 }

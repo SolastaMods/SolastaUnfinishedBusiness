@@ -645,6 +645,7 @@ public static class GameLocationBattleManagerPatcher
                     defender,
                     attackParams.attackProximity,
                     attackParams.attackMode,
+                    attackParams.effectName,
                     ref attackParams.attackModifier);
             }
         }

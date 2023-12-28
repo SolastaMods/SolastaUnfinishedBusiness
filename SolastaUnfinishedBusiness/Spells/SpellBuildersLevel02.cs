@@ -607,6 +607,7 @@ internal static partial class SpellBuilders
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (myself is not { IsDeadOrDyingOrUnconscious: false } ||

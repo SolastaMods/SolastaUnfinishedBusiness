@@ -664,6 +664,7 @@ internal static partial class SpellBuilders
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (attackMode?.AbilityScore == AttributeDefinitions.Strength)
@@ -683,11 +684,11 @@ internal static partial class SpellBuilders
             _conditionTree = conditionTree;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
+        public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             var abilityScore = attackMode?.abilityScore;

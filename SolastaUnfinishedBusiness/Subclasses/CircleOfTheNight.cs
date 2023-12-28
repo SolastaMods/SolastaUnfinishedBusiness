@@ -411,6 +411,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (myself.HasConditionOfType(ConditionWildShapeSubstituteForm)

@@ -217,6 +217,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             //
