@@ -1332,6 +1332,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] GambitCoordinatedAttack {
+            get {
+                object obj = ResourceManager.GetObject("GambitCoordinatedAttack", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] GambitCounterAttack {
             get {
                 object obj = ResourceManager.GetObject("GambitCounterAttack", resourceCulture);
@@ -1415,6 +1425,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] GambitProvoke {
             get {
                 object obj = ResourceManager.GetObject("GambitProvoke", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitRally {
+            get {
+                object obj = ResourceManager.GetObject("GambitRally", resourceCulture);
                 return ((byte[])(obj));
             }
         }

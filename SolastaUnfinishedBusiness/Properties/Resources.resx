@@ -1695,6 +1695,14 @@
     <value>..\Resources\Gambits\GambitFeint.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GambitRally" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitRally.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitCoordinatedAttack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitCoordinatedAttack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GambitKnockdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gambits\GambitKnockdown.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a</value>
