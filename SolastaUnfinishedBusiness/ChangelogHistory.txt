@@ -2,12 +2,14 @@
 
 - added Coordinated Attack (Maneuvering Attack) gambit
 - added Elusive Movement (Evasive Footwork) gambit
+- added Overwhelming Attack (Sweeping Attack) gambit
 - added Swift Throw (Quick Toss) gambit
 - fixed Blade Mastery feat granting AC regardless of wielded weapon
 - fixed Elemental Infusion spell scaling additional targets instead of dice damage
+- fixed Monk remaining Ki points transmuting from the natural world into the integer one
 - fixed Tactical Strike gambit not enforcing second target selection
-- fixed vanilla language pools to also allow select Abyssal Gnomish, and Infernal
-- renamed gambits using official maneuvers names
+- fixed vanilla language pools to also allow select Abyssal, Gnomish, and Infernal
+- renamed some feats, features, fighting styles, spells, etc. to respect others copyright
 
 1.5.94.38:
 

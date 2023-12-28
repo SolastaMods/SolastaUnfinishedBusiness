@@ -467,7 +467,7 @@ internal static class GambitsBuilders
         #region Coordinated Attack
 
         name = "GambitCoordinatedAttack";
-        sprite = SpellDefinitions.TrueStrike.GuiPresentation.SpriteReference;
+        sprite = Sprites.GetSprite(name, Resources.GambitCoordinatedAttack, 128);
 
         var powerCoordinatedAttack = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Command")
@@ -537,6 +537,34 @@ internal static class GambitsBuilders
 
         #endregion
 
+        #region Overwhelming Attack
+
+        name = "GambitOverwhelmingAttack";
+        sprite = Sprites.GetSprite(name, Resources.GambitOverwhelmingAttack, 128);
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.NoCost, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique, 2)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.HasMainAttackAvailable,
+            new UpgradeRangeBasedOnWeaponReach(power),
+            new OverwhelmingAttack(power));
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
         #region Aimed Attack (former Feint)
 
         name = "GambitFeint";
@@ -599,9 +627,7 @@ internal static class GambitsBuilders
                                 .Create($"Condition{name}")
                                 .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                                 .SetPossessive()
-                                .AddCustomSubFeatures(
-                                    new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
-                                    new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                                .AddCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee))
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -694,7 +720,7 @@ internal static class GambitsBuilders
         #region Rally
 
         name = "GambitRally";
-        sprite = SpellDefinitions.Guidance.GuiPresentation.SpriteReference;
+        sprite = Sprites.GetSprite(name, Resources.GambitRally, 128);
 
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
@@ -739,12 +765,15 @@ internal static class GambitsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D4))
                     .Build())
             .AddToDB();
 
-        power.AddCustomSubFeatures(new ModifyEffectDescriptionSwiftThrow(power));
+        var concealedDagger = ItemDefinitionBuilder
+            .Create(ItemDefinitions.Dagger, "ConcealedDagger")
+            .SetOrUpdateGuiPresentation(Category.Item)
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new SwiftThrow(concealedDagger));
 
         BuildFeatureInvocation(name, sprite, power);
 
@@ -922,6 +951,44 @@ internal static class GambitsBuilders
         };
     }
 
+    private static void BurnOneMainAttack(GameLocationCharacter actingCharacter)
+    {
+        var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+        // burn one main attack
+        actingCharacter.UsedMainAttacks++;
+        rulesetCharacter.ExecutedAttacks++;
+        rulesetCharacter.RefreshAttackModes();
+
+        var maxAttacksNumber = rulesetCharacter.AttackModes
+            .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
+            .Max(x => x.AttacksNumber);
+
+        if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
+        {
+            return;
+        }
+
+        actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Main]++;
+        actingCharacter.UsedMainAttacks = 0;
+    }
+
+    private static void Attack(
+        GameLocationCharacter actingCharacter,
+        GameLocationCharacter target,
+        RulesetAttackMode attackMode)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var attackModifier = new ActionModifier();
+
+        var attackActionParams =
+            new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
+
+        attackActionParams.TargetCharacters.SetRange(target);
+        attackActionParams.ActionModifiers.Add(attackModifier);
+        actionService.ExecuteAction(attackActionParams, null, true);
+    }
+
     private sealed class ModifyEffectDescriptionSavingThrow : IModifyEffectDescription
     {
         private readonly FeatureDefinitionPower _baseDefinition;
@@ -1041,7 +1108,7 @@ internal static class GambitsBuilders
                 (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                 (ConsoleStyleDuplet.ParameterType.Positive, bonusHitPoints.ToString()));
 
-            EffectHelpers.StartVisualEffect(target, target, FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice,
+            EffectHelpers.StartVisualEffect(target, target, FeatureDefinitionPowers.PowerOathOfJugementPurgeCorruption,
                 EffectHelpers.EffectType.Caster);
 
             action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0]
@@ -1051,70 +1118,46 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class ModifyEffectDescriptionSwiftThrow : IModifyEffectDescription, IModifyAttackActionModifier
+    private sealed class SwiftThrow : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerSwiftThrow;
+        private readonly ItemDefinition _concealedDagger;
 
-        public ModifyEffectDescriptionSwiftThrow(FeatureDefinitionPower powerSwiftThrow)
+        public SwiftThrow(ItemDefinition concealedDagger)
         {
-            _powerSwiftThrow = powerSwiftThrow;
+            _concealedDagger = concealedDagger;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var strength = myself.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var dexterity = myself.TryGetAttributeValue(AttributeDefinitions.Dexterity);
-            var pb = myself.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var attributeModifier = Math.Max(
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            var attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+            var target = action.ActionParams.TargetCharacters[0];
+            var dieType = GetGambitDieSize(actingCharacter.RulesetCharacter);
+            var strength = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var dexterity = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+            var bonus = Math.Max(
                 AttributeDefinitions.ComputeAbilityScoreModifier(strength),
                 AttributeDefinitions.ComputeAbilityScoreModifier(dexterity));
 
-            attackModifier.attackRollModifier = attributeModifier + pb;
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
+            attackModeCopy.SourceDefinition = _concealedDagger;
+            attackModeCopy.EffectDescription.EffectForms.RemoveAll(x =>
+                x.FormType == EffectForm.EffectFormType.Damage);
+            attackModeCopy.EffectDescription.EffectForms.AddRange(
+                EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D4),
+                EffectFormBuilder.DamageForm(DamageTypePiercing, 1, dieType, bonus));
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                return;
-            }
-
-            var glcMyself = GameLocationCharacter.GetFromActor(myself);
-            var glcDefender = GameLocationCharacter.GetFromActor(defender);
-
-            if (!gameLocationBattleService.IsWithinXCells(glcMyself, glcDefender, 4))
-            {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
-            }
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == _powerSwiftThrow;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var dexterity = character.TryGetAttributeValue(AttributeDefinitions.Dexterity);
-            var dieType = GetGambitDieSize(character);
-            var bonusDamage = Math.Max(
-                AttributeDefinitions.ComputeAbilityScoreModifier(strength),
-                AttributeDefinitions.ComputeAbilityScoreModifier(dexterity));
-
-            effectDescription.EffectForms.Add(
-                EffectFormBuilder.DamageForm(DamageTypePiercing, 1, dieType, bonusDamage));
-
-            return effectDescription;
+            Attack(actingCharacter, target, attackModeCopy);
         }
     }
 
@@ -1236,7 +1279,6 @@ internal static class GambitsBuilders
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var attackModifier = new ActionModifier();
             var attackActionParams =
                 new CharacterActionParams(ally, ActionDefinitions.Id.AttackOpportunity) { AttackMode = attackModeCopy };
@@ -1245,22 +1287,7 @@ internal static class GambitsBuilders
             attackActionParams.ActionModifiers.Add(attackModifier);
             actionService.ExecuteAction(attackActionParams, null, false);
 
-            // burn one main attack
-            actingCharacter.UsedMainAttacks++;
-            rulesetCharacter.ExecutedAttacks++;
-            rulesetCharacter.RefreshAttackModes();
-
-            var maxAttacksNumber = rulesetCharacter.AttackModes
-                .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
-                .Max(x => x.AttacksNumber);
-
-            if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
-            {
-                yield break;
-            }
-
-            actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Main]++;
-            actingCharacter.UsedMainAttacks = 0;
+            BurnOneMainAttack(actingCharacter);
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1979,6 +2006,9 @@ internal static class GambitsBuilders
             EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Caster);
 
+            EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
+                FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
+
             targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
             actionService.ExecuteAction(actionParams, null, false);
         }
@@ -2006,6 +2036,88 @@ internal static class GambitsBuilders
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
+        }
+    }
+
+    private sealed class OverwhelmingAttack : IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    {
+        private readonly FeatureDefinitionPower _powerOverwhelmingAttack;
+
+        public OverwhelmingAttack(FeatureDefinitionPower powerOverwhelmingAttack)
+        {
+            _powerOverwhelmingAttack = powerOverwhelmingAttack;
+        }
+
+        public bool EnforceFullSelection => true;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _powerOverwhelmingAttack)
+            {
+                return true;
+            }
+
+            var selectedTargets = __instance.SelectionService.SelectedTargets;
+
+            if (selectedTargets.Empty())
+            {
+                return true;
+            }
+
+            var firstTarget = selectedTargets[0];
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService.IsWithin1Cell(firstTarget, target))
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAdjacentToFirstTarget");
+
+            return false;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            var attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            var attackModeCopy1 = RulesetAttackMode.AttackModesPool.Get();
+            var target1 = action.ActionParams.TargetCharacters[0];
+
+            attackModeCopy1.Copy(attackMode);
+            attackModeCopy1.ActionType = ActionDefinitions.ActionType.NoCost;
+
+            Attack(actingCharacter, target1, attackModeCopy1);
+
+            var attackModeCopy2 = RulesetAttackMode.AttackModesPool.Get();
+            var target2 = action.ActionParams.TargetCharacters[1];
+            var dieType = GetGambitDieSize(actingCharacter.RulesetCharacter);
+            var strength = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var dexterity = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+            var bonus = Math.Max(
+                AttributeDefinitions.ComputeAbilityScoreModifier(strength),
+                AttributeDefinitions.ComputeAbilityScoreModifier(dexterity));
+            var firstDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            attackModeCopy2.Copy(attackMode);
+            attackModeCopy2.ActionType = ActionDefinitions.ActionType.NoCost;
+            attackModeCopy2.EffectDescription.EffectForms.RemoveAll(x =>
+                x.FormType == EffectForm.EffectFormType.Damage);
+            attackModeCopy2.EffectDescription.EffectForms.Add(
+                EffectFormBuilder.DamageForm(firstDamageForm?.DamageType ?? DamageTypePiercing, 1, dieType, bonus));
+
+            Attack(actingCharacter, target2, attackModeCopy2);
+
+            BurnOneMainAttack(actingCharacter);
         }
     }
 
