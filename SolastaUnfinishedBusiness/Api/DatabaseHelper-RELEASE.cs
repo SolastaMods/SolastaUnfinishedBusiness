@@ -1552,6 +1552,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolBackgroundLanguageChoice_one { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolBackgroundLanguageChoice_one");
 
+        internal static FeatureDefinitionPointPool PointPoolBackgroundLanguageChoice_two { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBackgroundLanguageChoice_two");
+
         internal static FeatureDefinitionPointPool PointPoolMonkSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolMonkSkillPoints");
 

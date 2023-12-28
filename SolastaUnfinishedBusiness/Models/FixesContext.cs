@@ -60,6 +60,7 @@ internal static class FixesContext
         FixArmorClassOnLegendaryArmors();
         ExtendCharmImmunityToDemonicInfluence();
         FixSavingThrowAffinityManaPainterAbsorption();
+        FixLanguagesPointPoolsToIncludeAllLanguages();
 
         // fix condition UI
         FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
@@ -200,6 +201,17 @@ internal static class FixesContext
     private static void FixSavingThrowAffinityManaPainterAbsorption()
     {
         FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityManaPainterAbsorption.AffinityGroups.Clear();
+    }
+
+    private static void FixLanguagesPointPoolsToIncludeAllLanguages()
+    {
+        var dlcLanguages = new List<string>
+        {
+            "Language_Abyssal", "Language_Druidic", "Language_Gnomish", "Language_Infernal"
+        };
+
+        FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one.RestrictedChoices.AddRange(dlcLanguages);
+        FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_two.RestrictedChoices.AddRange(dlcLanguages);
     }
 
     private static void ExtendCharmImmunityToDemonicInfluence()
