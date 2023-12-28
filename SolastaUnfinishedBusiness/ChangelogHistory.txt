@@ -5,6 +5,7 @@
 - added Overwhelming Attack (Sweeping Attack) gambit
 - added Swift Throw (Quick Toss) gambit
 - fixed Blade Mastery feat granting AC regardless of wielded weapon
+- fixed Blessing of Rime spell not removing condition when temp HPs get to zero
 - fixed Elemental Infusion spell scaling additional targets instead of dice damage
 - fixed Monk remaining Ki points transmuting from the natural world into the integer one
 - fixed Tactical Strike gambit not enforcing second target selection

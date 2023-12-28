@@ -310,7 +310,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByMe, IRollSavingThrowInitiated
+    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByEnemy, IRollSavingThrowInitiated
     {
         private readonly SpellDefinition _spellDefinition;
 
@@ -319,9 +319,9 @@ internal static partial class SpellBuilders
             _spellDefinition = spellDefinition;
         }
 
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
-            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = target.RulesetCharacter;
 
             if (rulesetCharacter.TemporaryHitPoints == 0)
             {
