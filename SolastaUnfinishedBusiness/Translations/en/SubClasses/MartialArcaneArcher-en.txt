@@ -49,5 +49,5 @@ Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactDescrip
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotReactTitle=Arcane Shot
 Reaction/&ReactionSpendPowerBundlePowerMartialArcaneArcherArcaneShotTitle=Arcane Shot
 Screen/&InvocationPoolArcaneShotChoiceHeader=Arcane Shots
-Subclass/&MartialArcaneArcherDescription=An Arcane Archer studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Archers are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
-Subclass/&MartialArcaneArcherTitle=Arcane Archer
+Subclass/&MartialArcaneArcherDescription=An Arcane Marksman studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Marksmen are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
+Subclass/&MartialArcaneArcherTitle=Arcane Marksman
