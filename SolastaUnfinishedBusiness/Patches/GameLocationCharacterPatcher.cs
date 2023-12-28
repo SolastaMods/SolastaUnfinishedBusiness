@@ -204,7 +204,7 @@ public static class GameLocationCharacterPatcher
                 __result == ActionDefinitions.ActionStatus.CannotPerform &&
                 __instance.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
                 ActionDefinitions.ActionStatus.Available &&
-                __result != ActionDefinitions.ActionStatus.CannotPerform)
+                __instance.RulesetCharacter.RemainingKiPoints > 0)
             {
                 __result = ActionDefinitions.ActionStatus.Available;
             }
