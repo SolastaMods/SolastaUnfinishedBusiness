@@ -203,7 +203,8 @@ public static class GameLocationCharacterPatcher
                     or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes &&
                 __result == ActionDefinitions.ActionStatus.CannotPerform &&
                 __instance.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
-                ActionDefinitions.ActionStatus.Available)
+                ActionDefinitions.ActionStatus.Available &&
+                __result != ActionDefinitions.ActionStatus.CannotPerform)
             {
                 __result = ActionDefinitions.ActionStatus.Available;
             }
