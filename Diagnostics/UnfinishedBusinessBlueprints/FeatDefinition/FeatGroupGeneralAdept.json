@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupGeneralAdeptTitle",
-    "description": "Arcane Archer Adept, Eldritch Adept, Eldritch Versatility Adept, Fighting Style Adept, Infusion Adept, Metamagic Adept, Tactician Adept",
+    "description": "Arcane Marksman Adept, Eldritch Adept, Eldritch Versatility Adept, Fighting Style Adept, Infusion Adept, Metamagic Adept, Tactician Adept",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

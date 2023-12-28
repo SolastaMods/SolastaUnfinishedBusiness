@@ -330,9 +330,9 @@
     "description": "Feature/&GambitRallyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c998113ef5d03374ab0a5542bc3b8d52",
-      "m_SubObjectName": "Guidance",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "a75ef69a-b5d8-5b06-a6b4-b05af26fc3ff",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

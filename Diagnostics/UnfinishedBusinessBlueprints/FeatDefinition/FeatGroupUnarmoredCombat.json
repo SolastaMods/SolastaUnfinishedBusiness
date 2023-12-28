@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupUnarmoredCombatTitle",
-    "description": "Astral Reach, Crusher, Elemental Touch, Monk Initiate, Poisonous Skin, Unarmored Expert",
+    "description": "Astral Reach, Destroyer, Elemental Touch, Monk Initiate, Poisonous Skin, Unarmored Expert",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

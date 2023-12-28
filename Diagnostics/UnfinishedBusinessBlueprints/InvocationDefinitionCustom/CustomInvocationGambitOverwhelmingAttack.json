@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 0,
   "requiredPact": null,
-  "grantedFeature": "Definition:PowerGambitCoordinatedAttackActivate:cea790a0-0791-56af-8e21-7416db355767",
+  "grantedFeature": "Definition:PowerGambitOverwhelmingAttackActivate:24bb1807-1a87-53c4-b02d-3e2a9a6cb271",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,11 +11,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitCoordinatedAttackTitle",
-    "description": "Feature/&GambitCoordinatedAttackDescription",
+    "title": "Feature/&GambitOverwhelmingAttackTitle",
+    "description": "Feature/&GambitOverwhelmingAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4237fc1c-8ff8-5845-b419-cd82fa421aca",
+      "m_AssetGUID": "0750cc32-41e9-501d-bd34-fb2a7700a701",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "56e72bc7-fbd5-5fd8-96a4-42a18df2c1e0",
+  "guid": "0bca1ede-8574-5a1b-841c-9373737f258c",
   "contentPack": 9999,
-  "name": "CustomInvocationGambitCoordinatedAttack"
+  "name": "CustomInvocationGambitOverwhelmingAttack"
 }

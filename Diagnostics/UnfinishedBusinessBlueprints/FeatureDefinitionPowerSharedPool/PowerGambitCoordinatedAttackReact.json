@@ -332,9 +332,9 @@
     "description": "Feature/&GambitCoordinatedAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "62a2957924e5a0847b9e6a46d591cfb1",
-      "m_SubObjectName": "TrueStrike",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "4237fc1c-8ff8-5845-b419-cd82fa421aca",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

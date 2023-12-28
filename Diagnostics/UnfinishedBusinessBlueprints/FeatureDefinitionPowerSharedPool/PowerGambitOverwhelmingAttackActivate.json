@@ -3,12 +3,12 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 12,
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 2,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -264,7 +264,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -300,11 +300,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitSwiftThrowTitle",
-    "description": "Feature/&GambitSwiftThrowDescription",
+    "title": "Feature/&GambitOverwhelmingAttackTitle",
+    "description": "Feature/&GambitOverwhelmingAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "76556323-d8aa-59b2-a31e-c9f690457624",
+      "m_AssetGUID": "0750cc32-41e9-501d-bd34-fb2a7700a701",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -321,7 +321,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "80ed2cb1-9724-5700-b782-f0661eea2b18",
+  "guid": "24bb1807-1a87-53c4-b02d-3e2a9a6cb271",
   "contentPack": 9999,
-  "name": "PowerGambitSwiftThrowActivate"
+  "name": "PowerGambitOverwhelmingAttackActivate"
 }

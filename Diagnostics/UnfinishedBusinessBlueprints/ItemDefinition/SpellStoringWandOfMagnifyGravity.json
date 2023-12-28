@@ -230,8 +230,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Wand of Magnify Gravity",
-    "description": "This wand allows casting the <b>Magnify Gravity</b> spell using spell casting stats of the Inventor who created it.",
+    "title": "Wand of Intensify Gravity",
+    "description": "This wand allows casting the <b>Intensify Gravity</b> spell using spell casting stats of the Inventor who created it.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "99f5e6021bff7994bb5b9f6832f8145a",
