@@ -180,6 +180,7 @@ public static class CursorLocationSelectTargetPatcher
                 if (__instance.effectDescription.TargetFilteringMethod is TargetFilteringMethod.AllCharacterAndGadgets
                     or TargetFilteringMethod.CharacterOnly or TargetFilteringMethod.CharacterGadgetEffectProxy)
                 {
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                     switch (__instance.TargetSide)
                     {
                         case Side.All:
@@ -384,6 +385,7 @@ public static class CursorLocationSelectTargetPatcher
                     var rangeType = __instance.effectDescription.RangeType;
                     var targetType = __instance.effectDescription.TargetType;
 
+                    // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                     switch (rangeType)
                     {
                         case RangeType.Touch:
@@ -397,7 +399,7 @@ public static class CursorLocationSelectTargetPatcher
                             break;
                         case RangeType.MeleeHit:
                         case RangeType.RangeHit:
-                            if (__instance.IsValidMagicAttack(out var _))
+                            if (__instance.IsValidMagicAttack(out _))
                             {
                                 isMagic = true;
                                 isValid = true;
@@ -406,7 +408,7 @@ public static class CursorLocationSelectTargetPatcher
                             break;
                         default:
                             if (targetType == TargetType.Position && __instance.effectDescription.InviteOptionalAlly &&
-                                __instance.IsValidMagicTarget(out var _))
+                                __instance.IsValidMagicTarget(out _))
                             {
                                 isMagic = true;
                                 isValid = true;

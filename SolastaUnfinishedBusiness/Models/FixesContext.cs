@@ -207,7 +207,7 @@ internal static class FixesContext
     {
         var dlcLanguages = new List<string>
         {
-            "Language_Abyssal", "Language_Druidic", "Language_Gnomish", "Language_Infernal"
+            "Language_Abyssal", "Language_Gnomish", "Language_Infernal"
         };
 
         FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one.RestrictedChoices.AddRange(dlcLanguages);
