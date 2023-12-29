@@ -154,7 +154,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Knockdown
+        #region Knockdown (former Trip Attack)
 
         name = "GambitKnockdown";
         sprite = Sprites.GetSprite(name, Resources.GambitKnockdown, 128);
@@ -212,7 +212,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Repel
+        #region Repel (former Pushing Attack)
 
         name = "GambitRepel";
         sprite = Sprites.GetSprite(name, Resources.GambitRepel, 128);
@@ -231,13 +231,7 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(CustomConditionsContext.StopMovement,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
@@ -280,7 +274,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Threaten
+        #region Threaten (former Menacing Attack)
 
         name = "GambitThreaten";
         sprite = Sprites.GetSprite(name, Resources.GambitThreaten, 128);
@@ -364,8 +358,10 @@ internal static class GambitsBuilders
                                     .SetGuiPresentation(Category.Condition,
                                         ConditionDefinitions.ConditionPatronHiveWeakeningPheromones)
                                     .SetConditionType(ConditionType.Detrimental)
-                                    .SetFeatures(FeatureDefinitionSavingThrowAffinitys
-                                        .SavingThrowAffinityPatronHiveWeakeningPheromones)
+                                    .SetFeatures(
+                                        FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted,
+                                        FeatureDefinitionSavingThrowAffinitys
+                                            .SavingThrowAffinityPatronHiveWeakeningPheromones)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
@@ -678,7 +674,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Elusive Movement
+        #region Elusive Movement (former Evasive Footwork)
 
         name = "GambitElusiveMovement";
         sprite = Sprites.GetSprite(name, Resources.GambitElusiveMovement, 128);
@@ -750,7 +746,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Swift Throw
+        #region Swift Throw (former Quick Toss)
 
         name = "GambitSwiftThrow";
         sprite = Sprites.GetSprite(name, Resources.GambitSwiftThrow, 128);
@@ -771,7 +767,8 @@ internal static class GambitsBuilders
 
         var concealedDagger = ItemDefinitionBuilder
             .Create(ItemDefinitions.Dagger, "ConcealedDagger")
-            .SetOrUpdateGuiPresentation("Item/&ConcealedDaggerTitle",ItemDefinitions.Dagger.GuiPresentation.Description)
+            .SetOrUpdateGuiPresentation("Item/&ConcealedDaggerTitle",
+                ItemDefinitions.Dagger.GuiPresentation.Description)
             .AddToDB();
 
         power.AddCustomSubFeatures(new SwiftThrow(concealedDagger, power));
@@ -780,7 +777,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Bait and Switch
+        #region Switch (former Bait and Switch)
 
         name = "GambitSwitch";
         sprite = Sprites.GetSprite(name, Resources.GambitSwitch, 128);

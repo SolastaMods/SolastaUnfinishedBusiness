@@ -818,6 +818,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionEaglesSplendor { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionEaglesSplendor");
 
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionExhausted { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionExhausted");
+
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionFoxsCunning { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionFoxsCunning");
 
