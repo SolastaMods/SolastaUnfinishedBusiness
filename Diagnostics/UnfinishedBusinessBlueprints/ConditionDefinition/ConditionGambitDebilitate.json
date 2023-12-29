@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
+    "Definition:AbilityCheckAffinityConditionExhausted:addbff861499fbc47a0c9505f58a5404",
     "Definition:SavingThrowAffinityPatronHiveWeakeningPheromones:efba1b9e43d4abc4abc123dca4ac3e87"
   ],
   "allowMultipleInstances": false,

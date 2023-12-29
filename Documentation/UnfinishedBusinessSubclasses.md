@@ -562,11 +562,11 @@ Holy smiths who channel their faith through steel and forges. Reinforcing allied
 * Expanded Spells
 
 
-	I	Identify, Searing Smite
+	I	Identify, Infernal Smite
 
 	II	Heat Metal, Magic Weapon
 
-	III	Protection from Energy, Elemental Weapon
+	III	Protection from Energy, Elemental Enchantment
 
 	IV	Wall of Fire, Stoneskin
 
@@ -875,9 +875,9 @@ Your Combat Healing now heals you for 4d8 hit points.
 
 # Fighter
 
-## 1. Arcane Archer
+## 1. Arcane Marksman
 
-An Arcane Archer studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Archers are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
+An Arcane Marksman studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Marksmen are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
 
 
 ### Level 3
@@ -1306,13 +1306,13 @@ Learn and have always prepared:
 
 	I	Magic Missile, Shield
 
-	II	Mirror Image, Shatter
+	II	Illusory Duplicates, Shatter
 
 	III	Hypnotic Pattern, Lightning Bolt
 
 	IV	Fire Shield, Greater Invisibility
 
-	V	Far Step, Wall of Force
+	V	Ethereal Step, Wall of Force
 
 
 
@@ -1974,7 +1974,7 @@ You can use your Channel Divinity to utter ancient words that are painful for fe
 
 In your list and always prepared: 
  
-	I	Ensnaring Strike, Animal Friendship
+	I	Entangling Strike, Animal Friendship
 
 	II	Moon Beam, Misty Step
 
@@ -2225,7 +2225,7 @@ When wielding a War Hammer, they can be thrown with a 20/60 range, and return to
 
 In your list and always prepared: 
  
-	I	Thunderwave, Thunderous Smite
+	I	Thunderwave, Booming Smite
 
 	II	Shatter, Misty Step
 
@@ -2233,7 +2233,7 @@ In your list and always prepared:
 
 	IV	Freedom of Movement, Stoneskin
 
-	V	Far Step, Sonic Boom
+	V	Ethereal Step, Sonic Boom
 
 
 ### Level 7
@@ -2345,7 +2345,7 @@ You can cast Enduring Sting as an action and gain bonus spells that are consider
 
 	IV	Wall of Fire
 
-	V	Far Step
+	V	Ethereal Step
 
 
 ### Level 7
@@ -2401,7 +2401,7 @@ You can cast light as an action and gain bonus spells that are considered ranger
 
 	IV	Guardian of Faith
 
-	V	Banishing Smite
+	V	Expelling Smite
 
 
 ### Level 7
@@ -2447,7 +2447,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 	0	Air Blast
 
-	II	Mirror Image
+	II	Illusory Duplicates
 
 	III	Fly
 
@@ -2501,7 +2501,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 	I	Entangle
 
-	II	Web
+	II	Conjure Web
 
 	III	Sleet Storm
 
@@ -3000,7 +3000,7 @@ Your non two-handed weapon attacks count as magical and you use your spell casti
 * Expanded Spells
 
 
-	I	Thunderous Smite
+	I	Booming Smite
 
 	II	Misty Step
 
@@ -3522,15 +3522,15 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 * Expanded Spells
 
 
-	I	Shield, Wrathful Smite
+	I	Shield, Furious Smite
 
 	II	Blur, Branding Smite
 
-	III	Blinding Smite, Elemental Weapon
+	III	Blinding Smite, Elemental Enchantment
 
 	IV	Phantasmal Killer, Staggering Smite
 
-	V	Banishing Smite, Cone of Cold
+	V	Expelling Smite, Cone of Cold
 
 
 
