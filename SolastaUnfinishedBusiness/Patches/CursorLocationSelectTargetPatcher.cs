@@ -128,13 +128,6 @@ public static class CursorLocationSelectTargetPatcher
                 // allows any target to be selected as well as automatically presents a better UI description
                 rulesetEffectPower.EffectDescription.inviteOptionalAlly = false;
             }
-
-            if (rulesetEffectPower.PowerDefinition.Name is "PowerGambitSwiftThrowActivate"
-                or "PowerGambitOverwhelmingAttackActivate")
-            {
-                // presents a better UI description
-                rulesetEffectPower.EffectDescription.RangeType = RangeType.RangeHit;
-            }
         }
     }
 
@@ -156,13 +149,6 @@ public static class CursorLocationSelectTargetPatcher
             {
                 // brings back power effect to it's original definition
                 rulesetEffectPower.EffectDescription.inviteOptionalAlly = true;
-            }
-
-            if (rulesetEffectPower.PowerDefinition.Name is "PowerGambitSwiftThrowActivate"
-                or "PowerGambitOverwhelmingAttackActivate")
-            {
-                // brings back power effect to it's original definition
-                rulesetEffectPower.EffectDescription.RangeType = RangeType.Distance;
             }
         }
     }

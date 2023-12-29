@@ -549,7 +549,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique, 2)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique, 2)
                     .Build())
             .AddToDB();
 
@@ -761,7 +761,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .Build())
             .AddToDB();
 
@@ -1065,7 +1065,7 @@ internal static class GambitsBuilders
     //
     // Swift Throw
     //
-    private sealed class SwiftThrow : IMagicEffectFinishedByMe, IModifyAttackActionModifier
+    private sealed class SwiftThrow : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IModifyAttackActionModifier
     {
         private const int DaggerCloseRange = 4;
         private readonly ItemDefinition _concealedDagger;
@@ -1079,6 +1079,8 @@ internal static class GambitsBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.RangeHit;
+
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
@@ -1114,6 +1116,13 @@ internal static class GambitsBuilders
                 EffectFormBuilder.DamageForm(DamageTypePiercing, 1, dieType, bonus));
 
             Attack(actingCharacter, target, attackModeCopy, action.ActionParams.ActionModifiers[0]);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
+
+            yield break;
         }
 
         public void OnAttackComputeModifier(
@@ -1261,20 +1270,14 @@ internal static class GambitsBuilders
                 yield break;
             }
 
+            var actingCharacter = action.ActingCharacter;
+            var attackModifier = new ActionModifier();
             var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
             attackModeCopy.Copy(attackMode);
             attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actingCharacter = action.ActingCharacter;
-            var attackModifier = new ActionModifier();
-            var attackActionParams =
-                new CharacterActionParams(ally, ActionDefinitions.Id.AttackOpportunity) { AttackMode = attackModeCopy };
-
-            attackActionParams.TargetCharacters.Add(target);
-            attackActionParams.ActionModifiers.Add(attackModifier);
-            actionService.ExecuteAction(attackActionParams, null, false);
+            Attack(ally, target, attackModeCopy, attackModifier);
 
             BurnOneMainAttack(actingCharacter);
         }
@@ -1556,6 +1559,7 @@ internal static class GambitsBuilders
             var caster = actingCharacter.RulesetCharacter;
             var target = action.ActionParams.TargetCharacters[0].RulesetCharacter;
 
+            // consume one tactical move
             actingCharacter.UsedTacticalMoves++;
 
             if (caster.IsOppositeSide(target.Side))
@@ -1611,7 +1615,6 @@ internal static class GambitsBuilders
             manager.AddInterruptRequest(reactionRequest);
 
             yield return battle.WaitForReactions(actingCharacter, manager, previousReactionCount);
-
 
             var dieType = GetGambitDieSize(caster);
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
@@ -2054,7 +2057,8 @@ internal static class GambitsBuilders
     //
     // Overwhelming Attack
     //
-    private sealed class OverwhelmingAttack : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+    private sealed class OverwhelmingAttack :
+        IFilterTargetingCharacter, IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerOverwhelmingAttack;
 
@@ -2096,6 +2100,8 @@ internal static class GambitsBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.MeleeHit;
+
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
@@ -2134,6 +2140,13 @@ internal static class GambitsBuilders
             Attack(actingCharacter, target2, attackModeCopy2, action.ActionParams.ActionModifiers[0]);
 
             BurnOneMainAttack(actingCharacter);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
+
+            yield break;
         }
     }
 
@@ -2209,10 +2222,11 @@ internal static class GambitsBuilders
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var attackActionParams =
-            new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
+            new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
+            {
+                AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+            };
 
-        attackActionParams.TargetCharacters.SetRange(target);
-        attackActionParams.ActionModifiers.Add(attackModifier);
         actionService.ExecuteAction(attackActionParams, null, true);
     }
 
