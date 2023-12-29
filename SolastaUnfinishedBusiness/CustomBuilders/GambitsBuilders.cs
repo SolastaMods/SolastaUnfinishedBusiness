@@ -41,6 +41,7 @@ internal static class GambitsBuilders
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 2)
             .AddToDB();
 
+    // kept name for backward compatibility
     internal static FeatureDefinitionCustomInvocationPool Learn3Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn4")
@@ -717,7 +718,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Rally
+        #region Inspire (former Rally)
 
         name = "GambitRally";
         sprite = Sprites.GetSprite(name, Resources.GambitRally, 128);
@@ -770,7 +771,7 @@ internal static class GambitsBuilders
 
         var concealedDagger = ItemDefinitionBuilder
             .Create(ItemDefinitions.Dagger, "ConcealedDagger")
-            .SetOrUpdateGuiPresentation(Category.Item)
+            .SetOrUpdateGuiPresentation("Item/&ConcealedDaggerTitle",ItemDefinitions.Dagger.GuiPresentation.Description)
             .AddToDB();
 
         power.AddCustomSubFeatures(new SwiftThrow(concealedDagger, power));
@@ -877,7 +878,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Brace
+        #region Readied Strike (former Brace)
 
         name = "GambitBrace";
         sprite = Sprites.GetSprite(name, Resources.GambitBrace, 128);
@@ -892,7 +893,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Precise
+        #region Accurate Attack (former Precise)
 
         name = "GambitPrecise";
         sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
@@ -909,7 +910,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Parry
+        #region Block (former Parry)
 
         name = "GambitParry";
         sprite = Sprites.GetSprite(name, Resources.GambitParry, 128);
@@ -1816,6 +1817,9 @@ internal static class GambitsBuilders
         }
     }
 
+    //
+    // Parry
+    //
     private sealed class Parry : IAttackBeforeHitConfirmedOnMe
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";

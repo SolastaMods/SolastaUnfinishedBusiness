@@ -55,7 +55,6 @@ Feedback/&GambitGrantTempHP={0} uses {1} to roll a gambit die ({2}) and grant al
 Feedback/&GambitParryDamageReduction={0} uses {1} to roll a gambit die ({2}) and reduces damage by {3}
 Feedback/&GambitPreciseToHitRoll={0} uses {1} to roll a gambit die ({2}) and adds +{3} to the attack roll
 Feedback/&GambitSwitchACIncrease={0} uses {1} to roll a gambit die ({2}) and increase {3} AC by {4}
-Item/&ConcealedDaggerDescription=An Iron Legion officer's dagger from the Imperial era, that doesn't impose disadvantage on long attack ranges.
 Item/&ConcealedDaggerTitle=Concealed Dagger
 Reaction/&CustomReactionGambitParryDescription={0} is hit by {1} and can react to spend a gambit die and reduce damage by {2} + double proficiency bonus.
 Reaction/&CustomReactionGambitParryReactDescription=Spend a gambit die to reduce damage.
