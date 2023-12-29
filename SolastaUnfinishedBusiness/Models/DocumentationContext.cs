@@ -159,7 +159,8 @@ internal static class DocumentationContext
                 if (featureDefinitionSubclassChoice.FilterByDeity)
                 {
                     foreach (var subclass in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-                                 .Where(x => x.Name.StartsWith(featureDefinitionSubclassChoice.SubclassSuffix)))
+                                 .Where(x => x.Name.StartsWith(featureDefinitionSubclassChoice.SubclassSuffix) &&
+                                             x.ContentPack != CeContentPackContext.CeContentPack))
                     {
                         yield return (klass, subclass);
                     }
