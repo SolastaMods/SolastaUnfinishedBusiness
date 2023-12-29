@@ -69,6 +69,9 @@ internal static class DocumentationContext
         DumpOthers<InvocationDefinition>("UnfinishedBusinessInfusions",
             x => x is InvocationDefinitionCustom y &&
                  y.PoolType == InvocationPoolTypeCustom.Pools.Infusion);
+        DumpOthers<InvocationDefinition>("UnfinishedBusinessVersatilities",
+            x => x is InvocationDefinitionCustom y &&
+                 y.PoolType == InvocationPoolTypeCustom.Pools.EldritchVersatilityPool);
     }
 
     private static string LazyManStripXml(string input)
