@@ -16,7 +16,7 @@ internal static class GroupFeats
     internal const string Piercer = "Piercer";
     internal const string Crusher = "Crusher";
     internal const string OldTactics = "OldTactics";
-    private static readonly List<FeatDefinition> Groups = new();
+    private static readonly List<FeatDefinition> Groups = [];
 
     internal static FeatDefinition FeatGroupAgilityCombat { get; } = MakeGroup("FeatGroupAgilityCombat", null,
         EagerForBattle,

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -126,8 +125,8 @@ internal static class GuardianAuraHpSwap
                 false,
                 attacker.Guid,
                 false,
-                new List<string>(),
-                new RollInfo(DieType.D1, new List<int>(), damageAmount),
+                [],
+                new RollInfo(DieType.D1, [], damageAmount),
                 true,
                 out _);
         }
@@ -149,11 +148,7 @@ internal static class GuardianAuraHpSwap
         actionManager.AddInterruptRequest(reactionRequest);
     }
 
-    private sealed class GuardianAuraCondition
-    {
-    }
+    private sealed class GuardianAuraCondition;
 
-    private sealed class GuardianAuraUser
-    {
-    }
+    private sealed class GuardianAuraUser;
 }

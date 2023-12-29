@@ -331,7 +331,7 @@ public class PatronEldritchSurge : AbstractSubclass
     private class BlastReloadSupportRulesetCondition :
         RulesetConditionCustom<BlastReloadSupportRulesetCondition>, IBindToRulesetConditionCustom
     {
-        public readonly List<SpellDefinition> CantripsUsedThisTurn = new();
+        public readonly List<SpellDefinition> CantripsUsedThisTurn = [];
 
         static BlastReloadSupportRulesetCondition()
         {

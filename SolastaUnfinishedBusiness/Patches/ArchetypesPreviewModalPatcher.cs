@@ -75,7 +75,7 @@ public static class ArchetypesPreviewModalPatcher
                 if (selectedClass != null
                     && hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
                 {
-                    subclasses = new List<string> { characterSubclassDefinition.Name };
+                    subclasses = [characterSubclassDefinition.Name];
                 }
             }
 

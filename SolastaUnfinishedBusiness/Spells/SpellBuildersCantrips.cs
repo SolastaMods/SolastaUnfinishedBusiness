@@ -775,7 +775,7 @@ internal static partial class SpellBuilders
                 false,
                 attacker.Guid,
                 false,
-                attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? new List<string>(),
+                attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [],
                 new RollInfo(damageForm.DieType, rolls, 0),
                 false,
                 out _);

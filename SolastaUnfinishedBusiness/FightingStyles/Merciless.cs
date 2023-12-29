@@ -55,15 +55,15 @@ internal sealed class Merciless : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         CharacterContext.FightingStyleChoiceBarbarian,
         CharacterContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,
         FightingStyleRanger
-    };
+    ];
 
     private sealed class OnReducedToZeroHpByMeMerciless : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe
     {

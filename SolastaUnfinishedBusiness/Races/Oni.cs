@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -51,7 +50,7 @@ internal static class RaceOniBuilder
         spellListOni.spellsByLevel.Clear();
         spellListOni.spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
         {
-            level = 1, spells = new List<SpellDefinition> { SpellsContext.ThunderousSmite }
+            level = 1, spells = [SpellsContext.ThunderousSmite]
         });
 
         var castSpellOniOgreMagic = FeatureDefinitionCastSpellBuilder
@@ -68,7 +67,7 @@ internal static class RaceOniBuilder
         {
             castSpellOniOgreMagic.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
-                Level = level, Slots = new List<int> { level >= 3 ? 1 : 0 }
+                Level = level, Slots = [level >= 3 ? 1 : 0]
             });
         }
 
@@ -97,10 +96,10 @@ internal static class RaceOniBuilder
         availableMorphotypeCategories.Add(MorphotypeElementDefinition.ElementCategory.Horns);
 
         racePresentation.availableMorphotypeCategories = availableMorphotypeCategories.ToArray();
-        racePresentation.maleHornsOptions = new List<string>();
+        racePresentation.maleHornsOptions = [];
         racePresentation.hornsTailAssetPrefix = Tiefling.RacePresentation.hornsTailAssetPrefix;
         racePresentation.maleHornsOptions.AddRange(Tiefling.RacePresentation.maleHornsOptions);
-        racePresentation.femaleHornsOptions = new List<string>();
+        racePresentation.femaleHornsOptions = [];
         racePresentation.femaleHornsOptions.AddRange(Tiefling.RacePresentation.femaleHornsOptions);
         RacesContext.RaceScaleMap[raceOni] = 7.4f / 6.4f;
 

@@ -212,11 +212,11 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
 
             hero.LogCharacterActivatesAbility(title, Line, tooltipContent: description,
                 indent: true,
-                extra: new[]
-                {
+                extra:
+                [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
-                });
+                ]);
 
             rulesetCondition.amount = dieRoll;
         }

@@ -14,18 +14,18 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class InventoryManagementContext
 {
-    private static readonly List<string> SortCategories = new()
-    {
+    private static readonly List<string> SortCategories =
+    [
         "UI/&InventoryFilterName",
         "UI/&InventoryFilterCategory",
         "UI/&InventoryFilterCost",
         "UI/&InventoryFilterWeight",
         "UI/&InventoryFilterCostPerWeight"
-    };
+    ];
 
-    private static readonly List<RulesetItem> FilteredItems = new();
+    private static readonly List<RulesetItem> FilteredItems = [];
 
-    private static readonly List<MerchantCategoryDefinition> ItemCategories = new();
+    private static readonly List<MerchantCategoryDefinition> ItemCategories = [];
 
     private static GuiDropdown FilterGuiDropdown { get; set; }
 

@@ -274,7 +274,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,
-                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) },
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _power.Name, _power)],
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
@@ -286,7 +286,7 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             attackModifier.ignoreAdvantage = false;
             attackModifier.attackAdvantageTrends =
-                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) };
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _power.Name, _power)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;

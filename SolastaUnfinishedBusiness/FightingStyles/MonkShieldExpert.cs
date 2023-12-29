@@ -22,8 +22,6 @@ internal class MonkShieldExpert : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
-        CharacterContext.FightingStyleChoiceMonk
-    };
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+        [CharacterContext.FightingStyleChoiceMonk];
 }

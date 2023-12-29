@@ -104,7 +104,7 @@ internal static class FixesContext
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                    Level = spellsByLevel.Count, Spells = []
                 });
             }
         }
@@ -144,7 +144,7 @@ internal static class FixesContext
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                    Level = spellsByLevel.Count, Spells = []
                 });
             }
         }
@@ -181,8 +181,8 @@ internal static class FixesContext
             FeatureDefinitionCastSpells.CastSpellTraditionLight.KnownCantrips[level] = 2;
 
             // Warlock
-            FeatureDefinitionCastSpells.CastSpellWarlock.slotsPerLevels[level - 1].slots = new List<int>
-            {
+            FeatureDefinitionCastSpells.CastSpellWarlock.slotsPerLevels[level - 1].slots =
+            [
                 0,
                 0,
                 0,
@@ -192,7 +192,7 @@ internal static class FixesContext
                 0,
                 0,
                 0
-            };
+            ];
 
             FeatureDefinitionCastSpells.CastSpellWarlock.KnownCantrips[level - 1] = 4;
         }

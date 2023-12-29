@@ -269,19 +269,19 @@ internal static class SharedSpellsContext
     {
         // first index is for absence of levels. always 0
         private static readonly int[] FromHalfCaster =
-        {
+        [
             0, 0, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10
-        };
+        ];
 
         private static readonly int[] FromHalfRoundUpCaster =
-        {
+        [
             0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10
-        };
+        ];
 
         private static readonly int[] FromOneThirdCaster =
-        {
+        [
             0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7
-        };
+        ];
 
         private readonly Dictionary<CasterProgression, int> _levels;
 
@@ -319,344 +319,363 @@ internal static class SharedSpellsContext
 
     internal static IEnumerable<SlotsByLevelDuplet> InitiateCastingSlots { get; } = new List<SlotsByLevelDuplet>
     {
-        new() { Slots = new List<int> { 1 }, Level = 01 },
-        new() { Slots = new List<int> { 1 }, Level = 02 },
-        new() { Slots = new List<int> { 1 }, Level = 03 },
-        new() { Slots = new List<int> { 1 }, Level = 04 },
-        new() { Slots = new List<int> { 1 }, Level = 05 },
-        new() { Slots = new List<int> { 1 }, Level = 06 },
-        new() { Slots = new List<int> { 1 }, Level = 07 },
-        new() { Slots = new List<int> { 1 }, Level = 08 },
-        new() { Slots = new List<int> { 1 }, Level = 09 },
-        new() { Slots = new List<int> { 1 }, Level = 10 },
-        new() { Slots = new List<int> { 1 }, Level = 11 },
-        new() { Slots = new List<int> { 1 }, Level = 12 },
-        new() { Slots = new List<int> { 1 }, Level = 13 },
-        new() { Slots = new List<int> { 1 }, Level = 14 },
-        new() { Slots = new List<int> { 1 }, Level = 15 },
-        new() { Slots = new List<int> { 1 }, Level = 16 },
-        new() { Slots = new List<int> { 1 }, Level = 17 },
-        new() { Slots = new List<int> { 1 }, Level = 18 },
-        new() { Slots = new List<int> { 1 }, Level = 19 },
-        new() { Slots = new List<int> { 1 }, Level = 20 }
+        new() { Slots = [1], Level = 01 },
+        new() { Slots = [1], Level = 02 },
+        new() { Slots = [1], Level = 03 },
+        new() { Slots = [1], Level = 04 },
+        new() { Slots = [1], Level = 05 },
+        new() { Slots = [1], Level = 06 },
+        new() { Slots = [1], Level = 07 },
+        new() { Slots = [1], Level = 08 },
+        new() { Slots = [1], Level = 09 },
+        new() { Slots = [1], Level = 10 },
+        new() { Slots = [1], Level = 11 },
+        new() { Slots = [1], Level = 12 },
+        new() { Slots = [1], Level = 13 },
+        new() { Slots = [1], Level = 14 },
+        new() { Slots = [1], Level = 15 },
+        new() { Slots = [1], Level = 16 },
+        new() { Slots = [1], Level = 17 },
+        new() { Slots = [1], Level = 18 },
+        new() { Slots = [1], Level = 19 },
+        new() { Slots = [1], Level = 20 }
     };
 
     internal static IEnumerable<SlotsByLevelDuplet> RaceCastingSlots { get; } = new List<SlotsByLevelDuplet>
     {
-        new() { Slots = new List<int> { 0, 0 }, Level = 01 },
-        new() { Slots = new List<int> { 0, 0 }, Level = 02 },
-        new() { Slots = new List<int> { 1, 0 }, Level = 03 },
-        new() { Slots = new List<int> { 1, 0 }, Level = 04 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 05 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 06 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 07 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 08 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 09 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 10 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 11 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 12 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 13 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 14 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 15 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 16 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 17 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 18 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 19 },
-        new() { Slots = new List<int> { 1, 1 }, Level = 20 }
+        new() { Slots = [0, 0], Level = 01 },
+        new() { Slots = [0, 0], Level = 02 },
+        new() { Slots = [1, 0], Level = 03 },
+        new() { Slots = [1, 0], Level = 04 },
+        new() { Slots = [1, 1], Level = 05 },
+        new() { Slots = [1, 1], Level = 06 },
+        new() { Slots = [1, 1], Level = 07 },
+        new() { Slots = [1, 1], Level = 08 },
+        new() { Slots = [1, 1], Level = 09 },
+        new() { Slots = [1, 1], Level = 10 },
+        new() { Slots = [1, 1], Level = 11 },
+        new() { Slots = [1, 1], Level = 12 },
+        new() { Slots = [1, 1], Level = 13 },
+        new() { Slots = [1, 1], Level = 14 },
+        new() { Slots = [1, 1], Level = 15 },
+        new() { Slots = [1, 1], Level = 16 },
+        new() { Slots = [1, 1], Level = 17 },
+        new() { Slots = [1, 1], Level = 18 },
+        new() { Slots = [1, 1], Level = 19 },
+        new() { Slots = [1, 1], Level = 20 }
     };
 
     // ReSharper disable once ReturnTypeCanBeEnumerable.Global
-    internal static List<SlotsByLevelDuplet> RaceEmptyCastingSlots { get; } = new()
-    {
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 01 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 02 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 03 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 04 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 05 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 06 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 07 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 08 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 09 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 10 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 11 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 12 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 13 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 14 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 15 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 16 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 17 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 18 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 19 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 20 }
-    };
+    internal static List<SlotsByLevelDuplet> RaceEmptyCastingSlots { get; } =
+    [
+        new SlotsByLevelDuplet { Slots = [0], Level = 01 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 02 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 03 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 04 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 05 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 06 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 07 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 08 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 09 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 10 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 11 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 12 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 13 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 14 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 15 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 16 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 17 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 18 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 19 },
+        new SlotsByLevelDuplet { Slots = [0], Level = 20 }
+    ];
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
-    private static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } = new()
-    {
+    private static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } =
+    [
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 1,
                 0,
                 0,
                 0,
                 0,
                 0
-            },
+            ],
             Level = 01
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 0,
                 0,
                 0,
                 0,
                 0
-            },
+            ],
             Level = 02
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 2,
                 0,
                 0,
                 0,
                 0
-            },
+            ],
             Level = 03
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 2,
                 0,
                 0,
                 0,
                 0
-            },
+            ],
             Level = 04
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 2,
                 2,
                 0,
                 0,
                 0
-            },
+            ],
             Level = 05
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 2,
                 2,
                 0,
                 0,
                 0
-            },
+            ],
             Level = 06
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 2,
                 2,
                 2,
                 0,
                 0
-            },
+            ],
             Level = 07
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 2,
                 2,
                 2,
                 0,
                 0
-            },
+            ],
             Level = 08
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 2,
                 2,
                 2,
                 2,
                 0
-            },
+            ],
             Level = 09
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 2,
                 2,
                 2,
                 2,
                 2,
                 0
-            },
+            ],
             Level = 10
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 3,
                 3,
                 3,
                 3,
                 3,
                 0
-            },
+            ],
             Level = 11
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 3,
                 3,
                 3,
                 3,
                 3,
                 0
-            },
+            ],
             Level = 12
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 3,
                 3,
                 3,
                 3,
                 3,
                 0
-            },
+            ],
             Level = 13
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 3,
                 3,
                 3,
                 3,
                 3,
                 0
-            },
+            ],
             Level = 14
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 3,
                 3,
                 3,
                 3,
                 3,
                 0
-            },
+            ],
             Level = 15
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 3,
                 3,
                 3,
                 3,
                 3,
                 0
-            },
+            ],
             Level = 16
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 4,
                 4,
                 4,
                 4,
                 4,
                 0
-            },
+            ],
             Level = 17
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 4,
                 4,
                 4,
                 4,
                 4,
                 0
-            },
+            ],
             Level = 18
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 4,
                 4,
                 4,
                 4,
                 4,
                 0
-            },
+            ],
             Level = 19
         },
+
         new SlotsByLevelDuplet
         {
-            Slots = new List<int>
-            {
+            Slots =
+            [
                 4,
                 4,
                 4,
                 4,
                 4,
                 0
-            },
+            ],
             Level = 20
         }
-    };
+    ];
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
-    internal static List<SlotsByLevelDuplet> FullCastingSlots { get; } = new();
+    internal static List<SlotsByLevelDuplet> FullCastingSlots { get; } = [];
 
     // additional spells supporting collections
     internal static IEnumerable<int> WarlockKnownSpells { get; } = new List<int>

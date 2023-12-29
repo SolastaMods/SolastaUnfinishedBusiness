@@ -1,5 +1,3 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IPreventRemoveConcentrationOnPowerUse
-{
-}
+public interface IPreventRemoveConcentrationOnPowerUse;

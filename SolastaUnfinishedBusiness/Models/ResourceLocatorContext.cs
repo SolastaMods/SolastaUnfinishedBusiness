@@ -55,8 +55,8 @@ internal sealed class SpriteResourceProvider : ResourceProviderBase
 // ResourceLocator returns location of resource
 internal sealed class SpriteResourceLocator : IResourceLocator
 {
-    private static readonly Dictionary<string, SpriteResourceLocation> LocationsCache = new();
-    private static readonly List<IResourceLocation> EmptyList = new();
+    private static readonly Dictionary<string, SpriteResourceLocation> LocationsCache = [];
+    private static readonly List<IResourceLocation> EmptyList = [];
 
     private SpriteResourceLocator() { }
 

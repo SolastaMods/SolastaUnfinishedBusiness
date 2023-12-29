@@ -11,7 +11,7 @@ internal static class FightingStyleContext
     private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>>
         FightingStylesChoiceList { get; } = new();
 
-    internal static HashSet<FightingStyleDefinition> FightingStyles { get; private set; } = new();
+    internal static HashSet<FightingStyleDefinition> FightingStyles { get; private set; } = [];
 
     internal static void Load()
     {

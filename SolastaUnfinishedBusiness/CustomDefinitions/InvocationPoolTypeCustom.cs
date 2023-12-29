@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 internal class InvocationPoolTypeCustom
 {
-    private static readonly List<InvocationPoolTypeCustom> PrivatePools = new();
+    private static readonly List<InvocationPoolTypeCustom> PrivatePools = [];
 
     private readonly Dictionary<int, List<InvocationDefinitionCustom>> _privateFeaturesByLevel = new();
 
@@ -34,8 +34,8 @@ internal class InvocationPoolTypeCustom
     internal Id BonusActionId { get; private set; } = (Id)ExtraActionId.CastInvocationBonus;
     internal Id NoCostActionId { get; private set; } = (Id)ExtraActionId.CastInvocationNoCost;
 
-    internal List<int> AllLevels { get; } = new();
-    private List<InvocationDefinitionCustom> AllFeatures { get; } = new();
+    internal List<int> AllLevels { get; } = [];
+    private List<InvocationDefinitionCustom> AllFeatures { get; } = [];
 
     internal string PanelTitle { get; private set; }
 
@@ -136,7 +136,7 @@ internal class InvocationPoolTypeCustom
     {
         //TODO: decide if we want to wrap this into new list, to be sure this one is immutable
         return (_privateFeaturesByLevel.TryGetValue(level, out var result) ? result : null)
-               ?? new List<InvocationDefinitionCustom>();
+               ?? [];
     }
 
     private void Refresh(IEnumerable<InvocationDefinitionCustom> invocations)
@@ -155,7 +155,7 @@ internal class InvocationPoolTypeCustom
             return value;
         }
 
-        value = new List<InvocationDefinitionCustom>();
+        value = [];
         _privateFeaturesByLevel.Add(level, value);
 
         return value;

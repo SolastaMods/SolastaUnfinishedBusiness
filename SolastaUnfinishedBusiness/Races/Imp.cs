@@ -40,7 +40,7 @@ internal static class RaceImpBuilder
 
         RacesContext.RaceScaleMap[raceImp] = 7f / 9.4f;
 
-        raceImp.subRaces = new List<CharacterRaceDefinition> { BuildImpInfernal(raceImp), BuildImpForest(raceImp) };
+        raceImp.subRaces = [BuildImpInfernal(raceImp), BuildImpForest(raceImp)];
         return raceImp;
     }
 
@@ -211,7 +211,7 @@ internal static class RaceImpBuilder
             {
                 yield return HandleImpishWrath(attacker,
                     defender,
-                    new List<string>(),
+                    [],
                     rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
             }
         }
@@ -332,7 +332,7 @@ internal static class RaceImpBuilder
                 attacker.Guid,
                 false,
                 attackTags,
-                new RollInfo(DieType.D1, new List<int>(), bonusDamage),
+                new RollInfo(DieType.D1, [], bonusDamage),
                 true,
                 out _);
         }

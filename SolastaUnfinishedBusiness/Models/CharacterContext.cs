@@ -322,7 +322,7 @@ internal static class CharacterContext
         }
 
         var payload = Resources.Names;
-        var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
+        var lines = new List<string>(payload.Split([Environment.NewLine], StringSplitOptions.None));
 
         foreach (var line in lines)
         {
@@ -363,8 +363,8 @@ internal static class CharacterContext
     private static void LoadEpicArray()
     {
         AttributeDefinitions.PredeterminedRollScores = Main.Settings.EnableEpicPointsAndArray
-            ? new[] { 17, 15, 13, 12, 10, 8 }
-            : new[] { 15, 14, 13, 12, 10, 8 };
+            ? [17, 15, 13, 12, 10, 8]
+            : [15, 14, 13, 12, 10, 8];
     }
 
     private static void LoadFeatsPointPools()
@@ -696,7 +696,7 @@ internal static class CharacterContext
 
     internal static void SwitchEveryFourLevelsFeats(bool isMiddle = false)
     {
-        var levels = isMiddle ? new[] { 6, 14 } : new[] { 2, 10, 18 };
+        var levels = isMiddle ? new[] { 6, 14 } : [2, 10, 18];
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var pointPool1BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool1BonusFeats");
         var pointPool2BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool2BonusFeats");
@@ -1510,7 +1510,7 @@ internal static class CharacterContext
     private static ConditionDefinition _conditionReduceSneakDice;
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
     private static FeatureDefinitionFeatureSet _featureSetRogueDeviousStrike;
-    private static readonly char[] Separator = { '\t' };
+    private static readonly char[] Separator = ['\t'];
 
     private static void BuildRogueCunningStrike()
     {

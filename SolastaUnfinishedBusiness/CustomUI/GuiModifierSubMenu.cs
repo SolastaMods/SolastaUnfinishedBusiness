@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal class GuiModifierSubMenu : GuiModifier
 {
-    private readonly List<Vector3> _itemPositions = new();
+    private readonly List<Vector3> _itemPositions = [];
     private Image _background;
     private RectTransform _featTable;
     private RectTransform _header;

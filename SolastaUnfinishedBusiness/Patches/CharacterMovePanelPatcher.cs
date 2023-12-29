@@ -22,7 +22,7 @@ public static class CharacterMovePanelPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static,
-                Type.DefaultBinder, new[] { typeof(string) }, null);
+                Type.DefaultBinder, [typeof(string)], null);
 
             return instructions.ReplaceCalls(logErrorMethod, "CharacterMovePanel.RefreshCells",
                 new CodeInstruction(OpCodes.Pop));

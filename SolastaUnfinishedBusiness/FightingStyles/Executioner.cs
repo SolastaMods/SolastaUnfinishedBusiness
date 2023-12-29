@@ -35,8 +35,8 @@ internal sealed class Executioner : AbstractFightingStyle
         .SetFeatures(FeatureFightingStyleExecutioner)
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         CharacterContext.FightingStyleChoiceBarbarian,
         CharacterContext.FightingStyleChoiceMonk,
         CharacterContext.FightingStyleChoiceRogue,
@@ -44,7 +44,7 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleFighter,
         FightingStylePaladin,
         FightingStyleRanger
-    };
+    ];
 
     private sealed class CustomAdditionalDamageExecutioner : CustomAdditionalDamage
     {

@@ -32,14 +32,14 @@ internal sealed class Pugilist : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         CharacterContext.FightingStyleChoiceBarbarian,
         CharacterContext.FightingStyleChoiceMonk,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStyleRanger
-    };
+    ];
 
     private sealed class AdditionalUnarmedDice : IModifyWeaponAttackMode
     {

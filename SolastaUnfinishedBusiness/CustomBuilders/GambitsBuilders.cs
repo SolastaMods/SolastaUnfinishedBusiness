@@ -1813,11 +1813,11 @@ internal static class GambitsBuilders
             );
 
             character.LogCharacterUsedFeature(_feature, Line,
-                extra: new[]
-                {
+                extra:
+                [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
-                });
+                ]);
         }
     }
 
@@ -1914,11 +1914,11 @@ internal static class GambitsBuilders
                 displayModifier: true, modifier: pb);
 
             character.LogCharacterUsedFeature(_feature, Line,
-                extra: new[]
-                {
+                extra:
+                [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, reduction.ToString())
-                });
+                ]);
         }
     }
 

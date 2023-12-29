@@ -30,7 +30,7 @@ internal static class ToolsContext
 
     private const string RespecName = "RestActivityRespec";
 
-    private static List<string> BuiltInHeroNames { get; } = new();
+    private static List<string> BuiltInHeroNames { get; } = [];
 
     private static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
         .Create(RespecName)

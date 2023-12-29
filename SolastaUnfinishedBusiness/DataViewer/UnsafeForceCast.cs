@@ -32,7 +32,7 @@ internal static class UnsafeForceCast
         var method = new DynamicMethod(
             "UnsafeForceCast",
             typeof(TOutput),
-            new[] { typeof(TInput) });
+            [typeof(TInput)]);
 
         var il = method.GetILGenerator();
         il.Emit(OpCodes.Ldarg_0);

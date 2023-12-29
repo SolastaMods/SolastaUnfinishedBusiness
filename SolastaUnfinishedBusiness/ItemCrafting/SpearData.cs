@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
@@ -13,30 +12,35 @@ internal static class SpearData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseItems = new List<(ItemDefinition item, ItemDefinition presentation)>
-            {
-                (ItemDefinitions.Spear, ItemDefinitions.SpearPlus2)
-            },
+            BaseItems = [(ItemDefinitions.Spear, ItemDefinitions.SpearPlus2)],
             PossiblePrimedItemsToReplace =
-                new List<ItemDefinition> { ItemDefinitions.Primed_Rapier, ItemDefinitions.Primed_Shortsword },
-            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
-            {
-                new("BlackViper", ItemDefinitions.Enchanted_Rapier_Blackadder,
+                [ItemDefinitions.Primed_Rapier, ItemDefinitions.Primed_Shortsword],
+            MagicToCopy =
+            [
+                new ItemCollection.MagicItemDataHolder("BlackViper", ItemDefinitions.Enchanted_Rapier_Blackadder,
                     RecipeDefinitions.Recipe_Enchantment_RapierBlackAdder),
-                new("Doomblade", ItemDefinitions.Enchanted_Rapier_Doomblade,
+
+                new ItemCollection.MagicItemDataHolder("Doomblade", ItemDefinitions.Enchanted_Rapier_Doomblade,
                     RecipeDefinitions.Recipe_Enchantment_RapierDoomblade),
-                new("Acuteness", ItemDefinitions.Enchanted_Rapier_Of_Acuteness,
+
+                new ItemCollection.MagicItemDataHolder("Acuteness", ItemDefinitions.Enchanted_Rapier_Of_Acuteness,
                     RecipeDefinitions.Recipe_Enchantment_RapierOfAcuteness),
-                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+
+                new ItemCollection.MagicItemDataHolder("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
                     RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn),
-                new("Lightbringer", ItemDefinitions.Enchanted_Shortsword_Lightbringer,
+
+                new ItemCollection.MagicItemDataHolder("Lightbringer",
+                    ItemDefinitions.Enchanted_Shortsword_Lightbringer,
                     RecipeDefinitions.Recipe_Enchantment_ShortswordLightbringer),
-                new("Sharpness", ItemDefinitions.Enchanted_Shortsword_of_Sharpness,
+
+                new ItemCollection.MagicItemDataHolder("Sharpness", ItemDefinitions.Enchanted_Shortsword_of_Sharpness,
                     RecipeDefinitions.Recipe_Enchantment_ShortwordOfSharpness),
-                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+
+                new ItemCollection.MagicItemDataHolder("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
                     RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
-                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+
+                new ItemCollection.MagicItemDataHolder("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
                     RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw)
-            }
+            ]
         };
 }

@@ -7,9 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 /// <summary>
 ///     Implement on a ConditionDefinition to make it be removed when its source's turn starts.
 /// </summary>
-public interface IRemoveConditionOnSourceTurnStart
-{
-}
+public interface IRemoveConditionOnSourceTurnStart;
 
 //TODO: get rid of interface and add this as sub feature to conditions that implemented interface
 internal class RemoveConditionOnSourceTurnStart : IRemoveConditionOnSourceTurnStart

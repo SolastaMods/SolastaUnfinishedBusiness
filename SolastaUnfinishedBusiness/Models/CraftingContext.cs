@@ -11,10 +11,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CraftingContext
 {
-    internal static readonly List<string> BaseGameItemsCategories = new()
-    {
-        "PrimedItems", "EnchantingIngredients", "RelicForgeries"
-    };
+    internal static readonly List<string> BaseGameItemsCategories =
+        ["PrimedItems", "EnchantingIngredients", "RelicForgeries"];
 
     internal static readonly Dictionary<string, string> RecipeTitles = new()
     {
@@ -63,14 +61,14 @@ internal static class CraftingContext
         { "Warlock_Armor", Gui.Localize("Equipment/&Armor_Warlock_Title") }
     };
 
-    private static readonly List<string> ItemCategories = new()
-    {
+    private static readonly List<string> ItemCategories =
+    [
         "All",
         "Ammunition",
         "Armor",
         "UsableDevices",
         "Weapons"
-    };
+    ];
 
     internal static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();
 
@@ -113,7 +111,7 @@ internal static class CraftingContext
     {
         foreach (var item in RecipeBooks.Values.SelectMany(items => items))
         {
-            item.costs = new[] { 0, Main.Settings.RecipeCost, 0, 0, 0 };
+            item.costs = [0, Main.Settings.RecipeCost, 0, 0, 0];
         }
     }
 

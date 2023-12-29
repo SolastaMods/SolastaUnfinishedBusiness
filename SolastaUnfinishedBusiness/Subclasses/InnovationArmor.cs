@@ -518,7 +518,7 @@ public sealed class InnovationArmor : AbstractSubclass
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            return [attackMode];
         }
     }
 

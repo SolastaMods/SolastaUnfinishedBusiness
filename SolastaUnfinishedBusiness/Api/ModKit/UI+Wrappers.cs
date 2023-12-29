@@ -48,13 +48,13 @@ internal static partial class UI
     [UsedImplicitly]
     public static GUILayoutOption[] Width(float min, float max)
     {
-        return new[] { GL.MinWidth(min), GL.MaxWidth(max) };
+        return [GL.MinWidth(min), GL.MaxWidth(max)];
     }
 
     [UsedImplicitly]
     public static GUILayoutOption[] Height(float min, float max)
     {
-        return new[] { GL.MinHeight(min), GL.MaxHeight(max) };
+        return [GL.MinHeight(min), GL.MaxHeight(max)];
     }
 
     [UsedImplicitly]

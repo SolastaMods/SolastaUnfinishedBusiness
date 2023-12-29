@@ -17,24 +17,24 @@ internal static class DiagnosticsContext
 {
     // very large or not very useful definitions
     private static readonly string[] ExcludeFromExport =
-    {
+    [
         "AdventureLogDefinition", "ConsoleTableDefinition", "CreditsGroupDefinition", "CreditsTableDefinition",
         "DocumentTableDefinition", "NarrativeEventTableDefinition", "NarrativeTreeDefinition",
         "SoundbanksDefinition", "SubtitleTableDefinition", "TravelJournalDefinition", "TutorialSectionDefinition",
         "TutorialStepDefinition", "TutorialSubsectionDefinition", "TutorialTocDefinition",
         "TutorialTableDefinition", "QuestTreeDefinition"
-    };
+    ];
 
     private static readonly string[] ExcludeFromCeExport =
-    {
+    [
         "BlueprintCategory", "GadgetBlueprint", "RoomBlueprint", "PropBlueprint"
-    };
+    ];
 
     private static Dictionary<Type, BaseDefinition[]> _taBaseDefinitionsMap;
     private static BaseDefinition[] _ceBaseDefinitions;
     private static HashSet<BaseDefinition> _ceBaseDefinitions2;
     private static Dictionary<Type, BaseDefinition[]> _ceBaseDefinitionsMap;
-    internal static List<string> KnownDuplicateDefinitionNames { get; } = new() { "SummonProtectorConstruct" };
+    internal static List<string> KnownDuplicateDefinitionNames { get; } = ["SummonProtectorConstruct"];
 
     internal static void CacheTaDefinitions()
     {

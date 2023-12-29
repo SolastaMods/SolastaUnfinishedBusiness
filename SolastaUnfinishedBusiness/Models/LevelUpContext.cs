@@ -102,7 +102,7 @@ internal static class LevelUpContext
             (levelUpData.SelectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric))
             || (levelUpData.SelectedClass == Paladin && rulesetCharacterHero.DeityDefinition == null);
 
-        levelUpData.GrantedItems = new HashSet<ItemDefinition>();
+        levelUpData.GrantedItems = [];
 
         DatabaseHelper.TryGetDefinition<CharacterClassDefinition>("Inventor", out var inventorClass);
 
@@ -390,14 +390,14 @@ internal static class LevelUpContext
     internal static HashSet<SpellDefinition> GetAllowedSpells([NotNull] RulesetCharacterHero hero)
     {
         return !LevelUpTab.TryGetValue(hero, out var levelUpData)
-            ? new HashSet<SpellDefinition>()
+            ? []
             : levelUpData.AllowedSpells;
     }
 
     internal static IEnumerable<SpellDefinition> GetAllowedAutoPreparedSpells([NotNull] RulesetCharacterHero hero)
     {
         return !LevelUpTab.TryGetValue(hero, out var levelUpData)
-            ? new HashSet<SpellDefinition>()
+            ? []
             : levelUpData.AllowedAutoPreparedSpells;
     }
 
@@ -764,7 +764,7 @@ internal static class LevelUpContext
         {
             foreach (var invocation in kvp.Value)
             {
-                RecursiveGrantCustomFeatures(hero, kvp.Key, new List<FeatureDefinition> { invocation.grantedFeature });
+                RecursiveGrantCustomFeatures(hero, kvp.Key, [invocation.grantedFeature]);
             }
         }
 
@@ -897,7 +897,7 @@ internal static class LevelUpContext
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
         internal bool RequiresDeity { get; set; }
-        internal HashSet<ItemDefinition> GrantedItems { get; set; } = new();
+        internal HashSet<ItemDefinition> GrantedItems { get; set; } = [];
 
         private IEnumerable<FeatureDefinition> SelectedClassFeatures => Hero.ActiveFeatures
             .Where(x => x.Key.Contains(SelectedClass.Name))

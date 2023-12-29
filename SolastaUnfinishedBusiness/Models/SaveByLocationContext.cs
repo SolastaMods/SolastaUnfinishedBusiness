@@ -47,7 +47,7 @@ internal static class SaveByLocationContext
                 return _allOfficialCampaigns;
             }
 
-            _allOfficialCampaigns = new List<CampaignDefinition>();
+            _allOfficialCampaigns = [];
 
             var allElements = DatabaseRepository.GetDatabase<CampaignDefinition>().GetAllElements();
 
@@ -80,7 +80,7 @@ internal static class SaveByLocationContext
             if (!userLocationPoolService.Enumerated)
             {
                 UseLightEnumeration = true;
-                userLocationPoolService.EnumeratePool(out _, new List<string>());
+                userLocationPoolService.EnumeratePool(out _, []);
                 userLocationPoolService.enumerated = false;
                 UseLightEnumeration = false;
             }
@@ -106,7 +106,7 @@ internal static class SaveByLocationContext
             if (!userCampaignPoolService.Enumerated)
             {
                 UseLightEnumeration = true;
-                userCampaignPoolService.EnumeratePool(out _, new List<string>());
+                userCampaignPoolService.EnumeratePool(out _, []);
                 userCampaignPoolService.enumerated = false;
                 UseLightEnumeration = false;
             }

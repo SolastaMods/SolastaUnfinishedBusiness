@@ -120,7 +120,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             rulesetAttacker.Guid,
             false,
             attackTags,
-            new RollInfo(DieType.D1, new List<int>(), totalDamage),
+            new RollInfo(DieType.D1, [], totalDamage),
             false,
             out _);
     }
@@ -352,7 +352,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var totalDamage = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
             var defenderAttackTags =
-                defender.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? new List<string>();
+                defender.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [];
 
             rulesetDefender.LogCharacterUsedFeature(_featureCorruptedBlood);
             EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainMischiefStrikeOfChaos);

@@ -324,7 +324,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
     private sealed class ModifyMagicEffectAnyOnTargetMixture : IModifyEffectDescription
     {
         private readonly ConditionDefinition _conditionArsenal;
-        private readonly List<FeatureDefinition> _mixturePowers = new();
+        private readonly List<FeatureDefinition> _mixturePowers = [];
 
         public ModifyMagicEffectAnyOnTargetMixture(
             ConditionDefinition conditionArsenal,

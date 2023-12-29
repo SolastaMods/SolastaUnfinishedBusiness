@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
@@ -14,35 +13,40 @@ internal static class ScimitarData
         _items ??= new ItemCollection
         {
             BaseItems =
-                new List<(ItemDefinition item, ItemDefinition presentation)>
-                {
-                    (ItemDefinitions.Scimitar, ItemDefinitions.ScimitarPlus2)
-                },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition>
-            {
+                [(ItemDefinitions.Scimitar, ItemDefinitions.ScimitarPlus2)],
+            PossiblePrimedItemsToReplace =
+            [
                 ItemDefinitions.Primed_Longsword,
                 ItemDefinitions.Primed_Greatsword,
                 ItemDefinitions.Primed_Shortsword,
                 ItemDefinitions.Primed_Dagger
-            },
-            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
-            {
-                new("Stormblade", ItemDefinitions.Enchanted_Longsword_Stormblade,
+            ],
+            MagicToCopy =
+            [
+                new ItemCollection.MagicItemDataHolder("Stormblade", ItemDefinitions.Enchanted_Longsword_Stormblade,
                     RecipeDefinitions.Recipe_Enchantment_LongswordStormblade),
-                new("Frostburn", ItemDefinitions.Enchanted_Longsword_Frostburn,
+
+                new ItemCollection.MagicItemDataHolder("Frostburn", ItemDefinitions.Enchanted_Longsword_Frostburn,
                     RecipeDefinitions.Recipe_Enchantment_LongswordFrostburn),
-                new("Lightbringer", ItemDefinitions.Enchanted_Greatsword_Lightbringer,
+
+                new ItemCollection.MagicItemDataHolder("Lightbringer",
+                    ItemDefinitions.Enchanted_Greatsword_Lightbringer,
                     RecipeDefinitions.Recipe_Enchantment_GreatswordLightbringer),
-                new("Dragonblade", ItemDefinitions.Enchanted_Longsword_Dragonblade,
+
+                new ItemCollection.MagicItemDataHolder("Dragonblade", ItemDefinitions.Enchanted_Longsword_Dragonblade,
                     RecipeDefinitions.Recipe_Enchantment_LongswordDragonblade),
-                new("Warden", ItemDefinitions.Enchanted_Longsword_Warden,
+
+                new ItemCollection.MagicItemDataHolder("Warden", ItemDefinitions.Enchanted_Longsword_Warden,
                     RecipeDefinitions.Recipe_Enchantment_LongswordWarden),
-                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+
+                new ItemCollection.MagicItemDataHolder("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
                     RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn),
-                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+
+                new ItemCollection.MagicItemDataHolder("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
                     RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
-                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+
+                new ItemCollection.MagicItemDataHolder("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
                     RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw)
-            }
+            ]
         };
 }

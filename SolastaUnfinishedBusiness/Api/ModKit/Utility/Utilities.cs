@@ -141,7 +141,7 @@ public static class Utilities
         var properties = Traverse.Create(o).Properties()
             .Aggregate("", (current, property) => current + property + ", ");
 
-        return new[] { fields, methods, properties };
+        return [fields, methods, properties];
     }
 
     [UsedImplicitly]

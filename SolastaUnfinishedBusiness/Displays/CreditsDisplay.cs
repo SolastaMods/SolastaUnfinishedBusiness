@@ -16,8 +16,8 @@ internal static class CreditsDisplay
 #endif
 
     // ReSharper disable once MemberCanBePrivate.Global
-    internal static readonly List<(string, string)> CreditsTable = new()
-    {
+    internal static readonly List<(string, string)> CreditsTable =
+    [
         ("Zappastuff",
             "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, backgrounds, " +
             "feats, fighting styles, invocations, metamagic, spells, Fairy, Half-elf, Tiefling, " +
@@ -31,15 +31,18 @@ internal static class CreditsDisplay
             "Way of the Discordance, Way of the Silhouette, Way of the Tempest, Way of Weal and Woe, Way of Zen Archery, " +
             "Innovation Artillerist, Innovation Vitriolist, Innovation Vivisectionist, Patron Celestial, Patron Mountain, " +
             "Level 20, Multiclass"),
+
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, " +
             "feats, fighting styles, invocations, metamagic, spells, quality of life, " +
             "Innovation Armor, Innovation Grenadier, Innovation Weapon, " +
             "Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, " +
             "Martial Tactician, Way of Distant Hand, Inventor, Multiclass"),
+
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),
+
         ("HiddenHax",
             "QA, homebrew design [feats, spells, Circle of the Eternal Grove, " +
             "College of Audacity, College of Thespian, College of Valiance, " +
@@ -48,10 +51,13 @@ internal static class CreditsDisplay
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Psion, Sorcerous Sorr-Akkath, " +
             "Martial Guardian, Martial Weapon Master, " +
             "Way of the Discordance, Way of Dragon, Way of Tempest, Way of Zen Archery]"),
+
         ("DemonicDuck",
             "QA, homebrew design [rules, feats, fighting styles, spells, Innovation Vivisectionist, Oath of the Hammer, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
+
         ("Earandil",
             "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior, Ranger Survivalist]"),
+
         ("Nd", "College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven"),
         ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("Otearaisu", "Battleborn, Malakh, Oligath, Oni, Wendigo, Wildling, Wyrmkin"),
@@ -76,13 +82,15 @@ internal static class CreditsDisplay
         ("Thaladar", "sample portraits"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [feats, Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
+
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
+
         ("team-waldo", "official korean font and translations"),
         ("akintos", "korean translations"),
         ("Dovel", "russian and non-official russian translations"),
         ("Ermite_Crabe", "french translations")
-    };
+    ];
 
     private static readonly bool IsUnityExplorerInstalled =
         File.Exists(Path.Combine(Main.ModFolder, "UnityExplorer.STANDALONE.Mono.dll")) &&

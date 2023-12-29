@@ -20,7 +20,7 @@ public static class GameState_ExitingLocationPatcher
         {
             //PATCH: fix summoned creatures being unable to transfer with party
             var method =
-                typeof(RulesetActor).GetMethod(nameof(RulesetActor.HasConditionOfType), new[] { typeof(string) });
+                typeof(RulesetActor).GetMethod(nameof(RulesetActor.HasConditionOfType), [typeof(string)]);
             var custom = new Func<RulesetActor, string, bool>(HasConditionOfType).Method;
 
             return instructions.ReplaceCalls(method,

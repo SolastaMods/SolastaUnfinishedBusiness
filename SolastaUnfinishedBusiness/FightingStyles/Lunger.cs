@@ -30,13 +30,13 @@ internal sealed class Lunger : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         CharacterContext.FightingStyleChoiceMonk,
         CharacterContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,
         FightingStyleRanger
-    };
+    ];
 }

@@ -10,7 +10,7 @@ internal static class FeatHelpers
     internal sealed class ModifyWeaponAttackModeTypeFilter : IModifyWeaponAttackMode
     {
         private readonly FeatDefinition _source;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
 
         public ModifyWeaponAttackModeTypeFilter(
             FeatDefinition source,

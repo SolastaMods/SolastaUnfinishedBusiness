@@ -53,7 +53,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
 
     // ReSharper disable once MemberCanBePrivate.Global
-    internal static HashSet<SpellDefinition> Spells { get; set; } = new();
+    internal static HashSet<SpellDefinition> Spells { get; set; } = [];
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists
@@ -88,7 +88,7 @@ internal static class SpellsContext
                         {
                             if (!SpellSpellListMap.TryGetValue(spell, out var value))
                             {
-                                value = new List<SpellListDefinition>();
+                                value = [];
                                 SpellSpellListMap.Add(spell, value);
                             }
 
@@ -106,7 +106,7 @@ internal static class SpellsContext
                         {
                             if (!SpellSpellListMap.TryGetValue(spell, out var value))
                             {
-                                value = new List<SpellListDefinition>();
+                                value = [];
                                 SpellSpellListMap.Add(spell, value);
                             }
 
@@ -143,7 +143,7 @@ internal static class SpellsContext
                 {
                     if (!SpellSpellListMap.TryGetValue(spell, out var value))
                     {
-                        value = new List<SpellListDefinition>();
+                        value = [];
                         SpellSpellListMap.Add(spell, value);
                     }
 
@@ -190,7 +190,7 @@ internal static class SpellsContext
 
             SpellListContextTab.Add(spellList, new SpellListContext(spellList));
 
-            Main.Settings.SpellListSpellEnabled.TryAdd(name, new List<string>());
+            Main.Settings.SpellListSpellEnabled.TryAdd(name, []);
             Main.Settings.DisplaySpellListsToggle.TryAdd(name, true);
             Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
         }
@@ -463,9 +463,9 @@ internal static class SpellsContext
         internal SpellListContext(SpellListDefinition spellListDefinition)
         {
             SpellList = spellListDefinition;
-            AllSpells = new HashSet<SpellDefinition>();
-            MinimumSpells = new HashSet<SpellDefinition>();
-            SuggestedSpells = new HashSet<SpellDefinition>();
+            AllSpells = [];
+            MinimumSpells = [];
+            SuggestedSpells = [];
         }
 
         private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];

@@ -14,7 +14,7 @@ internal static class ItemsAndCraftingDisplay
     private const int MaxColumns = 1;
 
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
-    {
+    [
         (Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true),
         (Gui.Localize("Equipment/&ItemTypeAmmunitionTitle"), a => a.IsAmmunition),
         (Gui.Localize("MerchantCategory/&ArmorTitle"), a => a.IsArmor),
@@ -28,7 +28,7 @@ internal static class ItemsAndCraftingDisplay
         (Gui.Localize("Merchant/&DungeonMakerMagicalDevicesTitle"), a => a.IsUsableDevice),
         (Gui.Localize("MerchantCategory/&WeaponTitle"), a => a.IsWeapon),
         (Gui.Localize("Tooltip/&TagFactionRelicTitle"), a => a.IsFactionRelic)
-    };
+    ];
 
     private static readonly string[] ItemsFiltersLabels = ItemsFilters.Select(x => x.Item1).ToArray();
 

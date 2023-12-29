@@ -9,9 +9,9 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class RacesContext
 {
-    internal static Dictionary<CharacterRaceDefinition, float> RaceScaleMap { get; } = new();
+    internal static Dictionary<CharacterRaceDefinition, float> RaceScaleMap { get; } = [];
 
-    internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = new();
+    internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = [];
 
     internal static void Load()
     {

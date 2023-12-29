@@ -14,7 +14,7 @@ internal static class CharacterExportContext
 {
     internal const string InputModalMark = "Message/&CharacterExportModalContentDescription";
 
-    private static readonly char[] Separator = { ' ' };
+    private static readonly char[] Separator = [' '];
 
     internal static TMP_InputField InputField { get; private set; }
 

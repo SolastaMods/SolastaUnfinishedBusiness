@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class ReplaceMetamagicOption
 {
-    private readonly List<MetamagicOptionDefinition> _options = new();
+    private readonly List<MetamagicOptionDefinition> _options = [];
 
     public ReplaceMetamagicOption(params MetamagicOptionDefinition[] options)
     {
@@ -29,7 +29,7 @@ public class ReplaceMetamagicOption
                 continue;
             }
 
-            list ??= new List<MetamagicOptionDefinition>(options);
+            list ??= [..options];
             list.Remove(option);
             list.AddRange(replacer._options);
         }

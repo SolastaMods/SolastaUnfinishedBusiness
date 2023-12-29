@@ -11,10 +11,10 @@ namespace SolastaUnfinishedBusiness.Spells;
 internal static partial class SpellBuilders
 {
     private static readonly (string, IMagicEffect)[] DamagesAndEffects =
-    {
+    [
         (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt),
         (DamageTypeLightning, LightningBolt), (DamageTypePoison, PoisonSpray), (DamageTypeThunder, Shatter)
-    };
+    ];
 
     private sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
     {

@@ -9,14 +9,14 @@ internal static class PlayerControllerContext
 {
     private const int PlayerControllerID = 1;
 
-    private static readonly Dictionary<GameLocationCharacter, int> ControllersChoices = new();
+    private static readonly Dictionary<GameLocationCharacter, int> ControllersChoices = [];
 
-    internal static readonly string[] Controllers = { "Human", "AI" };
+    internal static readonly string[] Controllers = ["Human", "AI"];
 
     // ReSharper disable once InconsistentNaming
     private static int[] playerCharactersChoices { get; set; }
 
-    internal static List<GameLocationCharacter> PlayerCharacters { get; } = new();
+    internal static List<GameLocationCharacter> PlayerCharacters { get; } = [];
 
     internal static int[] PlayerCharactersChoices
     {

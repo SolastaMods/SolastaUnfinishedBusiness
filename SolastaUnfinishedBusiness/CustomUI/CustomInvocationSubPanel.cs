@@ -47,7 +47,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
             if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock
                 && !hero.TrainedFeats.Exists(x => x.Name == OtherFeats.FeatEldritchAdept))
             {
-                return new List<string>();
+                return [];
             }
 
             var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
@@ -67,7 +67,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
         if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock
             && !hero.TrainedFeats.Exists(x => x.Name == OtherFeats.FeatEldritchAdept))
         {
-            return new List<string>();
+            return [];
         }
 
         var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()

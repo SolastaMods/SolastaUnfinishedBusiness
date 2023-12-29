@@ -136,12 +136,12 @@ internal static class TranspileHelper
     {
         var code = instructions.ToList();
 
-        var assert = typeof(Trace).GetMethod("Assert", new[] { typeof(bool) });
+        var assert = typeof(Trace).GetMethod("Assert", [typeof(bool)]);
         var noAssert = new Action<bool>(NoAssert).Method;
 
         code.FindAll(x => x.Calls(assert)).ForEach(x => x.operand = noAssert);
 
-        assert = typeof(Trace).GetMethod("Assert", new[] { typeof(bool), typeof(string), typeof(object[]) });
+        assert = typeof(Trace).GetMethod("Assert", [typeof(bool), typeof(string), typeof(object[])]);
         noAssert = new Action<bool, string, object[]>(NoAssert).Method;
 
         code.FindAll(x => x.Calls(assert)).ForEach(x => x.operand = noAssert);

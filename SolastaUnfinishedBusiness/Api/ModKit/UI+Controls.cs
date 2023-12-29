@@ -17,10 +17,8 @@ internal static partial class UI
     public static bool UserHasHitReturn = false;
     public static string FocusedControlName = null;
 
-    private static readonly HashSet<Type> WidthTypes = new()
-    {
-        Width((float)0).GetType(), MinWidth(0).GetType(), MaxWidth(0).GetType(), AutoWidth().GetType()
-    };
+    private static readonly HashSet<Type> WidthTypes =
+        [Width((float)0).GetType(), MinWidth(0).GetType(), MaxWidth(0).GetType(), AutoWidth().GetType()];
 
     private static GUILayoutOption[] AddDefaults(this GUILayoutOption[] options, params GUILayoutOption[] desired)
     {

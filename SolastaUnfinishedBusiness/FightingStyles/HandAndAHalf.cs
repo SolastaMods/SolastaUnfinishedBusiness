@@ -34,12 +34,12 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         CharacterContext.FightingStyleChoiceBarbarian,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,
         FightingStyleRanger
-    };
+    ];
 }

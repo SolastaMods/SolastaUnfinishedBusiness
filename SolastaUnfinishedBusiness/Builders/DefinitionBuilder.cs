@@ -223,7 +223,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                     $"Could not locate the 'Add' method for {dbType.FullName}.");
             }
 
-            methodInfo.Invoke(db, new object[] { Definition });
+            methodInfo.Invoke(db, [Definition]);
 
             return true;
 
@@ -237,7 +237,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                         $"Could not locate the 'HasElement' method for {dbType.FullName}.");
                 }
 
-                return (bool)hasElementMethodInfo.Invoke(db, new object[] { name, true });
+                return (bool)hasElementMethodInfo.Invoke(db, [name, true]);
             }
 
             bool DBHasElementByGuid(string guid)
@@ -250,7 +250,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                         $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
                 }
 
-                return (bool)hasElementByGuidMethodInfo.Invoke(db, new object[] { guid });
+                return (bool)hasElementByGuidMethodInfo.Invoke(db, [guid]);
             }
         }
 

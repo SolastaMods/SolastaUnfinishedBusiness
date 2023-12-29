@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MulticlassGameUiContext
 {
-    private static readonly float[] FontSizes = { 17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f };
+    private static readonly float[] FontSizes = [17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f];
 
     private static Sprite _regularSlotSprite;
 
@@ -571,7 +571,7 @@ internal static class MulticlassGameUiContext
 
         if (unlearn)
         {
-            group.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, new List<SpellDefinition>(),
+            group.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, [],
                 spellTag,
                 canAcquireSpells && spellLevel > 0);
         }
@@ -646,7 +646,7 @@ internal static class MulticlassGameUiContext
 
         //Select allowed spells - all spells if list is overriden by the pool, or all allowed spells of current level
         var allowedSpells = spellsOverriden
-            ? new List<SpellDefinition>(allSpells)
+            ? [..allSpells]
             : LevelUpContext.GetAllowedSpells(caster).Where(x => x.SpellLevel == spellLevel).ToList();
 
         var otherClassesKnownSpells = LevelUpContext.GetOtherClassesKnownSpells(caster)

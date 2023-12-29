@@ -79,90 +79,78 @@ internal static class FlexibleRacesContext
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
     {
-        { "Dragonborn", new List<string> { "FeatureSetDragonbornAbilityScoreIncrease" } },
-        { "Dwarf", new List<string> { "AttributeModifierDwarfAbilityScoreIncrease" } },
-        { "Elf", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
-        { "Gnome", new List<string> { "AttributeModifierGnomeAbilityScoreIncreaseInt" } },
-        { "GnomeRock", new List<string> { "AttributeModifierGnomeRockAbilityScoreIncreaseCon" } },
-        { "GnomeShadow", new List<string> { "AttributeModifierGnomeShadowAbilityScoreIncreaseDex" } },
-        { "Halfling", new List<string> { "AttributeModifierHalflingAbilityScoreIncrease" } },
-        { "HalfElf", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
-        { "DwarfHill", new List<string> { "AttributeModifierDwarfHillAbilityScoreIncrease" } },
-        { "DwarfSnow", new List<string> { "AttributeModifierDwarfSnowAbilityScoreIncrease" } },
-        { "ElfHigh", new List<string> { "AttributeModifierElfHighAbilityScoreIncrease" } },
-        { "ElfSylvan", new List<string> { "AttributeModifierElfSylvanAbilityScoreIncrease" } },
-        { "HalflingIsland", new List<string> { "AttributeModifierHalflingIslandAbilityScoreIncrease" } },
-        { "HalflingMarsh", new List<string> { "AttributeModifierHalflingMarshAbilityScoreIncrease" } },
-        { "HalfOrc", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
+        { "Dragonborn", ["FeatureSetDragonbornAbilityScoreIncrease"] },
+        { "Dwarf", ["AttributeModifierDwarfAbilityScoreIncrease"] },
+        { "Elf", ["AttributeModifierElfAbilityScoreIncrease"] },
+        { "Gnome", ["AttributeModifierGnomeAbilityScoreIncreaseInt"] },
+        { "GnomeRock", ["AttributeModifierGnomeRockAbilityScoreIncreaseCon"] },
+        { "GnomeShadow", ["AttributeModifierGnomeShadowAbilityScoreIncreaseDex"] },
+        { "Halfling", ["AttributeModifierHalflingAbilityScoreIncrease"] },
+        { "HalfElf", ["FeatureSetHalfElfAbilityScoreIncrease"] },
+        { "DwarfHill", ["AttributeModifierDwarfHillAbilityScoreIncrease"] },
+        { "DwarfSnow", ["AttributeModifierDwarfSnowAbilityScoreIncrease"] },
+        { "ElfHigh", ["AttributeModifierElfHighAbilityScoreIncrease"] },
+        { "ElfSylvan", ["AttributeModifierElfSylvanAbilityScoreIncrease"] },
+        { "HalflingIsland", ["AttributeModifierHalflingIslandAbilityScoreIncrease"] },
+        { "HalflingMarsh", ["AttributeModifierHalflingMarshAbilityScoreIncrease"] },
+        { "HalfOrc", ["FeatureSetHalfOrcAbilityScoreIncrease"] },
         {
-            "Tiefling",
-            new List<string>
-            {
+            "Tiefling", [
                 "AttributeModifierTieflingAbilityScoreIncreaseCha",
                 "AttributeModifierTieflingAbilityScoreIncreaseInt"
-            }
+            ]
         },
         // unofficial races
         {
-            "RaceBolgrif",
-            new List<string>
-            {
+            "RaceBolgrif", [
                 "AttributeModifierBolgrifStrengthAbilityScoreIncrease",
                 "AttributeModifierBolgrifWisdomAbilityScoreIncrease"
-            }
+            ]
         },
-        { "RaceDarkelf", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },
-        { "RaceHalfElfVariant", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
-        { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } },
-        { "RaceDarkKobold", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
-        { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
-        { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } },
-        { "RaceMalakh", new List<string> { "FeatureSetMalakhAbilityScoreIncrease" } },
-        { "RaceWildling", new List<string> { "FeatureSetWildlingAbilityScoreIncrease" } },
-        { "RaceBattleborn", new List<string> { "FeatureSetBattlebornAbilityScoreIncrease" } },
-        { "RaceOni", new List<string> { "FeatureSetOniAbilityScoreIncrease" } },
-        { "RaceImpInfernal", new List<string> { "FeatureSetImpInfernalAbilityScoreIncrease" } },
-        { "RaceImpForest", new List<string> { "FeatureSetImpForestAbilityScoreIncrease" } },
-        { "RaceIronbornDwarf", new List<string> { "AttributeModifierIronbornDwarfStrengthAbilityScoreIncrease" } },
-        { "RaceObsidianDwarf", new List<string> { "AttributeModifierObsidianDwarfStrengthAbilityScoreIncrease" } },
+        { "RaceDarkelf", ["AttributeModifierDarkelfCharismaAbilityScoreIncrease"] },
+        { "RaceHalfElfVariant", ["FeatureSetHalfElfAbilityScoreIncrease"] },
+        { "RaceGrayDwarf", ["AttributeModifierGrayDwarfStrengthAbilityScoreIncrease"] },
+        { "RaceDarkKobold", ["AttributeModifierElfAbilityScoreIncrease"] },
+        { "RaceDraconicKobold", ["PointPoolDraconicKoboldAbilityScoreIncrease"] },
+        { "RaceFairy", ["FeatureSetFairyAbilityScoreIncrease"] },
+        { "RaceMalakh", ["FeatureSetMalakhAbilityScoreIncrease"] },
+        { "RaceWildling", ["FeatureSetWildlingAbilityScoreIncrease"] },
+        { "RaceBattleborn", ["FeatureSetBattlebornAbilityScoreIncrease"] },
+        { "RaceOni", ["FeatureSetOniAbilityScoreIncrease"] },
+        { "RaceImpInfernal", ["FeatureSetImpInfernalAbilityScoreIncrease"] },
+        { "RaceImpForest", ["FeatureSetImpForestAbilityScoreIncrease"] },
+        { "RaceIronbornDwarf", ["AttributeModifierIronbornDwarfStrengthAbilityScoreIncrease"] },
+        { "RaceObsidianDwarf", ["AttributeModifierObsidianDwarfStrengthAbilityScoreIncrease"] },
         {
-            "RaceOligath",
-            new List<string>
-            {
+            "RaceOligath", [
                 "AttributeModifierOligathStrengthAbilityScoreIncrease",
                 "AttributeModifierOligathConstitutionAbilityScoreIncrease"
-            }
+            ]
         },
         {
-            "RaceWendigo",
-            new List<string>
-            {
+            "RaceWendigo", [
                 "AttributeModifierWendigoStrengthAbilityScoreIncrease",
                 "AttributeModifierWendigoDexterityAbilityScoreIncrease"
-            }
+            ]
         },
         {
-            "RaceCaveWyrmkin",
-            new List<string>
-            {
+            "RaceCaveWyrmkin", [
                 "AttributeModifierCaveWyrmkinConstitutionAbilityScoreIncrease",
                 "AttributeModifierCaveWyrmkinStrengthAbilityScoreIncrease"
-            }
+            ]
         },
         {
-            "RaceHighWyrmkin",
-            new List<string>
-            {
+            "RaceHighWyrmkin", [
                 "AttributeModifierHighWyrmkinIntelligenceAbilityScoreIncrease",
                 "AttributeModifierHighWyrmkinStrengthAbilityScoreIncrease"
-            }
+            ]
         },
-        { "RaceCrystalWyrmkin", new List<string> { "FeatureSetCrystalWyrmkinAbilityScoreIncrease" } },
-        { "RaceTiefling", new List<string> { "AttributeModifierTieflingAbilityScoreIncreaseCha" } },
-        { "RaceTieflingDevilTongue", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
-        { "RaceTieflingFeral", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } },
-        { "RaceTieflingMephistopheles", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } },
-        { "RaceTieflingZariel", new List<string> { "AttributeModifierTieflingStrengthAbilityScoreIncrease" } }
+        { "RaceCrystalWyrmkin", ["FeatureSetCrystalWyrmkinAbilityScoreIncrease"] },
+        { "RaceTiefling", ["AttributeModifierTieflingAbilityScoreIncreaseCha"] },
+        { "RaceTieflingDevilTongue", ["AttributeModifierTieflingIntelligenceAbilityScoreIncrease"] },
+        { "RaceTieflingFeral", ["AttributeModifierTieflingDexterityAbilityScoreIncrease"] },
+        { "RaceTieflingMephistopheles", ["AttributeModifierTieflingDexterityAbilityScoreIncrease"] },
+        { "RaceTieflingZariel", ["AttributeModifierTieflingStrengthAbilityScoreIncrease"] }
     };
 
     private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, BaseDefinition toRemove)

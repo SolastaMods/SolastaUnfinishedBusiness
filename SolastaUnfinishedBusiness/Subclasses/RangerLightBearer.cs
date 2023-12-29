@@ -148,11 +148,11 @@ public sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily = new List<SaveAffinityByFamilyDescription>
-        {
-            new() { advantageType = AdvantageType.Disadvantage, family = "Fiend" },
-            new() { advantageType = AdvantageType.Disadvantage, family = "Undead" }
-        };
+        powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily =
+        [
+            new SaveAffinityByFamilyDescription { advantageType = AdvantageType.Disadvantage, family = "Fiend" },
+            new SaveAffinityByFamilyDescription { advantageType = AdvantageType.Disadvantage, family = "Undead" }
+        ];
 
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")

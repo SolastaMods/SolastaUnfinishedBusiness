@@ -162,8 +162,7 @@ public static class CharacterActionMagicEffectPatcher
     }
 
     [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ApplyForms))]
-    [HarmonyPatch(new[]
-    {
+    [HarmonyPatch([
         typeof(GameLocationCharacter), // caster
         typeof(RulesetEffect), // activeEffect
         typeof(int), // addDice,
@@ -184,8 +183,7 @@ public static class CharacterActionMagicEffectPatcher
         typeof(int), // ref damageReceive
         typeof(bool), //out damageAbsorbedByTemporaryHitPoints
         typeof(bool) //out terminateEffectOnTarget
-    }, new[]
-    {
+    ], [
         ArgumentType.Normal, // caster
         ArgumentType.Normal, // activeEffect
         ArgumentType.Normal, // addDice,
@@ -206,7 +204,7 @@ public static class CharacterActionMagicEffectPatcher
         ArgumentType.Ref, //ref damageReceive
         ArgumentType.Out, //out damageAbsorbedByTemporaryHitPoints
         ArgumentType.Out //out terminateEffectOnTarget
-    })]
+    ])]
     [UsedImplicitly]
     public static class ApplyForms_Patch
     {

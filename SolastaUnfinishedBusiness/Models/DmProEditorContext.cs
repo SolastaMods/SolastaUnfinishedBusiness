@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class DmProEditorContext
 {
     private const string BackupFolder = "../UserContentBackup";
-    internal static readonly List<string> OutdoorRooms = new();
+    internal static readonly List<string> OutdoorRooms = [];
 
     internal static void Load()
     {

@@ -63,7 +63,7 @@ namespace SolastaUnfinishedBusiness.DataViewer;
  */
 internal class ReflectionSearch : MonoBehaviour
 {
-    private static readonly HashSet<int> VisitedInstanceIDs = new();
+    private static readonly HashSet<int> VisitedInstanceIDs = [];
     private static ReflectionSearch _shared;
     private IEnumerator _searchCoroutine;
 

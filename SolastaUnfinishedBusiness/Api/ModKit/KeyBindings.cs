@@ -13,7 +13,7 @@ internal static partial class UI
     private static IEnumerable<string> Conflicts(this KeyBind keyBind)
     {
         return KeyBindings.ConflictList
-            .GetValueOrDefault(keyBind.BindCode, new List<string>())
+            .GetValueOrDefault(keyBind.BindCode, [])
             .Where(id => id != keyBind.ID);
     }
 
@@ -71,7 +71,7 @@ internal static partial class UI
 
                 var identifier = binding.Key;
                 var bindCode = keyBind.ToString();
-                var conflict = ConflictList.GetValueOrDefault(bindCode, new List<string>());
+                var conflict = ConflictList.GetValueOrDefault(bindCode, []);
                 conflict.Add(identifier);
                 ConflictList[bindCode] = conflict;
             }

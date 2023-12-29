@@ -18,8 +18,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomActionIdContext
 {
-    private static readonly List<Id> ExtraActionIdToggles = new()
-    {
+    private static readonly List<Id> ExtraActionIdToggles =
+    [
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
@@ -32,8 +32,8 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.SupremeWillToggle,
         (Id)ExtraActionId.ImpishWrathToggle, // defined in sub race
-        (Id)ExtraActionId.QuiveringPalmToggle // defined in sub class
-    };
+        (Id)ExtraActionId.QuiveringPalmToggle
+    ];
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
 

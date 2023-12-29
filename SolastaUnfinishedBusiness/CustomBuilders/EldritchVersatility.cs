@@ -296,7 +296,7 @@ internal static class EldritchVersatility
     internal class VersatilitySupportRulesetCondition :
         RulesetConditionCustom<VersatilitySupportRulesetCondition>, IBindToRulesetConditionCustom
     {
-        private static readonly int[] ProficiencyIncreaseLevels = { 1, 5, 11, 17 };
+        private static readonly int[] ProficiencyIncreaseLevels = [1, 5, 11, 17];
 
         static VersatilitySupportRulesetCondition()
         {
@@ -313,13 +313,13 @@ internal static class EldritchVersatility
                 .AddToDB();
         }
 
-        public List<SpellDefinition> CopiedSpells { get; } = new();
+        public List<SpellDefinition> CopiedSpells { get; } = [];
         public int CurrentPoints { get; private set; }
         public bool IsValidBlastBreakthrough { get; set; }
         public int CreateSlotDC { get; private set; }
         public int MaxPoints { get; private set; }
         public string ReplacedAbilityScore { get; set; }
-        public List<string> StrPowerPriority { get; private set; } = new();
+        public List<string> StrPowerPriority { get; private set; } = [];
         public int ReplacedAbilityScoreValue { get; private set; }
         private int SlotLevel { get; set; }
         public int BeamNumber { get; private set; }
@@ -861,7 +861,7 @@ internal static class EldritchVersatility
 
             allKnownSpells.AddRange(warlockRepertoire.KnownCantrips);
             allKnownSpells.AddRange(warlockRepertoire.knownSpells);
-            warlockRepertoire.ExtraSpellsByTag.TryAdd("BattlefieldShorthand", new List<SpellDefinition>());
+            warlockRepertoire.ExtraSpellsByTag.TryAdd("BattlefieldShorthand", []);
 
             // If the caster has this feature, check if the spell is copied, if so, return
             if (featureOwner == caster.RulesetCharacter

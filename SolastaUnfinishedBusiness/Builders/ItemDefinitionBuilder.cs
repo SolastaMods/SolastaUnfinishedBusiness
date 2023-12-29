@@ -118,7 +118,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
 
     internal ItemDefinitionBuilder SetGold(int gold)
     {
-        Definition.costs = new[] { 0, gold, 0, 0, 0 };
+        Definition.costs = [0, gold, 0, 0, 0];
         return this;
     }
 

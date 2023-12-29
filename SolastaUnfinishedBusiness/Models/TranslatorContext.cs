@@ -39,11 +39,11 @@ internal static class TranslatorContext
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
     internal static readonly string[] AvailableLanguages =
-    {
+    [
         "de", "en", "es", "fr", "ja", "it", "ko", "pt", "ru", "zh-CN"
-    };
+    ];
 
-    internal static readonly List<LanguageEntry> Languages = new();
+    internal static readonly List<LanguageEntry> Languages = [];
 
     private static readonly Regex RegexHasCJK = new(@"\p{IsCJKUnifiedIdeographs}", RegexOptions.Compiled);
 

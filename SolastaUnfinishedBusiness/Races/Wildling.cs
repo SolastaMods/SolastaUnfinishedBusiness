@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -111,18 +110,18 @@ internal static class RaceWildlingBuilder
 
         var racePresentation = raceWildling.RacePresentation;
 
-        racePresentation.originOptions = new List<string> { racePresentation.originOptions[2] };
+        racePresentation.originOptions = [racePresentation.originOptions[2]];
 
         var availableMorphotypeCategories = racePresentation.AvailableMorphotypeCategories.ToList();
 
         availableMorphotypeCategories.Add(MorphotypeElementDefinition.ElementCategory.Horns);
 
         racePresentation.availableMorphotypeCategories = availableMorphotypeCategories.ToArray();
-        racePresentation.maleHornsOptions = new List<string>();
+        racePresentation.maleHornsOptions = [];
         racePresentation.hornsTailAssetPrefix =
             CharacterRaceDefinitions.Tiefling.RacePresentation.hornsTailAssetPrefix;
         racePresentation.maleHornsOptions.AddRange(CharacterRaceDefinitions.Tiefling.RacePresentation.maleHornsOptions);
-        racePresentation.femaleHornsOptions = new List<string>();
+        racePresentation.femaleHornsOptions = [];
         racePresentation.femaleHornsOptions.AddRange(
             CharacterRaceDefinitions.Tiefling.RacePresentation.femaleHornsOptions);
 

@@ -67,12 +67,12 @@ internal static class InvocationsBuilders
         }
 
         rulesetDefender.LogCharacterAffectedByCondition(ConditionDefinitions.ConditionProne);
-        return new[]
-        {
+        return
+        [
             EffectFormBuilder.Create()
                 .SetMotionForm(MotionForm.MotionType.FallProne)
                 .Build()
-        };
+        ];
     }
 
 
@@ -826,8 +826,8 @@ internal static class InvocationsBuilders
                 false,
                 caster.Guid,
                 false,
-                new List<string>(),
-                new RollInfo(DieType.D1, new List<int>(), charismaModifier),
+                [],
+                new RollInfo(DieType.D1, [], charismaModifier),
                 true,
                 out _);
         }
@@ -1243,7 +1243,7 @@ internal static class InvocationsBuilders
                     false,
                     attacker.Guid,
                     false,
-                    new List<string>(),
+                    [],
                     new RollInfo(damageForm.DieType, rolls, 0),
                     false,
                     out _);

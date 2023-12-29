@@ -19,7 +19,7 @@ public interface IGroupedFeat
 
 public class GroupedFeat : IGroupedFeat
 {
-    private readonly List<FeatDefinition> _feats = new();
+    private readonly List<FeatDefinition> _feats = [];
 
     public GroupedFeat(IEnumerable<FeatDefinition> feats)
     {

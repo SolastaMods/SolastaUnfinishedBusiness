@@ -17,7 +17,7 @@ internal static class InvocationsContext
     private const int SpacingX = 7;
     private const int SpacingY = 5;
 
-    internal static HashSet<InvocationDefinition> Invocations { get; private set; } = new();
+    internal static HashSet<InvocationDefinition> Invocations { get; private set; } = [];
 
     internal static void LateLoad()
     {

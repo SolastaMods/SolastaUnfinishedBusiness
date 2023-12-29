@@ -1453,7 +1453,7 @@ internal static partial class SpellBuilders
                 false,
                 activeCondition.SourceGuid,
                 false,
-                new List<string>(),
+                [],
                 new RollInfo(damageForm.DieType, rolls, 0),
                 false,
                 out _);

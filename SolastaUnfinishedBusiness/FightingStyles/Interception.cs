@@ -48,14 +48,14 @@ internal sealed class Interception : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         CharacterContext.FightingStyleChoiceBarbarian,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,
         FightingStyleRanger
-    };
+    ];
 
     private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception : IAttackBeforeHitConfirmedOnMeOrAlly
     {

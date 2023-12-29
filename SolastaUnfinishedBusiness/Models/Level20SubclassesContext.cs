@@ -1827,7 +1827,7 @@ internal static class Level20SubclassesContext
                     false,
                     rulesetAttacker.Guid,
                     false,
-                    new List<string>(),
+                    [],
                     new RollInfo(damageForm.DieType, rolls, 0),
                     false,
                     out _);

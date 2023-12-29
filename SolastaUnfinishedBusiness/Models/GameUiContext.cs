@@ -25,48 +25,43 @@ internal static class GameUiContext
     internal static bool IsVttCameraEnabled;
 
     private static readonly int[][][] FormationGridSetTemplates =
-    {
-        new[] // default
-        {
-            new[] { 0, 0, 1, 1, 0 }, //
-            new[] { 0, 0, 1, 1, 0 }, //
-            new[] { 0, 0, 1, 1, 0 }, //
-            new[] { 0, 0, 1, 1, 0 }, //
-            new[] { 0, 0, 0, 0, 0 } //
-        },
-        new[] // triangle
-        {
-            new[] { 0, 0, 1, 0, 0 }, //
-            new[] { 0, 1, 0, 1, 0 }, //
-            new[] { 1, 0, 1, 0, 1 }, //
-            new[] { 0, 1, 0, 1, 0 }, //
-            new[] { 0, 0, 0, 0, 0 } //
-        },
-        new[]
-        {
-            new[] { 0, 0, 1, 0, 0 }, //
-            new[] { 0, 0, 0, 0, 0 }, //
-            new[] { 0, 1, 1, 1, 0 }, //
-            new[] { 0, 1, 0, 1, 0 }, //
-            new[] { 1, 0, 0, 0, 1 } //
-        },
-        new[]
-        {
-            new[] { 0, 0, 1, 0, 0 }, //
-            new[] { 0, 1, 0, 1, 0 }, //
-            new[] { 0, 0, 1, 0, 0 }, //
-            new[] { 0, 1, 0, 1, 0 }, //
-            new[] { 1, 0, 0, 0, 1 } //
-        },
-        new[] // spaced
-        {
-            new[] { 0, 0, 1, 0, 0 }, //
-            new[] { 0, 0, 1, 0, 0 }, //
-            new[] { 0, 1, 0, 1, 0 }, //
-            new[] { 0, 1, 0, 1, 0 }, //
-            new[] { 0, 1, 0, 1, 0 } //
-        }
-    };
+    [
+        [
+            [0, 0, 1, 1, 0], //
+            [0, 0, 1, 1, 0], //
+            [0, 0, 1, 1, 0], //
+            [0, 0, 1, 1, 0], //
+            [0, 0, 0, 0, 0] //
+        ],
+        [
+            [0, 0, 1, 0, 0], //
+            [0, 1, 0, 1, 0], //
+            [1, 0, 1, 0, 1], //
+            [0, 1, 0, 1, 0], //
+            [0, 0, 0, 0, 0] //
+        ],
+        [
+            [0, 0, 1, 0, 0], //
+            [0, 0, 0, 0, 0], //
+            [0, 1, 1, 1, 0], //
+            [0, 1, 0, 1, 0], //
+            [1, 0, 0, 0, 1] //
+        ],
+        [
+            [0, 0, 1, 0, 0], //
+            [0, 1, 0, 1, 0], //
+            [0, 0, 1, 0, 0], //
+            [0, 1, 0, 1, 0], //
+            [1, 0, 0, 0, 1] //
+        ],
+        [
+            [0, 0, 1, 0, 0], //
+            [0, 0, 1, 0, 0], //
+            [0, 1, 0, 1, 0], //
+            [0, 1, 0, 1, 0], //
+            [0, 1, 0, 1, 0] //
+        ]
+    ];
 
     internal const int GridSize = 5;
 
@@ -98,7 +93,7 @@ internal static class GameUiContext
     // VTT Tactical Mode
     private const InputCommands.Id CtrlShiftV = (InputCommands.Id)44440015;
 
-    private static readonly List<RectTransform> SpellLineTables = new();
+    private static readonly List<RectTransform> SpellLineTables = [];
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
     // Converts continuous ratio into series of stepped values
@@ -444,9 +439,9 @@ internal static class GameUiContext
         const int ExitsWithGizmos = 2;
 
         GadgetBlueprint[] gadgetExits =
-        {
+        [
             VirtualExit, VirtualExitMultiple, Exit, ExitMultiple, TeleporterIndividual, TeleporterParty
-        };
+        ];
 
         return Array.IndexOf(gadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? ExitsWithGizmos : 0);
     }

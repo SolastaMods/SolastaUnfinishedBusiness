@@ -25,7 +25,7 @@ internal static class RulesetActorExtensions
         bool populateActorFeaturesToBrowse = false,
         [CanBeNull] Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin = null)
     {
-        var features = populateActorFeaturesToBrowse ? actor.FeaturesToBrowse : new List<FeatureDefinition>();
+        var features = populateActorFeaturesToBrowse ? actor.FeaturesToBrowse : [];
 
         actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
 

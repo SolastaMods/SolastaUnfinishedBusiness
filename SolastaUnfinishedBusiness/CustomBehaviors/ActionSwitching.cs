@@ -69,7 +69,7 @@ public static class ActionSwitching
         ConditionDefinition condition,
         List<FeatureDefinition> list = null)
     {
-        list ??= new List<FeatureDefinition>();
+        list ??= [];
 
         if (condition.parentCondition != null)
         {
@@ -102,7 +102,7 @@ public static class ActionSwitching
         RulesetCharacterHero hero,
         bool skipConditions = false)
     {
-        List<(FeatureDefinition feature, string origin)> features = new();
+        List<(FeatureDefinition feature, string origin)> features = [];
 
         //Character features
         foreach (var activeFeature in hero.activeFeatures)
@@ -169,7 +169,7 @@ public static class ActionSwitching
     private static List<(FeatureDefinition feature, string origin)> EnumerateMonsterFeatures<T>(
         RulesetCharacterMonster monster)
     {
-        List<(FeatureDefinition feature, string origin)> features = new();
+        List<(FeatureDefinition feature, string origin)> features = [];
 
         //Monster features
         EnumerateFeaturesHierarchically<T>(features, monster.activeFeatures, monster.monsterDefinition.Name);

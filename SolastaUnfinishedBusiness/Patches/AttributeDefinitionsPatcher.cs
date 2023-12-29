@@ -12,8 +12,8 @@ public static class AttributeDefinitionsPatcher
     [UsedImplicitly]
     public static class ComputeCostToRaiseAbility_Patch
     {
-        private static readonly int[] Array = { 15, 16 };
-        private static readonly int[] Array0 = { 17, 18 };
+        private static readonly int[] Array = [15, 16];
+        private static readonly int[] Array0 = [17, 18];
 
         [UsedImplicitly]
         public static void Postfix(int previousValue, ref int __result)

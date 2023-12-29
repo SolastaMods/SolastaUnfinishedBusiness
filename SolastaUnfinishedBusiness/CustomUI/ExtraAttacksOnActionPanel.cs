@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using static ActionDefinitions;
 
@@ -90,7 +89,7 @@ internal static class ExtraAttacksOnActionPanel
 
         if (!panel.guiActionsById.TryGetValue(actionId, out var actions))
         {
-            actions = new List<GuiCharacterAction>();
+            actions = [];
             panel.guiActionsById.Add(actionId, actions);
         }
         else

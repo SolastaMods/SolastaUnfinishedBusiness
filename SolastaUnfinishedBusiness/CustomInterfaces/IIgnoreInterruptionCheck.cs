@@ -5,6 +5,4 @@ public sealed class IgnoreInterruptionCheck : IIgnoreInterruptionCheck
     public static readonly IgnoreInterruptionCheck Marker = new();
 }
 
-public interface IIgnoreInterruptionCheck
-{
-}
+public interface IIgnoreInterruptionCheck;

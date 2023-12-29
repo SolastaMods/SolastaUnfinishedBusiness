@@ -29,7 +29,7 @@ internal static class RulesetItemExtensions
                 .ToList();
         }
 
-        return new List<T>();
+        return [];
     }
 
     internal static bool HasSubFeatureOfType<T>(this RulesetItem item) where T : class

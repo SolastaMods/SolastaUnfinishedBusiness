@@ -1,5 +1,3 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IAttackReplaceWithCantrip
-{
-}
+public interface IAttackReplaceWithCantrip;

@@ -1,5 +1,3 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IIgnoreAoOIfAttacked
-{
-}
+public interface IIgnoreAoOIfAttacked;

@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class RulesDisplay
 {
-    private static readonly string[] Options = { "0", "1", "2", "3" };
+    private static readonly string[] Options = ["0", "1", "2", "3"];
 
     internal static void DisplayRules()
     {

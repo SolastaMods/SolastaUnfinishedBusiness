@@ -35,7 +35,7 @@ public static class FeatureDefinitionAutoPreparedSpellsPatcher
 
                     if (!spells.TryGetValue(spellLevel, out var value))
                     {
-                        value = new List<SpellDefinition>();
+                        value = [];
                         spells.Add(spellLevel, value);
                     }
 

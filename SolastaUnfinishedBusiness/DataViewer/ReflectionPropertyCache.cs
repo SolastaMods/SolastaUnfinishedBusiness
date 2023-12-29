@@ -86,7 +86,7 @@ internal static partial class ReflectionCache
             var method = new DynamicMethod(
                 "get_" + Info.Name,
                 Info.PropertyType,
-                new[] { isInstByRef ? Info.DeclaringType?.MakeByRefType() : Info.DeclaringType },
+                [isInstByRef ? Info.DeclaringType?.MakeByRefType() : Info.DeclaringType],
                 typeof(CachedProperty<TProperty>),
                 true);
 
@@ -110,7 +110,7 @@ internal static partial class ReflectionCache
             var method = new DynamicMethod(
                 "set_" + Info.Name,
                 null,
-                new[] { isInstByRef ? Info.DeclaringType?.MakeByRefType() : Info.DeclaringType, Info.PropertyType },
+                [isInstByRef ? Info.DeclaringType?.MakeByRefType() : Info.DeclaringType, Info.PropertyType],
                 typeof(CachedProperty<TProperty>),
                 true);
 
