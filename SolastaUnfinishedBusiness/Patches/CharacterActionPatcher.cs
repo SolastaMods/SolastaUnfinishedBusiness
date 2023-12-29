@@ -209,6 +209,17 @@ public static class CharacterActionPatcher
             List<GameLocationCharacter> detectorsWithAdvantage,
             CharacterAction action)
         {
+            //PATCH: fix vanilla issues that removes hero off stealth if within enemy perceived range on a surprise attack
+            if (Gui.Battle != null &&
+                Gui.Battle.CurrentRound == 1 &&
+                Gui.Battle.InitiativeSortedContenders.Count > 0 &&
+                __instance == Gui.Battle.InitiativeSortedContenders[0])
+            {
+                __instance.wasPerceivedByFoes = false;
+                __instance.UpdateStealthStatus();
+            }
+            //END PATCH
+
             ShouldBanter = true;
 
             switch (action)

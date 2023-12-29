@@ -509,4 +509,26 @@ public static class GameLocationCharacterPatcher
             return false;
         }
     }
+
+    //PATCH: fix vanilla issues that removes hero off stealth if within enemy perceived range on a surprise attack
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.UpdateStealthStatus))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class UpdateStealthStatus_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance)
+        {
+            var service = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (service.HasBattleStarted)
+            {
+                return true;
+            }
+
+            __instance.wasPerceivedByFoes = __instance.isPerceivedByFoes;
+
+            return false;
+        }
+    }
 }
