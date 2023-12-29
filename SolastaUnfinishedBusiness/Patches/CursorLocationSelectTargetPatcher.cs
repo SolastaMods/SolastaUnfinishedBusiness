@@ -117,15 +117,23 @@ public static class CursorLocationSelectTargetPatcher
         public static void Prefix(params object[] parameters)
         {
             //PATCH: allows Sorcerous Field Manipulator displacement to select any character
-            if (parameters.Length > 0 &&
-                parameters[0] is CharacterActionParams
-                {
-                    RulesetEffect: RulesetEffectPower rulesetEffectPower
-                } characterActionParams &&
-                rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
+            if (parameters.Length <= 0 ||
+                parameters[0] is not CharacterActionParams { RulesetEffect: RulesetEffectPower rulesetEffectPower })
+            {
+                return;
+            }
+
+            if (rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
             {
                 // allows any target to be selected as well as automatically presents a better UI description
-                characterActionParams.RulesetEffect.EffectDescription.inviteOptionalAlly = false;
+                rulesetEffectPower.EffectDescription.inviteOptionalAlly = false;
+            }
+
+            if (rulesetEffectPower.PowerDefinition.Name is "PowerGambitSwiftThrowActivate"
+                or "PowerGambitOverwhelmingAttackActivate")
+            {
+                // presents a better UI description
+                rulesetEffectPower.EffectDescription.RangeType = RangeType.RangeHit;
             }
         }
     }
@@ -139,11 +147,22 @@ public static class CursorLocationSelectTargetPatcher
         public static void Prefix(CursorLocationSelectTarget __instance)
         {
             //PATCH: allows Sorcerous Field Manipulator displacement to select any character
-            if (__instance.actionParams is { RulesetEffect: RulesetEffectPower rulesetEffectPower } &&
-                rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
+            if (__instance.actionParams is not { RulesetEffect: RulesetEffectPower rulesetEffectPower })
+            {
+                return;
+            }
+
+            if (rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
             {
                 // brings back power effect to it's original definition
                 rulesetEffectPower.EffectDescription.inviteOptionalAlly = true;
+            }
+
+            if (rulesetEffectPower.PowerDefinition.Name is "PowerGambitSwiftThrowActivate"
+                or "PowerGambitOverwhelmingAttackActivate")
+            {
+                // brings back power effect to it's original definition
+                rulesetEffectPower.EffectDescription.RangeType = RangeType.Distance;
             }
         }
     }

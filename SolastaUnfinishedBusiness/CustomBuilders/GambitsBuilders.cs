@@ -792,6 +792,7 @@ internal static class GambitsBuilders
                     .SetGuiPresentation($"Condition{name}Good", Category.Condition)
                     .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                     .AddToDB())
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
             .AddToDB();
 
         var bad = ConditionDefinitionBuilder
@@ -838,6 +839,7 @@ internal static class GambitsBuilders
             .AddToDB();
 
         power.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.HasTacticalMovesAvailable,
             new Switch(power, good, bad, self),
             new ModifyEffectDescriptionSavingThrow(power));
 
@@ -1111,7 +1113,7 @@ internal static class GambitsBuilders
                 EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D4),
                 EffectFormBuilder.DamageForm(DamageTypePiercing, 1, dieType, bonus));
 
-            Attack(actingCharacter, target, attackModeCopy);
+            Attack(actingCharacter, target, attackModeCopy, action.ActionParams.ActionModifiers[0]);
         }
 
         public void OnAttackComputeModifier(
@@ -1554,6 +1556,8 @@ internal static class GambitsBuilders
             var caster = actingCharacter.RulesetCharacter;
             var target = action.ActionParams.TargetCharacters[0].RulesetCharacter;
 
+            actingCharacter.UsedTacticalMoves++;
+
             if (caster.IsOppositeSide(target.Side))
             {
                 target.InflictCondition(
@@ -1619,8 +1623,8 @@ internal static class GambitsBuilders
             finalTarget.InflictCondition(
                 _good.Name,
                 DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagCombat,
                 caster.Guid,
                 caster.CurrentFaction.Name,
@@ -2108,7 +2112,7 @@ internal static class GambitsBuilders
             attackModeCopy1.Copy(attackMode);
             attackModeCopy1.ActionType = ActionDefinitions.ActionType.NoCost;
 
-            Attack(actingCharacter, target1, attackModeCopy1);
+            Attack(actingCharacter, target1, attackModeCopy1, action.ActionParams.ActionModifiers[0]);
 
             var attackModeCopy2 = RulesetAttackMode.AttackModesPool.Get();
             var target2 = action.ActionParams.TargetCharacters[1];
@@ -2127,7 +2131,7 @@ internal static class GambitsBuilders
             attackModeCopy2.EffectDescription.EffectForms.Add(
                 EffectFormBuilder.DamageForm(firstDamageForm?.DamageType ?? DamageTypePiercing, 1, dieType, bonus));
 
-            Attack(actingCharacter, target2, attackModeCopy2);
+            Attack(actingCharacter, target2, attackModeCopy2, action.ActionParams.ActionModifiers[0]);
 
             BurnOneMainAttack(actingCharacter);
         }
@@ -2200,10 +2204,10 @@ internal static class GambitsBuilders
     private static void Attack(
         GameLocationCharacter actingCharacter,
         GameLocationCharacter target,
-        RulesetAttackMode attackMode)
+        RulesetAttackMode attackMode,
+        ActionModifier attackModifier)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var attackModifier = new ActionModifier();
         var attackActionParams =
             new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
 
