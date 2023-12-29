@@ -20,7 +20,6 @@ namespace SolastaUnfinishedBusiness.Races;
 internal static class RaceImpBuilder
 {
     private const string Name = "Imp";
-
     private const ActionDefinitions.Id ImpishWrathToggle = (ActionDefinitions.Id)ExtraActionId.ImpishWrathToggle;
 
     internal static CharacterRaceDefinition RaceImp { get; } = BuildImp();
@@ -207,18 +206,14 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (action.AttackRollOutcome != RollOutcome.Success
-                && action.AttackRollOutcome != RollOutcome.CriticalSuccess
-                && action.SaveOutcome != RollOutcome.Success
-                && action.SaveOutcome != RollOutcome.CriticalSuccess)
+            if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
+                action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                yield break;
+                yield return HandleImpishWrath(attacker,
+                    defender,
+                    new List<string>(),
+                    rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
             }
-
-            yield return HandleImpishWrath(attacker,
-                defender,
-                new List<string>(),
-                rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
