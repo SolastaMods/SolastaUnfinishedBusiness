@@ -1641,8 +1641,8 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode
-        // thrown is allowed on power attack
-        //, IPhysicalAttackInitiatedByMe
+    // thrown is allowed on power attack
+    //, IPhysicalAttackInitiatedByMe
     {
         private const int ToHit = 3;
         private readonly FeatDefinition _featDefinition;

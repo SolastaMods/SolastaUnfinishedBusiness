@@ -205,10 +205,7 @@ internal static class FixesContext
 
     private static void FixLanguagesPointPoolsToIncludeAllLanguages()
     {
-        var dlcLanguages = new List<string>
-        {
-            "Language_Abyssal", "Language_Gnomish", "Language_Infernal"
-        };
+        var dlcLanguages = new List<string> { "Language_Abyssal", "Language_Gnomish", "Language_Infernal" };
 
         FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one.RestrictedChoices.AddRange(dlcLanguages);
         FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_two.RestrictedChoices.AddRange(dlcLanguages);

@@ -164,7 +164,7 @@ internal static class CommonBuilders
 
     private sealed class
         MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic :
-            IMagicalAttackBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
+        IMagicalAttackBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
     {
         private readonly ConditionDefinition _conditionDefinition;
 
