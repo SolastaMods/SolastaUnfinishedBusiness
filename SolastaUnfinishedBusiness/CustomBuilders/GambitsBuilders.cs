@@ -1277,7 +1277,7 @@ internal static class GambitsBuilders
             attackModeCopy.Copy(attackMode);
             attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
 
-            Attack(ally, target, attackModeCopy, attackModifier);
+            Attack(ally, target, attackModeCopy, attackModifier, ActionDefinitions.Id.AttackOpportunity);
 
             BurnOneMainAttack(actingCharacter);
         }
@@ -2218,11 +2218,12 @@ internal static class GambitsBuilders
         GameLocationCharacter actingCharacter,
         GameLocationCharacter target,
         RulesetAttackMode attackMode,
-        ActionModifier attackModifier)
+        ActionModifier attackModifier,
+        ActionDefinitions.Id actionId = ActionDefinitions.Id.AttackFree)
     {
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var attackActionParams =
-            new CharacterActionParams(actingCharacter, ActionDefinitions.Id.AttackFree)
+            new CharacterActionParams(actingCharacter, actionId)
             {
                 AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
             };
