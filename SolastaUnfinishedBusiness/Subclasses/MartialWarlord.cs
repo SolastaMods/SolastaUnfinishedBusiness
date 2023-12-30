@@ -64,6 +64,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .Create($"Power{Name}PressTheAdvantage")
             .SetGuiPresentation($"FeatureSet{Name}PressTheAdvantage", Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHit)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -90,6 +91,7 @@ public sealed class MartialWarlord : AbstractSubclass
                             ConditionDefinitionBuilder
                                 .Create($"Condition{Name}ExploitOpening")
                                 .SetGuiPresentation(Category.Condition)
+                                .SetPossessive()
                                 .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
                                 .AddToDB()))
                     .Build())
@@ -109,6 +111,7 @@ public sealed class MartialWarlord : AbstractSubclass
                             ConditionDefinitionBuilder
                                 .Create($"Condition{Name}PredictAttack")
                                 .SetGuiPresentation(Category.Condition)
+                                .SetPossessive()
                                 .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
                                 .AddToDB()))
                     .Build())
@@ -128,6 +131,7 @@ public sealed class MartialWarlord : AbstractSubclass
                             ConditionDefinitionBuilder
                                 .Create($"Condition{Name}CoveringStrike")
                                 .SetGuiPresentation(Category.Condition)
+                                .SetPossessive()
                                 .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
                                 .AddToDB()))
                     .Build())
@@ -149,6 +153,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 powerPressTheAdvantage,
+                powerExploitOpening, powerPredictAttack, powerCoveringStrike,
                 actionAffinityPressTheAdvantageToggle)
             .AddToDB();
 
