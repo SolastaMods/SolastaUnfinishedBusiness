@@ -460,6 +460,10 @@ public static class CursorLocationSelectTargetPatcher
                                     (int)__instance.SelectionService.SelectedTargets[0].Guid;
                             }
 
+                            // double the range parameter so we can offer all possible positions from selected target
+                            __instance.ActionParams.activeEffect.EffectDescription.rangeParameter *= 2;
+
+                            // enable select position
                             __instance.CursorService.ActivateCursor<CursorLocationSelectPosition>(__instance
                                 .ActionParams);
 
