@@ -28,7 +28,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureMartialWarlordControlTheField:7e0510ae-f33f-5502-8729-a784165fdd39",
+      "featureDefinition": "Definition:FeatureSetMartialWarlordControlTheField:2e06191a-9b34-532c-9dcf-82dd5127eab2",
       "level": 18
     }
   ],

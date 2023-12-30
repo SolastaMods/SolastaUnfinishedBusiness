@@ -1176,7 +1176,7 @@ While you are not incapacitated, you gain the following benefits:
 
 ## 6. Warlord
 
-Whether they are loved, respected or feared, warlords are primarily known for one thing – leading soldiers like no one else. A warlord stands side by side with their allies and can shift the tide of any battle, no matter if it requires a sword or a sharp tongue. The sheer presence of these natural-born leaders is enough for a soldier to confidently follow their orders and be the best version of themselves.
+Whether they are loved, respected or feared, warlords are primarily known for one thing – leading soldiers like no one else. A warlord stands side by side with their allies and can shift the tide of any battle, no matter if it requires a sword or a sharp tongue. The sheer presence of these accomplished leaders is enough for a soldier to confidently follow their orders and be the best version of themselves.
 
 
 ### Level 3
@@ -1197,7 +1197,7 @@ As you strike, you call out sharp commands to your allies, spurring them to acti
 
 * Strategic Reposition
 
- you can use your bonus action to order an ally other than yourself that you can see and that is within 30 feet of you to change their position. The targeted ally can move up to half its movement speed (rounded up) without provoking opportunity attacks.
+You can use your bonus action to order an ally other than yourself that you can see and that is within 30 feet of you to change their position. The targeted ally can move up to half its movement speed (rounded up) without provoking opportunity attacks.
 
 
 ### Level 10
@@ -1218,7 +1218,7 @@ Your Battlefield Experience now extends to all allied creatures within 30 feet o
 
 * Control the Field
 
-You regain one usage of your Coordinated Assault whenever you roll initiative, and whenever you use Strategic Reposition feature, you can use your reaction to reuse that feature as a free action.
+You regain one usage of your Coordinated Assault whenever you roll initiative, and whenever you use your Strategic Reposition feature, you can use your reaction to reuse that feature as a free action before your turn ends.
 
 
 
