@@ -1955,69 +1955,7 @@ You passively grant the following benefits:
 
 
 
-## 2. Oath of Ancients
-
-An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
-
-
-### Level 3
-
-* Channel Divinity: Natures Wrath
-
-You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
-
-* Channel Divinity: Turn the Faithless
-
-You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
-
-* Oath of Ancients
-
-In your list and always prepared: 
- 
-	I	Entangling Strike, Animal Friendship
-
-	II	Moon Beam, Misty Step
-
-	III	Protection from Energy, Spirit Guardians
-
-	IV	Ice Storm, Stoneskin
-
-
-### Level 7
-
-* Aura of Warding
-
-Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 ft of you have resistance to damage from spells.
-
-
-### Level 15
-
-* Undying Sentinel
-
-When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
-
-
-### Level 18
-
-* Improved Aura of Warding
-
-Your Aura of Warding range increased to 30 ft.
-
-
-### Level 20
-
-* Elder Champion
-
-As an action, you gain the following benefits for one minute:
-• At the start of each of your turns, you regain 10 hit points.
-• Whenever you cast a paladin spell that has a casting time of 1 action, you can make two weapon attacks as a part of the same action.
-• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity powers.
-
-Once you use this feature, you can't use it again until you finish a long rest.
-
-
-
-## 3. Oath of Demon Hunter
+## 2. Oath of Demon Hunter
 
 Paladins of the Oath of Demon Hunter are dedicated to eradicating the evil creatures that lurk in the darkness, and maintaining peace in the world.
 
@@ -2077,7 +2015,7 @@ Starting at 20th level, you slay evil and purify demons. You gain the following 
 
 
 
-## 4. Oath of Dread
+## 3. Oath of Dread
 
 Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
 
@@ -2141,7 +2079,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-## 5. Oath of Hatred
+## 4. Oath of Hatred
 
 An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 
@@ -2197,6 +2135,68 @@ As a bonus action, you gain the following benefits for one minute:
 • You have advantage on all saving throws.
 • Your weapon attacks ignore target's resistances to damage.
 • Once per round when you make a weapon attack and miss, you can cause that attack to hit instead.
+
+Once you use this feature, you can't use it again until you finish a long rest.
+
+
+
+## 5. Oath of Primordials
+
+An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
+
+
+### Level 3
+
+* Channel Divinity: Nature's Retribution
+
+You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
+
+* Channel Divinity: Turn the Wicked
+
+You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
+
+* Oath of Primordials
+
+In your list and always prepared: 
+ 
+	I	Entangling Strike, Animal Friendship
+
+	II	Moon Beam, Misty Step
+
+	III	Protection from Energy, Spirit Guardians
+
+	IV	Ice Storm, Stoneskin
+
+
+### Level 7
+
+* Aura of Magical Abatement
+
+Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 ft of you have resistance to damage from spells.
+
+
+### Level 15
+
+* Undying Protector
+
+When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
+
+
+### Level 18
+
+* Improved Aura of Magical Abatement
+
+Your Aura of Warding range increased to 30 ft.
+
+
+### Level 20
+
+* Primordial Champion
+
+As an action, you gain the following benefits for one minute:
+• At the start of each of your turns, you regain 10 hit points.
+• Whenever you cast a paladin spell that has a casting time of 1 action, you can make two weapon attacks as a part of the same action.
+• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity powers.
 
 Once you use this feature, you can't use it again until you finish a long rest.
 
@@ -2397,7 +2397,7 @@ You can cast light as an action and gain bonus spells that are considered ranger
 
 	II	Branding Smite
 
-	III	Blinding Smite
+	III	Luminous Smite
 
 	IV	Guardian of Faith
 
@@ -3404,7 +3404,7 @@ When an ally within 30 ft of you takes damage, you may use your reaction to redu
 * Expanded Spells
 
 
-	I	Earth Tremor, Sleep
+	I	Animate Earth, Sleep
 
 	II	Heat Metal, Lesser Restoration
 
@@ -3526,7 +3526,7 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 
 	II	Blur, Branding Smite
 
-	III	Blinding Smite, Elemental Enchantment
+	III	Luminous Smite, Elemental Enchantment
 
 	IV	Phantasmal Killer, Staggering Smite
 

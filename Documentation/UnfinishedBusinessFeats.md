@@ -17,7 +17,7 @@ You gain proficiency with herbalism kit and medicine, or expertise if already pr
 Increase your Intelligence by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Intelligence modifier.
 
-# 5. - Arcane Marksman Adept
+# 5. - Arcane Marksman Expert
 
 You have arcane magic and bow training that allows you to perform special combat maneuvers.
 
@@ -158,7 +158,7 @@ You gain a +1 bonus to armor class while you are wielding a separate melee weapo
 
 When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
 
-# 34. - Eldritch Adept
+# 34. - Eldritch Expert
 
 You learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite. Whenever you gain a level, you can replace the invocation with another one from the warlock class.
 
@@ -245,11 +245,11 @@ Fiendish blood runs strong in you, unlocking a resilience akin to that possessed
 • You have resistance to cold and poison damage.
 • You have advantage on saving throws against being poisoned.
 
-# 54. - Infusion Adept
+# 54. - Infusion Expert
 
 You have studied the art of infusing magic into mundane objects to create temporary magical items, granting you two level 2 or below infusions of your choice from the inventor subclass.
 
-# 55. - Inspiring Leader
+# 55. - Inspiring Presence
 
 You can spend 10 minutes to inspire all friendly creatures friendly creatures, including you, within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 
@@ -295,7 +295,7 @@ You have practiced moving in medium armor to gain the following benefits:
 
 When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC 8 + your proficiency bonus + your Strength modifier) or become frightened of you until the end of your next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 
-# 64. - Metamagic Adept
+# 64. - Metamagic Expert
 
 You learn two metamagic options of your choice from the sorcerer class and gain half your proficiency bonus rounded up in sorcery points to spend on it.
 
@@ -437,7 +437,7 @@ You use shields not just for protection but also for offense. You gain the follo
 • If you aren't incapacitated, gain +2 bonus to all Dexterity saving throws you make.
 • Whenever a damaging spell forces you to roll a Dexterity saving throw, you can use your reaction to halve any damage taken.
 
-# 94. - Slashing Expertise
+# 94. - Slashing Expert
 
 Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
@@ -453,7 +453,7 @@ Though the spear is a simple weapon to learn, it rewards you for the time you ha
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 • As a bonus action, you can increase your reach with a spear by 5 ft for the rest of your turn.
 
-# 97. - Spell Deadeye
+# 97. - Spell Marksman
 
 You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 
@@ -469,7 +469,7 @@ Increase your Dexterity by 1, to a maximum of 20. As a bonus action, you give yo
 
 Your critical threshold is lowered by 1.
 
-# 101. - Tactician Adept
+# 101. - Tactician Expert
 
 You have martial training that allows you to perform special combat techniques called gambits:
 • You learn two gambits of your choice from the Tactician subclass. The Gambit DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.

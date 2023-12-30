@@ -10,17 +10,17 @@ The next weapon or unarmed attack you make before your turn ends will use your b
 
 When you are about to be hit by a melee attack, you can use your reaction and spend a gambit die to reduce the damage of the incoming hit by one roll of gambit die + double your proficiency bonus.
 
-# 4. - Coordinated Attack
-
-The next weapon or unarmed attack that hits a creature before your turn ends will spend a gambit die to deal additional damage equal to the gambit die roll and maneuver one of your allies into a more advantageous position. Target an ally within 30 feet of you that isn't restrained or incapacitated. That ally can use its reaction to move up to half its speed without provoking opportunity attacks.
-
-# 5. - Counterattack
+# 4. - Counterattack
 
 When a creature misses their attack against you and is within reach of your equipped melee weapon, you can spend a gambit die and use your reaction to make an attack of opportunity with the weapon against them. If the attack hits, you deal additional damage equal to the gambit die roll.
 
-# 6. - Debilitating Strike
+# 5. - Debilitating Strike
 
-The next weapon or unarmed attack that hits a creature before your turn ends will spend a gambit die to deal additional damage equal to the gambit die roll and make the creature roll all saving throws with disadvantage until the end of your next turn if it fails Constitution saving throw against your Gambit DC.
+The next weapon or unarmed attack that hits a creature before your turn ends will spend a gambit die to deal additional damage equal to the gambit die roll and make the creature roll all saving throws and ability checks with disadvantage until the end of your next turn if it fails Constitution saving throw against your Gambit DC.
+
+# 6. - Directed Attack
+
+The next weapon or unarmed attack that hits a creature before your turn ends will spend a gambit die to deal additional damage equal to the gambit die roll and maneuver one of your allies into a more advantageous position. Target an ally within 30 feet of you that isn't restrained or incapacitated. That ally can use its reaction to move up to half its speed without provoking opportunity attacks.
 
 # 7. - Diverting Attack
 
@@ -30,7 +30,7 @@ The next weapon or unarmed attack that hits a creature before your turn ends wil
 
 You can expend one gambit die as a free action, rolling the die and adding the number rolled to your AC until the end of your turn.
 
-# 9. - Inspire Ally
+# 9. - Inspire Word
 
 You can use your bonus action and spend a gambit die to bolster the resolve of one of your companions. When you do so, choose a friendly creature who can see or hear you. That creature gains temporary hit points equal to the gambit die roll + your Intelligence, Wisdom or Charisma modifier, whichever is higher.
 
@@ -46,21 +46,21 @@ You can launch a powerful attack as a part of your main action attack that can d
 
 The next weapon or unarmed attack that hits a creature before your turn ends will spend a gambit die to deal additional damage equal to the gambit die roll and taunt the creature until the end of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature.
 
-# 13. - Reach
-
-You can spend a gambit die as a free action to increase the reach of your melee attacks by 5ft and remove long range penalty from ranged attacks until the end of your turn. In addition, the next weapon or unarmed attack that hits a creature before your turn ends will deal additional damage equal to the gambit die roll.
-
-# 14. - Readied Strike
+# 13. - Readied Strike
 
 When a creature enters reach of your melee weapon, you can use reaction and spend a gambit die to make an attack of opportunity against them with a weapon or unarmed attack. If the attack hits, you deal additional damage equal to the gambit die roll.
 
-# 15. - Repel
+# 14. - Repel
 
 The next weapon or unarmed attack that hits a creature before your turn ends will spend a gambit die to deal additional damage equal to the gambit die roll, knocking the creature away 15 feet if it fails Strength saving throw against your Gambit DC.
 
-# 16. - Return Fire
+# 15. - Return Fire
 
 When a creature misses their attack against you and is more than 5ft away from you, you can spend a gambit die and use your reaction to make an attack of opportunity with your equipped ranged weapon against the creature. If the attack hits, you deal additional damage equal to the gambit die roll.
+
+# 16. - Spring Attack
+
+You can spend a gambit die as a free action to increase the reach of your melee attacks by 5ft until the end of your turn. In addition, the next weapon or unarmed attack that hits a creature before your turn ends will deal additional damage equal to the gambit die roll.
 
 # 17. - Swift Throw
 

@@ -66,21 +66,21 @@ You create a long, whip-like vine covered in thorns that lashes out at your comm
 
 Unleash a wave of crippling pain at a creature within range. The target must make a Constitution saving throw or take 1d8 necrotic damage, and preventing them from dashing or disengaging.
 
-# 17. - Booming Smite (V) level 1 Evocation [Concentration]
+# 17. - Animate Earth (V,S) level 1 Evocation
+
+You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
+
+# 18. - Booming Smite (V) level 1 Evocation [Concentration]
 
 On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 ft away from you and knocked prone.
 
-# 18. - Caustic Zap (V,S) level 1 Evocation
+# 19. - Caustic Zap (V,S) level 1 Evocation
 
 You send a jolt of green energy toward the target momentarily disorientating them as the spell burn some of their armor. The spell targets one enemy with a spell attack and deals 1d4 acid and 1d6 lightning damage and applies the dazzled condition.
 
-# 19. - Celerity Boon (V,S) level 1 Divination
+# 20. - Celerity Boon (V,S) level 1 Divination
 
 You touch a willing creature. For the duration, the target can add 1d8 to its initiative rolls.
-
-# 20. - Earth Tremor (V,S) level 1 Evocation
-
-You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 
 # 21. - Elemental Infusion (S) level 1 Abjuration
 
@@ -198,10 +198,9 @@ You weave together threads of shadow to create a sword of solidified gloom in yo
 
 You create the visage of a massive green snake that appears for an instant before bearing down on your foe. Choose a creature within range. The target must make a constitution saving throw, taking 4d10 poison damage on a failure, or half as much damage on a successful one. A creature that fails its saving throw is also poisoned, and its speed is halved while poisoned by this spell. At the end of each of its turns, a target may make a constitution saving throw, ending the poison on a success. Otherwise, the poison lasts for 1 minute. When you cast this spell using a spell slot of 4th level or higher, you may target an additional creature within range for each slot level above 3rd.
 
-# 48. - Blinding Smite (V) level 3 Evocation [Concentration]
+# 48. - Aura of Brilliance (V) level 3 Evocation [Concentration]
 
-On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
-A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
+Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
 
 # 49. - Booming Step (V) level 3 Conjuration
 
@@ -211,25 +210,26 @@ You teleport yourself to an unoccupied space you can see within range. Immediate
 
 You can fire a pulse of necrotic energy that causes a creature's body to begin to wither and decay. Make a ranged attack against a creature. On a hit, the target takes 4d8 necrotic damage and must succeed a Constitution saving throw. On a failed saving throw, the next time you or an ally of yours hits the corrupted creature with an attack before the end of your next turn, the creature has vulnerability to all of that attack's damage, and then the corruption ends. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for each slot level above 3rd.
 
-# 51. - Crusader's Mantle (V) level 3 Evocation [Concentration]
-
-Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
-
-# 52. - Elemental Enchantment (V,S) level 3 Transmutation [Concentration]
+# 51. - Elemental Enchantment (V,S) level 3 Transmutation [Concentration]
 
 Imbue a non-magical weapon with elemental magic. It gains a +1 to attack and damage rolls, and it gains 1d4 of the corresponding element's damage. When casting with a 5 or 6 spell slots, the effects increased by one die while casting at a spell slot 7 or higher increases the effects by 2.
 
-# 53. - Fire Arrows (M,V,S) level 3 Transmutation [Concentration]
+# 52. - Fire Arrows (M,V,S) level 3 Transmutation [Concentration]
 
 You must be wielding a ranged weapon. When a target is hit by it, the target takes an extra 1d6 fire damage. The spell ends when twelve pieces of ammunition have been drawn from the quiver. When you cast this spell using a spell slot of 4th level or higher, the number of pieces of ammunition you can affect with this spell increases by two for each slot level above 3rd.
 
-# 54. - Hunger of The Void (V,S) level 3 Transmutation [Concentration]
+# 53. - Hunger of The Void (V,S) level 3 Transmutation [Concentration]
 
 You open a gateway to the dark between the stars, a region infested with unknown horrors. A 20-foot-radius sphere of blackness and bitter cold appears, centered on a point with range and lasting for the duration. The area is difficult terrain and creatures within the area are blinded. Any creature that starts its turn in the area takes 2d6 cold damage. Any creature that ends its turn in the area must succeed on a Dexterity saving throw or take 2d6 acid damage as milky, otherworldly tentacles rub against it. When you cast this spell using a spell slot of 4th level or higher, the extra damage increases by 1d6 for every 2 slots level above 3rd.
 
-# 55. - Lightning Arrow (V,S) level 3 Transmutation [Concentration]
+# 54. - Lightning Arrow (V,S) level 3 Transmutation [Concentration]
 
 The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 3d8 lightning damage on a hit, or half as much damage on a miss. Whether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one.  When you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd.
+
+# 55. - Luminous Smite (V) level 3 Evocation [Concentration]
+
+On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
+A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 
 # 56. - Pulse Wave (V,S) level 3 Evocation
 

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupHalfDexterityTitle",
-    "description": "Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Precision [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Medium Armor [Dex], Nimbleness [Dex], Old Tactics [Dex], Piercing Expertise [Dex], Revenant Great Sword [Dex], Slashing Expertise [Dex], Steady Aim, Uncanny Accuracy",
+    "description": "Ambidextrous, Awaken the Beast [Dex], Close Quarters [Dex], Creed of Misaye, Discretion of the Coedymwarth, Eager for Battle, Elven Precision [Dex], Fade Away [Dex], Forest Runner, Longsword Finesse, Medium Armor [Dex], Nimbleness [Dex], Old Tactics [Dex], Piercing Expertise [Dex], Revenant Great Sword [Dex], Slashing Expert [Dex], Steady Aim, Uncanny Accuracy",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
