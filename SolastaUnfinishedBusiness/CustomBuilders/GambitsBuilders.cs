@@ -105,7 +105,7 @@ internal static class GambitsBuilders
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(combatAffinityDistracted)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttackedNotBySource)
             .AddToDB();
 
         combatAffinityDistracted.requiredCondition = conditionDistracted;
@@ -1946,13 +1946,21 @@ internal static class GambitsBuilders
                 return true;
             }
 
-            if (target.CanReact())
+            if (!target.CanReact())
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
+                
+                return false;
+            }
+
+            if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
             {
                 return true;
             }
 
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
-
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+                
             return false;
         }
 
@@ -1969,7 +1977,7 @@ internal static class GambitsBuilders
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
-            var halfMaxTacticalMoves = targetCharacter.MaxTacticalMoves / 2;
+            var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2;
             var boxInt = new BoxInt(
                 targetCharacter.LocationPosition,
                 new int3(-halfMaxTacticalMoves, -halfMaxTacticalMoves, -halfMaxTacticalMoves),
@@ -1989,6 +1997,8 @@ internal static class GambitsBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
+
             if (!action.ActingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
             {
                 yield break;
@@ -2005,11 +2015,12 @@ internal static class GambitsBuilders
                     Positions = { targetPosition }
                 };
 
+            targetCharacter.UsedTacticalMoves = 0;
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
                 targetRulesetCharacter.Guid,
                 targetRulesetCharacter.CurrentFaction.Name,

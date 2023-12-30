@@ -59,7 +59,6 @@ public sealed class MartialWarlord : AbstractSubclass
         var featureBattlefieldExperience = FeatureDefinitionBuilder
             .Create($"Feature{Name}BattlefieldExperience")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CharacterBattleStartedListenerBattlefieldExperience(conditionWisdomInitiative))
             .AddToDB();
 
         // Press the Advantage
@@ -94,15 +93,14 @@ public sealed class MartialWarlord : AbstractSubclass
 
         var conditionExploitOpening = ConditionDefinitionBuilder
             .Create($"Condition{Name}ExploitOpening")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionTargetedByGuidingBolt)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityExploitOpening)
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttackedNotBySource)
+            .CopyParticleReferences(ConditionDefinitions.ConditionLeadByExampleMarked)
             .AddToDB();
-
-        conditionExploitOpening.AddCustomSubFeatures(
-            RemoveConditionOnSourceTurnStart.Mark,
-            new PhysicalAttackFinishedOnMeExploitOpening(conditionExploitOpening));
 
         combatAffinityExploitOpening.requiredCondition = conditionExploitOpening;
 
@@ -133,7 +131,7 @@ public sealed class MartialWarlord : AbstractSubclass
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{Name}PredictAttack")
-                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPossessed)
                                 .SetPossessive()
                                 .SetConditionType(ConditionType.Detrimental)
                                 .AddFeatures(
@@ -144,15 +142,17 @@ public sealed class MartialWarlord : AbstractSubclass
                                         .AddToDB())
                                 .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
                                 .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                .CopyParticleReferences(ConditionDefinitions.ConditionInsane)
                                 .AddToDB()))
                     .Build())
             .AddToDB();
 
         var conditionCoveringStrike = ConditionDefinitionBuilder
             .Create($"Condition{Name}CoveringStrike")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .CopyParticleReferences(ConditionDefinitions.ConditionConfused)
             .AddToDB();
 
         var conditionCoveringStrikeAlly = ConditionDefinitionBuilder
@@ -216,6 +216,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .Create($"Power{Name}StrategicReposition")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerMonkStepOftheWindDisengage)
             .SetUsesFixed(ActivationTime.BonusAction)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -269,8 +270,11 @@ public sealed class MartialWarlord : AbstractSubclass
         var featureBattlePlan = FeatureDefinitionBuilder
             .Create($"Feature{Name}BattlePlan")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CharacterBattleStartedListenerBattlePlan(conditionWisdomInitiative))
             .AddToDB();
+
+        featureBattlefieldExperience.AddCustomSubFeatures(
+            new CharacterBattleStartedListenerBattlefieldExperienceBattlePlan(
+                conditionWisdomInitiative, featureBattlefieldExperience, featureBattlePlan));
 
         //
         // LEVEL 18
@@ -281,7 +285,8 @@ public sealed class MartialWarlord : AbstractSubclass
         var powerControlTheField = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ControlTheField")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerMonkStepOftheWindDisengage)
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -290,8 +295,7 @@ public sealed class MartialWarlord : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(
-                    ValidatorsCharacter.HasNoAvailableBonusAction, ValidatorsCharacter.HasAvailableReaction),
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoAvailableBonusAction),
                 new CustomBehaviorStrategicReposition(),
                 new CharacterBattleStartedListenerControlTheField(PowerCoordinatedAssault))
             .AddToDB();
@@ -322,47 +326,6 @@ public sealed class MartialWarlord : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    //
-    // Battlefield Experience
-    //
-
-    private sealed class CharacterBattleStartedListenerBattlefieldExperience : ICharacterBattleStartedListener
-    {
-        private readonly ConditionDefinition _conditionBattlefieldExperience;
-
-        public CharacterBattleStartedListenerBattlefieldExperience(ConditionDefinition conditionBattlefieldExperience)
-        {
-            _conditionBattlefieldExperience = conditionBattlefieldExperience;
-        }
-
-        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated, ConditionSurprised))
-            {
-                return;
-            }
-
-            var wisdomModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom)), 1);
-
-            rulesetCharacter.InflictCondition(
-                _conditionBattlefieldExperience.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                _conditionBattlefieldExperience.Name,
-                wisdomModifier,
-                0,
-                0);
-        }
-    }
 
     //
     // Press the Advantage
@@ -405,6 +368,13 @@ public sealed class MartialWarlord : AbstractSubclass
                 return;
             }
 
+            var sourceCharacter = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (sourceCharacter == null)
+            {
+                return;
+            }
+            
             foreach (var character in Gui.Battle.PlayerContenders
                          .Where(x => x.Guid != rulesetCondition.SourceGuid))
             {
@@ -414,8 +384,8 @@ public sealed class MartialWarlord : AbstractSubclass
                     1,
                     TurnOccurenceType.EndOfSourceTurn,
                     AttributeDefinitions.TagCombat,
-                    target.guid,
-                    target.CurrentFaction.Name,
+                    sourceCharacter.guid,
+                    sourceCharacter.CurrentFaction.Name,
                     1,
                     _conditionCoveringStrikeAlly.Name,
                     0,
@@ -431,54 +401,11 @@ public sealed class MartialWarlord : AbstractSubclass
     }
 
     //
-    // Exploit Opening
-    //
-
-    private sealed class PhysicalAttackFinishedOnMeExploitOpening : IPhysicalAttackFinishedOnMe
-    {
-        private readonly ConditionDefinition _conditionExploitOpening;
-
-        public PhysicalAttackFinishedOnMeExploitOpening(ConditionDefinition conditionExploitOpening)
-        {
-            _conditionExploitOpening = conditionExploitOpening;
-        }
-
-        public IEnumerator OnPhysicalAttackFinishedOnMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
-            int damageAmount)
-        {
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagCombat, _conditionExploitOpening.Name, out var activeCondition) &&
-                attacker.Guid != activeCondition.SourceGuid)
-            {
-                rulesetDefender.RemoveCondition(activeCondition);
-            }
-        }
-    }
-
-    //
     // Strategic Reposition
     //
 
     private sealed class CustomBehaviorStrategicReposition :
-        ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
+        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
     {
         public void EnumerateValidPositions(
             CursorLocationSelectPosition cursorLocationSelectPosition,
@@ -514,6 +441,8 @@ public sealed class MartialWarlord : AbstractSubclass
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
+
             if (!action.ActingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
             {
                 yield break;
@@ -530,12 +459,13 @@ public sealed class MartialWarlord : AbstractSubclass
                     Positions = { targetPosition }
                 };
 
+            targetCharacter.UsedTacticalMoves = 0;
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
                 targetRulesetCharacter.Guid,
                 targetRulesetCharacter.CurrentFaction.Name,
                 1,
@@ -547,14 +477,22 @@ public sealed class MartialWarlord : AbstractSubclass
             EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
-            targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
             actionService.ExecuteAction(actionParams, null, false);
+        }
 
-            if (action.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower &&
-                rulesetEffectPower.PowerDefinition.Name == $"Power{Name}ControlTheField")
+        public bool EnforceFullSelection => false;
+        
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
             {
-                actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
+                return true;
             }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+                
+            return false;
         }
     }
 
@@ -700,32 +638,33 @@ public sealed class MartialWarlord : AbstractSubclass
                 yield break;
             }
 
+            rulesetCharacter.LogCharacterUsedPower(PowerCoordinatedAssault);
             rulesetCharacter.UpdateUsageForPower(PowerCoordinatedAssault, PowerCoordinatedAssault.CostPerUse);
         }
     }
 
     //
-    // Battle Plan
+    // Battlefield Experience / Battle Plan
     //
 
-    private sealed class CharacterBattleStartedListenerBattlePlan : ICharacterBattleStartedListener
+    private sealed class CharacterBattleStartedListenerBattlefieldExperienceBattlePlan : ICharacterBattleStartedListener
     {
-        private readonly ConditionDefinition _conditionBattlePlan;
+        private readonly ConditionDefinition _conditionWisdomInitiative;
+        private readonly FeatureDefinition _featureBattlefieldExperience;
+        private readonly FeatureDefinition _featureBattlePlan;
 
-        public CharacterBattleStartedListenerBattlePlan(ConditionDefinition powerConditionBattlePlan)
+        public CharacterBattleStartedListenerBattlefieldExperienceBattlePlan(
+            ConditionDefinition conditionWisdomInitiative,
+            FeatureDefinition featureBattlefieldExperience,
+            FeatureDefinition featureBattlePlan)
         {
-            _conditionBattlePlan = powerConditionBattlePlan;
+            _conditionWisdomInitiative = conditionWisdomInitiative;
+            _featureBattlefieldExperience = featureBattlefieldExperience;
+            _featureBattlePlan = featureBattlePlan;
         }
 
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (rulesetCharacter.HasAnyConditionOfTypeOrSubType(ConditionIncapacitated, ConditionSurprised))
-            {
-                return;
-            }
-
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
@@ -733,19 +672,15 @@ public sealed class MartialWarlord : AbstractSubclass
                 return;
             }
 
-
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var levels = rulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Fighter, Name);
             var wisdomModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom)), 1);
 
-            foreach (var player in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.Side == locationCharacter.Side &&
-                                     x != locationCharacter &&
-                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithinXCells(locationCharacter, x, 6)))
-
+            if (levels < 15)
             {
-                player.RulesetCharacter.InflictCondition(
-                    _conditionBattlePlan.Name,
+                rulesetCharacter.InflictCondition(
+                    _conditionWisdomInitiative.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfTurn,
@@ -753,11 +688,39 @@ public sealed class MartialWarlord : AbstractSubclass
                     rulesetCharacter.Guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    _conditionBattlePlan.Name,
+                    _conditionWisdomInitiative.Name,
+                    wisdomModifier,
+                    0,
+                    0);
+
+                rulesetCharacter.LogCharacterUsedFeature(_featureBattlefieldExperience);
+
+                return;
+            }
+
+            foreach (var player in gameLocationBattleService.Battle.AllContenders
+                         .Where(x => x.Side == locationCharacter.Side &&
+                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                     gameLocationBattleService.IsWithinXCells(locationCharacter, x, 6))
+                         .ToList())
+
+            {
+                player.RulesetCharacter.InflictCondition(
+                    _conditionWisdomInitiative.Name,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.Guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    _conditionWisdomInitiative.Name,
                     wisdomModifier,
                     0,
                     0);
             }
+
+            rulesetCharacter.LogCharacterUsedFeature(_featureBattlePlan);
         }
     }
 
