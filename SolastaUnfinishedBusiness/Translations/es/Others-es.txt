@@ -214,6 +214,7 @@ Spell/&ConjureElementalInvisibleStalkerTitle=Conjurar elemental [Acosador invisi
 Stage/&IdentityMorphotypeEyeHeader=Estilo de ojos
 ToolTip/&CheckBoxDefaultPartyTitle=Marque esta casilla para establecer su grupo predeterminado al comenzar nuevas aventuras o probar ubicaciones personalizadas. Puede seleccionar hasta {0} héroes por orden de llegada.
 Tooltip/&ChannelDivinityPortraitPoolFormat=Tienes {0} de {1} usos de Channel Divinity.\nTodos los usos se restauran con un descanso breve o prolongado.
+Tooltip/&CoordinatedAssaultPortraitPoolFormat=Tienes {0} de los {1} usos de Asalto coordinado.\nTodos los usos se restablecen con un descanso prolongado.
 Tooltip/&CustomMapMarkerCamp=Acampar
 Tooltip/&CustomMapMarkerExit=Salida
 Tooltip/&CustomMapMarkerTeleport=Teletransportador

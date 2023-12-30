@@ -215,6 +215,7 @@ Spell/&ConjureElementalInvisibleStalkerTitle=Evoca Elementale [Inseguitore Invis
 Stage/&IdentityMorphotypeEyeHeader=Stile degli occhi
 ToolTip/&CheckBoxDefaultPartyTitle=Seleziona questa casella per impostare la tua festa predefinita quando inizi nuove avventure o provi luoghi personalizzati. Puoi selezionare fino a {0} eroi in base al principio "first-in/first-out".
 Tooltip/&ChannelDivinityPortraitPoolFormat=Hai {0} usi su {1} di Channel Divinity.\nTutti gli usi vengono ripristinati con il riposo breve o lungo.
+Tooltip/&CoordinatedAssaultPortraitPoolFormat=Hai {0} usi su {1} di Assalto Coordinato.\nTutti gli usi vengono ripristinati con un riposo lungo.
 Tooltip/&CustomMapMarkerCamp=Campo
 Tooltip/&CustomMapMarkerExit=Uscita
 Tooltip/&CustomMapMarkerTeleport=Teletrasporto

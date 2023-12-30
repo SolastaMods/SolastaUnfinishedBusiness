@@ -214,6 +214,7 @@ Spell/&ConjureElementalInvisibleStalkerTitle=Elementar beschwören [Unsichtbarer
 Stage/&IdentityMorphotypeEyeHeader=Augenstil
 ToolTip/&CheckBoxDefaultPartyTitle=Aktivieren Sie dieses Kontrollkästchen, um Ihre Standardgruppe festzulegen, wenn Sie neue Abenteuer beginnen oder benutzerdefinierte Orte testen. Sie können bis zu {0} Helden nach dem First-In/First-Out-Prinzip auswählen
 Tooltip/&ChannelDivinityPortraitPoolFormat=Sie haben {0} von {1} Nutzungen von Channel Divinity.\nAlle Nutzungen werden bei einer kurzen oder langen Pause wiederhergestellt.
+Tooltip/&CoordinatedAssaultPortraitPoolFormat=Sie haben {0} von {1} Einsätzen von Coordinated Assault.\nAlle Einsätze werden bei einer langen Pause wiederhergestellt.
 Tooltip/&CustomMapMarkerCamp=Lager
 Tooltip/&CustomMapMarkerExit=Ausfahrt
 Tooltip/&CustomMapMarkerTeleport=Teleporter

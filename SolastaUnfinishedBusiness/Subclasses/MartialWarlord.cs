@@ -430,7 +430,7 @@ public sealed class MartialWarlord : AbstractSubclass
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
-            var halfMaxTacticalMoves = targetCharacter.MaxTacticalMoves / 2;
+            var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(
                 targetCharacter.LocationPosition,
                 new int3(-halfMaxTacticalMoves, -halfMaxTacticalMoves, -halfMaxTacticalMoves),
@@ -503,7 +503,14 @@ public sealed class MartialWarlord : AbstractSubclass
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (!attacker.RulesetCharacter.IsToggleEnabled(CoordinatedAssaultToggle))
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter.GetRemainingPowerUses(PowerCoordinatedAssault) == 0)
+            {
+                yield break;
+            }
+            
+            if (!rulesetCharacter.IsToggleEnabled(CoordinatedAssaultToggle))
             {
                 yield break;
             }
@@ -615,6 +622,15 @@ public sealed class MartialWarlord : AbstractSubclass
             }
 
             yield return battleManager.WaitForReactions(attacker, actionService, count);
+
+            var firstValidatedReaction = reactions.FirstOrDefault(x => x.ReactionValidated);
+
+            if (firstValidatedReaction == null)
+            {
+                yield break;
+            }
+
+            rulesetCharacter.UpdateUsageForPower(PowerCoordinatedAssault, PowerCoordinatedAssault.CostPerUse);
         }
     }
 

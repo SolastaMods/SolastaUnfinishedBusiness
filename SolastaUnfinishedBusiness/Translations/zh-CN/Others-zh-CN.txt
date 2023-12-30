@@ -214,6 +214,7 @@ Spell/&ConjureElementalInvisibleStalkerTitle=召唤元素 [隐形潜伏怪]
 Stage/&IdentityMorphotypeEyeHeader=眼型
 ToolTip/&CheckBoxDefaultPartyTitle=在开始新的冒险或测试自定义位置时，选中此框以设置你的默认队伍。你最多可以选择 {0} 个英雄，以先进先出的方式进行
 Tooltip/&ChannelDivinityPortraitPoolFormat=你有 {0} 次使用引导神力，共 {1} 次。\n所有使用次数都在短休息或长休息后恢复。
+Tooltip/&CoordinatedAssaultPortraitPoolFormat=您已经使用了 {0} 次协调攻击，共 {1} 次。\n所有使用次数都会在长时间休息后恢复。
 Tooltip/&CustomMapMarkerCamp=营地
 Tooltip/&CustomMapMarkerExit=出口
 Tooltip/&CustomMapMarkerTeleport=传送点

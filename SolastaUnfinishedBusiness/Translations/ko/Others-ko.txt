@@ -214,6 +214,7 @@ Spell/&ConjureElementalInvisibleStalkerTitle=정령 소환 [인비저블 스토�
 Stage/&IdentityMorphotypeEyeHeader=눈 모양
 ToolTip/&CheckBoxDefaultPartyTitle=새로운 모험을 시작하거나 사용자 지정 위치를 테스트할 때 기본 파티를 설정하려면 이 칸을 체크하세요. 최대 {0}명의 영웅을 선입선출 방식으로 선택할 수 있습니다
 Tooltip/&ChannelDivinityPortraitPoolFormat=신성 변환이 {1}회 중 {0}회가 남았습니다.\n사용 횟수는 짧은 또는 긴 휴식으로 복원됩니다.
+Tooltip/&CoordinatedAssaultPortraitPoolFormat=협력 공격을 {1}회 사용 중 {0}회 사용했습니다.\n긴 휴식을 취하면 모든 사용이 회복됩니다.
 Tooltip/&CustomMapMarkerCamp=야영지
 Tooltip/&CustomMapMarkerExit=출구
 Tooltip/&CustomMapMarkerTeleport=순간이동기

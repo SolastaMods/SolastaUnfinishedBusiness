@@ -1,6 +1,6 @@
 ﻿1.5.94.39:
 
-- added Martial Warlord subclass
+- added Martial Warlord subclass [our view on a balanced Martial Marshal]
 - added Coordinated Attack (Maneuvering Attack) gambit
 - added Elusive Movement (Evasive Footwork) gambit
 - added Overwhelming Attack (Sweeping Attack) gambit
