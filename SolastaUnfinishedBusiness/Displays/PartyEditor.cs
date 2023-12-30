@@ -453,7 +453,7 @@ public static class PartyEditor
 #if DEBUG
     private static void RefreshPool()
     {
-        _characterPool = new List<RulesetCharacter>();
+        _characterPool = [];
         PoolService.EnumeratePool();
 
         foreach (var filename in PoolService.Pool.Select(item => item.Key))
