@@ -992,60 +992,7 @@ You gain resistance to all non magical bludgeoning, piercing and slashing damage
 
 
 
-## 3. Marshal
-
-Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
-
-
-### Level 3
-
-* Coordinated Attack
-
-When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
-
-* Know Your Enemy
-
-You add your knowledge level of your current target to your attack and damage rolls.
-
-* Study Your Enemy
-
-As a bonus action, you can attempt to increase your knowledge about your target by rolling a Survival check. You can do this twice per short rest.
-
-
-### Level 7
-
-* Eternal Comrade
-
-The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon one spirit of his fallen comrades to aid him in combat.
-
-
-### Level 10
-
-* Encouragement
-
-The courage of the marshal inspires his party member. Allies within 10 ft of him add 1d4 to attack roll and saving throw.
-
-* Fearless Commander
-
-You are immune to fear effect.
-
-
-### Level 15
-
-* Improved Encouragement
-
-The courage of the marshal inspires his party member. Allies within 30 ft of him add 1d4 to attack roll and saving throw.
-
-
-### Level 18
-
-* Knowledgeable Defense
-
-Your knowledge and experience with creatures allows you to better defend yourself when combating them. Your AC is effectively increased by your knowledge level of the creature attacking you up to +3.
-
-
-
-## 4. Royal Knight
+## 3. Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -1086,7 +1033,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-## 5. Spell Shield
+## 4. Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -1135,7 +1082,7 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 
 
-## 6. Tactician
+## 5. Tactician
 
 For tacticians, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
 
@@ -1227,7 +1174,7 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-## 7. Warlord
+## 6. Warlord
 
 Whether they are loved, respected or feared, warlords are primarily known for one thing – leading soldiers like no one else. A warlord stands side by side with their allies and can shift the tide of any battle, no matter if it requires a sword or a sharp tongue. The sheer presence of these natural-born leaders is enough for a soldier to confidently follow their orders and be the best version of themselves.
 
@@ -1243,7 +1190,7 @@ Beginning at 3rd level, you gain a bonus to initiative rolls equal to your Wisdo
 As you strike, you call out sharp commands to your allies, spurring them to action and allowing them to take advantage of the opening. Once during your turn when you hit a creature with a melee weapon attack, you can immediately initiate one of the following maneuvers: 
 • Exploit Opening - The next attack roll made by an attacker other than yourself against this creature is made with advantage. The attack must be made before the start of your next turn.
 • Predict Attack - The creature has disadvantage on the next attack roll it makes before the start of your next turn.
-• Covering Strike - All allies other than yourself don’t provoke opportunity attacks from this creature. This effect lasts until the start of your next turn.
+• Covering Strike - All allies other than yourself don't provoke opportunity attacks from this creature. This effect lasts until the start of your next turn.
 
 
 ### Level 7
@@ -1275,7 +1222,7 @@ You regain one usage of your Coordinated Assault whenever you roll initiative, a
 
 
 
-## 8. Weapon Master
+## 7. Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 

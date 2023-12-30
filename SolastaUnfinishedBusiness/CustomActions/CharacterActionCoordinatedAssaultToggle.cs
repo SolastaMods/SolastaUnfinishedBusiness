@@ -6,12 +6,12 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionCoordinatedAttackToggle : CharacterAction
+public class CharacterActionCoordinatedAssaultToggle : CharacterAction
 #pragma warning restore CA1050
 {
-    private const ActionDefinitions.Id Action = (ActionDefinitions.Id)ExtraActionId.CoordinatedAttackToggle;
+    private const ActionDefinitions.Id Action = (ActionDefinitions.Id)ExtraActionId.CoordinatedAssaultToggle;
 
-    public CharacterActionCoordinatedAttackToggle(CharacterActionParams actionParams) : base(actionParams)
+    public CharacterActionCoordinatedAssaultToggle(CharacterActionParams actionParams) : base(actionParams)
     {
     }
 

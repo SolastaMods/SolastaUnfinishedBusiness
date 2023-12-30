@@ -11,7 +11,9 @@
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
   "forbiddenActions": [],
-  "authorizedActions": [],
+  "authorizedActions": [
+    9049
+  ],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
   "specialBehaviour": "None",
@@ -42,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "edd9c59e-8cfa-5d3b-bb96-275faafe94c3",
+  "guid": "2052bab8-0723-5f23-ba11-b5340f444906",
   "contentPack": 9999,
-  "name": "ActionAffinityCoordinatedAttackToggle"
+  "name": "ActionAffinityCoordinatedAssaultToggle"
 }

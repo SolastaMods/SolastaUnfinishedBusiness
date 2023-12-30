@@ -47,8 +47,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Action/&CoordinatedAttackToggleTitle",
-    "description": "Action/&CoordinatedAttackToggleDescription",
+    "title": "Action/&CoordinatedAssaultToggleTitle",
+    "description": "Action/&CoordinatedAssaultToggleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f039effbc135454c9bb55de2851472b1",
@@ -68,7 +68,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d09c3911-9363-51d9-a301-d889a1387942",
+  "guid": "a615334b-e575-51b0-a08b-29ff5b90a887",
   "contentPack": 9999,
-  "name": "CoordinatedAttackToggle"
+  "name": "CoordinatedAssaultToggle"
 }

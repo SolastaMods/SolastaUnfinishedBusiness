@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -25,11 +26,13 @@ public sealed class MartialWarlord : AbstractSubclass
     private const string CoordinatedAssaultMarker = "CoordinatedAssault";
     private const string PressTheAdvantageMarker = "PressTheAdvantage";
 
-    private const ActionDefinitions.Id CoordinatedAttackToggle =
-        (ActionDefinitions.Id)ExtraActionId.CoordinatedAttackToggle;
+    private const ActionDefinitions.Id CoordinatedAssaultToggle =
+        (ActionDefinitions.Id)ExtraActionId.CoordinatedAssaultToggle;
 
     private const ActionDefinitions.Id PressTheAdvantageToggle =
         (ActionDefinitions.Id)ExtraActionId.PressTheAdvantageToggle;
+
+    internal static FeatureDefinitionPower PowerCoordinatedAssault;
 
     public MartialWarlord()
     {
@@ -40,6 +43,7 @@ public sealed class MartialWarlord : AbstractSubclass
         var conditionWisdomInitiative = ConditionDefinitionBuilder
             .Create($"Condition{Name}WisdomInitiative")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
@@ -55,7 +59,7 @@ public sealed class MartialWarlord : AbstractSubclass
         var featureBattlefieldExperience = FeatureDefinitionBuilder
             .Create($"Feature{Name}BattlefieldExperience")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CharacterBattleStartedListenerBattlePlan(conditionWisdomInitiative))
+            .AddCustomSubFeatures(new CharacterBattleStartedListenerBattlefieldExperience(conditionWisdomInitiative))
             .AddToDB();
 
         // Press the Advantage
@@ -69,17 +73,39 @@ public sealed class MartialWarlord : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
                     .Build())
             .AddCustomSubFeatures(
                 IsPowerPool.Marker,
+                new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.OnceInMyTurnIsValid(PressTheAdvantageMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(PressTheAdvantageToggle)))
             .AddToDB();
 
+        var combatAffinityExploitOpening = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}ExploitOpening")
+            .SetGuiPresentation($"Condition{Name}PredictAttack", Category.Condition)
+            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+            .SetSituationalContext(
+                (SituationalContext)ExtraSituationalContext.IsNotSourceOfCondition)
+            .AddToDB();
+
+        var conditionExploitOpening = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ExploitOpening")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .AddFeatures(combatAffinityExploitOpening)
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
+        combatAffinityExploitOpening.requiredCondition = conditionExploitOpening;
+
         var powerExploitOpening = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ExploitOpening")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, powerPressTheAdvantage)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -87,19 +113,13 @@ public sealed class MartialWarlord : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{Name}ExploitOpening")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetPossessive()
-                                .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
-                                .AddToDB()))
+                        EffectFormBuilder.ConditionForm(conditionExploitOpening))
                     .Build())
             .AddToDB();
 
         var powerPredictAttack = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}PredictAttack")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, powerPressTheAdvantage)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -110,35 +130,61 @@ public sealed class MartialWarlord : AbstractSubclass
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
                                 .Create($"Condition{Name}PredictAttack")
-                                .SetGuiPresentation(Category.Condition)
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
                                 .SetPossessive()
+                                .SetConditionType(ConditionType.Detrimental)
+                                .AddFeatures(
+                                    FeatureDefinitionCombatAffinityBuilder
+                                        .Create($"CombatAffinity{Name}PredictAttack")
+                                        .SetGuiPresentation($"Condition{Name}PredictAttack", Category.Condition)
+                                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                        .AddToDB())
                                 .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
+                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                 .AddToDB()))
                     .Build())
             .AddToDB();
 
+        var conditionCoveringStrike = ConditionDefinitionBuilder
+            .Create($"Condition{Name}CoveringStrike")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
+            .AddToDB();
+
+        var conditionCoveringStrikeAlly = ConditionDefinitionBuilder
+            .Create($"Condition{Name}CoveringStrikeAlly")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{Name}CoveringStrikeAlly")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAttackOfOpportunityImmunity(true)
+                    .SetSituationalContext(SituationalContext.SourceHasCondition, conditionCoveringStrike)
+                    .AddToDB())
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
+            .AddToDB();
+
+        conditionCoveringStrike.AddCustomSubFeatures(
+            new OnConditionAddedOrRemovedCoveringStrike(conditionCoveringStrikeAlly));
+
         var powerCoveringStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}CoveringStrike")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.NoCost, powerPressTheAdvantage)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{Name}CoveringStrike")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetPossessive()
-                                .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
-                                .AddToDB()))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCoveringStrike))
                     .Build())
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(powerPressTheAdvantage, true,
-            powerExploitOpening, powerPredictAttack, powerCoveringStrike);
+            powerCoveringStrike, powerExploitOpening, powerPredictAttack);
 
         var actionAffinityPressTheAdvantageToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityPressTheAdvantageToggle")
@@ -165,7 +211,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
         var powerStrategicRepositioning = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}StrategicReposition")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerMonkStepOftheWindDisengage)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -183,32 +229,32 @@ public sealed class MartialWarlord : AbstractSubclass
 
         // Coordinated Assault
 
-        var powerCoordinatedAssault = FeatureDefinitionPowerBuilder
+        PowerCoordinatedAssault = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CoordinatedAssault")
             .SetGuiPresentation($"FeatureSet{Name}CoordinatedAssault", Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 3)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddCustomSubFeatures(
                 new PhysicalAttackFinishedByMeCoordinatedAssault(),
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.OnceInMyTurnIsValid(CoordinatedAssaultMarker) &&
-                    attacker.RulesetCharacter.IsToggleEnabled(CoordinatedAttackToggle)))
+                    attacker.RulesetCharacter.IsToggleEnabled(CoordinatedAssaultToggle)))
             .AddToDB();
 
-        var actionAffinityCoordinatedAttackToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityCoordinatedAttackToggle")
+        var actionAffinityCoordinatedAssaultToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityCoordinatedAssaultToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions()
+            .SetAuthorizedActions(CoordinatedAssaultToggle)
             .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerCoordinatedAssault)))
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerCoordinatedAssault)))
             .AddToDB();
 
         var featureSetCoordinatedAssault = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}CoordinatedAssault")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                powerCoordinatedAssault,
-                actionAffinityCoordinatedAttackToggle)
+                PowerCoordinatedAssault,
+                actionAffinityCoordinatedAssaultToggle)
             .AddToDB();
 
         //
@@ -232,7 +278,7 @@ public sealed class MartialWarlord : AbstractSubclass
         var featureControlTheField = FeatureDefinitionBuilder
             .Create($"Feature{Name}ControlTheField")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CharacterBattleStartedListenerControlTheField(powerCoordinatedAssault))
+            .AddCustomSubFeatures(new CharacterBattleStartedListenerControlTheField(PowerCoordinatedAssault))
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -278,8 +324,8 @@ public sealed class MartialWarlord : AbstractSubclass
                 return;
             }
 
-            var wisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom));
+            var wisdomModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom)), 1);
 
             rulesetCharacter.InflictCondition(
                 _conditionBattlefieldExperience.Name,
@@ -301,6 +347,67 @@ public sealed class MartialWarlord : AbstractSubclass
     // Press the Advantage
     //
 
+    private sealed class MagicEffectFinishedByMePressTheAdvantage : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionSpendPower characterActionSpendPower
+                || characterActionSpendPower.activePower.PowerDefinition.Name is not (
+                    "PowerMartialWarlordCoveringStrike" or
+                    "PowerMartialWarlordExploitOpening" or
+                    "PowerMartialWarlordPredictAttack"))
+            {
+                yield break;
+            }
+
+            action.ActingCharacter.UsedSpecialFeatures.TryAdd(PressTheAdvantageMarker, 1);
+        }
+    }
+
+    //
+    // Covering Strike
+    //
+
+    private sealed class OnConditionAddedOrRemovedCoveringStrike : IOnConditionAddedOrRemoved
+    {
+        private readonly ConditionDefinition _conditionCoveringStrikeAlly;
+
+        public OnConditionAddedOrRemovedCoveringStrike(ConditionDefinition conditionCoveringStrikeAlly)
+        {
+            _conditionCoveringStrikeAlly = conditionCoveringStrikeAlly;
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (Gui.Battle == null)
+            {
+                return;
+            }
+
+            foreach (var character in Gui.Battle.PlayerContenders
+                         .Where(x => x.Guid != rulesetCondition.SourceGuid))
+            {
+                character.RulesetCharacter.InflictCondition(
+                    _conditionCoveringStrikeAlly.Name,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfSourceTurn,
+                    AttributeDefinitions.TagCombat,
+                    target.guid,
+                    target.CurrentFaction.Name,
+                    1,
+                    _conditionCoveringStrikeAlly.Name,
+                    0,
+                    0,
+                    0);
+            }
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+    }
 
     //
     // Strategic Reposition
@@ -396,6 +503,16 @@ public sealed class MartialWarlord : AbstractSubclass
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
+            if (!attacker.RulesetCharacter.IsToggleEnabled(CoordinatedAssaultToggle))
+            {
+                yield break;
+            }
+
+            if (!attacker.OncePerTurnIsValid(CoordinatedAssaultMarker))
+            {
+                yield break;
+            }
+
             var actionParams = action.actionParams;
 
             // non-reaction melee hits only
@@ -469,7 +586,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
                 var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity)
                 {
-                    StringParameter2 = "CoordinatedAttack", BoolParameter4 = mode == null // true means no attack
+                    StringParameter2 = "CoordinatedAssault", BoolParameter4 = mode == null // true means no attack
                 };
 
                 reactionParams.targetCharacters.Add(defender);
@@ -531,8 +648,8 @@ public sealed class MartialWarlord : AbstractSubclass
             }
 
 
-            var wisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom));
+            var wisdomModifier = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Wisdom)), 1);
 
             foreach (var player in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.Side == locationCharacter.Side &&

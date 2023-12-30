@@ -249,7 +249,7 @@ internal enum ExtraActionId
     HailOfArrows = 9046,
     CompellingStrikeToggle = 9047,
     PressTheAdvantageToggle = 9048,
-    CoordinatedAttackToggle = 9049,
+    CoordinatedAssaultToggle = 9049,
     PrioritizeAction = 10000
 }
 

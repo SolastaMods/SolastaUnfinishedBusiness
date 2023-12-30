@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierMartialWarlordWisdomInitiative:202cec08-c66c-55fe-a920-34dc1ab2340e"
+    "Definition:CombatAffinityMartialWarlordCoveringStrikeAlly:49546875-c560-5b17-84eb-d0eb2195a979"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -88,7 +88,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "Fixed",
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f52ef653-2d88-59b2-ae82-b68637596a7b",
+  "guid": "84bfc647-7c15-5cb3-b4d8-dd3339a9ba53",
   "contentPack": 9999,
-  "name": "ConditionMartialWarlordWisdomInitiative"
+  "name": "ConditionMartialWarlordCoveringStrikeAlly"
 }

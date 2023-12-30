@@ -2,13 +2,11 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
-  "features": [
-    "Definition:AttributeModifierMartialWarlordWisdomInitiative:202cec08-c66c-55fe-a920-34dc1ab2340e"
-  ],
+  "conditionType": "Detrimental",
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -87,8 +85,8 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
-  "amountOrigin": "Fixed",
+  "possessive": true,
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -129,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionMartialWarlordCoveringStrikeTitle",
+    "description": "Condition/&ConditionMartialWarlordCoveringStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
+      "m_SubObjectName": "ConditionTargeted",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f52ef653-2d88-59b2-ae82-b68637596a7b",
+  "guid": "6bc4a2ea-adc8-5a63-bfaa-807ff1f58ec4",
   "contentPack": 9999,
-  "name": "ConditionMartialWarlordWisdomInitiative"
+  "name": "ConditionMartialWarlordCoveringStrike"
 }
