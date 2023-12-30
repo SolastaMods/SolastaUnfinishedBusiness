@@ -550,6 +550,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionPactChainSprite { get; } =
             GetDefinition<ConditionDefinition>("ConditionPactChainSprite");
 
+        internal static ConditionDefinition ConditionPainful { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPainful");
+
         internal static ConditionDefinition ConditionPatronTimekeeperCurseOfTime { get; } =
             GetDefinition<ConditionDefinition>("ConditionPatronTimekeeperCurseOfTime");
 

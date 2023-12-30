@@ -362,6 +362,7 @@ internal static class GambitsBuilders
                                         FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted,
                                         FeatureDefinitionSavingThrowAffinitys
                                             .SavingThrowAffinityPatronHiveWeakeningPheromones)
+                                    .CopyParticleReferences(ConditionDefinitions.ConditionPainful)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
