@@ -30,7 +30,7 @@ The next weapon or unarmed attack that hits a creature before your turn ends wil
 
 You can expend one gambit die as a free action, rolling the die and adding the number rolled to your AC until the end of your turn.
 
-# 9. - Inspire Word
+# 9. - Inspiring Word
 
 You can use your bonus action and spend a gambit die to bolster the resolve of one of your companions. When you do so, choose a friendly creature who can see or hear you. That creature gains temporary hit points equal to the gambit die roll + your Intelligence, Wisdom or Charisma modifier, whichever is higher.
 

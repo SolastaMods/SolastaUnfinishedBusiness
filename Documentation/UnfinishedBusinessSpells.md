@@ -374,7 +374,7 @@ This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered
 Summons Wight:
 A Wight
 
-# 88. - Dull Emotions (V,S) level 8 Transmutation
+# 88. - Mind Ward (V,S) level 8 Transmutation
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 

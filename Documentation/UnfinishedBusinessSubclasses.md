@@ -1227,7 +1227,55 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-## 7. Weapon Master
+## 7. Warlord
+
+Whether they are loved, respected or feared, warlords are primarily known for one thing – leading soldiers like no one else. A warlord stands side by side with their allies and can shift the tide of any battle, no matter if it requires a sword or a sharp tongue. The sheer presence of these natural-born leaders is enough for a soldier to confidently follow their orders and be the best version of themselves.
+
+
+### Level 3
+
+* Battlefield Experience
+
+Beginning at 3rd level, you gain a bonus to initiative rolls equal to your Wisdom modifier (minimum +1) if you aren't surprised or incapacitated. 
+
+* Press the Advantage
+
+As you strike, you call out sharp commands to your allies, spurring them to action and allowing them to take advantage of the opening. Once during your turn when you hit a creature with a melee weapon attack, you can immediately initiate one of the following maneuvers: 
+• Exploit Opening - The next attack roll made by an attacker other than yourself against this creature is made with advantage. The attack must be made before the start of your next turn.
+• Predict Attack - The creature has disadvantage on the next attack roll it makes before the start of your next turn.
+• Covering Strike - All allies other than yourself don’t provoke opportunity attacks from this creature. This effect lasts until the start of your next turn.
+
+
+### Level 7
+
+* Strategic Reposition
+
+ you can use your bonus action to order an ally other than yourself that you can see and that is within 30 feet of you to change their position. The targeted ally can move up to half its movement speed (rounded up) without provoking opportunity attacks.
+
+
+### Level 10
+
+* Coordinated Assault
+
+Once during your turn when you hit a creature with a melee weapon attack, you can issue an order to assault the creature, allowing all allies to use their reaction to make an attack of opportunity against it. You can use this feature three times per long rest. 
+
+
+### Level 15
+
+* Battle Plan
+
+Your Battlefield Experience now extends to all allied creatures within 30 feet of you.
+
+
+### Level 18
+
+* Control the Field
+
+You regain one usage of your Coordinated Assault whenever you roll initiative, and whenever you use Strategic Reposition feature, you can use your reaction to reuse that feature as a free action.
+
+
+
+## 8. Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
