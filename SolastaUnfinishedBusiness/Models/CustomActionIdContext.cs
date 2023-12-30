@@ -23,6 +23,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
+        (Id)ExtraActionId.CoordinatedAttackToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
@@ -30,6 +31,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.MindSculptToggle,
         (Id)ExtraActionId.MonkKiPointsToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
+        (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.SupremeWillToggle,
         (Id)ExtraActionId.ImpishWrathToggle, // defined in sub race
         (Id)ExtraActionId.QuiveringPalmToggle
@@ -216,6 +218,20 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ArcaneArcherToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "CoordinatedAttackToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CoordinatedAttackToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "PressTheAdvantageToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.PressTheAdvantageToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
