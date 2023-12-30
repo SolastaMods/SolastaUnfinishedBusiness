@@ -71,12 +71,70 @@ public sealed class MartialWarlord : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 IsPowerPool.Marker,
-                // ReactionResourceArcaneShot.Instance,
-                // new SpendPowerFinishedByMeArcaneShot(),
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.OnceInMyTurnIsValid(PressTheAdvantageMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(PressTheAdvantageToggle)))
             .AddToDB();
+
+        var powerExploitOpening = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}ExploitOpening")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPressTheAdvantage)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{Name}ExploitOpening")
+                                .SetGuiPresentation(Category.Condition)
+                                .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
+                                .AddToDB()))
+                    .Build())
+            .AddToDB();
+
+        var powerPredictAttack = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}PredictAttack")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPressTheAdvantage)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{Name}PredictAttack")
+                                .SetGuiPresentation(Category.Condition)
+                                .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
+                                .AddToDB()))
+                    .Build())
+            .AddToDB();
+
+        var powerCoveringStrike = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}CoveringStrike")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPressTheAdvantage)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{Name}CoveringStrike")
+                                .SetGuiPresentation(Category.Condition)
+                                .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
+                                .AddToDB()))
+                    .Build())
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerPressTheAdvantage, true,
+            powerExploitOpening, powerPredictAttack, powerCoveringStrike);
 
         var actionAffinityPressTheAdvantageToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityPressTheAdvantageToggle")
