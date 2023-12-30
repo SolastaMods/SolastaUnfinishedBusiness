@@ -97,10 +97,12 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityExploitOpening)
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
+        conditionExploitOpening.AddCustomSubFeatures(
+            RemoveConditionOnSourceTurnStart.Mark,
+            new PhysicalAttackFinishedOnMeExploitOpening(conditionExploitOpening));
+        
         combatAffinityExploitOpening.requiredCondition = conditionExploitOpening;
 
         var powerExploitOpening = FeatureDefinitionPowerSharedPoolBuilder
@@ -150,7 +152,6 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
             .AddToDB();
 
         var conditionCoveringStrikeAlly = ConditionDefinitionBuilder
@@ -168,6 +169,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddToDB();
 
         conditionCoveringStrike.AddCustomSubFeatures(
+            RemoveConditionOnSourceTurnStart.Mark,
             new OnConditionAddedOrRemovedCoveringStrike(conditionCoveringStrikeAlly));
 
         var powerCoveringStrike = FeatureDefinitionPowerSharedPoolBuilder
@@ -410,6 +412,49 @@ public sealed class MartialWarlord : AbstractSubclass
     }
 
     //
+    // Exploit Opening
+    //
+
+    private sealed class PhysicalAttackFinishedOnMeExploitOpening : IPhysicalAttackFinishedOnMe
+    {
+        private readonly ConditionDefinition _conditionExploitOpening;
+
+        public PhysicalAttackFinishedOnMeExploitOpening(ConditionDefinition conditionExploitOpening)
+        {
+            _conditionExploitOpening = conditionExploitOpening;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedOnMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            if (rulesetDefender.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, _conditionExploitOpening.Name, out var activeCondition) &&
+                attacker.Guid != activeCondition.SourceGuid)
+            {
+                rulesetDefender.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
+    //
     // Strategic Reposition
     //
 
@@ -509,7 +554,7 @@ public sealed class MartialWarlord : AbstractSubclass
             {
                 yield break;
             }
-            
+
             if (!rulesetCharacter.IsToggleEnabled(CoordinatedAssaultToggle))
             {
                 yield break;
