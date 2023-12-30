@@ -78,7 +78,8 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddCustomSubFeatures(
                 IsPowerPool.Marker,
                 new MagicEffectFinishedByMePressTheAdvantage(),
-                new RestrictReactionAttackMode((_, attacker, _, _, _) =>
+                new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
+                    mode != null && // weapon or unarmed only
                     attacker.OnceInMyTurnIsValid(PressTheAdvantageMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(PressTheAdvantageToggle)))
             .AddToDB();
@@ -102,7 +103,7 @@ public sealed class MartialWarlord : AbstractSubclass
         conditionExploitOpening.AddCustomSubFeatures(
             RemoveConditionOnSourceTurnStart.Mark,
             new PhysicalAttackFinishedOnMeExploitOpening(conditionExploitOpening));
-        
+
         combatAffinityExploitOpening.requiredCondition = conditionExploitOpening;
 
         var powerExploitOpening = FeatureDefinitionPowerSharedPoolBuilder
@@ -277,10 +278,28 @@ public sealed class MartialWarlord : AbstractSubclass
 
         // Control the Field
 
-        var featureControlTheField = FeatureDefinitionBuilder
-            .Create($"Feature{Name}ControlTheField")
+        var powerControlTheField = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ControlTheField")
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerMonkStepOftheWindDisengage)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
+                    .Build())
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(
+                    ValidatorsCharacter.HasNoAvailableBonusAction, ValidatorsCharacter.HasAvailableReaction),
+                new CustomBehaviorStrategicReposition(),
+                new CharacterBattleStartedListenerControlTheField(PowerCoordinatedAssault))
+            .AddToDB();
+
+        var featureSetControlTheField = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ControlTheField")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CharacterBattleStartedListenerControlTheField(PowerCoordinatedAssault))
+            .AddFeatureSet(powerControlTheField)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -290,7 +309,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .AddFeaturesAtLevel(7, powerStrategicRepositioning)
             .AddFeaturesAtLevel(10, featureSetCoordinatedAssault)
             .AddFeaturesAtLevel(15, featureBattlePlan)
-            .AddFeaturesAtLevel(18, featureControlTheField)
+            .AddFeaturesAtLevel(18, featureSetControlTheField)
             .AddToDB();
     }
 
@@ -530,6 +549,12 @@ public sealed class MartialWarlord : AbstractSubclass
 
             targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
             actionService.ExecuteAction(actionParams, null, false);
+
+            if (action.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower &&
+                rulesetEffectPower.PowerDefinition.Name == $"Power{Name}ControlTheField")
+            {
+                actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
+            }
         }
     }
 
