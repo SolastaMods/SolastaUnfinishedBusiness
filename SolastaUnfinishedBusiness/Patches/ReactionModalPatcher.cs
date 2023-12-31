@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -28,6 +30,25 @@ public static class ReactionModalPatcher
 
             ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
             return false;
+        }
+    }
+
+    //PATCH: ensure whoever reacts first will get the reaction handled first by game
+    [HarmonyPatch(typeof(ReactionModal), nameof(ReactionModal.OnReact))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class OnReact_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(CharacterReactionItem item)
+        {
+            var character = item.ReactionRequest.Character;
+            var timestamp = (int)DateTime.Now.ToFileTimeUtc();
+
+            if (!character.UsedSpecialFeatures.TryAdd("ReactionTimestamp", timestamp))
+            {
+                character.UsedSpecialFeatures["ReactionTimestamp"] = timestamp;
+            }
         }
     }
 }
