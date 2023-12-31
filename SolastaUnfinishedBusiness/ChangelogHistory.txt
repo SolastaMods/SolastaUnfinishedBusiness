@@ -11,9 +11,11 @@
 - fixed Elemental Infusion spell scaling additional targets instead of dice damage
 - fixed Monk remaining Ki points transmuting from the natural world into the integer one
 - fixed Tactical Strike gambit not enforcing second target selection
+- fixed Taunted condition duration on Thunder Gauntlet to cancel at start of the Innovation Armor turn
 
 - fixed vanilla language pools to also allow select Abyssal, Gnomish, and Infernal
 - fixed vanilla removing stealth from hero if within enemy perceived range during a surprise attack
+- fixed vanilla so grouped reactions are executed in order of selection [also in MP, whoever clicks first, acts first]
 
 - deprecated Martial Marshal subclass [you can always edit settings.xml deprecated subclasses list at will]
 - renamed some feats, features, fighting styles, spells, etc. to respect others copyright

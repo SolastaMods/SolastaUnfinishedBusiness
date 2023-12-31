@@ -651,6 +651,9 @@ internal static class CustomWeaponsContext
         damageForm.diceNumber = 1;
         damageForm.damageType = DamageTypeThunder;
 
+        baseDescription.EffectDescription.DurationType = DurationType.Round;
+        baseDescription.EffectDescription.DurationParameter = 1;
+        baseDescription.EffectDescription.EndOfEffect = TurnOccurenceType.EndOfSourceTurn;
         baseDescription.EffectDescription.EffectForms.Add(
             EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted));
         baseDescription.EffectDescription.EffectForms.Add(

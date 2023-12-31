@@ -84,14 +84,14 @@ internal static class CustomConditionsContext
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
-            .AddCustomSubFeatures(new ActionFinishedByMeTaunted())
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark, new ActionFinishedByMeTaunted())
             .AddToDB();
 
         Taunter = ConditionDefinitionBuilder
             .Create("ConditionTaunter")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new ActionFinishedByMeTaunter())
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark, new ActionFinishedByMeTaunter())
             .AddToDB();
     }
 
