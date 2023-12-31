@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>0</DisplayModMessage>
+    <DisplayModMessage>30</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -212,6 +212,11 @@
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
     <DeprecatedSubclasses>
+        <string>CollegeOfHarlequin</string>
+        <string>MartialMarshal</string>
+        <string>MartialMartialDefender</string>
+        <string>RoguishRaven</string>
+        <string>WayOfTheDistantHand</string>
         <string>CollegeOfHarlequin</string>
         <string>MartialMartialDefender</string>
         <string>RoguishRaven</string>
@@ -681,10 +686,10 @@
                 <ArrayOfString>
                     <string>MartialArcaneArcher</string>
                     <string>MartialGuardian</string>
-                    <string>MartialMarshal</string>
                     <string>MartialRoyalKnight</string>
                     <string>MartialSpellShield</string>
                     <string>MartialTactician</string>
+                    <string>MartialWarlord</string>
                     <string>MartialWeaponMaster</string>
                 </ArrayOfString>
             </value>

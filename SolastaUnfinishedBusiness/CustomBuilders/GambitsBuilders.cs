@@ -73,6 +73,24 @@ internal static class GambitsBuilders
                 ValidatorsRestrictedContext.IsWeaponAttack)
             .AddToDB();
 
+        var gambitDieDamageMelee = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageGambitDieMelee")
+            .SetGuiPresentationNoContent(true)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetNotificationTag("GambitDie")
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionName = MartialTactician.MarkDamagedByGambit
+                })
+            .SetFrequencyLimit(FeatureLimitedUsage.None)
+            .AddCustomSubFeatures(
+                (DamageDieProvider)((character, _) => GetGambitDieSize(character)),
+                ValidatorsRestrictedContext.IsMeleeAttack)
+            .AddToDB();
+
         var conditionGambitDieDamage = ConditionDefinitionBuilder
             .Create("ConditionGambitDieDamage")
             .SetGuiPresentationNoContent(true)
@@ -410,7 +428,7 @@ internal static class GambitsBuilders
         reactionPower = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
+            .SetSharedPool(ActivationTime.OnAttackHitMeleeAuto, GambitPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -452,7 +470,7 @@ internal static class GambitsBuilders
                                 .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
-                                .SetFeatures(gambitDieDamage, reactionPower)
+                                .SetFeatures(gambitDieDamageMelee, reactionPower)
                                 .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                 .AddToDB()))
                     .Build())

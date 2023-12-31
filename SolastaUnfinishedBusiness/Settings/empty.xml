@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>0</DisplayModMessage>
+    <DisplayModMessage>30</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -213,6 +213,7 @@
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
     <DeprecatedSubclasses>
         <string>CollegeOfHarlequin</string>
+        <string>MartialMarshal</string>
         <string>MartialMartialDefender</string>
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>

@@ -646,6 +646,8 @@ internal static class CustomConditionsContext
 
     private sealed class ActionFinishedByMeTaunted : IActionFinishedByMe
     {
+        private const int TauntedRange = 1;
+
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction.ActionType != ActionType.Move)
@@ -672,7 +674,7 @@ internal static class CustomConditionsContext
                          .Where(t =>
                              t.caster != null &&
                              (!t.caster.PerceivedFoes.Contains(actingCharacter) ||
-                              !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, 5)))
+                              !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, TauntedRange)))
                          .Select(c => c.b.a))
             {
                 rulesetCharacter.RemoveCondition(rulesetCondition);
