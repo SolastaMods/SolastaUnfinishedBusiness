@@ -1,6 +1,6 @@
 Action/&CompellingStrikeToggleDescription=Attiva/disattiva Colpo avvincente
 Action/&CompellingStrikeToggleTitle=Colpo avvincente
-Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Ogni volta che colpisci una creatura con un attacco con arma da mischia, puoi provocarla fino all'inizio del tuo turno successivo. Una creatura provocata da te ha svantaggio su qualsiasi tiro per colpire che non ti prende di mira. Questo effetto termina anticipatamente se un altro alleato provoca la creatura, se ci si allontana di più di 9 metri dalla creatura o se si perde di vista la creatura.
+Feature/&ActionAffinityMartialGuardianCompellingStrikeDescription=Ogni volta che colpisci una creatura con un attacco con arma da mischia, puoi provocarla fino all'inizio del tuo turno successivo. Una creatura provocata da te ha svantaggio su qualsiasi tiro per colpire che non ti prende di mira. Questo effetto termina anticipatamente se un altro alleato provoca la creatura, se ti allontani a più di 1,5 metri dalla creatura o se la perdi di vista.
 Feature/&ActionAffinityMartialGuardianCompellingStrikeTitle=Colpo avvincente
 Feature/&FeatureMartialGuardianImperviousProtectorDescription=Ottieni resistenza a tutti i danni contundenti, perforanti e taglienti non magici finché indossi un'armatura pesante e, se tiri l'iniziativa e perdi almeno un uso del tuo privilegio Grande Sfida, ne recuperi un uso.
 Feature/&FeatureMartialGuardianImperviousProtectorTitle=Protettore impervio
