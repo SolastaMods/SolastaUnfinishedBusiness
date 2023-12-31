@@ -413,7 +413,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             var rulesetDefender = defender.RulesetCharacter;
-            
+
             //PATCH: process ExtraConditionInterruption.AttackedNotBySource
             if (rulesetDefender.matchingInterruption)
             {

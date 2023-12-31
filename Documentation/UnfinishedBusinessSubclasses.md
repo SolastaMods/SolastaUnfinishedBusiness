@@ -1183,7 +1183,7 @@ Whether they are loved, respected or feared, warlords are primarily known for on
 
 * Battlefield Experience
 
-Beginning at 3rd level, you gain a bonus to initiative rolls equal to your Wisdom modifier (minimum +1) if you aren't surprised or incapacitated. 
+You gain a bonus to initiative rolls equal to your Wisdom modifier (minimum +1). 
 
 * Press the Advantage
 

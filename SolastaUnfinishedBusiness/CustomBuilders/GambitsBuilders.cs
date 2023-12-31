@@ -1949,7 +1949,7 @@ internal static class GambitsBuilders
             if (!target.CanReact())
             {
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
-                
+
                 return false;
             }
 
@@ -1960,7 +1960,7 @@ internal static class GambitsBuilders
             }
 
             __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
-                
+
             return false;
         }
 

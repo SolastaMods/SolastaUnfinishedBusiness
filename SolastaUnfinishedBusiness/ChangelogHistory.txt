@@ -15,7 +15,7 @@
 
 - fixed vanilla language pools to also allow select Abyssal, Gnomish, and Infernal
 - fixed vanilla removing stealth from hero if within enemy perceived range during a surprise attack
-- fixed vanilla so grouped reactions are executed in order of selection [also in MP, whoever clicks first, acts first]
+- fixed vanilla grouped reactions to be executed in order of modal clicks instead of party order
 
 - deprecated Martial Marshal subclass [you can always edit settings.xml deprecated subclasses list at will]
 - renamed some feats, features, fighting styles, spells, etc. to respect others copyright

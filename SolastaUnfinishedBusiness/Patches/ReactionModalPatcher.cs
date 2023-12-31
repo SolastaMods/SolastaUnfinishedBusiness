@@ -33,21 +33,24 @@ public static class ReactionModalPatcher
         }
     }
 
-    //PATCH: ensure whoever reacts first will get the reaction handled first by game
     [HarmonyPatch(typeof(ReactionModal), nameof(ReactionModal.OnReact))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnReact_Patch
     {
+        private const string ReactionTimestamp =
+            GameLocationActionManagerPatcher.ExecuteReactionRequestGroupAsync_Patch.ReactionTimestamp;
+
         [UsedImplicitly]
         public static void Prefix(CharacterReactionItem item)
         {
+            //PATCH: ensure whoever reacts first will get the reaction handled first by game
             var character = item.ReactionRequest.Character;
             var timestamp = (int)DateTime.Now.ToFileTimeUtc();
 
-            if (!character.UsedSpecialFeatures.TryAdd("ReactionTimestamp", timestamp))
+            if (!character.UsedSpecialFeatures.TryAdd(ReactionTimestamp, timestamp))
             {
-                character.UsedSpecialFeatures["ReactionTimestamp"] = timestamp;
+                character.UsedSpecialFeatures[ReactionTimestamp] = timestamp;
             }
         }
     }

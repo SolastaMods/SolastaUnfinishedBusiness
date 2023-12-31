@@ -374,7 +374,7 @@ public sealed class MartialWarlord : AbstractSubclass
             {
                 return;
             }
-            
+
             foreach (var character in Gui.Battle.PlayerContenders
                          .Where(x => x.Guid != rulesetCondition.SourceGuid))
             {
@@ -407,6 +407,21 @@ public sealed class MartialWarlord : AbstractSubclass
     private sealed class CustomBehaviorStrategicReposition :
         IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
     {
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+
+            return false;
+        }
+
         public void EnumerateValidPositions(
             CursorLocationSelectPosition cursorLocationSelectPosition,
             List<int3> validPositions)
@@ -478,21 +493,6 @@ public sealed class MartialWarlord : AbstractSubclass
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
             actionService.ExecuteAction(actionParams, null, false);
-        }
-
-        public bool EnforceFullSelection => false;
-        
-        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
-        {
-            if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
-                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
-            {
-                return true;
-            }
-
-            __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
-                
-            return false;
         }
     }
 

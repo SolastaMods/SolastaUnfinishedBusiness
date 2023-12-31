@@ -1,13 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -138,107 +133,32 @@ public static class GameLocationActionManagerPatcher
         }
     }
 
-    //PATCH: ensure whoever reacts first will get the reaction handled first by game
-    [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.ProcessReactionRequest))]
+    [HarmonyPatch(typeof(GameLocationActionManager),
+        nameof(GameLocationActionManager.ExecuteReactionRequestGroupAsync))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class ProcessReactionRequest_Patch
+    public static class ExecuteReactionRequestGroupAsync_Patch
     {
-        // this is vanilla code except for the BEGIN END patch block
+        public const string ReactionTimestamp = "ReactionTimestamp";
+
         [UsedImplicitly]
-        public static bool Prefix(GameLocationActionManager __instance, ReactionRequest reactionRequest, bool validated)
+        public static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            ReactionRequestGroup reactionRequestGroup)
         {
-            __instance.ReactionRequestProcessed?.Invoke(reactionRequest, validated);
-
-            if (!__instance.pendingReactionRequestGroups.Peek().Requests.Contains(reactionRequest))
+            //PATCH: ensure whoever reacts first will get the reaction handled first by game
+            reactionRequestGroup.Requests.Sort((a, b) =>
             {
-                if (!reactionRequest.Validated && reactionRequest.Processed)
-                {
-                    return false;
-                }
-
-                Trace.LogAssertion("Request hasn't been invalidated but not found in the top pending group");
-            }
-
-            var flag1 = false;
-
-            if (validated && !reactionRequest.Processed)
-            {
-                reactionRequest.Validated = true;
-                reactionRequest.OnSetValid();
-                reactionRequest.Processed = true;
-
-                if (reactionRequest.ValidationDismissesSimilarReactions)
-                {
-                    var reactionRequestGroup = __instance.pendingReactionRequestGroups.Peek();
-                    var reactionRequestList = new List<ReactionRequest>();
-                    reactionRequestList.AddRange(reactionRequestGroup.Requests);
-
-                    foreach (var reactionRequest1 in reactionRequestList
-                                 .Where(reactionRequest1 => reactionRequest1 != reactionRequest))
-                    {
-                        reactionRequest1.Validated = false;
-                        reactionRequest1.OnSetInvalid();
-                        reactionRequest1.Processed = true;
-                        reactionRequest1.ReactionDismissForced?.Invoke(reactionRequest1);
-
-                        flag1 = __instance.RemoveReactionRequest(reactionRequest1);
-
-                        if (reactionRequest1.ReactionParams.RulesetEffect != null &&
-                            reactionRequest1.ReactionParams.IsReactionEffect)
-                        {
-                            reactionRequest1.ReactionParams.RulesetEffect.Terminate(false);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                flag1 = __instance.RemoveReactionRequest(reactionRequest);
-
-                if (reactionRequest.ReactionParams.RulesetEffect != null &&
-                    reactionRequest.ReactionParams.IsReactionEffect)
-                {
-                    reactionRequest.ReactionParams.RulesetEffect.Terminate(false);
-                }
-
-                reactionRequest.OnSetInvalid();
-            }
-
-            reactionRequest.ReactionParams.ReactionValidated = reactionRequest.Validated;
-
-            if (__instance.pendingReactionRequestGroups.Empty() || flag1)
-            {
-                return false;
-            }
-
-            var flag2 = true;
-            var reactionRequestGroup1 = __instance.pendingReactionRequestGroups.Peek();
-
-            foreach (var request in reactionRequestGroup1.Requests
-                         .Where(request => !request.Processed))
-            {
-                flag2 = false;
-            }
-
-            if (!flag2)
-            {
-                return false;
-            }
-
-            //BEGIN PATCH
-            reactionRequestGroup1.Requests.Sort((a, b) =>
-            {
-                a.Character.UsedSpecialFeatures.TryGetValue("ReactionTimestamp", out var aTimestamp);
-                b.Character.UsedSpecialFeatures.TryGetValue("ReactionTimestamp", out var bTimestamp);
+                a.Character.UsedSpecialFeatures.TryGetValue(ReactionTimestamp, out var aTimestamp);
+                b.Character.UsedSpecialFeatures.TryGetValue(ReactionTimestamp, out var bTimestamp);
 
                 return aTimestamp <= bTimestamp ? -1 : 1;
             });
-            //END PATCH
 
-            __instance.unstoppableCoroutines.Add(__instance.ExecuteReactionRequestGroupAsync(reactionRequestGroup1));
-
-            return false;
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
         }
     }
 }
