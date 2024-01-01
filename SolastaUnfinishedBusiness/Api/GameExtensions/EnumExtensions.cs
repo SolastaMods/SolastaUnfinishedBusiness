@@ -28,7 +28,6 @@ internal enum ExtraSituationalContext
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012,
     TargetIsFavoriteEnemy = 1013,
     HasShieldInHands = 1014,
-    TargetDoesNotHaveCondition = 1015,
     HasSimpleOrMartialWeaponInHands = 1016,
     IsNotSourceOfCondition = 1017
 }
@@ -113,7 +112,8 @@ internal enum ExtraOriginOfAmount
 
     SourceCopyAttributeFromSummoner =
         9005, //Attribute name should be in the `additionalDamageType` field of the condition
-    SourceProficiencyAndAbilityBonus = 9006
+    SourceProficiencyAndAbilityBonus = 9006,
+    SourceGambitDieRoll = 9007
 }
 
 internal enum ExtraAdditionalDamageTriggerCondition
@@ -147,7 +147,8 @@ public enum ExtraConditionInterruption
     //Interrupts after attack was made against this target, unlike `ConditionInterruption.Attacked` that triggers at the very start
     AfterWasAttacked = 9000,
     AttacksWithWeaponOrUnarmed = 9001,
-    UsesBonusAction = 9002
+    AttackedNotBySource = 9002,
+    UsesBonusAction = 9003
 }
 
 #if false
@@ -247,6 +248,8 @@ internal enum ExtraActionId
     ImpishWrathToggle = 9045,
     HailOfArrows = 9046,
     CompellingStrikeToggle = 9047,
+    PressTheAdvantageToggle = 9048,
+    CoordinatedAssaultToggle = 9049,
     PrioritizeAction = 10000
 }
 

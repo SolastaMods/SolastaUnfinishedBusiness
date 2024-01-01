@@ -305,7 +305,7 @@ public static class PartyEditor
                                 (chr, feat) => !chr.TrainedFeats.Contains(feat)
                                     ? () =>
                                     {
-                                        chr.TrainFeats(new List<FeatDefinition> { feat });
+                                        chr.TrainFeats([feat]);
 
                                         LevelUpContext.RecursiveGrantCustomFeatures(
                                             chr, AttributeDefinitions.TagFeat, feat.Features);
@@ -352,9 +352,9 @@ public static class PartyEditor
                                 (chr, def) => !chr.TrainedInvocations.Contains(def)
                                     ? () =>
                                     {
-                                        chr.TrainInvocations(new List<InvocationDefinition> { def });
+                                        chr.TrainInvocations([def]);
                                         LevelUpContext.RecursiveGrantCustomFeatures(
-                                            chr, null, new List<FeatureDefinition> { def.grantedFeature });
+                                            chr, null, [def.grantedFeature]);
                                     }
                                     : null,
                                 (chr, def) => chr.TrainedInvocations.Contains(def)
@@ -367,7 +367,7 @@ public static class PartyEditor
                                         }
 
                                         LevelUpContext.RecursiveRemoveCustomFeatures(
-                                            chr, null, new List<FeatureDefinition> { def.grantedFeature });
+                                            chr, null, [def.grantedFeature]);
                                     }
                                     : null
                             );
@@ -453,7 +453,7 @@ public static class PartyEditor
 #if DEBUG
     private static void RefreshPool()
     {
-        _characterPool = new List<RulesetCharacter>();
+        _characterPool = [];
         PoolService.EnumeratePool();
 
         foreach (var filename in PoolService.Pool.Select(item => item.Key))

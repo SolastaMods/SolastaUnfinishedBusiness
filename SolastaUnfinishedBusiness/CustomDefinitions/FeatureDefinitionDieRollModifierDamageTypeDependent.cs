@@ -4,5 +4,5 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
 internal sealed class FeatureDefinitionDieRollModifierDamageTypeDependent : FeatureDefinitionDieRollModifier
 {
-    public List<string> damageTypes = new();
+    public List<string> damageTypes = [];
 }

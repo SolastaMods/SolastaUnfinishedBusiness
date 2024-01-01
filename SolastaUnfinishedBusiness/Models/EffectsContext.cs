@@ -46,7 +46,7 @@ public static class EffectsContext
             }
 
             Effects[EffectHelpers.EffectType.Caster]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+                .TryAdd(effectReferenceGuid, []);
             Effects[EffectHelpers.EffectType.Caster][effectReferenceGuid].Add((name, effectParticleParameters));
         }
 
@@ -63,7 +63,7 @@ public static class EffectsContext
             }
 
             Effects[EffectHelpers.EffectType.Caster]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+                .TryAdd(effectReferenceGuid, []);
             Effects[EffectHelpers.EffectType.Caster][effectReferenceGuid].Add((name, effectParticleParameters));
         }
     }
@@ -86,7 +86,7 @@ public static class EffectsContext
             }
 
             ConditionEffects
-                .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
+                .TryAdd(effectReferenceGuid, []);
             ConditionEffects[effectReferenceGuid].Add((name, condition));
         }
 
@@ -103,7 +103,7 @@ public static class EffectsContext
             }
 
             ConditionEffects
-                .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
+                .TryAdd(effectReferenceGuid, []);
             ConditionEffects[effectReferenceGuid].Add((name, spell));
         }
 
@@ -120,7 +120,7 @@ public static class EffectsContext
             }
 
             ConditionEffects
-                .TryAdd(effectReferenceGuid, new List<(string, BaseDefinition)>());
+                .TryAdd(effectReferenceGuid, []);
             ConditionEffects[effectReferenceGuid].Add((name, power));
         }
     }
@@ -146,7 +146,7 @@ public static class EffectsContext
             }
 
             Effects[EffectHelpers.EffectType.Effect]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+                .TryAdd(effectReferenceGuid, []);
             Effects[EffectHelpers.EffectType.Effect][effectReferenceGuid].Add((name, effectParticleParameters));
         }
 
@@ -163,15 +163,14 @@ public static class EffectsContext
             }
 
             Effects[EffectHelpers.EffectType.Effect]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+                .TryAdd(effectReferenceGuid, []);
             Effects[EffectHelpers.EffectType.Effect][effectReferenceGuid].Add((name, effectParticleParameters));
         }
     }
 
     private static void DumpImpactEffects()
     {
-        Effects.Add(EffectHelpers.EffectType.Impact,
-            new Dictionary<string, List<(string, EffectParticleParameters)>>());
+        Effects.Add(EffectHelpers.EffectType.Impact, []);
 
         var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>();
         var spells = DatabaseRepository.GetDatabase<SpellDefinition>();
@@ -189,7 +188,7 @@ public static class EffectsContext
             }
 
             Effects[EffectHelpers.EffectType.Impact]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+                .TryAdd(effectReferenceGuid, []);
             Effects[EffectHelpers.EffectType.Impact][effectReferenceGuid].Add((name, effectParticleParameters));
         }
 
@@ -206,15 +205,14 @@ public static class EffectsContext
             }
 
             Effects[EffectHelpers.EffectType.Impact]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+                .TryAdd(effectReferenceGuid, []);
             Effects[EffectHelpers.EffectType.Impact][effectReferenceGuid].Add((name, effectParticleParameters));
         }
     }
 
     private static void DumpZoneEffects()
     {
-        Effects.Add(EffectHelpers.EffectType.Zone,
-            new Dictionary<string, List<(string, EffectParticleParameters)>>());
+        Effects.Add(EffectHelpers.EffectType.Zone, []);
 
         var powers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>();
         var spells = DatabaseRepository.GetDatabase<SpellDefinition>();
@@ -232,7 +230,7 @@ public static class EffectsContext
             }
 
             Effects[EffectHelpers.EffectType.Zone]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+                .TryAdd(effectReferenceGuid, []);
             Effects[EffectHelpers.EffectType.Zone][effectReferenceGuid].Add((name, effectParticleParameters));
         }
 
@@ -249,7 +247,7 @@ public static class EffectsContext
             }
 
             Effects[EffectHelpers.EffectType.Zone]
-                .TryAdd(effectReferenceGuid, new List<(string, EffectParticleParameters)>());
+                .TryAdd(effectReferenceGuid, []);
             Effects[EffectHelpers.EffectType.Zone][effectReferenceGuid].Add((name, effectParticleParameters));
         }
     }

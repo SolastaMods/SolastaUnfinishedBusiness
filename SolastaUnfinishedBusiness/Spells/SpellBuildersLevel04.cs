@@ -310,7 +310,7 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByMe, IRollSavingThrowInitiated
+    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByEnemy, IRollSavingThrowInitiated
     {
         private readonly SpellDefinition _spellDefinition;
 
@@ -319,9 +319,9 @@ internal static partial class SpellBuilders
             _spellDefinition = spellDefinition;
         }
 
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
-            var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = target.RulesetCharacter;
 
             if (rulesetCharacter.TemporaryHitPoints == 0)
             {
@@ -664,6 +664,7 @@ internal static partial class SpellBuilders
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (attackMode?.AbilityScore == AttributeDefinitions.Strength)
@@ -683,11 +684,11 @@ internal static partial class SpellBuilders
             _conditionTree = conditionTree;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
+        public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             var abilityScore = attackMode?.abilityScore;

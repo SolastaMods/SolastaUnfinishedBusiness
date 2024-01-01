@@ -18,11 +18,12 @@ namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomActionIdContext
 {
-    private static readonly List<Id> ExtraActionIdToggles = new()
-    {
+    private static readonly List<Id> ExtraActionIdToggles =
+    [
         (Id)ExtraActionId.ArcaneArcherToggle,
         (Id)ExtraActionId.AudaciousWhirlToggle,
         (Id)ExtraActionId.CompellingStrikeToggle,
+        (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
@@ -30,10 +31,11 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.MindSculptToggle,
         (Id)ExtraActionId.MonkKiPointsToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
+        (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.SupremeWillToggle,
         (Id)ExtraActionId.ImpishWrathToggle, // defined in sub race
-        (Id)ExtraActionId.QuiveringPalmToggle // defined in sub class
-    };
+        (Id)ExtraActionId.QuiveringPalmToggle
+    ];
 
     internal static FeatureDefinitionPower FarStep { get; private set; }
 
@@ -216,6 +218,20 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ArcaneArcherToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "CoordinatedAssaultToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "PressTheAdvantageToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.PressTheAdvantageToggle)
             .AddToDB();
 
         ActionDefinitionBuilder

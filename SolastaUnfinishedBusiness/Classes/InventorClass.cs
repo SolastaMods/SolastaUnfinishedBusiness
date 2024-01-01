@@ -32,7 +32,7 @@ internal static class InventorClass
     private static SpellListDefinition _spellList;
     private static FeatureDefinitionCastSpell _spellCasting;
     private static int _infusionPoolIncreases;
-    private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers = new();
+    private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers = [];
 
     private static readonly FeatureDefinitionPower PowerInventorSpellStoringItem = FeatureDefinitionPowerBuilder
         .Create("PowerInventorSpellStoringItem")
@@ -42,7 +42,7 @@ internal static class InventorClass
             RechargeRate.LongRest)
         .AddToDB();
 
-    private static readonly int[] Costs = { 0, 0, 0, 0, 0 };
+    private static readonly int[] Costs = [0, 0, 0, 0, 0];
 
     private static FeatureDefinitionCastSpell SpellCasting => _spellCasting ??= BuildSpellCasting();
 

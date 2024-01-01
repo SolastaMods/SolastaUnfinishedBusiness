@@ -14,11 +14,11 @@ internal static class EncountersSpawnContext
 {
     internal const int MaxEncounterCharacters = 16;
 
-    private static readonly List<RulesetCharacterHero> Heroes = new();
+    private static readonly List<RulesetCharacterHero> Heroes = [];
 
-    private static readonly List<MonsterDefinition> Monsters = new();
+    private static readonly List<MonsterDefinition> Monsters = [];
 
-    internal static readonly List<RulesetCharacter> EncounterCharacters = new();
+    internal static readonly List<RulesetCharacter> EncounterCharacters = [];
 
     private static ulong EncounterId { get; set; } = 10000;
 

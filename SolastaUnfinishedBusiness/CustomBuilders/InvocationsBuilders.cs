@@ -67,12 +67,12 @@ internal static class InvocationsBuilders
         }
 
         rulesetDefender.LogCharacterAffectedByCondition(ConditionDefinitions.ConditionProne);
-        return new[]
-        {
+        return
+        [
             EffectFormBuilder.Create()
                 .SetMotionForm(MotionForm.MotionType.FallProne)
                 .Build()
-        };
+        ];
     }
 
 
@@ -369,12 +369,7 @@ internal static class InvocationsBuilders
             .Create(Haste, "Kinesis")
             .AddToDB();
 
-        var effect = spellKinesis.EffectDescription;
-        effect.targetFilteringMethod = TargetFilteringMethod.CharacterOnly;
-        effect.targetExcludeCaster = true;
-        effect.EffectForms.Add(EffectFormBuilder.ConditionForm(
-            ConditionDefinitions.ConditionHasted,
-            ConditionForm.ConditionOperation.Add, true));
+        spellKinesis.EffectDescription.targetFilteringMethod = TargetFilteringMethod.CharacterOnly;
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -826,8 +821,8 @@ internal static class InvocationsBuilders
                 false,
                 caster.Guid,
                 false,
-                new List<string>(),
-                new RollInfo(DieType.D1, new List<int>(), charismaModifier),
+                [],
+                new RollInfo(DieType.D1, [], charismaModifier),
                 true,
                 out _);
         }
@@ -1170,6 +1165,8 @@ internal static class InvocationsBuilders
             _powerVexingHex = powerVexingHex;
         }
 
+        public bool EnforceFullSelection => false;
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
@@ -1241,7 +1238,7 @@ internal static class InvocationsBuilders
                     false,
                     attacker.Guid,
                     false,
-                    new List<string>(),
+                    [],
                     new RollInfo(damageForm.DieType, rolls, 0),
                     false,
                     out _);

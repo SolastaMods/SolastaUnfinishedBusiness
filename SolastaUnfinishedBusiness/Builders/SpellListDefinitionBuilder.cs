@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -30,10 +29,7 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
             if (Definition.SpellsByLevel.Count < level + 1)
             {
                 // Add new duplet
-                Definition.SpellsByLevel.Add(new SpellsByLevelDuplet
-                {
-                    Level = level, Spells = new List<SpellDefinition>()
-                });
+                Definition.SpellsByLevel.Add(new SpellsByLevelDuplet { Level = level, Spells = [] });
             }
 
             // Check this level matches
@@ -45,7 +41,7 @@ internal class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinitio
             }
 
             // Ensure spells list is set
-            spells.Spells ??= new List<SpellDefinition>();
+            spells.Spells ??= [];
         }
     }
 

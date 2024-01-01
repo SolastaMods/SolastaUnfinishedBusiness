@@ -136,38 +136,18 @@ internal static class MulticlassContext
     // these features will be removed to comply with SRD multiclass rules
     private static readonly Dictionary<CharacterClassDefinition, List<FeatureDefinition>> FeaturesToExclude = new()
     {
-        {
-            Barbarian, new List<FeatureDefinition> { PointPoolBarbarianrSkillPoints, ProficiencyBarbarianSavingThrow }
-        },
-        { Bard, new List<FeatureDefinition> { ProficiencyBardWeapon, ProficiencyBardSavingThrow } },
-        {
-            Cleric,
-            new List<FeatureDefinition>
-            {
-                ProficiencyClericWeapon, PointPoolClericSkillPoints, ProficiencyClericSavingThrow
-            }
-        },
-        { Druid, new List<FeatureDefinition> { PointPoolDruidSkillPoints, ProficiencyDruidSavingThrow } },
-        { Fighter, new List<FeatureDefinition> { PointPoolFighterSkillPoints, ProficiencyFighterSavingThrow } },
-        { Monk, new List<FeatureDefinition> { PointPoolMonkSkillPoints, ProficiencyMonkSavingThrow } },
-        { Paladin, new List<FeatureDefinition> { PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow } },
-        { Ranger, new List<FeatureDefinition> { ProficiencyRangerSavingThrow } },
-        { Rogue, new List<FeatureDefinition> { ProficiencyRogueWeapon, ProficiencyRogueSavingThrow } },
-        {
-            Sorcerer,
-            new List<FeatureDefinition>
-            {
-                ProficiencySorcererWeapon, PointPoolSorcererSkillPoints, ProficiencySorcererSavingThrow
-            }
-        },
-        { Warlock, new List<FeatureDefinition> { PointPoolWarlockSkillPoints, ProficiencyWarlockSavingThrow } },
-        {
-            Wizard,
-            new List<FeatureDefinition>
-            {
-                ProficiencyWizardWeapon, PointPoolWizardSkillPoints, ProficiencyWizardSavingThrow
-            }
-        }
+        { Barbarian, [PointPoolBarbarianrSkillPoints, ProficiencyBarbarianSavingThrow] },
+        { Bard, [ProficiencyBardWeapon, ProficiencyBardSavingThrow] },
+        { Cleric, [ProficiencyClericWeapon, PointPoolClericSkillPoints, ProficiencyClericSavingThrow] },
+        { Druid, [PointPoolDruidSkillPoints, ProficiencyDruidSavingThrow] },
+        { Fighter, [PointPoolFighterSkillPoints, ProficiencyFighterSavingThrow] },
+        { Monk, [PointPoolMonkSkillPoints, ProficiencyMonkSavingThrow] },
+        { Paladin, [PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow] },
+        { Ranger, [ProficiencyRangerSavingThrow] },
+        { Rogue, [ProficiencyRogueWeapon, ProficiencyRogueSavingThrow] },
+        { Sorcerer, [ProficiencySorcererWeapon, PointPoolSorcererSkillPoints, ProficiencySorcererSavingThrow] },
+        { Warlock, [PointPoolWarlockSkillPoints, ProficiencyWarlockSavingThrow] },
+        { Wizard, [ProficiencyWizardWeapon, PointPoolWizardSkillPoints, ProficiencyWizardSavingThrow] }
     };
 
     private static (MethodInfo, HeroContext) FeatureUnlocksContext { get; set; }
@@ -233,11 +213,10 @@ internal static class MulticlassContext
         if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(INVENTOR_NAME, out var inventorClass))
         {
             FeaturesToExclude.Add(inventorClass,
-                new List<FeatureDefinition>
-                {
-                    DatabaseHelper.GetDefinition<FeatureDefinitionPointPool>("PointPoolInventorSkills"),
-                    DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyInventorSavingThrow")
-                });
+            [
+                DatabaseHelper.GetDefinition<FeatureDefinitionPointPool>("PointPoolInventorSkills"),
+                DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyInventorSavingThrow")
+            ]);
         }
     }
 

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupHalfCharismaTitle",
-    "description": "Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Elven Precision [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]",
+    "description": "Aegis Touched [Cha], Apothecary [Cha], Arcane Teleportation [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Elven Precision [Cha], Flame Touched [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Psychokinesis [Cha], Retinue Touched [Cha], Toxicologist [Cha], Umbra Touched [Cha], Verdant Touched [Cha]",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

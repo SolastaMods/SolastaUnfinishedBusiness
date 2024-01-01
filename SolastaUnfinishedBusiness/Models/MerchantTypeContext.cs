@@ -11,20 +11,20 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MerchantTypeContext
 {
-    internal static readonly List<(MerchantDefinition, MerchantType)> MerchantTypes = new();
+    internal static readonly List<(MerchantDefinition, MerchantType)> MerchantTypes = [];
 
     private static readonly string[] RangedWeaponTypes =
-    {
+    [
         "LightCrossbowType", "HeavyCrossbowType", "ShortbowType", "LongbowType", "DartType"
-    };
+    ];
 
     private static readonly string[] EquipmentSlots =
-    {
+    [
         EquipmentDefinitions.SlotTypeBelt, EquipmentDefinitions.SlotTypeBack, EquipmentDefinitions.SlotTypeFeet,
         EquipmentDefinitions.SlotTypeFinger, EquipmentDefinitions.SlotTypeGloves, EquipmentDefinitions.SlotTypeHead,
         EquipmentDefinitions.SlotTypeNeck, EquipmentDefinitions.SlotTypeShoulders,
         EquipmentDefinitions.SlotTypeWrists
-    };
+    ];
 
     internal static void Load()
     {
@@ -152,7 +152,7 @@ internal static class MerchantContext
 {
     private static StockUnitDescriptionBuilder _stockBuilder;
 
-    private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
+    private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = [];
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
 
     internal static void Load()

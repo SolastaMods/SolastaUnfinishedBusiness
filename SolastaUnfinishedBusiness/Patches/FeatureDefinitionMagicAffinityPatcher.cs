@@ -34,7 +34,7 @@ public static class FeatureDefinitionMagicAffinityPatcher
             {
                 if (!spells.TryGetValue(duplet.Level, out var value))
                 {
-                    value = new List<SpellDefinition>();
+                    value = [];
                     spells.Add(duplet.Level, value);
                     levels.Add(duplet.Level);
                 }

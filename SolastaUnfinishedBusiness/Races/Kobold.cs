@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -50,7 +49,7 @@ internal static class RaceKoboldBuilder
         SubraceDarkKobold = BuildDarkKobold(raceKobold);
 
         raceKobold.subRaces =
-            new List<CharacterRaceDefinition> { SubraceDarkKobold, BuildDraconicKobold(raceKobold) };
+            [SubraceDarkKobold, BuildDraconicKobold(raceKobold)];
         RacesContext.RaceScaleMap[raceKobold] = 6f / 9.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceKobold.name);
 

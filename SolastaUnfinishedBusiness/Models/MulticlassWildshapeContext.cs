@@ -15,20 +15,18 @@ internal static class MulticlassWildshapeContext
     private const string TagMonsterBase = "<Base>";
     private const string TagNaturalAc = "<NaturalArmor>";
 
-    private static readonly List<string> AllowedAttributes = new()
-    {
+    private static readonly List<string> AllowedAttributes =
+    [
         AttributeDefinitions.RageDamage,
         AttributeDefinitions.RagePoints,
         AttributeDefinitions.KiPoints,
         AttributeDefinitions.SorceryPoints,
         AttributeDefinitions.BardicInspirationDie,
         AttributeDefinitions.BardicInspirationNumber
-    };
+    ];
 
-    private static readonly List<string> MentalAttributes = new()
-    {
-        AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma
-    };
+    private static readonly List<string> MentalAttributes =
+        [AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma];
 
     internal static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
     {

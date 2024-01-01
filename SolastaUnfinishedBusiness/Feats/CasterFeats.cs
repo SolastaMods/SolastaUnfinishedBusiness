@@ -553,7 +553,7 @@ internal static class CasterFeats
             .SetInvocations(invocations)
             .AddToDB();
 
-        return new FeatureDefinition[] { spellFeature, grant };
+        return [spellFeature, grant];
     }
 
     [NotNull]

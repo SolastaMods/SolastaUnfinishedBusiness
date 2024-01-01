@@ -10,7 +10,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
 {
     internal const string Name = "ReactionWarcaster";
     private readonly ActionDefinition _attackAction;
-    private readonly List<ActionModifier> _attackModifiers = new();
+    private readonly List<ActionModifier> _attackModifiers = [];
     private readonly GuiCharacter _guiTarget;
     private readonly string _type;
 

@@ -39,11 +39,11 @@ internal static class TranslatorContext
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
     internal static readonly string[] AvailableLanguages =
-    {
+    [
         "de", "en", "es", "fr", "ja", "it", "ko", "pt", "ru", "zh-CN"
-    };
+    ];
 
-    internal static readonly List<LanguageEntry> Languages = new();
+    internal static readonly List<LanguageEntry> Languages = [];
 
     private static readonly Regex RegexHasCJK = new(@"\p{IsCJKUnifiedIdeographs}", RegexOptions.Compiled);
 
@@ -330,9 +330,9 @@ internal static class TranslatorContext
     private static Dictionary<string, string> GetWordsDictionary()
     {
         var words = new Dictionary<string, string>();
-        var path = Path.Combine(Main.SettingsFolder, "thesaurus.txt");
+        var path = Path.Combine(Main.ModFolder, "thesaurus.txt");
 
-        if (!Main.Settings.EnableThesaurus || !File.Exists(path))
+        if (!File.Exists(path))
         {
             return words;
         }

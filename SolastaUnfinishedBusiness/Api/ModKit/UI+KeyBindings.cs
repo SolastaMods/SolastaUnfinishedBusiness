@@ -149,7 +149,7 @@ internal static partial class UI
     // One stop shopping for making an instant button that you want to let a player bind to a key in game
     public static void BindableActionButton(string title, params GUILayoutOption[] options)
     {
-        if (options.Length == 0) { options = new[] { GL.Width(300) }; }
+        if (options.Length == 0) { options = [GL.Width(300)]; }
 
         var action = KeyBindings.GetAction(title);
         if (GL.Button(title, options)) { action(); }
@@ -161,7 +161,7 @@ internal static partial class UI
     // Action button designed to live in a collection with a BindableActionButton
     public static void NonBindableActionButton(string title, Action action, params GUILayoutOption[] options)
     {
-        if (options.Length == 0) { options = new[] { GL.Width(300) }; }
+        if (options.Length == 0) { options = [GL.Width(300)]; }
 
         if (GL.Button(title, options)) { action(); }
 

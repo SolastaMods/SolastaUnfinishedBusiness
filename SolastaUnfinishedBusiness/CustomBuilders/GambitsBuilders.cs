@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -40,6 +41,7 @@ internal static class GambitsBuilders
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 2)
             .AddToDB();
 
+    // kept name for backward compatibility
     internal static FeatureDefinitionCustomInvocationPool Learn3Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn4")
@@ -69,6 +71,24 @@ internal static class GambitsBuilders
             .AddCustomSubFeatures(
                 (DamageDieProvider)((character, _) => GetGambitDieSize(character)),
                 ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddToDB();
+
+        var gambitDieDamageMelee = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageGambitDieMelee")
+            .SetGuiPresentationNoContent(true)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetNotificationTag("GambitDie")
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionName = MartialTactician.MarkDamagedByGambit
+                })
+            .SetFrequencyLimit(FeatureLimitedUsage.None)
+            .AddCustomSubFeatures(
+                (DamageDieProvider)((character, _) => GetGambitDieSize(character)),
+                ValidatorsRestrictedContext.IsMeleeAttack)
             .AddToDB();
 
         var conditionGambitDieDamage = ConditionDefinitionBuilder
@@ -103,7 +123,7 @@ internal static class GambitsBuilders
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(combatAffinityDistracted)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttackedNotBySource)
             .AddToDB();
 
         combatAffinityDistracted.requiredCondition = conditionDistracted;
@@ -152,7 +172,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Knockdown
+        #region Knockdown (former Trip Attack)
 
         name = "GambitKnockdown";
         sprite = Sprites.GetSprite(name, Resources.GambitKnockdown, 128);
@@ -210,7 +230,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Repel
+        #region Repel (former Pushing Attack)
 
         name = "GambitRepel";
         sprite = Sprites.GetSprite(name, Resources.GambitRepel, 128);
@@ -229,13 +249,7 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(CustomConditionsContext.StopMovement,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
@@ -278,7 +292,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Threaten
+        #region Threaten (former Menacing Attack)
 
         name = "GambitThreaten";
         sprite = Sprites.GetSprite(name, Resources.GambitThreaten, 128);
@@ -362,8 +376,11 @@ internal static class GambitsBuilders
                                     .SetGuiPresentation(Category.Condition,
                                         ConditionDefinitions.ConditionPatronHiveWeakeningPheromones)
                                     .SetConditionType(ConditionType.Detrimental)
-                                    .SetFeatures(FeatureDefinitionSavingThrowAffinitys
-                                        .SavingThrowAffinityPatronHiveWeakeningPheromones)
+                                    .SetFeatures(
+                                        FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionExhausted,
+                                        FeatureDefinitionSavingThrowAffinitys
+                                            .SavingThrowAffinityPatronHiveWeakeningPheromones)
+                                    .CopyParticleReferences(ConditionDefinitions.ConditionPainful)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
@@ -411,22 +428,13 @@ internal static class GambitsBuilders
         reactionPower = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
+            .SetSharedPool(ActivationTime.OnAttackHitMeleeAuto, GambitPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(CustomConditionsContext.Taunted, ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunter,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted))
                     .Build())
             .AddToDB();
 
@@ -453,11 +461,112 @@ internal static class GambitsBuilders
                                 .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
-                                .SetFeatures(gambitDieDamage, reactionPower)
+                                .SetFeatures(gambitDieDamageMelee, reactionPower)
                                 .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                                 .AddToDB()))
                     .Build())
             .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Coordinated Attack
+
+        name = "GambitCoordinatedAttack";
+        sprite = Sprites.GetSprite(name, Resources.GambitCoordinatedAttack, 128);
+
+        var powerCoordinatedAttack = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Command")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.MistyStep)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
+                    .Build())
+            .AddToDB();
+
+        powerCoordinatedAttack.AddCustomSubFeatures(new CoordinatedAttack(powerCoordinatedAttack));
+
+        reactionPower = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}React")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetSharedPool(ActivationTime.OnAttackHitAuto, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{name}React")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetFeatures(powerCoordinatedAttack)
+                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddToDB()))
+                    .Build())
+            .AddToDB();
+
+        reactionPower.AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker);
+
+        power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionGambitDieDamage),
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetPossessive()
+                                .SetFeatures(reactionPower)
+                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddToDB()))
+                    .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Overwhelming Attack
+
+        name = "GambitOverwhelmingAttack";
+        sprite = Sprites.GetSprite(name, Resources.GambitOverwhelmingAttack, 128);
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.NoCost, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique, 2)
+                    .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.HasMainAttackAvailable,
+            new UpgradeRangeBasedOnWeaponReach(power),
+            new OverwhelmingAttack(power));
 
         BuildFeatureInvocation(name, sprite, power);
 
@@ -490,7 +599,7 @@ internal static class GambitsBuilders
                                     ExtraConditionInterruption.UsesBonusAction,
                                     ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage)
-                                .AddCustomSubFeatures(new CustomBehaviorFeint(GambitPool))
+                                .AddCustomSubFeatures(new Feint(GambitPool))
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -525,9 +634,7 @@ internal static class GambitsBuilders
                                 .Create($"Condition{name}")
                                 .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                                 .SetPossessive()
-                                .AddCustomSubFeatures(
-                                    new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee),
-                                    new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                                .AddCustomSubFeatures(new IncreaseWeaponReach(1, ValidatorsWeapon.IsMelee))
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -564,23 +671,63 @@ internal static class GambitsBuilders
                                 .SetSpecialInterruptions(
                                     ConditionInterruption.Attacked,
                                     (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
-                                .AddCustomSubFeatures(new ModifyAdditionalDamageFormUrgentOrder())
+                                .AddCustomSubFeatures(new ModifyAdditionalDamageFormTacticalStrike())
                                 .AddToDB()))
                     .Build())
             .AddToDB();
 
         power.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.HasMainAttackAvailable,
-            new CustomBehaviorUrgentOrder(power));
+            new TacticalStrike(power));
 
         BuildFeatureInvocation(name, sprite, power);
 
         #endregion
 
-        #region Rally
+        #region Elusive Movement (former Evasive Footwork)
+
+        name = "GambitElusiveMovement";
+        sprite = Sprites.GetSprite(name, Resources.GambitElusiveMovement, 128);
+
+        var conditionElusiveMovement = ConditionDefinitionBuilder
+            .Create($"Condition{name}")
+            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{name}")
+                    .SetGuiPresentation(name, Category.Feature)
+                    .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
+                    .AddToDB())
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceGambitDieRoll)
+            .AddToDB();
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.NoCost, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElusiveMovement))
+                    .Build())
+            .AddToDB();
+
+        conditionElusiveMovement.AddCustomSubFeatures(new ElusiveMovement(power));
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Inspire (former Rally)
 
         name = "GambitRally";
-        sprite = SpellDefinitions.Guidance.GuiPresentation.SpriteReference;
+        sprite = Sprites.GetSprite(name, Resources.GambitRally, 128);
 
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
@@ -603,13 +750,44 @@ internal static class GambitsBuilders
                     .Build())
             .AddToDB();
 
-        power.AddCustomSubFeatures(new ModifyEffectDescriptionRally(power));
+        power.AddCustomSubFeatures(new Rally(power));
 
         BuildFeatureInvocation(name, sprite, power);
 
         #endregion
 
-        #region Bait and Switch
+        #region Swift Throw (former Quick Toss)
+
+        name = "GambitSwiftThrow";
+        sprite = Sprites.GetSprite(name, Resources.GambitSwiftThrow, 128);
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .AddCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
+            .SetUniqueInstance()
+            .SetSharedPool(ActivationTime.BonusAction, GambitPool)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .Build())
+            .AddToDB();
+
+        var concealedDagger = ItemDefinitionBuilder
+            .Create(ItemDefinitions.Dagger, "ConcealedDagger")
+            .SetOrUpdateGuiPresentation("Item/&ConcealedDaggerTitle",
+                ItemDefinitions.Dagger.GuiPresentation.Description)
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new SwiftThrow(concealedDagger, power));
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
+        #region Switch (former Bait and Switch)
 
         name = "GambitSwitch";
         sprite = Sprites.GetSprite(name, Resources.GambitSwitch, 128);
@@ -624,6 +802,7 @@ internal static class GambitsBuilders
                     .SetGuiPresentation($"Condition{name}Good", Category.Condition)
                     .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                     .AddToDB())
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
             .AddToDB();
 
         var bad = ConditionDefinitionBuilder
@@ -670,7 +849,8 @@ internal static class GambitsBuilders
             .AddToDB();
 
         power.AddCustomSubFeatures(
-            new CustomBehaviorSwitch(power, good, bad, self),
+            ValidatorsValidatePowerUse.HasTacticalMovesAvailable,
+            new Switch(power, good, bad, self),
             new ModifyEffectDescriptionSavingThrow(power));
 
         BuildFeatureInvocation(name, sprite, power);
@@ -707,7 +887,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Brace
+        #region Readied Strike (former Brace)
 
         name = "GambitBrace";
         sprite = Sprites.GetSprite(name, Resources.GambitBrace, 128);
@@ -722,7 +902,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Precise
+        #region Accurate Attack (former Precise)
 
         name = "GambitPrecise";
         sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
@@ -739,7 +919,7 @@ internal static class GambitsBuilders
 
         #endregion
 
-        #region Parry
+        #region Block (former Parry)
 
         name = "GambitParry";
         sprite = Sprites.GetSprite(name, Resources.GambitParry, 128);
@@ -755,30 +935,6 @@ internal static class GambitsBuilders
         BuildFeatureInvocation(name, sprite, feature);
 
         #endregion
-    }
-
-    private static void BuildFeatureInvocation(string name, AssetReferenceSprite sprite, FeatureDefinition feature)
-    {
-        CustomInvocationDefinitionBuilder
-            .Create($"CustomInvocation{name}")
-            .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetPoolType(InvocationPoolTypeCustom.Pools.Gambit)
-            .SetGrantedFeature(feature)
-            .SetRequirements(0)
-            .AddToDB();
-    }
-
-    private static DieType GetGambitDieSize(RulesetCharacter character)
-    {
-        var level = character.GetSubclassLevel(CharacterClassDefinitions.Fighter, MartialTactician.Name);
-
-        return level switch
-        {
-            >= 18 => DieType.D12,
-            >= 10 => DieType.D10,
-            >= 3 => DieType.D8,
-            _ => DieType.D6
-        };
     }
 
     private sealed class ModifyEffectDescriptionSavingThrow : IModifyEffectDescription
@@ -835,7 +991,10 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class ModifyAdditionalDamageFormUrgentOrder : IModifyAdditionalDamageForm
+    //
+    // used to change the gambit die size when ally attacks
+    //
+    private sealed class ModifyAdditionalDamageFormTacticalStrike : IModifyAdditionalDamageForm
     {
         public DamageForm AdditionalDamageForm(
             GameLocationCharacter attacker,
@@ -871,11 +1030,14 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class ModifyEffectDescriptionRally : IMagicEffectInitiatedByMe
+    //
+    // Rally
+    //
+    private sealed class Rally : IMagicEffectInitiatedByMe
     {
         private readonly FeatureDefinitionPower _powerRallyActivate;
 
-        public ModifyEffectDescriptionRally(FeatureDefinitionPower powerRallyActivate)
+        public Rally(FeatureDefinitionPower powerRallyActivate)
         {
             _powerRallyActivate = powerRallyActivate;
         }
@@ -900,7 +1062,7 @@ internal static class GambitsBuilders
                 (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                 (ConsoleStyleDuplet.ParameterType.Positive, bonusHitPoints.ToString()));
 
-            EffectHelpers.StartVisualEffect(target, target, FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice,
+            EffectHelpers.StartVisualEffect(target, target, FeatureDefinitionPowers.PowerOathOfJugementPurgeCorruption,
                 EffectHelpers.EffectType.Caster);
 
             action.ActionParams.RulesetEffect.EffectDescription.EffectForms[0]
@@ -910,25 +1072,119 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorUrgentOrder : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe,
-        IFilterTargetingCharacter
+    //
+    // Swift Throw
+    //
+    private sealed class SwiftThrow : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IModifyAttackActionModifier
+    {
+        private const int DaggerCloseRange = 4;
+        private readonly ItemDefinition _concealedDagger;
+        private readonly FeatureDefinitionPower _powerSwiftThrow;
+
+        public SwiftThrow(ItemDefinition concealedDagger, FeatureDefinitionPower powerSwiftThrow)
+        {
+            _concealedDagger = concealedDagger;
+            _powerSwiftThrow = powerSwiftThrow;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.RangeHit;
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            var attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+            var target = action.ActionParams.TargetCharacters[0];
+            var dieType = GetGambitDieSize(actingCharacter.RulesetCharacter);
+            var strength = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var dexterity = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+            var bonus = Math.Max(
+                AttributeDefinitions.ComputeAbilityScoreModifier(strength),
+                AttributeDefinitions.ComputeAbilityScoreModifier(dexterity));
+
+            attackModeCopy.Copy(attackMode);
+            attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
+            attackModeCopy.SourceDefinition = _concealedDagger;
+            attackModeCopy.EffectDescription = _concealedDagger.WeaponDescription.EffectDescription;
+            attackModeCopy.AttackTags.SetRange(_concealedDagger.WeaponDescription.WeaponTags);
+            attackModeCopy.closeRange = DaggerCloseRange;
+            attackModeCopy.maxRange = 12;
+            attackModeCopy.thrown = true;
+            attackModeCopy.ranged = true;
+            attackModeCopy.EffectDescription.EffectForms.RemoveAll(x =>
+                x.FormType == EffectForm.EffectFormType.Damage);
+            attackModeCopy.EffectDescription.EffectForms.AddRange(
+                EffectFormBuilder.DamageForm(DamageTypePiercing, 1, DieType.D4),
+                EffectFormBuilder.DamageForm(DamageTypePiercing, 1, dieType, bonus));
+
+            Attack(actingCharacter, target, attackModeCopy, action.ActionParams.ActionModifiers[0]);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
+
+            yield break;
+        }
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            string effectName,
+            ref ActionModifier attackModifier)
+        {
+            if (effectName != _powerSwiftThrow.Name)
+            {
+                return;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                return;
+            }
+
+            var glcMyself = GameLocationCharacter.GetFromActor(myself);
+            var glcDefender = GameLocationCharacter.GetFromActor(defender);
+
+            if (!gameLocationBattleService.IsWithinXCells(glcMyself, glcDefender, DaggerCloseRange))
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
+            }
+        }
+    }
+
+    //
+    // Tactical Strike
+    //
+    private sealed class TacticalStrike :
+        IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
         private readonly FeatureDefinitionPower _powerSelectEnemy;
 
-        public CustomBehaviorUrgentOrder(FeatureDefinitionPower powerSelectEnemy)
+        public TacticalStrike(FeatureDefinitionPower powerSelectEnemy)
         {
             _powerSelectEnemy = powerSelectEnemy;
         }
+
+        public bool EnforceFullSelection => true;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
                 rulesetEffectPower.PowerDefinition != _powerSelectEnemy)
-            {
-                return true;
-            }
-
-            if (target.RulesetCharacter == null)
             {
                 return true;
             }
@@ -1024,38 +1280,16 @@ internal static class GambitsBuilders
                 yield break;
             }
 
+            var actingCharacter = action.ActingCharacter;
+            var attackModifier = new ActionModifier();
             var attackModeCopy = RulesetAttackMode.AttackModesPool.Get();
 
             attackModeCopy.Copy(attackMode);
             attackModeCopy.ActionType = ActionDefinitions.ActionType.Reaction;
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var attackModifier = new ActionModifier();
-            var attackActionParams =
-                new CharacterActionParams(ally, ActionDefinitions.Id.AttackOpportunity) { AttackMode = attackModeCopy };
+            Attack(ally, target, attackModeCopy, attackModifier, ActionDefinitions.Id.AttackOpportunity);
 
-            attackActionParams.TargetCharacters.Add(target);
-            attackActionParams.ActionModifiers.Add(attackModifier);
-            actionService.ExecuteAction(attackActionParams, null, false);
-
-            // burn one main attack
-            actingCharacter.UsedMainAttacks++;
-            rulesetCharacter.ExecutedAttacks++;
-            rulesetCharacter.RefreshAttackModes();
-
-            var maxAttacksNumber = rulesetCharacter.AttackModes
-                .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
-                .Max(x => x.AttacksNumber);
-
-            if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
-            {
-                yield break;
-            }
-
-            actingCharacter.currentActionRankByType[ActionDefinitions.ActionType.Main]++;
-            actingCharacter.UsedMainAttacks = 0;
+            BurnOneMainAttack(actingCharacter);
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1102,22 +1336,25 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorFeint :
-        IModifyAttackActionModifier, IPhysicalAttackFinishedByMe, IPhysicalAttackInitiatedByMe
+    //
+    // Feint
+    //
+    private sealed class Feint :
+        IModifyAttackActionModifier, IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
     {
         private const string ConditionGambitFeint = "ConditionGambitFeint";
         private readonly FeatureDefinitionPower _pool;
 
-        public CustomBehaviorFeint(FeatureDefinitionPower pool)
+        public Feint(FeatureDefinitionPower pool)
         {
             _pool = pool;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
+        public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (attackMode?.SourceDefinition is not ItemDefinition ||
@@ -1148,7 +1385,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            attacker.currentActionRankByType[ActionDefinitions.ActionType.Bonus]++;
+            attacker.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus]++;
             rulesetCharacter.UpdateUsageForPower(_pool, 1);
         }
 
@@ -1169,6 +1406,9 @@ internal static class GambitsBuilders
         }
     }
 
+    //
+    // Retaliate
+    //
     private sealed class Retaliate : IPhysicalAttackFinishedOnMe
     {
         private readonly ConditionDefinition _condition;
@@ -1276,12 +1516,15 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class CustomBehaviorSwitch : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+    //
+    // Switch
+    //
+    private sealed class Switch : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
         private readonly ConditionDefinition _good, _bad, _self;
         private readonly FeatureDefinitionPower _powerSwitchActivate;
 
-        public CustomBehaviorSwitch(
+        public Switch(
             FeatureDefinitionPower powerSwitchActivate,
             ConditionDefinition good,
             ConditionDefinition bad,
@@ -1292,6 +1535,8 @@ internal static class GambitsBuilders
             _bad = bad;
             _self = self;
         }
+
+        public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
@@ -1323,6 +1568,9 @@ internal static class GambitsBuilders
             var actingCharacter = action.ActingCharacter;
             var caster = actingCharacter.RulesetCharacter;
             var target = action.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            // consume one tactical move
+            actingCharacter.UsedTacticalMoves++;
 
             if (caster.IsOppositeSide(target.Side))
             {
@@ -1378,7 +1626,6 @@ internal static class GambitsBuilders
 
             yield return battle.WaitForReactions(actingCharacter, manager, previousReactionCount);
 
-
             var dieType = GetGambitDieSize(caster);
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
@@ -1389,8 +1636,8 @@ internal static class GambitsBuilders
             finalTarget.InflictCondition(
                 _good.Name,
                 DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagCombat,
                 caster.Guid,
                 caster.CurrentFaction.Name,
@@ -1407,6 +1654,9 @@ internal static class GambitsBuilders
         }
     }
 
+    //
+    // Brace
+    //
     private sealed class Brace : CanMakeAoOOnReachEntered
     {
         private readonly ConditionDefinition _condition;
@@ -1477,6 +1727,9 @@ internal static class GambitsBuilders
         }
     }
 
+    //
+    // Precise
+    //
     private sealed class Precise : ITryAlterOutcomePhysicalAttack
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
@@ -1570,14 +1823,17 @@ internal static class GambitsBuilders
             );
 
             character.LogCharacterUsedFeature(_feature, Line,
-                extra: new[]
-                {
+                extra:
+                [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
-                });
+                ]);
         }
     }
 
+    //
+    // Parry
+    //
     private sealed class Parry : IAttackBeforeHitConfirmedOnMe
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
@@ -1668,14 +1924,255 @@ internal static class GambitsBuilders
                 displayModifier: true, modifier: pb);
 
             character.LogCharacterUsedFeature(_feature, Line,
-                extra: new[]
-                {
+                extra:
+                [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, reduction.ToString())
-                });
+                ]);
         }
     }
 
+    //
+    // Coordinated Attack
+    //
+    private sealed class CoordinatedAttack :
+        IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerCoordinatedAttack;
+
+        public CoordinatedAttack(FeatureDefinitionPower powerCoordinatedAttack)
+        {
+            _powerCoordinatedAttack = powerCoordinatedAttack;
+        }
+
+        public bool EnforceFullSelection => false;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _powerCoordinatedAttack)
+            {
+                return true;
+            }
+
+            if (!target.CanReact())
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAbleToReact");
+
+                return false;
+            }
+
+            if (!target.RulesetCharacter.HasAnyConditionOfTypeOrSubType(
+                    ConditionIncapacitated, ConditionParalyzed, ConditionRestrained))
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&SelfOrTargetCannotAct");
+
+            return false;
+        }
+
+        public void EnumerateValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition,
+            List<int3> validPositions)
+        {
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+
+            if (!actingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
+            {
+                return;
+            }
+
+            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
+            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+            var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2;
+            var boxInt = new BoxInt(
+                targetCharacter.LocationPosition,
+                new int3(-halfMaxTacticalMoves, -halfMaxTacticalMoves, -halfMaxTacticalMoves),
+                new int3(halfMaxTacticalMoves, halfMaxTacticalMoves, halfMaxTacticalMoves));
+
+            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (gameLocationPositioningService.CanPlaceCharacter(
+                        targetCharacter, position, CellHelpers.PlacementMode.Station) &&
+                    gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                        targetCharacter, position, onlyCheckCellsWithRealGround: true))
+                {
+                    validPositions.Add(position);
+                }
+            }
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
+
+            if (!action.ActingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
+            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+            var targetPosition = action.ActionParams.Positions[0];
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var actionParams =
+                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
+                {
+                    Positions = { targetPosition }
+                };
+
+            targetCharacter.UsedTacticalMoves = 0;
+            targetRulesetCharacter.InflictCondition(
+                ConditionDisengaging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                targetRulesetCharacter.Guid,
+                targetRulesetCharacter.CurrentFaction.Name,
+                1,
+                ConditionDisengaging,
+                0,
+                0,
+                0);
+
+            EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
+                FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
+
+            targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
+            targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
+            actionService.ExecuteAction(actionParams, null, false);
+        }
+    }
+
+    //
+    // Elusive Movement
+    //
+    private sealed class ElusiveMovement : IOnConditionAddedOrRemoved
+    {
+        private readonly FeatureDefinitionPower _powerElusiveMovement;
+
+        public ElusiveMovement(FeatureDefinitionPower powerElusiveMovement)
+        {
+            _powerElusiveMovement = powerElusiveMovement;
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var dieType = GetGambitDieSize(target);
+            var dieRoll = rulesetCondition.Amount;
+
+            target.LogCharacterUsedPower(_powerElusiveMovement, "Feedback/&GambitElusiveMovementACIncrease", true,
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+    }
+
+    //
+    // Overwhelming Attack
+    //
+    private sealed class OverwhelmingAttack :
+        IFilterTargetingCharacter, IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerOverwhelmingAttack;
+
+        public OverwhelmingAttack(FeatureDefinitionPower powerOverwhelmingAttack)
+        {
+            _powerOverwhelmingAttack = powerOverwhelmingAttack;
+        }
+
+        public bool EnforceFullSelection => true;
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _powerOverwhelmingAttack)
+            {
+                return true;
+            }
+
+            var selectedTargets = __instance.SelectionService.SelectedTargets;
+
+            if (selectedTargets.Count == 0)
+            {
+                return true;
+            }
+
+            var firstTarget = selectedTargets[0];
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is { IsBattleInProgress: true } &&
+                gameLocationBattleService.IsWithin1Cell(firstTarget, target))
+            {
+                return true;
+            }
+
+            __instance.actionModifier.FailureFlags.Add("Tooltip/&AllyMustBeAdjacentToFirstTarget");
+
+            return false;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.MeleeHit;
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            var attackMode = actingCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            var attackModeCopy1 = RulesetAttackMode.AttackModesPool.Get();
+            var target1 = action.ActionParams.TargetCharacters[0];
+
+            attackModeCopy1.Copy(attackMode);
+            attackModeCopy1.ActionType = ActionDefinitions.ActionType.NoCost;
+
+            Attack(actingCharacter, target1, attackModeCopy1, action.ActionParams.ActionModifiers[0]);
+
+            var attackModeCopy2 = RulesetAttackMode.AttackModesPool.Get();
+            var target2 = action.ActionParams.TargetCharacters[1];
+            var dieType = GetGambitDieSize(actingCharacter.RulesetCharacter);
+            var strength = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var dexterity = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+            var bonus = Math.Max(
+                AttributeDefinitions.ComputeAbilityScoreModifier(strength),
+                AttributeDefinitions.ComputeAbilityScoreModifier(dexterity));
+            var firstDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            attackModeCopy2.Copy(attackMode);
+            attackModeCopy2.ActionType = ActionDefinitions.ActionType.NoCost;
+            attackModeCopy2.EffectDescription.EffectForms.RemoveAll(x =>
+                x.FormType == EffectForm.EffectFormType.Damage);
+            attackModeCopy2.EffectDescription.EffectForms.Add(
+                EffectFormBuilder.DamageForm(firstDamageForm?.DamageType ?? DamageTypePiercing, 1, dieType, bonus));
+
+            Attack(actingCharacter, target2, attackModeCopy2, action.ActionParams.ActionModifiers[0]);
+
+            BurnOneMainAttack(actingCharacter);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.RulesetEffect.EffectDescription.RangeType = RangeType.Distance;
+
+            yield break;
+        }
+    }
+
+    // supports displaying the gambit die type and remaining usages on action buttons
     internal sealed class GambitActionDiceBox : IActionItemDiceBox
     {
         private GambitActionDiceBox()
@@ -1690,4 +2187,71 @@ internal static class GambitsBuilders
                 "Screen/&GambitDieDescription");
         }
     }
+
+    #region Helpers
+
+    private static void BuildFeatureInvocation(string name, AssetReferenceSprite sprite, FeatureDefinition feature)
+    {
+        CustomInvocationDefinitionBuilder
+            .Create($"CustomInvocation{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetPoolType(InvocationPoolTypeCustom.Pools.Gambit)
+            .SetGrantedFeature(feature)
+            .SetRequirements(0)
+            .AddToDB();
+    }
+
+    internal static DieType GetGambitDieSize(RulesetCharacter character)
+    {
+        var level = character.GetSubclassLevel(CharacterClassDefinitions.Fighter, MartialTactician.Name);
+
+        return level switch
+        {
+            >= 18 => DieType.D12,
+            >= 10 => DieType.D10,
+            >= 3 => DieType.D8,
+            _ => DieType.D6
+        };
+    }
+
+    private static void BurnOneMainAttack(GameLocationCharacter actingCharacter)
+    {
+        var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+        // burn one main attack
+        actingCharacter.UsedMainAttacks++;
+        rulesetCharacter.ExecutedAttacks++;
+        rulesetCharacter.RefreshAttackModes();
+
+        var maxAttacksNumber = rulesetCharacter.AttackModes
+            .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
+            .Max(x => x.AttacksNumber);
+
+        if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
+        {
+            return;
+        }
+
+        actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Main]++;
+        actingCharacter.UsedMainAttacks = 0;
+    }
+
+    private static void Attack(
+        GameLocationCharacter actingCharacter,
+        GameLocationCharacter target,
+        RulesetAttackMode attackMode,
+        ActionModifier attackModifier,
+        ActionDefinitions.Id actionId = ActionDefinitions.Id.AttackFree)
+    {
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var attackActionParams =
+            new CharacterActionParams(actingCharacter, actionId)
+            {
+                AttackMode = attackMode, TargetCharacters = { target }, ActionModifiers = { attackModifier }
+            };
+
+        actionService.ExecuteAction(attackActionParams, null, true);
+    }
+
+    #endregion
 }

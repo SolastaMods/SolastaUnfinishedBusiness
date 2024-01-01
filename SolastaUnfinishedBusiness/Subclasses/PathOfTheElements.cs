@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -530,9 +529,9 @@ public sealed class PathOfTheElements : AbstractSubclass
                 EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, _magicEffect);
 
                 implementationService.ApplyEffectForms(
-                    new List<EffectForm> { new() { damageForm = damageForm } },
+                    [new EffectForm { damageForm = damageForm }],
                     applyFormsParams,
-                    new List<string> { _ancestry.damageType },
+                    [_ancestry.damageType],
                     out _,
                     out _);
 
@@ -751,7 +750,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 rulesetDefender.Guid,
                 false,
                 attackerAttackMode.AttackTags,
-                new RollInfo(DieType.D1, new List<int>(), classLevel),
+                new RollInfo(DieType.D1, [], classLevel),
                 true,
                 out _);
         }

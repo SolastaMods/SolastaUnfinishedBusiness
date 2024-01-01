@@ -11,14 +11,6 @@ internal static class TranslationsDisplay
     internal static void DisplayTranslations()
     {
         UI.Label();
-
-        var toggle = Main.Settings.EnableThesaurus;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableThesaurus"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableThesaurus = toggle;
-        }
-
-        UI.Label();
         UI.Label(Gui.Format("ModUi/&Campaigns"));
         UI.Label();
 

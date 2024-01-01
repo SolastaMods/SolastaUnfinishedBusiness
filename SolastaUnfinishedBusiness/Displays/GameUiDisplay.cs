@@ -11,7 +11,7 @@ internal static class GameUiDisplay
 {
     private static bool _selectedForSwap;
     private static int _selectedX, _selectedY;
-    private static readonly string[] SetNames = { "1", "2", "3", "4", "5" };
+    private static readonly string[] SetNames = ["1", "2", "3", "4", "5"];
 
     private static void DisplayFormationGrid()
     {

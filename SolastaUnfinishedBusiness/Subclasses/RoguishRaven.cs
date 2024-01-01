@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -253,9 +252,7 @@ public sealed class RoguishRaven : AbstractSubclass
     }
 
     // marker to reroll any damage die including sneak attack
-    internal sealed class RavenRerollAnyDamageDieMarker
-    {
-    }
+    internal sealed class RavenRerollAnyDamageDieMarker;
 
     private sealed class RogueClassHolder : IClassHoldingFeature
     {
@@ -388,7 +385,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,
-                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) },
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _power.Name, _power)],
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
@@ -400,7 +397,7 @@ public sealed class RoguishRaven : AbstractSubclass
 
             attackModifier.ignoreAdvantage = false;
             attackModifier.attackAdvantageTrends =
-                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) };
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _power.Name, _power)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;

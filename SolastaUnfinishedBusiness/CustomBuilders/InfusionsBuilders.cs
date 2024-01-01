@@ -208,12 +208,12 @@ internal static class InventorInfusions
         name = "InfusionResistantArmor";
         //TODO: RAW needs to require attunement
 
-        elements = new[]
-        {
+        elements =
+        [
             DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeForce, DamageTypeLightning,
             DamageTypeNecrotic, DamageTypePoison, DamageTypePsychic, DamageTypeRadiant, DamageTypeThunder
-        };
-        powers = new List<FeatureDefinitionPower>();
+        ];
+        powers = [];
 
         foreach (var element in elements)
         {
@@ -252,8 +252,8 @@ internal static class InventorInfusions
         name = "InfusionMajorElemental";
         //TODO: RAW needs to require attunement
 
-        elements = new[] { DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder };
-        powers = new List<FeatureDefinitionPower>();
+        elements = [DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder];
+        powers = [];
 
         foreach (var element in elements)
         {

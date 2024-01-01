@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -40,6 +41,11 @@ internal static class IconsOnPortrait
         if (character.HasAnyFeature(EldritchVersatility.PowerEldritchVersatilityPointPool))
         {
             pools.Add(PortraitPointEldritchVersatility.Instance);
+        }
+
+        if (character.HasAnyFeature(MartialWarlord.PowerCoordinatedAssault))
+        {
+            pools.Add(PortraitPointCoordinatedAssault.Instance);
         }
 
         foreach (var provider in pools)

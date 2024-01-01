@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierMartialWarlordWisdomInitiative:202cec08-c66c-55fe-a920-34dc1ab2340e"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -86,7 +88,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "None",
+  "amountOrigin": "Fixed",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -149,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4bcc040b-8aa9-5e9b-9abc-941e5a1b583d",
+  "guid": "f52ef653-2d88-59b2-ae82-b68637596a7b",
   "contentPack": 9999,
-  "name": "ConditionMartialDefenderShoutOfProvocationSelf"
+  "name": "ConditionMartialWarlordWisdomInitiative"
 }

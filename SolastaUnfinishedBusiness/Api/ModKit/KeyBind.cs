@@ -20,7 +20,7 @@ internal static partial class UI
 #endif
 
     private static readonly HashSet<KeyCode> AllowedMouseButtons =
-        new() { KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6 };
+        [KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6];
 
     private static GUIStyle _hotkeyStyle;
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
@@ -883,10 +882,10 @@ public sealed class InnovationAlchemy : AbstractSubclass
 
     private sealed class Overcharge : ICustomOverchargeProvider
     {
-        private static readonly (int, int)[] None = Array.Empty<(int, int)>();
-        private static readonly (int, int)[] Once = { (1, 1) };
-        private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
-        private static readonly (int, int)[] Trice = { (1, 1), (2, 2), (3, 3) };
+        private static readonly (int, int)[] None = [];
+        private static readonly (int, int)[] Once = [(1, 1)];
+        private static readonly (int, int)[] Twice = [(1, 1), (2, 2)];
+        private static readonly (int, int)[] Trice = [(1, 1), (2, 2), (3, 3)];
 
         public (int, int)[] OverchargeSteps(RulesetCharacter character)
         {

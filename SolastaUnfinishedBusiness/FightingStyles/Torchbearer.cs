@@ -54,5 +54,5 @@ internal sealed class Torchbearer : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new() { FightingStyleRanger };
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => [FightingStyleRanger];
 }

@@ -41,8 +41,7 @@ public sealed class CollegeOfGuts : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(
-                            conditionArcaneDeflection, ConditionForm.ConditionOperation.Add, true, true))
+                        EffectFormBuilder.ConditionForm(conditionArcaneDeflection))
                     .Build())
             .AddToDB();
 

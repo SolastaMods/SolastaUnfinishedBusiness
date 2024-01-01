@@ -796,11 +796,12 @@ public static class RulesetImplementationManagerPatcher
     [UsedImplicitly]
     public static class ApplyConditionForm_Patch
     {
-        private static readonly List<CodeInstruction> MatchPattern = new()
-        {
+        private static readonly List<CodeInstruction> MatchPattern =
+        [
             new CodeInstruction(OpCodes.Ldarg_2),
             new CodeInstruction(OpCodes.Ldfld,
                 typeof(RulesetImplementationDefinitions.ApplyFormsParams).GetField("activeEffect")),
+
             new CodeInstruction(OpCodes.Brtrue),
             new CodeInstruction(OpCodes.Ldloc_1),
             new CodeInstruction(OpCodes.Callvirt, typeof(ConditionDefinition).GetMethod("get_SpecialDuration")),
@@ -808,8 +809,9 @@ public static class RulesetImplementationManagerPatcher
             new CodeInstruction(OpCodes.Ldarg_1),
             new CodeInstruction(OpCodes.Callvirt,
                 typeof(OverrideSavingThrowInfo).GetMethod("get_OverrideSavingThrowInfo")),
+
             new CodeInstruction(OpCodes.Brfalse_S)
-        };
+        ];
 
         private static bool CompareInstructions(IReadOnlyList<CodeInstruction> codes)
         {

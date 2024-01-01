@@ -1065,7 +1065,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
-                selectedTarget, effectPower.EffectDescription, targets, new List<ActionModifier>());
+                selectedTarget, effectPower.EffectDescription, targets, []);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
             actionParams.RulesetEffect = effectPower;

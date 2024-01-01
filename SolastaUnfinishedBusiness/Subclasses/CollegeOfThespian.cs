@@ -222,11 +222,11 @@ public sealed class CollegeOfThespian : AbstractSubclass
             target.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.None, title: title);
             target.LogCharacterActivatesAbility(title, Line, tooltipContent: description,
                 indent: true,
-                extra: new[]
-                {
+                extra:
+                [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
-                });
+                ]);
 
             rulesetCondition.amount = dieRoll;
         }

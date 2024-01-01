@@ -28,11 +28,10 @@ public static class SubspellSelectionModalPatcher
 
     [HarmonyPatch(typeof(SubspellSelectionModal), nameof(SubspellSelectionModal.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [HarmonyPatch(new[]
-    {
+    [HarmonyPatch([
         typeof(SpellDefinition), typeof(RulesetCharacter), typeof(RulesetSpellRepertoire),
         typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)
-    })]
+    ])]
     [UsedImplicitly]
     public static class Bind_Patch
     {

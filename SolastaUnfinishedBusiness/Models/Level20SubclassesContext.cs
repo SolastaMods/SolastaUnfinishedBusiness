@@ -1418,6 +1418,7 @@ internal static class Level20SubclassesContext
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             // only weapon attacks
@@ -1761,6 +1762,8 @@ internal static class Level20SubclassesContext
             _conditionDefinition = conditionDefinition;
         }
 
+        public bool EnforceFullSelection => false;
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
@@ -1824,7 +1827,7 @@ internal static class Level20SubclassesContext
                     false,
                     rulesetAttacker.Guid,
                     false,
-                    new List<string>(),
+                    [],
                     new RollInfo(damageForm.DieType, rolls, 0),
                     false,
                     out _);

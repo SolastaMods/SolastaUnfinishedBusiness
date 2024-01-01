@@ -10,7 +10,7 @@ public class CustomDropDown
     public delegate void OnValueChanged(TMP_Dropdown.OptionData selected);
 
     public readonly GuiDropdown DropList;
-    public readonly List<TMP_Dropdown.OptionData> Options = new();
+    public readonly List<TMP_Dropdown.OptionData> Options = [];
     public readonly GuiGamepadSelector Selector;
 
     private bool _active = true;
@@ -58,7 +58,7 @@ public class CustomDropDown
         Selected = 0;
         Options.Clear();
         DropList.ClearOptions();
-        Selector.Texts = new List<string>();
+        Selector.Texts = [];
     }
 
     public void AddOptions(IEnumerable<TMP_Dropdown.OptionData> values)

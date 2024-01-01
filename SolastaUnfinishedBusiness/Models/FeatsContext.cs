@@ -19,8 +19,8 @@ internal static class FeatsContext
     internal const int Height = 44;
     internal const int Spacing = 5;
 
-    internal static HashSet<FeatDefinition> Feats { get; private set; } = new();
-    internal static HashSet<FeatDefinition> FeatGroups { get; private set; } = new();
+    internal static HashSet<FeatDefinition> Feats { get; private set; } = [];
+    internal static HashSet<FeatDefinition> FeatGroups { get; private set; } = [];
 
     internal static void LateLoad()
     {

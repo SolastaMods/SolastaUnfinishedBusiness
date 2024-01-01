@@ -292,6 +292,7 @@ public sealed class OathOfThunder : AbstractSubclass
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (IsOathOfThunderWeapon(attackMode, null, myself))

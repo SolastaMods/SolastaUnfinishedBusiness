@@ -28,9 +28,8 @@ internal static class SrdAndHouseRulesContext
 
     private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
 
-    internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
-    {
-        // Conjure animals (3)
+    internal static readonly HashSet<MonsterDefinition> ConjuredMonsters =
+    [
         ConjuredOneBeastTiger_Drake,
         ConjuredTwoBeast_Direwolf,
         ConjuredFourBeast_BadlandsSpider,
@@ -56,19 +55,19 @@ internal static class SrdAndHouseRulesContext
         FeyBear, // CR 4
         Green_Hag, // CR 3
         FeyWolf, // CR 2
-        FeyDriad // CR 1
-    };
+        FeyDriad
+    ];
 
-    private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
+    private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = [];
 
-    private static readonly List<MonsterDefinition> MonstersThatEmitLight = new()
-    {
+    private static readonly List<MonsterDefinition> MonstersThatEmitLight =
+    [
         CubeOfLight,
         Fire_Elemental,
         Fire_Jester,
         Fire_Osprey,
         Fire_Spider
-    };
+    ];
 
     private static readonly FeatureDefinitionActionAffinity ActionAffinityConditionBlind =
         FeatureDefinitionActionAffinityBuilder
@@ -1180,8 +1179,13 @@ internal static class FlankingAndHigherGroundRules
             return;
         }
 
-        if (!Main.Settings.UseOfficialFlankingRulesAlsoForRanged && evaluationParams.attackProximity is
-                not (BattleDefinitions.AttackProximity.PhysicalReach or BattleDefinitions.AttackProximity.MagicReach))
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForRanged &&
+            evaluationParams.attackProximity
+                is BattleDefinitions.AttackProximity.MagicRange
+                or BattleDefinitions.AttackProximity.MagicReach
+                or BattleDefinitions.AttackProximity.MagicDistance
+                or BattleDefinitions.AttackProximity.PhysicalRange
+                or BattleDefinitions.AttackProximity.SimpleRange)
         {
             return;
         }

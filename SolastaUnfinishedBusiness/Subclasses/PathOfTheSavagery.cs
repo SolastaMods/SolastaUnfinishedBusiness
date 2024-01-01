@@ -162,12 +162,12 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         var dexSavingThrowBonus =
             AttributeDefinitions.ComputeAbilityScoreModifier(
                 defender.TryGetAttributeValue(AttributeDefinitions.Dexterity)) +
-            defender.ComputeBaseSavingThrowBonus(AttributeDefinitions.Dexterity, new List<TrendInfo>());
+            defender.ComputeBaseSavingThrowBonus(AttributeDefinitions.Dexterity, []);
 
         var strSavingThrowBonus =
             AttributeDefinitions.ComputeAbilityScoreModifier(
                 defender.TryGetAttributeValue(AttributeDefinitions.Strength)) +
-            defender.ComputeBaseSavingThrowBonus(AttributeDefinitions.Strength, new List<TrendInfo>());
+            defender.ComputeBaseSavingThrowBonus(AttributeDefinitions.Strength, []);
 
         if (dexSavingThrowBonus >= strSavingThrowBonus)
         {

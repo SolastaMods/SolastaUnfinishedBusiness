@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="CheckEnvironmentVars">
 
   <PropertyGroup>
-    <LangVersion>10</LangVersion>
+    <LangVersion>12</LangVersion>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.5.94.38</AssemblyVersion>
+    <AssemblyVersion>1.5.94.39</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug Install;Release Install</Configurations>
@@ -18,14 +18,14 @@
   </PropertyGroup>
 
   <Target Name="CheckEnvironmentVars">
-    <Error Text="Please set the SolastaInstallDir environment variable." Condition="'$(SolastaInstallDir)' == ''" ContinueOnError="false" />
+    <Error Text="Please set the SolastaInstallDir environment variable." Condition="'$(SolastaInstallDir)' == ''" ContinueOnError="false"/>
   </Target>
 
   <Target Name="Publicise" AfterTargets="Clean">
     <ItemGroup>
-      <PubliciseInputAssemblies Include="$(SolastaInstallDir)/Solasta_Data/Managed/Assembly-CSharp.dll" />
+      <PubliciseInputAssemblies Include="$(SolastaInstallDir)/Solasta_Data/Managed/Assembly-CSharp.dll"/>
     </ItemGroup>
-    <Publicise AssemblyPath="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/" />
+    <Publicise AssemblyPath="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/"/>
   </Target>
 
   <ItemGroup>
@@ -58,10 +58,10 @@
 
   <ItemGroup>
     <!-- <PackageReference Include="System.Memory" Version="4.5.5" /> -->
-    <Reference Include="System.Collections" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Collections"/>
+    <Reference Include="System.IO.Compression"/>
+    <Reference Include="System.Web"/>
+    <Reference Include="System.Web.Extensions"/>
     <Reference Include="0Harmony">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityModManager/0Harmony.dll</HintPath>
       <Private>false</Private>
@@ -230,15 +230,16 @@
   </ItemGroup>
 
   <Target Name="ZipTranslations" BeforeTargets="Build;Clean">
-    <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip" />
+    <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip"/>
   </Target>
 
   <ItemGroup Condition="('$(Configuration)|$(Platform)' == 'Release|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU')">
-    <Compile Remove="Api/DatabaseHelper.cs" />
+    <Compile Remove="Api/DatabaseHelper.cs"/>
+    <Compile Remove="Patches\GameLocationActionManagerPatcher.cs" />
   </ItemGroup>
 
   <ItemGroup Condition="('$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU')">
-    <Compile Remove="Api/DatabaseHelper-RELEASE.cs" />
+    <Compile Remove="Api/DatabaseHelper-RELEASE.cs"/>
   </ItemGroup>
 
   <ItemGroup>

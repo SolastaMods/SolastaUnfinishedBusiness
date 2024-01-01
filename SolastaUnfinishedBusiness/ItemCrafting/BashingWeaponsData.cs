@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
@@ -14,40 +13,47 @@ internal static class BashingWeaponsData
         _items ??= new ItemCollection
         {
             BaseItems =
-                new List<(ItemDefinition item, ItemDefinition presentation)>
-                {
-                    (ItemDefinitions.Club, null),
-                    (ItemDefinitions.Maul, ItemDefinitions.MaulPlus2),
-                    (ItemDefinitions.Warhammer, ItemDefinitions.WarhammerPlus2)
-                },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition>
-            {
+            [
+                (ItemDefinitions.Club, null),
+                (ItemDefinitions.Maul, ItemDefinitions.MaulPlus2),
+                (ItemDefinitions.Warhammer, ItemDefinitions.WarhammerPlus2)
+            ],
+            PossiblePrimedItemsToReplace =
+            [
                 ItemDefinitions.Primed_Morningstar,
                 ItemDefinitions.Primed_Mace,
                 ItemDefinitions.Primed_Greatsword,
                 ItemDefinitions.Primed_Battleaxe
-            },
-            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
-            {
-                // Same as +1
-                new("Acuteness", ItemDefinitions.Enchanted_Mace_Of_Acuteness,
+            ],
+            MagicToCopy =
+            [
+                new ItemCollection.MagicItemDataHolder("Acuteness", ItemDefinitions.Enchanted_Mace_Of_Acuteness,
                     RecipeDefinitions.Recipe_Enchantment_MaceOfAcuteness),
-                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+
+                new ItemCollection.MagicItemDataHolder("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
                     RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw),
-                new("Power", ItemDefinitions.Enchanted_Morningstar_Of_Power,
+
+                new ItemCollection.MagicItemDataHolder("Power", ItemDefinitions.Enchanted_Morningstar_Of_Power,
                     RecipeDefinitions.Recipe_Enchantment_MorningstarOfPower),
-                new("Lightbringer", ItemDefinitions.Enchanted_Greatsword_Lightbringer,
+
+                new ItemCollection.MagicItemDataHolder("Lightbringer",
+                    ItemDefinitions.Enchanted_Greatsword_Lightbringer,
                     RecipeDefinitions.Recipe_Enchantment_GreatswordLightbringer),
-                new("Punisher", ItemDefinitions.Enchanted_Battleaxe_Punisher,
+
+                new ItemCollection.MagicItemDataHolder("Punisher", ItemDefinitions.Enchanted_Battleaxe_Punisher,
                     RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher),
-                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+
+                new ItemCollection.MagicItemDataHolder("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
                     RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
-                new("Stormblade", ItemDefinitions.Enchanted_Longsword_Stormblade,
+
+                new ItemCollection.MagicItemDataHolder("Stormblade", ItemDefinitions.Enchanted_Longsword_Stormblade,
                     RecipeDefinitions.Recipe_Enchantment_LongswordStormblade),
-                new("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
+
+                new ItemCollection.MagicItemDataHolder("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
                     RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn),
-                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+
+                new ItemCollection.MagicItemDataHolder("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
                     RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn)
-            }
+            ]
         };
 }

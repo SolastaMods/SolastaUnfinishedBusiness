@@ -708,6 +708,7 @@ internal static class MeleeCombatFeats
                     .SetModifier(
                         AttributeModifierOperation.Additive,
                         AttributeDefinitions.ArmorClass, 1)
+                    .SetSituationalContext(ExtraSituationalContext.HasBladeMasteryWeaponTypesInHands)
                     .AddToDB())
             .AddToDB();
 
@@ -1096,15 +1097,14 @@ internal static class MeleeCombatFeats
             };
 
             implementationService.ApplyEffectForms(
-                new List<EffectForm>
-                {
+                [
                     EffectFormBuilder
                         .Create()
                         .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                         .Build()
-                },
+                ],
                 applyFormsParams,
-                new List<string>(),
+                [],
                 out _,
                 out _);
 
@@ -1158,7 +1158,7 @@ internal static class MeleeCombatFeats
         private const string DevastatingStrikesDescription = "Feat/&FeatDevastatingStrikesDescription";
         private const string DevastatingStrikesTitle = "Feat/&FeatDevastatingStrikesTitle";
         private readonly ConditionDefinition _conditionBypassResistance;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
 
         public CustomBehaviorFeatDevastatingStrikes(
             ConditionDefinition conditionBypassResistance,
@@ -1263,7 +1263,7 @@ internal static class MeleeCombatFeats
                     lowestAttackRoll,
                     modifier,
                     attackModifier.AttacktoHitTrends,
-                    new List<TrendInfo>());
+                    []);
 
                 if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                 {
@@ -1363,7 +1363,7 @@ internal static class MeleeCombatFeats
         private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
         private readonly DamageForm _damage;
         private readonly FeatureDefinitionPower _power;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
 
         public PhysicalAttackFinishedByMeFeatFellHanded(
             FeatureDefinitionPower power,
@@ -1423,7 +1423,7 @@ internal static class MeleeCombatFeats
                         lowestAttackRoll,
                         modifier,
                         attackModifier.AttacktoHitTrends,
-                        new List<TrendInfo>());
+                        []);
 
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
@@ -1476,7 +1476,7 @@ internal static class MeleeCombatFeats
                         attacker.Guid,
                         false,
                         attackMode.AttackTags,
-                        new RollInfo(DieType.D1, new List<int>(), strengthMod),
+                        new RollInfo(DieType.D1, [], strengthMod),
                         true,
                         out _);
 
@@ -1640,8 +1640,8 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode
-        // thrown is allowed on power attack
-        //, IPhysicalAttackInitiatedByMe
+    // thrown is allowed on power attack
+    //, IPhysicalAttackInitiatedByMe
     {
         private const int ToHit = 3;
         private readonly FeatDefinition _featDefinition;

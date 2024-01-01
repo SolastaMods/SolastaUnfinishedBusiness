@@ -171,8 +171,8 @@ public static class RulesetImplementationManagerLocationPatcher
     [UsedImplicitly]
     public static class ApplyShapeChangeForm_Patch
     {
-        private static readonly List<RulesetEffectPower> PowersUsedByMe = new();
-        private static readonly List<RulesetEffectSpell> SpellsCastByMe = new();
+        private static readonly List<RulesetEffectPower> PowersUsedByMe = [];
+        private static readonly List<RulesetEffectSpell> SpellsCastByMe = [];
 
         [UsedImplicitly]
         public static void Prefix(RulesetImplementationDefinitions.ApplyFormsParams formsParams)

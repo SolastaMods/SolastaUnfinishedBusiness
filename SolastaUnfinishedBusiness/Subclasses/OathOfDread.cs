@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -368,8 +367,8 @@ public sealed class OathOfDread : AbstractSubclass
                 false,
                 rulesetAttacker.Guid,
                 false,
-                new List<string>(),
-                new RollInfo(DieType.D1, new List<int>(), totalDamage),
+                [],
+                new RollInfo(DieType.D1, [], totalDamage),
                 true,
                 out _);
         }

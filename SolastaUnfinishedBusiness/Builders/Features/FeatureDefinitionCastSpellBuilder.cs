@@ -395,8 +395,8 @@ internal class FeatureDefinitionCastSpellBuilder
             Definition.SlotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
                 level = level,
-                Slots = new List<int>
-                {
+                Slots =
+                [
                     0,
                     0,
                     0,
@@ -406,7 +406,7 @@ internal class FeatureDefinitionCastSpellBuilder
                     0,
                     0,
                     0
-                }
+                ]
             });
         }
     }
@@ -474,19 +474,18 @@ internal class FeatureDefinitionCastSpellBuilder
     #region SpellSlots
 
     private static readonly int[] BonusSpellsKnownByCasterLevel =
-    {
+    [
         0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 13, 13
-    };
+    ];
 
     private static readonly int[] BonusSpellsKnownThirdCaster =
-    {
+    [
         0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4
-    };
+    ];
 
     private static readonly List<int>[] SlotsByCasterLevel =
-    {
-        new()
-        {
+    [
+        [
             0,
             0,
             0,
@@ -497,9 +496,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             2,
             0,
             0,
@@ -510,9 +508,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             3,
             0,
             0,
@@ -523,9 +520,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             2,
             0,
@@ -536,9 +532,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             0,
@@ -549,9 +544,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             2,
@@ -562,9 +556,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -575,9 +568,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -588,9 +580,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -601,9 +592,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -614,9 +604,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -627,9 +616,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -640,9 +628,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -653,9 +640,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -666,9 +652,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -679,9 +664,8 @@ internal class FeatureDefinitionCastSpellBuilder
             0,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -692,9 +676,8 @@ internal class FeatureDefinitionCastSpellBuilder
             1,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -705,9 +688,8 @@ internal class FeatureDefinitionCastSpellBuilder
             1,
             0,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -718,9 +700,8 @@ internal class FeatureDefinitionCastSpellBuilder
             1,
             1,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -731,9 +712,8 @@ internal class FeatureDefinitionCastSpellBuilder
             1,
             1,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -744,9 +724,8 @@ internal class FeatureDefinitionCastSpellBuilder
             1,
             1,
             0
-        },
-        new()
-        {
+        ],
+        [
             4,
             3,
             3,
@@ -757,8 +736,8 @@ internal class FeatureDefinitionCastSpellBuilder
             1,
             1,
             0
-        }
-    };
+        ]
+    ];
 
     #endregion
 

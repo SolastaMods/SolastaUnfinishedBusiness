@@ -132,4 +132,33 @@ public static class GameLocationActionManagerPatcher
                 values, rulesetTarget, wasConscious, stillConscious, massiveDamage);
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationActionManager),
+        nameof(GameLocationActionManager.ExecuteReactionRequestGroupAsync))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ExecuteReactionRequestGroupAsync_Patch
+    {
+        public const string ReactionTimestamp = "ReactionTimestamp";
+
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            ReactionRequestGroup reactionRequestGroup)
+        {
+            //PATCH: ensure whoever reacts first will get the reaction handled first by game
+            reactionRequestGroup.Requests.Sort((a, b) =>
+            {
+                a.Character.UsedSpecialFeatures.TryGetValue(ReactionTimestamp, out var aTimestamp);
+                b.Character.UsedSpecialFeatures.TryGetValue(ReactionTimestamp, out var bTimestamp);
+
+                return aTimestamp <= bTimestamp ? -1 : 1;
+            });
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+        }
+    }
 }

@@ -132,7 +132,6 @@ ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'édit
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=. De plus, chaque héros ajoute un jet de D20 au poids de leur vote pour rajouter un peu d'aléatoire.
 ModUi/&EnableTeleportParty=Acutoriser <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pouvez bloquer des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
-ModUi/&EnableThesaurus=Activer le thésaurus <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans l'info-bulle du panneau lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la possibilité d'incanter <color=#D89555>Invocation d'élémentaire</color> et <color=#D89555>Invocation de fée</color> à des niveaux d'emplacements de sorts supérieurs
@@ -188,6 +187,7 @@ ModUi/&ItemsCraftingMerchants=Artisanat, objets et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des objets au conteneur au sol</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Activer l'utilisation des objets sans rompre l'<color=#D89555>Invisibilité</color>
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Mettre à jour la furtivité du héros après l'attaque s'il est perçu lors du round de surprise <i><color=#F0DAA0>[premier héros uniquement]</color></i>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des Focaliseurs Arcaniques <i><color=#F0DAA0>[sauf le <color=#D89555>Bâton de guérison</color> qui est Universel]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement des téléporteurs invisibles sur la carte de niveau après leur découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Nombre de classes maximales autorisées</color>
@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ Utilisez des calculs précis pour déterminer l
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage <i><color=#F0DAA0>[si les circonstances font qu'un jet est soumis aux deux, vous êtes considéré comme n'ayant ni l'un ni l'autre]</color></i>
 ModUi/&UseOfficialDistanceCalculation=Utilisez le calcul de distance officiel basé sur la distance entre le cube d'une créature et l'autre <i><color=#F0DAA0>[au lieu du calcul de distance par défaut de Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Utiliser les règles officielles de prise en tenaille <i><color=#F0DAA0>[un attaquant a l'avantage si un allié est du côté opposé de la cible]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les attaques à distance</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également pour les attaques par armes avec Allonge</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également les attaques à distance <color=#F0DAA0>[désactive les calculs précis]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également les attaques par portée <color=#F0DAA0>[désactive les calculs précis]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilisez les <color=#D89555>règles officielles des petites races</color> lorsque vous maniez des armes lourdes <i><color=#F0DAA0>[vos attaques ont un désavantage]</color></i>

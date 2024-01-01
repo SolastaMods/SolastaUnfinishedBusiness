@@ -352,6 +352,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionPossessed = conditionPossessed;
         }
 
+        public bool EnforceFullSelection => false;
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||

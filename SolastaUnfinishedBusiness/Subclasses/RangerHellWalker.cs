@@ -335,6 +335,8 @@ public sealed class RangerHellWalker : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
+        public bool EnforceFullSelection => false;
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||

@@ -1,4 +1,4 @@
 Condition/&ConditionReverseGravityDescription=Caught by reverse gravity.
-Condition/&ConditionReverseGravityTitle=Reverse Gravity
+Condition/&ConditionReverseGravityTitle=Alter Gravity
 Spell/&ReverseGravityDescription=This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
-Spell/&ReverseGravityTitle=Reverse Gravity
+Spell/&ReverseGravityTitle=Alter Gravity

@@ -148,11 +148,11 @@ public sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily = new List<SaveAffinityByFamilyDescription>
-        {
-            new() { advantageType = AdvantageType.Disadvantage, family = "Fiend" },
-            new() { advantageType = AdvantageType.Disadvantage, family = "Undead" }
-        };
+        powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily =
+        [
+            new SaveAffinityByFamilyDescription { advantageType = AdvantageType.Disadvantage, family = "Fiend" },
+            new SaveAffinityByFamilyDescription { advantageType = AdvantageType.Disadvantage, family = "Undead" }
+        ];
 
         var powerLightEnhanced = FeatureDefinitionPowerBuilder
             .Create(powerLight, $"Power{Name}LightEnhanced")
@@ -461,6 +461,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             attackMode.AttackTags.TryAdd(TagsDefinitions.MagicalWeapon);
@@ -487,7 +488,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            yield return __instance.Battle.AllContenders
+            using var onPhysicalAttackInitiatedOnMeOrAlly = __instance.Battle.AllContenders
                 .Where(opposingContender =>
                     opposingContender.IsOppositeSide(attacker.Side) &&
                     opposingContender != defender &&
@@ -500,6 +501,8 @@ public sealed class RangerLightBearer : AbstractSubclass
                     opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
                     additionalTargetCharacter: defender))
                 .GetEnumerator();
+
+            yield return onPhysicalAttackInitiatedOnMeOrAlly;
         }
     }
 }

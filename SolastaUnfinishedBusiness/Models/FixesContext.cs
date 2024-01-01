@@ -60,6 +60,7 @@ internal static class FixesContext
         FixArmorClassOnLegendaryArmors();
         ExtendCharmImmunityToDemonicInfluence();
         FixSavingThrowAffinityManaPainterAbsorption();
+        FixLanguagesPointPoolsToIncludeAllLanguages();
 
         // fix condition UI
         FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
@@ -103,7 +104,7 @@ internal static class FixesContext
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                    Level = spellsByLevel.Count, Spells = []
                 });
             }
         }
@@ -143,7 +144,7 @@ internal static class FixesContext
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                    Level = spellsByLevel.Count, Spells = []
                 });
             }
         }
@@ -180,8 +181,8 @@ internal static class FixesContext
             FeatureDefinitionCastSpells.CastSpellTraditionLight.KnownCantrips[level] = 2;
 
             // Warlock
-            FeatureDefinitionCastSpells.CastSpellWarlock.slotsPerLevels[level - 1].slots = new List<int>
-            {
+            FeatureDefinitionCastSpells.CastSpellWarlock.slotsPerLevels[level - 1].slots =
+            [
                 0,
                 0,
                 0,
@@ -191,7 +192,7 @@ internal static class FixesContext
                 0,
                 0,
                 0
-            };
+            ];
 
             FeatureDefinitionCastSpells.CastSpellWarlock.KnownCantrips[level - 1] = 4;
         }
@@ -200,6 +201,14 @@ internal static class FixesContext
     private static void FixSavingThrowAffinityManaPainterAbsorption()
     {
         FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityManaPainterAbsorption.AffinityGroups.Clear();
+    }
+
+    private static void FixLanguagesPointPoolsToIncludeAllLanguages()
+    {
+        var dlcLanguages = new List<string> { "Language_Abyssal", "Language_Gnomish", "Language_Infernal" };
+
+        FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one.RestrictedChoices.AddRange(dlcLanguages);
+        FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_two.RestrictedChoices.AddRange(dlcLanguages);
     }
 
     private static void ExtendCharmImmunityToDemonicInfluence()

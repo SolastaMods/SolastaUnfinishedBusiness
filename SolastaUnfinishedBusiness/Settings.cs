@@ -8,9 +8,7 @@ using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness;
 
-public sealed class Core
-{
-}
+public sealed class Core;
 
 [Serializable]
 [XmlRoot(ElementName = "Settings")]
@@ -60,7 +58,7 @@ public class Settings : UnityModManager.ModSettings
 
     // change this at your own risk as these subclasses will be fully removed from mod in the near future
     public List<String> DeprecatedSubclasses { get; set; } =
-        new() { "CollegeOfHarlequin", "MartialMartialDefender", "RoguishRaven", "WayOfTheDistantHand" };
+        ["CollegeOfHarlequin", "MartialMarshal", "MartialMartialDefender", "RoguishRaven", "WayOfTheDistantHand"];
 
     //
     // Gameplay - Tools
@@ -74,7 +72,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSaveByLocation { get; set; }
     public bool EnableRespec { get; set; }
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
-    public List<string> DefaultPartyHeroes { get; } = new();
+    public List<string> DefaultPartyHeroes { get; } = [];
     public bool EnableCharacterChecker { get; set; }
     public bool EnableCheatMenu { get; set; }
     public bool EnableHotkeyDebugOverlay { get; set; }
@@ -160,6 +158,14 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
+
+    public bool
+        KeepStealthOnHeroIfPerceivedDuringSurpriseAttack
+    {
+        get;
+        set;
+    } // removing stealth from hero if within enemy perceived range during a surprise attack
+
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
@@ -221,9 +227,9 @@ public class Settings : UnityModManager.ModSettings
     public int EmpressGarbAppearanceIndex { get; set; }
 
     // Crafting
-    public List<string> CraftingInStore { get; } = new();
-    public List<string> CraftingItemsInDm { get; } = new();
-    public List<string> CraftingRecipesInDm { get; } = new();
+    public List<string> CraftingInStore { get; } = [];
+    public List<string> CraftingItemsInDm { get; } = [];
+    public List<string> CraftingRecipesInDm { get; } = [];
 
     // Merchants
     public bool ScaleMerchantPricesCorrectly { get; set; }
@@ -241,9 +247,9 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> RaceEnabled { get; } = new();
+    public List<string> RaceEnabled { get; } = [];
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> BackgroundEnabled { get; } = new();
+    public List<string> BackgroundEnabled { get; } = [];
     public SerializableDictionary<string, int> KlassListSliderPosition { get; set; } = new();
     public SerializableDictionary<string, List<string>> KlassListSubclassEnabled { get; set; } = new();
 
@@ -252,15 +258,15 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> FeatEnabled { get; } = new();
+    public List<string> FeatEnabled { get; } = [];
     public int FeatGroupSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> FeatGroupEnabled { get; } = new();
+    public List<string> FeatGroupEnabled { get; } = [];
     public int FightingStyleSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> FightingStyleEnabled { get; } = new();
+    public List<string> FightingStyleEnabled { get; } = [];
     public int InvocationSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> InvocationEnabled { get; } = new();
+    public List<string> InvocationEnabled { get; } = [];
     public int MetamagicSliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> MetamagicEnabled { get; } = new();
+    public List<string> MetamagicEnabled { get; } = [];
 
     //
     // Characters - Spells
@@ -297,33 +303,28 @@ public class Settings : UnityModManager.ModSettings
     public int FormationGridSelectedSet { get; set; } = -1;
 
     public int[][][] FormationGridSets { get; set; } =
-    {
-        new[]
-        {
+    [
+        [
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        },
-        new[]
-        {
+        ],
+        [
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        },
-        new[]
-        {
+        ],
+        [
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        },
-        new[]
-        {
+        ],
+        [
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        },
-        new[]
-        {
+        ],
+        [
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
             new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
-        }
-    };
+        ]
+    ];
 
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
@@ -367,7 +368,6 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Translations
     //
 
-    public bool EnableThesaurus { get; set; }
     public string SelectedLanguageCode { get; set; } = TranslatorContext.English;
 
     //

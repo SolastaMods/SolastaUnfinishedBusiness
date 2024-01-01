@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MetamagicContext
 {
-    internal static HashSet<MetamagicOptionDefinition> Metamagic { get; private set; } = new();
+    internal static HashSet<MetamagicOptionDefinition> Metamagic { get; private set; } = [];
 
     internal static void LateLoad()
     {

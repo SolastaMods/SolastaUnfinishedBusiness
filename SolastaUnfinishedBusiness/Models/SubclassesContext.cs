@@ -77,7 +77,7 @@ internal static class SubclassesContext
             KlassListContextTab.Add(klass, new KlassListContext(klass));
             Main.Settings.DisplayKlassToggle.TryAdd(klassName, true);
             Main.Settings.KlassListSliderPosition.TryAdd(klassName, 4);
-            Main.Settings.KlassListSubclassEnabled.TryAdd(klassName, new List<string>());
+            Main.Settings.KlassListSubclassEnabled.TryAdd(klassName, []);
         }
     }
 
@@ -116,7 +116,7 @@ internal static class SubclassesContext
         internal KlassListContext(CharacterClassDefinition characterClassDefinition)
         {
             Klass = characterClassDefinition;
-            AllSubClasses = new HashSet<CharacterSubclassDefinition>();
+            AllSubClasses = [];
         }
 
         private List<string> SelectedSubclasses => Main.Settings.KlassListSubclassEnabled[Klass.Name];

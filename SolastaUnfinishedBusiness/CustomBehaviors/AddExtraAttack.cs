@@ -181,7 +181,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             isUnarmedWeapon ? mainHandItem : null
         );
 
-        return new List<RulesetAttackMode> { attackMode };
+        return [attackMode];
     }
 }
 
@@ -227,7 +227,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             mainHandItem
         );
 
-        return new List<RulesetAttackMode> { attackMode };
+        return [attackMode];
     }
 }
 
@@ -545,6 +545,6 @@ internal sealed class AddExtraFlurryOfArrowsAttack : AddExtraAttackBase
 
         attackMode.attacksNumber = 1;
 
-        return new List<RulesetAttackMode> { attackMode };
+        return [attackMode];
     }
 }

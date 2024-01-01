@@ -203,7 +203,8 @@ public static class GameLocationCharacterPatcher
                     or ActionDefinitions.Id.FlurryOfBlowsUnendingStrikes &&
                 __result == ActionDefinitions.ActionStatus.CannotPerform &&
                 __instance.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus) ==
-                ActionDefinitions.ActionStatus.Available)
+                ActionDefinitions.ActionStatus.Available &&
+                __instance.RulesetCharacter.RemainingKiPoints > 0)
             {
                 __result = ActionDefinitions.ActionStatus.Available;
             }
@@ -504,6 +505,33 @@ public static class GameLocationCharacterPatcher
             }
 
             __instance.RulesetCharacter.RefreshAll();
+
+            return false;
+        }
+    }
+
+    //PATCH: fix vanilla issues that removes hero off stealth if within enemy perceived range on a surprise attack
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.UpdateStealthStatus))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class UpdateStealthStatus_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance)
+        {
+            if (!Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack)
+            {
+                return true;
+            }
+
+            var service = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (service.HasBattleStarted)
+            {
+                return true;
+            }
+
+            __instance.wasPerceivedByFoes = __instance.isPerceivedByFoes;
 
             return false;
         }

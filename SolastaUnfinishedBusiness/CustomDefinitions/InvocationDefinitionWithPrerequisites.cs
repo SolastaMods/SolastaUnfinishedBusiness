@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 internal sealed class InvocationDefinitionWithPrerequisites : InvocationDefinition
 {
     internal List<Func<InvocationDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>>
-        Validators { get; } = new();
+        Validators { get; } = [];
 
     internal (bool result, string output) Validate(InvocationDefinitionWithPrerequisites invocation,
         RulesetCharacterHero hero)

@@ -242,7 +242,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
         private readonly FeatureDefinitionPower _powerDefensiveWhirl;
         private readonly FeatureDefinitionPower _powerMobileWhirl;
         private readonly FeatureDefinitionPower _powerSlashingWhirl;
-        private readonly List<string> _tags = new();
+        private readonly List<string> _tags = [];
         private bool _criticalHit;
         private string _damageType;
 
@@ -375,7 +375,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 // Slashing Whirl scenario
                 else
                 {
-                    rolls = new List<int>();
+                    rolls = [];
                     damageRoll =
                         rulesetCharacter.RollDamage(damageForm, 0, _criticalHit, 0, 0, 1, false, false, false, rolls);
                 }

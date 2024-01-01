@@ -180,7 +180,5 @@ internal static class TypeExtensions
     ///     Special type used to match any generic parameter type in GetMethodExt().
     /// </summary>
     [UsedImplicitly]
-    internal class T
-    {
-    }
+    internal class T;
 }

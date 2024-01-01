@@ -42,160 +42,148 @@ internal static class FlexibleBackgroundsContext
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> AddedFeatures = new()
     {
         {
-            Academic, new List<FeatureDefinition>
-            {
+            Academic, [
                 SkillThree,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsAcademicBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoice
-            }
+            ]
         },
         {
-            Acolyte, new List<FeatureDefinition>
-            {
+            Acolyte, [
                 SkillThree,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsAcolyteBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoice
-            }
+            ]
         },
         {
-            Aristocrat, new List<FeatureDefinition>
-            {
+            Aristocrat, [
                 SkillThree,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsAristocratBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB()
-            }
+            ]
         },
         {
-            Lawkeeper, new List<FeatureDefinition>
-            {
+            Lawkeeper, [
                 SkillTwo,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsLawkeeperBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB()
-            }
+            ]
         },
         {
-            Lowlife, new List<FeatureDefinition>
-            {
+            Lowlife, [
                 SkillThree,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsLowlifeBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoice
-            }
+            ]
         },
         {
-            Philosopher, new List<FeatureDefinition>
-            {
+            Philosopher, [
                 SkillTwo,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsPhilosopherBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoice
-            }
+            ]
         },
         {
-            SellSword, new List<FeatureDefinition>
-            {
+            SellSword, [
                 SkillTwo,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsSellswordBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoice
-            }
+            ]
         },
         {
-            Spy, new List<FeatureDefinition>
-            {
+            Spy, [
                 SkillThree,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsSpyBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoice
-            }
+            ]
         },
         {
-            Wanderer, new List<FeatureDefinition>
-            {
+            Wanderer, [
                 SkillTwo,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsWandererBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoiceTwo
-            }
+            ]
         },
         {
-            Aescetic_Background, new List<FeatureDefinition>
-            {
+            Aescetic_Background, [
                 SkillTwo,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsAesceticBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoice
-            }
+            ]
         },
         {
-            Artist_Background, new List<FeatureDefinition>
-            {
+            Artist_Background, [
                 SkillThree,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsArtistBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB()
-            }
+            ]
         },
         {
-            Occultist_Background, new List<FeatureDefinition>
-            {
+            Occultist_Background, [
                 SkillTwo,
                 FeatureDefinitionBuilder
                     .Create("SuggestedSkillsOccultistBackground")
                     .SetGuiPresentation(Category.Background)
                     .AddToDB(),
+
                 ToolChoice
-            }
+            ]
         }
     };
 
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> RemovedFeatures =
         new()
         {
-            { Academic, new List<FeatureDefinition> { ProficiencyAcademicSkills, ProficiencyAcademicSkillsTool } },
-            { Acolyte, new List<FeatureDefinition> { ProficiencyAcolyteSkills, ProficiencyAcolyteToolsSkills } },
-            { Aristocrat, new List<FeatureDefinition> { ProficiencyAristocratSkills } },
-            { Lawkeeper, new List<FeatureDefinition> { ProficiencyLawkeeperSkills } },
-            { Lowlife, new List<FeatureDefinition> { ProficiencyLowlifeSkills, ProficiencyLowLifeSkillsTools } },
-            {
-                Philosopher,
-                new List<FeatureDefinition> { ProficiencyPhilosopherSkills, ProficiencyPhilosopherTools }
-            },
-            { SellSword, new List<FeatureDefinition> { ProficiencySellSwordSkills, ProficiencySmithTools } },
-            { Spy, new List<FeatureDefinition> { ProficiencySpySkills, ProficienctSpySkillsTool } },
-            { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } },
-            {
-                Aescetic_Background,
-                new List<FeatureDefinition> { ProficiencyAesceticSkills, ProficiencyAesceticToolsSkills }
-            },
-            { Artist_Background, new List<FeatureDefinition> { ProficiencyArtistSkills } },
-            {
-                Occultist_Background,
-                new List<FeatureDefinition> { ProficiencyOccultistSkills, ProficiencyOccultistToolsSkills }
-            }
+            { Academic, [ProficiencyAcademicSkills, ProficiencyAcademicSkillsTool] },
+            { Acolyte, [ProficiencyAcolyteSkills, ProficiencyAcolyteToolsSkills] },
+            { Aristocrat, [ProficiencyAristocratSkills] },
+            { Lawkeeper, [ProficiencyLawkeeperSkills] },
+            { Lowlife, [ProficiencyLowlifeSkills, ProficiencyLowLifeSkillsTools] },
+            { Philosopher, [ProficiencyPhilosopherSkills, ProficiencyPhilosopherTools] },
+            { SellSword, [ProficiencySellSwordSkills, ProficiencySmithTools] },
+            { Spy, [ProficiencySpySkills, ProficienctSpySkillsTool] },
+            { Wanderer, [ProficiencyWandererSkills, ProficiencyWandererTools] },
+            { Aescetic_Background, [ProficiencyAesceticSkills, ProficiencyAesceticToolsSkills] },
+            { Artist_Background, [ProficiencyArtistSkills] },
+            { Occultist_Background, [ProficiencyOccultistSkills, ProficiencyOccultistToolsSkills] }
         };
 
     internal static void Load()
@@ -203,20 +191,16 @@ internal static class FlexibleBackgroundsContext
         var backgroundFarmer = DatabaseHelper.GetDefinition<CharacterBackgroundDefinition>("BackgroundFarmer");
 
         AddedFeatures.Add(backgroundFarmer,
-            new List<FeatureDefinition>
-            {
-                SkillThree,
-                FeatureDefinitionBuilder
-                    .Create("SuggestedSkillsFarmerBackground")
-                    .SetGuiPresentation(Category.Background)
-                    .AddToDB()
-            });
+        [
+            SkillThree,
+            FeatureDefinitionBuilder
+                .Create("SuggestedSkillsFarmerBackground")
+                .SetGuiPresentation(Category.Background)
+                .AddToDB()
+        ]);
 
         RemovedFeatures.Add(backgroundFarmer,
-            new List<FeatureDefinition>
-            {
-                DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyBackgroundFarmerSkills")
-            });
+            [DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyBackgroundFarmerSkills")]);
     }
 
     internal static void SwitchFlexibleBackgrounds()

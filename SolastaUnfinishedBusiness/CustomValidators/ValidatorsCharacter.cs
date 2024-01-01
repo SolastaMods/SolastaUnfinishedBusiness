@@ -26,6 +26,18 @@ internal static class ValidatorsCharacter
         return locationCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus] == 0;
     };
 
+    internal static readonly IsCharacterValidHandler HasNoAvailableBonusAction = character =>
+    {
+        var locationCharacter = GameLocationCharacter.GetFromActor(character);
+
+        if (locationCharacter == null)
+        {
+            return false;
+        }
+
+        return locationCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus] > 0;
+    };
+
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
     internal static readonly IsCharacterValidHandler HasNoArmor = character => !character.IsWearingArmor();

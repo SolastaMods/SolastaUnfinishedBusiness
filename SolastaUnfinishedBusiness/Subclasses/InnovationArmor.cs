@@ -141,8 +141,8 @@ public sealed class InnovationArmor : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove, true),
-                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Add, true))
+                        EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(guardianMarker))
                     .Build())
             .AddToDB();
 
@@ -163,8 +163,8 @@ public sealed class InnovationArmor : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Remove, true),
-                        EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Add, true))
+                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(infiltratorMarker))
                     .Build())
             .AddToDB();
 
@@ -172,21 +172,21 @@ public sealed class InnovationArmor : AbstractSubclass
             .Create("PowerInnovationArmorDefensiveField")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerDefensiveField", Resources.PowerDefensiveField, 256, 128))
-            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(InGuardianMode), InventorClassHolder.Marker,
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(InGuardianMode),
+                InventorClassHolder.Marker,
                 RecurrenceOnlyOnSelfTurn.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetTempHpForm(1)
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus,
-                                LevelSourceType.ClassLevel)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
                             .Build())
                     .Build())
             .AddToDB();
@@ -518,7 +518,7 @@ public sealed class InnovationArmor : AbstractSubclass
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            return [attackMode];
         }
     }
 

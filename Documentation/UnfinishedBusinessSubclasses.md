@@ -562,11 +562,11 @@ Holy smiths who channel their faith through steel and forges. Reinforcing allied
 * Expanded Spells
 
 
-	I	Identify, Searing Smite
+	I	Identify, Infernal Smite
 
 	II	Heat Metal, Magic Weapon
 
-	III	Protection from Energy, Elemental Weapon
+	III	Protection from Energy, Elemental Enchantment
 
 	IV	Wall of Fire, Stoneskin
 
@@ -875,9 +875,9 @@ Your Combat Healing now heals you for 4d8 hit points.
 
 # Fighter
 
-## 1. Arcane Archer
+## 1. Arcane Marksman
 
-An Arcane Archer studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Archers are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
+An Arcane Marksman studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Marksmen are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
 
 
 ### Level 3
@@ -953,7 +953,7 @@ Guardians are stalwart warriors who use taunts and impregnable defenses to becom
 
 * Compelling Strike
 
-Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature.
+Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature or if you are ever more than 5 feet away from the creature.
 
 * Stalwart Front
 
@@ -974,7 +974,7 @@ You gain proficiency in Wisdom saving throws. You are also treated as having hal
 
 * Grand Challenge
 
-As a bonus action, you taunt all hostile creatures that you can see within 30-foot-sphere of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC is 8 + your proficiency bonus + your Constitution modifier) or become taunted until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
+As a bonus action, you taunt all hostile creatures that you can see within 30-foot-sphere of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC = 8 + proficiency bonus + your Constitution modifier) or become taunted until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature or if you are ever more than 30 ft away from the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
 
 
 ### Level 15
@@ -992,60 +992,7 @@ You gain resistance to all non magical bludgeoning, piercing and slashing damage
 
 
 
-## 3. Marshal
-
-Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
-
-
-### Level 3
-
-* Coordinated Attack
-
-When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
-
-* Know Your Enemy
-
-You add your knowledge level of your current target to your attack and damage rolls.
-
-* Study Your Enemy
-
-As a bonus action, you can attempt to increase your knowledge about your target by rolling a Survival check. You can do this twice per short rest.
-
-
-### Level 7
-
-* Eternal Comrade
-
-The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon one spirit of his fallen comrades to aid him in combat.
-
-
-### Level 10
-
-* Encouragement
-
-The courage of the marshal inspires his party member. Allies within 10 ft of him add 1d4 to attack roll and saving throw.
-
-* Fearless Commander
-
-You are immune to fear effect.
-
-
-### Level 15
-
-* Improved Encouragement
-
-The courage of the marshal inspires his party member. Allies within 30 ft of him add 1d4 to attack roll and saving throw.
-
-
-### Level 18
-
-* Knowledgeable Defense
-
-Your knowledge and experience with creatures allows you to better defend yourself when combating them. Your AC is effectively increased by your knowledge level of the creature attacking you up to +3.
-
-
-
-## 4. Royal Knight
+## 3. Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -1086,7 +1033,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-## 5. Spell Shield
+## 4. Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -1135,7 +1082,7 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 
 
-## 6. Tactician
+## 5. Tactician
 
 For tacticians, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
 
@@ -1227,6 +1174,54 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
+## 6. Warlord
+
+Whether they are loved, respected or feared, warlords are primarily known for one thing – leading soldiers like no one else. A warlord stands side by side with their allies and can shift the tide of any battle, no matter if it requires a sword or a sharp tongue. The sheer presence of these accomplished leaders is enough for a soldier to confidently follow their orders and be the best version of themselves.
+
+
+### Level 3
+
+* Battlefield Experience
+
+You gain a bonus to initiative rolls equal to your Wisdom modifier (minimum +1). 
+
+* Press the Advantage
+
+As you strike, you call out sharp commands to your allies, spurring them to action and allowing them to take advantage of the opening. Once during your turn when you hit a creature with a melee weapon attack, you can immediately initiate one of the following maneuvers: 
+• Exploit Opening - The next attack roll made by an attacker other than yourself against this creature is made with advantage. The attack must be made before the start of your next turn.
+• Predict Attack - The creature has disadvantage on the next attack roll it makes before the start of your next turn.
+• Covering Strike - All allies other than yourself don't provoke opportunity attacks from this creature. This effect lasts until the start of your next turn.
+
+
+### Level 7
+
+* Strategic Reposition
+
+You can use your bonus action to order an ally other than yourself that you can see and that is within 30 feet of you to change their position. The targeted ally can move up to half its movement speed (rounded up) without provoking opportunity attacks.
+
+
+### Level 10
+
+* Coordinated Assault
+
+Once during your turn when you hit a creature with a melee weapon attack, you can issue an order to assault the creature, allowing all allies to use their reaction to make an attack of opportunity against it. You can use this feature three times per long rest. 
+
+
+### Level 15
+
+* Battle Plan
+
+Your Battlefield Experience now extends to all allied creatures within 30 feet of you.
+
+
+### Level 18
+
+* Control the Field
+
+You regain one usage of your Coordinated Assault whenever you roll initiative, and whenever you use your Strategic Reposition feature, you can use your reaction to reuse that feature as a free action before your turn ends.
+
+
+
 ## 7. Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
@@ -1293,7 +1288,7 @@ Armorers focus their studies on magical armors and how to use them effectively.
 * Armor Mode
 
 Once per short rest you can select one of 2 armor modes:
-• Guardian: Gain Thunder Gauntlet weapon if you have free hand and Defensive Field bonus action to gain temporary HP equal to Inventor level, triggers each round for 1 minute.
+• Guardian: Gain Thunder Gauntlet weapon if you have a free hand, and Defensive Field bonus action to gain temporary HP equal to Inventor level.
 • Infiltrator: Gain Lightning Launcher ranged attack, 5ft movement speed bonus and advantage on Dexterity (Stealth) checks.
 
 * Armored Up
@@ -1306,13 +1301,13 @@ Learn and have always prepared:
 
 	I	Magic Missile, Shield
 
-	II	Mirror Image, Shatter
+	II	Illusory Duplicates, Shatter
 
 	III	Hypnotic Pattern, Lightning Bolt
 
 	IV	Fire Shield, Greater Invisibility
 
-	V	Far Step, Wall of Force
+	V	Ethereal Step, Wall of Force
 
 
 
@@ -1955,69 +1950,7 @@ You passively grant the following benefits:
 
 
 
-## 2. Oath of Ancients
-
-An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
-
-
-### Level 3
-
-* Channel Divinity: Natures Wrath
-
-You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
-
-* Channel Divinity: Turn the Faithless
-
-You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
-
-* Oath of Ancients
-
-In your list and always prepared: 
- 
-	I	Ensnaring Strike, Animal Friendship
-
-	II	Moon Beam, Misty Step
-
-	III	Protection from Energy, Spirit Guardians
-
-	IV	Ice Storm, Stoneskin
-
-
-### Level 7
-
-* Aura of Warding
-
-Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 ft of you have resistance to damage from spells.
-
-
-### Level 15
-
-* Undying Sentinel
-
-When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
-
-
-### Level 18
-
-* Improved Aura of Warding
-
-Your Aura of Warding range increased to 30 ft.
-
-
-### Level 20
-
-* Elder Champion
-
-As an action, you gain the following benefits for one minute:
-• At the start of each of your turns, you regain 10 hit points.
-• Whenever you cast a paladin spell that has a casting time of 1 action, you can make two weapon attacks as a part of the same action.
-• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity powers.
-
-Once you use this feature, you can't use it again until you finish a long rest.
-
-
-
-## 3. Oath of Demon Hunter
+## 2. Oath of Demon Hunter
 
 Paladins of the Oath of Demon Hunter are dedicated to eradicating the evil creatures that lurk in the darkness, and maintaining peace in the world.
 
@@ -2077,7 +2010,7 @@ Starting at 20th level, you slay evil and purify demons. You gain the following 
 
 
 
-## 4. Oath of Dread
+## 3. Oath of Dread
 
 Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
 
@@ -2141,7 +2074,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-## 5. Oath of Hatred
+## 4. Oath of Hatred
 
 An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 
@@ -2202,6 +2135,68 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
+## 5. Oath of Primordials
+
+An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
+
+
+### Level 3
+
+* Channel Divinity: Nature's Retribution
+
+You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
+
+* Channel Divinity: Turn the Wicked
+
+You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
+
+* Oath of Primordials
+
+In your list and always prepared: 
+ 
+	I	Entangling Strike, Animal Friendship
+
+	II	Moon Beam, Misty Step
+
+	III	Protection from Energy, Spirit Guardians
+
+	IV	Ice Storm, Stoneskin
+
+
+### Level 7
+
+* Aura of Magical Abatement
+
+Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 ft of you have resistance to damage from spells.
+
+
+### Level 15
+
+* Undying Protector
+
+When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
+
+
+### Level 18
+
+* Improved Aura of Magical Abatement
+
+Your Aura of Warding range increased to 30 ft.
+
+
+### Level 20
+
+* Primordial Champion
+
+As an action, you gain the following benefits for one minute:
+• At the start of each of your turns, you regain 10 hit points.
+• Whenever you cast a paladin spell that has a casting time of 1 action, you can make two weapon attacks as a part of the same action.
+• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity powers.
+
+Once you use this feature, you can't use it again until you finish a long rest.
+
+
+
 ## 6. Oath of Thunder
 
 Paladins of the Thunder were born to end the everlasting war across the planes. Even those, travelling far from home, are still eager to fulfil their duty, striking their enemies with the fury of thunder and power of the ancient gods.
@@ -2225,7 +2220,7 @@ When wielding a War Hammer, they can be thrown with a 20/60 range, and return to
 
 In your list and always prepared: 
  
-	I	Thunderwave, Thunderous Smite
+	I	Thunderwave, Booming Smite
 
 	II	Shatter, Misty Step
 
@@ -2233,7 +2228,7 @@ In your list and always prepared:
 
 	IV	Freedom of Movement, Stoneskin
 
-	V	Far Step, Sonic Boom
+	V	Ethereal Step, Sonic Boom
 
 
 ### Level 7
@@ -2345,7 +2340,7 @@ You can cast Enduring Sting as an action and gain bonus spells that are consider
 
 	IV	Wall of Fire
 
-	V	Far Step
+	V	Ethereal Step
 
 
 ### Level 7
@@ -2397,11 +2392,11 @@ You can cast light as an action and gain bonus spells that are considered ranger
 
 	II	Branding Smite
 
-	III	Blinding Smite
+	III	Luminous Smite
 
 	IV	Guardian of Faith
 
-	V	Banishing Smite
+	V	Expelling Smite
 
 
 ### Level 7
@@ -2447,7 +2442,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 	0	Air Blast
 
-	II	Mirror Image
+	II	Illusory Duplicates
 
 	III	Fly
 
@@ -2501,7 +2496,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 	I	Entangle
 
-	II	Web
+	II	Conjure Web
 
 	III	Sleet Storm
 
@@ -3000,7 +2995,7 @@ Your non two-handed weapon attacks count as magical and you use your spell casti
 * Expanded Spells
 
 
-	I	Thunderous Smite
+	I	Booming Smite
 
 	II	Misty Step
 
@@ -3404,7 +3399,7 @@ When an ally within 30 ft of you takes damage, you may use your reaction to redu
 * Expanded Spells
 
 
-	I	Earth Tremor, Sleep
+	I	Animate Earth, Sleep
 
 	II	Heat Metal, Lesser Restoration
 
@@ -3522,15 +3517,15 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 * Expanded Spells
 
 
-	I	Shield, Wrathful Smite
+	I	Shield, Furious Smite
 
 	II	Blur, Branding Smite
 
-	III	Blinding Smite, Elemental Weapon
+	III	Luminous Smite, Elemental Enchantment
 
 	IV	Phantasmal Killer, Staggering Smite
 
-	V	Banishing Smite, Cone of Cold
+	V	Expelling Smite, Cone of Cold
 
 
 

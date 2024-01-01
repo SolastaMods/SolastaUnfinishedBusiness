@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -25,14 +24,14 @@ internal static class RaceBattlebornBuilder
                 .AddToDB();
 
         // manually add to prevent sorting in the builder and cause UI to go wack
-        pointPoolBattlebornAbilityScore.restrictedChoices = new List<string>
-        {
+        pointPoolBattlebornAbilityScore.restrictedChoices =
+        [
             AttributeDefinitions.Strength,
             AttributeDefinitions.Dexterity,
             AttributeDefinitions.Intelligence,
             AttributeDefinitions.Wisdom,
             AttributeDefinitions.Charisma
-        };
+        ];
 
         var featureSetBattlebornAbilityScoreIncrease = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{RaceName}AbilityScoreIncrease")
@@ -90,7 +89,7 @@ internal static class RaceBattlebornBuilder
 
         var racePresentation = raceBattleborn.RacePresentation;
 
-        racePresentation.originOptions = new List<string> { racePresentation.originOptions[1] };
+        racePresentation.originOptions = [racePresentation.originOptions[1]];
 
         return raceBattleborn;
     }

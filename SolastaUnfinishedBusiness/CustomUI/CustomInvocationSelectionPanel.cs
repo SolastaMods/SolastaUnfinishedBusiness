@@ -19,10 +19,10 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private const float ScrollDuration = 0.3f;
     private const float SpellsByLevelMargin = 10.0f;
 
-    private readonly List<FeaturePool> _allPools = new();
-    private readonly List<(string, FeatureDefinitionCustomInvocationPool)> _gainedCustomFeatures = new();
+    private readonly List<FeaturePool> _allPools = [];
+    private readonly List<(string, FeatureDefinitionCustomInvocationPool)> _gainedCustomFeatures = [];
 
-    private readonly Dictionary<PoolId, List<InvocationDefinitionCustom>> _learnedInvocations = new();
+    private readonly Dictionary<PoolId, List<InvocationDefinitionCustom>> _learnedInvocations = [];
 
     private readonly Comparison<FeaturePool> _poolCompare = (a, b) =>
     {

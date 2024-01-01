@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -32,8 +31,8 @@ public static class CharacterStageBackgroundSelectionPanelPatcher
                 __instance.compatibleBackgrounds.Add(key);
                 __instance.selectedBackgroundPersonalityFlagsMap.Add(key,
                     key.OptionalPersonalityFlags.Count == 2
-                        ? new List<string>(key.DefaultOptionalPersonalityFlags)
-                        : new List<string>());
+                        ? [..key.DefaultOptionalPersonalityFlags]
+                        : []);
             }
 
             __instance.compatibleBackgrounds.Sort(__instance);

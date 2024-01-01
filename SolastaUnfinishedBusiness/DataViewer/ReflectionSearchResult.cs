@@ -27,7 +27,7 @@ internal class ResultNode<TNode> : ResultNode where TNode : class
 
     internal HashSet<TNode> Matches => Children.Select(c => c.Node).ToHashSet();
 
-    private List<ResultNode<TNode>> Children { get; } = new();
+    private List<ResultNode<TNode>> Children { get; } = [];
 
     internal ToggleState ToggleState { get; set; } = ToggleState.Off;
 

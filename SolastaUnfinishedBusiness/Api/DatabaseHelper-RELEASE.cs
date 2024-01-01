@@ -489,6 +489,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionKindredSpiritBondSavingThrows { get; } =
             GetDefinition<ConditionDefinition>("ConditionKindredSpiritBondSavingThrows");
 
+        internal static ConditionDefinition ConditionLeadByExampleMarked { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLeadByExampleMarked");
+
         internal static ConditionDefinition ConditionLethargic { get; } =
             GetDefinition<ConditionDefinition>("ConditionLethargic");
 
@@ -549,6 +552,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionPactChainSprite { get; } =
             GetDefinition<ConditionDefinition>("ConditionPactChainSprite");
+
+        internal static ConditionDefinition ConditionPainful { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPainful");
 
         internal static ConditionDefinition ConditionPatronTimekeeperCurseOfTime { get; } =
             GetDefinition<ConditionDefinition>("ConditionPatronTimekeeperCurseOfTime");
@@ -817,6 +823,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionEaglesSplendor { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionEaglesSplendor");
+
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionExhausted { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionExhausted");
 
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionFoxsCunning { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionFoxsCunning");
@@ -1552,6 +1561,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolBackgroundLanguageChoice_one { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolBackgroundLanguageChoice_one");
 
+        internal static FeatureDefinitionPointPool PointPoolBackgroundLanguageChoice_two { get; } =
+            GetDefinition<FeatureDefinitionPointPool>("PointPoolBackgroundLanguageChoice_two");
+
         internal static FeatureDefinitionPointPool PointPoolMonkSkillPoints { get; } =
             GetDefinition<FeatureDefinitionPointPool>("PointPoolMonkSkillPoints");
 
@@ -1755,6 +1767,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMonkStepOfTheWindDash { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkStepOfTheWindDash");
+
+        internal static FeatureDefinitionPower PowerMonkStepOftheWindDisengage { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMonkStepOftheWindDisengage");
 
         internal static FeatureDefinitionPower PowerMonkStunningStrike { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMonkStunningStrike");

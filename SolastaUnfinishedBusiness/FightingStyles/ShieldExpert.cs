@@ -41,8 +41,8 @@ internal class ShieldExpert : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin
-    };
+    ];
 }

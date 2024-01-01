@@ -509,6 +509,7 @@ public sealed class MartialMarshal : AbstractSubclass
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&

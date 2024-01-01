@@ -81,7 +81,7 @@ internal static class ItemRecipeGenerationHelper
 
                 if (!RecipeBooks.TryGetValue(baseItem.Name, out var value1))
                 {
-                    value1 = new List<ItemDefinition>();
+                    value1 = [];
                     RecipeBooks.Add(baseItem.Name, value1);
                 }
 
@@ -134,7 +134,7 @@ internal static class ItemRecipeGenerationHelper
 
         const string GROUP_KEY = "EnchantingIngredients";
 
-        RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
+        RecipeBooks.Add(GROUP_KEY, []);
 
         foreach (var craftingManual in recipes
                      .Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
@@ -191,7 +191,7 @@ internal static class ItemRecipeGenerationHelper
 
         const string GROUP_KEY = "PrimedItems";
 
-        RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
+        RecipeBooks.Add(GROUP_KEY, []);
 
         foreach (var recipe in recipes)
         {
@@ -255,7 +255,7 @@ internal static class ItemRecipeGenerationHelper
 
         const string GROUP_KEY = "RelicForgeries";
 
-        RecipeBooks.Add(GROUP_KEY, new List<ItemDefinition>());
+        RecipeBooks.Add(GROUP_KEY, []);
 
         foreach (var craftingManual in recipes.Select(recipe => ItemBuilder.BuilderCopyFromItemSetRecipe(
                      CraftingManualRemedy, "CraftingManual" + recipe.Name,

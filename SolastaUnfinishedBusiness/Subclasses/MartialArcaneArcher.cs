@@ -791,10 +791,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,
-                new List<TrendInfo>
-                {
-                    new(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition)
-                },
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition)],
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
@@ -806,10 +803,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             attackModifier.ignoreAdvantage = false;
             attackModifier.attackAdvantageTrends =
-                new List<TrendInfo>
-                {
-                    new(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition)
-                };
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;

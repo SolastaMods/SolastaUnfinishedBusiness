@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
@@ -70,10 +69,7 @@ internal static class AiContext
         var scorer = Object.Instantiate(baseDecision.Decision.scorer);
 
         scorer.name = "BreakFree";
-        scorer.scorer.considerations = new List<WeightedConsiderationDescription>
-        {
-            considerationHasConditionBreakFree, considerationMainActionNotFullyConsumed
-        };
+        scorer.scorer.considerations = [considerationHasConditionBreakFree, considerationMainActionNotFullyConsumed];
 
         // create and assign decision definition to all decision packages
 

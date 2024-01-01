@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionSpellShieldArcaneDeflection:7580a117-7912-5b1d-bd1c-552ff726506b",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

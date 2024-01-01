@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -57,10 +56,7 @@ internal static class RaceWyrmkinBuilder
 
         RacesContext.RaceScaleMap[raceWyrmkin] = 7.0f / 6.4f;
         raceWyrmkin.subRaces =
-            new List<CharacterRaceDefinition>
-            {
-                BuildHighWyrmkin(raceWyrmkin), BuildCaveWyrmkin(raceWyrmkin), BuildCrystalWyrmkin(raceWyrmkin)
-            };
+            [BuildHighWyrmkin(raceWyrmkin), BuildCaveWyrmkin(raceWyrmkin), BuildCrystalWyrmkin(raceWyrmkin)];
 
         return raceWyrmkin;
     }

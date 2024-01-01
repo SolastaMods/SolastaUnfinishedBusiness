@@ -50,7 +50,7 @@ public static class CharacterStageRaceSelectionPanelPatcher
             {
                 __instance.eligibleRaces.Add(key);
                 __instance.selectedSubRace.Add(num++, 0);
-                __instance.sortedSubRaces.Add(key, new List<CharacterRaceDefinition>());
+                __instance.sortedSubRaces.Add(key, []);
 
                 if (key.SubRaces.Count == 0)
                 {

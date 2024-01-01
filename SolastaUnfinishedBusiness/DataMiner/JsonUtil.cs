@@ -68,7 +68,7 @@ internal static class JsonUtil
                 .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)));
 
         IEnumerable<MemberInfo> nameProperty = objectType == typeof(Object)
-            ? new MemberInfo[] { objectType.GetProperty("name") }
+            ? [objectType.GetProperty("name")]
             : Array.Empty<MemberInfo>();
 
         return privateFields

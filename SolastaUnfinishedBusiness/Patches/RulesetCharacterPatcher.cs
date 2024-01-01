@@ -695,7 +695,7 @@ public static class RulesetCharacterPatcher
             if (ignoreAdvantage)
             {
                 advantageType = AdvantageType.None;
-                advantageTrends = new List<TrendInfo>();
+                advantageTrends = [];
             }
 
             var rawRoll = predefinedRoll <= 0
@@ -1638,7 +1638,7 @@ public static class RulesetCharacterPatcher
             var savingThrowBonus =
                 AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetActor.TryGetAttributeValue(attributeScore)) +
-                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<TrendInfo>());
+                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, []);
 
             foreach (var attribute in rulesetActor
                          .GetSubFeaturesByType<IModifyConcentrationAttribute>()
@@ -1647,7 +1647,7 @@ public static class RulesetCharacterPatcher
             {
                 var newSavingThrowBonus =
                     AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
-                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<TrendInfo>());
+                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, []);
 
                 // get the last one instead unless we start using this with other subs and then need to decide which one is better
                 if (newSavingThrowBonus <= savingThrowBonus)

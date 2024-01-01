@@ -656,7 +656,7 @@ internal static class OtherFeats
 
     private sealed class ModifyDamageResistanceElementalAdept : IModifyDamageAffinity
     {
-        private readonly List<string> _damageTypes = new();
+        private readonly List<string> _damageTypes = [];
 
         public ModifyDamageResistanceElementalAdept(params string[] damageTypes)
         {
@@ -730,7 +730,7 @@ internal static class OtherFeats
 
     private sealed class ModifyDamageResistanceElementalMaster : IModifyDamageAffinity
     {
-        private readonly List<string> _damageTypes = new();
+        private readonly List<string> _damageTypes = [];
 
         public ModifyDamageResistanceElementalMaster(params string[] damageTypes)
         {
@@ -812,9 +812,7 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class AooImmunityFeatMobile : IIgnoreAoOIfAttacked
-    {
-    }
+    private sealed class AooImmunityFeatMobile : IIgnoreAoOIfAttacked;
 
     #endregion
 

@@ -3,14 +3,16 @@
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
 /// <summary>
-/// Do not instantiate any of this class, except for Marker
-/// You should inherit GetFromPoolAndCopyOriginalRulesetCondition and use it in the interface
-/// pool size is 10, since you can compress all things in this condition, you should not apply it everywhere. (But it automatically expand if needed)
-/// typical example:
-/// class MyRulesetConditionCustom: RulesetConditionCustom-MyRulesetConditionCustom, IBindToRulesetConditionCustom
+///     Do not instantiate any of this class, except for Marker
+///     You should inherit GetFromPoolAndCopyOriginalRulesetCondition and use it in the interface
+///     pool size is 10, since you can compress all things in this condition, you should not apply it everywhere. (But it
+///     automatically expand if needed)
+///     typical example:
+///     class MyRulesetConditionCustom: RulesetConditionCustom-MyRulesetConditionCustom, IBindToRulesetConditionCustom
 ///     Initialize Marker, BindingDefinition, Category in static constructor
-/// set BindingDefinition with custom sub features: Marker, OnConditionAddedOrRemoved
-///     The type conversion is handled in IBindToRulesetConditionCustom when the condition definition marked by Marker is added to character
+///     set BindingDefinition with custom sub features: Marker, OnConditionAddedOrRemoved
+///     The type conversion is handled in IBindToRulesetConditionCustom when the condition definition marked by Marker is
+///     added to character
 ///     then you can handle condition added or removed in OnConditionAddedOrRemoved
 /// </summary>
 /// <typeparam name="T"></typeparam>

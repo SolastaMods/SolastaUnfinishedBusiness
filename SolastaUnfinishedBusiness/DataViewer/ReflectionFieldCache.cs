@@ -77,7 +77,7 @@ internal static partial class ReflectionCache
             var method = new DynamicMethod(
                 "get_" + _info.Name,
                 _info.FieldType,
-                new[] { isInstByRef ? _info.DeclaringType?.MakeByRefType() : _info.DeclaringType },
+                [isInstByRef ? _info.DeclaringType?.MakeByRefType() : _info.DeclaringType],
                 typeof(CachedField<TField>),
                 true);
 
@@ -105,7 +105,7 @@ internal static partial class ReflectionCache
             var method = new DynamicMethod(
                 "set_" + _info.Name,
                 null,
-                new[] { isInstByRef ? _info.DeclaringType?.MakeByRefType() : _info.DeclaringType, _info.FieldType },
+                [isInstByRef ? _info.DeclaringType?.MakeByRefType() : _info.DeclaringType, _info.FieldType],
                 typeof(CachedField<TField>),
                 true);
 

@@ -16,7 +16,7 @@ internal static class DmProRendererContext
     private const int FlatRoomSize = 12;
     private const string FlatRoomTag = "Flat";
 
-    private static readonly char[] Separator = { '~' };
+    private static readonly char[] Separator = ['~'];
 
     private static VegetationMaskArea TemplateVegetationMaskArea { get; set; }
 

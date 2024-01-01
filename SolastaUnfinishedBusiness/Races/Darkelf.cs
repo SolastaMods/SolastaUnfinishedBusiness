@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -79,7 +78,7 @@ internal static class SubraceDarkelfBuilder
 
         darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
         darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
-        darkelfRacePresentation.surNameOptions = new List<string>(); // names are added from names.txt resources
+        darkelfRacePresentation.surNameOptions = []; // names are added from names.txt resources
         darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
         darkelfRacePresentation.preferedHairColors = new RangedInt(48, 53);
 

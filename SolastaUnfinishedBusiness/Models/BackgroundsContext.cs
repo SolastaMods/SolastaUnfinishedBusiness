@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BackgroundsContext
 {
-    internal static HashSet<CharacterBackgroundDefinition> Backgrounds { get; private set; } = new();
+    internal static HashSet<CharacterBackgroundDefinition> Backgrounds { get; private set; } = [];
 
     internal static void Load()
     {

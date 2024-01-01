@@ -18,7 +18,7 @@ internal static class ObjectExtensions
             return true;
         }
 
-        return type.IsValueType && type.IsPrimitive;
+        return type is { IsValueType: true, IsPrimitive: true };
     }
 
     private static object InternalCopy([CanBeNull] object originalObject, IDictionary<object, object> visited)

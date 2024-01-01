@@ -132,7 +132,6 @@ ModUi/&EnableSortingDungeonMakerAssets=던전 만들기 편집기에서 에셋 �
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=. 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다.
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color>를 눌러 파티 순간이동 활성화 <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있습니다]</i>
-ModUi/&EnableThesaurus=동의어 사전 활성화 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=캐릭터 풀에서 토글로 기본 플레이 및 테스트 파티를 설정 활성화
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올리면 툴팁에 거리 표시 활성화 <i><color=#F0DAA0>[규칙에 따라 공식 거리 계산 옵션과 함께 사용하도록 권장]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 소환 주문</color>과 <color=#D89555>페이 소환 주문</color>의 강화 시전 활성화
@@ -188,6 +187,7 @@ ModUi/&ItemsCraftingMerchants=제작, 아이템 및 상인
 ModUi/&ItemsHelp1=<color=#C04040E0>인벤토리에 아이템을 추가하려면 캐릭터 조사창을 열어야 합니다...</color>
 ModUi/&ItemsHelp2=<b>지상 컨테이너에 아이템을 추가하려면 +를 누르세요</b>
 ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>투명화</color>를 깨지 않고 아이템 사용을 활성화합니다.
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=기습 라운드 <i><color=#F0DAA0>[첫 번째 영웅만]</color></i>에서 감지되면 공격 후 영웅의 스텔스 기능을 업데이트하세요.
 ModUi/&MakeAllMagicStaveArcaneFoci=모든 마법 지팡이를 비전 주문 매개체로 만듦 <i><color=#F0DAA0>[범용<color=#D89555>치유의 스태프</color>는 제외]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 전개 후 레벨 맵에 보이지 않는 순간이동기의 위치도 표시</i>
 ModUi/&MaxAllowedClasses=<color=white>클래스 최대 허용</color>
@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ 정확한 수학 계산으로 측면을 결정 
 ModUi/&UseOfficialAdvantageDisadvantageRules=공식 이점/불리점 규칙 사용 <i><color=#F0DAA0>[상황에 따라 굴림에 두 효과 모두 있는 경우, 상쇄되어 모두 없는 것으로 간주]</color></i>
 ModUi/&UseOfficialDistanceCalculation=공식 거리 계산인 한 크리쳐의 육면체에서 다른 크리쳐 육면체까지의 거리를 기준으로 <i><color=#F0DAA0>[솔라스타의 기본 거리 계산 대신]</color></i> 계산
 ModUi/&UseOfficialFlankingRules=공식 측면 공격 규칙 사용 <i><color=#F0DAA0>[아군이 대상의 반대편에 있으면 공격자가 이점 받음]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격에도 적용</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 장병기 공격에도 적용</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 도달 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족 규칙</color>을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -71,7 +70,7 @@ internal static class RaceMalakhBuilder
             .AddToDB();
 
         // Use instead of bonus cantrip to add spell casting ability
-        spellListMalakh.SpellsByLevel[0].Spells = new List<SpellDefinition> { SpellDefinitions.Light };
+        spellListMalakh.SpellsByLevel[0].Spells = [SpellDefinitions.Light];
 
         var castSpellMalakhMagic = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellTiefling, $"CastSpell{Name}Magic")
@@ -331,9 +330,9 @@ internal static class RaceMalakhBuilder
                 EffectHelpers.StartVisualEffect(locationCharacter, enemy, SpellDefinitions.BrandingSmite);
 
                 implementationService.ApplyEffectForms(
-                    new List<EffectForm> { new() { damageForm = damageForm } },
+                    [new EffectForm { damageForm = damageForm }],
                     applyFormsParams,
-                    new List<string> { DamageTypeRadiant },
+                    [DamageTypeRadiant],
                     out _,
                     out _);
             }

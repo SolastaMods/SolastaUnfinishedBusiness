@@ -411,7 +411,7 @@ internal static class PowerBundle
     {
         var result = true;
 
-        prerequisites = new List<string>();
+        prerequisites = [];
 
         foreach (var validator in validators)
         {
@@ -769,7 +769,7 @@ internal static class PowerBundle
             bool terminateAll)
         {
             // MasterPower = masterPower;
-            SubPowers = new List<FeatureDefinitionPower>(subPowers);
+            SubPowers = [..subPowers];
             TerminateAll = terminateAll;
 
             var subSpells = SubPowers.Select(RegisterPower).ToList();

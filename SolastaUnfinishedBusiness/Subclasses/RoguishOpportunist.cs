@@ -212,6 +212,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             RulesetCharacter rulesetDefender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (Gui.Battle == null ||

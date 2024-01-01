@@ -15,7 +15,7 @@ internal static class CustomizedSubFeatureDefinitions
             return value;
         }
 
-        value = new List<object>();
+        value = [];
         CustomSubFeatures.Add(definition, value);
 
         return value;

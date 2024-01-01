@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -153,7 +152,7 @@ internal static class RaceFairyBuilder
                 SenseDarkvision)
             .AddToDB();
 
-        raceFairy.subRaces = new List<CharacterRaceDefinition>();
+        raceFairy.subRaces = [];
         RacesContext.RaceScaleMap[raceFairy] = 6f / 9.4f;
 
         return raceFairy;

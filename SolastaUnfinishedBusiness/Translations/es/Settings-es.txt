@@ -132,7 +132,6 @@ ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=. Además, cada héroe agrega una tirada de D20 al peso para darle un poco de aleatoriedad.
 ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color></i>
-ModUi/&EnableThesaurus=Habilitar diccionario de sinónimos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas del panel al pasar el mouse sobre un personaje en combate
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
@@ -188,6 +187,7 @@ ModUi/&ItemsCraftingMerchants=Fabricación, artículos y comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Habilitar el uso de elementos sin romper la <color=#D89555>Invisibilidad</color>
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Actualiza el sigilo del héroe después del ataque si se percibe en la ronda sorpresa <i><color=#F0DAA0>[solo el primer héroe]</color></i>
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de curación</color> que es universal]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ Use matemáticas precisas para determinar el fl
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa las reglas oficiales de ventaja/desventaja <i><color=#F0DAA0>[si las circunstancias hacen que una tirada tenga ambas, se considera que no tienes ninguna de ellas]</color></i>
 ModUi/&UseOfficialDistanceCalculation=Usa el cálculo de distancia oficial para que se base en la distancia entre el cubo de una criatura y la otra <i><color=#F0DAA0>[en lugar del cálculo de distancia predeterminado de Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Usa las reglas oficiales de flanqueo <i><color=#F0DAA0>[un atacante tiene ventaja si un aliado está en el lado opuesto del objetivo]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Habilitar también para ataques a distancia</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Habilitar también para ataques de alcance</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ También habilitado para ataques a distancia <color=#F0DAA0>[desactiva las matemáticas precisas]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ También habilitado para ataques de alcance <color=#F0DAA0>[desactiva las matemáticas precisas]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ En lugar de ventaja otorga +1 a la tirada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilice <color=#D89555>ración de alimentos</color> con un peso oficial de 2 libras
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Usa las <color=#D89555>reglas oficiales de razas pequeñas</color> cuando empuñas armas pesadas <i><color=#F0DAA0>[tus ataques tienen desventaja]</color></i>

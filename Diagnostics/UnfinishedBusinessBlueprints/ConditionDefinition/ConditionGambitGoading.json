@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageGambitDie:9f288fdb-82c8-5c55-8028-549986994481",
+    "Definition:AdditionalDamageGambitDieMelee:0c8c9223-a0d3-53db-a806-39a146465c76",
     "Definition:PowerGambitGoadingReact:3b111ac2-9ad2-5fea-8ac2-a9743d9fac52"
   ],
   "allowMultipleInstances": false,

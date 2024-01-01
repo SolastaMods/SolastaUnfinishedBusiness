@@ -242,7 +242,7 @@ internal class EffectFormBuilder
             DiceNumber = diceNumber,
             DieType = dieType,
             healFromInflictedDamage = healFromInflictedDamage,
-            damageBonusTrends = new List<TrendInfo>(),
+            damageBonusTrends = [],
             OverrideWithBardicInspirationDie = overrideWithBardicInspirationDie
         };
 

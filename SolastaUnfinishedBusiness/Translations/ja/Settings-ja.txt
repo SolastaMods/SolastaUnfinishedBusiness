@@ -132,7 +132,6 @@ ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセッ
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=。また、各ヒーローは少しランダム性を持たせるためにウェイトに D20 ロールを追加します。
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color> を有効にしてパーティをテレポートします。<i><color=#F0DAA0>[未発見の場所にテレポートするとクエストが中断される可能性があります]</color></i>
-ModUi/&EnableThesaurus=シソーラス <b><i><color=#C04040E0>[再起動が必要]</color></i></b> を有効にする
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=キャラクタープールの切り替えを有効にして、デフォルトのプレイおよびテストパーティーを設定します
 ModUi/&EnableTooltipDistance=戦闘中にキャラクターの上にマウスを置くと、パネルのツールチップに距離が表示されるようになります。
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>コンジュア・エレメンタル</color>と<color=#D89555>コンジュア・フェイ</color>のアップキャストを有効にする
@@ -188,6 +187,7 @@ ModUi/&ItemsCraftingMerchants=クラフト、アイテム、商人
 ModUi/&ItemsHelp1=<color=#C04040E0>キャラクター検査画面を開いてヒーローにアイテムを追加します...</color>
 ModUi/&ItemsHelp2=<b>+ を押して地上コンテナにアイテムを追加します</b>
 ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>非表示</color>を壊さないアイテムの使用を有効にする
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=奇襲ラウンド <i><color=#F0DAA0>[最初のヒーローのみ]</color></i> で認識された場合、攻撃後にヒーローのステルスを更新します
 ModUi/&MakeAllMagicStaveArcaneFoci=すべての魔法の杖を秘術の焦点にします<i><color=#F0DAA0>[万能の<color=#D89555>治癒の杖</color>を除く]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後にレベルマップ上に目に見えないテレポーターの位置もマークします</i>
 ModUi/&MaxAllowedClasses=<color=white>許可されるクラスの最大数</color>
@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ 正確な計算を使用して側面攻撃を�
 ModUi/&UseOfficialAdvantageDisadvantageRules=公式の有利/不利ルールを使用します<i><color=#F0DAA0>[状況によってロールに両方が存在する場合、どちらも持っていないとみなされます]</color></i>
 ModUi/&UseOfficialDistanceCalculation=1 つのクリーチャーのキューブから他のクリーチャーのキューブまでの距離に基づく公式の距離計算を使用します<i><color=#F0DAA0>[ソラスタのデフォルトの距離計算の代わりに]</color></i>
 ModUi/&UseOfficialFlankingRules=公式の側面ルールを使用する<i><color=#F0DAA0>[味方がターゲットの反対側にいる場合、攻撃側が有利]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にします</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にする</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を与える</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</color>の重量は2ポンドを使用してください
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは、公式の<color=#D89555>小規模種族ルール</color>を使用してください<i><color=#F0DAA0>[攻撃には不利があります]</color></i>

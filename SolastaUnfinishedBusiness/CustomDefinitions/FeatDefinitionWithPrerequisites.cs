@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 internal sealed class FeatDefinitionWithPrerequisites : FeatDefinition
 {
     internal List<Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>>
-        Validators { get; } = new();
+        Validators { get; } = [];
 
     internal (bool result, string output) Validate(FeatDefinitionWithPrerequisites feat, RulesetCharacterHero hero)
     {

@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Magnify Gravity",
-    "description": "Create a wand that can cast <b>Magnify Gravity (I)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Intensify Gravity",
+    "description": "Create a wand that can cast <b>Intensify Gravity (I)</b> spell using your Inventor spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "13c18a25-d293-594f-bfc5-bb0cbb20d552",

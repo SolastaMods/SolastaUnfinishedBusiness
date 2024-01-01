@@ -247,6 +247,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (HasSpecializedWeapon(myself, attackMode))
@@ -324,11 +325,11 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
+        public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
+            string effectName,
             ref ActionModifier attackModifier)
         {
             if (!HasSpecializedWeapon(myself, attackMode))

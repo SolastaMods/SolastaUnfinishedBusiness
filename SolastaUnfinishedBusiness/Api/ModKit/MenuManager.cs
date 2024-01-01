@@ -20,24 +20,18 @@ internal interface IMenuPage
     void OnGUI(UnityModManager.ModEntry modEntry);
 }
 
-internal interface IMenuTopPage : IMenuPage
-{
-}
+internal interface IMenuTopPage : IMenuPage;
 
-internal interface IMenuSelectablePage : IMenuPage
-{
-}
+internal interface IMenuSelectablePage : IMenuPage;
 
-internal interface IMenuBottomPage : IMenuPage
-{
-}
+internal interface IMenuBottomPage : IMenuPage;
 
 internal sealed class MenuManager : INotifyPropertyChanged
 {
     private static Exception _caughtException;
-    private readonly List<IMenuBottomPage> _bottomPages = new();
-    private readonly List<IMenuSelectablePage> _selectablePages = new();
-    private readonly List<IMenuTopPage> _topPages = new();
+    private readonly List<IMenuBottomPage> _bottomPages = [];
+    private readonly List<IMenuSelectablePage> _selectablePages = [];
+    private readonly List<IMenuTopPage> _topPages = [];
     private static int SelectedTab => Main.Settings.SelectedTab;
 
     private int TabIndex

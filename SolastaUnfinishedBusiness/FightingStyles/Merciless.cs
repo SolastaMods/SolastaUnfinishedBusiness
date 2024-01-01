@@ -55,15 +55,15 @@ internal sealed class Merciless : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         CharacterContext.FightingStyleChoiceBarbarian,
         CharacterContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,
         FightingStyleRanger
-    };
+    ];
 
     private sealed class OnReducedToZeroHpByMeMerciless : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe
     {
@@ -75,10 +75,7 @@ internal sealed class Merciless : AbstractFightingStyle
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (activeEffect != null ||
-                (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }
@@ -90,6 +87,7 @@ internal sealed class Merciless : AbstractFightingStyle
                 yield break;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var usablePower = UsablePowersProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
             var distance = _criticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;

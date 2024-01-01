@@ -58,8 +58,8 @@ internal abstract class Node
         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 
     // the graph will not show any child nodes of following types
-    internal static readonly HashSet<Type> BaseTypes = new()
-    {
+    internal static readonly HashSet<Type> BaseTypes =
+    [
         typeof(object),
         typeof(DBNull),
         typeof(bool),
@@ -79,7 +79,7 @@ internal abstract class Node
         typeof(string),
         typeof(IntPtr),
         typeof(UIntPtr)
-    };
+    ];
 
     internal readonly bool IsNullable;
 
@@ -400,7 +400,7 @@ internal abstract class GenericNode<TNode> : Node
 
         _componentIsDirty = false;
 
-        _componentNodes ??= new List<Node>();
+        _componentNodes ??= [];
         _componentNodes.Clear();
 
         if (IsException || IsNull || !IsGameObject)
@@ -434,7 +434,7 @@ internal abstract class GenericNode<TNode> : Node
 
         _itemIsDirty = false;
 
-        _itemNodes ??= new List<Node>();
+        _itemNodes ??= [];
         _itemNodes.Clear();
 
         if (IsException || IsNull || !IsEnumerable)
@@ -467,7 +467,7 @@ internal abstract class GenericNode<TNode> : Node
 
         _fieldIsDirty = false;
 
-        _fieldNodes ??= new List<Node>();
+        _fieldNodes ??= [];
         _fieldNodes.Clear();
 
         if (IsException || IsNull)
@@ -497,7 +497,7 @@ internal abstract class GenericNode<TNode> : Node
 
         _propertyIsDirty = false;
 
-        _propertyNodes ??= new List<Node>();
+        _propertyNodes ??= [];
         _propertyNodes.Clear();
 
         if (IsException || IsNull)

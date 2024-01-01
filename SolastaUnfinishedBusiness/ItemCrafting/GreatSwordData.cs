@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
@@ -14,23 +13,24 @@ internal static class GreatSwordData
         _items ??= new ItemCollection
         {
             BaseItems =
-                new List<(ItemDefinition item, ItemDefinition presentation)>
-                {
-                    (ItemDefinitions.Greatsword, ItemDefinitions.GreatswordPlus2)
-                },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition> { ItemDefinitions.Primed_Battleaxe },
-            MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
-            {
-                new("Punisher", ItemDefinitions.Enchanted_Battleaxe_Punisher,
+                [(ItemDefinitions.Greatsword, ItemDefinitions.GreatswordPlus2)],
+            PossiblePrimedItemsToReplace = [ItemDefinitions.Primed_Battleaxe],
+            MagicToCopy =
+            [
+                new ItemCollection.MagicItemDataHolder("Punisher", ItemDefinitions.Enchanted_Battleaxe_Punisher,
                     RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher),
-                new("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
+
+                new ItemCollection.MagicItemDataHolder("Souldrinker", ItemDefinitions.Enchanted_Dagger_Souldrinker,
                     RecipeDefinitions.Recipe_Enchantment_DaggerSouldrinker),
-                new("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
+
+                new ItemCollection.MagicItemDataHolder("Bearclaw", ItemDefinitions.Enchanted_Morningstar_Bearclaw,
                     RecipeDefinitions.Recipe_Enchantment_MorningstarBearclaw),
-                new("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
+
+                new ItemCollection.MagicItemDataHolder("Frostburn", ItemDefinitions.Enchanted_Dagger_Frostburn,
                     RecipeDefinitions.Recipe_Enchantment_DaggerFrostburn),
-                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+
+                new ItemCollection.MagicItemDataHolder("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
                     RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn)
-            }
+            ]
         };
 }

@@ -25,18 +25,22 @@ internal sealed class Sentinel : AbstractFightingStyle
                 .AddCustomSubFeatures(
                     AttacksOfOpportunity.IgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
-                    new OnPhysicalAttackHitFeatSentinel(CustomConditionsContext.StopMovement))
+                    new OnPhysicalAttackHitFeatSentinel(
+                        ConditionDefinitionBuilder
+                            .Create(CustomConditionsContext.StopMovement, "ConditionStopMovementSentinel")
+                            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                            .AddToDB()))
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
-    {
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
         CharacterContext.FightingStyleChoiceBarbarian,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,
         FightingStyleRanger
-    };
+    ];
 
     private sealed class OnPhysicalAttackHitFeatSentinel : IPhysicalAttackAfterDamage
     {
@@ -82,8 +86,8 @@ internal sealed class Sentinel : AbstractFightingStyle
             rulesetDefender.InflictCondition(
                 _conditionSentinelStopMovement.Name,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagCombat,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,

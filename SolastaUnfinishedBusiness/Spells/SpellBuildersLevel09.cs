@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -246,22 +245,36 @@ internal static partial class SpellBuilders
                                 ShapeChangeForm.Type.FreeListSelection,
                                 true,
                                 ConditionDefinitions.ConditionWildShapeSubstituteForm,
-                                new List<ShapeOptionDescription>
-                                {
-                                    new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
-                                    new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
-                                    new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
-                                    new() { requiredLevel = 1, substituteMonster = Giant_Ape },
-                                    new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
-                                    new()
+                                [
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy
+                                    },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Divine_Avatar },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Emperor_Laethar
+                                    },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Giant_Ape },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = GoldDragon_AerElai
+                                    },
+                                    new ShapeOptionDescription
                                     {
                                         requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
                                     },
-                                    new() { requiredLevel = 1, substituteMonster = Remorhaz },
-                                    new() { requiredLevel = 1, substituteMonster = Spider_Queen },
-                                    new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath },
-                                    new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss }
-                                })
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Remorhaz },
+                                    new ShapeOptionDescription { requiredLevel = 1, substituteMonster = Spider_Queen },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath
+                                    },
+                                    new ShapeOptionDescription
+                                    {
+                                        requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss
+                                    }
+                                ])
                             .Build())
                     .Build())
             .SetRequiresConcentration(true)

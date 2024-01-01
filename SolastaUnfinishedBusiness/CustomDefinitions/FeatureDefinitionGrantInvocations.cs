@@ -6,7 +6,7 @@ namespace SolastaUnfinishedBusiness.CustomDefinitions;
 internal class FeatureDefinitionGrantInvocations : FeatureDefinition
 {
     // ReSharper disable once CollectionNeverUpdated.Local
-    internal List<InvocationDefinition> Invocations { get; } = new();
+    internal List<InvocationDefinition> Invocations { get; } = [];
 
     internal static void GrantInvocations(
         RulesetCharacterHero hero,
