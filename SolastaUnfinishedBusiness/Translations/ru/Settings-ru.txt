@@ -187,7 +187,7 @@ ModUi/&ItemsCraftingMerchants=Крафт, предметы и торговцы
 ModUi/&ItemsHelp1=<color=#C04040E0>Откройте экран персонажа, чтобы добавить предметы героям...</color>
 ModUi/&ItemsHelp2=<b>Нажмите + для добавления предметов в хранилище на земле</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Включить возможность использования предметов без прекращения <color=#D89555>Невидимости</color>
-ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Обновить скрытность героя после атаки, если она обнаружена в неожиданном раунде <i><color=#F0DAA0>[только для первого героя]</color></i>
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Обновить состояние скрытности на персонаже после атаки, если он обнаружен в нулевом раунде <i><color=#F0DAA0>[только для первого персонажа]</color></i>
 ModUi/&MakeAllMagicStaveArcaneFoci=Сделать все волшебные посохи подходящими для магической фокусировки <i><color=#F0DAA0>[кроме <color=#D89555>Посоха лечения</color>, который является универсальным]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Также помечать местонахождение невидимых телепортов на карте уровня после того, как они открыты</i>
 ModUi/&MaxAllowedClasses=<color=white>Максимальное разрешённое количество классов</color>
