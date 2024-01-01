@@ -63,26 +63,18 @@ public sealed class MartialDefender : AbstractSubclass
 
         // Shout of Provocation
 
-        var conditionShoutOfProvocationSelf = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ShoutOfProvocationSelf")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
         var combatAffinityShoutOfProvocationAlly = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}ShoutOfProvocationAlly")
             .SetGuiPresentation($"Condition{Name}ShoutOfProvocation", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .SetSituationalContext(
-                (SituationalContext)ExtraSituationalContext.TargetDoesNotHaveCondition,
-                conditionShoutOfProvocationSelf)
+            .SetSituationalContext((SituationalContext)ExtraSituationalContext.TargetIsNotEffectSource)
             .AddToDB();
 
         var combatAffinityShoutOfProvocationSelf = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}ShoutOfProvocationSelf")
             .SetGuiPresentation($"Condition{Name}ShoutOfProvocation", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
-            .SetSituationalContext(SituationalContext.TargetHasCondition, conditionShoutOfProvocationSelf)
+            .SetSituationalContext(SituationalContext.TargetIsEffectSource)
             .AddToDB();
 
         var conditionShoutOfProvocationEnemy = ConditionDefinitionBuilder
@@ -112,9 +104,7 @@ public sealed class MartialDefender : AbstractSubclass
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(conditionShoutOfProvocationEnemy, ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(conditionShoutOfProvocationSelf,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                            .Build())
                     .Build())
             .AddToDB();
 

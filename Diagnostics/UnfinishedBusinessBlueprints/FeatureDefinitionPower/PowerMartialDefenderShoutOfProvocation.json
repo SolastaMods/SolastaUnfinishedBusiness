@@ -87,33 +87,6 @@
         },
         "hasFilterId": false,
         "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionMartialDefenderShoutOfProvocationSelf",
-          "conditionDefinition": "Definition:ConditionMartialDefenderShoutOfProvocationSelf:4bcc040b-8aa9-5e9b-9abc-941e5a1b583d",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
-        },
-        "hasFilterId": false,
-        "filterId": 0
       }
     ],
     "specialFormsDescription": "",

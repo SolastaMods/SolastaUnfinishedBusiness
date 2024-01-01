@@ -28,7 +28,6 @@ internal enum ExtraSituationalContext
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012,
     TargetIsFavoriteEnemy = 1013,
     HasShieldInHands = 1014,
-    TargetDoesNotHaveCondition = 1015,
     HasSimpleOrMartialWeaponInHands = 1016,
     IsNotSourceOfCondition = 1017
 }
