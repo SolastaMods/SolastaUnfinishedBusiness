@@ -189,7 +189,7 @@ public sealed class DomainDefiler : AbstractSubclass
 
         // Divine Immunity
 
-        var damageAffinityDivineImmunity = FeatureDefinitionDamageAffinityBuilder
+        _ = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}DivineImmunity")
             .SetGuiPresentation(Category.Feature)
             .SetDamageAffinityType(DamageAffinityType.Immunity)
@@ -228,8 +228,6 @@ public sealed class DomainDefiler : AbstractSubclass
                 damageAffinityDivineResistance)
             .AddFeaturesAtLevel(10,
                 PowerClericDivineInterventionPaladin)
-            .AddFeaturesAtLevel(14,
-                damageAffinityDivineImmunity)
             .AddFeaturesAtLevel(17,
                 autoPreparedSpellsDyingLight)
             .AddToDB();
