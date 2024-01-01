@@ -34,8 +34,8 @@ FightingStyle/&ShieldExpertDescription=방패를 무기로 쓸 수 있도록 훈
 FightingStyle/&ShieldExpertTitle=방패 달인
 FightingStyle/&TorchbearerDescription=전투 중 횃불을 쓰는 데 통달했습니다. 턴당 1회, 추가행동으로, 자신이 장비한 광원을 이용해 접촉할 수 있는 적에게 불을 붙이려 시도할 수 있습니다. 대상은 민첩 내성굴림(DC = 8+숙련 보너스+민첩 수정치) 실패 시 불이 붙습니다. 불을 끄지 않는 한, 대상은 3턴 동안 턴마다 1d4 화염 피해를 입습니다.
 FightingStyle/&TorchbearerTitle=횃불운반자
-FightingStyle/&ZenArcherDescription=롱보우, 숏보우, 핸드 크로스보우를 사용할 때 직감이 당신을 인도합니다. 해당 무기를 사용한 명중굴림과 피해굴림에 민첩 수정치 대신 지혜 수정치를 사용할 수 있습니다.
-FightingStyle/&ZenArcherTitle=명상 궁수
+FightingStyle/&ZenArcherDescription=활을 사용할 때 직관이 손을 안내합니다. 지혜 속성을 1씩 최대 20까지 높이십시오. 이 무기의 공격 및 피해 굴림에 민첩 수정치 대신 지혜 수정치를 사용할 수 있습니다.
+FightingStyle/&ZenArcherTitle=직관적인 양궁
 Reaction/&CustomReactionInterceptionDescription={0}이(가) {1}에 의해 받는 피해를 1d10+숙련 보너스만큼 감소시킵니다.
 Reaction/&CustomReactionInterceptionReactDescription=이 공격을 가로챕니다.
 Reaction/&CustomReactionInterceptionReactTitle=가로채기

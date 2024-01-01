@@ -17,6 +17,7 @@ internal class ZenArcher : AbstractFightingStyle
         .Create(ZenArcherName)
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Archery)
         .SetFeatures(
+            DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
             FeatureDefinitionAttackModifierBuilder
                 .Create($"Feature{ZenArcherName}")
                 .SetGuiPresentation(ZenArcherName, Category.FightingStyle)
@@ -25,9 +26,7 @@ internal class ZenArcher : AbstractFightingStyle
                         AttributeDefinitions.Wisdom,
                         ValidatorsWeapon.IsOfWeaponType(
                             LongbowType,
-                            ShortbowType,
-                            CustomWeaponsContext.HandXbowWeaponType)))
-                //.SetMagicalWeapon()
+                            ShortbowType)))
                 .AddToDB())
         .AddToDB();
 
