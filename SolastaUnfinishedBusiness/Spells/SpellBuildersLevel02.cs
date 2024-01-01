@@ -317,6 +317,10 @@ internal static partial class SpellBuilders
             monsterDefinition.Features.Add(conditionAffinityGrappledRestrainedSpellWebImmunity);
         }
 
+        ItemDefinitions.CloakOfArachnida.StaticProperties.Add(ItemPropertyDescriptionBuilder
+            .From(conditionAffinityGrappledRestrainedSpellWebImmunity, false,
+                EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden).Build());
+
         var proxyWeb = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyEntangle, $"Proxy{NAME}")
             .SetOrUpdateGuiPresentation(NAME, Category.Spell)
