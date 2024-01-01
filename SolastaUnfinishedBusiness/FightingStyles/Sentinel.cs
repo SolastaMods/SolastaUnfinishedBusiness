@@ -82,8 +82,8 @@ internal sealed class Sentinel : AbstractFightingStyle
             rulesetDefender.InflictCondition(
                 _conditionSentinelStopMovement.Name,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagCombat,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
