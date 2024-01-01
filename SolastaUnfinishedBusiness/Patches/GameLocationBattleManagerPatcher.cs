@@ -200,8 +200,9 @@ public static class GameLocationBattleManagerPatcher
 
             var cursorService = ServiceRepository.GetService<ICursorService>();
 
-            if (cursorService.CurrentCursor is CursorLocationBattleFriendlyTurn
-                    cursorLocationBattleFriendlyTurn &&
+            //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord
+            // ReSharper disable once InvertIf
+            if (cursorService.CurrentCursor is CursorLocationBattleFriendlyTurn cursorLocationBattleFriendlyTurn &&
                 mover.UsedSpecialFeatures.ContainsKey("MoverNotInTurn"))
             {
                 cursorLocationBattleFriendlyTurn.dirty = true;
