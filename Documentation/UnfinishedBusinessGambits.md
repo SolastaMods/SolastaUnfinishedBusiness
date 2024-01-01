@@ -44,7 +44,7 @@ You can launch a powerful attack as a part of your main action attack that can d
 
 # 12. - Provoke
 
-The next weapon or unarmed attack that hits a creature before your turn ends will spend a gambit die to deal additional damage equal to the gambit die roll and taunt the creature until the end of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature.
+The next melee weapon or unarmed attack that hits a creature before your turn ends will spend a gambit die to deal additional damage equal to the gambit die roll and taunt the creature until the end of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 5 feet away from the creature or lose sight of the creature.
 
 # 13. - Readied Strike
 

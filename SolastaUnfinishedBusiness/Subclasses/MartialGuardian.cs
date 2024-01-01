@@ -215,6 +215,11 @@ public sealed class MartialGuardian : AbstractSubclass
                 yield break;
             }
 
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                yield break;
+            }
+            
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.InflictCondition(

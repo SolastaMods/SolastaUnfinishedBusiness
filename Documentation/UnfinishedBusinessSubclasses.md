@@ -953,7 +953,7 @@ Guardians are stalwart warriors who use taunts and impregnable defenses to becom
 
 * Compelling Strike
 
-Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature.
+Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 5 feet away from the creature or lose sight of the creature.
 
 * Stalwart Front
 
