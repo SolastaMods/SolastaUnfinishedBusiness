@@ -441,9 +441,7 @@ internal static class GambitsBuilders
                             .Create()
                             .SetConditionForm(CustomConditionsContext.Taunted, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunter,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                            .Build())
                     .Build())
             .AddToDB();
 

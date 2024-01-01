@@ -656,9 +656,6 @@ internal static class CustomWeaponsContext
         baseDescription.EffectDescription.EndOfEffect = TurnOccurenceType.EndOfSourceTurn;
         baseDescription.EffectDescription.EffectForms.Add(
             EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted));
-        baseDescription.EffectDescription.EffectForms.Add(
-            EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunter,
-                ConditionForm.ConditionOperation.Add, true, true));
 
         var effectParticleParameters = new EffectParticleParameters();
 

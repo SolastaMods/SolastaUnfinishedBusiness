@@ -34,13 +34,11 @@ internal static class CustomConditionsContext
 
     internal static ConditionDefinition Taunted;
 
-    internal static ConditionDefinition Taunter;
-
-    private static FeatureDefinitionPower FlightSuspend { get; set; }
-    private static FeatureDefinitionPower FlightResume { get; set; }
-
-    private static ConditionDefinition ConditionInvisibilityEveryRoundRevealed { get; set; }
-    private static ConditionDefinition ConditionInvisibilityEveryRoundHidden { get; set; }
+    private static ConditionDefinition _taunter;
+    private static FeatureDefinitionPower _flightSuspend;
+    private static FeatureDefinitionPower _flightResume;
+    private static ConditionDefinition _conditionInvisibilityEveryRoundRevealed;
+    private static ConditionDefinition _conditionInvisibilityEveryRoundHidden;
 
     internal static void Load()
     {
@@ -84,28 +82,28 @@ internal static class CustomConditionsContext
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark, new ActionFinishedByMeTaunted())
+            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark, new CustomBehaviorTaunted())
             .AddToDB();
 
-        Taunter = ConditionDefinitionBuilder
+        _taunter = ConditionDefinitionBuilder
             .Create("ConditionTaunter")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark, new ActionFinishedByMeTaunter())
+            .AddCustomSubFeatures(new ActionFinishedByMeTaunter())
             .AddToDB();
     }
 
     private static ConditionDefinition BuildInvisibilityEveryRound()
     {
-        ConditionInvisibilityEveryRoundRevealed = ConditionDefinitionBuilder
+        _conditionInvisibilityEveryRoundRevealed = ConditionDefinitionBuilder
             .Create("ConditionInvisibilityEveryRoundRevealed")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        ConditionInvisibilityEveryRoundHidden = ConditionDefinitionBuilder
+        _conditionInvisibilityEveryRoundHidden = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRoundHidden")
-            .SetCancellingConditions(ConditionInvisibilityEveryRoundRevealed)
+            .SetCancellingConditions(_conditionInvisibilityEveryRoundRevealed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(
@@ -188,7 +186,7 @@ internal static class CustomConditionsContext
         const string FlightSuspendName = "FlightSuspend";
         const string FlightResumeName = "FlightResume";
 
-        FlightSuspend = FeatureDefinitionPowerBuilder
+        _flightSuspend = FeatureDefinitionPowerBuilder
             .Create($"Power{FlightSuspendName}")
             .SetGuiPresentation(FlightSuspendName, Category.Feature,
                 Sprites.GetSprite("ActionFlightSuspend", Resources.ActionFlightSuspend, 80), 71)
@@ -217,10 +215,10 @@ internal static class CustomConditionsContext
             .SetActionScope(ActionScope.All)
             .SetActionType(ActionType.NoCost)
             .SetFormType(ActionFormType.Small)
-            .SetActivatedPower(FlightSuspend)
+            .SetActivatedPower(_flightSuspend)
             .AddToDB();
 
-        FlightResume = FeatureDefinitionPowerBuilder
+        _flightResume = FeatureDefinitionPowerBuilder
             .Create($"Power{FlightResumeName}")
             .SetGuiPresentation(FlightResumeName, Category.Feature,
                 Sprites.GetSprite("ActionFlightResume", Resources.ActionFlightResume, 80), 71)
@@ -250,7 +248,7 @@ internal static class CustomConditionsContext
             .SetActionScope(ActionScope.All)
             .SetActionType(ActionType.NoCost)
             .SetFormType(ActionFormType.Small)
-            .SetActivatedPower(FlightResume)
+            .SetActivatedPower(_flightResume)
             .AddToDB();
     }
 
@@ -326,6 +324,16 @@ internal static class CustomConditionsContext
         return false;
     }
 
+    private static int GetTauntedRange(string effectDescriptionName)
+    {
+        return effectDescriptionName switch
+        {
+            "PowerGambitGoadingReact" or "ActionAffinityMartialGuardianCompellingStrike" => 1,
+            "PowerMartialGuardianGrandChallenge" => 6,
+            _ => 18 // Thunder Gauntlet
+        };
+    }
+
     private sealed class InvisibilityEveryRoundBehavior : IActionFinishedByMe, IOnConditionAddedOrRemoved
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
@@ -352,7 +360,7 @@ internal static class CustomConditionsContext
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster &&
-                !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
+                !target.HasConditionOfType(_conditionInvisibilityEveryRoundRevealed))
             {
                 BecomeHidden(target);
             }
@@ -420,7 +428,7 @@ internal static class CustomConditionsContext
             hero.AddConditionOfCategory(CategoryRevealed,
                 RulesetCondition.CreateActiveCondition(
                     hero.Guid,
-                    ConditionInvisibilityEveryRoundRevealed,
+                    _conditionInvisibilityEveryRoundRevealed,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.StartOfTurn,
@@ -434,7 +442,7 @@ internal static class CustomConditionsContext
             hero.AddConditionOfCategory(CategoryHidden,
                 RulesetCondition.CreateActiveCondition(
                     hero.Guid,
-                    ConditionInvisibilityEveryRoundHidden,
+                    _conditionInvisibilityEveryRoundHidden,
                     DurationType.Permanent,
                     0,
                     TurnOccurenceType.EndOfTurn,
@@ -596,15 +604,18 @@ internal static class CustomConditionsContext
         }
     }
 
-    //
-    // Taunter
-    //
-
     private sealed class ActionFinishedByMeTaunter : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
-            if (characterAction.ActionType != ActionType.Move)
+            if (characterAction.ActionType != ActionType.Move &&
+                // also checking attack action to handle reach > 1 scenarios or throw or ranged
+                characterAction.ActionId is not (
+                    Id.AttackMain or
+                    Id.AttackOff or
+                    Id.AttackFree or
+                    Id.AttackReadied or
+                    Id.AttackOpportunity))
             {
                 yield break;
             }
@@ -621,18 +632,23 @@ internal static class CustomConditionsContext
             var targets = gameLocationBattleService.Battle.AllContenders
                 .Where(enemy =>
                     enemy.IsOppositeSide(actingCharacter.Side)
-                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                    && (!actingCharacter.PerceivedFoes.Contains(enemy) ||
-                        !gameLocationBattleService.IsWithinXCells(actingCharacter, enemy, 5)))
+                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                 .ToList();
 
             foreach (var target in targets)
             {
                 var rulesetCondition = target.RulesetCharacter.AllConditions.FirstOrDefault(x =>
-                    x.ConditionDefinition.Name == "ConditionTaunted" &&
+                    x.ConditionDefinition.Name == Taunted.Name &&
                     x.SourceGuid == rulesetCharacter.Guid);
 
-                if (rulesetCondition != null)
+                if (rulesetCondition == null)
+                {
+                    continue;
+                }
+
+                // ruleset amount carries the max range for the condition
+                if (!gameLocationBattleService.IsWithinXCells(actingCharacter, target, rulesetCondition.Amount) ||
+                    !actingCharacter.PerceivedFoes.Contains(target))
                 {
                     target.RulesetCharacter.RemoveCondition(rulesetCondition);
                 }
@@ -644,10 +660,8 @@ internal static class CustomConditionsContext
     // Taunted
     //
 
-    private sealed class ActionFinishedByMeTaunted : IActionFinishedByMe
+    private sealed class CustomBehaviorTaunted : IActionFinishedByMe, IOnConditionAddedOrRemoved
     {
-        private const int TauntedRange = 1;
-
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction.ActionType != ActionType.Move)
@@ -666,7 +680,7 @@ internal static class CustomConditionsContext
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             foreach (var rulesetCondition in rulesetCharacter.AllConditions
-                         .Where(x => x.ConditionDefinition.Name == "ConditionTaunted")
+                         .Where(x => x.ConditionDefinition.Name == Taunted.Name)
                          .ToList()
                          .Select(a => new { a, rulesetCaster = EffectHelpers.GetCharacterByGuid(a.SourceGuid) })
                          .Where(t => t.rulesetCaster != null)
@@ -674,10 +688,61 @@ internal static class CustomConditionsContext
                          .Where(t =>
                              t.caster != null &&
                              (!t.caster.PerceivedFoes.Contains(actingCharacter) ||
-                              !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, TauntedRange)))
+                              // ruleset amount carries the max range for the condition
+                              !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, t.b.a.Amount)))
                          .Select(c => c.b.a))
             {
                 rulesetCharacter.RemoveCondition(rulesetCondition);
+            }
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var sourceCharacter = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var tauntedRange = GetTauntedRange(rulesetCondition.effectDefinitionName);
+
+            // for some reason when conditions are refreshed the original effect name and amount aren't updating
+            // also, when condition is applied from an item (gauntlet), the end occurence gets set to StartOfTurn
+            // below is a hack for these particular scenarios
+            if (target.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, Taunted.Name, out var activeCondition))
+            {
+                activeCondition.amount = tauntedRange;
+                activeCondition.effectDefinitionName = rulesetCondition.effectDefinitionName;
+                activeCondition.sourceGuid = rulesetCondition.sourceGuid;
+                activeCondition.durationType = DurationType.Round;
+                activeCondition.durationParameter = 1;
+                activeCondition.EndOccurence = TurnOccurenceType.EndOfSourceTurn;
+            }
+
+            sourceCharacter?.InflictCondition(
+                _taunter.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                sourceCharacter.Guid,
+                sourceCharacter.CurrentFaction.Name,
+                1,
+                _taunter.Name,
+                tauntedRange,
+                0,
+                0);
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var sourceCharacter = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (sourceCharacter == null)
+            {
+                return;
+            }
+
+            if (sourceCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _taunter.Name, out var activeCondition))
+            {
+                sourceCharacter.RemoveCondition(activeCondition);
             }
         }
     }

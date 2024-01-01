@@ -8,17 +8,17 @@
 
 - fixed Blade Mastery feat granting AC regardless of wielded weapon
 - fixed Blessing of Rime spell not removing condition when temp HPs get to zero
-- fixed Elemental Infusion spell scaling additional targets instead of dice damage
-- fixed Monk remaining Ki points transmuting from the natural world into the integer one
-- fixed Tactical Strike gambit not enforcing second target selection
-- fixed Taunted condition duration on Thunder Gauntlet to cancel at start of the Innovation Armor turn
+- fixed Elemental Infusion spell displaying additional targets on tooltip instead of dice damage
+- fixed Monk remaining Ki points transmuting from the natural world into the integer one [no more negative Ki]
+- fixed Tactical Strike gambit not enforcing second target selection leading to a combat instability
+- fixed Taunted condition scenarios on Thunder Gauntlet weapon, Martial Guardian subclass, and Provoke gambit
 
 - fixed vanilla language pools to also allow select Abyssal, Gnomish, and Infernal
 - fixed vanilla removing stealth from hero if within enemy perceived range during a surprise attack
 - fixed vanilla grouped reactions to be executed in order of modal clicks instead of party order
 
 - deprecated Martial Marshal subclass [you can always edit settings.xml deprecated subclasses list at will]
-- renamed some feats, features, fighting styles, spells, etc. to respect others copyright
+- renamed some feats, features, fighting styles, spells, subclasses, etc. to respect others copyright
 
 1.5.94.38:
 

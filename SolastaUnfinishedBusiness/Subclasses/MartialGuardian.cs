@@ -38,9 +38,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, $"ActionAffinity{Name}CompellingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CompellingStrikeToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasShield),
-                new AttackBeforeHitConfirmedOnEnemyCompellingStrike())
+            .AddCustomSubFeatures(new AttackBeforeHitConfirmedOnEnemyCompellingStrike())
             .AddToDB();
 
         // Stalwart Front (Sentinel FS)
@@ -88,9 +86,7 @@ public sealed class MartialGuardian : AbstractSubclass
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(CustomConditionsContext.Taunted, ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunter,
-                            ConditionForm.ConditionOperation.Add, true, true))
+                            .Build())
                     .Build())
             .AddToDB();
 
@@ -212,26 +208,12 @@ public sealed class MartialGuardian : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker!.RulesetCharacter;
 
             if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CompellingStrikeToggle))
             {
                 yield break;
             }
-
-            rulesetAttacker.InflictCondition(
-                CustomConditionsContext.Taunter.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.Guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                CustomConditionsContext.Taunter.Name,
-                0,
-                0,
-                0);
 
             var rulesetDefender = defender.RulesetCharacter;
 
@@ -244,8 +226,9 @@ public sealed class MartialGuardian : AbstractSubclass
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                CustomConditionsContext.Taunted.Name,
-                0,
+                // we need this to check for the condition range later on
+                $"ActionAffinity{Name}CompellingStrike",
+                1,
                 0,
                 0);
         }
