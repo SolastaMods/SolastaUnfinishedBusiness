@@ -82,7 +82,7 @@
           "conditionDefinition": "Definition:ConditionInnovationArmorInfiltratorMode:8f7061e5-1959-5c76-94bd-2f2c0d0bc636",
           "operation": "Remove",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -109,7 +109,7 @@
           "conditionDefinition": "Definition:ConditionInnovationArmorGuardianMode:1c330b00-3771-5827-a308-ca7bc79e5e31",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

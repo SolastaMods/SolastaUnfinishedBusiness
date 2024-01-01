@@ -141,8 +141,8 @@ public sealed class InnovationArmor : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove, true),
-                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Add, true))
+                        EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(guardianMarker))
                     .Build())
             .AddToDB();
 
@@ -163,8 +163,8 @@ public sealed class InnovationArmor : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Remove, true),
-                        EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Add, true))
+                        EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Remove),
+                        EffectFormBuilder.ConditionForm(infiltratorMarker))
                     .Build())
             .AddToDB();
 

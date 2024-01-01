@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionCollegeOfGutsArcaneDeflection:753d2942-3224-5a42-b429-4c1629a0a58f",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0

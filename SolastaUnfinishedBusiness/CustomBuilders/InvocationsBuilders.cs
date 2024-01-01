@@ -369,12 +369,7 @@ internal static class InvocationsBuilders
             .Create(Haste, "Kinesis")
             .AddToDB();
 
-        var effect = spellKinesis.EffectDescription;
-        effect.targetFilteringMethod = TargetFilteringMethod.CharacterOnly;
-        effect.targetExcludeCaster = true;
-        effect.EffectForms.Add(EffectFormBuilder.ConditionForm(
-            ConditionDefinitions.ConditionHasted,
-            ConditionForm.ConditionOperation.Add, true));
+        spellKinesis.EffectDescription.targetFilteringMethod = TargetFilteringMethod.CharacterOnly;
 
         return InvocationDefinitionBuilder
             .Create(NAME)
