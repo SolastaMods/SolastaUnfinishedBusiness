@@ -368,7 +368,6 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Translations
     //
 
-    public bool EnableThesaurus { get; set; }
     public string SelectedLanguageCode { get; set; } = TranslatorContext.English;
 
     //

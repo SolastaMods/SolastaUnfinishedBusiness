@@ -332,7 +332,7 @@ internal static class TranslatorContext
         var words = new Dictionary<string, string>();
         var path = Path.Combine(Main.ModFolder, "thesaurus.txt");
 
-        if (!Main.Settings.EnableThesaurus || !File.Exists(path))
+        if (!File.Exists(path))
         {
             return words;
         }

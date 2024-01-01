@@ -132,7 +132,6 @@ ModUi/&EnableSortingDungeonMakerAssets=던전 만들기 편집기에서 에셋 �
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
 ModUi/&EnableSumD20OnAlternateVotingSystem=. 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다.
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color>를 눌러 파티 순간이동 활성화 <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있습니다]</i>
-ModUi/&EnableThesaurus=동의어 사전 활성화 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=캐릭터 풀에서 토글로 기본 플레이 및 테스트 파티를 설정 활성화
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올리면 툴팁에 거리 표시 활성화 <i><color=#F0DAA0>[규칙에 따라 공식 거리 계산 옵션과 함께 사용하도록 권장]</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 소환 주문</color>과 <color=#D89555>페이 소환 주문</color>의 강화 시전 활성화
