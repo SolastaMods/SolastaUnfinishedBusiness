@@ -647,8 +647,7 @@ internal static class CustomConditionsContext
                 }
 
                 // ruleset amount carries the max range for the condition
-                if (!gameLocationBattleService.IsWithinXCells(actingCharacter, target, rulesetCondition.Amount) ||
-                    !actingCharacter.PerceivedFoes.Contains(target))
+                if (!gameLocationBattleService.IsWithinXCells(actingCharacter, target, rulesetCondition.Amount))
                 {
                     target.RulesetCharacter.RemoveCondition(rulesetCondition);
                 }
@@ -687,9 +686,8 @@ internal static class CustomConditionsContext
                          .Select(b => new { b, caster = GameLocationCharacter.GetFromActor(b.rulesetCaster) })
                          .Where(t =>
                              t.caster != null &&
-                             (!t.caster.PerceivedFoes.Contains(actingCharacter) ||
-                              // ruleset amount carries the max range for the condition
-                              !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, t.b.a.Amount)))
+                             // ruleset amount carries the max range for the condition
+                             !gameLocationBattleService.IsWithinXCells(t.caster, actingCharacter, t.b.a.Amount))
                          .Select(c => c.b.a))
             {
                 rulesetCharacter.RemoveCondition(rulesetCondition);
