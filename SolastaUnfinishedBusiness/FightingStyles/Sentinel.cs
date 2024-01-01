@@ -25,7 +25,11 @@ internal sealed class Sentinel : AbstractFightingStyle
                 .AddCustomSubFeatures(
                     AttacksOfOpportunity.IgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
-                    new OnPhysicalAttackHitFeatSentinel(CustomConditionsContext.StopMovement))
+                    new OnPhysicalAttackHitFeatSentinel(
+                        ConditionDefinitionBuilder
+                            .Create(CustomConditionsContext.StopMovement, "ConditionStopMovementSentinel")
+                            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                            .AddToDB()))
                 .AddToDB())
         .AddToDB();
 
@@ -83,7 +87,7 @@ internal sealed class Sentinel : AbstractFightingStyle
                 _conditionSentinelStopMovement.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagCombat,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,

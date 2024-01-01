@@ -11,9 +11,9 @@
 - fixed Blessing of Rime spell not removing condition when temp HPs get to zero
 - fixed Elemental Infusion spell displaying additional targets on tooltip instead of dice damage
 - fixed Monk remaining Ki points transmuting from the natural world into the integer one [no more negative Ki]
+- fixed Sentinel feat / fighting style keeping stop condition 1 round longer than it should
 - fixed Tactical Strike gambit not enforcing second target selection leading to a combat instability
 - fixed Taunted condition scenarios on Thunder Gauntlet weapon, Martial Guardian subclass, and Provoke gambit
-
 - fixed vanilla language pools to also allow select Abyssal, Gnomish, and Infernal
 - fixed vanilla grouped reactions to be executed in order of modal clicks instead of party order
 

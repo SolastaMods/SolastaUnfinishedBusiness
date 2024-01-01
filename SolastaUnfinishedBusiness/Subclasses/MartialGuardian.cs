@@ -170,8 +170,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 continue;
             }
 
-            guardian.RefundActionUse(ActionDefinitions.ActionType.Reaction);
-            guardian.ActionRefunded?.Invoke(guardian, ActionDefinitions.ActionType.Reaction);
+            guardian.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
 
             rulesetGuardian.InflictCondition(
                 ConditionVigilanceName,
@@ -219,7 +218,7 @@ public sealed class MartialGuardian : AbstractSubclass
             {
                 yield break;
             }
-            
+
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.InflictCondition(
