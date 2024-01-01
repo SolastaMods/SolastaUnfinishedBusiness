@@ -17,7 +17,7 @@
 - fixed vanilla pools to also allow select Abyssal, Gnomish, and Infernal languages
 
 - deprecated Martial Marshal subclass [you can always edit settings.xml deprecated subclasses list at will]
-- improved vanilla grouped reactions to be executed in order of modal clicks instead of party order
+- improved vanilla grouped reactions to be executed in order of modal clicks instead of party order [Marshal/Warlord]
 - removed recurrent temporary hit points from Innovation Armor defensive field feature
 - renamed some feats, features, fighting styles, spells, subclasses, etc. to respect copyright
 
