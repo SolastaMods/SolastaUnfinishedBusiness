@@ -423,10 +423,9 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             }
 
             var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
-            var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
-            var totalHealing = classLevel + proficiencyBonus + constitutionModifier;
+            var totalHealing = classLevel + constitutionModifier;
 
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 totalHealing, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.guid);
@@ -440,7 +439,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             var powerFocusedStrikes = GetDefinition<FeatureDefinitionPower>($"Power{Name}FocusedStrikes");
             var rulesetUsablePower = UsablePowersProvider.Get(powerFocusedStrikes, rulesetCharacter);
 
-            if (rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0)
+            if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
             {
                 return;
             }
