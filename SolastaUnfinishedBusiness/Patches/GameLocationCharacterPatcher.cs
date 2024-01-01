@@ -519,6 +519,11 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix(GameLocationCharacter __instance)
         {
+            if (!Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack)
+            {
+                return true;
+            }
+
             var service = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (service.HasBattleStarted)

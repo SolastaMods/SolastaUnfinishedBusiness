@@ -188,6 +188,7 @@ ModUi/&ItemsCraftingMerchants=Creazione, oggetti e mercanti
 ModUi/&ItemsHelp1=<color=#C04040E0>Apri la schermata di ispezione del personaggio per aggiungere oggetti agli eroi...</color>
 ModUi/&ItemsHelp2=<b>Premi + per aggiungere oggetti al contenitore a terra</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Abilita l'utilizzo degli oggetti senza interrompere l'<color=#D89555>Invisibilità</color>
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Aggiorna la furtività dell'eroe dopo l'attacco se percepita nel round a sorpresa <i><color=#F0DAA0>[solo primo eroe]</color></i>
 ModUi/&MakeAllMagicStaveArcaneFoci=Trasforma tutti i bastoni magici in fuochi arcani <i><color=#F0DAA0> [tranne <color=#D89555> Bastone della Guarigione</color> che è Universale]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Contrassegna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>

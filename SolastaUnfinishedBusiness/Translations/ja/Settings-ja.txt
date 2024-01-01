@@ -188,6 +188,7 @@ ModUi/&ItemsCraftingMerchants=クラフト、アイテム、商人
 ModUi/&ItemsHelp1=<color=#C04040E0>キャラクター検査画面を開いてヒーローにアイテムを追加します...</color>
 ModUi/&ItemsHelp2=<b>+ を押して地上コンテナにアイテムを追加します</b>
 ModUi/&KeepInvisibilityWhenUsingItems=<color=#D89555>非表示</color>を壊さないアイテムの使用を有効にする
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=奇襲ラウンド <i><color=#F0DAA0>[最初のヒーローのみ]</color></i> で認識された場合、攻撃後にヒーローのステルスを更新します
 ModUi/&MakeAllMagicStaveArcaneFoci=すべての魔法の杖を秘術の焦点にします<i><color=#F0DAA0>[万能の<color=#D89555>治癒の杖</color>を除く]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 発見後にレベルマップ上に目に見えないテレポーターの位置もマークします</i>
 ModUi/&MaxAllowedClasses=<color=white>許可されるクラスの最大数</color>

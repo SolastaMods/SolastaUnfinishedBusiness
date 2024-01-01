@@ -188,6 +188,7 @@ ModUi/&ItemsCraftingMerchants=Handwerk, Gegenstände und Händler
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffnen Sie den Charakterinspektionsbildschirm, um Gegenstände zu Helden hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Gegenstände zum Bodenbehälter hinzuzufügen</b>
 ModUi/&KeepInvisibilityWhenUsingItems=Aktivieren Sie die Verwendung von Gegenständen, ohne die <color=#D89555>Unsichtbarkeit</color> zu beeinträchtigen
+ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack=Aktualisiere die Tarnung des Helden nach dem Angriff, wenn er in der Überraschungsrunde wahrgenommen wird <i><color=#F0DAA0>[nur erster Held]</color></i>
 ModUi/&MakeAllMagicStaveArcaneFoci=Machen Sie alle Zauberstäbe zu arkanen Brennpunkten <i><color=#F0DAA0>[außer dem <color=#D89555>Stab der Heilung</color>, der universell ist]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte.</i>
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>

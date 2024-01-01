@@ -158,6 +158,14 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
+
+    public bool
+        KeepStealthOnHeroIfPerceivedDuringSurpriseAttack
+    {
+        get;
+        set;
+    } // removing stealth from hero if within enemy perceived range during a surprise attack
+
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool DontEndTurnAfterReady { get; set; }

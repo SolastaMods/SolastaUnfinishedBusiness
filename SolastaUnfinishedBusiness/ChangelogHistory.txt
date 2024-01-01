@@ -1,5 +1,6 @@
 ﻿1.5.94.39:
 
+- added Gameplay > Rules > 'Update stealth on hero after attack if perceived on surprise round [first hero only]'
 - added Martial Warlord subclass [our view on a balanced Martial Marshal]
 - added Coordinated Attack (Maneuvering Attack) gambit
 - added Elusive Movement (Evasive Footwork) gambit
@@ -14,7 +15,6 @@
 - fixed Taunted condition scenarios on Thunder Gauntlet weapon, Martial Guardian subclass, and Provoke gambit
 
 - fixed vanilla language pools to also allow select Abyssal, Gnomish, and Infernal
-- fixed vanilla removing stealth from hero if within enemy perceived range during a surprise attack
 - fixed vanilla grouped reactions to be executed in order of modal clicks instead of party order
 
 - deprecated Martial Marshal subclass [you can always edit settings.xml deprecated subclasses list at will]
