@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>30</DisplayModMessage>
+    <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -288,14 +288,15 @@
     <UnlockSkinColors>false</UnlockSkinColors>
     <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
-    <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
-    <UseMathFlankingRules>false</UseMathFlankingRules>
+    <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
+    <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
-    <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
-    <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
+    <UseOfficialFlankingRulesAlsoForRanged>true</UseOfficialFlankingRulesAlsoForRanged>
+    <UseOfficialFlankingRulesAlsoForReach>true</UseOfficialFlankingRulesAlsoForReach>
     <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
     <UseOfficialDistanceCalculation>false</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>false</UseOfficialSmallRacesDisWithHeavyWeapons>
+    <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>false</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>
     <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
@@ -985,7 +986,6 @@
     <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
     <UnleashEnemyAsNpc>false</UnleashEnemyAsNpc>
     <EnableDungeonMakerModdedContent>false</EnableDungeonMakerModdedContent>
-    <EnableThesaurus>false</EnableThesaurus>
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>

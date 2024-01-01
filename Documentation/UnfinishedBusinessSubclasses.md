@@ -953,7 +953,7 @@ Guardians are stalwart warriors who use taunts and impregnable defenses to becom
 
 * Compelling Strike
 
-Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 5 feet away from the creature or lose sight of the creature.
+Whenever you hit a creature with a melee weapon attack, you can taunt the creature until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature or if you are ever more than 5 feet away from the creature.
 
 * Stalwart Front
 
@@ -974,7 +974,7 @@ You gain proficiency in Wisdom saving throws. You are also treated as having hal
 
 * Grand Challenge
 
-As a bonus action, you taunt all hostile creatures that you can see within 30-foot-sphere of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC is 8 + your proficiency bonus + your Constitution modifier) or become taunted until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature, if you move more than 30 feet away from the creature or lose sight of the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
+As a bonus action, you taunt all hostile creatures that you can see within 30-foot-sphere of you. Each affected enemy creature must succeed on a Wisdom saving throw (DC = 8 + proficiency bonus + your Constitution modifier) or become taunted until the start of your next turn. A creature taunted by you has disadvantage on any attack roll that doesn't target you. This effect ends early if another ally taunts the creature or if you are ever more than 30 ft away from the creature. You can use this feature a number of times per long rest equal to your proficiency bonus.
 
 
 ### Level 15
@@ -1288,7 +1288,7 @@ Armorers focus their studies on magical armors and how to use them effectively.
 * Armor Mode
 
 Once per short rest you can select one of 2 armor modes:
-• Guardian: Gain Thunder Gauntlet weapon if you have free hand and Defensive Field bonus action to gain temporary HP equal to Inventor level, triggers each round for 1 minute.
+• Guardian: Gain Thunder Gauntlet weapon if you have a free hand, and Defensive Field bonus action to gain temporary HP equal to Inventor level.
 • Infiltrator: Gain Lightning Launcher ranged attack, 5ft movement speed bonus and advantage on Dexterity (Stealth) checks.
 
 * Armored Up
