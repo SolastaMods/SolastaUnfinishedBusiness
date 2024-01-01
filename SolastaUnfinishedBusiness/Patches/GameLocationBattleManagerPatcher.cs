@@ -197,6 +197,16 @@ public static class GameLocationBattleManagerPatcher
                     yield return extraEvents.Current;
                 }
             }
+
+            var cursorService = ServiceRepository.GetService<ICursorService>();
+
+            if (cursorService.CurrentCursor is CursorLocationBattleFriendlyTurn
+                    cursorLocationBattleFriendlyTurn &&
+                mover.UsedSpecialFeatures.ContainsKey("MoverNotInTurn"))
+            {
+                cursorLocationBattleFriendlyTurn.dirty = true;
+                cursorLocationBattleFriendlyTurn.ComputeValidDestinations();
+            }
         }
     }
 

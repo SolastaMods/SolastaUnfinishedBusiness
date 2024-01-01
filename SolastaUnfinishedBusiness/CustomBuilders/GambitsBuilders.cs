@@ -2043,6 +2043,7 @@ internal static class GambitsBuilders
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
             targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
+            targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
             actionService.ExecuteAction(actionParams, null, false);
         }
     }
