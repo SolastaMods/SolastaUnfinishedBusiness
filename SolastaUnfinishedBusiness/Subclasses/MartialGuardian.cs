@@ -170,7 +170,8 @@ public sealed class MartialGuardian : AbstractSubclass
                 continue;
             }
 
-            guardian.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
+            guardian.RefundActionUse(ActionDefinitions.ActionType.Reaction);
+            guardian.ActionRefunded?.Invoke(guardian, ActionDefinitions.ActionType.Reaction);
 
             rulesetGuardian.InflictCondition(
                 ConditionVigilanceName,
