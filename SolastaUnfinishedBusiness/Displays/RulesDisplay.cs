@@ -34,16 +34,32 @@ internal static class RulesDisplay
                 Main.Settings.UseMathFlankingRules = toggle;
             }
 
+            if (Main.Settings.UseMathFlankingRules)
+            {
+                Main.Settings.UseOfficialFlankingRulesAlsoForReach = false;
+                Main.Settings.UseOfficialFlankingRulesAlsoForRanged = false;
+            }
+
             toggle = Main.Settings.UseOfficialFlankingRulesAlsoForReach;
             if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForReach"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.UseOfficialFlankingRulesAlsoForReach = toggle;
             }
 
+            if (Main.Settings.UseOfficialFlankingRulesAlsoForReach)
+            {
+                Main.Settings.UseMathFlankingRules = false;
+            }
+
             toggle = Main.Settings.UseOfficialFlankingRulesAlsoForRanged;
             if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForRanged"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.UseOfficialFlankingRulesAlsoForRanged = toggle;
+            }
+
+            if (Main.Settings.UseOfficialFlankingRulesAlsoForRanged)
+            {
+                Main.Settings.UseMathFlankingRules = false;
             }
 
             toggle = Main.Settings.UseOfficialFlankingRulesButAddAttackModifier;

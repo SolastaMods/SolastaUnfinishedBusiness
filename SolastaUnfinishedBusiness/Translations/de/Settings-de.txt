@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ Verwenden Sie präzise Mathematik, um flankiere
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils-/Nachteilregeln <i><color=#F0DAA0>[Wenn Umstände dazu führen, dass ein Wurf beides hat, wird davon ausgegangen, dass Sie keines davon haben]</color></i>
 ModUi/&UseOfficialDistanceCalculation=Verwenden Sie die offizielle Entfernungsberechnung, die auf der Entfernung vom Würfel einer Kreatur zum anderen basiert <i><color=#F0DAA0>[anstelle der Standardentfernungsberechnung von Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Verwenden Sie die offiziellen Flankierungsregeln <i><color=#F0DAA0>[ein Angreifer hat einen Vorteil, wenn sich ein Verbündeter auf der gegenüberliegenden Seite des Ziels befindet]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernkampfangriffe aktivieren</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernangriffe aktiviert <color=#F0DAA0>[deaktiviert präzise Mathematik]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren <color=#F0DAA0>[deaktiviert präzise Mathematik]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Benutze die offiziellen <color=#D89555>Regeln für kleine Rassen</color>, wenn du schwere Waffen führst <i><color=#F0DAA0>[deine Angriffe haben Nachteile]</color></i>

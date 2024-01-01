@@ -277,8 +277,8 @@ ModUi/&UseMathFlankingRules=<i>+ 使用精确的数学来确定侧翼 <color=#F0
 ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果同时具有优势和劣势，则视为既没有优势也没有劣势]</color></i>
 ModUi/&UseOfficialDistanceCalculation=使用基于一个生物立方体到另一个生物立方体的距离的官方距离计算<i><color=#F0DAA0>[而不是 Solasta 的默认距离计算]</color></i>
 ModUi/&UseOfficialFlankingRules=使用官方 DnD 夹击规则<i><color=#F0DAA0>[如果与盟友前后夹击，攻击具有优势]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 对远程攻击生效</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 对触及攻击生效</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 还可以进行远程攻击<color=#F0DAA0>[禁用精确数学]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用触及攻击<color=#F0DAA0>[禁用精确数学]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型比赛规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>

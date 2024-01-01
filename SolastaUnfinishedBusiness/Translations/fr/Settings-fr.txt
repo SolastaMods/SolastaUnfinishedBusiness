@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ Utilisez des calculs précis pour déterminer l
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage <i><color=#F0DAA0>[si les circonstances font qu'un jet est soumis aux deux, vous êtes considéré comme n'ayant ni l'un ni l'autre]</color></i>
 ModUi/&UseOfficialDistanceCalculation=Utilisez le calcul de distance officiel basé sur la distance entre le cube d'une créature et l'autre <i><color=#F0DAA0>[au lieu du calcul de distance par défaut de Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Utiliser les règles officielles de prise en tenaille <i><color=#F0DAA0>[un attaquant a l'avantage si un allié est du côté opposé de la cible]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les attaques à distance</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également pour les attaques par armes avec Allonge</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également les attaques à distance <color=#F0DAA0>[désactive les calculs précis]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également les attaques par portée <color=#F0DAA0>[désactive les calculs précis]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilisez les <color=#D89555>règles officielles des petites races</color> lorsque vous maniez des armes lourdes <i><color=#F0DAA0>[vos attaques ont un désavantage]</color></i>

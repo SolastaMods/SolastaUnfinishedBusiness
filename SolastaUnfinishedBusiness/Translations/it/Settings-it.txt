@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ Usa calcoli precisi per determinare il fiancheg
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio <i><color=#F0DAA0>[se le circostanze fanno sì che un tiro abbia entrambi, sei considerato non avere nessuno dei due]</color></i>
 ModUi/&UseOfficialDistanceCalculation=Usa il calcolo della distanza ufficiale per basarti sulla distanza tra il cubo di una creatura e l'altro <i><color=#F0DAA0>[invece del calcolo della distanza predefinito di Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Usa le regole ufficiali sui fianchi <i><color=#F0DAA0>[un attaccante ha vantaggio se un alleato si trova sul lato opposto del bersaglio]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche per attacchi a distanza</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche per attacchi di portata</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche gli attacchi a distanza <color=#F0DAA0>[disabilita matematica precisa]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche gli attacchi con portata <color=#F0DAA0>[disabilita matematica precisa]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio, concedi +1 al tiro per colpire</i>
 ModUi/&UseOfficialFoodRationsWeight=Usa <color=#D89555>razione di cibo</color> ufficiale di 2 libbre
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilizza le <color=#D89555>regole ufficiali delle razze piccole</color> quando impugni armi pesanti <i><color=#F0DAA0>[i tuoi attacchi hanno svantaggio]</color></i>

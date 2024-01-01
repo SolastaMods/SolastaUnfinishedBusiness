@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ Use matemática precisa para determinar o flanq
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem <i><color=#F0DAA0>[se as circunstâncias fizerem com que um teste tenha ambos, considera-se que você não tem nenhum deles]</color></i>
 ModUi/&UseOfficialDistanceCalculation=Use o cálculo de distância oficial para ser baseado na distância do cubo de uma criatura para o outro <i><color=#F0DAA0>[em vez do cálculo de distância padrão de Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento <i><color=#F0DAA0>[um atacante tem vantagem se um aliado estiver no lado oposto do alvo]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também para ataques à distância</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também para ataques de alcance</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também ataques à distância <color=#F0DAA0>[desativa matemática precisa]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também ataques de alcance <color=#F0DAA0>[desativa matemática precisa]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Em vez de conceder vantagem +1 para jogada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial de 2 libras
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use as <color=#D89555>regras oficiais de pequenas raças</color> ao empunhar armas pesadas <i><color=#F0DAA0>[seus ataques têm desvantagem]</color></i>

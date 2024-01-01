@@ -276,8 +276,8 @@ ModUi/&UseMathFlankingRules=<i>+ 정확한 수학 계산으로 측면을 결정 
 ModUi/&UseOfficialAdvantageDisadvantageRules=공식 이점/불리점 규칙 사용 <i><color=#F0DAA0>[상황에 따라 굴림에 두 효과 모두 있는 경우, 상쇄되어 모두 없는 것으로 간주]</color></i>
 ModUi/&UseOfficialDistanceCalculation=공식 거리 계산인 한 크리쳐의 육면체에서 다른 크리쳐 육면체까지의 거리를 기준으로 <i><color=#F0DAA0>[솔라스타의 기본 거리 계산 대신]</color></i> 계산
 ModUi/&UseOfficialFlankingRules=공식 측면 공격 규칙 사용 <i><color=#F0DAA0>[아군이 대상의 반대편에 있으면 공격자가 이점 받음]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격에도 적용</i>
-ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 장병기 공격에도 적용</i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 도달 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족 규칙</color>을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
