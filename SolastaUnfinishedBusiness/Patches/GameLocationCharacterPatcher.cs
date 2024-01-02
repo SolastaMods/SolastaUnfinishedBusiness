@@ -321,6 +321,14 @@ public static class GameLocationCharacterPatcher
                 __instance.UsedBonusSpell = true;
             }
 
+            //PATCH: ensure if a bonus spell is cast, no more main spells are allowed
+            if (Main.Settings.EnableActionSwitching
+                && actionParams.ActionDefinition.ActionType == ActionDefinitions.ActionType.Bonus
+                && actionParams.RulesetEffect is RulesetEffectSpell)
+            {
+                __instance.UsedMainSpell = true;
+            }
+
             //PATCH: support for action switching
             ActionSwitching.CheckIfActionSwitched(
                 __instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank, _bonusAttacks);
