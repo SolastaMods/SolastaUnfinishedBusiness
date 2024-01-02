@@ -45,22 +45,24 @@ internal static class RangedCombatFeats
     {
         const string Name = "ZenArcher";
 
+        var attackModifier = FeatureDefinitionAttackModifierBuilder
+            .Create($"Feature{Name}")
+            .SetGuiPresentation(Name, Category.FightingStyle)
+            .AddCustomSubFeatures(
+                new CanUseAttribute(
+                    AttributeDefinitions.Wisdom,
+                    ValidatorsWeapon.IsOfWeaponType(
+                        LongbowType,
+                        ShortbowType)))
+            .AddToDB();
+        
         // backward compatibility
         _ = FightingStyleBuilder
             .Create(Name)
             .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Archery)
             .SetFeatures(
                 DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
-                FeatureDefinitionAttackModifierBuilder
-                    .Create($"Feature{Name}")
-                    .SetGuiPresentation(Name, Category.FightingStyle)
-                    .AddCustomSubFeatures(
-                        new CanUseAttribute(
-                            AttributeDefinitions.Wisdom,
-                            ValidatorsWeapon.IsOfWeaponType(
-                                LongbowType,
-                                ShortbowType)))
-                    .AddToDB())
+                attackModifier)
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -68,16 +70,7 @@ internal static class RangedCombatFeats
             .SetGuiPresentation(Name, Category.FightingStyle)
             .SetFeatures(
                 DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
-                FeatureDefinitionAttackModifierBuilder
-                    .Create($"Feature{Name}")
-                    .SetGuiPresentation(Name, Category.FightingStyle)
-                    .AddCustomSubFeatures(
-                        new CanUseAttribute(
-                            AttributeDefinitions.Wisdom,
-                            ValidatorsWeapon.IsOfWeaponType(
-                                LongbowType,
-                                ShortbowType)))
-                    .AddToDB())
+                attackModifier)
             .AddToDB();
     }
 

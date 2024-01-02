@@ -2384,6 +2384,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ChainmailPlus2 { get; } = GetDefinition<ItemDefinition>("Chainmail+2");
         internal static ItemDefinition ChainShirt { get; } = GetDefinition<ItemDefinition>("ChainShirt");
         internal static ItemDefinition ChainShirtPlus2 { get; } = GetDefinition<ItemDefinition>("ChainShirt+2");
+
+        internal static ItemDefinition CloakOfArachnida { get; } = GetDefinition<ItemDefinition>("CloakOfArachnida");
         internal static ItemDefinition CloakOfElvenkind { get; } = GetDefinition<ItemDefinition>("CloakOfElvenkind");
         internal static ItemDefinition CloakOfProtection { get; } = GetDefinition<ItemDefinition>("CloakOfProtection");
         internal static ItemDefinition ClothesCommon { get; } = GetDefinition<ItemDefinition>("ClothesCommon");
