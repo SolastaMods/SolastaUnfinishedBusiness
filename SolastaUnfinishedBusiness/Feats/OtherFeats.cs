@@ -702,7 +702,7 @@ internal static class OtherFeats
                     FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
                         .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
                         .SetGuiPresentation(guiPresentation)
-                        .SetModifiers(RollContext.AttackRoll, 1, 2, 2,
+                        .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
                             "Feature/&DieRollModifierFeatElementalMasterReroll", damageType)
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
