@@ -27,15 +27,58 @@ internal static class RangedCombatFeats
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
         var featSteadyAim = BuildSteadyAim();
+        var featZenArcher = BuildZenArcher();
 
-        feats.AddRange(featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featSteadyAim);
+        feats.AddRange(
+            featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featSteadyAim, featZenArcher);
 
         GroupFeats.FeatGroupRangedCombat.AddFeats(
             featBowMastery,
             featCrossbowMastery,
             featDeadEye,
             featRangedExpert,
-            featSteadyAim);
+            featSteadyAim,
+            featZenArcher);
+    }
+
+    private static FeatDefinition BuildZenArcher()
+    {
+        const string Name = "ZenArcher";
+
+        // backward compatibility
+        _ = FightingStyleBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Archery)
+            .SetFeatures(
+                DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
+                FeatureDefinitionAttackModifierBuilder
+                    .Create($"Feature{Name}")
+                    .SetGuiPresentation(Name, Category.FightingStyle)
+                    .AddCustomSubFeatures(
+                        new CanUseAttribute(
+                            AttributeDefinitions.Wisdom,
+                            ValidatorsWeapon.IsOfWeaponType(
+                                LongbowType,
+                                ShortbowType)))
+                    .AddToDB())
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{Name}")
+            .SetGuiPresentation(Name, Category.FightingStyle)
+            .SetFeatures(
+                DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
+                FeatureDefinitionAttackModifierBuilder
+                    .Create($"Feature{Name}")
+                    .SetGuiPresentation(Name, Category.FightingStyle)
+                    .AddCustomSubFeatures(
+                        new CanUseAttribute(
+                            AttributeDefinitions.Wisdom,
+                            ValidatorsWeapon.IsOfWeaponType(
+                                LongbowType,
+                                ShortbowType)))
+                    .AddToDB())
+            .AddToDB();
     }
 
     private static FeatDefinition BuildBowMastery()
