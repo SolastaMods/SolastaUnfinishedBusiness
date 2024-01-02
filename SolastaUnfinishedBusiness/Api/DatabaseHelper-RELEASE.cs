@@ -522,7 +522,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionMarkedByHunter { get; } =
             GetDefinition<ConditionDefinition>("ConditionMarkedByHunter");
 
-
         internal static ConditionDefinition ConditionMindControlledByCaster { get; } =
             GetDefinition<ConditionDefinition>("ConditionMindControlledByCaster");
 
@@ -531,6 +530,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
             GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
+
+        internal static ConditionDefinition Condition_MummyLord_ChannelNegativeEnergy { get; } =
+            GetDefinition<ConditionDefinition>("Condition_MummyLord_ChannelNegativeEnergy");
 
         internal static ConditionDefinition ConditionOnAcidPilgrim { get; } =
             GetDefinition<ConditionDefinition>("ConditionOnAcidPilgrim");

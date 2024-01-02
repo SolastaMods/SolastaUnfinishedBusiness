@@ -56,6 +56,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
+            .CopyParticleReferences(ConditionDefinitions.Condition_MummyLord_ChannelNegativeEnergy)
             .AddToDB();
 
         var featureInsidiousDeathMagic = FeatureDefinitionBuilder
