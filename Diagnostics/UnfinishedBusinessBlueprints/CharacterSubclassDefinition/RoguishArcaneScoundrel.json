@@ -40,11 +40,6 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetRoguishArcaneScoundrelTricksOfTheTrade:20bf9821-84ef-54d4-b4c6-7830a6aebbcb",
       "level": 17
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRoguishArcaneScoundrelPremeditationSlot:8e525e1c-ab99-5166-9e82-ffebd11395ea",
-      "level": 19
     }
   ],
   "personalityFlagOccurences": [],

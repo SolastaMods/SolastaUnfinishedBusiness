@@ -1,6 +1,7 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
     "Definition:FeatureZenArcher:e592b0d3-9a0c-56b4-b0ad-9aaca5718ccc"
   ],
   "condition": "RangedWeaponAttack",

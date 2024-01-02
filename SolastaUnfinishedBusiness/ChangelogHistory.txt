@@ -1,4 +1,8 @@
-﻿1.5.94.39:
+﻿1.5.94.40:
+
+- fixed a crash introduced on v39 when attacking gadgets
+
+1.5.94.39:
 
 - added Gameplay > Rules > 'Update stealth on hero after attack if perceived on surprise round [first hero only]'
 - added Martial Warlord subclass [our view on a balanced Martial Marshal]
