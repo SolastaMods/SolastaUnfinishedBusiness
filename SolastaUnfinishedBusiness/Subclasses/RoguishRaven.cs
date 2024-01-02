@@ -47,6 +47,30 @@ public sealed class RoguishRaven : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
+        // Killing Spree
+
+        var featureRavenKillingSpree = FeatureDefinitionBuilder
+            .Create($"Feature{Name}KillingSpree")
+            .SetGuiPresentation("AdditionalActionRavenKillingSpree", Category.Feature)
+            .AddCustomSubFeatures(
+                // bonus range attack from main and can sneak attack after killing an enemies
+                new OnReducedToZeroHpByMeKillingSpree(
+                    ConditionDefinitionBuilder
+                        .Create($"Condition{Name}KillingSpree")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(
+                            FeatureDefinitionAdditionalActionBuilder
+                                .Create("AdditionalActionRavenKillingSpree")
+                                .SetGuiPresentation(Category.Feature)
+                                .SetActionType(ActionDefinitions.ActionType.Main)
+                                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                                .SetMaxAttacksNumber(1)
+                                .AddCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
+                                .AddToDB())
+                        .AddToDB()))
+            .AddToDB();
+
         // Pain Maker
 
         // reroll any 1 when roll damage but need to use the new roll
@@ -80,8 +104,7 @@ public sealed class RoguishRaven : AbstractSubclass
 
         // Perfect Shot
 
-        // backward compatibility
-        _ = FeatureDefinitionDieRollModifierBuilder
+        var dieRollModifierRavenPerfectShot = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}PerfectShot")
             .SetGuiPresentation(Category.Feature)
             .SetModifiers(RollContext.AttackDamageValueRoll, 1, 2, 1,
@@ -89,38 +112,20 @@ public sealed class RoguishRaven : AbstractSubclass
             .AddCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
 
-        // Killing Spree
-
-        var featureRavenKillingSpree = FeatureDefinitionBuilder
-            .Create($"Feature{Name}KillingSpree")
-            .SetGuiPresentation("AdditionalActionRavenKillingSpree", Category.Feature)
-            .AddCustomSubFeatures(
-                // bonus range attack from main and can sneak attack after killing an enemies
-                new OnReducedToZeroHpByMeKillingSpree(
-                    ConditionDefinitionBuilder
-                        .Create($"Condition{Name}KillingSpree")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetFeatures(
-                            FeatureDefinitionAdditionalActionBuilder
-                                .Create("AdditionalActionRavenKillingSpree")
-                                .SetGuiPresentation(Category.Feature)
-                                .SetActionType(ActionDefinitions.ActionType.Main)
-                                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                                .SetMaxAttacksNumber(1)
-                                .AddCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
-                                .AddToDB())
-                        .AddToDB()))
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Roguish{Name}")
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.RoguishRaven, 256))
-            .AddFeaturesAtLevel(3, featureSetRavenSharpShooter, BuildHeartSeekingShot())
-            .AddFeaturesAtLevel(9, dieRollModifierRavenPainMaker)
-            .AddFeaturesAtLevel(13, featureSetRavenDeadlyAim)
-            .AddFeaturesAtLevel(17, featureRavenKillingSpree)
+            .AddFeaturesAtLevel(3,
+                featureSetRavenSharpShooter,
+                BuildHeartSeekingShot())
+            .AddFeaturesAtLevel(9,
+                featureRavenKillingSpree,
+                dieRollModifierRavenPainMaker)
+            .AddFeaturesAtLevel(13,
+                featureSetRavenDeadlyAim)
+            .AddFeaturesAtLevel(17,
+                dieRollModifierRavenPerfectShot)
             .AddToDB();
     }
 
