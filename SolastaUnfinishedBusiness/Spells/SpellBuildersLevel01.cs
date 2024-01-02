@@ -1150,6 +1150,14 @@ internal static partial class SpellBuilders
         powerSkinOfRetribution.AddCustomSubFeatures(
             new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
 
+        conditionSkinOfRetribution.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionSkinOfRetribution.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionSkinOfRetribution.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
+
         return SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
@@ -1203,10 +1211,10 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            //var rulesetCondition = character.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionSkinOfRetribution);
-            //var effectLevel = rulesetCondition!.EffectLevel;
+            var rulesetCondition =
+                character.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionSkinOfRetribution);
+            var effectLevel = rulesetCondition!.EffectLevel;
 
-            var effectLevel = rulesetEffect.EffectLevel;
             var damageForm = effectDescription.FindFirstDamageForm();
 
             damageForm.bonusDamage *= effectLevel;
