@@ -413,12 +413,6 @@ internal static partial class SpellBuilders
                     saveOccurence = TurnOccurenceType.StartOfTurn,
                     conditionDefinition = ConditionDefinitionBuilder
                         .Create(ConditionOnFire, $"Condition{NAME}Enemy")
-                        .SetRecurrentEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetDamageForm(DamageTypeFire, 1, DieType.D6)
-                                .SetDiceAdvancement(LevelSourceType.EffectLevel)
-                                .Build())
                         .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
