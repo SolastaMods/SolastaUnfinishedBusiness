@@ -178,7 +178,8 @@ public sealed class DomainDefiler : AbstractSubclass
 
         // Divine Resistance
 
-        var damageAffinityDivineResistance = FeatureDefinitionDamageAffinityBuilder
+        // backward compatibility
+        _ = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}DivineResistance")
             .SetGuiPresentation(Category.Feature)
             .SetDamageAffinityType(DamageAffinityType.Resistance)
@@ -224,8 +225,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .AddFeaturesAtLevel(6,
                 featureSetMarkForDeath)
             .AddFeaturesAtLevel(8,
-                additionalDamageDivineStrike,
-                damageAffinityDivineResistance)
+                additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10,
                 PowerClericDivineInterventionPaladin)
             .AddFeaturesAtLevel(17,
