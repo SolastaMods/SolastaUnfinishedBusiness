@@ -46,7 +46,7 @@ public sealed class DomainDefiler : AbstractSubclass
         var bonusCantripDomainDefiler = FeatureDefinitionBonusCantripsBuilder
             .Create($"BonusCantrip{NAME}")
             .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(Wrack, RayOfFrost)
+            .SetBonusCantrips(Wrack)
             .AddToDB();
 
         var conditionInsidiousDeathMagic = ConditionDefinitionBuilder
