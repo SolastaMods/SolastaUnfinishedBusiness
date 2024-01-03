@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
@@ -340,6 +341,8 @@ internal static class RangedCombatFeats
 
     private static FeatDefinition BuildSteadyAim()
     {
+        PowerFeatSteadyAim.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
+        
         return FeatDefinitionBuilder
             .Create(FeatSteadyAim)
             .SetGuiPresentation(Category.Feat)
