@@ -1,12 +1,16 @@
 ﻿1.5.94.40:
 
-- added Cloud of Blades 2nd level spell
+ONLY 1 DEVELOPER and 1 DESIGNER/QA did all below in a couple of days... :-) thanks HiddenHax for Design/QA
+
+- added Cloud of Blades spell at 2nd
 - changed Flash Freeze spell damage from 12d6 to 10d6
 - changed Minor Lifesteal spell damage dice to D6 and target from range hit to melee hit
+- changed Skin of Retribution spell to be closer to tabletop by offering cold damage only
 - fixed a crash introduced on v39 when targeting location gadgets [plants, torches, etc.]
 - fixed Aura of Vitality spell behavior on some collateral scenarios
 - fixed bonus action spells interaction with action switching not restricting main spells to cantrips
 - fixed Cloak of Arachnida not getting immunity from Conjure Web spell effects
+- fixed deprecated subs list in settings.xml getting duplicated on every mod boot
 - fixed Elemental Expert feat re-rolling dice on any damage type
 - fixed Far Step spell to consume a bonus action and use concentration
 - fixed Skin of Retribution not removing condition when temp HPs get to zero
