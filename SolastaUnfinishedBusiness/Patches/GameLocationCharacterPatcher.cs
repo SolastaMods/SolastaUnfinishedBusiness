@@ -26,6 +26,13 @@ public static class GameLocationCharacterPatcher
     public static class StartBattleTurn_Patch
     {
         [UsedImplicitly]
+        public static void Prefix(GameLocationCharacter __instance)
+        {
+            //PATCH: acts as a callback for the character's before combat turn started event
+            CharacterBattleListenersPatch.OnCharacterBeforeTurnStarted(__instance);
+        }
+
+        [UsedImplicitly]
         public static void Postfix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat turn started event

@@ -7,6 +7,11 @@ using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
+public interface ICharacterBeforeTurnStartListener
+{
+    void OnCharacterBeforeTurnStarted(GameLocationCharacter locationCharacter);
+}
+
 public interface ICharacterTurnStartListener
 {
     void OnCharacterTurnStarted(GameLocationCharacter locationCharacter);
@@ -35,6 +40,30 @@ public interface ICharacterBattleEndedListener
 
 public static class CharacterBattleListenersPatch
 {
+    /**
+     * Patch implementation
+     * notifies custom features before that character's combat turn has starter
+     */
+    public static void OnCharacterBeforeTurnStarted(GameLocationCharacter locationCharacter)
+    {
+        if (locationCharacter.destroying || locationCharacter.destroyedBody)
+        {
+            return;
+        }
+
+        var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+        if (rulesetCharacter == null)
+        {
+            return;
+        }
+
+        foreach (var listener in rulesetCharacter.GetSubFeaturesByType<ICharacterBeforeTurnStartListener>())
+        {
+            listener.OnCharacterBeforeTurnStarted(locationCharacter);
+        }
+    }
+
     /**
      * Patch implementation
      * notifies custom features that character's combat turn has starter
