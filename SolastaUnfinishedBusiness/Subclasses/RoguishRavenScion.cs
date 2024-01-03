@@ -140,7 +140,8 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
         // Perfect Shot
 
-        var dieRollModifierRavenPerfectShot = FeatureDefinitionDieRollModifierBuilder
+        // backward compatibility
+        _ = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}PerfectShot")
             .SetGuiPresentation(Category.Feature)
             .SetModifiers(RollContext.AttackDamageValueRoll, 1, 2, 1,
@@ -156,9 +157,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .Create($"Roguish{Name}")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishRaven, 256))
             .AddFeaturesAtLevel(3, featureSetRavenSharpShooter, additionalDamageSniperAim)
-            .AddFeaturesAtLevel(9, featureRavenKillingSpree, powerHeartSeekingShot)
+            .AddFeaturesAtLevel(9, powerHeartSeekingShot)
             .AddFeaturesAtLevel(13, powerDeadlyFocus)
-            .AddFeaturesAtLevel(17, dieRollModifierRavenPerfectShot)
+            .AddFeaturesAtLevel(17, featureRavenKillingSpree)
             .AddToDB();
     }
 

@@ -26,6 +26,13 @@ public static class GameLocationCharacterPatcher
     public static class StartBattleTurn_Patch
     {
         [UsedImplicitly]
+        public static void Prefix(GameLocationCharacter __instance)
+        {
+            //PATCH: acts as a callback for the character's before combat turn started event
+            CharacterBattleListenersPatch.OnCharacterBeforeTurnStarted(__instance);
+        }
+
+        [UsedImplicitly]
         public static void Postfix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat turn started event
@@ -319,6 +326,14 @@ public static class GameLocationCharacterPatcher
                 // for whatever reason we get the spell casting state loaded before we get to this point
                 // causing all spells to be offered after a quickened instead of only cantrips
                 __instance.UsedBonusSpell = true;
+            }
+
+            //PATCH: ensure if a bonus spell is cast, no more main spells are allowed
+            if (Main.Settings.EnableActionSwitching
+                && actionParams.ActionDefinition.ActionType == ActionDefinitions.ActionType.Bonus
+                && actionParams.RulesetEffect is RulesetEffectSpell)
+            {
+                __instance.UsedMainSpell = true;
             }
 
             //PATCH: support for action switching

@@ -4,23 +4,23 @@
   "subspellsList": [],
   "compactSubspellsTooltip": false,
   "implemented": true,
-  "schoolOfMagic": "SchoolAbjuration",
-  "spellLevel": 1,
+  "schoolOfMagic": "SchoolConjuration",
+  "spellLevel": 2,
   "ritual": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": false,
+  "requiresConcentration": true,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 2,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -34,7 +34,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "No",
+    "recurrentEffect": "OnTurnStart, OnEnter",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -42,8 +42,8 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Hour",
+    "targetSide": "All",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -75,7 +75,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "TemporaryHitPoints",
+        "formType": "Damage",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -88,19 +88,29 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "temporaryHitPointsForm": {
-          "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 0,
-          "dieType": "D1",
-          "bonusHitPoints": 5,
-          "applyToSelf": false
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 4,
+          "dieType": "D4",
+          "overrideWithBardicInspirationDie": false,
+          "versatileDieType": "D1",
+          "bonusDamage": 0,
+          "damageType": "DamageSlashing",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         },
         "hasFilterId": false,
         "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Topology",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -113,14 +123,33 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionSkinOfRetributionDamageFire",
-          "conditionDefinition": "Definition:ConditionSkinOfRetributionDamageFire:feb0fea6-e97b-57a3-8c09-7693614f9c11",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "topologyForm": {
+          "$type": "TopologyForm, Assembly-CSharp",
+          "changeType": "DangerousZone",
+          "impactsFlyingCharacters": true
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Topology",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "topologyForm": {
+          "$type": "TopologyForm, Assembly-CSharp",
+          "changeType": "SightImpaired",
+          "impactsFlyingCharacters": true
         },
         "hasFilterId": false,
         "filterId": 0
@@ -133,11 +162,11 @@
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 2,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
-      "additionalTempHPPerIncrement": 5,
+      "additionalTempHPPerIncrement": 0,
       "additionalTargetCellsPerIncrement": 0,
       "additionalItemBonus": 0,
       "additionalWeaponDie": 0,
@@ -152,7 +181,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a527dee34e46e7a4c8c68a9d244b3855",
+        "m_AssetGUID": "cebd71daeca4123429f7cd84800e7591",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -176,7 +205,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e766280ec6dd2fa4ba0a28275aa732fb",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -200,13 +229,13 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "96bddbcdb40cb0444aea5919d6065c6b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -218,7 +247,7 @@
       },
       "activeEffectCellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "7ed7a276eb0233b4ea031eec9b87bdc3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -340,15 +369,15 @@
   "specificMaterialComponentConsumed": true,
   "terminateOnItemUnequip": false,
   "displayConditionDuration": false,
-  "vocalSpellSemeType": "Defense",
+  "vocalSpellSemeType": "Debuff",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Fire Damage",
-    "description": "The creature takes 5 Fire Damage per spell level.",
+    "title": "Spell/&CloudOfDaggersTitle",
+    "description": "Spell/&CloudOfDaggersDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "331d497f-bb40-5372-93d7-5584cf598a49",
+      "m_AssetGUID": "6ac3e53a-c956-5476-8857-6dfdcb8a458a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -365,7 +394,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "afa8c181-ca65-5646-9698-5d59ee7d7f17",
+  "guid": "c95adfd0-7613-54ea-8270-b3624ae4dd78",
   "contentPack": 9999,
-  "name": "SkinOfRetributionDamageFire"
+  "name": "CloudOfDaggers"
 }

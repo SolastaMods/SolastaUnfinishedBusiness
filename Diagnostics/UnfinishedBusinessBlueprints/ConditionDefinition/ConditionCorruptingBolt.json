@@ -16,8 +16,7 @@
     "Definition:DamageAffinityCorruptingBoltDamagePsychic:3067f7b9-8f8f-58e5-938d-21a62adead0b",
     "Definition:DamageAffinityCorruptingBoltDamageRadiant:5aea4d37-f8d1-5e29-a923-4c104d3adc4a",
     "Definition:DamageAffinityCorruptingBoltDamageSlashing:03ac99c2-c9af-542b-83d7-c7a4cc554538",
-    "Definition:DamageAffinityCorruptingBoltDamageThunder:bc58b4ae-0738-5441-bab1-45fd22c196a9",
-    "Definition:DamageAffinityCorruptingBoltDamagePure:e23adff8-0887-5ae7-9789-b0531a8b670b"
+    "Definition:DamageAffinityCorruptingBoltDamageThunder:bc58b4ae-0738-5441-bab1-45fd22c196a9"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

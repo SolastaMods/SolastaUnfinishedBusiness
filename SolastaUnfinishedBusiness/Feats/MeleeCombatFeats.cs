@@ -792,6 +792,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite(nameof(Resources.PowerAttackIcon), Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -813,6 +814,7 @@ internal static class MeleeCombatFeats
             .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1589,6 +1591,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1609,6 +1612,7 @@ internal static class MeleeCombatFeats
             .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

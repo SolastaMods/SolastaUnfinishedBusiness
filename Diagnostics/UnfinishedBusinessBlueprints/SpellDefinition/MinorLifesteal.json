@@ -14,8 +14,8 @@
   "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "RangeHit",
-    "rangeParameter": 6,
+    "rangeType": "MeleeHit",
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",

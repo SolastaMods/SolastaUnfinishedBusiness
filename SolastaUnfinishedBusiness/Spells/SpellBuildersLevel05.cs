@@ -44,8 +44,8 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.None)
             .SetSomaticComponent(false)
             .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(CustomActionIdContext.FarStep)

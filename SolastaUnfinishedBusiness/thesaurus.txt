@@ -30,6 +30,7 @@ Channel Divinity: Nature's Retribution=Channel Divinity: Nature's Wrath
 Channel Divinity: Turn the Wicked=Channel Divinity: Turn the Faithless
 Circle of the Night=Circle of the Moon
 Cleaving Attack=Great Weapon Master
+Cloud of Blades=Cloud of Daggers
 College of Audacity=College of Swords
 College of Guts=College of Valor
 College of Valiance=College of Eloquence

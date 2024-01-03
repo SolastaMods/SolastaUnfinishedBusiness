@@ -1112,101 +1112,45 @@ internal static partial class SpellBuilders
         const string NAME = "SkinOfRetribution";
         const int TEMP_HP_PER_LEVEL = 5;
 
-        var spriteReferenceCondition = Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32);
-        var subSpells = new List<SpellDefinition>();
-        var conditions = new List<ConditionDefinition>();
+        var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeCold, bonusDamage: TEMP_HP_PER_LEVEL))
+                    .SetParticleEffectParameters(ConeOfCold)
+                    .Build())
+            .AddToDB();
 
-        const string SUB_SPELL_DESCRIPTION = $"Spell/&SubSpell{NAME}Description";
-        const string SUB_SPELL_CONDITION_DESCRIPTION = $"Condition/&Condition{NAME}Description";
-        const string SUB_SPELL_CONDITION_TITLE = $"Condition/&Condition{NAME}Title";
+        var damageAffinitySkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetDamageAffinityType(DamageAffinityType.None)
+            .SetRetaliate(powerSkinOfRetribution, 1, true)
+            .AddToDB();
 
-        // ReSharper disable once LoopCanBeConvertedToQuery
-        foreach (var (damageType, magicEffect) in DamagesAndEffects)
-        {
-            var effectDescription = EffectDescriptionBuilder.Create(magicEffect.EffectDescription).Build();
+        var conditionSkinOfRetribution = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition,
+                Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
+            .SetSilent(Silent.WhenAdded)
+            .SetPossessive()
+            .SetFeatures(damageAffinitySkinOfRetribution)
+            .SetTerminateWhenRemoved()
+            .AddCustomSubFeatures(new ActionFinishedByEnemySkinOfRetribution())
+            .AddToDB();
 
-            if (damageType == DamageTypePoison)
-            {
-                effectDescription.EffectParticleParameters.impactParticleReference =
-                    effectDescription.EffectParticleParameters.effectParticleReference;
+        powerSkinOfRetribution.AddCustomSubFeatures(
+            new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
 
-                effectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
-            }
-
-            var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
-
-            var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
-                .Create($"Power{NAME}{damageType}")
-                .SetGuiPresentationNoContent(true)
-                .SetUsesFixed(ActivationTime.NoCost)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetEffectForms(EffectFormBuilder.DamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL))
-                        .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
-                        .Build())
-                .AddToDB();
-
-            var damageSkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
-                .Create($"DamageAffinity{NAME}{damageType}")
-                .SetGuiPresentationNoContent(true)
-                .SetDamageAffinityType(DamageAffinityType.None)
-                .SetRetaliate(powerSkinOfRetribution, 1, true)
-                .AddToDB();
-
-            var conditionSkinOfRetribution = ConditionDefinitionBuilder
-                .Create($"Condition{NAME}{damageType}")
-                .SetGuiPresentation(
-                    SUB_SPELL_CONDITION_TITLE,
-                    Gui.Format(SUB_SPELL_CONDITION_DESCRIPTION, title),
-                    spriteReferenceCondition)
-                .SetSilent(Silent.WhenAdded)
-                .SetPossessive()
-                .SetFeatures(damageSkinOfRetribution)
-                .SetCancellingConditions()
-                .AddToDB();
-
-            conditions.Add(conditionSkinOfRetribution);
-
-            powerSkinOfRetribution.AddCustomSubFeatures(
-                new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
-
-            var spell = SpellDefinitionBuilder
-                .Create(NAME + damageType)
-                .SetGuiPresentation(title, Gui.Format(SUB_SPELL_DESCRIPTION, title),
-                    Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
-                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-                .SetSpellLevel(1)
-                .SetCastingTime(ActivationTime.Action)
-                .SetMaterialComponent(MaterialComponentType.Mundane)
-                .SetVerboseComponent(true)
-                .SetSomaticComponent(true)
-                .SetVocalSpellSameType(VocalSpellSemeType.Defense)
-                .SetUniqueInstance()
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                        .SetDurationData(DurationType.Hour, 1)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetTempHpForm(TEMP_HP_PER_LEVEL)
-                                .Build(),
-                            EffectFormBuilder.ConditionForm(conditionSkinOfRetribution))
-                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                            additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
-                        .SetParticleEffectParameters(effectDescription.EffectParticleParameters)
-                        .Build())
-                .AddToDB();
-
-            subSpells.Add(spell);
-        }
-
-        foreach (var condition in conditions)
-        {
-            condition.cancellingConditions = conditions.Where(x => x != condition).ToList();
-        }
+        conditionSkinOfRetribution.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionSkinOfRetribution.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionSkinOfRetribution.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         return SpellDefinitionBuilder
             .Create(NAME)
@@ -1218,17 +1162,53 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
-            .SetSubSpells(subSpells.ToArray())
+            .SetUniqueInstance()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Hour, 1)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(TEMP_HP_PER_LEVEL)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(conditionSkinOfRetribution))
+                    .SetEffectAdvancement(
+                        EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
-                    .SetParticleEffectParameters(Blur)
+                    .SetParticleEffectParameters(ConeOfCold)
                     .Build())
             .AddToDB();
+    }
+
+    internal static void HandleSkinOfRetribution()
+    {
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+
+        foreach (var rulesetCharacter in Gui.Battle.AllContenders
+                     .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter))
+        {
+            if (rulesetCharacter.TemporaryHitPoints == 0 &&
+                rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution", out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+        }
+    }
+
+    private sealed class ActionFinishedByEnemySkinOfRetribution : IActionFinishedByEnemy
+    {
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            HandleSkinOfRetribution();
+
+            yield break;
+        }
     }
 
     private sealed class ModifyEffectDescriptionSkinOfRetribution : IModifyEffectDescription
@@ -1254,30 +1234,15 @@ internal static partial class SpellBuilders
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            var rulesetCondition = character.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionSkinOfRetribution);
-
+            var rulesetCondition =
+                character.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionSkinOfRetribution);
             var effectLevel = rulesetCondition!.EffectLevel;
+
             var damageForm = effectDescription.FindFirstDamageForm();
 
             damageForm.bonusDamage *= effectLevel;
 
-            MaybeRemoveSkinOfRetribution(character);
-
             return effectDescription;
-        }
-
-        private void MaybeRemoveSkinOfRetribution(RulesetCharacter character)
-        {
-            if (character.temporaryHitPoints > 0)
-            {
-                return;
-            }
-
-            var rulesetCondition = character.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionSkinOfRetribution);
-
-            character.RemoveCondition(rulesetCondition);
         }
     }
 

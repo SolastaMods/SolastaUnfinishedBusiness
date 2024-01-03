@@ -375,7 +375,9 @@ internal static partial class SpellBuilders
             .SetFeatures(
                 conditionAffinityLifeDrained,
                 DamageAffinityNecroticResistance)
-            .AddCustomSubFeatures(new OnReducedToZeroHpByEnemyAuraOfVitality())
+            .AddCustomSubFeatures(
+                new CharacterBeforeTurnStartListenerAuraOfVitality(),
+                new ForceConditionCategory(AttributeDefinitions.TagCombat))
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -396,9 +398,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionAuraOfVitality),
-                        EffectFormBuilder.ConditionForm(ConditionLifeDrained, ConditionForm.ConditionOperation.Remove))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAuraOfVitality))
                     .SetParticleEffectParameters(DivineWord)
                     .Build())
             .AddToDB();
@@ -406,13 +406,13 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class OnReducedToZeroHpByEnemyAuraOfVitality : ICharacterTurnStartListener
+    private sealed class CharacterBeforeTurnStartListenerAuraOfVitality : ICharacterBeforeTurnStartListener
     {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: true })
+            if (rulesetCharacter.CurrentHitPoints == 0)
             {
                 rulesetCharacter.StabilizeAndGainHitPoints(1);
             }

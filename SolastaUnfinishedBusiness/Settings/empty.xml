@@ -211,13 +211,13 @@
     <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <DeprecatedSubclasses>
+    <DeprecatedSubsList>
         <string>CollegeOfHarlequin</string>
         <string>MartialMarshal</string>
         <string>MartialMartialDefender</string>
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>
-    </DeprecatedSubclasses>
+    </DeprecatedSubsList>
     <DisableUpdateMessage>false</DisableUpdateMessage>
     <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -288,11 +288,11 @@
     <UnlockSkinColors>false</UnlockSkinColors>
     <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
     <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
-    <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
-    <UseMathFlankingRules>true</UseMathFlankingRules>
+    <UseOfficialFlankingRules>false</UseOfficialFlankingRules>
+    <UseMathFlankingRules>false</UseMathFlankingRules>
     <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
-    <UseOfficialFlankingRulesAlsoForRanged>true</UseOfficialFlankingRulesAlsoForRanged>
-    <UseOfficialFlankingRulesAlsoForReach>true</UseOfficialFlankingRulesAlsoForReach>
+    <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
+    <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
     <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
     <UseOfficialDistanceCalculation>false</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>false</UseOfficialSmallRacesDisWithHeavyWeapons>
@@ -990,4 +990,7 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

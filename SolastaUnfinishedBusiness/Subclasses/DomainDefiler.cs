@@ -37,7 +37,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, FalseLife, InflictWounds),
                 BuildSpellGroup(3, Blindness, RayOfEnfeeblement),
-                BuildSpellGroup(5, BestowCurse, Fear),
+                BuildSpellGroup(5, CorruptingBolt, Fear),
                 BuildSpellGroup(7, Blight, PhantasmalKiller),
                 BuildSpellGroup(9, CloudKill, Contagion))
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
@@ -46,16 +46,17 @@ public sealed class DomainDefiler : AbstractSubclass
         var bonusCantripDomainDefiler = FeatureDefinitionBonusCantripsBuilder
             .Create($"BonusCantrip{NAME}")
             .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(Wrack, RayOfFrost)
+            .SetBonusCantrips(Wrack)
             .AddToDB();
 
         var conditionInsidiousDeathMagic = ConditionDefinitionBuilder
             .Create($"Condition{NAME}InsidiousDeathMagic")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
-            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetSpecialDuration(DurationType.Round, 6)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
+            .CopyParticleReferences(ConditionDefinitions.Condition_MummyLord_ChannelNegativeEnergy)
             .AddToDB();
 
         var featureInsidiousDeathMagic = FeatureDefinitionBuilder
@@ -88,7 +89,7 @@ public sealed class DomainDefiler : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
+                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D10)
                             .Build())
                     .Build())
             .AddToDB();
@@ -178,7 +179,8 @@ public sealed class DomainDefiler : AbstractSubclass
 
         // Divine Resistance
 
-        var damageAffinityDivineResistance = FeatureDefinitionDamageAffinityBuilder
+        // backward compatibility
+        _ = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}DivineResistance")
             .SetGuiPresentation(Category.Feature)
             .SetDamageAffinityType(DamageAffinityType.Resistance)
@@ -189,7 +191,7 @@ public sealed class DomainDefiler : AbstractSubclass
 
         // Divine Immunity
 
-        var damageAffinityDivineImmunity = FeatureDefinitionDamageAffinityBuilder
+        _ = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}DivineImmunity")
             .SetGuiPresentation(Category.Feature)
             .SetDamageAffinityType(DamageAffinityType.Immunity)
@@ -224,12 +226,9 @@ public sealed class DomainDefiler : AbstractSubclass
             .AddFeaturesAtLevel(6,
                 featureSetMarkForDeath)
             .AddFeaturesAtLevel(8,
-                additionalDamageDivineStrike,
-                damageAffinityDivineResistance)
+                additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10,
                 PowerClericDivineInterventionPaladin)
-            .AddFeaturesAtLevel(14,
-                damageAffinityDivineImmunity)
             .AddFeaturesAtLevel(17,
                 autoPreparedSpellsDyingLight)
             .AddToDB();

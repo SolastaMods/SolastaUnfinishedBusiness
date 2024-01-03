@@ -1,0 +1,47 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
+  "damageTypes": [
+    "DamageAcid"
+  ],
+  "minRollValue": 1,
+  "maxRollValue": 0,
+  "minRerollValue": 1,
+  "rerollCount": 1,
+  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
+  "forcedDamageOnDice": "None",
+  "validityContext": "MagicDamageValueRoll",
+  "validSkills": [],
+  "requireProficiency": false,
+  "bardicInspirationAddChoice": false,
+  "bardicInspirationForceMaxRoll": false,
+  "bardicInspirationAdvantage": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Elemental Expert [Acid]",
+    "description": "Acid damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2cb14c0f-08cc-5cd7-b95f-b7d2bf5bdda3",
+  "contentPack": 9999,
+  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageAcidMagic"
+}

@@ -211,13 +211,13 @@
     <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <DeprecatedSubclasses>
+    <DeprecatedSubsList>
         <string>CollegeOfHarlequin</string>
         <string>MartialMarshal</string>
         <string>MartialMartialDefender</string>
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>
-    </DeprecatedSubclasses>
+    </DeprecatedSubsList>
     <DisableUpdateMessage>false</DisableUpdateMessage>
     <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -975,7 +975,6 @@
         <string>ShieldExpert</string>
         <string>Torchbearer</string>
         <string>Interception</string>
-        <string>ZenArcher</string>
     </FightingStyleEnabled>
     <InvocationSliderPosition>4</InvocationSliderPosition>
     <InvocationEnabled>
@@ -1123,6 +1122,7 @@
                     <string>ResonatingStrike</string>
                     <string>SunlightBlade</string>
                     <string>EarthTremor</string>
+                    <string>CloudOfDaggers</string>
                     <string>MirrorImage</string>
                     <string>BlessingOfRime</string>
                     <string>BrainBulwark</string>
@@ -1272,6 +1272,7 @@
                     <string>ElementalInfusion</string>
                     <string>VileBrew</string>
                     <string>BindingIce</string>
+                    <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
                     <string>NoxiousSpray</string>
                     <string>PsychicWhip</string>
@@ -1314,6 +1315,7 @@
                     <string>TollTheDead</string>
                     <string>SkinOfRetribution</string>
                     <string>VoidGrasp</string>
+                    <string>CloudOfDaggers</string>
                     <string>NoxiousSpray</string>
                     <string>MirrorImage</string>
                     <string>ShadowBlade</string>
@@ -1366,6 +1368,7 @@
                     <string>RadiantMotes</string>
                     <string>VileBrew</string>
                     <string>BindingIce</string>
+                    <string>CloudOfDaggers</string>
                     <string>ColorBurst</string>
                     <string>NoxiousSpray</string>
                     <string>PsychicWhip</string>

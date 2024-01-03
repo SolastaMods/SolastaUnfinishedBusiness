@@ -33,7 +33,7 @@ internal static class SubclassesContext
                      .Assembly.GetTypes()
                      .Where(t => t.IsSubclassOf(typeof(AbstractSubclass)) && !t.IsAbstract)
                      .Select(t => (AbstractSubclass)Activator.CreateInstance(t))
-                     .Where(t => !Main.Settings.DeprecatedSubclasses.Contains(t.Subclass.Name)))
+                     .Where(t => !Main.Settings.DeprecatedSubsList.Contains(t.Subclass.Name)))
         {
             LoadSubclass(abstractSubClassInstance);
         }

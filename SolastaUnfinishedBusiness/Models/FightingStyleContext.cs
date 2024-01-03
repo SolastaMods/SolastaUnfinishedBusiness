@@ -29,7 +29,6 @@ internal static class FightingStyleContext
         LoadStyle(new Sentinel());
         LoadStyle(new ShieldExpert());
         LoadStyle(new Torchbearer());
-        LoadStyle(new ZenArcher());
 
         // sorting
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();

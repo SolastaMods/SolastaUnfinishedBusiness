@@ -2,8 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:AdditionalDamageRoguishArcaneScoundrelPossessed:965f7546-d02c-5c07-8199-1fdc9f0cd1d3",
-    "Definition:PowerRoguishArcaneScoundrelEssenceTheft:f8365038-906f-5e13-97db-9eeeff7d49af",
-    "Definition:MagicAffinityAdditionalSpellSlot3:fc7e8317e9dcafd44a07c8712d77d31d"
+    "Definition:PowerRoguishArcaneScoundrelEssenceTheft:f8365038-906f-5e13-97db-9eeeff7d49af"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

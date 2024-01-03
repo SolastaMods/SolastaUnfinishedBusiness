@@ -28,11 +28,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityDomainDefilerDivineResistance:f97c531f-66f1-57f3-a51f-fe1cb8ad00ec",
-      "level": 8
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike:320cd4cd-21c7-5f0e-a8ff-60a87283c3e5",
       "level": 8
     },
@@ -40,11 +35,6 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerClericDivineInterventionPaladin:4f9a2e4ff332b204aae612753dada617",
       "level": 10
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityDomainDefilerDivineImmunity:762bd2b0-0bc5-582b-b02b-d0f33517daf9",
-      "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

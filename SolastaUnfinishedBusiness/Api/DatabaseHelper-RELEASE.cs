@@ -522,7 +522,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionMarkedByHunter { get; } =
             GetDefinition<ConditionDefinition>("ConditionMarkedByHunter");
 
-
         internal static ConditionDefinition ConditionMindControlledByCaster { get; } =
             GetDefinition<ConditionDefinition>("ConditionMindControlledByCaster");
 
@@ -531,6 +530,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } =
             GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
+
+        internal static ConditionDefinition Condition_MummyLord_ChannelNegativeEnergy { get; } =
+            GetDefinition<ConditionDefinition>("Condition_MummyLord_ChannelNegativeEnergy");
 
         internal static ConditionDefinition ConditionOnAcidPilgrim { get; } =
             GetDefinition<ConditionDefinition>("ConditionOnAcidPilgrim");
@@ -1444,9 +1446,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionMagicAffinitys
     {
-        internal static FeatureDefinitionMagicAffinity MagicAffinityAdditionalSpellSlot3 { get; } =
-            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityAdditionalSpellSlot3");
-
         internal static FeatureDefinitionMagicAffinity MagicAffinityAdditionalSpellSlot4 { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityAdditionalSpellSlot4");
 
@@ -1731,6 +1730,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerFunctionPotionOfInvisibility { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfInvisibility");
+
+        internal static FeatureDefinitionPower PowerFunctionWandFearCommand { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCommand");
 
         internal static FeatureDefinitionPower PowerFunctionWandFearCone { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCone");
@@ -2384,6 +2386,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ChainmailPlus2 { get; } = GetDefinition<ItemDefinition>("Chainmail+2");
         internal static ItemDefinition ChainShirt { get; } = GetDefinition<ItemDefinition>("ChainShirt");
         internal static ItemDefinition ChainShirtPlus2 { get; } = GetDefinition<ItemDefinition>("ChainShirt+2");
+
+        internal static ItemDefinition CloakOfArachnida { get; } = GetDefinition<ItemDefinition>("CloakOfArachnida");
         internal static ItemDefinition CloakOfElvenkind { get; } = GetDefinition<ItemDefinition>("CloakOfElvenkind");
         internal static ItemDefinition CloakOfProtection { get; } = GetDefinition<ItemDefinition>("CloakOfProtection");
         internal static ItemDefinition ClothesCommon { get; } = GetDefinition<ItemDefinition>("ClothesCommon");
@@ -3352,6 +3356,10 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition BlackTentacles { get; } = GetDefinition<SpellDefinition>("BlackTentacles");
         internal static SpellDefinition BladeBarrier { get; } = GetDefinition<SpellDefinition>("BladeBarrier");
+
+        internal static SpellDefinition BladeBarrierWallLine { get; } =
+            GetDefinition<SpellDefinition>("BladeBarrierWallLine");
+
         internal static SpellDefinition Bless { get; } = GetDefinition<SpellDefinition>("Bless");
         internal static SpellDefinition Blight { get; } = GetDefinition<SpellDefinition>("Blight");
         internal static SpellDefinition Blindness { get; } = GetDefinition<SpellDefinition>("Blindness");

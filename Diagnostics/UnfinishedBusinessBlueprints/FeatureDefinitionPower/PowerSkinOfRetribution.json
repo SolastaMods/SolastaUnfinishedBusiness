@@ -84,7 +84,7 @@
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 5,
-          "damageType": "DamageFire",
+          "damageType": "DamageCold",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,
@@ -123,7 +123,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a527dee34e46e7a4c8c68a9d244b3855",
+        "m_AssetGUID": "3b7d45ea0f197854aa21c5d1ea581201",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -147,7 +147,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e766280ec6dd2fa4ba0a28275aa732fb",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -159,7 +159,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "596b83c27fbb806419e030cde3f8fe3d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -171,7 +171,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e446eddf529bfc94c9b972fc384b9986",
+        "m_AssetGUID": "38c44805a1a3e4c4aaf0cd27dbe5f3f6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -357,7 +357,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d3343345-b669-5e6e-878d-70aec5279aa6",
+  "guid": "88dab8ae-5388-555d-8212-b877be029dbc",
   "contentPack": 9999,
-  "name": "PowerSkinOfRetributionDamageFire"
+  "name": "PowerSkinOfRetribution"
 }

@@ -212,13 +212,11 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         var featureSetTricksOfTheTrade = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}TricksOfTheTrade")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                MagicAffinityAdditionalSpellSlot3,
-                additionalDamagePossessed,
-                powerEssenceTheft)
+            .AddFeatureSet(additionalDamagePossessed, powerEssenceTheft)
             .AddToDB();
 
-        var featureSetPremeditationSlot = FeatureDefinitionFeatureSetBuilder
+        // backward compatibility
+        _ = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}PremeditationSlot")
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(MagicAffinityAdditionalSpellSlot4)
@@ -240,8 +238,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                 powerArcaneBackslashCounterSpell)
             .AddFeaturesAtLevel(17,
                 featureSetTricksOfTheTrade)
-            .AddFeaturesAtLevel(19,
-                featureSetPremeditationSlot)
             .AddToDB();
 
         return;

@@ -59,8 +59,4 @@ You are skilled in the use of a torch in battle. Once per turn, as a bonus actio
 
 When a creature you can see hits a target, other than you, within 5 feet of you with an attack, you can use your reaction to reduce the damage the target takes by 1d10 + your proficiency bonus. You must wield a shield or a simple or martial weapon to use this reaction.
 
-# 15. - Zen Archer
-
-Your intuition guides your hand when using a Longbow, Shortbow or Hand Crossbow. You can use your Wisdom modifier instead of your Dexterity modifer for the attack and damage rolls with these weapons.
-
 

@@ -82,7 +82,7 @@
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
           "diceNumber": 2,
-          "dieType": "D6",
+          "dieType": "D10",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,

@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
@@ -27,15 +28,51 @@ internal static class RangedCombatFeats
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
         var featSteadyAim = BuildSteadyAim();
+        var featZenArcher = BuildZenArcher();
 
-        feats.AddRange(featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featSteadyAim);
+        feats.AddRange(
+            featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featSteadyAim, featZenArcher);
 
         GroupFeats.FeatGroupRangedCombat.AddFeats(
             featBowMastery,
             featCrossbowMastery,
             featDeadEye,
             featRangedExpert,
-            featSteadyAim);
+            featSteadyAim,
+            featZenArcher);
+    }
+
+    private static FeatDefinition BuildZenArcher()
+    {
+        const string Name = "ZenArcher";
+
+        var attackModifier = FeatureDefinitionAttackModifierBuilder
+            .Create($"Feature{Name}")
+            .SetGuiPresentation(Name, Category.FightingStyle)
+            .AddCustomSubFeatures(
+                new CanUseAttribute(
+                    AttributeDefinitions.Wisdom,
+                    ValidatorsWeapon.IsOfWeaponType(
+                        LongbowType,
+                        ShortbowType)))
+            .AddToDB();
+
+        // backward compatibility
+        _ = FightingStyleBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Archery)
+            .SetFeatures(
+                DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
+                attackModifier)
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create($"Feat{Name}")
+            .SetGuiPresentation(Name, Category.FightingStyle)
+            .SetFeatures(
+                DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
+                attackModifier)
+            .AddToDB();
     }
 
     private static FeatDefinition BuildBowMastery()
@@ -120,6 +157,7 @@ internal static class RangedCombatFeats
             .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -140,6 +178,7 @@ internal static class RangedCombatFeats
             .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -289,6 +328,7 @@ internal static class RangedCombatFeats
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)
                         .Build())
+                .SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionWandFearCommand)
                 .Build())
         .AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
@@ -301,6 +341,8 @@ internal static class RangedCombatFeats
 
     private static FeatDefinition BuildSteadyAim()
     {
+        PowerFeatSteadyAim.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
+
         return FeatDefinitionBuilder
             .Create(FeatSteadyAim)
             .SetGuiPresentation(Category.Feat)

@@ -235,7 +235,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                         .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 3)
                         .SetSavingThrowData(
                             false,
-                            Constitution,
+                            Dexterity,
                             true,
                             EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                         .SetEffectForms(

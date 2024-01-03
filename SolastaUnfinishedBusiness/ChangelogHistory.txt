@@ -1,4 +1,25 @@
-﻿1.5.94.39:
+﻿1.5.94.40:
+
+ONLY 1 DEVELOPER and 1 DESIGNER/QA did all below in a couple of days... :-) thanks HiddenHax for Design/QA
+
+- added Cloud of Blades spell at 2nd
+- changed Flash Freeze spell damage from 12d6 to 10d6
+- changed Minor Lifesteal spell damage dice to D6 and target from range hit to melee hit
+- changed Skin of Retribution spell to be closer to tabletop by offering cold damage only
+- fixed a crash introduced on v39 when targeting location gadgets [plants, torches, etc.]
+- fixed Aura of Vitality spell behavior on some collateral scenarios
+- fixed bonus action spells interaction with action switching not restricting main spells to cantrips
+- fixed Cloak of Arachnida not getting immunity from Conjure Web spell effects
+- fixed deprecated subs list in settings.xml getting duplicated on every mod boot
+- fixed Elemental Expert feat re-rolling dice on any damage type
+- fixed Far Step spell to consume a bonus action and use concentration
+- fixed Skin of Retribution not removing condition when temp HPs get to zero
+- removed extra spell slot feature from Arcane Scoundrel at 17th
+- removed necrotic resistance and immunity resistance from Domain Defiler at 8th and 14th
+- removed Raven perfect shot at 17th and moved killing spree at 9th to 17th
+- removed Zen Archer from fighting style list and made it a +1 WIS feat
+
+1.5.94.39:
 
 - added Gameplay > Rules > 'Update stealth on hero after attack if perceived on surprise round [first hero only]'
 - added Martial Warlord subclass [our view on a balanced Martial Marshal]

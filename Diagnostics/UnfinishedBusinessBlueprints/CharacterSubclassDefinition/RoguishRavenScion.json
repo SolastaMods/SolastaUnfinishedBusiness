@@ -18,17 +18,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureRavenScionKillingSpree:2f09173e-812e-5d27-afce-6f3ff28144e3",
-      "level": 9
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRavenScionDeadlyFocus:4e4563c9-5a62-5fda-8d33-7a9f7d63a09d",
       "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DieRollModifierRavenScionPerfectShot:a6d494f0-8596-558c-9437-f992b790942b",
+      "featureDefinition": "Definition:FeatureRavenScionKillingSpree:2f09173e-812e-5d27-afce-6f3ff28144e3",
       "level": 17
     }
   ],

@@ -4,13 +4,13 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinitySkinOfRetributionDamageFire:24ca5e61-1b10-5e05-b3fe-77d4c92f72c9"
+    "Definition:DamageAffinitySkinOfRetribution:46db0433-e7ae-5219-84df-d4e09bb52b19"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
-  "terminateWhenRemoved": false,
+  "terminateWhenRemoved": true,
   "specialDuration": false,
   "durationType": "Hour",
   "durationParameterDie": "D4",
@@ -26,13 +26,7 @@
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [
-    "Definition:ConditionSkinOfRetributionDamageAcid:2e89b309-e5fc-5863-9516-6247c0260e4a",
-    "Definition:ConditionSkinOfRetributionDamageCold:12a93f66-73ba-57b7-bd96-4ea41680753d",
-    "Definition:ConditionSkinOfRetributionDamageLightning:882338fc-77bf-561e-ad15-63d03a72b289",
-    "Definition:ConditionSkinOfRetributionDamagePoison:ef02048e-ca30-5587-a55e-d1f7bfa32d3e",
-    "Definition:ConditionSkinOfRetributionDamageThunder:75f38f06-77b8-5f1f-9b93-5286f8f63027"
-  ],
+  "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
@@ -46,21 +40,21 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "72457772ad415eb4cb12c64cd8c649c4",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "336226270d32b514d976b3c213bd1baa",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "ff72da1aae4219b4c89f7c06d6c7ebe0",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
@@ -137,7 +131,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionSkinOfRetributionTitle",
-    "description": "If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Fire Damage per spell level.",
+    "description": "Condition/&ConditionSkinOfRetributionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2190a678-d008-5cd6-90e0-a269c474877f",
@@ -157,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "feb0fea6-e97b-57a3-8c09-7693614f9c11",
+  "guid": "756ee728-5506-5f03-b552-b94004839697",
   "contentPack": 9999,
-  "name": "ConditionSkinOfRetributionDamageFire"
+  "name": "ConditionSkinOfRetribution"
 }

@@ -29,6 +29,68 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetActorPatcher
 {
+    //PATCH: supports DieRollModifierDamageTypeDependent
+    private static void EnumerateIDieRollModificationProvider(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(__instance.featuresToBrowse, featuresOrigin);
+
+        if (__instance.featuresToBrowse.Count == 0)
+        {
+            return;
+        }
+
+        var effectForms =
+            RulesetCharacterPatcher.RollMagicAttack_Patch.CurrentMagicEffect?.EffectDescription.EffectForms;
+        var damageForm = RollDamage_Patch.CurrentDamageForm;
+        List<string> damageTypes = [];
+
+        if (damageForm != null)
+        {
+            damageTypes.Add(damageForm.DamageType);
+        }
+
+        if (effectForms != null)
+        {
+            damageTypes.AddRange(effectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType)
+                .ToList());
+
+            var proxies = effectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Summon &&
+                            x.SummonForm.SummonType == SummonForm.Type.EffectProxy)
+                .Select(x =>
+                    DatabaseHelper.GetDefinition<EffectProxyDefinition>(x.SummonForm.EffectProxyDefinitionName))
+                .ToList();
+
+            var damageTypesFromProxyAttacks = proxies
+                .Where(x => x.canAttack && x.attackMethod == ProxyAttackMethod.CasterSpellAbility)
+                .Select(x => x.DamageType).ToList();
+
+            var damageTypesFromProxyAttackPowers = proxies
+                .Where(x => x.attackPower != null)
+                .Select(x => x.attackPower)
+                .SelectMany(x => x.EffectDescription.EffectForms)
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType).ToList();
+
+            damageTypes.AddRange(damageTypesFromProxyAttacks);
+            damageTypes.AddRange(damageTypesFromProxyAttackPowers);
+        }
+
+        if (damageTypes.Count == 0)
+        {
+            return;
+        }
+
+        __instance.featuresToBrowse.RemoveAll(x =>
+            x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
+            !y.damageTypes.Intersect(damageTypes).Any());
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.AddConditionOfCategory))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -216,6 +278,26 @@ public static class RulesetActorPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RollDamage_Patch
+    {
+        internal static DamageForm CurrentDamageForm;
+
+        [UsedImplicitly]
+        public static void Prefix(DamageForm damageForm)
+        {
+            CurrentDamageForm = damageForm;
+        }
+
+        [UsedImplicitly]
+        public static void Postfix()
+        {
+            CurrentDamageForm = null;
+        }
+    }
+
     //PATCH: allow additional dice on recurrent damage form to be correctly calculated from effect advancement
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ExecuteRecurrentForms))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -369,6 +451,37 @@ public static class RulesetActorPatcher
         }
     }
 
+    //PATCH: handle exception case of Aura of Vitality spell where it should have future immunity but not remove cond
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.HandleConditionImmunity))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleConditionImmunity_Patch
+    {
+        private static FeatureDefinitionConditionAffinity _conditionAffinity;
+
+        [UsedImplicitly]
+        public static void Prefix(List<FeatureDefinitionConditionAffinity> conditionAffinities)
+        {
+            _conditionAffinity =
+                conditionAffinities.FirstOrDefault(x =>
+                    x.Name == "ConditionAffinityAuraOfVitalityLifeDrained");
+
+            if (_conditionAffinity != null)
+            {
+                conditionAffinities.Remove(_conditionAffinity);
+            }
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(List<FeatureDefinitionConditionAffinity> conditionAffinities)
+        {
+            if (_conditionAffinity != null)
+            {
+                conditionAffinities.Add(_conditionAffinity);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveAllConditionsOfCategoryAndType))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -483,58 +596,27 @@ public static class RulesetActorPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDiceAndSum))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RollDiceAndSum_Patch
+    {
+        //PATCH: supports DieRollModifierDamageTypeDependent
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            return instructions
+                .ReplaceEnumerateFeaturesToBrowse<IDieRollModificationProvider>("RulesetCharacter.RollDiceAndSum",
+                    EnumerateIDieRollModificationProvider);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDie))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RollDie_Patch
     {
         //PATCH: supports DieRollModifierDamageTypeDependent
-        private static void EnumerateIDieRollModificationProvider(
-            RulesetCharacter __instance,
-            List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin)
-        {
-            __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse, featuresOrigin);
-
-            var effectForms =
-                RulesetCharacterPatcher.RollMagicAttack_Patch.CurrentMagicEffect?.EffectDescription.EffectForms;
-
-            if (effectForms == null)
-            {
-                return;
-            }
-
-            var damageTypes = effectForms
-                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
-                .Select(x => x.DamageForm.DamageType)
-                .ToList();
-
-            var proxies = effectForms
-                .Where(x => x.FormType == EffectForm.EffectFormType.Summon &&
-                            x.SummonForm.SummonType == SummonForm.Type.EffectProxy)
-                .Select(x =>
-                    DatabaseHelper.GetDefinition<EffectProxyDefinition>(x.SummonForm.EffectProxyDefinitionName))
-                .ToList();
-
-            var damageTypesFromProxyAttacks = proxies
-                .Where(x => x.canAttack && x.attackMethod == ProxyAttackMethod.CasterSpellAbility)
-                .Select(x => x.DamageType).ToList();
-
-            var damageTypesFromProxyAttackPowers = proxies
-                .Where(x => x.attackPower != null)
-                .Select(x => x.attackPower)
-                .SelectMany(x => x.EffectDescription.EffectForms)
-                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
-                .Select(x => x.DamageForm.DamageType).ToList();
-
-            damageTypes.AddRange(damageTypesFromProxyAttacks);
-            damageTypes.AddRange(damageTypesFromProxyAttackPowers);
-
-            featuresToBrowse.RemoveAll(x =>
-                x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
-                !y.damageTypes.Intersect(damageTypes).Any());
-        }
-
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
