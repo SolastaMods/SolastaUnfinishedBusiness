@@ -37,7 +37,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, FalseLife, InflictWounds),
                 BuildSpellGroup(3, Blindness, RayOfEnfeeblement),
-                BuildSpellGroup(5, BestowCurse, Fear),
+                BuildSpellGroup(5, CorruptingBolt, Fear),
                 BuildSpellGroup(7, Blight, PhantasmalKiller),
                 BuildSpellGroup(9, CloudKill, Contagion))
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
@@ -89,7 +89,7 @@ public sealed class DomainDefiler : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D6)
+                            .SetDamageForm(DamageTypeNecrotic, 2, DieType.D10)
                             .Build())
                     .Build())
             .AddToDB();
