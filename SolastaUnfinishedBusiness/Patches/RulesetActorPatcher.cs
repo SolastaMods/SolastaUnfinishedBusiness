@@ -451,6 +451,37 @@ public static class RulesetActorPatcher
         }
     }
 
+    //PATCH: handle exception case of Aura of Vitality spell where it should have future immunity but not remove cond
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.HandleConditionImmunity))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleConditionImmunity_Patch
+    {
+        private static FeatureDefinitionConditionAffinity _conditionAffinity;
+
+        [UsedImplicitly]
+        public static void Prefix(List<FeatureDefinitionConditionAffinity> conditionAffinities)
+        {
+            _conditionAffinity =
+                conditionAffinities.FirstOrDefault(x =>
+                    x.Name == "ConditionAffinityAuraOfVitalityLifeDrained");
+
+            if (_conditionAffinity != null)
+            {
+                conditionAffinities.Remove(_conditionAffinity);
+            }
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(List<FeatureDefinitionConditionAffinity> conditionAffinities)
+        {
+            if (_conditionAffinity != null)
+            {
+                conditionAffinities.Add(_conditionAffinity);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveAllConditionsOfCategoryAndType))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
