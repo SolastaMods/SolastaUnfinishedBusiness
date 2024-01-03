@@ -1144,9 +1144,6 @@ internal static partial class SpellBuilders
         powerSkinOfRetribution.AddCustomSubFeatures(
             new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
 
-        conditionSkinOfRetribution.AddCustomSubFeatures(
-            new ActionFinishedByEnemySkinOfRetribution(conditionSkinOfRetribution));
-
         conditionSkinOfRetribution.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
             .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
         conditionSkinOfRetribution.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
@@ -1184,27 +1181,13 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByEnemySkinOfRetribution : IActionFinishedByEnemy
+    internal static void HandleSkinOfRetribution(RulesetCharacter rulesetCharacter)
     {
-        private readonly ConditionDefinition _conditionSkinOfRetribution;
-
-        public ActionFinishedByEnemySkinOfRetribution(ConditionDefinition conditionSkinOfRetribution)
+        if (rulesetCharacter.TemporaryHitPoints == 0 &&
+            rulesetCharacter.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution", out var activeCondition))
         {
-            _conditionSkinOfRetribution = conditionSkinOfRetribution;
-        }
-
-        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
-        {
-            var rulesetCharacter = target.RulesetCharacter;
-
-            if (rulesetCharacter.TemporaryHitPoints == 0 &&
-                rulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, _conditionSkinOfRetribution.Name, out var activeCondition))
-            {
-                rulesetCharacter.RemoveCondition(activeCondition);
-            }
-
-            yield break;
+            rulesetCharacter.RemoveCondition(activeCondition);
         }
     }
 
@@ -1216,7 +1199,6 @@ internal static partial class SpellBuilders
         {
             _conditionSkinOfRetribution = conditionSkinOfRetribution;
         }
-
 
         public bool IsValid(
             BaseDefinition definition,

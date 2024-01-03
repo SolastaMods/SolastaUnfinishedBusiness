@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
@@ -52,6 +53,7 @@ public static class CharacterBattleListenersPatch
 
         //PATCH: supports vigilance feature on Martial Guardian
         MartialGuardian.HandleVigilance(rulesetCharacter);
+        SpellBuilders.HandleSkinOfRetribution(rulesetCharacter);
 
         //PATCH: supports EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
