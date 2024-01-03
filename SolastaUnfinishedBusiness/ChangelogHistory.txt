@@ -2,8 +2,8 @@
 
 - added Cloud of Blades 2nd level spell
 - changed Flash Freeze spell damage from 12d6 to 10d6
-- changed Minor Lifesteal spell damage dice to D6 and range to melee hit
-- fixed a crash introduced on v39 when attacking gadgets
+- changed Minor Lifesteal spell damage dice to D6 and target from range hit to melee hit
+- fixed a crash introduced on v39 when targeting location gadgets [plants, torches, etc.]
 - fixed bonus action spells interaction with action switching not restricting main spells to cantrips
 - fixed Cloak of Arachnida not getting immunity from Conjure Web spell effects
 - fixed Elemental Expert feat re-rolling dice on any damage type

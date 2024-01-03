@@ -483,7 +483,7 @@ Defilers worship patrons of death, corruption, and blight, seeking power and cor
 
 * Bonus Cantrip
 
-Gain the bonus cantrips Ray of Frost and Wrack.
+Learn Wrack cantrip.
 
 * Expanded Spells
 
@@ -492,7 +492,7 @@ Gain the bonus cantrips Ray of Frost and Wrack.
 
 	II	Blindness, Ray of Enfeeblement
 
-	III	Bestow Curse, Fear
+	III	Corrupting Bolt, Fear
 
 	IV	Blight, Phantasmal Killer
 
@@ -502,14 +502,14 @@ Gain the bonus cantrips Ray of Frost and Wrack.
 
 * Insidious Death Magic
 
-Creatures you deal necrotic damage to through spells, abilities, or weapons can not heal for a number of turns equal to half your cleric level (rounded up), or 1 minute if a Divine Strike.
+Creatures you deal necrotic damage to through spells, abilities, or weapons can not heal for a number of rounds equal to half your cleric level (rounded up), or 6 rounds if a Divine Strike.
 
 
 ### Level 2
 
-* Channel Divinity: Defile Life
+* Channel Divinity: Channel Divinity: Defile Life
 
-Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take 2d6 + your class level necrotic damage on a failed saving throw, or half that amount on a successful one.
+Unleash a wave of necrotic energy around you. Each non-undead hostile creature in a 15-foot radius must make a Constitution saving throw. Affected creatures take 2d10 + cleric level necrotic damage on a failed saving throw, or half that amount on a successful one.
 
 
 ### Level 6
@@ -521,10 +521,6 @@ Mark an enemy for death for one minute. They gain vulnerability to necrotic dama
 
 ### Level 8
 
-* Divine Resistance
-
-You have resistance to Necrotic damage.
-
 * Divine Strike
 
 Once per turn, deal 1d8 necrotic damage on weapon attacks. This damage increases to 2d8 at 14th level.
@@ -535,13 +531,6 @@ Once per turn, deal 1d8 necrotic damage on weapon attacks. This damage increases
 * Divine Intervention
 
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
-
-
-### Level 14
-
-* Divine Immunity
-
-You have immunity to Necrotic damage.
 
 
 ### Level 17
@@ -1232,7 +1221,6 @@ Weapon Masters are first-rate warriors who devoted all their time and energy int
 * Focused Strikes
 
 You can use your bonus action to gain advantage on all attacks with your specialized weapon until the end of your turn. You can use this feature three times per long rest.
-Starting at 10th level, when you roll initiative and have no uses of Focused Strikes remaining, you regain one use.
 
 * Improved Critical
 
@@ -1254,7 +1242,7 @@ Once during your turn, you are able to make one additional weapon attack as a pa
 
 * Battle Stance
 
-After a battle starts, gain temporary hit points equal to your weapon master level + proficiency bonus + Constitution modifier if you have your specialized weapon equipped.
+Whenever you roll initiative, you gain temporary hit points equal to your weapon master level + Constitution modifier and regain one usage of your Focused Strikes feature if you have your specialized weapon equipped.
 
 
 ### Level 15
@@ -1672,7 +1660,7 @@ Starting at 6th level, when a creature receives damage from your Discordance fea
 
 * Burst of Disharmony
 
-You can spend 2 Ki and use your bonus action to cause an eruption of accumulated negative energy, dealing 3d6 necrotic damage in a 3x3 cell area to enemy creatures that fail Constitution saving throw (DC 8 + proficiency bonus + Wisdom modifier, save for half) and applying one instance of Discordance condition to each affected creature regardless of if they pass the saving throw or not. For every extra Ki points you expend, you increase the damage by an extra 1d6, up to a total cost equal to half your monk level (rounded up).
+You can spend 2 Ki and use your bonus action to cause an eruption of accumulated negative energy, dealing 3d6 necrotic damage in a 3x3 cell area to enemy creatures that fail Dexterity saving throw (DC 8 + proficiency bonus + Wisdom modifier, save for half) and applying one instance of Discordance condition to each affected creature regardless of if they pass the saving throw or not. For every extra Ki points you expend, you increase the damage by an extra 1d6, up to a total cost equal to half your monk level (rounded up).
 
 * Entropic Strikes
 
@@ -2686,9 +2674,7 @@ Interrupt an enemy's spellcasting.
 
 * Essence Thief
 
-Starting at 17th level, you gain the following benefits:
-• You can steal essence from one creature and use it to harm another. During your turn, when you deal sneak attack damage to a creature, you can target any other creature within 30 feet of you as a free action, dealing half your sneak attack dice (rounded down) as force damage and applying Distracting Ambush condition to that creature.
-• You gain one additional slot of your highest caster level.
+Starting at 17th level, you can steal essence from one creature and use it to harm another. During your turn, when you deal sneak attack damage to a creature, you can target any other creature within 30 feet of you as a free action, dealing half your sneak attack dice (rounded down) as force damage and applying Distracting Ambush condition to that creature.
 
 
 
@@ -2828,10 +2814,6 @@ Once per turn, when you hit a creature with a ranged weapon attack, that creatur
 
 As a free action, you can make your next ranged weapon attack result in a guaranteed critical hit if it hits a creature. You can use this feature once per short rest. 
 
-* Killing Spree
-
-Once during your turn, when you reduce a creature to 0 hit points, you gain an extra attack as a part of your main action and reset the usage of your Sniper's Aim feature.
-
 
 ### Level 13
 
@@ -2842,9 +2824,9 @@ If you miss with a ranged weapon attack roll, you can roll it again with advanta
 
 ### Level 17
 
-* Perfect Shot
+* Killing Spree
 
-You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
+Once during your turn, when you reduce a creature to 0 hit points, you gain an extra attack as a part of your main action and reset the usage of your Sniper's Aim feature.
 
 
 
