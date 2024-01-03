@@ -1124,7 +1124,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var damageSkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
+        var damageAffinitySkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetDamageAffinityType(DamageAffinityType.None)
@@ -1137,12 +1137,15 @@ internal static partial class SpellBuilders
                 Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
             .SetSilent(Silent.WhenAdded)
             .SetPossessive()
-            .SetFeatures(damageSkinOfRetribution)
-            .SetCancellingConditions()
+            .SetFeatures(damageAffinitySkinOfRetribution)
+            .SetTerminateWhenRemoved()
             .AddToDB();
 
         powerSkinOfRetribution.AddCustomSubFeatures(
             new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
+
+        conditionSkinOfRetribution.AddCustomSubFeatures(
+            new ActionFinishedByEnemySkinOfRetribution(conditionSkinOfRetribution));
 
         conditionSkinOfRetribution.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
             .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
@@ -1150,7 +1153,6 @@ internal static partial class SpellBuilders
             .EffectDescription.EffectParticleParameters.conditionParticleReference;
         conditionSkinOfRetribution.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
             .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
-
 
         return SpellDefinitionBuilder
             .Create(NAME)
@@ -1182,6 +1184,30 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    private sealed class ActionFinishedByEnemySkinOfRetribution : IActionFinishedByEnemy
+    {
+        private readonly ConditionDefinition _conditionSkinOfRetribution;
+
+        public ActionFinishedByEnemySkinOfRetribution(ConditionDefinition conditionSkinOfRetribution)
+        {
+            _conditionSkinOfRetribution = conditionSkinOfRetribution;
+        }
+
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            var rulesetCharacter = target.RulesetCharacter;
+
+            if (rulesetCharacter.TemporaryHitPoints == 0 &&
+                rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionSkinOfRetribution.Name, out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+
+            yield break;
+        }
+    }
+
     private sealed class ModifyEffectDescriptionSkinOfRetribution : IModifyEffectDescription
     {
         private readonly ConditionDefinition _conditionSkinOfRetribution;
@@ -1190,6 +1216,7 @@ internal static partial class SpellBuilders
         {
             _conditionSkinOfRetribution = conditionSkinOfRetribution;
         }
+
 
         public bool IsValid(
             BaseDefinition definition,
