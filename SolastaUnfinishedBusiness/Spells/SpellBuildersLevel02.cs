@@ -438,22 +438,11 @@ internal static partial class SpellBuilders
 
     #endregion
 
-#if false
-//Spell/&CloudOfDaggersDescription=You fill the air with spinning daggers in a cube 5 feet on each side, centered on a point you choose within range. A creature takes 4d4 slashing damage when it enters the spell's area for the first time on a turn or starts its turn there. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 2d4 for each slot level above 2nd.
-//Spell/&CloudOfDaggersTitle=Cloud of Daggers
-
     #region Cloud of Daggers
 
     internal static SpellDefinition BuildCloudOfDaggers()
     {
         const string Name = "CloudOfDaggers";
-
-        var proxy = EffectProxyDefinitionBuilder
-            .Create($"Proxy{Name}")
-            .SetGuiPresentation(Name, Category.Spell)
-            .AddToDB();
-
-        proxy.prefabReference = EffectProxyDefinitions.ProxyDancingLights.prefabReference;
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -470,16 +459,12 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 2)
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                     .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeSlashing, 4, DieType.D4),
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonEffectProxyForm(proxy)
-                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
@@ -488,7 +473,7 @@ internal static partial class SpellBuilders
                             .Create()
                             .SetTopologyForm(TopologyForm.Type.SightImpaired, true)
                             .Build())
-                    .SetParticleEffectParameters(ShadowDagger)
+                    .SetParticleEffectParameters(BladeBarrierWallLine)
                     .Build())
             .AddToDB();
 
@@ -496,7 +481,7 @@ internal static partial class SpellBuilders
     }
 
     #endregion
-#endif
+
 
     #region Shadowblade
 

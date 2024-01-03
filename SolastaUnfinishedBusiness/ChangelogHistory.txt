@@ -1,16 +1,17 @@
 ﻿1.5.94.40:
 
+- added Cloud of Blades 2nd level spell
 - changed Flash Freeze spell damage from 12d6 to 10d6
 - changed Minor Lifesteal spell damage dice to D6 and range to melee hit
 - fixed a crash introduced on v39 when attacking gadgets
-- fixed bonus action spells interaction with action switching
-- fixed Cloak of Arachnida not getting immunity from web spell effects
+- fixed bonus action spells interaction with action switching not restricting main spells to cantrips
+- fixed Cloak of Arachnida not getting immunity from Conjure Web spell effects
 - fixed Elemental Expert feat re-rolling dice on any damage type
 - fixed Far Step spell to consume a bonus action and use concentration
 - fixed Skin of Retribution not removing condition when temp HPs get to zero
 - removed extra spell slot feature from Arcane Scoundrel at 17th
 - removed Zen Archer from fighting style list and made it a +1 WIS feat
-- removed necrotic resistance and immunity from Domain Defiler at 8th and 14th
+- removed necrotic resistance and immunity resistance from Domain Defiler at 8th and 14th
 - removed Raven feature at 17th and moved killing spree at 9th to 17th
 
 1.5.94.39:

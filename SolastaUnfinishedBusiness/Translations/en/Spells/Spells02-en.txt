@@ -34,3 +34,5 @@ Spell/&ShadowBladeDescription=You weave together threads of shadow to create a s
 Spell/&ShadowBladeTitle=Shadow Blade
 Spell/&SpellWebDescription=You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20-foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area. Each creature that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the webs or until it breaks free. A creature restrained by the webs can use its actions to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained.
 Spell/&SpellWebTitle=Conjure Web
+Spell/&CloudOfDaggersDescription=You fill the air with spinning daggers in a cube 5 feet on each side, centered on a point you choose within range. A creature takes 4d4 slashing damage when it enters the spell's area for the first time on a turn or starts its turn there. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 2d4 for each slot level above 2nd.
+Spell/&CloudOfDaggersTitle=Cloud of Daggers
