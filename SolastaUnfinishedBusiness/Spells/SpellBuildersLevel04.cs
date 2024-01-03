@@ -398,9 +398,7 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionAuraOfVitality),
-                        EffectFormBuilder.ConditionForm(ConditionLifeDrained, ConditionForm.ConditionOperation.Remove))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAuraOfVitality))
                     .SetParticleEffectParameters(DivineWord)
                     .Build())
             .AddToDB();
