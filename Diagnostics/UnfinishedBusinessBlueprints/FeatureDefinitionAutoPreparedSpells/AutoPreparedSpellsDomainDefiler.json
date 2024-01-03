@@ -22,7 +22,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 5,
       "spellsList": [
-        "Definition:BestowCurse:c7af146d2e243eb42910adbddec1d7d3",
+        "Definition:CorruptingBolt:715e1a9b-115f-5036-99b9-bf54f7e34f01",
         "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4"
       ]
     },

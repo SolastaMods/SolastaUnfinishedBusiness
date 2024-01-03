@@ -1,7 +1,6 @@
 {
   "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
     "Definition:Wrack:4981f583-1a5c-59aa-86ba-d430a6a89969"
   ],
   "guiPresentation": {

@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
   "damageTypes": [
-    "DamageCold"
+    "DamageLightning"
   ],
   "minRollValue": 1,
   "maxRollValue": 0,
@@ -9,7 +9,7 @@
   "rerollCount": 1,
   "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackDamageValueRoll",
+  "validityContext": "MagicDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -20,8 +20,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Expert [Cold]",
-    "description": "Cold damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
+    "title": "Elemental Expert [Lightning]",
+    "description": "Lightning damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "05bfe5bc-d3e1-5857-b3fb-b25233de1645",
+  "guid": "059deb68-4164-597e-95bb-ab9548f0a265",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageCold"
+  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageLightningMagic"
 }

@@ -9,7 +9,7 @@
   "rerollCount": 1,
   "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackDamageValueRoll",
+  "validityContext": "MagicDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -41,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "05bfe5bc-d3e1-5857-b3fb-b25233de1645",
+  "guid": "d35bb578-9510-5fd3-b8fd-c6a07acafb78",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageCold"
+  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageColdMagic"
 }

@@ -12,7 +12,8 @@
   "familyTag": "ElementalAdept",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:DieRollModifierDamageTypeDependentFeatElementalAdeptDamageFire:e37a7371-b93a-5718-a96c-aeca5d61ed28"
+    "Definition:DieRollModifierDamageTypeDependentFeatElementalAdeptDamageFire:e37a7371-b93a-5718-a96c-aeca5d61ed28",
+    "Definition:DieRollModifierDamageTypeDependentFeatElementalAdeptDamageFireMagic:367967bf-e31f-55fa-98ae-09ce8c64aafc"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

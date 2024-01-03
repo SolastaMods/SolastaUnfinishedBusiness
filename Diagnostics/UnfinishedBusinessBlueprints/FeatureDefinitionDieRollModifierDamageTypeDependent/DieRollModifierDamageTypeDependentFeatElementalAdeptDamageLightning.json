@@ -9,7 +9,7 @@
   "rerollCount": 1,
   "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "MagicDamageValueRoll",
+  "validityContext": "AttackDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
