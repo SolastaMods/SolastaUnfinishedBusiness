@@ -1734,6 +1734,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerFunctionPotionOfInvisibility { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfInvisibility");
 
+        internal static FeatureDefinitionPower PowerFunctionWandFearCommand { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCommand");
+
         internal static FeatureDefinitionPower PowerFunctionWandFearCone { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCone");
 

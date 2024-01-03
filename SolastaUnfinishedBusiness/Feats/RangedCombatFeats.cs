@@ -55,7 +55,7 @@ internal static class RangedCombatFeats
                         LongbowType,
                         ShortbowType)))
             .AddToDB();
-        
+
         // backward compatibility
         _ = FightingStyleBuilder
             .Create(Name)
@@ -156,6 +156,7 @@ internal static class RangedCombatFeats
             .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -176,6 +177,7 @@ internal static class RangedCombatFeats
             .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -325,6 +327,7 @@ internal static class RangedCombatFeats
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)
                         .Build())
+                .SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionWandFearCommand)
                 .Build())
         .AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
