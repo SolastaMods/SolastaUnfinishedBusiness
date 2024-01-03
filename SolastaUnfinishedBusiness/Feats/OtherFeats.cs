@@ -635,6 +635,13 @@ internal static class OtherFeats
                     FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
                         .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
                         .SetGuiPresentation(guiPresentation)
+                        .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
+                            "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                        .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
+                        .AddToDB(),
+                    FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}Magic")
+                        .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
                             "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))

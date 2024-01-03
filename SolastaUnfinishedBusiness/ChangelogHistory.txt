@@ -1,6 +1,7 @@
 ﻿1.5.94.40:
 
 - fixed a crash introduced on v39 when attacking gadgets
+- fixed Elemental Expert feat re-rolling dice on any damage type
 
 1.5.94.39:
 
