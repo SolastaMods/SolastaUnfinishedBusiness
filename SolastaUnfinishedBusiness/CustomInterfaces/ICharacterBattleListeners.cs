@@ -53,7 +53,7 @@ public static class CharacterBattleListenersPatch
 
         //PATCH: supports vigilance feature on Martial Guardian
         MartialGuardian.HandleVigilance(rulesetCharacter);
-        SpellBuilders.HandleSkinOfRetribution(rulesetCharacter);
+        SpellBuilders.HandleSkinOfRetribution();
 
         //PATCH: supports EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack
         if (Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&

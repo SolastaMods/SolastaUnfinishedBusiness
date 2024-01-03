@@ -1181,13 +1181,22 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-    internal static void HandleSkinOfRetribution(RulesetCharacter rulesetCharacter)
+    internal static void HandleSkinOfRetribution()
     {
-        if (rulesetCharacter.TemporaryHitPoints == 0 &&
-            rulesetCharacter.TryGetConditionOfCategoryAndType(
-                AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution", out var activeCondition))
+        if (Gui.Battle == null)
         {
-            rulesetCharacter.RemoveCondition(activeCondition);
+            return;
+        }
+
+        foreach (var rulesetCharacter in Gui.Battle.AllContenders
+                     .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter))
+        {
+            if (rulesetCharacter.TemporaryHitPoints == 0 &&
+                rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionSkinOfRetribution", out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
         }
     }
 
