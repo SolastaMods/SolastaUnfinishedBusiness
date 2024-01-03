@@ -1446,9 +1446,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionMagicAffinitys
     {
-        internal static FeatureDefinitionMagicAffinity MagicAffinityAdditionalSpellSlot3 { get; } =
-            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityAdditionalSpellSlot3");
-
         internal static FeatureDefinitionMagicAffinity MagicAffinityAdditionalSpellSlot4 { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityAdditionalSpellSlot4");
 
@@ -3359,7 +3356,10 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition BlackTentacles { get; } = GetDefinition<SpellDefinition>("BlackTentacles");
         internal static SpellDefinition BladeBarrier { get; } = GetDefinition<SpellDefinition>("BladeBarrier");
-        internal static SpellDefinition BladeBarrierWallLine { get; } = GetDefinition<SpellDefinition>("BladeBarrierWallLine");
+
+        internal static SpellDefinition BladeBarrierWallLine { get; } =
+            GetDefinition<SpellDefinition>("BladeBarrierWallLine");
+
         internal static SpellDefinition Bless { get; } = GetDefinition<SpellDefinition>("Bless");
         internal static SpellDefinition Blight { get; } = GetDefinition<SpellDefinition>("Blight");
         internal static SpellDefinition Blindness { get; } = GetDefinition<SpellDefinition>("Blindness");

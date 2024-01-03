@@ -342,7 +342,7 @@ internal static class RangedCombatFeats
     private static FeatDefinition BuildSteadyAim()
     {
         PowerFeatSteadyAim.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
-        
+
         return FeatDefinitionBuilder
             .Create(FeatSteadyAim)
             .SetGuiPresentation(Category.Feat)

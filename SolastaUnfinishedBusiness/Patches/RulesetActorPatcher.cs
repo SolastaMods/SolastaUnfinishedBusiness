@@ -283,7 +283,7 @@ public static class RulesetActorPatcher
     [UsedImplicitly]
     public static class RollDamage_Patch
     {
-        public static DamageForm CurrentDamageForm;
+        internal static DamageForm CurrentDamageForm;
 
         [UsedImplicitly]
         public static void Prefix(DamageForm damageForm)

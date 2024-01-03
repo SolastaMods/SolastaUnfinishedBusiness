@@ -186,7 +186,9 @@ public sealed class InnovationArmor : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetTempHpForm(1)
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
+                            .SetLevelAdvancement(
+                                EffectForm.LevelApplianceType.MultiplyBonus,
+                                LevelSourceType.ClassLevel)
                             .Build())
                     .Build())
             .AddToDB();
