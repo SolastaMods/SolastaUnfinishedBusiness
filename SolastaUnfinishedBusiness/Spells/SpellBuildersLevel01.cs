@@ -1139,6 +1139,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetFeatures(damageAffinitySkinOfRetribution)
             .SetTerminateWhenRemoved()
+            .AddCustomSubFeatures(new ActionFinishedByEnemySkinOfRetribution())
             .AddToDB();
 
         powerSkinOfRetribution.AddCustomSubFeatures(
@@ -1197,6 +1198,16 @@ internal static partial class SpellBuilders
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
             }
+        }
+    }
+
+    private sealed class ActionFinishedByEnemySkinOfRetribution : IActionFinishedByEnemy
+    {
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
+        {
+            HandleSkinOfRetribution();
+
+            yield break;
         }
     }
 
