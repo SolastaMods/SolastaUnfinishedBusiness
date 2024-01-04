@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Agregue todos los dados del daño de arma
 ModUi/&AddAllToStore=Agregar todo a la tienda
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Restauración mayor</color> y <color=#D89555>Restauración menor</color>
 ModUi/&AddCustomIconsToOfficialItems=Añade iconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio] </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Habilite <color=#D89555>Perceptivo de oscuridad</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</color> color> y <color=#D89555>Grey Dwarf</color> <i><color=#F0DAA0>\n[otorga ventaja en las pruebas de percepción cuando no está iluminado o bajo oscuridad mágica]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Habilite <color=#D89555>Percepción de oscuridad</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> y <color=#D89555>Gray Dwarf</color>. color> <i><color=#F0DAA0>\n[otorga ventaja en las pruebas de percepción cuando no está iluminado o bajo oscuridad mágica]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Añade el nivel <color=#D89555>Luchador</color> a la repetición de la tirada de salvación <color=#D89555>Indomable</color>.
 ModUi/&AddHelpActionToAllRaces=Agrega la acción <color=#D89555>Ayuda</color> a todas las razas jugables <i><color=#F0DAA0>[puedes ayudar a una criatura amiga a atacar a una criatura a 5 pies de ti]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Añadir enemigo preferido humanoide a <color=#D89555>Rangers</color>
@@ -206,7 +206,7 @@ ModUi/&Patches=<color=#F0DAA0>Parches:</color>
 ModUi/&PortraitsOpenFolder=Abrir carpeta de retratos
 ModUi/&PrimedItems=Artículos imprimados
 ModUi/&Progression=<color=#F0DAA0>Progresión:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Habilite <color=#D89555>Sensibilidad a la luz</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> y <color=#D89555>Grey Dwarf</color> para activarse solo en exteriores\n<i><color=#F0DAA0>[las áreas interiores en ubicaciones exteriores a las que se puede acceder sin una pantalla de carga se consideran exteriores según el motor del juego. ]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Habilite <color=#D89555>Sensibilidad a la luz</color> en <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> y <color=#D89555>Grey Dwarf</color>. color> para activarse solo en exteriores\n<i><color=#F0DAA0>[las áreas interiores en ubicaciones exteriores a las que se puede acceder sin una pantalla de carga se consideran exteriores según el motor del juego]</color></i>
 ModUi/&Races=<color=#F0DAA0>Carreras</color>
 ModUi/&RecipeCost=<color=white>Coste de la receta</color>
 ModUi/&RecipesInDm=Recetas en DM

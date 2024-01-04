@@ -1,4 +1,9 @@
-﻿1.5.94.40:
+﻿1.5.94.41:
+
+- fixed 'Darkness Perceptive' setting incorrectly considering half dark-elves
+- fixed 'Light Sensitivity on outdoors only' setting incorrectly considering half dark-elves
+
+1.5.94.40:
 
 ONLY 1 DEVELOPER and 1 DESIGNER/QA did all below in a couple of days... :-) thanks HiddenHax for Design/QA
 
