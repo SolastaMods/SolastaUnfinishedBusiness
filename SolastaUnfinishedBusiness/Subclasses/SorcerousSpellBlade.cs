@@ -178,7 +178,8 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .AddFeaturesAtLevel(1,
                 attackModifierEnchantWeapon,
                 featureSetMartialTraining,
-                autoPreparedSpells,
+                autoPreparedSpells)
+            .AddFeaturesAtLevel(2,
                 featureSetManaShield)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
