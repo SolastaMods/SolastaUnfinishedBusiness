@@ -218,7 +218,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddCustomSubFeatures(new RestrictReactionAttackMode(
                 (_, _, _, attackMode, _) =>
                 {
-                    if (attackMode.sourceDefinition is not ItemDefinition weapon)
+                    if (attackMode?.sourceDefinition is not ItemDefinition weapon)
                     {
                         return false;
                     }
@@ -248,7 +248,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddCustomSubFeatures(new RestrictReactionAttackMode(
                 (_, _, _, attackMode, _) =>
                 {
-                    if (attackMode.sourceDefinition is not ItemDefinition weapon)
+                    if (attackMode?.sourceDefinition is not ItemDefinition weapon)
                     {
                         return false;
                     }
