@@ -250,6 +250,7 @@ internal enum ExtraActionId
     CompellingStrikeToggle = 9047,
     PressTheAdvantageToggle = 9048,
     CoordinatedAssaultToggle = 9049,
+    DyingLightToggle = 9050,
     PrioritizeAction = 10000
 }
 
