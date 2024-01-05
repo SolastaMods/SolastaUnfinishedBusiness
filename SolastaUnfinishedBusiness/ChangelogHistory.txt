@@ -1,8 +1,8 @@
 ﻿1.5.94.41:
 
-- added Domain Defiler beacon of corruption feature at 6th replacing mark for death
-- added Domain Law final word at 17th
-- added Domain Mischief fortune favors the bold at 17th
+- added Domain Defiler beacon of corruption feature at 6th replacing mark for death one
+- added Domain Law final word feature at 17th
+- added Domain Mischief fortune favors the bold feature at 17th
 - added Domain Mischief strike of chaos progression at 17th and 20th
 - fixed 'Darkness Perceptive' setting incorrectly considering half dark-elves
 - fixed 'Light Sensitivity on outdoors only' setting incorrectly considering half dark-elves

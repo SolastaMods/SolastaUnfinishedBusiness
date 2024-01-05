@@ -320,7 +320,9 @@ public sealed class DomainDefiler : AbstractSubclass
 
         private IEnumerator TryAddCondition(
             IEnumerable<EffectForm> actualEffectForms,
+            // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter attacker,
+            // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter defender)
         {
             if (actualEffectForms.All(x =>
