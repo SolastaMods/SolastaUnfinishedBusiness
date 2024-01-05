@@ -65,7 +65,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .Create($"AdditionalDamage{Name}DisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto, RechargeRate.TurnStart)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -120,7 +120,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .Create($"AdditionalDamage{Name}ImprovedDisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

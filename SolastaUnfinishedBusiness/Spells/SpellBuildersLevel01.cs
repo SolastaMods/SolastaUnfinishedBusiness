@@ -237,7 +237,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetDamageDice(DieType.D6, 0)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
@@ -397,7 +397,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -463,7 +463,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack)
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -720,7 +720,7 @@ internal static partial class SpellBuilders
                 .SetSpecificDamageType(damageType)
                 .SetImpactParticleReference(
                     magicEffect.EffectDescription.EffectParticleParameters.impactParticleReference)
-                .AddCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeAttack)
+                .AddCustomSubFeatures(ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack)
                 .AddToDB();
 
             var title = $"Condition{NAME}Title".Formatted(Category.Condition, damageTitle);

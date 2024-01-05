@@ -456,7 +456,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
             .AddCustomSubFeatures(
-                ValidatorsRestrictedContext.IsWeaponAttack,
+                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack,
                 new OnPhysicalAttackHitBanishingSmite(conditionBanishingSmiteEnemy))
             .SetDamageDice(DieType.D10, 5)
             .SetSpecificDamageType(DamageTypeForce)

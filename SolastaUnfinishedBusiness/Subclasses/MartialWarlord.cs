@@ -78,7 +78,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 IsPowerPool.Marker,
                 new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
-                    mode != null && // weapon or unarmed only
+                    mode != null && // IsWeaponOrUnarmedAttack
                     attacker.OnceInMyTurnIsValid(PressTheAdvantageMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(PressTheAdvantageToggle)))
             .AddToDB();

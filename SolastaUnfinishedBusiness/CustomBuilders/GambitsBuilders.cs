@@ -70,7 +70,7 @@ internal static class GambitsBuilders
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddCustomSubFeatures(
                 (DamageDieProvider)((character, _) => GetGambitDieSize(character)),
-                ValidatorsRestrictedContext.IsWeaponAttack)
+                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .AddToDB();
 
         var gambitDieDamageMelee = FeatureDefinitionAdditionalDamageBuilder
@@ -88,7 +88,7 @@ internal static class GambitsBuilders
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddCustomSubFeatures(
                 (DamageDieProvider)((character, _) => GetGambitDieSize(character)),
-                ValidatorsRestrictedContext.IsMeleeAttack)
+                ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack)
             .AddToDB();
 
         var conditionGambitDieDamage = ConditionDefinitionBuilder
