@@ -13,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Channel Divinity: Channel Divinity: Defile Life",
-    "description": "Unleash a wave of necrotic energy around you. Each non-undead hostile creature in a 15-foot radius must make a Constitution saving throw. Affected creatures take 2d10 + cleric level necrotic damage on a failed saving throw, or half that amount on a successful one.",
+    "title": "Channel Divinity: Defile Life",
+    "description": "Unleash a wave of necrotic energy around you. Each non-undead hostile creature in a 30-foot radius must make a Constitution saving throw. Affected creatures take 2d10 + cleric level necrotic damage on a failed saving throw, or half that amount on a successful one.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainDefilerMarkForDeath:92474773-54e8-5908-a328-a2cf39db0c4a",
+      "featureDefinition": "Definition:DamageAffinityDomainDefilerBeaconOfCorruption:540aacfe-8b41-50f1-933e-5344760d3a35",
       "level": 6
     },
     {
@@ -38,7 +38,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainDefilerDyingLight:57728df3-7188-56bd-96e2-95fc0e470a76",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsDomainDefilerDyingLight:a9f69d94-29c4-518d-87c8-dccab866b3d6",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityDyingLightToggle:503a74fe-d34e-5fcf-84a8-d8a323810192",
       "level": 17
     }
   ],

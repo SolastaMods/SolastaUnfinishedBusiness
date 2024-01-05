@@ -502,21 +502,21 @@ Learn Wrack cantrip.
 
 * Insidious Death Magic
 
-Creatures you deal necrotic damage to through spells, abilities, or weapons can not heal for a number of rounds equal to half your cleric level (rounded up), or 6 rounds if a Divine Strike.
+Creatures you deal necrotic damage to through spells, abilities, or weapons can not receive healing until the end of your next turn.
 
 
 ### Level 2
 
-* Channel Divinity: Channel Divinity: Defile Life
+* Channel Divinity: Defile Life
 
-Unleash a wave of necrotic energy around you. Each non-undead hostile creature in a 15-foot radius must make a Constitution saving throw. Affected creatures take 2d10 + cleric level necrotic damage on a failed saving throw, or half that amount on a successful one.
+Unleash a wave of necrotic energy around you. Each non-undead hostile creature in a 30-foot radius must make a Constitution saving throw. Affected creatures take 2d10 + cleric level necrotic damage on a failed saving throw, or half that amount on a successful one.
 
 
 ### Level 6
 
-* Channel Divinity: Mark for Death
+* Beacon of Corruption
 
-Mark an enemy for death for one minute. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.
+You gain resistance to necrotic damage and necrotic damage dealt by your spells and features ignores resistance to necrotic damage.
 
 
 ### Level 8
@@ -537,7 +537,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Dying Light
 
-Learn Circle of Death and Finger of Death spells and add them to the list of spells known. You always have these spells prepared, they do not count towards your prepared spells limit and are treated as cleric spells for you. In addition, necrotic damage dealt by your spells and features ignores resistance to necrotic damage.
+You learn Circle of Death and Finger of Death spells and it is added to the list of spells known. They are always prepared, don't count towards your prepared spells limit, and are treated as cleric spells for you. Whenever you cast a damaging necromancy spell, you can deal maximum damage instead of rolling. You can use this feature twice per long rest.
 
 
 

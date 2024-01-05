@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace SolastaUnfinishedBusiness.CustomInterfaces;
+﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IForceMaxDamageTypeDependent
 {
-    BaseDefinition FeatureDefinition { get; }
-    List<string> DamageTypes { get; }
+    bool IsValid(RulesetActor rulesetActor, DamageForm damageForm);
 }

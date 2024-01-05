@@ -293,19 +293,12 @@ public static class RulesetActorPatcher
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var modifier in modifiers)
             {
-                var isMax = modifier.DamageTypes.Contains(damageForm.DamageType);
-
-                if (!isMax)
+                if (!modifier.IsValid(__instance, damageForm))
                 {
                     continue;
                 }
 
                 maximumDamage = true;
-
-                if (__instance is RulesetCharacter rulesetCharacter)
-                {
-                    rulesetCharacter.LogCharacterUsedFeature(modifier.FeatureDefinition);
-                }
             }
 
             CurrentDamageForm = damageForm;
