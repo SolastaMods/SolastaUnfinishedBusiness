@@ -273,10 +273,12 @@ internal static class ClassFeats
             GameLocationCharacter defender)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var isRogue = rulesetAttacker.GetClassLevel(Rogue) > 0;
+            var isSorrAkkath = rulesetAttacker.GetSubclassLevel(Sorcerer, "SorcerousSorrAkkath") > 0;
 
-            if (attackMode == null ||
-                attackMode.Ranged ||
-                !additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) ||
+            if (attackMode is not { Ranged: false } ||
+                (!isRogue && !isSorrAkkath) ||
                 gameLocationBattleService == null ||
                 !gameLocationBattleService.IsWithin1Cell(attacker, defender))
             {
@@ -290,8 +292,9 @@ internal static class ClassFeats
 
         static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
         {
-            var hasSneakAttack = hero.GetFeaturesByType<FeatureDefinitionAdditionalDamage>()
-                .Any(x => x.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag));
+            var isRogue = hero.GetClassLevel(Rogue) > 0;
+            var isSorrAkkath = hero.GetSubclassLevel(Sorcerer, "SorcerousSorrAkkath") > 0;
+            var hasSneakAttack = isRogue || isSorrAkkath;
 
             var guiFormat = Gui.Format("Tooltip/&PreReqMustKnow", "Feature/&RogueSneakAttackTitle");
 
