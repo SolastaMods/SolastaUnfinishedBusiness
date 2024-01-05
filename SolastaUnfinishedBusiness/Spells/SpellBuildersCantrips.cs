@@ -431,6 +431,7 @@ internal static partial class SpellBuilders
         var conditionWrack = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionHindered)
+            .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")
