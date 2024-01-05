@@ -1365,23 +1365,32 @@ internal static class Level20SubclassesContext
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var attacker = action.ActingCharacter;
+
+            if (attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Cleric) < 17)
+            {
+                yield break;
+            }
+
             var defender = action.ActionParams.TargetCharacters[0];
 
             _attacker = null;
             defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
-
-            yield break;
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var attacker = action.ActingCharacter;
+
+            if (attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Cleric) < 17)
+            {
+                yield break;
+            }
+
             var defender = action.ActionParams.TargetCharacters[0];
 
             _attacker = attacker;
             defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
-
-            yield break;
         }
 
         private static void ConcentrationChanged(RulesetCharacter character)
