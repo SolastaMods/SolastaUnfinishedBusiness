@@ -657,6 +657,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionStrikeOfChaosAttackAdvantage { get; } =
             GetDefinition<ConditionDefinition>("ConditionStrikeOfChaosAttackAdvantage");
 
+        internal static ConditionDefinition ConditionStrikeOfChaosAttackDisadvantage { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStrikeOfChaosAttackDisadvantage");
+
         internal static ConditionDefinition ConditionStunned { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned");
 

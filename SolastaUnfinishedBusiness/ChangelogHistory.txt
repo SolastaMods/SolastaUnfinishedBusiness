@@ -1,7 +1,10 @@
 ﻿1.5.94.41:
 
+- added Domain Mischief fortune favor the bold at 17th
+- added Domain Mischief strike of chaos progression at 17th and 20th
 - fixed 'Darkness Perceptive' setting incorrectly considering half dark-elves
 - fixed 'Light Sensitivity on outdoors only' setting incorrectly considering half dark-elves
+- fixed vanilla Domain Mischief strike of chaos triggering on magical attacks
 
 1.5.94.40:
 

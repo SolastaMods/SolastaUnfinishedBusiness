@@ -241,7 +241,107 @@ internal static class Level20SubclassesContext
         // Mischief
         //
 
-        /* ??? */
+        // Fortune Favor The Bold
+
+        var conditionAdvantage = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionStrikeOfChaosAttackAdvantage, "ConditionFortuneFavorTheBoldAdvantage")
+            .SetConditionType(ConditionType.Beneficial)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var conditionDisadvantage = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionStrikeOfChaosAttackDisadvantage,
+                "ConditionFortuneFavorTheBoldDisadvantage")
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var conditionMirrorImage = ConditionDefinitionBuilder
+            .Create("ConditionFortuneFavorTheBoldMirrorImage")
+            .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+            .SetPossessive()
+            .CopyParticleReferences(ConditionDefinitions.ConditionBlurred)
+            .AddCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+            .AddToDB();
+
+        var conditionPsychicDamage = ConditionDefinitionBuilder
+            .Create("ConditionFortuneFavorTheBoldPsychicDamage")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBrandingSmite)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create("AdditionalDamageFortuneFavorTheBoldPsychicDamage")
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag("FortuneFavorTheBold")
+                    .SetDamageDice(DieType.D8, 4)
+                    .SetSpecificDamageType(DamageTypePsychic)
+                    .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddToDB();
+
+        var conditionTemporaryHitPoints = ConditionDefinitionBuilder
+            .Create("ConditionFortuneFavorTheBoldTempHitPoints")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedFortuneFavorTheBoldTempHitPoints())
+            .AddToDB();
+
+        var powerFortuneFavorTheBold = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainMischiefFortuneFavorTheBold")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                null,
+                                ConditionForm.ConditionOperation.AddRandom,
+                                false, false,
+                                conditionDisadvantage,
+                                conditionAdvantage,
+                                conditionMirrorImage,
+                                conditionPsychicDamage,
+                                conditionTemporaryHitPoints,
+                                null)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddToDB();
+
+        var powerDomainMischiefStrikeOfChaos17 = FeatureDefinitionPowerBuilder
+            .Create(PowerDomainMischiefStrikeOfChaos14, "PowerDomainMischiefStrikeOfChaos17")
+            .SetOverriddenPower(PowerDomainMischiefStrikeOfChaos14)
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeStrikeOfChaos(powerFortuneFavorTheBold))
+            .AddToDB();
+
+        powerDomainMischiefStrikeOfChaos17.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 6;
+
+        var powerDomainMischiefStrikeOfChaos20 = FeatureDefinitionPowerBuilder
+            .Create(PowerDomainMischiefStrikeOfChaos14, "PowerDomainMischiefStrikeOfChaos20")
+            .SetOverriddenPower(powerDomainMischiefStrikeOfChaos17)
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeStrikeOfChaos(powerFortuneFavorTheBold))
+            .AddToDB();
+
+        powerDomainMischiefStrikeOfChaos20.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 7;
+
+        DomainMischief.FeatureUnlocks.AddRange(
+        [
+            new FeatureUnlockByLevel(powerFortuneFavorTheBold, 17),
+            new FeatureUnlockByLevel(powerDomainMischiefStrikeOfChaos17, 17),
+            new FeatureUnlockByLevel(powerDomainMischiefStrikeOfChaos20, 20)
+        ]);
+
+        //FIX: strike of chaos powers should not trigger on magical attacks
+        foreach (var powerStrikeOfChaos in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+                     .Where(x => x.Name.StartsWith("PowerDomainMischiefStrikeOfChaos")))
+        {
+            powerStrikeOfChaos.AddCustomSubFeatures(
+                new RestrictReactionAttackMode((_, _, _, mode, _) =>
+                    ValidatorsWeapon.IsMelee(mode) || ValidatorsWeapon.IsUnarmed(mode)));
+        }
 
         //
         // Oblivion
@@ -1250,6 +1350,52 @@ internal static class Level20SubclassesContext
     }
 
     #region Cleric
+
+    private sealed class OnConditionAddedOrRemovedFortuneFavorTheBoldTempHitPoints : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var clericLevel = target.GetClassLevel(CharacterClassDefinitions.Cleric);
+
+            target.ReceiveTemporaryHitPoints(clericLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn,
+                rulesetCondition.SourceGuid);
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeStrikeOfChaos : IMagicEffectFinishedByMe
+    {
+        private readonly FeatureDefinitionPower _powerFortuneFavorTheBold;
+
+        public MagicEffectFinishedByMeStrikeOfChaos(FeatureDefinitionPower powerFortuneFavorTheBold)
+        {
+            _powerFortuneFavorTheBold = powerFortuneFavorTheBold;
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerFortuneFavorTheBold, rulesetCharacter);
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                targetCharacters = { actingCharacter }
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, true);
+
+            yield break;
+        }
+    }
 
     private sealed class ModifyDamageResistanceRisingDawn : IModifyDamageAffinity
     {
