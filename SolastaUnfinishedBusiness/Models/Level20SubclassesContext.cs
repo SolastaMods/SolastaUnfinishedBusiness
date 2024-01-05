@@ -162,11 +162,18 @@ internal static class Level20SubclassesContext
         // Law
         //
 
-        /*
+        // Final Word
 
-        Cleric of Law: Executioner - Whenever you break an enemies concentration, they must make a WIS saving throw, or take psychic damage equal to your cleric level.
+        var featureFinalWord = FeatureDefinitionBuilder
+            .Create("FeatureDomainLawFinalWord")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new CustomBehaviorFinalWord())
+            .AddToDB();
 
-        */
+        PowerDomainLawWordOfLaw.AddCustomSubFeatures(new CustomBehaviorWordOfLaw());
+
+        DomainLaw.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureFinalWord, 17));
 
         //
         // Life
@@ -1350,6 +1357,142 @@ internal static class Level20SubclassesContext
     }
 
     #region Cleric
+
+    private sealed class CustomBehaviorWordOfLaw : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    {
+        private const string ConditionSilenced = "ConditionSilenced";
+        private static GameLocationCharacter _attacker;
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var defender = action.ActionParams.TargetCharacters[0];
+
+            _attacker = null;
+            defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+            var defender = action.ActionParams.TargetCharacters[0];
+
+            _attacker = attacker;
+            defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
+
+            yield break;
+        }
+
+        private static void ConcentrationChanged(RulesetCharacter character)
+        {
+            var rulesetAttacker = _attacker.RulesetCharacter;
+
+            character.InflictCondition(
+                ConditionSilenced,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionSilenced,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class CustomBehaviorFinalWord :
+        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
+        IMagicalAttackBeforeHitConfirmedOnEnemy, IMagicalAttackFinishedByMe
+    {
+        private const string ConditionSilenced = "ConditionSilenced";
+        private static GameLocationCharacter _attacker;
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            _attacker = attacker;
+            defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _attacker = attacker;
+            defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicalAttackFinishedByMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            _attacker = null;
+            defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            _attacker = null;
+            defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+
+            yield break;
+        }
+
+        private static void ConcentrationChanged(RulesetCharacter character)
+        {
+            var rulesetAttacker = _attacker.RulesetCharacter;
+
+            character.InflictCondition(
+                ConditionSilenced,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionSilenced,
+                0,
+                0,
+                0);
+        }
+    }
 
     private sealed class OnConditionAddedOrRemovedFortuneFavorTheBoldTempHitPoints : IOnConditionAddedOrRemoved
     {

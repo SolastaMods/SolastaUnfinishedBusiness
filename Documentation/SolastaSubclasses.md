@@ -720,6 +720,13 @@ On a failed WIS saving throw, restrains a creature and inflicts force damage eac
   At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
 
 
+### Level 17
+
+* Final Word
+
+Whenever you break the spellcasting concentration of an enemy, that enemy becomes silenced until the end of your next turn.
+
+
 ### Level 20
 
 * Improved Divine Intervention
