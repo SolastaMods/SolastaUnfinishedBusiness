@@ -161,7 +161,7 @@ internal static partial class SpellBuilders
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(DamageTypeFire, 4, DieType.D6)
+                    .SetDamageForm(DamageTypeFire, 8, DieType.D6)
                     .SetCreatedBy()
                     .Build())
             .AddToDB();
