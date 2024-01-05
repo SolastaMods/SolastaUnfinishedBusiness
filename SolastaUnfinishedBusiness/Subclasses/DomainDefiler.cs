@@ -217,8 +217,10 @@ public sealed class DomainDefiler : AbstractSubclass
         var powerDyingLight = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DyingLight")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .AddToDB();
+
+        powerDyingLight.AddCustomSubFeatures(new CustomBehaviorDyingLight(powerDyingLight));
 
         var actionAffinityDyingLightToggle = FeatureDefinitionActionAffinityBuilder
             .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
@@ -226,8 +228,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.DyingLightToggle)
             .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerDyingLight)),
-                new CustomBehaviorDyingLight(powerDyingLight))
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerDyingLight)))
             .AddToDB();
 
         var autoPreparedSpellsDyingLight = FeatureDefinitionAutoPreparedSpellsBuilder
@@ -423,45 +424,55 @@ public sealed class DomainDefiler : AbstractSubclass
     // Dying Light
     //
 
-    private sealed class CustomBehaviorDyingLight : IForceMaxDamageTypeDependent
+    private sealed class CustomBehaviorDyingLight :
+        IForceMaxDamageTypeDependent,
+        IMagicalAttackBeforeHitConfirmedOnEnemy,
+        IActionFinishedByMe
     {
         private readonly FeatureDefinitionPower _powerDyingLight;
+        private bool _isValid;
 
         public CustomBehaviorDyingLight(FeatureDefinitionPower powerDyingLight)
         {
             _powerDyingLight = powerDyingLight;
         }
 
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            _isValid = false;
+
+            yield break;
+        }
+
         public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
         {
-            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            return damageForm.DamageType == DamageTypeNecrotic && _isValid;
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerDyingLight, rulesetAttacker);
+
+            _isValid = actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
+                                                  x.DamageForm.DamageType == DamageTypeNecrotic) &&
+                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle) &&
+                       rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
+
+            if (!_isValid)
             {
-                return false;
+                yield break;
             }
 
-            if (!rulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle))
-            {
-                return false;
-            }
-
-            var usablePower = UsablePowersProvider.Get(_powerDyingLight, rulesetCharacter);
-
-            if (rulesetCharacter.GetRemainingUsesOfPower(usablePower) == 0)
-            {
-                return false;
-            }
-
-            var isValid = damageForm.DamageType == DamageTypeNecrotic;
-
-            if (!isValid)
-            {
-                return false;
-            }
-
-            rulesetCharacter.UsePower(usablePower);
-            rulesetCharacter.LogCharacterUsedPower(_powerDyingLight);
-
-            return true;
+            rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.LogCharacterUsedPower(_powerDyingLight);
         }
     }
 }
