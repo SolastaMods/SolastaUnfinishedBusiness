@@ -2,17 +2,10 @@
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class ForceConditionCategory : IForceConditionCategory
+public class ForceConditionCategory(string category) : IForceConditionCategory
 {
-    private readonly string _category;
-
-    public ForceConditionCategory(string category)
+    public string GetForcedCategory(RulesetActor actor, RulesetCondition newCondition, string category1)
     {
-        _category = category;
-    }
-
-    public string GetForcedCategory(RulesetActor actor, RulesetCondition newCondition, string category)
-    {
-        return _category;
+        return category;
     }
 }

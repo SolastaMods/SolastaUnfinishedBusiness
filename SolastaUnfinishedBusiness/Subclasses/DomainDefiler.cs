@@ -424,18 +424,12 @@ public sealed class DomainDefiler : AbstractSubclass
     // Dying Light
     //
 
-    private sealed class CustomBehaviorDyingLight :
+    private sealed class CustomBehaviorDyingLight(FeatureDefinitionPower powerDyingLight) :
         IForceMaxDamageTypeDependent,
         IMagicalAttackBeforeHitConfirmedOnEnemy,
         IActionFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerDyingLight;
         private bool _isValid;
-
-        public CustomBehaviorDyingLight(FeatureDefinitionPower powerDyingLight)
-        {
-            _powerDyingLight = powerDyingLight;
-        }
 
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
@@ -459,7 +453,7 @@ public sealed class DomainDefiler : AbstractSubclass
             bool criticalHit)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerDyingLight, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerDyingLight, rulesetAttacker);
 
             _isValid = actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
                                                   x.DamageForm.DamageType == DamageTypeNecrotic) &&
@@ -472,7 +466,7 @@ public sealed class DomainDefiler : AbstractSubclass
             }
 
             rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.LogCharacterUsedPower(_powerDyingLight);
+            rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
     }
 }

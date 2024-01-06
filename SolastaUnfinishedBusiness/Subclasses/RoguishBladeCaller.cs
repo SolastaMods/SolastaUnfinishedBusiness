@@ -210,22 +210,13 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
 
-    private sealed class CustomBehaviorBladeMark : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorBladeMark(
+        ConditionDefinition conditionBladeMark,
+        ConditionDefinition conditionBladeSurge,
+        FeatureDefinitionPower powerHailOfBlades)
+        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionBladeMark;
-        private readonly ConditionDefinition _conditionBladeSurge;
-        private readonly FeatureDefinitionPower _powerHailOfBlades;
         private BladeMarkStatus _bladeMarkStatus;
-
-        public CustomBehaviorBladeMark(
-            ConditionDefinition conditionBladeMark,
-            ConditionDefinition conditionBladeSurge,
-            FeatureDefinitionPower powerHailOfBlades)
-        {
-            _conditionBladeMark = conditionBladeMark;
-            _conditionBladeSurge = conditionBladeSurge;
-            _powerHailOfBlades = powerHailOfBlades;
-        }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -242,7 +233,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
             {
                 rulesetDefender.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, _conditionBladeMark.Name);
+                    AttributeDefinitions.TagEffect, conditionBladeMark.Name);
             }
 
             // exit earlier if not a hit
@@ -258,18 +249,18 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Rogue);
 
                 // inflict Blade Surge
-                if (classLevel >= 13 && !rulesetAttacker.HasAnyConditionOfType(_conditionBladeSurge.Name))
+                if (classLevel >= 13 && !rulesetAttacker.HasAnyConditionOfType(conditionBladeSurge.Name))
                 {
                     rulesetAttacker.InflictCondition(
-                        _conditionBladeSurge.Name,
-                        _conditionBladeSurge.DurationType,
-                        _conditionBladeSurge.DurationParameter,
-                        _conditionBladeSurge.TurnOccurence,
+                        conditionBladeSurge.Name,
+                        conditionBladeSurge.DurationType,
+                        conditionBladeSurge.DurationParameter,
+                        conditionBladeSurge.TurnOccurence,
                         AttributeDefinitions.TagEffect,
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
-                        _conditionBladeSurge.Name,
+                        conditionBladeSurge.Name,
                         0,
                         0,
                         0);
@@ -292,15 +283,15 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             attacker.UsedSpecialFeatures.TryAdd(BladeMark, 1);
 
             rulesetDefender.InflictCondition(
-                _conditionBladeMark.Name,
-                _conditionBladeMark.DurationType,
-                _conditionBladeMark.DurationParameter,
-                _conditionBladeMark.TurnOccurence,
+                conditionBladeMark.Name,
+                conditionBladeMark.DurationType,
+                conditionBladeMark.DurationParameter,
+                conditionBladeMark.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionBladeMark.Name,
+                conditionBladeMark.Name,
                 0,
                 0,
                 0);
@@ -328,7 +319,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            if (rulesetDefender.HasAnyConditionOfType(_conditionBladeMark.Name))
+            if (rulesetDefender.HasAnyConditionOfType(conditionBladeMark.Name))
             {
                 _bladeMarkStatus = BladeMarkStatus.With;
 
@@ -346,7 +337,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!attacker.CanReact() || !rulesetAttacker.CanUsePower(_powerHailOfBlades))
+            if (!attacker.CanReact() || !rulesetAttacker.CanUsePower(powerHailOfBlades))
             {
                 yield break;
             }
@@ -375,10 +366,10 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(_powerHailOfBlades, _powerHailOfBlades.CostPerUse);
+            rulesetAttacker.UpdateUsageForPower(powerHailOfBlades, powerHailOfBlades.CostPerUse);
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(_powerHailOfBlades, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerHailOfBlades, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -406,15 +397,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // Blade Storm
     //
 
-    private sealed class OnReducedToZeroHpByMeBladeStorm : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeBladeStorm(FeatureDefinitionPower powerHailOfBlades)
+        : IOnReducedToZeroHpByMe
     {
-        private readonly FeatureDefinitionPower _powerHailOfBlades;
-
-        public OnReducedToZeroHpByMeBladeStorm(FeatureDefinitionPower powerHailOfBlades)
-        {
-            _powerHailOfBlades = powerHailOfBlades;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -423,12 +408,12 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.CanUsePower(_powerHailOfBlades))
+            if (rulesetAttacker.CanUsePower(powerHailOfBlades))
             {
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerHailOfBlades, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerHailOfBlades, rulesetAttacker);
 
             rulesetAttacker.RepayPowerUse(usablePower);
         }

@@ -205,42 +205,25 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
     // Mana Shield
     //
 
-    private sealed class PowerVisibilityModifierManaShield : PowerVisibilityModifier
+    private sealed class PowerVisibilityModifierManaShield() : PowerVisibilityModifier((character, power, _) =>
+        character.CanUsePower(power) || character.RemainingSorceryPoints < 2);
+
+    private sealed class PowerVisibilityModifierManaShieldPoints(FeatureDefinitionPower powerManaShield)
+        : PowerVisibilityModifier((character, _, _) =>
+            !character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2);
+
+    private sealed class ModifyEffectDescriptionManaShield(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower baseDefinition,
+        FeatureDefinitionPower powerManaShieldPoints)
+        : IModifyEffectDescription
     {
-        public PowerVisibilityModifierManaShield() : base((character, power, _) =>
-            character.CanUsePower(power) || character.RemainingSorceryPoints < 2)
-        {
-        }
-    }
-
-    private sealed class PowerVisibilityModifierManaShieldPoints : PowerVisibilityModifier
-    {
-        public PowerVisibilityModifierManaShieldPoints(FeatureDefinitionPower powerManaShield) :
-            base((character, _, _) =>
-                !character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2)
-        {
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionManaShield : IModifyEffectDescription
-    {
-        private readonly FeatureDefinitionPower _baseDefinition;
-        private readonly FeatureDefinitionPower _powerManaShieldPoints;
-
-        public ModifyEffectDescriptionManaShield(
-            FeatureDefinitionPower baseDefinition,
-            FeatureDefinitionPower powerManaShieldPoints)
-        {
-            _baseDefinition = baseDefinition;
-            _powerManaShieldPoints = powerManaShieldPoints;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _baseDefinition;
+            return definition == baseDefinition;
         }
 
         public EffectDescription GetEffectDescription(
@@ -257,12 +240,12 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             effectDescription.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
 
             //TODO: refactor this - we should not do actions when modifying effect descriptions
-            if (_baseDefinition != _powerManaShieldPoints)
+            if (baseDefinition != powerManaShieldPoints)
             {
                 return effectDescription;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerManaShieldPoints, character);
+            var usablePower = UsablePowersProvider.Get(powerManaShieldPoints, character);
 
             character.RepayPowerUse(usablePower);
 

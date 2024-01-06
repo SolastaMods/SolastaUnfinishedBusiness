@@ -161,14 +161,9 @@ public class PatronEldritchSurge : AbstractSubclass
                && rulesetEffectSpell.SpellDefinition == EldritchBlast;
     }
 
-    private class VersatilitySwitchCustom : IMagicEffectFinishedByMe
+    private class VersatilitySwitchCustom(string replacedAbilityScore) : IMagicEffectFinishedByMe
     {
-        public VersatilitySwitchCustom(string replacedAbilityScore)
-        {
-            ReplacedAbilityScore = replacedAbilityScore;
-        }
-
-        private string ReplacedAbilityScore { get; }
+        private string ReplacedAbilityScore { get; } = replacedAbilityScore;
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {

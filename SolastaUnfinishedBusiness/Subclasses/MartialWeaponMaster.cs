@@ -233,15 +233,11 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Specialization
     //
 
-    private sealed class ModifyAttackActionModifierSpecializationDisadvantage : IModifyAttackActionModifier
+    private sealed class ModifyAttackActionModifierSpecializationDisadvantage(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : IModifyAttackActionModifier
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public ModifyAttackActionModifierSpecializationDisadvantage(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -256,22 +252,17 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(-1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+                new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
     }
 
-    private sealed class ModifyWeaponAttackModeSpecialization : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeSpecialization(
+        WeaponTypeDefinition weaponTypeDefinition,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : IModifyWeaponAttackMode
     {
-        private readonly FeatureDefinition _featureDefinition;
-        public readonly WeaponTypeDefinition WeaponTypeDefinition;
-
-        public ModifyWeaponAttackModeSpecialization(
-            WeaponTypeDefinition weaponTypeDefinition,
-            FeatureDefinition featureDefinition)
-        {
-            WeaponTypeDefinition = weaponTypeDefinition;
-            _featureDefinition = featureDefinition;
-        }
+        public readonly WeaponTypeDefinition WeaponTypeDefinition = weaponTypeDefinition;
 
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
@@ -299,11 +290,11 @@ public sealed class MartialWeaponMaster : AbstractSubclass
 
             attackMode.ToHitBonus += bonus;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
-                _featureDefinition.Name, _featureDefinition));
+                featureDefinition.Name, featureDefinition));
 
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
-                _featureDefinition.Name, _featureDefinition));
+                featureDefinition.Name, featureDefinition));
         }
 
         private static bool IsWeaponMaster(RulesetCharacter rulesetCharacter)
@@ -316,15 +307,10 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Focused Strikes
     //
 
-    private sealed class CustomBehaviorFocusedStrikes : IModifyAttackActionModifier
+    private sealed class CustomBehaviorFocusedStrikes(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition) : IModifyAttackActionModifier
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public CustomBehaviorFocusedStrikes(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -338,7 +324,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
     }
 
@@ -346,19 +332,13 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Momentum
     //
 
-    private class OnReducedToZeroHpByMeMomentum : IOnReducedToZeroHpByMe
+    private class OnReducedToZeroHpByMeMomentum(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IOnReducedToZeroHpByMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinition _featureDefinition;
-
-        public OnReducedToZeroHpByMeMomentum(
-            FeatureDefinition featureDefinition,
-            ConditionDefinition conditionDefinition)
-        {
-            _featureDefinition = featureDefinition;
-            _conditionDefinition = conditionDefinition;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -370,7 +350,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 yield break;
             }
 
-            if (!attacker.OnceInMyTurnIsValid(_featureDefinition.Name))
+            if (!attacker.OnceInMyTurnIsValid(featureDefinition.Name))
             {
                 yield break;
             }
@@ -382,10 +362,10 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(_featureDefinition.Name, 1);
-            rulesetAttacker.LogCharacterUsedFeature(_featureDefinition);
+            attacker.UsedSpecialFeatures.TryAdd(featureDefinition.Name, 1);
+            rulesetAttacker.LogCharacterUsedFeature(featureDefinition);
             rulesetAttacker.InflictCondition(
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -393,7 +373,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);
@@ -453,12 +433,9 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Deadly Accuracy
     //
 
-    private sealed class CustomAdditionalDamageDeadlyAccuracy : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageDeadlyAccuracy(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider)
     {
-        public CustomAdditionalDamageDeadlyAccuracy(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -483,17 +460,13 @@ public sealed class MartialWeaponMaster : AbstractSubclass
     // Perfect Strikes
     //
 
-    private sealed class PerfectStrikes : IModifyDiceRoll
+    private sealed class PerfectStrikes(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : IModifyDiceRoll
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinition _featureDefinition;
-
-        public PerfectStrikes(ConditionDefinition conditionDefinition, FeatureDefinition featureDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-            _featureDefinition = featureDefinition;
-        }
-
         public void BeforeRoll(
             RollContext rollContext,
             RulesetCharacter rulesetCharacter,
@@ -513,7 +486,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
         {
             if (IsValid(rollContext, rulesetCharacter))
             {
-                rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
+                rulesetCharacter.LogCharacterUsedFeature(featureDefinition);
             }
         }
 
@@ -521,7 +494,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
         {
             return rollContext == RollContext.AttackDamageValueRoll &&
                    HasSpecializedWeapon(rulesetCharacter) &&
-                   rulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
+                   rulesetCharacter.HasConditionOfType(conditionDefinition.Name);
         }
     }
 }

@@ -244,15 +244,9 @@ public sealed class PatronSoulBlade : AbstractSubclass
         return canWeaponBeEmpowered || canTwoHandedBeEmpowered;
     }
 
-    private sealed class ModifyCriticalThresholdAgainstHexedTargets : IModifyAttackCriticalThreshold
+    private sealed class ModifyCriticalThresholdAgainstHexedTargets(string hexCondition)
+        : IModifyAttackCriticalThreshold
     {
-        private readonly string _hexCondition;
-
-        public ModifyCriticalThresholdAgainstHexedTargets(string hexCondition)
-        {
-            _hexCondition = hexCondition;
-        }
-
         public int GetCriticalThreshold(int current, RulesetCharacter me, RulesetCharacter target,
             BaseDefinition attackMethod)
         {
@@ -261,7 +255,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 return current;
             }
 
-            if (target.HasConditionOfType(_hexCondition))
+            if (target.HasConditionOfType(hexCondition))
             {
                 return current - 1;
             }
@@ -270,15 +264,11 @@ public sealed class PatronSoulBlade : AbstractSubclass
         }
     }
 
-    private sealed class OnConditionAddedOrRemovedHex : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedHex(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionHexDefender)
+        : IOnConditionAddedOrRemoved
     {
-        private readonly ConditionDefinition _conditionHexDefender;
-
-        public OnConditionAddedOrRemovedHex(ConditionDefinition conditionHexDefender)
-        {
-            _conditionHexDefender = conditionHexDefender;
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -292,7 +282,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 return;
             }
 
-            if (rulesetCondition.ConditionDefinition != _conditionHexDefender)
+            if (rulesetCondition.ConditionDefinition != conditionHexDefender)
             {
                 return;
             }
@@ -321,18 +311,12 @@ public sealed class PatronSoulBlade : AbstractSubclass
         }
     }
 
-    private sealed class ModifyEffectDescriptionSummonPactWeapon : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionSummonPactWeapon(BaseDefinition baseDefinition)
+        : IModifyEffectDescription
     {
-        private readonly BaseDefinition _baseDefinition;
-
-        public ModifyEffectDescriptionSummonPactWeapon(BaseDefinition baseDefinition)
-        {
-            _baseDefinition = baseDefinition;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _baseDefinition && character.GetClassLevel(CharacterClassDefinitions.Warlock) >= 10;
+            return definition == baseDefinition && character.GetClassLevel(CharacterClassDefinitions.Warlock) >= 10;
         }
 
         public EffectDescription GetEffectDescription(

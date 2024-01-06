@@ -680,16 +680,10 @@ public sealed class WayOfTheDragon : AbstractSubclass
     // Elemental Breath Fixed
     //
 
-    private sealed class CustomBehaviorElementalBreathProficiency :
+    private sealed class CustomBehaviorElementalBreathProficiency(
+        FeatureDefinitionPower powerElementalBreathProficiency) :
         IValidatePowerUse, IMagicEffectFinishedByMe, IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _powerElementalBreathProficiency;
-
-        public CustomBehaviorElementalBreathProficiency(FeatureDefinitionPower powerElementalBreathProficiency)
-        {
-            _powerElementalBreathProficiency = powerElementalBreathProficiency;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
@@ -702,7 +696,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _powerElementalBreathProficiency;
+            return definition == powerElementalBreathProficiency;
         }
 
         public EffectDescription GetEffectDescription(
@@ -732,7 +726,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 return false;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerElementalBreathProficiency, character);
+            var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
 
             return usablePower.RemainingUses > 0;
         }
@@ -742,20 +736,13 @@ public sealed class WayOfTheDragon : AbstractSubclass
     // Elemental Breath Points
     //
 
-    private sealed class CustomBehaviorElementalBreathPoints :
-        IValidatePowerUse, IMagicEffectFinishedByMe, IModifyEffectDescription
+    private sealed class CustomBehaviorElementalBreathPoints(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerElementalBreathPoints,
+        FeatureDefinitionPower powerElementalBreathProficiency)
+        :
+            IValidatePowerUse, IMagicEffectFinishedByMe, IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _powerElementalBreathPoints;
-        private readonly FeatureDefinitionPower _powerElementalBreathProficiency;
-
-        public CustomBehaviorElementalBreathPoints(
-            FeatureDefinitionPower powerElementalBreathPoints,
-            FeatureDefinitionPower powerElementalBreathProficiency)
-        {
-            _powerElementalBreathPoints = powerElementalBreathPoints;
-            _powerElementalBreathProficiency = powerElementalBreathProficiency;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
@@ -768,7 +755,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _powerElementalBreathPoints;
+            return definition == powerElementalBreathPoints;
         }
 
         public EffectDescription GetEffectDescription(
@@ -798,7 +785,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 return false;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerElementalBreathProficiency, character);
+            var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
 
             return usablePower.RemainingUses == 0;
         }
@@ -808,20 +795,12 @@ public sealed class WayOfTheDragon : AbstractSubclass
     // Reactive Hide
     //
 
-    private sealed class CustomBehaviorReactiveHide :
-        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+    private sealed class CustomBehaviorReactiveHide(
+        FeatureDefinitionPower powerReactiveHide,
+        ConditionDefinition conditionReactiveHide)
+        :
+            IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
-        private readonly ConditionDefinition _conditionReactiveHide;
-        private readonly FeatureDefinitionPower _powerReactiveHide;
-
-        public CustomBehaviorReactiveHide(
-            FeatureDefinitionPower powerReactiveHide,
-            ConditionDefinition conditionReactiveHide)
-        {
-            _powerReactiveHide = powerReactiveHide;
-            _conditionReactiveHide = conditionReactiveHide;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -878,7 +857,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            if (!rulesetCharacter.HasConditionOfType(_conditionReactiveHide))
+            if (!rulesetCharacter.HasConditionOfType(conditionReactiveHide))
             {
                 yield break;
             }
@@ -1024,7 +1003,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             var rulesetMe = defender.RulesetCharacter;
 
-            if (!rulesetMe.CanUsePower(_powerReactiveHide))
+            if (!rulesetMe.CanUsePower(powerReactiveHide))
             {
                 yield break;
             }
@@ -1039,7 +1018,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerReactiveHide, rulesetMe);
+            var usablePower = UsablePowersProvider.Get(powerReactiveHide, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
@@ -1061,7 +1040,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             rulesetMe.UsePower(usablePower);
             rulesetMe.InflictCondition(
-                _conditionReactiveHide.Name,
+                conditionReactiveHide.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -1069,7 +1048,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 rulesetMe.guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                _conditionReactiveHide.Name,
+                conditionReactiveHide.Name,
                 0,
                 0,
                 0);

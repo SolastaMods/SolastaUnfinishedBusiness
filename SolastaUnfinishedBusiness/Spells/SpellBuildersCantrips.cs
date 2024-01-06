@@ -1021,15 +1021,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead : IMagicalAttackBeforeHitConfirmedOnEnemy
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(SpellDefinition spellTollTheDead)
+        : IMagicalAttackBeforeHitConfirmedOnEnemy
     {
-        private readonly SpellDefinition _spellTollTheDead;
-
-        public MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(SpellDefinition spellTollTheDead)
-        {
-            _spellTollTheDead = spellTollTheDead;
-        }
-
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1039,7 +1034,7 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect == null || rulesetEffect.SourceDefinition != _spellTollTheDead)
+            if (rulesetEffect == null || rulesetEffect.SourceDefinition != spellTollTheDead)
             {
                 yield break;
             }

@@ -182,15 +182,10 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Killing Spree
     //
 
-    private sealed class OnReducedToZeroHpByMeKillingSpree : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeKillingSpree(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IOnReducedToZeroHpByMe
     {
-        private readonly ConditionDefinition _condition;
-
-        public OnReducedToZeroHpByMeKillingSpree(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -204,7 +199,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.HasAnyConditionOfType(_condition.Name))
+            if (rulesetAttacker.HasAnyConditionOfType(condition.Name))
             {
                 yield break;
             }
@@ -217,7 +212,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             attacker.UsedSpecialFeatures.Remove($"AdditionalDamage{Name}SniperAim");
 
             rulesetAttacker.InflictCondition(
-                _condition.Name,
+                condition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
@@ -225,7 +220,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _condition.Name,
+                condition.Name,
                 0,
                 0,
                 0);
@@ -275,15 +270,8 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Deadly Focus
     //
 
-    private class TryAlterOutcomePhysicalAttackDeadlyAim : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttack
     {
-        private readonly FeatureDefinitionPower _power;
-
-        public TryAlterOutcomePhysicalAttackDeadlyAim(FeatureDefinitionPower power)
-        {
-            _power = power;
-        }
-
         public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager battle,
             CharacterAction action,
@@ -295,7 +283,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var rulesetAttacker = me.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
-                || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0
+                || rulesetAttacker.GetRemainingPowerCharges(power) <= 0
                 || !ValidatorsWeapon.IsTwoHandedRanged(attackMode))
             {
                 yield break;
@@ -321,7 +309,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(_power, _power.CostPerUse);
+            rulesetAttacker.UpdateUsageForPower(power, power.CostPerUse);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1
@@ -329,14 +317,14 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 : "Feedback/&CriticalAttackFailureOutcome";
 
             rulesetAttacker.LogCharacterUsedPower(
-                _power,
+                power,
                 $"Feedback/&Trigger{Name}RerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
             var advantageTrends =
-                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) };
+                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, power.Name, power) };
 
             var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,

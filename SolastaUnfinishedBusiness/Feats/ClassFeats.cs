@@ -744,17 +744,9 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class GainWildShapeCharges : IMagicEffectFinishedByMe, IValidatePowerUse
+    private sealed class GainWildShapeCharges(int slotLevel, int wildShapeAmount)
+        : IMagicEffectFinishedByMe, IValidatePowerUse
     {
-        private readonly int _slotLevel;
-        private readonly int _wildShapeAmount;
-
-        public GainWildShapeCharges(int slotLevel, int wildShapeAmount)
-        {
-            _slotLevel = slotLevel;
-            _wildShapeAmount = wildShapeAmount;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
@@ -766,8 +758,8 @@ internal static class ClassFeats
                 yield break;
             }
 
-            repertoire.SpendSpellSlot(_slotLevel);
-            character.UpdateUsageForPowerPool(-_wildShapeAmount, rulesetUsablePower);
+            repertoire.SpendSpellSlot(slotLevel);
+            character.UpdateUsageForPowerPool(-wildShapeAmount, rulesetUsablePower);
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
@@ -775,7 +767,7 @@ internal static class ClassFeats
             var remaining = 0;
 
             character.GetClassSpellRepertoire(Druid)?
-                .GetSlotsNumber(_slotLevel, out remaining, out _);
+                .GetSlotsNumber(slotLevel, out remaining, out _);
 
             var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
                          character.GetRemainingPowerUses(PowerDruidWildShape);

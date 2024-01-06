@@ -14,15 +14,9 @@ internal delegate (OperationType, bool) IsContextValidHandler(
     RulesetAttackMode attackMode,
     RulesetEffect rulesetEffect);
 
-internal class ValidateContextInsteadOfRestrictedProperty : IValidateContextInsteadOfRestrictedProperty
+internal class ValidateContextInsteadOfRestrictedProperty(IsContextValidHandler validator)
+    : IValidateContextInsteadOfRestrictedProperty
 {
-    private readonly IsContextValidHandler _validator;
-
-    public ValidateContextInsteadOfRestrictedProperty(IsContextValidHandler validator)
-    {
-        _validator = validator;
-    }
-
     internal ValidateContextInsteadOfRestrictedProperty(OperationType operation, IsCharacterValidHandler validator)
         : this((_, _, character, _, _, _, _) => (operation, validator(character)))
     {
@@ -38,7 +32,7 @@ internal class ValidateContextInsteadOfRestrictedProperty : IValidateContextInst
         RulesetAttackMode attackMode,
         RulesetEffect rulesetEffect)
     {
-        return _validator(definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+        return validator(definition, provider, character, itemDefinition, rangedAttack, attackMode, rulesetEffect);
     }
 
 #if false

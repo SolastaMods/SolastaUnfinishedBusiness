@@ -17,23 +17,17 @@ internal enum AttackModeOrder
     End
 }
 
-internal abstract class AddExtraAttackBase : IAddExtraAttack
+internal abstract class AddExtraAttackBase(
+    ActionDefinitions.ActionType actionType,
+    params IsCharacterValidHandler[] validators)
+    : IAddExtraAttack
 {
     // private readonly List<string> additionalTags = new();
-    private readonly IsCharacterValidHandler[] _validators;
-    protected readonly ActionDefinitions.ActionType ActionType;
-
-    protected AddExtraAttackBase(
-        ActionDefinitions.ActionType actionType,
-        params IsCharacterValidHandler[] validators)
-    {
-        ActionType = actionType;
-        _validators = validators;
-    }
+    protected readonly ActionDefinitions.ActionType ActionType = actionType;
 
     public void TryAddExtraAttack(RulesetCharacter character)
     {
-        if (!character.IsValid(_validators))
+        if (!character.IsValid(validators))
         {
             return;
         }
@@ -511,13 +505,9 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
     }
 }
 
-internal sealed class AddExtraFlurryOfArrowsAttack : AddExtraAttackBase
+internal sealed class AddExtraFlurryOfArrowsAttack()
+    : AddExtraAttackBase(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasBowWithoutArmor)
 {
-    public AddExtraFlurryOfArrowsAttack() :
-        base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasBowWithoutArmor)
-    {
-    }
-
     protected override AttackModeOrder GetOrder(RulesetCharacter character)
     {
         return AttackModeOrder.Start;

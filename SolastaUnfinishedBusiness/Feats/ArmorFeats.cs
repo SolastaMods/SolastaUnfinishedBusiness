@@ -158,20 +158,13 @@ internal static class ArmorFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorShieldTechniques :
-        IRollSavingThrowInitiated, IMagicalAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorShieldTechniques(
+        FeatureDefinitionPower powerShieldTechniques,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionShieldTechniquesResistance)
+        :
+            IRollSavingThrowInitiated, IMagicalAttackBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionShieldTechniquesResistance;
-        private readonly FeatureDefinitionPower _powerShieldTechniques;
-
-        public CustomBehaviorShieldTechniques(
-            FeatureDefinitionPower powerShieldTechniques,
-            ConditionDefinition conditionShieldTechniquesResistance)
-        {
-            _powerShieldTechniques = powerShieldTechniques;
-            _conditionShieldTechniquesResistance = conditionShieldTechniquesResistance;
-        }
-
         // halve any damage taken
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
@@ -221,9 +214,9 @@ internal static class ArmorFeats
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            rulesetDefender.LogCharacterUsedPower(_powerShieldTechniques);
+            rulesetDefender.LogCharacterUsedPower(powerShieldTechniques);
             rulesetDefender.InflictCondition(
-                _conditionShieldTechniquesResistance.Name,
+                conditionShieldTechniquesResistance.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
@@ -231,7 +224,7 @@ internal static class ArmorFeats
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                _conditionShieldTechniquesResistance.Name,
+                conditionShieldTechniquesResistance.Name,
                 0,
                 0,
                 0);
@@ -259,8 +252,8 @@ internal static class ArmorFeats
 
             rollModifier += 2;
             modifierTrends.Add(
-                new TrendInfo(2, FeatureSourceType.Condition, _conditionShieldTechniquesResistance.Name,
-                    _conditionShieldTechniquesResistance));
+                new TrendInfo(2, FeatureSourceType.Condition, conditionShieldTechniquesResistance.Name,
+                    conditionShieldTechniquesResistance));
         }
     }
 }

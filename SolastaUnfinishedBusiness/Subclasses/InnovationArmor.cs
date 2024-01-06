@@ -466,14 +466,11 @@ public sealed class InnovationArmor : AbstractSubclass
         }
     }
 
-    internal class AddLauncherAttack : AddExtraAttackBase
+    internal class AddLauncherAttack(
+        ActionDefinitions.ActionType actionType,
+        params IsCharacterValidHandler[] validators)
+        : AddExtraAttackBase(actionType, validators)
     {
-        public AddLauncherAttack(
-            ActionDefinitions.ActionType actionType,
-            params IsCharacterValidHandler[] validators) : base(actionType, validators)
-        {
-        }
-
         protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
             if (character is not RulesetCharacterHero hero)
