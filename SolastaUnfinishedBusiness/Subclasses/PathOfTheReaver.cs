@@ -33,6 +33,14 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        // kept name for backward compatibility
+        var attributeModifierDraconicResilience = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}ProfaneVitality")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
+            .AddCustomSubFeatures(new CustomLevelUpLogicDraconicResilience())
+            .AddToDB();
+        
         // LEVEL 06
 
         var featureSetProfaneVitality = FeatureDefinitionFeatureSetBuilder
@@ -40,12 +48,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create($"AttributeModifier{Name}ProfaneVitality")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
-                    .AddToDB())
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance)
             .AddToDB();
 
         // LEVEL 10
@@ -78,7 +81,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheReaver, 256))
-            .AddFeaturesAtLevel(3, featureVoraciousFury)
+            .AddFeaturesAtLevel(3, featureVoraciousFury, attributeModifierDraconicResilience)
             .AddFeaturesAtLevel(6, featureSetProfaneVitality)
             .AddFeaturesAtLevel(10, powerBloodbath)
             .AddFeaturesAtLevel(14, featureCorruptedBlood)
@@ -190,6 +193,26 @@ public sealed class PathOfTheReaver : AbstractSubclass
         ReceiveHealing(attacker, totalHealing);
     }
 
+    //
+    // Draconic Resilience
+    //
+
+    private sealed class CustomLevelUpLogicDraconicResilience : ICustomLevelUpLogic
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            if (hero.TryGetAttribute(AttributeDefinitions.HitPoints, out var attribute))
+            {
+                attribute.maxValue += 3;
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+    
     //
     // Voracious Fury
     //
