@@ -1,3 +1,5 @@
+Feature/&AttributeModifierPathOfTheReaverProfaneVitalityDescription=Seu máximo de pontos de vida aumenta em 3 e em 1 sempre que você ganha um nível nesta classe.
+Feature/&AttributeModifierPathOfTheReaverProfaneVitalityTitle=Resiliência Dracônica
 Feature/&FeaturePathOfTheReaverCorruptedBloodDescription=A partir do 14º nível, seu sangue torna-se permanentemente corrompido, causando dano às criaturas que entrarem em contato com ele. Sempre que uma criatura a até 1,5 metro atingir você com um ataque corpo a corpo, essa criatura sofre dano necrótico igual ao seu modificador de Constituição.
 Feature/&FeaturePathOfTheReaverCorruptedBloodTitle=Sangue Corrompido
 Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=A partir do 3º nível, você pode canalizar sua corrupção interna em seus ataques corpo a corpo. Enquanto você está em fúria, a primeira criatura que você acertar em cada um de seus turnos com um ataque de arma corpo a corpo recebe dano necrótico extra igual ao seu bônus de proficiência e você recupera uma quantidade igual de pontos de vida. Além disso, tanto o dano extra quanto a cura desse recurso aumentam na mesma quantidade quando você está abaixo da metade de seus pontos de vida máximos ou quando atinge criticamente uma criatura. Esses bônus se acumulam.
@@ -6,8 +8,6 @@ Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partir do 6º ní
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Vitalidade Profana
 Feature/&PowerPathOfTheReaverBloodbathDescription=A partir do 10º nível, enquanto você estiver em fúria, sempre que reduzir uma criatura a 0 pontos de vida usando um ataque de arma corpo a corpo, você pode eviscerar aquela criatura, recuperando um número de pontos de vida igual a 2x seu nível de Bárbaro. Você pode usar esse recurso uma vez por descanso curto.
 Feature/&PowerPathOfTheReaverBloodbathTitle=Banho de sangue
-Feature/&AttributeModifierPathOfTheReaverProfaneVitalityDescription=Seu máximo de pontos de vida aumenta em 3 e em 1 sempre que você ganha um nível nesta classe.
-Feature/&AttributeModifierPathOfTheReaverProfaneVitalityTitle=Resiliência Dracônica
 Reaction/&CustomReactionBloodbathDescription=Você pode eviscerar esta criatura, recuperando {0} pontos de vida.
 Reaction/&CustomReactionBloodbathReactDescription=Eviscerar esta criatura.
 Reaction/&CustomReactionBloodbathReactTitle=Eviscerar

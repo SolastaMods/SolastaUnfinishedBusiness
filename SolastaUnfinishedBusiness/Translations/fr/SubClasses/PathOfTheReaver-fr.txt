@@ -1,3 +1,5 @@
+Feature/&AttributeModifierPathOfTheReaverProfaneVitalityDescription=Votre maximum de points de vie augmente de 3, et augmente de 1 à chaque fois que vous gagnez un niveau dans cette classe.
+Feature/&AttributeModifierPathOfTheReaverProfaneVitalityTitle=Résilience draconique
 Feature/&FeaturePathOfTheReaverCorruptedBloodDescription=À partir du niveau 14, votre sang est définitivement corrompu, ce qui inflige des dégâts aux créatures qui entrent en contact avec lui. Chaque fois qu'une créature à moins de 1,50 mètre vous frappe avec une attaque de mêlée, cette créature subit des dégâts nécrotiques égaux à votre modificateur de Constitution.
 Feature/&FeaturePathOfTheReaverCorruptedBloodTitle=Sang corrompu
 Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=À partir du niveau 3, vous pouvez canaliser votre corruption intérieure dans vos coups d'armes de mêlée. Pendant que vous êtes en rage, la première créature que vous frappez à chacun de vos tours avec une attaque au corps à corps avec une arme subit des dégâts nécrotiques supplémentaires égaux à votre bonus de maîtrise et vous regagnez un nombre égal de points de vie. De plus, les dégâts supplémentaires et les soins de cette fonctionnalité sont augmentés du même montant lorsque vous êtes en dessous de la moitié de vos points de vie maximum ou lorsque vous infligez un coup critique à une créature. Ces bonus se cumulent.
@@ -6,8 +8,6 @@ Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=À partir du niveau
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Vitalité profane
 Feature/&PowerPathOfTheReaverBloodbathDescription=À partir du niveau 10, pendant que vous êtes en rage, chaque fois que vous réduisez une créature à 0 points de vie en utilisant une attaque au corps à corps avec une arme, vous pouvez éviscérer cette créature, récupérant un nombre de points de vie égal à 2x votre niveau de barbare. Vous pouvez utiliser cette fonctionnalité une fois par repos court.
 Feature/&PowerPathOfTheReaverBloodbathTitle=Bain de sang
-Feature/&AttributeModifierPathOfTheReaverProfaneVitalityDescription=Votre maximum de points de vie augmente de 3, et augmente de 1 à chaque fois que vous gagnez un niveau dans cette classe.
-Feature/&AttributeModifierPathOfTheReaverProfaneVitalityTitle=Résilience draconique
 Reaction/&CustomReactionBloodbathDescription=Vous pouvez éviscérer cette créature et regagner {0} points de vie.
 Reaction/&CustomReactionBloodbathReactDescription=Eviscérez cette créature.
 Reaction/&CustomReactionBloodbathReactTitle=Éviscérer
