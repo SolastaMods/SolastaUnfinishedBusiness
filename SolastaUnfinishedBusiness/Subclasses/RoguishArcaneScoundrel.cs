@@ -127,7 +127,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .Create($"Power{Name}ArcaneBackslashCounterSpell")
             .SetGuiPresentation(Counterspell.GuiPresentation)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Counterspell.EffectDescription)
@@ -144,7 +143,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .UseQuickAnimations()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -152,7 +150,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                             .SetDamageForm(DamageTypeForce, 1, DieType.D6)
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 2, 2)
                             .Build())
-                    .SetParticleEffectParameters(Counterspell)
                     .Build())
             .AddToDB();
 
