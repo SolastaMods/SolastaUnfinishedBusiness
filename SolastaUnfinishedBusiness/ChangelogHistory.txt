@@ -4,7 +4,7 @@
 - added Domain Law final word feature at 17th
 - added Domain Mischief fortune favors the bold feature at 17th
 - added Domain Mischief strike of chaos progression at 17th and 20th
-- changed Hand-and-a-Half fighting style into Classic Swordplay, removed +1 dmg, any one-handed with free hand
+- changed Hand-and-a-Half fighting style into Classic Swordplay, removed +1 dmg, and now triggers on any one-handed with free hand
 - changed Path of The Reaver profane vitality feature hit points part into draconic resilience feature at 3rd
 - changed Path of The Savagery swapping features at 10th and 14th
 - changed Roguish Arcane Scoundrel arcane backslash to be 1 usage per long rest

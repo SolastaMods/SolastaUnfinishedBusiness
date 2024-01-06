@@ -780,7 +780,7 @@ public static class RulesetImplementationManagerPatcher
                 conditionDefinitionEnemy.DurationType,
                 conditionDefinitionEnemy.DurationParameter,
                 conditionDefinitionEnemy.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 caster.guid,
                 caster.CurrentFaction.Name,
                 1,

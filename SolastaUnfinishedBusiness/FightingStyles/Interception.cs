@@ -136,7 +136,7 @@ internal sealed class Interception : AbstractFightingStyle
                 _conditionDefinition.DurationType,
                 _conditionDefinition.DurationParameter,
                 _conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 unitCharacter.guid,
                 unitCharacter.CurrentFaction.Name,
                 1,

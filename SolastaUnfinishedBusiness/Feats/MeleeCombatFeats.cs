@@ -345,7 +345,7 @@ internal static class MeleeCombatFeats
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
@@ -360,8 +360,8 @@ internal static class MeleeCombatFeats
         IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
             GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
         {
-            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
-                conditionDamage.Name);
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, conditionDamage.Name);
 
             yield break;
         }
@@ -677,7 +677,7 @@ internal static class MeleeCombatFeats
                 _conditionDefinition.durationType,
                 _conditionDefinition.durationParameter,
                 _conditionDefinition.turnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
@@ -897,7 +897,7 @@ internal static class MeleeCombatFeats
                 _conditionCleavingAttackFinish.DurationType,
                 _conditionCleavingAttackFinish.DurationParameter,
                 _conditionCleavingAttackFinish.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
@@ -1037,7 +1037,7 @@ internal static class MeleeCombatFeats
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
@@ -1200,7 +1200,7 @@ internal static class MeleeCombatFeats
                 _conditionBypassResistance.DurationType,
                 _conditionBypassResistance.DurationParameter,
                 _conditionBypassResistance.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
@@ -1833,7 +1833,7 @@ internal static class MeleeCombatFeats
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
@@ -1853,7 +1853,7 @@ internal static class MeleeCombatFeats
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,

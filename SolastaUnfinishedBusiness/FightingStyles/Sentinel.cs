@@ -88,7 +88,7 @@ internal sealed class Sentinel : AbstractFightingStyle
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,

@@ -227,7 +227,7 @@ internal static class ArmorFeats
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,

@@ -443,8 +443,7 @@ public sealed class RoguishSlayer : AbstractSubclass
 
         private void ApplyConditionChainOfExecutionGranted(RulesetCharacter rulesetCharacter)
         {
-            if (rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagCombat, _conditionChainOfExecutionBeneficial.Name))
+            if (rulesetCharacter.HasConditionOfType(_conditionChainOfExecutionBeneficial.Name))
             {
                 return;
             }
@@ -501,8 +500,7 @@ public sealed class RoguishSlayer : AbstractSubclass
 
         private void ApplyConditionChainOfExecutionGranted(RulesetCharacter rulesetCharacter)
         {
-            if (rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagCombat, _conditionChainOfExecutionBeneficial.Name))
+            if (rulesetCharacter.HasConditionOfType( _conditionChainOfExecutionBeneficial.Name))
             {
                 return;
             }

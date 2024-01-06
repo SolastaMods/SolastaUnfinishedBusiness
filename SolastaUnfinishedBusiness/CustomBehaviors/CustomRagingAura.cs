@@ -219,7 +219,7 @@ public class CustomRagingAura :
                              x.IsOppositeSide(sourceLocationCharacter.Side) &&
                              x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2) &&
-                             sourceLocationCharacter.RulesetCharacter.HasConditionOfCategory(ConditionRaging))
+                             sourceLocationCharacter.RulesetCharacter.HasConditionOfType(ConditionRaging))
                          .Select(defenderLocationCharacter => defenderLocationCharacter.RulesetCharacter)
                          .ToList()) // avoid changing enumerator
             {

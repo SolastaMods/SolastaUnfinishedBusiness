@@ -1048,26 +1048,22 @@ internal static class InvocationsBuilders
                 if (rulesetCharacter.IsPowerActive(power))
                 {
                     if (power.PowerDefinition == PowerPactChainImp &&
-                        !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                            _conditionImpAbility.name))
+                        !rulesetCharacter.HasConditionOfType(_conditionImpAbility.name))
                     {
                         SetChainBuff(rulesetCharacter, _conditionImpAbility);
                     }
                     else if (power.PowerDefinition == PowerPactChainQuasit &&
-                             !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                                 _conditionQuasitAbility.name))
+                             !rulesetCharacter.HasConditionOfType(_conditionQuasitAbility.name))
                     {
                         SetChainBuff(rulesetCharacter, _conditionQuasitAbility);
                     }
                     else if (power.PowerDefinition == PowerPactChainSprite &&
-                             !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                                 _conditionSpriteAbility.name))
+                             !rulesetCharacter.HasConditionOfType(_conditionSpriteAbility.name))
                     {
                         SetChainBuff(rulesetCharacter, _conditionSpriteAbility);
                     }
                     else if (power.PowerDefinition == PowerPactChainPseudodragon &&
-                             !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                                 _conditionPseudoAbility.name))
+                             !rulesetCharacter.HasConditionOfType(_conditionPseudoAbility.name))
                     {
                         SetChainBuff(rulesetCharacter, _conditionPseudoAbility);
                     }

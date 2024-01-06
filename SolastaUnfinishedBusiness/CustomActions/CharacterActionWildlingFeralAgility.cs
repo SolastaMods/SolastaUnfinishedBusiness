@@ -17,8 +17,7 @@ internal class CharacterActionWildlingFeralAgility : CharacterAction
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;
 
-        if (rulesetCharacter.HasConditionOfCategoryAndType(
-                AttributeDefinitions.TagCombat, RaceWildlingBuilder.ConditionWildlingAgileName))
+        if (rulesetCharacter.HasConditionOfType(RaceWildlingBuilder.ConditionWildlingAgileName))
         {
             yield break;
         }

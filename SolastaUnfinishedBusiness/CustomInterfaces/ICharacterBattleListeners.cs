@@ -93,7 +93,7 @@ public static class CharacterBattleListenersPatch
                 RuleDefinitions.DurationType.Round,
                 0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.Guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,

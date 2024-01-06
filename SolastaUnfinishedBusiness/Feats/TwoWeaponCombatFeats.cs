@@ -143,7 +143,7 @@ internal static class TwoWeaponCombatFeats
                 condition.DurationType,
                 condition.DurationParameter,
                 condition.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 hero.guid,
                 hero.CurrentFaction.Name,
                 1,

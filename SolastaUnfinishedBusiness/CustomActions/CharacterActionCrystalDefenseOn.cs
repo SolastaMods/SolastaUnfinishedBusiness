@@ -17,8 +17,7 @@ public class CharacterActionCrystalDefenseOn : CharacterAction
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;
 
-        if (rulesetCharacter.HasConditionOfCategoryAndType(
-                AttributeDefinitions.TagStatus, RaceWyrmkinBuilder.ConditionCrystalDefenseName))
+        if (rulesetCharacter.HasConditionOfType(RaceWyrmkinBuilder.ConditionCrystalDefenseName))
         {
             yield break;
         }
