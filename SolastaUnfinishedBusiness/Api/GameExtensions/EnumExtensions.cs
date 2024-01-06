@@ -17,7 +17,7 @@ internal enum ExtraSituationalContext
     HasGreatswordInHands = 1001,
     HasLongswordInHands = 1002,
     HasSpecializedWeaponInHands = 1003,
-    HasVersatileWeaponInHands = 1004,
+    HasMeleeWeaponInMainHandWithFreeOffhand = 1004,
     IsNotInBrightLight = 1005,
     IsRagingAndDualWielding = 1006,
     MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 1007,

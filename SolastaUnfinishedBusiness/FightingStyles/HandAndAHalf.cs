@@ -23,14 +23,15 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .Create("AttributeModifierHandAndAHalf")
                 .SetGuiPresentation(HandAndAHalfName, Category.FightingStyle)
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-                .SetSituationalContext(ExtraSituationalContext.HasVersatileWeaponInHands)
+                .SetSituationalContext(ExtraSituationalContext.HasMeleeWeaponInMainHandWithFreeOffhand)
                 .AddToDB(),
             FeatureDefinitionAttackModifierBuilder
                 .Create("AttackModifierHandAndAHalf")
                 .SetGuiPresentation(HandAndAHalfName, Category.FightingStyle)
                 .SetAttackRollModifier(1)
-                .SetDamageRollModifier(1)
-                .AddCustomSubFeatures(ValidatorsCharacter.HasTwoHandedVersatileWeapon)
+                .AddCustomSubFeatures(
+                    ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
+                    ValidatorsCharacter.HasMeleeWeaponInMainHand)
                 .AddToDB())
         .AddToDB();
 
