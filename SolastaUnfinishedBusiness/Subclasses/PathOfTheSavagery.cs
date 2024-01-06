@@ -64,8 +64,22 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
             .AddToDB();
-
+        
         // LEVEL 10
+
+        // Wrath and Fury
+
+        var featureWrathAndFury = FeatureDefinitionBuilder
+            .Create($"Feature{Name}WrathAndFury")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(
+                //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
+                new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
+                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),
+                new ActionFinishedByMeWrathAndFury())
+            .AddToDB();
+        
+        // LEVEL 14
 
         // Unbridled Ferocity
 
@@ -91,20 +105,6 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .AddCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
             .AddToDB();
 
-        // LEVEL 14
-
-        // Wrath and Fury
-
-        var featureWrathAndFury = FeatureDefinitionBuilder
-            .Create($"Feature{Name}WrathAndFury")
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(
-                //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
-                new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),
-                new ActionFinishedByMeWrathAndFury())
-            .AddToDB();
-
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -112,8 +112,8 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheSavagery, 256))
             .AddFeaturesAtLevel(3, attackModifierSavageStrength, featureSetPrimalInstinct)
             .AddFeaturesAtLevel(6, featureFuriousDefense)
-            .AddFeaturesAtLevel(10, featureUnbridledFerocity)
-            .AddFeaturesAtLevel(14, featureWrathAndFury)
+            .AddFeaturesAtLevel(10, featureWrathAndFury )
+            .AddFeaturesAtLevel(14,featureUnbridledFerocity )
             .AddToDB();
     }
 
