@@ -1265,7 +1265,7 @@ internal static class GambitsBuilders
 
             Attack(ally, target, attackModeCopy, attackModifier, ActionDefinitions.Id.AttackOpportunity);
 
-            BurnOneMainAttack(actingCharacter);
+            actingCharacter.BurnOneMainAttack();
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -2085,7 +2085,7 @@ internal static class GambitsBuilders
 
             Attack(actingCharacter, target2, attackModeCopy2, action.ActionParams.ActionModifiers[0]);
 
-            BurnOneMainAttack(actingCharacter);
+            actingCharacter.BurnOneMainAttack();
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -2136,28 +2136,6 @@ internal static class GambitsBuilders
             >= 3 => DieType.D8,
             _ => DieType.D6
         };
-    }
-
-    private static void BurnOneMainAttack(GameLocationCharacter actingCharacter)
-    {
-        var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-        // burn one main attack
-        actingCharacter.UsedMainAttacks++;
-        rulesetCharacter.ExecutedAttacks++;
-        rulesetCharacter.RefreshAttackModes();
-
-        var maxAttacksNumber = rulesetCharacter.AttackModes
-            .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
-            .Max(x => x.AttacksNumber);
-
-        if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
-        {
-            return;
-        }
-
-        actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Main]++;
-        actingCharacter.UsedMainAttacks = 0;
     }
 
     private static void Attack(

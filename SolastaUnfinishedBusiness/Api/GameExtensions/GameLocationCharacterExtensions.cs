@@ -331,4 +331,31 @@ public static class GameLocationCharacterExtensions
 
         return false;
     }
+
+    internal static void BurnOneMainAttack(this GameLocationCharacter instance)
+    {
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+
+        var rulesetCharacter = instance.RulesetCharacter;
+
+        // burn one main attack
+        instance.UsedMainAttacks++;
+        rulesetCharacter.ExecutedAttacks++;
+        rulesetCharacter.RefreshAttackModes();
+
+        var maxAttacksNumber = rulesetCharacter.AttackModes
+            .Where(x => x.ActionType == ActionType.Main)
+            .Max(x => x.AttacksNumber);
+
+        if (maxAttacksNumber - instance.UsedMainAttacks > 0)
+        {
+            return;
+        }
+
+        instance.CurrentActionRankByType[ActionType.Main]++;
+        instance.UsedMainAttacks = 0;
+    }
 }
