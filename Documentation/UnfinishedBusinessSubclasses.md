@@ -1694,17 +1694,16 @@ You have resistance to the damage type associated with your draconic ancestry.
 
 You choose one type of dragon as your ancestor. The damage type associated with your choice is used by the features you gain later.
 
-* Reactive Skin
+* Elemental Breath
 
-Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they must also pass a Constitution saving throw each time they hit you, or receive a detrimental condition depending on your Dragon Ancestry feature.
-A creature affected by one of the detrimental conditions must still pass a Constitution saving throw each time they hit you with a melee attack, but instead of receiving the same condition, they receive elemental damage equal to 2x your martial arts die. 
+Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses.
 
 
 ### Level 6
 
-* Elemental Breath
+* Reactive Skin
 
-You can use your bonus action to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive 3d6 damage (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and if you are out of uses, you can pay 2 Ki instead. The damage is increased to 4d6 at 11th level, and 5d6 at 17th level.
+Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they receive one martial arts die as damage type of your Dragon Ancestry feature each time they hit you.
 
 
 ### Level 11

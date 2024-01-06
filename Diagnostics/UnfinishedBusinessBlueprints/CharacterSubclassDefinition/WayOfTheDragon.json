@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfTheDragonReactiveHide:11b6a890-5119-5799-8e5e-72f6eb7a24b3",
+      "featureDefinition": "Definition:FeatureSetWayOfTheDragonBreath:9dec46c1-9503-51be-b659-e93549d966e8",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWayOfTheDragonBreath:9dec46c1-9503-51be-b659-e93549d966e8",
+      "featureDefinition": "Definition:PowerWayOfTheDragonReactiveHide:11b6a890-5119-5799-8e5e-72f6eb7a24b3",
       "level": 6
     },
     {

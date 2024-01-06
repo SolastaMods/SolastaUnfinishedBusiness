@@ -4,17 +4,18 @@
 - added Domain Law final word feature at 17th
 - added Domain Mischief fortune favors the bold feature at 17th
 - added Domain Mischief strike of chaos progression at 17th and 20th
+- changed Domain Defiler dying light feature at 17th with max necrotic dice damage once per long rest
 - changed Hand-and-a-Half fighting style into Classic Swordplay, removed +1 dmg, and now triggers on any one-handed with free hand
 - changed Path of The Reaver profane vitality feature hit points part into draconic resilience feature at 3rd
 - changed Path of The Savagery swapping features at 10th and 14th
 - changed Roguish Arcane Scoundrel arcane backslash to be 1 usage per long rest
 - changed Roguish Slayer cloak of shadows to 1 minute duration and DEX modifier usages per long rest
 - changed Sorcerous Spellblade mana shield feature to be offered at 2nd instead of 1st
-- fixed Closed Quarters feat pre-req validator not working with Arcane Scoundrel at 9th or higher
+- changed Way of Dragon swapping features at 3rd and 6th and making Breath Attack a no cost that consumes an attack action once per turn
 - fixed 'Darkness Perceptive' setting incorrectly considering half dark-elves
 - fixed 'Light Sensitivity on outdoors only' setting incorrectly considering half dark-elves
+- fixed Closed Quarters feat pre-req validator not working with Arcane Scoundrel at 9th or higher
 - fixed vanilla Domain Mischief strike of chaos triggering on magical attacks
-- improved Domain Defiler dying light feature at 17th with max necrotic dice damage once per long rest
 
 1.5.94.40:
 
