@@ -14,6 +14,7 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -74,11 +75,10 @@ public sealed class RoguishSlayer : AbstractSubclass
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        var customBehaviorChainOfExecution = new CustomBehaviorChainOfExecution(
-            conditionChainOfExecutionBeneficial,
-            conditionChainOfExecutionDetrimental);
-
-        conditionChainOfExecutionDetrimental.AddCustomSubFeatures(customBehaviorChainOfExecution);
+        conditionChainOfExecutionDetrimental.AddCustomSubFeatures(
+            new OnConditionAddedOrRemovedChainOfExecution(
+                conditionChainOfExecutionBeneficial,
+                conditionChainOfExecutionDetrimental));
 
         var rogueHolder = new RogueHolder();
 
@@ -142,9 +142,8 @@ public sealed class RoguishSlayer : AbstractSubclass
             .AddToDB();
 
         featureChainOfExecution.AddCustomSubFeatures(
-            customBehaviorChainOfExecution,
-            new CustomAdditionalDamageSneakAttack(
-                additionalDamageChainOfExecutionSneakAttack),
+            new CustomBehaviorChainOfExecution(conditionChainOfExecutionBeneficial),
+            new CustomAdditionalDamageSneakAttack(additionalDamageChainOfExecutionSneakAttack),
             new CustomAdditionalDamageChainOfExecution(
                 additionalDamageChainOfExecution,
                 featureChainOfExecution,
@@ -157,12 +156,13 @@ public sealed class RoguishSlayer : AbstractSubclass
         var powerCloakOfShadows = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{CloakOfShadows}")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Dexterity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.Invisibility.EffectDescription)
-                    .SetDurationData(DurationType.Minute, 2)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(PowerSorakAssassinShadowMurder)
                     .Build())
             .AddToDB();
 
@@ -178,8 +178,7 @@ public sealed class RoguishSlayer : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("RoguishSlayer", Resources.RoguishSlayer, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishSlayer, 256))
             .AddFeaturesAtLevel(3, featureElimination)
             .AddFeaturesAtLevel(9, featureChainOfExecution)
             .AddFeaturesAtLevel(13, powerCloakOfShadows)
@@ -407,32 +406,17 @@ public sealed class RoguishSlayer : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorChainOfExecution :
-        IOnConditionAddedOrRemoved, IOnReducedToZeroHpByMe, ICustomLevelUpLogic
+    private sealed class OnConditionAddedOrRemovedChainOfExecution : IOnConditionAddedOrRemoved
     {
         private readonly ConditionDefinition _conditionChainOfExecutionBeneficial;
         private readonly ConditionDefinition _conditionChainOfExecutionDetrimental;
 
-        public CustomBehaviorChainOfExecution(
+        public OnConditionAddedOrRemovedChainOfExecution(
             ConditionDefinition conditionChainOfExecutionBeneficial,
             ConditionDefinition conditionChainOfExecutionDetrimental)
         {
             _conditionChainOfExecutionBeneficial = conditionChainOfExecutionBeneficial;
             _conditionChainOfExecutionDetrimental = conditionChainOfExecutionDetrimental;
-        }
-
-        // remove original sneak attack as we've added a conditional one
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
         }
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -455,6 +439,53 @@ public sealed class RoguishSlayer : AbstractSubclass
             }
 
             ApplyConditionChainOfExecutionGranted(rulesetCharacter);
+        }
+
+        private void ApplyConditionChainOfExecutionGranted(RulesetCharacter rulesetCharacter)
+        {
+            if (rulesetCharacter.HasConditionOfCategoryAndType(
+                    AttributeDefinitions.TagCombat, _conditionChainOfExecutionBeneficial.Name))
+            {
+                return;
+            }
+
+            rulesetCharacter.InflictCondition(
+                _conditionChainOfExecutionBeneficial.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                _conditionChainOfExecutionBeneficial.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class CustomBehaviorChainOfExecution : IOnReducedToZeroHpByMe, ICustomLevelUpLogic
+    {
+        private readonly ConditionDefinition _conditionChainOfExecutionBeneficial;
+
+        public CustomBehaviorChainOfExecution(ConditionDefinition conditionChainOfExecutionBeneficial)
+        {
+            _conditionChainOfExecutionBeneficial = conditionChainOfExecutionBeneficial;
+        }
+
+        // remove original sneak attack as we've added a conditional one
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
         }
 
         public IEnumerator HandleReducedToZeroHpByMe(
