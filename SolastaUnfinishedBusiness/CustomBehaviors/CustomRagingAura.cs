@@ -83,7 +83,7 @@ public class CustomRagingAura :
                              x.IsOppositeSide(locationCharacter.Side) &&
                              (!gameLocationBattleService.IsWithinXCells(locationCharacter, x,
                                   _powerDefinition.EffectDescription.targetParameter) ||
-                              !locationCharacter.RulesetCharacter.HasConditionOfType("ConditionRaging"))))
+                              !locationCharacter.RulesetCharacter.HasConditionOfType(ConditionRaging))))
             {
                 var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
                 var rulesetCondition =
@@ -97,7 +97,7 @@ public class CustomRagingAura :
             }
         }
 
-        if (!locationCharacter.RulesetCharacter.HasConditionOfType("ConditionRaging"))
+        if (!locationCharacter.RulesetCharacter.HasConditionOfType(ConditionRaging))
         {
             RemoveCondition(locationCharacter.RulesetActor);
         }
