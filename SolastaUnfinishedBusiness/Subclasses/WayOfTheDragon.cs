@@ -24,15 +24,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class WayOfTheDragon : AbstractSubclass
 {
-    internal const string Name = "WayOfTheDragon";
-
-    internal static readonly FeatureDefinitionFeatureSet FeatureSetPathOfTheDragonDisciple =
-        FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Disciple")
-            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
-            .AddToDB();
+    private const string Name = "WayOfTheDragon";
 
     public WayOfTheDragon()
     {
@@ -65,6 +57,13 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildDiscipleFeatureSet()
     {
+        var featureSetDisciple = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Disciple")
+            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .AddToDB();
+
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var featureDefinitionAncestry in DatabaseRepository.GetDatabase<FeatureDefinitionAncestry>()
                      .Where(x => x.Type == AncestryType.BarbarianClaw)
@@ -76,10 +75,10 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 .SetAncestry(ExtraAncestryType.WayOfTheDragon)
                 .AddToDB();
 
-            FeatureSetPathOfTheDragonDisciple.FeatureSet.Add(ancestry);
+            featureSetDisciple.FeatureSet.Add(ancestry);
         }
 
-        return FeatureSetPathOfTheDragonDisciple;
+        return featureSetDisciple;
     }
 
     private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
@@ -654,28 +653,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
         return featureSetAscension;
     }
 
-    private static void BurnOneMainAttack(GameLocationCharacter actingCharacter)
-    {
-        var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-        // burn one main attack
-        actingCharacter.UsedMainAttacks++;
-        rulesetCharacter.ExecutedAttacks++;
-        rulesetCharacter.RefreshAttackModes();
-
-        var maxAttacksNumber = rulesetCharacter.AttackModes
-            .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
-            .Max(x => x.AttacksNumber);
-
-        if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
-        {
-            return;
-        }
-
-        actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Main]++;
-        actingCharacter.UsedMainAttacks = 0;
-    }
-
     //
     // Elemental Breath Fixed
     //
@@ -688,7 +665,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
 
-            BurnOneMainAttack(actingCharacter);
+            actingCharacter.BurnOneMainAttack();
             actingCharacter.UsedSpecialFeatures.TryAdd("ElementalBreath", 1);
 
             yield break;
@@ -719,14 +696,19 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
+            var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
+
+            if (Gui.Battle == null)
+            {
+                return usablePower.RemainingUses > 0;
+            }
+
             var glc = GameLocationCharacter.GetFromActor(character);
 
             if (glc == null || !glc.OnceInMyTurnIsValid("ElementalBreath"))
             {
                 return false;
             }
-
-            var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
 
             return usablePower.RemainingUses > 0;
         }
@@ -747,7 +729,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
 
-            BurnOneMainAttack(actingCharacter);
+            actingCharacter.BurnOneMainAttack();
             actingCharacter.UsedSpecialFeatures.TryAdd("ElementalBreath", 1);
 
             yield break;
@@ -778,14 +760,19 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
+            var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
+
+            if (Gui.Battle == null)
+            {
+                return usablePower.RemainingUses == 0;
+            }
+
             var glc = GameLocationCharacter.GetFromActor(character);
 
             if (glc == null || !glc.OnceInMyTurnIsValid("ElementalBreath"))
             {
                 return false;
             }
-
-            var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
 
             return usablePower.RemainingUses == 0;
         }

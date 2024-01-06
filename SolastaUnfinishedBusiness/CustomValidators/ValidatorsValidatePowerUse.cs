@@ -14,10 +14,19 @@ internal sealed class ValidatorsValidatePowerUse : IValidatePowerUse
     public static readonly IValidatePowerUse InCombat = new ValidatorsValidatePowerUse(_ => Gui.Battle != null);
 
     public static readonly IValidatePowerUse HasTacticalMovesAvailable = new ValidatorsValidatePowerUse(character =>
-        GameLocationCharacter.GetFromActor(character) is { RemainingTacticalMoves: > 0 });
+    {
+        var glc = GameLocationCharacter.GetFromActor(character);
+
+        return Gui.Battle == null || glc is { RemainingTacticalMoves: > 0 };
+    });
 
     public static readonly IValidatePowerUse HasMainAttackAvailable = new ValidatorsValidatePowerUse(character =>
     {
+        if (Gui.Battle == null)
+        {
+            return true;
+        }
+
         const ActionDefinitions.ActionType ACTION_TYPE = ActionDefinitions.ActionType.Main;
 
         var glc = GameLocationCharacter.GetFromActor(character);
