@@ -148,6 +148,14 @@ internal static class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.SorcererDraconicChoice)
             .AddToDB();
 
+    // kept for backward compatibility
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWayOfTheDragonDraconicChoice =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolWayOfTheDragonDraconicChoice")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice)
+            .AddToDB();
+
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolKindredSpiritChoice =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolKindredSpiritChoice")
@@ -279,6 +287,11 @@ internal static class CharacterContext
             "Sorcerer", SorcerousDraconicBloodline,
             FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
             InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
+        // kept for backward compatibility
+        SwitchSubclassAncestriesToUseCustomInvocationPools(
+            "WayOfTheDragon", GetDefinition<CharacterSubclassDefinition>(WayOfTheDragon.Name),
+            WayOfTheDragon.FeatureSetPathOfTheDragonDisciple, InvocationPoolWayOfTheDragonDraconicChoice,
+            InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice);
     }
 
     private static void AddNameToRace(CharacterRaceDefinition raceDefinition, string gender, string name)
@@ -1225,7 +1238,8 @@ internal static class CharacterContext
 
         // replace the original features with custom invocation pools
 
-        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        // remove check for WayOfTheDragon after backward compatibility is cleaned up
+        if (name == "WayOfTheDragon" || !Main.Settings.ImproveLevelUpFeaturesSelection)
         {
             return;
         }

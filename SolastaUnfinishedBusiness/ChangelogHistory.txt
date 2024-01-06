@@ -1,7 +1,5 @@
 ﻿1.5.94.41:
 
-ATTENTION: RESPEC is required on Way of Dragon subclass
-
 - added Domain Defiler beacon of corruption feature at 6th replacing mark for death one
 - added Domain Law final word feature at 17th
 - added Domain Mischief fortune favors the bold feature at 17th
