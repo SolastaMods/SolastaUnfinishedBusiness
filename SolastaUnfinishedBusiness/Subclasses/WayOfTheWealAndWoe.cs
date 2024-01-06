@@ -186,7 +186,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                         _conditionWeal.DurationType,
                         _conditionWeal.DurationParameter,
                         _conditionWeal.TurnOccurence,
-                        AttributeDefinitions.TagCombat,
+                        AttributeDefinitions.TagEffect,
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
@@ -213,7 +213,8 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     }
 
                     // Weal (RESET)
-                    rulesetAttacker.RemoveAllConditionsOfType(_conditionWeal.Name);
+                    rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, _conditionWeal.Name);
                     break;
 
                 case RollOutcome.CriticalSuccess:
@@ -233,7 +234,8 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     }
 
                     // Weal (RESET)
-                    rulesetAttacker.RemoveAllConditionsOfType(_conditionWeal.Name);
+                    rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, _conditionWeal.Name);
                     break;
             }
         }

@@ -325,7 +325,8 @@ internal static partial class SpellBuilders
 
             if (rulesetCharacter.TemporaryHitPoints == 0)
             {
-                rulesetCharacter.RemoveAllConditionsOfType("ConditionBlessingOfRime");
+                rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionBlessingOfRime");
             }
 
             yield break;

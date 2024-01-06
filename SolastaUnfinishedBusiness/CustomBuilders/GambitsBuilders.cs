@@ -1402,7 +1402,8 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            attacker.RulesetCharacter.RemoveAllConditionsOfType(ConditionGambitFeint);
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionGambitFeint);
         }
     }
 
@@ -1494,7 +1495,7 @@ internal static class GambitsBuilders
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
@@ -1579,7 +1580,7 @@ internal static class GambitsBuilders
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     caster.Guid,
                     caster.CurrentFaction.Name,
                     1,
@@ -1593,7 +1594,7 @@ internal static class GambitsBuilders
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     target.Guid,
                     target.CurrentFaction.Name,
                     1,
@@ -1638,7 +1639,7 @@ internal static class GambitsBuilders
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 caster.Guid,
                 caster.CurrentFaction.Name,
                 1,
@@ -1685,7 +1686,7 @@ internal static class GambitsBuilders
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,

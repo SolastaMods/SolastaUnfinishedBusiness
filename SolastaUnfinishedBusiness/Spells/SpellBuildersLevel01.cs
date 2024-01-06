@@ -797,7 +797,8 @@ internal static partial class SpellBuilders
             if (action.ActionParams.activeEffect.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit
                 && action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                attacker.RulesetCharacter.RemoveAllConditionsOfType(_conditionElementalInfusion.Name);
+                attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionElementalInfusion.Name);
             }
 
             yield break;
@@ -814,7 +815,8 @@ internal static partial class SpellBuilders
         {
             if (attackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                attacker.RulesetCharacter.RemoveAllConditionsOfType(_conditionElementalInfusion.Name);
+                attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                    _conditionElementalInfusion.Name);
             }
 
             yield break;
@@ -843,7 +845,7 @@ internal static partial class SpellBuilders
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 target.guid,
                 target.CurrentFaction.Name,
                 1,
@@ -966,7 +968,7 @@ internal static partial class SpellBuilders
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetDefender.guid,
                     rulesetDefender.CurrentFaction.Name,
                     1,
@@ -1397,7 +1399,7 @@ internal static partial class SpellBuilders
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,

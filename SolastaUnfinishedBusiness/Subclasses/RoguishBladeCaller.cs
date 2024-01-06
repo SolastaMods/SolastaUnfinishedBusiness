@@ -241,7 +241,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             // ALWAYS remove Blade Mark condition
             if (rulesetDefender is { isDeadOrDyingOrUnconscious: false })
             {
-                rulesetDefender.RemoveAllConditionsOfType(_conditionBladeMark.Name);
+                rulesetDefender.RemoveAllConditionsOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionBladeMark.Name);
             }
 
             // exit earlier if not a hit
@@ -264,7 +265,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                         _conditionBladeSurge.DurationType,
                         _conditionBladeSurge.DurationParameter,
                         _conditionBladeSurge.TurnOccurence,
-                        AttributeDefinitions.TagCombat,
+                        AttributeDefinitions.TagEffect,
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
@@ -295,7 +296,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 _conditionBladeMark.DurationType,
                 _conditionBladeMark.DurationParameter,
                 _conditionBladeMark.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
