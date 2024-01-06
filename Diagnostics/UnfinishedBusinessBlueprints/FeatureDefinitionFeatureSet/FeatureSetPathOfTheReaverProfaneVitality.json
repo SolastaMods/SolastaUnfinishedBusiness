@@ -2,8 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
-    "Definition:AttributeModifierPathOfTheReaverProfaneVitality:9c792285-6219-568f-a362-c4a43acfd136"
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

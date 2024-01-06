@@ -46,7 +46,7 @@
       "damageForm": {
         "$type": "DamageForm, Assembly-CSharp",
         "versatile": false,
-        "diceNumber": 4,
+        "diceNumber": 8,
         "dieType": "D6",
         "overrideWithBardicInspirationDie": false,
         "versatileDieType": "D1",

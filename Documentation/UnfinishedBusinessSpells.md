@@ -314,7 +314,7 @@ Your next hit deals additional 5d10 force damage with your weapon. Additionally,
 
 # 75. - Incineration (V) level 5 Evocation [Concentration]
 
-Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet and takes 4d6 fire damage at the start of each of its turns.
+Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes 8d6 fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the spell's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet and takes 8d6 fire damage at the start of each of its turns.
 
 # 76. - Magical Negation (V) level 5 Abjuration [Concentration]
 

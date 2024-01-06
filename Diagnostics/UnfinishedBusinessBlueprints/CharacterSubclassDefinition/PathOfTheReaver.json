@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierPathOfTheReaverProfaneVitality:9c792285-6219-568f-a362-c4a43acfd136",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeaturePathOfTheReaverVoraciousFury:16daa10c-3424-56c5-a74b-07dae503661f",
       "level": 3
     },

@@ -92,6 +92,10 @@ All Reavers undergo a ritual that involves drinking tainted blood of a dragon, p
 
 ### Level 3
 
+* Draconic Resilience
+
+Your hit point maximum increases by 3, and increases by 1 whenever you gain a level in this class.
+
 * Voracious Fury
 
 Starting at 3rd level, you can channel your inner corruption into your melee weapon strikes. While you're raging, the first creature you hit on each of your turns with a melee weapon attack takes extra necrotic damage equal to your proficiency bonus and you regain an equal amount of hit points. Additionally, both extra damage and healing of this feature are increased by the same amount when you are below half your maximum hit points or when you critically hit a creature. These bonuses stack.
@@ -101,7 +105,7 @@ Starting at 3rd level, you can channel your inner corruption into your melee wea
 
 * Profane Vitality
 
-Starting at 6th level, you gain resistance to necrotic and poison damage. In addition, your maximum hit points are increased by an amount equal to your barbarian level.
+Starting at 6th level, you gain resistance to necrotic and poison damage.
 
 
 ### Level 10
@@ -144,16 +148,16 @@ Starting at 6th level, while you are raging, whenever you roll a Dexterity savin
 
 ### Level 10
 
-* Unbridled Ferocity
+* Wrath and Fury
 
-Starting at 10th level, while you are raging, whenever you hit a creature with a melee weapon attack and don't deal a critical hit, you increase your critical threat range by 1. This effect stacks. Once you deal a critical strike, the bonus resets to 0.
+Starting at 10th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Whenever you use your Reckless Attack feature, you gain temporary hit points equal to half your barbarian level (rounded up).
 
 
 ### Level 14
 
-* Wrath and Fury
+* Unbridled Ferocity
 
-Starting at 14th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Whenever you use your Reckless Attack feature, you gain temporary hit points equal to half your barbarian level (rounded up).
+Starting at 14th level, while you are raging, whenever you hit a creature with a melee weapon attack and don't deal a critical hit, you increase your critical threat range by 1. This effect stacks. Once you deal a critical strike, the bonus resets to 0.
 
 
 
@@ -537,7 +541,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Dying Light
 
-You learn Circle of Death and Finger of Death spells and it is added to the list of spells known. They are always prepared, don't count towards your prepared spells limit, and are treated as cleric spells for you. Whenever you cast a damaging necromancy spell, you can deal maximum damage instead of rolling. You can use this feature twice per long rest.
+You learn Circle of Death and Finger of Death spells and it is added to the list of spells known. They are always prepared, don't count towards your prepared spells limit, and are treated as cleric spells for you. Whenever you deal necrotic damage, you can deal maximum damage instead of rolling. You can use this feature once per long rest.
 
 
 
@@ -2656,7 +2660,7 @@ Starting at 9th level, whenever you deal sneak attack damage to a creature, that
 
 * Arcane Backlash
 
-Starting at 13th level, learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per short rest, you cast Counterspell at it highest level without expending a spell slot.
+Starting at 13th level, learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per long rest, you cast Counterspell at it highest level without expending a spell slot.
 
 * Counterspell
 
@@ -2853,7 +2857,7 @@ Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenev
 
 * Cloak of Shadows
 
-Starting at 13th level, you can use your bonus action to become invisible for 1 minute. You can use this feature once per short rest.
+Starting at 13th level, you can use your bonus action to become invisible for 1 minute.  You can use this feature a number of times per long rest equal to your Dexterity modifier.
 
 
 ### Level 17
@@ -2991,13 +2995,16 @@ Your non two-handed weapon attacks count as magical and you use your spell casti
 
 
 
-* Mana Shield
-
-You can use your bonus action to gain temporary hit points equal to your sorcerer level + Charisma modifier for one minute, a number of times per long rest equal to your proficiency bonus. Starting from 2nd level, if you are out of uses, you can spend two sorcery points instead.
-
 * Martial Training
 
 You gain proficiency with light armor, medium armor, and martial weapons.
+
+
+### Level 2
+
+* Mana Shield
+
+You can use your bonus action to gain temporary hit points equal to your sorcerer level + Charisma modifier for one minute, a number of times per long rest equal to your proficiency bonus. If you are out of uses, you can spend two sorcery points instead.
 
 
 ### Level 6

@@ -89,138 +89,138 @@ While you are not wearing any armor or shield, your armor class is equal to 10 +
 Increase your Charisma by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 
-# 20. - Cleaving Attack
+# 20. - Classical Swordplay
+
+While wielding a melee one-handed or versatile weapon and no other weapon or shield, you gain a +1 bonus to your attack rolls with the weapon and a +1 to your Armor Class.
+
+# 21. - Cleaving Attack
 
 You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes:
 • On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.
 • Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
 
-# 21. - Close Quarters
+# 22. - Close Quarters
 
 You are experienced with fighting in close quarters and gain the following benefits:
 • Your Dexterity or Intelligence increases by 1, to a maximum of 20.
 • When you deal sneak attack damage with melee weapon attacks while within 5 feet of your target, your sneak dice become d8 instead of d6. This feature also extends to classes that can deal sneak attacks with melee spell attacks, and rogue features that scale off of sneak dice.
 
-# 22. - Crippling
+# 23. - Crippling
 
 Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 for 2 turns.
 
-# 23. - Crossbow Mastery
+# 24. - Crossbow Mastery
 
 Your expert training with crossbows grants you these benefits:
 • You gain a +1 bonus to damage rolls you make with heavy, light and hand crossbows.
 • When you use the Attack action with a light or hand crossbow on your turn, you can make one ranged weapon attack as a bonus action, adding your attribute modifier to damage.
 • You can use Strength instead of Dexterity on attack and damage rolls you make with a heavy crossbow.
 
-# 24. - Cunning Escape
+# 25. - Cunning Escape
 
 Whenever you use the Dash action as a bonus action, your movement doesn't provoke opportunity attacks for the rest of the turn.
 
-# 25. - Deadeye
+# 26. - Deadeye
 
 You have learned to trade accuracy to land deadlier shots:
 • When attacking with a ranged weapon, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
 • Attacks at long range don't impose disadvantage and ranged weapon attack ignores half cover and three-quarters cover.
 
-# 26. - Defense
+# 27. - Defense
 
 While you are wearing armor, you gain a +1 bonus to AC.
 
-# 27. - Defensive Stance
+# 28. - Defensive Stance
 
 When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your armor class for that attack, and all subsequent attacks that creature makes against you, potentially causing the attacks to miss you, until the start of your next turn.
 
-# 28. - Destroyer
+# 29. - Destroyer
 
 Increase your Strength or Constitution by 1, to a maximum of 20.
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.
 
-# 29. - Devastating Strikes
+# 30. - Devastating Strikes
 
 Your attacks with great swords, great axes and mauls are especially deadly, and you gain the following benefits when using any of them:
 • You gain a +1 bonus to attack rolls you make with the weapon.
 • Whenever you have advantage on a melee attack roll and hit, you deal extra damage of the same type equal to your Strength or Dexterity modifier if the lower of the two d20 rolls would also hit the target.
 • Whenever you land a critical hit, you roll an additional weapon die and ignore target creature's resistances for that attack.
 
-# 30. - Dragon Wings
+# 31. - Dragon Wings
 
 You sprout draconic wings. You gain the ability to fly for a limited time if you aren't wearing heavy armor.
 
-# 31. - Dual Flurry
+# 32. - Dual Flurry
 
 You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 
-# 32. - Dual Weapon Defense
+# 33. - Dual Weapon Defense
 
 You gain a +1 bonus to armor class while you are wielding a separate melee weapon in each hand.
 
-# 33. - Dueling
+# 34. - Dueling
 
 When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
 
-# 34. - Eldritch Expert
+# 35. - Eldritch Expert
 
 You learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite. Whenever you gain a level, you can replace the invocation with another one from the warlock class.
 
-# 35. - Elemental Adept
+# 36. - Elemental Adept
 
 When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.
 
-# 36. - Elemental Master
+# 37. - Elemental Master
 
 When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to damage of the chosen type. In addition, when you roll attack for a spell you cast that deals damage of that type, you can reroll any 1s.
 
-# 37. - Elemental Touch
+# 38. - Elemental Touch
 
 The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional elemental damage equal to your proficiency bonus.
 
-# 38. - Elven Precision
+# 39. - Elven Precision
 
 You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 
-# 39. - Executioner
+# 40. - Executioner
 
 You add your proficiency bonus to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 
-# 40. - Expand the Hunt
+# 41. - Expand the Hunt
 
 Increase your Wisdom score by 1, to a maximum of 20. You can choose one additional favored enemy, language and terrain type.
 
-# 41. - Exploiter
+# 42. - Exploiter
 
 You are constantly aware of the battlefield around you, honing this awareness into lethal prowess. When a creature within reach of your melee weapon takes damage from an attack that originated from a creature other than yourself, you may use your reaction to make a melee weapon attack against the damaged creature.
 
-# 42. - Fade Away
+# 43. - Fade Away
 
 You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.
 
-# 43. - Fencer
+# 44. - Fencer
 
-If you take the Attack action on your turn while holding a one-handed melee weapon, and your other hand is empty, you can use a bonus action to attack with the weapon you are holding, adding your attribute modifier to the damage dealt.
+If you take the Attack action on your turn while holding a melee one-handed or versatile weapon and no other weapon or shield, you can use a bonus action to attack with the weapon you are holding, adding your attribute modifier to the damage dealt. 
 
-# 44. - Flame Touched
+# 45. - Flame Touched
 
 Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
 
-# 45. - Frost Adaptation
+# 46. - Frost Adaptation
 
 Increase your Constitution by 1, to a maximum of 20.
 You have resistance to Cold damage.
 You are immune to the effects of moderately cold weather.
 You are also Chilled instead of Frozen in extremely cold weather.
 
-# 46. - Great Weapon Fighting
+# 47. - Great Weapon Fighting
 
 When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
 
-# 47. - Hammer the Point
+# 48. - Hammer the Point
 
 You know how to focus and concentrate on the same spot. After you make an attack roll against a target, get a +1 to attack and damage rolls against this target until the end of you turn [stacks]. 
-
-# 48. - Hand-and-a-Half
-
-You gain +1 to AC, +1 to hit, and +1 to damage rolls when you use a versatile weapon in two hands.
 
 # 49. - Hardy
 

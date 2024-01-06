@@ -2,17 +2,17 @@
 
 You have blind sight with a range of 10 ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 
-# 2. - Crippling
+# 2. - Classical Swordplay
+
+While wielding a melee one-handed or versatile weapon and no other weapon or shield, you gain a +1 bonus to your attack rolls with the weapon and a +1 to your Armor Class.
+
+# 3. - Crippling
 
 Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 for 2 turns.
 
-# 3. - Executioner
+# 4. - Executioner
 
 You add your proficiency bonus to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
-
-# 4. - Hand-and-a-Half
-
-You gain +1 to AC, +1 to hit, and +1 to damage rolls when you use a versatile weapon in two hands.
 
 # 5. - Lunger
 
