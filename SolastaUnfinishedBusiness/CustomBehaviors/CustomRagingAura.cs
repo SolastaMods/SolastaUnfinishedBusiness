@@ -201,7 +201,7 @@ public class CustomRagingAura :
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     sourceCharacter.guid,
                     sourceCharacter.CurrentFaction.Name,
                     1,

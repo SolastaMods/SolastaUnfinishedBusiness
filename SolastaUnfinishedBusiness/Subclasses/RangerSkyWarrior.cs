@@ -354,7 +354,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                         _conditionGiftOfTheWindAttacked.DurationType,
                         _conditionGiftOfTheWindAttacked.DurationParameter,
                         _conditionGiftOfTheWindAttacked.TurnOccurence,
-                        AttributeDefinitions.TagCombat,
+                        AttributeDefinitions.TagEffect,
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,

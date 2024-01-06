@@ -2031,6 +2031,7 @@ internal static class GambitsBuilders
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
                 AttributeDefinitions.TagCombat,
                 targetRulesetCharacter.Guid,
                 targetRulesetCharacter.CurrentFaction.Name,

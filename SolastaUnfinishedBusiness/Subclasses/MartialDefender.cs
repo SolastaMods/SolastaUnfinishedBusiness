@@ -263,7 +263,7 @@ public sealed class MartialDefender : AbstractSubclass
                     _conditionAegisParagon.DurationType,
                     _conditionAegisParagon.DurationParameter,
                     _conditionAegisParagon.turnOccurence,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,

@@ -232,7 +232,7 @@ internal static class CommonBuilders
                 _conditionDefinition.durationType,
                 _conditionDefinition.durationParameter,
                 _conditionDefinition.turnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,

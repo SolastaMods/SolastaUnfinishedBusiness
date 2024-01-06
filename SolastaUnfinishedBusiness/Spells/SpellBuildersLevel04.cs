@@ -378,6 +378,7 @@ internal static partial class SpellBuilders
                 DamageAffinityNecroticResistance)
             .AddCustomSubFeatures(
                 new CharacterBeforeTurnStartListenerAuraOfVitality(),
+                // need to keep this condition when hero is downed so it can stand up on it's next turn
                 new ForceConditionCategory(AttributeDefinitions.TagCombat))
             .AddToDB();
 

@@ -156,7 +156,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .CopyParticleReferences(ConditionStrikeOfChaosAttackAdvantage)
             .AddFeatures(combatAffinityTurmoil, savingThrowAffinityTurmoil)
             // required by Tides of Chaos to properly identify turmoil on death
-            .AddCustomSubFeatures(new ForceConditionCategory(TagCombat))
+            .AddCustomSubFeatures(
+                new ForceConditionCategory(TagCombat))
             .AddToDB();
 
         var conditionHadTurmoil = ConditionDefinitionBuilder

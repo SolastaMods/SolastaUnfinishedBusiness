@@ -420,7 +420,7 @@ public sealed class DomainSmith : AbstractSubclass
                 _conditionBlessedMetal.DurationType,
                 _conditionBlessedMetal.DurationParameter,
                 _conditionBlessedMetal.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,

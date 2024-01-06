@@ -269,7 +269,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 _conditionDefinition.DurationType,
                 _conditionDefinition.DurationParameter,
                 _conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetMe.guid,
                 rulesetMe.CurrentFaction.Name,
                 1,

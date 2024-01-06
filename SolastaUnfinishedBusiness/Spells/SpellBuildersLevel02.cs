@@ -807,7 +807,7 @@ internal static partial class SpellBuilders
                         condition.DurationType,
                         condition.DurationParameter,
                         condition.TurnOccurence,
-                        AttributeDefinitions.TagCombat,
+                        AttributeDefinitions.TagEffect,
                         caster.guid,
                         caster.CurrentFaction.Name,
                         1,

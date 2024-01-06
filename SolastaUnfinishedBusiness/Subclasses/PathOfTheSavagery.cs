@@ -64,7 +64,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(ExtraSituationalContext.IsRagingAndDualWielding)
             .AddToDB();
-        
+
         // LEVEL 10
 
         // Wrath and Fury
@@ -78,7 +78,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
                     ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),
                 new ActionFinishedByMeWrathAndFury())
             .AddToDB();
-        
+
         // LEVEL 14
 
         // Unbridled Ferocity
@@ -112,8 +112,8 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheSavagery, 256))
             .AddFeaturesAtLevel(3, attackModifierSavageStrength, featureSetPrimalInstinct)
             .AddFeaturesAtLevel(6, featureFuriousDefense)
-            .AddFeaturesAtLevel(10, featureWrathAndFury )
-            .AddFeaturesAtLevel(14,featureUnbridledFerocity )
+            .AddFeaturesAtLevel(10, featureWrathAndFury)
+            .AddFeaturesAtLevel(14, featureUnbridledFerocity)
             .AddToDB();
     }
 
@@ -205,7 +205,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             if (outcome == RollOutcome.CriticalSuccess)
             {
                 rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagCombat, _conditionUnbridledFerocity.Name);
+                    AttributeDefinitions.TagEffect, _conditionUnbridledFerocity.Name);
             }
             else if (outcome == RollOutcome.Success && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
@@ -214,7 +214,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
                     _conditionUnbridledFerocity.DurationType,
                     _conditionUnbridledFerocity.DurationParameter,
                     _conditionUnbridledFerocity.turnOccurence,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,

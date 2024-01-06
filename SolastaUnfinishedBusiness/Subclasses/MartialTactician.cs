@@ -537,7 +537,7 @@ public sealed class MartialTactician : AbstractSubclass
             }
 
             character.InflictCondition(condition.Name, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat, character.Guid, character.CurrentFaction.Name, 1, feature.Name, 1, 0,
+                AttributeDefinitions.TagEffect, character.Guid, character.CurrentFaction.Name, 1, feature.Name, 1, 0,
                 0);
         }
     }

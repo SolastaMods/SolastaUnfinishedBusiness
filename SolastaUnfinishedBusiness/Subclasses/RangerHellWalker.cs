@@ -307,12 +307,10 @@ public sealed class RangerHellWalker : AbstractSubclass
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var otherRulesetCondition =
-                target.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-            if (otherRulesetCondition != null)
+            if (target.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionDefinition.Name,
+                    out var activeCondition))
             {
-                target.RemoveCondition(otherRulesetCondition);
+                target.RemoveCondition(activeCondition);
             }
         }
     }

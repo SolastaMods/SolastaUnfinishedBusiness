@@ -629,7 +629,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,

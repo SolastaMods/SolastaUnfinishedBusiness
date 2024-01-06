@@ -588,7 +588,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             DurationType.Round,
             1,
             TurnOccurenceType.EndOfSourceTurn,
-            AttributeDefinitions.TagCombat,
+            AttributeDefinitions.TagEffect,
             rulesetAttacker.guid,
             rulesetAttacker.CurrentFaction.Name,
             1,

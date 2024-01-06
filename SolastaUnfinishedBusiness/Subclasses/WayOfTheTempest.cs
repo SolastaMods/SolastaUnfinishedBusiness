@@ -281,6 +281,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
                 AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,

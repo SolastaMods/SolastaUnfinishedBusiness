@@ -226,7 +226,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             DurationType.Round,
             1,
             TurnOccurenceType.StartOfTurn,
-            AttributeDefinitions.TagCombat,
+            AttributeDefinitions.TagEffect,
             rulesetCharacter.guid,
             rulesetCharacter.CurrentFaction.Name,
             1,

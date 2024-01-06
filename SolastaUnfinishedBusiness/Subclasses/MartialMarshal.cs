@@ -645,7 +645,7 @@ public sealed class MartialMarshal : AbstractSubclass
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetMe.guid,
                 rulesetMe.CurrentFaction.Name,
                 1,

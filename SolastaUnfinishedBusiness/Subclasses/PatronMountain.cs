@@ -343,7 +343,7 @@ public class PatronMountain : AbstractSubclass
                 _conditionDefinition.DurationType,
                 _conditionDefinition.DurationParameter,
                 _conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetMe.Guid,
                 rulesetMe.CurrentFaction.Name,
                 1,

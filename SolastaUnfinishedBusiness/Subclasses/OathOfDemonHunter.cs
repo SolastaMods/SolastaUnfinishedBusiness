@@ -267,7 +267,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 _conditionTrialMark.DurationType,
                 _conditionTrialMark.DurationParameter,
                 _conditionTrialMark.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,

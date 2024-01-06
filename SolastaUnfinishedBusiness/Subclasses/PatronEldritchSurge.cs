@@ -335,7 +335,7 @@ public class PatronEldritchSurge : AbstractSubclass
 
         static BlastReloadSupportRulesetCondition()
         {
-            Category = AttributeDefinitions.TagCombat;
+            Category = AttributeDefinitions.TagEffect;
             Marker = new BlastReloadSupportRulesetCondition();
             BindingDefinition = ConditionDefinitionBuilder
                 .Create($"Condition{PatronEldritchSurge.Name}BlastReloadSupport")

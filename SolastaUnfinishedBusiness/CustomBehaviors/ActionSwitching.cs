@@ -677,7 +677,7 @@ public static class ActionSwitching
                 RuleDefinitions.DurationType.Round,
                 0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 attacker.RulesetCharacter.guid,
                 attacker.RulesetCharacter.CurrentFaction.Name,
                 1,

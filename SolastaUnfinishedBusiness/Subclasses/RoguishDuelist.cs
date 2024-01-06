@@ -192,7 +192,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                 _conditionDefinition.DurationType,
                 _conditionDefinition.DurationParameter,
                 _conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,

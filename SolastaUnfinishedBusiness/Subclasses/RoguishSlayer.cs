@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -288,7 +287,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
@@ -355,13 +354,10 @@ public sealed class RoguishSlayer : AbstractSubclass
 
             rulesetAttacker.LogCharacterUsedFeature(_featureDefinitionTrigger);
 
-            var rulesetCondition =
-                rulesetAttacker.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-            if (rulesetCondition != null)
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, _conditionDefinition.Name, out var activeCondition))
             {
-                rulesetAttacker.RemoveConditionOfCategory(
-                    AttributeDefinitions.TagCombat, rulesetCondition, true, true, true);
+                rulesetAttacker.RemoveCondition(activeCondition);
             }
 
             return true;
@@ -453,7 +449,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
@@ -500,7 +496,7 @@ public sealed class RoguishSlayer : AbstractSubclass
 
         private void ApplyConditionChainOfExecutionGranted(RulesetCharacter rulesetCharacter)
         {
-            if (rulesetCharacter.HasConditionOfType( _conditionChainOfExecutionBeneficial.Name))
+            if (rulesetCharacter.HasConditionOfType(_conditionChainOfExecutionBeneficial.Name))
             {
                 return;
             }
@@ -510,7 +506,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,

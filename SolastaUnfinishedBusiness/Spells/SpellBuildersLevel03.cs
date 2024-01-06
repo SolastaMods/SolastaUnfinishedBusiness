@@ -1196,7 +1196,7 @@ internal static partial class SpellBuilders
             }
 
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     _conditionCorruptingBolt.Name,
                     out var activeCondition))
             {
@@ -1232,7 +1232,7 @@ internal static partial class SpellBuilders
                 _conditionCorruptingBolt.DurationType,
                 _conditionCorruptingBolt.DurationParameter,
                 _conditionCorruptingBolt.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,

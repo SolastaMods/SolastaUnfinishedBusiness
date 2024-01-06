@@ -28,6 +28,7 @@ public class CharacterActionWithdraw : CharacterAction
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
                 AttributeDefinitions.TagCombat,
                 ActingCharacter.RulesetCharacter.Guid,
                 ActingCharacter.RulesetCharacter.CurrentFaction.Name,
@@ -60,6 +61,7 @@ public class CharacterActionWithdraw : CharacterAction
 
         if (!_wasAlreadyDisengaging)
         {
+            // all disengaging in game is set under TagCombat (why?)
             rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
                 AttributeDefinitions.TagCombat, ConditionDisengaging);
         }

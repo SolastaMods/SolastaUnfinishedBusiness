@@ -267,7 +267,7 @@ internal static class EldritchVersatility
             DurationType.Round,
             1,
             TurnOccurenceType.StartOfTurn,
-            AttributeDefinitions.TagCombat,
+            AttributeDefinitions.TagEffect,
             sourceCharacter.guid,
             sourceCharacter.CurrentFaction.Name,
             1,
@@ -685,7 +685,7 @@ internal static class EldritchVersatility
             supportCondition.IsValidBlastBreakthrough = false;
             actionParams.targetCharacters.ForEach(x =>
                 x.RulesetCharacter
-                    .RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
+                    .RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                         ConditionBlastBreakthroughRemoveImmunity.Name)
             );
         }
@@ -1141,7 +1141,7 @@ internal static class EldritchVersatility
         {
             static EldritchAegisSupportRulesetCondition()
             {
-                Category = AttributeDefinitions.TagCombat;
+                Category = AttributeDefinitions.TagEffect;
                 Marker = new EldritchAegisSupportRulesetCondition();
                 BindingDefinition = ConditionDefinitionBuilder
                     .Create("ConditionEldritchAegisAddAC")
@@ -1193,7 +1193,7 @@ internal static class EldritchVersatility
                     var acBonus = supportCondition.ACBonus;
                     var attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(
                         AttributeModifierOperation.Additive,
-                        acBonus, AttributeDefinitions.TagCombat);
+                        acBonus, AttributeDefinitions.TagEffect);
                     var trendInfo = new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name, null,
                         attributeModifier);
 
