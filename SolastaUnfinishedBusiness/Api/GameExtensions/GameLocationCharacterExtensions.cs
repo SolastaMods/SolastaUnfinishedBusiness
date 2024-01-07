@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using TA;
 using static ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -340,6 +341,23 @@ public static class GameLocationCharacterExtensions
         }
 
         var rulesetCharacter = instance.RulesetCharacter;
+
+        if (!Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
+            rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
+        {
+            var usablePower = UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+            var actionParams = new CharacterActionParams(instance, Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                targetCharacters = { instance }
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, true);
+        }
 
         // burn one main attack
         instance.UsedMainAttacks++;

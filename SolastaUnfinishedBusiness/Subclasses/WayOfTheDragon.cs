@@ -968,7 +968,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
-                    DamageTypeCold,
+                    damageForm.DamageType,
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
                     rulesetAttacker,
                     false,
