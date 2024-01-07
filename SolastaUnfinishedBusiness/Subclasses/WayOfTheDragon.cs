@@ -974,7 +974,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     false,
                     rulesetAttacker.Guid,
                     false,
-                    attackerAttackMode.AttackTags,
+                    [],
                     new RollInfo(dieType, rolls, 0),
                     true,
                     out _);

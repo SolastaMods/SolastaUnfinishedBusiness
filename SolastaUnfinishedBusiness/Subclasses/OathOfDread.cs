@@ -373,15 +373,9 @@ public sealed class OathOfDread : AbstractSubclass
     // Harrowing Crusade
     //
 
-    private class ReactToAttackOnMeOrMeFinishedHarrowingCrusade : IPhysicalAttackFinishedOnMeOrAlly
+    private class ReactToAttackOnMeOrMeFinishedHarrowingCrusade(ConditionDefinition conditionMarkOfTheSubmission)
+        : IPhysicalAttackFinishedOnMeOrAlly
     {
-        private readonly ConditionDefinition _conditionMarkOfTheSubmission;
-
-        public ReactToAttackOnMeOrMeFinishedHarrowingCrusade(ConditionDefinition conditionMarkOfTheSubmission)
-        {
-            _conditionMarkOfTheSubmission = conditionMarkOfTheSubmission;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedOnMeOrAlly(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -414,7 +408,7 @@ public sealed class OathOfDread : AbstractSubclass
                 x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
                 x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened));
 
-            if (!hasFrightened && !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
+            if (!hasFrightened && !rulesetAttacker.HasConditionOfType(conditionMarkOfTheSubmission))
             {
                 yield break;
             }

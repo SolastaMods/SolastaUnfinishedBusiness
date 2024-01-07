@@ -15,8 +15,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellsContext
 {
-    internal static readonly Dictionary<SpellDefinition, SpellDefinition> SpellsChildMaster = new();
-    internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = new();
+    internal static readonly Dictionary<SpellDefinition, SpellDefinition> SpellsChildMaster = [];
+    internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = [];
 
     internal static readonly SpellListDefinition EmptySpellList = SpellListDefinitionBuilder
         .Create("SpellListEmpty")
@@ -26,10 +26,11 @@ internal static class SpellsContext
         .AddToDB();
 
     // ReSharper disable once InconsistentNaming
-    private static readonly SortedList<string, SpellListDefinition> spellLists = new();
-    private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
+    private static readonly SortedList<string, SpellListDefinition> spellLists = [];
+    private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = [];
 
     internal static readonly SpellDefinition AirBlast = BuildAirBlast();
+    internal static readonly SpellDefinition AuraOfVitality = BuildAuraOfVitality();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
@@ -278,7 +279,7 @@ internal static class SpellsContext
 
         // 4th level
         RegisterSpell(BuildAuraOfPerseverance(), 0, SpellListCleric, SpellListPaladin);
-        RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(AuraOfVitality, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildBlessingOfRime(), 0, SpellListBard, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
