@@ -76,6 +76,7 @@ Halt Time=Time Stop
 Heavy Armor Expert=Heavy Armor Master
 Heroic Infusion=Tenser's Transformation
 Hunger of The Void=Hunger of Hadar
+Ice Blade=Ice Knife
 Illusory Duplicates=Mirror Image
 Improved Aura of Magical Abatement=Improved Aura of Warding
 Incineration=Immolation
