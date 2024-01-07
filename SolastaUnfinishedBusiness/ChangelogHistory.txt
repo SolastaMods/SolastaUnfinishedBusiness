@@ -1,5 +1,6 @@
 ﻿1.5.94.41:
 
+- added Ice Blade spell at 1st
 - added vanilla Domain Law final word feature at 17th
 - added vanilla Domain Mischief fortune favors the bold feature at 17th
 - added vanilla Domain Mischief strike of chaos progression at 17th and 20th

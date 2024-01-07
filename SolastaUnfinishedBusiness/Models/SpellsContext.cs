@@ -237,6 +237,7 @@ internal static class SpellsContext
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(BuildGiftOfAlacrity(), 0, SpellListWizard);
         RegisterSpell(BuildGoneWithTheWind(), 0, SpellListRanger);
+        RegisterSpell(BuildIceBlade(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);

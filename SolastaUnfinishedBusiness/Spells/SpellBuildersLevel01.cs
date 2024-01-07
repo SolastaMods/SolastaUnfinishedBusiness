@@ -698,6 +698,124 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Ice Blade
+
+    internal static SpellDefinition BuildIceBlade()
+    {
+        const string NAME = "IceBlade";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.IceBlade, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypePiercing, 1, DieType.D10)
+                            .Build())
+                    .SetParticleEffectParameters(RayOfFrost)
+                    .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeIceBlade())
+            .AddToDB();
+
+        var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
+
+        effectParticleParameters.effectParticleReference =
+            ShadowDagger.EffectDescription.EffectParticleParameters.effectParticleReference;
+        effectParticleParameters.impactParticleReference =
+            ShadowDagger.EffectDescription.EffectParticleParameters.impactParticleReference;
+
+        return spell;
+    }
+
+    private sealed class MagicEffectFinishedByMeIceBlade : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            if (action is not CharacterActionCastSpell actionCastSpell)
+            {
+                yield break;
+            }
+
+            var caster = actionCastSpell.ActingCharacter;
+            var target = actionCastSpell.ActionParams.TargetCharacters[0];
+            var rulesetCaster = caster.RulesetCharacter;
+            var effectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
+            var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
+
+            foreach (var enemy in gameLocationBattleService.Battle.AllContenders
+                         .Where(x => x.IsOppositeSide(caster.Side) &&
+                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                     gameLocationBattleService.IsWithin1Cell(x, target))
+                         .ToList())
+            {
+                var rulesetEnemy = enemy.RulesetCharacter;
+                var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
+                var modifierTrend = rulesetEnemy.actionModifier.savingThrowModifierTrends;
+                var advantageTrends = rulesetEnemy.actionModifier.savingThrowAdvantageTrends;
+                var enemyDexModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                    rulesetEnemy.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+
+                rulesetEnemy.RollSavingThrow(
+                    0, AttributeDefinitions.Dexterity, baseDefinition, modifierTrend, advantageTrends, enemyDexModifier,
+                    casterSaveDC,
+                    false, out var savingOutcome, out _);
+
+                if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                {
+                    continue;
+                }
+
+                var rolls = new List<int>();
+                var damageForm = new DamageForm
+                {
+                    DamageType = DamageTypeCold,
+                    DieType = DieType.D6,
+                    DiceNumber = 2 + (effectLevel - 1),
+                    BonusDamage = 0
+                };
+                var damageRoll =
+                    rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+                EffectHelpers.StartVisualEffect(caster, target, ConeOfCold);
+                RulesetActor.InflictDamage(
+                    damageRoll,
+                    damageForm,
+                    damageForm.DamageType,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetEnemy },
+                    rulesetEnemy,
+                    isCritical,
+                    rulesetCaster.Guid,
+                    false,
+                    [],
+                    new RollInfo(damageForm.DieType, rolls, 0),
+                    true,
+                    out _);
+            }
+        }
+    }
+
+    #endregion
+
     #region Elemental Infusion
 
     internal static SpellDefinition BuildElementalInfusion()
