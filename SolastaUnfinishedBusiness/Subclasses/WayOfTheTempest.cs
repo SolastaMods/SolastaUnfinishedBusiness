@@ -195,7 +195,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeLightning, 5, DieType.D10)
+                            .SetDamageForm(DamageTypeLightning, 4, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build(),
                         EffectFormBuilder
@@ -404,19 +404,12 @@ public sealed class WayOfTheTempest : AbstractSubclass
     // Eye of The Storm
     //
 
-    private sealed class MagicEffectFinishedByMeEyeOfTheStorm : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeEyeOfTheStorm(
+        FeatureDefinitionPower powerEyeOfTheStormLeap,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionEyeOfTheStorm)
+        : IMagicEffectFinishedByMe
     {
-        private readonly ConditionDefinition _conditionEyeOfTheStorm;
-        private readonly FeatureDefinitionPower _powerEyeOfTheStormLeap;
-
-        public MagicEffectFinishedByMeEyeOfTheStorm(
-            FeatureDefinitionPower powerEyeOfTheStormLeap,
-            ConditionDefinition conditionEyeOfTheStorm)
-        {
-            _powerEyeOfTheStormLeap = powerEyeOfTheStormLeap;
-            _conditionEyeOfTheStorm = conditionEyeOfTheStorm;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -429,7 +422,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerEyeOfTheStormLeap, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -440,7 +433,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     x.IsOppositeSide(attacker.Side) &&
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.RulesetCharacter.AllConditions
-                        .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
+                        .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
                                   y.SourceGuid == rulesetAttacker.Guid))
                 .ToList());
 

@@ -298,20 +298,15 @@ public sealed class OathOfDread : AbstractSubclass
     // Aura of Domination
     //
 
-    private sealed class CharacterTurnStartListenerAuraOfDomination : ICharacterTurnStartListener
+    private sealed class CharacterTurnStartListenerAuraOfDomination(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionAuraOfDomination) : ICharacterTurnStartListener
     {
-        private readonly ConditionDefinition _conditionAuraOfDomination;
-
-        public CharacterTurnStartListenerAuraOfDomination(ConditionDefinition conditionAuraOfDomination)
-        {
-            _conditionAuraOfDomination = conditionAuraOfDomination;
-        }
-
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            var rulesetDefender = locationCharacter.RulesetCharacter;
+            var rulesetDefender = locationCharacter.RulesetActor;
             var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(x =>
-                x.ConditionDefinition == _conditionAuraOfDomination);
+                x.ConditionDefinition == conditionAuraOfDomination);
 
             if (rulesetCondition == null)
             {

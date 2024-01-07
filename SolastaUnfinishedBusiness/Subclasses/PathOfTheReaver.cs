@@ -357,7 +357,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
                 defender.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [];
 
             rulesetDefender.LogCharacterUsedFeature(featureCorruptedBlood);
-            EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainMischiefStrikeOfChaos14);
+            EffectHelpers.StartVisualEffect(attacker, defender, PowerSorcererChildRiftOffering);
             InflictDamage(rulesetDefender, rulesetAttacker, totalDamage, defenderAttackTags);
 
             if (rulesetAttacker.IsDeadOrDying)

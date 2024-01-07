@@ -267,20 +267,13 @@ public sealed class MartialGuardian : AbstractSubclass
     // Impervious Protector
     //
 
-    private sealed class CustomBehaviorImperviousProtector :
-        ICharacterBattleStartedListener, IAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorImperviousProtector(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionImperviousProtector,
+        FeatureDefinitionPower powerGrandChallenge)
+        : ICharacterBattleStartedListener, IAttackBeforeHitConfirmedOnMe
     {
         private const string Line = "Feedback/&ActivateRepaysLine";
-        private readonly ConditionDefinition _conditionImperviousProtector;
-        private readonly FeatureDefinitionPower _powerGrandChallenge;
-
-        public CustomBehaviorImperviousProtector(
-            ConditionDefinition conditionImperviousProtector,
-            FeatureDefinitionPower powerGrandChallenge)
-        {
-            _conditionImperviousProtector = conditionImperviousProtector;
-            _powerGrandChallenge = powerGrandChallenge;
-        }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
@@ -303,7 +296,7 @@ public sealed class MartialGuardian : AbstractSubclass
             }
 
             rulesetDefender.InflictCondition(
-                _conditionImperviousProtector.Name,
+                conditionImperviousProtector.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
@@ -311,7 +304,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                _conditionImperviousProtector.Name,
+                conditionImperviousProtector.Name,
                 0,
                 0,
                 0);
@@ -326,14 +319,14 @@ public sealed class MartialGuardian : AbstractSubclass
                 return;
             }
 
-            var rulesetUsablePower = UsablePowersProvider.Get(_powerGrandChallenge, rulesetCharacter);
+            var rulesetUsablePower = UsablePowersProvider.Get(powerGrandChallenge, rulesetCharacter);
 
             if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
             {
                 return;
             }
 
-            rulesetCharacter.LogCharacterUsedPower(_powerGrandChallenge, Line);
+            rulesetCharacter.LogCharacterUsedPower(powerGrandChallenge, Line);
             rulesetCharacter.RepayPowerUse(rulesetUsablePower);
         }
     }

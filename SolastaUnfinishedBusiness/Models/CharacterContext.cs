@@ -152,7 +152,7 @@ internal static class CharacterContext
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWayOfTheDragonDraconicChoice =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolWayOfTheDragonDraconicChoice")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(WayOfTheDragon.FeatureSetPathOfTheDragonDisciple.GuiPresentation)
             .Setup(InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice)
             .AddToDB();
 
