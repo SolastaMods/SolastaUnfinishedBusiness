@@ -1434,7 +1434,7 @@ internal static partial class SpellBuilders
 
             var rolls = new List<int>();
             var damageForm = new DamageForm { DamageType = damageType, DiceNumber = diceNumber, DieType = DieType.D6 };
-            var totalDamage = rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
             var attacker = GameLocationCharacter.GetFromActor(rulesetCaster);
             var defender = GameLocationCharacter.GetFromActor(rulesetCharacter);
