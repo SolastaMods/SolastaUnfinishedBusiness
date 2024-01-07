@@ -172,8 +172,9 @@ public sealed class RoguishSlayer : AbstractSubclass
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new PhysicalAttackInitiatedByMeFatalStrike())
             .AddToDB();
+
+        featureFatalStrike.AddCustomSubFeatures(new PhysicalAttackInitiatedByMeFatalStrike(featureFatalStrike));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -527,7 +528,8 @@ public sealed class RoguishSlayer : AbstractSubclass
     // Fatal Strike
     //
 
-    private sealed class PhysicalAttackInitiatedByMeFatalStrike : IPhysicalAttackInitiatedByMe
+    private sealed class PhysicalAttackInitiatedByMeFatalStrike(FeatureDefinition featureFatalStrike)
+        : IPhysicalAttackInitiatedByMe
     {
         public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
@@ -556,7 +558,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             var defenderConstitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution));
 
-            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
+            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, featureFatalStrike, modifierTrend,
                 advantageTrends, defenderConstitutionModifier, 8 + attackerProficiencyBonus + attackerDexterityModifier,
                 false,
                 out var savingOutcome,
