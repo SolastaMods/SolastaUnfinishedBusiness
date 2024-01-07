@@ -1232,7 +1232,7 @@ internal static class InvocationsBuilders
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                     rulesetDefender,
                     false,
-                    attacker.Guid,
+                    rulesetAttacker.Guid,
                     false,
                     [],
                     new RollInfo(damageForm.DieType, rolls, 0),

@@ -332,7 +332,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                     rulesetDefender,
                     criticalHit,
-                    attacker.Guid,
+                    rulesetAttacker.Guid,
                     false,
                     attackMode.AttackTags,
                     new RollInfo(damage.DieType, rolls, bonusDamage),

@@ -881,7 +881,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         DamageType = DamageTypeAcid, DieType = dieType, DiceNumber = 1, BonusDamage = 0
                     };
                     damageRoll =
-                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     InflictDamage(PowerDragonbornBreathWeaponBlack);
 
@@ -899,7 +899,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         DamageType = DamageTypeLightning, DieType = dieType, DiceNumber = 1, BonusDamage = 0
                     };
                     damageRoll =
-                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     InflictDamage(PowerDragonbornBreathWeaponBlue);
 
@@ -917,7 +917,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         DamageType = DamageTypeFire, DieType = dieType, DiceNumber = 1, BonusDamage = 0
                     };
                     damageRoll =
-                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     InflictDamage(PowerDragonbornBreathWeaponGold);
 
@@ -935,7 +935,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         DamageType = DamageTypePoison, DieType = dieType, DiceNumber = 1, BonusDamage = 0
                     };
                     damageRoll =
-                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     InflictDamage(PowerDragonbornBreathWeaponGreen);
 
@@ -953,7 +953,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                         DamageType = DamageTypeCold, DieType = dieType, DiceNumber = 1, BonusDamage = 0
                     };
                     damageRoll =
-                        rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                        rulesetCharacter.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
 
                     InflictDamage(PowerDragonbornBreathWeaponSilver);
 
@@ -972,7 +972,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
                     rulesetAttacker,
                     false,
-                    rulesetAttacker.Guid,
+                    rulesetCharacter.Guid,
                     false,
                     [],
                     new RollInfo(dieType, rolls, 0),

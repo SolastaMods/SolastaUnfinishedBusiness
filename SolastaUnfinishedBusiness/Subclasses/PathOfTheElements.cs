@@ -747,7 +747,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
-                rulesetDefender.Guid,
+                rulesetAttacker.Guid,
                 false,
                 attackerAttackMode.AttackTags,
                 new RollInfo(DieType.D1, [], classLevel),

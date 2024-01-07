@@ -329,7 +329,7 @@ internal static class RaceImpBuilder
                 applyFormsParams,
                 rulesetDefender,
                 false,
-                attacker.Guid,
+                rulesetAttacker.Guid,
                 false,
                 attackTags,
                 new RollInfo(DieType.D1, [], bonusDamage),

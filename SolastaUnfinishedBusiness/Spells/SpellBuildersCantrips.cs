@@ -774,7 +774,7 @@ internal static partial class SpellBuilders
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
-                attacker.Guid,
+                rulesetAttacker.Guid,
                 false,
                 attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [],
                 new RollInfo(damageForm.DieType, rolls, 0),
