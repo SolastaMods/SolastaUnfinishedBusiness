@@ -1,12 +1,12 @@
-Condition/&ConditionForestGuardianBarkWardDescription=당신은 당신의 턴이 시작될 때마다 4개의 임시 체력을 얻습니다. 임시 체력이 6레벨에서 6, 10레벨에서 8, 14레벨에서 10으로 증가됩니다.
+Condition/&ConditionForestGuardianBarkWardDescription=당신은 당신의 턴이 시작될 때마다 4개의 임시 체력을 얻습니다. 임시 체력은 6레벨에서 6으로 증가합니다.
 Condition/&ConditionForestGuardianBarkWardTitle=바크 워드
 Condition/&ConditionForestGuardianImprovedBarkWardDescription=당신은 매 턴이 시작될 때마다 8개의 임시 체력을 얻습니다. 임시 체력은 14레벨에서 10으로 증가됩니다. 추가로, 당신은 독 피해에 면역이고 일시적인 체력이 있는 동안 5피트 이내에 당신을 공격하는 생물에게 2d8 관통 피해를 줍니다.
 Condition/&ConditionForestGuardianImprovedBarkWardTitle=향상된 나무껍질 와드
 Feature/&AttributeModifierForestGuardianSylvanDurabilityDescription=숲의 수호자는 자연적으로 거대한 참나무의 탄력성을 얻습니다. 2레벨에서는 최대 체력이 2씩 증가하고 이 클래스의 레벨이 오를 때마다 1씩 증가합니다.
 Feature/&AttributeModifierForestGuardianSylvanDurabilityTitle=실반 내구성
-Feature/&PowerSharedPoolForestGuardianBarkWardDescription=보너스 액션을 사용하고 Wild Shape 기능을 사용하여 재생되는 껍질로 자신을 덮을 수 있습니다. 짖는 소리가 활성화되어 있는 동안 이 기능을 사용한 턴을 포함하여 각 턴이 시작될 때마다 4개의 임시 체력을 얻습니다. 임시 체력이 6레벨에서 6, 10레벨에서 8, 14레벨에서 10으로 증가됩니다. 짖는 소리는 1분 동안 지속되거나, 당신이 무력화될 때까지 지속됩니다.
+Feature/&PowerSharedPoolForestGuardianBarkWardDescription=보너스 액션을 사용하고 Wild Shape 기능을 사용하여 재생되는 껍질로 자신을 덮을 수 있습니다. 짖는 소리가 활성화되어 있는 동안 이 기능을 사용한 턴을 포함하여 각 턴이 시작될 때마다 4개의 임시 체력을 얻습니다. 임시 체력은 6레벨에서 6으로 증가하고, 위력은 10레벨에서 향상됩니다. 짖는 소리는 1분 동안 지속되거나, 당신이 무력화될 때까지 지속됩니다.
 Feature/&PowerSharedPoolForestGuardianBarkWardTitle=바크 워드
-Feature/&PowerSharedPoolForestGuardianImprovedBarkWardDescription=보너스 액션을 사용하고 Wild Shape 기능을 사용하여 재생되는 껍질로 자신을 덮을 수 있습니다. 짖는 소리가 활성화되어 있는 동안 이 기능을 사용한 턴을 포함하여 각 턴이 시작될 때마다 임시 체력 8점을 얻습니다. 임시 체력은 14레벨에서 10으로 증가됩니다. 추가로, 당신은 독 피해에 면역이고, 당신이 임시 체력을 갖고 있는 동안 생물이 5피트 이내에서 당신에게 피해를 입힐 때마다 그 생물은 2d8 관통 피해를 받습니다. 짖는 소리는 1분 동안 지속되거나, 당신이 무력화될 때까지 지속됩니다.
+Feature/&PowerSharedPoolForestGuardianImprovedBarkWardDescription=보너스 액션을 사용하고 Wild Shape 기능을 사용하여 재생되는 껍질로 자신을 덮을 수 있습니다. 짖는 소리가 활성화되어 있는 동안 이 기능을 사용한 턴을 포함하여 각 턴이 시작될 때마다 임시 체력 8점을 얻습니다. 임시 체력은 14레벨에서 10으로 증가됩니다. 추가로, 당신은 독 피해에 면역이고, 당신이 임시 체력을 갖고 있는 동안 생물이 5피트 이내에서 당신에게 피해를 입힐 때마다 그 생물은 2d8 관통 피해를 받습니다. 개선된 나무껍질은 1분 동안 지속되거나 무력화될 때까지 지속됩니다.
 Feature/&PowerSharedPoolForestGuardianImprovedBarkWardTitle=향상된 나무껍질 와드
 Feature/&PowerSharedPoolForestGuardianSuperiorBarkWardDescription=Bark Ward가 활성화된 동안 턴을 시작할 때마다 30피트 이내에서 볼 수 있는 모든 아군도 1분 동안과 동일한 양의 임시 체력을 받습니다.
 Feature/&PowerSharedPoolForestGuardianSuperiorBarkWardTitle=자연의 수호자

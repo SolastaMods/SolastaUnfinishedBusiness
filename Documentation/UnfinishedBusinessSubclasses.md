@@ -768,7 +768,7 @@ Circle of the Forest Guardian Druids are sworn to protect the forests and all th
 
 * Bark Ward
 
-You can use your bonus action and expend a use your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 4 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 6 at 6th level, 8 at 10th level, and 10 at 14th level. The bark lasts for one minute, or until you become incapacitated. 
+You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 4 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 6 at 6th level, and the power is improved at 10th. The bark lasts for one minute, or until you become incapacitated. 
 
 * Expanded Spells
 
@@ -805,7 +805,7 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Improved Bark Ward
 
-You can use your bonus action and expend a use your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 8 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 10 at 14th level. In addition, you have immunity to poison damage, and whenever a creature hits you with a melee weapon attack while you have temporary hit points, the creature receives 2d8 piercing damage. The bark lasts for one minute, or until you become incapacitated.
+You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 8 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 10 at 14th level. In addition, you have immunity to poison damage, and whenever a creature damages you within 5ft while you have temporary hit points, the creature receives 2d8 piercing damage. The improved bark lasts for one minute, or until you become incapacitated.
 
 
 ### Level 14
