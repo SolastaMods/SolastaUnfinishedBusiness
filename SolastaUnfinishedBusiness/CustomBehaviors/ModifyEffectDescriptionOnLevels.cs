@@ -4,21 +4,14 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
+public class ModifyEffectDescriptionOnLevels(
+    CharacterClassDefinition klass,
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    FeatureDefinitionPower power,
+    params (int, EffectDescription)[] effects)
+    : IModifyEffectDescription
 {
-    private readonly CharacterClassDefinition _class;
-    private readonly (int level, EffectDescription description)[] _effects;
-    private readonly FeatureDefinitionPower _power;
-
-    public ModifyEffectDescriptionOnLevels(
-        CharacterClassDefinition klass,
-        FeatureDefinitionPower power,
-        params (int, EffectDescription)[] effects)
-    {
-        _class = klass;
-        _power = power;
-        _effects = effects;
-    }
+    private readonly (int level, EffectDescription description)[] _effects = effects;
 
     public bool IsValid(
         BaseDefinition definition,
@@ -27,7 +20,7 @@ public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
     {
         var level = GetLevel(character);
 
-        return definition == _power && _effects.Any(effect => level >= effect.level);
+        return definition == power && _effects.Any(effect => level >= effect.level);
     }
 
     public EffectDescription GetEffectDescription(
@@ -51,8 +44,8 @@ public class ModifyEffectDescriptionOnLevels : IModifyEffectDescription
 
     private int GetLevel(RulesetCharacter character)
     {
-        return _class == null
+        return klass == null
             ? character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)
-            : character.GetClassLevel(_class);
+            : character.GetClassLevel(klass);
     }
 }

@@ -57,15 +57,9 @@ internal sealed class Interception : AbstractFightingStyle
         FightingStyleRanger
     ];
 
-    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception : IAttackBeforeHitConfirmedOnMeOrAlly
+    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception(ConditionDefinition conditionDefinition)
+        : IAttackBeforeHitConfirmedOnMeOrAlly
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public AttackBeforeHitPossibleOnMeOrAllyInterception(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -132,15 +126,15 @@ internal sealed class Interception : AbstractFightingStyle
             var reducedDamage = roll + unitCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             defender.RulesetCharacter.InflictCondition(
-                _conditionDefinition.Name,
-                _conditionDefinition.DurationType,
-                _conditionDefinition.DurationParameter,
-                _conditionDefinition.TurnOccurence,
+                conditionDefinition.Name,
+                conditionDefinition.DurationType,
+                conditionDefinition.DurationParameter,
+                conditionDefinition.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 unitCharacter.guid,
                 unitCharacter.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 reducedDamage,
                 0,
                 0);
