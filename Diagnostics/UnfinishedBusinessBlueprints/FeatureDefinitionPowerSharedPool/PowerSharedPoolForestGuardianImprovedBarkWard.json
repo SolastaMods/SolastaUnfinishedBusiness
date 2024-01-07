@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -32,7 +32,7 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Minute",
-    "durationParameter": 10,
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -65,7 +65,7 @@
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "TemporaryHitPoints",
         "addBonusMode": "None",
-        "applyLevel": "MultiplyBonus",
+        "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
@@ -82,6 +82,33 @@
           "dieType": "D1",
           "bonusHitPoints": 4,
           "applyToSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionForestGuardianImprovedBarkWard",
+          "conditionDefinition": "Definition:ConditionForestGuardianImprovedBarkWard:60711996-d1a6-54ba-81cc-68a92f856c2e",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -306,13 +333,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "ProficiencyBonus",
+  "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 0,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -321,13 +348,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerSharedPoolForestGuardianBarkWard:9e840509-63ba-5093-863a-aacb24745e79",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolForestGuardianBarkWardTitle",
-    "description": "Feature/&PowerSharedPoolForestGuardianBarkWardDescription",
+    "title": "Feature/&PowerSharedPoolForestGuardianImprovedBarkWardTitle",
+    "description": "Feature/&PowerSharedPoolForestGuardianImprovedBarkWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "957eec7a8104a44469ea221963733af8",
@@ -347,7 +374,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9e840509-63ba-5093-863a-aacb24745e79",
+  "guid": "1e5f493c-3342-55c4-bed6-85423d8a53e0",
   "contentPack": 9999,
-  "name": "PowerSharedPoolForestGuardianBarkWard"
+  "name": "PowerSharedPoolForestGuardianImprovedBarkWard"
 }

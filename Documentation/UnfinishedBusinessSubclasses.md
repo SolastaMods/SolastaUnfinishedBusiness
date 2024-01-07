@@ -768,20 +768,20 @@ Circle of the Forest Guardian Druids are sworn to protect the forests and all th
 
 * Bark Ward
 
-You gain the ability to impersonate a Bark Ward to protect you. As a bonus action, you can gain 4 temporary hit points for each level you have in this class. You can use this power a number of times a day equal to your proficiency bonus.
+You can use your bonus action and expend a use your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 4 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 6 at 6th level, 8 at 10th level, and 10 at 14th level. The bark lasts for one minute, or until you become incapacitated. 
 
 * Expanded Spells
 
 
-	I	Shield, Fog Cloud
+	I	Entangling Strike, Shield
 
-	II	Blur, Flame Blade
+	II	Lesser Restoration, Spike Growth
 
 	III	Protection from Energy, Dispel Magic
 
-	IV	Fire Shield, Death Ward
+	IV	Aura of Vivacity, Freedom of Movement
 
-	V	Hold Monster, Greater Restoration
+	V	Greater Restoration, Hold Monster
 
 
 
@@ -805,14 +805,14 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Improved Bark Ward
 
-Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage.
+You can use your bonus action and expend a use your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 8 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 10 at 14th level. In addition, you have immunity to poison damage, and whenever a creature hits you with a melee weapon attack while you have temporary hit points, the creature receives 2d8 piercing damage. The bark lasts for one minute, or until you become incapacitated.
 
 
 ### Level 14
 
-* Superior Bark Ward
+* Nature's Guardian
 
-Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
+Whenever you start your turn while your Bark Ward is active, all allies that you can see within 30 feet of you also receive the same amount of temporary hit points as you do for one minute.
 
 
 
@@ -1797,7 +1797,7 @@ Starting at 11th level, after using your attack action, you can spend 3 Ki to us
 
 * Eye of the Storm
 
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 Ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
+Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 Ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 4d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 

@@ -6,16 +6,16 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 2,
       "spellsList": [
-        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
-        "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17"
+        "Definition:EnsnaringStrike:3793748b-7d90-5c0e-bb05-4fedc284e7f1",
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 3,
       "spellsList": [
-        "Definition:Blur:277b11af157a3c84292024790e6173b3",
-        "Definition:FlameBlade:0547a31a7b87dbb438758ae4cf914af7"
+        "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+        "Definition:SpikeGrowth:489c8aa040535444da10a267213ee7dc"
       ]
     },
     {
@@ -30,16 +30,16 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 7,
       "spellsList": [
-        "Definition:FireShield:bd4acac8d77f8e6459eaf8d5eebae6f3",
-        "Definition:DeathWard:5791cc9bac327d444bd26ece3c2e150e"
+        "Definition:AuraOfVitality:e3751ec0-d6db-5640-b74e-fe8adfc0b850",
+        "Definition:FreedomOfMovement:7c93b80e19d0f3e47843e96bd06d026c"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 9,
       "spellsList": [
-        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16",
-        "Definition:GreaterRestoration:6131d7d4650604b44ad3c74b21cc3eb2"
+        "Definition:GreaterRestoration:6131d7d4650604b44ad3c74b21cc3eb2",
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
       ]
     }
   ],

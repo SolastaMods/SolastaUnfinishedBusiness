@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:DamageAffinityForestGuardianImprovedBarkWard:f40ab4ec-7b72-5928-a6c2-327e0ec65bef"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -130,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionForestGuardianImprovedBarkWardTitle",
-    "description": "Condition/&ConditionForestGuardianImprovedBarkWardDescription",
+    "title": "Condition/&ConditionForestGuardianBarkWardTitle",
+    "description": "Condition/&ConditionForestGuardianBarkWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "60711996-d1a6-54ba-81cc-68a92f856c2e",
+  "guid": "90bd0c90-d42e-585e-b1be-6e909289bb81",
   "contentPack": 9999,
-  "name": "ConditionForestGuardianImprovedBarkWard"
+  "name": "ConditionForestGuardianBarkWard"
 }

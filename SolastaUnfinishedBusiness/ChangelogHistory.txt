@@ -3,9 +3,13 @@
 - added vanilla Domain Law final word feature at 17th
 - added vanilla Domain Mischief fortune favors the bold feature at 17th
 - added vanilla Domain Mischief strike of chaos progression at 17th and 20th
-- changed Domain Defiler mark for death feature at 6th getting replaced by beacon of corruption
+- changed Circle of The Forest Guardian insane temporary hit points duration and progression
+- changed Domain Defiler defile life feature damage progression
 - changed Domain Defiler dying light feature at 17th with additional max necrotic dice damage once per long rest
+- changed Domain Defiler insidious death magic to last until the end of your next turn
+- changed Domain Defiler mark for death feature at 6th getting replaced by beacon of corruption
 - changed Hand-and-A-Half into Classic Swordplay, removed +1 dmg, triggering with any one-handed melee and a free hand
+- changed Incineration spell burning damage from 4d6 to 8d6
 - changed Path of The Reaver profane vitality feature hit points piece into new draconic resilience feature at 3rd
 - changed Roguish Arcane Scoundrel arcane backslash to 1 usage per long rest
 - changed Roguish Slayer cloak of shadows to 1 minute duration and DEX modifier usages per long rest
