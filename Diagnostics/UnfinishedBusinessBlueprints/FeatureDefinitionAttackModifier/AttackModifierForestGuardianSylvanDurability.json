@@ -2,9 +2,9 @@
   "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "MeleeWeapon",
-  "attackRollModifierMethod": "FlatValue",
+  "attackRollModifierMethod": "None",
   "attackRollUseCasterBonus": false,
-  "attackRollModifier": 1,
+  "attackRollModifier": 0,
   "attackRollAbilityScore": "",
   "damageRollModifierMethod": "None",
   "damageRollUseCasterBonus": false,
@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierFeatSpearMasteryTitle",
-    "description": "Feature/&AttackModifierFeatSpearMasteryDescription",
+    "title": "Feature/&AttackModifierForestGuardianSylvanDurabilityTitle",
+    "description": "Feature/&AttackModifierForestGuardianSylvanDurabilityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9622edb0-0db2-5ddf-a91b-dc3551b4a6a3",
+  "guid": "a331f6cd-053a-528e-9ae1-ba4626cca57a",
   "contentPack": 9999,
-  "name": "AttackModifierFeatSpearMastery"
+  "name": "AttackModifierForestGuardianSylvanDurability"
 }

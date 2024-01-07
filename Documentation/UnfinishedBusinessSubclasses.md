@@ -785,9 +785,9 @@ You can use your bonus action and expend an use of your Wild Shape feature to co
 
 
 
-* Sylvan Durability
+* Sylvan Magic
 
-Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, your hit point maximum increases by 2 and increases by 1 whenever you gain a level in this class.
+Your non-two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style, these changes also apply to your offhand attack.
 
 
 ### Level 6
@@ -812,7 +812,7 @@ You can use your bonus action and expend an use of your Wild Shape feature to co
 
 * Nature's Guardian
 
-Whenever you start your turn while your Bark Ward is active, all allies that you can see within 30 feet of you also receive the same amount of temporary hit points as you do for one minute.
+When you activate Bark Ward, and on subsequent start of each of your turns while your Bark Ward is active, all allies that you can see within 30 feet of you also receive the same amount of temporary hit points from it as you do.
 
 
 

@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
   "triggerCondition": "AlwaysActive",
-  "requiredProperty": "None",
+  "requiredProperty": "RangeWeapon",
   "attackRollModifierMethod": "None",
   "attackRollUseCasterBonus": false,
   "attackRollModifier": 0,

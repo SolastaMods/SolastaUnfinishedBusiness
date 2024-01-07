@@ -66,7 +66,7 @@
         "durationType": "Instantaneous",
         "canOverchargeSpell": false,
         "type": "Spell",
-        "spellDefinition": "Definition:CloudOfDaggers:c95adfd0-7613-54ea-8270-b3624ae4dd78",
+        "spellDefinition": "Definition:IceBlade:659510a2-17ce-5577-8f85-d7756eac3bd9",
         "featureDefinitionPower": null
       }
     ],
@@ -230,8 +230,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Wand of Cloud of Blades",
-    "description": "This wand allows casting the <b>Cloud of Blades</b> spell using spell casting stats of the Inventor who created it.",
+    "title": "Wand of Ice Blade",
+    "description": "This wand allows casting the <b>Ice Blade</b> spell using spell casting stats of the Inventor who created it.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "99f5e6021bff7994bb5b9f6832f8145a",
@@ -251,7 +251,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a9043899-f63b-587b-ad52-0658c4da225f",
+  "guid": "d87224aa-3791-5d2b-83c8-af18d6861d67",
   "contentPack": 9999,
-  "name": "SpellStoringWandOfCloudOfDaggers"
+  "name": "SpellStoringWandOfIceBlade"
 }
