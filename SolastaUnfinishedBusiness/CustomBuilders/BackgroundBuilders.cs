@@ -32,6 +32,7 @@ internal static class BackgroundsBuilders
                     .Create($"AttackModifier{BackgroundFarmer}")
                     .SetGuiPresentation($"Proficiency{BackgroundFarmer}Weapons", Category.Feature, hidden: true)
                     .SetAttackRollModifier(1)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
                             (OperationType.Set,
