@@ -195,7 +195,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeLightning, 5, DieType.D10)
+                            .SetDamageForm(DamageTypeLightning, 4, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build(),
                         EffectFormBuilder
