@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionForestGuardianBarkWard:90bd0c90-d42e-585e-b1be-6e909289bb81",
   "conditionType": "Beneficial",
   "features": [
     "Definition:DamageAffinityForestGuardianImprovedBarkWard:f40ab4ec-7b72-5928-a6c2-327e0ec65bef"

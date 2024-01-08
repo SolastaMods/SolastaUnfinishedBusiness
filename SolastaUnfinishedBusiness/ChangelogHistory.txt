@@ -1,8 +1,6 @@
 ﻿1.5.94.41:
 
-- added Interface > Game UI > 'Multiply the movement grid width by [%]' setting
-- added Interface > Game UI > 'Multiply the outline grid width by [%]' setting
-- added Interface > Game UI > 'Multiply the outline grid speed by [%]' setting
+- added Interface > Game UI > grid width and animation movement settings
 - added Ice Blade spell at 1st
 - added vanilla Domain Law final word feature at 17th
 - added vanilla Domain Mischief fortune favors the bold feature at 17th

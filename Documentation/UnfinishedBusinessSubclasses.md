@@ -805,14 +805,14 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Improved Bark Ward
 
-You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 8 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 10 at 14th level. In addition, you have immunity to poison damage, and whenever a creature damages you within 5ft while you have temporary hit points, the creature receives 2d8 piercing damage. The improved bark lasts for one minute, or until you become incapacitated.
+You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 8 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 10 at 14th level. In addition, you have poison immunity while Bark Ward is active, and whenever a creature damages you with a melee weapon attack while within 5ft of you and while you have any temporary hit points, the creature receives 2d8 piercing damage. The improved bark lasts for one minute, or until you become incapacitated.
 
 
 ### Level 14
 
 * Nature's Guardian
 
-When you activate Bark Ward, and on subsequent start of each of your turns while your Bark Ward is active, all allies that you can see within 30 feet of you also receive the same amount of temporary hit points from it as you do.
+When you activate Bark Ward, and on subsequent start of each of your turns while your Bark Ward is active, all allies that you can see within 15 feet of you also receive the same amount of temporary hit points from it as you do.
 
 
 
