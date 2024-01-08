@@ -125,63 +125,6 @@ internal static class MeleeCombatFeats
             featGroupSlasher);
     }
 
-    #region Defensive Duelist
-
-    private static FeatDefinition BuildDefensiveDuelist()
-    {
-        const string NAME = "FeatDefensiveDuelist";
-
-        var conditionDefensiveDuelist = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create($"AttributeModifier{NAME}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(
-                        AttributeModifierOperation.AddProficiencyBonus,
-                        AttributeDefinitions.ArmorClass)
-                    .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionDefensiveDuelist,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
-                    .Build())
-            .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
-                    (OperationType.Set,
-                        ValidatorsWeapon.HasAnyWeaponTag(mode?.SourceDefinition as ItemDefinition,
-                            TagsDefinitions.WeaponTagFinesse))))
-            .AddToDB();
-
-        return FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(powerDefensiveDuelist)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-            .AddToDB();
-    }
-
-    #endregion
-
     #region Reckless Attack
 
     private static FeatDefinitionWithPrerequisites BuildRecklessAttack()
@@ -324,6 +267,7 @@ internal static class MeleeCombatFeats
                     .Create($"AttackModifier{NAME}")
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(1)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, ranged, mode, _) =>
                             (OperationType.Set, !ranged && validWeapon(mode, null, character))),
@@ -415,6 +359,145 @@ internal static class MeleeCombatFeats
                     ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain,
                     ValidatorsCharacter.HasMeleeWeaponInMainHand))
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Defensive Duelist
+
+    private static FeatDefinition BuildDefensiveDuelist()
+    {
+        const string NAME = "FeatDefensiveDuelist";
+
+        var conditionDefensiveDuelist = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(
+                        AttributeModifierOperation.AddProficiencyBonus,
+                        AttributeDefinitions.ArmorClass)
+                    .AddToDB())
+            .SetSpecialInterruptions(
+                ConditionInterruption.AnyBattleTurnEnd,
+                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked)
+            .AddToDB();
+
+        var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddCustomSubFeatures(new SpiritualShieldingBlockAttack(conditionDefensiveDuelist))
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerDefensiveDuelist)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    private class SpiritualShieldingBlockAttack(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefensiveDuelist)
+        : IAttackBeforeHitPossibleOnMeOrAlly
+    {
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter me,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect,
+            ActionModifier attackModifier,
+            int attackRoll)
+        {
+            if (me != defender)
+            {
+                yield break;
+            }
+
+            if (!me.CanReact())
+            {
+                yield break;
+            }
+
+            if (rulesetEffect != null &&
+                rulesetEffect.EffectDescription.RangeType is not (RangeType.Touch or RangeType.MeleeHit))
+            {
+                yield break;
+            }
+
+            if (!ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
+            {
+                yield break;
+            }
+
+            var totalAttack = attackRoll
+                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
+                              + attackModifier.AttackRollModifier;
+            var armorClass = rulesetDefender.RefreshArmorClass(true).CurrentValue;
+            var requiredACAddition = totalAttack - armorClass + 1;
+            var pb = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            // if other actions already blocked it or if pb isn't enough
+            if (requiredACAddition <= 0 || requiredACAddition > pb)
+            {
+                yield break;
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+            var actionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            {
+                StringParameter = "CustomReactionDefensiveDuelistDescription"
+                    .Formatted(Category.Reaction, defender.Name, attacker.Name)
+            };
+
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionManager == null)
+            {
+                yield break;
+            }
+
+            var reactionRequest = new ReactionRequestCustom("DefensiveDuelist", actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+            
+            yield return battleManager.WaitForReactions(me, actionService, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                conditionDefensiveDuelist.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                conditionDefensiveDuelist.Name,
+                0,
+                0,
+                pb);
+        }
     }
 
     #endregion
@@ -1279,7 +1362,7 @@ internal static class MeleeCombatFeats
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
-                attacker.Guid,
+                rulesetAttacker.Guid,
                 false,
                 attackMode.AttackTags,
                 new RollInfo(damageForm.DieType, rolls, bonusDamage),
@@ -1444,7 +1527,7 @@ internal static class MeleeCombatFeats
                         new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                         rulesetDefender,
                         false,
-                        attacker.Guid,
+                        rulesetAttacker.Guid,
                         false,
                         attackMode.AttackTags,
                         new RollInfo(DieType.D1, [], strengthMod),

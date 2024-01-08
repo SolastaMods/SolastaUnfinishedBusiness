@@ -21,6 +21,7 @@
 - changed Way of Tempest eye of storm feature at 17th lightning leap damage dice from 5d10 to 4d10
 - fixed 'Darkness Perceptive' and 'Light Sensitivity on outdoors only' settings incorrectly considering half dark-elves
 - fixed Closed Quarters feat sneak attack pre-requisite not validating Arcane Scoundrel at 9th or higher
+- fixed Defensive Duelist feat triggering the reaction regardless the hero main weapon finesse tag 
 - fixed vanilla Domain Mischief strike of chaos triggering on magical attacks [and restricted reaction validator]
 - swapped Path of The Savagery wrath and fury feature at 10th with unbridled ferocity at 14th
 - swapped Way of Dragon reactive skin feature at 3rd with elemental breath feature at 6th
