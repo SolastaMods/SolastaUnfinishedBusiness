@@ -240,7 +240,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         foreach (var ally in locationCharacter.PerceivedAllies
                      .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                 gameLocationBattleService.IsWithinXCells(locationCharacter, x, 6))
+                                 gameLocationBattleService.IsWithinXCells(locationCharacter, x, 3))
                      .ToList())
         {
             ally.RulesetCharacter.ReceiveTemporaryHitPoints(
