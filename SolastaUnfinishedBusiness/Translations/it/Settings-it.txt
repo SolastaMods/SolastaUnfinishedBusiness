@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>Registro modifiche</color></b>
 ModUi/&Character=Carattere
 ModUi/&CharactersPool=Pool di personaggi
 ModUi/&Classes=<color=#F0DAA0>Classi</color>
+ModUi/&Combat=<color=#F0DAA0>Combattimento:</color>
 ModUi/&Crafting=<color=#F0DAA0>Creazione:</color>
 ModUi/&CraftingHelp=. Premi il pulsante per imparare le ricette all'istante sulla festa attiva\n. Gli articoli aggiunti ai negozi potrebbero richiedere che il gruppo si allontani dal luogo e ritorni
 ModUi/&Credits=Crediti

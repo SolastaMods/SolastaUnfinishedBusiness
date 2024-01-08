@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>Registro de cambios</color></b>
 ModUi/&Character=Personaje
 ModUi/&CharactersPool=Grupo de personajes
 ModUi/&Classes=<color=#F0DAA0>Clases</color>
+ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Fabricación:</color>
 ModUi/&CraftingHelp=. Presiona el botón para aprender recetas al instante en el grupo activo\n. Los artículos agregados a las tiendas pueden necesitar que el grupo se aleje de la ubicación y regrese
 ModUi/&Credits=Créditos

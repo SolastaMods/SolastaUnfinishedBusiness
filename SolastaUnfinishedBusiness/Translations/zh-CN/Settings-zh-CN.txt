@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>更改日志</color></b>
 ModUi/&Character=特点
 ModUi/&CharactersPool=角色池
 ModUi/&Classes=<color=#F0DAA0>职业</color>
+ModUi/&Combat=<color=#F0DAA0>战斗：</color>
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
 ModUi/&CraftingHelp=.按下按钮即可在当前队伍中立即学习配方\n。添加到商店的物品可能需要队伍离开该地点然后回来
 ModUi/&Credits=制作人员

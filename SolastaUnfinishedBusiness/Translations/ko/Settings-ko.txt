@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>변경 내역</color></b>
 ModUi/&Character=캐릭터
 ModUi/&CharactersPool=캐릭터 목록
 ModUi/&Classes=<color=#F0DAA0>클래스</color>
+ModUi/&Combat=<color=#F0DAA0>전투:</color>
 ModUi/&Crafting=<color=#F0DAA0>제작:</color>
 ModUi/&CraftingHelp=. 버튼을 누르면 활성화된 파티에서 즉시 제작법을 배울 수 있습니다\n. 상점에 추가돼야 하는 아이템은 파티가 해당 위치를 떠났다가 다시 돌아와야 합니다
 ModUi/&Credits=제작자들

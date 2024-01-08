@@ -126,51 +126,7 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&CampaignsAndLocations"));
         UI.Label();
 
-        var intValue = Main.Settings.MovementGridWidthModifier;
-        if (UI.Slider(Gui.Localize("ModUi/&MovementGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width((float)100)))
-        {
-            Main.Settings.MovementGridWidthModifier = intValue;
-            GameUiContext.UpdateMovementGrid();
-        }
-
-        intValue = Main.Settings.OutlineGridWidthModifier;
-        if (UI.Slider(Gui.Localize("ModUi/&OutlineGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width((float)100)))
-        {
-            Main.Settings.OutlineGridWidthModifier = intValue;
-            GameUiContext.UpdateMovementGrid();
-        }
-
-        intValue = Main.Settings.OutlineGridWidthSpeed;
-        if (UI.Slider(Gui.Localize("ModUi/&OutlineGridWidthSpeed"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width((float)100)))
-        {
-            Main.Settings.OutlineGridWidthSpeed = intValue;
-            GameUiContext.UpdateMovementGrid();
-        }
-
-        UI.Label();
-
-        var toggle = Main.Settings.DontFollowCharacterInBattle;
-        if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DontFollowCharacterInBattle = toggle;
-        }
-
-        if (Main.Settings.DontFollowCharacterInBattle)
-        {
-            intValue = Main.Settings.DontFollowMargin;
-            if (UI.Slider(Gui.Localize("ModUi/&DontFollowMargin"), ref intValue, 0, 20,
-                    1, "%", UI.AutoWidth()))
-            {
-                Main.Settings.DontFollowMargin = intValue;
-            }
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
+        var toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
@@ -244,20 +200,11 @@ internal static class GameUiDisplay
 
         UI.Label();
 
-
-        toggle = Main.Settings.EnableDistanceOnTooltip;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
-        {
-            Main.Settings.EnableDistanceOnTooltip = toggle;
-        }
-
         toggle = Main.Settings.EnableStatsOnHeroTooltip;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableStatsOnHeroTooltip = toggle;
         }
-
-        UI.Label();
 
         toggle = Main.Settings.EnableCustomPortraits;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCustomPortraits"), ref toggle))
@@ -283,7 +230,15 @@ internal static class GameUiDisplay
 
             UI.Label();
         }
-
+        
+        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
+        }
+        
+        UI.Label();
+        
         toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalBackstoryDisplay"), ref toggle, UI.AutoWidth()))
         {
@@ -296,10 +251,64 @@ internal static class GameUiDisplay
             Main.Settings.EnableExtendedProficienciesPanelDisplay = toggle;
         }
 
-        toggle = Main.Settings.ShowChannelDivinityOnPortrait;
-        if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
+        #endregion
+
+        #region Combat
+
+        UI.Label();
+        UI.Label(Gui.Localize("ModUi/&Combat"));
+        UI.Label();
+
+        int intValue;
+
+        toggle = Main.Settings.DontFollowCharacterInBattle;
+        if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.ShowChannelDivinityOnPortrait = toggle;
+            Main.Settings.DontFollowCharacterInBattle = toggle;
+        }
+
+        if (Main.Settings.DontFollowCharacterInBattle)
+        {
+            intValue = Main.Settings.DontFollowMargin;
+            if (UI.Slider(Gui.Localize("ModUi/&DontFollowMargin"), ref intValue, 0, 20,
+                    1, "%", UI.AutoWidth()))
+            {
+                Main.Settings.DontFollowMargin = intValue;
+            }
+
+            UI.Label();
+        }
+
+        toggle = Main.Settings.EnableDistanceOnTooltip;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
+        {
+            Main.Settings.EnableDistanceOnTooltip = toggle;
+        }
+
+        UI.Label();
+
+        intValue = Main.Settings.MovementGridWidthModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&MovementGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,
+                UI.Width((float)100)))
+        {
+            Main.Settings.MovementGridWidthModifier = intValue;
+            GameUiContext.UpdateMovementGrid();
+        }
+
+        intValue = Main.Settings.OutlineGridWidthModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&OutlineGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,
+                UI.Width((float)100)))
+        {
+            Main.Settings.OutlineGridWidthModifier = intValue;
+            GameUiContext.UpdateMovementGrid();
+        }
+
+        intValue = Main.Settings.OutlineGridWidthSpeed;
+        if (UI.Slider(Gui.Localize("ModUi/&OutlineGridWidthSpeed"), ref intValue, 0, 200, 100, string.Empty,
+                UI.Width((float)100)))
+        {
+            Main.Settings.OutlineGridWidthSpeed = intValue;
+            GameUiContext.UpdateMovementGrid();
         }
 
         #endregion

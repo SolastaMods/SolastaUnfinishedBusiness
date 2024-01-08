@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>変更ログ</color></b>
 ModUi/&Character=キャラクター
 ModUi/&CharactersPool=キャラクタープール
 ModUi/&Classes=<color=#F0DAA0>クラス</color>
+ModUi/&Combat=<color=#F0DAA0>戦闘:</color>
 ModUi/&Crafting=<color=#F0DAA0>クラフト:</color>
 ModUi/&CraftingHelp=。ボタンを押すと、アクティブなパーティーでレシピを即座に学習できます\n。ストアにアイテムを追加するには、パーティがその場所から離れて戻ってくる必要がある場合があります
 ModUi/&Credits=クレジット
