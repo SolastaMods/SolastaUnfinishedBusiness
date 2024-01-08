@@ -1204,20 +1204,14 @@ internal static class EldritchVersatility
         }
     }
 
-    private class ReactionResourceEldritchVersatilityPoints : ICustomReactionResource, ICustomReactionCustomResourceUse
+    private class ReactionResourceEldritchVersatilityPoints(int requestPoints)
+        : ICustomReactionResource, ICustomReactionCustomResourceUse
     {
-        private readonly int _requestPoints;
-
-        public ReactionResourceEldritchVersatilityPoints(int requestPoints)
-        {
-            _requestPoints = requestPoints;
-        }
-
         public string GetRequestPoints(RulesetCharacter character)
         {
             character.GetVersatilitySupportCondition(out _);
 
-            return $"{_requestPoints}";
+            return $"{requestPoints}";
         }
 
         public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
@@ -1401,14 +1395,9 @@ internal static class EldritchVersatility
         public abstract void OnInvocationToggled(GameLocationCharacter character, RulesetInvocation rulesetInvocation);
     }
 
-    private class BlastEmpowerActiveSwitch : IActionExecutionHandled, IMagicalAttackCastedSpell
+    private class BlastEmpowerActiveSwitch(string invocationName) : IActionExecutionHandled, IMagicalAttackCastedSpell
     {
-        public BlastEmpowerActiveSwitch(string invocationName)
-        {
-            InvocationName = invocationName;
-        }
-
-        private string InvocationName { get; }
+        private string InvocationName { get; } = invocationName;
 
         public void OnActionExecutionHandled(GameLocationCharacter character, CharacterActionParams actionParams,
             ActionScope scope)

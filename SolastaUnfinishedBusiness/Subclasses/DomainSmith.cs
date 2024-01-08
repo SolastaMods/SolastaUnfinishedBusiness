@@ -391,15 +391,9 @@ public sealed class DomainSmith : AbstractSubclass
         return !definition.Magical;
     }
 
-    private sealed class PhysicalAttackInitiatedOnMeBlessedMetal : IPhysicalAttackInitiatedOnMe
+    private sealed class PhysicalAttackInitiatedOnMeBlessedMetal(ConditionDefinition conditionBlessedMetal)
+        : IPhysicalAttackInitiatedOnMe
     {
-        private readonly ConditionDefinition _conditionBlessedMetal;
-
-        public PhysicalAttackInitiatedOnMeBlessedMetal(ConditionDefinition conditionBlessedMetal)
-        {
-            _conditionBlessedMetal = conditionBlessedMetal;
-        }
-
         public IEnumerator OnPhysicalAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
@@ -416,15 +410,15 @@ public sealed class DomainSmith : AbstractSubclass
             }
 
             rulesetDefender.InflictCondition(
-                _conditionBlessedMetal.Name,
-                _conditionBlessedMetal.DurationType,
-                _conditionBlessedMetal.DurationParameter,
-                _conditionBlessedMetal.TurnOccurence,
+                conditionBlessedMetal.Name,
+                conditionBlessedMetal.DurationType,
+                conditionBlessedMetal.DurationParameter,
+                conditionBlessedMetal.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                _conditionBlessedMetal.Name,
+                conditionBlessedMetal.Name,
                 0,
                 0,
                 0);

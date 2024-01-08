@@ -758,15 +758,11 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class CharacterTurnStartListenerPerniciousCloak : ICharacterTurnStartListener
+    private sealed class CharacterTurnStartListenerPerniciousCloak(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionPerniciousCloak)
+        : ICharacterTurnStartListener
     {
-        private readonly ConditionDefinition _conditionPerniciousCloak;
-
-        public CharacterTurnStartListenerPerniciousCloak(ConditionDefinition conditionPerniciousCloak)
-        {
-            _conditionPerniciousCloak = conditionPerniciousCloak;
-        }
-
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
@@ -778,7 +774,7 @@ internal static class InvocationsBuilders
 
             if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionPerniciousCloak.Name,
+                    conditionPerniciousCloak.Name,
                     out var activeCondition))
             {
                 return;
@@ -828,25 +824,19 @@ internal static class InvocationsBuilders
         }
     }
 
-    private sealed class CustomBehaviorPerniciousCloakRemove : IMagicEffectFinishedByMe, IValidatePowerUse
+    private sealed class CustomBehaviorPerniciousCloakRemove(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerPerniciousCloak,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionPerniciousCloakSelf)
+        : IMagicEffectFinishedByMe, IValidatePowerUse
     {
-        private readonly ConditionDefinition _conditionPerniciousCloakSelf;
-        private readonly FeatureDefinitionPower _powerPerniciousCloak;
-
-        public CustomBehaviorPerniciousCloakRemove(
-            FeatureDefinitionPower powerPerniciousCloak,
-            ConditionDefinition conditionPerniciousCloakSelf)
-        {
-            _powerPerniciousCloak = powerPerniciousCloak;
-            _conditionPerniciousCloakSelf = conditionPerniciousCloakSelf;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetEffectPower = EffectHelpers.GetAllEffectsBySourceGuid(rulesetCharacter.Guid)
                 .OfType<RulesetEffectPower>()
-                .FirstOrDefault(x => x.PowerDefinition == _powerPerniciousCloak);
+                .FirstOrDefault(x => x.PowerDefinition == powerPerniciousCloak);
 
             if (rulesetEffectPower != null)
             {
@@ -858,7 +848,7 @@ internal static class InvocationsBuilders
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
-            return character.HasAnyConditionOfType(_conditionPerniciousCloakSelf.Name);
+            return character.HasAnyConditionOfType(conditionPerniciousCloakSelf.Name);
         }
     }
 
@@ -1152,21 +1142,17 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class FilterTargetingCharacterVexingHex : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+    private sealed class FilterTargetingCharacterVexingHex(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerVexingHex)
+        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerVexingHex;
-
-        public FilterTargetingCharacterVexingHex(FeatureDefinitionPower powerVexingHex)
-        {
-            _powerVexingHex = powerVexingHex;
-        }
-
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != _powerVexingHex)
+                || rulesetEffectPower.PowerDefinition != powerVexingHex)
             {
                 return true;
             }
@@ -1411,19 +1397,11 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorTombOfFrost : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+    private sealed class CustomBehaviorTombOfFrost(
+        FeatureDefinitionPower powerTombOfFrost,
+        ConditionDefinition conditionTombOfFrostLazy)
+        : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionTombOfFrostLazy;
-        private readonly FeatureDefinitionPower _powerTombOfFrost;
-
-        public CustomBehaviorTombOfFrost(
-            FeatureDefinitionPower powerTombOfFrost,
-            ConditionDefinition conditionTombOfFrostLazy)
-        {
-            _powerTombOfFrost = powerTombOfFrost;
-            _conditionTombOfFrostLazy = conditionTombOfFrostLazy;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -1474,7 +1452,7 @@ internal static class InvocationsBuilders
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.GetRemainingPowerCharges(_powerTombOfFrost) <= 0)
+            if (rulesetDefender.GetRemainingPowerCharges(powerTombOfFrost) <= 0)
             {
                 yield break;
             }
@@ -1498,21 +1476,21 @@ internal static class InvocationsBuilders
                 yield break;
             }
 
-            rulesetDefender.UpdateUsageForPower(_powerTombOfFrost, _powerTombOfFrost.CostPerUse);
+            rulesetDefender.UpdateUsageForPower(powerTombOfFrost, powerTombOfFrost.CostPerUse);
 
             var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
             var tempHitPoints = classLevel * 10;
 
             var activeCondition = rulesetDefender.InflictCondition(
-                _conditionTombOfFrostLazy.Name,
-                _conditionTombOfFrostLazy.DurationType,
-                _conditionTombOfFrostLazy.DurationParameter,
-                _conditionTombOfFrostLazy.TurnOccurence,
+                conditionTombOfFrostLazy.Name,
+                conditionTombOfFrostLazy.DurationType,
+                conditionTombOfFrostLazy.DurationParameter,
+                conditionTombOfFrostLazy.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                _conditionTombOfFrostLazy.Name,
+                conditionTombOfFrostLazy.Name,
                 0,
                 0,
                 0);
@@ -1522,15 +1500,9 @@ internal static class InvocationsBuilders
         }
     }
 
-    private sealed class OnConditionAddedOrRemovedTombOfFrostLazy : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedTombOfFrostLazy(ConditionDefinition conditionTombOfFrost)
+        : IOnConditionAddedOrRemoved
     {
-        private readonly ConditionDefinition _conditionTombOfFrost;
-
-        public OnConditionAddedOrRemovedTombOfFrostLazy(ConditionDefinition conditionTombOfFrost)
-        {
-            _conditionTombOfFrost = conditionTombOfFrost;
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -1547,15 +1519,15 @@ internal static class InvocationsBuilders
             }
 
             target.InflictCondition(
-                _conditionTombOfFrost.Name,
-                _conditionTombOfFrost.DurationType,
-                _conditionTombOfFrost.DurationParameter,
-                _conditionTombOfFrost.TurnOccurence,
+                conditionTombOfFrost.Name,
+                conditionTombOfFrost.DurationType,
+                conditionTombOfFrost.DurationParameter,
+                conditionTombOfFrost.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 target.Guid,
                 target.CurrentFaction.Name,
                 1,
-                _conditionTombOfFrost.Name,
+                conditionTombOfFrost.Name,
                 0,
                 0,
                 0);

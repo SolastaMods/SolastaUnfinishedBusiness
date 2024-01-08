@@ -5,12 +5,7 @@ internal interface ICustomUnicityTag
     string UnicityTag { get; }
 }
 
-internal class CustomUnicityTag : ICustomUnicityTag
+internal class CustomUnicityTag(string tag) : ICustomUnicityTag
 {
-    public CustomUnicityTag(string tag)
-    {
-        UnicityTag = tag;
-    }
-
-    public string UnicityTag { get; }
+    public string UnicityTag { get; } = tag;
 }

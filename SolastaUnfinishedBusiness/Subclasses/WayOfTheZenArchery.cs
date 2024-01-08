@@ -171,15 +171,10 @@ public sealed class WayOfZenArchery : AbstractSubclass
     // Flurry of Arrows
     //
 
-    private sealed class ActionFinishedByMeFlurryOfArrows : IActionFinishedByMe
+    private sealed class ActionFinishedByMeFlurryOfArrows(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _condition;
-
-        public ActionFinishedByMeFlurryOfArrows(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionFlurryOfBlows)
@@ -190,7 +185,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
-                _condition.Name,
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -198,7 +193,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _condition.Name,
+                condition.Name,
                 0,
                 0,
                 0);
@@ -209,15 +204,11 @@ public sealed class WayOfZenArchery : AbstractSubclass
     // Unerring Precision
     //
 
-    private sealed class ModifyWeaponAttackModeUnerringPrecision : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeUnerringPrecision(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureUnerringPrecision)
+        : IModifyWeaponAttackMode
     {
-        private readonly FeatureDefinition _featureUnerringPrecision;
-
-        public ModifyWeaponAttackModeUnerringPrecision(FeatureDefinition featureUnerringPrecision)
-        {
-            _featureUnerringPrecision = featureUnerringPrecision;
-        }
-
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (!ValidatorsCharacter.HasBowWithoutArmor(character))
@@ -230,7 +221,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
             attackMode.ToHitBonus += bonus;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
-                _featureUnerringPrecision.Name, _featureUnerringPrecision));
+                featureUnerringPrecision.Name, featureUnerringPrecision));
 
             var damage = attackMode.EffectDescription.FindFirstDamageForm();
 
@@ -241,7 +232,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
-                _featureUnerringPrecision.Name, _featureUnerringPrecision));
+                featureUnerringPrecision.Name, featureUnerringPrecision));
         }
     }
 

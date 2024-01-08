@@ -46,12 +46,9 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleRanger
     ];
 
-    private sealed class CustomAdditionalDamageExecutioner : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageExecutioner(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider)
     {
-        public CustomAdditionalDamageExecutioner(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,

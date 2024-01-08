@@ -182,19 +182,11 @@ public sealed class OathOfDemonHunter : AbstractSubclass
     internal static IsWeaponValidHandler IsOathOfDemonHunterWeapon { get; } =
         ValidatorsWeapon.IsOfWeaponType(LightCrossbowType, HeavyCrossbowType, CustomWeaponsContext.HandXbowWeaponType);
 
-    private sealed class PhysicalAttackFinishedByMeLightEnergyCrossbowBolt : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeLightEnergyCrossbowBolt(
+        ConditionDefinition conditionTrialMark,
+        FeatureDefinitionPower powerTrialMark)
+        : IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionTrialMark;
-        private readonly FeatureDefinitionPower _powerTrialMark;
-
-        public PhysicalAttackFinishedByMeLightEnergyCrossbowBolt(
-            ConditionDefinition conditionTrialMark,
-            FeatureDefinitionPower powerTrialMark)
-        {
-            _conditionTrialMark = conditionTrialMark;
-            _powerTrialMark = powerTrialMark;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -230,19 +222,19 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetDefender.HasConditionOfType(_conditionTrialMark))
+                rulesetDefender.HasConditionOfType(conditionTrialMark))
             {
                 yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!rulesetAttacker.CanUsePower(_powerTrialMark))
+            if (!rulesetAttacker.CanUsePower(powerTrialMark))
             {
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerTrialMark, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerTrialMark, rulesetAttacker);
             var reactionParams =
                 new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {
@@ -263,15 +255,15 @@ public sealed class OathOfDemonHunter : AbstractSubclass
 
             rulesetAttacker.UsePower(usablePower);
             rulesetDefender.InflictCondition(
-                _conditionTrialMark.Name,
-                _conditionTrialMark.DurationType,
-                _conditionTrialMark.DurationParameter,
-                _conditionTrialMark.TurnOccurence,
+                conditionTrialMark.Name,
+                conditionTrialMark.DurationType,
+                conditionTrialMark.DurationParameter,
+                conditionTrialMark.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                _conditionTrialMark.Name,
+                conditionTrialMark.Name,
                 0,
                 0,
                 0);

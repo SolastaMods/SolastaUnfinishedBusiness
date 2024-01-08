@@ -302,15 +302,9 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     // Forceful Step
     //
 
-    private sealed class MagicEffectFinishedByMeForcefulStep : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
+        : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerApply;
-
-        public MagicEffectFinishedByMeForcefulStep(FeatureDefinitionPower powerApply)
-        {
-            _powerApply = powerApply;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -323,7 +317,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerApply, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerApply, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

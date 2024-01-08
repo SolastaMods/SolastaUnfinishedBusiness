@@ -100,49 +100,39 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
     }
 }
 
-internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
+internal abstract class ModifyWeaponAttackModeBase(
+    IsWeaponValidHandler isWeaponValid,
+    string unicityTag,
+    params IsCharacterValidHandler[] validators)
+    : IModifyWeaponAttackMode
 {
-    private readonly IsWeaponValidHandler _isWeaponValid;
-    private readonly string _unicityTag;
-    private readonly IsCharacterValidHandler[] _validators;
-
     protected ModifyWeaponAttackModeBase(
         IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators) : this(isWeaponValid, null, validators)
     {
     }
 
-    protected ModifyWeaponAttackModeBase(
-        IsWeaponValidHandler isWeaponValid,
-        string unicityTag,
-        params IsCharacterValidHandler[] validators)
-    {
-        _isWeaponValid = isWeaponValid;
-        _validators = validators;
-        _unicityTag = unicityTag;
-    }
-
     public void ModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode)
     {
         //Doing this check at the very start since this one is least computation intensive
-        if (_unicityTag != null && attackMode.AttackTags.Contains(_unicityTag))
+        if (unicityTag != null && attackMode.AttackTags.Contains(unicityTag))
         {
             return;
         }
 
-        if (!character.IsValid(_validators))
+        if (!character.IsValid(validators))
         {
             return;
         }
 
-        if (!_isWeaponValid(attackMode, null, character))
+        if (!isWeaponValid(attackMode, null, character))
         {
             return;
         }
 
-        if (_unicityTag != null)
+        if (unicityTag != null)
         {
-            attackMode.AttackTags.TryAdd(_unicityTag);
+            attackMode.AttackTags.TryAdd(unicityTag);
         }
 
         TryModifyAttackMode(character, attackMode);

@@ -198,15 +198,11 @@ public sealed class RoguishOpportunist : AbstractSubclass
     // Opportunity
     //
 
-    private sealed class ModifyAttackActionModifierOpportunity : IModifyAttackActionModifier
+    private sealed class ModifyAttackActionModifierOpportunity(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureOpportunistQuickStrike)
+        : IModifyAttackActionModifier
     {
-        private readonly FeatureDefinition _featureOpportunistOpportunity;
-
-        public ModifyAttackActionModifierOpportunity(FeatureDefinition featureOpportunistQuickStrike)
-        {
-            _featureOpportunistOpportunity = featureOpportunistQuickStrike;
-        }
-
         public void OnAttackComputeModifier(
             RulesetCharacter rulesetAttacker,
             RulesetCharacter rulesetDefender,
@@ -241,7 +237,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
             attackModifier.attackAdvantageTrends.Add(new TrendInfo(
                 1, FeatureSourceType.CharacterFeature,
-                _featureOpportunistOpportunity.Name, _featureOpportunistOpportunity));
+                featureOpportunistQuickStrike.Name, featureOpportunistQuickStrike));
         }
     }
 

@@ -7,14 +7,9 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 /**
  * Can be used to trigger Additional Damage feature with custom checks
  */
-public abstract class CustomAdditionalDamage
+public abstract class CustomAdditionalDamage(IAdditionalDamageProvider provider)
 {
-    protected CustomAdditionalDamage(IAdditionalDamageProvider provider)
-    {
-        Provider = provider;
-    }
-
-    public IAdditionalDamageProvider Provider { get; }
+    public IAdditionalDamageProvider Provider { get; } = provider;
 
     [UsedImplicitly]
     internal abstract bool IsValid(

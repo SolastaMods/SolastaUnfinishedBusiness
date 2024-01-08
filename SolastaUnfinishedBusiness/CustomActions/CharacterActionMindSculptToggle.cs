@@ -6,14 +6,10 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionMindSculptToggle : CharacterAction
+public class CharacterActionMindSculptToggle(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
     private const ActionDefinitions.Id Action = (ActionDefinitions.Id)ExtraActionId.MindSculptToggle;
-
-    public CharacterActionMindSculptToggle(CharacterActionParams actionParams) : base(actionParams)
-    {
-    }
 
     public override IEnumerator ExecuteImpl()
     {

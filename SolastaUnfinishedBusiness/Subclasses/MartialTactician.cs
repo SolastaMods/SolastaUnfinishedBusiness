@@ -319,17 +319,12 @@ public sealed class MartialTactician : AbstractSubclass
     }
 #endif
 
-    private class RefundPowerUsePhysicalAttackAfterCrit : IPhysicalAttackAfterDamage
+    private class RefundPowerUsePhysicalAttackAfterCrit(
+        FeatureDefinitionPower power,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition feature)
+        : IPhysicalAttackAfterDamage
     {
-        private readonly FeatureDefinition _feature;
-        private readonly FeatureDefinitionPower _power;
-
-        public RefundPowerUsePhysicalAttackAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
-        {
-            _power = power;
-            _feature = feature;
-        }
-
         public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -365,32 +360,27 @@ public sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (character.GetRemainingPowerUses(_power) >= character.GetMaxUsesForPool(_power))
+            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
                 // ReSharper disable once InvocationIsSkipped
                 Main.Log("AdaptiveStrategy: nothing to refuel. exiting.");
                 return;
             }
 
-            character.LogCharacterUsedFeature(_feature, indent: true);
+            character.LogCharacterUsedFeature(feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
-            character.UpdateUsageForPower(_power, -1);
+            character.UpdateUsageForPower(power, -1);
             // ReSharper disable once InvocationIsSkipped
             Main.Log("AdaptiveStrategy: refueled.");
         }
     }
 
-    private class OnReducedToZeroHpByMeRefundPowerUse : IOnReducedToZeroHpByMe
+    private class OnReducedToZeroHpByMeRefundPowerUse(
+        FeatureDefinitionPower power,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition feature)
+        : IOnReducedToZeroHpByMe
     {
-        private readonly FeatureDefinition _feature;
-        private readonly FeatureDefinitionPower _power;
-
-        public OnReducedToZeroHpByMeRefundPowerUse(FeatureDefinitionPower power, FeatureDefinition feature)
-        {
-            _power = power;
-            _feature = feature;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -429,32 +419,24 @@ public sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            if (character.GetRemainingPowerUses(_power) >= character.GetMaxUsesForPool(_power))
+            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
                 // ReSharper disable once InvocationIsSkipped
                 Main.Log("OvercomingStrategy: nothing to refuel. exiting.");
                 yield break;
             }
 
-            character.LogCharacterUsedFeature(_feature, indent: true);
+            character.LogCharacterUsedFeature(feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
-            character.UpdateUsageForPower(_power, -1);
+            character.UpdateUsageForPower(power, -1);
             // ReSharper disable once InvocationIsSkipped
             Main.Log("OvercomingStrategy: refueled.");
         }
     }
 
-    private class RefundPowerUseWhenTargetWithConditionDies : IOnConditionAddedOrRemoved
+    private class RefundPowerUseWhenTargetWithConditionDies(FeatureDefinitionPower power, FeatureDefinition feature)
+        : IOnConditionAddedOrRemoved
     {
-        private readonly FeatureDefinition _feature;
-        private readonly FeatureDefinitionPower _power;
-
-        public RefundPowerUseWhenTargetWithConditionDies(FeatureDefinitionPower power, FeatureDefinition feature)
-        {
-            _power = power;
-            _feature = feature;
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -475,7 +457,7 @@ public sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (!character.HasAnyFeature(_feature))
+            if (!character.HasAnyFeature(feature))
             {
                 return;
             }
@@ -493,14 +475,14 @@ public sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (character.GetRemainingPowerUses(_power) >= character.GetMaxUsesForPool(_power))
+            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
                 return;
             }
 
-            character.LogCharacterUsedFeature(_feature, indent: true);
+            character.LogCharacterUsedFeature(feature, indent: true);
             locCharacter.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
-            character.UpdateUsageForPower(_power, -1);
+            character.UpdateUsageForPower(power, -1);
         }
     }
 
@@ -571,15 +553,11 @@ public sealed class MartialTactician : AbstractSubclass
     }
 #endif
 
-    private sealed class PhysicalAttackInitiatedByMeTacticalAwareness : IPhysicalAttackInitiatedByMe
+    private sealed class PhysicalAttackInitiatedByMeTacticalAwareness(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : IPhysicalAttackInitiatedByMe
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public PhysicalAttackInitiatedByMeTacticalAwareness(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
@@ -595,7 +573,7 @@ public sealed class MartialTactician : AbstractSubclass
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
     }
 }

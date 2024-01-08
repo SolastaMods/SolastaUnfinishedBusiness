@@ -205,19 +205,11 @@ public sealed class MartialDefender : AbstractSubclass
     // Aegis Assault / Aegis Paragon
     //
 
-    private sealed class PhysicalAttackFinishedByMeAegisAssault : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeAegisAssault(
+        FeatureDefinitionPower powerAegisAssault,
+        ConditionDefinition conditionAegisParagon)
+        : IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionAegisParagon;
-        private readonly FeatureDefinitionPower _powerAegisAssault;
-
-        public PhysicalAttackFinishedByMeAegisAssault(
-            FeatureDefinitionPower powerAegisAssault,
-            ConditionDefinition conditionAegisParagon)
-        {
-            _powerAegisAssault = powerAegisAssault;
-            _conditionAegisParagon = conditionAegisParagon;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -259,15 +251,15 @@ public sealed class MartialDefender : AbstractSubclass
                 attacker.UsedSpecialFeatures.TryAdd("AegisParagon", 1);
 
                 rulesetAttacker.InflictCondition(
-                    _conditionAegisParagon.Name,
-                    _conditionAegisParagon.DurationType,
-                    _conditionAegisParagon.DurationParameter,
-                    _conditionAegisParagon.turnOccurence,
+                    conditionAegisParagon.Name,
+                    conditionAegisParagon.DurationType,
+                    conditionAegisParagon.DurationParameter,
+                    conditionAegisParagon.turnOccurence,
                     AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    _conditionAegisParagon.Name,
+                    conditionAegisParagon.Name,
                     0,
                     0,
                     0);
@@ -285,7 +277,7 @@ public sealed class MartialDefender : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(_powerAegisAssault, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerAegisAssault, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

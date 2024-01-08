@@ -6,13 +6,9 @@ using SolastaUnfinishedBusiness.Races;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-internal class CharacterActionWildlingFeralAgility : CharacterAction
+internal class CharacterActionWildlingFeralAgility(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
-    public CharacterActionWildlingFeralAgility(CharacterActionParams actionParams) : base(actionParams)
-    {
-    }
-
     public override IEnumerator ExecuteImpl()
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;

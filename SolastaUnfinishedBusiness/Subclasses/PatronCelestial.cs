@@ -242,14 +242,10 @@ public class PatronCelestial : AbstractSubclass
     // Healing Light
     //
 
-    private sealed class ModifyPowerPoolAmountHealingLight : IModifyPowerPoolAmount
+    private sealed class ModifyPowerPoolAmountHealingLight(FeatureDefinitionPower powerHealingLight)
+        : IModifyPowerPoolAmount
     {
-        public ModifyPowerPoolAmountHealingLight(FeatureDefinitionPower powerHealingLight)
-        {
-            PowerPool = powerHealingLight;
-        }
-
-        public FeatureDefinitionPower PowerPool { get; }
+        public FeatureDefinitionPower PowerPool { get; } = powerHealingLight;
 
         public int PoolChangeAmount(RulesetCharacter character)
         {
@@ -334,15 +330,9 @@ public class PatronCelestial : AbstractSubclass
     // Searing Vengeance
     //
 
-    private sealed class OnReducedToZeroHpByEnemySearingVengeance : IOnReducedToZeroHpByEnemy
+    private sealed class OnReducedToZeroHpByEnemySearingVengeance(FeatureDefinitionPower powerSearingVengeance)
+        : IOnReducedToZeroHpByEnemy
     {
-        private readonly FeatureDefinitionPower _powerSearingVengeance;
-
-        public OnReducedToZeroHpByEnemySearingVengeance(FeatureDefinitionPower powerSearingVengeance)
-        {
-            _powerSearingVengeance = powerSearingVengeance;
-        }
-
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter source,
@@ -356,7 +346,7 @@ public class PatronCelestial : AbstractSubclass
                 yield break;
             }
 
-            if (!rulesetCharacter.CanUsePower(_powerSearingVengeance))
+            if (!rulesetCharacter.CanUsePower(powerSearingVengeance))
             {
                 yield break;
             }
@@ -390,7 +380,7 @@ public class PatronCelestial : AbstractSubclass
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
-            var usablePower = UsablePowersProvider.Get(_powerSearingVengeance, rulesetCharacter);
+            var usablePower = UsablePowersProvider.Get(powerSearingVengeance, rulesetCharacter);
             var targets = battle.Battle.AllContenders
                 .Where(x =>
                     x.IsOppositeSide(source.Side)

@@ -671,15 +671,9 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicEffectInitiatedByMeBoomingStep : IMagicEffectInitiatedByMe
+    private sealed class MagicEffectInitiatedByMeBoomingStep(FeatureDefinitionPower powerExplode)
+        : IMagicEffectInitiatedByMe
     {
-        private readonly FeatureDefinitionPower _powerExplode;
-
-        public MagicEffectInitiatedByMeBoomingStep(FeatureDefinitionPower powerExplode)
-        {
-            _powerExplode = powerExplode;
-        }
-
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -692,7 +686,7 @@ internal static partial class SpellBuilders
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerExplode, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerExplode, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -710,22 +704,16 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class ModifyEffectDescriptionBoomingStepExplode : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionBoomingStepExplode(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerExplode,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionExplode)
+        : IModifyEffectDescription
     {
-        private readonly ConditionDefinition _conditionExplode;
-        private readonly FeatureDefinitionPower _powerExplode;
-
-        public ModifyEffectDescriptionBoomingStepExplode(
-            FeatureDefinitionPower powerExplode,
-            ConditionDefinition conditionExplode)
-        {
-            _powerExplode = powerExplode;
-            _conditionExplode = conditionExplode;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _powerExplode;
+            return definition == powerExplode;
         }
 
         public EffectDescription GetEffectDescription(
@@ -735,7 +723,7 @@ internal static partial class SpellBuilders
             RulesetEffect rulesetEffect)
         {
             if (!character.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, _conditionExplode.Name, out var activeCondition))
+                    AttributeDefinitions.TagEffect, conditionExplode.Name, out var activeCondition))
             {
                 return effectDescription;
             }
@@ -915,22 +903,16 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifyEffectDescriptionLightningArrowLeap : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionLightningArrowLeap(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower featureDefinitionPower,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IModifyEffectDescription
     {
-        private readonly ConditionDefinition _conditionLightningArrow;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
-
-        public ModifyEffectDescriptionLightningArrowLeap(
-            FeatureDefinitionPower featureDefinitionPower,
-            ConditionDefinition conditionDefinition)
-        {
-            _featureDefinitionPower = featureDefinitionPower;
-            _conditionLightningArrow = conditionDefinition;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _featureDefinitionPower;
+            return definition == featureDefinitionPower;
         }
 
         public EffectDescription GetEffectDescription(
@@ -944,7 +926,7 @@ internal static partial class SpellBuilders
 
             if (damageForm != null
                 && glc != null
-                && glc.UsedSpecialFeatures.TryGetValue(_conditionLightningArrow.Name, out var additionalDice))
+                && glc.UsedSpecialFeatures.TryGetValue(conditionDefinition.Name, out var additionalDice))
             {
                 damageForm.diceNumber = 2 + additionalDice;
             }
@@ -953,20 +935,14 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class CustomBehaviorLightningArrow :
-        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorLightningArrow(
+        FeatureDefinitionPower powerLightningArrowLeap,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionLightningArrow)
+        :
+            IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private const int MainTargetDiceNumber = 3;
-        private readonly ConditionDefinition _conditionLightningArrow;
-        private readonly FeatureDefinitionPower _powerLightningArrowLeap;
-
-        public CustomBehaviorLightningArrow(
-            FeatureDefinitionPower powerLightningArrowLeap,
-            ConditionDefinition conditionLightningArrow)
-        {
-            _powerLightningArrowLeap = powerLightningArrowLeap;
-            _conditionLightningArrow = conditionLightningArrow;
-        }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battle,
@@ -990,7 +966,7 @@ internal static partial class SpellBuilders
 
             if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionLightningArrow.Name,
+                    conditionLightningArrow.Name,
                     out var activeCondition))
             {
                 yield break;
@@ -1025,7 +1001,7 @@ internal static partial class SpellBuilders
 
             if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionLightningArrow.Name,
+                    conditionLightningArrow.Name,
                     out var activeCondition))
             {
                 yield break;
@@ -1034,7 +1010,7 @@ internal static partial class SpellBuilders
             // keep a tab on additionalDice for leap power later on
             var additionalDice = activeCondition.EffectLevel - 3;
 
-            attacker.UsedSpecialFeatures.TryAdd(_conditionLightningArrow.Name, additionalDice);
+            attacker.UsedSpecialFeatures.TryAdd(conditionLightningArrow.Name, additionalDice);
 
             rulesetAttacker.RemoveCondition(activeCondition);
 
@@ -1068,7 +1044,7 @@ internal static partial class SpellBuilders
 
             // leap damage on enemies within 10 ft from target
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(_powerLightningArrowLeap, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerLightningArrowLeap, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -1156,23 +1132,17 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ActionFinishedByEnemyCorruptingBolt : IActionFinishedByEnemy
+    private sealed class ActionFinishedByEnemyCorruptingBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionCorruptingBolt,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellCorruptingBolt)
+        : IActionFinishedByEnemy
     {
-        private readonly ConditionDefinition _conditionCorruptingBolt;
-        private readonly SpellDefinition _spellCorruptingBolt;
-
-        public ActionFinishedByEnemyCorruptingBolt(
-            ConditionDefinition conditionCorruptingBolt,
-            SpellDefinition spellCorruptingBolt)
-        {
-            _conditionCorruptingBolt = conditionCorruptingBolt;
-            _spellCorruptingBolt = spellCorruptingBolt;
-        }
-
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
             if (characterAction is CharacterActionCastSpell actionCastSpell &&
-                actionCastSpell.activeSpell.SpellDefinition == _spellCorruptingBolt)
+                actionCastSpell.activeSpell.SpellDefinition == spellCorruptingBolt)
             {
                 yield break;
             }
@@ -1197,7 +1167,7 @@ internal static partial class SpellBuilders
 
             if (!rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionCorruptingBolt.Name,
+                    conditionCorruptingBolt.Name,
                     out var activeCondition))
             {
                 yield break;
@@ -1207,15 +1177,9 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class MagicEffectFinishedByMeCorruptingBolt : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
+        : IMagicEffectFinishedByMe
     {
-        private readonly ConditionDefinition _conditionCorruptingBolt;
-
-        public MagicEffectFinishedByMeCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
-        {
-            _conditionCorruptingBolt = conditionCorruptingBolt;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
@@ -1228,15 +1192,15 @@ internal static partial class SpellBuilders
             }
 
             rulesetDefender.InflictCondition(
-                _conditionCorruptingBolt.Name,
-                _conditionCorruptingBolt.DurationType,
-                _conditionCorruptingBolt.DurationParameter,
-                _conditionCorruptingBolt.TurnOccurence,
+                conditionCorruptingBolt.Name,
+                conditionCorruptingBolt.DurationType,
+                conditionCorruptingBolt.DurationParameter,
+                conditionCorruptingBolt.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionCorruptingBolt.Name,
+                conditionCorruptingBolt.Name,
                 0,
                 0,
                 0);
@@ -1362,15 +1326,11 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorHungerOfTheVoid : ICharacterTurnStartListener, ICharacterTurnEndListener
+    private sealed class CustomBehaviorHungerOfTheVoid(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionHungerOfTheVoid)
+        : ICharacterTurnStartListener, ICharacterTurnEndListener
     {
-        private readonly ConditionDefinition _conditionHungerOfTheVoid;
-
-        public CustomBehaviorHungerOfTheVoid(ConditionDefinition conditionHungerOfTheVoid)
-        {
-            _conditionHungerOfTheVoid = conditionHungerOfTheVoid;
-        }
-
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             InflictDamage(DamageTypeAcid, locationCharacter.RulesetCharacter, VenomousSpike, true);
@@ -1392,7 +1352,7 @@ internal static partial class SpellBuilders
 
             if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionHungerOfTheVoid.Name,
+                    conditionHungerOfTheVoid.Name,
                     out var activeCondition))
             {
                 return;

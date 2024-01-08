@@ -263,15 +263,10 @@ public sealed class RoguishRaven : AbstractSubclass
     // Killing Spree
     //
 
-    private sealed class OnReducedToZeroHpByMeKillingSpree : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeKillingSpree(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IOnReducedToZeroHpByMe
     {
-        private readonly ConditionDefinition _condition;
-
-        public OnReducedToZeroHpByMeKillingSpree(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -283,7 +278,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(_condition.Name))
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
             {
                 yield break;
             }
@@ -297,7 +292,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack.Name);
 
             attacker.RulesetCharacter.InflictCondition(
-                _condition.Name,
+                condition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -305,7 +300,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 attacker.RulesetCharacter.guid,
                 attacker.RulesetCharacter.CurrentFaction.Name,
                 1,
-                _condition.Name,
+                condition.Name,
                 0,
                 0,
                 0);
@@ -316,15 +311,8 @@ public sealed class RoguishRaven : AbstractSubclass
     // Deadly Aim
     //
 
-    private class TryAlterOutcomePhysicalAttackDeadlyAim : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttack
     {
-        private readonly FeatureDefinitionPower _power;
-
-        public TryAlterOutcomePhysicalAttackDeadlyAim(FeatureDefinitionPower power)
-        {
-            _power = power;
-        }
-
         public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager battle,
             CharacterAction action,
@@ -336,7 +324,7 @@ public sealed class RoguishRaven : AbstractSubclass
             var rulesetAttacker = me.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
-                || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0
+                || rulesetAttacker.GetRemainingPowerCharges(power) <= 0
                 || !attackMode.ranged)
             {
                 yield break;
@@ -365,7 +353,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(_power, _power.CostPerUse);
+            rulesetAttacker.UpdateUsageForPower(power, power.CostPerUse);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1
@@ -373,7 +361,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 : "Feedback/&CriticalAttackFailureOutcome";
 
             rulesetAttacker.LogCharacterUsedPower(
-                _power,
+                power,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
@@ -385,7 +373,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _power.Name, _power)],
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, power.Name, power)],
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
@@ -397,7 +385,7 @@ public sealed class RoguishRaven : AbstractSubclass
 
             attackModifier.ignoreAdvantage = false;
             attackModifier.attackAdvantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _power.Name, _power)];
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, power.Name, power)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;

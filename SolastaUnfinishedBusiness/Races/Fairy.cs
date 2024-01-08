@@ -158,15 +158,10 @@ internal static class RaceFairyBuilder
         return raceFairy;
     }
 
-    private sealed class CheckFairyFlying : IOnItemEquipped
+    private sealed class CheckFairyFlying(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IOnItemEquipped
     {
-        private readonly ConditionDefinition _condition;
-
-        public CheckFairyFlying(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
             if (IsFlightValid(hero))
@@ -175,7 +170,7 @@ internal static class RaceFairyBuilder
             }
 
             var rulesetCondition = hero.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _condition);
+                .FirstOrDefault(x => x.ConditionDefinition == condition);
 
             if (rulesetCondition != null)
             {

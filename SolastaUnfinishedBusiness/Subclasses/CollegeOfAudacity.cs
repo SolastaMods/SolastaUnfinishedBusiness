@@ -234,31 +234,21 @@ public sealed class CollegeOfAudacity : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorWhirl :
-        IActionFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorWhirl(
+        ConditionDefinition conditionExtraMovement,
+        ConditionDefinition conditionDefensiveWhirl,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerDefensiveWhirl,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerSlashingWhirl,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerMobileWhirl)
+        :
+            IActionFinishedByMe, IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDefensiveWhirl;
-        private readonly ConditionDefinition _conditionExtraMovement;
-        private readonly FeatureDefinitionPower _powerDefensiveWhirl;
-        private readonly FeatureDefinitionPower _powerMobileWhirl;
-        private readonly FeatureDefinitionPower _powerSlashingWhirl;
         private readonly List<string> _tags = [];
         private bool _criticalHit;
         private string _damageType;
-
-        public CustomBehaviorWhirl(
-            ConditionDefinition conditionExtraMovement,
-            ConditionDefinition conditionDefensiveWhirl,
-            FeatureDefinitionPower powerDefensiveWhirl,
-            FeatureDefinitionPower powerSlashingWhirl,
-            FeatureDefinitionPower powerMobileWhirl)
-        {
-            _conditionExtraMovement = conditionExtraMovement;
-            _conditionDefensiveWhirl = conditionDefensiveWhirl;
-            _powerDefensiveWhirl = powerDefensiveWhirl;
-            _powerSlashingWhirl = powerSlashingWhirl;
-            _powerMobileWhirl = powerMobileWhirl;
-        }
 
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
@@ -274,7 +264,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
             var power = action.activePower.PowerDefinition;
 
-            if (power != _powerDefensiveWhirl && power != _powerSlashingWhirl && power != _powerMobileWhirl)
+            if (power != powerDefensiveWhirl && power != powerSlashingWhirl && power != powerMobileWhirl)
             {
                 yield break;
             }
@@ -305,29 +295,29 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 rulesetCharacter.RollDamage(damageForm, 0, _criticalHit, 0, 0, 1, false, false, false, rolls);
 
             // add damage whirl condition and target
-            if (power == _powerDefensiveWhirl)
+            if (power == powerDefensiveWhirl)
             {
                 targetCharacters.Add(action.ActionParams.TargetCharacters[0]);
 
                 var firstRoll = rolls[0];
 
                 rulesetCharacter.InflictCondition(
-                    _conditionDefensiveWhirl.Name,
-                    _conditionDefensiveWhirl.DurationType,
-                    _conditionDefensiveWhirl.DurationParameter,
-                    _conditionDefensiveWhirl.TurnOccurence,
+                    conditionDefensiveWhirl.Name,
+                    conditionDefensiveWhirl.DurationType,
+                    conditionDefensiveWhirl.DurationParameter,
+                    conditionDefensiveWhirl.TurnOccurence,
                     AttributeDefinitions.TagEffect,
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    _conditionDefensiveWhirl.Name,
+                    conditionDefensiveWhirl.Name,
                     firstRoll,
                     0,
                     0);
             }
 
             // add mobile whirl condition and target
-            else if (power == _powerMobileWhirl)
+            else if (power == powerMobileWhirl)
             {
                 targetCharacters.Add(action.ActionParams.TargetCharacters[0]);
 
@@ -350,7 +340,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             }
 
             // add slashing whirl targets
-            else if (power == _powerSlashingWhirl)
+            else if (power == powerSlashingWhirl)
             {
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
@@ -452,18 +442,18 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                 yield break;
             }
 
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionExtraMovement.Name))
+            if (!rulesetCharacter.HasAnyConditionOfType(conditionExtraMovement.Name))
             {
                 rulesetCharacter.InflictCondition(
-                    _conditionExtraMovement.Name,
-                    _conditionExtraMovement.DurationType,
-                    _conditionExtraMovement.DurationParameter,
-                    _conditionExtraMovement.TurnOccurence,
+                    conditionExtraMovement.Name,
+                    conditionExtraMovement.DurationType,
+                    conditionExtraMovement.DurationParameter,
+                    conditionExtraMovement.TurnOccurence,
                     AttributeDefinitions.TagEffect,
                     attacker.RulesetCharacter.guid,
                     attacker.RulesetCharacter.CurrentFaction.Name,
                     1,
-                    _conditionExtraMovement.Name,
+                    conditionExtraMovement.Name,
                     0,
                     0,
                     0);

@@ -310,15 +310,11 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorBlessingOfRime : IActionFinishedByEnemy, IRollSavingThrowInitiated
+    private sealed class CustomBehaviorBlessingOfRime(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellDefinition)
+        : IActionFinishedByEnemy, IRollSavingThrowInitiated
     {
-        private readonly SpellDefinition _spellDefinition;
-
-        public CustomBehaviorBlessingOfRime(SpellDefinition spellDefinition)
-        {
-            _spellDefinition = spellDefinition;
-        }
-
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
             var rulesetCharacter = target.RulesetCharacter;
@@ -349,7 +345,7 @@ internal static partial class SpellBuilders
             if (abilityScoreName == AttributeDefinitions.Constitution)
             {
                 advantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
+                    new TrendInfo(1, FeatureSourceType.Spell, spellDefinition.Name, spellDefinition));
             }
         }
     }
@@ -471,15 +467,11 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifySavingThrowAuraOfPerseverance : IRollSavingThrowInitiated
+    private sealed class ModifySavingThrowAuraOfPerseverance(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellDefinition)
+        : IRollSavingThrowInitiated
     {
-        private readonly SpellDefinition _spellDefinition;
-
-        public ModifySavingThrowAuraOfPerseverance(SpellDefinition spellDefinition)
-        {
-            _spellDefinition = spellDefinition;
-        }
-
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
@@ -507,7 +499,7 @@ internal static partial class SpellBuilders
                             .Name))))
             {
                 advantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.Spell, _spellDefinition.Name, _spellDefinition));
+                    new TrendInfo(1, FeatureSourceType.Spell, spellDefinition.Name, spellDefinition));
             }
         }
     }
@@ -652,15 +644,11 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ModifyAttackActionModifierBeast : IModifyAttackActionModifier
+    private sealed class ModifyAttackActionModifierBeast(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionBeast)
+        : IModifyAttackActionModifier
     {
-        private readonly ConditionDefinition _conditionBeast;
-
-        public ModifyAttackActionModifierBeast(ConditionDefinition conditionBeast)
-        {
-            _conditionBeast = conditionBeast;
-        }
-
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -672,20 +660,16 @@ internal static partial class SpellBuilders
             if (attackMode?.AbilityScore == AttributeDefinitions.Strength)
             {
                 attackModifier.attackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.Condition, _conditionBeast.Name, _conditionBeast));
+                    new TrendInfo(1, FeatureSourceType.Condition, conditionBeast.Name, conditionBeast));
             }
         }
     }
 
-    private sealed class CustomBehaviorTree : IModifyAttackActionModifier, IRollSavingThrowInitiated
+    private sealed class CustomBehaviorTree(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionTree)
+        : IModifyAttackActionModifier, IRollSavingThrowInitiated
     {
-        private readonly ConditionDefinition _conditionTree;
-
-        public CustomBehaviorTree(ConditionDefinition conditionTree)
-        {
-            _conditionTree = conditionTree;
-        }
-
         public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -701,7 +685,7 @@ internal static partial class SpellBuilders
                 || attackProximity == BattleDefinitions.AttackProximity.MagicReach)
             {
                 attackModifier.attackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
+                    new TrendInfo(1, FeatureSourceType.Condition, conditionTree.Name, conditionTree));
             }
         }
 
@@ -722,7 +706,7 @@ internal static partial class SpellBuilders
             if (abilityScoreName == AttributeDefinitions.Constitution)
             {
                 advantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.Condition, _conditionTree.Name, _conditionTree));
+                    new TrendInfo(1, FeatureSourceType.Condition, conditionTree.Name, conditionTree));
             }
         }
     }

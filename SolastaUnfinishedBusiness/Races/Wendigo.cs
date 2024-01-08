@@ -108,12 +108,9 @@ internal static class RaceWendigoBuilder
         return raceWendigo;
     }
 
-    private class CustomAdditionalDamageSuckerPunch : CustomAdditionalDamage
+    private class CustomAdditionalDamageSuckerPunch(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider)
     {
-        public CustomAdditionalDamageSuckerPunch(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
         internal override bool IsValid(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

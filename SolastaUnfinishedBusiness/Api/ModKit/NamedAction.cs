@@ -5,64 +5,35 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public class NamedAction
+public class NamedAction(string name, Action action, Func<bool> canPerform = null)
 {
-    public NamedAction(string name, Action action, Func<bool> canPerform = null)
-    {
-        Name = name;
-        Action = action;
-        CanPerform = canPerform ?? (() => true);
-    }
-
-    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
-    [UsedImplicitly] public Action Action { [UsedImplicitly] get; }
-    [UsedImplicitly] public Func<bool> CanPerform { [UsedImplicitly] get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; } = name;
+    [UsedImplicitly] public Action Action { [UsedImplicitly] get; } = action;
+    [UsedImplicitly] public Func<bool> CanPerform { [UsedImplicitly] get; } = canPerform ?? (() => true);
 }
 
-public class NamedAction<T>
+public class NamedAction<T>(string name, Action<T> action, Func<T, bool> canPerform = null)
 {
-    public NamedAction(string name, Action<T> action, Func<T, bool> canPerform = null)
-    {
-        Name = name;
-        Action = action;
-        CanPerform = canPerform ?? (_ => true);
-    }
-
-    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
-    [UsedImplicitly] public Action<T> Action { [UsedImplicitly] get; }
-    [UsedImplicitly] public Func<T, bool> CanPerform { [UsedImplicitly] get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; } = name;
+    [UsedImplicitly] public Action<T> Action { [UsedImplicitly] get; } = action;
+    [UsedImplicitly] public Func<T, bool> CanPerform { [UsedImplicitly] get; } = canPerform ?? (_ => true);
 }
 
-public class NamedFunc<T>
+public class NamedFunc<T>(string name, Func<T> func, Func<bool> canPerform = null)
 {
-    public NamedFunc(string name, Func<T> func, Func<bool> canPerform = null)
-    {
-        Name = name;
-        Func = func;
-        CanPerform = canPerform ?? (() => true);
-    }
-
-    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
-    [UsedImplicitly] public Func<T> Func { [UsedImplicitly] get; }
-    [UsedImplicitly] public Func<bool> CanPerform { [UsedImplicitly] get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; } = name;
+    [UsedImplicitly] public Func<T> Func { [UsedImplicitly] get; } = func;
+    [UsedImplicitly] public Func<bool> CanPerform { [UsedImplicitly] get; } = canPerform ?? (() => true);
 }
 
-public class NamedMutator<TV, T>
+public class NamedMutator<TV, T>(
+    string name,
+    Action<TV, T, int> action,
+    Func<TV, T, bool> canPerform = null,
+    bool isRepeatable = false)
 {
-    public NamedMutator(
-        string name,
-        Action<TV, T, int> action,
-        Func<TV, T, bool> canPerform = null,
-        bool isRepeatable = false)
-    {
-        Name = name;
-        Action = action;
-        CanPerform = canPerform ?? ((_, _) => true);
-        IsRepeatable = isRepeatable;
-    }
-
-    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
-    [UsedImplicitly] public Action<TV, T, int> Action { [UsedImplicitly] get; }
-    [UsedImplicitly] public Func<TV, T, bool> CanPerform { [UsedImplicitly] get; }
-    [UsedImplicitly] public bool IsRepeatable { [UsedImplicitly] get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; } = name;
+    [UsedImplicitly] public Action<TV, T, int> Action { [UsedImplicitly] get; } = action;
+    [UsedImplicitly] public Func<TV, T, bool> CanPerform { [UsedImplicitly] get; } = canPerform ?? ((_, _) => true);
+    [UsedImplicitly] public bool IsRepeatable { [UsedImplicitly] get; } = isRepeatable;
 }

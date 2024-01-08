@@ -642,15 +642,10 @@ public static class ActionSwitching
         data.LoadSpellcasting(character, type);
     }
 
-    private sealed class OnReducedToZeroHpByMeHordeBreaker : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeHordeBreaker(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IOnReducedToZeroHpByMe
     {
-        private readonly ConditionDefinition _condition;
-
-        public OnReducedToZeroHpByMeHordeBreaker(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -662,7 +657,7 @@ public static class ActionSwitching
                 yield break;
             }
 
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(_condition.Name))
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
             {
                 yield break;
             }
@@ -673,7 +668,7 @@ public static class ActionSwitching
             }
 
             attacker.RulesetCharacter.InflictCondition(
-                _condition.Name,
+                condition.Name,
                 RuleDefinitions.DurationType.Round,
                 0,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn,
@@ -681,7 +676,7 @@ public static class ActionSwitching
                 attacker.RulesetCharacter.guid,
                 attacker.RulesetCharacter.CurrentFaction.Name,
                 1,
-                _condition.Name,
+                condition.Name,
                 0,
                 0,
                 0);

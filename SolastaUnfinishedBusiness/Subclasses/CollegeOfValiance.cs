@@ -159,16 +159,10 @@ public sealed class CollegeOfValiance : AbstractSubclass
         }
     }
 
-    private sealed class RollSavingThrowFinishedDishearteningPerformance : IRollSavingThrowFinished
+    private sealed class RollSavingThrowFinishedDishearteningPerformance(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDishearteningPerformance) : IRollSavingThrowFinished
     {
-        private readonly ConditionDefinition _conditionDishearteningPerformance;
-
-        public RollSavingThrowFinishedDishearteningPerformance(
-            ConditionDefinition conditionDishearteningPerformance)
-        {
-            _conditionDishearteningPerformance = conditionDishearteningPerformance;
-        }
-
         public void OnSavingThrowFinished(
             RulesetCharacter caster,
             RulesetCharacter defender,
@@ -191,7 +185,7 @@ public sealed class CollegeOfValiance : AbstractSubclass
 
             defender.TryGetConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect,
-                _conditionDishearteningPerformance.Name,
+                conditionDishearteningPerformance.Name,
                 out var activeCondition);
 
             if (activeCondition == null)

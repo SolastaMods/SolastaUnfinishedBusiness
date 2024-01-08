@@ -339,15 +339,9 @@ public sealed class SorcerousPsion : AbstractSubclass
     // Mind over Matter
     //
 
-    private sealed class OnReducedToZeroHpByEnemyMindOverMatter : IOnReducedToZeroHpByEnemy
+    private sealed class OnReducedToZeroHpByEnemyMindOverMatter(FeatureDefinitionPower powerMindOverMatter)
+        : IOnReducedToZeroHpByEnemy
     {
-        private readonly FeatureDefinitionPower _powerMindOverMatter;
-
-        public OnReducedToZeroHpByEnemyMindOverMatter(FeatureDefinitionPower powerMindOverMatter)
-        {
-            _powerMindOverMatter = powerMindOverMatter;
-        }
-
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter source,
@@ -361,7 +355,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-            if (!rulesetCharacter.CanUsePower(_powerMindOverMatter))
+            if (!rulesetCharacter.CanUsePower(powerMindOverMatter))
             {
                 yield break;
             }
@@ -397,7 +391,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
-            var usablePower = UsablePowersProvider.Get(_powerMindOverMatter, rulesetCharacter);
+            var usablePower = UsablePowersProvider.Get(powerMindOverMatter, rulesetCharacter);
             var targets = battle.Battle.AllContenders
                 .Where(x =>
                     x.IsOppositeSide(source.Side)
@@ -429,15 +423,10 @@ public sealed class SorcerousPsion : AbstractSubclass
     // Supreme Will
     //
 
-    private sealed class CustomBehaviorSupremeWill : IModifyConcentrationRequirement, IActionFinishedByMe
+    private sealed class CustomBehaviorSupremeWill(FeatureDefinitionPower powerSupremeWill)
+        : IModifyConcentrationRequirement, IActionFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerSupremeWill;
         private bool _hasConcentrationChanged;
-
-        public CustomBehaviorSupremeWill(FeatureDefinitionPower powerSupremeWill)
-        {
-            _powerSupremeWill = powerSupremeWill;
-        }
 
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
@@ -454,7 +443,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             _hasConcentrationChanged = false;
 
             var character = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerSupremeWill, character);
+            var usablePower = UsablePowersProvider.Get(powerSupremeWill, character);
 
             character.UsePower(usablePower);
             character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
@@ -468,7 +457,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
             }
 
-            if (!rulesetCharacter.CanUsePower(_powerSupremeWill))
+            if (!rulesetCharacter.CanUsePower(powerSupremeWill))
             {
                 return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
             }

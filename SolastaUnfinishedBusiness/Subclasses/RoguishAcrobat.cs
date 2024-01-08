@@ -193,19 +193,11 @@ public sealed class RoguishAcrobat : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge : IAttackBeforeHitConfirmedOnMe
+    private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(
+        FeatureDefinitionPower featureDefinitionPower,
+        ConditionDefinition conditionDefinition)
+        : IAttackBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
-
-        public AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(
-            FeatureDefinitionPower featureDefinitionPower,
-            ConditionDefinition conditionDefinition)
-        {
-            _featureDefinitionPower = featureDefinitionPower;
-            _conditionDefinition = conditionDefinition;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
@@ -231,7 +223,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
             var rulesetMe = me.RulesetCharacter;
 
-            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
+            if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
@@ -244,7 +236,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
+            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
@@ -263,17 +255,17 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+            rulesetMe.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
             rulesetMe.InflictCondition(
-                _conditionDefinition.Name,
-                _conditionDefinition.DurationType,
-                _conditionDefinition.DurationParameter,
-                _conditionDefinition.TurnOccurence,
+                conditionDefinition.Name,
+                conditionDefinition.DurationType,
+                conditionDefinition.DurationParameter,
+                conditionDefinition.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 rulesetMe.guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);

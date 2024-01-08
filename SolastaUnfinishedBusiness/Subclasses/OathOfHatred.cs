@@ -253,15 +253,11 @@ public sealed class OathOfHatred : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorArdentHate : IModifyDamageAffinity, ITryAlterOutcomePhysicalAttack
+    private sealed class CustomBehaviorArdentHate(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower power)
+        : IModifyDamageAffinity, ITryAlterOutcomePhysicalAttack
     {
-        private readonly FeatureDefinitionPower _power;
-
-        public CustomBehaviorArdentHate(FeatureDefinitionPower power)
-        {
-            _power = power;
-        }
-
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
             features.RemoveAll(x =>
@@ -278,7 +274,7 @@ public sealed class OathOfHatred : AbstractSubclass
             var rulesetAttacker = me.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                !me.OncePerTurnIsValid(_power.Name))
+                !me.OncePerTurnIsValid(power.Name))
             {
                 yield break;
             }
@@ -311,7 +307,7 @@ public sealed class OathOfHatred : AbstractSubclass
                 yield break;
             }
 
-            me.UsedSpecialFeatures.TryAdd(_power.Name, 1);
+            me.UsedSpecialFeatures.TryAdd(power.Name, 1);
             action.AttackRoll += -action.AttackSuccessDelta;
             action.AttackSuccessDelta = 0;
             action.AttackRollOutcome = RollOutcome.Success;

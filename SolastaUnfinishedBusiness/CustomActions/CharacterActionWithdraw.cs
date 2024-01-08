@@ -6,14 +6,10 @@ using static RuleDefinitions;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionWithdraw : CharacterAction
+public class CharacterActionWithdraw(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
     private bool _wasAlreadyDisengaging;
-
-    public CharacterActionWithdraw(CharacterActionParams actionParams) : base(actionParams)
-    {
-    }
 
     public override IEnumerator ExecuteImpl()
     {

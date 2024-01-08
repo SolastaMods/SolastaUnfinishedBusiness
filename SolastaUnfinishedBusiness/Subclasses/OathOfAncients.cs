@@ -306,15 +306,9 @@ public sealed class OathOfAncients : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorElderChampion : ICharacterTurnStartListener, IActionFinishedByMe
+    private sealed class CustomBehaviorElderChampion(ConditionDefinition conditionElderChampionAdditionalAttack)
+        : ICharacterTurnStartListener, IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionElderChampionAdditionalAttack;
-
-        public CustomBehaviorElderChampion(ConditionDefinition conditionElderChampionAdditionalAttack)
-        {
-            _conditionElderChampionAdditionalAttack = conditionElderChampionAdditionalAttack;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction.ActionType != ActionDefinitions.ActionType.Main ||
@@ -333,15 +327,15 @@ public sealed class OathOfAncients : AbstractSubclass
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
-                _conditionElderChampionAdditionalAttack.Name,
-                _conditionElderChampionAdditionalAttack.DurationType,
-                _conditionElderChampionAdditionalAttack.DurationParameter,
-                _conditionElderChampionAdditionalAttack.TurnOccurence,
+                conditionElderChampionAdditionalAttack.Name,
+                conditionElderChampionAdditionalAttack.DurationType,
+                conditionElderChampionAdditionalAttack.DurationParameter,
+                conditionElderChampionAdditionalAttack.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _conditionElderChampionAdditionalAttack.Name,
+                conditionElderChampionAdditionalAttack.Name,
                 0,
                 0,
                 0);

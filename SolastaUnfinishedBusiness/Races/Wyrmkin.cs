@@ -216,17 +216,13 @@ internal static class RaceWyrmkinBuilder
         return raceHighWyrmkin;
     }
 
-    private sealed class CaveWyrmkinShovingAttack : IPhysicalAttackFinishedByMe
+    private sealed class CaveWyrmkinShovingAttack(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition parentFeature,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionShoveAttack)
+        : IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinition _parentFeature;
-
-        public CaveWyrmkinShovingAttack(FeatureDefinition parentFeature, ConditionDefinition conditionShoveAttack)
-        {
-            _conditionDefinition = conditionShoveAttack;
-            _parentFeature = parentFeature;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -258,14 +254,14 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            if (character.HasConditionOfType(_conditionDefinition.Name))
+            if (character.HasConditionOfType(conditionShoveAttack.Name))
             {
                 yield break;
             }
 
-            character.LogCharacterUsedFeature(_parentFeature);
+            character.LogCharacterUsedFeature(parentFeature);
             character.InflictCondition(
-                _conditionDefinition.Name,
+                conditionShoveAttack.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -273,26 +269,20 @@ internal static class RaceWyrmkinBuilder
                 character.guid,
                 character.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionShoveAttack.Name,
                 0,
                 0,
                 0);
         }
     }
 
-    private sealed class AfterActionFinishedByMeCaveWyrmkinChargingStrike : IActionFinishedByMe
+    private sealed class AfterActionFinishedByMeCaveWyrmkinChargingStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition parentFeature,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionChargingStrike)
+        : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinition _parentFeature;
-
-        public AfterActionFinishedByMeCaveWyrmkinChargingStrike(
-            FeatureDefinition parentFeature,
-            ConditionDefinition conditionChargingStrike)
-        {
-            _conditionDefinition = conditionChargingStrike;
-            _parentFeature = parentFeature;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action.ActionId != Id.DashMain)
@@ -307,9 +297,9 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            character.LogCharacterUsedFeature(_parentFeature);
+            character.LogCharacterUsedFeature(parentFeature);
             character.InflictCondition(
-                _conditionDefinition.Name,
+                conditionChargingStrike.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -317,22 +307,16 @@ internal static class RaceWyrmkinBuilder
                 character.guid,
                 character.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionChargingStrike.Name,
                 0,
                 0,
                 0);
         }
     }
 
-    private class ReactToAttackOnMeReactiveRetribution : IPhysicalAttackFinishedOnMe
+    private class ReactToAttackOnMeReactiveRetribution(FeatureDefinitionPower powerHighWyrmkinSwiftRetribution)
+        : IPhysicalAttackFinishedOnMe
     {
-        private readonly FeatureDefinitionPower _pool;
-
-        public ReactToAttackOnMeReactiveRetribution(FeatureDefinitionPower powerHighWyrmkinSwiftRetribution)
-        {
-            _pool = powerHighWyrmkinSwiftRetribution;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -362,7 +346,7 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            if (defender.RulesetCharacter.GetRemainingPowerCharges(_pool) <= 0)
+            if (defender.RulesetCharacter.GetRemainingPowerCharges(powerHighWyrmkinSwiftRetribution) <= 0)
             {
                 yield break;
             }
@@ -405,7 +389,7 @@ internal static class RaceWyrmkinBuilder
 
             if (reactionParams.ReactionValidated)
             {
-                rulesetCharacter.UsePower(UsablePowersProvider.Get(_pool, rulesetCharacter));
+                rulesetCharacter.UsePower(UsablePowersProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetCharacter));
             }
         }
     }

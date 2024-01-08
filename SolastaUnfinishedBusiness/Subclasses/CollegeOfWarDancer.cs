@@ -330,15 +330,11 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class WarDanceFlurryWeaponAttackModifier : ModifyWeaponAttackModeBase
+    private sealed class WarDanceFlurryWeaponAttackModifier() : ModifyWeaponAttackModeBase(ValidatorsWeapon.IsMelee)
     {
         private const int LightMomentumModifier = -2;
         private const int MomentumModifier = -3;
         private const int HeavyMomentumModifier = -4;
-
-        public WarDanceFlurryWeaponAttackModifier() : base(ValidatorsWeapon.IsMelee)
-        {
-        }
 
         protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {

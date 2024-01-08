@@ -631,15 +631,15 @@ internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
     }
 }
 
-internal abstract class ChildOfStructNode<TParent, TParentInst, TNode> : ChildNode<TParent, TNode>
+internal abstract class ChildOfStructNode<TParent, TParentInst, TNode>(
+    GenericNode<TParent> parentNode,
+    string name,
+    NodeType nodeType)
+    : ChildNode<TParent, TNode>(parentNode,
+        name, nodeType)
     where TParentInst : struct
 {
     private readonly Func<TParent, TParentInst> _forceCast = UnsafeForceCast.GetDelegate<TParent, TParentInst>();
-
-    protected ChildOfStructNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(parentNode,
-        name, nodeType)
-    {
-    }
 
     protected bool TryGetParentValue(out TParentInst value)
     {
@@ -654,15 +654,14 @@ internal abstract class ChildOfStructNode<TParent, TParentInst, TNode> : ChildNo
     }
 }
 
-internal abstract class ChildOfNullableNode<TParent, TUnderlying, TNode> : ChildNode<TParent, TNode>
+internal abstract class ChildOfNullableNode<TParent, TUnderlying, TNode>(
+    GenericNode<TParent> parentNode,
+    string name,
+    NodeType nodeType)
+    : ChildNode<TParent, TNode>(parentNode, name, nodeType)
     where TUnderlying : struct
 {
     private readonly Func<TParent, TUnderlying?> _forceCast = UnsafeForceCast.GetDelegate<TParent, TUnderlying?>();
-
-    protected ChildOfNullableNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(
-        parentNode, name, nodeType)
-    {
-    }
 
     protected bool TryGetParentValue(out TUnderlying value)
     {
@@ -681,14 +680,14 @@ internal abstract class ChildOfNullableNode<TParent, TUnderlying, TNode> : Child
     }
 }
 
-internal abstract class ChildOfClassNode<TParent, TParentInst, TNode> : ChildNode<TParent, TNode>
+internal abstract class ChildOfClassNode<TParent, TParentInst, TNode>(
+    GenericNode<TParent> parentNode,
+    string name,
+    NodeType nodeType)
+    : ChildNode<TParent, TNode>(parentNode,
+        name, nodeType)
     where TParentInst : class
 {
-    protected ChildOfClassNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(parentNode,
-        name, nodeType)
-    {
-    }
-
     protected bool TryGetParentValue(out TParentInst value)
     {
         if (ParentNode.TryGetTarget(out var parent) && (value = parent.Value as TParentInst) != null)

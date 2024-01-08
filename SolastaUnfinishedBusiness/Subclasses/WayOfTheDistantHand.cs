@@ -420,15 +420,10 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
         }
     }
 
-    private sealed class UpgradeFlurry : IActionFinishedByMe
+    private sealed class UpgradeFlurry(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _condition;
-
-        public UpgradeFlurry(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionFlurryOfBlows)
@@ -439,7 +434,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
-                _condition.Name,
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -447,7 +442,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _condition.Name,
+                condition.Name,
                 0,
                 0,
                 0);

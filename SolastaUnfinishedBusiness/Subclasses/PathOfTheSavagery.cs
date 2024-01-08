@@ -177,15 +177,9 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         abilityScoreName = AttributeDefinitions.Strength;
     }
 
-    private sealed class PhysicalAttackAfterDamageUnbridledFerocity : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
+        : IPhysicalAttackAfterDamage
     {
-        private readonly ConditionDefinition _conditionUnbridledFerocity;
-
-        public PhysicalAttackAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
-        {
-            _conditionUnbridledFerocity = conditionUnbridledFerocity;
-        }
-
         public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -205,20 +199,20 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             if (outcome == RollOutcome.CriticalSuccess)
             {
                 rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, _conditionUnbridledFerocity.Name);
+                    AttributeDefinitions.TagEffect, conditionUnbridledFerocity.Name);
             }
             else if (outcome == RollOutcome.Success && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 rulesetAttacker.InflictCondition(
-                    _conditionUnbridledFerocity.Name,
-                    _conditionUnbridledFerocity.DurationType,
-                    _conditionUnbridledFerocity.DurationParameter,
-                    _conditionUnbridledFerocity.turnOccurence,
+                    conditionUnbridledFerocity.Name,
+                    conditionUnbridledFerocity.DurationType,
+                    conditionUnbridledFerocity.DurationParameter,
+                    conditionUnbridledFerocity.turnOccurence,
                     AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    _conditionUnbridledFerocity.Name,
+                    conditionUnbridledFerocity.Name,
                     0,
                     0,
                     0);

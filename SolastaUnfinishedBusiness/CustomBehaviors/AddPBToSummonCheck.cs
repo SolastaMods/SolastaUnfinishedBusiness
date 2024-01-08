@@ -5,20 +5,11 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class AddPBToSummonCheck
+public class AddPBToSummonCheck(int multiplier, params string[] abilities)
 {
-    private readonly string[] _abilities;
-    private readonly int _multiplier;
-
-    public AddPBToSummonCheck(int multiplier, params string[] abilities)
-    {
-        _multiplier = multiplier;
-        _abilities = abilities;
-    }
-
     private int Modifier(string ability)
     {
-        return _abilities.Contains(ability) ? _multiplier : 0;
+        return abilities.Contains(ability) ? multiplier : 0;
     }
 
     public static void ModifyCheckBonus<T>(

@@ -388,19 +388,13 @@ public sealed class InnovationVitriolist : AbstractSubclass
     // Refund Mixture
     //
 
-    private sealed class CustomBehaviorRefundMixture : IValidatePowerUse, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorRefundMixture(FeatureDefinitionPower powerMixture)
+        : IValidatePowerUse, IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerMixture;
-
-        public CustomBehaviorRefundMixture(FeatureDefinitionPower powerMixture)
-        {
-            _powerMixture = powerMixture;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerMixture, rulesetCharacter);
+            var usablePower = UsablePowersProvider.Get(powerMixture, rulesetCharacter);
 
             rulesetCharacter.RepayPowerUse(usablePower);
 
@@ -425,7 +419,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                 return false;
             }
 
-            var canUsePowerMixture = character.CanUsePower(_powerMixture);
+            var canUsePowerMixture = character.CanUsePower(powerMixture);
             var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
 
             return !canUsePowerMixture && hasSpellSlotsAvailable;

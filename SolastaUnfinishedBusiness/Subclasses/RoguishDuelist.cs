@@ -124,20 +124,12 @@ public sealed class RoguishDuelist : AbstractSubclass
     // Reflexive Party
     //
 
-    private sealed class AttackBeforeHitConfirmedOnMeReflexiveParty :
-        IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+    private sealed class AttackBeforeHitConfirmedOnMeReflexiveParty(
+        FeatureDefinition featureDefinition,
+        ConditionDefinition conditionDefinition)
+        :
+            IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinition _featureDefinition;
-
-        public AttackBeforeHitConfirmedOnMeReflexiveParty(
-            FeatureDefinition featureDefinition,
-            ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-            _featureDefinition = featureDefinition;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -154,7 +146,7 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetDefender.HasAnyConditionOfTypeOrSubType(
-                    _conditionDefinition.Name,
+                    conditionDefinition.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
                     ConditionDefinitions.ConditionSlowed.Name))
@@ -163,7 +155,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             }
 
             attackModifier.DefenderDamageMultiplier *= 0.5f;
-            rulesetDefender.DamageHalved(rulesetDefender, _featureDefinition);
+            rulesetDefender.DamageHalved(rulesetDefender, featureDefinition);
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -188,15 +180,15 @@ public sealed class RoguishDuelist : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             rulesetDefender.InflictCondition(
-                _conditionDefinition.Name,
-                _conditionDefinition.DurationType,
-                _conditionDefinition.DurationParameter,
-                _conditionDefinition.TurnOccurence,
+                conditionDefinition.Name,
+                conditionDefinition.DurationType,
+                conditionDefinition.DurationParameter,
+                conditionDefinition.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);
@@ -207,15 +199,9 @@ public sealed class RoguishDuelist : AbstractSubclass
     // Master Duelist
     //
 
-    private class TryAlterOutcomePhysicalAttackMasterDuelist : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackMasterDuelist(FeatureDefinitionPower power)
+        : ITryAlterOutcomePhysicalAttack
     {
-        private readonly FeatureDefinitionPower _power;
-
-        public TryAlterOutcomePhysicalAttackMasterDuelist(FeatureDefinitionPower power)
-        {
-            _power = power;
-        }
-
         public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager battle,
             CharacterAction action,
@@ -227,7 +213,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             var rulesetAttacker = me.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker.GetRemainingPowerCharges(_power) <= 0)
+                rulesetAttacker.GetRemainingPowerCharges(power) <= 0)
             {
                 yield break;
             }
@@ -255,14 +241,14 @@ public sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(_power, _power.CostPerUse);
+            rulesetAttacker.UpdateUsageForPower(power, power.CostPerUse);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            rulesetAttacker.LogCharacterUsedPower(_power,
+            rulesetAttacker.LogCharacterUsedPower(power,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
@@ -274,7 +260,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _power.Name, _power)],
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, power.Name, power)],
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
@@ -286,7 +272,7 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             attackModifier.ignoreAdvantage = false;
             attackModifier.attackAdvantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _power.Name, _power)];
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, power.Name, power)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;
