@@ -120,6 +120,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .SetParentCondition(conditionBarkWard)
             .SetFeatures(
                 FeatureDefinitionDamageAffinityBuilder
                     .Create($"DamageAffinity{Name}ImprovedBarkWard")
@@ -175,6 +176,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesFixed(ActivationTime.NoCost)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
         // connect them all together
@@ -296,7 +298,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         {
             if (attackMode != null)
             {
-                _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0;
+                _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
+                                 defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
+                                 ValidatorsWeapon.IsMelee(attackMode);
             }
 
             yield break;
@@ -311,7 +315,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0;
+            _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
+                             defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
+                             rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.Touch;
 
             yield break;
         }

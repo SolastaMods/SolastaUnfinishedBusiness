@@ -1,6 +1,6 @@
-Condition/&ConditionForestGuardianBarkWardDescription=你在每个回合开始时获得 4 点临时生命值。 6级时临时生命值增加至6。
+Condition/&ConditionForestGuardianBarkWardDescription=你在每个回合开始时获得 4 点临时生命值。 6级时临时生命值增加至6。如果您丧失行为能力，此效果会提前结束。
 Condition/&ConditionForestGuardianBarkWardTitle=树皮病房
-Condition/&ConditionForestGuardianImprovedBarkWardDescription=你在每个回合开始时获得 8 点临时生命值。 14级时临时生命值增加至10。此外，你免疫毒药伤害，并且当你有临时生命值时，你会对 5 英尺内击中你的生物造成 2d8 穿刺伤害。
+Condition/&ConditionForestGuardianImprovedBarkWardDescription=你在每个回合开始时获得 8 点临时生命值。 14级时临时生命值增加至10。此外，你免疫毒药伤害，并且当你有任何临时生命值时，你会对通过近战攻击击中你的生物造成 2d8 穿刺伤害。如果您丧失行为能力，此效果会提前结束。
 Condition/&ConditionForestGuardianImprovedBarkWardTitle=改良树皮结界
 Feature/&AttackModifierForestGuardianSylvanDurabilityDescription=你的非双手武器攻击算作魔法攻击，你可以使用你的施法修正值来进行攻击和伤害检定。如果你有两种武器的战斗风格，这些变化也适用于你的副手攻击。
 Feature/&AttackModifierForestGuardianSylvanDurabilityTitle=森林魔法
@@ -8,7 +8,7 @@ Feature/&AttributeModifierForestGuardianSylvanDurabilityDescription=森林守护
 Feature/&AttributeModifierForestGuardianSylvanDurabilityTitle=森林耐久性
 Feature/&PowerSharedPoolForestGuardianBarkWardDescription=您可以使用奖励动作并使用狂野形状功能来用再生树皮覆盖自己。当树皮激活时，你在每个回合开始时获得 4 点临时生命值，包括使用此功能的回合。 6级时临时生命值增加至6点，10级时力量提升。吠叫持续一分钟，或直到您丧失行为能力。
 Feature/&PowerSharedPoolForestGuardianBarkWardTitle=树皮病房
-Feature/&PowerSharedPoolForestGuardianImprovedBarkWardDescription=您可以使用奖励动作并使用狂野形状功能来用再生树皮覆盖自己。当树皮激活时，你在每个回合开始时获得 8 点临时生命值，包括使用此功能的回合。 14级时临时生命值增加至10。此外，你对毒药伤害免疫，并且当你有临时生命值时，每当一个生物在 5 英尺内对你造成伤害时，该生物会受到 2d8 穿刺伤害。改善后的吠叫会持续一分钟，或者直到你失去行为能力。
+Feature/&PowerSharedPoolForestGuardianImprovedBarkWardDescription=您可以使用奖励动作并使用狂野形状功能来用再生树皮覆盖自己。当树皮激活时，你在每个回合开始时获得 8 点临时生命值，包括使用此功能的回合。 14级时临时生命值增加至10。此外，当树皮守卫处于活动状态时，你具有毒药免疫能力，并且每当一个生物在你的 5 英尺范围内用近战武器攻击对你造成伤害并且当你有任何临时生命值时，该生物会受到 2d8 穿刺伤害。改善后的吠叫会持续一分钟，或者直到你失去行为能力。
 Feature/&PowerSharedPoolForestGuardianImprovedBarkWardTitle=改良树皮结界
 Feature/&PowerSharedPoolForestGuardianSuperiorBarkWardDescription=当你激活树皮结界时，以及在你的每个回合开始时，当你的树皮结界处于活动状态时，你在 30 英尺内可以看到的所有盟友也会从树皮结界中获得与你相同数量的临时生命值。
 Feature/&PowerSharedPoolForestGuardianSuperiorBarkWardTitle=自然的守护者
