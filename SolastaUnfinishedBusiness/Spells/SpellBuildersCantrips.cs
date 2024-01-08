@@ -841,7 +841,8 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
-            .SetGuiPresentation(Category.Spell, FlameBlade)
+            .SetGuiPresentation(Category.Spell, 
+                Sprites.GetSprite("ResonatingStrike", Resources.BurningBlade, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
