@@ -166,6 +166,7 @@ ModUi/&Gameplay=Игровой процесс
 ModUi/&General=<color=#F0DAA0>Основные:</color>
 ModUi/&GeneralMenu=Основные
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Дать <b>Специализацию на оружии</b> скимитаров <color=#D89555>Бардам</color> и <color=#D89555>Плутам</color>
+ModUi/&GridSelectedColor=Измените цвет сетки <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Скрыть визуальные эффекты выходов и телепортов, если они ещё не открыты
 ModUi/&HideMonsterHitPoints=Отображать здоровье противников в относительных 25% / 50% / 75% / 100% вместо точных значений хитов
 ModUi/&House=<color=#F0DAA0>Домашние правила:</color>

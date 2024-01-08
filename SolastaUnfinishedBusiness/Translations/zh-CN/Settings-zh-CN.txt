@@ -166,6 +166,7 @@ ModUi/&Gameplay=玩法
 ModUi/&General=<color=#F0DAA0>通用：</color>
 ModUi/&GeneralMenu=通用
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=为<color=#D89555>吟游诗人</color>和<color=#D89555>游荡着</color>授予弯刀<b>武器专精</b>
+ModUi/&GridSelectedColor=更改网格颜色<i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
 ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步长显示怪物的生命值，而不是准确生命值
 ModUi/&House=<color=#F0DAA0>房规：</color>

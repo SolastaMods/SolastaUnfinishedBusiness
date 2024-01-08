@@ -166,6 +166,7 @@ ModUi/&Gameplay=게임플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>바드</color>와 <color=#D89555>로그</color>에게 시미터<b>무기특화</b> 부여
+ModUi/&GridSelectedColor=그리드 색상 변경 <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=발견하지 못한 출구와 순간이동기의 시각 효과 숨기기
 ModUi/&HideMonsterHitPoints=몬스터의 체력을 정확한 수치 대신 25% / 50% / 75% / 100% 만큼 단계별로 표시하기
 ModUi/&House=<color=#F0DAA0>하우스 룰(자체 규칙):</color>

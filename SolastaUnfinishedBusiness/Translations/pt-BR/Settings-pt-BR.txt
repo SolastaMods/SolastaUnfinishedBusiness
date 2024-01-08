@@ -166,6 +166,7 @@ ModUi/&Gameplay=Jogabilidade
 ModUi/&General=<color=#F0DAA0>Geral:</color>
 ModUi/&GeneralMenu=Em geral
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Conceda <b>Especialização em Arma</b> de Cimitarra a <color=#D89555>Bardos</color> e <color=#D89555>Ladinos</color>
+ModUi/&GridSelectedColor=Alterar a cor da grade <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar efeitos visuais de saídas e teletransportadores, caso ainda não tenham sido descobertos
 ModUi/&HideMonsterHitPoints=Exibir a saúde dos monstros em etapas de 25% / 50% / 75% / 100% em vez de pontos de vida exatos
 ModUi/&House=<color=#F0DAA0>Casa:</color>

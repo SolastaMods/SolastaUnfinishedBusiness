@@ -166,6 +166,7 @@ ModUi/&Gameplay=Como se Juega
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Otorga la <b>especialización en armas</b> de cimitarra a <color=#D89555>bardos</color> y <color=#D89555>pícaros</color>
+ModUi/&GridSelectedColor=Cambiar el color de la cuadrícula <i><color=#F0DAA0>[b/n, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Oculte las salidas y los efectos visuales de los teletransportadores si aún no los ha descubierto.
 ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25 %/50 %/75 %/100 % en lugar de puntos de vida exactos
 ModUi/&House=<color=#F0DAA0>Casa:</color>

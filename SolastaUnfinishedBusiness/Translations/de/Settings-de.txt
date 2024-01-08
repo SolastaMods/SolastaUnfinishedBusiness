@@ -166,6 +166,7 @@ ModUi/&Gameplay=Spielweise
 ModUi/&General=<color=#F0DAA0>Allgemein:</color>
 ModUi/&GeneralMenu=Allgemein
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Gewähre <b>Waffenspezialisierung</b> für den Krummsäbel an <color=#D89555>Barden</color> und <color=#D89555>Schurken</color>
+ModUi/&GridSelectedColor=Ändern Sie die Rasterfarbe <i><color=#F0DAA0>[s/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecken Sie die visuellen Effekte von Ausgängen und Teleportern, wenn diese noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
 ModUi/&House=<color=#F0DAA0>Haus:</color>

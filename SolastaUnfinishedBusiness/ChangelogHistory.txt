@@ -1,6 +1,6 @@
 ﻿1.5.94.41:
 
-- added Interface > Game UI > grid width and animation movement settings
+- added Interface > Game UI > grid color, animation movement, and width settings
 - added Ice Blade spell at 1st
 - added vanilla Domain Law final word feature at 17th
 - added vanilla Domain Mischief fortune favors the bold feature at 17th
@@ -9,13 +9,13 @@
 - changed Circle of The Forest Guardian sylvan durability feature at 2nd getting replaced by sylvan magic
 - changed Domain Defiler defile life feature damage progression
 - changed Domain Defiler dying light feature at 17th with additional max necrotic dice damage once per long rest
-- changed Domain Defiler insidious death magic to last until the end of your next turn
+- changed Domain Defiler insidious death magic feature to last until the end of your next turn
 - changed Domain Defiler mark for death feature at 6th getting replaced by beacon of corruption
 - changed Hand-and-A-Half into Classic Swordplay, removed +1 dmg, triggering with any one-handed melee and a free hand
 - changed Incineration spell burning damage from 4d6 to 8d6
 - changed Path of The Reaver profane vitality feature hit points piece into new draconic resilience feature at 3rd
-- changed Roguish Arcane Scoundrel arcane backslash to 1 usage per long rest
-- changed Roguish Slayer cloak of shadows to 1 minute duration and DEX modifier usages per long rest
+- changed Roguish Arcane Scoundrel arcane backslash feature to 1 usage per long rest
+- changed Roguish Slayer cloak of shadows feature to 1 minute duration and DEX modifier usages per long rest
 - changed Sorcerous Spellblade mana shield feature to be offered at 2nd instead of 1st
 - changed Way of Dragon elemental breath feature into a no cost action that consumes attack actions once per turn
 - changed Way of Tempest eye of storm feature at 17th lightning leap damage dice from 5d10 to 4d10
@@ -23,7 +23,7 @@
 - fixed Closed Quarters feat sneak attack pre-requisite not validating Arcane Scoundrel at 9th or higher
 - fixed Defensive Duelist feat triggering the reaction regardless the hero main weapon finesse tag 
 - fixed vanilla Domain Mischief strike of chaos triggering on magical attacks [and restricted reaction validator]
-- swapped Path of The Savagery wrath and fury feature at 10th with unbridled ferocity at 14th
+- swapped Path of The Savagery wrath and fury feature at 10th with unbridled ferocity feature at 14th
 - swapped Way of Dragon reactive skin feature at 3rd with elemental breath feature at 6th
 
 1.5.94.40:

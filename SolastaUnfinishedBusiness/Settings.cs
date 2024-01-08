@@ -299,6 +299,7 @@ public class Settings : UnityModManager.ModSettings
     // Battle
     public bool DontFollowCharacterInBattle { get; set; }
     public int DontFollowMargin { get; set; } = 5;
+    public int GridSelectedColor { get; set; } = 1;
     public int MovementGridWidthModifier { get; set; } = 100;
     public int OutlineGridWidthModifier { get; set; } = 100;
     public int OutlineGridWidthSpeed { get; set; } = 100;

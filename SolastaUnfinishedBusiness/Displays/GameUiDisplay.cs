@@ -230,15 +230,15 @@ internal static class GameUiDisplay
 
             UI.Label();
         }
-        
+
         toggle = Main.Settings.ShowChannelDivinityOnPortrait;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowChannelDivinityOnPortrait"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ShowChannelDivinityOnPortrait = toggle;
         }
-        
+
         UI.Label();
-        
+
         toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalBackstoryDisplay"), ref toggle, UI.AutoWidth()))
         {
@@ -286,6 +286,13 @@ internal static class GameUiDisplay
         }
 
         UI.Label();
+
+        UI.ActionButton(Gui.Localize("ModUi/&GridSelectedColor"), () =>
+        {
+            Main.Settings.GridSelectedColor = (Main.Settings.GridSelectedColor + 1) % GameUiContext.GridColors.Length;
+            Main.Info(Main.Settings.GridSelectedColor.ToString());
+            GameUiContext.UpdateMovementGrid();
+        }, UI.Width((float)300));
 
         intValue = Main.Settings.MovementGridWidthModifier;
         if (UI.Slider(Gui.Localize("ModUi/&MovementGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,

@@ -24,6 +24,25 @@ internal static class GameUiContext
 {
     internal static bool IsVttCameraEnabled;
 
+    internal static readonly Color[] GridColors =
+    [
+        Color.black, Color.white,
+        Color.red, Color.green, Color.blue,
+        Color.cyan, Color.magenta, Color.yellow
+    ];
+
+    internal static Color GetGridColor(bool isHighlighted)
+    {
+        var selectedColor = GridColors[Main.Settings.GridSelectedColor];
+
+        return new Color(
+            selectedColor.r,
+            selectedColor.g,
+            selectedColor.b,
+            isHighlighted ? 1f : 0.2f
+        );
+    }
+
     private static readonly int[][][] FormationGridSetTemplates =
     [
         [
