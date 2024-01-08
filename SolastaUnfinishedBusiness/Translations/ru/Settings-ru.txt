@@ -194,12 +194,15 @@ ModUi/&MaxAllowedClasses=<color=white>Максимальное разрешён�
 ModUi/&Merchants=<color=#F0DAA0>Торговцы:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Метамагия</color>
 ModUi/&Monsters=<color=#F0DAA0>Монстры:</color>
+ModUi/&MovementGridWidthModifier=<color=white>Умножьте ширину сетки движения на</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Нажатие с <color=#1E81B0>SHIFT</color> по заклинанию переключает тип затрачиваемой ячейки по умолчанию\n<i><color=#F0DAA0>[<color=#D89555>Колдун</color> тратит белые ячейки заклинаний, а остальные - зелёные ячейки колдуна]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Множитель получаемого опыта</color> <color=#C04040E0>[в %]</color>
 ModUi/&NoExperienceOnLevelUp=Отключить систему повышения уровня на основе полученного опыта
 ModUi/&OfferAdditionalLoreFriendlyNames=Предлагать при создании персонажа дополнительные имена, подходящие по истории
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Показывать только самых мощных существ в списке призыва</i>
 ModUi/&OpenSubjectiveGuide=Открыть «Субъективное руководство по Solasta» от <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Умножьте ширину контурной сетки на</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Умножьте скорость анимации контурной сетки на</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Игнорировать требуемые минимальный и максимальный уровни для начала новой кампании
 ModUi/&OverridePartySize=<color=white>Размер группы</color>
 ModUi/&Patches=<color=#F0DAA0>Патчи:</color>

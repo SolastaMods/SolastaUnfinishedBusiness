@@ -194,12 +194,15 @@ ModUi/&MaxAllowedClasses=<color=white>Máximo de aulas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
+ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clique em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam pacto verde]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis de lore adicionais na criação de personagem
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OpenSubjectiveGuide=Abra The Subjective Guide to Solasta por <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Multiplique a largura da grade de contorno por</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Multiplique a velocidade de animação da grade de contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
 ModUi/&OverridePartySize=<color=white>Substituir o tamanho da festa</color>
 ModUi/&Patches=<color=#F0DAA0>Aplicativos:</color>

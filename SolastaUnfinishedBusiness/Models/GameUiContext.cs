@@ -96,6 +96,16 @@ internal static class GameUiContext
     private static readonly List<RectTransform> SpellLineTables = [];
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
+    internal static void UpdateMovementGrid()
+    {
+        var cursorService = ServiceRepository.GetService<ICursorService>();
+
+        if (cursorService.CurrentCursor is CursorLocationBattleFriendlyTurn currentCursor)
+        {
+            currentCursor.movementHelper.RefreshHover();
+        }
+    }
+
     // Converts continuous ratio into series of stepped values
     internal static float GetSteppedHealthRatio(float ratio)
     {

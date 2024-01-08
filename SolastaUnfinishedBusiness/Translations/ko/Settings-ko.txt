@@ -194,12 +194,15 @@ ModUi/&MaxAllowedClasses=<color=white>클래스 최대 허용</color>
 ModUi/&Merchants=<color=#F0DAA0>상인:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
 ModUi/&Monsters=<color=#F0DAA0>몬스터:</color>
+ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 키를 누르며 주문을 클릭하면 소비되는 슬롯 유형이 반전됩니다\n<i><color=#F0DAA0>[<color=#D89555>워락</color>은 흰색 주문 슬롯, 다른 건 계약 녹색 슬롯을 사용합니다]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>획득 경험치에y</color> <color=#C04040E0>[%]</color><color=white>를 곱함</color>
 ModUi/&NoExperienceOnLevelUp=레벨 업에 경험치가 필요하지 않게 설정
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 세계관에 어울리는 이름을 추가
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 주문 목록에서 가장 강력한 크리쳐만 표시</i>
 ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b>의 주관적인 솔라스타 가이드 (영문)
+ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
+ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&OverrideMinMaxLevel=새로운 모험에 필요한 캐릭터의 최소, 최대 레벨 제한 해제
 ModUi/&OverridePartySize=<color=white>파티 인원수 조정</color>
 ModUi/&Patches=<color=#F0DAA0>패치:</color>

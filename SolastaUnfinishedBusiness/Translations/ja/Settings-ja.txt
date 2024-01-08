@@ -194,12 +194,15 @@ ModUi/&MaxAllowedClasses=<color=white>許可されるクラスの最大数</colo
 ModUi/&Merchants=<color=#F0DAA0>販売者:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
 ModUi/&Monsters=<color=#F0DAA0>モンスター:</color>
+ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を</color> <color=#C04040E0>[%]</color>で乗算します。
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> で呪文をクリックすると、消費されるデフォルトのレパートリー スロット タイプが反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color>は白い呪文スロットを消費します他の人は緑の協定を使います]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>得られる経験値を</color><color=#C04040E0>[%]</color>で倍増します
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
 ModUi/&OfferAdditionalLoreFriendlyNames=キャラクター作成時に追加の伝承にわかりやすい名前を提供する
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストで最も強力なクリーチャーのみを表示</i>
 ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b> による「ソラスタの主観ガイド」を開きます
+ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を乗算します</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>アウトライン グリッドのアニメーション速度を 2 倍します</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=新しい冒険を開始するときに必要な最小レベルと最大レベルを上書きします
 ModUi/&OverridePartySize=<color=white>パーティのサイズを上書きする</color>
 ModUi/&Patches=<color=#F0DAA0>パッチ:</color>

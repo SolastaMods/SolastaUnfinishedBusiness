@@ -194,12 +194,15 @@ ModUi/&MaxAllowedClasses=<color=white>Nombre de classes maximales autorisées</c
 ModUi/&Merchants=<color=#F0DAA0>Marchands :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
+ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Un <color=#1E81B0>SHIFT</color> + Click sur un sort inverse le répertoire par défaut pour l'emplacement de sort consommé \n<i><color=#F0DAA0>[<color=#D89555>L'occultiste</color> dépense des emplacements de sorts blancs et les autres classes dépensent des emplacements de pacte verts]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour monter de niveau
 ModUi/&OfferAdditionalLoreFriendlyNames=Propose davantage de noms fidèle à l'univers lors de la création de personnage
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
 ModUi/&OpenSubjectiveGuide=Ouvrer le Guide Subjectif de Solasta par <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Multipliez la largeur de la grille de contour par</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Multipliez la vitesse d'animation de la grille de contour par</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Remplacer les niveaux minimum et maximum requis lors du démarrage de nouvelles aventures
 ModUi/&OverridePartySize=<color=white>Remplacer la taille du groupe</color>
 ModUi/&Patches=<color=#F0DAA0>Correctifs :</color>

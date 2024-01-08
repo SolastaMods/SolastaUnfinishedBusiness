@@ -194,12 +194,15 @@ ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>
 ModUi/&Merchants=<color=#F0DAA0> Commercianti:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
+ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Fare clic su <color=#1E81B0>MAIUSC</color> su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono patti verdi]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Moltiplica l'esperienza acquisita per</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Non è richiesta alcuna esperienza per salire di livello
 ModUi/&OfferAdditionalLoreFriendlyNames=Offri nomi amichevoli aggiuntivi sulla creazione del personaggio
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco delle evocazioni</i>
 ModUi/&OpenSubjectiveGuide=Apri la guida soggettiva a Solasta di <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Moltiplica la larghezza della griglia del contorno per</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Moltiplica la velocità di animazione della griglia del contorno per</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Ignora i livelli minimo e massimo richiesti quando inizi nuove avventure
 ModUi/&OverridePartySize=<color=white>Sostituisci le dimensioni del gruppo</color>
 ModUi/&Patches=<color=#F0DAA0> Patch:</color>

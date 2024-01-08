@@ -194,12 +194,15 @@ ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
+ModUi/&MovementGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula de movimiento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan verdes de pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia ganada por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrezca nombres amigables adicionales en la creación de personajes
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuros</i>
 ModUi/&OpenSubjectiveGuide=Abre La guía subjetiva de Solasta de <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Multiplica la velocidad de animación de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Anule los niveles mínimos y máximos requeridos al comenzar nuevas aventuras
 ModUi/&OverridePartySize=<color=white>Anular el tamaño del grupo</color>
 ModUi/&Patches=<color=#F0DAA0>Parches:</color>

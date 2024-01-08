@@ -126,6 +126,32 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&CampaignsAndLocations"));
         UI.Label();
 
+        var intValue = Main.Settings.MovementGridWidthModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&MovementGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,
+                UI.Width((float)100)))
+        {
+            Main.Settings.MovementGridWidthModifier = intValue;
+            GameUiContext.UpdateMovementGrid();
+        }
+
+        intValue = Main.Settings.OutlineGridWidthModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&OutlineGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,
+                UI.Width((float)100)))
+        {
+            Main.Settings.OutlineGridWidthModifier = intValue;
+            GameUiContext.UpdateMovementGrid();
+        }
+
+        intValue = Main.Settings.OutlineGridWidthSpeed;
+        if (UI.Slider(Gui.Localize("ModUi/&OutlineGridWidthSpeed"), ref intValue, 0, 200, 100, string.Empty,
+                UI.Width((float)100)))
+        {
+            Main.Settings.OutlineGridWidthSpeed = intValue;
+            GameUiContext.UpdateMovementGrid();
+        }
+
+        UI.Label();
+
         var toggle = Main.Settings.DontFollowCharacterInBattle;
         if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
         {
@@ -134,7 +160,7 @@ internal static class GameUiDisplay
 
         if (Main.Settings.DontFollowCharacterInBattle)
         {
-            var intValue = Main.Settings.DontFollowMargin;
+            intValue = Main.Settings.DontFollowMargin;
             if (UI.Slider(Gui.Localize("ModUi/&DontFollowMargin"), ref intValue, 0, 20,
                     1, "%", UI.AutoWidth()))
             {
