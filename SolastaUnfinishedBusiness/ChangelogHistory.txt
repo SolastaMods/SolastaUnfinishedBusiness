@@ -1,4 +1,16 @@
-﻿1.5.94.41:
+﻿1.5.94.42:
+
+- fixed to hit / to damage attribute affecting:
+    Circle of Forest Guardian
+    Innovation Armor
+    Innovation Weapon
+    Path of The Yeoman
+    Patron Soulblade
+    Sorcerous Spellblade
+    Wizard Arcane Fighter
+    Precision focused feats
+
+1.5.94.41:
 
 - added Interface > Game UI > grid color, animation movement, and width settings under new 'Combat' section
 - added Ice Blade (Ice Knife) spell at 1st and Mystical Cloak (Tasha's Otherworldly Guise) spell at 6th
