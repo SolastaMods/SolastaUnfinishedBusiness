@@ -58,10 +58,6 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
         {
             attribute = ability;
         }
-        else
-        {
-            return;
-        }
 
         var newValue = character.TryGetAttributeValue(attribute);
 
