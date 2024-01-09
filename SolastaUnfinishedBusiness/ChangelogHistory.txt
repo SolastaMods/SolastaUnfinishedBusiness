@@ -1,10 +1,11 @@
 ﻿1.5.94.41:
 
 - added Interface > Game UI > grid color, animation movement, and width settings under new 'Combat' section
-- added Ice Blade (Ice Knife) spell at 1st and Mystical Cloak (Tasha's Otherworldly Guise) at 6th
+- added Ice Blade (Ice Knife) spell at 1st and Mystical Cloak (Tasha's Otherworldly Guise) spell at 6th
 - added vanilla Domain Law final word feature at 17th
 - added vanilla Domain Mischief fortune favors the bold feature at 17th
 - added vanilla Domain Mischief strike of chaos progression at 17th and 20th
+- changed Burning Blade, Elemental Infusion, and Noxious Spray spell sprites
 - changed Circle of The Forest Guardian bark ward feature insane temporary hit points duration and progression
 - changed Circle of The Forest Guardian sylvan durability feature at 2nd getting replaced by sylvan magic
 - changed Domain Defiler defile life feature damage progression
