@@ -2160,6 +2160,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] MysticalCloak {
+            get {
+                object obj = ResourceManager.GetObject("MysticalCloak", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dwarf	Female	Abagtha
         ///Dwarf	Female	Bera
         ///Dwarf	Female	Birsha

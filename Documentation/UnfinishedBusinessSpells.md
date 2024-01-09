@@ -360,66 +360,70 @@ You endow yourself with endurance and martial prowess fueled by magic. Until the
 • You can attack twice, instead of once, when you take the Attack action on your turn.
 Immediately after the spell ends, you must succeed on a DC 15 Constitution saving throw or suffer one level of exhaustion.
 
-# 85. - Poison Wave (M,V,S) level 6 Evocation
+# 85. - Mystical Cloak (M,V,S) level 6 Transmutation [Concentration]
+
+Uttering an incantation, you draw on the magic of the Lower Planes or Upper Planes (your choice) to transform yourself.
+
+# 86. - Poison Wave (M,V,S) level 6 Evocation
 
 A poisonous wave erupts from you, engulfing those close by. Each creature within the spell's radius must make a Constitution saving throw, taking 6d10 poison damage on a failure, or half as much damage on a successful one. A creature who fails their saving throw is also poisoned for 1 minute, and can repeat the saving throw at the end of each of its turn. When you cast this spell using a slot of 7th level or higher, the damage increases by 1d10 for each slot level above 6th.
 
-# 86. - Raise Spectral Avenger (V,S) level 6 Necromancy [Concentration]
+# 87. - Raise Spectral Avenger (V,S) level 6 Necromancy [Concentration]
 
 Summons Spectral Avenger:
 A powerful, ethereal undead creature.
 
-# 87. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
+# 88. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
 You raise both hands as you evoke six transparent blades around you. As a bonus action, you can throw one of these blades at a creature within 30 feet from you. Make a ranged spell attack for it. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d8 for each slot level above 6th.
 
-# 88. - Alter Gravity (V,S) level 7 Transmutation [Concentration]
+# 89. - Alter Gravity (V,S) level 7 Transmutation [Concentration]
 
 This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 
-# 89. - Raise Wight (V,S) level 7 Necromancy [Concentration]
+# 90. - Raise Wight (V,S) level 7 Necromancy [Concentration]
 
 Summons Wight:
 A Wight
 
-# 90. - Mind Ward (V,S) level 8 Transmutation
+# 91. - Mind Ward (V,S) level 8 Transmutation
 
 Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 
-# 91. - Raise Wight Lord (V,S) level 8 Necromancy [Concentration]
+# 92. - Raise Wight Lord (V,S) level 8 Necromancy [Concentration]
 
 Summons Wight Lord:
 A powerful wight, trained to withstand the light of day.
 
-# 92. - Apparitions (V,S) level 9 Illusion [Concentration]
+# 93. - Apparitions (V,S) level 9 Illusion [Concentration]
 
 Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
 
-# 93. - Arcane Word Heal (V,S) level 9 Enchantment
+# 94. - Arcane Word Heal (V,S) level 9 Enchantment
 
 A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 
-# 94. - Arcane Word Kill (V,S) level 9 Transmutation
+# 95. - Arcane Word Kill (V,S) level 9 Transmutation
 
 You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
 
-# 95. - Grand Heal (V,S) level 9 Transmutation
+# 96. - Grand Heal (V,S) level 9 Transmutation
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 96. - Halt (V) level 9 Transmutation
+# 97. - Halt (V) level 9 Transmutation
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 
-# 97. - Meteor Shower [Single Target] (V,S) level 9 Transmutation
+# 98. - Meteor Shower [Single Target] (V,S) level 9 Transmutation
 
 Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 
-# 98. - Precognition (V,S) level 9 Transmutation
+# 99. - Precognition (V,S) level 9 Transmutation
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# 99. - Transformation (M,V,S) level 9 Transmutation [Concentration]
+# 100. - Transformation (M,V,S) level 9 Transmutation [Concentration]
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 

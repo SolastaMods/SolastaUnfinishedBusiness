@@ -303,6 +303,7 @@ internal static class SpellsContext
         // 6th level
         RegisterSpell(BuildHeroicInfusion(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildFlashFreeze(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock);
+        RegisterSpell(BuildMysticalCloak(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPoisonWave(), 0, SpellListWizard);
         RegisterSpell(BuildRingOfBlades(), 0, SpellListWizard);
 

@@ -102,6 +102,7 @@ Metamagic Expert=Metamagic Adept
 Meteor Shower=Meteor Swarm
 Mind Skewer=Mind Sliver
 Mind Ward=Mind Blank
+Mystical Cloak=Tasha's Otherworldly Guise
 Nature's Shroud=Nature's Veil
 Nimbleness=Squat Nimbleness
 Oath of Primordials=Oath of Ancients

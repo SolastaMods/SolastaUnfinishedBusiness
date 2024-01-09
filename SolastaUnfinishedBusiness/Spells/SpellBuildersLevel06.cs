@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
@@ -14,11 +15,138 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Mystical Cloak
+
+    internal static SpellDefinition BuildMysticalCloak()
+    {
+        const string NAME = "MysticalCloak";
+
+        var attributeModifierAC = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+            .AddToDB();
+
+        var lowerPlane = SpellDefinitionBuilder
+            .Create($"{NAME}LowerPlane")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, true)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}LowerPlane")
+                                .SetGuiPresentation($"{NAME}LowerPlane", Category.Spell,
+                                    ConditionDefinitions.ConditionMagicallyArmored)
+                                .SetPossessive()
+                                .SetFeatures(
+                                    attributeModifierAC,
+                                    CommonBuilders.AttributeModifierCasterFightingExtraAttack,
+                                    FeatureDefinitionMoveModes.MoveModeFly8,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
+                                    FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity)
+                                .AddCustomSubFeatures(
+                                    CanUseAttribute.SpellCastingAbility,
+                                    new AddTagToWeaponWeaponAttack(
+                                        TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
+                                .AddToDB()))
+                    .SetParticleEffectParameters(MageArmor)
+                    .Build())
+            .AddToDB();
+
+        lowerPlane.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionStartParticleReference;
+        lowerPlane.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
+        lowerPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
+
+        var higherPlane = SpellDefinitionBuilder
+            .Create($"{NAME}HigherPlane")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, true)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}HigherPlane")
+                                .SetGuiPresentation($"{NAME}HigherPlane", Category.Spell,
+                                    ConditionDefinitions.ConditionMagicallyArmored)
+                                .SetPossessive()
+                                .SetFeatures(
+                                    attributeModifierAC,
+                                    CommonBuilders.AttributeModifierCasterFightingExtraAttack,
+                                    FeatureDefinitionMoveModes.MoveModeFly8,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityRadiantImmunity,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityNecroticImmunity,
+                                    FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity)
+                                .AddCustomSubFeatures(
+                                    CanUseAttribute.SpellCastingAbility,
+                                    new AddTagToWeaponWeaponAttack(
+                                        TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
+                                .AddToDB()))
+                    .SetParticleEffectParameters(MageArmor)
+                    .Build())
+            .AddToDB();
+
+        higherPlane.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionStartParticleReference;
+        higherPlane.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
+        higherPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MysticalCloak, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, true)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetSubSpells(lowerPlane, higherPlane)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Poison Wave
 
     internal static SpellDefinition BuildPoisonWave()
