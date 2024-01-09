@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -52,7 +55,7 @@ public sealed class DomainDefiler : AbstractSubclass
         var conditionInsidiousDeathMagic = ConditionDefinitionBuilder
             .Create($"Condition{NAME}InsidiousDeathMagic")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
-            .SetSpecialDuration(DurationType.Round, 6)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
@@ -78,7 +81,7 @@ public sealed class DomainDefiler : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetParticleEffectParameters(PowerWightLord_CircleOfDeath)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Undead)
                     .SetSavingThrowData(
                         false,
@@ -104,7 +107,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .AddToDB();
 
         //
-        // LEVEL 6 - Mark for Death
+        // LEVEL 6 - Beacon of Corruption
         //
 
         var conditionMarkForDeath = ConditionDefinitionBuilder
@@ -148,11 +151,20 @@ public sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        var featureSetMarkForDeath = FeatureDefinitionFeatureSetBuilder
+        // backward compatibility
+        _ = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}MarkForDeath")
             .SetGuiPresentation(
                 divinePowerPrefix + powerMarkForDeath.FormatTitle(), powerMarkForDeath.FormatDescription())
             .AddFeatureSet(powerMarkForDeath)
+            .AddToDB();
+
+        var featureBeaconOfCorruption = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BeaconOfCorruption")
+            .SetGuiPresentation(Category.Feature)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .SetDamageType(DamageTypeNecrotic)
+            .AddCustomSubFeatures(new ModifyDamageAffinityBeaconsOfCorruption())
             .AddToDB();
 
         //
@@ -202,14 +214,29 @@ public sealed class DomainDefiler : AbstractSubclass
 
         // Dying Light
 
+        var powerDyingLight = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}DyingLight")
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .AddToDB();
+
+        powerDyingLight.AddCustomSubFeatures(new CustomBehaviorDyingLight(powerDyingLight));
+
+        var actionAffinityDyingLightToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityDyingLightToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.DyingLightToggle)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerDyingLight)))
+            .AddToDB();
+
         var autoPreparedSpellsDyingLight = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}DyingLight")
             .SetGuiPresentation(Category.Feature)
             .SetAutoTag("Domain")
-            .SetPreparedSpellGroups(
-                BuildSpellGroup(17, CircleOfDeath, FingerOfDeath))
+            .SetPreparedSpellGroups(BuildSpellGroup(17, CircleOfDeath, FingerOfDeath))
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
-            .AddCustomSubFeatures(new ModifyDamageResistanceDyingLight())
             .AddToDB();
 
         // MAIN
@@ -224,12 +251,14 @@ public sealed class DomainDefiler : AbstractSubclass
             .AddFeaturesAtLevel(2,
                 featureSetDefileLife)
             .AddFeaturesAtLevel(6,
-                featureSetMarkForDeath)
+                featureBeaconOfCorruption)
             .AddFeaturesAtLevel(8,
                 additionalDamageDivineStrike)
             .AddFeaturesAtLevel(10,
                 PowerClericDivineInterventionPaladin)
             .AddFeaturesAtLevel(17,
+                powerDyingLight,
+                actionAffinityDyingLightToggle,
                 autoPreparedSpellsDyingLight)
             .AddToDB();
     }
@@ -292,7 +321,9 @@ public sealed class DomainDefiler : AbstractSubclass
 
         private IEnumerator TryAddCondition(
             IEnumerable<EffectForm> actualEffectForms,
+            // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter attacker,
+            // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter defender)
         {
             if (actualEffectForms.All(x =>
@@ -315,18 +346,19 @@ public sealed class DomainDefiler : AbstractSubclass
                 yield break;
             }
 
-            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Cleric);
-            var duration = (classLevel + 1) / 2;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.Guid,
-                _conditionInsidiousDeathMagic,
+            rulesetDefender.InflictCondition(
+                _conditionInsidiousDeathMagic.Name,
                 DurationType.Round,
-                duration,
-                TurnOccurenceType.StartOfTurn,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                _conditionInsidiousDeathMagic.Name,
+                0,
+                0,
+                0);
         }
     }
 
@@ -373,10 +405,10 @@ public sealed class DomainDefiler : AbstractSubclass
     }
 
     //
-    // Dying Light
+    // Beacons of Corruption
     //
 
-    private sealed class ModifyDamageResistanceDyingLight : IModifyDamageAffinity
+    private sealed class ModifyDamageAffinityBeaconsOfCorruption : IModifyDamageAffinity
     {
         public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
         {
@@ -385,6 +417,56 @@ public sealed class DomainDefiler : AbstractSubclass
                 {
                     DamageAffinityType: DamageAffinityType.Resistance, DamageType: DamageTypeNecrotic
                 });
+        }
+    }
+
+    //
+    // Dying Light
+    //
+
+    private sealed class CustomBehaviorDyingLight(FeatureDefinitionPower powerDyingLight) :
+        IForceMaxDamageTypeDependent,
+        IMagicalAttackBeforeHitConfirmedOnEnemy,
+        IActionFinishedByMe
+    {
+        private bool _isValid;
+
+        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        {
+            _isValid = false;
+
+            yield break;
+        }
+
+        public bool IsValid(RulesetActor rulesetActor, DamageForm damageForm)
+        {
+            return damageForm.DamageType == DamageTypeNecrotic && _isValid;
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(powerDyingLight, rulesetAttacker);
+
+            _isValid = actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
+                                                  x.DamageForm.DamageType == DamageTypeNecrotic) &&
+                       rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.DyingLightToggle) &&
+                       rulesetAttacker.GetRemainingUsesOfPower(usablePower) > 0;
+
+            if (!_isValid)
+            {
+                yield break;
+            }
+
+            rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
     }
 }

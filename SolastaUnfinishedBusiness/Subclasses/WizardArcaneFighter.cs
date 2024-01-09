@@ -91,15 +91,10 @@ public sealed class WizardArcaneFighter : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class OnReducedToZeroHpByMeSpellFighting : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeSpellFighting(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IOnReducedToZeroHpByMe
     {
-        private readonly ConditionDefinition _condition;
-
-        public OnReducedToZeroHpByMeSpellFighting(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -111,7 +106,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
                 yield break;
             }
 
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(_condition.Name))
+            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
             {
                 yield break;
             }
@@ -123,15 +118,15 @@ public sealed class WizardArcaneFighter : AbstractSubclass
             }
 
             attacker.RulesetCharacter.InflictCondition(
-                _condition.Name,
+                condition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 attacker.RulesetCharacter.guid,
                 attacker.RulesetCharacter.CurrentFaction.Name,
                 1,
-                _condition.Name,
+                condition.Name,
                 0,
                 0,
                 0);

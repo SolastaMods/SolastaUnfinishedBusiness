@@ -6,19 +6,14 @@ using SolastaUnfinishedBusiness.Races;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionCrystalDefenseOn : CharacterAction
+public class CharacterActionCrystalDefenseOn(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
-    public CharacterActionCrystalDefenseOn(CharacterActionParams actionParams) : base(actionParams)
-    {
-    }
-
     public override IEnumerator ExecuteImpl()
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;
 
-        if (rulesetCharacter.HasConditionOfCategoryAndType(
-                AttributeDefinitions.TagStatus, RaceWyrmkinBuilder.ConditionCrystalDefenseName))
+        if (rulesetCharacter.HasConditionOfType(RaceWyrmkinBuilder.ConditionCrystalDefenseName))
         {
             yield break;
         }

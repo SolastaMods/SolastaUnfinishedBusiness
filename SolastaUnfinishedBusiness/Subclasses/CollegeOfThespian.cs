@@ -266,19 +266,11 @@ public sealed class CollegeOfThespian : AbstractSubclass
     // Terrific Performance
     //
 
-    private sealed class OnReducedToZeroHpByMeTerrificPerformance : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeTerrificPerformance(
+        FeatureDefinitionPower powerTerrificPerformance,
+        FeatureDefinitionPower powerImprovedTerrificPerformance)
+        : IOnReducedToZeroHpByMe
     {
-        private readonly FeatureDefinitionPower _powerImprovedTerrificPerformance;
-        private readonly FeatureDefinitionPower _powerTerrificPerformance;
-
-        public OnReducedToZeroHpByMeTerrificPerformance(
-            FeatureDefinitionPower powerTerrificPerformance,
-            FeatureDefinitionPower powerImprovedTerrificPerformance)
-        {
-            _powerTerrificPerformance = powerTerrificPerformance;
-            _powerImprovedTerrificPerformance = powerImprovedTerrificPerformance;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -316,7 +308,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
             }
 
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Bard);
-            var power = classLevel < 14 ? _powerTerrificPerformance : _powerImprovedTerrificPerformance;
+            var power = classLevel < 14 ? powerTerrificPerformance : powerImprovedTerrificPerformance;
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {

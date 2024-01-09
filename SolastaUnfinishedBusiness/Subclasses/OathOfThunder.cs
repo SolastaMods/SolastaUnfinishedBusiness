@@ -277,16 +277,11 @@ public sealed class OathOfThunder : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyWeaponModifyAttackModeHammerAndAxeBoon :
+    private sealed class ModifyWeaponModifyAttackModeHammerAndAxeBoon(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureHammersBoon) :
         IModifyWeaponAttackMode, IModifyAttackActionModifier
     {
-        private readonly FeatureDefinition _featureHammersBoon;
-
-        public ModifyWeaponModifyAttackModeHammerAndAxeBoon(FeatureDefinition featureHammersBoon)
-        {
-            _featureHammersBoon = featureHammersBoon;
-        }
-
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -301,7 +296,7 @@ public sealed class OathOfThunder : AbstractSubclass
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(-1, FeatureSourceType.CharacterFeature, _featureHammersBoon.Name, _featureHammersBoon));
+                new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureHammersBoon.Name, featureHammersBoon));
         }
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
@@ -318,21 +313,17 @@ public sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class ModifyEffectDescriptionThunderousRebuke : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionThunderousRebuke(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerThunderousRebuke)
+        : IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _powerThunderousRebuke;
-
-        public ModifyEffectDescriptionThunderousRebuke(FeatureDefinitionPower powerThunderousRebuke)
-        {
-            _powerThunderousRebuke = powerThunderousRebuke;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _powerThunderousRebuke;
+            return definition == powerThunderousRebuke;
         }
 
         public EffectDescription GetEffectDescription(
@@ -349,12 +340,9 @@ public sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class CustomAdditionalDamageGodOfThunder : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageGodOfThunder(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider)
     {
-        public CustomAdditionalDamageGodOfThunder(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -375,15 +363,9 @@ public sealed class OathOfThunder : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeBifrost : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeBifrost(FeatureDefinitionPower powerBifrostDamage)
+        : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerBifrostDamage;
-
-        public MagicEffectFinishedByMeBifrost(FeatureDefinitionPower powerBifrostDamage)
-        {
-            _powerBifrostDamage = powerBifrostDamage;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -396,7 +378,7 @@ public sealed class OathOfThunder : AbstractSubclass
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerBifrostDamage, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerBifrostDamage, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

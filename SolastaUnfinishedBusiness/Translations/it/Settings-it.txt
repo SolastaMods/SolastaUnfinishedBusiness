@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Aggiungi tutti i dadi del danno base dell
 ModUi/&AddAllToStore=Aggiungi tutto al negozio
 ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555> Sanguinamento</color> a quelle rimosse da <color=#D89555> Maggiore</color> e <color=#D89555> Restauro minore</color>
 ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate agli oggetti di gioco ufficiali <i><color=#F0DAA0>[munizioni, ricette, kit, ecc.]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio] </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Alfo scuro</color>, <color=#D89555>Coboldo scuro</color>, <color=#D89555>Mezzo-Oscuro</color> color> e <color=#D89555>Nano grigio</color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando è spento o nell'oscurità magica]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Abilita <color=#D89555>Percettivo dell'oscurità</color> su <color=#D89555>Elfo Oscuro</color>, <color=#D89555>Coboldo Oscuro</color> e <color=#D89555>Nano Grigio</ color> <i><color=#F0DAA0>\n[concede vantaggio alle prove di percezione quando spento o nell'oscurità magica]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Aggiungi il livello <color=#D89555>Guerriero</color> al tiro salvezza di <color=#D89555>Indomabile</color>
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1,5 metri da te]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aggiungi il nemico preferito umanoide ai <color=#D89555>Ranger</color>
@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>Registro modifiche</color></b>
 ModUi/&Character=Carattere
 ModUi/&CharactersPool=Pool di personaggi
 ModUi/&Classes=<color=#F0DAA0>Classi</color>
+ModUi/&Combat=<color=#F0DAA0>Combattimento:</color>
 ModUi/&Crafting=<color=#F0DAA0>Creazione:</color>
 ModUi/&CraftingHelp=. Premi il pulsante per imparare le ricette all'istante sulla festa attiva\n. Gli articoli aggiunti ai negozi potrebbero richiedere che il gruppo si allontani dal luogo e ritorni
 ModUi/&Credits=Crediti
@@ -165,6 +166,7 @@ ModUi/&Gameplay=Gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Concedi la <b>Specializzazione arma</b> a Scimitarra a <color=#D89555>Bardi</color> e <color=#D89555>Ladri</color>
+ModUi/&GridSelectedColor=Cambia il colore della griglia <i><color=#F0DAA0>[b/n, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non ancora scoperti
 ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% / 75% / 100% invece dei punti ferita esatti
 ModUi/&House=<color=#F0DAA0>Casa:</color>
@@ -194,19 +196,22 @@ ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>
 ModUi/&Merchants=<color=#F0DAA0> Commercianti:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
+ModUi/&MovementGridWidthModifier=<color=white>Moltiplica la larghezza della griglia di movimento per</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Fare clic su <color=#1E81B0>MAIUSC</color> su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono patti verdi]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Moltiplica l'esperienza acquisita per</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Non è richiesta alcuna esperienza per salire di livello
 ModUi/&OfferAdditionalLoreFriendlyNames=Offri nomi amichevoli aggiuntivi sulla creazione del personaggio
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco delle evocazioni</i>
 ModUi/&OpenSubjectiveGuide=Apri la guida soggettiva a Solasta di <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Moltiplica la larghezza della griglia del contorno per</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Moltiplica la velocità di animazione della griglia del contorno per</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Ignora i livelli minimo e massimo richiesti quando inizi nuove avventure
 ModUi/&OverridePartySize=<color=white>Sostituisci le dimensioni del gruppo</color>
 ModUi/&Patches=<color=#F0DAA0> Patch:</color>
 ModUi/&PortraitsOpenFolder=Apri la cartella dei ritratti
 ModUi/&PrimedItems=Articoli innescati
 ModUi/&Progression=<color=#F0DAA0>Progressione:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Abilita <color=#D89555> Sensibilità alla luce</color> su <color=#D89555> Darkelf</color>, <color=#D89555> Dark Coboldo</color>, <color=#D89555> Half-Darkelf</ color> e <color=#D89555>Gray Dwarf</color> si attiveranno solo all'aperto\n<i><color=#F0DAA0>[le aree interne in luoghi esterni accessibili senza schermata di caricamento sono considerate esterne dal motore di gioco ]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Abilita <color=#D89555> Sensibilità alla luce</color> su <color=#D89555> Elfo scuro</color>, <color=#D89555> Coboldo scuro</color> e <color=#D89555> Nano grigio</ color> per attivarsi solo all'aperto\n<i><color=#F0DAA0>[le aree interne in luoghi esterni accessibili senza schermata di caricamento sono considerate esterne dal motore di gioco]</color></i>
 ModUi/&Races=<color=#F0DAA0>Gare</color>
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM

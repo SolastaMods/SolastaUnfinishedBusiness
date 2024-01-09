@@ -207,21 +207,15 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomLevelUpLogicAdditionalDamageStrikeTheVitals : ICustomLevelUpLogic
+    private sealed class CustomLevelUpLogicAdditionalDamageStrikeTheVitals(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionAdditionalDamage additionalDamageToRemove) : ICustomLevelUpLogic
     {
-        private readonly FeatureDefinitionAdditionalDamage _additionalDamageToRemove;
-
-        public CustomLevelUpLogicAdditionalDamageStrikeTheVitals(
-            FeatureDefinitionAdditionalDamage additionalDamageToRemove)
-        {
-            _additionalDamageToRemove = additionalDamageToRemove;
-        }
-
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             foreach (var featureDefinitions in hero.ActiveFeatures.Values)
             {
-                featureDefinitions.RemoveAll(x => x == _additionalDamageToRemove);
+                featureDefinitions.RemoveAll(x => x == additionalDamageToRemove);
             }
         }
 
@@ -231,15 +225,9 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         }
     }
 
-    private class AttackBeforeHitConfirmedOnMeShadowySanctuary : IAttackBeforeHitConfirmedOnMe
+    private class AttackBeforeHitConfirmedOnMeShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
+        : IAttackBeforeHitConfirmedOnMe
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
-
-        public AttackBeforeHitConfirmedOnMeShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
-        {
-            _featureDefinitionPower = featureDefinitionPower;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -281,12 +269,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var rulesetMe = me.RulesetCharacter;
 
-            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
+            if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
+            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
@@ -308,7 +296,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             // remove any negative effect
             actualEffectForms.Clear();
 
-            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+            rulesetMe.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
 
             var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
             {

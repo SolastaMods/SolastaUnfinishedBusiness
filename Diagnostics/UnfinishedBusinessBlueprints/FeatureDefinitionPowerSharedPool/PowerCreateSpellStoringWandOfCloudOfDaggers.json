@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Cloud of Daggers",
-    "description": "Create a wand that can cast <b>Cloud of Daggers (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Cloud of Blades",
+    "description": "Create a wand that can cast <b>Cloud of Blades (II)</b> spell using your Inventor spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6ac3e53a-c956-5476-8857-6dfdcb8a458a",

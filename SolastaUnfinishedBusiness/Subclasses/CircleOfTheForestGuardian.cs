@@ -1,7 +1,15 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -10,6 +18,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
+using static SolastaUnfinishedBusiness.Models.SpellsContext;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -25,29 +34,44 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
             .SetAutoTag("Circle")
             .SetPreparedSpellGroups(
-                BuildSpellGroup(2, Shield, FogCloud),
-                BuildSpellGroup(3, Blur, FlameBlade),
+                BuildSpellGroup(2, EnsnaringStrike, Shield),
+                BuildSpellGroup(3, LesserRestoration, SpikeGrowth),
                 BuildSpellGroup(5, ProtectionFromEnergy, DispelMagic),
-                BuildSpellGroup(7, FireShield, DeathWard),
-                BuildSpellGroup(9, HoldMonster, GreaterRestoration))
+                BuildSpellGroup(7, AuraOfVitality, FreedomOfMovement),
+                BuildSpellGroup(9, GreaterRestoration, HoldMonster))
             .SetSpellcastingClass(CharacterClassDefinitions.Druid)
             .AddToDB();
 
-        var attributeModifierForestGuardianSylvanDurability = FeatureDefinitionAttributeModifierBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}SylvanDurability")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
             .AddToDB();
 
-        var effectFormTemporaryHitPoints = EffectFormBuilder
-            .Create()
-            .SetTempHpForm(4)
-            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
-            .Build();
+        var attackModifierSylvanMagic = FeatureDefinitionAttackModifierBuilder
+            .Create($"AttackModifier{Name}SylvanDurability")
+            .SetGuiPresentation(Category.Feature)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+            .AddCustomSubFeatures(
+                new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
+                    (OperationType.Set, (mode is { ActionType: ActionDefinitions.ActionType.Main } &&
+                                         ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(character) &&
+                                         ValidatorsCharacter.HasMeleeWeaponInMainHand(character)) ||
+                                        (mode is { ActionType: ActionDefinitions.ActionType.Bonus } &&
+                                         character.GetOriginalHero() is { } hero &&
+                                         hero.ActiveFightingStyles.Contains(FightingStyleDefinitions.TwoWeapon) &&
+                                         ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character)))),
+                new CanUseAttribute(AttributeDefinitions.Wisdom, CanWeaponBeEnchanted),
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
+            .AddToDB();
 
-        var powerForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
+        #region
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ImprovedBarkWard")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -58,15 +82,12 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                             .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
                             .Build())
                     .Build())
-            .SetUniqueInstance()
             .AddToDB();
 
-        powerForestGuardianImprovedBarkWard.EffectDescription.EffectParticleParameters.impactParticleReference =
-            PowerPatronTreeExplosiveGrowth.EffectDescription.EffectParticleParameters.impactParticleReference;
-
-        var powerForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SuperiorBarkWard")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -74,128 +95,112 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypePiercing, 3, DieType.D8)
+                            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
                             .Build())
                     .Build())
-            .SetUniqueInstance()
             .AddToDB();
 
-        powerForestGuardianSuperiorBarkWard.EffectDescription.EffectParticleParameters.impactParticleReference =
-            PowerPatronTreeExplosiveGrowth.EffectDescription.EffectParticleParameters.impactParticleReference;
+        #endregion
 
-        var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerBuilder
+        var conditionBarkWard = ConditionDefinitionBuilder
+            .Create($"Condition{Name}BarkWard")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .AddToDB();
+
+        var effectParticleParameters = PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters;
+
+        conditionBarkWard.conditionStartParticleReference = effectParticleParameters.conditionStartParticleReference;
+        conditionBarkWard.conditionParticleReference = effectParticleParameters.conditionParticleReference;
+        conditionBarkWard.conditionEndParticleReference = effectParticleParameters.conditionEndParticleReference;
+
+        var conditionImprovedBarkWard = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ImprovedBarkWard")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .SetParentCondition(conditionBarkWard)
+            .SetFeatures(
+                FeatureDefinitionDamageAffinityBuilder
+                    .Create($"DamageAffinity{Name}ImprovedBarkWard")
+                    .SetGuiPresentationNoContent(true)
+                    .SetDamageAffinityType(DamageAffinityType.Immunity)
+                    .SetDamageType(DamageTypePoison)
+                    .AddToDB())
+            .AddToDB();
+
+        conditionImprovedBarkWard.conditionStartParticleReference =
+            effectParticleParameters.conditionStartParticleReference;
+        conditionImprovedBarkWard.conditionParticleReference =
+            effectParticleParameters.conditionParticleReference;
+        conditionImprovedBarkWard.conditionEndParticleReference =
+            effectParticleParameters.conditionEndParticleReference;
+
+        var powerBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}BarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Minute, 10)
-                    .SetEffectForms(effectFormTemporaryHitPoints)
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBarkWard))
                     .Build())
             .AddToDB();
 
-        powerSharedPoolForestGuardianBarkWard.EffectDescription.EffectParticleParameters.casterParticleReference =
+
+        powerBarkWard.EffectDescription.EffectParticleParameters.casterParticleReference =
             SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
 
-        var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
+        var powerImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}ImprovedBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Minute, 10)
-                    .SetEffectForms(
-                        effectFormTemporaryHitPoints,
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionDefinitions.ConditionBarkskin, $"Condition{Name}ImprovedBarkWard")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetFeatures(
-                                        FeatureDefinitionDamageAffinityBuilder
-                                            .Create($"DamageAffinity{Name}ImprovedBarkWard")
-                                            .SetGuiPresentationNoContent()
-                                            .SetDamageAffinityType(DamageAffinityType.None)
-                                            .SetDamageType(DamageTypePoison)
-                                            .SetRetaliate(powerForestGuardianImprovedBarkWard, 1, true)
-                                            .AddToDB())
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionImprovedBarkWard))
                     .Build())
-            .SetOverriddenPower(powerSharedPoolForestGuardianBarkWard)
+            .SetOverriddenPower(powerBarkWard)
             .AddToDB();
 
-        powerSharedPoolForestGuardianImprovedBarkWard.EffectDescription.EffectParticleParameters
-                .casterParticleReference =
+
+        powerImprovedBarkWard.EffectDescription.EffectParticleParameters.casterParticleReference =
             SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
 
-        var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
+        var powerSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Minute, 10)
-                    .SetEffectForms(
-                        effectFormTemporaryHitPoints,
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionDefinitions.ConditionBarkskin, $"Condition{Name}SuperiorBarkWard")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetFeatures(
-                                        FeatureDefinitionDamageAffinityBuilder
-                                            .Create($"DamageAffinity{Name}SuperiorBarkWard")
-                                            .SetGuiPresentationNoContent()
-                                            .SetDamageAffinityType(DamageAffinityType.Immunity)
-                                            .SetDamageType(DamageTypePoison)
-                                            .SetRetaliate(powerForestGuardianSuperiorBarkWard, 1, true)
-                                            .AddToDB())
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .Build())
-            .SetOverriddenPower(powerSharedPoolForestGuardianImprovedBarkWard)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .AddToDB();
 
-        powerSharedPoolForestGuardianSuperiorBarkWard.EffectDescription.EffectParticleParameters
-                .casterParticleReference =
-            SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
+        // connect them all together
+
+        powerBarkWard.AddCustomSubFeatures(
+            new MagicEffectFinishedByMeBarkWard(powerSuperiorBarkWard));
+
+        powerImprovedBarkWard.AddCustomSubFeatures(
+            new MagicEffectFinishedByMeBarkWard(powerSuperiorBarkWard),
+            new BeforeHitConfirmedOnMeBarkWard(powerImprovedBarkWard));
+
+        conditionBarkWard.AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard));
+        conditionImprovedBarkWard.AddCustomSubFeatures(new CharacterTurnStartListenerBarkWard(powerSuperiorBarkWard));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"CircleOfThe{Name}")
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.CircleOfTheForestGuardian, 256))
-            .AddFeaturesAtLevel(2,
-                autoPreparedSpellsForestGuardian,
-                attributeModifierForestGuardianSylvanDurability,
-                powerSharedPoolForestGuardianBarkWard)
-            .AddFeaturesAtLevel(6,
-                AttributeModifierCasterFightingExtraAttack,
-                AttackReplaceWithCantripCasterFighting)
-            .AddFeaturesAtLevel(10,
-                powerSharedPoolForestGuardianImprovedBarkWard)
-            .AddFeaturesAtLevel(14,
-                powerSharedPoolForestGuardianSuperiorBarkWard)
+            .AddFeaturesAtLevel(2, autoPreparedSpellsForestGuardian, attackModifierSylvanMagic, powerBarkWard)
+            .AddFeaturesAtLevel(6, AttributeModifierCasterFightingExtraAttack, AttackReplaceWithCantripCasterFighting)
+            .AddFeaturesAtLevel(10, powerImprovedBarkWard)
+            .AddFeaturesAtLevel(14, powerSuperiorBarkWard)
             .AddToDB();
     }
-
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Druid;
 
@@ -206,4 +211,154 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private static void ApplyTemporaryHitPoints(
+        GameLocationCharacter locationCharacter,
+        FeatureDefinitionPower powerSuperiorBarkWard)
+    {
+        var rulesetCharacter = locationCharacter.RulesetCharacter;
+        var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Druid);
+        var hitPoints = levels switch
+        {
+            >= 14 => 10,
+            >= 10 => 8,
+            >= 6 => 6,
+            _ => 4
+        };
+
+        rulesetCharacter.ReceiveTemporaryHitPoints(
+            hitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (levels < 14 || gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return;
+        }
+
+        rulesetCharacter.LogCharacterUsedPower(powerSuperiorBarkWard);
+
+        foreach (var ally in locationCharacter.PerceivedAllies
+                     .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                 gameLocationBattleService.IsWithinXCells(locationCharacter, x, 3))
+                     .ToList())
+        {
+            ally.RulesetCharacter.ReceiveTemporaryHitPoints(
+                hitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
+        : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            ApplyTemporaryHitPoints(action.ActingCharacter, powerSuperiorBarkWard);
+
+            yield break;
+        }
+    }
+
+    private sealed class BeforeHitConfirmedOnMeBarkWard(FeatureDefinitionPower powerBarkOrImprovedBarkWard)
+        : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe, IActionFinishedByEnemy
+    {
+        private bool _shouldTrigger;
+
+        public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter target)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetAttacker = actingCharacter.RulesetCharacter;
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (_shouldTrigger &&
+                rulesetAttacker is { IsDeadOrDyingOrUnconscious: false } &&
+                gameLocationBattleService is { IsBattleInProgress: true } &&
+                gameLocationBattleService.IsWithin1Cell(target, actingCharacter))
+            {
+                InflictDamage(actingCharacter, target);
+            }
+
+            _shouldTrigger = false;
+
+            yield break;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode != null)
+            {
+                _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
+                                 defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
+                                 ValidatorsWeapon.IsMelee(attackMode);
+            }
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
+                             defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
+                             rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.Touch;
+
+            yield break;
+        }
+
+        // ReSharper disable once SuggestBaseTypeForParameter
+        private void InflictDamage(GameLocationCharacter attacker, GameLocationCharacter me)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetMe = me.RulesetCharacter;
+            var rolls = new List<int>();
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypePiercing, DieType = DieType.D8, DiceNumber = 2, BonusDamage = 0
+            };
+            var damageRoll =
+                rulesetMe.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+            rulesetMe.LogCharacterUsedPower(powerBarkOrImprovedBarkWard);
+            EffectHelpers.StartVisualEffect(me, me, PowerPatronTreeExplosiveGrowth);
+            RulesetActor.InflictDamage(
+                damageRoll,
+                damageForm,
+                damageForm.DamageType,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                rulesetAttacker,
+                false,
+                rulesetMe.Guid,
+                false,
+                [],
+                new RollInfo(damageForm.DieType, rolls, 0),
+                true,
+                out _);
+        }
+    }
+
+    private sealed class CharacterTurnStartListenerBarkWard(FeatureDefinitionPower powerSuperiorBarkWard)
+        : ICharacterTurnStartListener
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            ApplyTemporaryHitPoints(locationCharacter, powerSuperiorBarkWard);
+        }
+    }
 }

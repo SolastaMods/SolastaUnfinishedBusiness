@@ -223,23 +223,13 @@ public class PatronMountain : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class AttackBeforeHitConfirmedOnMeBarrierOfStone :
-        IAttackBeforeHitConfirmedOnMeOrAlly, IMagicalAttackBeforeHitConfirmedOnMeOrAlly
+    private class AttackBeforeHitConfirmedOnMeBarrierOfStone(
+        FeatureDefinitionPower powerBarrierOfStone,
+        FeatureDefinitionPower powerEternalGuardian,
+        ConditionDefinition conditionDefinition)
+        :
+            IAttackBeforeHitConfirmedOnMeOrAlly, IMagicalAttackBeforeHitConfirmedOnMeOrAlly
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _powerBarrierOfStone;
-        private readonly FeatureDefinitionPower _powerEternalGuardian;
-
-        public AttackBeforeHitConfirmedOnMeBarrierOfStone(
-            FeatureDefinitionPower powerBarrierOfStone,
-            FeatureDefinitionPower powerEternalGuardian,
-            ConditionDefinition conditionDefinition)
-        {
-            _powerBarrierOfStone = powerBarrierOfStone;
-            _powerEternalGuardian = powerEternalGuardian;
-            _conditionDefinition = conditionDefinition;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -310,7 +300,7 @@ public class PatronMountain : AbstractSubclass
 
             var rulesetMe = me.RulesetCharacter;
             var levels = rulesetMe.GetClassLevel(CharacterClassDefinitions.Warlock);
-            var power = levels < 6 ? _powerBarrierOfStone : _powerEternalGuardian;
+            var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
 
             if (rulesetMe.GetRemainingPowerCharges(power) <= 0)
             {
@@ -339,15 +329,15 @@ public class PatronMountain : AbstractSubclass
 
             rulesetMe.UpdateUsageForPower(power, power.CostPerUse);
             rulesetDefender.InflictCondition(
-                _conditionDefinition.Name,
-                _conditionDefinition.DurationType,
-                _conditionDefinition.DurationParameter,
-                _conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                conditionDefinition.Name,
+                conditionDefinition.DurationType,
+                conditionDefinition.DurationParameter,
+                conditionDefinition.TurnOccurence,
+                AttributeDefinitions.TagEffect,
                 rulesetMe.Guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);

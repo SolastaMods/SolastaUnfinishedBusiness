@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Add all dice from base weapon damage to f
 ModUi/&AddAllToStore=Add all to store
 ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Enable <color=#D89555>Darkness Perceptive</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> <i><color=#F0DAA0>\n[grants advantage on perception checks when unlit or under magical darkness]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Add <color=#D89555>Fighter</color> level to <color=#D89555>Indomitable Resistance</color> saving throw reroll
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 1 cell of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
 ModUi/&Character=Character
 ModUi/&CharactersPool=Characters Pool
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
+ModUi/&Combat=<color=#F0DAA0>Combat:</color>
 ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
 ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active party\n. Items added to stores might need the party to travel away from the location and come back
 ModUi/&Credits=Credits
@@ -165,6 +166,7 @@ ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Grant Scimitar <b>Weapon Specialization</b> to <color=#D89555>Bards</color> and <color=#D89555>Rogues</color>
+ModUi/&GridSelectedColor=Change the grid color <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&House=<color=#F0DAA0>House:</color>
@@ -194,19 +196,22 @@ ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagic</color>
 ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
+ModUi/&MovementGridWidthModifier=<color=white>Multiply the movement grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No experience is required to level up
 ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on character creation
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
 ModUi/&OpenSubjectiveGuide=Open The Subjective Guide to Solasta by <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Multiply the outline grid width by</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Multiply the outline grid animation speed by</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Override the required min and max levels when starting new adventures
 ModUi/&OverridePartySize=<color=white>Override the party size</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Open portraits folder
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Enable <color=#D89555>Light Sensitivity</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</color>, and <color=#D89555>Gray Dwarf</color> to only trigger outdoors\n<i><color=#F0DAA0>[indoor areas in outdoor locations accessible without a load screen are considered outdoor by the game engine]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Enable <color=#D89555>Light Sensitivity</color> on <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, and <color=#D89555>Gray Dwarf</color> to only trigger outdoors\n<i><color=#F0DAA0>[indoor areas in outdoor locations accessible without a load screen are considered outdoor by the game engine]</color></i>
 ModUi/&Races=<color=#F0DAA0>Races</color>
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RecipesInDm=Recipes in DM

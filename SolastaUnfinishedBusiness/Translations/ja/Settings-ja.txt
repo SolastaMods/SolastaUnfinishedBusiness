@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=基本武器ダメージからのすべ�
 ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>より小さな修復</color>によって除去された状態に追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>ハーフダークエルフ</color>で<color=#D89555>闇の知覚</color>を有効にするcolor>、<color=#D89555>グレイ ドワーフ</color> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックに有利になる]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>闇の知覚</color>を有効にするcolor> <i><color=#F0DAA0>\n[照明が当たっていないとき、または魔法の暗闇の下で知覚チェックで有利になる]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>ファイター</color>レベルを<color=#D89555>不屈</color>セーヴィングスローのリロールに追加
 ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加<i><color=#F0DAA0>[味方のクリーチャーが自分から5フィート以内のクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color>に人型の優先敵を追加する
@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>変更ログ</color></b>
 ModUi/&Character=キャラクター
 ModUi/&CharactersPool=キャラクタープール
 ModUi/&Classes=<color=#F0DAA0>クラス</color>
+ModUi/&Combat=<color=#F0DAA0>戦闘:</color>
 ModUi/&Crafting=<color=#F0DAA0>クラフト:</color>
 ModUi/&CraftingHelp=。ボタンを押すと、アクティブなパーティーでレシピを即座に学習できます\n。ストアにアイテムを追加するには、パーティがその場所から離れて戻ってくる必要がある場合があります
 ModUi/&Credits=クレジット
@@ -165,6 +166,7 @@ ModUi/&Gameplay=ゲームプレイ
 ModUi/&General=<color=#F0DAA0>全般:</color>
 ModUi/&GeneralMenu=全般的
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>吟遊詩人</color>と<color=#D89555>ローグ</color>にシミターの<b>武器特化</b>を付与する
+ModUi/&GridSelectedColor=グリッドの色を変更します<i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=まだ発見されていない場合は、出口とテレポーターの視覚効果を非表示にします
 ModUi/&HideMonsterHitPoints=正確なヒットポイントではなく、モンスターの体力を 25% / 50% / 75% / 100% の段階で表示します
 ModUi/&House=<color=#F0DAA0>家:</color>
@@ -194,19 +196,22 @@ ModUi/&MaxAllowedClasses=<color=white>許可されるクラスの最大数</colo
 ModUi/&Merchants=<color=#F0DAA0>販売者:</color>
 ModUi/&Metamagic=<color=#F0DAA0>メタマジック</color>
 ModUi/&Monsters=<color=#F0DAA0>モンスター:</color>
+ModUi/&MovementGridWidthModifier=<color=white>移動グリッドの幅を</color> <color=#C04040E0>[%]</color>で乗算します。
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> で呪文をクリックすると、消費されるデフォルトのレパートリー スロット タイプが反転します\n<i><color=#F0DAA0>[<color=#D89555>ウォーロック</color>は白い呪文スロットを消費します他の人は緑の協定を使います]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>得られる経験値を</color><color=#C04040E0>[%]</color>で倍増します
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
 ModUi/&OfferAdditionalLoreFriendlyNames=キャラクター作成時に追加の伝承にわかりやすい名前を提供する
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストで最も強力なクリーチャーのみを表示</i>
 ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b> による「ソラスタの主観ガイド」を開きます
+ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を乗算します</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>アウトライン グリッドのアニメーション速度を 2 倍します</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=新しい冒険を開始するときに必要な最小レベルと最大レベルを上書きします
 ModUi/&OverridePartySize=<color=white>パーティのサイズを上書きする</color>
 ModUi/&Patches=<color=#F0DAA0>パッチ:</color>
 ModUi/&PortraitsOpenFolder=ポートレートフォルダーを開く
 ModUi/&PrimedItems=プライムアイテム
 ModUi/&Progression=<color=#F0DAA0>進行状況:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>ハーフダークエルフ</color>の<color=#D89555>光感度</color>を有効にするcolor>、および屋外のみをトリガーする <color=#D89555>Grey Dwarf</color>\n<i><color=#F0DAA0>[ロード画面なしでアクセスできる屋外の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>ダークエルフ</color>、<color=#D89555>ダークコボルト</color>、<color=#D89555>グレイドワーフ</color>の<color=#D89555>光感度</color>を有効にするcolor> 屋外のみをトリガーする\n<i><color=#F0DAA0>[ロード画面なしでアクセスできる屋外の屋内エリアは、ゲーム エンジンによって屋外とみなされます]</color></i>
 ModUi/&Races=<color=#F0DAA0>レース</color>
 ModUi/&RecipeCost=<color=white>レシピのコスト</color>
 ModUi/&RecipesInDm=レシピはDMにて

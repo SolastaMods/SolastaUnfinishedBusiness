@@ -161,7 +161,7 @@ internal static partial class SpellBuilders
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(DamageTypeFire, 4, DieType.D6)
+                    .SetDamageForm(DamageTypeFire, 8, DieType.D6)
                     .SetCreatedBy()
                     .Build())
             .AddToDB();
@@ -456,7 +456,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(NAME, Category.Spell)
             .SetNotificationTag(NAME)
             .AddCustomSubFeatures(
-                ValidatorsRestrictedContext.IsWeaponAttack,
+                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack,
                 new OnPhysicalAttackHitBanishingSmite(conditionBanishingSmiteEnemy))
             .SetDamageDice(DieType.D10, 5)
             .SetSpecificDamageType(DamageTypeForce)
@@ -496,15 +496,11 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class OnPhysicalAttackHitBanishingSmite : IPhysicalAttackAfterDamage
+    private sealed class OnPhysicalAttackHitBanishingSmite(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IPhysicalAttackAfterDamage
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public OnPhysicalAttackHitBanishingSmite(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -526,15 +522,15 @@ internal static partial class SpellBuilders
 
             //TODO: ideally we need to banish extra planar creatures forever (kill them?)
             rulesetDefender.InflictCondition(
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 DurationType.Minute,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);
@@ -600,17 +596,11 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation :
+    private sealed class MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation(
+        ConditionDefinition conditionCircleOfMagicalNegation) :
         IMagicalAttackBeforeHitConfirmedOnMe, IRollSavingThrowFinished
     {
-        private readonly ConditionDefinition _conditionCircleOfMagicalNegation;
         private RollOutcome _saveOutcome;
-
-        public MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation(
-            ConditionDefinition conditionCircleOfMagicalNegation)
-        {
-            _conditionCircleOfMagicalNegation = conditionCircleOfMagicalNegation;
-        }
 
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
@@ -631,7 +621,7 @@ internal static partial class SpellBuilders
                 && x.FormType == EffectForm.EffectFormType.Damage
                 && x.SavingThrowAffinity == EffectSavingThrowType.HalfDamage);
 
-            defender.RulesetCharacter.LogCharacterAffectedByCondition(_conditionCircleOfMagicalNegation);
+            defender.RulesetCharacter.LogCharacterAffectedByCondition(conditionCircleOfMagicalNegation);
         }
 
         public void OnSavingThrowFinished(

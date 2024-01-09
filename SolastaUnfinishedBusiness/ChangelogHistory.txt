@@ -1,6 +1,33 @@
-﻿1.5.94.40:
+﻿1.5.94.41:
 
-ONLY 1 DEVELOPER and 1 DESIGNER/QA did all below in a couple of days... :-) thanks HiddenHax for Design/QA
+- added Interface > Game UI > grid color, animation movement, and width settings under new 'Combat' section
+- added Ice Blade (Ice Knife) spell at 1st and Mystical Cloak (Tasha's Otherworldly Guise) spell at 6th
+- added vanilla Domain Law final word feature at 17th
+- added vanilla Domain Mischief fortune favors the bold feature at 17th
+- added vanilla Domain Mischief strike of chaos progression at 17th and 20th
+- changed Burning Blade, Elemental Infusion, and Noxious Spray spell sprites
+- changed Circle of The Forest Guardian bark ward feature insane temporary hit points duration and progression
+- changed Circle of The Forest Guardian sylvan durability feature at 2nd getting replaced by sylvan magic
+- changed Domain Defiler defile life feature damage progression
+- changed Domain Defiler dying light feature at 17th with additional max necrotic dice damage once per long rest
+- changed Domain Defiler insidious death magic feature to last until the end of your next turn
+- changed Domain Defiler mark for death feature at 6th getting replaced by beacon of corruption
+- changed Hand-and-A-Half into Classic Swordplay, removed +1 dmg, triggering with any one-handed melee and a free hand
+- changed Incineration spell burning damage from 4d6 to 8d6
+- changed Path of The Reaver profane vitality feature hit points piece into new draconic resilience feature at 3rd
+- changed Roguish Arcane Scoundrel arcane backslash feature to 1 usage per long rest
+- changed Roguish Slayer cloak of shadows feature to 1 minute duration and DEX modifier usages per long rest
+- changed Sorcerous Spellblade mana shield feature to be offered at 2nd instead of 1st
+- changed Way of Dragon elemental breath feature into a no cost action that consumes attack actions once per turn
+- changed Way of Tempest eye of storm feature at 17th lightning leap damage dice from 5d10 to 4d10
+- fixed 'Darkness Perceptive' and 'Light Sensitivity on outdoors only' settings incorrectly considering half dark-elves
+- fixed Closed Quarters feat sneak attack pre-requisite not validating Arcane Scoundrel at 9th or higher
+- fixed Defensive Duelist feat triggering the reaction regardless the hero main weapon finesse tag 
+- fixed vanilla Domain Mischief strike of chaos triggering on magical attacks [and restricted reaction validator]
+- swapped Path of The Savagery wrath and fury feature at 10th with unbridled ferocity feature at 14th
+- swapped Way of Dragon reactive skin feature at 3rd with elemental breath feature at 6th
+
+1.5.94.40:
 
 - added Cloud of Blades spell at 2nd
 - changed Flash Freeze spell damage from 12d6 to 10d6
@@ -97,14 +124,6 @@ MERRY CHRISTMAS / FELIZ NATAL / FELIZ NAVIDAD! Santa heard your wishes and invit
 
 1.5.94.34:
 
-ATTENTION: 
-
-- Zappastuff, mod maintainer and head developer, burned his development box RTX 2060 graphics card
-- he's looking for support to buy a RTX 4060 that sells for US$300 [donations are appreciated]
-- this version celebrates the 1 year UB anniversary and the 3 years Solasta modding anniversary
-
-CHANGES:
-
 - added an entry in settings.xml with a list of deprecated subclasses [not offered or supported anymore]
 - added College of Thespian and Martial Guardian subclasses [based of deprecated Harlequin and Defender]
 - added Gameplay > General > 'Add Fighter level to indomitable resistance saving throw reroll'
@@ -188,10 +207,6 @@ CHANGES:
 
 1.5.94.25:
 
-- mod takes ~120 hours a month to get new content and fixes
-- only taking requests from patrons or users supporting in other areas [QA, translations, etc.]
-- looking for additional patrons to make it at least break even on costs [mod UI > General > Tools for donation]
-
 - added additional sample portraits under Portraits/Personal [by Artyoan]
 - added Interface > Game UI > 'Enable alternate voting system' [weight = votes * hero CHA modifier]
 - added Interface > Game UI > 'Also each hero adds a D20 roll to weight' [sums D20 to above]
@@ -201,10 +216,6 @@ CHANGES:
 - improved Chilling, Corrosive, Fiery, Fulminate, Necrotic, Poisonous, Psychic, Radiant, and Thunder invocations effects
 
 1.5.94.24:
-
-- mod takes ~120 hours a month to get new content and fixes
-- monthly cost with internet and services is ~$120 but only making $50 currently
-- looking for additional patrons to make it at least break even on costs [mod UI > General > Tools for donation]
 
 - added Gameplay > General > 'Disable cast spell pre-requisites on feats provided by this mod'
 - added Interface > Game UI > 'Enable Extended Proficiencies display setting'

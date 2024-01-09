@@ -273,10 +273,12 @@ internal static class ClassFeats
             GameLocationCharacter defender)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var isRogue = rulesetAttacker.GetClassLevel(Rogue) > 0;
+            var isSorrAkkath = rulesetAttacker.GetSubclassLevel(Sorcerer, "SorcerousSorrAkkath") > 0;
 
-            if (attackMode == null ||
-                attackMode.Ranged ||
-                !additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) ||
+            if (attackMode is not { Ranged: false } ||
+                (!isRogue && !isSorrAkkath) ||
                 gameLocationBattleService == null ||
                 !gameLocationBattleService.IsWithin1Cell(attacker, defender))
             {
@@ -290,8 +292,9 @@ internal static class ClassFeats
 
         static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
         {
-            var hasSneakAttack = hero.GetFeaturesByType<FeatureDefinitionAdditionalDamage>()
-                .Any(x => x.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag));
+            var isRogue = hero.GetClassLevel(Rogue) > 0;
+            var isSorrAkkath = hero.GetSubclassLevel(Sorcerer, "SorcerousSorrAkkath") > 0;
+            var hasSneakAttack = isRogue || isSorrAkkath;
 
             var guiFormat = Gui.Format("Tooltip/&PreReqMustKnow", "Feature/&RogueSneakAttackTitle");
 
@@ -559,7 +562,7 @@ internal static class ClassFeats
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
@@ -741,17 +744,9 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class GainWildShapeCharges : IMagicEffectFinishedByMe, IValidatePowerUse
+    private sealed class GainWildShapeCharges(int slotLevel, int wildShapeAmount)
+        : IMagicEffectFinishedByMe, IValidatePowerUse
     {
-        private readonly int _slotLevel;
-        private readonly int _wildShapeAmount;
-
-        public GainWildShapeCharges(int slotLevel, int wildShapeAmount)
-        {
-            _slotLevel = slotLevel;
-            _wildShapeAmount = wildShapeAmount;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
@@ -763,8 +758,8 @@ internal static class ClassFeats
                 yield break;
             }
 
-            repertoire.SpendSpellSlot(_slotLevel);
-            character.UpdateUsageForPowerPool(-_wildShapeAmount, rulesetUsablePower);
+            repertoire.SpendSpellSlot(slotLevel);
+            character.UpdateUsageForPowerPool(-wildShapeAmount, rulesetUsablePower);
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
@@ -772,7 +767,7 @@ internal static class ClassFeats
             var remaining = 0;
 
             character.GetClassSpellRepertoire(Druid)?
-                .GetSlotsNumber(_slotLevel, out remaining, out _);
+                .GetSlotsNumber(slotLevel, out remaining, out _);
 
             var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
                          character.GetRemainingPowerUses(PowerDruidWildShape);

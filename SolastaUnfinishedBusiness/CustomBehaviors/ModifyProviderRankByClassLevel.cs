@@ -3,17 +3,10 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class ModifyProviderRankByClassLevel : IModifyProviderRank
+public class ModifyProviderRankByClassLevel(CharacterClassDefinition klass) : IModifyProviderRank
 {
-    private readonly CharacterClassDefinition _class;
-
-    public ModifyProviderRankByClassLevel(CharacterClassDefinition klass)
-    {
-        _class = klass;
-    }
-
     public int GetRank(RulesetCharacter character)
     {
-        return character.GetClassLevel(_class);
+        return character.GetClassLevel(klass);
     }
 }

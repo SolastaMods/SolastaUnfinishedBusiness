@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Adicione todos os dados do dano básico d
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> e <color=#D89555>Anão Cinzento</color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Ative <color=#D89555>Darkness Perceptive</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</ color> <i><color=#F0DAA0>\n[concede vantagem em testes de percepção quando apagado ou sob escuridão mágica]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Adicionado o nível <color=#D89555>Lutador</color> à nova rolagem do teste de resistência <color=#D89555>Indomável</color>
 ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>Registro de alterações</color></b>
 ModUi/&Character=Personagem
 ModUi/&CharactersPool=Conjunto de Personagens
 ModUi/&Classes=<color=#F0DAA0>Aulas</color>
+ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Criação:</color>
 ModUi/&CraftingHelp=. Pressione o botão para aprender receitas instantaneamente na parte ativa\n. Os itens adicionados às lojas podem exigir que o grupo se afaste do local e volte
 ModUi/&Credits=Créditos
@@ -165,6 +166,7 @@ ModUi/&Gameplay=Jogabilidade
 ModUi/&General=<color=#F0DAA0>Geral:</color>
 ModUi/&GeneralMenu=Em geral
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Conceda <b>Especialização em Arma</b> de Cimitarra a <color=#D89555>Bardos</color> e <color=#D89555>Ladinos</color>
+ModUi/&GridSelectedColor=Alterar a cor da grade <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar efeitos visuais de saídas e teletransportadores, caso ainda não tenham sido descobertos
 ModUi/&HideMonsterHitPoints=Exibir a saúde dos monstros em etapas de 25% / 50% / 75% / 100% em vez de pontos de vida exatos
 ModUi/&House=<color=#F0DAA0>Casa:</color>
@@ -194,19 +196,22 @@ ModUi/&MaxAllowedClasses=<color=white>Máximo de aulas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
+ModUi/&MovementGridWidthModifier=<color=white>Multiplique a largura da grade de movimento por</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clique em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam pacto verde]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis de lore adicionais na criação de personagem
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OpenSubjectiveGuide=Abra The Subjective Guide to Solasta por <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Multiplique a largura da grade de contorno por</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Multiplique a velocidade de animação da grade de contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
 ModUi/&OverridePartySize=<color=white>Substituir o tamanho da festa</color>
 ModUi/&Patches=<color=#F0DAA0>Aplicativos:</color>
 ModUi/&PortraitsOpenFolder=Abra a pasta de retratos
 ModUi/&PrimedItems=Itens com Primer
 ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Ative <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> e <color=#D89555>Gray Dwarf</color> para acionar apenas em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo de jogo ]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Ative a <color=#D89555>Sensibilidade à Luz</color> em <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> e <color=#D89555>Gray Dwarf</ color> para acionar apenas em ambientes externos\n<i><color=#F0DAA0>[áreas internas em locais externos acessíveis sem uma tela de carregamento são consideradas externas pelo mecanismo de jogo]</color></i>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
 ModUi/&RecipesInDm=Receitas na DM

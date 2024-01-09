@@ -298,20 +298,15 @@ public sealed class OathOfDread : AbstractSubclass
     // Aura of Domination
     //
 
-    private sealed class CharacterTurnStartListenerAuraOfDomination : ICharacterTurnStartListener
+    private sealed class CharacterTurnStartListenerAuraOfDomination(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionAuraOfDomination) : ICharacterTurnStartListener
     {
-        private readonly ConditionDefinition _conditionAuraOfDomination;
-
-        public CharacterTurnStartListenerAuraOfDomination(ConditionDefinition conditionAuraOfDomination)
-        {
-            _conditionAuraOfDomination = conditionAuraOfDomination;
-        }
-
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            var rulesetDefender = locationCharacter.RulesetCharacter;
+            var rulesetDefender = locationCharacter.RulesetActor;
             var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(x =>
-                x.ConditionDefinition == _conditionAuraOfDomination);
+                x.ConditionDefinition == conditionAuraOfDomination);
 
             if (rulesetCondition == null)
             {
@@ -334,7 +329,7 @@ public sealed class OathOfDread : AbstractSubclass
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
@@ -378,15 +373,9 @@ public sealed class OathOfDread : AbstractSubclass
     // Harrowing Crusade
     //
 
-    private class ReactToAttackOnMeOrMeFinishedHarrowingCrusade : IPhysicalAttackFinishedOnMeOrAlly
+    private class ReactToAttackOnMeOrMeFinishedHarrowingCrusade(ConditionDefinition conditionMarkOfTheSubmission)
+        : IPhysicalAttackFinishedOnMeOrAlly
     {
-        private readonly ConditionDefinition _conditionMarkOfTheSubmission;
-
-        public ReactToAttackOnMeOrMeFinishedHarrowingCrusade(ConditionDefinition conditionMarkOfTheSubmission)
-        {
-            _conditionMarkOfTheSubmission = conditionMarkOfTheSubmission;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedOnMeOrAlly(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -419,7 +408,7 @@ public sealed class OathOfDread : AbstractSubclass
                 x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
                 x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened));
 
-            if (!hasFrightened && !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
+            if (!hasFrightened && !rulesetAttacker.HasConditionOfType(conditionMarkOfTheSubmission))
             {
                 yield break;
             }

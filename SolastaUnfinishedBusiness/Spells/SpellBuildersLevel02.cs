@@ -580,17 +580,12 @@ internal static partial class SpellBuilders
         return new FeatureUnlockByLevel(attackModifierShadowBladeLevel, level);
     }
 
-    private sealed class ModifyAttackActionModifierShadowBlade : IModifyAttackActionModifier
+    private sealed class ModifyAttackActionModifierShadowBlade(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ItemDefinition itemShadowBlade,
+        BaseDefinition featureAdvantage)
+        : IModifyAttackActionModifier
     {
-        private readonly BaseDefinition _featureAdvantage;
-        private readonly ItemDefinition _itemShadowBlade;
-
-        public ModifyAttackActionModifierShadowBlade(ItemDefinition itemShadowBlade, BaseDefinition featureAdvantage)
-        {
-            _itemShadowBlade = itemShadowBlade;
-            _featureAdvantage = featureAdvantage;
-        }
-
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -605,7 +600,7 @@ internal static partial class SpellBuilders
                 return;
             }
 
-            if (attackMode?.SourceDefinition != _itemShadowBlade)
+            if (attackMode?.SourceDefinition != itemShadowBlade)
             {
                 return;
             }
@@ -616,7 +611,7 @@ internal static partial class SpellBuilders
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Condition, _featureAdvantage.Name, _featureAdvantage));
+                new TrendInfo(1, FeatureSourceType.Condition, featureAdvantage.Name, featureAdvantage));
         }
     }
 
@@ -730,25 +725,14 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class ActionFinishedByMePsychicWhip : IActionFinishedByMe
+    private sealed class ActionFinishedByMePsychicWhip(
+        ConditionDefinition conditionNoBonus,
+        ConditionDefinition conditionNoMain,
+        ConditionDefinition conditionNoMove,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionNoReaction)
+        : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionNoBonus;
-        private readonly ConditionDefinition _conditionNoMain;
-        private readonly ConditionDefinition _conditionNoMove;
-        private readonly ConditionDefinition _conditionNoReaction;
-
-        public ActionFinishedByMePsychicWhip(
-            ConditionDefinition conditionNoBonus,
-            ConditionDefinition conditionNoMain,
-            ConditionDefinition conditionNoMove,
-            ConditionDefinition conditionNoReaction)
-        {
-            _conditionNoBonus = conditionNoBonus;
-            _conditionNoMain = conditionNoMain;
-            _conditionNoMove = conditionNoMove;
-            _conditionNoReaction = conditionNoReaction;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             var actionType = characterAction.ActionType;
@@ -758,16 +742,16 @@ internal static partial class SpellBuilders
             switch (actionType)
             {
                 case ActionDefinitions.ActionType.Main:
-                    conditions.Add(_conditionNoMove);
-                    conditions.Add(_conditionNoBonus);
+                    conditions.Add(conditionNoMove);
+                    conditions.Add(conditionNoBonus);
                     break;
                 case ActionDefinitions.ActionType.Bonus:
-                    conditions.Add(_conditionNoMain);
-                    conditions.Add(_conditionNoMove);
+                    conditions.Add(conditionNoMain);
+                    conditions.Add(conditionNoMove);
                     break;
                 case ActionDefinitions.ActionType.Move:
-                    conditions.Add(_conditionNoBonus);
-                    conditions.Add(_conditionNoMain);
+                    conditions.Add(conditionNoBonus);
+                    conditions.Add(conditionNoMain);
                     break;
             }
 
@@ -779,7 +763,7 @@ internal static partial class SpellBuilders
 
             if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionNoReaction.Name,
+                    conditionNoReaction.Name,
                     out var activeCondition))
             {
                 yield break;
@@ -795,7 +779,7 @@ internal static partial class SpellBuilders
             // game freezes when enemy tries to Dash so best we can do here is allow this exception on the spell
             if (characterAction is CharacterActionDash)
             {
-                conditions.Remove(_conditionNoMove);
+                conditions.Remove(conditionNoMove);
             }
 
             if (characterAction.ActingCharacter.RulesetCharacter is
@@ -807,7 +791,7 @@ internal static partial class SpellBuilders
                         condition.DurationType,
                         condition.DurationParameter,
                         condition.TurnOccurence,
-                        AttributeDefinitions.TagCombat,
+                        AttributeDefinitions.TagEffect,
                         caster.guid,
                         caster.CurrentFaction.Name,
                         1,

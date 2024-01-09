@@ -164,15 +164,9 @@ internal static class MetamagicBuilders
         result = false;
     }
 
-    private sealed class ModifyEffectDescriptionMetamagicFocused : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionMetamagicFocused(ConditionDefinition conditionFocused)
+        : IModifyEffectDescription
     {
-        private readonly ConditionDefinition _conditionFocused;
-
-        public ModifyEffectDescriptionMetamagicFocused(ConditionDefinition conditionFocused)
-        {
-            _conditionFocused = conditionFocused;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
@@ -190,7 +184,7 @@ internal static class MetamagicBuilders
             effectDescription.EffectForms.Add(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(_conditionFocused, ConditionForm.ConditionOperation.Add, true)
+                    .SetConditionForm(conditionFocused, ConditionForm.ConditionOperation.Add, true)
                     .Build());
 
             return effectDescription;

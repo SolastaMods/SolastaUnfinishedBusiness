@@ -249,21 +249,17 @@ public sealed class RangerHellWalker : AbstractSubclass
     // FireBolt
     //
 
-    private sealed class ModifyEffectDescriptionFireBolt : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionFireBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerFireBolt)
+        : IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _powerFireBolt;
-
-        public ModifyEffectDescriptionFireBolt(FeatureDefinitionPower powerFireBolt)
-        {
-            _powerFireBolt = powerFireBolt;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _powerFireBolt;
+            return definition == powerFireBolt;
         }
 
         public EffectDescription GetEffectDescription(
@@ -291,15 +287,11 @@ public sealed class RangerHellWalker : AbstractSubclass
     // DammingStrike
     //
 
-    private sealed class OnConditionAddedOrRemovedDammingStrike : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedDammingStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IOnConditionAddedOrRemoved
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public OnConditionAddedOrRemovedDammingStrike(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -307,12 +299,10 @@ public sealed class RangerHellWalker : AbstractSubclass
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var otherRulesetCondition =
-                target.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-            if (otherRulesetCondition != null)
+            if (target.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionDefinition.Name,
+                    out var activeCondition))
             {
-                target.RemoveCondition(otherRulesetCondition);
+                target.RemoveCondition(activeCondition);
             }
         }
     }
@@ -321,26 +311,19 @@ public sealed class RangerHellWalker : AbstractSubclass
     // Mark of the Dammed
     //
 
-    private sealed class CustomBehaviorMarkOfTheDammed :
-        IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorMarkOfTheDammed(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower featureDefinitionPower,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IModifyDamageAffinity, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
-
-        public CustomBehaviorMarkOfTheDammed(
-            FeatureDefinitionPower featureDefinitionPower,
-            ConditionDefinition conditionDefinition)
-        {
-            _featureDefinitionPower = featureDefinitionPower;
-            _conditionDefinition = conditionDefinition;
-        }
-
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
+                rulesetEffectPower.PowerDefinition != featureDefinitionPower)
             {
                 return true;
             }
@@ -373,7 +356,7 @@ public sealed class RangerHellWalker : AbstractSubclass
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
                 var rulesetCondition = rulesetDefender.AllConditions
-                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+                    .FirstOrDefault(x => x.ConditionDefinition == conditionDefinition);
 
                 if (rulesetCondition != null)
                 {
@@ -386,7 +369,7 @@ public sealed class RangerHellWalker : AbstractSubclass
 
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
-            if (!attacker.HasConditionOfType(_conditionDefinition.Name))
+            if (!attacker.HasConditionOfType(conditionDefinition.Name))
             {
                 return;
             }

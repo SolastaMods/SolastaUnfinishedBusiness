@@ -32,7 +32,7 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Minute",
-    "durationParameter": 2,
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -115,13 +115,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a56cb8792645db5478ef288ba5d692d6",
+        "m_AssetGUID": "adedb8b57f2c6784db9a6a1e11909b42",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b47f2e2f5757dff47a392712be9c2925",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -249,7 +249,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "18358f685aa889543b2d6d68c78f1b96",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,7 +261,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b04ebd84a933a19499efab399f1c25a6",
+        "m_AssetGUID": "fa9fb7c5d49f47e489ead12eae1ec524",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -311,10 +311,10 @@
   "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
+  "usesDetermination": "AbilityBonusPlusFixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "usesAbilityScoreName": "Dexterity",
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,

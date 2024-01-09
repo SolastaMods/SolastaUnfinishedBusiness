@@ -85,28 +85,23 @@ internal static partial class UI
 
     [UsedImplicitly]
     [JsonObject(MemberSerialization.OptIn)]
-    public class KeyBind
+    public class KeyBind(
+        string identifier,
+        KeyCode key = KeyCode.None,
+        bool ctrl = false,
+        bool alt = false,
+        bool cmd = false,
+        bool shift = false)
     {
-        [JsonProperty] public readonly bool Cmd;
+        [JsonProperty] public readonly bool Cmd = cmd;
 
-        [JsonProperty] public readonly bool Ctrl;
-        [JsonProperty] public readonly string ID;
+        [JsonProperty] public readonly bool Ctrl = ctrl;
+        [JsonProperty] public readonly string ID = identifier;
 
-        [JsonProperty] public readonly KeyCode Key;
+        [JsonProperty] public readonly KeyCode Key = key;
 
-        [JsonProperty] public readonly bool Shift;
-        [JsonProperty] public bool Alt;
-
-        public KeyBind(string identifier, KeyCode key = KeyCode.None, bool ctrl = false, bool alt = false,
-            bool cmd = false, bool shift = false)
-        {
-            ID = identifier;
-            Key = key;
-            Ctrl = ctrl;
-            Alt = alt;
-            Cmd = cmd;
-            Shift = shift;
-        }
+        [JsonProperty] public readonly bool Shift = shift;
+        [JsonProperty] public bool Alt = alt;
 
         [JsonIgnore] public bool IsEmpty => Key == KeyCode.None;
 

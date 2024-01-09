@@ -89,6 +89,7 @@ internal static class RangedCombatFeats
                     .Create($"Custom{NAME}")
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isLongOrShortbow(mode, null, character))),
@@ -118,6 +119,7 @@ internal static class RangedCombatFeats
                     .Create($"Custom{NAME}")
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddCustomSubFeatures(
                         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isCrossbow(mode, null, character))),
@@ -245,15 +247,10 @@ internal static class RangedCombatFeats
     // HELPERS
     //
 
-    private sealed class ModifyWeaponAttackModeFeatDeadeye : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeFeatDeadeye(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatDefinition featDefinition) : IModifyWeaponAttackMode
     {
-        private readonly FeatDefinition _featDefinition;
-
-        public ModifyWeaponAttackModeFeatDeadeye(FeatDefinition featDefinition)
-        {
-            _featDefinition = featDefinition;
-        }
-
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
             if (!ValidatorsWeapon.IsOfWeaponType(DartType)(attackMode, null, null) &&
@@ -273,12 +270,12 @@ internal static class RangedCombatFeats
             const int TO_DAMAGE = +10;
 
             attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat, _featDefinition.Name,
-                _featDefinition));
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat, featDefinition.Name,
+                featDefinition));
 
             damage.BonusDamage += TO_DAMAGE;
-            damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat, _featDefinition.Name,
-                _featDefinition));
+            damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat, featDefinition.Name,
+                featDefinition));
         }
     }
 

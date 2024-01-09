@@ -182,18 +182,12 @@ internal static class RaceImpBuilder
         return raceImpForest;
     }
 
-    private class AttackBeforeHitConfirmedImpishWrath : IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
+    private class AttackBeforeHitConfirmedImpishWrath(
+        FeatureDefinitionPower powerPool,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionActionAffinity actionAffinityImpishWrathToggle)
+        : IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
     {
-        private readonly FeatureDefinitionActionAffinity _actionAffinityImpishWrathToggle;
-        private readonly FeatureDefinitionPower _powerPool;
-
-        public AttackBeforeHitConfirmedImpishWrath(FeatureDefinitionPower powerPool,
-            FeatureDefinitionActionAffinity actionAffinityImpishWrathToggle)
-        {
-            _powerPool = powerPool;
-            _actionAffinityImpishWrathToggle = actionAffinityImpishWrathToggle;
-        }
-
         public IEnumerator OnMagicalAttackFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
@@ -251,7 +245,7 @@ internal static class RaceImpBuilder
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             // check action affinity for backward compatibility
-            if (attacker.RulesetCharacter.HasAnyFeature(_actionAffinityImpishWrathToggle) &&
+            if (attacker.RulesetCharacter.HasAnyFeature(actionAffinityImpishWrathToggle) &&
                 !attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
             {
                 yield break;
@@ -277,14 +271,14 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (!rulesetAttacker.CanUsePower(_powerPool))
+            if (!rulesetAttacker.CanUsePower(powerPool))
             {
                 yield break;
             }
 
             // maybe add some toggle here similar to Paladin Smite
 
-            var usablePower = UsablePowersProvider.Get(_powerPool, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerPool, rulesetAttacker);
             var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
 
@@ -329,7 +323,7 @@ internal static class RaceImpBuilder
                 applyFormsParams,
                 rulesetDefender,
                 false,
-                attacker.Guid,
+                rulesetAttacker.Guid,
                 false,
                 attackTags,
                 new RollInfo(DieType.D1, [], bonusDamage),

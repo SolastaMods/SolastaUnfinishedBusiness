@@ -67,6 +67,20 @@ public sealed class PathOfTheSavagery : AbstractSubclass
 
         // LEVEL 10
 
+        // Wrath and Fury
+
+        var featureWrathAndFury = FeatureDefinitionBuilder
+            .Create($"Feature{Name}WrathAndFury")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(
+                //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
+                new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
+                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),
+                new ActionFinishedByMeWrathAndFury())
+            .AddToDB();
+
+        // LEVEL 14
+
         // Unbridled Ferocity
 
         var conditionUnbridledFerocity = ConditionDefinitionBuilder
@@ -91,20 +105,6 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .AddCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
             .AddToDB();
 
-        // LEVEL 14
-
-        // Wrath and Fury
-
-        var featureWrathAndFury = FeatureDefinitionBuilder
-            .Create($"Feature{Name}WrathAndFury")
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(
-                //new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
-                new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand),
-                new ActionFinishedByMeWrathAndFury())
-            .AddToDB();
-
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -112,8 +112,8 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheSavagery, 256))
             .AddFeaturesAtLevel(3, attackModifierSavageStrength, featureSetPrimalInstinct)
             .AddFeaturesAtLevel(6, featureFuriousDefense)
-            .AddFeaturesAtLevel(10, featureUnbridledFerocity)
-            .AddFeaturesAtLevel(14, featureWrathAndFury)
+            .AddFeaturesAtLevel(10, featureWrathAndFury)
+            .AddFeaturesAtLevel(14, featureUnbridledFerocity)
             .AddToDB();
     }
 
@@ -177,15 +177,9 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         abilityScoreName = AttributeDefinitions.Strength;
     }
 
-    private sealed class PhysicalAttackAfterDamageUnbridledFerocity : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
+        : IPhysicalAttackAfterDamage
     {
-        private readonly ConditionDefinition _conditionUnbridledFerocity;
-
-        public PhysicalAttackAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
-        {
-            _conditionUnbridledFerocity = conditionUnbridledFerocity;
-        }
-
         public void OnPhysicalAttackAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -205,20 +199,20 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             if (outcome == RollOutcome.CriticalSuccess)
             {
                 rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
-                    AttributeDefinitions.TagCombat, _conditionUnbridledFerocity.Name);
+                    AttributeDefinitions.TagEffect, conditionUnbridledFerocity.Name);
             }
             else if (outcome == RollOutcome.Success && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 rulesetAttacker.InflictCondition(
-                    _conditionUnbridledFerocity.Name,
-                    _conditionUnbridledFerocity.DurationType,
-                    _conditionUnbridledFerocity.DurationParameter,
-                    _conditionUnbridledFerocity.turnOccurence,
-                    AttributeDefinitions.TagCombat,
+                    conditionUnbridledFerocity.Name,
+                    conditionUnbridledFerocity.DurationType,
+                    conditionUnbridledFerocity.DurationParameter,
+                    conditionUnbridledFerocity.turnOccurence,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
-                    _conditionUnbridledFerocity.Name,
+                    conditionUnbridledFerocity.Name,
                     0,
                     0,
                     0);

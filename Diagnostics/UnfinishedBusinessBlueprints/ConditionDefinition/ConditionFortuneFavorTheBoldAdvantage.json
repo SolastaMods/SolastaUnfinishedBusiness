@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityForestGuardianSuperiorBarkWard:668e75de-e3d2-55a9-84f4-28981d042ca1"
+    "Definition:CombatAffinityStrikeOfChaosAttackAdvantage:8d7a4a2fc68eb2042b22d7bdd9114cdf"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -17,7 +17,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Attacks"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -46,13 +48,13 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "ce76e6d0b360cd44da4abb7efe45187e",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "c5bd1eed8b51172459c06ed42ce4b095",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -265,12 +267,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionForestGuardianSuperiorBarkWardTitle",
-    "description": "Condition/&ConditionForestGuardianSuperiorBarkWardDescription",
+    "title": "Feature/&DomainMischiefStrikeOfChaosAttackAdvantageTitle",
+    "description": "Feature/&DomainMischiefStrikeOfChaosAttackAdvantageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
-      "m_SubObjectName": "ConditionMageArmor",
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -286,7 +288,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "adf9085f-df37-55bb-8d36-4860b0f0221e",
+  "guid": "17acbfc8-6931-59a4-b19e-184627395337",
   "contentPack": 9999,
-  "name": "ConditionForestGuardianSuperiorBarkWard"
+  "name": "ConditionFortuneFavorTheBoldAdvantage"
 }

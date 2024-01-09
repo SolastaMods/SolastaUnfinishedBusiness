@@ -18,12 +18,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeaturePathOfTheSavageryUnbridledFerocity:cbcac43d-4378-5d2c-9e50-63782e632050",
+      "featureDefinition": "Definition:FeaturePathOfTheSavageryWrathAndFury:1ce95b2d-40db-5dec-9d16-082f0839f7f1",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeaturePathOfTheSavageryWrathAndFury:1ce95b2d-40db-5dec-9d16-082f0839f7f1",
+      "featureDefinition": "Definition:FeaturePathOfTheSavageryUnbridledFerocity:cbcac43d-4378-5d2c-9e50-63782e632050",
       "level": 14
     }
   ],

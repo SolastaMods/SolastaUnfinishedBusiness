@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -41,28 +40,6 @@ public static class RuleDefinitionsPatcher
             else
             {
                 __result = AdvantageType.Disadvantage;
-            }
-        }
-    }
-
-    //PATCH: allows tweaking effects on heroes with extra ancestry types
-    [HarmonyPatch(typeof(RuleDefinitions), nameof(TryGetAncestryDamageTypeFromCharacter))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class TryGetAncestryDamageTypeFromCharacter_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(
-            ref bool __result,
-            ulong guid,
-            AncestryType ancestryType,
-            ref string ancestryDamageType)
-        {
-            // reuse any Barbarian Claw effect with Path of the Elements
-            if (!__result && ancestryType == AncestryType.BarbarianClaw)
-            {
-                __result = TryGetAncestryDamageTypeFromCharacter(
-                    guid, (AncestryType)ExtraAncestryType.PathOfTheElements, out ancestryDamageType);
             }
         }
     }

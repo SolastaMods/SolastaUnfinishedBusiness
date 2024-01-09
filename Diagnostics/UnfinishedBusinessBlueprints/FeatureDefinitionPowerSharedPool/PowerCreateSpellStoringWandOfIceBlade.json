@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -30,9 +30,9 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Minute",
-    "durationParameter": 10,
+    "targetSide": "All",
+    "durationType": "Permanent",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -63,25 +63,30 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "TemporaryHitPoints",
+        "formType": "Summon",
         "addBonusMode": "None",
-        "applyLevel": "MultiplyBonus",
+        "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
+        "hasSavingThrow": true,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "temporaryHitPointsForm": {
-          "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 0,
-          "dieType": "D1",
-          "bonusHitPoints": 4,
-          "applyToSelf": false
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "InventoryItem",
+          "itemDefinition": "Definition:SpellStoringWandOfIceBlade:d87224aa-3791-5d2b-83c8-af18d6861d67",
+          "trackItem": true,
+          "monsterDefinitionName": "",
+          "number": 1,
+          "conditionDefinition": null,
+          "persistOnConcentrationLoss": true,
+          "decisionPackage": null,
+          "effectProxyDefinitionName": null
         },
         "hasFilterId": false,
         "filterId": 0
@@ -113,7 +118,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ae31488c17d60894f84f610c014e3196",
+        "m_AssetGUID": "c61bb30a4b6e80642a36538c6ff1d675",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -247,7 +252,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f4489c0ea1762ec4dbe7fedbbcf0d4a8",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -259,7 +264,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "3b107035e3bdbc6418aedb674221f5e3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -283,14 +288,14 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false,
     "hideSavingThrowAnimation": false
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -309,16 +314,16 @@
   "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "ProficiencyBonus",
+  "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 0,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -326,13 +331,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolForestGuardianBarkWardTitle",
-    "description": "Feature/&PowerSharedPoolForestGuardianBarkWardDescription",
+    "title": "Ice Blade",
+    "description": "Create a wand that can cast <b>Ice Blade (I)</b> spell using your Inventor spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "957eec7a8104a44469ea221963733af8",
-      "m_SubObjectName": "WildShape",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "27b2cb1d-3404-5b98-8228-c4735f70fe56",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -347,7 +352,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9e840509-63ba-5093-863a-aacb24745e79",
+  "guid": "909d5fa1-b888-5dd2-8433-5e3ca3ee473c",
   "contentPack": 9999,
-  "name": "PowerSharedPoolForestGuardianBarkWard"
+  "name": "PowerCreateSpellStoringWandOfIceBlade"
 }

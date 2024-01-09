@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -9,6 +10,10 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal class CanUseAttribute : IModifyWeaponAttackAttribute
 {
+    private const string SpellCastingAbilityTag = "SpellCastingAbility";
+
+    internal static readonly CanUseAttribute SpellCastingAbility = new(SpellCastingAbilityTag);
+
     private readonly string _attribute;
     private readonly IsWeaponValidHandler _isWeaponValid;
     private readonly IsCharacterValidHandler[] _validators;
@@ -23,7 +28,8 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
         _validators = validators;
     }
 
-    public void ModifyAttribute(RulesetCharacter character,
+    public void ModifyAttribute(
+        RulesetCharacter character,
         [CanBeNull] RulesetAttackMode attackMode,
         RulesetItem weapon, bool canAddAbilityDamageBonus)
     {
@@ -46,7 +52,19 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
         var oldValue = character.TryGetAttributeValue(oldAttribute);
         oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(oldValue);
 
-        var newValue = character.TryGetAttributeValue(_attribute);
+        var attribute = _attribute;
+
+        if (attribute == SpellCastingAbilityTag && GetBestSpellCastingAbility(character, out var ability))
+        {
+            attribute = ability;
+        }
+        else
+        {
+            return;
+        }
+
+        var newValue = character.TryGetAttributeValue(attribute);
+
         newValue = AttributeDefinitions.ComputeAbilityScoreModifier(newValue);
 
         if (newValue <= oldValue)
@@ -54,7 +72,7 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
             return;
         }
 
-        attackMode.AbilityScore = _attribute;
+        attackMode.AbilityScore = attribute;
         attackMode.toHitBonus -= oldValue;
         attackMode.toHitBonus += newValue;
 
@@ -78,6 +96,7 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
         }
 
         var damage = attackMode.EffectDescription.FindFirstDamageForm();
+
         if (damage == null)
         {
             return;
@@ -98,51 +117,73 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
         damage.DamageBonusTrends.RemoveAt(i);
         damage.DamageBonusTrends.Insert(i, info);
     }
+
+    private static bool GetBestSpellCastingAbility(RulesetCharacter character, out string ability)
+    {
+        ability = string.Empty;
+
+        var hero = character.GetOriginalHero();
+
+        if (hero == null)
+        {
+            return false;
+        }
+
+        var spellCastingAbilities = hero.SpellRepertoires
+            .Select(x => x.SpellCastingAbility);
+
+        var currentValue = 0;
+
+        foreach (var spellCastingAbility in spellCastingAbilities)
+        {
+            var value = hero.TryGetAttributeValue(spellCastingAbility);
+
+            if (value <= currentValue)
+            {
+                continue;
+            }
+
+            ability = spellCastingAbility;
+            currentValue = value;
+        }
+
+        return currentValue > 0;
+    }
 }
 
-internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
+internal abstract class ModifyWeaponAttackModeBase(
+    IsWeaponValidHandler isWeaponValid,
+    string unicityTag,
+    params IsCharacterValidHandler[] validators)
+    : IModifyWeaponAttackMode
 {
-    private readonly IsWeaponValidHandler _isWeaponValid;
-    private readonly string _unicityTag;
-    private readonly IsCharacterValidHandler[] _validators;
-
     protected ModifyWeaponAttackModeBase(
         IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators) : this(isWeaponValid, null, validators)
     {
     }
 
-    protected ModifyWeaponAttackModeBase(
-        IsWeaponValidHandler isWeaponValid,
-        string unicityTag,
-        params IsCharacterValidHandler[] validators)
-    {
-        _isWeaponValid = isWeaponValid;
-        _validators = validators;
-        _unicityTag = unicityTag;
-    }
-
     public void ModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode)
     {
         //Doing this check at the very start since this one is least computation intensive
-        if (_unicityTag != null && attackMode.AttackTags.Contains(_unicityTag))
+        if (unicityTag != null && attackMode.AttackTags.Contains(unicityTag))
         {
             return;
         }
 
-        if (!character.IsValid(_validators))
+        if (!character.IsValid(validators))
         {
             return;
         }
 
-        if (!_isWeaponValid(attackMode, null, character))
+        if (!isWeaponValid(attackMode, null, character))
         {
             return;
         }
 
-        if (_unicityTag != null)
+        if (unicityTag != null)
         {
-            attackMode.AttackTags.TryAdd(_unicityTag);
+            attackMode.AttackTags.TryAdd(unicityTag);
         }
 
         TryModifyAttackMode(character, attackMode);

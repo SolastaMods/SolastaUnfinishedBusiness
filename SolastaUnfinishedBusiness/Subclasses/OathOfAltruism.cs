@@ -268,7 +268,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 unitCharacter.guid,
                 unitCharacter.CurrentFaction.Name,
                 1,

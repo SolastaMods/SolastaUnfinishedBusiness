@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
@@ -14,11 +15,138 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Mystical Cloak
+
+    internal static SpellDefinition BuildMysticalCloak()
+    {
+        const string NAME = "MysticalCloak";
+
+        var attributeModifierAC = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
+            .AddToDB();
+
+        var lowerPlane = SpellDefinitionBuilder
+            .Create($"{NAME}LowerPlane")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, true)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}LowerPlane")
+                                .SetGuiPresentation($"{NAME}LowerPlane", Category.Spell,
+                                    ConditionDefinitions.ConditionMagicallyArmored)
+                                .SetPossessive()
+                                .SetFeatures(
+                                    attributeModifierAC,
+                                    CommonBuilders.AttributeModifierCasterFightingExtraAttack,
+                                    FeatureDefinitionMoveModes.MoveModeFly8,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
+                                    FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity)
+                                .AddCustomSubFeatures(
+                                    CanUseAttribute.SpellCastingAbility,
+                                    new AddTagToWeaponWeaponAttack(
+                                        TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
+                                .AddToDB()))
+                    .SetParticleEffectParameters(MageArmor)
+                    .Build())
+            .AddToDB();
+
+        lowerPlane.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionStartParticleReference;
+        lowerPlane.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
+        lowerPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
+
+        var higherPlane = SpellDefinitionBuilder
+            .Create($"{NAME}HigherPlane")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, true)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{NAME}HigherPlane")
+                                .SetGuiPresentation($"{NAME}HigherPlane", Category.Spell,
+                                    ConditionDefinitions.ConditionMagicallyArmored)
+                                .SetPossessive()
+                                .SetFeatures(
+                                    attributeModifierAC,
+                                    CommonBuilders.AttributeModifierCasterFightingExtraAttack,
+                                    FeatureDefinitionMoveModes.MoveModeFly8,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityRadiantImmunity,
+                                    FeatureDefinitionDamageAffinitys.DamageAffinityNecroticImmunity,
+                                    FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity)
+                                .AddCustomSubFeatures(
+                                    CanUseAttribute.SpellCastingAbility,
+                                    new AddTagToWeaponWeaponAttack(
+                                        TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
+                                .AddToDB()))
+                    .SetParticleEffectParameters(MageArmor)
+                    .Build())
+            .AddToDB();
+
+        higherPlane.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionStartParticleReference;
+        higherPlane.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
+        higherPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MysticalCloak, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(6)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 500, true)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetRequiresConcentration(true)
+            .SetSubSpells(lowerPlane, higherPlane)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Poison Wave
 
     internal static SpellDefinition BuildPoisonWave()
@@ -152,15 +280,9 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class OnConditionAddedOrRemovedHeroicInfusion : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedHeroicInfusion(ConditionDefinition conditionExhausted)
+        : IOnConditionAddedOrRemoved
     {
-        private readonly ConditionDefinition _conditionExhausted;
-
-        public OnConditionAddedOrRemovedHeroicInfusion(ConditionDefinition conditionExhausted)
-        {
-            _conditionExhausted = conditionExhausted;
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -185,15 +307,15 @@ internal static partial class SpellBuilders
             }
 
             target.InflictCondition(
-                _conditionExhausted.Name,
-                _conditionExhausted.DurationType,
-                _conditionExhausted.DurationParameter,
-                _conditionExhausted.TurnOccurence,
+                conditionExhausted.Name,
+                conditionExhausted.DurationType,
+                conditionExhausted.DurationParameter,
+                conditionExhausted.TurnOccurence,
                 AttributeDefinitions.TagEffect,
                 target.guid,
                 target.CurrentFaction.Name,
                 1,
-                _conditionExhausted.Name,
+                conditionExhausted.Name,
                 0,
                 0,
                 0);
@@ -272,19 +394,13 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class CustomBehaviorPowerRingOfBlades : IMagicEffectInitiatedByMe, IModifyEffectDescription
+    private sealed class CustomBehaviorPowerRingOfBlades(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerRingOfBlades,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionRingOfBlades)
+        : IMagicEffectInitiatedByMe, IModifyEffectDescription
     {
-        private readonly ConditionDefinition _conditionRingOfBlades;
-        private readonly FeatureDefinitionPower _powerRingOfBlades;
-
-        public CustomBehaviorPowerRingOfBlades(
-            FeatureDefinitionPower powerRingOfBlades,
-            ConditionDefinition conditionRingOfBlades)
-        {
-            _powerRingOfBlades = powerRingOfBlades;
-            _conditionRingOfBlades = conditionRingOfBlades;
-        }
-
         // STEP 1: change attackRollModifier to use spell casting feature
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -297,7 +413,7 @@ internal static partial class SpellBuilders
 
             if (!rulesetCaster.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionRingOfBlades.Name,
+                    conditionRingOfBlades.Name,
                     out var activeCondition))
             {
                 yield break;
@@ -322,7 +438,7 @@ internal static partial class SpellBuilders
         // STEP 2: add additional dice if required
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _powerRingOfBlades;
+            return definition == powerRingOfBlades;
         }
 
         public EffectDescription GetEffectDescription(
@@ -340,7 +456,7 @@ internal static partial class SpellBuilders
 
             if (!character.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionRingOfBlades.Name,
+                    conditionRingOfBlades.Name,
                     out var activeCondition))
             {
                 return effectDescription;
@@ -352,15 +468,10 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class MagicEffectFinishedByMeSpellRingOfBlades : IMagicEffectFinishedByMe
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class MagicEffectFinishedByMeSpellRingOfBlades(ConditionDefinition conditionRingOfBlades)
+        : IMagicEffectFinishedByMe
     {
-        private readonly ConditionDefinition _conditionRingOfBlades;
-
-        public MagicEffectFinishedByMeSpellRingOfBlades(ConditionDefinition conditionRingOfBlades)
-        {
-            _conditionRingOfBlades = conditionRingOfBlades;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
@@ -372,7 +483,7 @@ internal static partial class SpellBuilders
 
             if (rulesetCaster.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionRingOfBlades.Name,
+                    conditionRingOfBlades.Name,
                     out var activeCondition))
             {
                 activeCondition.Amount =
@@ -446,21 +557,16 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class FilterTargetingCharacterFlashFreeze : IFilterTargetingCharacter
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class FilterTargetingCharacterFlashFreeze(SpellDefinition spellFlashFreeze)
+        : IFilterTargetingCharacter
     {
-        private readonly SpellDefinition _spellFlashFreeze;
-
-        public FilterTargetingCharacterFlashFreeze(SpellDefinition spellFlashFreeze)
-        {
-            _spellFlashFreeze = spellFlashFreeze;
-        }
-
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
-                || rulesetEffectSpell.SpellDefinition != _spellFlashFreeze)
+                || rulesetEffectSpell.SpellDefinition != spellFlashFreeze)
             {
                 return true;
             }

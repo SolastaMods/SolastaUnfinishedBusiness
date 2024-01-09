@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -14,6 +13,7 @@ using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -74,11 +74,10 @@ public sealed class RoguishSlayer : AbstractSubclass
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        var customBehaviorChainOfExecution = new CustomBehaviorChainOfExecution(
-            conditionChainOfExecutionBeneficial,
-            conditionChainOfExecutionDetrimental);
-
-        conditionChainOfExecutionDetrimental.AddCustomSubFeatures(customBehaviorChainOfExecution);
+        conditionChainOfExecutionDetrimental.AddCustomSubFeatures(
+            new OnConditionAddedOrRemovedChainOfExecution(
+                conditionChainOfExecutionBeneficial,
+                conditionChainOfExecutionDetrimental));
 
         var rogueHolder = new RogueHolder();
 
@@ -142,9 +141,8 @@ public sealed class RoguishSlayer : AbstractSubclass
             .AddToDB();
 
         featureChainOfExecution.AddCustomSubFeatures(
-            customBehaviorChainOfExecution,
-            new CustomAdditionalDamageSneakAttack(
-                additionalDamageChainOfExecutionSneakAttack),
+            new CustomBehaviorChainOfExecution(conditionChainOfExecutionBeneficial),
+            new CustomAdditionalDamageSneakAttack(additionalDamageChainOfExecutionSneakAttack),
             new CustomAdditionalDamageChainOfExecution(
                 additionalDamageChainOfExecution,
                 featureChainOfExecution,
@@ -157,12 +155,13 @@ public sealed class RoguishSlayer : AbstractSubclass
         var powerCloakOfShadows = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{CloakOfShadows}")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Dexterity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.Invisibility.EffectDescription)
-                    .SetDurationData(DurationType.Minute, 2)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(PowerSorakAssassinShadowMurder)
                     .Build())
             .AddToDB();
 
@@ -173,13 +172,13 @@ public sealed class RoguishSlayer : AbstractSubclass
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new PhysicalAttackInitiatedByMeFatalStrike())
             .AddToDB();
+
+        featureFatalStrike.AddCustomSubFeatures(new PhysicalAttackInitiatedByMeFatalStrike(featureFatalStrike));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("RoguishSlayer", Resources.RoguishSlayer, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishSlayer, 256))
             .AddFeaturesAtLevel(3, featureElimination)
             .AddFeaturesAtLevel(9, featureChainOfExecution)
             .AddFeaturesAtLevel(13, powerCloakOfShadows)
@@ -201,17 +200,13 @@ public sealed class RoguishSlayer : AbstractSubclass
     // Elimination
     //
 
-    private sealed class CustomBehaviorElimination : IPhysicalAttackInitiatedByMe, IModifyAttackActionModifier
+    private sealed class CustomBehaviorElimination(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IPhysicalAttackInitiatedByMe, IModifyAttackActionModifier
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinition _featureDefinition;
-
-        public CustomBehaviorElimination(FeatureDefinition featureDefinition, ConditionDefinition conditionDefinition)
-        {
-            _featureDefinition = featureDefinition;
-            _conditionDefinition = conditionDefinition;
-        }
-
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -230,7 +225,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             if (battle == null)
             {
                 attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
 
                 return;
             }
@@ -258,7 +253,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             }
 
             attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
 
         public IEnumerator OnPhysicalAttackInitiatedByMe(
@@ -285,11 +280,11 @@ public sealed class RoguishSlayer : AbstractSubclass
             if (rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {
                 rulesetAttacker.InflictCondition(
-                    _conditionDefinition.Name,
+                    conditionDefinition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
@@ -305,21 +300,15 @@ public sealed class RoguishSlayer : AbstractSubclass
     // Chain of Execution
     //
 
-    private sealed class CustomAdditionalDamageChainOfExecution : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageChainOfExecution(
+        IAdditionalDamageProvider provider,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinitionTrigger,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : CustomAdditionalDamage(provider)
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly IAdditionalDamageProvider _featureDefinitionAdditionalDamage;
-        private readonly FeatureDefinition _featureDefinitionTrigger;
-
-        public CustomAdditionalDamageChainOfExecution(
-            IAdditionalDamageProvider provider,
-            FeatureDefinition featureDefinitionTrigger,
-            ConditionDefinition conditionDefinition) : base(provider)
-        {
-            _featureDefinitionAdditionalDamage = provider;
-            _featureDefinitionTrigger = featureDefinitionTrigger;
-            _conditionDefinition = conditionDefinition;
-        }
+        private readonly IAdditionalDamageProvider _featureDefinitionAdditionalDamage = provider;
 
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
@@ -354,29 +343,22 @@ public sealed class RoguishSlayer : AbstractSubclass
                 return false;
             }
 
-            rulesetAttacker.LogCharacterUsedFeature(_featureDefinitionTrigger);
+            rulesetAttacker.LogCharacterUsedFeature(featureDefinitionTrigger);
 
-            var rulesetCondition =
-                rulesetAttacker.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-            if (rulesetCondition != null)
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionDefinition.Name, out var activeCondition))
             {
-                rulesetAttacker.RemoveConditionOfCategory(
-                    AttributeDefinitions.TagCombat, rulesetCondition, true, true, true);
+                rulesetAttacker.RemoveCondition(activeCondition);
             }
 
             return true;
         }
     }
 
-    private sealed class CustomAdditionalDamageSneakAttack : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageSneakAttack(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider)
     {
-        private readonly IAdditionalDamageProvider _featureDefinitionAdditionalDamage;
-
-        public CustomAdditionalDamageSneakAttack(IAdditionalDamageProvider provider) : base(provider)
-        {
-            _featureDefinitionAdditionalDamage = provider;
-        }
+        private readonly IAdditionalDamageProvider _featureDefinitionAdditionalDamage = provider;
 
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
@@ -407,34 +389,13 @@ public sealed class RoguishSlayer : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorChainOfExecution :
-        IOnConditionAddedOrRemoved, IOnReducedToZeroHpByMe, ICustomLevelUpLogic
+    private sealed class OnConditionAddedOrRemovedChainOfExecution(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionChainOfExecutionBeneficial,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionChainOfExecutionDetrimental)
+        : IOnConditionAddedOrRemoved
     {
-        private readonly ConditionDefinition _conditionChainOfExecutionBeneficial;
-        private readonly ConditionDefinition _conditionChainOfExecutionDetrimental;
-
-        public CustomBehaviorChainOfExecution(
-            ConditionDefinition conditionChainOfExecutionBeneficial,
-            ConditionDefinition conditionChainOfExecutionDetrimental)
-        {
-            _conditionChainOfExecutionBeneficial = conditionChainOfExecutionBeneficial;
-            _conditionChainOfExecutionDetrimental = conditionChainOfExecutionDetrimental;
-        }
-
-        // remove original sneak attack as we've added a conditional one
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // empty
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -448,13 +409,55 @@ public sealed class RoguishSlayer : AbstractSubclass
                 return;
             }
 
-            if (rulesetCondition.ConditionDefinition != _conditionChainOfExecutionDetrimental ||
+            if (rulesetCondition.ConditionDefinition != conditionChainOfExecutionDetrimental ||
                 !RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.sourceGuid, out var rulesetCharacter))
             {
                 return;
             }
 
             ApplyConditionChainOfExecutionGranted(rulesetCharacter);
+        }
+
+        private void ApplyConditionChainOfExecutionGranted(RulesetCharacter rulesetCharacter)
+        {
+            if (rulesetCharacter.HasConditionOfType(conditionChainOfExecutionBeneficial.Name))
+            {
+                return;
+            }
+
+            rulesetCharacter.InflictCondition(
+                conditionChainOfExecutionBeneficial.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionChainOfExecutionBeneficial.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class CustomBehaviorChainOfExecution(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionChainOfExecutionBeneficial)
+        : IOnReducedToZeroHpByMe, ICustomLevelUpLogic
+    {
+        // remove original sneak attack as we've added a conditional one
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
         }
 
         public IEnumerator HandleReducedToZeroHpByMe(
@@ -470,22 +473,21 @@ public sealed class RoguishSlayer : AbstractSubclass
 
         private void ApplyConditionChainOfExecutionGranted(RulesetCharacter rulesetCharacter)
         {
-            if (rulesetCharacter.HasConditionOfCategoryAndType(
-                    AttributeDefinitions.TagCombat, _conditionChainOfExecutionBeneficial.Name))
+            if (rulesetCharacter.HasConditionOfType(conditionChainOfExecutionBeneficial.Name))
             {
                 return;
             }
 
             rulesetCharacter.InflictCondition(
-                _conditionChainOfExecutionBeneficial.Name,
+                conditionChainOfExecutionBeneficial.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _conditionChainOfExecutionBeneficial.Name,
+                conditionChainOfExecutionBeneficial.Name,
                 0,
                 0,
                 0);
@@ -502,7 +504,10 @@ public sealed class RoguishSlayer : AbstractSubclass
     // Fatal Strike
     //
 
-    private sealed class PhysicalAttackInitiatedByMeFatalStrike : IPhysicalAttackInitiatedByMe
+    private sealed class PhysicalAttackInitiatedByMeFatalStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureFatalStrike)
+        : IPhysicalAttackInitiatedByMe
     {
         public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager __instance,
@@ -531,7 +536,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             var defenderConstitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution));
 
-            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
+            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, featureFatalStrike, modifierTrend,
                 advantageTrends, defenderConstitutionModifier, 8 + attackerProficiencyBonus + attackerDexterityModifier,
                 false,
                 out var savingOutcome,

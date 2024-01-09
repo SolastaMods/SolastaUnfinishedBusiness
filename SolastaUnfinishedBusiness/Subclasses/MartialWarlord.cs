@@ -78,7 +78,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 IsPowerPool.Marker,
                 new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
-                    mode != null && // weapon or unarmed only
+                    mode != null && // IsWeaponOrUnarmedAttack
                     attacker.OnceInMyTurnIsValid(PressTheAdvantageMarker) &&
                     attacker.RulesetCharacter.IsToggleEnabled(PressTheAdvantageToggle)))
             .AddToDB();
@@ -352,15 +352,11 @@ public sealed class MartialWarlord : AbstractSubclass
     // Covering Strike
     //
 
-    private sealed class OnConditionAddedOrRemovedCoveringStrike : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedCoveringStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionCoveringStrikeAlly)
+        : IOnConditionAddedOrRemoved
     {
-        private readonly ConditionDefinition _conditionCoveringStrikeAlly;
-
-        public OnConditionAddedOrRemovedCoveringStrike(ConditionDefinition conditionCoveringStrikeAlly)
-        {
-            _conditionCoveringStrikeAlly = conditionCoveringStrikeAlly;
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (Gui.Battle == null)
@@ -379,15 +375,15 @@ public sealed class MartialWarlord : AbstractSubclass
                          .Where(x => x.Guid != rulesetCondition.SourceGuid))
             {
                 character.RulesetCharacter.InflictCondition(
-                    _conditionCoveringStrikeAlly.Name,
+                    conditionCoveringStrikeAlly.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     sourceCharacter.guid,
                     sourceCharacter.CurrentFaction.Name,
                     1,
-                    _conditionCoveringStrikeAlly.Name,
+                    conditionCoveringStrikeAlly.Name,
                     0,
                     0,
                     0);
@@ -648,22 +644,15 @@ public sealed class MartialWarlord : AbstractSubclass
     // Battlefield Experience / Battle Plan
     //
 
-    private sealed class CharacterBattleStartedListenerBattlefieldExperienceBattlePlan : ICharacterBattleStartedListener
+    private sealed class CharacterBattleStartedListenerBattlefieldExperienceBattlePlan(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionWisdomInitiative,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureBattlefieldExperience,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureBattlePlan)
+        : ICharacterBattleStartedListener
     {
-        private readonly ConditionDefinition _conditionWisdomInitiative;
-        private readonly FeatureDefinition _featureBattlefieldExperience;
-        private readonly FeatureDefinition _featureBattlePlan;
-
-        public CharacterBattleStartedListenerBattlefieldExperienceBattlePlan(
-            ConditionDefinition conditionWisdomInitiative,
-            FeatureDefinition featureBattlefieldExperience,
-            FeatureDefinition featureBattlePlan)
-        {
-            _conditionWisdomInitiative = conditionWisdomInitiative;
-            _featureBattlefieldExperience = featureBattlefieldExperience;
-            _featureBattlePlan = featureBattlePlan;
-        }
-
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -681,20 +670,20 @@ public sealed class MartialWarlord : AbstractSubclass
             if (levels < 15)
             {
                 rulesetCharacter.InflictCondition(
-                    _conditionWisdomInitiative.Name,
+                    conditionWisdomInitiative.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetCharacter.Guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    _conditionWisdomInitiative.Name,
+                    conditionWisdomInitiative.Name,
                     wisdomModifier,
                     0,
                     0);
 
-                rulesetCharacter.LogCharacterUsedFeature(_featureBattlefieldExperience);
+                rulesetCharacter.LogCharacterUsedFeature(featureBattlefieldExperience);
 
                 return;
             }
@@ -707,21 +696,21 @@ public sealed class MartialWarlord : AbstractSubclass
 
             {
                 player.RulesetCharacter.InflictCondition(
-                    _conditionWisdomInitiative.Name,
+                    conditionWisdomInitiative.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetCharacter.Guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    _conditionWisdomInitiative.Name,
+                    conditionWisdomInitiative.Name,
                     wisdomModifier,
                     0,
                     0);
             }
 
-            rulesetCharacter.LogCharacterUsedFeature(_featureBattlePlan);
+            rulesetCharacter.LogCharacterUsedFeature(featureBattlePlan);
         }
     }
 
@@ -729,19 +718,13 @@ public sealed class MartialWarlord : AbstractSubclass
     // Control the Field
     //
 
-    private sealed class CharacterBattleStartedListenerControlTheField : ICharacterBattleStartedListener
+    private sealed class CharacterBattleStartedListenerControlTheField(FeatureDefinitionPower powerCoordinatedAssault)
+        : ICharacterBattleStartedListener
     {
-        private readonly FeatureDefinitionPower _powerCoordinatedAssault;
-
-        public CharacterBattleStartedListenerControlTheField(FeatureDefinitionPower powerCoordinatedAssault)
-        {
-            _powerCoordinatedAssault = powerCoordinatedAssault;
-        }
-
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerCoordinatedAssault, rulesetCharacter);
+            var usablePower = UsablePowersProvider.Get(powerCoordinatedAssault, rulesetCharacter);
 
             rulesetCharacter.RepayPowerUse(usablePower);
         }

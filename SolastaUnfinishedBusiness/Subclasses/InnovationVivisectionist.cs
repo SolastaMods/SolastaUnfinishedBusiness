@@ -197,21 +197,17 @@ public sealed class InnovationVivisectionist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyEffectDescriptionEmergencySurgery : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionEmergencySurgery(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower baseDefinition)
+        : IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _baseDefinition;
-
-        public ModifyEffectDescriptionEmergencySurgery(FeatureDefinitionPower baseDefinition)
-        {
-            _baseDefinition = baseDefinition;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _baseDefinition;
+            return definition == baseDefinition;
         }
 
         public EffectDescription GetEffectDescription(
@@ -246,22 +242,12 @@ public sealed class InnovationVivisectionist : AbstractSubclass
         }
     }
 
-    private class OnReducedToZeroHpByMeOrganDonation : IOnReducedToZeroHpByMe
+    private class OnReducedToZeroHpByMeOrganDonation(
+        FeatureDefinitionPower powerOrganDonation,
+        FeatureDefinitionPower powerEmergencySurgery,
+        FeatureDefinitionPower powerEmergencyCure)
+        : IOnReducedToZeroHpByMe
     {
-        private readonly FeatureDefinitionPower _powerEmergencyCure;
-        private readonly FeatureDefinitionPower _powerEmergencySurgery;
-        private readonly FeatureDefinitionPower _powerOrganDonation;
-
-        public OnReducedToZeroHpByMeOrganDonation(
-            FeatureDefinitionPower powerOrganDonation,
-            FeatureDefinitionPower powerEmergencySurgery,
-            FeatureDefinitionPower powerEmergencyCure)
-        {
-            _powerOrganDonation = powerOrganDonation;
-            _powerEmergencySurgery = powerEmergencySurgery;
-            _powerEmergencyCure = powerEmergencyCure;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -270,7 +256,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerCharges(_powerOrganDonation) <= 0)
+            if (rulesetAttacker.GetRemainingPowerCharges(powerOrganDonation) <= 0)
             {
                 yield break;
             }
@@ -302,14 +288,14 @@ public sealed class InnovationVivisectionist : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(_powerOrganDonation, _powerOrganDonation.CostPerUse);
-            rulesetAttacker.LogCharacterUsedPower(_powerOrganDonation);
+            rulesetAttacker.UpdateUsageForPower(powerOrganDonation, powerOrganDonation.CostPerUse);
+            rulesetAttacker.LogCharacterUsedPower(powerOrganDonation);
 
-            var usablePowerEmergencyCure = UsablePowersProvider.Get(_powerEmergencyCure, rulesetAttacker);
+            var usablePowerEmergencyCure = UsablePowersProvider.Get(powerEmergencyCure, rulesetAttacker);
 
             rulesetAttacker.RepayPowerUse(usablePowerEmergencyCure);
 
-            var usablePowerEmergencySurgery = UsablePowersProvider.Get(_powerEmergencySurgery, rulesetAttacker);
+            var usablePowerEmergencySurgery = UsablePowersProvider.Get(powerEmergencySurgery, rulesetAttacker);
 
             rulesetAttacker.RepayPowerUse(usablePowerEmergencySurgery);
         }

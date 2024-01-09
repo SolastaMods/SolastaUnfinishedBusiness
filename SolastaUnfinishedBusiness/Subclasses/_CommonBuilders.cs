@@ -163,16 +163,9 @@ internal static class CommonBuilders
     }
 
     private sealed class
-        MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic :
+        MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(ConditionDefinition conditionDefinition) :
         IMagicalAttackBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         //supports Sunlit Blade and Resonating Strike
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battle,
@@ -222,36 +215,29 @@ internal static class CommonBuilders
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker.HasAnyConditionOfType(_conditionDefinition.Name))
+                rulesetAttacker.HasAnyConditionOfType(conditionDefinition.Name))
             {
                 yield break;
             }
 
             rulesetAttacker.InflictCondition(
-                _conditionDefinition.Name,
-                _conditionDefinition.durationType,
-                _conditionDefinition.durationParameter,
-                _conditionDefinition.turnOccurence,
-                AttributeDefinitions.TagCombat,
+                conditionDefinition.Name,
+                conditionDefinition.durationType,
+                conditionDefinition.durationParameter,
+                conditionDefinition.turnOccurence,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);
         }
     }
 
-    internal class ModifyWeaponAttackUnarmedStrikeDamage : IModifyWeaponAttackMode
+    internal class ModifyWeaponAttackUnarmedStrikeDamage(DieType dieType) : IModifyWeaponAttackMode
     {
-        private readonly DieType _dieType;
-
-        public ModifyWeaponAttackUnarmedStrikeDamage(DieType dieType)
-        {
-            _dieType = dieType;
-        }
-
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (!ValidatorsWeapon.IsUnarmed(attackMode))
@@ -267,20 +253,15 @@ internal static class CommonBuilders
                 return;
             }
 
-            if (damage.DieType < _dieType)
+            if (damage.DieType < dieType)
             {
-                damage.DieType = _dieType;
+                damage.DieType = dieType;
             }
         }
     }
 
-    internal class AddExtraUnarmedStrikeClawAttack : AddExtraAttackBase
+    internal class AddExtraUnarmedStrikeClawAttack() : AddExtraAttackBase(ActionDefinitions.ActionType.None)
     {
-        public AddExtraUnarmedStrikeClawAttack()
-            : base(ActionDefinitions.ActionType.None)
-        {
-        }
-
         // process sub feature after unarmed strikes
         public override int Priority()
         {

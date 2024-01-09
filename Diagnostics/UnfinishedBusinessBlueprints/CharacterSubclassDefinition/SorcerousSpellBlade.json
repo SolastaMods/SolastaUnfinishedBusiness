@@ -13,13 +13,13 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetSorcerousSpellBladeManaShield:f711d0f7-23f6-545a-81b3-066096ee2fa9",
+      "featureDefinition": "Definition:FeatureSetSorcerousSpellBladeMartialTraining:24717cb9-3193-52c5-8dea-71ce5a68ab30",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetSorcerousSpellBladeMartialTraining:24717cb9-3193-52c5-8dea-71ce5a68ab30",
-      "level": 1
+      "featureDefinition": "Definition:FeatureSetSorcerousSpellBladeManaShield:f711d0f7-23f6-545a-81b3-066096ee2fa9",
+      "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

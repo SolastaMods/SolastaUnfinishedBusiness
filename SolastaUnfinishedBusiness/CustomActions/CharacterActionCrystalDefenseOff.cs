@@ -6,13 +6,9 @@ using SolastaUnfinishedBusiness.Races;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionCrystalDefenseOff : CharacterAction
+public class CharacterActionCrystalDefenseOff(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
-    public CharacterActionCrystalDefenseOff(CharacterActionParams actionParams) : base(actionParams)
-    {
-    }
-
     public override IEnumerator ExecuteImpl()
     {
         var rulesetCharacter = ActingCharacter.RulesetCharacter;

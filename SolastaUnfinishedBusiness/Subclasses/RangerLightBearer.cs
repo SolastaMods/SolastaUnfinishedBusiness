@@ -296,15 +296,11 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class PhysicalAttackInitiatedByMeBlessedWarrior : IAttackBeforeHitConfirmedOnEnemy
+    private sealed class PhysicalAttackInitiatedByMeBlessedWarrior(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IAttackBeforeHitConfirmedOnEnemy
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public PhysicalAttackInitiatedByMeBlessedWarrior(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -326,7 +322,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
+                !rulesetDefender.HasAnyConditionOfType(conditionDefinition.Name))
             {
                 yield break;
             }
@@ -351,7 +347,7 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             if (rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionDefinition.Name,
+                    conditionDefinition.Name,
                     out var activeCondition))
             {
                 rulesetDefender.RemoveCondition(activeCondition);
@@ -363,15 +359,9 @@ public sealed class RangerLightBearer : AbstractSubclass
     // Blessed Glow
     //
 
-    private sealed class MagicEffectFinishedByMeBlessedGlow : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
+        : IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerBlessedGlow;
-
-        public MagicEffectFinishedByMeBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
-        {
-            _powerBlessedGlow = featureDefinitionPower;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
@@ -385,7 +375,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerCharges(_powerBlessedGlow) <= 0)
+            if (rulesetAttacker.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
             {
                 yield break;
             }
@@ -416,10 +406,10 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(_powerBlessedGlow, _powerBlessedGlow.CostPerUse);
+            rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(_powerBlessedGlow, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

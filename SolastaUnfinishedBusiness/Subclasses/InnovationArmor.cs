@@ -217,14 +217,8 @@ public sealed class InnovationArmor : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(new RestrictReactionAttackMode(
                 (_, _, _, attackMode, _) =>
-                {
-                    if (attackMode.sourceDefinition is not ItemDefinition weapon)
-                    {
-                        return false;
-                    }
-
-                    return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name;
-                }))
+                    attackMode?.sourceDefinition is ItemDefinition weapon &&
+                    weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name))
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -247,14 +241,8 @@ public sealed class InnovationArmor : AbstractSubclass
             .SetGuiPresentationNoContent() //since this power has no saving throw payer won't see it anywhere
             .AddCustomSubFeatures(new RestrictReactionAttackMode(
                 (_, _, _, attackMode, _) =>
-                {
-                    if (attackMode.sourceDefinition is not ItemDefinition weapon)
-                    {
-                        return false;
-                    }
-
-                    return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name;
-                }))
+                    attackMode?.sourceDefinition is ItemDefinition weapon &&
+                    weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name))
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -478,14 +466,11 @@ public sealed class InnovationArmor : AbstractSubclass
         }
     }
 
-    internal class AddLauncherAttack : AddExtraAttackBase
+    internal class AddLauncherAttack(
+        ActionDefinitions.ActionType actionType,
+        params IsCharacterValidHandler[] validators)
+        : AddExtraAttackBase(actionType, validators)
     {
-        public AddLauncherAttack(
-            ActionDefinitions.ActionType actionType,
-            params IsCharacterValidHandler[] validators) : base(actionType, validators)
-        {
-        }
-
         protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
             if (character is not RulesetCharacterHero hero)

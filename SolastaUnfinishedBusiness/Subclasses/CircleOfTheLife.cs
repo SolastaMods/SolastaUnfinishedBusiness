@@ -268,19 +268,11 @@ public sealed class CircleOfTheLife : AbstractSubclass
         }
     }
 
-    private sealed class ModifyEffectDescriptionVerdancy : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionVerdancy(
+        ConditionDefinition conditionVerdancy,
+        ConditionDefinition conditionVerdancy14)
+        : IModifyEffectDescription
     {
-        private readonly ConditionDefinition _conditionVerdancy;
-        private readonly ConditionDefinition _conditionVerdancy14;
-
-        public ModifyEffectDescriptionVerdancy(
-            ConditionDefinition conditionVerdancy,
-            ConditionDefinition conditionVerdancy14)
-        {
-            _conditionVerdancy = conditionVerdancy;
-            _conditionVerdancy14 = conditionVerdancy14;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
@@ -296,7 +288,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var levels = character.GetClassLevel(Druid);
-            var condition = levels >= 14 ? _conditionVerdancy14 : _conditionVerdancy;
+            var condition = levels >= 14 ? conditionVerdancy14 : conditionVerdancy;
 
             effectDescription.EffectForms.Add(
                 EffectFormBuilder
@@ -366,25 +358,18 @@ public sealed class CircleOfTheLife : AbstractSubclass
         }
     }
 
-    private sealed class ModifyEffectDescriptionRevitalizingBoon : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionRevitalizingBoon(
+        ConditionDefinition conditionRevitalizingBoon,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerSeedOfLife)
+        : IModifyEffectDescription
     {
-        private readonly ConditionDefinition _conditionRevitalizingBoon;
-        private readonly FeatureDefinitionPower _powerSeedOfLife;
-
-        public ModifyEffectDescriptionRevitalizingBoon(
-            ConditionDefinition conditionRevitalizingBoon,
-            FeatureDefinitionPower powerSeedOfLife)
-        {
-            _conditionRevitalizingBoon = conditionRevitalizingBoon;
-            _powerSeedOfLife = powerSeedOfLife;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _powerSeedOfLife || IsAuthorizedSpell(effectDescription, definition);
+            return definition == powerSeedOfLife || IsAuthorizedSpell(effectDescription, definition);
         }
 
         public EffectDescription GetEffectDescription(
@@ -396,7 +381,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             effectDescription.EffectForms.Add(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(_conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
                     .Build());
 
             return effectDescription;

@@ -4,20 +4,12 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-public class ReactionResourcePowerPool : ICustomReactionResource
+public class ReactionResourcePowerPool(FeatureDefinitionPower pool, AssetReferenceSprite icon) : ICustomReactionResource
 {
-    private readonly FeatureDefinitionPower _pool;
-
-    public ReactionResourcePowerPool(FeatureDefinitionPower pool, AssetReferenceSprite icon)
-    {
-        _pool = pool;
-        Icon = icon;
-    }
-
-    public AssetReferenceSprite Icon { get; }
+    public AssetReferenceSprite Icon { get; } = icon;
 
     public string GetUses(RulesetCharacter character)
     {
-        return character.GetRemainingPowerCharges(_pool).ToString();
+        return character.GetRemainingPowerCharges(pool).ToString();
     }
 }

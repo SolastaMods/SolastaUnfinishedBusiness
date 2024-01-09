@@ -657,6 +657,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionStrikeOfChaosAttackAdvantage { get; } =
             GetDefinition<ConditionDefinition>("ConditionStrikeOfChaosAttackAdvantage");
 
+        internal static ConditionDefinition ConditionStrikeOfChaosAttackDisadvantage { get; } =
+            GetDefinition<ConditionDefinition>("ConditionStrikeOfChaosAttackDisadvantage");
+
         internal static ConditionDefinition ConditionStunned { get; } =
             GetDefinition<ConditionDefinition>("ConditionStunned");
 
@@ -1338,6 +1341,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityPsychicResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPsychicResistance");
 
+        internal static FeatureDefinitionDamageAffinity DamageAffinityRadiantImmunity { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityRadiantImmunity");
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityRadiantResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityRadiantResistance");
 
@@ -1653,8 +1659,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
 
-        internal static FeatureDefinitionPower PowerDomainMischiefStrikeOfChaos { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDomainMischiefStrikeOfChaos");
+        internal static FeatureDefinitionPower PowerDomainMischiefStrikeOfChaos14 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainMischiefStrikeOfChaos14");
 
         internal static FeatureDefinitionPower PowerDomainOblivionMarkOfFate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainOblivionMarkOfFate");
@@ -1853,6 +1859,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerRoguishHoodlumDirtyFighting { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumDirtyFighting");
+
+        internal static FeatureDefinitionPower PowerSorakAssassinShadowMurder { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorakAssassinShadowMurder");
 
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");

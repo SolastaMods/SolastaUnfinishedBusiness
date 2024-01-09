@@ -267,7 +267,7 @@ internal static class EldritchVersatility
             DurationType.Round,
             1,
             TurnOccurenceType.StartOfTurn,
-            AttributeDefinitions.TagCombat,
+            AttributeDefinitions.TagEffect,
             sourceCharacter.guid,
             sourceCharacter.CurrentFaction.Name,
             1,
@@ -685,7 +685,7 @@ internal static class EldritchVersatility
             supportCondition.IsValidBlastBreakthrough = false;
             actionParams.targetCharacters.ForEach(x =>
                 x.RulesetCharacter
-                    .RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
+                    .RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                         ConditionBlastBreakthroughRemoveImmunity.Name)
             );
         }
@@ -1141,7 +1141,7 @@ internal static class EldritchVersatility
         {
             static EldritchAegisSupportRulesetCondition()
             {
-                Category = AttributeDefinitions.TagCombat;
+                Category = AttributeDefinitions.TagEffect;
                 Marker = new EldritchAegisSupportRulesetCondition();
                 BindingDefinition = ConditionDefinitionBuilder
                     .Create("ConditionEldritchAegisAddAC")
@@ -1193,7 +1193,7 @@ internal static class EldritchVersatility
                     var acBonus = supportCondition.ACBonus;
                     var attributeModifier = RulesetAttributeModifier.BuildAttributeModifier(
                         AttributeModifierOperation.Additive,
-                        acBonus, AttributeDefinitions.TagCombat);
+                        acBonus, AttributeDefinitions.TagEffect);
                     var trendInfo = new TrendInfo(acBonus, FeatureSourceType.Condition, BindingDefinition.Name, null,
                         attributeModifier);
 
@@ -1204,20 +1204,14 @@ internal static class EldritchVersatility
         }
     }
 
-    private class ReactionResourceEldritchVersatilityPoints : ICustomReactionResource, ICustomReactionCustomResourceUse
+    private class ReactionResourceEldritchVersatilityPoints(int requestPoints)
+        : ICustomReactionResource, ICustomReactionCustomResourceUse
     {
-        private readonly int _requestPoints;
-
-        public ReactionResourceEldritchVersatilityPoints(int requestPoints)
-        {
-            _requestPoints = requestPoints;
-        }
-
         public string GetRequestPoints(RulesetCharacter character)
         {
             character.GetVersatilitySupportCondition(out _);
 
-            return $"{_requestPoints}";
+            return $"{requestPoints}";
         }
 
         public AssetReferenceSprite Icon => Sprites.EldritchVersatilityResourceIcon;
@@ -1401,14 +1395,9 @@ internal static class EldritchVersatility
         public abstract void OnInvocationToggled(GameLocationCharacter character, RulesetInvocation rulesetInvocation);
     }
 
-    private class BlastEmpowerActiveSwitch : IActionExecutionHandled, IMagicalAttackCastedSpell
+    private class BlastEmpowerActiveSwitch(string invocationName) : IActionExecutionHandled, IMagicalAttackCastedSpell
     {
-        public BlastEmpowerActiveSwitch(string invocationName)
-        {
-            InvocationName = invocationName;
-        }
-
-        private string InvocationName { get; }
+        private string InvocationName { get; } = invocationName;
 
         public void OnActionExecutionHandled(GameLocationCharacter character, CharacterActionParams actionParams,
             ActionScope scope)

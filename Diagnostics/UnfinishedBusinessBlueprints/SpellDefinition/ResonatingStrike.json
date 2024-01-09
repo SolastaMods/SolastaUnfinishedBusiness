@@ -323,9 +323,9 @@
     "description": "Spell/&ResonatingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c118bc746b6f30a40be3a7c3d898fe43",
-      "m_SubObjectName": "FlameBlade",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "0b77d7d8-cada-50c9-8e0d-8dbb46184739",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

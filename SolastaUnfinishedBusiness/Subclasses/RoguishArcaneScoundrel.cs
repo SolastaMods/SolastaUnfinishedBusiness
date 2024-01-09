@@ -98,7 +98,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         var additionalDamageDistractingAmbush = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{DistractingAmbush}")
             .SetGuiPresentation(Category.Feature)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.None)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
@@ -125,11 +125,10 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         var powerArcaneBackslashCounterSpell = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneBackslashCounterSpell")
             .SetGuiPresentation(Counterspell.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Counterspell.EffectDescription)
-                    .AddEffectForms(EffectFormBuilder.ConditionForm(conditionDistractingAmbush))
                     .Build())
             .AddToDB();
 
@@ -143,6 +142,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -156,7 +156,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             PowerVisibilityModifier.Hidden,
             new ActionFinishedByMeArcaneBackslash(
                 powerArcaneBacklash,
-                powerArcaneBackslashCounterSpell));
+                powerArcaneBackslashCounterSpell,
+                conditionDistractingAmbush));
 
         //
         // LEVEL 17
@@ -261,22 +262,16 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyEffectDescriptionArcaneBackslashCounterSpell : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionArcaneBackslashCounterSpell(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerArcaneBackslashCounterSpell) : IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _powerArcaneBackslashCounterSpell;
-
-        public ModifyEffectDescriptionArcaneBackslashCounterSpell(
-            FeatureDefinitionPower powerArcaneBackslashCounterSpell)
-        {
-            _powerArcaneBackslashCounterSpell = powerArcaneBackslashCounterSpell;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _powerArcaneBackslashCounterSpell
+            return definition == powerArcaneBackslashCounterSpell
                    && character.GetClassLevel(CharacterClassDefinitions.Rogue) >= 19;
         }
 
@@ -292,38 +287,47 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedByMeArcaneBackslash : IActionFinishedByMe
+    private sealed class ActionFinishedByMeArcaneBackslash(
+        FeatureDefinitionPower powerArcaneBackslash,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerCounterSpell,
+        ConditionDefinition conditionArcaneAmbush)
+        : IActionFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerArcaneBackslash;
-        private readonly FeatureDefinitionPower _powerCounterSpell;
-
-        public ActionFinishedByMeArcaneBackslash(
-            FeatureDefinitionPower powerArcaneBackslash,
-            FeatureDefinitionPower powerCounterSpell)
-        {
-            _powerArcaneBackslash = powerArcaneBackslash;
-            _powerCounterSpell = powerCounterSpell;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if ((action is not CharacterActionCastSpell characterActionCastSpell ||
                  characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
                  !characterActionCastSpell.ActionParams.TargetAction.Countered) &&
                 (action is not CharacterActionUsePower characterActionUsePower ||
-                 characterActionUsePower.activePower.PowerDefinition != _powerCounterSpell ||
+                 characterActionUsePower.activePower.PowerDefinition != powerCounterSpell ||
                  !characterActionUsePower.ActionParams.TargetAction.Countered))
             {
                 yield break;
             }
 
             var actingCharacter = action.ActingCharacter;
+            var rulesetAttacker = actingCharacter.RulesetCharacter;
+            var targetCharacter = action.ActionParams.TargetCharacters[0];
+
+            targetCharacter.RulesetCharacter.InflictCondition(
+                conditionArcaneAmbush.Name,
+                conditionArcaneAmbush.DurationType,
+                conditionArcaneAmbush.DurationParameter,
+                conditionArcaneAmbush.TurnOccurence,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionArcaneAmbush.Name,
+                0,
+                0,
+                0);
 
             actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
             var actionParams = action.ActionParams.Clone();
-            var rulesetAttacker = actingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerArcaneBackslash, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -335,25 +339,19 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorEssenceTheft : IMagicEffectInitiatedByMe, IFilterTargetingCharacter
+    private sealed class CustomBehaviorEssenceTheft(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerEssenceTheft,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionPossessed)
+        : IMagicEffectInitiatedByMe, IFilterTargetingCharacter
     {
-        private readonly ConditionDefinition _conditionPossessed;
-        private readonly FeatureDefinitionPower _powerEssenceTheft;
-
-        public CustomBehaviorEssenceTheft(
-            FeatureDefinitionPower powerEssenceTheft,
-            ConditionDefinition conditionPossessed)
-        {
-            _powerEssenceTheft = powerEssenceTheft;
-            _conditionPossessed = conditionPossessed;
-        }
-
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _powerEssenceTheft)
+                rulesetEffectPower.PowerDefinition != powerEssenceTheft)
             {
                 return true;
             }
@@ -363,7 +361,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                 return true;
             }
 
-            var isValid = !target.RulesetCharacter.HasConditionOfType(_conditionPossessed.Name);
+            var isValid = !target.RulesetCharacter.HasConditionOfType(conditionPossessed.Name);
 
             if (!isValid)
             {
@@ -377,7 +375,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
 
-            actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
+            actingCharacter.UsedSpecialFeatures.TryAdd(powerEssenceTheft.Name, 1);
 
             var damage = action.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
 

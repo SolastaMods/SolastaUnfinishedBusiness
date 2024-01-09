@@ -281,8 +281,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // Campaigns and Locations
-    public bool DontFollowCharacterInBattle { get; set; }
-    public int DontFollowMargin { get; set; } = 5;
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
@@ -292,12 +290,21 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnableActionSwitching { get; set; }
-    public bool EnableDistanceOnTooltip { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableCustomPortraits { get; set; }
+    public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableExtendedProficienciesPanelDisplay { get; set; }
-    public bool ShowChannelDivinityOnPortrait { get; set; }
+
+    // Battle
+    public bool DontFollowCharacterInBattle { get; set; }
+    public int DontFollowMargin { get; set; } = 5;
+    public int GridSelectedColor { get; set; } = 1;
+    public int MovementGridWidthModifier { get; set; } = 100;
+    public int OutlineGridWidthModifier { get; set; } = 100;
+    public int OutlineGridWidthSpeed { get; set; } = 100;
+
+    public bool EnableDistanceOnTooltip { get; set; }
 
     // Formation
     public int FormationGridSelectedSet { get; set; } = -1;

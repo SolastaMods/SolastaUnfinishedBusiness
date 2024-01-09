@@ -1169,6 +1169,7 @@
                     <string>ThunderStrike</string>
                     <string>EarthTremor</string>
                     <string>ElementalInfusion</string>
+                    <string>IceBlade</string>
                     <string>NoxiousSpray</string>
                     <string>PetalStorm</string>
                     <string>ProtectThreshold</string>
@@ -1270,6 +1271,7 @@
                     <string>ChromaticOrb</string>
                     <string>EarthTremor</string>
                     <string>ElementalInfusion</string>
+                    <string>IceBlade</string>
                     <string>VileBrew</string>
                     <string>BindingIce</string>
                     <string>CloudOfDaggers</string>
@@ -1291,6 +1293,7 @@
                     <string>SonicBoom</string>
                     <string>HeroicInfusion</string>
                     <string>FlashFreeze</string>
+                    <string>MysticalCloak</string>
                     <string>ReverseGravity</string>
                     <string>Foresight</string>
                     <string>MeteorSwarmSingleTarget</string>
@@ -1327,6 +1330,7 @@
                     <string>PsychicLance</string>
                     <string>FarStep</string>
                     <string>FlashFreeze</string>
+                    <string>MysticalCloak</string>
                     <string>PowerWordKill</string>
                 </ArrayOfString>
             </value>
@@ -1363,6 +1367,7 @@
                     <string>ElementalInfusion</string>
                     <string>FindFamiliar</string>
                     <string>GiftOfAlacrity</string>
+                    <string>IceBlade</string>
                     <string>MagnifyGravity</string>
                     <string>Mule</string>
                     <string>RadiantMotes</string>
@@ -1390,6 +1395,7 @@
                     <string>SteelWhirlwind</string>
                     <string>SonicBoom</string>
                     <string>HeroicInfusion</string>
+                    <string>MysticalCloak</string>
                     <string>PoisonWave</string>
                     <string>RingOfBlades</string>
                     <string>ReverseGravity</string>
@@ -1404,8 +1410,6 @@
             </value>
         </item>
     </SpellListSpellEnabled>
-    <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
-    <DontFollowMargin>5</DontFollowMargin>
     <EnableAdditionalIconsOnLevelMap>true</EnableAdditionalIconsOnLevelMap>
     <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
@@ -1415,12 +1419,18 @@
     <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
     <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
     <EnableActionSwitching>true</EnableActionSwitching>
-    <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
     <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
     <EnableCustomPortraits>true</EnableCustomPortraits>
+    <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
     <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
     <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
-    <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
+    <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
+    <DontFollowMargin>5</DontFollowMargin>
+    <GridSelectedColor>1</GridSelectedColor>
+    <MovementGridWidthModifier>100</MovementGridWidthModifier>
+    <OutlineGridWidthModifier>0</OutlineGridWidthModifier>
+    <OutlineGridWidthSpeed>100</OutlineGridWidthSpeed>
+    <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
     <FormationGridSelectedSet>0</FormationGridSelectedSet>
     <FormationGridSets>
         <ArrayOfArrayOfInt>

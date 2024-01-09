@@ -148,6 +148,7 @@ internal static class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.SorcererDraconicChoice)
             .AddToDB();
 
+    // kept for backward compatibility
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWayOfTheDragonDraconicChoice =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolWayOfTheDragonDraconicChoice")
@@ -244,8 +245,6 @@ internal static class CharacterContext
 
     internal static void LateLoad()
     {
-        var wayOfTheDragon = GetDefinition<CharacterSubclassDefinition>(WayOfTheDragon.Name);
-
         FlexibleBackgroundsContext.Load();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
@@ -288,8 +287,9 @@ internal static class CharacterContext
             "Sorcerer", SorcerousDraconicBloodline,
             FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
             InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
+        // kept for backward compatibility
         SwitchSubclassAncestriesToUseCustomInvocationPools(
-            "WayOfTheDragon", wayOfTheDragon,
+            "WayOfTheDragon", GetDefinition<CharacterSubclassDefinition>(WayOfTheDragon.Name),
             WayOfTheDragon.FeatureSetPathOfTheDragonDisciple, InvocationPoolWayOfTheDragonDraconicChoice,
             InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice);
     }
@@ -821,7 +821,6 @@ internal static class CharacterContext
     {
         var races = new List<CharacterRaceDefinition>
         {
-            RaceHalfElfBuilder.RaceHalfElfDarkVariant,
             RaceKoboldBuilder.SubraceDarkKobold,
             SubraceDarkelfBuilder.SubraceDarkelf,
             SubraceGrayDwarfBuilder.SubraceGrayDwarf
@@ -1239,7 +1238,8 @@ internal static class CharacterContext
 
         // replace the original features with custom invocation pools
 
-        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        // remove check for WayOfTheDragon after backward compatibility is cleaned up
+        if (name == "WayOfTheDragon" || !Main.Settings.ImproveLevelUpFeaturesSelection)
         {
             return;
         }
@@ -1878,17 +1878,10 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class PhysicalAttackInitiatedByMeCunningStrike :
+    private sealed class PhysicalAttackInitiatedByMeCunningStrike(FeatureDefinitionPower powerRogueCunningStrike) :
         IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerRogueCunningStrike;
-
         private FeatureDefinitionPower _selectedPower;
-
-        public PhysicalAttackInitiatedByMeCunningStrike(FeatureDefinitionPower powerRogueCunningStrike)
-        {
-            _powerRogueCunningStrike = powerRogueCunningStrike;
-        }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager gameLocationBattleManager,
@@ -1929,10 +1922,10 @@ internal static class CharacterContext
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(_powerRogueCunningStrike, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerRogueCunningStrike, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                StringParameter = _powerRogueCunningStrike.Name,
+                StringParameter = powerRogueCunningStrike.Name,
                 TargetCharacters = { defender },
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                     //CHECK: no need for AddAsActivePowerToSource
@@ -1952,7 +1945,7 @@ internal static class CharacterContext
 
             // determine selected power to collect cost
             var option = reactionRequest.SelectedSubOption;
-            var subPowers = _powerRogueCunningStrike.GetBundle()?.SubPowers;
+            var subPowers = powerRogueCunningStrike.GetBundle()?.SubPowers;
 
             if (subPowers == null)
             {
@@ -1967,7 +1960,7 @@ internal static class CharacterContext
                 _conditionReduceSneakDice.durationType,
                 _conditionReduceSneakDice.durationParameter,
                 _conditionReduceSneakDice.turnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
@@ -2018,15 +2011,8 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class ActionFinishedByMeDazed : IActionFinishedByMe
+    private sealed class ActionFinishedByMeDazed(ConditionDefinition conditionDazedOnlyMovement) : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDazedOnlyMovement;
-
-        public ActionFinishedByMeDazed(ConditionDefinition conditionDazedOnlyMovement)
-        {
-            _conditionDazedOnlyMovement = conditionDazedOnlyMovement;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction is not CharacterActionMove)
@@ -2037,15 +2023,15 @@ internal static class CharacterContext
             var rulesetCharacter = characterAction.ActingCharacter.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
-                _conditionDazedOnlyMovement.Name,
-                _conditionDazedOnlyMovement.DurationType,
-                _conditionDazedOnlyMovement.DurationParameter,
-                _conditionDazedOnlyMovement.turnOccurence,
-                AttributeDefinitions.TagCombat,
+                conditionDazedOnlyMovement.Name,
+                conditionDazedOnlyMovement.DurationType,
+                conditionDazedOnlyMovement.DurationParameter,
+                conditionDazedOnlyMovement.turnOccurence,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _conditionDazedOnlyMovement.Name,
+                conditionDazedOnlyMovement.Name,
                 0,
                 0,
                 0);

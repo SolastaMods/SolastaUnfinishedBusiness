@@ -162,11 +162,18 @@ internal static class Level20SubclassesContext
         // Law
         //
 
-        /*
+        // Final Word
 
-        Cleric of Law: Executioner - Whenever you break an enemies concentration, they must make a WIS saving throw, or take psychic damage equal to your cleric level.
+        var featureFinalWord = FeatureDefinitionBuilder
+            .Create("FeatureDomainLawFinalWord")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new CustomBehaviorFinalWord())
+            .AddToDB();
 
-        */
+        PowerDomainLawWordOfLaw.AddCustomSubFeatures(new CustomBehaviorWordOfLaw());
+
+        DomainLaw.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureFinalWord, 17));
 
         //
         // Life
@@ -241,7 +248,107 @@ internal static class Level20SubclassesContext
         // Mischief
         //
 
-        /* ??? */
+        // Fortune Favor The Bold
+
+        var conditionAdvantage = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionStrikeOfChaosAttackAdvantage, "ConditionFortuneFavorTheBoldAdvantage")
+            .SetConditionType(ConditionType.Beneficial)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var conditionDisadvantage = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionStrikeOfChaosAttackDisadvantage,
+                "ConditionFortuneFavorTheBoldDisadvantage")
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddToDB();
+
+        var conditionMirrorImage = ConditionDefinitionBuilder
+            .Create("ConditionFortuneFavorTheBoldMirrorImage")
+            .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+            .SetPossessive()
+            .CopyParticleReferences(ConditionDefinitions.ConditionBlurred)
+            .AddCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+            .AddToDB();
+
+        var conditionPsychicDamage = ConditionDefinitionBuilder
+            .Create("ConditionFortuneFavorTheBoldPsychicDamage")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBrandingSmite)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create("AdditionalDamageFortuneFavorTheBoldPsychicDamage")
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag("FortuneFavorTheBold")
+                    .SetDamageDice(DieType.D8, 4)
+                    .SetSpecificDamageType(DamageTypePsychic)
+                    .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddToDB();
+
+        var conditionTemporaryHitPoints = ConditionDefinitionBuilder
+            .Create("ConditionFortuneFavorTheBoldTempHitPoints")
+            .SetGuiPresentationNoContent(true)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedFortuneFavorTheBoldTempHitPoints())
+            .AddToDB();
+
+        var powerFortuneFavorTheBold = FeatureDefinitionPowerBuilder
+            .Create("PowerDomainMischiefFortuneFavorTheBold")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                null,
+                                ConditionForm.ConditionOperation.AddRandom,
+                                false, false,
+                                conditionDisadvantage,
+                                conditionAdvantage,
+                                conditionMirrorImage,
+                                conditionPsychicDamage,
+                                conditionTemporaryHitPoints,
+                                null)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddToDB();
+
+        var powerDomainMischiefStrikeOfChaos17 = FeatureDefinitionPowerBuilder
+            .Create(PowerDomainMischiefStrikeOfChaos14, "PowerDomainMischiefStrikeOfChaos17")
+            .SetOverriddenPower(PowerDomainMischiefStrikeOfChaos14)
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeStrikeOfChaos(powerFortuneFavorTheBold))
+            .AddToDB();
+
+        powerDomainMischiefStrikeOfChaos17.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 6;
+
+        var powerDomainMischiefStrikeOfChaos20 = FeatureDefinitionPowerBuilder
+            .Create(PowerDomainMischiefStrikeOfChaos14, "PowerDomainMischiefStrikeOfChaos20")
+            .SetOverriddenPower(powerDomainMischiefStrikeOfChaos17)
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeStrikeOfChaos(powerFortuneFavorTheBold))
+            .AddToDB();
+
+        powerDomainMischiefStrikeOfChaos20.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 7;
+
+        DomainMischief.FeatureUnlocks.AddRange(
+        [
+            new FeatureUnlockByLevel(powerFortuneFavorTheBold, 17),
+            new FeatureUnlockByLevel(powerDomainMischiefStrikeOfChaos17, 17),
+            new FeatureUnlockByLevel(powerDomainMischiefStrikeOfChaos20, 20)
+        ]);
+
+        //FIX: strike of chaos powers should not trigger on magical attacks
+        foreach (var powerStrikeOfChaos in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+                     .Where(x => x.Name.StartsWith("PowerDomainMischiefStrikeOfChaos")))
+        {
+            powerStrikeOfChaos.AddCustomSubFeatures(
+                new RestrictReactionAttackMode((_, _, _, mode, _) =>
+                    ValidatorsWeapon.IsMelee(mode) || ValidatorsWeapon.IsUnarmed(mode)));
+        }
 
         //
         // Oblivion
@@ -1251,6 +1358,191 @@ internal static class Level20SubclassesContext
 
     #region Cleric
 
+    private sealed class CustomBehaviorWordOfLaw : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
+    {
+        private const string ConditionSilenced = "ConditionSilenced";
+        private static GameLocationCharacter _attacker;
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+
+            if (attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Cleric) < 17)
+            {
+                yield break;
+            }
+
+            var defender = action.ActionParams.TargetCharacters[0];
+
+            _attacker = null;
+            defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var attacker = action.ActingCharacter;
+
+            if (attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Cleric) < 17)
+            {
+                yield break;
+            }
+
+            var defender = action.ActionParams.TargetCharacters[0];
+
+            _attacker = attacker;
+            defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
+        }
+
+        private static void ConcentrationChanged(RulesetCharacter character)
+        {
+            var rulesetAttacker = _attacker.RulesetCharacter;
+
+            character.InflictCondition(
+                ConditionSilenced,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionSilenced,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class CustomBehaviorFinalWord :
+        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
+        IMagicalAttackBeforeHitConfirmedOnEnemy, IMagicalAttackFinishedByMe
+    {
+        private const string ConditionSilenced = "ConditionSilenced";
+        private static GameLocationCharacter _attacker;
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            _attacker = attacker;
+            defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
+        }
+
+        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            _attacker = attacker;
+            defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
+
+            yield break;
+        }
+
+        public IEnumerator OnMagicalAttackFinishedByMe(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            _attacker = null;
+            defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+
+            yield break;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            _attacker = null;
+            defender.RulesetCharacter.ConcentrationChanged -= ConcentrationChanged;
+
+            yield break;
+        }
+
+        private static void ConcentrationChanged(RulesetCharacter character)
+        {
+            var rulesetAttacker = _attacker.RulesetCharacter;
+
+            character.InflictCondition(
+                ConditionSilenced,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionSilenced,
+                0,
+                0,
+                0);
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedFortuneFavorTheBoldTempHitPoints : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var clericLevel = target.GetClassLevel(CharacterClassDefinitions.Cleric);
+
+            target.ReceiveTemporaryHitPoints(clericLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn,
+                rulesetCondition.SourceGuid);
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+    }
+
+    private sealed class MagicEffectFinishedByMeStrikeOfChaos(FeatureDefinitionPower powerFortuneFavorTheBold)
+        : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                targetCharacters = { actingCharacter }
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, true);
+
+            yield break;
+        }
+    }
+
     private sealed class ModifyDamageResistanceRisingDawn : IModifyDamageAffinity
     {
         public void ModifyDamageAffinity(RulesetActor attacker, RulesetActor defender, List<FeatureDefinition> features)
@@ -1286,15 +1578,10 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class OnReducedToZeroHpByMeOrAllyKeeperOfOblivion : IOnReducedToZeroHpByMeOrAlly
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class OnReducedToZeroHpByMeOrAllyKeeperOfOblivion(FeatureDefinition featureKeeperOfOblivion)
+        : IOnReducedToZeroHpByMeOrAlly
     {
-        private readonly FeatureDefinition _featureKeeperOfOblivion;
-
-        public OnReducedToZeroHpByMeOrAllyKeeperOfOblivion(FeatureDefinition featureKeeperOfOblivion)
-        {
-            _featureKeeperOfOblivion = featureKeeperOfOblivion;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMeOrAlly(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -1302,12 +1589,12 @@ internal static class Level20SubclassesContext
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!ally.OncePerTurnIsValid(_featureKeeperOfOblivion.Name))
+            if (!ally.OncePerTurnIsValid(featureKeeperOfOblivion.Name))
             {
                 yield break;
             }
 
-            ally.UsedSpecialFeatures.TryAdd(_featureKeeperOfOblivion.Name, 1);
+            ally.UsedSpecialFeatures.TryAdd(featureKeeperOfOblivion.Name, 1);
 
             var rulesetAlly = ally.RulesetCharacter;
             var clericLevel = rulesetAlly.GetClassLevel(CharacterClassDefinitions.Cleric);
@@ -1327,7 +1614,7 @@ internal static class Level20SubclassesContext
 
             if (contenders.Count != 0)
             {
-                rulesetAlly.LogCharacterUsedFeature(_featureKeeperOfOblivion);
+                rulesetAlly.LogCharacterUsedFeature(featureKeeperOfOblivion);
             }
 
             foreach (var unit in contenders
@@ -1368,15 +1655,9 @@ internal static class Level20SubclassesContext
     // Holy Nimbus
     //
 
-    private sealed class ModifySavingThrowHolyNimbus : IRollSavingThrowInitiated
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class ModifySavingThrowHolyNimbus(FeatureDefinition featureDefinition) : IRollSavingThrowInitiated
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public ModifySavingThrowHolyNimbus(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
@@ -1395,7 +1676,7 @@ internal static class Level20SubclassesContext
                 && caster is RulesetCharacterMonster { CharacterFamily: "Fiend" or "Undead" })
             {
                 advantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
             }
         }
     }
@@ -1404,15 +1685,10 @@ internal static class Level20SubclassesContext
     // Inquisitor's Zeal
     //
 
-    private sealed class ModifyAttackActionModifierInquisitorZeal : IModifyAttackActionModifier
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class ModifyAttackActionModifierInquisitorZeal(FeatureDefinition featureDefinition)
+        : IModifyAttackActionModifier
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public ModifyAttackActionModifierInquisitorZeal(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -1434,7 +1710,7 @@ internal static class Level20SubclassesContext
             }
 
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
     }
 
@@ -1446,15 +1722,10 @@ internal static class Level20SubclassesContext
     // Possession
     //
 
-    private sealed class OnConditionAddedOrRemovedPossession : IOnConditionAddedOrRemoved
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class OnConditionAddedOrRemovedPossession(ConditionDefinition conditionPossession)
+        : IOnConditionAddedOrRemoved
     {
-        private readonly ConditionDefinition _conditionPossession;
-
-        public OnConditionAddedOrRemovedPossession(ConditionDefinition conditionPossession)
-        {
-            _conditionPossession = conditionPossession;
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // Empty
@@ -1462,7 +1733,7 @@ internal static class Level20SubclassesContext
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (rulesetCondition.ConditionDefinition != _conditionPossession)
+            if (rulesetCondition.ConditionDefinition != conditionPossession)
             {
                 return;
             }
@@ -1481,7 +1752,7 @@ internal static class Level20SubclassesContext
                 conditionExhausted.DurationType,
                 conditionExhausted.DurationParameter,
                 conditionExhausted.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
@@ -1496,15 +1767,10 @@ internal static class Level20SubclassesContext
     // Mana Overflow
     //
 
-    private sealed class RollSavingThrowFinishedManaOverflow : IRollSavingThrowFinished
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class RollSavingThrowFinishedManaOverflow(FeatureDefinition featureManaOverflow)
+        : IRollSavingThrowFinished
     {
-        private readonly FeatureDefinition _featureManaOverflow;
-
-        public RollSavingThrowFinishedManaOverflow(FeatureDefinition featureManaOverflow)
-        {
-            _featureManaOverflow = featureManaOverflow;
-        }
-
         public void OnSavingThrowFinished(
             RulesetCharacter caster,
             RulesetCharacter defender,
@@ -1539,7 +1805,7 @@ internal static class Level20SubclassesContext
                 EffectHelpers.StartVisualEffect(character, character, MageArmor, EffectHelpers.EffectType.Caster);
             }
 
-            hero.LogCharacterUsedFeature(_featureManaOverflow);
+            hero.LogCharacterUsedFeature(featureManaOverflow);
             hero.GainSorceryPoints(1);
         }
     }
@@ -1602,15 +1868,9 @@ internal static class Level20SubclassesContext
 
     #region Monk
 
-    private sealed class OnReducedToZeroHpByEnemyPhysicalPerfection : IOnReducedToZeroHpByEnemy
+    private sealed class OnReducedToZeroHpByEnemyPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
+        : IOnReducedToZeroHpByEnemy
     {
-        private readonly FeatureDefinitionPower _powerPhysicalPerfection;
-
-        public OnReducedToZeroHpByEnemyPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
-        {
-            _powerPhysicalPerfection = powerPhysicalPerfection;
-        }
-
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter source,
@@ -1653,7 +1913,7 @@ internal static class Level20SubclassesContext
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 attacker.Guid,
                 attacker.RulesetCharacter?.CurrentFaction.Name ?? string.Empty,
                 1,
@@ -1662,7 +1922,7 @@ internal static class Level20SubclassesContext
                 0,
                 0);
 
-            var usablePower = UsablePowersProvider.Get(_powerPhysicalPerfection, rulesetCharacter);
+            var usablePower = UsablePowersProvider.Get(powerPhysicalPerfection, rulesetCharacter);
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
@@ -1749,25 +2009,19 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorQuiveringPalmTrigger(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower featureDefinitionPower,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition)
+        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
-
-        public CustomBehaviorQuiveringPalmTrigger(
-            FeatureDefinitionPower featureDefinitionPower,
-            ConditionDefinition conditionDefinition)
-        {
-            _featureDefinitionPower = featureDefinitionPower;
-            _conditionDefinition = conditionDefinition;
-        }
-
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower
-                || rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
+                || rulesetEffectPower.PowerDefinition != featureDefinitionPower)
             {
                 return true;
             }
@@ -1777,7 +2031,7 @@ internal static class Level20SubclassesContext
                 return true;
             }
 
-            var isValid = target.RulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
+            var isValid = target.RulesetCharacter.HasConditionOfType(conditionDefinition.Name);
 
             if (!isValid)
             {
@@ -1798,7 +2052,7 @@ internal static class Level20SubclassesContext
             var rulesetTarget = target.RulesetCharacter;
 
             if (!rulesetTarget.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, _conditionDefinition.Name, out var activeCondition))
+                    AttributeDefinitions.TagEffect, conditionDefinition.Name, out var activeCondition))
             {
                 yield break;
             }
@@ -1845,7 +2099,7 @@ internal static class Level20SubclassesContext
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
@@ -1856,15 +2110,10 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class MagicEffectFinishedByMeQuiveringPalm : IMagicEffectFinishedByMe
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class MagicEffectFinishedByMeQuiveringPalm(ConditionDefinition conditionDefinition)
+        : IMagicEffectFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public MagicEffectFinishedByMeQuiveringPalm(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -1887,7 +2136,7 @@ internal static class Level20SubclassesContext
             {
                 if (rulesetDefender.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect,
-                        _conditionDefinition.Name,
+                        conditionDefinition.Name,
                         out var activeCondition))
                 {
                     rulesetDefender.RemoveCondition(activeCondition);
@@ -2008,12 +2257,9 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class CustomAdditionalDamageBrutalAssault : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageBrutalAssault(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider)
     {
-        public CustomAdditionalDamageBrutalAssault(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -2054,15 +2300,9 @@ internal static class Level20SubclassesContext
     // Dark Assault
     //
 
-    private sealed class CustomBehaviorDarkAssault : ICharacterTurnStartListener
+    private sealed class CustomBehaviorDarkAssault(ConditionDefinition conditionDarkAssault)
+        : ICharacterTurnStartListener
     {
-        private readonly ConditionDefinition _conditionDarkAssault;
-
-        public CustomBehaviorDarkAssault(ConditionDefinition conditionDarkAssault)
-        {
-            _conditionDarkAssault = conditionDarkAssault;
-        }
-
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
@@ -2070,21 +2310,21 @@ internal static class Level20SubclassesContext
             // ReSharper disable once InvertIf
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) &&
-                !rulesetCharacter.HasConditionOfType(_conditionDarkAssault.Name))
+                !rulesetCharacter.HasConditionOfType(conditionDarkAssault.Name))
             {
                 EffectHelpers.StartVisualEffect(
                     locationCharacter, locationCharacter, PowerShadowcasterShadowDodge,
                     EffectHelpers.EffectType.Caster);
                 rulesetCharacter.InflictCondition(
-                    _conditionDarkAssault.Name,
-                    _conditionDarkAssault.DurationType,
-                    _conditionDarkAssault.DurationParameter,
-                    _conditionDarkAssault.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
+                    conditionDarkAssault.Name,
+                    conditionDarkAssault.DurationType,
+                    conditionDarkAssault.DurationParameter,
+                    conditionDarkAssault.TurnOccurence,
+                    AttributeDefinitions.TagEffect,
                     rulesetCharacter.Guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    _conditionDarkAssault.Name,
+                    conditionDarkAssault.Name,
                     0,
                     0,
                     0);

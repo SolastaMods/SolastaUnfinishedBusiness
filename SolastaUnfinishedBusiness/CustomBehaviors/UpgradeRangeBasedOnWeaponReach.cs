@@ -2,21 +2,14 @@
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal sealed class UpgradeRangeBasedOnWeaponReach : IModifyEffectDescription
+internal sealed class UpgradeRangeBasedOnWeaponReach(BaseDefinition baseDefinition) : IModifyEffectDescription
 {
-    private readonly BaseDefinition _baseDefinition;
-
-    public UpgradeRangeBasedOnWeaponReach(BaseDefinition baseDefinition)
-    {
-        _baseDefinition = baseDefinition;
-    }
-
     public bool IsValid(
         BaseDefinition definition,
         RulesetCharacter character,
         EffectDescription effectDescription)
     {
-        if (_baseDefinition != definition)
+        if (baseDefinition != definition)
         {
             return false;
         }

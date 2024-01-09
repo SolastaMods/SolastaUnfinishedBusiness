@@ -541,18 +541,11 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private sealed class ModifyEffectDescriptionMedKit : IModifyEffectDescription
+    private sealed class ModifyEffectDescriptionMedKit(BaseDefinition baseDefinition) : IModifyEffectDescription
     {
-        private readonly BaseDefinition _baseDefinition;
-
-        public ModifyEffectDescriptionMedKit(BaseDefinition baseDefinition)
-        {
-            _baseDefinition = baseDefinition;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _baseDefinition;
+            return definition == baseDefinition;
         }
 
         public EffectDescription GetEffectDescription(
@@ -782,15 +775,10 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private sealed class ActionFinishedByMeFeatMobileDash : IActionFinishedByMe
+    private sealed class ActionFinishedByMeFeatMobileDash(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition) : IActionFinishedByMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public ActionFinishedByMeFeatMobileDash(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not (CharacterActionDash or
@@ -804,15 +792,15 @@ internal static class OtherFeats
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             rulesetAttacker.InflictCondition(
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);
@@ -861,16 +849,9 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatPoisonousSkin :
+    private class CustomBehaviorFeatPoisonousSkin(FeatureDefinitionPower powerPoisonousSkin) :
         IPhysicalAttackFinishedByMe, IPhysicalAttackFinishedOnMe, IActionFinishedByMe, IActionFinishedByEnemy
     {
-        private readonly FeatureDefinitionPower _powerPoisonousSkin;
-
-        public CustomBehaviorFeatPoisonousSkin(FeatureDefinitionPower powerPoisonousSkin)
-        {
-            _powerPoisonousSkin = powerPoisonousSkin;
-        }
-
         //Poison character that shoves me
         public IEnumerator OnActionFinishedByEnemy(CharacterAction action, GameLocationCharacter target)
         {
@@ -966,7 +947,7 @@ internal static class OtherFeats
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(_powerPoisonousSkin, me);
+            var usablePower = UsablePowersProvider.Get(powerPoisonousSkin, me);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

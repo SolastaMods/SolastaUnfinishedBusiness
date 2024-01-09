@@ -1,9 +1,8 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -66,9 +65,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .Create($"AdditionalDamage{Name}DisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto, RechargeRate.TurnStart)
-            .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
-                    (OperationType.Set, mode != null)))
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -123,9 +120,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .Create($"AdditionalDamage{Name}ImprovedDisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .AddCustomSubFeatures(
-                new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) =>
-                    (OperationType.Set, mode != null)))
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

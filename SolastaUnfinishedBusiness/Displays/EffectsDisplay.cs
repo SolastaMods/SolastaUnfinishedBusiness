@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
@@ -205,7 +204,8 @@ internal static class EffectsDisplay
                             }
                         }
 
-                        rulesetCharacter.RemoveAllConditionsOfType(DummyCondition.Name);
+                        rulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                            AttributeDefinitions.TagEffect, DummyCondition.Name);
                         rulesetCharacter.InflictCondition(
                             DummyCondition.Name,
                             DummyCondition.DurationType,

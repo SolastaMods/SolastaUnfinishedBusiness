@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=무기 피해 주사위 하나만을 추�
 ModUi/&AddAllToStore=전부 상점에 추가
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급 치유</color>와 <color=#D89555>하급 치유</color> 주문으로 제거할 수 있는 상태이상에 <color=#D89555>출혈</color> 상태 추가
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 커스텀 아이콘 추가 <i><color=#F0DAA0>[탄환, 제조, 도구 등.]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</color>에서 <color=#D89555>Darkness Perceptive</color>를 활성화합니다. color> 및 <color=#D89555>회색 드워프</color> <i><color=#F0DAA0>\n[조명이 어두울 때나 마법의 어둠 속에서 인지 확인에 이점을 부여합니다]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>Darkness Perceptive</color>를 활성화하세요. color> <i><color=#F0DAA0>\n[빛이 없거나 마법의 어둠 속에서 인지 검사에 이점을 부여합니다.]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=<color=#D89555>불굴</color> 저장 던지기 재굴림에 <color=#D89555>파이터</color> 레벨 추가
 ModUi/&AddHelpActionToAllRaces=모든 플레이어블 종족의 행동 선택지에 <color=#D89555>도움</color> 행동을 추가 <i><color=#F0DAA0>[우호적인 크리쳐 하나가 자신과 1칸 내에 있는 크리쳐 하나를 공격하는 것을 도울 수 있습니다]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>레인저</color> 주적에 인간종 유형 추가
@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>변경 내역</color></b>
 ModUi/&Character=캐릭터
 ModUi/&CharactersPool=캐릭터 목록
 ModUi/&Classes=<color=#F0DAA0>클래스</color>
+ModUi/&Combat=<color=#F0DAA0>전투:</color>
 ModUi/&Crafting=<color=#F0DAA0>제작:</color>
 ModUi/&CraftingHelp=. 버튼을 누르면 활성화된 파티에서 즉시 제작법을 배울 수 있습니다\n. 상점에 추가돼야 하는 아이템은 파티가 해당 위치를 떠났다가 다시 돌아와야 합니다
 ModUi/&Credits=제작자들
@@ -165,6 +166,7 @@ ModUi/&Gameplay=게임플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>바드</color>와 <color=#D89555>로그</color>에게 시미터<b>무기특화</b> 부여
+ModUi/&GridSelectedColor=그리드 색상 변경 <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=발견하지 못한 출구와 순간이동기의 시각 효과 숨기기
 ModUi/&HideMonsterHitPoints=몬스터의 체력을 정확한 수치 대신 25% / 50% / 75% / 100% 만큼 단계별로 표시하기
 ModUi/&House=<color=#F0DAA0>하우스 룰(자체 규칙):</color>
@@ -194,19 +196,22 @@ ModUi/&MaxAllowedClasses=<color=white>클래스 최대 허용</color>
 ModUi/&Merchants=<color=#F0DAA0>상인:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
 ModUi/&Monsters=<color=#F0DAA0>몬스터:</color>
+ModUi/&MovementGridWidthModifier=<color=white>이동 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 키를 누르며 주문을 클릭하면 소비되는 슬롯 유형이 반전됩니다\n<i><color=#F0DAA0>[<color=#D89555>워락</color>은 흰색 주문 슬롯, 다른 건 계약 녹색 슬롯을 사용합니다]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>획득 경험치에y</color> <color=#C04040E0>[%]</color><color=white>를 곱함</color>
 ModUi/&NoExperienceOnLevelUp=레벨 업에 경험치가 필요하지 않게 설정
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 세계관에 어울리는 이름을 추가
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 주문 목록에서 가장 강력한 크리쳐만 표시</i>
 ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b>의 주관적인 솔라스타 가이드 (영문)
+ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
+ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&OverrideMinMaxLevel=새로운 모험에 필요한 캐릭터의 최소, 최대 레벨 제한 해제
 ModUi/&OverridePartySize=<color=white>파티 인원수 조정</color>
 ModUi/&Patches=<color=#F0DAA0>패치:</color>
 ModUi/&PortraitsOpenFolder=인물 사진 폴더 열기
 ModUi/&PrimedItems=준비된 아이템
 ModUi/&Progression=<color=#F0DAA0>진행:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</color>에서 <color=#D89555>빛 감도</color>를 활성화합니다. color> 및 <color=#D89555>Gray Dwarf</color>는 실외에서만 트리거됩니다.\n<i><color=#F0DAA0>[로드 화면 없이 접근 가능한 실외 위치의 실내 영역은 게임 엔진에 의해 실외로 간주됩니다. ]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=<color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> 및 <color=#D89555>Gray Dwarf</color>에서 <color=#D89555>빛 감도</color>를 활성화합니다. color>는 실외에서만 실행됩니다.\n<i><color=#F0DAA0>[로드 화면 없이 접근 가능한 실외 위치의 실내 영역은 게임 엔진에 의해 실외로 간주됩니다.]</color></i>
 ModUi/&Races=<color=#F0DAA0>종족</color>
 ModUi/&RecipeCost=<color=white>제작법 비용</color>
 ModUi/&RecipesInDm=DM 제작법

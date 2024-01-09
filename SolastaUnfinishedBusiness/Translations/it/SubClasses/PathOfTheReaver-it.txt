@@ -1,8 +1,10 @@
+Feature/&AttributeModifierPathOfTheReaverProfaneVitalityDescription=I tuoi punti ferita massimi aumentano di 3 e aumentano di 1 ogni volta che guadagni un livello in questa classe.
+Feature/&AttributeModifierPathOfTheReaverProfaneVitalityTitle=Resilienza Draconica
 Feature/&FeaturePathOfTheReaverCorruptedBloodDescription=A partire dal 14° livello, il tuo sangue viene permanentemente corrotto, danneggiando le creature che entrano in contatto con esso. Ogni volta che una creatura entro 1,5 metri ti colpisce con un attacco in mischia, quella creatura subisce danni necrotici pari al tuo modificatore di Costituzione.
 Feature/&FeaturePathOfTheReaverCorruptedBloodTitle=Sangue Corrotto
 Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=A partire dal 3° livello, puoi incanalare la tua corruzione interiore nei tuoi colpi con armi da mischia. Mentre sei in preda all'ira, la prima creatura che colpisci in ciascuno dei tuoi turni con un attacco con un'arma da mischia subisce danni necrotici extra pari al tuo bonus di competenza e recuperi un pari ammontare di punti ferita. Inoltre, sia i danni extra che le cure di questa caratteristica vengono aumentati della stessa quantità quando si è al di sotto della metà dei propri punti ferita massimi o quando si colpisce in modo critico una creatura. Questi bonus si accumulano.
 Feature/&FeaturePathOfTheReaverVoraciousFuryTitle=Furia vorace
-Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partire dal 6° livello, ottieni resistenza ai danni necrotici e da veleno. Inoltre, i tuoi punti ferita massimi sono aumentati di un ammontare pari al tuo livello da barbaro.
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partire dal 6° livello, ottieni resistenza ai danni necrotici e da veleno.
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Vitalità profana
 Feature/&PowerPathOfTheReaverBloodbathDescription=A partire dal 10° livello, mentre sei in preda all'ira, ogni volta che riduci una creatura a 0 punti ferita usando un attacco con un'arma da mischia, puoi sventrare quella creatura, recuperando un numero di punti ferita pari a 2 volte il tuo livello da barbaro. Puoi usare questo privilegio una volta per riposo breve.
 Feature/&PowerPathOfTheReaverBloodbathTitle=Bagno di sangue

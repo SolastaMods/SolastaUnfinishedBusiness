@@ -178,6 +178,7 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom PathOfTheElementsElementalFuryChoiceChoice =
             Register("PathOfTheElementsElementalFuryChoice", hidden: true);
 
+        // kept for backward compatibility
         internal static readonly InvocationPoolTypeCustom WayOfTheDragonDraconicChoice =
             Register("WayOfTheDragonDraconicChoice", hidden: true);
 

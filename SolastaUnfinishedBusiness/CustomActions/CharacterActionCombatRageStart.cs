@@ -5,14 +5,9 @@ using JetBrains.Annotations;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionCombatRageStart : CharacterAction
+public class CharacterActionCombatRageStart(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
-    public CharacterActionCombatRageStart(CharacterActionParams actionParams)
-        : base(actionParams)
-    {
-    }
-
     public override IEnumerator ExecuteImpl()
     {
         var actingCharacter = ActingCharacter;

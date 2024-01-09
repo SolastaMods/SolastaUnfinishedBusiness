@@ -53,9 +53,11 @@ public class MirrorImageLogic
 
         character.GetAllConditions(conditions);
 
-        return conditions.FindAll(c =>
+        return
+        [
+            .. conditions.FindAll(c =>
                 c.ConditionDefinition.HasSubFeatureOfType<MirrorImageLogic>())
-            .ToList();
+        ];
     }
 
     // ReSharper disable once InconsistentNaming

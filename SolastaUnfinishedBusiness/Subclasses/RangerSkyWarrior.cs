@@ -230,15 +230,10 @@ public sealed class RangerSkyWarrior : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CheckConditionValidity : IOnItemEquipped
+    private sealed class CheckConditionValidity(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IOnItemEquipped
     {
-        private readonly ConditionDefinition _condition;
-
-        public CheckConditionValidity(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
             if (ValidatorsCharacter.HasShield(hero))
@@ -247,7 +242,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             }
 
             var rulesetCondition = hero.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _condition);
+                .FirstOrDefault(x => x.ConditionDefinition == condition);
 
             if (rulesetCondition != null)
             {
@@ -256,19 +251,12 @@ public sealed class RangerSkyWarrior : AbstractSubclass
         }
     }
 
-    private sealed class AttackBeforeHitConfirmedOnEnemyDeathFromAbove : IAttackBeforeHitConfirmedOnEnemy
+    private sealed class AttackBeforeHitConfirmedOnEnemyDeathFromAbove(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition,
+        ConditionDefinition conditionGiftOfTheWindAttacked)
+        : IAttackBeforeHitConfirmedOnEnemy
     {
-        private readonly ConditionDefinition _conditionGiftOfTheWindAttacked;
-        private readonly FeatureDefinition _featureDefinition;
-
-        public AttackBeforeHitConfirmedOnEnemyDeathFromAbove(
-            FeatureDefinition featureDefinition,
-            ConditionDefinition conditionGiftOfTheWindAttacked)
-        {
-            _featureDefinition = featureDefinition;
-            _conditionGiftOfTheWindAttacked = conditionGiftOfTheWindAttacked;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -308,7 +296,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
 
-            rulesetAttacker.LogCharacterUsedFeature(_featureDefinition);
+            rulesetAttacker.LogCharacterUsedFeature(featureDefinition);
 
             foreach (var gameLocationDefender in battle.Battle.AllContenders
                          .Where(x => x.IsOppositeSide(attacker.Side) &&
@@ -332,7 +320,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                     rulesetDefender,
                     criticalHit,
-                    attacker.Guid,
+                    rulesetAttacker.Guid,
                     false,
                     attackMode.AttackTags,
                     new RollInfo(damage.DieType, rolls, bonusDamage),
@@ -345,20 +333,20 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                 }
 
                 var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(
-                    x => x.ConditionDefinition == _conditionGiftOfTheWindAttacked);
+                    x => x.ConditionDefinition == conditionGiftOfTheWindAttacked);
 
                 if (rulesetCondition == null)
                 {
                     rulesetDefender.InflictCondition(
-                        _conditionGiftOfTheWindAttacked.Name,
-                        _conditionGiftOfTheWindAttacked.DurationType,
-                        _conditionGiftOfTheWindAttacked.DurationParameter,
-                        _conditionGiftOfTheWindAttacked.TurnOccurence,
-                        AttributeDefinitions.TagCombat,
+                        conditionGiftOfTheWindAttacked.Name,
+                        conditionGiftOfTheWindAttacked.DurationType,
+                        conditionGiftOfTheWindAttacked.DurationParameter,
+                        conditionGiftOfTheWindAttacked.TurnOccurence,
+                        AttributeDefinitions.TagEffect,
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
                         1,
-                        _conditionGiftOfTheWindAttacked.Name,
+                        conditionGiftOfTheWindAttacked.Name,
                         0,
                         0,
                         0);

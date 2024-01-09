@@ -720,6 +720,13 @@ On a failed WIS saving throw, restrains a creature and inflicts force damage eac
   At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
 
 
+### Level 17
+
+* Final Word
+
+Whenever you break the spellcasting concentration of an enemy, that enemy becomes silenced until the end of your next turn.
+
+
 ### Level 20
 
 * Improved Divine Intervention
@@ -859,6 +866,13 @@ Once, on each of your turns when you hit a creature with a weapon attack, you ca
 * Divine Intervention
 
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
+
+
+### Level 17
+
+* Fortune Favors The Bold
+
+Whenever you use your Channel Divinity: Strike of Chaos feature, you randomly gain one of the following effects for 1 minute: nothing, disadvantage on next attack roll, advantage on the next attack roll, temporary hit points equal to cleric level, +4d8 psychic damage on the next attack roll that hits, effects of Mirror Image spell.
 
 
 ### Level 20

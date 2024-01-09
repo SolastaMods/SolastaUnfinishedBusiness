@@ -33,6 +33,14 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        // kept name for backward compatibility
+        var attributeModifierDraconicResilience = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}ProfaneVitality")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
+            .AddCustomSubFeatures(new CustomLevelUpLogicDraconicResilience())
+            .AddToDB();
+
         // LEVEL 06
 
         var featureSetProfaneVitality = FeatureDefinitionFeatureSetBuilder
@@ -40,12 +48,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create($"AttributeModifier{Name}ProfaneVitality")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
-                    .AddToDB())
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance)
             .AddToDB();
 
         // LEVEL 10
@@ -78,7 +81,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheReaver, 256))
-            .AddFeaturesAtLevel(3, featureVoraciousFury)
+            .AddFeaturesAtLevel(3, featureVoraciousFury, attributeModifierDraconicResilience)
             .AddFeaturesAtLevel(6, featureSetProfaneVitality)
             .AddFeaturesAtLevel(10, powerBloodbath)
             .AddFeaturesAtLevel(14, featureCorruptedBlood)
@@ -191,22 +194,35 @@ public sealed class PathOfTheReaver : AbstractSubclass
     }
 
     //
+    // Draconic Resilience
+    //
+
+    private sealed class CustomLevelUpLogicDraconicResilience : ICustomLevelUpLogic
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            if (hero.TryGetAttribute(AttributeDefinitions.HitPoints, out var attribute))
+            {
+                attribute.maxValue += 3;
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
+    }
+
+    //
     // Voracious Fury
     //
 
-    private sealed class PhysicalAttackFinishedByMeVoraciousFury : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeVoraciousFury(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureVoraciousFury,
+        FeatureDefinitionPower powerBloodBath)
+        : IPhysicalAttackFinishedByMe
     {
-        private readonly FeatureDefinition _featureVoraciousFury;
-        private readonly FeatureDefinitionPower _powerBloodBath;
-
-        public PhysicalAttackFinishedByMeVoraciousFury(
-            FeatureDefinition featureVoraciousFury,
-            FeatureDefinitionPower powerBloodBath)
-        {
-            _featureVoraciousFury = featureVoraciousFury;
-            _powerBloodBath = powerBloodBath;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -233,12 +249,12 @@ public sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            if (!attacker.OnceInMyTurnIsValid(_featureVoraciousFury.Name))
+            if (!attacker.OnceInMyTurnIsValid(featureVoraciousFury.Name))
             {
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(_featureVoraciousFury.Name, 1);
+            attacker.UsedSpecialFeatures.TryAdd(featureVoraciousFury.Name, 1);
 
             var multiplier = 1;
 
@@ -264,13 +280,13 @@ public sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.LogCharacterUsedFeature(_featureVoraciousFury);
+            rulesetAttacker.LogCharacterUsedFeature(featureVoraciousFury);
             EffectHelpers.StartVisualEffect(attacker, defender, VampiricTouch, EffectHelpers.EffectType.Effect);
             InflictDamage(rulesetAttacker, rulesetDefender, totalDamageOrHealing, attackMode.AttackTags);
 
             if (rulesetDefender.IsDeadOrDying)
             {
-                yield return HandleEnemyDeath(attacker, attackMode, _powerBloodBath);
+                yield return HandleEnemyDeath(attacker, attackMode, powerBloodBath);
             }
         }
 
@@ -290,22 +306,15 @@ public sealed class PathOfTheReaver : AbstractSubclass
     // Bloodbath
     //
 
-    private class OnReducedToZeroHpByMeBloodbath : IOnReducedToZeroHpByMe
+    private class OnReducedToZeroHpByMeBloodbath(FeatureDefinitionPower powerBloodBath) : IOnReducedToZeroHpByMe
     {
-        private readonly FeatureDefinitionPower _powerBloodBath;
-
-        public OnReducedToZeroHpByMeBloodbath(FeatureDefinitionPower powerBloodBath)
-        {
-            _powerBloodBath = powerBloodBath;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            yield return HandleEnemyDeath(attacker, attackMode, _powerBloodBath);
+            yield return HandleEnemyDeath(attacker, attackMode, powerBloodBath);
         }
     }
 
@@ -313,19 +322,12 @@ public sealed class PathOfTheReaver : AbstractSubclass
     // Corrupted Blood
     //
 
-    private class PhysicalAttackFinishedOnMeCorruptedBlood : IPhysicalAttackFinishedOnMe
+    private class PhysicalAttackFinishedOnMeCorruptedBlood(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureCorruptedBlood,
+        FeatureDefinitionPower powerBloodBath)
+        : IPhysicalAttackFinishedOnMe
     {
-        private readonly FeatureDefinition _featureCorruptedBlood;
-        private readonly FeatureDefinitionPower _powerBloodBath;
-
-        public PhysicalAttackFinishedOnMeCorruptedBlood(
-            FeatureDefinition featureCorruptedBlood,
-            FeatureDefinitionPower powerBloodBath)
-        {
-            _featureCorruptedBlood = featureCorruptedBlood;
-            _powerBloodBath = powerBloodBath;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -354,13 +356,13 @@ public sealed class PathOfTheReaver : AbstractSubclass
             var defenderAttackTags =
                 defender.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [];
 
-            rulesetDefender.LogCharacterUsedFeature(_featureCorruptedBlood);
-            EffectHelpers.StartVisualEffect(attacker, defender, PowerDomainMischiefStrikeOfChaos);
+            rulesetDefender.LogCharacterUsedFeature(featureCorruptedBlood);
+            EffectHelpers.StartVisualEffect(attacker, defender, PowerSorcererChildRiftOffering);
             InflictDamage(rulesetDefender, rulesetAttacker, totalDamage, defenderAttackTags);
 
             if (rulesetAttacker.IsDeadOrDying)
             {
-                yield return HandleEnemyDeath(defender, attackMode, _powerBloodBath);
+                yield return HandleEnemyDeath(defender, attackMode, powerBloodBath);
             }
         }
     }

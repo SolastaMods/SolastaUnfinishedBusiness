@@ -92,6 +92,10 @@ All Reavers undergo a ritual that involves drinking tainted blood of a dragon, p
 
 ### Level 3
 
+* Draconic Resilience
+
+Your hit point maximum increases by 3, and increases by 1 whenever you gain a level in this class.
+
 * Voracious Fury
 
 Starting at 3rd level, you can channel your inner corruption into your melee weapon strikes. While you're raging, the first creature you hit on each of your turns with a melee weapon attack takes extra necrotic damage equal to your proficiency bonus and you regain an equal amount of hit points. Additionally, both extra damage and healing of this feature are increased by the same amount when you are below half your maximum hit points or when you critically hit a creature. These bonuses stack.
@@ -101,7 +105,7 @@ Starting at 3rd level, you can channel your inner corruption into your melee wea
 
 * Profane Vitality
 
-Starting at 6th level, you gain resistance to necrotic and poison damage. In addition, your maximum hit points are increased by an amount equal to your barbarian level.
+Starting at 6th level, you gain resistance to necrotic and poison damage.
 
 
 ### Level 10
@@ -144,16 +148,16 @@ Starting at 6th level, while you are raging, whenever you roll a Dexterity savin
 
 ### Level 10
 
-* Unbridled Ferocity
+* Wrath and Fury
 
-Starting at 10th level, while you are raging, whenever you hit a creature with a melee weapon attack and don't deal a critical hit, you increase your critical threat range by 1. This effect stacks. Once you deal a critical strike, the bonus resets to 0.
+Starting at 10th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Whenever you use your Reckless Attack feature, you gain temporary hit points equal to half your barbarian level (rounded up).
 
 
 ### Level 14
 
-* Wrath and Fury
+* Unbridled Ferocity
 
-Starting at 14th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Whenever you use your Reckless Attack feature, you gain temporary hit points equal to half your barbarian level (rounded up).
+Starting at 14th level, while you are raging, whenever you hit a creature with a melee weapon attack and don't deal a critical hit, you increase your critical threat range by 1. This effect stacks. Once you deal a critical strike, the bonus resets to 0.
 
 
 
@@ -502,21 +506,21 @@ Learn Wrack cantrip.
 
 * Insidious Death Magic
 
-Creatures you deal necrotic damage to through spells, abilities, or weapons can not heal for a number of rounds equal to half your cleric level (rounded up), or 6 rounds if a Divine Strike.
+Creatures you deal necrotic damage to through spells, abilities, or weapons can not receive healing until the end of your next turn.
 
 
 ### Level 2
 
-* Channel Divinity: Channel Divinity: Defile Life
+* Channel Divinity: Defile Life
 
-Unleash a wave of necrotic energy around you. Each non-undead hostile creature in a 15-foot radius must make a Constitution saving throw. Affected creatures take 2d10 + cleric level necrotic damage on a failed saving throw, or half that amount on a successful one.
+Unleash a wave of necrotic energy around you. Each non-undead hostile creature in a 30-foot radius must make a Constitution saving throw. Affected creatures take 2d10 + cleric level necrotic damage on a failed saving throw, or half that amount on a successful one.
 
 
 ### Level 6
 
-* Channel Divinity: Mark for Death
+* Beacon of Corruption
 
-Mark an enemy for death for one minute. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.
+You gain resistance to necrotic damage and necrotic damage dealt by your spells and features ignores resistance to necrotic damage.
 
 
 ### Level 8
@@ -537,7 +541,7 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 * Dying Light
 
-Learn Circle of Death and Finger of Death spells and add them to the list of spells known. You always have these spells prepared, they do not count towards your prepared spells limit and are treated as cleric spells for you. In addition, necrotic damage dealt by your spells and features ignores resistance to necrotic damage.
+You learn Circle of Death and Finger of Death spells and it is added to the list of spells known. They are always prepared, don't count towards your prepared spells limit, and are treated as cleric spells for you. Whenever you deal necrotic damage, you can deal maximum damage instead of rolling. You can use this feature once per long rest.
 
 
 
@@ -764,26 +768,26 @@ Circle of the Forest Guardian Druids are sworn to protect the forests and all th
 
 * Bark Ward
 
-You gain the ability to impersonate a Bark Ward to protect you. As a bonus action, you can gain 4 temporary hit points for each level you have in this class. You can use this power a number of times a day equal to your proficiency bonus.
+You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 4 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 6 at 6th level, and the power is improved at 10th. The bark lasts for one minute, or until you become incapacitated. 
 
 * Expanded Spells
 
 
-	I	Shield, Fog Cloud
+	I	Entangling Strike, Shield
 
-	II	Blur, Flame Blade
+	II	Lesser Restoration, Spike Growth
 
 	III	Protection from Energy, Dispel Magic
 
-	IV	Fire Shield, Death Ward
+	IV	Aura of Vivacity, Freedom of Movement
 
-	V	Hold Monster, Greater Restoration
+	V	Greater Restoration, Hold Monster
 
 
 
-* Sylvan Durability
+* Sylvan Magic
 
-Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, your hit point maximum increases by 2 and increases by 1 whenever you gain a level in this class.
+Your non-two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style, these changes also apply to your offhand attack.
 
 
 ### Level 6
@@ -801,14 +805,14 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * Improved Bark Ward
 
-Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage.
+You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 8 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 10 at 14th level. In addition, you have poison immunity while Bark Ward is active, and whenever a creature damages you with a melee weapon attack while within 5ft of you and while you have any temporary hit points, the creature receives 2d8 piercing damage. The improved bark lasts for one minute, or until you become incapacitated.
 
 
 ### Level 14
 
-* Superior Bark Ward
+* Nature's Guardian
 
-Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
+When you activate Bark Ward, and on subsequent start of each of your turns while your Bark Ward is active, all allies that you can see within 15 feet of you also receive the same amount of temporary hit points from it as you do.
 
 
 
@@ -1690,17 +1694,16 @@ You have resistance to the damage type associated with your draconic ancestry.
 
 You choose one type of dragon as your ancestor. The damage type associated with your choice is used by the features you gain later.
 
-* Reactive Skin
+* Elemental Breath
 
-Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they must also pass a Constitution saving throw each time they hit you, or receive a detrimental condition depending on your Dragon Ancestry feature.
-A creature affected by one of the detrimental conditions must still pass a Constitution saving throw each time they hit you with a melee attack, but instead of receiving the same condition, they receive elemental damage equal to 2x your martial arts die. 
+Once during your turn, you can forgo one of your main action attacks to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive three martial arts dice as damage type of your Dragon Ancestry feature (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and you can spend 2 ki instead if you are out of uses.
 
 
 ### Level 6
 
-* Elemental Breath
+* Reactive Skin
 
-You can use your bonus action to exhale elemental energy. The shape and damage type of your breath depend on your Dragon Ancestry feature. Each creature affected by your breath must pass a Dexterity saving throw or receive 3d6 damage (save for half). You can use this feature a number of times per long rest equal to your proficiency bonus, and if you are out of uses, you can pay 2 Ki instead. The damage is increased to 4d6 at 11th level, and 5d6 at 17th level.
+Whenever you are about to receive damage from an enemy creature, you can use your reaction and pay 1 Ki to gain resistance to all damage until the end of attacker's turn. If the attacker uses melee attacks against you, they receive one martial arts die as damage type of your Dragon Ancestry feature each time they hit you.
 
 
 ### Level 11
@@ -1794,7 +1797,7 @@ Starting at 11th level, after using your attack action, you can spend 3 Ki to us
 
 * Eye of the Storm
 
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 Ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
+Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 Ki to consume the mark on each creature and force a Dexterity saving throw on them (DC 8 + proficiency bonus + Wisdom modifier). On a failed saving throw, each creature receives 4d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 
@@ -2656,7 +2659,7 @@ Starting at 9th level, whenever you deal sneak attack damage to a creature, that
 
 * Arcane Backlash
 
-Starting at 13th level, learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per short rest, you cast Counterspell at it highest level without expending a spell slot.
+Starting at 13th level, learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per long rest, you cast Counterspell at it highest level without expending a spell slot.
 
 * Counterspell
 
@@ -2853,7 +2856,7 @@ Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenev
 
 * Cloak of Shadows
 
-Starting at 13th level, you can use your bonus action to become invisible for 1 minute. You can use this feature once per short rest.
+Starting at 13th level, you can use your bonus action to become invisible for 1 minute.  You can use this feature a number of times per long rest equal to your Dexterity modifier.
 
 
 ### Level 17
@@ -2991,13 +2994,16 @@ Your non two-handed weapon attacks count as magical and you use your spell casti
 
 
 
-* Mana Shield
-
-You can use your bonus action to gain temporary hit points equal to your sorcerer level + Charisma modifier for one minute, a number of times per long rest equal to your proficiency bonus. Starting from 2nd level, if you are out of uses, you can spend two sorcery points instead.
-
 * Martial Training
 
 You gain proficiency with light armor, medium armor, and martial weapons.
+
+
+### Level 2
+
+* Mana Shield
+
+You can use your bonus action to gain temporary hit points equal to your sorcerer level + Charisma modifier for one minute, a number of times per long rest equal to your proficiency bonus. If you are out of uses, you can spend two sorcery points instead.
 
 
 ### Level 6

@@ -70,7 +70,7 @@ internal static class GambitsBuilders
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddCustomSubFeatures(
                 (DamageDieProvider)((character, _) => GetGambitDieSize(character)),
-                ValidatorsRestrictedContext.IsWeaponAttack)
+                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .AddToDB();
 
         var gambitDieDamageMelee = FeatureDefinitionAdditionalDamageBuilder
@@ -88,7 +88,7 @@ internal static class GambitsBuilders
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddCustomSubFeatures(
                 (DamageDieProvider)((character, _) => GetGambitDieSize(character)),
-                ValidatorsRestrictedContext.IsMeleeAttack)
+                ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack)
             .AddToDB();
 
         var conditionGambitDieDamage = ConditionDefinitionBuilder
@@ -937,21 +937,16 @@ internal static class GambitsBuilders
         #endregion
     }
 
-    private sealed class ModifyEffectDescriptionSavingThrow : IModifyEffectDescription
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class ModifyEffectDescriptionSavingThrow(FeatureDefinitionPower baseDefinition)
+        : IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _baseDefinition;
-
-        public ModifyEffectDescriptionSavingThrow(FeatureDefinitionPower baseDefinition)
-        {
-            _baseDefinition = baseDefinition;
-        }
-
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == _baseDefinition;
+            return definition == baseDefinition;
         }
 
         public EffectDescription GetEffectDescription(
@@ -1033,15 +1028,8 @@ internal static class GambitsBuilders
     //
     // Rally
     //
-    private sealed class Rally : IMagicEffectInitiatedByMe
+    private sealed class Rally(FeatureDefinitionPower powerRallyActivate) : IMagicEffectInitiatedByMe
     {
-        private readonly FeatureDefinitionPower _powerRallyActivate;
-
-        public Rally(FeatureDefinitionPower powerRallyActivate)
-        {
-            _powerRallyActivate = powerRallyActivate;
-        }
-
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var character = action.ActingCharacter.RulesetCharacter;
@@ -1057,8 +1045,8 @@ internal static class GambitsBuilders
             var bonusHitPoints = modifier + dieRoll;
             var target = action.ActionParams.TargetCharacters[0];
 
-            character.ShowDieRoll(dieType, dieRoll, title: _powerRallyActivate.GuiPresentation.Title);
-            character.LogCharacterUsedPower(_powerRallyActivate, "Feedback/&GambitGrantTempHP", true,
+            character.ShowDieRoll(dieType, dieRoll, title: powerRallyActivate.GuiPresentation.Title);
+            character.LogCharacterUsedPower(powerRallyActivate, "Feedback/&GambitGrantTempHP", true,
                 (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                 (ConsoleStyleDuplet.ParameterType.Positive, bonusHitPoints.ToString()));
 
@@ -1075,17 +1063,11 @@ internal static class GambitsBuilders
     //
     // Swift Throw
     //
-    private sealed class SwiftThrow : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IModifyAttackActionModifier
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class SwiftThrow(ItemDefinition concealedDagger, FeatureDefinitionPower powerSwiftThrow)
+        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IModifyAttackActionModifier
     {
         private const int DaggerCloseRange = 4;
-        private readonly ItemDefinition _concealedDagger;
-        private readonly FeatureDefinitionPower _powerSwiftThrow;
-
-        public SwiftThrow(ItemDefinition concealedDagger, FeatureDefinitionPower powerSwiftThrow)
-        {
-            _concealedDagger = concealedDagger;
-            _powerSwiftThrow = powerSwiftThrow;
-        }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1112,9 +1094,9 @@ internal static class GambitsBuilders
 
             attackModeCopy.Copy(attackMode);
             attackModeCopy.ActionType = ActionDefinitions.ActionType.NoCost;
-            attackModeCopy.SourceDefinition = _concealedDagger;
-            attackModeCopy.EffectDescription = _concealedDagger.WeaponDescription.EffectDescription;
-            attackModeCopy.AttackTags.SetRange(_concealedDagger.WeaponDescription.WeaponTags);
+            attackModeCopy.SourceDefinition = concealedDagger;
+            attackModeCopy.EffectDescription = concealedDagger.WeaponDescription.EffectDescription;
+            attackModeCopy.AttackTags.SetRange(concealedDagger.WeaponDescription.WeaponTags);
             attackModeCopy.closeRange = DaggerCloseRange;
             attackModeCopy.maxRange = 12;
             attackModeCopy.thrown = true;
@@ -1143,7 +1125,7 @@ internal static class GambitsBuilders
             string effectName,
             ref ActionModifier attackModifier)
         {
-            if (effectName != _powerSwiftThrow.Name)
+            if (effectName != powerSwiftThrow.Name)
             {
                 return;
             }
@@ -1169,22 +1151,16 @@ internal static class GambitsBuilders
     //
     // Tactical Strike
     //
-    private sealed class TacticalStrike :
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class TacticalStrike(FeatureDefinitionPower powerSelectEnemy) :
         IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe, IFilterTargetingCharacter
     {
-        private readonly FeatureDefinitionPower _powerSelectEnemy;
-
-        public TacticalStrike(FeatureDefinitionPower powerSelectEnemy)
-        {
-            _powerSelectEnemy = powerSelectEnemy;
-        }
-
         public bool EnforceFullSelection => true;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _powerSelectEnemy)
+                rulesetEffectPower.PowerDefinition != powerSelectEnemy)
             {
                 return true;
             }
@@ -1289,7 +1265,7 @@ internal static class GambitsBuilders
 
             Attack(ally, target, attackModeCopy, attackModifier, ActionDefinitions.Id.AttackOpportunity);
 
-            BurnOneMainAttack(actingCharacter);
+            actingCharacter.BurnOneMainAttack();
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -1339,16 +1315,10 @@ internal static class GambitsBuilders
     //
     // Feint
     //
-    private sealed class Feint :
+    private sealed class Feint(FeatureDefinitionPower pool) :
         IModifyAttackActionModifier, IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
     {
         private const string ConditionGambitFeint = "ConditionGambitFeint";
-        private readonly FeatureDefinitionPower _pool;
-
-        public Feint(FeatureDefinitionPower pool)
-        {
-            _pool = pool;
-        }
 
         public void OnAttackComputeModifier(RulesetCharacter myself,
             RulesetCharacter defender,
@@ -1386,7 +1356,7 @@ internal static class GambitsBuilders
             }
 
             attacker.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus]++;
-            rulesetCharacter.UpdateUsageForPower(_pool, 1);
+            rulesetCharacter.UpdateUsageForPower(pool, 1);
         }
 
         public IEnumerator OnPhysicalAttackInitiatedByMe(
@@ -1402,26 +1372,18 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            attacker.RulesetCharacter.RemoveAllConditionsOfType(ConditionGambitFeint);
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+                AttributeDefinitions.TagEffect, ConditionGambitFeint);
         }
     }
 
     //
     // Retaliate
     //
-    private sealed class Retaliate : IPhysicalAttackFinishedOnMe
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition, bool melee)
+        : IPhysicalAttackFinishedOnMe
     {
-        private readonly ConditionDefinition _condition;
-        private readonly bool _melee;
-        private readonly FeatureDefinitionPower _pool;
-
-        public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition, bool melee)
-        {
-            _condition = condition;
-            _melee = melee;
-            _pool = pool;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -1451,7 +1413,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (defender.RulesetCharacter.GetRemainingPowerCharges(_pool) <= 0)
+            if (defender.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;
             }
@@ -1464,12 +1426,12 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!_melee && battle.IsWithin1Cell(defender, attacker))
+            if (!melee && battle.IsWithin1Cell(defender, attacker))
             {
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = _melee
+            var (retaliationMode, retaliationModifier) = melee
                 ? defender.GetFirstMeleeModeThatCanAttack(attacker)
                 : defender.GetFirstRangedModeThatCanAttack(attacker);
 
@@ -1490,24 +1452,24 @@ internal static class GambitsBuilders
             var rulesetCharacter = defender.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
-                _condition.Name,
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _condition.Name,
+                condition.Name,
                 0,
                 0,
                 0);
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var tag = _melee ? "GambitRiposte" : "GambitReturnFire";
+            var tag = melee ? "GambitRiposte" : "GambitReturnFire";
             var reactionRequest = new ReactionRequestReactionAttack(tag, reactionParams)
             {
-                Resource = new ReactionResourcePowerPool(_pool, Sprites.GambitResourceIcon)
+                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
 
             manager.AddInterruptRequest(reactionRequest);
@@ -1519,29 +1481,22 @@ internal static class GambitsBuilders
     //
     // Switch
     //
-    private sealed class Switch : IFilterTargetingCharacter, IMagicEffectFinishedByMe
+    private sealed class Switch(
+        FeatureDefinitionPower powerSwitchActivate,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition good,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition bad,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition self)
+        : IFilterTargetingCharacter, IMagicEffectFinishedByMe
     {
-        private readonly ConditionDefinition _good, _bad, _self;
-        private readonly FeatureDefinitionPower _powerSwitchActivate;
-
-        public Switch(
-            FeatureDefinitionPower powerSwitchActivate,
-            ConditionDefinition good,
-            ConditionDefinition bad,
-            ConditionDefinition self)
-        {
-            _powerSwitchActivate = powerSwitchActivate;
-            _good = good;
-            _bad = bad;
-            _self = self;
-        }
-
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _powerSwitchActivate)
+                rulesetEffectPower.PowerDefinition != powerSwitchActivate)
             {
                 return true;
             }
@@ -1575,29 +1530,29 @@ internal static class GambitsBuilders
             if (caster.IsOppositeSide(target.Side))
             {
                 target.InflictCondition(
-                    _bad.Name,
+                    bad.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfSourceTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     caster.Guid,
                     caster.CurrentFaction.Name,
                     1,
-                    _bad.Name,
+                    bad.Name,
                     0,
                     0,
                     0);
 
                 caster.InflictCondition(
-                    _self.Name,
+                    self.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     target.Guid,
                     target.CurrentFaction.Name,
                     1,
-                    _self.Name,
+                    self.Name,
                     0,
                     0,
                     0);
@@ -1629,25 +1584,25 @@ internal static class GambitsBuilders
             var dieType = GetGambitDieSize(caster);
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
-            caster.ShowDieRoll(dieType, dieRoll, title: _good.GuiPresentation.Title);
+            caster.ShowDieRoll(dieType, dieRoll, title: good.GuiPresentation.Title);
 
             var finalTarget = !reactionParams.ReactionValidated ? caster : target;
 
             finalTarget.InflictCondition(
-                _good.Name,
+                good.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 caster.Guid,
                 caster.CurrentFaction.Name,
                 1,
-                _good.Name,
+                good.Name,
                 dieRoll,
                 0,
                 0);
 
-            caster.LogCharacterUsedPower(_powerSwitchActivate, "Feedback/&GambitSwitchACIncrease", true,
+            caster.LogCharacterUsedPower(powerSwitchActivate, "Feedback/&GambitSwitchACIncrease", true,
                 (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                 (ConsoleStyleDuplet.ParameterType.Player, finalTarget.Name),
                 (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
@@ -1685,7 +1640,7 @@ internal static class GambitsBuilders
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
@@ -1730,18 +1685,12 @@ internal static class GambitsBuilders
     //
     // Precise
     //
-    private sealed class Precise : ITryAlterOutcomePhysicalAttack
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
+        : ITryAlterOutcomePhysicalAttack
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
-        private readonly FeatureDefinition _feature;
-        private readonly FeatureDefinitionPower _pool;
-
-        public Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
-        {
-            _pool = pool;
-            _feature = feature;
-        }
 
         public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
@@ -1755,7 +1704,7 @@ internal static class GambitsBuilders
 
             var character = me.RulesetCharacter;
 
-            if (character.GetRemainingPowerCharges(_pool) <= 0)
+            if (character.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;
             }
@@ -1783,7 +1732,7 @@ internal static class GambitsBuilders
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
             {
-                Resource = new ReactionResourcePowerPool(_pool, Sprites.GambitResourceIcon)
+                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
 
             manager.AddInterruptRequest(reactionRequest);
@@ -1795,13 +1744,13 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            character.UpdateUsageForPower(_pool, 1);
+            character.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
             var hitTrends = attackModifier.AttacktoHitTrends;
 
-            hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, _pool.Name, null)
+            hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
             {
                 dieType = dieType, dieFlag = TrendInfoDieFlag.None
             });
@@ -1817,12 +1766,12 @@ internal static class GambitsBuilders
             }
 
             character.ShowDieRoll(dieType, dieRoll,
-                title: _feature.GuiPresentation.Title,
+                title: feature.GuiPresentation.Title,
                 outcome: success ? RollOutcome.Success : RollOutcome.Failure,
                 displayOutcome: true
             );
 
-            character.LogCharacterUsedFeature(_feature, Line,
+            character.LogCharacterUsedFeature(feature, Line,
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
@@ -1834,17 +1783,10 @@ internal static class GambitsBuilders
     //
     // Parry
     //
-    private sealed class Parry : IAttackBeforeHitConfirmedOnMe
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class Parry(FeatureDefinitionPower pool, FeatureDefinition feature) : IAttackBeforeHitConfirmedOnMe
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
-        private readonly FeatureDefinition _feature;
-        private readonly FeatureDefinitionPower _pool;
-
-        public Parry(FeatureDefinitionPower pool, FeatureDefinition feature)
-        {
-            _pool = pool;
-            _feature = feature;
-        }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -1879,7 +1821,7 @@ internal static class GambitsBuilders
 
             var character = me.RulesetCharacter;
 
-            if (character.GetRemainingPowerCharges(_pool) <= 0)
+            if (character.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;
             }
@@ -1898,7 +1840,7 @@ internal static class GambitsBuilders
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
             {
-                Resource = new ReactionResourcePowerPool(_pool, Sprites.GambitResourceIcon)
+                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
 
             manager.AddInterruptRequest(reactionRequest);
@@ -1910,7 +1852,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            character.UpdateUsageForPower(_pool, 1);
+            character.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
@@ -1920,10 +1862,10 @@ internal static class GambitsBuilders
             attackModifier.damageRollReduction += reduction;
 
             character.ShowDieRoll(dieType, dieRoll,
-                title: _feature.GuiPresentation.Title,
+                title: feature.GuiPresentation.Title,
                 displayModifier: true, modifier: pb);
 
-            character.LogCharacterUsedFeature(_feature, Line,
+            character.LogCharacterUsedFeature(feature, Line,
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
@@ -1935,22 +1877,16 @@ internal static class GambitsBuilders
     //
     // Coordinated Attack
     //
-    private sealed class CoordinatedAttack :
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class CoordinatedAttack(FeatureDefinitionPower powerCoordinatedAttack) :
         IFilterTargetingCharacter, ISelectPositionAfterCharacter, IFilterTargetingPosition, IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerCoordinatedAttack;
-
-        public CoordinatedAttack(FeatureDefinitionPower powerCoordinatedAttack)
-        {
-            _powerCoordinatedAttack = powerCoordinatedAttack;
-        }
-
         public bool EnforceFullSelection => false;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _powerCoordinatedAttack)
+                rulesetEffectPower.PowerDefinition != powerCoordinatedAttack)
             {
                 return true;
             }
@@ -2030,6 +1966,7 @@ internal static class GambitsBuilders
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
                 AttributeDefinitions.TagCombat,
                 targetRulesetCharacter.Guid,
                 targetRulesetCharacter.CurrentFaction.Name,
@@ -2051,21 +1988,14 @@ internal static class GambitsBuilders
     //
     // Elusive Movement
     //
-    private sealed class ElusiveMovement : IOnConditionAddedOrRemoved
+    private sealed class ElusiveMovement(FeatureDefinitionPower powerElusiveMovement) : IOnConditionAddedOrRemoved
     {
-        private readonly FeatureDefinitionPower _powerElusiveMovement;
-
-        public ElusiveMovement(FeatureDefinitionPower powerElusiveMovement)
-        {
-            _powerElusiveMovement = powerElusiveMovement;
-        }
-
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var dieType = GetGambitDieSize(target);
             var dieRoll = rulesetCondition.Amount;
 
-            target.LogCharacterUsedPower(_powerElusiveMovement, "Feedback/&GambitElusiveMovementACIncrease", true,
+            target.LogCharacterUsedPower(powerElusiveMovement, "Feedback/&GambitElusiveMovementACIncrease", true,
                 (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                 (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()));
         }
@@ -2079,22 +2009,16 @@ internal static class GambitsBuilders
     //
     // Overwhelming Attack
     //
-    private sealed class OverwhelmingAttack :
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class OverwhelmingAttack(FeatureDefinitionPower powerOverwhelmingAttack) :
         IFilterTargetingCharacter, IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerOverwhelmingAttack;
-
-        public OverwhelmingAttack(FeatureDefinitionPower powerOverwhelmingAttack)
-        {
-            _powerOverwhelmingAttack = powerOverwhelmingAttack;
-        }
-
         public bool EnforceFullSelection => true;
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
-                rulesetEffectPower.PowerDefinition != _powerOverwhelmingAttack)
+                rulesetEffectPower.PowerDefinition != powerOverwhelmingAttack)
             {
                 return true;
             }
@@ -2161,7 +2085,7 @@ internal static class GambitsBuilders
 
             Attack(actingCharacter, target2, attackModeCopy2, action.ActionParams.ActionModifiers[0]);
 
-            BurnOneMainAttack(actingCharacter);
+            actingCharacter.BurnOneMainAttack();
         }
 
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -2212,28 +2136,6 @@ internal static class GambitsBuilders
             >= 3 => DieType.D8,
             _ => DieType.D6
         };
-    }
-
-    private static void BurnOneMainAttack(GameLocationCharacter actingCharacter)
-    {
-        var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-        // burn one main attack
-        actingCharacter.UsedMainAttacks++;
-        rulesetCharacter.ExecutedAttacks++;
-        rulesetCharacter.RefreshAttackModes();
-
-        var maxAttacksNumber = rulesetCharacter.AttackModes
-            .Where(x => x.ActionType == ActionDefinitions.ActionType.Main)
-            .Max(x => x.AttacksNumber);
-
-        if (maxAttacksNumber - actingCharacter.UsedMainAttacks > 0)
-        {
-            return;
-        }
-
-        actingCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Main]++;
-        actingCharacter.UsedMainAttacks = 0;
     }
 
     private static void Attack(

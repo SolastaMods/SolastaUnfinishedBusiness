@@ -6,14 +6,10 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionMasterfulWhirlToggle : CharacterAction
+public class CharacterActionMasterfulWhirlToggle(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
     private const ActionDefinitions.Id Action = (ActionDefinitions.Id)ExtraActionId.MasterfulWhirlToggle;
-
-    public CharacterActionMasterfulWhirlToggle(CharacterActionParams actionParams) : base(actionParams)
-    {
-    }
 
     public override IEnumerator ExecuteImpl()
     {

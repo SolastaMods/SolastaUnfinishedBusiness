@@ -588,7 +588,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             DurationType.Round,
             1,
             TurnOccurenceType.EndOfSourceTurn,
-            AttributeDefinitions.TagCombat,
+            AttributeDefinitions.TagEffect,
             rulesetAttacker.guid,
             rulesetAttacker.CurrentFaction.Name,
             1,
@@ -729,15 +729,10 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // Guided Shot
     //
 
-    private class TryAlterOutcomePhysicalAttackGuidedShot : ITryAlterOutcomePhysicalAttack
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private class TryAlterOutcomePhysicalAttackGuidedShot(FeatureDefinition featureDefinition)
+        : ITryAlterOutcomePhysicalAttack
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public TryAlterOutcomePhysicalAttackGuidedShot(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager battle,
             CharacterAction action,
@@ -779,7 +774,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            rulesetAttacker.LogCharacterUsedFeature(_featureDefinition,
+            rulesetAttacker.LogCharacterUsedFeature(featureDefinition,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
@@ -791,7 +786,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition)],
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition)],
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
@@ -803,7 +798,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
             attackModifier.ignoreAdvantage = false;
             attackModifier.attackAdvantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition)];
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;
@@ -814,15 +809,10 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     // Ready Shot
     //
 
-    private sealed class BattleStartedListenerEverReadyShot : IInitiativeEndListener
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class BattleStartedListenerEverReadyShot(FeatureDefinition featureDefinition)
+        : IInitiativeEndListener
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public BattleStartedListenerEverReadyShot(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
         {
             var character = locationCharacter.RulesetCharacter;
@@ -847,7 +837,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             }
 
             character.RepayPowerUse(usablePower);
-            character.LogCharacterUsedFeature(_featureDefinition);
+            character.LogCharacterUsedFeature(featureDefinition);
         }
     }
 }

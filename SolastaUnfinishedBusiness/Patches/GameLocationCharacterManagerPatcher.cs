@@ -45,8 +45,7 @@ public static class GameLocationCharacterManagerPatcher
             //PATCH: fixes crashes on characters affected by Shapechange (True Polymorph) or similar
             var rulesetCharacter = character.RulesetCharacter;
 
-            if (!rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
-                    ConditionWildShapeSubstituteForm))
+            if (!rulesetCharacter.HasConditionOfType(ConditionWildShapeSubstituteForm))
             {
                 //not shape shifted - use default method
                 return true;

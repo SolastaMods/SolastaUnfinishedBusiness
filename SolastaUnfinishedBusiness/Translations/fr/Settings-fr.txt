@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Ajoutez tous les dés de dégâts d'arme 
 ModUi/&AddAllToStore=Ajouter tout au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par <color=#D89555>Restauration suprême</color> et <color=#D89555>Restauration partielle</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux objets officiels du jeu <i><color=#F0DAA0>[munitions, recettes, outils, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Activer <color=#D89555>Perception des ténèbres</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Demi-Darkelf</color> color> et <color=#D89555>Grey Dwarf</color> <i><color=#F0DAA0>\n[accorde un avantage sur les tests de perception lorsqu'il n'est pas éclairé ou dans l'obscurité magique]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Activez <color=#D89555>Darkness Perceptive</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</ color> <i><color=#F0DAA0>\n[accorde un avantage sur les tests de perception lorsqu'il n'est pas éclairé ou dans l'obscurité magique]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Ajoutez le niveau <color=#D89555>Combattant</color> à la relance du jet de sauvegarde <color=#D89555>Indomptable</color>.
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les Ascendances jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous, lui donnant l'avantage]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter Humanoïde à la liste d'Ennemis jurés des <color=#D89555>Rôdeurs</color>
@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>Journal des modifications</color></b>
 ModUi/&Character=Personnage
 ModUi/&CharactersPool=Groupe de personnages
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
+ModUi/&Combat=<color=#F0DAA0>Combat :</color>
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
 ModUi/&CraftingHelp=. Appuyez sur le bouton pour faire apprendre les recettes instantanément au groupe actif\n. Le rafraîchissement des stocks d'articles ajoutés aux magasins peut nécessiter que le groupe quitte puis revienne à la localité
 ModUi/&Credits=Crédits
@@ -165,6 +166,7 @@ ModUi/&Gameplay=Jouabilité
 ModUi/&General=<color=#F0DAA0>Général :</color>
 ModUi/&GeneralMenu=Général
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accorder la <b>Spécialisation d'arme</b> au Cimeterre aux <color=#D89555>Bardes</color> et aux <color=#D89555>Roublard</color>
+ModUi/&GridSelectedColor=Changer la couleur de la grille <i><color=#F0DAA0>[n/b, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
 ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
 ModUi/&House=<color=#F0DAA0>Maison :</color>
@@ -194,19 +196,22 @@ ModUi/&MaxAllowedClasses=<color=white>Nombre de classes maximales autorisées</c
 ModUi/&Merchants=<color=#F0DAA0>Marchands :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
+ModUi/&MovementGridWidthModifier=<color=white>Multipliez la largeur de la grille de mouvement par</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=Un <color=#1E81B0>SHIFT</color> + Click sur un sort inverse le répertoire par défaut pour l'emplacement de sort consommé \n<i><color=#F0DAA0>[<color=#D89555>L'occultiste</color> dépense des emplacements de sorts blancs et les autres classes dépensent des emplacements de pacte verts]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour monter de niveau
 ModUi/&OfferAdditionalLoreFriendlyNames=Propose davantage de noms fidèle à l'univers lors de la création de personnage
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
 ModUi/&OpenSubjectiveGuide=Ouvrer le Guide Subjectif de Solasta par <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Multipliez la largeur de la grille de contour par</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Multipliez la vitesse d'animation de la grille de contour par</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Remplacer les niveaux minimum et maximum requis lors du démarrage de nouvelles aventures
 ModUi/&OverridePartySize=<color=white>Remplacer la taille du groupe</color>
 ModUi/&Patches=<color=#F0DAA0>Correctifs :</color>
 ModUi/&PortraitsOpenFolder=Ouvrir le dossier des portraits
 ModUi/&PrimedItems=Objets Préparés
 ModUi/&Progression=<color=#F0DAA0>Progression :</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Activer la <color=#D89555>Sensibilité à la lumière</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Demi-Darkelf</color> color> et <color=#D89555>Gray Dwarf</color> pour déclencher uniquement à l'extérieur\n<i><color=#F0DAA0>[les zones intérieures des emplacements extérieurs accessibles sans écran de chargement sont considérées comme extérieures par le moteur de jeu ]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Activez la <color=#D89555>Sensibilité à la lumière</color> sur <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> et <color=#D89555>Grey Dwarf</ color> pour déclencher uniquement en extérieur\n<i><color=#F0DAA0>[les zones intérieures des emplacements extérieurs accessibles sans écran de chargement sont considérées comme extérieures par le moteur de jeu]</color></i>
 ModUi/&Races=<color=#F0DAA0>Ascendances</color>
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
 ModUi/&RecipesInDm=Recettes dans le DM

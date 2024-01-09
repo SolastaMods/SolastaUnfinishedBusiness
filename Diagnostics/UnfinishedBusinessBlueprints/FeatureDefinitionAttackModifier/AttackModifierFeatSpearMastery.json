@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
   "triggerCondition": "AlwaysActive",
-  "requiredProperty": "None",
+  "requiredProperty": "MeleeWeapon",
   "attackRollModifierMethod": "FlatValue",
   "attackRollUseCasterBonus": false,
   "attackRollModifier": 1,

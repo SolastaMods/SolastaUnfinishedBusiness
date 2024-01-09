@@ -431,6 +431,7 @@ internal static partial class SpellBuilders
         var conditionWrack = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionHindered)
+            .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")
@@ -773,7 +774,7 @@ internal static partial class SpellBuilders
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
-                attacker.Guid,
+                rulesetAttacker.Guid,
                 false,
                 attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain)?.AttackTags ?? [],
                 new RollInfo(damageForm.DieType, rolls, 0),
@@ -840,7 +841,8 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
-            .SetGuiPresentation(Category.Spell, FlameBlade)
+            .SetGuiPresentation(Category.Spell, 
+                Sprites.GetSprite("ResonatingStrike", Resources.BurningBlade, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(0)
             .SetCastingTime(ActivationTime.Action)
@@ -1020,15 +1022,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead : IMagicalAttackBeforeHitConfirmedOnEnemy
+    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+    private sealed class MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(SpellDefinition spellTollTheDead)
+        : IMagicalAttackBeforeHitConfirmedOnEnemy
     {
-        private readonly SpellDefinition _spellTollTheDead;
-
-        public MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(SpellDefinition spellTollTheDead)
-        {
-            _spellTollTheDead = spellTollTheDead;
-        }
-
         public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -1038,7 +1035,7 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect == null || rulesetEffect.SourceDefinition != _spellTollTheDead)
+            if (rulesetEffect == null || rulesetEffect.SourceDefinition != spellTollTheDead)
             {
                 yield break;
             }

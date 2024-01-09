@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using TA;
 using static ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -330,5 +331,49 @@ public static class GameLocationCharacterExtensions
         }
 
         return false;
+    }
+
+    internal static void BurnOneMainAttack(this GameLocationCharacter instance)
+    {
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+
+        var rulesetCharacter = instance.RulesetCharacter;
+
+        if (!Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
+            rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
+        {
+            var usablePower = UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+            var actionParams = new CharacterActionParams(instance, Id.SpendPower)
+            {
+                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
+                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                targetCharacters = { instance }
+            };
+
+            ServiceRepository.GetService<ICommandService>()
+                ?.ExecuteAction(actionParams, null, true);
+        }
+
+        // burn one main attack
+        instance.UsedMainAttacks++;
+        rulesetCharacter.ExecutedAttacks++;
+        rulesetCharacter.RefreshAttackModes();
+
+        var maxAttacksNumber = rulesetCharacter.AttackModes
+            .Where(x => x.ActionType == ActionType.Main)
+            .Max(x => x.AttacksNumber);
+
+        if (maxAttacksNumber - instance.UsedMainAttacks > 0)
+        {
+            return;
+        }
+
+        instance.CurrentActionRankByType[ActionType.Main]++;
+        instance.UsedMainAttacks = 0;
     }
 }

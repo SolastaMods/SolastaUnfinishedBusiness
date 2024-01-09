@@ -286,8 +286,21 @@ public static class RulesetActorPatcher
         internal static DamageForm CurrentDamageForm;
 
         [UsedImplicitly]
-        public static void Prefix(DamageForm damageForm)
+        public static void Prefix(RulesetActor __instance, DamageForm damageForm, ref bool maximumDamage)
         {
+            var modifiers = __instance.GetSubFeaturesByType<IForceMaxDamageTypeDependent>();
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var modifier in modifiers)
+            {
+                if (!modifier.IsValid(__instance, damageForm))
+                {
+                    continue;
+                }
+
+                maximumDamage = true;
+            }
+
             CurrentDamageForm = damageForm;
         }
 

@@ -546,17 +546,12 @@ public sealed class InnovationWeapon : AbstractSubclass
         }
     }
 
-    private class ApplyOnTurnEnd : ICharacterTurnEndListener
+    private class ApplyOnTurnEnd(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition,
+        FeatureDefinitionPower power)
+        : ICharacterTurnEndListener
     {
-        private readonly ConditionDefinition _condition;
-        private readonly FeatureDefinitionPower _power;
-
-        public ApplyOnTurnEnd(ConditionDefinition condition, FeatureDefinitionPower power)
-        {
-            _condition = condition;
-            _power = power;
-        }
-
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
@@ -568,17 +563,17 @@ public sealed class InnovationWeapon : AbstractSubclass
 
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            rulesetCharacter.LogCharacterUsedPower(_power);
+            rulesetCharacter.LogCharacterUsedPower(power);
             rulesetCharacter.InflictCondition(
-                _condition.Name,
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat,
+                AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                _condition.Name,
+                condition.Name,
                 0,
                 0,
                 0);

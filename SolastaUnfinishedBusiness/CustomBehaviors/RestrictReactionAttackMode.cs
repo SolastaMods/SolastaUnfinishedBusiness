@@ -42,7 +42,7 @@ internal sealed class RestrictReactionAttackMode : IRestrictReactionAttackMode
     {
         var (action, attacker, defender, attackMode, rulesetEffect) = ReactionContext;
 
-        if (attacker == null || defender == null || attackMode == null)
+        if (attacker == null || defender == null)
         {
             return true;
         }

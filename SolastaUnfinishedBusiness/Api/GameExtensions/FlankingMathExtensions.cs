@@ -83,33 +83,20 @@ internal static class FlankingMathExtensions
                point.Z >= face.MinZ && point.Z <= face.MaxZ;
     }
 
-    internal class Point3D
+    internal class Point3D(double x, double y, double z)
     {
-        public Point3D(Vector3 pt)
+        public Point3D(Vector3 pt) : this(pt.x, pt.y, pt.z)
         {
-            X = pt.x;
-            Y = pt.y;
-            Z = pt.z;
         }
 
 
-        public Point3D(int3 pt)
+        public Point3D(int3 pt) : this(pt.x, pt.y, pt.z)
         {
-            X = pt.x;
-            Y = pt.y;
-            Z = pt.z;
         }
 
-        public Point3D(double x, double y, double z)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-        }
-
-        public double X { get; }
-        public double Y { get; }
-        public double Z { get; }
+        public double X { get; } = x;
+        public double Y { get; } = y;
+        public double Z { get; } = z;
 
         public override String ToString()
         {
@@ -117,18 +104,11 @@ internal static class FlankingMathExtensions
         }
     }
 
-    internal class Vector3D
+    internal class Vector3D(double x, double y, double z)
     {
-        public Vector3D(double x, double y, double z)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-        }
-
-        public double X { get; }
-        public double Y { get; }
-        public double Z { get; }
+        public double X { get; } = x;
+        public double Y { get; } = y;
+        public double Z { get; } = z;
 
         public double DotProduct(Vector3D other)
         {
@@ -136,66 +116,51 @@ internal static class FlankingMathExtensions
         }
     }
 
-    internal class Plane
+    internal class Plane(
+        double minX,
+        double maxX,
+        double minY,
+        double maxY,
+        double minZ,
+        double maxZ,
+        Vector3D normal,
+        double d)
     {
-        public Plane(double minX, double maxX, double minY, double maxY, double minZ, double maxZ, Vector3D normal,
-            double d)
-        {
-            MinX = minX;
-            MaxX = maxX;
-            MinY = minY;
-            MaxY = maxY;
-            MinZ = minZ;
-            MaxZ = maxZ;
-            Normal = normal;
-            D = d;
-        }
-
-        public double MinX { get; }
-        public double MaxX { get; }
-        public double MinY { get; }
-        public double MaxY { get; }
-        public double MinZ { get; }
-        public double MaxZ { get; }
-        public Vector3D Normal { get; }
-        public double D { get; }
+        public double MinX { get; } = minX;
+        public double MaxX { get; } = maxX;
+        public double MinY { get; } = minY;
+        public double MaxY { get; } = maxY;
+        public double MinZ { get; } = minZ;
+        public double MaxZ { get; } = maxZ;
+        public Vector3D Normal { get; } = normal;
+        public double D { get; } = d;
     }
 
-    internal class Cube
+    internal class Cube(Point3D minPoint, Point3D maxPoint)
     {
-        private readonly Point3D _max;
-        private readonly Point3D _min;
+        // Define the six faces of the cube
 
-        public Cube(Point3D minPoint, Point3D maxPoint)
-        {
-            _min = minPoint;
-            _max = maxPoint;
+        public Plane FrontFace { get; } = new(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, maxPoint.Z, maxPoint.Z,
+            new Vector3D(0, 0, 1), maxPoint.Z);
 
-            // Define the six faces of the cube
-            FrontFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, maxPoint.Z, maxPoint.Z,
-                new Vector3D(0, 0, 1), maxPoint.Z);
-            BackFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, minPoint.Z,
-                new Vector3D(0, 0, -1), -minPoint.Z);
-            LeftFace = new Plane(minPoint.X, minPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
-                new Vector3D(-1, 0, 0), -minPoint.X);
-            RightFace = new Plane(maxPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
-                new Vector3D(1, 0, 0), maxPoint.X);
-            TopFace = new Plane(minPoint.X, maxPoint.X, maxPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
-                new Vector3D(0, 1, 0), maxPoint.Y);
-            BottomFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, minPoint.Y, minPoint.Z, maxPoint.Z,
-                new Vector3D(0, -1, 0), -minPoint.Y);
-        }
+        public Plane BackFace { get; } = new(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, minPoint.Z,
+            new Vector3D(0, 0, -1), -minPoint.Z);
 
-        public Plane FrontFace { get; }
-        public Plane BackFace { get; }
-        public Plane LeftFace { get; }
-        public Plane RightFace { get; }
-        public Plane TopFace { get; }
-        public Plane BottomFace { get; }
+        public Plane LeftFace { get; } = new(minPoint.X, minPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+            new Vector3D(-1, 0, 0), -minPoint.X);
+
+        public Plane RightFace { get; } = new(maxPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+            new Vector3D(1, 0, 0), maxPoint.X);
+
+        public Plane TopFace { get; } = new(minPoint.X, maxPoint.X, maxPoint.Y, maxPoint.Y, minPoint.Z, maxPoint.Z,
+            new Vector3D(0, 1, 0), maxPoint.Y);
+
+        public Plane BottomFace { get; } = new(minPoint.X, maxPoint.X, minPoint.Y, minPoint.Y, minPoint.Z, maxPoint.Z,
+            new Vector3D(0, -1, 0), -minPoint.Y);
 
         public override String ToString()
         {
-            return "(" + _min + ":" + _max + ")";
+            return "(" + minPoint + ":" + maxPoint + ")";
         }
     }
 }

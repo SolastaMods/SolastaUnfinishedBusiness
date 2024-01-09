@@ -144,6 +144,7 @@ internal class WildlingTiredOnTurnEnd : ICharacterTurnEndListener
             return;
         }
 
-        locationCharacter.RulesetCharacter.RemoveAllConditionsOfType(RaceWildlingBuilder.ConditionWildlingTiredName);
+        locationCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(
+            AttributeDefinitions.TagEffect, RaceWildlingBuilder.ConditionWildlingTiredName);
     }
 }

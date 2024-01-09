@@ -1,8 +1,10 @@
+Feature/&AttributeModifierPathOfTheReaverProfaneVitalityDescription=你的生命值上限会增加 3 点，并且每当你在该等级中获得一个等级时，你的生命值就会增加 1 点。
+Feature/&AttributeModifierPathOfTheReaverProfaneVitalityTitle=龙之韧性
 Feature/&FeaturePathOfTheReaverCorruptedBloodDescription=从第 14 级开始，你的血液会永久腐化，对接触到它的生物造成伤害。每当 5 尺内的一个生物用近战攻击击中你时，该生物将受到等同于你的体质调整值的暗蚀伤害。
 Feature/&FeaturePathOfTheReaverCorruptedBloodTitle=堕落之血
 Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=从第 3 级开始，你可以将你内心的腐败引导到你的近战武器攻击中。当你狂暴时，你在你的每个回合中用近战武器攻击击中的第一个生物会受到额外的暗蚀伤害，其数值等同于你的熟练程度，并且你会恢复等量的生命值。暴击时伤害和治疗翻倍。
 Feature/&FeaturePathOfTheReaverVoraciousFuryTitle=贪婪之怒
-Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=从第 6 级开始，你获得对暗蚀和毒素伤害的抗性。
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=从第 6 级开始，你获得对坏死和毒药伤害的抵抗力。
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=亵渎活力
 Feature/&PowerPathOfTheReaverBloodbathDescription=从第 10 级开始，当你处于狂暴状态时，每当你使用近战武器攻击将一个生物的生命值降为 0 时，你可以掏出该生物的内脏，恢复相当于你的野蛮人等级 2 倍的生命值。每次短休你可以使用这个特性一次。
 Feature/&PowerPathOfTheReaverBloodbathTitle=血屠

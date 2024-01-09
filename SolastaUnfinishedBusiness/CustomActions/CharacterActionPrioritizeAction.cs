@@ -6,13 +6,9 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionPrioritizeAction : CharacterAction
+public class CharacterActionPrioritizeAction(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
-    public CharacterActionPrioritizeAction(CharacterActionParams actionParams) : base(actionParams)
-    {
-    }
-
     public override IEnumerator ExecuteImpl()
     {
         ActionSwitching.DoPrioritizeAction(actionParams.ActingCharacter,

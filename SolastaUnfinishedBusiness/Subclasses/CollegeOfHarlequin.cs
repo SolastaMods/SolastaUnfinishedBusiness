@@ -185,15 +185,9 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ConditionCombatInspired : IOnConditionAddedOrRemoved
+    private sealed class ConditionCombatInspired(string feature) : IOnConditionAddedOrRemoved
     {
         private const string Line = "Feedback/&BardicInspirationUsedToBoostCombatAbility";
-        private readonly string _feature;
-
-        public ConditionCombatInspired(string feature)
-        {
-            _feature = feature;
-        }
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
@@ -205,8 +199,8 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var dieType = hero.GetBardicInspirationDieValue();
             var dieRoll = RollDie(dieType, AdvantageType.Advantage, out var r1, out var r2);
 
-            var title = GuiPresentationBuilder.CreateTitleKey(_feature, Category.Feature);
-            var description = GuiPresentationBuilder.CreateDescriptionKey(_feature, Category.Feature);
+            var title = GuiPresentationBuilder.CreateTitleKey(feature, Category.Feature);
+            var description = GuiPresentationBuilder.CreateDescriptionKey(feature, Category.Feature);
 
             hero.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.Advantage, title: title);
 
@@ -248,17 +242,11 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
         }
     }
 
-    private sealed class OnReducedToZeroHpByMeTerrificPerformance : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeTerrificPerformance(
+        FeatureDefinitionPower power6,
+        FeatureDefinitionPower power14)
+        : IOnReducedToZeroHpByMe
     {
-        private readonly FeatureDefinitionPower _power14;
-        private readonly FeatureDefinitionPower _power6;
-
-        public OnReducedToZeroHpByMeTerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
-        {
-            _power6 = power6;
-            _power14 = power14;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -286,7 +274,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             }
 
             var level = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Bard);
-            var power = level >= 14 ? _power14 : _power6;
+            var power = level >= 14 ? power14 : power6;
 
             var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)

@@ -162,19 +162,12 @@ internal static class RaceOligathBuilder
         return powerOligathStoneEndurance;
     }
 
-    private class AttackBeforeHitConfirmedOnMeStoneEndurance :
-        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+    private class AttackBeforeHitConfirmedOnMeStoneEndurance(
+        FeatureDefinitionPower featureDefinitionPower,
+        ConditionDefinition conditionDefinition)
+        :
+            IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
-
-        public AttackBeforeHitConfirmedOnMeStoneEndurance(
-            FeatureDefinitionPower featureDefinitionPower, ConditionDefinition conditionDefinition)
-        {
-            _featureDefinitionPower = featureDefinitionPower;
-            _conditionDefinition = conditionDefinition;
-        }
-
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
@@ -233,13 +226,13 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
+            if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
 
 
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
+            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
                 UsablePower = usablePower
@@ -259,15 +252,15 @@ internal static class RaceOligathBuilder
 
             rulesetMe.UsePower(usablePower);
             rulesetMe.InflictCondition(
-                _conditionDefinition.Name,
-                _conditionDefinition.DurationType,
-                _conditionDefinition.DurationParameter,
-                _conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagCombat,
+                conditionDefinition.Name,
+                conditionDefinition.DurationType,
+                conditionDefinition.DurationParameter,
+                conditionDefinition.TurnOccurence,
+                AttributeDefinitions.TagEffect,
                 rulesetMe.Guid,
                 rulesetMe.CurrentFaction.Name,
                 1,
-                _conditionDefinition.Name,
+                conditionDefinition.Name,
                 0,
                 0,
                 0);

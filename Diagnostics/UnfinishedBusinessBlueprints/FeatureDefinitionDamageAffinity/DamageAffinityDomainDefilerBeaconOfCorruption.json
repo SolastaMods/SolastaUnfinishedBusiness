@@ -2,20 +2,20 @@
   "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
   "ancestryDefinesDamageType": false,
   "ancestryType": "Sorcerer",
-  "damageType": "DamagePoison",
+  "damageType": "DamageNecrotic",
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,
-  "damageAffinityType": "Immunity",
+  "damageAffinityType": "Resistance",
   "flatDamageReduction": 0,
   "flatDamageReductionOnlyAppliesToFirstDamageForm": true,
   "tagsIgnoringAffinity": [],
   "situationalContext": "None",
   "healsBack": false,
   "healBackCap": 10,
-  "retaliateWhenHit": true,
+  "retaliateWhenHit": false,
   "retaliateProximity": "Melee",
   "retaliateRangeCells": 1,
-  "retaliatePower": "Definition:PowerForestGuardianSuperiorBarkWard:5de5f27f-42d3-58a5-8fdd-52a78cf03ffd",
+  "retaliatePower": null,
   "retaliateFromSource": false,
   "knockOutAffinity": "None",
   "knockOutOccurencesNumber": 1,
@@ -28,8 +28,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&DamageAffinityDomainDefilerBeaconOfCorruptionTitle",
+    "description": "Feature/&DamageAffinityDomainDefilerBeaconOfCorruptionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -49,7 +49,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "668e75de-e3d2-55a9-84f4-28981d042ca1",
+  "guid": "540aacfe-8b41-50f1-933e-5344760d3a35",
   "contentPack": 9999,
-  "name": "DamageAffinityForestGuardianSuperiorBarkWard"
+  "name": "DamageAffinityDomainDefilerBeaconOfCorruption"
 }

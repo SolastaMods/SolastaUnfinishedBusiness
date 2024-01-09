@@ -310,10 +310,10 @@ internal static class FixesContext
     private static void FixAttackBuffsAffectingSpellDamage()
     {
         //BUGFIX: fix Branding Smite applying bonus damage to spells
-        AdditionalDamageBrandingSmite.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack);
+        AdditionalDamageBrandingSmite.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
 
         //BUGFIX: fix Divine Favor applying bonus damage to spells
-        AdditionalDamageDivineFavor.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponAttack);
+        AdditionalDamageDivineFavor.AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack);
     }
 
     private static void FixColorTables()
@@ -352,15 +352,15 @@ internal static class FixesContext
     {
         //BEHAVIOR: allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
         FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.AddCustomSubFeatures(
-            new ValidateContextInsteadOfRestrictedProperty((_, _, _, item, _, _, _) => (OperationType.Set,
-                ValidatorsWeapon.IsWeaponType(item,
+            new ValidateContextInsteadOfRestrictedProperty((_, _, _, _, _, mode, _) => (OperationType.Set,
+                ValidatorsWeapon.IsOfWeaponType(
                     CustomWeaponsContext.HandXbowWeaponType,
                     CustomWeaponsContext.LightningLauncherType,
                     WeaponTypeDefinitions.LongbowType,
                     WeaponTypeDefinitions.ShortbowType,
                     WeaponTypeDefinitions.HeavyCrossbowType,
                     WeaponTypeDefinitions.LightCrossbowType,
-                    WeaponTypeDefinitions.DartType))));
+                    WeaponTypeDefinitions.DartType)(mode, null, null))));
     }
 
     private static void FixGorillaWildShapeRocksToUnlimited()

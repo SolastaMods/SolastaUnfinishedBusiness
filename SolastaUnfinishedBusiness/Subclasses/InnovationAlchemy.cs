@@ -826,25 +826,17 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorRefundAlchemyPool : IValidatePowerUse, IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool, int slotLevel)
+        : IValidatePowerUse, IMagicEffectFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerAlchemyPool;
-        private readonly int _slotLevel;
-
-        public CustomBehaviorRefundAlchemyPool(FeatureDefinitionPower powerAlchemyPool, int slotLevel)
-        {
-            _powerAlchemyPool = powerAlchemyPool;
-            _slotLevel = slotLevel;
-        }
-
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
-            var rulesetUsablePower = UsablePowersProvider.Get(_powerAlchemyPool, rulesetCharacter);
+            var rulesetUsablePower = UsablePowersProvider.Get(powerAlchemyPool, rulesetCharacter);
 
-            rulesetRepertoire!.SpendSpellSlot(_slotLevel);
-            rulesetUsablePower.remainingUses += _slotLevel;
+            rulesetRepertoire!.SpendSpellSlot(slotLevel);
+            rulesetUsablePower.remainingUses += slotLevel;
 
             yield break;
         }
@@ -853,12 +845,12 @@ public sealed class InnovationAlchemy : AbstractSubclass
         {
             var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
             var used =
-                rulesetCharacter.GetMaxUsesForPool(_powerAlchemyPool) -
-                rulesetCharacter.GetRemainingPowerUses(_powerAlchemyPool);
+                rulesetCharacter.GetMaxUsesForPool(powerAlchemyPool) -
+                rulesetCharacter.GetRemainingPowerUses(powerAlchemyPool);
 
-            rulesetRepertoire!.GetSlotsNumber(_slotLevel, out var remaining, out _);
+            rulesetRepertoire!.GetSlotsNumber(slotLevel, out var remaining, out _);
 
-            return remaining > 0 && _slotLevel <= used;
+            return remaining > 0 && slotLevel <= used;
         }
     }
 
@@ -901,21 +893,15 @@ public sealed class InnovationAlchemy : AbstractSubclass
     }
 }
 
-internal sealed class AddPBToDamage : IModifyEffectDescription
+// ReSharper disable once SuggestBaseTypeForParameterInConstructor
+internal sealed class AddPBToDamage(FeatureDefinitionPower baseDefinition) : IModifyEffectDescription
 {
-    private readonly FeatureDefinitionPower _baseDefinition;
-
-    public AddPBToDamage(FeatureDefinitionPower baseDefinition)
-    {
-        _baseDefinition = baseDefinition;
-    }
-
     public bool IsValid(
         BaseDefinition definition,
         RulesetCharacter character,
         EffectDescription effectDescription)
     {
-        return definition == _baseDefinition;
+        return definition == baseDefinition;
     }
 
     public EffectDescription GetEffectDescription(

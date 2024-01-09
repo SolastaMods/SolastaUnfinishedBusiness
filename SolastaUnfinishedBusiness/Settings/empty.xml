@@ -754,8 +754,6 @@
             </value>
         </item>
     </SpellListSpellEnabled>
-    <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
-    <DontFollowMargin>5</DontFollowMargin>
     <EnableAdditionalIconsOnLevelMap>false</EnableAdditionalIconsOnLevelMap>
     <EnableLogDialoguesToConsole>false</EnableLogDialoguesToConsole>
     <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
@@ -765,12 +763,18 @@
     <AllowMoreRealStateOnRestPanel>false</AllowMoreRealStateOnRestPanel>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnableActionSwitching>false</EnableActionSwitching>
-    <EnableDistanceOnTooltip>false</EnableDistanceOnTooltip>
     <EnableStatsOnHeroTooltip>false</EnableStatsOnHeroTooltip>
     <EnableCustomPortraits>false</EnableCustomPortraits>
+    <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
     <EnableAdditionalBackstoryDisplay>false</EnableAdditionalBackstoryDisplay>
     <EnableExtendedProficienciesPanelDisplay>false</EnableExtendedProficienciesPanelDisplay>
-    <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
+    <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
+    <DontFollowMargin>5</DontFollowMargin>
+    <GridSelectedColor>1</GridSelectedColor>
+    <MovementGridWidthModifier>100</MovementGridWidthModifier>
+    <OutlineGridWidthModifier>100</OutlineGridWidthModifier>
+    <OutlineGridWidthSpeed>100</OutlineGridWidthSpeed>
+    <EnableDistanceOnTooltip>false</EnableDistanceOnTooltip>
     <FormationGridSelectedSet>0</FormationGridSelectedSet>
     <FormationGridSets>
         <ArrayOfArrayOfInt>

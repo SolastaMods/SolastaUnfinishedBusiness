@@ -25,6 +25,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.CompellingStrikeToggle,
         (Id)ExtraActionId.CoordinatedAssaultToggle,
         (Id)ExtraActionId.CunningStrikeToggle,
+        (Id)ExtraActionId.DyingLightToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
@@ -225,6 +226,13 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "DyingLightToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.DyingLightToggle)
             .AddToDB();
 
         ActionDefinitionBuilder

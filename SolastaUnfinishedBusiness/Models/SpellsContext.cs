@@ -15,8 +15,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SpellsContext
 {
-    internal static readonly Dictionary<SpellDefinition, SpellDefinition> SpellsChildMaster = new();
-    internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = new();
+    internal static readonly Dictionary<SpellDefinition, SpellDefinition> SpellsChildMaster = [];
+    internal static readonly Dictionary<SpellListDefinition, SpellListContext> SpellListContextTab = [];
 
     internal static readonly SpellListDefinition EmptySpellList = SpellListDefinitionBuilder
         .Create("SpellListEmpty")
@@ -26,10 +26,11 @@ internal static class SpellsContext
         .AddToDB();
 
     // ReSharper disable once InconsistentNaming
-    private static readonly SortedList<string, SpellListDefinition> spellLists = new();
-    private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
+    private static readonly SortedList<string, SpellListDefinition> spellLists = [];
+    private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = [];
 
     internal static readonly SpellDefinition AirBlast = BuildAirBlast();
+    internal static readonly SpellDefinition AuraOfVitality = BuildAuraOfVitality();
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
@@ -236,6 +237,7 @@ internal static class SpellsContext
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(BuildGiftOfAlacrity(), 0, SpellListWizard);
         RegisterSpell(BuildGoneWithTheWind(), 0, SpellListRanger);
+        RegisterSpell(BuildIceBlade(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
@@ -278,7 +280,7 @@ internal static class SpellsContext
 
         // 4th level
         RegisterSpell(BuildAuraOfPerseverance(), 0, SpellListCleric, SpellListPaladin);
-        RegisterSpell(BuildAuraOfVitality(), 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(AuraOfVitality, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildBlessingOfRime(), 0, SpellListBard, SpellListDruid, SpellListRanger);
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
@@ -301,6 +303,7 @@ internal static class SpellsContext
         // 6th level
         RegisterSpell(BuildHeroicInfusion(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildFlashFreeze(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock);
+        RegisterSpell(BuildMysticalCloak(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildPoisonWave(), 0, SpellListWizard);
         RegisterSpell(BuildRingOfBlades(), 0, SpellListWizard);
 

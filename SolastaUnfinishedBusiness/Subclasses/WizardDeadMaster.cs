@@ -314,15 +314,10 @@ public sealed class WizardDeadMaster : AbstractSubclass
         }
     }
 
-    private sealed class OnReducedToZeroHpByMeStarkHarvest : IOnReducedToZeroHpByMe
+    private sealed class OnReducedToZeroHpByMeStarkHarvest(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition feature) : IOnReducedToZeroHpByMe
     {
-        private readonly FeatureDefinition _feature;
-
-        public OnReducedToZeroHpByMeStarkHarvest(FeatureDefinition feature)
-        {
-            _feature = feature;
-        }
-
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -347,19 +342,19 @@ public sealed class WizardDeadMaster : AbstractSubclass
                 yield break;
             }
 
-            if (!attacker.OncePerTurnIsValid(_feature.name))
+            if (!attacker.OncePerTurnIsValid(feature.name))
             {
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(_feature.Name, 1);
+            attacker.UsedSpecialFeatures.TryAdd(feature.Name, 1);
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var spell = spellEffect.SpellDefinition;
             var isNecromancy = spell.SchoolOfMagic == SchoolNecromancy;
             var healingReceived = (isNecromancy ? 3 : 2) * spell.SpellLevel;
 
-            rulesetAttacker.LogCharacterUsedFeature(_feature, indent: true);
+            rulesetAttacker.LogCharacterUsedFeature(feature, indent: true);
 
             if (rulesetAttacker.MissingHitPoints > 0)
             {

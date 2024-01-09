@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Fügen Sie alle Würfel vom Basiswaffensc
 ModUi/&AddAllToStore=Alles zum Speichern hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> und <color=#D89555>Grauer Zwerg</color> <i><color=#F0DAA0>\n[gewährt einen Vorteil bei Wahrnehmungsprüfungen, wenn er nicht beleuchtet ist oder in magischer Dunkelheit herrscht]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=Aktivieren Sie <color=#D89555>Darkness Perceptive</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</ Farbe> <i><color=#F0DAA0>\n[Gewährt Vorteil bei Wahrnehmungsprüfungen, wenn es nicht beleuchtet ist oder sich in magischer Dunkelheit befindet]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=Füge die Stufe <color=#D89555>Kämpfer</color> zur Wiederholung des Rettungswurfs <color=#D89555>Unbezwingbar</color> hinzu
 ModUi/&AddHelpActionToAllRaces=Füge die Aktion <color=#D89555>Hilfe</color> zu allen spielbaren Rassen hinzu <i><color=#F0DAA0>[Du kannst einer befreundeten Kreatur dabei helfen, eine Kreatur in einem Umkreis von 5 Fuß um dich anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge humanoiden bevorzugten Feind zu <color=#D89555>Rangers</color> hinzu
@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>Änderungsprotokoll</color></b>
 ModUi/&Character=Charakter
 ModUi/&CharactersPool=Zeichenpool
 ModUi/&Classes=<color=#F0DAA0>Klassen</color>
+ModUi/&Combat=<color=#F0DAA0>Kampf:</color>
 ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
 ModUi/&CraftingHelp=. Drücken Sie die Taste, um Rezepte sofort auf der aktiven Gruppe zu lernen\n. Für Artikel, die zu Geschäften hinzugefügt werden, kann es erforderlich sein, dass die Gruppe den Standort verlässt und zurückkommt
 ModUi/&Credits=Credits
@@ -165,6 +166,7 @@ ModUi/&Gameplay=Spielweise
 ModUi/&General=<color=#F0DAA0>Allgemein:</color>
 ModUi/&GeneralMenu=Allgemein
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Gewähre <b>Waffenspezialisierung</b> für den Krummsäbel an <color=#D89555>Barden</color> und <color=#D89555>Schurken</color>
+ModUi/&GridSelectedColor=Ändern Sie die Rasterfarbe <i><color=#F0DAA0>[s/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecken Sie die visuellen Effekte von Ausgängen und Teleportern, wenn diese noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
 ModUi/&House=<color=#F0DAA0>Haus:</color>
@@ -194,19 +196,22 @@ ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagie</color>
 ModUi/&Monsters=<color=#F0DAA0>Monster:</color>
+ModUi/&MovementGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Bewegungsgitters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>UMSCHALT</color>-Klick auf einen Zauber kehrt den verbrauchten Standardrepertoire-Slottyp um.\n<i><color=#F0DAA0>[<color=#D89555>Hexenmeister</color> gibt weiße Zauberslots aus und andere geben Paktgrüne aus]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplizieren Sie die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Für den Levelaufstieg ist keine Erfahrung erforderlich
 ModUi/&OfferAdditionalLoreFriendlyNames=Bieten Sie bei der Charaktererstellung zusätzliche Lore-freundliche Namen an
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Zeigt nur die mächtigsten Kreaturen in der Beschwörungsliste an</i>
 ModUi/&OpenSubjectiveGuide=Öffnen Sie den subjektiven Leitfaden zu Solasta von <b><color=#D89555>u/CounterYolo</color></b>
+ModUi/&OutlineGridWidthModifier=<color=white>Multiplizieren Sie die Breite des Umrissgitters mit</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>Multiplizieren Sie die Animationsgeschwindigkeit des Umrissgitters mit</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Überschreiben Sie die erforderlichen Mindest- und Höchststufen, wenn Sie neue Abenteuer beginnen
 ModUi/&OverridePartySize=<color=white>Überschreiben Sie die Gruppengröße</color>
 ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PortraitsOpenFolder=Öffnen Sie den Ordner „Porträts“.
 ModUi/&PrimedItems=Vorbereitete Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
-ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color>, <color=#D89555>Half-Darkelf</ color> und <color=#D89555>Gray Dwarf</color>, um nur im Freien auszulösen\n<i><color=#F0DAA0>[Innenbereiche an Orten im Freien, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als im Freien betrachtet ]</color></i>
+ModUi/&RaceLightSensitivityApplyOutdoorsOnly=Aktivieren Sie <color=#D89555>Lichtempfindlichkeit</color> für <color=#D89555>Darkelf</color>, <color=#D89555>Dark Kobold</color> und <color=#D89555>Gray Dwarf</ color> soll nur im Freien ausgelöst werden\n<i><color=#F0DAA0>[Innenbereiche an Orten im Freien, die ohne Ladebildschirm zugänglich sind, werden von der Spiel-Engine als im Freien betrachtet]</color></i>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
 ModUi/&RecipeCost=<color=white>Kosten des Rezepts</color>
 ModUi/&RecipesInDm=Rezepte in DM

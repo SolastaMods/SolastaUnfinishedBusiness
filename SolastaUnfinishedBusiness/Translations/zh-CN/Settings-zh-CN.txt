@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=将来自基础武器伤害的所有骰�
 ModUi/&AddAllToStore=全部添加到商店
 ModUi/&AddBleedingToLesserRestoration=将<color=#D89555>流血状态</color>添加到<color=#D89555>高等复原术</color>和<color=#D89555>次级复原术</color>的移除列表里
 ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标<i><color=#F0DAA0>[弹药、配方、工具包等]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&AddDarknessPerceptiveToDarkRaces=为<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>添加<color=#D89555>黑暗感知力</color> color> <i><color=#F0DAA0>[黑暗下感知检查的优势]</color></i>
+ModUi/&AddDarknessPerceptiveToDarkRaces=对<color=#D89555>Darkelf</color>、<color=#D89555>Dark Kobold</color>和<color=#D89555>Gray Dwarf</color>启用<color=#D89555>黑暗感知</color> color> <i><color=#F0DAA0>\n[在未照明或在魔法黑暗下时感知检查具有优势]</color></i>
 ModUi/&AddFighterLevelToIndomitableSavingReroll=将<color=#D89555>战士</color>等级添加到<color=#D89555>Indomitable</color>豁免重掷中
 ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5尺以内的生物]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>游侠</color>添加人形敌人宿敌
@@ -49,6 +49,7 @@ ModUi/&Changelog=<b><color=#D89555>更改日志</color></b>
 ModUi/&Character=特点
 ModUi/&CharactersPool=角色池
 ModUi/&Classes=<color=#F0DAA0>职业</color>
+ModUi/&Combat=<color=#F0DAA0>战斗：</color>
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
 ModUi/&CraftingHelp=.按下按钮即可在当前队伍中立即学习配方\n。添加到商店的物品可能需要队伍离开该地点然后回来
 ModUi/&Credits=制作人员
@@ -165,6 +166,7 @@ ModUi/&Gameplay=玩法
 ModUi/&General=<color=#F0DAA0>通用：</color>
 ModUi/&GeneralMenu=通用
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=为<color=#D89555>吟游诗人</color>和<color=#D89555>游荡着</color>授予弯刀<b>武器专精</b>
+ModUi/&GridSelectedColor=更改网格颜色<i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
 ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步长显示怪物的生命值，而不是准确生命值
 ModUi/&House=<color=#F0DAA0>房规：</color>
@@ -195,12 +197,15 @@ ModUi/&MaxAllowedClasses=<color=white>最大允许职业</color>
 ModUi/&Merchants=<color=#F0DAA0>商家：</color>
 ModUi/&Metamagic=<color=#F0DAA0>超魔</color>
 ModUi/&Monsters=<color=#F0DAA0>怪物：</color>
+ModUi/&MovementGridWidthModifier=<color=white>将移动网格宽度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击法术会反转消耗的默认曲目槽类型\n<i><color=#F0DAA0>[<color=#D89555>术士</color>消耗白色法术位，其他职业消耗绿色的]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>乘以获得的经验</color><color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=升级不需要经验
 ModUi/&OfferAdditionalLoreFriendlyNames=在角色创建时提供额外的知识友好名称
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+只显示魔法列表中最强大的生物</i>
 ModUi/&OpenSubjectiveGuide=打开 <b><color=#D89555>u/CounterYolo</color></b> 的 Solasta 主观指南
+ModUi/&OutlineGridWidthModifier=<color=white>将轮廓网格宽度乘以</color> <color=#C04040E0>[%]</color>
+ModUi/&OutlineGridWidthSpeed=<color=white>将轮廓网格动画速度乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=开始新冒险时覆盖所需的最低和最高等级
 ModUi/&OverridePartySize=<color=white>覆盖队伍规模</color>
 ModUi/&Patches=<color=#F0DAA0>补丁：</color>

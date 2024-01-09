@@ -265,15 +265,10 @@ internal static class RaceTieflingBuilder
         return raceTiefling;
     }
 
-    private sealed class CheckTieflingFeralFlying : IOnItemEquipped
+    private sealed class CheckTieflingFeralFlying(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition condition) : IOnItemEquipped
     {
-        private readonly ConditionDefinition _condition;
-
-        public CheckTieflingFeralFlying(ConditionDefinition condition)
-        {
-            _condition = condition;
-        }
-
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
             if (IsFlightValid(hero))
@@ -282,7 +277,7 @@ internal static class RaceTieflingBuilder
             }
 
             var rulesetCondition = hero.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _condition);
+                .FirstOrDefault(x => x.ConditionDefinition == condition);
 
             if (rulesetCondition != null)
             {

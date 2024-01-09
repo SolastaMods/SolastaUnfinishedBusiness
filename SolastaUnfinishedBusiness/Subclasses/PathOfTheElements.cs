@@ -447,19 +447,11 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Fury
     //
 
-    private sealed class CharacterTurnEndedElementalFury : ICharacterTurnEndListener
+    private sealed class CharacterTurnEndedElementalFury(
+        FeatureDefinitionAncestry ancestry,
+        IMagicEffect magicEffect)
+        : ICharacterTurnEndListener
     {
-        private readonly FeatureDefinitionAncestry _ancestry;
-        private readonly IMagicEffect _magicEffect;
-
-        public CharacterTurnEndedElementalFury(
-            FeatureDefinitionAncestry ancestry,
-            IMagicEffect magicEffect)
-        {
-            _ancestry = ancestry;
-            _magicEffect = magicEffect;
-        }
-
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
@@ -519,23 +511,23 @@ public sealed class PathOfTheElements : AbstractSubclass
 
                 var damageForm = new DamageForm
                 {
-                    DamageType = _ancestry.damageType,
+                    DamageType = ancestry.damageType,
                     DieType = dieType,
                     DiceNumber = diceNumber,
                     BonusDamage = 0,
                     IgnoreCriticalDoubleDice = true
                 };
 
-                EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, _magicEffect);
+                EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, magicEffect);
 
                 implementationService.ApplyEffectForms(
                     [new EffectForm { damageForm = damageForm }],
                     applyFormsParams,
-                    [_ancestry.damageType],
+                    [ancestry.damageType],
                     out _,
                     out _);
 
-                rulesetAttacker.LogCharacterUsedFeature(_ancestry);
+                rulesetAttacker.LogCharacterUsedFeature(ancestry);
             }
         }
     }
@@ -544,21 +536,14 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Burst
     //
 
-    private sealed class MagicalAttackFinishedByMeElementalBurst : IMagicalAttackFinishedByMe
+    private sealed class MagicalAttackFinishedByMeElementalBurst(IMagicEffect magicEffect) : IMagicalAttackFinishedByMe
     {
-        private readonly IMagicEffect _magicEffect;
-
-        public MagicalAttackFinishedByMeElementalBurst(IMagicEffect magicEffect)
-        {
-            _magicEffect = magicEffect;
-        }
-
         public IEnumerator OnMagicalAttackFinishedByMe(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            EffectHelpers.StartVisualEffect(attacker, defender, _magicEffect, EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(attacker, defender, magicEffect, EffectHelpers.EffectType.Effect);
 
             yield break;
         }
@@ -568,15 +553,11 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Conduit - Blizzard
     //
 
-    private sealed class CharacterTurnEndedElementalConduitBlizzard : ICharacterTurnEndListener
+    private sealed class CharacterTurnEndedElementalConduitBlizzard(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : ICharacterTurnEndListener
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public CharacterTurnEndedElementalConduitBlizzard(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var battle = Gui.Battle;
@@ -614,7 +595,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     AttributeDefinitions.ComputeAbilityScoreModifier(
                         rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Strength));
 
-                rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Strength, _featureDefinition, modifierTrend,
+                rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Strength, featureDefinition, modifierTrend,
                     advantageTrends, defenderStrModifier, 8 + profBonus + attackerConModifier, false,
                     out var savingOutcome,
                     out _);
@@ -629,7 +610,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagCombat,
+                    AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
                     1,
@@ -645,15 +626,11 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Conduit - Wildfire
     //
 
-    private sealed class ReactToAttackOnMeFinishedElementalConduitWildfire : IPhysicalAttackFinishedOnMe
+    private sealed class ReactToAttackOnMeFinishedElementalConduitWildfire(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : IPhysicalAttackFinishedOnMe
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public ReactToAttackOnMeFinishedElementalConduitWildfire(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -723,7 +700,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity));
 
-            rulesetAttacker.RollSavingThrow(0, AttributeDefinitions.Dexterity, _featureDefinition, modifierTrend,
+            rulesetAttacker.RollSavingThrow(0, AttributeDefinitions.Dexterity, featureDefinition, modifierTrend,
                 advantageTrends, defenderDexModifier, 8 + profBonus + attackerConModifier, false,
                 out var savingOutcome,
                 out _);
@@ -747,7 +724,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
-                rulesetDefender.Guid,
+                rulesetAttacker.Guid,
                 false,
                 attackerAttackMode.AttackTags,
                 new RollInfo(DieType.D1, [], classLevel),
