@@ -62,6 +62,29 @@ public static class CursorLocationSelectPositionPatcher
 
             return result;
         }
+
+        [UsedImplicitly]
+        public static void Postfix(CursorLocationSelectPosition __instance)
+        {
+            var actionParams = __instance.ActionParams;
+
+            if (actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            {
+                return;
+            }
+
+            var filterTargetingPosition =
+                rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingPosition>();
+
+            if (filterTargetingPosition == null)
+            {
+                return;
+            }
+
+            filterTargetingPosition.EnumerateValidPositions(__instance, __instance.validPositionsCache);
+            __instance.movementHelper.RefreshValidDestinations(__instance.validPositionsCache);
+            __instance.validCellsComputationCoroutine.Reset();
+        }
     }
 
     //PATCH: supports `IFilterTargetingPosition`
@@ -86,36 +109,6 @@ public static class CursorLocationSelectPositionPatcher
             }
 
             return true;
-        }
-    }
-
-    //PATCH: supports `IFilterTargetingPosition`
-    [HarmonyPatch(typeof(CursorLocationSelectPosition), nameof(CursorLocationSelectPosition.RefreshHover))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RefreshHover_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(CursorLocationSelectPosition __instance)
-        {
-            var actionParams = __instance.ActionParams;
-
-            if (actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower)
-            {
-                return;
-            }
-
-            var filterTargetingPosition =
-                rulesetEffectPower.PowerDefinition.GetFirstSubFeatureOfType<IFilterTargetingPosition>();
-
-            if (filterTargetingPosition == null)
-            {
-                return;
-            }
-
-            filterTargetingPosition.EnumerateValidPositions(__instance, __instance.validPositionsCache);
-            __instance.movementHelper.RefreshValidDestinations(__instance.validPositionsCache);
-            __instance.validCellsComputationCoroutine.Reset();
         }
     }
 }

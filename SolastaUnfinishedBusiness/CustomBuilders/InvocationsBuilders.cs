@@ -1292,21 +1292,23 @@ internal static class InvocationsBuilders
     private sealed class CustomBehaviorInexorableHex : IFilterTargetingPosition, IValidatePowerUse
     {
         public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
+            CursorLocationSelectPosition cursorLocationSelectPosition,
+            List<int3> validPositions)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 return;
             }
 
-            var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
             // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
             foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(source.Side)
+                         .Where(x => x.IsOppositeSide(actingCharacter.Side)
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                                      && CanApplyHex(x.RulesetCharacter))
                          .ToList())
@@ -1316,13 +1318,16 @@ internal static class InvocationsBuilders
 
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
-                    if (gameLocationPositioningService.CanPlaceCharacter(
-                            source, position, CellHelpers.PlacementMode.Station) &&
-                        gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
-                            source, position, onlyCheckCellsWithRealGround: true))
+                    if (!gameLocationVisibilityService.IsCellPerceivedByCharacter(position, actingCharacter) ||
+                        !gameLocationPositioningService.CanPlaceCharacter(
+                            actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                        !gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                            actingCharacter, position, onlyCheckCellsWithRealGround: true))
                     {
-                        validPositions.Add(position);
+                        continue;
                     }
+
+                    validPositions.Add(position);
                 }
             }
         }

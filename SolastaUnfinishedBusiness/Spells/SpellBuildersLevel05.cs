@@ -402,10 +402,11 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var actingCharacter = action.ActingCharacter;
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var source = action.ActingCharacter;
+            var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
-            source.contextualFormation = [];
+            actingCharacter.contextualFormation.Clear();
 
             foreach (var boxInt in action.ActionParams.TargetCharacters
                          .Select(targetCharacter => new BoxInt(
@@ -413,13 +414,16 @@ internal static partial class SpellBuilders
             {
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
-                    if (gameLocationPositioningService.CanPlaceCharacter(
-                            source, position, CellHelpers.PlacementMode.Station) &&
-                        gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
-                            source, position, onlyCheckCellsWithRealGround: true))
+                    if (!gameLocationVisibilityService.IsCellPerceivedByCharacter(position, actingCharacter) ||
+                        !gameLocationPositioningService.CanPlaceCharacter(
+                            actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                        !gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                            actingCharacter, position, onlyCheckCellsWithRealGround: true))
                     {
-                        source.ContextualFormation.Add(position);
+                        continue;
                     }
+
+                    actingCharacter.ContextualFormation.Add(position);
                 }
             }
 
@@ -430,7 +434,8 @@ internal static partial class SpellBuilders
     private sealed class FilterTargetingPositionSteelWhirlwind : IFilterTargetingPosition
     {
         public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
+            CursorLocationSelectPosition cursorLocationSelectPosition,
+            List<int3> validPositions)
         {
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 

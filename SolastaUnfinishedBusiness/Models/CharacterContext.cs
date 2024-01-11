@@ -1426,7 +1426,8 @@ internal static class CharacterContext
     private sealed class FilterTargetingPositionPowerTeleportSummon : IFilterTargetingPosition
     {
         public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
+            CursorLocationSelectPosition cursorLocationSelectPosition,
+            List<int3> validPositions)
         {
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;

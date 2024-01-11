@@ -1909,7 +1909,8 @@ internal static class GambitsBuilders
             return false;
         }
 
-        public void EnumerateValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition,
+        public void EnumerateValidPositions(
+            CursorLocationSelectPosition cursorLocationSelectPosition,
             List<int3> validPositions)
         {
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
@@ -1920,8 +1921,11 @@ internal static class GambitsBuilders
             }
 
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2;
             var boxInt = new BoxInt(
                 targetCharacter.LocationPosition,
@@ -1930,13 +1934,16 @@ internal static class GambitsBuilders
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (gameLocationPositioningService.CanPlaceCharacter(
-                        targetCharacter, position, CellHelpers.PlacementMode.Station) &&
-                    gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
-                        targetCharacter, position, onlyCheckCellsWithRealGround: true))
+                if (!gameLocationVisibilityService.IsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !gameLocationPositioningService.CanPlaceCharacter(
+                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                    !gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
                 {
-                    validPositions.Add(position);
+                    continue;
                 }
+
+                validPositions.Add(position);
             }
         }
 
