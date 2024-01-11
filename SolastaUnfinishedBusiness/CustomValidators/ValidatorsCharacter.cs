@@ -104,6 +104,9 @@ internal static class ValidatorsCharacter
         return hasShield && hasShieldExpert;
     };
 
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndNoWeaponInOffhand = character =>
+        HasMeleeWeaponInMainHand(character) && !HasMeleeWeaponInOffHand(character);
+
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
 

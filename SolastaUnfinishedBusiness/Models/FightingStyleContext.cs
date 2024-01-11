@@ -112,7 +112,10 @@ internal static class FightingStyleContext
             {
                 // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
                 FightingStyleDefinition.TriggerCondition.RangedWeaponAttack => true,
-                // allow Shield Expert benefit from Two Weapon Fighting Style
+                // disallow Shield Expert to work with Dueling Fighting Style
+                FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon =>
+                    ValidatorsCharacter.HasMeleeWeaponInMainAndNoWeaponInOffhand(hero),
+                // allow Shield Expert to work with Two Weapon Fighting Style
                 FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded =>
                     ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero),
                 _ => false
