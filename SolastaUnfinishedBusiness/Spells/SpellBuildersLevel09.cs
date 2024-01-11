@@ -223,7 +223,7 @@ internal static partial class SpellBuilders
     {
         return SpellDefinitionBuilder
             .Create("Shapechange")
-            .SetGuiPresentation(Category.Spell, PowerDruidWildShape)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Shapechange", Resources.ShapeChange, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
@@ -336,7 +336,7 @@ internal static partial class SpellBuilders
     {
         return SpellDefinitionBuilder
             .Create("Weird")
-            .SetGuiPresentation(Category.Spell, PhantasmalKiller)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Weird", Resources.Weird, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
