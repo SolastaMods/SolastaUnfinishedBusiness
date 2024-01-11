@@ -51,7 +51,7 @@ public static class CursorLocationSelectTargetPatcher
                 if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     gameLocationBattleService is { IsBattleInProgress: true })
                 {
-                    var familiar = gameLocationBattleService.Battle.PlayerContenders
+                    var familiar = gameLocationBattleService.Battle.AllContenders
                         .FirstOrDefault(x =>
                             x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
                             rulesetCharacterMonster.MonsterDefinition.Name == SpellBuilders.OwlFamiliar &&
