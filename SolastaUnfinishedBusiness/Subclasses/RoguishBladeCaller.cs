@@ -67,7 +67,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
         var combatAffinityBladeMark = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}BladeMark")
-            .SetGuiPresentation($"Condition{Name}BladeMark", Category.Condition)
+            .SetGuiPresentation($"Condition{Name}BladeMark", Category.Condition, Gui.NoLocalization)
             .SetSituationalContext(SituationalContext.TargetHasCondition, conditionBladeMark)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();

@@ -53,7 +53,8 @@ public sealed class CollegeOfThespian : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{Name}CombatInspiration")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation($"Condition{Name}CombatInspirationCombat", Category.Condition,
+                        Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .SetSpecialInterruptions(ConditionInterruption.Attacks)
