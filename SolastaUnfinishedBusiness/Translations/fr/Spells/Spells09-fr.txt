@@ -17,6 +17,6 @@ Spell/&PowerWordKillTitle=Tuer le mot de pouvoir
 Spell/&ShapechangeDescription=Vous assumez la forme d'une créature différente pour la durée. La nouvelle forme peut être celle de n'importe quelle créature avec un facteur de difficulté égal ou inférieur à votre niveau.
 Spell/&ShapechangeTitle=Changement de forme
 Spell/&TimeStopDescription=Vous arrêtez brièvement le cours du temps pour tout le monde sauf vous-même. Aucun temps ne passe pour les autres créatures, pendant que vous effectuez 1d4 + 1 tours d'affilée, durant lesquels vous pouvez utiliser des actions et vous déplacer normalement.
-Spell/&TimeStopTitle=Arrêt du temps
+Spell/&TimeStopTitle=Temps d'attente
 Spell/&WeirdDescription=Puisant dans les peurs les plus profondes d'un groupe de créatures, vous créez des créatures illusoires dans leur esprit, visibles par eux seuls. Chaque créature dans une sphère de 9 mètres de rayon centrée sur un point de votre choix à portée doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, une créature devient effrayée pour la durée. L'illusion fait appel aux peurs les plus profondes de la créature, manifestant ses pires cauchemars comme une menace implacable. À la fin de chacun des tours de la créature effrayée, elle doit réussir un jet de sauvegarde de Sagesse ou subir 4d10 dégâts psychiques. En cas de réussite, le sort prend fin pour cette créature.
 Spell/&WeirdTitle=Bizarre

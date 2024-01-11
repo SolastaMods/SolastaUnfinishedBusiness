@@ -17,6 +17,6 @@ Spell/&PowerWordKillTitle=Palabra de poder matar
 Spell/&ShapechangeDescription=Asumes la forma de una criatura diferente durante la duración. La nueva forma puede ser de cualquier criatura con una calificación de desafío igual a tu nivel o inferior.
 Spell/&ShapechangeTitle=Cambio de forma
 Spell/&TimeStopDescription=Detienes brevemente el flujo del tiempo para todos menos para ti. No pasa el tiempo para otras criaturas, mientras tomas 1d4 + 1 turnos seguidos, durante los cuales puedes usar acciones y moverte normalmente.
-Spell/&TimeStopTitle=Parada de tiempo
+Spell/&TimeStopTitle=Tiempo de espera
 Spell/&WeirdDescription=Basándote en los miedos más profundos de un grupo de criaturas, creas criaturas ilusorias en sus mentes, visibles solo para ellas. Cada criatura en una esfera de 30 pies de radio centrada en un punto de tu elección dentro del alcance debe hacer una tirada de salvación de Sabiduría. En una salvación fallida, una criatura queda asustada por la duración. La ilusión apela a los miedos más profundos de la criatura, manifestando sus peores pesadillas como una amenaza implacable. Al final de cada uno de los turnos de la criatura asustada, debe superar una tirada de salvación de Sabiduría o recibir 4d10 de daño psíquico. Con una salvación exitosa, el conjuro termina para esa criatura.
 Spell/&WeirdTitle=Extraño
