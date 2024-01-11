@@ -406,7 +406,7 @@ internal static partial class SpellBuilders
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
-            actingCharacter.contextualFormation.Clear();
+            actingCharacter.contextualFormation = [];
 
             foreach (var boxInt in action.ActionParams.TargetCharacters
                          .Select(targetCharacter => new BoxInt(
