@@ -151,7 +151,7 @@ public sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        // backward compatibility
+        // kept for backward compatibility
         _ = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}MarkForDeath")
             .SetGuiPresentation(
@@ -191,7 +191,7 @@ public sealed class DomainDefiler : AbstractSubclass
 
         // Divine Resistance
 
-        // backward compatibility
+        // kept for backward compatibility
         _ = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}DivineResistance")
             .SetGuiPresentation(Category.Feature)

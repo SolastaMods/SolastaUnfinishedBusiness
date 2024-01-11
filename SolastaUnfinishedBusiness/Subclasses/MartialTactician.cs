@@ -30,9 +30,11 @@ public sealed class MartialTactician : AbstractSubclass
     {
         var unlearn = BuildUnlearn();
 
-        // backward compatibility
+        // kept for backward compatibility
         _ = BuildEverVigilant();
+        // kept for backward compatibility
         _ = BuildSharedVigilance();
+        // kept for backward compatibility
         _ = BuildGambitDieSize(DieType.D8);
 
         Subclass = CharacterSubclassDefinitionBuilder

@@ -78,7 +78,7 @@ internal static class BackgroundsBuilders
             .SetBanterList(BanterDefinitions.BanterList.Formal)
             .SetFeatures(
                 FeatureDefinitionCastSpellBuilder
-                    // keep name for backward compatibility
+                    // kept name for backward compatibility
                     .Create(CastSpellGnomeShadow, $"BonusCantrips{BackgroundDevoted}")
                     .SetGuiPresentation(Category.Feature)
                     .SetSpellCastingAbility(AttributeDefinitions.Wisdom)

@@ -140,7 +140,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
         // Perfect Shot
 
-        // backward compatibility
+        // kept for backward compatibility
         _ = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}PerfectShot")
             .SetGuiPresentation(Category.Feature)

@@ -216,7 +216,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddFeatureSet(additionalDamagePossessed, powerEssenceTheft)
             .AddToDB();
 
-        // backward compatibility
+        // kept for backward compatibility
         _ = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}PremeditationSlot")
             .SetGuiPresentationNoContent(true)
