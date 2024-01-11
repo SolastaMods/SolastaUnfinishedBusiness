@@ -3,17 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak:68d58944-d6dd-5e5b-b928-9c074351cb9f",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWayOfSilhouetteSilhouetteArts:2c6a6eca-0bd9-5ddf-9423-47b7b9a69eca",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellTraditionLight:4822a86731024b94aa49c50593690006",
+      "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitals:faeef1b6-3f34-5a9b-a26f-539f4d3bd1fd",
       "level": 3
     },
     {
@@ -23,28 +18,8 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitalsD6:27d86ca8-312f-5e8c-b519-c845b5497f66",
-      "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong:11148dc3-2ce8-5793-a86b-1ed6f9aa4fc5",
+      "featureDefinition": "Definition:FeatureWayOfSilhouetteShadowFlurry:56fad97f-6362-521b-9afa-4fdbd967b93a",
       "level": 11
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfSilhouetteImprovedSilhouetteStep:a7a88fe6-bd6a-51d7-88c7-bd65acdf5dbb",
-      "level": 11
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitalsD8:926b6cc3-850b-563e-80d9-0f30b1975c7a",
-      "level": 11
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageWayOfSilhouetteStrikeTheVitalsD10:53fdd581-0ecd-58a8-85aa-745f60de234f",
-      "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

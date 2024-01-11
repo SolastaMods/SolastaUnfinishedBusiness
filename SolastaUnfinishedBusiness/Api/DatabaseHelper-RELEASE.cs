@@ -13,6 +13,7 @@ internal static partial class DatabaseHelper
     {
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
+        internal static ActionDefinition CastNoCost { get; } = GetDefinition<ActionDefinition>("CastNoCost");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition DisengageMain { get; } = GetDefinition<ActionDefinition>("DisengageMain");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
@@ -1623,6 +1624,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerCollegeLoreCuttingWords { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCollegeLoreCuttingWords");
 
+        internal static FeatureDefinitionPower PowerDefilerMistyFormEscape { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDefilerMistyFormEscape");
+
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
 
@@ -1743,6 +1747,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerFunctionWandFearCone { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCone");
 
+        internal static FeatureDefinitionPower PowerGlabrezuGeneralShadowEscape_at_will { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerGlabrezuGeneralShadowEscape_at_will");
+
         internal static FeatureDefinitionPower Power_HornOfBlasting { get; } =
             GetDefinition<FeatureDefinitionPower>("Power_HornOfBlasting");
 
@@ -1859,6 +1866,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerRoguishHoodlumDirtyFighting { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumDirtyFighting");
+
+        internal static FeatureDefinitionPower PowerRoguishDarkweaverShadowy { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerRoguishDarkweaverShadowy");
 
         internal static FeatureDefinitionPower PowerSorakAssassinShadowMurder { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakAssassinShadowMurder");
@@ -2144,6 +2154,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionSenses
     {
+        internal static FeatureDefinitionSense SenseBlindSight12 { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseBlindSight12");
+
         internal static FeatureDefinitionSense SenseDarkvision { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseDarkvision");
 

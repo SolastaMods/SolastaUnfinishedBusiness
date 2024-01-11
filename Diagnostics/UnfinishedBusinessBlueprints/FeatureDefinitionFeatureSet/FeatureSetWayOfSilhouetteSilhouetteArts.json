@@ -2,9 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:PowerWayOfSilhouetteDarkness:fb406968-b055-586f-9a1a-2b4e4f28a8ce",
-    "Definition:PowerWayOfSilhouetteDarkvision:d95f450c-d3d8-5aa0-9dbb-d26c2da04c1d",
-    "Definition:PowerWayOfSilhouettePassWithoutTrace:494323b2-39be-53a1-aba3-b915b8d239b5",
-    "Definition:PowerWayOfSilhouetteSilence:10a8c293-bf60-5b1e-b062-f947508a47a1"
+    "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

@@ -17,7 +17,7 @@
   "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
-  "damageDieType": "D6",
+  "damageDieType": "D4",
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "Radiant",
@@ -47,9 +47,9 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsTitle",
+    "description": "Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -69,7 +69,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "27d86ca8-312f-5e8c-b519-c845b5497f66",
+  "guid": "faeef1b6-3f34-5a9b-a26f-539f4d3bd1fd",
   "contentPack": 9999,
-  "name": "AdditionalDamageWayOfSilhouetteStrikeTheVitalsD6"
+  "name": "AdditionalDamageWayOfSilhouetteStrikeTheVitals"
 }
