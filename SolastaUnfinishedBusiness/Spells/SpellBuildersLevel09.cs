@@ -22,7 +22,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.MindBlank, 128, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.Foresight, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Minute1)
@@ -193,7 +193,7 @@ internal static partial class SpellBuilders
     {
         return SpellDefinitionBuilder
             .Create("PowerWordKill")
-            .SetGuiPresentation(Category.Spell, Disintegrate)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordKill", Resources.PowerWordKill, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
