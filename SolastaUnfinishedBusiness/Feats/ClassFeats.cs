@@ -413,6 +413,11 @@ internal static class ClassFeats
                 yield break;
             }
 
+            if (!me.PerceivedAllies.Contains(defender) || !me.PerceivedFoes.Contains(attacker))
+            {
+                yield break;
+            }
+
             var rulesetEnemy = defender.RulesetCharacter;
 
             if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })

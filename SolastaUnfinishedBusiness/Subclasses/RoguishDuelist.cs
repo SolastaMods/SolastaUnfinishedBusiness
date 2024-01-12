@@ -212,8 +212,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker.GetRemainingPowerCharges(power) <= 0)
+            if (rulesetAttacker.GetRemainingPowerCharges(power) <= 0 || !me.PerceivedFoes.Contains(target))
             {
                 yield break;
             }

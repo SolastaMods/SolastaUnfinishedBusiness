@@ -1052,6 +1052,12 @@ internal static class EldritchVersatility
                 yield break;
             }
 
+            //Can this unit see defender?
+            if (!me.PerceivedAllies.Contains(defender))
+            {
+                yield break;
+            }
+
             // Get attack roll outcome
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
@@ -1307,7 +1313,7 @@ internal static class EldritchVersatility
             GameLocationCharacter helper)
         {
             return helper.CanReact()
-                   && !defender.IsOppositeSide(helper.Side)
+                   && helper.PerceivedFoes.Contains(defender)
                    && gameLocationBattleManager.IsWithinXCells(helper, defender, 7)
                    && gameLocationBattleManager.CanAttackerSeeCharacterFromPosition(
                        defender.LocationPosition, helper.LocationPosition, defender, helper);

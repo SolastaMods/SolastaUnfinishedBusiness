@@ -402,7 +402,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-            if (!me.OncePerTurnIsValid(featureShadowFlurry.Name))
+            if (!me.OncePerTurnIsValid(featureShadowFlurry.Name) || !me.PerceivedFoes.Contains(target))
             {
                 yield break;
             }

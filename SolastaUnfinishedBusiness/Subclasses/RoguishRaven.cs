@@ -323,9 +323,8 @@ public sealed class RoguishRaven : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
-                || rulesetAttacker.GetRemainingPowerCharges(power) <= 0
-                || !attackMode.ranged)
+            if (rulesetAttacker.GetRemainingPowerCharges(power) <= 0 || !attackMode.ranged ||
+                !me.PerceivedFoes.Contains(target))
             {
                 yield break;
             }

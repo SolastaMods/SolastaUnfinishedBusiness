@@ -484,6 +484,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .ExcludeCaster()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
@@ -1692,8 +1693,12 @@ internal static class GambitsBuilders
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
 
-        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
-            GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
         {
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
@@ -1704,7 +1709,7 @@ internal static class GambitsBuilders
 
             var character = me.RulesetCharacter;
 
-            if (character.GetRemainingPowerCharges(pool) <= 0)
+            if (character.GetRemainingPowerCharges(pool) <= 0 || !me.PerceivedFoes.Contains(target))
             {
                 yield break;
             }

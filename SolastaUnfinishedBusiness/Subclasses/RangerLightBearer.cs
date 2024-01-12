@@ -477,8 +477,9 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             using var onPhysicalAttackInitiatedOnMeOrAlly = __instance.Battle.GetContenders(attacker, isWithinXCells: 6)
                 .Where(opposingContender =>
-                    opposingContender != defender &&
                     opposingContender.CanReact() &&
+                    opposingContender.PerceivedFoes.Contains(attacker) &&
+                    opposingContender.PerceivedAllies.Contains(defender) &&
                     opposingContender.GetActionStatus(Id.BlockAttack, ActionScope.Battle, ActionStatus.Available) ==
                     ActionStatus.Available)
                 .Select(opposingContender => __instance.PrepareAndReact(

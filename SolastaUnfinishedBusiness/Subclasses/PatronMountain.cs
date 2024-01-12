@@ -246,7 +246,7 @@ public class PatronMountain : AbstractSubclass
         {
             if (rulesetEffect == null)
             {
-                yield return HandleReaction(defender, me);
+                yield return HandleReaction(attacker, defender, me);
             }
         }
 
@@ -260,10 +260,13 @@ public class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender, me);
+            yield return HandleReaction(attacker, defender, me);
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter defender, GameLocationCharacter me)
+        private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter me)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
             if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
@@ -293,7 +296,9 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            if (!gameLocationBattleManager.IsWithinXCells(me, defender, 7))
+            if (!gameLocationBattleManager.IsWithinXCells(me, defender, 7) ||
+                !me.PerceivedAllies.Contains(defender) ||
+                !me.PerceivedFoes.Contains(attacker))
             {
                 yield break;
             }

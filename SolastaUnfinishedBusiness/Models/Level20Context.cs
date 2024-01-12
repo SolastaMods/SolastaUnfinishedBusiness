@@ -844,15 +844,9 @@ internal static class Level20Context
         }
     }
 
-    private class TryAlterOutcomePhysicalAttackRogueStrokeOfLuck : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
+        : ITryAlterOutcomePhysicalAttack
     {
-        private readonly FeatureDefinitionPower _power;
-
-        public TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
-        {
-            _power = power;
-        }
-
         public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager battle,
             CharacterAction action,
@@ -862,7 +856,7 @@ internal static class Level20Context
         {
             var rulesetCharacter = me.RulesetCharacter;
 
-            if (rulesetCharacter == null || !rulesetCharacter.CanUsePower(_power))
+            if (rulesetCharacter == null || !rulesetCharacter.CanUsePower(power) || !me.PerceivedFoes.Contains(target))
             {
                 yield break;
             }
@@ -893,10 +887,10 @@ internal static class Level20Context
 
             var delta = -action.AttackSuccessDelta;
 
-            rulesetCharacter.UsePower(UsablePowersProvider.Get(_power, rulesetCharacter));
+            rulesetCharacter.UsePower(UsablePowersProvider.Get(power, rulesetCharacter));
             action.AttackRollOutcome = RollOutcome.Success;
             attackModifier.AttackRollModifier += delta;
-            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, _power.Name, _power));
+            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
     }
 
