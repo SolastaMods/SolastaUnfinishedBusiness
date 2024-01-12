@@ -69,7 +69,7 @@ internal static class DistanceCalculation
             (int)gameLocationCharacter.LocationBattleBoundingBox.Center.z);
     }
 
-    private static int GetDistanceFromTwoPositions(int3 position1, int3 position2)
+    internal static int GetDistanceFromTwoPositions(int3 position1, int3 position2)
     {
         var rawDistance = position1 - position2;
         var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
