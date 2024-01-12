@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -97,12 +98,8 @@ internal sealed class Merciless : AbstractFightingStyle
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                     //CHECK: no need for AddAsActivePowerToSource
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false),
-                targetCharacters = gameLocationBattleService.Battle.EnemyContenders
-                    .Where(x =>
-                        x.IsOppositeSide(attacker.Side)
-                        && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                        && gameLocationBattleService.IsWithinXCells(downedCreature, x, distance))
-                    .ToList()
+                targetCharacters = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: distance)
+                    .Where(x => x.PerceivedFoes.Contains(attacker)).ToList()
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

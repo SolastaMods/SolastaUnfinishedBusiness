@@ -297,11 +297,8 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 yield break;
             }
 
-            var targets = gameLocationBattleService.Battle.AllContenders
-                .Where(enemy => enemy.IsOppositeSide(attacker.Side)
-                                && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                && gameLocationBattleService.IsWithinXCells(downedCreature, enemy, 3))
-                .ToList();
+            var targets = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 3)
+                .Where(x => x.PerceivedFoes.Contains(attacker)).ToList();
 
             if (targets.Empty())
             {

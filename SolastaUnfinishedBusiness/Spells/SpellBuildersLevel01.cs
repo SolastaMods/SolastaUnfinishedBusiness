@@ -762,11 +762,7 @@ internal static partial class SpellBuilders
             var effectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
             var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
 
-            foreach (var enemy in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(caster.Side) &&
-                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithin1Cell(x, target))
-                         .ToList())
+            foreach (var enemy in gameLocationBattleService.Battle.GetContenders(caster, isWithinXCells: 1))
             {
                 var rulesetEnemy = enemy.RulesetCharacter;
                 var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;

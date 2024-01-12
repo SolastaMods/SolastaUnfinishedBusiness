@@ -403,10 +403,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for `IAttackBeforeHitConfirmedOnMeOrAlly`
             if (__instance.Battle != null)
             {
-                foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.IsOppositeSide(attacker.Side)
-                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()) // avoid changing enumerator
+                foreach (var ally in __instance.Battle.GetContenders(attacker))
                 {
                     foreach (var attackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
                                  .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMeOrAlly>())
@@ -828,10 +825,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 //PATCH: Support for `IOnReducedToZeroHpByMeOrAlly` feature
-                foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.Side == attacker.Side
-                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList())
+                foreach (var ally in __instance.Battle.GetContenders(attacker, false, false))
                 {
                     foreach (var onReducedToZeroHpByMeOrAlly in
                              ally.RulesetActor.GetSubFeaturesByType<IOnReducedToZeroHpByMeOrAlly>())
@@ -1039,10 +1033,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: allow custom behavior when physical attack initiates on me or ally
             if (__instance.Battle != null)
             {
-                foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.IsOppositeSide(attacker.Side)
-                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()) // avoid changing enumerator
+                foreach (var ally in __instance.Battle.GetContenders(attacker))
                 {
                     foreach (var physicalAttackInitiatedOnMeOrAlly in ally.RulesetCharacter
                                  .GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
@@ -1087,14 +1078,11 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            foreach (var opposingContender in __instance.Battle.AllContenders
+            foreach (var opposingContender in __instance.Battle.GetContenders(attacker, isWithinXCells: 1)
                          .Where(opposingContender =>
-                             opposingContender.IsOppositeSide(attacker.Side) &&
                              opposingContender != defender &&
-                             opposingContender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              opposingContender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
                              ActionDefinitions.ActionStatus.Available &&
-                             __instance.IsWithin1Cell(opposingContender, defender) &&
                              opposingContender.GetActionStatus(ActionDefinitions.Id.BlockAttack,
                                  ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) ==
                              ActionDefinitions.ActionStatus.Available))
@@ -1155,10 +1143,7 @@ public static class GameLocationBattleManagerPatcher
                 if (__instance.Battle != null)
                 {
                     // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                    foreach (var gameLocationAlly in __instance.Battle.AllContenders
-                                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                             && x.Side == attacker.Side)
-                                 .ToList()) // avoid changing enumerator
+                    foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker, false, false))
                     {
                         var allyFeatures =
                             gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMeOrAlly>();
@@ -1177,10 +1162,7 @@ public static class GameLocationBattleManagerPatcher
                 if (__instance.Battle != null)
                 {
                     // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                    foreach (var gameLocationAlly in __instance.Battle.AllContenders
-                                 .Where(x => x.IsOppositeSide(attacker.Side)
-                                             && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                                 .ToList()) // avoid changing enumerator
+                    foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker))
                     {
                         var allyFeatures =
                             gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
@@ -1256,10 +1238,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 //PATCH: Support for features before hit possible, e.g. spiritual shielding
-                foreach (var extraEvents in __instance.Battle.AllContenders
-                             .Where(u => u.IsOppositeSide(attacker.Side)
-                                         && u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList() // avoid changing enumerator
+                foreach (var extraEvents in __instance.Battle.GetContenders(attacker)
                              .SelectMany(featureOwner => featureOwner.RulesetCharacter
                                  .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
                                  .Select(x =>

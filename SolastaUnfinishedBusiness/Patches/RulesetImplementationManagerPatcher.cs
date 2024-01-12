@@ -723,7 +723,7 @@ public static class RulesetImplementationManagerPatcher
                     effectForms);
             }
 
-            // BUGFIX: saving throw not passing correct saving delta on attack actions
+            //BUGFIX: saving throw not passing correct saving delta on attack actions
             Global.SetAttackActionSaveOutcomeDelta(outcomeDelta);
         }
 

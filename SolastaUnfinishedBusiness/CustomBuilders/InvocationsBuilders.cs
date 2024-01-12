@@ -1191,14 +1191,10 @@ internal static class InvocationsBuilders
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
             // apply damage to all targets
-            foreach (var rulesetDefender in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(attacker.Side)
-                                     && x != defender
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                     && gameLocationBattleService.IsWithin1Cell(defender, x))
-                         .ToList() // avoid changing enumerator
-                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
+            foreach (var target in gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 1)
+                         .Where(x => x != defender))
             {
+                var rulesetTarget = target.RulesetCharacter;
                 var damageForm = new DamageForm
                 {
                     DamageType = DamageTypePsychic,
@@ -1215,8 +1211,8 @@ internal static class InvocationsBuilders
                     damageRoll,
                     damageForm,
                     damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                    rulesetDefender,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                    rulesetTarget,
                     false,
                     rulesetAttacker.Guid,
                     false,
@@ -1307,11 +1303,8 @@ internal static class InvocationsBuilders
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
             // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(actingCharacter.Side)
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                     && CanApplyHex(x.RulesetCharacter))
-                         .ToList())
+            foreach (var gameLocationCharacter in gameLocationBattleService.Battle.GetContenders(actingCharacter)
+                         .Where(x => CanApplyHex(x.RulesetCharacter)))
             {
                 var boxInt = new BoxInt(
                     gameLocationCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1));

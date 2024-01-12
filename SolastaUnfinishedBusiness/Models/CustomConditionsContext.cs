@@ -629,11 +629,7 @@ internal static class CustomConditionsContext
 
             var actingCharacter = characterAction.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var targets = gameLocationBattleService.Battle.AllContenders
-                .Where(enemy =>
-                    enemy.IsOppositeSide(actingCharacter.Side)
-                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                .ToList();
+            var targets = gameLocationBattleService.Battle.GetContenders(actingCharacter);
 
             foreach (var target in targets)
             {

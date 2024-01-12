@@ -352,9 +352,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             }
 
             var caster = actionParams.ActingCharacter;
-            var targets = battleService.Battle.AllContenders
-                .Where(x => x.IsOppositeSide(caster.Side) && battleService.IsWithin1Cell(caster, x))
-                .ToList();
+            var targets = battleService.Battle.GetContenders(caster, isWithinXCells: 1);
 
             if (targets.Empty())
             {
@@ -428,14 +426,11 @@ public sealed class WayOfTheTempest : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
+            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.GetContenders(attacker)
                 .Where(x =>
-                    x.IsOppositeSide(attacker.Side) &&
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x.RulesetCharacter.AllConditions
                         .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
-                                  y.SourceGuid == rulesetAttacker.Guid))
-                .ToList());
+                                  y.SourceGuid == rulesetAttacker.Guid)));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

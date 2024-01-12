@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -384,11 +383,8 @@ public sealed class OathOfThunder : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.IsOppositeSide(attacker.Side)
-                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                            gameLocationBattleService.IsWithinXCells(attacker, x, 2))
-                .ToList());
+            actionParams.TargetCharacters.SetRange(
+                gameLocationBattleService.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

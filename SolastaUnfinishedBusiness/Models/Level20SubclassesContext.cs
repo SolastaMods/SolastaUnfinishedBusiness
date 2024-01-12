@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using Mono.CSharp.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -1994,11 +1995,7 @@ internal static class Level20SubclassesContext
 
             attacker.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
 
-            foreach (var ally in battleManager.Battle.AllContenders
-                         .Where(x => x.Side == attacker.Side &&
-                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     battleManager.IsWithinXCells(attacker, x, 4))
-                         .ToList()) // avoid changing enumerator
+            foreach (var ally in battleManager.Battle.GetContenders(attacker, false, false, isWithinXCells: 4))
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
             }
@@ -2126,14 +2123,10 @@ internal static class Level20SubclassesContext
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var rulesetDefender in Gui.Battle.AllContenders
-                         .Where(x =>
-                             x.Side == gameLocationDefender.Side &&
-                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                             x != gameLocationDefender)
-                         .ToList()
-                         .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter))
+            foreach (var defender in Gui.Battle.GetContenders(gameLocationDefender, false))
             {
+                var rulesetDefender = defender.RulesetCharacter;
+
                 if (rulesetDefender.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect,
                         conditionDefinition.Name,

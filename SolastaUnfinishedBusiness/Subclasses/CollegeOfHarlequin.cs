@@ -273,6 +273,14 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
+            var targets = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 3)
+                .Where(x => x.PerceivedFoes.Contains(attacker)).ToList();
+
+            if (targets.Empty())
+            {
+                yield break;
+            }
+
             var level = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = level >= 14 ? power14 : power6;
 
@@ -283,11 +291,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                     //CHECK: no need for AddAsActivePowerToSource
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false),
-                targetCharacters = gameLocationBattleService.Battle.AllContenders
-                    .Where(enemy => enemy.IsOppositeSide(attacker.Side)
-                                    && enemy.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                    && gameLocationBattleService.IsWithinXCells(attacker, enemy, 3))
-                    .ToList()
+                targetCharacters = targets
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

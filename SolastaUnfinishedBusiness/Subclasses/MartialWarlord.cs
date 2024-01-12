@@ -694,12 +694,8 @@ public sealed class MartialWarlord : AbstractSubclass
                 return;
             }
 
-            foreach (var player in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.Side == locationCharacter.Side &&
-                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithinXCells(locationCharacter, x, 6))
-                         .ToList())
-
+            foreach (var player in gameLocationBattleService.Battle
+                         .GetContenders(locationCharacter, false, false, isWithinXCells: 6))
             {
                 player.RulesetCharacter.InflictCondition(
                     conditionWisdomInitiative.Name,

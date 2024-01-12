@@ -392,11 +392,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
             var usablePower = UsablePowersProvider.Get(powerMindOverMatter, rulesetCharacter);
-            var targets = battle.Battle.AllContenders
-                .Where(x =>
-                    x.IsOppositeSide(source.Side)
-                    && battle.IsWithinXCells(source, x, 2))
-                .ToList();
+            var targets = battle.Battle.GetContenders(source, isWithinXCells: 2);
 
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource

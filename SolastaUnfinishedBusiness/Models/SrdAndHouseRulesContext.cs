@@ -1079,13 +1079,8 @@ internal static class FlankingAndHigherGroundRules
             return false;
         }
 
-        var allies = gameLocationBattleService.Battle.AllContenders
-            .Where(x =>
-                x != attacker &&
-                x.Side == attacker.Side &&
-                x.CanAct() &&
-                gameLocationBattleService.IsWithin1Cell(x, defender))
-            .ToList();
+        var allies = gameLocationBattleService.Battle.GetContenders(attacker, false, isWithinXCells: 1)
+            .Where(x => x.CanAct()).ToList();
 
         if (allies.Count == 0)
         {
@@ -1146,13 +1141,9 @@ internal static class FlankingAndHigherGroundRules
             new FlankingMathExtensions.Point3D(defender.LocationBattleBoundingBox.Max + 1));
 
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var ally in gameLocationBattleService.Battle.AllContenders)
+        foreach (var ally in gameLocationBattleService.Battle.GetContenders(attacker, false, isWithinXCells: 1))
         {
-            if (ally == attacker
-                || ally == defender
-                || ally.IsOppositeSide(attacker.Side)
-                || !ally.CanAct()
-                || !gameLocationBattleService.IsWithin1Cell(ally, defender))
+            if (ally == defender || !ally.CanAct())
             {
                 continue;
             }

@@ -358,12 +358,8 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(battleManager.Battle.AllContenders
-                .Where(x =>
-                    x.IsOppositeSide(attacker.Side)
-                    && x != defender
-                    && battleManager.IsWithinXCells(defender, x, 3))
-                .ToList());
+            actionParams.TargetCharacters.SetRange(battleManager.Battle.GetContenders(attacker, isWithinXCells: 3)
+                .Where(x => x != defender));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

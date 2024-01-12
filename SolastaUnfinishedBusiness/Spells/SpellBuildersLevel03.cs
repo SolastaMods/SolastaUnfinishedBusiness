@@ -1050,13 +1050,8 @@ internal static partial class SpellBuilders
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(battleManager.Battle.AllContenders
-                .Where(x =>
-                    x.IsOppositeSide(attacker.Side)
-                    && x != defender
-                    && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                    && battleManager.IsWithinXCells(defender, x, 2))
-                .ToList());
+            actionParams.TargetCharacters.SetRange(battleManager.Battle.GetContenders(attacker, isWithinXCells: 2)
+                .Where(x => x != defender));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

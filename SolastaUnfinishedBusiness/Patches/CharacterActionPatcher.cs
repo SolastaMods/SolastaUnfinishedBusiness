@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -142,11 +141,7 @@ public static class CharacterActionPatcher
             //PATCH: support for `IActionFinishedByEnemy`
             if (Gui.Battle != null)
             {
-                foreach (var target in Gui.Battle.AllContenders
-                             .Where(x =>
-                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                 && x.IsOppositeSide(actingCharacter.Side))
-                             .ToList()) // avoid changing enumerator
+                foreach (var target in Gui.Battle.GetContenders(actingCharacter))
                 {
                     var rulesetTarget = target.RulesetCharacter;
 

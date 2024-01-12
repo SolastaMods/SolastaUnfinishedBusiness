@@ -415,11 +415,8 @@ public sealed class RangerLightBearer : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.IsOppositeSide(attacker.Side)
-                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5)
-                .ToList());
+            actionParams.TargetCharacters.SetRange(
+                gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 5));
 
             // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
@@ -478,15 +475,12 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            using var onPhysicalAttackInitiatedOnMeOrAlly = __instance.Battle.AllContenders
+            using var onPhysicalAttackInitiatedOnMeOrAlly = __instance.Battle.GetContenders(attacker, isWithinXCells: 6)
                 .Where(opposingContender =>
-                    opposingContender.IsOppositeSide(attacker.Side) &&
                     opposingContender != defender &&
                     opposingContender.CanReact() &&
-                    __instance.IsWithinXCells(opposingContender, defender, 6) &&
                     opposingContender.GetActionStatus(Id.BlockAttack, ActionScope.Battle, ActionStatus.Available) ==
                     ActionStatus.Available)
-                .ToList() // avoid enumerator changes
                 .Select(opposingContender => __instance.PrepareAndReact(
                     opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
                     additionalTargetCharacter: defender))

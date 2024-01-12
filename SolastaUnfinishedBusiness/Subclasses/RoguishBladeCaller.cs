@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -375,11 +374,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(Gui.Battle.AllContenders
-                .Where(x => x.IsOppositeSide(attacker.Side)
-                            && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                            && battleManager.IsWithinXCells(x, defender, 3))
-                .ToList());
+            actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker, hasToPerceiveTarget: true,
+                isWithinXCells: 3));
 
             // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
