@@ -145,7 +145,7 @@ internal static partial class SpellBuilders
     {
         return SpellDefinitionBuilder
             .Create("PowerWordHeal")
-            .SetGuiPresentation(Category.Spell, HealingWord)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("PowerWordHeal", Resources.PowerWordHeal, 128, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
