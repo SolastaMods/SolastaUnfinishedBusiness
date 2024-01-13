@@ -5,6 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
@@ -31,9 +32,12 @@ public static class CursorLocationSelectTargetPatcher
             var actingCharacter = __instance.actionParams.actingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            if (__result && Main.Settings.UseOfficialObscurementRules &&
-                (rulesetCharacter.HasObscurementCondition() ||
-                 (target.RulesetActor is RulesetCharacter rulesetEnemy && rulesetEnemy.HasObscurementCondition())))
+            if (__result &&
+                Main.Settings.UseOfficialObscurementRules &&
+                !SrdAndHouseRulesContext.EffectsThatDontRequireSight.Contains(
+                    __instance.ActionParams.RulesetEffect.SourceDefinition) &&
+                (rulesetCharacter.IsUnderHeavyObscurement() ||
+                 (target.RulesetActor is RulesetCharacter rulesetEnemy && rulesetEnemy.IsUnderHeavyObscurement())))
             {
                 var visibilityService =
                     ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;

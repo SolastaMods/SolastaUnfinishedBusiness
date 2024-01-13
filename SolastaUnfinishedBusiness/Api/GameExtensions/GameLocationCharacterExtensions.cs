@@ -54,7 +54,7 @@ public static class GameLocationCharacterExtensions
         }
 
         // BEGIN PATCH
-        if (target.RulesetActor is RulesetCharacter rulesetCharacter && rulesetCharacter.HasObscurementCondition())
+        if (target.RulesetActor is RulesetCharacter rulesetCharacter && rulesetCharacter.IsUnderHeavyObscurement())
         {
             return;
         }

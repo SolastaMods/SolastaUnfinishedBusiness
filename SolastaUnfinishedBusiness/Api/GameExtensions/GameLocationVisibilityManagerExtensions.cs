@@ -23,7 +23,7 @@ internal static class GameLocationVisibilityManagerExtensions
             }
 
             var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
-            
+
             return additionalBlockedLightingState != LocationDefinitions.LightingState.Darkness &&
                    lightningState != additionalBlockedLightingState;
         }
@@ -33,7 +33,7 @@ internal static class GameLocationVisibilityManagerExtensions
                 .Where(x =>
                     x.SenseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight or SenseMode.Type.Tremorsense)
                 .Select(x => x.SenseRange)
-                .AddItem(1)
+                .AddItem(0)
                 .Max();
 
             var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);

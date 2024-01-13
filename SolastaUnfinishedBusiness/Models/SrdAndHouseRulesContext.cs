@@ -84,6 +84,11 @@ internal static class SrdAndHouseRulesContext
             .SetConditionAffinityType(ConditionAffinityType.Immunity)
             .AddToDB();
 
+    private static readonly EffectForm EffectFormHeavilyObscured =
+        EffectFormBuilder.ConditionForm(ConditionHeavilyObscured);
+
+    internal static readonly List<BaseDefinition> EffectsThatDontRequireSight = [];
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -415,17 +420,27 @@ internal static class SrdAndHouseRulesContext
                 monster.Features.Add(ConditionAffinityDarknessImmunity);
             }
 
+            // vanilla has this set as disadvantage
             FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured.attackOnMeAdvantage =
                 AdvantageType.Advantage;
+
+            // vanilla reuses Heavily Obscured terms
             ConditionDefinitions.ConditionDarkness.GuiPresentation.title =
                 "Tooltip/&LightingDarknessFormat";
             ConditionDefinitions.ConditionDarkness.GuiPresentation.description =
                 "Rules/&ConditionHeavilyObscuredExtendedDescription";
+
+            // ensure we enforce Heavily Obscured on these effects / conditions
+            CloudKill.EffectDescription.EffectForms.TryAdd(EffectFormHeavilyObscured);
+
+            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(EffectFormHeavilyObscured);
+
             ConditionDefinitions.ConditionDarkness.conditionType = ConditionType.Detrimental;
             ConditionDefinitions.ConditionDarkness.possessive = false;
             ConditionDefinitions.ConditionDarkness.Features.SetRange(
                 FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured,
                 FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscuredSelf);
+
             ConditionVeil.Features.SetRange(
                 FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured,
                 FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscuredSelf);
@@ -441,14 +456,21 @@ internal static class SrdAndHouseRulesContext
 
             FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured.attackOnMeAdvantage =
                 AdvantageType.Disadvantage;
+
             ConditionDefinitions.ConditionDarkness.GuiPresentation.title =
                 "Rules/&ConditionHeavilyObscuredTitle";
             ConditionDefinitions.ConditionDarkness.GuiPresentation.description =
                 "Rules/&ConditionHeavilyObscuredDescription";
+
+            CloudKill.EffectDescription.EffectForms.Remove(EffectFormHeavilyObscured);
+
+            IncendiaryCloud.EffectDescription.EffectForms.Remove(EffectFormHeavilyObscured);
+
             ConditionDefinitions.ConditionDarkness.conditionType = ConditionType.Neutral;
             ConditionDefinitions.ConditionDarkness.possessive = true;
             ConditionDefinitions.ConditionDarkness.Features.SetRange(
                 FeatureDefinitionCombatAffinitys.CombatAffinityVeil);
+
             ConditionVeil.Features.SetRange(
                 FeatureDefinitionCombatAffinitys.CombatAffinityVeil);
         }
