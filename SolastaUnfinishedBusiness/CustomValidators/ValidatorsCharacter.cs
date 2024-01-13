@@ -104,8 +104,14 @@ internal static class ValidatorsCharacter
         return hasShield && hasShieldExpert;
     };
 
-    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndNoWeaponInOffhand = character =>
-        HasMeleeWeaponInMainHand(character) && !HasMeleeWeaponInOffHand(character);
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndNoBonusAttackInOffhand = character =>
+        HasMeleeWeaponInMainHand(character) &&
+        (HasFreeHandWithoutTwoHandedInMain(character) ||
+         (HasShield(character) &&
+          character.GetOriginalHero() is { } hero &&
+          !hero
+              .GetFeaturesByType<FeatureDefinitionAttackModifier>()
+              .Contains(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleDueling)));
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
