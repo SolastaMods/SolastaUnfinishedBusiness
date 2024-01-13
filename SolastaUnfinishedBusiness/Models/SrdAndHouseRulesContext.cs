@@ -90,7 +90,7 @@ internal static class SrdAndHouseRulesContext
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
         SwitchAllowClubsToBeThrown();
-        SwitchDarknessSpell();
+        SwitchOfficialObscurementRules();
         SwitchDruidAllowMetalArmor();
         SwitchEldritchBlastRange();
         SwitchEnableUpcastConjureElementalAndFey();
@@ -396,22 +396,39 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void SwitchDarknessSpell()
+    internal static void SwitchOfficialObscurementRules()
     {
-        //BUGFIX: Now that we have better handled sight and advantage elsewhere, darkness should no more give other source of disadvantage on attack
-        // and the immunity to condition darkness provided by the condition affinity below prevents one with devil sight and similar abilities, causing other problems
-        // so here we remove this immunity
-        if (Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
+        if (Main.Settings.UseOfficialObscurementRules)
         {
-            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.None;
-            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType =
-                ConditionAffinityType.None;
+            FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured.attackOnMeAdvantage =
+                AdvantageType.Advantage;
+            ConditionDefinitions.ConditionDarkness.GuiPresentation.title =
+                "Tooltip/&LightingDarknessFormat";
+            ConditionDefinitions.ConditionDarkness.GuiPresentation.description =
+                "Rules/&ConditionHeavilyObscuredExtendedDescription";
+            ConditionDefinitions.ConditionDarkness.conditionType = ConditionType.Detrimental;
+            ConditionDefinitions.ConditionDarkness.possessive = false;
+            ConditionDefinitions.ConditionDarkness.Features.SetRange(
+                FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured,
+                FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscuredSelf);
+            ConditionVeil.Features.SetRange(
+                FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured,
+                FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscuredSelf);
         }
         else
         {
-            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.Disadvantage;
-            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType =
-                ConditionAffinityType.Immunity;
+            FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured.attackOnMeAdvantage =
+                AdvantageType.Disadvantage;
+            ConditionDefinitions.ConditionDarkness.GuiPresentation.title =
+                "Rules/&ConditionHeavilyObscuredTitle";
+            ConditionDefinitions.ConditionDarkness.GuiPresentation.description =
+                "Rules/&ConditionHeavilyObscuredDescription";
+            ConditionDefinitions.ConditionDarkness.conditionType = ConditionType.Neutral;
+            ConditionDefinitions.ConditionDarkness.possessive = true;
+            ConditionDefinitions.ConditionDarkness.Features.SetRange(
+                FeatureDefinitionCombatAffinitys.CombatAffinityVeil);
+            ConditionVeil.Features.SetRange(
+                FeatureDefinitionCombatAffinitys.CombatAffinityVeil);
         }
     }
 

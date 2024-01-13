@@ -284,5 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ También habilitado para ataqu
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ También habilitado para ataques de alcance <color=#F0DAA0>[desactiva las matemáticas precisas]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ En lugar de ventaja otorga +1 a la tirada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilice <color=#D89555>ración de alimentos</color> con un peso oficial de 2 libras
+ModUi/&UseOfficialObscurementRules=Usa reglas de oscurecimiento alternativas <i><color=#F0DAA0>[teletransporte respeta la vista, desventaja en las tiradas de ataque, las tiradas de ataque en contra tienen ventaja]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Usa las <color=#D89555>reglas oficiales de razas pequeñas</color> cuando empuñas armas pesadas <i><color=#F0DAA0>[tus ataques tienen desventaja]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>

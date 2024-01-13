@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
@@ -20,6 +21,36 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
+    //PATCH: let Darkness be handled by the conditions themselves with proper combat affinities
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.ComputeLightingModifierForIlluminable))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeLightingModifierForIlluminable_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            GameLocationCharacter __instance,
+            IIlluminable target,
+            LocationDefinitions.LightingState targetLightingState,
+            Vector3 gravityCenter,
+            Vector3 targetGravityCenter,
+            ActionModifier actionModifier)
+        {
+            if (Main.Settings.UseOfficialObscurementRules && target is GameLocationCharacter gameLocationCharacter)
+            {
+                __instance.MyComputeLightingModifierForLightingState((gravityCenter - targetGravityCenter).magnitude,
+                    targetLightingState, actionModifier, target.TargetSource, gameLocationCharacter);
+            }
+            else
+            {
+                __instance.ComputeLightingModifierForLightingState((gravityCenter - targetGravityCenter).magnitude,
+                    targetLightingState, actionModifier, target.TargetSource);
+            }
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.StartBattleTurn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -199,7 +230,8 @@ public static class GameLocationCharacterPatcher
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
 
             //PATCH: support for custom invocation action ids
-            CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
+            CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope,
+                actionTypeStatus,
                 ignoreMovePoints);
 
             //PATCH: support `EnableMonkDoNotRequireAttackActionForFlurry`
@@ -378,7 +410,8 @@ public static class GameLocationCharacterPatcher
     public static class IsActionOnGoing_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(GameLocationCharacter __instance, ref bool __result, ActionDefinitions.Id actionId)
+        public static bool Prefix(GameLocationCharacter __instance, ref bool __result,
+            ActionDefinitions.Id actionId)
         {
             if (!CustomActionIdContext.IsCustomActionIdToggle(actionId))
             {
@@ -431,7 +464,8 @@ public static class GameLocationCharacterPatcher
         {
             __instance.RulesetCharacter.TryGetFirstConditionOfCategory(AttributeDefinitions.TagLightSensitivity,
                 out var activeCondition);
-            __instance.RulesetCharacter.RemoveAllConditionsOfCategory(AttributeDefinitions.TagLightSensitivity, false);
+            __instance.RulesetCharacter.RemoveAllConditionsOfCategory(AttributeDefinitions.TagLightSensitivity,
+                false);
 
             for (var index = __instance.affectingLightEffects.Count - 1; index >= 0; --index)
             {

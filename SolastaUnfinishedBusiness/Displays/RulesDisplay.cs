@@ -121,8 +121,7 @@ internal static class RulesDisplay
         UI.Label();
 
         toggle = Main.Settings.UseOfficialObscurementRules;
-        if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
-                UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialObscurementRules = toggle;
             SrdAndHouseRulesContext.SwitchOfficialObscurementRules();
