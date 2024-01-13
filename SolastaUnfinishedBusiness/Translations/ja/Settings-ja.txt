@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>チ�
 ModUi/&AllowUnmarkedSorcerers=起源のマークやタトゥーのない<color=#D89555>魔術師</color>を許可する
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> キーはパーティの視野内のガジェットのみを強調表示します<i><color=#F0DAA0>[カスタムダンジョンのみ]</color></i>
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>アルケイン・シールドスタッフ</color>をどのクラスでも調整できるようにする
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=<color=#D89555>ダークビジョン</color>を持つ攻撃者は、そうでない防御者よりも有利です。
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
 ModUi/&BackgroundsAndRaces=背景と人種
 ModUi/&Basic=<color=#F0DAA0>基本:</color>

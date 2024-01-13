@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target select
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Attackers with <color=#D89555>Darkvision</color> have advantage over defenders without
 ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds</color>
 ModUi/&BackgroundsAndRaces=Backgrounds & Races
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>

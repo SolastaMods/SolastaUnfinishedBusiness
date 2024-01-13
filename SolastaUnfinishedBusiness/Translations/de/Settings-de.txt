@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Ermögliche die Zie
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Sorcerer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Ermöglichen Sie die Abstimmung von <color=#D89555>Arkaner Schildstab</color> durch jede Klasse
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Angreifer mit <color=#D89555>Dunkelsicht</color> haben einen Vorteil gegenüber Verteidigern ohne
 ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
 ModUi/&BackgroundsAndRaces=Hintergründe & Rassen
 ModUi/&Basic=<color=#F0DAA0>Grundlegend:</color>

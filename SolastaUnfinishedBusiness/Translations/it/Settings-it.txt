@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezio
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=#D89555>Stregone</color> senza segni di origine e tatuaggi
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Consenti a <color=#D89555>Bastone Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Gli attaccanti con <color=#D89555>Scurovisione</color> hanno un vantaggio sui difensori senza
 ModUi/&Backgrounds=<color=#F0DAA0>Sfondi</color>
 ModUi/&BackgroundsAndRaces=Sfondi e gare
 ModUi/&Basic=<color=#F0DAA0> Base:</color>

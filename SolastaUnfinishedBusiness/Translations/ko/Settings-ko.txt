@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연�
 ModUi/&AllowUnmarkedSorcerers=기원 및 문신이 없는 <color=#D89555>소서러</color> 허용
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키는 파티 시야에 있는 물체만 강조 표시합니다 <i><color=#F0DAA0>[사용자 지정 던전만 해당]</color></i>
 ModUi/&ArcaneShieldstaffOptions=모든 직업이 <color=#D89555>비전 보호 스태프</color>를 조율할 수 있도록 허용
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=<color=#D89555>어둠시야</color>를 가진 공격자는 그렇지 않은 방어자에게 이점을 받음
 ModUi/&Backgrounds=<color=#F0DAA0>배경</color>
 ModUi/&BackgroundsAndRaces=배경 및 종족
 ModUi/&Basic=<color=#F0DAA0>기본:</color>

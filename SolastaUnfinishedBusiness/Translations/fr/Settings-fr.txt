@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélec
 ModUi/&AllowUnmarkedSorcerers=Autoriser les <color=#D89555>Ensorceleurs</color> sans marques ni tatouages d'origine
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Autoriser <color=#D89555>Arcane Shieldstaff</color> à être harmonisé par n'importe quelle classe
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Les attaquants avec <color=#D89555>Vision dans le noir</color> ont l'avantage sur les défenseurs qui ne l'ont pas
 ModUi/&Backgrounds=<color=#F0DAA0>Historiques</color>
 ModUi/&BackgroundsAndRaces=Historiques et Ascendances
 ModUi/&Basic=<color=#F0DAA0>De base :</color>

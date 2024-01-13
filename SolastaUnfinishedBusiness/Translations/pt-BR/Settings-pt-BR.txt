@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permita a seleção
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Sorcerer</color> sem marcas de origem e tatuagens
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente masmorras personalizadas]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permite que o <color=#D89555>Arcane Shieldstaff</color> seja sintonizado por qualquer classe
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Os atacantes com <color=#D89555>Darkvision</color> têm vantagem sobre os defensores sem
 ModUi/&Backgrounds=<color=#F0DAA0>Fundos</color>
 ModUi/&BackgroundsAndRaces=Antecedentes e raças
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>

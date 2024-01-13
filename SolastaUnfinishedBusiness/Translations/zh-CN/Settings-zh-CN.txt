@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施展<col
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有起源标记和纹身
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键只高亮队伍视野中的可用物品<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业调和
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=拥有<color=#D89555>黑暗视觉</color>的攻击者面对没有黑暗视觉的防御者时具有优势
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
 ModUi/&BackgroundsAndRaces=背景与神灵
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
