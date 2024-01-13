@@ -169,7 +169,7 @@ public class Settings : UnityModManager.ModSettings
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
-    public bool AttackersWithDarkvisionHaveAdvantageOverDefendersWithout { get; set; }
+    public bool UseOfficialObscurementRules { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }

@@ -1425,10 +1425,10 @@ internal static class CharacterContext
 
     private sealed class FilterTargetingPositionPowerTeleportSummon : IFilterTargetingPosition
     {
-        public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition,
-            List<int3> validPositions)
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var summoner = source.RulesetCharacter.GetMySummoner();
@@ -1442,7 +1442,12 @@ internal static class CharacterContext
                     gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
                         source, position, onlyCheckCellsWithRealGround: true))
                 {
-                    validPositions.Add(position);
+                    cursorLocationSelectPosition.validPositionsCache.Add(position);
+                }
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
                 }
             }
         }

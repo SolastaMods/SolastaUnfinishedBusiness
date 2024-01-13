@@ -419,19 +419,20 @@ public sealed class MartialWarlord : AbstractSubclass
             return false;
         }
 
-        public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition,
-            List<int3> validPositions)
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
             if (!actingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
             {
-                return;
+                yield break;
             }
 
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
 
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
@@ -444,16 +445,21 @@ public sealed class MartialWarlord : AbstractSubclass
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (!gameLocationVisibilityService.IsCellPerceivedByCharacter(position, actingCharacter) ||
-                    !gameLocationPositioningService.CanPlaceCharacter(
+                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !positioningService.CanPlaceCharacter(
                         actingCharacter, position, CellHelpers.PlacementMode.Station) ||
-                    !gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                    !positioningService.CanCharacterStayAtPosition_Floor(
                         actingCharacter, position, onlyCheckCellsWithRealGround: true))
                 {
                     continue;
                 }
 
-                validPositions.Add(position);
+                cursorLocationSelectPosition.validPositionsCache.Add(position);
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
+                }
             }
         }
 

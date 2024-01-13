@@ -402,9 +402,11 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
             var actingCharacter = action.ActingCharacter;
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
             actingCharacter.contextualFormation = [];
 
@@ -414,10 +416,10 @@ internal static partial class SpellBuilders
             {
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
-                    if (!gameLocationVisibilityService.IsCellPerceivedByCharacter(position, actingCharacter) ||
-                        !gameLocationPositioningService.CanPlaceCharacter(
+                    if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                        !positioningService.CanPlaceCharacter(
                             actingCharacter, position, CellHelpers.PlacementMode.Station) ||
-                        !gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
+                        !positioningService.CanCharacterStayAtPosition_Floor(
                             actingCharacter, position, onlyCheckCellsWithRealGround: true))
                     {
                         continue;
@@ -433,13 +435,13 @@ internal static partial class SpellBuilders
 
     private sealed class FilterTargetingPositionSteelWhirlwind : IFilterTargetingPosition
     {
-        public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition,
-            List<int3> validPositions)
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
-            validPositions.SetRange(source.ContextualFormation);
+            cursorLocationSelectPosition.validPositionsCache.SetRange(source.ContextualFormation);
+
+            yield break;
         }
     }
 

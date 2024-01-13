@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using TA;
+﻿using System.Collections;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IFilterTargetingPosition
 {
-    public void EnumerateValidPositions(
-        CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions);
+    public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition);
 }
