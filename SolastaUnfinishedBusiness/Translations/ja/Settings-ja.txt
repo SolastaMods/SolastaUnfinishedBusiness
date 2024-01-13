@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>チ�
 ModUi/&AllowUnmarkedSorcerers=起源のマークやタトゥーのない<color=#D89555>魔術師</color>を許可する
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> キーはパーティの視野内のガジェットのみを強調表示します<i><color=#F0DAA0>[カスタムダンジョンのみ]</color></i>
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>アルケイン・シールドスタッフ</color>をどのクラスでも調整できるようにする
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=<color=#D89555>ダークビジョン</color>を持つ攻撃者は、そうでない防御者よりも有利です。
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
 ModUi/&BackgroundsAndRaces=背景と人種
 ModUi/&Basic=<color=#F0DAA0>基本:</color>
@@ -285,5 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にし
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を与える</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</color>の重量は2ポンドを使用してください
+ModUi/&UseOfficialObscurementRules=代替の隠蔽ルールを使用します <i><color=#F0DAA0>[テレポートは照準を尊重、攻撃ロールでは不利、攻撃ロールでは有利]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは、公式の<color=#D89555>小規模種族ルール</color>を使用してください<i><color=#F0DAA0>[攻撃には不利があります]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

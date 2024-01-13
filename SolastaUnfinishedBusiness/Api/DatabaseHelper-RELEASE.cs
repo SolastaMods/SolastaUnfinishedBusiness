@@ -358,6 +358,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionCursedByBestowCurseAttackRoll { get; } =
             GetDefinition<ConditionDefinition>("ConditionCursedByBestowCurseAttackRoll");
 
+        internal static ConditionDefinition ConditionDarkness { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDarkness");
+
         internal static ConditionDefinition ConditionDarkvision { get; } =
             GetDefinition<ConditionDefinition>("ConditionDarkvision");
 
@@ -439,6 +442,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionHeavilyEncumbered { get; } =
             GetDefinition<ConditionDefinition>("ConditionHeavilyEncumbered");
 
+        internal static ConditionDefinition ConditionHeavilyObscured { get; } =
+            GetDefinition<ConditionDefinition>("ConditionHeavilyObscured");
+
         internal static ConditionDefinition ConditionHeraldOfBattle { get; } =
             GetDefinition<ConditionDefinition>("ConditionHeraldOfBattle");
 
@@ -462,6 +468,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionInsane { get; } =
             GetDefinition<ConditionDefinition>("ConditionInsane");
+
+        internal static ConditionDefinition ConditionInStinkingCloud { get; } =
+            GetDefinition<ConditionDefinition>("ConditionInStinkingCloud");
 
         internal static ConditionDefinition ConditionInvisible { get; } =
             GetDefinition<ConditionDefinition>("ConditionInvisible");
@@ -634,6 +643,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionShocked { get; } =
             GetDefinition<ConditionDefinition>("ConditionShocked");
 
+        internal static ConditionDefinition ConditionSleetStorm { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSleetStorm");
+
         internal static ConditionDefinition ConditionSlowed { get; } =
             GetDefinition<ConditionDefinition>("ConditionSlowed");
 
@@ -687,6 +699,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionTurned { get; } =
             GetDefinition<ConditionDefinition>("ConditionTurned");
+
+        internal static ConditionDefinition ConditionVeil { get; } =
+            GetDefinition<ConditionDefinition>("ConditionVeil");
 
         internal static ConditionDefinition ConditionUnderDemonicInfluence { get; } =
             GetDefinition<ConditionDefinition>("ConditionUnderDemonicInfluence");
@@ -1174,6 +1189,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityFlyby { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFlyby");
+
+        internal static FeatureDefinitionCombatAffinity CombatAffinityHeavilyObscured { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityHeavilyObscured");
+
+        internal static FeatureDefinitionCombatAffinity CombatAffinityHeavilyObscuredSelf { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityHeavilyObscuredSelf");
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityPackTactics { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPackTactics");

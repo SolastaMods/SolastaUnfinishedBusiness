@@ -120,12 +120,11 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout;
-        if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
-                UI.AutoWidth()))
+        toggle = Main.Settings.UseOfficialObscurementRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout = toggle;
-            SrdAndHouseRulesContext.SwitchDarknessSpell();
+            Main.Settings.UseOfficialObscurementRules = toggle;
+            SrdAndHouseRulesContext.SwitchOfficialObscurementRules();
         }
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;

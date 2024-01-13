@@ -15,7 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=As a free action, you can ma
 Feature/&PowerRavenScionHeartSeekingShotTitle=Heart-Seeking Shot 
 Feedback/&AdditionalDamageSniperAimFormat=Sniper's Aim
 Feedback/&AdditionalDamageSniperAimLine=Sniper's Aim deals extra +{2} damage!
-Feedback/&TriggerRavenScionRerollLine={0} rolls {1} = {2}. Heart-Seeking Shot will force a critical hit.
+Feedback/&TriggerRavenScionRerollLine1={0} rolls {1} = {2}. Deadly Focus will force a critical hit.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Use your deadly focus to retry the attack.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Use your deadly focus to retry the attack.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Retry Attack

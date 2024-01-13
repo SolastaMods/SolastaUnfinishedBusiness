@@ -182,8 +182,8 @@ public static class CursorLocationSelectPositionPatcher
                         {
                             triggerDefaultCompute = false;
 
-                            filterTargetingPosition.EnumerateValidPositions(__instance, __instance.validPositionsCache);
-                            __instance.movementHelper.RefreshValidDestinations(__instance.validPositionsCache);
+                            __instance.validCellsComputationCoroutine.Start(
+                                filterTargetingPosition.ComputeValidPositions(__instance));
                         }
 
                         break;
@@ -197,8 +197,8 @@ public static class CursorLocationSelectPositionPatcher
                         {
                             triggerDefaultCompute = false;
 
-                            filterTargetingPosition.EnumerateValidPositions(__instance, __instance.validPositionsCache);
-                            __instance.movementHelper.RefreshValidDestinations(__instance.validPositionsCache);
+                            __instance.validCellsComputationCoroutine.Start(
+                                filterTargetingPosition.ComputeValidPositions(__instance));
                         }
 
                         break;
@@ -213,7 +213,7 @@ public static class CursorLocationSelectPositionPatcher
                             .Type ==
                         MotionForm.MotionType.TeleportToDestination)
                     {
-                        __instance.validCellsComputationCoroutine.Start(__instance.ComputeValidPositions());
+                        __instance.validCellsComputationCoroutine.Start(__instance.MyComputeValidPositions());
                     }
                 }
 

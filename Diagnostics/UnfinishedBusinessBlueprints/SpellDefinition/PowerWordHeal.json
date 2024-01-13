@@ -355,9 +355,9 @@
     "description": "Spell/&PowerWordHealDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1b13c9ff1006ea1489bdbcb09ca7a31d",
-      "m_SubObjectName": "HealingWord",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3f29d2e5-b4d7-5cba-8751-09e85b7a3df8",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

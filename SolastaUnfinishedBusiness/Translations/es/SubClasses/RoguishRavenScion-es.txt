@@ -15,7 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Como acción gratuita, puede
 Feature/&PowerRavenScionHeartSeekingShotTitle=Disparo en busca del corazón
 Feedback/&AdditionalDamageSniperAimFormat=Objetivo del francotirador
 Feedback/&AdditionalDamageSniperAimLine=¡El objetivo del francotirador inflige +{2} de daño adicional!
-Feedback/&TriggerRavenScionRerollLine={0} tira {1} = {2}. El Disparo en busca del corazón forzará un golpe crítico.
+Feedback/&TriggerRavenScionRerollLine1={0} tira {1} = {2}. Deadly Focus forzará un golpe crítico.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Usa tu enfoque mortal para volver a intentar el ataque.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Usa tu enfoque mortal para volver a intentar el ataque.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Reintentar ataque

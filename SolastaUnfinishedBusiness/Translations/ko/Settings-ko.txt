@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연�
 ModUi/&AllowUnmarkedSorcerers=기원 및 문신이 없는 <color=#D89555>소서러</color> 허용
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키는 파티 시야에 있는 물체만 강조 표시합니다 <i><color=#F0DAA0>[사용자 지정 던전만 해당]</color></i>
 ModUi/&ArcaneShieldstaffOptions=모든 직업이 <color=#D89555>비전 보호 스태프</color>를 조율할 수 있도록 허용
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=<color=#D89555>어둠시야</color>를 가진 공격자는 그렇지 않은 방어자에게 이점을 받음
 ModUi/&Backgrounds=<color=#F0DAA0>배경</color>
 ModUi/&BackgroundsAndRaces=배경 및 종족
 ModUi/&Basic=<color=#F0DAA0>기본:</color>
@@ -285,5 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 활성화 
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 도달 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
+ModUi/&UseOfficialObscurementRules=대체 가려짐 규칙 사용 <i><color=#F0DAA0>[순간이동은 시야 존중, 공격 굴림에 불리함, 공격 굴림에 이점 있음]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족 규칙</color>을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>비주얼:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>

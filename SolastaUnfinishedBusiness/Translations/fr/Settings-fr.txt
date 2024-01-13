@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélec
 ModUi/&AllowUnmarkedSorcerers=Autoriser les <color=#D89555>Ensorceleurs</color> sans marques ni tatouages d'origine
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Autoriser <color=#D89555>Arcane Shieldstaff</color> à être harmonisé par n'importe quelle classe
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Les attaquants avec <color=#D89555>Vision dans le noir</color> ont l'avantage sur les défenseurs qui ne l'ont pas
 ModUi/&Backgrounds=<color=#F0DAA0>Historiques</color>
 ModUi/&BackgroundsAndRaces=Historiques et Ascendances
 ModUi/&Basic=<color=#F0DAA0>De base :</color>
@@ -285,5 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également les attaque
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également les attaques par portée <color=#F0DAA0>[désactive les calculs précis]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
+ModUi/&UseOfficialObscurementRules=Utilisez des règles d'obscurcissement alternatives <i><color=#F0DAA0>[téléportation avec respect de la vue, désavantage aux jets d'attaque, les jets d'attaque contre ont un avantage]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilisez les <color=#D89555>règles officielles des petites races</color> lorsque vous maniez des armes lourdes <i><color=#F0DAA0>[vos attaques ont un désavantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

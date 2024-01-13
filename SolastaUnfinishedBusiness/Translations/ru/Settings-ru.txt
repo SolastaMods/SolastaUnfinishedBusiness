@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Позволить 
 ModUi/&AllowUnmarkedSorcerers=Разрешить <color=#D89555>Чародеев</color> без родовых отметин и татуировок
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Клавиша <color=#1E81B0>ALT</color> подсвечивает только предметы в зоне видимости группы <i><color=#F0DAA0>[только для кастомных подземелий]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Позволить настраиваться любому классу на <color=#D89555>Магический защитный посох</color>
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Атакующие с <color=#D89555>Тёмным зрением</color> имеют преимущество перед защищающимися без него
 ModUi/&Backgrounds=<color=#F0DAA0>Предыстории</color>
 ModUi/&BackgroundsAndRaces=Предыстории и расы
 ModUi/&Basic=<color=#F0DAA0>Обычный:</color>
@@ -285,5 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Включить эти пра
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Также включить для атак досягаемости <color=#F0DAA0>[отключить точную математику]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Вместо преимущества давать +1 к броскам атаки</i>
 ModUi/&UseOfficialFoodRationsWeight=Использовать официальный вес <color=#D89555>Рационов</color> (2 фунта)
+ModUi/&UseOfficialObscurementRules=Используйте альтернативные правила затемнения <i><color=#F0DAA0>[телепортация с уважением к зрению, помеха при бросках атаки, броски атаки против получения преимущества]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Использовать официальные <color=#D89555>правила рас маленького размера</color> при использовании тяжёлого оружия <i><color=#F0DAA0>[вы совершаете атаки с помехой]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Визуальные настройки:</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>

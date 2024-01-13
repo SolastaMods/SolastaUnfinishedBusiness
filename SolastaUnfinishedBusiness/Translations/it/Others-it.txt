@@ -177,6 +177,7 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Alimentazione automatica
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Avvio automatico della rabbia
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Creatura automatica ridotta a zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Attacco furtivo automatico
+Rules/&ConditionHeavilyObscuredExtendedDescription=La visione della creatura è pesantemente oscurata; svantaggio sui tiri per colpire; i tiri per colpire contro la creatura hanno vantaggio.
 Rules/&CounterFormDismissCreatureFormat=Congeda una creatura evocata bersaglio
 Rules/&SituationalContext1000Format=Ha i tipi di armi Blade Mastery nelle mani:
 Rules/&SituationalContext1001Format=Ha lo spadone in mano:

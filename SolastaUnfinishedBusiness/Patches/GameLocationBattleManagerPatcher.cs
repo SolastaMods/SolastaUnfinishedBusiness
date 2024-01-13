@@ -652,9 +652,6 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams, __result);
-
-            //PATCH: add a rule to grant adv to attacks that the target unable to see
-            PatchIlluminationBasedAdvantage(__instance, __result, attackParams);
         }
 
         //TODO: move this somewhere else and maybe split?
@@ -685,52 +682,6 @@ public static class GameLocationBattleManagerPatcher
                     attackParams.effectName,
                     ref attackParams.attackModifier);
             }
-        }
-
-        private static void PatchIlluminationBasedAdvantage(
-            GameLocationBattleManager __instance,
-            bool __result,
-            BattleDefinitions.AttackEvaluationParams attackParams)
-        {
-            if (!__result || !Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
-            {
-                return;
-            }
-
-            var attackerLoc = attackParams.attacker;
-            var defenderLoc = attackParams.defender;
-            var attackerChr = attackerLoc.RulesetCharacter;
-            var defenderChr = defenderLoc.RulesetCharacter;
-
-            if (attackerChr == null || defenderChr == null)
-            {
-                return;
-            }
-
-            var attackerGravityCenter =
-                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(attackerLoc);
-            var defenderGravityCenter =
-                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(defenderLoc);
-
-            IIlluminable attacker = attackerLoc;
-
-            var lightingState = attackerLoc.LightingState;
-            var distance = (defenderGravityCenter - attackerGravityCenter).magnitude;
-            var flag = defenderLoc.RulesetCharacter.SenseModes
-                .Where(senseMode => distance <= senseMode.SenseRange)
-                .Any(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState));
-
-            if (flag)
-            {
-                return;
-            }
-
-            attackParams.attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Lighting, lightingState.ToString(),
-                    attacker.TargetSource, (string)null));
-            attackParams.attackModifier.AbilityCheckAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Lighting, lightingState.ToString(),
-                    attacker.TargetSource, (string)null));
         }
     }
 

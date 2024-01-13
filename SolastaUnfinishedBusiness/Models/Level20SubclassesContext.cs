@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using Mono.CSharp.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -2123,10 +2122,9 @@ internal static class Level20SubclassesContext
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var defender in Gui.Battle.GetContenders(gameLocationDefender, false))
+            foreach (var rulesetDefender in Gui.Battle.GetContenders(gameLocationDefender, false)
+                         .Select(defender => defender.RulesetCharacter))
             {
-                var rulesetDefender = defender.RulesetCharacter;
-
                 if (rulesetDefender.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect,
                         conditionDefinition.Name,

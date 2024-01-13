@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施展<col
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有起源标记和纹身
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键只高亮队伍视野中的可用物品<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业调和
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=拥有<color=#D89555>黑暗视觉</color>的攻击者面对没有黑暗视觉的防御者时具有优势
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
 ModUi/&BackgroundsAndRaces=背景与神灵
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
@@ -286,5 +285,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 还可以进行远程攻击<co
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用触及攻击<color=#F0DAA0>[禁用精确数学]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
+ModUi/&UseOfficialObscurementRules=使用备用遮蔽规则<i><color=#F0DAA0>[传送尊重视线，攻击骰上不利，攻击骰上有优势]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型比赛规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>

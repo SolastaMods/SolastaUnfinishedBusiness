@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezio
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=#D89555>Stregone</color> senza segni di origine e tatuaggi
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Consenti a <color=#D89555>Bastone Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Gli attaccanti con <color=#D89555>Scurovisione</color> hanno un vantaggio sui difensori senza
 ModUi/&Backgrounds=<color=#F0DAA0>Sfondi</color>
 ModUi/&BackgroundsAndRaces=Sfondi e gare
 ModUi/&Basic=<color=#F0DAA0> Base:</color>
@@ -285,6 +284,7 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Abilita anche gli attacchi a d
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Abilita anche gli attacchi con portata <color=#F0DAA0>[disabilita matematica precisa]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Invece del vantaggio, concedi +1 al tiro per colpire</i>
 ModUi/&UseOfficialFoodRationsWeight=Usa <color=#D89555>razione di cibo</color> ufficiale di 2 libbre
+ModUi/&UseOfficialObscurementRules=Utilizza regole di oscuramento alternative <i><color=#F0DAA0>[teletrasporto rispetto alla vista, svantaggio ai tiri per colpire, tiri per colpire contro vantaggio]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilizza le <color=#D89555>regole ufficiali delle razze piccole</color> quando impugni armi pesanti <i><color=#F0DAA0>[i tuoi attacchi hanno svantaggio]</color></i>
 ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 odUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[includi stanze piatte, dungeon di dimensioni 150x150 e 200x200 e senza fronzoli che mescolano risorse da tutti gli ambienti]</color></i>

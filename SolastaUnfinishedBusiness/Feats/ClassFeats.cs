@@ -413,7 +413,7 @@ internal static class ClassFeats
                 yield break;
             }
 
-            if (!me.PerceivedAllies.Contains(defender) || !me.PerceivedFoes.Contains(attacker))
+            if (!me.PerceivedFoes.Contains(defender))
             {
                 yield break;
             }
