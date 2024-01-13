@@ -17,25 +17,35 @@ internal static class GameLocationVisibilityManagerExtensions
 
         if (!Main.Settings.UseOfficialObscurementRules || !result)
         {
-            return result;
+            if (!result)
+            {
+                return false;
+            }
+
+            var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
+            
+            return additionalBlockedLightingState != LocationDefinitions.LightingState.Darkness &&
+                   lightningState != additionalBlockedLightingState;
         }
 
-        var maxSenseRange = sensor.RulesetCharacter.GetFeaturesByType<FeatureDefinitionSense>()
-            .Where(x =>
-                x.SenseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight or SenseMode.Type.Tremorsense)
-            .Select(x => x.SenseRange)
-            .AddItem(1)
-            .Max();
-
-        var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
-
-        if (lightningState == LocationDefinitions.LightingState.Darkness)
         {
-            return DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition) <=
-                   maxSenseRange;
-        }
+            var maxSenseRange = sensor.RulesetCharacter.GetFeaturesByType<FeatureDefinitionSense>()
+                .Where(x =>
+                    x.SenseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight or SenseMode.Type.Tremorsense)
+                .Select(x => x.SenseRange)
+                .AddItem(1)
+                .Max();
 
-        return additionalBlockedLightingState != LocationDefinitions.LightingState.Darkness &&
-               lightningState != additionalBlockedLightingState;
+            var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
+
+            if (lightningState == LocationDefinitions.LightingState.Darkness)
+            {
+                return DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition) <=
+                       maxSenseRange;
+            }
+
+            return additionalBlockedLightingState != LocationDefinitions.LightingState.Darkness &&
+                   lightningState != additionalBlockedLightingState;
+        }
     }
 }
