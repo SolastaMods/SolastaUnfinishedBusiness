@@ -114,7 +114,7 @@ internal static class FightingStyleContext
                 FightingStyleDefinition.TriggerCondition.RangedWeaponAttack => true,
                 // disallow Shield Expert to work with Dueling Fighting Style
                 FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon =>
-                    ValidatorsCharacter.HasMeleeWeaponInMainAndNoWeaponInOffhand(hero),
+                    ValidatorsCharacter.HasMeleeWeaponInMainAndNoBonusAttackInOffhand(hero),
                 // allow Shield Expert to work with Two Weapon Fighting Style
                 FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded =>
                     ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero),
