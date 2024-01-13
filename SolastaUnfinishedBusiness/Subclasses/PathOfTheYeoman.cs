@@ -219,12 +219,9 @@ public sealed class PathOfTheYeoman : AbstractSubclass
     // Strong Bow
     //
 
-    private sealed class CustomAdditionalDamageStrongBow : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageStrongBow(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider)
     {
-        public CustomAdditionalDamageStrongBow(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -254,12 +251,9 @@ public sealed class PathOfTheYeoman : AbstractSubclass
     // Keen Eye
     //
 
-    private sealed class CustomAdditionalDamageKeenEye : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageKeenEye(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider)
     {
-        public CustomAdditionalDamageKeenEye(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -284,18 +278,12 @@ public sealed class PathOfTheYeoman : AbstractSubclass
     // Mighty Shot
     //
 
-    private sealed class PhysicalAttackFinishedByMeMightyShot : IPhysicalAttackFinishedByMe, IModifyEffectDescription
+    private sealed class PhysicalAttackFinishedByMeMightyShot(FeatureDefinitionPower powerMightyShot)
+        : IPhysicalAttackFinishedByMe, IModifyEffectDescription
     {
-        private readonly FeatureDefinitionPower _powerMightyShot;
-
-        public PhysicalAttackFinishedByMeMightyShot(FeatureDefinitionPower powerMightyShot)
-        {
-            _powerMightyShot = powerMightyShot;
-        }
-
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _powerMightyShot;
+            return definition == powerMightyShot;
         }
 
         public EffectDescription GetEffectDescription(
@@ -352,14 +340,14 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(_powerMightyShot, rulesetAttacker);
+            var usablePower = UsablePowersProvider.Get(powerMightyShot, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(battleManager.Battle.GetContenders(attacker, isWithinXCells: 3)
-                .Where(x => x != defender));
+            actionParams.TargetCharacters.SetRange(
+                battleManager.Battle.GetContenders(defender, isOppositeSide: false, isWithinXCells: 3));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

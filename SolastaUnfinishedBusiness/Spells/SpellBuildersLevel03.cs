@@ -1050,8 +1050,7 @@ internal static partial class SpellBuilders
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(battleManager.Battle.GetContenders(attacker, isWithinXCells: 2)
-                .Where(x => x != defender));
+            actionParams.TargetCharacters.SetRange(battleManager.Battle.GetContenders(defender, isOppositeSide: false, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -1305,7 +1304,7 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter)
-                    .AddEffectForms(Darkness.EffectDescription.EffectForms.ToArray())
+                    .AddEffectForms([.. Darkness.EffectDescription.EffectForms])
                     .AddEffectForms(
                         EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
                         Entangle.EffectDescription.EffectForms[1])

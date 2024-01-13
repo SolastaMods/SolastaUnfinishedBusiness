@@ -72,7 +72,7 @@ public class CustomRagingAura(
                          .Where(x =>
                              !gameLocationBattleService.IsWithinXCells(locationCharacter, x,
                                  powerDefinition.EffectDescription.targetParameter) ||
-                             !locationCharacter.PerceivedFoes.Contains(x) ||
+                             !x.PerceivedFoes.Contains(locationCharacter) ||
                              !locationCharacter.RulesetCharacter.HasConditionOfType(ConditionRaging)))
             {
                 var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
@@ -196,15 +196,12 @@ public class CustomRagingAura(
                     0);
             }
         }
-        else
+        else if (sourceLocationCharacter.RulesetCharacter.HasConditionOfType(ConditionRaging))
         {
-            foreach (var defender in battle
+            foreach (var rulesetDefender in battle
                          .GetContenders(sourceLocationCharacter, hasToPerceiveTarget: true, isWithinXCells: 2)
-                         .Where(x =>
-                             sourceLocationCharacter.RulesetCharacter.HasConditionOfType(ConditionRaging)))
+                         .Select(defender => defender.RulesetCharacter))
             {
-                var rulesetDefender = defender.RulesetCharacter;
-
                 rulesetDefender.InflictCondition(
                     conditionDefinition.Name,
                     DurationType.Round,
