@@ -54,16 +54,9 @@ public static class GameLocationCharacterExtensions
         }
 
         // BEGIN PATCH
-        if (target.RulesetActor is RulesetCharacter rulesetCharacter)
+        if (target.RulesetActor is RulesetCharacter rulesetCharacter && rulesetCharacter.HasObscurementCondition())
         {
-            if (rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionDarkness.Name) ||
-                rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionHeavilyObscured.Name) ||
-                rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionInStinkingCloud.Name) ||
-                rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionSleetStorm.Name) ||
-                rulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionVeil.Name))
-            {
-                return;
-            }
+            return;
         }
         // END PATCH
 

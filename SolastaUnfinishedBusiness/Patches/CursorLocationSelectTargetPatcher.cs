@@ -27,6 +27,40 @@ public static class CursorLocationSelectTargetPatcher
             GameLocationCharacter target,
             ref bool __result)
         {
+            //PATCH: supports UseOfficialObscurementRules
+            var actingCharacter = __instance.actionParams.actingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            if (__result && Main.Settings.UseOfficialObscurementRules &&
+                (rulesetCharacter.HasObscurementCondition() ||
+                 (target.RulesetActor is RulesetCharacter rulesetEnemy && rulesetEnemy.HasObscurementCondition())))
+            {
+                var visibilityService =
+                    ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+                var effectDescription = __instance.actionParams.RulesetEffect switch
+                {
+                    RulesetEffectSpell effectSpellTrigger1 => effectSpellTrigger1.EffectDescription,
+                    RulesetEffectPower effectPowerTrigger1 => effectPowerTrigger1.EffectDescription,
+                    _ => null
+                };
+
+                var shouldTrigger = effectDescription is
+                {
+                    RangeType: RangeType.Distance,
+                    TargetType: TargetType.Individuals or TargetType.IndividualsUnique
+                };
+
+                if (shouldTrigger &&
+                    !visibilityService.MyIsCellPerceivedByCharacter(target.LocationPosition, actingCharacter))
+                {
+                    __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoPerceptionOfTargetDescription");
+                    __result = false;
+
+                    return;
+                }
+            }
+
             var definition = __instance.ActionParams.activeEffect.SourceDefinition;
 
             //PATCH: supports IFilterTargetingCharacter
@@ -45,7 +79,6 @@ public static class CursorLocationSelectTargetPatcher
             if (__instance.actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
                 rulesetEffectSpell.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
             {
-                var rulesetCharacter = __instance.actionParams.actingCharacter.RulesetCharacter;
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
                 if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&

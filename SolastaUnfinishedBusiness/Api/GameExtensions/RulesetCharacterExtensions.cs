@@ -27,6 +27,15 @@ internal static class RulesetCharacterExtensions
     }
 #endif
 
+    internal static bool HasObscurementCondition(this RulesetCharacter character)
+    {
+        return character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionDarkness.Name) ||
+               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionHeavilyObscured.Name) ||
+               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionInStinkingCloud.Name) ||
+               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionSleetStorm.Name) ||
+               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionVeil.Name);
+    }
+
     internal static int GetSubclassLevel(
         this RulesetCharacter character, CharacterClassDefinition klass, string subclass)
     {
