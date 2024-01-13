@@ -60,6 +60,8 @@ public class Settings : UnityModManager.ModSettings
     public String[] DeprecatedSubsList { get; set; } =
         ["CollegeOfHarlequin", "MartialMarshal", "MartialMartialDefender", "RoguishRaven", "WayOfTheDistantHand"];
 
+    public String[] EffectsThatDontRequireSight { get; set; } = [];
+
     //
     // Gameplay - Tools
     //

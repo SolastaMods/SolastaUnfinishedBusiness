@@ -5,7 +5,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
@@ -34,8 +33,8 @@ public static class CursorLocationSelectTargetPatcher
 
             if (__result &&
                 Main.Settings.UseOfficialObscurementRules &&
-                !SrdAndHouseRulesContext.EffectsThatDontRequireSight.Contains(
-                    __instance.ActionParams.RulesetEffect.SourceDefinition) &&
+                !Main.Settings.EffectsThatDontRequireSight.Contains(
+                    __instance.ActionParams.RulesetEffect.SourceDefinition.Name) &&
                 (rulesetCharacter.IsUnderHeavyObscurement() ||
                  (target.RulesetActor is RulesetCharacter rulesetEnemy && rulesetEnemy.IsUnderHeavyObscurement())))
             {

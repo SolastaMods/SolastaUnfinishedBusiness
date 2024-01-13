@@ -87,8 +87,6 @@ internal static class SrdAndHouseRulesContext
     private static readonly EffectForm EffectFormHeavilyObscured =
         EffectFormBuilder.ConditionForm(ConditionHeavilyObscured);
 
-    internal static readonly List<BaseDefinition> EffectsThatDontRequireSight = [];
-
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()

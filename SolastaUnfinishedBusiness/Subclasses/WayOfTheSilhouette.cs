@@ -424,7 +424,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var rulesetMe = me.RulesetCharacter;
 
-            if (!ValidatorsCharacter.IsNotInBrightLight(rulesetMe))
+            if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
@@ -440,11 +440,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
-            if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
