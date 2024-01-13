@@ -117,7 +117,7 @@
         "saveOccurence": "EndOfTurn",
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
-          "changeType": "SightImpaired",
+          "changeType": "DangerousZone",
           "impactsFlyingCharacters": true
         },
         "hasFilterId": false,
@@ -140,7 +140,7 @@
         "saveOccurence": "EndOfTurn",
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
-          "changeType": "DangerousZone",
+          "changeType": "DifficultThrough",
           "impactsFlyingCharacters": true
         },
         "hasFilterId": false,

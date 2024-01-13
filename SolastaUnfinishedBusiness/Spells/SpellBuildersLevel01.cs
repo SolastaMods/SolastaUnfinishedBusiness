@@ -196,6 +196,7 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build(),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
                     .Build())
             .AddToDB();
@@ -763,7 +764,7 @@ internal static partial class SpellBuilders
             var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
 
             foreach (var enemy in gameLocationBattleService.Battle.GetContenders(
-                         target, isOppositeSide: false, excludeSelf: false, isWithinXCells: 1))
+                         target, false, false, isWithinXCells: 1))
             {
                 var rulesetEnemy = enemy.RulesetCharacter;
                 var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;

@@ -1275,17 +1275,15 @@ internal static partial class SpellBuilders
 
     #region Hunger of the Void
 
-    internal static ConditionDefinition ConditionHungerOfTheVoid { get; private set; }
-
     internal static SpellDefinition BuildHungerOfTheVoid()
     {
         const string Name = "HungerOfTheVoid";
 
-        ConditionHungerOfTheVoid = ConditionDefinitionBuilder
+        var conditionHungerOfTheVoid = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}")
             .AddToDB();
 
-        ConditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(ConditionHungerOfTheVoid));
+        conditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(conditionHungerOfTheVoid));
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -1308,9 +1306,9 @@ internal static partial class SpellBuilders
                     .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter |
                                         RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(ConditionHungerOfTheVoid),
-                        EffectFormBuilder.TopologyForm(TopologyForm.Type.SightImpaired, true),
-                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true))
+                        EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, true))
                     .SetParticleEffectParameters(Darkness)
                     .Build())
             .AddToDB();

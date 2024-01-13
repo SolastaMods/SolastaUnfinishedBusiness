@@ -29,6 +29,7 @@ internal static class FixesContext
     internal static void Load()
     {
         InitMagicAffinitiesAndCastSpells();
+        FixMinorSpellIssues();
     }
 
     internal static void LateLoad()
@@ -41,7 +42,6 @@ internal static class FixesContext
         FixGorillaWildShapeRocksToUnlimited();
         FixMartialArtsProgression();
         FixMeleeHitEffectsRange();
-        FixMinorSpellIssues();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
         FixSmitesAndStrikesDiceProgression();
@@ -411,6 +411,9 @@ internal static class FixesContext
     {
         CloudKill.EffectDescription.recurrentEffect =
             RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd;
+
+        Entangle.EffectDescription.EffectForms.Add(
+            EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false));
 
         SleetStorm.EffectDescription.recurrentEffect =
             RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd;

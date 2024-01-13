@@ -217,6 +217,7 @@ internal static partial class SpellBuilders
                         false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionHeavilyObscured),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -351,17 +352,15 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetSummonEffectProxyForm(proxyWeb)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetTopologyForm(TopologyForm.Type.DifficultThrough, false)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
                             .SetConditionForm(conditionRestrainedBySpellWeb, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .Build())
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(proxyWeb)
+                            .Build(),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
                     .Build())
             .AddToDB();
 
@@ -469,10 +468,6 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetTopologyForm(TopologyForm.Type.SightImpaired, true)
                             .Build())
                     .SetParticleEffectParameters(BladeBarrierWallLine)
                     .Build())

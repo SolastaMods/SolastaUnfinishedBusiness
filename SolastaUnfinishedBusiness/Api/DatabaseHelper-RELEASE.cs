@@ -980,6 +980,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleArchery { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleArchery");
 
+        internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleDueling { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleDueling");
+
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleTwoWeapon { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleTwoWeapon");
 
@@ -3540,6 +3543,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition IdentifyCreatures { get; } =
             GetDefinition<SpellDefinition>("IdentifyCreatures");
 
+        internal static SpellDefinition IncendiaryCloud { get; } = GetDefinition<SpellDefinition>("IncendiaryCloud");
         internal static SpellDefinition InflictWounds { get; } = GetDefinition<SpellDefinition>("InflictWounds");
         internal static SpellDefinition InsectPlague { get; } = GetDefinition<SpellDefinition>("InsectPlague");
         internal static SpellDefinition Invisibility { get; } = GetDefinition<SpellDefinition>("Invisibility");
