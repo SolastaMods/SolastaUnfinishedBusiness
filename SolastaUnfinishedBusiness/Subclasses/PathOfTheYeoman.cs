@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -347,7 +346,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(
-                battleManager.Battle.GetContenders(defender, isOppositeSide: false, isWithinXCells: 3));
+                battleManager.Battle.GetContenders(defender, false, isWithinXCells: 3));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

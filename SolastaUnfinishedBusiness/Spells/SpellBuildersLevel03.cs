@@ -1050,7 +1050,8 @@ internal static partial class SpellBuilders
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(battleManager.Battle.GetContenders(defender, isOppositeSide: false, isWithinXCells: 2));
+            actionParams.TargetCharacters.SetRange(
+                battleManager.Battle.GetContenders(defender, false, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -1274,16 +1275,17 @@ internal static partial class SpellBuilders
 
     #region Hunger of the Void
 
+    internal static ConditionDefinition ConditionHungerOfTheVoid { get; private set; }
+
     internal static SpellDefinition BuildHungerOfTheVoid()
     {
         const string Name = "HungerOfTheVoid";
 
-        var conditionHungerOfTheVoid = ConditionDefinitionBuilder
+        ConditionHungerOfTheVoid = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}")
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        conditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(conditionHungerOfTheVoid));
+        ConditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(ConditionHungerOfTheVoid));
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
@@ -1303,11 +1305,12 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter)
-                    .AddEffectForms([.. Darkness.EffectDescription.EffectForms])
-                    .AddEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
-                        Entangle.EffectDescription.EffectForms[1])
+                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter |
+                                        RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionHungerOfTheVoid),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.SightImpaired, true),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true))
                     .SetParticleEffectParameters(Darkness)
                     .Build())
             .AddToDB();

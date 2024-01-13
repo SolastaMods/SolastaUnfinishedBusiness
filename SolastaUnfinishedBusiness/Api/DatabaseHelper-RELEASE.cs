@@ -1273,6 +1273,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityHinderedByFrostImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHinderedByFrostImmunity");
 
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityMindControlledImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityMindControlledImmunity");
 
@@ -1294,8 +1297,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityRestrainedmmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityRestrainedmmunity");
 
-        internal static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } =
-            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityVeilImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityVeilImmunity");
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherChilledImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherChilledImmunity");

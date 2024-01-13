@@ -76,6 +76,14 @@ internal static class SrdAndHouseRulesContext
             .SetForbiddenActions(Id.AttackOpportunity)
             .AddToDB();
 
+    private static readonly FeatureDefinitionConditionAffinity ConditionAffinityDarknessImmunity =
+        FeatureDefinitionConditionAffinityBuilder
+            .Create("ConditionAffinityDarknessImmunity")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionType(ConditionDefinitions.ConditionDarkness)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .AddToDB();
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -400,6 +408,13 @@ internal static class SrdAndHouseRulesContext
     {
         if (Main.Settings.UseOfficialObscurementRules)
         {
+            foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>()
+                         .Where(x => x.Features.Contains(FeatureDefinitionConditionAffinitys
+                             .ConditionAffinityVeilImmunity)))
+            {
+                monster.Features.Add(ConditionAffinityDarknessImmunity);
+            }
+
             FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured.attackOnMeAdvantage =
                 AdvantageType.Advantage;
             ConditionDefinitions.ConditionDarkness.GuiPresentation.title =
@@ -417,6 +432,13 @@ internal static class SrdAndHouseRulesContext
         }
         else
         {
+            foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>()
+                         .Where(x => x.Features.Contains(FeatureDefinitionConditionAffinitys
+                             .ConditionAffinityVeilImmunity)))
+            {
+                monster.Features.Remove(ConditionAffinityDarknessImmunity);
+            }
+
             FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured.attackOnMeAdvantage =
                 AdvantageType.Disadvantage;
             ConditionDefinitions.ConditionDarkness.GuiPresentation.title =

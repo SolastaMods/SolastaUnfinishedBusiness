@@ -409,6 +409,12 @@ internal static class FixesContext
 
     private static void FixMinorSpellIssues()
     {
+        CloudKill.EffectDescription.recurrentEffect =
+            RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd;
+
+        SleetStorm.EffectDescription.recurrentEffect =
+            RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd;
+
         //BUGFIX: add an effect to Counterspell
         Counterspell.EffectDescription.effectParticleParameters =
             DreadfulOmen.EffectDescription.effectParticleParameters;

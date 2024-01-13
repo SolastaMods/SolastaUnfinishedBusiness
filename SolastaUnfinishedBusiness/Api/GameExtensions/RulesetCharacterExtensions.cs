@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.FightingStyles;
+using SolastaUnfinishedBusiness.Spells;
 using static RuleDefinitions;
 using static ActionDefinitions;
 
@@ -29,7 +30,8 @@ internal static class RulesetCharacterExtensions
 
     internal static bool HasObscurementCondition(this RulesetCharacter character)
     {
-        return character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionDarkness.Name) ||
+        return character.HasConditionOfType(SpellBuilders.ConditionHungerOfTheVoid) ||
+               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionDarkness.Name) ||
                character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionHeavilyObscured.Name) ||
                character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionInStinkingCloud.Name) ||
                character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionSleetStorm.Name) ||

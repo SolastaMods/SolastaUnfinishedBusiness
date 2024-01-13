@@ -9,8 +9,8 @@
     "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

@@ -209,7 +209,8 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Strength,
