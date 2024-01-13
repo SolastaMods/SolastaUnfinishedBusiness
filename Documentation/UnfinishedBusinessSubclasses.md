@@ -1728,42 +1728,34 @@ Practitioners of the Way of Silhouette follow a tradition that values stealth an
 
 ### Level 3
 
-* Cloak of Silhouettes
-
-If you start your turn in natural darkness, you become invisible. Moving out of darkness, attacking or using any power or spell that does not only target yourself breaks the invisibility.
-
 * Silhouette Arts
 
-You can spend 2 Ki points to cast darkness, darkvision, pass without trace, or silence, without providing material components. Additionally, you gain the light cantrip if you don't already know it.
-
-
-### Level 6
-
-* Silhouette Step
-
-You can teleport as a bonus action up to 30 ft to an unoccupied space you can see. You can use this power a number of times per long rest equal to your proficiency bonus.
+You can see normally in dim light, and in natural darkness as if in dim light, to a distance of 60 feet. You can also spend 1 ki to cast Darkness as an action without providing material components.
 
 * Strike the Vitals
 
 Once per turn, you can deal extra damage equal to your martial arts die if you hit a creature with an attack that had advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. You must use an unarmed attack or a monk weapon. This damage increases by one additional martial arts die on levels 11 and 17.
 
 
+### Level 6
+
+* Silhouette Step
+
+You can use your bonus action when you are in dim light or natural darkness to teleport up to 60 feet to an unoccupied space you can see that is also in dim light or natural darkness. After doing so, the next melee attack you make before your turn ends is rolled with advantage.
+
+
 ### Level 11
 
-* Improved Cloak of Silhouettes
+* Shadow Flurry
 
-Cloak of Silhouettes now works in dim light and magical darkness in addition to natural darkness.
-
-* Improved Silhouette Step
-
-Briefly surrounded by the energy of the Ki, you can now bring an ally with you when teleporting and the range has increased.
+Once per turn when you miss with a monk weapon or unarmed attack while you are in dim light or darkness, you can immediately reroll that attack against the same target. 
 
 
 ### Level 17
 
 * Shadowy Sanctuary
 
-When a creature is about to hit you with an attack, you can pay 3 Ki and use your reaction to step into shadows and disappear, negating any damage or harmful effect you would have received from that attack. While in the shadows, you are considered banished until the start of your next turn.
+While you are in dim light or darkness and a creature is about to hit you with an attack, you can spend 3 ki and use your reaction to step into shadows and disappear, negating any damage or harmful effects you would have received from that attack. While in the shadows, you are considered banished until the start of your next turn.
 
 
 

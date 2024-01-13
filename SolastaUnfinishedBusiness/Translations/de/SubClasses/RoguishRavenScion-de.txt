@@ -15,7 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Als kostenlose Aktion könne
 Feature/&PowerRavenScionHeartSeekingShotTitle=Herzsuchender Schuss
 Feedback/&AdditionalDamageSniperAimFormat=Ziel des Scharfschützen
 Feedback/&AdditionalDamageSniperAimLine=Scharfschützenziel verursacht zusätzlichen Schaden von +{2}!
-Feedback/&TriggerRavenScionRerollLine={0} würfelt {1} = {2}. „Herzsuchender Schuss“ erzwingt einen kritischen Treffer.
+Feedback/&TriggerRavenScionRerollLine1={0} würfelt {1} = {2}. „Tödlicher Fokus“ erzwingt einen kritischen Treffer.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Wiederholen Sie den Angriff

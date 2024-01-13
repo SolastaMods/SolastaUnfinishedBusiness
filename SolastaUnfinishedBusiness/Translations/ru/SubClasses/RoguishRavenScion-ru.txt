@@ -15,7 +15,8 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Свободным дейс�
 Feature/&PowerRavenScionHeartSeekingShotTitle=Выстрел в сердце
 Feedback/&AdditionalDamageSniperAimFormat=Снайперское прицеливание
 Feedback/&AdditionalDamageSniperAimLine=Снайперское прицеливание наносит дополнительно +{2} урона!
-Feedback/&TriggerRavenScionRerollLine={0} бросает {1} = {2}. Выстрел в сердце вызывает критическое попадание.
+Feedback/&TriggerRavenScionRerollLine1={0} выбрасывается {1} = {2}. Смертельный фокус вызовет критический удар.
+Feedback/&TriggerRavenScionRerollLine={0} бросает {1} = {2}. Повторить атаку вызывает критическое попадание.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Повторить атаку
