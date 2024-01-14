@@ -1,7 +1,13 @@
 ﻿1.5.94.43:
 
+- added Gameplay > Rules > 'Use alternate obscurement rules' [as close as we can to TT ones]
 - added Adder's Fangs, Foresight, Forest Guardian, Heroic Infusion, and Mind Blank spell sprites
 - added Power Word: Heal, Power Word: Kill, Ring of Blades, Shapechange, Vitality Transfer, and Weird spell sprites
+- changed Dueling fighting style to not trigger if character also have Shield Expert one
+- changed magic effects in feats, features, fighting style, spells to respect sight whenever required
+- changed Way of Silhouette subclass progression with new and removed/swapped/tweaked features
+- fixed Find Familiar spell considering Wizard position for cover on touch or melee hit effects cast through it
+- fixed Lightning Arrow spell main target damage value determination on a miss
 - fixed Roguish Slayer elimination feature not triggering on magical attacks
 
 1.5.94.42:

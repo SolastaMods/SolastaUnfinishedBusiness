@@ -980,9 +980,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleArchery { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleArchery");
 
-        internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleDueling { get; } =
-            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleDueling");
-
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleTwoWeapon { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleTwoWeapon");
 
@@ -1275,9 +1272,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityHinderedByFrostImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHinderedByFrostImmunity");
-
-        internal static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } =
-            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight");
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityMindControlledImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityMindControlledImmunity");
@@ -1651,9 +1645,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerCollegeLoreCuttingWords { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCollegeLoreCuttingWords");
-
-        internal static FeatureDefinitionPower PowerDefilerMistyFormEscape { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDefilerMistyFormEscape");
 
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
@@ -2182,9 +2173,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionSenses
     {
-        internal static FeatureDefinitionSense SenseBlindSight12 { get; } =
-            GetDefinition<FeatureDefinitionSense>("SenseBlindSight12");
-
         internal static FeatureDefinitionSense SenseDarkvision { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseDarkvision");
 
