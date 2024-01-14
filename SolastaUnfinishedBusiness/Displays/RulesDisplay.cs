@@ -89,6 +89,13 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
         }
 
+        toggle = Main.Settings.UseOfficialObscurementRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialObscurementRules = toggle;
+            SrdAndHouseRulesContext.SwitchOfficialObscurementRules();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack;
@@ -119,13 +126,6 @@ internal static class RulesDisplay
         }
 
         UI.Label();
-
-        toggle = Main.Settings.UseOfficialObscurementRules;
-        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.UseOfficialObscurementRules = toggle;
-            SrdAndHouseRulesContext.SwitchOfficialObscurementRules();
-        }
 
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
         if (UI.Toggle(Gui.Localize("ModUi/&KeepInvisibilityWhenUsingItems"), ref toggle, UI.AutoWidth()))

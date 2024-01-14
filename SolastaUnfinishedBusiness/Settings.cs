@@ -60,38 +60,52 @@ public class Settings : UnityModManager.ModSettings
     public String[] DeprecatedSubsList { get; set; } =
         ["CollegeOfHarlequin", "MartialMarshal", "MartialMartialDefender", "RoguishRaven", "WayOfTheDistantHand"];
 
-    public String[] EffectsThatDontRequireSight { get; set; } =
+    public HashSet<String> EffectsThatTargetDistantIndividualsAndDontRequireSight { get; set; } =
     [
         "AcidSplash",
         "Aid",
+        "AnimalShapes",
         "AnimateDead",
         "ArcaneSword",
         "BeaconOfHope",
         "Bless",
         "BlessingOfRime",
+        "CommandApproach",
+        "CommandDrop",
+        "CommandFlee",
+        "CommandGrovel",
+        "CommandHalt",
         "ConjureAnimalsFourBeasts",
         "ConjureAnimalsOneBeast",
         "ConjureAnimalsTwoBeasts",
-        "ConjureFey",
+        "ConjureCelestial",
+        "ConjureCelestialCouatl",
+        "ConjureCelestialKutkartal",
+        "ConjureCelestialMelek",
+        "ConjureElemental",
+        "ConjureElementalAir",
+        "ConjureElementalEarth",
+        "ConjureElementalFire",
         "ConjureFey_Ape",
         "ConjureFey_Bear",
         "ConjureFey_Dryad",
         "ConjureFey_Eagle",
         "ConjureFey_GreenHag",
         "ConjureFey_Wolf",
+        "ConjureFey",
         "ConjureGoblinoids",
         "ConjureMinorElementals",
         "ConjureMinorElementalsFour",
-        "ConjureMinorElementalsOne",
         "ConjureMinorElementalsOne_b",
+        "ConjureMinorElementalsOne",
         "ConjureMinorElementalsTwo",
         "CreateDeadRisenGhost",
         "CreateDeadRisenGhoul",
-        "CreateDeadRisenSkeleton",
         "CreateDeadRisenSkeleton_Archer",
         "CreateDeadRisenSkeleton_Enforcer",
         "CreateDeadRisenSkeleton_Knight",
         "CreateDeadRisenSkeleton_Marksman",
+        "CreateDeadRisenSkeleton",
         "CreateDeadRisenWight",
         "CreateDeadRisenWightLord",
         "DancingLights",
@@ -100,6 +114,8 @@ public class Settings : UnityModManager.ModSettings
         "FeatherFall",
         "FindFamiliar",
         "GiantInsect",
+        "Knock",
+        "Levitate",
         "MassCureWounds",
         "PassWithoutTrace",
         "RayOfEnfeeblement",
@@ -108,7 +124,9 @@ public class Settings : UnityModManager.ModSettings
         "ShieldOfFaith",
         "Sparkle",
         "SpiritualWeapon",
-        "TrueStrike"
+        "TrueStrike",
+        "WaterBreathing",
+        "WaterWalk"
     ];
 
     //
@@ -209,11 +227,11 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
+    public bool UseOfficialObscurementRules { get; set; }
     public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
-    public bool UseOfficialObscurementRules { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }

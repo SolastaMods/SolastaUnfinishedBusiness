@@ -284,6 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também ataques à dist
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também ataques de alcance <color=#F0DAA0>[desativa matemática precisa]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Em vez de conceder vantagem +1 para jogada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial de 2 libras
-ModUi/&UseOfficialObscurementRules=Use regras alternativas de obscurecimento <i><color=#F0DAA0>[teleporte, respeito à visão, desvantagem nas jogadas de ataque, jogadas de ataque contra ter vantagem]</color></i>
+ModUi/&UseOfficialObscurementRules=Use as regras oficiais de <color=#D89555>obscurecimento</color> <i><color=#F0DAA0>[teletransporte, poderes e feitiços respeitam a visão, desvantagem nas jogadas de ataque, vantagem nas jogadas de ataque contra]</color></i >
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Use as <color=#D89555>regras oficiais de pequenas raças</color> ao empunhar armas pesadas <i><color=#F0DAA0>[seus ataques têm desvantagem]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

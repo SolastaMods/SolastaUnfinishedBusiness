@@ -22,7 +22,7 @@ public static class GameLocationCharacterExtensions
             return true;
         }
 
-        if (Main.Settings.EffectsThatDontRequireSight.Contains(sourceDefinition.Name))
+        if (Main.Settings.EffectsThatTargetDistantIndividualsAndDontRequireSight.Contains(sourceDefinition.Name))
         {
             return true;
         }

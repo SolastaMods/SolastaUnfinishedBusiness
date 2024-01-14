@@ -284,6 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernangriffe aktivie
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren <color=#F0DAA0>[deaktiviert präzise Mathematik]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
-ModUi/&UseOfficialObscurementRules=Verwenden Sie alternative Verdeckungsregeln <i><color=#F0DAA0>[Teleportieren, Sichtweite respektieren, Nachteil bei Angriffswürfen, Angriffswürfe gegen haben einen Vorteil]</color></i>
+ModUi/&UseOfficialObscurementRules=Benutze die offiziellen <color=#D89555>Verdeckungsregeln</color> <i><color=#F0DAA0>[Teleportieren, Kräfte und Zauber respektieren die Sicht, Nachteil bei Angriffswürfen, Vorteil bei Angriffswürfen gegen]</color></i >
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Benutze die offiziellen <color=#D89555>Regeln für kleine Rassen</color>, wenn du schwere Waffen führst <i><color=#F0DAA0>[deine Angriffe haben Nachteile]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
