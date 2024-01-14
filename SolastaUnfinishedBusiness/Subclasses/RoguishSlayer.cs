@@ -31,29 +31,12 @@ public sealed class RoguishSlayer : AbstractSubclass
         // Elimination
         //
 
-        var attributeModifierElimination = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}{Elimination}")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.ForceAnyway,
-                AttributeDefinitions.CriticalThreshold, 1)
-            .AddToDB();
-
-        var conditionElimination = ConditionDefinitionBuilder
-            .Create($"Condition{Name}{Elimination}")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetFeatures(attributeModifierElimination)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-            .AddToDB();
-
         var featureElimination = FeatureDefinitionBuilder
             .Create($"Feature{Name}{Elimination}")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureElimination.AddCustomSubFeatures(
-            new CustomBehaviorElimination(featureElimination, conditionElimination));
+        featureElimination.AddCustomSubFeatures(new CustomBehaviorElimination(featureElimination));
 
         //
         // Chain of Execution
@@ -202,10 +185,8 @@ public sealed class RoguishSlayer : AbstractSubclass
 
     private sealed class CustomBehaviorElimination(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
-        : IPhysicalAttackInitiatedByMe, IModifyAttackActionModifier
+        FeatureDefinition featureDefinition)
+        : IModifyAttackActionModifier, IModifyAttackCriticalThreshold
     {
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
@@ -256,43 +237,10 @@ public sealed class RoguishSlayer : AbstractSubclass
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition));
         }
 
-        public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+        public int GetCriticalThreshold(
+            int current, RulesetCharacter me, RulesetCharacter target, BaseDefinition attackMethod)
         {
-            //
-            // allow critical hit if defender is surprised
-            //
-
-            var rulesetDefender = defender.RulesetCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
-                rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
-            {
-                rulesetAttacker.InflictCondition(
-                    conditionDefinition.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
+            return target.HasConditionOfType(ConditionSurprised) ? 1 : current;
         }
     }
 

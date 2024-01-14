@@ -247,8 +247,8 @@ public sealed class PatronSoulBlade : AbstractSubclass
     private sealed class ModifyCriticalThresholdAgainstHexedTargets(string hexCondition)
         : IModifyAttackCriticalThreshold
     {
-        public int GetCriticalThreshold(int current, RulesetCharacter me, RulesetCharacter target,
-            BaseDefinition attackMethod)
+        public int GetCriticalThreshold(
+            int current, RulesetCharacter me, RulesetCharacter target, BaseDefinition attackMethod)
         {
             if (target == null || attackMethod == null)
             {

@@ -1,14 +1,12 @@
-﻿1.5.94.42:
+﻿1.5.94.43:
 
-- fixed to hit / to damage attribute affecting:
-    Circle of Forest Guardian
-    Innovation Armor
-    Innovation Weapon
-    Path of The Yeoman
-    Patron Soulblade
-    Sorcerous Spellblade
-    Wizard Arcane Fighter
-    Precision focused feats
+- added Adder's Fangs, Foresight, Forest Guardian, Heroic Infusion, and Mind Blank spell sprites
+- added Power Word: Heal, Power Word: Kill, Ring of Blades, Shapechange, Vitality Transfer, and Weird spell sprites
+- fixed Roguish Slayer elimination feature not triggering on magical attacks
+
+1.5.94.42:
+
+- fixed to hit / to damage attribute affecting subclasses and feats offering another attribute
 
 1.5.94.41:
 
