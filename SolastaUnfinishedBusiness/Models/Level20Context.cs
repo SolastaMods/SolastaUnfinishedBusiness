@@ -843,7 +843,8 @@ internal static class Level20Context
         {
             var rulesetCharacter = me.RulesetCharacter;
 
-            if (rulesetCharacter == null || !rulesetCharacter.CanUsePower(power) || !me.PerceivedFoes.Contains(target))
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.CanUsePower(power) || !me.CanPerceiveTarget(target))
             {
                 yield break;
             }

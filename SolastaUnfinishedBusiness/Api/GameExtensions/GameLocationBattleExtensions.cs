@@ -34,9 +34,7 @@ internal static class GameLocationBattleExtensions
 
         if (hasToPerceiveTarget)
         {
-            aliveContenders = isOppositeSide
-                ? aliveContenders.Where(x => character.PerceivedFoes.Contains(x))
-                : aliveContenders.Where(x => character.PerceivedAllies.Contains(x));
+            aliveContenders = aliveContenders.Where(character.CanPerceiveTarget);
         }
 
         return aliveContenders.ToList();

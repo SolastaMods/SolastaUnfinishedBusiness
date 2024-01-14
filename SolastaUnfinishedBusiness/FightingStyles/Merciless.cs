@@ -99,7 +99,7 @@ internal sealed class Merciless : AbstractFightingStyle
                     //CHECK: no need for AddAsActivePowerToSource
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false),
                 targetCharacters = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: distance)
-                    .Where(x => x.PerceivedFoes.Contains(attacker)).ToList()
+                    .Where(x => x.CanPerceiveTarget(attacker)).ToList()
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

@@ -297,8 +297,7 @@ public class PatronMountain : AbstractSubclass
             }
 
             if (!gameLocationBattleManager.IsWithinXCells(me, defender, 7) ||
-                !me.PerceivedAllies.Contains(defender) ||
-                !me.PerceivedFoes.Contains(attacker))
+                !me.CanPerceiveTarget(defender) || !me.CanPerceiveTarget(attacker))
             {
                 yield break;
             }

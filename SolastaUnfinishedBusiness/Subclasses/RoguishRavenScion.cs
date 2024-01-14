@@ -283,7 +283,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var rulesetAttacker = me.RulesetCharacter;
 
             if (rulesetAttacker.GetRemainingPowerCharges(power) <= 0 ||
-                !ValidatorsWeapon.IsTwoHandedRanged(attackMode) || !me.PerceivedFoes.Contains(target))
+                !ValidatorsWeapon.IsTwoHandedRanged(attackMode) || !me.CanPerceiveTarget(target))
             {
                 yield break;
             }

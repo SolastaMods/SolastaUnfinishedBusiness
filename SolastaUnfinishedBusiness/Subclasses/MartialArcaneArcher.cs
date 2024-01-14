@@ -738,7 +738,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (!IsBow(attackMode, null, null) || !me.PerceivedFoes.Contains(target))
+            if (!IsBow(attackMode, null, null) || !me.CanPerceiveTarget(target))
             {
                 yield break;
             }

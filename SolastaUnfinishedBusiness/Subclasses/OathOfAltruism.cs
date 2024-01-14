@@ -211,7 +211,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             }
 
             //Can this unit see defender?
-            if (!me.PerceivedAllies.Contains(defender))
+            if (!me.CanPerceiveTarget(defender))
             {
                 yield break;
             }

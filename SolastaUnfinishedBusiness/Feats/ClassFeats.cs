@@ -413,7 +413,7 @@ internal static class ClassFeats
                 yield break;
             }
 
-            if (!me.PerceivedFoes.Contains(defender))
+            if (!me.CanPerceiveTarget(defender))
             {
                 yield break;
             }

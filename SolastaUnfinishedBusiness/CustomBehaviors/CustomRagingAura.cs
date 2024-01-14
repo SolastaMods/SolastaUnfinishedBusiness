@@ -72,7 +72,7 @@ public class CustomRagingAura(
                          .Where(x =>
                              !gameLocationBattleService.IsWithinXCells(locationCharacter, x,
                                  powerDefinition.EffectDescription.targetParameter) ||
-                             !x.PerceivedFoes.Contains(locationCharacter) ||
+                             !x.CanPerceiveTarget(locationCharacter) ||
                              !locationCharacter.RulesetCharacter.HasConditionOfType(ConditionRaging)))
             {
                 var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;

@@ -12,6 +12,25 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    // consolidate all checks if a character can perceive another
+    public static bool CanPerceiveTarget(
+        this GameLocationCharacter __instance,
+        GameLocationCharacter target)
+    {
+        var canPerceiveVanilla =
+            __instance.PerceivedAllies.Contains(target) || __instance.PerceivedFoes.Contains(target);
+
+        if (!Main.Settings.UseOfficialObscurementRules || !canPerceiveVanilla)
+        {
+            return canPerceiveVanilla;
+        }
+
+        var visibilityService =
+            ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+        return visibilityService.MyIsCellPerceivedByCharacter(target.LocationPosition, __instance);
+    }
+
     public static void MyComputeLightingModifierForLightingState(
         this GameLocationCharacter __instance,
         float distance,

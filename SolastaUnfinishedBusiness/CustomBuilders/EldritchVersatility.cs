@@ -1053,7 +1053,7 @@ internal static class EldritchVersatility
             }
 
             //Can this unit see defender?
-            if (!me.PerceivedAllies.Contains(defender))
+            if (!me.CanPerceiveTarget(defender))
             {
                 yield break;
             }
@@ -1313,10 +1313,8 @@ internal static class EldritchVersatility
             GameLocationCharacter helper)
         {
             return helper.CanReact()
-                   && helper.PerceivedFoes.Contains(defender)
-                   && gameLocationBattleManager.IsWithinXCells(helper, defender, 7)
-                   && gameLocationBattleManager.CanAttackerSeeCharacterFromPosition(
-                       defender.LocationPosition, helper.LocationPosition, defender, helper);
+                   && helper.CanPerceiveTarget(defender)
+                   && gameLocationBattleManager.IsWithinXCells(helper, defender, 7);
         }
     }
 

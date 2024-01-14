@@ -1709,7 +1709,7 @@ internal static class GambitsBuilders
 
             var character = me.RulesetCharacter;
 
-            if (character.GetRemainingPowerCharges(pool) <= 0 || !me.PerceivedFoes.Contains(target))
+            if (character.GetRemainingPowerCharges(pool) <= 0 || !me.CanPerceiveTarget(target))
             {
                 yield break;
             }

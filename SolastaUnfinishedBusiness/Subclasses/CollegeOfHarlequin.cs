@@ -274,7 +274,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             }
 
             var targets = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 3)
-                .Where(x => x.PerceivedFoes.Contains(attacker)).ToList();
+                .Where(x => x.CanPerceiveTarget(attacker)).ToList();
 
             if (targets.Empty())
             {

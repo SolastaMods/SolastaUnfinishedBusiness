@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -238,10 +237,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         rulesetCharacter.LogCharacterUsedPower(powerSuperiorBarkWard);
 
-        foreach (var ally in locationCharacter.PerceivedAllies
-                     .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                 gameLocationBattleService.IsWithinXCells(locationCharacter, x, 3))
-                     .ToList())
+        foreach (var ally in
+                 gameLocationBattleService.Battle.GetContenders(locationCharacter, false, isWithinXCells: 3))
         {
             ally.RulesetCharacter.ReceiveTemporaryHitPoints(
                 hitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);

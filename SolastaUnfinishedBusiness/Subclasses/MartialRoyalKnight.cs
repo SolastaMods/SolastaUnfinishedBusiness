@@ -317,7 +317,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            return helper.CanReact() && helper.PerceivedAllies.Contains(defender);
+            return helper.CanReact() && helper.CanPerceiveTarget(defender);
         }
 
         private static bool TryModifyRoll(
