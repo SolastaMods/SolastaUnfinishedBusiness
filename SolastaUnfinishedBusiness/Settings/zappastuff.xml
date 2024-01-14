@@ -218,6 +218,73 @@
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>
     </DeprecatedSubsList>
+    <EffectsThatTargetDistantIndividualsAndDontRequireSight>
+        <string>AcidSplash</string>
+        <string>Aid</string>
+        <string>AnimalShapes</string>
+        <string>AnimateDead</string>
+        <string>ArcaneSword</string>
+        <string>BeaconOfHope</string>
+        <string>Bless</string>
+        <string>BlessingOfRime</string>
+        <string>CommandApproach</string>
+        <string>CommandDrop</string>
+        <string>CommandFlee</string>
+        <string>CommandGrovel</string>
+        <string>CommandHalt</string>
+        <string>ConjureAnimalsFourBeasts</string>
+        <string>ConjureAnimalsOneBeast</string>
+        <string>ConjureAnimalsTwoBeasts</string>
+        <string>ConjureCelestial</string>
+        <string>ConjureCelestialCouatl</string>
+        <string>ConjureCelestialKutkartal</string>
+        <string>ConjureCelestialMelek</string>
+        <string>ConjureElemental</string>
+        <string>ConjureElementalAir</string>
+        <string>ConjureElementalEarth</string>
+        <string>ConjureElementalFire</string>
+        <string>ConjureFey_Ape</string>
+        <string>ConjureFey_Bear</string>
+        <string>ConjureFey_Dryad</string>
+        <string>ConjureFey_Eagle</string>
+        <string>ConjureFey_GreenHag</string>
+        <string>ConjureFey_Wolf</string>
+        <string>ConjureFey</string>
+        <string>ConjureGoblinoids</string>
+        <string>ConjureMinorElementals</string>
+        <string>ConjureMinorElementalsFour</string>
+        <string>ConjureMinorElementalsOne_b</string>
+        <string>ConjureMinorElementalsOne</string>
+        <string>ConjureMinorElementalsTwo</string>
+        <string>CreateDeadRisenGhost</string>
+        <string>CreateDeadRisenGhoul</string>
+        <string>CreateDeadRisenSkeleton_Archer</string>
+        <string>CreateDeadRisenSkeleton_Enforcer</string>
+        <string>CreateDeadRisenSkeleton_Knight</string>
+        <string>CreateDeadRisenSkeleton_Marksman</string>
+        <string>CreateDeadRisenSkeleton</string>
+        <string>CreateDeadRisenWight</string>
+        <string>CreateDeadRisenWightLord</string>
+        <string>DancingLights</string>
+        <string>DimensionDoor</string>
+        <string>DispelMagic</string>
+        <string>FeatherFall</string>
+        <string>FindFamiliar</string>
+        <string>GiantInsect</string>
+        <string>Knock</string>
+        <string>Levitate</string>
+        <string>MassCureWounds</string>
+        <string>PassWithoutTrace</string>
+        <string>RayOfEnfeeblement</string>
+        <string>ResonatingStrike</string>
+        <string>Sanctuary</string>
+        <string>ShieldOfFaith</string>
+        <string>Sparkle</string>
+        <string>SpiritualWeapon</string>
+        <string>TrueStrike</string>
+        <string>WaterBreathing</string>
+        <string>WaterWalk</string>
+    </EffectsThatTargetDistantIndividualsAndDontRequireSight>
     <DisableUpdateMessage>false</DisableUpdateMessage>
     <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -296,12 +363,11 @@
     <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
     <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
+    <UseOfficialObscurementRules>true</UseOfficialObscurementRules>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>true</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
-    <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>true
-    </AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
     <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
@@ -833,6 +899,7 @@
         <string>FeatGroupCelestialTouched</string>
         <string>FeatCharismaticDefense</string>
         <string>FeatCharismaticPrecision</string>
+        <string>FeatHandAndAHalf</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupCloseQuarters</string>
         <string>FeatCrippling</string>
@@ -861,7 +928,6 @@
         <string>FeatFrostAdaptation</string>
         <string>FeatGreatWeapon</string>
         <string>FeatHammerThePoint</string>
-        <string>FeatHandAndAHalf</string>
         <string>FeatGroupHardy</string>
         <string>FeatHealer</string>
         <string>FeatHeavyArmorMaster</string>
@@ -869,6 +935,7 @@
         <string>FeatInfernalConstitution</string>
         <string>FeatInfusionsAdept</string>
         <string>FeatInspiringLeader</string>
+        <string>FeatZenArcher</string>
         <string>FeatGroupIridescentTouched</string>
         <string>FeatLongswordFinesse</string>
         <string>FeatLunger</string>
@@ -900,6 +967,7 @@
         <string>FeatPugilist</string>
         <string>FeatRangedExpert</string>
         <string>FeatRecklessAttack</string>
+        <string>FeatRemarkableTechnique</string>
         <string>FeatGroupRetinueTouched</string>
         <string>FeatGroupRevenantGreatSword</string>
         <string>FeatRopeItUp</string>
@@ -925,7 +993,6 @@
         <string>FeatInterception</string>
         <string>FeatWiseDefense</string>
         <string>FeatWisePrecision</string>
-        <string>FeatZenArcher</string>
     </FeatEnabled>
     <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
     <FeatGroupEnabled>
@@ -962,15 +1029,16 @@
     <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
     <FightingStyleEnabled>
         <string>BlindFighting</string>
+        <string>HandAndAHalf</string>
         <string>Crippling</string>
         <string>Executioner</string>
-        <string>HandAndAHalf</string>
         <string>Lunger</string>
         <string>Merciless</string>
         <string>MonkShieldExpert</string>
         <string>Sentinel</string>
         <string>PolearmExpert</string>
         <string>Pugilist</string>
+        <string>RemarkableTechnique</string>
         <string>RopeItUp</string>
         <string>ShieldExpert</string>
         <string>Torchbearer</string>
