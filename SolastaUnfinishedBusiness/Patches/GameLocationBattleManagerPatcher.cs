@@ -1225,8 +1225,13 @@ public static class GameLocationBattleManagerPatcher
             int3 defenderPosition,
             ActionModifier attackModifier,
             ref CoverType bestCoverType,
-            bool ignoreCoverFromCharacters)
+            ref bool ignoreCoverFromCharacters)
         {
+            if (attacker.UsedSpecialFeatures.ContainsKey("FamiliarAttack"))
+            {
+                ignoreCoverFromCharacters = true;
+            }
+
             var modifiers = defender.RulesetCharacter.GetSubFeaturesByType<IModifyCoverType>();
 
             foreach (var modifier in modifiers)

@@ -31,6 +31,9 @@ public static class CursorLocationSelectTargetPatcher
             var actingCharacter = __instance.actionParams.actingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
+            // required for familiar attack
+            actingCharacter.UsedSpecialFeatures.Remove("FamiliarAttack");
+            
             if (__result &&
                 Main.Settings.UseOfficialObscurementRules &&
                 !Main.Settings.EffectsThatDontRequireSight.Contains(
@@ -102,10 +105,10 @@ public static class CursorLocationSelectTargetPatcher
                         var effectDescription = new EffectDescription();
 
                         effectDescription.Copy(__instance.effectDescription);
-                        effectDescription.rangeType = RangeType.RangeHit;
                         effectDescription.rangeParameter = 24;
 
                         __instance.effectDescription = effectDescription;
+                        actingCharacter.UsedSpecialFeatures.Add("FamiliarAttack", 0);
                     }
                     else
                     {
