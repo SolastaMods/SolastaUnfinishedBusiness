@@ -1,0 +1,36 @@
+{
+  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "features": [
+    "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
+    "Definition:PowerPoolTacticianGambit:20212eff-ee31-5717-969d-22b9b8da2c95",
+    "Definition:PowerUseModifierTacticianGambitPoolRemarkableTechnique:aee88439-7ecc-5014-8c1e-52b30eb71dd4"
+  ],
+  "condition": "RangedWeaponAttack",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&RemarkableTechniqueTitle",
+    "description": "FightingStyle/&RemarkableTechniqueDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a5f94519-9eb8-5710-9319-15ff8b16b4e1",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "8cdb592b-9041-52a5-801f-fa620bdd9d0b",
+  "contentPack": 9999,
+  "name": "RemarkableTechnique"
+}

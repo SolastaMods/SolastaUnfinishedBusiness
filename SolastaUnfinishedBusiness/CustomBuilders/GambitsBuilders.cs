@@ -34,6 +34,13 @@ internal static class GambitsBuilders
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
 
+    internal static FeatureDefinitionCustomInvocationPool Learn1Gambit { get; } =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolGambitLearn1")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.Gambit)
+            .AddToDB();
+
     internal static FeatureDefinitionCustomInvocationPool Learn2Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn2")

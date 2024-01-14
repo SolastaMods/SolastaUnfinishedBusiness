@@ -58,12 +58,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolGambitLearn2:81610ec8-6ee4-5218-a274-46987457db6c",
+      "featureDefinition": "Definition:FeatureSetTacticianBattleClarity:f473d7da-4fae-5487-8385-08c181825099",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetTacticianBattleClarity:f473d7da-4fae-5487-8385-08c181825099",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn2:81610ec8-6ee4-5218-a274-46987457db6c",
       "level": 15
     },
     {

@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,15 +11,17 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:ProficiencyFeatRemarkableTechnique:11294f12-730d-550d-832c-049e9de2ae52"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupFightingStyleTitle",
-    "description": "Archery, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Lunger, Merciless, Monastic Shield Training, Overwatch, Polearm Expert, Protection, Pugilist, Remarkable Technique, Rope it Up, Shield Expert, Torchbearer, Two Weapon Fighting, Warden",
+    "title": "FightingStyle/&RemarkableTechniqueTitle",
+    "description": "FightingStyle/&RemarkableTechniqueDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "a5f94519-9eb8-5710-9319-15ff8b16b4e1",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a9395b1c-83fc-5649-9eb2-508ed6e87571",
+  "guid": "2c0b377d-e999-55aa-9b58-a8449ac22b0c",
   "contentPack": 9999,
-  "name": "FeatGroupFightingStyle"
+  "name": "FeatRemarkableTechnique"
 }

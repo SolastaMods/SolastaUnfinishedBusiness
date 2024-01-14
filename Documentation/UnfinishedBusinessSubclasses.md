@@ -1101,9 +1101,9 @@ Gain proficiency with a skill of your choice.
 
 You gain an additional gambit die.
 
-* Additional Gambits
+* Gambits
 
-Learn 2 more gambits.
+Learn 2 gambits.
 
 * Honed Skill
 
@@ -1135,13 +1135,13 @@ You can choose a strategy to deal with prolonged encounters - abilities that wou
 
 You gain an additional gambit die.
 
-* Additional Gambits
-
-Learn 2 more gambits.
-
 * Battle Clarity
 
 Gain proficiency with a saving throw of your choice.
+
+* Gambits
+
+Learn 2 gambits.
 
 * Replace Gambit
 

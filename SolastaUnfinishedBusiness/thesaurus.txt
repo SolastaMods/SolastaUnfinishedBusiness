@@ -121,6 +121,7 @@ Psychic Whip=Tasha's Mind Whip
 Psychokinesis=Telekinetic
 Ranged Expert=Crossbow Expert
 Readied Strike=Brace
+Remarkable Technique=Superior Technique
 Repel=Pushing Attack
 Resonating Blade=Booming Blade
 Revenant Great Sword=Revenant Blade

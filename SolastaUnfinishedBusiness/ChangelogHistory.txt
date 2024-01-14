@@ -1,6 +1,7 @@
 ﻿1.5.94.43:
 
 - added Gameplay > Rules > 'Use alternate obscurement rules' [as close as we can to TT ones]
+- added Remarkable Technique fighting style
 - added Adder's Fangs, Foresight, Forest Guardian, Heroic Infusion, and Mind Blank spell sprites
 - added Power Word: Heal, Power Word: Kill, Ring of Blades, Shapechange, Vitality Transfer, and Weird spell sprites
 - changed Dueling fighting style to not trigger if character also have Shield Expert one
