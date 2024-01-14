@@ -12,13 +12,53 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    public static bool IsMagicEffectValidUnderObscurement(
+        this GameLocationCharacter source,
+        BaseDefinition sourceDefinition,
+        GameLocationCharacter target)
+    {
+        if (!Main.Settings.UseOfficialObscurementRules)
+        {
+            return true;
+        }
+
+        if (Main.Settings.EffectsThatDontRequireSight.Contains(sourceDefinition.Name))
+        {
+            return true;
+        }
+
+        var rulesetCharacter = source.RulesetCharacter;
+
+        if (!rulesetCharacter.IsUnderHeavyObscurement() &&
+            (target.RulesetActor is not RulesetCharacter rulesetEnemy || !rulesetEnemy.IsUnderHeavyObscurement()))
+        {
+            return true;
+        }
+
+        var effectDescription = sourceDefinition switch
+        {
+            SpellDefinition spell => spell.EffectDescription,
+            FeatureDefinitionPower power => power.EffectDescription,
+            _ => null
+        };
+
+        var shouldTrigger = effectDescription is
+        {
+            RangeType: RuleDefinitions.RangeType.Distance,
+            TargetType: RuleDefinitions.TargetType.Individuals or RuleDefinitions.TargetType.IndividualsUnique
+        };
+
+        return !shouldTrigger || source.CanPerceiveTarget(target);
+    }
+
     // consolidate all checks if a character can perceive another
     public static bool CanPerceiveTarget(
         this GameLocationCharacter __instance,
         GameLocationCharacter target)
     {
         var canPerceiveVanilla =
-            __instance.PerceivedAllies.Contains(target) || __instance.PerceivedFoes.Contains(target);
+            (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
+            (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
 
         if (!Main.Settings.UseOfficialObscurementRules || !canPerceiveVanilla)
         {

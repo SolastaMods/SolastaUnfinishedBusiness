@@ -27,47 +27,20 @@ public static class CursorLocationSelectTargetPatcher
             GameLocationCharacter target,
             ref bool __result)
         {
-            //PATCH: supports UseOfficialObscurementRules
+            var definition = __instance.ActionParams.activeEffect.SourceDefinition;
             var actingCharacter = __instance.actionParams.actingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             // required for familiar attack
             actingCharacter.UsedSpecialFeatures.Remove("FamiliarAttack");
-            
-            if (__result &&
-                Main.Settings.UseOfficialObscurementRules &&
-                !Main.Settings.EffectsThatDontRequireSight.Contains(
-                    __instance.ActionParams.RulesetEffect.SourceDefinition.Name) &&
-                (rulesetCharacter.IsUnderHeavyObscurement() ||
-                 (target.RulesetActor is RulesetCharacter rulesetEnemy && rulesetEnemy.IsUnderHeavyObscurement())))
+
+            //PATCH: supports UseOfficialObscurementRules
+            if (__result && !actingCharacter.IsMagicEffectValidUnderObscurement(definition, target))
             {
-                var visibilityService =
-                    ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+                __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoPerceptionOfTargetDescription");
+                __result = false;
 
-                var effectDescription = __instance.actionParams.RulesetEffect switch
-                {
-                    RulesetEffectSpell effectSpellTrigger1 => effectSpellTrigger1.EffectDescription,
-                    RulesetEffectPower effectPowerTrigger1 => effectPowerTrigger1.EffectDescription,
-                    _ => null
-                };
-
-                var shouldTrigger = effectDescription is
-                {
-                    RangeType: RangeType.Distance,
-                    TargetType: TargetType.Individuals or TargetType.IndividualsUnique
-                };
-
-                if (shouldTrigger &&
-                    !visibilityService.MyIsCellPerceivedByCharacter(target.LocationPosition, actingCharacter))
-                {
-                    __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoPerceptionOfTargetDescription");
-                    __result = false;
-
-                    return;
-                }
+                return;
             }
-
-            var definition = __instance.ActionParams.activeEffect.SourceDefinition;
 
             //PATCH: supports IFilterTargetingCharacter
             foreach (var filterTargetingMagicEffect in
@@ -86,6 +59,7 @@ public static class CursorLocationSelectTargetPatcher
                 rulesetEffectSpell.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
             {
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                var rulesetCharacter = actingCharacter.RulesetCharacter;
 
                 if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     gameLocationBattleService is { IsBattleInProgress: true })

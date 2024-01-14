@@ -60,7 +60,56 @@ public class Settings : UnityModManager.ModSettings
     public String[] DeprecatedSubsList { get; set; } =
         ["CollegeOfHarlequin", "MartialMarshal", "MartialMartialDefender", "RoguishRaven", "WayOfTheDistantHand"];
 
-    public String[] EffectsThatDontRequireSight { get; set; } = [];
+    public String[] EffectsThatDontRequireSight { get; set; } =
+    [
+        "AcidSplash",
+        "Aid",
+        "AnimateDead",
+        "ArcaneSword",
+        "BeaconOfHope",
+        "Bless",
+        "BlessingOfRime",
+        "ConjureAnimalsFourBeasts",
+        "ConjureAnimalsOneBeast",
+        "ConjureAnimalsTwoBeasts",
+        "ConjureFey",
+        "ConjureFey_Ape",
+        "ConjureFey_Bear",
+        "ConjureFey_Dryad",
+        "ConjureFey_Eagle",
+        "ConjureFey_GreenHag",
+        "ConjureFey_Wolf",
+        "ConjureGoblinoids",
+        "ConjureMinorElementals",
+        "ConjureMinorElementalsFour",
+        "ConjureMinorElementalsOne",
+        "ConjureMinorElementalsOne_b",
+        "ConjureMinorElementalsTwo",
+        "CreateDeadRisenGhost",
+        "CreateDeadRisenGhoul",
+        "CreateDeadRisenSkeleton",
+        "CreateDeadRisenSkeleton_Archer",
+        "CreateDeadRisenSkeleton_Enforcer",
+        "CreateDeadRisenSkeleton_Knight",
+        "CreateDeadRisenSkeleton_Marksman",
+        "CreateDeadRisenWight",
+        "CreateDeadRisenWightLord",
+        "DancingLights",
+        "DimensionDoor",
+        "DispelMagic",
+        "FeatherFall",
+        "FindFamiliar",
+        "GiantInsect",
+        "MassCureWounds",
+        "PassWithoutTrace",
+        "RayOfEnfeeblement",
+        "ResonatingStrike",
+        "Sanctuary",
+        "ShieldOfFaith",
+        "Sparkle",
+        "SpiritualWeapon",
+        "TrueStrike"
+    ];
 
     //
     // Gameplay - Tools
@@ -160,14 +209,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
-
-    public bool
-        KeepStealthOnHeroIfPerceivedDuringSurpriseAttack
-    {
-        get;
-        set;
-    } // removing stealth from hero if within enemy perceived range during a surprise attack
-
+    public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
