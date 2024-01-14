@@ -938,9 +938,7 @@ internal static partial class SpellBuilders
     private sealed class CustomBehaviorLightningArrow(
         FeatureDefinitionPower powerLightningArrowLeap,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionLightningArrow)
-        :
-            IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        ConditionDefinition conditionLightningArrow) : IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private const int MainTargetDiceNumber = 3;
 
@@ -1022,13 +1020,13 @@ internal static partial class SpellBuilders
                 {
                     DamageType = DamageTypeLightning,
                     DieType = DieType.D8,
-                    DiceNumber = (MainTargetDiceNumber + additionalDice) / 2
+                    DiceNumber = MainTargetDiceNumber + additionalDice
                 };
                 var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
                 var rulesetDefender = defender.RulesetCharacter;
 
                 RulesetActor.InflictDamage(
-                    damageRoll,
+                    damageRoll / 2,
                     damageForm,
                     damageForm.DamageType,
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
