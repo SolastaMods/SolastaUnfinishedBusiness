@@ -635,7 +635,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             }
 
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == defender)
+            if (defender.IsMyTurn())
             {
                 yield break;
             }

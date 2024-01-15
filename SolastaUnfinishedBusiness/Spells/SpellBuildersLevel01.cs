@@ -942,8 +942,9 @@ internal static partial class SpellBuilders
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            // only add the damage condition if in my own turn
-            if (Gui.Battle == null || Gui.Battle.ActiveContenderIgnoringLegendary.RulesetCharacter != target)
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            if (glc == null || !glc.IsMyTurn())
             {
                 return;
             }

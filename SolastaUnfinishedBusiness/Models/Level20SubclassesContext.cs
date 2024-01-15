@@ -2333,7 +2333,7 @@ internal static class Level20SubclassesContext
         {
             var battle = Gui.Battle;
 
-            if (battle.CurrentRound > 1)
+            if (battle == null || battle.CurrentRound > 1)
             {
                 return;
             }

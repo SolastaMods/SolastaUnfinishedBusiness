@@ -12,6 +12,11 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    public static bool IsMyTurn(this GameLocationCharacter character)
+    {
+        return Gui.Battle != null && Gui.Battle.ActiveContenderIgnoringLegendary == character;
+    }
+
     public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
         if (Main.Settings.UseOfficialDistanceCalculation)

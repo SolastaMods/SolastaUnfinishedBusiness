@@ -269,7 +269,7 @@ public class PatronMountain : AbstractSubclass
             GameLocationCharacter me)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (me.IsMyTurn())
             {
                 yield break;
             }

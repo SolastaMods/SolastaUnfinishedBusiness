@@ -662,7 +662,7 @@ public static class ActionSwitching
                 yield break;
             }
 
-            if (Gui.Battle?.ActiveContender != attacker)
+            if (!attacker.IsMyTurn())
             {
                 yield break;
             }

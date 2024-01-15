@@ -160,6 +160,11 @@ public sealed class MartialGuardian : AbstractSubclass
             return;
         }
 
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+
         foreach (var guardian in Gui.Battle.AllContenders
                      .Where(x => x.RulesetCharacter.GetSubclassLevel(Fighter, Name) > 0))
         {

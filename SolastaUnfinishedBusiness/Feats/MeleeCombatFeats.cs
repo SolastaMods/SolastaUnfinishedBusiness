@@ -551,10 +551,9 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            var battle = Gui.Battle;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (battle == null || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -625,7 +624,7 @@ internal static class MeleeCombatFeats
             }
 
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle.ActiveContenderIgnoringLegendary == target)
+            if (target.IsMyTurn())
             {
                 yield break;
             }

@@ -345,11 +345,6 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
             if (!attacker.OnceInMyTurnIsValid(featureDefinition.Name))
             {
                 yield break;

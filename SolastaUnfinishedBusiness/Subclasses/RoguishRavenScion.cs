@@ -204,7 +204,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
-            if (Gui.Battle?.ActiveContender != attacker)
+            if (!attacker.IsMyTurn())
             {
                 yield break;
             }

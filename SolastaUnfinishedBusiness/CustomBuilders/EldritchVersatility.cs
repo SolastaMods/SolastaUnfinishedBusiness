@@ -665,9 +665,9 @@ internal static class EldritchVersatility
         {
             var rulesetCharacter = character.RulesetCharacter;
 
-            if (Gui.Battle is null
-                || !IsEldritchBlast(actionParams.RulesetEffect)
-                || !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if (Gui.Battle == null || 
+                !IsEldritchBlast(actionParams.RulesetEffect) ||
+                !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 return;
             }
@@ -691,7 +691,7 @@ internal static class EldritchVersatility
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
             RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
-            if (Gui.Battle is null ||
+            if (Gui.Battle == null ||
                 caster.RulesetCharacter != featureOwner ||
                 selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
                 !featureOwner.GetVersatilitySupportCondition(out var supportCondition) ||
@@ -1389,7 +1389,7 @@ internal static class EldritchVersatility
         {
             var rulesetCharacter = character.RulesetCharacter;
 
-            if (Gui.Battle is null ||
+            if (Gui.Battle == null ||
                 !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
@@ -1411,7 +1411,7 @@ internal static class EldritchVersatility
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
             RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
-            if (Gui.Battle is null ||
+            if (Gui.Battle == null ||
                 caster.RulesetCharacter != featureOwner ||
                 selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
                 !IsInvocationActive(featureOwner, InvocationName, out var invocation) ||

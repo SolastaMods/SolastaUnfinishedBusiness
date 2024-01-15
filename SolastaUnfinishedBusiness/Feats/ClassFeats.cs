@@ -401,7 +401,7 @@ internal static class ClassFeats
             }
 
             //do not trigger on my own turn, so won't exploit on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (me.IsMyTurn())
             {
                 yield break;
             }

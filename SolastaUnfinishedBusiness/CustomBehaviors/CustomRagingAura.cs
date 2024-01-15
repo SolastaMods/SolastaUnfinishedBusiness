@@ -46,8 +46,6 @@ public class CustomRagingAura(
             return;
         }
 
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
         if (friendlyAura)
         {
             foreach (var targetLocationCharacter in battle.GetContenders(locationCharacter, false)

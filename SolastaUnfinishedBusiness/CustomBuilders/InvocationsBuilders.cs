@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
@@ -1273,7 +1274,9 @@ internal static class InvocationsBuilders
                             .Build())
                     .SetParticleEffectParameters(PowerMelekTeleport)
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorInexorableHex())
+            .AddCustomSubFeatures(
+                ValidatorsValidatePowerUse.InCombat,
+                new CustomBehaviorInexorableHex())
             .AddToDB();
 
         return InvocationDefinitionWithPrerequisitesBuilder
@@ -1285,7 +1288,7 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorInexorableHex : IFilterTargetingPosition, IValidatePowerUse
+    private sealed class CustomBehaviorInexorableHex : IFilterTargetingPosition
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
@@ -1330,11 +1333,6 @@ internal static class InvocationsBuilders
                     }
                 }
             }
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            return Gui.Battle != null;
         }
     }
 

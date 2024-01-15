@@ -698,12 +698,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
             var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
-
-            if (Gui.Battle == null)
-            {
-                return usablePower.RemainingUses > 0;
-            }
-
             var glc = GameLocationCharacter.GetFromActor(character);
 
             if (glc == null || !glc.OnceInMyTurnIsValid("ElementalBreath"))
@@ -762,12 +756,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
             var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
-
-            if (Gui.Battle == null)
-            {
-                return usablePower.RemainingUses == 0;
-            }
-
             var glc = GameLocationCharacter.GetFromActor(character);
 
             if (glc == null || !glc.OnceInMyTurnIsValid("ElementalBreath"))

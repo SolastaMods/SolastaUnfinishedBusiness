@@ -249,7 +249,7 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            if (Gui.Battle?.ActiveContender != attacker)
+            if (!attacker.IsMyTurn())
             {
                 yield break;
             }
@@ -327,7 +327,7 @@ internal static class RaceWyrmkinBuilder
             int damageAmount)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == defender)
+            if (defender.IsMyTurn())
             {
                 yield break;
             }

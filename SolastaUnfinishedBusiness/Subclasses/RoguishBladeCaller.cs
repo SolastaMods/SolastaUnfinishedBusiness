@@ -373,8 +373,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker, hasToPerceiveTarget: true,
-                isWithinXCells: 3));
+            actionParams.TargetCharacters.SetRange(
+                battleManager.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 3));
 
             // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
