@@ -24,15 +24,20 @@ public static class GameLocationCharacterExtensions
 
     public static bool IsMagicEffectValidUnderObscurement(
         this GameLocationCharacter source,
-        BaseDefinition sourceDefinition,
+        IMagicEffect magicEffect,
         GameLocationCharacter target)
     {
+        if (target == null)
+        {
+            return true;
+        }
+
         if (!Main.Settings.UseOfficialObscurementRules)
         {
             return true;
         }
 
-        if (Main.Settings.EffectsThatTargetDistantIndividualsAndDontRequireSight.Contains(sourceDefinition.Name))
+        if (Main.Settings.EffectsThatTargetDistantIndividualsAndDontRequireSight.Contains(magicEffect.Name))
         {
             return true;
         }
@@ -45,13 +50,7 @@ public static class GameLocationCharacterExtensions
             return true;
         }
 
-        var effectDescription = sourceDefinition switch
-        {
-            SpellDefinition spell => spell.EffectDescription,
-            FeatureDefinitionPower power => power.EffectDescription,
-            _ => null
-        };
-
+        var effectDescription = magicEffect.EffectDescription;
         var shouldTrigger = effectDescription is
         {
             RangeType: RuleDefinitions.RangeType.Distance,

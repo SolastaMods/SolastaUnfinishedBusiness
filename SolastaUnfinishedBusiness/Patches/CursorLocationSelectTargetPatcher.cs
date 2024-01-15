@@ -34,7 +34,9 @@ public static class CursorLocationSelectTargetPatcher
             actingCharacter.UsedSpecialFeatures.Remove("FamiliarAttack");
 
             //PATCH: supports UseOfficialObscurementRules
-            if (__result && !actingCharacter.IsMagicEffectValidUnderObscurement(definition, target))
+            if (__result &&
+                definition is IMagicEffect magicEffect &&
+                !actingCharacter.IsMagicEffectValidUnderObscurement(magicEffect, target))
             {
                 __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoPerceptionOfTargetDescription");
                 __result = false;

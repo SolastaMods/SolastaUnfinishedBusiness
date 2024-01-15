@@ -47,9 +47,7 @@ public static class ConsiderationCanCastMagicPatcher
                                  optionalTarget: context.character)))
             {
                 // BEGIN PATCH
-                if (Main.Settings.UseOfficialObscurementRules &&
-                    context.character != null &&
-                    !locationCharacter.CanPerceiveTarget(context.character))
+                if (!locationCharacter.IsMagicEffectValidUnderObscurement(availableMagicEffect, context.character))
                 {
                     Main.Info($"{locationCharacter.Name} => {availableMagicEffect.Name} : OBSCUREMENT DISCARDED");
 
