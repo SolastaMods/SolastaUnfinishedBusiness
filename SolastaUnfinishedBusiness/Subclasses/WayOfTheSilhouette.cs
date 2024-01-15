@@ -39,6 +39,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Darkness)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
                     .SetEffectForms()
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeDarkness())

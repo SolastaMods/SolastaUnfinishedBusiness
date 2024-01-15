@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Sphere",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 3,
     "targetParameter2": 2,
     "emissiveBorder": "None",
