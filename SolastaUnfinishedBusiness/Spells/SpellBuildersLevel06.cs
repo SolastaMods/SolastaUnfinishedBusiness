@@ -271,7 +271,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionHeroicInfusion),
                         EffectFormBuilder
                             .Create()
-                            .SetTempHpForm(50, DieType.D1, 0, true)
+                            .SetTempHpForm(50)
                             .Build())
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())

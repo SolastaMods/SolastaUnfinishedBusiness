@@ -8,6 +8,7 @@
 - changed magic effects in feats, features, fighting style, spells to respect sight whenever required
 - changed Way of Silhouette subclass progression with new and removed/swapped/tweaked features
 - fixed Find Familiar spell considering Wizard position for cover on touch or melee hit effects cast through it
+- fixed Heroic Infusion spell still granting HP to self when used with Shared Spell metamagic
 - fixed Lightning Arrow spell main target damage value determination on a miss
 - fixed Roguish Slayer elimination feature not triggering on magical attacks
 
