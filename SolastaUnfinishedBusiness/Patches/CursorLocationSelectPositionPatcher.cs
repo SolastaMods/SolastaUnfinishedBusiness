@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -259,17 +260,12 @@ public static class CursorLocationSelectPositionPatcher
             actionResult = CursorDefinitions.CursorActionResult.None;
 
             var actionParams = __instance.ActionParams;
+            var effectDescription = actionParams.RulesetEffect.EffectDescription;
 
-            return actionParams.RulesetEffect switch
-            {
-                RulesetEffectPower rulesetEffectPower when rulesetEffectPower.PowerDefinition
-                        .HasSubFeatureOfType<IFilterTargetingPosition>() =>
-                    __instance.validPositionsCache.Contains(__instance.HoveredLocation),
-                RulesetEffectSpell rulesetEffectSpell when rulesetEffectSpell.SpellDefinition
-                        .HasSubFeatureOfType<IFilterTargetingPosition>() =>
-                    __instance.validPositionsCache.Contains(__instance.HoveredLocation),
-                _ => true
-            };
+            return __instance.validPositionsCache.Contains(__instance.HoveredLocation) ||
+                   !effectDescription.EffectForms.Any(x =>
+                       x.FormType == EffectForm.EffectFormType.Motion &&
+                       x.MotionForm.Type == MotionForm.MotionType.TeleportToDestination);
         }
     }
 }

@@ -31,13 +31,13 @@ internal static class CursorLocationSelectPositionExtensions
 
             if (int3.Distance(__instance.centerPosition, int3) <= (double)__instance.maxDistance &&
                 positioningService.CanPlaceCharacter(locationCharacter, int3, CellHelpers.PlacementMode.Station) &&
-                positioningService.CanCharacterStayAtPosition_Floor(locationCharacter, int3,
-                    onlyCheckCellsWithRealGround: onlyFeedbackGroundCells))
+                positioningService.CanCharacterStayAtPosition_Floor(
+                    locationCharacter, int3, onlyCheckCellsWithRealGround: onlyFeedbackGroundCells))
             {
                 if (!__instance.requiresVisibilityForPosition
                         ? new GridAccessor(locationService).Visited(int3)
-                        : visibilityService.MyIsCellPerceivedByCharacter(int3, locationCharacter,
-                            additionalBlockedState))
+                        : visibilityService.MyIsCellPerceivedByCharacter(
+                            int3, locationCharacter, additionalBlockedState))
                 {
                     __instance.validPositionsCache.Add(int3);
                 }

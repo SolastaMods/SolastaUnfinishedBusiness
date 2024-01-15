@@ -24,7 +24,7 @@ internal static class GameLocationVisibilityManagerExtensions
 
             var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
 
-            return additionalBlockedLightingState != LocationDefinitions.LightingState.Darkness &&
+            return additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
                    lightningState != additionalBlockedLightingState;
         }
 
@@ -44,7 +44,7 @@ internal static class GameLocationVisibilityManagerExtensions
                        maxSenseRange;
             }
 
-            return additionalBlockedLightingState != LocationDefinitions.LightingState.Darkness &&
+            return additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
                    lightningState != additionalBlockedLightingState;
         }
     }

@@ -814,10 +814,8 @@ internal static class SrdAndHouseRulesContext
                 return false;
             }
 
-            //TODO: show only if has detected unidentified items
             //TODO: show only if anyone in party has identify (optional)
-            return Main.Settings.IdentifyAfterRest
-                   && hero.HasNonIdentifiedItems();
+            return Main.Settings.IdentifyAfterRest && hero.HasNonIdentifiedItems();
         }
     }
 
@@ -1138,7 +1136,7 @@ internal static class FlankingAndHigherGroundRules
             return false;
         }
 
-        var allies = gameLocationBattleService.Battle.GetContenders(attacker, false, isWithinXCells: 1)
+        var allies = gameLocationBattleService.Battle.GetContenders(defender, isWithinXCells: 1)
             .Where(x => x.CanAct()).ToList();
 
         if (allies.Count == 0)
@@ -1200,7 +1198,7 @@ internal static class FlankingAndHigherGroundRules
             new FlankingMathExtensions.Point3D(defender.LocationBattleBoundingBox.Max + 1));
 
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var ally in gameLocationBattleService.Battle.GetContenders(attacker, false, isWithinXCells: 1))
+        foreach (var ally in gameLocationBattleService.Battle.GetContenders(defender, isWithinXCells: 1))
         {
             if (ally == defender || !ally.CanAct())
             {
@@ -1242,10 +1240,8 @@ internal static class FlankingAndHigherGroundRules
 
         var attacker = evaluationParams.attacker;
         var defender = evaluationParams.defender;
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach &&
-            (gameLocationBattleService == null || !gameLocationBattleService.IsWithin1Cell(attacker, defender)))
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach && !attacker.IsWithinRange(defender, 1))
         {
             return;
         }
