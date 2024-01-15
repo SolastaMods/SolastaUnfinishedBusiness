@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -404,17 +405,24 @@ internal static partial class SpellBuilders
         // STEP 1: change attackRollModifier to use spell casting feature
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             if (action.ActionParams.actionModifiers.Count == 0)
             {
                 yield break;
             }
 
-            if (!rulesetCaster.TryGetConditionOfCategoryAndType(
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
                     conditionRingOfBlades.Name,
                     out var activeCondition))
+            {
+                yield break;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.sourceGuid);
+
+            if (rulesetCaster == null)
             {
                 yield break;
             }
@@ -481,13 +489,18 @@ internal static partial class SpellBuilders
 
             var rulesetCaster = action.ActingCharacter.RulesetCharacter;
 
-            if (rulesetCaster.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionRingOfBlades.Name,
-                    out var activeCondition))
+            foreach (var targetCharacter in action.ActionParams.TargetCharacters)
             {
-                activeCondition.Amount =
-                    rulesetCaster.SpellRepertoires.IndexOf(actionCastSpell.activeSpell.SpellRepertoire);
+                var rulesetTarget = targetCharacter.RulesetCharacter;
+
+                if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect,
+                        conditionRingOfBlades.Name,
+                        out var activeCondition))
+                {
+                    activeCondition.Amount =
+                        rulesetCaster.SpellRepertoires.IndexOf(actionCastSpell.activeSpell.SpellRepertoire);
+                }
             }
         }
     }
