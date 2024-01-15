@@ -279,11 +279,11 @@ ModUi/&UseHeightOneCylinderEffect=Ограничить высоту эффект
 ModUi/&UseMathFlankingRules=<i>+ Использовать точную математику для определения окружения <color=#F0DAA0>[может повлиять на производительность на медленных компьютерах]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использовать официальные правила для <color=#D89555>преимущества/помехи</color> <i><color=#F0DAA0>[если условия вызывают бросок одновременно с преимуществом и помехой, вы не получаете ни того, ни другого]</color></i>
 ModUi/&UseOfficialDistanceCalculation=Использовать официальное <color=#D89555>вычисление расстояния</color>, основанное на расстоянии от одного куба существа до другого <i><color=#F0DAA0>[вместо стандартного расчёта расстояния в Solasta]</color></i>
-ModUi/&UseOfficialFlankingRules=Использовать официальные <color=#D89555>правила положения</color> <i><color=#F0DAA0>[атакующий получает преимущество, если союзник находится на противоположной стороне от цели]</color></i>
+ModUi/&UseOfficialFlankingRules=Использовать официальные правила <color=#D89555>положения</color> <i><color=#F0DAA0>[атакующий получает преимущество, если союзник находится на противоположной стороне от цели]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Включить эти правила для дальнобойных атак <color=#F0DAA0>[отключить точную математику]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Также включить для атак досягаемости <color=#F0DAA0>[отключить точную математику]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Вместо преимущества давать +1 к броскам атаки</i>
 ModUi/&UseOfficialFoodRationsWeight=Использовать официальный вес <color=#D89555>Рационов</color> (2 фунта)
-ModUi/&UseOfficialObscurementRules=Используйте официальные правила <color=#D89555>затенения</color> <i><color=#F0DAA0>[телепорт, способности и заклинания учитывают зрение, помеха при бросках атаки, преимущество при бросках атаки против]</color></i >
-ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Использовать официальные <color=#D89555>правила рас маленького размера</color> при использовании тяжёлого оружия <i><color=#F0DAA0>[вы совершаете атаки с помехой]</color></i>
+ModUi/&UseOfficialObscurementRules=Использовать официальные правила <color=#D89555>видимости</color> <i><color=#F0DAA0>[телепортация, силы и заклинания учитывают видимость, помеха на броски атаки, броски атаки по ослеплённым совершаются с преимуществом]</color></i>
+ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Использовать официальные правила <color=#D89555>рас маленького размера</color> при использовании тяжёлого оружия <i><color=#F0DAA0>[вы совершаете атаки с помехой]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Визуальные настройки:</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
