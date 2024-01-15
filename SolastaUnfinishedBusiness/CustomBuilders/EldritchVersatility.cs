@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
-using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -606,11 +605,8 @@ internal static class EldritchVersatility
                     yield break;
                 }
 
-                var posOwner = attacker.locationPosition;
-                var posDefender = defender.locationPosition;
-
                 supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,
-                    int3.Distance(posOwner, posDefender) <= 6f && characterAttacker.HasAnyFeature(FeatureBlastPursuit)
+                    attacker.IsWithinRange(defender, 6) && characterAttacker.HasAnyFeature(FeatureBlastPursuit)
                         ? 2
                         : 1
                 );
@@ -829,17 +825,9 @@ internal static class EldritchVersatility
 
                 var owner = GameLocationCharacter.GetFromActor(featureOwner);
 
-                if (owner != null)
+                if (owner != null && (!owner.IsWithinRange(caster, 12) || !caster.CanPerceiveTarget(owner)))
                 {
-                    var posOwner = owner.locationPosition;
-                    var posCaster = caster.locationPosition;
-                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                    if (int3.Distance(posOwner, posCaster) > 12f
-                        || !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
-                    {
-                        yield break;
-                    }
+                    yield break;
                 }
             }
 
@@ -1035,12 +1023,8 @@ internal static class EldritchVersatility
             var alreadyBlocked =
                 EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
                     defenderCharacter, out var eldritchAegisSupportCondition);
-            var posOwner = me.locationPosition;
-            var posDefender = defender.locationPosition;
 
-            if (!alreadyBlocked
-                && (int3.Distance(posOwner, posDefender) > 6f
-                    || !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, me)))
+            if (!alreadyBlocked && (!me.IsWithinRange(defender, 6) || !defender.CanPerceiveTarget(me)))
             {
                 yield break;
             }
@@ -1242,7 +1226,7 @@ internal static class EldritchVersatility
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!ShouldTrigger(battleManager, defender, helper))
+            if (!ShouldTrigger(defender, helper))
             {
                 yield break;
             }
@@ -1307,14 +1291,11 @@ internal static class EldritchVersatility
         }
 
         // ReSharper disable once SuggestBaseTypeForParameter
-        private static bool ShouldTrigger(
-            GameLocationBattleManager gameLocationBattleManager,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
+        private static bool ShouldTrigger(GameLocationCharacter defender, GameLocationCharacter helper)
         {
             return helper.CanReact()
                    && helper.CanPerceiveTarget(defender)
-                   && gameLocationBattleManager.IsWithinXCells(helper, defender, 7);
+                   && helper.IsWithinRange(defender, 7);
         }
     }
 

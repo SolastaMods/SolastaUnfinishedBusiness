@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -21,6 +20,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -1886,10 +1886,9 @@ internal static partial class SpellBuilders
 
             var targets = new List<GameLocationCharacter>();
 
-            targets.SetRange(Gui.Battle.AllContenders
-                .Where(x =>
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                    && battleManager.IsWithin1Cell(x, defender)));
+            targets.SetRange(
+                Gui.Battle.AllContenders.Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(defender, 1)));
 
             if (targets.Empty())
             {

@@ -79,7 +79,7 @@ internal sealed class Interception : AbstractFightingStyle
                 yield break;
             }
 
-            if (battleManager is not { IsBattleInProgress: true } || !battleManager.IsWithin1Cell(me, defender))
+            if (!me.IsWithinRange(defender, 1))
             {
                 yield break;
             }

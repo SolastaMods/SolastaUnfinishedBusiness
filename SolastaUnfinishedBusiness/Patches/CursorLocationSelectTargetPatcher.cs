@@ -72,7 +72,7 @@ public static class CursorLocationSelectTargetPatcher
                                 y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
                                 y.SourceGuid == rulesetCharacter.Guid));
 
-                    var canAttack = familiar != null && gameLocationBattleService.IsWithin1Cell(familiar, target);
+                    var canAttack = familiar != null && familiar.IsWithinRange(target, 1);
 
                     if (canAttack)
                     {

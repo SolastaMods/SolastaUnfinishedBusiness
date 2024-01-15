@@ -588,8 +588,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var rulesetDowned = downedCreature.RulesetCharacter;
 
-            if (!rulesetDowned.HasConditionOfType(conditionTurmoil)
-                || !battleService.IsWithinXCells(ally, downedCreature, 6))
+            if (!rulesetDowned.HasConditionOfType(conditionTurmoil) || !ally.IsWithinRange(downedCreature, 6))
             {
                 yield break;
             }

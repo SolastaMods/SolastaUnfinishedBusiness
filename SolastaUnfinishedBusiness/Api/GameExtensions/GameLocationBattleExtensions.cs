@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -28,8 +27,7 @@ internal static class GameLocationBattleExtensions
 
         if (isWithinXCells > 0)
         {
-            aliveContenders = aliveContenders.Where(x =>
-                DistanceCalculation.CalculateDistanceFromTwoCharacters(character, x) <= isWithinXCells);
+            aliveContenders = aliveContenders.Where(x => character.IsWithinRange(x, isWithinXCells));
         }
 
         if (hasToPerceiveTarget)

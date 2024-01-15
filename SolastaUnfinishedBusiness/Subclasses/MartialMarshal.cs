@@ -442,8 +442,9 @@ public sealed class MartialMarshal : AbstractSubclass
                 ActionModifier modifier;
 
                 //prefer melee if main hand is melee or if enemy is close
-                var preferMelee = ValidatorsWeapon.IsMelee(partyCharacter.RulesetCharacter.GetMainWeapon())
-                                  || (battleManager != null && battleManager.IsWithin1Cell(partyCharacter, defender));
+                var preferMelee =
+                    ValidatorsWeapon.IsMelee(partyCharacter.RulesetCharacter.GetMainWeapon()) ||
+                    partyCharacter.IsWithinRange(defender, 1);
 
                 var (meleeMode, meleeModifier) = partyCharacter.GetFirstMeleeModeThatCanAttack(defender);
                 var (rangedMode, rangedModifier) = partyCharacter.GetFirstRangedModeThatCanAttack(defender);

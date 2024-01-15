@@ -476,7 +476,7 @@ internal static class MeleeCombatFeats
             var reactionRequest = new ReactionRequestCustom("DefensiveDuelist", actionParams);
 
             actionManager.AddInterruptRequest(reactionRequest);
-            
+
             yield return battleManager.WaitForReactions(me, actionService, count);
 
             if (!actionParams.ReactionValidated)
@@ -645,7 +645,7 @@ internal static class MeleeCombatFeats
 
             var enemy = characterAction.ActingCharacter;
 
-            if (!battle.IsWithin1Cell(target, enemy))
+            if (!target.IsWithinRange(enemy, 1))
             {
                 yield break;
             }

@@ -1600,16 +1600,14 @@ internal static class Level20SubclassesContext
             var clericLevel = rulesetAlly.GetClassLevel(CharacterClassDefinitions.Cleric);
             var healingPool = clericLevel;
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
             // haven't died within 30 ft of Cleric
-            if (!gameLocationBattleService.IsWithinXCells(downedCreature, ally, 6))
+            if (!downedCreature.IsWithinRange(ally, 6))
             {
                 yield break;
             }
 
             var contenders =
-                gameLocationBattleService.Battle?.AllContenders ??
+                Gui.Battle?.AllContenders ??
                 ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
 
             if (contenders.Count != 0)
@@ -1618,9 +1616,10 @@ internal static class Level20SubclassesContext
             }
 
             foreach (var unit in contenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                     && x.Side == ally.Side
-                                     && gameLocationBattleService.IsWithinXCells(x, ally, 6))
+                         .Where(x =>
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                             x.Side == ally.Side &&
+                             x.IsWithinRange(ally, 6))
                          .OrderByDescending(x => x.RulesetCharacter.MissingHitPoints)
                          .ToList())
             {

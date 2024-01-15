@@ -52,8 +52,7 @@ public class CustomRagingAura(
         {
             foreach (var targetLocationCharacter in battle.GetContenders(locationCharacter, false)
                          .Where(x =>
-                             !gameLocationBattleService.IsWithinXCells(locationCharacter, x,
-                                 powerDefinition.EffectDescription.targetParameter)))
+                             !locationCharacter.IsWithinRange(x, powerDefinition.EffectDescription.targetParameter)))
             {
                 var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
                 var rulesetCondition =
@@ -70,9 +69,8 @@ public class CustomRagingAura(
         {
             foreach (var targetLocationCharacter in battle.GetContenders(locationCharacter)
                          .Where(x =>
-                             !gameLocationBattleService.IsWithinXCells(locationCharacter, x,
-                                 powerDefinition.EffectDescription.targetParameter) ||
                              !x.CanPerceiveTarget(locationCharacter) ||
+                             !locationCharacter.IsWithinRange(x, powerDefinition.EffectDescription.targetParameter) ||
                              !locationCharacter.RulesetCharacter.HasConditionOfType(ConditionRaging)))
             {
                 var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;

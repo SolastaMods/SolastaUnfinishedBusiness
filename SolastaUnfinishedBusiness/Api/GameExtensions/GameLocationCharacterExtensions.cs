@@ -12,6 +12,16 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
+    {
+        if (Main.Settings.UseOfficialDistanceCalculation)
+        {
+            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target) <= range;
+        }
+
+        return int3.Distance(source.LocationPosition, target.LocationPosition) <= range;
+    }
+
     public static bool IsMagicEffectValidUnderObscurement(
         this GameLocationCharacter source,
         BaseDefinition sourceDefinition,

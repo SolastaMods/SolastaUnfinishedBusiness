@@ -265,12 +265,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetAttacker = actingCharacter.RulesetCharacter;
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (_shouldTrigger &&
                 rulesetAttacker is { IsDeadOrDyingOrUnconscious: false } &&
-                gameLocationBattleService is { IsBattleInProgress: true } &&
-                gameLocationBattleService.IsWithin1Cell(target, actingCharacter))
+                target.IsWithinRange(actingCharacter, 1))
             {
                 InflictDamage(actingCharacter, target);
             }

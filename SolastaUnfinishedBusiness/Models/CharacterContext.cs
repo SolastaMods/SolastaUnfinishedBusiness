@@ -1852,10 +1852,10 @@ internal static class CharacterContext
 
                 // it's a Duelist and target is dueling with him
                 return attacker.RulesetCharacter.GetSubclassLevel(Rogue, RoguishDuelist.Name) > 0 &&
-                       gameLocationBattleManager.IsWithin1Cell(attacker, defender) &&
+                       attacker.IsWithinRange(defender, 1) &&
                        Gui.Battle.AllContenders
                            .Where(x => x != attacker && x != defender)
-                           .All(x => !gameLocationBattleManager.IsWithin1Cell(attacker, x));
+                           .All(x => !attacker.IsWithinRange(x, 1));
         }
     }
 

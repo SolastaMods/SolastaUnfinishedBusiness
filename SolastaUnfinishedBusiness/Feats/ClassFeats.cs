@@ -272,15 +272,13 @@ internal static class ClassFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var rulesetAttacker = attacker.RulesetCharacter;
             var isRogue = rulesetAttacker.GetClassLevel(Rogue) > 0;
             var isSorrAkkath = rulesetAttacker.GetSubclassLevel(Sorcerer, "SorcerousSorrAkkath") > 0;
 
             if (attackMode is not { Ranged: false } ||
                 (!isRogue && !isSorrAkkath) ||
-                gameLocationBattleService == null ||
-                !gameLocationBattleService.IsWithin1Cell(attacker, defender))
+                !attacker.IsWithinRange(defender, 1))
             {
                 return additionalDamage.DamageDieType;
             }
@@ -807,7 +805,6 @@ internal static class ClassFeats
     {
         const string Name = "FeatPotentSpellcaster";
 
-        //TODO: use tuples here
         var classes = new List<CharacterClassDefinition>
         {
             Bard,

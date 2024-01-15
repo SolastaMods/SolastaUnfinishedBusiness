@@ -751,7 +751,9 @@ public static class RulesetImplementationManagerPatcher
             string selfConditionName,
             ConditionDefinition conditionDefinitionEnemy)
         {
-            if (caster == null || !caster.HasAnyConditionOfType(selfConditionName) || caster.Side == target.Side)
+            if (caster == null ||
+                caster.Side == target.Side ||
+                !caster.HasAnyConditionOfType(selfConditionName))
             {
                 return;
             }
@@ -763,14 +765,12 @@ public static class RulesetImplementationManagerPatcher
                 return;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
             var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
 
             if (gameLocationCaster == null ||
                 gameLocationTarget == null ||
-                gameLocationBattleService == null ||
-                !gameLocationBattleService.IsWithinXCells(gameLocationCaster, gameLocationTarget, 2))
+                !gameLocationCaster.IsWithinRange(gameLocationTarget, 2))
             {
                 return;
             }

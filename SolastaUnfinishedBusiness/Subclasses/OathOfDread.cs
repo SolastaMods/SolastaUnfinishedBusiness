@@ -435,12 +435,6 @@ public sealed class OathOfDread : AbstractSubclass
                 }
             }
 
-            // do I need to check this as well?
-            if (!gameLocationBattleService.IsWithinBattleRange(me, attacker))
-            {
-                yield break;
-            }
-
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);

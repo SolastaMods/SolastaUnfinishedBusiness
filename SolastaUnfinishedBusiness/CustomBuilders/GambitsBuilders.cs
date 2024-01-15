@@ -1138,17 +1138,12 @@ internal static class GambitsBuilders
                 return;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                return;
-            }
-
             var glcMyself = GameLocationCharacter.GetFromActor(myself);
             var glcDefender = GameLocationCharacter.GetFromActor(defender);
 
-            if (!gameLocationBattleService.IsWithinXCells(glcMyself, glcDefender, DaggerCloseRange))
+            if (glcMyself != null &&
+                glcDefender != null &&
+                !glcMyself.IsWithinRange(glcDefender, DaggerCloseRange))
             {
                 attackModifier.AttackAdvantageTrends.Add(
                     new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
@@ -1434,7 +1429,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!melee && battle.IsWithin1Cell(defender, attacker))
+            if (!melee && defender.IsWithinRange(attacker, 1))
             {
                 yield break;
             }
@@ -2056,10 +2051,8 @@ internal static class GambitsBuilders
             }
 
             var firstTarget = selectedTargets[0];
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (gameLocationBattleService is { IsBattleInProgress: true } &&
-                gameLocationBattleService.IsWithin1Cell(firstTarget, target))
+            if (firstTarget.IsWithinRange(target, 1))
             {
                 return true;
             }
