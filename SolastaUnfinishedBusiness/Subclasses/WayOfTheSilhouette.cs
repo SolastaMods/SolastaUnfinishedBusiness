@@ -163,7 +163,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
         var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SilhouetteStep")
-            .SetGuiPresentation(Category.Feature, MistyStep)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerSilhouetteStep, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder

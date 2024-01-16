@@ -357,9 +357,9 @@
     "description": "Feature/&PowerWayOfSilhouetteSilhouetteStepDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e6cd80b881b7074d88a122382fd2103",
-      "m_SubObjectName": "MistyStep",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "95e4a6fb-54e0-58c0-b2be-25b492479d48",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
