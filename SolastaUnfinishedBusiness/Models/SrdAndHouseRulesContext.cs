@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -8,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -87,6 +89,10 @@ internal static class SrdAndHouseRulesContext
     private static readonly EffectForm EffectFormHeavilyObscured =
         EffectFormBuilder.ConditionForm(ConditionHeavilyObscured);
 
+    internal static readonly Dictionary<
+            (SenseMode.Type, LocationDefinitions.LightingState, SenseMode.Type, LocationDefinitions.LightingState), int>
+        LightingAdvDis = [];
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -115,7 +121,90 @@ internal static class SrdAndHouseRulesContext
         SwitchHastedCasing();
         SwitchSchoolRestrictionsFromShadowCaster();
         SwitchSchoolRestrictionsFromSpellBlade();
+        LoadLightingAdvDisTable();
         ActionSwitching.Load();
+    }
+
+    private static void LoadLightingAdvDisTable()
+    {
+        var filename = $"{Main.ModFolder}/obscurement_rules.txt";
+
+        if (!File.Exists(filename))
+        {
+            Main.Info("Obscurement rules table not found. Loading default from DLL resource.");
+
+            var payload = Resources.ObscurementRules;
+            var lines = new List<string>(payload.Split([Environment.NewLine], StringSplitOptions.None));
+
+            for (var i = 1; i < lines.Count; i++)
+            {
+                AddEntry(lines[i]);
+            }
+
+            return;
+        }
+
+        using var reader = new StreamReader(filename);
+
+        // skip header
+        _ = reader.ReadLine();
+
+        while (reader.ReadLine() is { } line)
+        {
+            AddEntry(line);
+        }
+
+        return;
+
+        static void AddEntry(string line)
+        {
+            var fields = line.Split(',');
+
+            if (fields.Length != 5)
+            {
+                return;
+            }
+
+            var modifier = fields[4] == "ADVANTAGE" ? 1 : fields[4] == "DISADVANTAGE" ? -1 : 0;
+
+            if (modifier == 0)
+            {
+                return;
+            }
+
+            var attackerSense = GetSense(fields[0]);
+            var defenderSense = GetSense(fields[2]);
+            var attackerLightingState = GetLightingState(fields[1]);
+            var defenderLightingState = GetLightingState(fields[3]);
+
+            LightingAdvDis.Add((attackerSense, attackerLightingState, defenderSense, defenderLightingState), modifier);
+        }
+
+        static SenseMode.Type GetSense(string senseName)
+        {
+            return senseName.ToUpper() switch
+            {
+                "NORMAL" => SenseMode.Type.NormalVision,
+                "DARKVISION" => SenseMode.Type.Darkvision,
+                "SUPERIOR DARKVISION" => SenseMode.Type.SuperiorDarkvision,
+                "TRUE SIGHT" => SenseMode.Type.Truesight,
+                "BLIND SIGHT" => SenseMode.Type.Blindsight,
+                "TREMOR SENSE" => SenseMode.Type.Tremorsense,
+                _ => SenseMode.Type.None
+            };
+        }
+
+        static LocationDefinitions.LightingState GetLightingState(string senseName)
+        {
+            return senseName.ToUpper() switch
+            {
+                "BRIGHT" => LocationDefinitions.LightingState.Bright,
+                "DIM" => LocationDefinitions.LightingState.Dim,
+                "UNLIT" => LocationDefinitions.LightingState.Unlit,
+                "DARKNESS" => LocationDefinitions.LightingState.Darkness,
+                _ => LocationDefinitions.LightingState.Bright
+            };
+        }
     }
 
     internal static void SwitchSchoolRestrictionsFromShadowCaster()

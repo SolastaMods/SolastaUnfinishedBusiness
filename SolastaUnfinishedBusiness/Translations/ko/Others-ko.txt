@@ -224,6 +224,7 @@ Tooltip/&CustomMapMarkerTeleport=순간이동기
 Tooltip/&FeatGroupTitle=특성 그룹
 Tooltip/&InvocationUsageShortRestAvailableDescription=이 영창을 사용한 후에 다시 활성화하려면 짧은 또는 긴 휴식을 취해야 합니다.
 Tooltip/&InvocationUsageShortRestUsedDescription=이 영창을 다시 활성화하려면 짧은 또는 긴 휴식을 취해야 합니다.
+Tooltip/&LightingObscurementFormat=조명 및 가리기
 Tooltip/&MonsterNaturalArmorTitle=타고난 갑옷
 Tooltip/&PreReqDoesNotKnow={0} 모름
 Tooltip/&PreReqIs={0} 임

@@ -224,6 +224,7 @@ Tooltip/&CustomMapMarkerTeleport=Teletransportador
 Tooltip/&FeatGroupTitle=Grupo de hazañas
 Tooltip/&InvocationUsageShortRestAvailableDescription=Una vez utilizada, esta invocación requerirá de un breve o prolongado descanso para volver a activarse.
 Tooltip/&InvocationUsageShortRestUsedDescription=Esta invocación requiere un descanso corto o largo para volver a activarse.
+Tooltip/&LightingObscurementFormat=Iluminación y oscurecimiento
 Tooltip/&MonsterNaturalArmorTitle=Armadura Natural
 Tooltip/&PreReqDoesNotKnow=No sabe {0}
 Tooltip/&PreReqIs=Es {0}

@@ -19,12 +19,17 @@ public static class GameLocationCharacterExtensions
 
     public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
+        return source.GetDistance(target) <= range;
+    }
+
+    public static float GetDistance(this GameLocationCharacter source, GameLocationCharacter target)
+    {
         if (Main.Settings.UseOfficialDistanceCalculation)
         {
-            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target) <= range;
+            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target);
         }
 
-        return int3.Distance(source.LocationPosition, target.LocationPosition) <= range;
+        return int3.Distance(source.LocationPosition, target.LocationPosition);
     }
 
     public static bool IsMagicEffectValidUnderObscurement(
@@ -85,6 +90,7 @@ public static class GameLocationCharacterExtensions
         return visibilityService.MyIsCellPerceivedByCharacter(target.LocationPosition, __instance);
     }
 
+#if false
     public static void MyComputeLightingModifierForLightingState(
         this GameLocationCharacter __instance,
         float distance,
@@ -93,57 +99,49 @@ public static class GameLocationCharacterExtensions
         object source,
         GameLocationCharacter target)
     {
-        var senseModeIsValidForLightning = false;
-        var isDarkvisionOutOfRange = false;
-        var isInRange = false;
-
-        foreach (var senseMode in __instance.RulesetCharacter.SenseModes)
-        {
-            if (distance > senseMode.SenseRange)
-            {
-                if (senseMode.SenseType == SenseMode.Type.Darkvision)
-                {
-                    isDarkvisionOutOfRange = true;
-                }
-            }
-            else
-            {
-                isInRange = true;
-
-                if (!SenseMode.ValidForLighting(senseMode.SenseType, lightingState))
-                {
-                    continue;
-                }
-
-                senseModeIsValidForLightning = true;
-
-                break;
-            }
-        }
-
-        if (!(!senseModeIsValidForLightning & isInRange))
-        {
-            return;
-        }
-
-        // BEGIN PATCH
         if (target.RulesetActor is RulesetCharacter rulesetCharacter && rulesetCharacter.IsUnderHeavyObscurement())
         {
             return;
         }
-        // END PATCH
 
-        var additionalDetails = !isDarkvisionOutOfRange || lightingState != LocationDefinitions.LightingState.Unlit
-            ? string.Empty
-            : "Tooltip/&OutOfDarkvisionRangeFormat";
+        var inRange = false;
+        var selectedSenseType = SenseMode.Type.None;
+        var selectedSenseRange = 0;
+
+        foreach (var senseMode in __instance.RulesetCharacter.SenseModes
+                     .Where(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState)))
+        {
+            var senseType = senseMode.SenseType;
+
+            if (selectedSenseType != senseType && senseMode.SenseRange >= selectedSenseRange)
+            {
+                selectedSenseType = senseType;
+                selectedSenseRange = senseMode.SenseRange;
+            }
+
+            inRange = distance <= senseMode.SenseRange;
+
+            if (inRange)
+            {
+                break;
+            }
+        }
+
+        if (selectedSenseType != SenseMode.Type.None && inRange)
+        {
+            return;
+        }
+
+        var additionalDetails = selectedSenseType != SenseMode.Type.None && !inRange
+            ? $"{selectedSenseType} is out of range"
+            : string.Empty;
 
         actionModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
-            RuleDefinitions.FeatureSourceType.Lighting,
-            lightingState.ToString(), source, additionalDetails));
+            RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(), source, additionalDetails));
         actionModifier.AbilityCheckAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
-            RuleDefinitions.FeatureSourceType.Lighting,
-            lightingState.ToString(), source, additionalDetails));
+            RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(), source, additionalDetails));
     }
+#endif
 
     // this is copy-and-paste from vanilla code GameLocationVisibilityManager.ComputeIllumination
     // except for Darkness determination in patch block and some clean up for not required scenarios

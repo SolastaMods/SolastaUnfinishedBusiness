@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using TA;
-using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
@@ -22,32 +21,16 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class GameLocationCharacterPatcher
 {
     //PATCH: let Darkness be handled by the conditions themselves with proper combat affinities
+    //lighting ADV/DIS is handled elsewhere in CanAttack method
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.ComputeLightingModifierForIlluminable))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeLightingModifierForIlluminable_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(
-            GameLocationCharacter __instance,
-            IIlluminable target,
-            LocationDefinitions.LightingState targetLightingState,
-            Vector3 gravityCenter,
-            Vector3 targetGravityCenter,
-            ActionModifier actionModifier)
+        public static bool Prefix()
         {
-            if (Main.Settings.UseOfficialObscurementRules && target is GameLocationCharacter gameLocationCharacter)
-            {
-                __instance.MyComputeLightingModifierForLightingState((gravityCenter - targetGravityCenter).magnitude,
-                    targetLightingState, actionModifier, target.TargetSource, gameLocationCharacter);
-            }
-            else
-            {
-                __instance.ComputeLightingModifierForLightingState((gravityCenter - targetGravityCenter).magnitude,
-                    targetLightingState, actionModifier, target.TargetSource);
-            }
-
-            return false;
+            return !Main.Settings.UseOfficialObscurementRules;
         }
     }
 

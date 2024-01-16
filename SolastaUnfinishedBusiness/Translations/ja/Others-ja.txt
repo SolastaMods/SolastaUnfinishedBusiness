@@ -224,6 +224,7 @@ Tooltip/&CustomMapMarkerTeleport=テレポーター
 Tooltip/&FeatGroupTitle=偉業グループ
 Tooltip/&InvocationUsageShortRestAvailableDescription=一度使用すると、この呼び出しを再度アクティブ化するには、短いまたは長い休憩が必要になります。
 Tooltip/&InvocationUsageShortRestUsedDescription=この呼び出しを再度アクティブ化するには、短いまたは長い休憩が必要です。
+Tooltip/&LightingObscurementFormat=照明と遮蔽
 Tooltip/&MonsterNaturalArmorTitle=天然の鎧
 Tooltip/&PreReqDoesNotKnow={0} を知りません
 Tooltip/&PreReqIs={0} です
