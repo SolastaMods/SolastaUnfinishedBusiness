@@ -1,6 +1,6 @@
 Condition/&ConditionHeroicInfusionDescription=Te dotas de resistencia y destreza marcial impulsadas por la magia.
 Condition/&ConditionHeroicInfusionTitle=Infusión heroica
-Feature/&PowerRingOfBladesDescription=Como acción adicional, puedes realizar un ataque con hechizo a distancia a una criatura a 30 pies de ti, usando una de tus espadas del Anillo de Espadas.
+Feature/&PowerRingOfBladesDescription=Como acción adicional, puedes realizar un ataque con hechizo a distancia a una criatura a 60 pies de ti, usando una de tus espadas del Anillo de Espadas.
 Feature/&PowerRingOfBladesTitle=Anillo de espadas
 Feedback/&AdditionalDamageHeroicInfusionFormat=¡Infusión heroica!
 Feedback/&AdditionalDamageHeroicInfusionLine=¡{0} golpea heroicamente a {1}! (+{2})
@@ -16,6 +16,6 @@ Spell/&MysticalCloakLowerPlaneTitle=Capa mística: plano inferior
 Spell/&MysticalCloakTitle=Capa mística
 Spell/&PoisonWaveDescription=Una ola venenosa surge de ti y envuelve a quienes están cerca. Cada criatura dentro del radio del hechizo debe realizar una tirada de salvación de Constitución, recibiendo 6d10 de daño por veneno si falla, o la mitad de daño si tiene éxito. Una criatura que falla su tirada de salvación también queda envenenada durante 1 minuto y puede repetir la tirada de salvación al final de cada turno. Cuando lanzas este hechizo usando un espacio de 7º nivel o superior, el daño aumenta en 1d10 por cada nivel de espacio por encima del 6º.
 Spell/&PoisonWaveTitle=Ola venenosa
-Spell/&RingOfBladesDescription=Levantas ambas manos mientras evocas seis espadas transparentes a tu alrededor. Como acción adicional, puedes lanzar una de estas espadas a una criatura que se encuentre a 30 pies de ti. Hazle un ataque con hechizos a distancia. Con un impacto, el objetivo sufre 4d8 de daño de fuerza. Cuando lanzas este hechizo usando un espacio de hechizo de 7º nivel o superior, el daño de cada hoja aumenta en 1d8 por cada nivel de espacio por encima del 6º.
+Spell/&RingOfBladesDescription=Levantas ambas manos mientras evocas seis espadas transparentes a tu alrededor como acción adicional. Cuando lanzas este hechizo, y como acción adicional en cada turno posterior, puedes lanzar una de estas espadas a una criatura que se encuentre a 60 pies de ti. Realiza un ataque con hechizo a distancia. Con un impacto, el objetivo sufre 4d8 de daño de fuerza. Cuando lanzas este hechizo usando un espacio de hechizo de 7º nivel o superior, el daño de cada hoja aumenta en 1d8 por cada nivel de espacio por encima del 6º.
 Spell/&RingOfBladesTitle=Anillo de espadas
 Tooltip/&MustBeLargeOrSmaller=Debe ser de tamaño grande o más pequeño para apuntar

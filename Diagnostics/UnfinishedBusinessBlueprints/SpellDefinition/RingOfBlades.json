@@ -8,7 +8,7 @@
   "spellLevel": 6,
   "ritual": false,
   "uniqueInstance": false,
-  "castingTime": "Action",
+  "castingTime": "BonusAction",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
   "requiresConcentration": true,

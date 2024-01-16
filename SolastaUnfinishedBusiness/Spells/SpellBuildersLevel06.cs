@@ -338,7 +338,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
                     .SetParticleEffectParameters(ShadowDagger)
                     .Build())
@@ -370,7 +370,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RingOfBlades, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(6)
-            .SetCastingTime(ActivationTime.Action)
+            .SetCastingTime(ActivationTime.BonusAction)
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 500, false)
             .SetVerboseComponent(true)
@@ -489,10 +489,9 @@ internal static partial class SpellBuilders
 
             var rulesetCaster = action.ActingCharacter.RulesetCharacter;
 
-            foreach (var targetCharacter in action.ActionParams.TargetCharacters)
+            foreach (var rulesetTarget in action.ActionParams.TargetCharacters
+                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
             {
-                var rulesetTarget = targetCharacter.RulesetCharacter;
-
                 if (rulesetTarget.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect,
                         conditionRingOfBlades.Name,

@@ -1,6 +1,6 @@
 Condition/&ConditionHeroicInfusionDescription=Du verleihst dir Ausdauer und Kampfkraft, angetrieben durch Magie.
 Condition/&ConditionHeroicInfusionTitle=Heroische Infusion
-Feature/&PowerRingOfBladesDescription=Als Bonusaktion können Sie mit einem Ihrer Ring of Blades-Schwerter einen Fernzauberangriff auf eine Kreatur in einem Umkreis von 30 Fuß um Sie ausführen.
+Feature/&PowerRingOfBladesDescription=Als Bonusaktion können Sie mit einem Ihrer Ring of Blades-Schwerter einen Fernzauberangriff auf eine Kreatur in einem Umkreis von 60 Fuß um Sie ausführen.
 Feature/&PowerRingOfBladesTitle=Ring der Klingen
 Feedback/&AdditionalDamageHeroicInfusionFormat=Heroische Infusion!
 Feedback/&AdditionalDamageHeroicInfusionLine={0} trifft {1} heldenhaft! (+{2})
@@ -16,6 +16,6 @@ Spell/&MysticalCloakLowerPlaneTitle=Mystischer Umhang: Untere Ebene
 Spell/&MysticalCloakTitle=Mystischer Umhang
 Spell/&PoisonWaveDescription=Eine giftige Welle bricht von dir aus und verschlingt die Menschen in deiner Nähe. Jede Kreatur innerhalb des Wirkungsradius des Zaubers muss einen Konstitutionsrettungswurf ausführen und erleidet dabei 6W10 Giftschaden bei einem Fehlschlag bzw. halb so viel Schaden bei einem Erfolg. Eine Kreatur, deren Rettungswurf misslingt, wird ebenfalls 1 Minute lang vergiftet und kann den Rettungswurf am Ende jedes Zuges wiederholen. Wenn Sie diesen Zauber mit einem Slot der 7. Stufe oder höher wirken, erhöht sich der Schaden um 1W10 für jede Slot-Stufe über der 6. Stufe.
 Spell/&PoisonWaveTitle=Giftwelle
-Spell/&RingOfBladesDescription=Sie heben beide Hände, während Sie sechs transparente Klingen um sich herum hervorrufen. Als Bonusaktion kannst du eine dieser Klingen auf eine Kreatur in einem Umkreis von 30 Fuß um dich werfen. Führen Sie dafür einen Fernkampfangriff aus. Bei einem Treffer erleidet das Ziel 4W8 Kraftschaden. Wenn Sie diesen Zauber mit einem Zauberslot der 7. Stufe oder höher wirken, erhöht sich der Schaden jeder Klinge um 1W8 für jede Slotstufe über der 6. Stufe.
+Spell/&RingOfBladesDescription=Als Bonusaktion heben Sie beide Hände, während Sie sechs transparente Klingen um sich herum hervorrufen. Wenn du diesen Zauber wirkst, kannst du als Bonusaktion in jeder weiteren Runde eine dieser Klingen auf eine Kreatur in einem Umkreis von 60 Fuß um dich werfen. Führen Sie einen Fernkampfangriff durch. Bei einem Treffer erleidet das Ziel 4W8 Kraftschaden. Wenn Sie diesen Zauber mit einem Zauberslot der 7. Stufe oder höher wirken, erhöht sich der Schaden jeder Klinge um 1W8 für jede Slotstufe über der 6. Stufe.
 Spell/&RingOfBladesTitle=Ring der Klingen
 Tooltip/&MustBeLargeOrSmaller=Muss groß oder kleiner sein, um gezielt ausgerichtet zu werden

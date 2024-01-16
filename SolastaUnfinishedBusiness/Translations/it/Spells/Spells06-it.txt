@@ -1,6 +1,6 @@
 Condition/&ConditionHeroicInfusionDescription=Ti doti di resistenza e abilità marziale alimentate dalla magia.
 Condition/&ConditionHeroicInfusionTitle=Infusione eroica
-Feature/&PowerRingOfBladesDescription=Come azione bonus, puoi effettuare un attacco con incantesimo a distanza su una creatura entro 9 metri da te, utilizzando una delle tue spade Ring of Blades.
+Feature/&PowerRingOfBladesDescription=Come azione bonus, puoi effettuare un attacco con incantesimo a distanza su una creatura entro 18 metri da te, utilizzando una delle tue spade Ring of Blades.
 Feature/&PowerRingOfBladesTitle=Anello delle Lame
 Feedback/&AdditionalDamageHeroicInfusionFormat=Infusione eroica!
 Feedback/&AdditionalDamageHeroicInfusionLine={0} colpisce eroicamente {1}! (+{2})
@@ -16,6 +16,6 @@ Spell/&MysticalCloakLowerPlaneTitle=Mantello Mistico: Piano Inferiore
 Spell/&MysticalCloakTitle=Mantello mistico
 Spell/&PoisonWaveDescription=Un'onda velenosa erutta da te, travolgendo coloro che ti circondano. Ogni creatura all'interno del raggio dell'incantesimo deve effettuare un tiro salvezza su Costituzione, subendo 6d10 danni da veleno in caso di fallimento, o la metà di questi danni in caso di successo. Una creatura che fallisce il tiro salvezza viene anche avvelenata per 1 minuto e può ripetere il tiro salvezza alla fine di ogni suo turno. Quando esegui questo incantesimo utilizzando uno slot di 7° livello o superiore, il danno aumenta di 1d10 per ogni livello di slot superiore al 6°.
 Spell/&PoisonWaveTitle=Onda Velenosa
-Spell/&RingOfBladesDescription=Alzi entrambe le mani mentre evochi sei lame trasparenti intorno a te. Come azione bonus, puoi lanciare una di queste lame contro una creatura entro 9 metri da te. Effettua un attacco con incantesimo a distanza per questo. Se colpisce, il bersaglio subisce 4d8 danni da forza. Quando esegui questo incantesimo utilizzando uno slot incantesimo di 7° livello o superiore, il danno di ciascuna lama aumenta di 1d8 per ogni livello dello slot superiore al 6°.
+Spell/&RingOfBladesDescription=Alzi entrambe le mani mentre evochi sei lame trasparenti intorno a te come azione bonus. Quando lanci questo incantesimo, e come azione bonus in ogni turno successivo, puoi lanciare una di queste lame contro una creatura entro 18 metri da te. Effettua un attacco con incantesimo a distanza. Se colpisce, il bersaglio subisce 4d8 danni da forza. Quando esegui questo incantesimo utilizzando uno slot incantesimo di 7° livello o superiore, il danno di ciascuna lama aumenta di 1d8 per ogni livello dello slot superiore al 6°.
 Spell/&RingOfBladesTitle=Anello delle Lame
 Tooltip/&MustBeLargeOrSmaller=Deve essere di taglia grande o più piccola per essere mirato

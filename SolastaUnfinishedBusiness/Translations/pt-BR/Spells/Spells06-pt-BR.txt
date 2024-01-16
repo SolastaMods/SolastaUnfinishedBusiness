@@ -1,6 +1,6 @@
 Condition/&ConditionHeroicInfusionDescription=Você se dota de resistência e destreza marcial alimentadas pela magia.
 Condition/&ConditionHeroicInfusionTitle=Infusão Heroica
-Feature/&PowerRingOfBladesDescription=Como uma ação bônus, você pode realizar um ataque mágico à distância contra uma criatura a até 9 metros de você, usando uma de suas espadas do Anel de Lâminas.
+Feature/&PowerRingOfBladesDescription=Como uma ação bônus, você pode realizar um ataque mágico à distância contra uma criatura a até 18 metros de você, usando uma de suas espadas do Anel de Lâminas.
 Feature/&PowerRingOfBladesTitle=Anel de Lâminas
 Feedback/&AdditionalDamageHeroicInfusionFormat=Infusão Heroica!
 Feedback/&AdditionalDamageHeroicInfusionLine={0} acerta {1} heroicamente! (+{2})
@@ -16,6 +16,6 @@ Spell/&MysticalCloakLowerPlaneTitle=Manto Místico: Plano Inferior
 Spell/&MysticalCloakTitle=Manto Místico
 Spell/&PoisonWaveDescription=Uma onda venenosa irrompe de você, engolfando aqueles que estão por perto. Cada criatura dentro do raio da magia deve realizar um teste de resistência de Constituição, sofrendo 6d10 de dano de veneno em caso de falha, ou metade desse dano em caso de sucesso. Uma criatura que falhar no teste de resistência também fica envenenada por 1 minuto e pode repetir o teste de resistência no final de cada turno. Quando você conjura esta magia usando um espaço de 7º nível ou superior, o dano aumenta em 1d10 para cada nível do espaço acima do 6º.
 Spell/&PoisonWaveTitle=Onda Venenosa
-Spell/&RingOfBladesDescription=Você levanta ambas as mãos enquanto evoca seis lâminas transparentes ao seu redor. Como uma ação bônus, você pode lançar uma dessas lâminas em uma criatura a até 9 metros de você. Faça um ataque mágico à distância para isso. Se acertar, o alvo sofre 4d8 de dano de força. Quando você conjura esta magia usando um espaço de magia de 7º nível ou superior, o dano de cada lâmina aumenta em 1d8 para cada nível do espaço acima do 6º.
+Spell/&RingOfBladesDescription=Você levanta ambas as mãos enquanto evoca seis lâminas transparentes ao seu redor como uma ação bônus. Quando você conjura esta magia, e como uma ação bônus em cada turno subseqüente, você pode lançar uma dessas lâminas em uma criatura a até 18 metros de você. Faça um ataque mágico à distância. Se acertar, o alvo sofre 4d8 de dano de força. Quando você conjura esta magia usando um espaço de magia de 7º nível ou superior, o dano de cada lâmina aumenta em 1d8 para cada nível do espaço acima do 6º.
 Spell/&RingOfBladesTitle=Anel de Lâminas
 Tooltip/&MustBeLargeOrSmaller=Deve ser de tamanho grande ou menor para ser direcionado
