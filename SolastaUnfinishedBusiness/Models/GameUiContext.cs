@@ -1145,7 +1145,10 @@ internal static class GameUiContext
             // 20 to improve teleport behavior on campaigns with different heights
             boxInt.Inflate(1, 20, 1);
 
-            foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
+            var characters =
+                gameLocationCharacterService.PartyCharacters.Union(gameLocationCharacterService.GuestCharacters);
+
+            foreach (var gameLocationCharacter in characters)
             {
                 foreach (var alternatePosition in boxInt.EnumerateAllPositionsWithin())
                 {

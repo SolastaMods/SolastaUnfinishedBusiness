@@ -2,15 +2,17 @@
 
 - added Gameplay > Rules > 'Use alternate obscurement rules' [as close as we can to TT ones]
 - added Remarkable Technique fighting style
-- added Adder's Fangs, Foresight, Forest Guardian, Heroic Infusion, and Mind Blank spell sprites
-- added Power Word: Heal, Power Word: Kill, Ring of Blades, Shapechange, Vitality Transfer, and Weird spell sprites
+- added Adder's Fangs, Foresight, Heroic Infusion, Mind Blank, Power Word: Heal, and Power Word: Kill spell sprites
+- added Protector of The Wild, Ring of Blades, Shapechange, Vitality Transfer, and Weird spell sprites
 - changed Dueling fighting style to not trigger if character also have Shield Expert one
 - changed magic effects in feats, features, fighting style, spells to respect sight whenever required
 - changed Way of Silhouette subclass progression with new and removed/swapped/tweaked features
 - fixed Find Familiar spell considering Wizard position for cover on touch or melee hit effects cast through it
 - fixed Heroic Infusion and Ring of Blades spells to correctly interact with Shared Spell metamagic
 - fixed Lightning Arrow spell main target damage value determination on a miss
+- fixed main action spells interaction with action switching allowing bonus spells to be cast
 - fixed Roguish Slayer elimination feature not triggering on magical attacks
+- fixed CTRL-SHIFT-T / CTRL-SHIFT-R Party Teleporter / Re-grouper not considering guest characters
 
 1.5.94.42:
 
