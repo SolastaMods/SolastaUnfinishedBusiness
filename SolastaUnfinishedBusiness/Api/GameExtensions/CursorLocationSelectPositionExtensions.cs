@@ -37,7 +37,7 @@ internal static class CursorLocationSelectPositionExtensions
                 if (!__instance.requiresVisibilityForPosition
                         ? new GridAccessor(locationService).Visited(int3)
                         : visibilityService.MyIsCellPerceivedByCharacter(
-                            int3, locationCharacter, additionalBlockedState))
+                            int3, locationCharacter, additionalBlockedLightingState: additionalBlockedState))
                 {
                     __instance.validPositionsCache.Add(int3);
                 }

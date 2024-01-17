@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using HarmonyLib;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using TA;
 
@@ -11,41 +10,69 @@ internal static class GameLocationVisibilityManagerExtensions
         this GameLocationVisibilityManager instance,
         int3 cellPosition,
         GameLocationCharacter sensor,
+        GameLocationCharacter target = null,
         LocationDefinitions.LightingState additionalBlockedLightingState = LocationDefinitions.LightingState.Darkness)
     {
         var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
 
-        if (!Main.Settings.UseOfficialObscurementRules || !result)
+        // if setting is off or vanilla cannot perceive
+        if (!result ||
+            !Main.Settings.UseAlternateLightingAndObscurementRules)
         {
             if (!result)
             {
                 return false;
             }
 
+            // might wanna dup some code and remove Silhouette Step handling below for performance reasons
             var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
 
+            // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
             return additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
                    lightningState != additionalBlockedLightingState;
         }
 
         {
-            var maxSenseRange = sensor.RulesetCharacter.GetFeaturesByType<FeatureDefinitionSense>()
-                .Where(x =>
-                    x.SenseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight or SenseMode.Type.Tremorsense)
-                .Select(x => x.SenseRange)
-                .AddItem(0)
-                .Max();
+            var inRange = false;
+            var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
+            var lightingState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
+            var nonMagicalDarkness =
+                target != null && target.RulesetCharacter.IsUnderHeavyObscurement();
 
-            var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
+            var selectedSenseType = SenseMode.Type.None;
+            var selectedSenseRange = 0;
 
-            if (lightningState == LocationDefinitions.LightingState.Darkness)
+            // try to find any sense mode that is valid for the current lighting state and is within range
+            foreach (var senseMode in sensor.RulesetCharacter.SenseModes
+                         .Where(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState)))
             {
-                return DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition) <=
-                       maxSenseRange;
+                var senseType = senseMode.SenseType;
+
+                if (selectedSenseType != senseType && senseMode.SenseRange >= selectedSenseRange)
+                {
+                    if (nonMagicalDarkness &&
+                        lightingState == LocationDefinitions.LightingState.Darkness &&
+                        senseType == SenseMode.Type.Truesight)
+                    {
+                        continue;
+                    }
+
+                    selectedSenseType = senseType;
+                    selectedSenseRange = senseMode.SenseRange;
+                }
+
+                inRange = distance <= senseMode.SenseRange;
+
+                if (inRange)
+                {
+                    break;
+                }
             }
 
-            return additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
-                   lightningState != additionalBlockedLightingState;
+            return inRange &&
+                   // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
+                   (additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
+                    lightingState != additionalBlockedLightingState);
         }
     }
 }

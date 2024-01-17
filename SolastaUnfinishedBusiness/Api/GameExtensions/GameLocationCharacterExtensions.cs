@@ -19,20 +19,15 @@ public static class GameLocationCharacterExtensions
 
     public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
-        return source.GetDistance(target) <= range;
-    }
-
-    public static float GetDistance(this GameLocationCharacter source, GameLocationCharacter target)
-    {
         if (Main.Settings.UseOfficialDistanceCalculation)
         {
-            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target);
+            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target) <= range;
         }
 
-        return int3.Distance(source.LocationPosition, target.LocationPosition);
+        return int3.Distance(source.LocationPosition, target.LocationPosition) <= range;
     }
 
-    public static bool IsMagicEffectValidUnderObscurement(
+    public static bool IsMagicEffectValidUnderObscurementOrMagicalDarkness(
         this GameLocationCharacter source,
         IMagicEffect magicEffect,
         GameLocationCharacter target)
@@ -42,20 +37,16 @@ public static class GameLocationCharacterExtensions
             return true;
         }
 
-        if (!Main.Settings.UseOfficialObscurementRules)
-        {
-            return true;
-        }
-
         if (Main.Settings.EffectsThatTargetDistantIndividualsAndDontRequireSight.Contains(magicEffect.Name))
         {
             return true;
         }
 
-        var rulesetCharacter = source.RulesetCharacter;
+        var rulesetSource = source.RulesetActor;
+        var rulesetTarget = target.RulesetActor;
 
-        if (!rulesetCharacter.IsUnderHeavyObscurement() &&
-            (target.RulesetActor is not RulesetCharacter rulesetEnemy || !rulesetEnemy.IsUnderHeavyObscurement()))
+        if (!rulesetSource.IsUnderHeavyObscurementOrMagicalDarkness() &&
+            !rulesetTarget.IsUnderHeavyObscurementOrMagicalDarkness())
         {
             return true;
         }
@@ -79,7 +70,7 @@ public static class GameLocationCharacterExtensions
             (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
             (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
 
-        if (!Main.Settings.UseOfficialObscurementRules || !canPerceiveVanilla)
+        if (!Main.Settings.UseAlternateLightingAndObscurementRules || !canPerceiveVanilla)
         {
             return canPerceiveVanilla;
         }
@@ -87,234 +78,7 @@ public static class GameLocationCharacterExtensions
         var visibilityService =
             ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
 
-        return visibilityService.MyIsCellPerceivedByCharacter(target.LocationPosition, __instance);
-    }
-
-#if false
-    public static void MyComputeLightingModifierForLightingState(
-        this GameLocationCharacter __instance,
-        float distance,
-        LocationDefinitions.LightingState lightingState,
-        ActionModifier actionModifier,
-        object source,
-        GameLocationCharacter target)
-    {
-        if (target.RulesetActor is RulesetCharacter rulesetCharacter && rulesetCharacter.IsUnderHeavyObscurement())
-        {
-            return;
-        }
-
-        var inRange = false;
-        var selectedSenseType = SenseMode.Type.None;
-        var selectedSenseRange = 0;
-
-        foreach (var senseMode in __instance.RulesetCharacter.SenseModes
-                     .Where(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState)))
-        {
-            var senseType = senseMode.SenseType;
-
-            if (selectedSenseType != senseType && senseMode.SenseRange >= selectedSenseRange)
-            {
-                selectedSenseType = senseType;
-                selectedSenseRange = senseMode.SenseRange;
-            }
-
-            inRange = distance <= senseMode.SenseRange;
-
-            if (inRange)
-            {
-                break;
-            }
-        }
-
-        if (selectedSenseType != SenseMode.Type.None && inRange)
-        {
-            return;
-        }
-
-        var additionalDetails = selectedSenseType != SenseMode.Type.None && !inRange
-            ? $"{selectedSenseType} is out of range"
-            : string.Empty;
-
-        actionModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
-            RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(), source, additionalDetails));
-        actionModifier.AbilityCheckAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
-            RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(), source, additionalDetails));
-    }
-#endif
-
-    // this is copy-and-paste from vanilla code GameLocationVisibilityManager.ComputeIllumination
-    // except for Darkness determination in patch block and some clean up for not required scenarios
-    private static LocationDefinitions.LightingState ComputeIllumination(IIlluminable illuminable)
-    {
-        const LocationDefinitions.LightingState UNLIT = LocationDefinitions.LightingState.Unlit;
-
-        if (!illuminable.Valid)
-        {
-            return UNLIT;
-        }
-
-        var visibilityManager =
-            ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
-
-        visibilityManager!.positionCache.Clear();
-        illuminable.GetAllPositionsToCheck(visibilityManager.positionCache);
-
-        if (visibilityManager.positionCache == null || visibilityManager.positionCache.Empty())
-        {
-            return UNLIT;
-        }
-
-        if (illuminable is GameLocationCharacter { RulesetCharacter: not null } locationCharacter1 &&
-            locationCharacter1.RulesetCharacter.HasConditionOfType("ConditionDarkness"))
-        {
-            return LocationDefinitions.LightingState.Darkness;
-        }
-
-        var gridAccessor = new GridAccessor(visibilityManager.positionCache[0]);
-
-        if (visibilityManager.positionCache.Any(position =>
-                (gridAccessor.RuntimeFlags(position) & CellFlags.Runtime.DynamicSightImpaired) !=
-                CellFlags.Runtime.None))
-        {
-            return LocationDefinitions.LightingState.Darkness;
-        }
-
-        var lightingState1 = LocationDefinitions.LightingState.Unlit;
-
-        foreach (var position in visibilityManager.positionCache)
-        {
-            gridAccessor.FetchSector(position);
-            if (gridAccessor.sector == null ||
-                gridAccessor.sector.GlobalLightingState == LocationDefinitions.LightingState.Unlit)
-            {
-                continue;
-            }
-
-            lightingState1 = gridAccessor.sector.GlobalLightingState;
-
-            if (lightingState1 != LocationDefinitions.LightingState.Bright)
-            {
-                continue;
-            }
-
-            return LocationDefinitions.LightingState.Bright;
-        }
-
-        visibilityManager.lightsByDistance.Clear();
-
-        foreach (var lightSources in visibilityManager.lightSourcesMap)
-        {
-            var key = lightSources.Value;
-            var locationPosition = key.LocationPosition;
-
-            // if (previewCharacter != null)
-            // {
-            //     if (visibilityManager.charactersByLight.Any(kvp => kvp.Key == key.RulesetLightSource &&
-            //                                                 kvp.Value == previewCharacter))
-            //     {
-            //         visibilityManager.ComputeCharacterLightPosition(previewCharacter, ref locationPosition, true,
-            //             previewPosition);
-            //     }
-            // }
-
-            if (key.RulesetLightSource.DayCycleType != RuleDefinitions.LightSourceDayCycleType.Always &&
-                !key.RulesetLightSource.IsDayCycleActive)
-            {
-                continue;
-            }
-
-            var dimRange = key.RulesetLightSource.DimRange;
-            var magnitude = (locationPosition - illuminable.Position).magnitude;
-
-            if (magnitude <= dimRange + (double)illuminable.DetectionRange &&
-                (!visibilityManager.charactersByLight.TryGetValue(key.RulesetLightSource, out var locationCharacter3) ||
-                 locationCharacter3 is { IsValidForVisibility: true }))
-            {
-                visibilityManager.lightsByDistance.Add(
-                    new KeyValuePair<GameLocationLightSource, float>(key, magnitude));
-            }
-        }
-
-        visibilityManager.lightsByDistance.Sort(visibilityManager.lightSortMethod);
-
-        var lightingState2 = LocationDefinitions.LightingState.Unlit;
-
-        foreach (var int3 in visibilityManager.positionCache)
-        {
-            foreach (var keyValuePair in visibilityManager.lightsByDistance)
-            {
-                var key = keyValuePair.Key;
-                var dimRange = key.RulesetLightSource.DimRange;
-                var locationPosition = key.LocationPosition;
-
-                // if (previewCharacter != null)
-                // {
-                //     if (visibilityManager.charactersByLight.Any(kvp => kvp.Key == key.RulesetLightSource &&
-                //                                                 kvp.Value == previewCharacter))
-                //     {
-                //         visibilityManager.ComputeCharacterLightPosition(previewCharacter, ref locationPosition,
-                //             true, previewPosition);
-                //     }
-                // }
-
-                var magnitudeSqr = (locationPosition - int3).magnitudeSqr;
-
-                if (!magnitudeSqr.IsInferiorOrNearlyEqual(dimRange * dimRange))
-                {
-                    continue;
-                }
-
-                var fromGridPosition1 =
-                    visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(
-                        key.LocationPosition);
-                var fromGridPosition2 =
-                    visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(int3);
-                visibilityManager.AdaptRayForVerticalityAndDiagonals(key.LocationPosition, int3, ref fromGridPosition1,
-                    true);
-                var flag = true;
-
-                if (key.RulesetLightSource.IsSpot)
-                {
-                    var to = fromGridPosition2 - fromGridPosition1;
-
-                    to.Normalize();
-                    flag = Vector3.Angle(key.RulesetLightSource.SpotDirection, to)
-                        .IsInferiorOrNearlyEqual(key.RulesetLightSource.SpotAngle * 0.5f);
-                }
-
-                if (!flag ||
-                    visibilityManager.gameLocationPositioningService.RaycastGridSightBlocker(fromGridPosition1,
-                        fromGridPosition2, visibilityManager.GameLocationService) ||
-                    visibilityManager.gameLocationPositioningService.IsSightImpaired(key.LocationPosition, int3))
-                {
-                    continue;
-                }
-
-                lightingState2 =
-                    key.RulesetLightSource.BrightRange <= 0.0 || magnitudeSqr >
-                    key.RulesetLightSource.BrightRange * (double)key.RulesetLightSource.BrightRange
-                        ? LocationDefinitions.LightingState.Dim
-                        : LocationDefinitions.LightingState.Bright;
-                if (lightingState2 == LocationDefinitions.LightingState.Bright)
-                {
-                    break;
-                }
-            }
-
-            if (lightingState2 != LocationDefinitions.LightingState.Unlit)
-            {
-                break;
-            }
-        }
-
-        var illumination2 =
-            lightingState1 != LocationDefinitions.LightingState.Dim ||
-            lightingState2 != LocationDefinitions.LightingState.Unlit
-                ? lightingState2
-                : LocationDefinitions.LightingState.Dim;
-
-        return illumination2;
+        return visibilityService.MyIsCellPerceivedByCharacter(target.LocationPosition, __instance, target);
     }
 
     internal static LocationDefinitions.LightingState ComputeLightingStateOnTargetPosition(
@@ -333,6 +97,161 @@ public static class GameLocationCharacterExtensions
         instance.LocationPosition = savePosition;
 
         return illumination;
+
+        // this is copy-and-paste from vanilla code GameLocationVisibilityManager.ComputeIllumination
+        // except for Darkness determination in patch block and some clean up for not required scenarios
+        static LocationDefinitions.LightingState ComputeIllumination(IIlluminable illuminable)
+        {
+            const LocationDefinitions.LightingState UNLIT = LocationDefinitions.LightingState.Unlit;
+
+            if (!illuminable.Valid)
+            {
+                return UNLIT;
+            }
+
+            var visibilityManager =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+            visibilityManager!.positionCache.Clear();
+            illuminable.GetAllPositionsToCheck(visibilityManager.positionCache);
+
+            if (visibilityManager.positionCache == null || visibilityManager.positionCache.Empty())
+            {
+                return UNLIT;
+            }
+
+            if (illuminable is GameLocationCharacter { RulesetCharacter: not null } locationCharacter1 &&
+                locationCharacter1.RulesetCharacter.HasConditionOfType("ConditionDarkness"))
+            {
+                return LocationDefinitions.LightingState.Darkness;
+            }
+
+            var gridAccessor = new GridAccessor(visibilityManager.positionCache[0]);
+
+            if (visibilityManager.positionCache.Any(position =>
+                    (gridAccessor.RuntimeFlags(position) & CellFlags.Runtime.DynamicSightImpaired) !=
+                    CellFlags.Runtime.None))
+            {
+                return LocationDefinitions.LightingState.Darkness;
+            }
+
+            var lightingState1 = LocationDefinitions.LightingState.Unlit;
+
+            foreach (var position in visibilityManager.positionCache)
+            {
+                gridAccessor.FetchSector(position);
+                if (gridAccessor.sector == null ||
+                    gridAccessor.sector.GlobalLightingState == LocationDefinitions.LightingState.Unlit)
+                {
+                    continue;
+                }
+
+                lightingState1 = gridAccessor.sector.GlobalLightingState;
+
+                if (lightingState1 != LocationDefinitions.LightingState.Bright)
+                {
+                    continue;
+                }
+
+                return LocationDefinitions.LightingState.Bright;
+            }
+
+            visibilityManager.lightsByDistance.Clear();
+
+            foreach (var lightSources in visibilityManager.lightSourcesMap)
+            {
+                var key = lightSources.Value;
+                var locationPosition = key.LocationPosition;
+
+                if (key.RulesetLightSource.DayCycleType != RuleDefinitions.LightSourceDayCycleType.Always &&
+                    !key.RulesetLightSource.IsDayCycleActive)
+                {
+                    continue;
+                }
+
+                var dimRange = key.RulesetLightSource.DimRange;
+                var magnitude = (locationPosition - illuminable.Position).magnitude;
+
+                if (magnitude <= dimRange + (double)illuminable.DetectionRange &&
+                    (!visibilityManager.charactersByLight.TryGetValue(key.RulesetLightSource,
+                         out var locationCharacter3) ||
+                     locationCharacter3 is { IsValidForVisibility: true }))
+                {
+                    visibilityManager.lightsByDistance.Add(
+                        new KeyValuePair<GameLocationLightSource, float>(key, magnitude));
+                }
+            }
+
+            visibilityManager.lightsByDistance.Sort(visibilityManager.lightSortMethod);
+
+            var lightingState2 = LocationDefinitions.LightingState.Unlit;
+
+            foreach (var int3 in visibilityManager.positionCache)
+            {
+                foreach (var keyValuePair in visibilityManager.lightsByDistance)
+                {
+                    var key = keyValuePair.Key;
+                    var dimRange = key.RulesetLightSource.DimRange;
+                    var locationPosition = key.LocationPosition;
+                    var magnitudeSqr = (locationPosition - int3).magnitudeSqr;
+
+                    if (!magnitudeSqr.IsInferiorOrNearlyEqual(dimRange * dimRange))
+                    {
+                        continue;
+                    }
+
+                    var fromGridPosition1 =
+                        visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(
+                            key.LocationPosition);
+                    var fromGridPosition2 =
+                        visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(int3);
+                    visibilityManager.AdaptRayForVerticalityAndDiagonals(key.LocationPosition, int3,
+                        ref fromGridPosition1,
+                        true);
+                    var flag = true;
+
+                    if (key.RulesetLightSource.IsSpot)
+                    {
+                        var to = fromGridPosition2 - fromGridPosition1;
+
+                        to.Normalize();
+                        flag = Vector3.Angle(key.RulesetLightSource.SpotDirection, to)
+                            .IsInferiorOrNearlyEqual(key.RulesetLightSource.SpotAngle * 0.5f);
+                    }
+
+                    if (!flag ||
+                        visibilityManager.gameLocationPositioningService.RaycastGridSightBlocker(fromGridPosition1,
+                            fromGridPosition2, visibilityManager.GameLocationService) ||
+                        visibilityManager.gameLocationPositioningService.IsSightImpaired(key.LocationPosition, int3))
+                    {
+                        continue;
+                    }
+
+                    lightingState2 =
+                        key.RulesetLightSource.BrightRange <= 0.0 || magnitudeSqr >
+                        key.RulesetLightSource.BrightRange * (double)key.RulesetLightSource.BrightRange
+                            ? LocationDefinitions.LightingState.Dim
+                            : LocationDefinitions.LightingState.Bright;
+                    if (lightingState2 == LocationDefinitions.LightingState.Bright)
+                    {
+                        break;
+                    }
+                }
+
+                if (lightingState2 != LocationDefinitions.LightingState.Unlit)
+                {
+                    break;
+                }
+            }
+
+            var illumination2 =
+                lightingState1 != LocationDefinitions.LightingState.Dim ||
+                lightingState2 != LocationDefinitions.LightingState.Unlit
+                    ? lightingState2
+                    : LocationDefinitions.LightingState.Dim;
+
+            return illumination2;
+        }
     }
 
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
@@ -558,7 +477,8 @@ public static class GameLocationCharacterExtensions
     }
 #endif
 
-    internal static FeatureDefinition GetCurrentAdditionalActionFeature(this GameLocationCharacter instance,
+    internal static FeatureDefinition GetCurrentAdditionalActionFeature(
+        this GameLocationCharacter instance,
         ActionType type)
     {
         if (!instance.currentActionRankByType.TryGetValue(type, out var rank))
@@ -570,7 +490,8 @@ public static class GameLocationCharacterExtensions
         return rank >= filters.Count ? null : PerformanceFilterExtraData.GetData(filters[rank])?.Feature;
     }
 
-    internal static bool CanCastAnyInvocationOfActionId(this GameLocationCharacter instance,
+    internal static bool CanCastAnyInvocationOfActionId(
+        this GameLocationCharacter instance,
         Id actionId,
         ActionScope scope,
         bool canCastSpells,

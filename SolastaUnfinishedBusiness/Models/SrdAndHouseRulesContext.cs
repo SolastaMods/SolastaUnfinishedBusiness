@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -9,7 +8,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -17,6 +15,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -86,13 +85,6 @@ internal static class SrdAndHouseRulesContext
             .SetConditionAffinityType(ConditionAffinityType.Immunity)
             .AddToDB();
 
-    private static readonly EffectForm EffectFormHeavilyObscured =
-        EffectFormBuilder.ConditionForm(ConditionHeavilyObscured);
-
-    internal static readonly Dictionary<
-            (SenseMode.Type, LocationDefinitions.LightingState, SenseMode.Type, LocationDefinitions.LightingState), int>
-        LightingAdvDis = [];
-
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -121,90 +113,7 @@ internal static class SrdAndHouseRulesContext
         SwitchHastedCasing();
         SwitchSchoolRestrictionsFromShadowCaster();
         SwitchSchoolRestrictionsFromSpellBlade();
-        LoadLightingAdvDisTable();
         ActionSwitching.Load();
-    }
-
-    private static void LoadLightingAdvDisTable()
-    {
-        var filename = $"{Main.ModFolder}/obscurement_rules.txt";
-
-        if (!File.Exists(filename))
-        {
-            Main.Info("Obscurement rules table not found. Loading default from DLL resource.");
-
-            var payload = Resources.ObscurementRules;
-            var lines = new List<string>(payload.Split([Environment.NewLine], StringSplitOptions.None));
-
-            for (var i = 1; i < lines.Count; i++)
-            {
-                AddEntry(lines[i]);
-            }
-
-            return;
-        }
-
-        using var reader = new StreamReader(filename);
-
-        // skip header
-        _ = reader.ReadLine();
-
-        while (reader.ReadLine() is { } line)
-        {
-            AddEntry(line);
-        }
-
-        return;
-
-        static void AddEntry(string line)
-        {
-            var fields = line.Split(',');
-
-            if (fields.Length != 5)
-            {
-                return;
-            }
-
-            var modifier = fields[4] == "ADVANTAGE" ? 1 : fields[4] == "DISADVANTAGE" ? -1 : 0;
-
-            if (modifier == 0)
-            {
-                return;
-            }
-
-            var attackerSense = GetSense(fields[0]);
-            var defenderSense = GetSense(fields[2]);
-            var attackerLightingState = GetLightingState(fields[1]);
-            var defenderLightingState = GetLightingState(fields[3]);
-
-            LightingAdvDis.Add((attackerSense, attackerLightingState, defenderSense, defenderLightingState), modifier);
-        }
-
-        static SenseMode.Type GetSense(string senseName)
-        {
-            return senseName.ToUpper() switch
-            {
-                "NORMAL" => SenseMode.Type.NormalVision,
-                "DARKVISION" => SenseMode.Type.Darkvision,
-                "SUPERIOR DARKVISION" => SenseMode.Type.SuperiorDarkvision,
-                "TRUE SIGHT" => SenseMode.Type.Truesight,
-                "BLIND SIGHT" => SenseMode.Type.Blindsight,
-                "TREMOR SENSE" => SenseMode.Type.Tremorsense,
-                _ => SenseMode.Type.None
-            };
-        }
-
-        static LocationDefinitions.LightingState GetLightingState(string senseName)
-        {
-            return senseName.ToUpper() switch
-            {
-                "BRIGHT" => LocationDefinitions.LightingState.Bright,
-                "DIM" => LocationDefinitions.LightingState.Dim,
-                "UNLIT" => LocationDefinitions.LightingState.Unlit,
-                "DARKNESS" => LocationDefinitions.LightingState.Darkness,
-                _ => LocationDefinitions.LightingState.Bright
-            };
-        }
     }
 
     internal static void SwitchSchoolRestrictionsFromShadowCaster()
@@ -498,18 +407,19 @@ internal static class SrdAndHouseRulesContext
 
     internal static void SwitchOfficialObscurementRules()
     {
-        if (Main.Settings.UseOfficialObscurementRules)
+        if (Main.Settings.UseAlternateLightingAndObscurementRules)
         {
             foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>()
-                         .Where(x => x.Features.Contains(FeatureDefinitionConditionAffinitys
-                             .ConditionAffinityVeilImmunity)))
+                         .Where(x => x.Features.Contains(
+                             FeatureDefinitionConditionAffinitys.ConditionAffinityVeilImmunity)))
             {
                 monster.Features.Add(ConditionAffinityDarknessImmunity);
             }
 
-            // vanilla has this set as disadvantage
-            FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured.attackOnMeAdvantage =
-                AdvantageType.Advantage;
+            // vanilla has this set as disadvantage so we flip it and update senses
+            CombatAffinityHeavilyObscured.attackOnMeAdvantage = AdvantageType.Advantage;
+            (CombatAffinityHeavilyObscured.nullifiedBySenses, CombatAffinityHeavilyObscured.nullifiedBySelfSenses) =
+                (CombatAffinityHeavilyObscured.nullifiedBySelfSenses, CombatAffinityHeavilyObscured.nullifiedBySenses);
 
             // vanilla reuses Heavily Obscured terms
             ConditionDefinitions.ConditionDarkness.GuiPresentation.title =
@@ -517,49 +427,37 @@ internal static class SrdAndHouseRulesContext
             ConditionDefinitions.ConditionDarkness.GuiPresentation.description =
                 "Rules/&ConditionHeavilyObscuredExtendedDescription";
 
-            // ensure we enforce Heavily Obscured on these effects / conditions
-            CloudKill.EffectDescription.EffectForms.TryAdd(EffectFormHeavilyObscured);
-
-            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(EffectFormHeavilyObscured);
-
             ConditionDefinitions.ConditionDarkness.conditionType = ConditionType.Detrimental;
             ConditionDefinitions.ConditionDarkness.possessive = false;
             ConditionDefinitions.ConditionDarkness.Features.SetRange(
-                FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured,
-                FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscuredSelf);
+                CombatAffinityHeavilyObscured,
+                CombatAffinityHeavilyObscuredSelf);
 
-            ConditionVeil.Features.SetRange(
-                FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured,
-                FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscuredSelf);
+            ConditionVeil.Features.SetRange(CombatAffinityHeavilyObscured, CombatAffinityHeavilyObscuredSelf);
         }
         else
         {
             foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>()
-                         .Where(x => x.Features.Contains(FeatureDefinitionConditionAffinitys
-                             .ConditionAffinityVeilImmunity)))
+                         .Where(x => x.Features.Contains(
+                             FeatureDefinitionConditionAffinitys.ConditionAffinityVeilImmunity)))
             {
                 monster.Features.Remove(ConditionAffinityDarknessImmunity);
             }
 
-            FeatureDefinitionCombatAffinitys.CombatAffinityHeavilyObscured.attackOnMeAdvantage =
-                AdvantageType.Disadvantage;
+            CombatAffinityHeavilyObscured.attackOnMeAdvantage = AdvantageType.Disadvantage;
+            (CombatAffinityHeavilyObscured.nullifiedBySelfSenses, CombatAffinityHeavilyObscured.nullifiedBySenses) =
+                (CombatAffinityHeavilyObscured.nullifiedBySenses, CombatAffinityHeavilyObscured.nullifiedBySelfSenses);
 
             ConditionDefinitions.ConditionDarkness.GuiPresentation.title =
                 "Rules/&ConditionHeavilyObscuredTitle";
             ConditionDefinitions.ConditionDarkness.GuiPresentation.description =
                 "Rules/&ConditionHeavilyObscuredDescription";
 
-            CloudKill.EffectDescription.EffectForms.Remove(EffectFormHeavilyObscured);
-
-            IncendiaryCloud.EffectDescription.EffectForms.Remove(EffectFormHeavilyObscured);
-
             ConditionDefinitions.ConditionDarkness.conditionType = ConditionType.Neutral;
             ConditionDefinitions.ConditionDarkness.possessive = true;
-            ConditionDefinitions.ConditionDarkness.Features.SetRange(
-                FeatureDefinitionCombatAffinitys.CombatAffinityVeil);
+            ConditionDefinitions.ConditionDarkness.Features.SetRange(CombatAffinityVeil);
 
-            ConditionVeil.Features.SetRange(
-                FeatureDefinitionCombatAffinitys.CombatAffinityVeil);
+            ConditionVeil.Features.SetRange(CombatAffinityVeil);
         }
     }
 

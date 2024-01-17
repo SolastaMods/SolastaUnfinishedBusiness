@@ -201,7 +201,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
-    public bool UseOfficialObscurementRules { get; set; }
+    public bool UseAlternateLightingAndObscurementRules { get; set; }
     public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }

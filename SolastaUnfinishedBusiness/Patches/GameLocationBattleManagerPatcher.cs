@@ -649,63 +649,50 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
 
-            //PATCH: add lighting advantage/disadvantage for physical and spell attack
+            //PATCH: handle lighting and obscurement logic disabled in `GLC.ComputeLightingModifierForIlluminable`
             ApplyObscurementRules(attackParams, __result);
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams, __result);
         }
 
-        private static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams, bool __result)
+        private static void ApplyObscurementRules(
+            BattleDefinitions.AttackEvaluationParams attackParams,
+            bool __result)
         {
-            if (!Main.Settings.UseOfficialObscurementRules || !__result)
+            if (!__result ||
+                !Main.Settings.UseAlternateLightingAndObscurementRules)
+            {
+                return;
+            }
+
+            var attackModifier = attackParams.attackModifier;
+
+            var alreadyHasHeavilyOrMagicalDarknessModifiers = attackModifier.attackAdvantageTrends.Any(
+                x => x.sourceName
+                    is "ConditionDarkness"
+                    or "ConditionVeil"
+                    or "ConditionHeavilyObscured"
+                    or "ConditionInStinkingCloud"
+                    or "ConditionSleetStorm");
+
+            if (alreadyHasHeavilyOrMagicalDarknessModifiers)
             {
                 return;
             }
 
             var attacker = attackParams.attacker;
             var defender = attackParams.defender;
-            var distance = attacker.GetDistance(defender);
+            var attackerCanSeeDefender = attacker.CanPerceiveTarget(defender);
+            var defenderCanSeeAttacker = defender.CanPerceiveTarget(attacker);
 
-            var key = (
-                GetBestSenseType(attacker, distance), attacker.LightingState,
-                GetBestSenseType(defender, distance), defender.LightingState);
-
-            if (SrdAndHouseRulesContext.LightingAdvDis.TryGetValue(key, out var modifier))
+            if (attackerCanSeeDefender ^ defenderCanSeeAttacker)
             {
-                attackParams.attackModifier.attackAdvantageTrends.Add(
-                    new TrendInfo(modifier, FeatureSourceType.Lighting, "Obscurement", null));
-            }
-
-            return;
-
-            static SenseMode.Type GetBestSenseType(
-                // ReSharper disable once SuggestBaseTypeForParameter
-                GameLocationCharacter character,
-                float distance)
-            {
-                SenseMode.Type[] senseTypes =
-                [
-                    SenseMode.Type.Tremorsense, SenseMode.Type.Blindsight, SenseMode.Type.Truesight,
-                    SenseMode.Type.SuperiorDarkvision, SenseMode.Type.Darkvision, SenseMode.Type.NormalVision
-                ];
-
-                foreach (var senseType in senseTypes)
-                {
-                    var senseRange = character.RulesetCharacter.SenseModes
-                        .FirstOrDefault(x => x.SenseType == senseType)?.SenseRange ?? 0;
-
-                    if (senseRange >= distance)
-                    {
-                        return senseType;
-                    }
-                }
-
-                return SenseMode.Type.NormalVision;
+                attackModifier.attackAdvantageTrends.Add(
+                    new TrendInfo(attackerCanSeeDefender ? 1 : -1, FeatureSourceType.Lighting, "Obscurement", null));
             }
         }
 
-        //TODO: move this somewhere else and maybe split?
         private static void ApplyCustomModifiers(BattleDefinitions.AttackEvaluationParams attackParams, bool __result)
         {
             if (!__result)

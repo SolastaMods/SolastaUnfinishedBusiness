@@ -20,8 +20,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
-    //PATCH: let Darkness be handled by the conditions themselves with proper combat affinities
-    //lighting ADV/DIS is handled elsewhere in CanAttack method
+    //PATCH: let ADV/DIS be handled elsewhere in `GLBM.CanAttack` if alternate lighting and obscurement rules in place
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.ComputeLightingModifierForIlluminable))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -30,7 +29,7 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix()
         {
-            return !Main.Settings.UseOfficialObscurementRules;
+            return !Main.Settings.UseAlternateLightingAndObscurementRules;
         }
     }
 
@@ -350,7 +349,7 @@ public static class GameLocationCharacterPatcher
             {
                 __instance.UsedMainSpell = true;
             }
-            
+
             //PATCH: ensure if a main spell is cast, no more bonus spells are allowed
             if (Main.Settings.EnableActionSwitching
                 && actionParams.ActionDefinition.ActionType == ActionDefinitions.ActionType.Main
