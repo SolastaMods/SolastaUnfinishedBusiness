@@ -2129,6 +2129,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBlessed { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBlessed");
 
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBlinded { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBlinded");
+
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionHasted { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionHasted");
 

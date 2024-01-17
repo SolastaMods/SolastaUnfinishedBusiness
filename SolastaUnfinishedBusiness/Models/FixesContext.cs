@@ -409,11 +409,20 @@ internal static class FixesContext
 
     private static void FixMinorSpellIssues()
     {
+        ConditionDefinitions.ConditionBlinded.Features.Remove(
+            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlinded);
+
+        CloudKill.EffectDescription.EffectForms.TryAdd(
+            EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHeavilyObscured));
+
         CloudKill.EffectDescription.recurrentEffect =
             RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd;
 
         Entangle.EffectDescription.EffectForms.Add(
             EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false));
+
+        IncendiaryCloud.EffectDescription.EffectForms.TryAdd(
+            EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHeavilyObscured));
 
         SleetStorm.EffectDescription.recurrentEffect =
             RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd;

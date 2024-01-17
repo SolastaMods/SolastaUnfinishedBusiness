@@ -44,10 +44,12 @@ internal static partial class SpellBuilders
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionDefinitions.ConditionBlinded, $"Condition{NAME}Enemy")
-                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                        .AddToDB(),
+                    conditionDefinition =
+                        ConditionDefinitionBuilder
+                            .Create(ConditionDefinitions.ConditionBlinded, $"Condition{NAME}Enemy")
+                            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
+                            .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             // doesn't follow the standard impact particle reference
@@ -1279,6 +1281,7 @@ internal static partial class SpellBuilders
 
         var conditionHungerOfTheVoid = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}")
+            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
             .AddToDB();
 
         conditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(conditionHungerOfTheVoid));

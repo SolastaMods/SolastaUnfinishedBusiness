@@ -5,7 +5,6 @@
   "conditionType": "Detrimental",
   "features": [
     "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5",
-    "Definition:SavingThrowAffinityConditionBlinded:83e5202a11865fa48ae4eccb125d0873",
     "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5"
   ],
   "allowMultipleInstances": false,
