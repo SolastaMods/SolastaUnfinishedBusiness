@@ -445,6 +445,7 @@ internal static partial class SpellBuilders
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
             }
+
             yield break;
         }
     }

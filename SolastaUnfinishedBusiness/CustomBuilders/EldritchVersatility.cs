@@ -665,7 +665,7 @@ internal static class EldritchVersatility
         {
             var rulesetCharacter = character.RulesetCharacter;
 
-            if (Gui.Battle == null || 
+            if (Gui.Battle == null ||
                 !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {

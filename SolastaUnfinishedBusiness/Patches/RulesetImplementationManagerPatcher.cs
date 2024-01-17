@@ -531,7 +531,7 @@ public static class RulesetImplementationManagerPatcher
                         Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(
                             originalHero,
                             formsParams.activeEffect.SourceDefinition.Name,
-                            spellRepertoire, 
+                            spellRepertoire,
                             slotsCapital,
                             spellSlotsForm.MaxSlotLevel);
 

@@ -375,7 +375,7 @@ A powerful, ethereal undead creature.
 
 # 88. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
-You raise both hands as you evoke six transparent blades around you. As a bonus action, you can throw one of these blades at a creature within 30 feet from you. Make a ranged spell attack for it. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d8 for each slot level above 6th.
+You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d8 for each slot level above 6th.
 
 # 89. - Alter Gravity (V,S) level 7 Transmutation [Concentration]
 
