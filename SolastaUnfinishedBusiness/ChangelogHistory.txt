@@ -3,7 +3,7 @@
 - added Adder's Fangs, Foresight, Heroic Infusion, Mind Blank, Power Word: Heal, and Power Word: Kill spell sprites
 - added Gameplay > Rules > 'Use alternate obscurement rules' [as close as we can be to TT with some homebrew]
 - added Protector of The Wild, Ring of Blades, Shapechange, Vitality Transfer, and Weird spell sprites
-- added Remarkable Technique fighting style
+- added Remarkable Technique fighting style [learn 1 gambit and get 1 gambit usage]
 - changed Dueling fighting style to not trigger if character also have Shield Expert one
 - changed Way of Silhouette subclass progression with new and removed/swapped/tweaked features
 - fixed Arcane Recovery using character level instead of class level to determine max recovered slots

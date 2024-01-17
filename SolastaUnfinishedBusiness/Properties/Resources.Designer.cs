@@ -2273,26 +2273,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ATTACKER SENSE,ATTACKER LIGHT,DEFENDER SENSE,DEFENDER LIGHT,ATTACK MODIFIER
-        ///NORMAL,BRIGHT,NORMAL,BRIGHT,NONE
-        ///NORMAL,BRIGHT,NORMAL,DIM,NONE
-        ///NORMAL,BRIGHT,NORMAL,UNLIT,NONE
-        ///NORMAL,BRIGHT,NORMAL,DARKNESS,DISADVANTAGE
-        ///NORMAL,BRIGHT,DARKVISION,BRIGHT,NONE
-        ///NORMAL,BRIGHT,DARKVISION,DIM,NONE
-        ///NORMAL,BRIGHT,DARKVISION,UNLIT,NONE
-        ///NORMAL,BRIGHT,DARKVISION,DARKNESS,DISADVANTAGE
-        ///NORMAL,BRIGHT,SUPERIOR DARKVISION,BRIGHT,NONE
-        ///NORMAL,BRIGHT,SUPERIOR DARKVISION,DIM,NONE
-        ///NORMAL,BRIGHT,SUPERIOR DARKVISION,UNLIT,NONE [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string ObscurementRules {
-            get {
-                return ResourceManager.GetString("ObscurementRules", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] ObsidianDwarf {
