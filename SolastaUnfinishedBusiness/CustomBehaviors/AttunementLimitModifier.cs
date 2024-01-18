@@ -1,11 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public class AttunementLimitModifier
+public class AttunementLimitModifier(int value)
 {
-    public AttunementLimitModifier(int value)
-    {
-        Value = value;
-    }
-
-    public int Value { get; }
+    public int Value { get; } = value;
 }
