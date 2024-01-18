@@ -43,6 +43,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
+    internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
     internal static readonly SpellDefinition PsychicWhip = BuildPsychicWhip();
     internal static readonly SpellDefinition PulseWave = BuildPulseWave();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
@@ -255,7 +256,7 @@ internal static class SpellsContext
         RegisterSpell(BuildCloudOfDaggers(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildNoxiousSpray(), 0, SpellListDruid, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
+        RegisterSpell(PetalStorm, 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
         RegisterSpell(PsychicWhip, 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);

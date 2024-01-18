@@ -217,12 +217,12 @@ internal static partial class SpellBuilders
                         false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(ConditionHeavilyObscured),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetDamageForm(DamageTypeSlashing, 3, DieType.D4)
                             .Build(),
+                        EffectFormBuilder.ConditionForm(ConditionHeavilyObscured),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.SightImpaired, true),
                         EffectFormBuilder
                             .Create()

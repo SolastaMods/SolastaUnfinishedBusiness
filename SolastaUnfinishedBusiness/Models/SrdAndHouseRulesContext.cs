@@ -79,10 +79,22 @@ internal static class SrdAndHouseRulesContext
             .SetForbiddenActions(Id.AttackOpportunity)
             .AddToDB();
 
-    private static readonly EffectForm FormBlinded = EffectFormBuilder
-        .Create()
-        .SetConditionForm(ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
-        .Build();
+    private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
+        .Create(ConditionHeavilyObscured, "ConditionLightlyObscured")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetFeatures(
+            FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create("AbilityCheckAffinityLightlyObscured")
+                .SetOrUpdateGuiPresentation("ConditionLightlyObscured", Category.Condition)
+                .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
+                    abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
+                .AddToDB())
+        .AddToDB();
+
+    private static readonly EffectForm FormBlinded =
+        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBlinded);
+
+    private static readonly EffectForm FormLightlyObscured = EffectFormBuilder.ConditionForm(ConditionLightlyObscured);
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
@@ -438,8 +450,12 @@ internal static class SrdAndHouseRulesContext
 
             // >> ConditionHeavilyObscured
             // FogCloud
+            // PetalStorm
 
             FogCloud.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+                ConditionDefinitions.ConditionBlinded;
+
+            SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
                 ConditionDefinitions.ConditionBlinded;
 
             // >> ConditionInStinkingCloud
@@ -459,6 +475,9 @@ internal static class SrdAndHouseRulesContext
             CloudKill.EffectDescription.EffectForms.Add(FormBlinded);
             IncendiaryCloud.EffectDescription.EffectForms.Add(FormBlinded);
 
+            // Make Insect Plague lightly obscured
+            InsectPlague.EffectDescription.EffectForms.Add(FormLightlyObscured);
+
             // vanilla has this set as disadvantage so we flip it with nullified requirements
             CombatAffinityHeavilyObscured.attackOnMeAdvantage = AdvantageType.Advantage;
             (CombatAffinityHeavilyObscured.nullifiedBySenses, CombatAffinityHeavilyObscured.nullifiedBySelfSenses) =
@@ -468,9 +487,10 @@ internal static class SrdAndHouseRulesContext
             CloudKill.EffectDescription.EffectForms[2].TopologyForm.changeType = TopologyForm.Type.None;
             FogCloud.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
             IncendiaryCloud.EffectDescription.EffectForms[2].TopologyForm.changeType = TopologyForm.Type.None;
-            InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightBlocker;
+            InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
             SleetStorm.EffectDescription.EffectForms[5].TopologyForm.changeType = TopologyForm.Type.None;
             StinkingCloud.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
+            SpellsContext.PetalStorm.EffectDescription.EffectForms[2].TopologyForm.changeType = TopologyForm.Type.None;
         }
         else
         {
@@ -499,8 +519,12 @@ internal static class SrdAndHouseRulesContext
 
             // >> ConditionHeavilyObscured
             // FogCloud
+            // PetalStorm
 
             FogCloud.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+                ConditionHeavilyObscured;
+
+            SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
                 ConditionHeavilyObscured;
 
             // >> ConditionInStinkingCloud
@@ -520,6 +544,9 @@ internal static class SrdAndHouseRulesContext
             CloudKill.EffectDescription.EffectForms.Remove(FormBlinded);
             IncendiaryCloud.EffectDescription.EffectForms.Remove(FormBlinded);
 
+            // Remove lightly obscured from Insect Plague
+            InsectPlague.EffectDescription.EffectForms.Remove(FormLightlyObscured);
+
             // vanilla has this set as disadvantage so we flip it with nullified requirements
             CombatAffinityHeavilyObscured.attackOnMeAdvantage = AdvantageType.Disadvantage;
             (CombatAffinityHeavilyObscured.nullifiedBySelfSenses, CombatAffinityHeavilyObscured.nullifiedBySenses) =
@@ -532,6 +559,8 @@ internal static class SrdAndHouseRulesContext
             InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
             SleetStorm.EffectDescription.EffectForms[5].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
             StinkingCloud.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
+            SpellsContext.PetalStorm.EffectDescription.EffectForms[2].TopologyForm.changeType =
+                TopologyForm.Type.SightImpaired;
         }
     }
 
