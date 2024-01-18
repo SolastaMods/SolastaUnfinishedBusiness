@@ -1,5 +1,3 @@
-
-=EMPTY
 Condition/&ConditionWayOfSilhouetteSilhouetteStepDescription=당신의 턴이 끝나기 전에 당신이 하는 다음 근접 공격은 유리하게 굴립니다.
 Condition/&ConditionWayOfSilhouetteSilhouetteStepTitle=실루엣 스텝
 Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=차례당 1회, 명중굴림에 이점이 부여된 비무장 공격 또는 몽크 무기 공격으로 크리쳐를 적중시켰다면 자신의 무술 주사위 1개만큼의 추가 피해를 가할 수 있습니다. 로그의 암습 조건 만족 시, 명중굴림에 이점이 없어도 적용됩니다. 11, 17레벨이 될 때마다 피해량에 무술 주사위 1개가 추가됩니다.
@@ -14,7 +12,7 @@ Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=비마법
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=그림자의 망토
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=잠시 기 에너지에 휩싸입니다. 순간이동 시 아군 1명을 함께 데려갈 수 있으며, 거리가 증가합니다.
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=강화된 그림자 걸음
-Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=생물이 당신을 공격하려고 할 때, 당신은 3ki를 소비하고 반응을 사용하여 그림자 속으로 들어가 사라지고, 해당 공격으로 인해 받았을 모든 피해나 해로운 효과를 무효화할 수 있습니다. 그림자 속에 있는 동안 당신은 다음 턴이 시작될 때까지 추방된 것으로 간주됩니다. 이런 식으로 추방되는 동안 당신은 암흑 주문에 대한 집중력을 잃지 않습니다.
+Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=생물이 당신을 공격하려고 할 때, 당신은 3ki를 소비하고 반응을 사용하여 그림자 속으로 들어가 사라지고, 해당 공격으로 인해 받았을 모든 피해나 해로운 효과를 무효화할 수 있습니다. 그림자 속에 있는 동안 당신은 다음 턴이 시작될 때까지 추방된 것으로 간주됩니다. 이런 식으로 추방되는 동안에는 집중력이 떨어지지 않습니다.
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=그림자의 성역
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=희미한 빛이나 자연적인 어둠 속에 있을 때 보너스 액션을 사용하여 역시 희미한 빛이나 자연적인 어둠 속에 있는 비어 있는 공간으로 최대 60피트까지 순간이동할 수 있습니다. 그렇게 한 후, 턴이 끝나기 전에 하는 다음 근접 공격은 유리하게 굴립니다.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=그림자 걸음

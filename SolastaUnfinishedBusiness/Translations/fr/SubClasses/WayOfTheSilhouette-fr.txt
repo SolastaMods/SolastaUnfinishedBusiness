@@ -1,5 +1,3 @@
-
-=EMPTY
 Condition/&ConditionWayOfSilhouetteSilhouetteStepDescription=La prochaine attaque de mêlée que vous effectuez avant la fin de votre tour est lancée avec avantage.
 Condition/&ConditionWayOfSilhouetteSilhouetteStepTitle=Étape silhouette
 Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=Une fois par tour, vous pouvez infliger des dégâts supplémentaires égaux à votre dé d'arts martiaux si vous touchez une créature avec une attaque qui avait un avantage au jet d'attaque. Vous n'avez pas besoin d'un avantage au jet d'attaque si un autre ennemi de la cible se trouve à moins de 1,50 mètre de celle-ci, cet ennemi n'est pas incapable d'agir et vous n'avez pas de désavantage au jet d'attaque. Vous devez utiliser une attaque à mains nues ou une arme de moine. Ces dégâts augmentent d'un dé d'arts martiaux supplémentaire aux niveaux 11 et 17.
@@ -14,7 +12,7 @@ Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Si vous c
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=Cape de silhouettes
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Brièvement entouré par l'énergie du Ki, vous pouvez désormais amener un allié avec vous lors de la téléportation et la portée a augmenté.
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=Étape de silhouette améliorée
-Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Lorsqu'une créature est sur le point de vous frapper avec une attaque, vous pouvez dépenser 3 ki et utiliser votre réaction pour entrer dans l'ombre et disparaître, annulant ainsi tous les dégâts ou effets néfastes que vous auriez reçus de cette attaque. Lorsque vous êtes dans l'ombre, vous êtes considéré comme banni jusqu'au début de votre prochain tour. Vous ne perdez pas votre concentration sur votre sort Ténèbres lorsque vous êtes banni de cette façon.
+Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Lorsqu'une créature est sur le point de vous frapper avec une attaque, vous pouvez dépenser 3 ki et utiliser votre réaction pour entrer dans l'ombre et disparaître, annulant ainsi tous les dégâts ou effets néfastes que vous auriez reçus de cette attaque. Lorsque vous êtes dans l'ombre, vous êtes considéré comme banni jusqu'au début de votre prochain tour. Vous ne perdez pas votre concentration lorsque vous êtes banni de cette façon.
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Sanctuaire ténébreux
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Vous pouvez utiliser votre action bonus lorsque vous êtes dans une faible lumière ou dans l'obscurité naturelle pour vous téléporter jusqu'à 60 pieds dans un espace inoccupé que vous pouvez voir et qui est également dans une faible lumière ou dans l'obscurité naturelle. Après cela, la prochaine attaque de mêlée que vous effectuez avant la fin de votre tour est lancée avec avantage.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Étape de la silhouette
