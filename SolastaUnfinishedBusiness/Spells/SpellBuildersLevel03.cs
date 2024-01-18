@@ -44,12 +44,7 @@ internal static partial class SpellBuilders
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition =
-                        ConditionDefinitionBuilder
-                            .Create(ConditionDefinitions.ConditionBlinded, $"Condition{NAME}Enemy")
-                            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
-                            .AddToDB(),
+                    conditionDefinition = ConditionBlinded_Sunburst,
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             // doesn't follow the standard impact particle reference
@@ -1282,6 +1277,7 @@ internal static partial class SpellBuilders
         var conditionHungerOfTheVoid = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}")
             .SetParentCondition(ConditionDefinitions.ConditionBlinded)
+            .SetFeatures()
             .AddToDB();
 
         conditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(conditionHungerOfTheVoid));
@@ -1304,8 +1300,8 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter |
-                                        RecurrentEffect.OnTurnStart)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true),
@@ -1313,11 +1309,6 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(Darkness)
                     .Build())
             .AddToDB();
-
-        // remove original condition blinded from Darkness spell
-        spell.EffectDescription.EffectForms.RemoveAll(x =>
-            x.FormType == EffectForm.EffectFormType.Condition
-            && x.ConditionForm.ConditionDefinition == ConditionDefinitions.ConditionBlinded);
 
         return spell;
     }

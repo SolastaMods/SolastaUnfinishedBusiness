@@ -39,7 +39,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionBlindingSmiteEnemy:f4dd3787-cbde-5773-a7ae-d599891dd1fd",
+      "conditionDefinition": "Definition:ConditionBlinded_Sunburst:fa766b043a5f2154fb804e8b7f7160a6",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
       "saveOccurence": "StartOfTurn"

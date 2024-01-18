@@ -3,10 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5",
-    "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -267,7 +264,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Rules/&ConditionBlindedTitle",
-    "description": "Rules/&ConditionBlindedDescription",
+    "description": "Rules/&ConditionBlindedExtendedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",

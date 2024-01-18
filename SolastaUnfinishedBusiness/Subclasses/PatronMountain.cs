@@ -165,12 +165,6 @@ public class PatronMountain : AbstractSubclass
 
         // Icebound Soul
 
-        var conditionIceboundSoul = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}IceboundSoul")
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
-            .AddToDB();
-
         var additionalDamageIceboundSoul = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}IceboundSoul")
             .SetGuiPresentation($"FeatureSet{Name}IceboundSoul", Category.Feature)
@@ -180,7 +174,7 @@ public class PatronMountain : AbstractSubclass
             .SetConditionOperations(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
-                conditionDefinition = conditionIceboundSoul,
+                conditionDefinition = ConditionDefinitions.ConditionBlindedEndOfNextTurn,
                 hasSavingThrow = true,
                 saveAffinity = EffectSavingThrowType.Negates
             })
