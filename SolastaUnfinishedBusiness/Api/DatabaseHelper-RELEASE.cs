@@ -9,6 +9,12 @@ namespace SolastaUnfinishedBusiness.Api;
 
 internal static partial class DatabaseHelper
 {
+    internal static class FeatureDefinitionPerceptionAffinitys
+    {
+        internal static FeatureDefinitionPerceptionAffinity PerceptionAffinityConditionBlinded { get; } =
+            GetDefinition<FeatureDefinitionPerceptionAffinity>("PerceptionAffinityConditionBlinded");
+    }
+
     internal static class ActionDefinitions
     {
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
@@ -315,6 +321,12 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionBlinded { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlinded");
+
+        internal static ConditionDefinition ConditionBlinded_Sunburst { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBlinded_Sunburst");
+
+        internal static ConditionDefinition ConditionBlindedEndOfNextTurn { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBlindedEndOfNextTurn");
 
         internal static ConditionDefinition ConditionBlurred { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlurred");
@@ -1216,9 +1228,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityStealthy { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityStealthy");
-
-        internal static FeatureDefinitionCombatAffinity CombatAffinityVeil { get; } =
-            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityVeil");
     }
 
     internal static class FeatureDefinitionConditionAffinitys
@@ -1273,6 +1282,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityHinderedByFrostImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHinderedByFrostImmunity");
 
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityMindControlledImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityMindControlledImmunity");
 
@@ -1293,7 +1305,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityRestrainedmmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityRestrainedmmunity");
-
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityVeilImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityVeilImmunity");
@@ -1645,6 +1656,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerCollegeLoreCuttingWords { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerCollegeLoreCuttingWords");
+
+        internal static FeatureDefinitionPower PowerDefilerDarkness { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDefilerDarkness");
 
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");

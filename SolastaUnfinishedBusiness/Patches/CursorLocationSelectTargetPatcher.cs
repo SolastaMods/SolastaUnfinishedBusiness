@@ -37,7 +37,7 @@ public static class CursorLocationSelectTargetPatcher
             if (__result &&
                 Main.Settings.UseOfficialLightingObscurementAndVisionRules &&
                 definition is IMagicEffect magicEffect &&
-                !actingCharacter.IsMagicEffectValidUnderObscurementOrMagicalDarkness(magicEffect, target))
+                !actingCharacter.IsMagicEffectValidUnderBlindness(magicEffect, target))
             {
                 __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoPerceptionOfTargetDescription");
                 __result = false;

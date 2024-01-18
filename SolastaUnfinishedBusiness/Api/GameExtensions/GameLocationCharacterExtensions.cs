@@ -27,7 +27,7 @@ public static class GameLocationCharacterExtensions
         return int3.Distance(source.LocationPosition, target.LocationPosition) <= range;
     }
 
-    public static bool IsMagicEffectValidUnderObscurementOrMagicalDarkness(
+    public static bool IsMagicEffectValidUnderBlindness(
         this GameLocationCharacter source,
         IMagicEffect magicEffect,
         GameLocationCharacter target)
@@ -45,8 +45,7 @@ public static class GameLocationCharacterExtensions
         var rulesetSource = source.RulesetActor;
         var rulesetTarget = target.RulesetActor;
 
-        if (!rulesetSource.IsUnderHeavyObscurementOrMagicalDarkness() &&
-            !rulesetTarget.IsUnderHeavyObscurementOrMagicalDarkness())
+        if (!rulesetSource.HasBlindness() && !rulesetTarget.HasBlindness())
         {
             return true;
         }

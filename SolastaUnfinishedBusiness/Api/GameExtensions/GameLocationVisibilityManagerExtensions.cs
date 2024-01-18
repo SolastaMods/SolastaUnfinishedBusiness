@@ -37,9 +37,7 @@ internal static class GameLocationVisibilityManagerExtensions
             var inRange = false;
             var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
             var lightingState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
-            var nonMagicalDarkness =
-                target != null && target.RulesetCharacter.IsUnderHeavyObscurement();
-
+            var nonMagicalDarkness = target?.LightingState != LocationDefinitions.LightingState.Darkness;
             var selectedSenseType = SenseMode.Type.None;
             var selectedSenseRange = 0;
 

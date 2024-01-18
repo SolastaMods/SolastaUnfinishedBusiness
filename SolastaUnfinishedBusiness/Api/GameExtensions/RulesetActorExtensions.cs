@@ -199,18 +199,9 @@ internal static class RulesetActorExtensions
         );*/
     }
 
-    internal static bool IsUnderHeavyObscurement(this RulesetActor character)
+    internal static bool HasBlindness(this RulesetActor character)
     {
-        return character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionHeavilyObscured.Name) ||
-               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionInStinkingCloud.Name) ||
-               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionSleetStorm.Name);
-    }
-
-    internal static bool IsUnderHeavyObscurementOrMagicalDarkness(this RulesetActor character)
-    {
-        return character.IsUnderHeavyObscurement() ||
-               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionDarkness.Name) ||
-               character.HasConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionVeil.Name);
+        return character.HasConditionOfTypeOrSubType(DatabaseHelper.ConditionDefinitions.ConditionBlinded.Name);
     }
 
     internal static bool HasAnyConditionOfType(this RulesetActor actor, params string[] conditions)
