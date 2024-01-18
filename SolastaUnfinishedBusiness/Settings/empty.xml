@@ -222,8 +222,6 @@
         <string>AcidSplash</string>
         <string>Aid</string>
         <string>AnimalShapes</string>
-        <string>AnimateDead</string>
-        <string>ArcaneSword</string>
         <string>BeaconOfHope</string>
         <string>Bless</string>
         <string>BlessingOfRime</string>
@@ -232,45 +230,8 @@
         <string>CommandFlee</string>
         <string>CommandGrovel</string>
         <string>CommandHalt</string>
-        <string>ConjureAnimalsFourBeasts</string>
-        <string>ConjureAnimalsOneBeast</string>
-        <string>ConjureAnimalsTwoBeasts</string>
-        <string>ConjureCelestial</string>
-        <string>ConjureCelestialCouatl</string>
-        <string>ConjureCelestialKutkartal</string>
-        <string>ConjureCelestialMelek</string>
-        <string>ConjureElemental</string>
-        <string>ConjureElementalAir</string>
-        <string>ConjureElementalEarth</string>
-        <string>ConjureElementalFire</string>
-        <string>ConjureFey_Ape</string>
-        <string>ConjureFey_Bear</string>
-        <string>ConjureFey_Dryad</string>
-        <string>ConjureFey_Eagle</string>
-        <string>ConjureFey_GreenHag</string>
-        <string>ConjureFey_Wolf</string>
-        <string>ConjureFey</string>
-        <string>ConjureGoblinoids</string>
-        <string>ConjureMinorElementals</string>
-        <string>ConjureMinorElementalsFour</string>
-        <string>ConjureMinorElementalsOne_b</string>
-        <string>ConjureMinorElementalsOne</string>
-        <string>ConjureMinorElementalsTwo</string>
-        <string>CreateDeadRisenGhost</string>
-        <string>CreateDeadRisenGhoul</string>
-        <string>CreateDeadRisenSkeleton_Archer</string>
-        <string>CreateDeadRisenSkeleton_Enforcer</string>
-        <string>CreateDeadRisenSkeleton_Knight</string>
-        <string>CreateDeadRisenSkeleton_Marksman</string>
-        <string>CreateDeadRisenSkeleton</string>
-        <string>CreateDeadRisenWight</string>
-        <string>CreateDeadRisenWightLord</string>
-        <string>DancingLights</string>
-        <string>DimensionDoor</string>
         <string>DispelMagic</string>
         <string>FeatherFall</string>
-        <string>FindFamiliar</string>
-        <string>GiantInsect</string>
         <string>Knock</string>
         <string>Levitate</string>
         <string>MassCureWounds</string>
@@ -280,10 +241,23 @@
         <string>Sanctuary</string>
         <string>ShieldOfFaith</string>
         <string>Sparkle</string>
-        <string>SpiritualWeapon</string>
         <string>TrueStrike</string>
-        <string>WaterBreathing</string>
-        <string>WaterWalk</string>
+        <string>PowerBardHopeWordsOfHope6</string>
+        <string>PowerBardTraditionManacalonsPerfection</string>
+        <string>PowerCelestialSearingVengeance</string>
+        <string>PowerCollegeOfValianceHeroicInspiration</string>
+        <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
+        <string>PowerInnovationWeaponArcaneJolt</string>
+        <string>PowerOathOfJugementPurgeCorruption</string>
+        <string>PowerOathOfJugementRetribution</string>
+        <string>PowerOathOfThunderThunderousRebuke</string>
+        <string>PowerPatronFiendHurlThroughHell</string>
+        <string>PowerRangerHellWalkerMarkOfTheDammed</string>
+        <string>PowerRangerLightBearerBlessedWarrior</string>
+        <string>PowerRiftWalkerRiftStrike</string>
+        <string>PowerSorcerousPsionMindOverMatter</string>
+        <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
+        <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
     </EffectsThatTargetDistantIndividualsAndDontRequireSight>
     <DisableUpdateMessage>false</DisableUpdateMessage>
     <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
@@ -363,7 +337,7 @@
     <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
     <UseOfficialDistanceCalculation>false</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>false</UseOfficialSmallRacesDisWithHeavyWeapons>
-    <UseOfficialObscurementRules>false</UseOfficialObscurementRules>
+    <UseAlternateLightingAndObscurementRules>false</UseAlternateLightingAndObscurementRules>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>false</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>

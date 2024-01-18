@@ -97,6 +97,7 @@ internal static class RulesDisplay
         }
 
         UI.Label();
+        UI.Label();
 
         toggle = Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&KeepStealthOnHeroIfPerceivedDuringSurpriseAttack"), ref toggle,

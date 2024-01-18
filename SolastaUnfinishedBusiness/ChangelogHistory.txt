@@ -1,19 +1,20 @@
 ﻿1.5.94.43:
 
+- added Gameplay > Rules > 'Use official lighting, obscurement, and vision rules'
 - added Adder's Fangs, Foresight, Heroic Infusion, Mind Blank, Power Word: Heal, and Power Word: Kill spell sprites
-- added Gameplay > Rules > 'Use alternate obscurement rules' [as close as we can be to TT with some homebrew]
 - added Protector of The Wild, Ring of Blades, Shapechange, Vitality Transfer, and Weird spell sprites
 - added Remarkable Technique fighting style [learn 1 gambit and get 1 gambit usage]
-- changed Dueling fighting style to not trigger if character also have Shield Expert one
-- changed Way of Silhouette subclass progression with new and removed/swapped/tweaked features
+- changed Dueling fighting style to not trigger if character also has Shield Expert and wielding a shield
+- changed Way of Silhouette subclass progression with new/removed/swapped/tweaked features
 - fixed Arcane Recovery using character level instead of class level to determine max recovered slots
-- fixed Coordinated Attack gambit causing de-syncs in multiplayer sessions
-- fixed CTRL-SHIFT-T / CTRL-SHIFT-R Party Teleporter / Re-grouper not considering guest characters
-- fixed Find Familiar spell considering Wizard position for cover on touch or melee hit effects cast through it
+- fixed Coordinated Attack gambit causing de-syncs in multiplayer sessions [cannot test so need confirmation]
+- fixed CTRL-SHIFT-T / CTRL-SHIFT-R Party Teleporter / Re-grouper not considering guest characters in party
+- fixed Find Familiar spell not considering its position for cover on touch or melee hit effects cast through it
 - fixed Heroic Infusion and Ring of Blades spells to correctly interact with Shared Spell metamagic
-- fixed Lightning Arrow spell main target damage value determination on a miss
+- fixed Lightning Arrow spell main target damage value determination on a miss [roll all dices and inflict half dmg]
 - fixed main action spells interaction with action switching allowing bonus spells to be cast
 - fixed Roguish Slayer elimination feature not triggering on magical attacks
+- fixed vanilla Cloud Kill and Incendiary Cloud spells not triggering on activation
 
 1.5.94.42:
 

@@ -285,6 +285,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 还可以进行远程攻击<co
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用触及攻击<color=#F0DAA0>[禁用精确数学]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
-ModUi/&UseOfficialObscurementRules=使用官方<color=#D89555>遮蔽</color>规则<i><color=#F0DAA0>[传送、力量和法术尊重视线、攻击骰上的劣势、攻击骰上的优势]</color></i >
+ModUi/&UseOfficialObscurementRules=使用官方<color=#D89555>照明、遮挡和视觉</color>规则\n<i><color=#F0DAA0>[感知到防御者而无法感知到攻击者的攻击者获得 ADV；力量和法术尊重视觉；\n 攻击者无法感知防御者，而防御者能够感知攻击者，则获得 DIS；在严重遮挡区域下适当的 ADV/DIS]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型比赛规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>

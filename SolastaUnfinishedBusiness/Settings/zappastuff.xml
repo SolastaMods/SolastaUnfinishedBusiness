@@ -222,8 +222,6 @@
         <string>AcidSplash</string>
         <string>Aid</string>
         <string>AnimalShapes</string>
-        <string>AnimateDead</string>
-        <string>ArcaneSword</string>
         <string>BeaconOfHope</string>
         <string>Bless</string>
         <string>BlessingOfRime</string>
@@ -232,6 +230,36 @@
         <string>CommandFlee</string>
         <string>CommandGrovel</string>
         <string>CommandHalt</string>
+        <string>DispelMagic</string>
+        <string>FeatherFall</string>
+        <string>Knock</string>
+        <string>Levitate</string>
+        <string>MassCureWounds</string>
+        <string>PassWithoutTrace</string>
+        <string>RayOfEnfeeblement</string>
+        <string>ResonatingStrike</string>
+        <string>Sanctuary</string>
+        <string>ShieldOfFaith</string>
+        <string>Sparkle</string>
+        <string>TrueStrike</string>
+        <string>PowerBardHopeWordsOfHope6</string>
+        <string>PowerBardTraditionManacalonsPerfection</string>
+        <string>PowerCelestialSearingVengeance</string>
+        <string>PowerCollegeOfValianceHeroicInspiration</string>
+        <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
+        <string>PowerInnovationWeaponArcaneJolt</string>
+        <string>PowerOathOfJugementPurgeCorruption</string>
+        <string>PowerOathOfJugementRetribution</string>
+        <string>PowerOathOfThunderThunderousRebuke</string>
+        <string>PowerPatronFiendHurlThroughHell</string>
+        <string>PowerRangerHellWalkerMarkOfTheDammed</string>
+        <string>PowerRangerLightBearerBlessedWarrior</string>
+        <string>PowerRiftWalkerRiftStrike</string>
+        <string>PowerSorcerousPsionMindOverMatter</string>
+        <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
+        <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
+        <string>AnimateDead</string>
+        <string>ArcaneSword</string>
         <string>ConjureAnimalsFourBeasts</string>
         <string>ConjureAnimalsOneBeast</string>
         <string>ConjureAnimalsTwoBeasts</string>
@@ -267,21 +295,9 @@
         <string>CreateDeadRisenWightLord</string>
         <string>DancingLights</string>
         <string>DimensionDoor</string>
-        <string>DispelMagic</string>
-        <string>FeatherFall</string>
         <string>FindFamiliar</string>
         <string>GiantInsect</string>
-        <string>Knock</string>
-        <string>Levitate</string>
-        <string>MassCureWounds</string>
-        <string>PassWithoutTrace</string>
-        <string>RayOfEnfeeblement</string>
-        <string>ResonatingStrike</string>
-        <string>Sanctuary</string>
-        <string>ShieldOfFaith</string>
-        <string>Sparkle</string>
         <string>SpiritualWeapon</string>
-        <string>TrueStrike</string>
         <string>WaterBreathing</string>
         <string>WaterWalk</string>
     </EffectsThatTargetDistantIndividualsAndDontRequireSight>
@@ -363,7 +379,7 @@
     <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
     <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
-    <UseOfficialObscurementRules>true</UseOfficialObscurementRules>
+    <UseAlternateLightingAndObscurementRules>true</UseAlternateLightingAndObscurementRules>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>true</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>

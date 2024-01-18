@@ -284,6 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également les attaque
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également les attaques par portée <color=#F0DAA0>[désactive les calculs précis]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Au lieu de l'avantage, accordez +1 au jet d'attaque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
-ModUi/&UseOfficialObscurementRules=Utilisez les règles officielles d'<color=#D89555>obscurcissement</color> <i><color=#F0DAA0>[téléportation, pouvoirs et sorts respectent la vue, désavantage aux jets d'attaque, avantage aux jets d'attaque contre]</color></i >
+ModUi/&UseOfficialObscurementRules=Utilisez les règles officielles <color=#D89555>d'éclairage, d'obscurcissement et de vision</color>\n<i><color=#F0DAA0>[l'attaquant qui perçoit le défenseur qui ne peut pas percevoir l'attaquant obtient l'ADV ; les pouvoirs et les sorts respectent la vue ;\n l'attaquant qui ne perçoit pas le défenseur qui peut percevoir l'attaquant obtient le DIS ; ADV/DIS approprié dans les zones fortement obscurcies]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Utilisez les <color=#D89555>règles officielles des petites races</color> lorsque vous maniez des armes lourdes <i><color=#F0DAA0>[vos attaques ont un désavantage]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

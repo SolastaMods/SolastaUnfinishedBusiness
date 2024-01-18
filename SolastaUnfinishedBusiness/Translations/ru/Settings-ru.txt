@@ -284,6 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Включить эти пра
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Также включить для атак досягаемости <color=#F0DAA0>[отключить точную математику]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Вместо преимущества давать +1 к броскам атаки</i>
 ModUi/&UseOfficialFoodRationsWeight=Использовать официальный вес <color=#D89555>Рационов</color> (2 фунта)
-ModUi/&UseOfficialObscurementRules=Использовать официальные правила <color=#D89555>видимости</color> <i><color=#F0DAA0>[телепортация, силы и заклинания учитывают видимость, помеха на броски атаки, броски атаки по ослеплённым совершаются с преимуществом]</color></i>
+ModUi/&UseOfficialObscurementRules=Используйте официальные правила <color=#D89555>освещения, затемнения и обзора</color>\n<i><color=#F0DAA0>[нападающий, который видит защитника, но не может заметить нападающего, получает ADV; силы и заклинания уважают зрение;\n атакующий, который не воспринимает защитника, который может воспринимать атакующего, получает DIS; правильный ADV/DIS в сильно затемненных областях]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Использовать официальные правила <color=#D89555>рас маленького размера</color> при использовании тяжёлого оружия <i><color=#F0DAA0>[вы совершаете атаки с помехой]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Визуальные настройки:</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
