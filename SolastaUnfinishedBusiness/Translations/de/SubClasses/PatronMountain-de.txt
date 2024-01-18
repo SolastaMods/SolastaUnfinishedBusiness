@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=Erhalte Immunität gegen Kälteschaden. Wenn du in deinem Zug zum ersten Mal einen Feind mit einem Angriff triffst, muss dieser einen konstitutionsrettenden Wurf gegen den SG deines Hexenmeisterzaubers durchführen, sonst wird er bis zum Ende deines nächsten Zuges blind.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=Erhalte Immunität gegen Kälteschaden. Wenn Sie einen Feind in Ihrem Zug zum ersten Mal mit einem Angriff treffen, muss dieser einen Konstitutionsrettungswurf gegen den SG Ihres Hexenmeisterzaubers durchführen, sonst wird er bis zum Ende seines nächsten Zuges blind.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Eisgebundene Seele
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Erwerben Sie Kenntnisse in Natur und Überleben. Erhalte Berg als bevorzugten Geländetyp.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=Wissen über Äonen

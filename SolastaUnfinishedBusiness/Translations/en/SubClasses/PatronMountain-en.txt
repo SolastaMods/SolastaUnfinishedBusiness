@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=Gain immunity to cold damage. The first time you hit an enemy with an attack on your turn, they must make a Constitution saving throw against your warlock spell DC or become blinded until the end of your next turn.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=Gain immunity to cold damage. The first time you hit an enemy with an attack on your turn, they must make a Constitution saving throw against your warlock spell DC or become blinded until the end of their next turn.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Icebound Soul
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Gain proficiency in Nature and Survival. Gain Mountain as a favored terrain type.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=Knowledge of Aeons

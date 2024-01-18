@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=获得寒冷伤害抗性。当你在你的回合中第一次攻击敌人时，他们必须进行一次体质豁免检定，DC为你的邪术士法术 DC，否则就会失明，直到你的下一个回合结束。
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=获得对寒冷伤害的免疫力。当你在你的回合中第一次攻击敌人时，他们必须对你的术士法术 DC 进行一次体质豁免检定，否则就会失明直到下个回合结束。
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=冰封魂灵
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=精通自然和生存。获得山地地形偏好。
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=万古知识

@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=Obtén inmunidad al daño por frío. La primera vez que golpeas a un enemigo con un ataque en tu turno, debe hacer una tirada de salvación de Constitución contra la CD de tu conjuro de brujo o quedar cegado hasta el final de tu próximo turno.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=Gana inmunidad al daño por frío. La primera vez que golpeas a un enemigo con un ataque en tu turno, debe realizar una tirada de salvación de Constitución contra la CD de tu hechizo de brujo o quedará cegado hasta el final de su siguiente turno.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Alma ligada al hielo
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Gana competencia en Naturaleza y Supervivencia. Gana Montaña como tipo de terreno favorito.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=Conocimiento de eones

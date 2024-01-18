@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=Ottieni l'immunità ai danni da freddo. La prima volta che colpisci un nemico con un attacco nel tuo turno, deve effettuare un tiro salvezza su Costituzione contro la CD del tuo incantesimo da warlock o diventare accecato fino alla fine del tuo prossimo turno.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=Ottieni l'immunità ai danni da freddo. La prima volta che colpisci un nemico con un attacco nel tuo turno, questi deve effettuare un tiro salvezza su Costituzione contro la CD del tuo incantesimo da stregone o diventare accecato fino alla fine del suo turno successivo.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Anima Ghiacciata
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Ottieni competenza in Natura e Sopravvivenza. Ottieni Montagna come tipo di terreno preferito.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=Conoscenza degli eoni
