@@ -79,6 +79,15 @@ internal static class SrdAndHouseRulesContext
             .SetForbiddenActions(Id.AttackOpportunity)
             .AddToDB();
 
+    internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
+        .Create(ConditionDefinitions.ConditionBlinded, "ConditionBlindedByDarkness")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetFeatures(
+            CombatAffinityHeavilyObscured,
+            CombatAffinityHeavilyObscuredSelf,
+            FeatureDefinitionPerceptionAffinitys.PerceptionAffinityConditionBlinded)
+        .AddToDB();
+
     private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
         .Create(ConditionHeavilyObscured, "ConditionLightlyObscured")
         .SetOrUpdateGuiPresentation(Category.Condition)
@@ -423,6 +432,12 @@ internal static class SrdAndHouseRulesContext
             if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
             {
                 ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionBlind);
+                ConditionBlindedByDarkness.Features.Add(ActionAffinityConditionBlind);
+            }
+            else
+            {
+                ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
+                ConditionBlindedByDarkness.Features.Remove(ActionAffinityConditionBlind);
             }
 
             ConditionDefinitions.ConditionBlinded.GuiPresentation.description =
@@ -433,26 +448,26 @@ internal static class SrdAndHouseRulesContext
             // PowerDefilerDarkness
 
             ConditionAffinityVeilImmunity.conditionType =
-                ConditionDefinitions.ConditionBlinded.Name;
+                ConditionBlindedByDarkness.Name;
 
             PowerDefilerDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
-                ConditionDefinitions.ConditionBlinded;
+                ConditionBlindedByDarkness;
 
             // >> ConditionDarkness
             // ConditionAffinityInvocationDevilsSight
             // Darkness
 
             ConditionAffinityInvocationDevilsSight.conditionType =
-                ConditionDefinitions.ConditionBlinded.Name;
+                ConditionBlindedByDarkness.Name;
 
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
-                ConditionDefinitions.ConditionBlinded;
+                ConditionBlindedByDarkness;
 
             // >> ConditionHeavilyObscured
             // FogCloud
             // PetalStorm
 
-            FogCloud.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            FogCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionDefinitions.ConditionBlinded;
 
             SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
@@ -461,19 +476,19 @@ internal static class SrdAndHouseRulesContext
             // >> ConditionInStinkingCloud
             // StinkingCloud
 
-            StinkingCloud.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            StinkingCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionDefinitions.ConditionBlinded;
 
             // >> ConditionSleetStorm
             // SleetStorm
 
-            SleetStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionDefinitions.ConditionBlinded;
 
             // Cloud Kill / Incendiary Cloud
 
-            CloudKill.EffectDescription.EffectForms.Add(FormBlinded);
-            IncendiaryCloud.EffectDescription.EffectForms.Add(FormBlinded);
+            CloudKill.EffectDescription.EffectForms.TryAdd(FormBlinded);
+            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormBlinded);
 
             // Make Insect Plague lightly obscured
             InsectPlague.EffectDescription.EffectForms.Add(FormLightlyObscured);
@@ -521,7 +536,7 @@ internal static class SrdAndHouseRulesContext
             // FogCloud
             // PetalStorm
 
-            FogCloud.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            FogCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionHeavilyObscured;
 
             SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
@@ -530,13 +545,13 @@ internal static class SrdAndHouseRulesContext
             // >> ConditionInStinkingCloud
             // StinkingCloud
 
-            StinkingCloud.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            StinkingCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionInStinkingCloud;
 
             // >> ConditionSleetStorm
             // SleetStorm
 
-            SleetStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+            SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionSleetStorm;
 
             // Cloud Kill / Incendiary Cloud
@@ -904,7 +919,6 @@ internal static class SrdAndHouseRulesContext
                 return false;
             }
 
-            //TODO: show only if anyone in party has identify (optional)
             return Main.Settings.IdentifyAfterRest && hero.HasNonIdentifiedItems();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
 using TA;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -37,9 +38,11 @@ internal static class GameLocationVisibilityManagerExtensions
             var inRange = false;
             var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
             var lightingState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
-            var nonMagicalDarkness = target?.LightingState != LocationDefinitions.LightingState.Darkness;
             var selectedSenseType = SenseMode.Type.None;
             var selectedSenseRange = 0;
+            var nonMagicalDarkness =
+                target != null &&
+                target.RulesetActor.HasConditionOfType(SrdAndHouseRulesContext.ConditionBlindedByDarkness.Name);
 
             // try to find any sense mode that is valid for the current lighting state and is within range
             foreach (var senseMode in sensor.RulesetCharacter.SenseModes
@@ -49,9 +52,7 @@ internal static class GameLocationVisibilityManagerExtensions
 
                 if (selectedSenseType != senseType && senseMode.SenseRange >= selectedSenseRange)
                 {
-                    if (nonMagicalDarkness &&
-                        lightingState == LocationDefinitions.LightingState.Darkness &&
-                        senseType == SenseMode.Type.Truesight)
+                    if (nonMagicalDarkness && senseType == SenseMode.Type.Truesight)
                     {
                         continue;
                     }

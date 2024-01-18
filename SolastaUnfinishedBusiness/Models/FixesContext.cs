@@ -463,10 +463,11 @@ internal static class FixesContext
         InsectPlague.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
 
         //BUGFIX: Ray of Enfeeblement should be recurrent on activation and turn start
+        RayOfEnfeeblement.EffectDescription.RangeType = RangeType.RangeHit;
         RayOfEnfeeblement.EffectDescription.EffectForms[0].canSaveToCancel = true;
         RayOfEnfeeblement.EffectDescription.recurrentEffect =
             RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart;
-        
+
         //BUGFIX: Sorcerers should have Insect Plague at level 5
         SpellListSorcerer.SpellsByLevel.FirstOrDefault(x => x.Level == 5)!.Spells.Add(InsectPlague);
 

@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=Ganhe imunidade a danos causados ​​pelo frio. A primeira vez que você atingir um inimigo com um ataque em seu turno, ele deve fazer um teste de resistência de Constituição contra a CD do seu feitiço de bruxo ou ficará cego até o final do próximo turno.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=Ganhe imunidade a danos causados pelo frio. A primeira vez que você atingir um inimigo com um ataque em seu turno, ele deve fazer um teste de resistência de Constituição contra a CD do seu feitiço de bruxo ou ficará cego até o final do próximo turno.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Alma Congelada
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Ganhe proficiência em Natureza e Sobrevivência. Ganhe Montanha como um tipo de terreno favorito.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=Conhecimento de Aeons
