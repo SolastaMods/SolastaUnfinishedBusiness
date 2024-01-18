@@ -284,6 +284,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にし
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を与える</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</color>の重量は2ポンドを使用してください
-ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>ライティング、オブスキュレーション、ビジョン</color>ルールを使用します。\n<i><color=#F0DAA0>[攻撃者を認識できる攻撃者、攻撃者を認識できない防御者は ADV を取得します。パワーと呪文は視覚を尊重します。\n 知覚できない攻撃者は知覚できる防御者に DIS を与えます。非常に遮蔽された領域の下では適切な ADV/DIS]</color></i>
+ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>ライティング、オブスキュレーション、ビジョン</color>ルールを使用します。\n<i><color=#F0DAA0>[攻撃者を認識できる攻撃者、攻撃者を認識できない防御者は ADV を取得します。力と呪文は視覚を尊重します。適切なブラインド実装。\n 攻撃者を認識できない攻撃者は、攻撃者を認識できる防御者に DIS を与えます。非常に遮蔽された領域では、生き物が盲目になります]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは、公式の<color=#D89555>小規模種族ルール</color>を使用してください<i><color=#F0DAA0>[攻撃には不利があります]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
