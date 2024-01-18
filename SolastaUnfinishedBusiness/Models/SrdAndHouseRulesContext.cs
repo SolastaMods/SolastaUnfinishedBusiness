@@ -407,7 +407,7 @@ internal static class SrdAndHouseRulesContext
 
     internal static void SwitchOfficialObscurementRules()
     {
-        if (Main.Settings.UseAlternateLightingAndObscurementRules)
+        if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
             foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>()
                          .Where(x => x.Features.Contains(

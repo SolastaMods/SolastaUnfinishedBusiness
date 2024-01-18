@@ -70,11 +70,12 @@ public static class GameLocationCharacterExtensions
             (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
             (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
 
-        if (!Main.Settings.UseAlternateLightingAndObscurementRules || !canPerceiveVanilla)
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules || !canPerceiveVanilla)
         {
             return canPerceiveVanilla;
         }
 
+        // can only perceive targets on cells that can be perceived
         var visibilityService =
             ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
 
@@ -121,7 +122,7 @@ public static class GameLocationCharacterExtensions
             }
 
             if (illuminable is GameLocationCharacter { RulesetCharacter: not null } locationCharacter1 &&
-                locationCharacter1.RulesetCharacter.HasConditionOfType("ConditionDarkness"))
+                locationCharacter1.RulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionDarkness))
             {
                 return LocationDefinitions.LightingState.Darkness;
             }

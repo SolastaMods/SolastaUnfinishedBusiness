@@ -47,7 +47,7 @@ public static class ConsiderationCanCastMagicPatcher
                                  optionalTarget: context.character)))
             {
                 // BEGIN PATCH
-                if (!Main.Settings.UseAlternateLightingAndObscurementRules &&
+                if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules &&
                     !locationCharacter.IsMagicEffectValidUnderObscurementOrMagicalDarkness(
                         availableMagicEffect, context.character))
                 {

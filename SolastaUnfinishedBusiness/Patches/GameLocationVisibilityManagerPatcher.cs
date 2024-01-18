@@ -40,6 +40,7 @@ public static class GameLocationVisibilityManagerPatcher
     }
 
     //PATCH: supports lighting and obscurement feature by allowing ranged targeting within obscured areas
+    //this is mainly vanilla code except for the BEGIN/END patch block
     [HarmonyPatch(typeof(GameLocationVisibilityManager),
         nameof(GameLocationVisibilityManager.IsPositionPerceivedByCharacter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -62,7 +63,8 @@ public static class GameLocationVisibilityManagerPatcher
             var hasImpairedSight = false;
 
             // BEGIN PATCH
-            if (!Main.Settings.UseAlternateLightingAndObscurementRules)
+            // impaired sight should not prevent targeting
+            if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
             {
                 var gridAccessor = GridAccessor.Default;
 

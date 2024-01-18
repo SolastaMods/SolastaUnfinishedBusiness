@@ -661,22 +661,24 @@ public static class GameLocationBattleManagerPatcher
             bool __result)
         {
             if (!__result ||
-                !Main.Settings.UseAlternateLightingAndObscurementRules)
+                !Main.Settings.UseOfficialLightingObscurementAndVisionRules)
             {
                 return;
             }
 
             var attackModifier = attackParams.attackModifier;
 
-            var alreadyHasHeavilyOrMagicalDarknessModifiers = attackModifier.attackAdvantageTrends.Any(
-                x => x.sourceName
-                    is "ConditionDarkness"
-                    or "ConditionVeil"
-                    or "ConditionHeavilyObscured"
-                    or "ConditionInStinkingCloud"
-                    or "ConditionSleetStorm");
+            var alreadyHasHeavilyObscuredOrMagicalDarknessOrBlindnessModifiers =
+                attackModifier.attackAdvantageTrends.Any(
+                    x => x.sourceName
+                        is "ConditionBlinded" // already enforces DIS
+                        or "ConditionDarkness"
+                        or "ConditionVeil"
+                        or "ConditionHeavilyObscured"
+                        or "ConditionInStinkingCloud"
+                        or "ConditionSleetStorm");
 
-            if (alreadyHasHeavilyOrMagicalDarknessModifiers)
+            if (alreadyHasHeavilyObscuredOrMagicalDarknessOrBlindnessModifiers)
             {
                 return;
             }

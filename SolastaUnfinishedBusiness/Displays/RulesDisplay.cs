@@ -89,10 +89,10 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
         }
 
-        toggle = Main.Settings.UseAlternateLightingAndObscurementRules;
+        toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.UseAlternateLightingAndObscurementRules = toggle;
+            Main.Settings.UseOfficialLightingObscurementAndVisionRules = toggle;
             SrdAndHouseRulesContext.SwitchOfficialObscurementRules();
         }
 

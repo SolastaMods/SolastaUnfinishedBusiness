@@ -35,7 +35,7 @@ public static class CursorLocationSelectTargetPatcher
 
             //PATCH: supports UseOfficialObscurementRules
             if (__result &&
-                Main.Settings.UseAlternateLightingAndObscurementRules &&
+                Main.Settings.UseOfficialLightingObscurementAndVisionRules &&
                 definition is IMagicEffect magicEffect &&
                 !actingCharacter.IsMagicEffectValidUnderObscurementOrMagicalDarkness(magicEffect, target))
             {

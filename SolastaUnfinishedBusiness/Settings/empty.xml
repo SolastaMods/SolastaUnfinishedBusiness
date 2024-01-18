@@ -337,7 +337,7 @@
     <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
     <UseOfficialDistanceCalculation>false</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>false</UseOfficialSmallRacesDisWithHeavyWeapons>
-    <UseAlternateLightingAndObscurementRules>false</UseAlternateLightingAndObscurementRules>
+    <UseOfficialLightingObscurementAndVisionRules>false</UseOfficialLightingObscurementAndVisionRules>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>false</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>

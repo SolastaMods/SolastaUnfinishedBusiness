@@ -30,7 +30,7 @@ public static class ConsiderationCanPerceiveCellPatcher
             var visibilityService =
                 parameters.situationalInformation.VisibilityService as GameLocationVisibilityManager;
 
-            var flag = Main.Settings.UseAlternateLightingAndObscurementRules
+            var flag = Main.Settings.UseOfficialLightingObscurementAndVisionRules
                 ? visibilityService.MyIsCellPerceivedByCharacter(position, locationCharacter)
                 : visibilityService!.IsCellPerceivedByCharacter(position, locationCharacter);
 

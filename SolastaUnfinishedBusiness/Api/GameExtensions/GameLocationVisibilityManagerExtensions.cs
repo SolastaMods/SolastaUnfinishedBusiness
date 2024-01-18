@@ -6,6 +6,7 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class GameLocationVisibilityManagerExtensions
 {
+    // improved cell perception routine that takes sight into consideration
     public static bool MyIsCellPerceivedByCharacter(
         this GameLocationVisibilityManager instance,
         int3 cellPosition,
@@ -17,7 +18,7 @@ internal static class GameLocationVisibilityManagerExtensions
 
         // if setting is off or vanilla cannot perceive
         if (!result ||
-            !Main.Settings.UseAlternateLightingAndObscurementRules)
+            !Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
             if (!result)
             {

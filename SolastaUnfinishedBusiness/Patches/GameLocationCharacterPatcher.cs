@@ -29,7 +29,7 @@ public static class GameLocationCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix()
         {
-            return !Main.Settings.UseAlternateLightingAndObscurementRules;
+            return !Main.Settings.UseOfficialLightingObscurementAndVisionRules;
         }
     }
 
