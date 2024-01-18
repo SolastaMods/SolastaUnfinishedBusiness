@@ -244,7 +244,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
         powerWayOfSilhouetteShadowySanctuary.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight),
-            new AttackBeforeHitConfirmedOnMeShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
+            new CustomBehaviorShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -402,8 +402,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // Shadowy Sanctuary
     //
 
-    private class AttackBeforeHitConfirmedOnMeShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
-        : IAttackBeforeHitConfirmedOnMe
+    private class CustomBehaviorShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
+        : IAttackBeforeHitConfirmedOnMe, IPreventRemoveConcentrationOnPowerUse
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,

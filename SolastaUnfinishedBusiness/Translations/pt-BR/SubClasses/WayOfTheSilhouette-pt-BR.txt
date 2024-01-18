@@ -1,3 +1,5 @@
+
+=EMPTY
 Condition/&ConditionWayOfSilhouetteSilhouetteStepDescription=O próximo ataque corpo a corpo que você fizer antes do final do seu turno será rolado com vantagem.
 Condition/&ConditionWayOfSilhouetteSilhouetteStepTitle=Etapa da silhueta
 Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=Uma vez por turno, você pode causar dano extra igual ao seu dado de artes marciais se acertar uma criatura com um ataque que tenha vantagem na jogada de ataque. Você não precisa de vantagem na jogada de ataque se outro inimigo do alvo estiver a até 1,5 metro dele, esse inimigo não estiver incapacitado e você não tiver desvantagem na jogada de ataque. Você deve usar um ataque desarmado ou uma arma de monge. Este dano aumenta em um dado adicional de artes marciais nos níveis 11 e 17.
@@ -12,7 +14,7 @@ Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Se você 
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=Manto de Silhuetas
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Cercado brevemente pela energia do Ki, agora você pode trazer um aliado com você ao se teletransportar e o alcance aumentou.
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=Passo Silhueta Aprimorado
-Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Enquanto você estiver na penumbra ou na escuridão e uma criatura estiver prestes a acertá-lo com um ataque, você pode gastar 3 ki e usar sua reação para entrar nas sombras e desaparecer, negando qualquer dano ou efeito prejudicial que você teria recebido desse ataque. Enquanto estiver nas sombras, você será considerado banido até o início do seu próximo turno.
+Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Quando uma criatura está prestes a acertá-lo com um ataque, você pode gastar 3 ki e usar sua reação para entrar nas sombras e desaparecer, negando qualquer dano ou efeito prejudicial que você teria recebido desse ataque. Enquanto estiver nas sombras, você será considerado banido até o início do seu próximo turno. Você não perde a concentração em seu feitiço Escuridão enquanto estiver banido desta forma.
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Santuário Sombrio
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Você pode usar sua ação bônus quando estiver na penumbra ou na escuridão natural para se teletransportar até 18 metros para um espaço desocupado que você possa ver e que também esteja na penumbra ou na escuridão natural. Depois de fazer isso, o próximo ataque corpo a corpo que você fizer antes do final do seu turno será rolado com vantagem.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Passo Silhueta

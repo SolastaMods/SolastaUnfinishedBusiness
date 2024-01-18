@@ -1,3 +1,5 @@
+
+=EMPTY
 Condition/&ConditionWayOfSilhouetteSilhouetteStepDescription=Il prossimo attacco in mischia che effettui prima della fine del tuo turno viene tirato con vantaggio.
 Condition/&ConditionWayOfSilhouetteSilhouetteStepTitle=Passo della sagoma
 Feature/&AdditionalDamageWayOfSilhouetteStrikeTheVitalsDescription=Una volta per turno, puoi infliggere danni extra pari al tuo dado di arti marziali se colpisci una creatura con un attacco che ha vantaggio al tiro per colpire. Non hai bisogno di vantaggio al tiro per colpire se un altro nemico del bersaglio si trova entro 1,5 piedi da esso, quel nemico non è incapacitato e non hai svantaggio al tiro per colpire. Devi usare un attacco senz'armi o un'arma da monaco. Questo danno aumenta di un ulteriore dado di arti marziali ai livelli 11 e 17.
@@ -12,7 +14,7 @@ Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Se inizi 
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=Mantello delle sagome
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Circondato brevemente dall'energia del Ki, ora puoi portare con te un alleato durante il teletrasporto e la portata è aumentata.
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=Passo sagoma migliorato
-Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Mentre sei in penombra o nell'oscurità e una creatura sta per colpirti con un attacco, puoi spendere 3 ki e usare la tua reazione per entrare nell'ombra e scomparire, annullando qualsiasi danno o effetto dannoso che avresti ricevuto da quell'attacco. Mentre sei nell'ombra, sei considerato bandito fino all'inizio del tuo turno successivo.
+Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Quando una creatura sta per colpirti con un attacco, puoi spendere 3 ki e usare la tua reazione per entrare nell'ombra e scomparire, annullando qualsiasi danno o effetto dannoso che avresti ricevuto da quell'attacco. Mentre sei nell'ombra, sei considerato bandito fino all'inizio del tuo turno successivo. Non perdi la concentrazione sul tuo incantesimo Oscurità mentre sei bandito in questo modo.
 Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Santuario Oscuro
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Puoi usare la tua azione bonus quando sei in penombra o nell'oscurità naturale per teletrasportarti fino a 18 metri in uno spazio non occupato che puoi vedere e che sia anch'esso in penombra o nell'oscurità naturale. Dopo averlo fatto, il prossimo attacco in mischia che effettuerai prima della fine del tuo turno verrà tirato con vantaggio.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Passo della sagoma
