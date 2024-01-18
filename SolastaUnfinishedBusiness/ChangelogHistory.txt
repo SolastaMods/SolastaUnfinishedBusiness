@@ -15,6 +15,7 @@
 - fixed main action spells interaction with action switching allowing bonus spells to be cast
 - fixed Roguish Slayer elimination feature not triggering on magical attacks
 - fixed vanilla Cloud Kill and Incendiary Cloud spells not triggering on activation
+- fixed vanilla Ray of Enfeeblement to be recurrent on activation and turn start
 
 1.5.94.42:
 
