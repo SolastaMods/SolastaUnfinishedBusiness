@@ -73,7 +73,7 @@ internal static class DocumentationContext
             x => x is InvocationDefinitionCustom y &&
                  y.PoolType == InvocationPoolTypeCustom.Pools.EldritchVersatilityPool);
 
-#if DEBUG
+#if false
         DumpSpellsCsv();
         DumpPowersCsv();
 #endif
@@ -522,7 +522,7 @@ internal static class DocumentationContext
         return outString.ToString();
     }
 
-#if DEBUG
+#if false
     private static void DumpSpellsCsv()
     {
         var outString = new StringBuilder();
