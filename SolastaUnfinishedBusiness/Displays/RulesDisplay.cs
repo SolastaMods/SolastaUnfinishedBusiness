@@ -93,11 +93,25 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialLightingObscurementAndVisionRules = toggle;
+            Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
             SrdAndHouseRulesContext.SwitchOfficialObscurementRules();
         }
 
         UI.Label();
         UI.Label();
+
+        if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        {
+            toggle = Main.Settings.OfficialObscurementRulesTweakMonsters;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesTweakMonsters"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
+                SrdAndHouseRulesContext.SwitchMonstersOnObscurementRules();
+            }
+
+            UI.Label();
+        }
+
         UI.Label();
 
         toggle = Main.Settings.KeepStealthOnHeroIfPerceivedDuringSurpriseAttack;

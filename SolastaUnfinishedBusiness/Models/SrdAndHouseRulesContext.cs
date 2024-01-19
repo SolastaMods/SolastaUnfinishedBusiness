@@ -437,6 +437,8 @@ internal static class SrdAndHouseRulesContext
     {
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
+            SwitchMonstersOnObscurementRules();
+
             ConditionDefinitions.ConditionBlinded.Features.SetRange(
                 CombatAffinityHeavilyObscured,
                 CombatAffinityHeavilyObscuredSelf,
@@ -511,6 +513,8 @@ internal static class SrdAndHouseRulesContext
         }
         else
         {
+            SwitchMonstersOnObscurementRules();
+
             ConditionDefinitions.ConditionBlinded.Features.SetRange(
                 CombatAffinityBlinded,
                 FeatureDefinitionPerceptionAffinitys.PerceptionAffinityConditionBlinded);
@@ -582,6 +586,50 @@ internal static class SrdAndHouseRulesContext
                 (CombatAffinityHeavilyObscured.nullifiedBySenses, CombatAffinityHeavilyObscured.nullifiedBySelfSenses);
         }
     }
+
+    internal static void SwitchMonstersOnObscurementRules()
+    {
+        foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
+        {
+            var name = monster.Name;
+
+            if (Main.Settings.OfficialObscurementRulesTweakMonsters)
+            {
+                if (Main.Settings.MonstersThatShouldHaveDarkvision.Contains(name))
+                {
+                    monster.Features.TryAdd(SenseDarkvision);
+                }
+
+                if (Main.Settings.MonstersThatShouldHaveTrueSight.Contains(name))
+                {
+                    monster.Features.TryAdd(SenseTruesight16);
+                }
+
+                if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
+                {
+                    monster.Features.TryAdd(SenseBlindSight16);
+                }
+            }
+            else
+            {
+                if (Main.Settings.MonstersThatShouldHaveDarkvision.Contains(name))
+                {
+                    monster.Features.Remove(SenseDarkvision);
+                }
+
+                if (Main.Settings.MonstersThatShouldHaveTrueSight.Contains(name))
+                {
+                    monster.Features.Remove(SenseTruesight16);
+                }
+
+                if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
+                {
+                    monster.Features.Remove(SenseBlindSight16);
+                }
+            }
+        }
+    }
+
 
     internal static void SwitchEldritchBlastRange()
     {
