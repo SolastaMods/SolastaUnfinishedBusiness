@@ -180,7 +180,6 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Auto Power
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Auto Rage Start
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Auto Creature Reduced to Zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Auto Sneak Attack
-Rules/&ConditionBlindedExtendedDescription=Vision is blinded. Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.
 Rules/&CounterFormDismissCreatureFormat=Dismisses a target conjured creature
 Rules/&SituationalContext1000Format=Has Blade Mastery weapon types in hands:
 Rules/&SituationalContext1001Format=Has Greatsword in hands:

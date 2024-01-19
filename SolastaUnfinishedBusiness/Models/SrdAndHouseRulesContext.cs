@@ -82,6 +82,7 @@ internal static class SrdAndHouseRulesContext
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionDefinitions.ConditionBlinded, "ConditionBlindedByDarkness")
         .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetParentCondition(ConditionDefinitions.ConditionBlinded)
         .SetFeatures(
             CombatAffinityHeavilyObscured,
             CombatAffinityHeavilyObscuredSelf,
@@ -423,7 +424,6 @@ internal static class SrdAndHouseRulesContext
     {
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
-            // reuse blinded condition as many depend on it as parent
             ConditionDefinitions.ConditionBlinded.Features.SetRange(
                 CombatAffinityHeavilyObscured,
                 CombatAffinityHeavilyObscuredSelf,
@@ -441,14 +441,13 @@ internal static class SrdAndHouseRulesContext
             }
 
             ConditionDefinitions.ConditionBlinded.GuiPresentation.description =
-                "Rules/&ConditionBlindedExtendedDescription";
+                ConditionBlindedByDarkness.GuiPresentation.description;
 
             // >> ConditionVeil
             // ConditionAffinityVeilImmunity
             // PowerDefilerDarkness
 
-            ConditionAffinityVeilImmunity.conditionType =
-                ConditionBlindedByDarkness.Name;
+            ConditionAffinityVeilImmunity.conditionType = ConditionBlindedByDarkness.Name;
 
             PowerDefilerDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
                 ConditionBlindedByDarkness;
@@ -457,8 +456,7 @@ internal static class SrdAndHouseRulesContext
             // ConditionAffinityInvocationDevilsSight
             // Darkness
 
-            ConditionAffinityInvocationDevilsSight.conditionType =
-                ConditionBlindedByDarkness.Name;
+            FeatureDefinitionFeatureSets.FeatureSetInvocationDevilsSight.FeatureSet.SetRange(SenseBlindSight16);
 
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
                 ConditionBlindedByDarkness;
@@ -485,39 +483,41 @@ internal static class SrdAndHouseRulesContext
             SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionDefinitions.ConditionBlinded;
 
-            // Cloud Kill / Incendiary Cloud
-
+            // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
             CloudKill.EffectDescription.EffectForms.TryAdd(FormBlinded);
             IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormBlinded);
 
             // Make Insect Plague lightly obscured
             InsectPlague.EffectDescription.EffectForms.Add(FormLightlyObscured);
+            InsectPlague.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
 
             // vanilla has this set as disadvantage so we flip it with nullified requirements
             CombatAffinityHeavilyObscured.attackOnMeAdvantage = AdvantageType.Advantage;
             (CombatAffinityHeavilyObscured.nullifiedBySenses, CombatAffinityHeavilyObscured.nullifiedBySelfSenses) =
                 (CombatAffinityHeavilyObscured.nullifiedBySelfSenses, CombatAffinityHeavilyObscured.nullifiedBySenses);
-
-            // replace sight impaired from all non magical light and heavy obscurement effects
-            CloudKill.EffectDescription.EffectForms[2].TopologyForm.changeType = TopologyForm.Type.None;
-            FogCloud.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
-            IncendiaryCloud.EffectDescription.EffectForms[2].TopologyForm.changeType = TopologyForm.Type.None;
-            InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
-            SleetStorm.EffectDescription.EffectForms[5].TopologyForm.changeType = TopologyForm.Type.None;
-            StinkingCloud.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
-            SpellsContext.PetalStorm.EffectDescription.EffectForms[2].TopologyForm.changeType = TopologyForm.Type.None;
         }
         else
         {
-            ConditionDefinitions.ConditionBlinded.GuiPresentation.description =
-                "Rules/&ConditionBlindedExtendedDescription";
+            ConditionDefinitions.ConditionBlinded.Features.SetRange(
+                CombatAffinityBlinded,
+                FeatureDefinitionPerceptionAffinitys.PerceptionAffinityConditionBlinded);
+
+            if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
+            {
+                ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionBlind);
+            }
+            else
+            {
+                ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
+            }
+
+            ConditionDefinitions.ConditionBlinded.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
 
             // >> ConditionVeil
             // ConditionAffinityVeilImmunity
             // PowerDefilerDarkness
 
-            ConditionAffinityVeilImmunity.conditionType =
-                ConditionVeil.Name;
+            ConditionAffinityVeilImmunity.conditionType = ConditionVeil.Name;
 
             PowerDefilerDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
                 ConditionVeil;
@@ -526,8 +526,9 @@ internal static class SrdAndHouseRulesContext
             // ConditionAffinityInvocationDevilsSight
             // Darkness
 
-            ConditionAffinityInvocationDevilsSight.conditionType =
-                ConditionDefinitions.ConditionDarkness.Name;
+            FeatureDefinitionFeatureSets.FeatureSetInvocationDevilsSight.FeatureSet.SetRange(SenseBlindSight16,
+                SenseSeeInvisible16,
+                ConditionAffinityInvocationDevilsSight);
 
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
                 ConditionDefinitions.ConditionDarkness;
@@ -554,28 +555,18 @@ internal static class SrdAndHouseRulesContext
             SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
                 ConditionSleetStorm;
 
-            // Cloud Kill / Incendiary Cloud
-
+            // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
             CloudKill.EffectDescription.EffectForms.Remove(FormBlinded);
             IncendiaryCloud.EffectDescription.EffectForms.Remove(FormBlinded);
 
             // Remove lightly obscured from Insect Plague
             InsectPlague.EffectDescription.EffectForms.Remove(FormLightlyObscured);
+            InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
 
             // vanilla has this set as disadvantage so we flip it with nullified requirements
             CombatAffinityHeavilyObscured.attackOnMeAdvantage = AdvantageType.Disadvantage;
             (CombatAffinityHeavilyObscured.nullifiedBySelfSenses, CombatAffinityHeavilyObscured.nullifiedBySenses) =
                 (CombatAffinityHeavilyObscured.nullifiedBySenses, CombatAffinityHeavilyObscured.nullifiedBySelfSenses);
-
-            // add sight impaired from all non magical light and heavy obscurement effects
-            CloudKill.EffectDescription.EffectForms[2].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
-            FogCloud.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
-            IncendiaryCloud.EffectDescription.EffectForms[2].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
-            InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
-            SleetStorm.EffectDescription.EffectForms[5].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
-            StinkingCloud.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
-            SpellsContext.PetalStorm.EffectDescription.EffectForms[2].TopologyForm.changeType =
-                TopologyForm.Type.SightImpaired;
         }
     }
 

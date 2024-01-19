@@ -12,6 +12,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ConsiderationCanCastMagicPatcher
 {
+    //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
     [HarmonyPatch(typeof(CanCastMagic), nameof(CanCastMagic.Score))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

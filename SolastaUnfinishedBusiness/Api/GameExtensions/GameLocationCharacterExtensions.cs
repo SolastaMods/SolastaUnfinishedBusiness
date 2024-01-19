@@ -17,14 +17,19 @@ public static class GameLocationCharacterExtensions
         return Gui.Battle != null && Gui.Battle.ActiveContenderIgnoringLegendary == character;
     }
 
-    public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
+    public static float GetDistance(this GameLocationCharacter source, GameLocationCharacter target)
     {
         if (Main.Settings.UseOfficialDistanceCalculation)
         {
-            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target) <= range;
+            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target);
         }
 
-        return int3.Distance(source.LocationPosition, target.LocationPosition) <= range;
+        return int3.Distance(source.LocationPosition, target.LocationPosition);
+    }
+
+    public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
+    {
+        return GetDistance(source, target) <= range;
     }
 
     public static bool IsMagicEffectValidUnderBlindness(
@@ -45,7 +50,8 @@ public static class GameLocationCharacterExtensions
         var rulesetSource = source.RulesetActor;
         var rulesetTarget = target.RulesetActor;
 
-        if (!rulesetSource.HasBlindness() && !rulesetTarget.HasBlindness())
+        if (!rulesetSource.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionBlinded.Name) &&
+            !rulesetTarget.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionBlinded.Name))
         {
             return true;
         }
@@ -244,13 +250,11 @@ public static class GameLocationCharacterExtensions
                 }
             }
 
-            var illumination2 =
+            return
                 lightingState1 != LocationDefinitions.LightingState.Dim ||
                 lightingState2 != LocationDefinitions.LightingState.Unlit
                     ? lightingState2
                     : LocationDefinitions.LightingState.Dim;
-
-            return illumination2;
         }
     }
 

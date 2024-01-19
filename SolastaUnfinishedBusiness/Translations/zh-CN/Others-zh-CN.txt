@@ -180,7 +180,6 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=自动电源
 Rules/&ActivationTypeOnRageStartAutomaticTitle=自动愤怒开始
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=自动生物生命值降至零
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=自动偷袭
-Rules/&ConditionBlindedExtendedDescription=视力被蒙蔽了。针对该生物的攻击检定具有优势，而该生物的攻击检定则具有劣势。
 Rules/&CounterFormDismissCreatureFormat=解散一个目标召唤生物
 Rules/&SituationalContext1000Format=手持剑刃精通武器：
 Rules/&SituationalContext1001Format=手持巨剑：

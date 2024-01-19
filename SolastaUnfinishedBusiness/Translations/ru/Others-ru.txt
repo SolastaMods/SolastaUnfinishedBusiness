@@ -180,7 +180,6 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Автоматическое ум
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Автоматическое начало ярости
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Автоматическое уменьшение хитов существа до нуля
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Автоматическая скрытая атака
-Rules/&ConditionBlindedExtendedDescription=Существо ослеплено. Броски атаки по существу совершаются с преимуществом, а существо совершает броски атаки с помехой.
 Rules/&CounterFormDismissCreatureFormat=Отпускает призванное существо
 Rules/&SituationalContext1000Format=Держит в руках тип оружия Мастерства клинка:
 Rules/&SituationalContext1001Format=Держит в руках двуручный меч:

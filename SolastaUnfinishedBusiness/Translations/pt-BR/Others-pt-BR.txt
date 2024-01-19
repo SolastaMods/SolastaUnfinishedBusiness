@@ -180,7 +180,6 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Alimentação automática
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Início da raiva automática
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Criatura automática reduzida a zero HP
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Ataque furtivo automático
-Rules/&ConditionBlindedExtendedDescription=A visão está cega. As jogadas de ataque contra a criatura têm vantagem e as jogadas de ataque da criatura têm desvantagem.
 Rules/&CounterFormDismissCreatureFormat=Dispensa uma criatura alvo conjurada
 Rules/&SituationalContext1000Format=Tem os tipos de armas Blade Mastery em mãos:
 Rules/&SituationalContext1001Format=Tem Greatsword em mãos:

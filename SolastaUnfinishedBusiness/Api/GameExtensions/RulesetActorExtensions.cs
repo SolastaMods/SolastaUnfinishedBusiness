@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using UnityEngine;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -29,7 +28,9 @@ internal static class RulesetActorExtensions
 
         actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
 
-        return features.OfType<T>().ToList();
+        return features
+            .OfType<T>()
+            .ToList();
     }
 
     [NotNull]
@@ -67,8 +68,7 @@ internal static class RulesetActorExtensions
             case RulesetCharacterMonster { originalFormCharacter: RulesetCharacterHero rulesetCharacterHero }:
                 hero = rulesetCharacterHero;
                 list.AddRange(FeaturesByType<BaseDefinition>(hero)
-                    .Where(f => !list.Contains(f))
-                    .ToList());
+                    .Where(f => !list.Contains(f)));
                 break;
         }
 
@@ -160,27 +160,11 @@ internal static class RulesetActorExtensions
             .FirstOrDefault() != null;
     }
 
-    internal static float DistanceTo(this RulesetActor actor, RulesetActor target)
-    {
-        var locA = GameLocationCharacter.GetFromActor(actor);
-        var locB = GameLocationCharacter.GetFromActor(target);
-
-        if (locA == null || locB == null)
-        {
-            return 0;
-        }
-
-        var service = ServiceRepository.GetService<IGameLocationPositioningService>();
-
-        return Vector3.Distance(service.ComputeGravityCenterPosition(locA), service.ComputeGravityCenterPosition(locB));
-    }
-
     internal static bool IsTouchingGround(this RulesetActor actor)
     {
-        return !actor.HasConditionOfType(ConditionFlying)
-               && !actor.HasConditionOfType(ConditionLevitate)
-               && !(actor is RulesetCharacter character &&
-                    character.MoveModes.ContainsKey((int)MoveMode.Fly));
+        return !actor.HasConditionOfType(ConditionFlying) &&
+               !actor.HasConditionOfType(ConditionLevitate) &&
+               !(actor is RulesetCharacter character && character.MoveModes.ContainsKey((int)MoveMode.Fly));
     }
 
     internal static bool IsTemporarilyFlying(this RulesetActor actor)
@@ -197,11 +181,6 @@ internal static class RulesetActorExtensions
                 && !actor.HasConditionOfType("ConditionFlightSuspended")
 
         );*/
-    }
-
-    internal static bool HasBlindness(this RulesetActor character)
-    {
-        return character.HasConditionOfTypeOrSubType(DatabaseHelper.ConditionDefinitions.ConditionBlinded.Name);
     }
 
     internal static bool HasAnyConditionOfType(this RulesetActor actor, params string[] conditions)

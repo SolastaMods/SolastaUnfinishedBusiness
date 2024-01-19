@@ -33,7 +33,7 @@ public static class CursorLocationSelectTargetPatcher
             // required for familiar attack
             actingCharacter.UsedSpecialFeatures.Remove("FamiliarAttack");
 
-            //PATCH: supports UseOfficialObscurementRules
+            //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
             if (__result &&
                 Main.Settings.UseOfficialLightingObscurementAndVisionRules &&
                 definition is IMagicEffect magicEffect &&
@@ -45,7 +45,7 @@ public static class CursorLocationSelectTargetPatcher
                 return;
             }
 
-            //PATCH: supports IFilterTargetingCharacter
+            //PATCH: supports `IFilterTargetingCharacter`
             foreach (var filterTargetingMagicEffect in
                      definition.GetAllSubFeaturesOfType<IFilterTargetingCharacter>())
             {

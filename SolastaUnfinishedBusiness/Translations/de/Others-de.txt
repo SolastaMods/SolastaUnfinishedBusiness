@@ -180,7 +180,6 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=Automatische Stromversorgung
 Rules/&ActivationTypeOnRageStartAutomaticTitle=Automatischer Rage-Start
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=Automatische Kreatur auf null HP reduziert
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=Automatischer Schleichangriff
-Rules/&ConditionBlindedExtendedDescription=Das Sehen ist geblendet. Angriffswürfe gegen die Kreatur haben einen Vorteil, und die Angriffswürfe der Kreatur haben einen Nachteil.
 Rules/&CounterFormDismissCreatureFormat=Entlässt eine beschworene Zielkreatur
 Rules/&SituationalContext1000Format=Hat Klingenmeister-Waffentypen in der Hand:
 Rules/&SituationalContext1001Format=Hat Großschwert in Händen:

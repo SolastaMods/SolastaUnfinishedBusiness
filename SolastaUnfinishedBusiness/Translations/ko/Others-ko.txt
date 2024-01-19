@@ -180,7 +180,6 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=자동 능력 트리거
 Rules/&ActivationTypeOnRageStartAutomaticTitle=자동 격노 개시 트리거
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=자동 HP 0 감소 트리거
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=자동 암습 트리거
-Rules/&ConditionBlindedExtendedDescription=시력이 흐려졌습니다. 생물에 대한 공격 굴림에는 이점이 있고 생물의 공격 굴림에는 불리한 점이 있습니다.
 Rules/&CounterFormDismissCreatureFormat=소환된 크리쳐 대상을 소환해제
 Rules/&SituationalContext1000Format=칼날 단련 무기 유형을 손에 들고 있음:
 Rules/&SituationalContext1001Format=그레이트 소드를 손에 들고 있음:

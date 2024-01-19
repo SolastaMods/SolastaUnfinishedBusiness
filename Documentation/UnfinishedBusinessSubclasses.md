@@ -1755,7 +1755,7 @@ Once per turn when you miss with a monk weapon or unarmed attack while you are i
 
 * Shadowy Sanctuary
 
-While you are in dim light or darkness and a creature is about to hit you with an attack, you can spend 3 ki and use your reaction to step into shadows and disappear, negating any damage or harmful effects you would have received from that attack. While in the shadows, you are considered banished until the start of your next turn.
+When a creature is about to hit you with an attack, you can spend 3 ki and use your reaction to step into shadows and disappear, negating any damage or harmful effects you would have received from that attack. While in the shadows, you are considered banished until the start of your next turn. You do not lose concentration while banished this way.
 
 
 
@@ -3418,7 +3418,7 @@ You may cast Ice Storm as a fourth level spell a number of times equal to your p
 
 * Icebound Soul
 
-Gain immunity to cold damage. The first time you hit an enemy with an attack on your turn, they must make a Constitution saving throw against your warlock spell DC or become blinded until the end of your next turn.
+Gain immunity to cold damage. The first time you hit an enemy with an attack on your turn, they must make a Constitution saving throw against your warlock spell DC or become blinded until the end of their next turn.
 
 
 

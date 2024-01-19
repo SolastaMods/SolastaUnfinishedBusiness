@@ -10,6 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ConsiderationCanPerceiveCellPatcher
 {
+    //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
     [HarmonyPatch(typeof(CanPerceiveCell), nameof(CanPerceiveCell.Score))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

@@ -68,9 +68,9 @@ public static class GameLocationVisibilityManagerPatcher
             {
                 var gridAccessor = GridAccessor.Default;
 
-                hasImpairedSight = rulesetCharacter.ImpairedSight ||
-                                   (gridAccessor.RuntimeFlags(fromWorldPosition1) &
-                                    CellFlags.Runtime.DynamicSightImpaired) != 0;
+                hasImpairedSight =
+                    rulesetCharacter.ImpairedSight ||
+                    (gridAccessor.RuntimeFlags(fromWorldPosition1) & CellFlags.Runtime.DynamicSightImpaired) != 0;
             }
             // END PATCH
 

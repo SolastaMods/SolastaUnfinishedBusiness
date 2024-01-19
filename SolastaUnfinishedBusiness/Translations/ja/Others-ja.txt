@@ -180,7 +180,6 @@ Rules/&ActivationTypeOnPowerActivatedAutoTitle=オートパワー
 Rules/&ActivationTypeOnRageStartAutomaticTitle=オートレイジスタート
 Rules/&ActivationTypeOnReduceCreatureToZeroHPAutoTitle=自動クリーチャーのHPがゼロに減少
 Rules/&ActivationTypeOnSneakAttackHitAutoTitle=オートスニークアタック
-Rules/&ConditionBlindedExtendedDescription=視界が遮られます。クリーチャーに対する攻撃ロールは有利であり、クリーチャーの攻撃ロールは不利です。
 Rules/&CounterFormDismissCreatureFormat=対象の召喚されたクリーチャーを退ける
 Rules/&SituationalContext1000Format=ブレードマスタリーの武器タイプを手に持っています:
 Rules/&SituationalContext1001Format=グレートソードを手に持っています。

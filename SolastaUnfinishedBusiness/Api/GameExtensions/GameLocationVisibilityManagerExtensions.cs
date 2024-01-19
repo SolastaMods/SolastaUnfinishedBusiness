@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -15,6 +15,7 @@ internal static class GameLocationVisibilityManagerExtensions
         GameLocationCharacter target = null,
         LocationDefinitions.LightingState additionalBlockedLightingState = LocationDefinitions.LightingState.Darkness)
     {
+        // let vanilla do the heavy lift on perception
         var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
 
         // if setting is off or vanilla cannot perceive
@@ -26,53 +27,83 @@ internal static class GameLocationVisibilityManagerExtensions
                 return false;
             }
 
-            // might wanna dup some code and remove Silhouette Step handling below for performance reasons
-            var lightningState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
-
             // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
             return additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
-                   lightningState != additionalBlockedLightingState;
+                   sensor.ComputeLightingStateOnTargetPosition(cellPosition) != additionalBlockedLightingState;
         }
 
+        var inRange = false;
+        var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
+        var selectedSenseType = SenseMode.Type.None;
+        var selectedSenseRange = 0;
+        var lightingState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
+        var sourceIsBlindedButNotMagically =
+            sensor.RulesetActor.AllConditions.Exists(x =>
+                x.ConditionDefinition == ConditionBlinded ||
+                (x.ConditionDefinition != SrdAndHouseRulesContext.ConditionBlindedByDarkness &&
+                 x.ConditionDefinition.parentCondition == ConditionBlinded) ||
+                sensor.LightingState is LocationDefinitions.LightingState.Darkness
+                    or LocationDefinitions.LightingState.Unlit);
+        var sourceIsBlinded =
+            sensor.RulesetActor.HasConditionOfTypeOrSubType(ConditionBlinded.Name);
+
+        // force lighting state to unlit if target is blind and on a dim or bright cell
+        if (target != null &&
+            target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBlinded.Name) &&
+            lightingState is LocationDefinitions.LightingState.Bright or LocationDefinitions.LightingState.Dim)
         {
-            var inRange = false;
-            var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
-            var lightingState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
-            var selectedSenseType = SenseMode.Type.None;
-            var selectedSenseRange = 0;
-            var nonMagicalDarkness =
-                target != null &&
-                target.RulesetActor.HasConditionOfType(SrdAndHouseRulesContext.ConditionBlindedByDarkness.Name);
+            lightingState = LocationDefinitions.LightingState.Unlit;
+        }
 
-            // try to find any sense mode that is valid for the current lighting state and is within range
-            foreach (var senseMode in sensor.RulesetCharacter.SenseModes
-                         .Where(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState)))
+        // try to find any sense mode that is valid for the current lighting state and is within range
+        foreach (var senseMode in sensor.RulesetCharacter.SenseModes)
+        {
+            var senseType = senseMode.SenseType;
+
+            if (!SenseMode.ValidForLighting(senseMode.SenseType, lightingState))
             {
-                var senseType = senseMode.SenseType;
-
-                if (selectedSenseType != senseType && senseMode.SenseRange >= selectedSenseRange)
-                {
-                    if (nonMagicalDarkness && senseType == SenseMode.Type.Truesight)
-                    {
-                        continue;
-                    }
-
-                    selectedSenseType = senseType;
-                    selectedSenseRange = senseMode.SenseRange;
-                }
-
-                inRange = distance <= senseMode.SenseRange;
-
-                if (inRange)
-                {
-                    break;
-                }
+                continue;
             }
 
-            return inRange &&
-                   // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-                   (additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
-                    lightingState != additionalBlockedLightingState);
+            // these are the only senses a blinded creature can use
+            if (sourceIsBlinded &&
+                senseType is not (SenseMode.Type.Truesight or SenseMode.Type.Blindsight or SenseMode.Type.Tremorsense))
+            {
+                continue;
+            }
+
+            if (selectedSenseType != senseType && senseMode.SenseRange >= selectedSenseRange)
+            {
+                // can only use true sight on magical darkness
+                if (sourceIsBlindedButNotMagically &&
+                    senseType == SenseMode.Type.Truesight)
+                {
+                    continue;
+                }
+
+                // can only use tremor sense on non flying creatures
+                if (target != null &&
+                    !target.RulesetActor.IsTouchingGround() &&
+                    senseType == SenseMode.Type.Tremorsense)
+                {
+                    continue;
+                }
+
+                selectedSenseType = senseType;
+                selectedSenseRange = senseMode.SenseRange;
+            }
+
+            inRange = distance <= senseMode.SenseRange;
+
+            if (inRange)
+            {
+                break;
+            }
         }
+
+        return inRange &&
+               // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
+               (additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
+                lightingState != additionalBlockedLightingState);
     }
 }

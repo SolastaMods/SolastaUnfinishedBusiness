@@ -1184,6 +1184,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityBlessed { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlessed");
 
+        internal static FeatureDefinitionCombatAffinity CombatAffinityBlinded { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlinded");
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityBlurred { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlurred");
 
@@ -2190,6 +2193,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionSenses
     {
+        internal static FeatureDefinitionSense SenseBlindSight16 { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseBlindSight16");
+
         internal static FeatureDefinitionSense SenseDarkvision { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseDarkvision");
 
