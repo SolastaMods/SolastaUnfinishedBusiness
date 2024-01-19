@@ -57,6 +57,7 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=武术 - 额外徒
 Feature/&AttributeModifierMonkAbundantKiDescription=将一半的熟练加值（向上舍入）添加到您的 Ki 点数池中。
 Feature/&AttributeModifierMonkAbundantKiTitle=气量充沛
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&DieRollModifierTrueSightIllusionarySaving=由于真实视域，{0}会自动豁免幻象法术。
 Feature/&EnhancedIndomitableResistanceDescription=如果你的豁免检定失败，你可以重新投掷，并获得相当于你的战士等级的奖励。如果您这样做，则必须使用新的骰子，并且在完成长时间休息之前不能再次使用此功能。
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=扩展法术

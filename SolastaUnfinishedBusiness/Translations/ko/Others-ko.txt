@@ -57,6 +57,7 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=무술 - 보너스
 Feature/&AttributeModifierMonkAbundantKiDescription=숙련도 보너스의 절반(반올림)을 기 포인트 풀에 추가합니다.
 Feature/&AttributeModifierMonkAbundantKiTitle=풍부한 기
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&DieRollModifierTrueSightIllusionarySaving={0}은 True Sight 덕분에 환상 주문으로부터 자동으로 저장됩니다.
 Feature/&EnhancedIndomitableResistanceDescription=내성 굴림에 실패하면 파이터 레벨과 동일한 보너스를 받아 다시 굴릴 수 있습니다. 그럴 경우 새 롤을 사용해야 하며, 긴 휴식을 마칠 때까지 이 기능을 다시 사용할 수 없습니다.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=확장된 주문

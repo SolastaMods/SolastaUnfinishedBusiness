@@ -57,6 +57,7 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Artes marciales: b
 Feature/&AttributeModifierMonkAbundantKiDescription=Agregue la mitad de su bonificación de competencia (redondeado hacia arriba) a su grupo de Ki Points.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abundante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&DieRollModifierTrueSightIllusionarySaving={0} se guarda automáticamente contra hechizos ilusorios gracias a True Sight.
 Feature/&EnhancedIndomitableResistanceDescription=Si fallas una tirada de salvación, puedes volver a tirarla con una bonificación igual a tu nivel de Luchador. Si lo haces, deberás utilizar la nueva tirada y no podrás volver a utilizar esta función hasta que termines un descanso prolongado.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Hechizos ampliados

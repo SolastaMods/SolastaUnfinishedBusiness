@@ -106,6 +106,19 @@ internal static class SrdAndHouseRulesContext
 
     private static readonly EffectForm FormLightlyObscured = EffectFormBuilder.ConditionForm(ConditionLightlyObscured);
 
+    internal static readonly ConditionDefinition ConditionAutomaticSavingThrow = ConditionDefinitionBuilder
+        .Create("ConditionAutomaticSavingThrow")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFeatures(
+            FeatureDefinitionDieRollModifierBuilder
+                .Create("DieRollModifierAutomaticSaving")
+                .SetGuiPresentationNoContent(true)
+                .SetModifiers(RollContext.SavingThrow, 1, 20, 20, "Feature/&DieRollModifierTrueSightIllusionarySaving")
+                .AddToDB())
+        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+        .AddToDB();
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()

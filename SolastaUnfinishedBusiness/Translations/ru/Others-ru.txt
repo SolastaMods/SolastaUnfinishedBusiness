@@ -57,6 +57,7 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Боевые ис�
 Feature/&AttributeModifierMonkAbundantKiDescription=Добавьте половину своего бонуса мастерства (с округлением в большую сторону) к своему запасу очков Ци.
 Feature/&AttributeModifierMonkAbundantKiTitle=Обильная Ци
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
+Feature/&DieRollModifierTrueSightIllusionarySaving={0} автоматически сохраняет защиту от иллюзорных заклинаний благодаря True Sight.
 Feature/&EnhancedIndomitableResistanceDescription=Вы можете перебросить проваленный спасбросок с бонусом, равным вашему уровню Воина, и должны использовать новый результат. После этого вы можете повторно использовать это умение только после завершения продолжительного отдыха.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Расширенные заклинания
