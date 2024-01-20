@@ -200,6 +200,8 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 키를 누르며 주문을
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>획득 경험치에y</color> <color=#C04040E0>[%]</color><color=white>를 곱함</color>
 ModUi/&NoExperienceOnLevelUp=레벨 업에 경험치가 필요하지 않게 설정
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 세계관에 어울리는 이름을 추가
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D89555>심하게 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>클라우드 킬</color>, <color=#D89555>안개 구름 </color>, <color=#D89555>발화 구름</color>, <color=#D89555>꽃잎 폭풍</color>, <color=#D89555>진눈깨비</color>, <color=#D89555> 악취나는 구름</color>]</color>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법의 어둠</color> 영역을 발사체 차단기로 변경</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 필요할 때마다 몬스터와 NPC에 <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> 및 <color=#D89555>TrueSight</color>를 추가합니다.\n <color=#F0DAA0>[설정에서 <b>암흑시야를 가져야 하는 MonstersThatShouldDarkvision</b>, <b>TrueSight를 가져야 하는 Monsters</b>, <b>BlindSight를 가져야 하는 Monsters</b> 컬렉션]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 주문 목록에서 가장 강력한 크리쳐만 표시</i>
 ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b>의 주관적인 솔라스타 가이드 (영문)

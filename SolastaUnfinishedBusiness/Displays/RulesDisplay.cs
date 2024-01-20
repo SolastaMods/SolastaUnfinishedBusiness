@@ -93,6 +93,8 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialLightingObscurementAndVisionRules = toggle;
+            Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker = false;
+            Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker = false;
             Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
             SrdAndHouseRulesContext.SwitchOfficialObscurementRules();
         }
@@ -102,6 +104,22 @@ internal static class RulesDisplay
 
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
+            toggle = Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker = toggle;
+                SrdAndHouseRulesContext.SwitchHeavilyObscuredOnObscurementRules();
+            }
+
+            toggle = Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker = toggle;
+                SrdAndHouseRulesContext.SwitchMagicalDarknessOnObscurementRules();
+            }
+
             toggle = Main.Settings.OfficialObscurementRulesTweakMonsters;
             if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesTweakMonsters"), ref toggle, UI.AutoWidth()))
             {

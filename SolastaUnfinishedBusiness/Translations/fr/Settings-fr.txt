@@ -200,6 +200,8 @@ ModUi/&MulticlassKeyHelp=Un <color=#1E81B0>SHIFT</color> + Click sur un sort inv
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour monter de niveau
 ModUi/&OfferAdditionalLoreFriendlyNames=Propose davantage de noms fidèle à l'univers lors de la création de personnage
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Remplacer les zones <color=#D89555>fortement obscurcies</color> par des bloqueurs de projectiles <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nuage de brouillard </color>, <color=#D89555>Nuage incendiaire</color>, <color=#D89555>Tempête de pétales</color>, <color=#D89555>Tempête de grésil</color>, <color=#D89555> Nuage puant</color>]</color>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Changer les zones d'<color=#D89555>obscurité magique</color> pour qu'elles bloquent les projectiles</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Ajoutez <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> et <color=#D89555>TrueSight</color> aux monstres et aux PNJ lorsque cela est approprié\n <color=#F0DAA0>[collections <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b> dans les paramètres]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
 ModUi/&OpenSubjectiveGuide=Ouvrer le Guide Subjectif de Solasta par <b><color=#D89555>u/CounterYolo</color></b>

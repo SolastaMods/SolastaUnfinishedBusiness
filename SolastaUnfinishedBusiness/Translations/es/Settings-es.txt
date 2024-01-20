@@ -200,6 +200,8 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechi
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia ganada por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrezca nombres amigables adicionales en la creación de personajes
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Cambia las áreas <color=#D89555>muy oscurecidas</color> para que sean bloqueadores de proyectiles <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nube de niebla </color>, <color=#D89555>Nube incendiaria</color>, <color=#D89555>Tormenta de pétalos</color>, <color=#D89555>Tormenta de aguanieve</color>, <color=#D89555> Nube apestosa</color>]</color>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia las áreas de <color=#D89555>oscuridad mágica</color> para que sean bloqueadores de proyectiles</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Añade <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> y <color=#D89555>TrueSight</color> a monstruos y NPC cuando sea apropiado.\n <color=#F0DAA0>[colecciones <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b> en configuración]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuros</i>
 ModUi/&OpenSubjectiveGuide=Abre La guía subjetiva de Solasta de <b><color=#D89555>u/CounterYolo</color></b>

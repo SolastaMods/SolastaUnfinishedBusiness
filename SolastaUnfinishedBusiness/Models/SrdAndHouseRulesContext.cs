@@ -106,6 +106,11 @@ internal static class SrdAndHouseRulesContext
 
     private static readonly EffectForm FormLightlyObscured = EffectFormBuilder.ConditionForm(ConditionLightlyObscured);
 
+    private static readonly EffectForm FormProjectileBlocker = EffectFormBuilder
+        .Create()
+        .SetTopologyForm(TopologyForm.Type.ProjectileBlocker, true)
+        .Build();
+
     internal static readonly ConditionDefinition ConditionAutomaticSavingThrow = ConditionDefinitionBuilder
         .Create("ConditionAutomaticSavingThrow")
         .SetGuiPresentationNoContent(true)
@@ -800,6 +805,8 @@ internal static class SrdAndHouseRulesContext
     {
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
+            SwitchHeavilyObscuredOnObscurementRules();
+            SwitchMagicalDarknessOnObscurementRules();
             SwitchMonstersOnObscurementRules();
 
             ConditionDefinitions.ConditionBlinded.Features.SetRange(
@@ -807,16 +814,7 @@ internal static class SrdAndHouseRulesContext
                 CombatAffinityHeavilyObscuredSelf,
                 FeatureDefinitionPerceptionAffinitys.PerceptionAffinityConditionBlinded);
 
-            if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
-            {
-                ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionBlind);
-                ConditionBlindedByDarkness.Features.Add(ActionAffinityConditionBlind);
-            }
-            else
-            {
-                ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
-                ConditionBlindedByDarkness.Features.Remove(ActionAffinityConditionBlind);
-            }
+            SwitchConditionBlindedShouldNotAllowOpportunityAttack();
 
             ConditionDefinitions.ConditionBlinded.GuiPresentation.description =
                 ConditionBlindedByDarkness.GuiPresentation.description;
@@ -876,20 +874,15 @@ internal static class SrdAndHouseRulesContext
         }
         else
         {
+            SwitchHeavilyObscuredOnObscurementRules();
+            SwitchMagicalDarknessOnObscurementRules();
             SwitchMonstersOnObscurementRules();
 
             ConditionDefinitions.ConditionBlinded.Features.SetRange(
                 CombatAffinityBlinded,
                 FeatureDefinitionPerceptionAffinitys.PerceptionAffinityConditionBlinded);
 
-            if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
-            {
-                ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionBlind);
-            }
-            else
-            {
-                ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
-            }
+            SwitchConditionBlindedShouldNotAllowOpportunityAttack();
 
             ConditionDefinitions.ConditionBlinded.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
 
@@ -950,6 +943,42 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    internal static void SwitchHeavilyObscuredOnObscurementRules()
+    {
+        if (Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker)
+        {
+            FogCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            SpellsContext.PetalStorm.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            StinkingCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            SleetStorm.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            CloudKill.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+        }
+        else
+        {
+            FogCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            SpellsContext.PetalStorm.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            StinkingCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            SleetStorm.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            CloudKill.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            IncendiaryCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+        }
+    }
+
+    internal static void SwitchMagicalDarknessOnObscurementRules()
+    {
+        if (Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker)
+        {
+            PowerDefilerDarkness.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            Darkness.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+        }
+        else
+        {
+            PowerDefilerDarkness.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            Darkness.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+        }
+    }
+
     internal static void SwitchMonstersOnObscurementRules()
     {
         foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
@@ -1005,49 +1034,38 @@ internal static class SrdAndHouseRulesContext
         var attackModifier = attackParams.attackModifier;
 
         var attacker = attackParams.attacker;
-        var defender = attackParams.defender;
-
-        // blinded as in "heavily obscured" or in "darkness" or any condition with blinded as parent
+        var attackerActor = attacker.RulesetActor;
         var attackerIsBlinded =
-            attacker.RulesetActor.HasAnyConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
-        var defenderIsBlinded =
-            defender.RulesetActor.HasAnyConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
+            attackerActor.HasAnyConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
 
-        // nothing to do here if both contenders are already blinded as this use case is handled by vanilla
+        var defender = attackParams.defender;
+        var defenderActor = defender.RulesetActor;
+        var defenderIsBlinded =
+            defenderActor.HasAnyConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
+
+        // nothing to do here if both contenders are already blinded
         if (attackerIsBlinded && defenderIsBlinded)
         {
-            if (!Main.Settings.OfficialObscurementRulesAlwaysDisplayCancellingPairs)
-            {
-                attackModifier.AttackAdvantageTrends
-                    .RemoveAll(x => x.sourceName == RuleDefinitions.ConditionBlinded);
-            }
-
             return;
         }
 
-        var attackerCanSeeDefender = attacker.CanPerceiveTarget(defender);
-        var defenderCanSeeAttacker = defender.CanPerceiveTarget(attacker);
+        var attackerCanPerceiveDefender = attacker.CanPerceiveTarget(defender);
+        var attackerHasNoLight = attacker.LightingState is
+            LocationDefinitions.LightingState.Unlit or LocationDefinitions.LightingState.Darkness;
 
-        var adv = attackerCanSeeDefender ||
-                  (!defenderCanSeeAttacker && attacker.LightingState is
-                      LocationDefinitions.LightingState.Unlit or LocationDefinitions.LightingState.Darkness);
+        var defenderCanPerceiveAttacker = defender.CanPerceiveTarget(attacker);
+        var defenderHasNoLight = defender.LightingState is
+            LocationDefinitions.LightingState.Unlit or LocationDefinitions.LightingState.Darkness;
 
-        var dis = defenderCanSeeAttacker ||
-                  (!attackerCanSeeDefender && defender.LightingState is
-                      LocationDefinitions.LightingState.Unlit or LocationDefinitions.LightingState.Darkness);
-
-        if (!Main.Settings.OfficialObscurementRulesAlwaysDisplayCancellingPairs && !(adv ^ dis))
-        {
-            return;
-        }
-
-        if (adv && !defenderIsBlinded)
+        if (!defenderIsBlinded &&
+            (attackerCanPerceiveDefender || (!defenderCanPerceiveAttacker && attackerHasNoLight)))
         {
             attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Lighting, PERCEIVE, attacker.RulesetActor));
+                new TrendInfo(1, FeatureSourceType.Lighting, PERCEIVE, attackerActor));
         }
 
-        if (dis && !attackerIsBlinded)
+        if (!attackerIsBlinded &&
+            (defenderCanPerceiveAttacker || (!attackerCanPerceiveDefender && defenderHasNoLight)))
         {
             attackModifier.attackAdvantageTrends.Add(
                 new TrendInfo(-1, FeatureSourceType.Lighting, PERCEIVE, defender.RulesetActor));

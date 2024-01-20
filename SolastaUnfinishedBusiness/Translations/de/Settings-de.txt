@@ -200,6 +200,8 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>UMSCHALT</color>-Klick auf einen Zauber 
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplizieren Sie die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Für den Levelaufstieg ist keine Erfahrung erforderlich
 ModUi/&OfferAdditionalLoreFriendlyNames=Bieten Sie bei der Charaktererstellung zusätzliche Lore-freundliche Namen an
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Ändern Sie <color=#D89555>stark verdeckte</color> Bereiche in Projektilblocker <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nebelwolke </color>, <color=#D89555>Brandwolke</color>, <color=#D89555>Blütenblattsturm</color>, <color=#D89555>Graupelsturm</color>, <color=#D89555> Stinkende Wolke</color>]</color>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Verwandeln Sie <color=#D89555>magische Dunkelheit</color>-Bereiche in Projektilblocker</i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Füge Monstern und NPCs bei Bedarf <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> und <color=#D89555>TrueSight</color> hinzu.\n <color=#F0DAA0>[Sammlungen <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b> in den Einstellungen]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Zeigt nur die mächtigsten Kreaturen in der Beschwörungsliste an</i>
 ModUi/&OpenSubjectiveGuide=Öffnen Sie den subjektiven Leitfaden zu Solasta von <b><color=#D89555>u/CounterYolo</color></b>
