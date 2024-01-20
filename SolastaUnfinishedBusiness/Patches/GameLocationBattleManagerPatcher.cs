@@ -656,70 +656,10 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
             //handle lighting and obscurement logic disabled in `GLC.ComputeLightingModifierForIlluminable`
-            ApplyObscurementRules(attackParams);
+            SrdAndHouseRulesContext.ApplyObscurementRules(attackParams);
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams);
-        }
-
-        private static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams)
-        {
-            const string TAG = "Obscurement";
-
-            if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
-            {
-                return;
-            }
-
-            var attackModifier = attackParams.attackModifier;
-            var attacker = attackParams.attacker;
-            var defender = attackParams.defender;
-            // blinded as in "heavily obscured" or in "darkness" from condition not as in "unlit"
-            var attackerIsBlinded = attacker.RulesetActor.HasAnyConditionOfTypeOrSubType(ConditionBlinded);
-            var defenderIsBlinded = defender.RulesetActor.HasAnyConditionOfTypeOrSubType(ConditionBlinded);
-
-            // nothing to do here if both contenders are already blinded as this use case is handled by vanilla
-            if (attackerIsBlinded && defenderIsBlinded)
-            {
-                return;
-            }
-
-            var attackerCanSeeDefender = attacker.CanPerceiveTarget(defender);
-            var defenderCanSeeAttacker = defender.CanPerceiveTarget(attacker);
-
-            // add ADV/DIS based on perception
-            if (attackerCanSeeDefender ^ defenderCanSeeAttacker)
-            {
-                // no reason to add add/dis if blinded already in play
-                if ((attackerCanSeeDefender && defenderIsBlinded) || (defenderCanSeeAttacker && attackerIsBlinded))
-                {
-                    return;
-                }
-
-                attackModifier.attackAdvantageTrends.Add(
-                    new TrendInfo(attackerCanSeeDefender ? 1 : -1, FeatureSourceType.Lighting, TAG, null));
-            }
-            // add ADV/DIS based on lighting
-            else
-            {
-                var adv = !defenderCanSeeAttacker && attacker.LightingState is
-                    LocationDefinitions.LightingState.Unlit or LocationDefinitions.LightingState.Darkness;
-
-                var dis = !attackerCanSeeDefender && defender.LightingState is
-                    LocationDefinitions.LightingState.Unlit or LocationDefinitions.LightingState.Darkness;
-
-                // no reason to add add/dis if blinded already in play
-                if ((adv && defenderIsBlinded) || (dis && attackerIsBlinded))
-                {
-                    return;
-                }
-
-                if (adv ^ dis)
-                {
-                    attackModifier.attackAdvantageTrends.Add(
-                        new TrendInfo(adv ? 1 : -1, FeatureSourceType.Lighting, TAG, null));
-                }
-            }
         }
 
         private static void ApplyCustomModifiers(BattleDefinitions.AttackEvaluationParams attackParams)
@@ -732,9 +672,7 @@ public static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            var modifyAttackActionModifiers = attacker.GetSubFeaturesByType<IModifyAttackActionModifier>();
-
-            foreach (var modifyAttackActionModifier in modifyAttackActionModifiers)
+            foreach (var modifyAttackActionModifier in attacker.GetSubFeaturesByType<IModifyAttackActionModifier>())
             {
                 modifyAttackActionModifier.OnAttackComputeModifier(
                     attacker,

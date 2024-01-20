@@ -74,7 +74,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialFoodRationsWeight = toggle;
-            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
+            SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
         }
 
         toggle = Main.Settings.UseOfficialDistanceCalculation;
@@ -154,7 +154,7 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
-            SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
+            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
         UI.Label();
@@ -164,7 +164,7 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
-            SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
+            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         }
 
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
@@ -180,7 +180,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddBleedingToLesserRestoration = toggle;
-            SrdAndHouseRulesContext.AddBleedingToRestoration();
+            SrdAndHouseRulesContext.SwitchAddBleedingToLesserRestoration();
         }
 
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
@@ -221,14 +221,14 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+            SrdAndHouseRulesContext.SwitchChangeSleetStormToCube();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;
         if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseHeightOneCylinderEffect = toggle;
-            SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
+            SrdAndHouseRulesContext.SwitchUseHeightOneCylinderEffect();
         }
 
         toggle = Main.Settings.FixEldritchBlastRange;

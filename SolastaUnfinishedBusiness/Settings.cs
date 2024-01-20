@@ -281,6 +281,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
     public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
+    public bool OfficialObscurementRulesAlwaysDisplayCancellingPairs { get; set; } = true;
     public bool OfficialObscurementRulesTweakMonsters { get; set; }
     public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
