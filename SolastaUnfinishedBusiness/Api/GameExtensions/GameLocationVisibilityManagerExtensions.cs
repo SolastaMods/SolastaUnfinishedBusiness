@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using static LocationDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -15,7 +16,7 @@ internal static class GameLocationVisibilityManagerExtensions
         int3 cellPosition,
         GameLocationCharacter sensor,
         GameLocationCharacter target = null,
-        LocationDefinitions.LightingState additionalBlockedLightingState = LocationDefinitions.LightingState.Darkness)
+        LightingState additionalBlockedLightingState = LightingState.Darkness)
     {
         // let vanilla do the heavy lift on perception
         var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
@@ -30,7 +31,7 @@ internal static class GameLocationVisibilityManagerExtensions
             }
 
             // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-            return additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
+            return additionalBlockedLightingState == LightingState.Darkness ||
                    sensor.ComputeLightingStateOnTargetPosition(cellPosition) != additionalBlockedLightingState;
         }
 
@@ -38,46 +39,47 @@ internal static class GameLocationVisibilityManagerExtensions
         var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
         var selectedSenseType = SenseMode.Type.None;
         var selectedSenseRange = 0;
-        var lightingState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
-        var sourceIsNonMagicallyHeavilyObscured =
-            sensor.RulesetActor.AllConditions.Exists(x =>
-                x.ConditionDefinition == ConditionBlinded ||
-                (x.ConditionDefinition != SrdAndHouseRulesContext.ConditionBlindedByDarkness &&
-                 x.ConditionDefinition.parentCondition == ConditionBlinded) ||
-                sensor.LightingState is LocationDefinitions.LightingState.Darkness
-                    or LocationDefinitions.LightingState.Unlit);
         var sourceIsHeavilyObscured =
-            sensor.RulesetActor.HasConditionOfTypeOrSubType(ConditionBlinded.Name);
-
-        // force lighting state to unlit if target is blind and on a dim or bright cell
-        if (target != null &&
+            sensor.RulesetActor.HasConditionOfTypeOrSubType(ConditionBlinded.Name) ||
+            sensor.LightingState == LightingState.Unlit;
+        var targetIsNonMagicallyHeavilyObscured =
+            target != null &&
+            !target.RulesetActor.HasConditionOfType(SrdAndHouseRulesContext.ConditionBlindedByDarkness) &&
+            target.RulesetActor.AllConditions.Exists(x =>
+                (x.ConditionDefinition == ConditionBlinded ||
+                 x.ConditionDefinition.parentCondition == ConditionBlinded) &&
+                x.ConditionDefinition != SrdAndHouseRulesContext.ConditionBlindedByDarkness);
+        var targetLightingState =
+            target != null &&
             target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBlinded.Name) &&
-            lightingState is LocationDefinitions.LightingState.Bright or LocationDefinitions.LightingState.Dim)
-        {
-            lightingState = LocationDefinitions.LightingState.Unlit;
-        }
+            target.LightingState is LightingState.Bright or LightingState.Dim
+                ? LightingState.Unlit
+                : sensor.ComputeLightingStateOnTargetPosition(cellPosition);
 
         // try to find any sense mode that is valid for the current lighting state and is within range
         foreach (var senseMode in sensor.RulesetCharacter.SenseModes)
         {
             var senseType = senseMode.SenseType;
 
-            if (!SenseMode.ValidForLighting(senseMode.SenseType, lightingState))
+            if (!SenseMode.ValidForLighting(senseMode.SenseType, targetLightingState))
             {
                 continue;
             }
 
-            // these are the only senses a blinded creature can use
+            // these are the only senses a heavily obscured source can use
             if (sourceIsHeavilyObscured &&
-                senseType is not (SenseMode.Type.Truesight or SenseMode.Type.Blindsight or SenseMode.Type.Tremorsense))
+                senseType is not (
+                    SenseMode.Type.Truesight or
+                    SenseMode.Type.Blindsight or
+                    SenseMode.Type.Tremorsense))
             {
                 continue;
             }
 
             if (selectedSenseType != senseType && senseMode.SenseRange >= selectedSenseRange)
             {
-                // can only use true sight on magical darkness
-                if (sourceIsNonMagicallyHeavilyObscured &&
+                // can only use true sight on magically heavily obscured
+                if (!targetIsNonMagicallyHeavilyObscured &&
                     senseType == SenseMode.Type.Truesight)
                 {
                     continue;
@@ -105,7 +107,7 @@ internal static class GameLocationVisibilityManagerExtensions
 
         return inRange &&
                // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-               (additionalBlockedLightingState == LocationDefinitions.LightingState.Darkness ||
-                lightingState != additionalBlockedLightingState);
+               (additionalBlockedLightingState == LightingState.Darkness ||
+                targetLightingState != additionalBlockedLightingState);
     }
 }

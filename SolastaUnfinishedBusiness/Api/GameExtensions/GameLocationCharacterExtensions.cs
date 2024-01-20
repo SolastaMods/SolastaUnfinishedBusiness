@@ -71,13 +71,10 @@ public static class GameLocationCharacterExtensions
         this GameLocationCharacter __instance,
         GameLocationCharacter target)
     {
-        var canPerceiveVanilla =
-            (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
-            (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
-
-        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules || !canPerceiveVanilla)
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
-            return canPerceiveVanilla;
+            return (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
+                   (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
         }
 
         // can only perceive targets on cells that can be perceived

@@ -1029,10 +1029,11 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
-        const string PERCEIVE = "Perceive";
+        const string TAG = "Perceive";
 
         var attackModifier = attackParams.attackModifier;
 
+        // get initial required states
         var attacker = attackParams.attacker;
         var attackerActor = attacker.RulesetActor;
         var attackerIsBlinded =
@@ -1049,7 +1050,9 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
+        // get remaining required states after early return to save some cycles
         var attackerCanPerceiveDefender = attacker.CanPerceiveTarget(defender);
+        var attackerIsStealthy = attackerActor.HasConditionOfType(ConditionDefinitions.ConditionStealthy);
         var attackerHasNoLight = attacker.LightingState is
             LocationDefinitions.LightingState.Unlit or LocationDefinitions.LightingState.Darkness;
 
@@ -1057,18 +1060,19 @@ internal static class SrdAndHouseRulesContext
         var defenderHasNoLight = defender.LightingState is
             LocationDefinitions.LightingState.Unlit or LocationDefinitions.LightingState.Darkness;
 
+        // unless attacker is not stealthy and defender is not blinded to avoid double ADV
         if (!defenderIsBlinded &&
+            !attackerIsStealthy &&
             (attackerCanPerceiveDefender || (!defenderCanPerceiveAttacker && attackerHasNoLight)))
         {
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Lighting, PERCEIVE, attackerActor));
+            attackModifier.attackAdvantageTrends.Add(new TrendInfo(1, FeatureSourceType.Lighting, TAG, attackerActor));
         }
 
+        // unless attacker is not blinded to avoid double DIS
         if (!attackerIsBlinded &&
             (defenderCanPerceiveAttacker || (!attackerCanPerceiveDefender && defenderHasNoLight)))
         {
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(-1, FeatureSourceType.Lighting, PERCEIVE, defender.RulesetActor));
+            attackModifier.attackAdvantageTrends.Add(new TrendInfo(-1, FeatureSourceType.Lighting, TAG, defenderActor));
         }
     }
 
@@ -1079,8 +1083,7 @@ internal static class SrdAndHouseRulesContext
 ///     Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
 ///     of lesser value components (e.g. 4 x 300gp diamonds).
 ///     Note that this implementation will only work with identical components - e.g. 'all diamonds', it won't consider
-///     combining
-///     different types of items with the tag 'gem'.
+///     combining different types of items with the tag 'gem'.
 /// </summary>
 internal static class StackedMaterialComponent
 {
