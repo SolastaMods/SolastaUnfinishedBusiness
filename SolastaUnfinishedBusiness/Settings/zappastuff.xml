@@ -218,6 +218,70 @@
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>
     </DeprecatedSubsList>
+    <MonstersThatShouldHaveDarkvision>
+        <string>Mutant_Ape</string>
+        <string>Mutant_Ape_Range</string>
+        <string>Mutant_Direwolf</string>
+        <string>Badlands_Ape_MonsterDefinition</string>
+        <string>BadlandsBear</string>
+        <string>BadlandsBear_POI_ONLY</string>
+        <string>Eagle_Matriarch</string>
+        <string>KindredSpiritApe</string>
+        <string>KindredSpiritBear</string>
+        <string>KindredSpiritEagle</string>
+        <string>KindredSpiritTiger</string>
+        <string>KindredSpiritViper</string>
+        <string>KindredSpiritWolf</string>
+        <string>WildshapeDirewolf</string>
+        <string>WildShapeWolf</string>
+        <string>AlphaWolf</string>
+        <string>ConjuredEightBeast_Wolf</string>
+        <string>ConjuredTwoBeast_Direwolf</string>
+        <string>Direwolf</string>
+        <string>DLC1_Complex_Trained_Direwolf</string>
+        <string>DLC1_Complex_Trained_Wolf</string>
+        <string>StarvingWolf</string>
+        <string>Wolf</string>
+        <string>FeyBear</string>
+        <string>FeyGiant_Eagle</string>
+        <string>FeyGiantApe</string>
+        <string>FeyWolf</string>
+        <string>DLC3_Elven_06_Guard</string>
+        <string>DLC3_Elven_07_Guard</string>
+        <string>DLC3_Elven_Suspect_05_Guard_Traitor</string>
+        <string>Generic_Darkweaver</string>
+        <string>SRD_Werewolf</string>
+        <string>Adam_The_Twelth</string>
+        <string>Captain_Verissa_Ironshell</string>
+        <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
+        <string>DLC1_Complex_NPC_Sitinero</string>
+        <string>DLC1_Complex_NPC_Sitinero_DM_Monster</string>
+        <string>DLC1_NPC_Fusioned_Orenetis_Sitenero</string>
+        <string>DLC1_NPC_Sitenero</string>
+        <string>DLC1_NPC_Tuznut</string>
+        <string>DLC1_NPC_Tuznut_Hostile</string>
+        <string>DLC1_NPC_Tuznut_Hostile_DM_Monster</string>
+        <string>DLC1_Valley_NPC_Samko_Flint</string>
+        <string>DLC1_Valley_NPC_Telerien_Purevoice</string>
+        <string>DLC3_NPC_Generic_ElvenCitizen_Husk</string>
+        <string>DLC1_NPC_Forge_Escorted_01</string>
+        <string>DLC1_NPC_Forge_Hasdrubal</string>
+        <string>DLC1_NPC_Nobleman_ThePeople07</string>
+        <string>DLC1_NPC_Orenetis_Apprentice</string>
+        <string>DLC1_NPC_ThePeople_Reya_Outpost</string>
+        <string>DLC3_ElvenClans_Leralyn</string>
+        <string>DLC3_NPC_Einareum_Merchant_General</string>
+        <string>DLC3_NPC_SouthernClans_Generic_Cousin_Husk</string>
+        <string>Lizzaria_Of_Grimhold</string>
+        <string>Merchant_Gorim_Ironsoot</string>
+        <string>Merchant_Hugo_Requer</string>
+        <string>Priest_Of_Misaye_Nel</string>
+    </MonstersThatShouldHaveDarkvision>
+    <MonstersThatShouldHaveTrueSight>
+        <string>Couatl</string>
+        <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
+    </MonstersThatShouldHaveTrueSight>
+    <MonstersThatShouldHaveBlindSight/>
     <EffectsThatTargetDistantIndividualsAndDontRequireSight>
         <string>AcidSplash</string>
         <string>Aid</string>
@@ -370,7 +434,7 @@
     <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
     <UnlockSkinColors>true</UnlockSkinColors>
     <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
-    <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
+    <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
@@ -380,6 +444,11 @@
     <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
     <UseOfficialLightingObscurementAndVisionRules>true</UseOfficialLightingObscurementAndVisionRules>
+    <OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>false
+    </OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>
+    <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>true
+    </OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>
+    <OfficialObscurementRulesTweakMonsters>true</OfficialObscurementRulesTweakMonsters>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>true</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>

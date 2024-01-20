@@ -8,6 +8,8 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 internal static class GameLocationVisibilityManagerExtensions
 {
     // improved cell perception routine that takes sight into consideration
+    // most of the usages is to determine if a character can perceive a cell in teleport scenarios
+    // when target not null it helps determine visibility on attacks and targeting scenarios
     public static bool MyIsCellPerceivedByCharacter(
         this GameLocationVisibilityManager instance,
         int3 cellPosition,
@@ -37,14 +39,14 @@ internal static class GameLocationVisibilityManagerExtensions
         var selectedSenseType = SenseMode.Type.None;
         var selectedSenseRange = 0;
         var lightingState = sensor.ComputeLightingStateOnTargetPosition(cellPosition);
-        var sourceIsBlindedButNotMagically =
+        var sourceIsNonMagicallyHeavilyObscured =
             sensor.RulesetActor.AllConditions.Exists(x =>
                 x.ConditionDefinition == ConditionBlinded ||
                 (x.ConditionDefinition != SrdAndHouseRulesContext.ConditionBlindedByDarkness &&
                  x.ConditionDefinition.parentCondition == ConditionBlinded) ||
                 sensor.LightingState is LocationDefinitions.LightingState.Darkness
                     or LocationDefinitions.LightingState.Unlit);
-        var sourceIsBlinded =
+        var sourceIsHeavilyObscured =
             sensor.RulesetActor.HasConditionOfTypeOrSubType(ConditionBlinded.Name);
 
         // force lighting state to unlit if target is blind and on a dim or bright cell
@@ -66,7 +68,7 @@ internal static class GameLocationVisibilityManagerExtensions
             }
 
             // these are the only senses a blinded creature can use
-            if (sourceIsBlinded &&
+            if (sourceIsHeavilyObscured &&
                 senseType is not (SenseMode.Type.Truesight or SenseMode.Type.Blindsight or SenseMode.Type.Tremorsense))
             {
                 continue;
@@ -75,7 +77,7 @@ internal static class GameLocationVisibilityManagerExtensions
             if (selectedSenseType != senseType && senseMode.SenseRange >= selectedSenseRange)
             {
                 // can only use true sight on magical darkness
-                if (sourceIsBlindedButNotMagically &&
+                if (sourceIsNonMagicallyHeavilyObscured &&
                     senseType == SenseMode.Type.Truesight)
                 {
                     continue;
