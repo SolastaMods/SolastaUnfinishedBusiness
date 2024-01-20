@@ -200,9 +200,9 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> で呪文をクリック�
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>得られる経験値を</color><color=#C04040E0>[%]</color>で倍増します
 ModUi/&NoExperienceOnLevelUp=レベルアップに経験は必要ありません
 ModUi/&OfferAdditionalLoreFriendlyNames=キャラクター作成時に追加の伝承にわかりやすい名前を提供する
-ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+<color=#D89555>非常に遮蔽された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>クラウドキル</color>、<color=#D89555>フォグクラウド</color>、<color=#D89555>焼夷雲</color>、<color=#D89555>ペタルストーム</color>、<color=#D89555>みぞれの嵐</color>、<color=#D89555>臭い雲</color>]</color>
-ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>魔法の闇</color>エリアを発射物ブロッカーに変更</i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じて、<color=#D89555>ダークビジョン</color>、<color=#D89555>ブラインドサイト</color>、<color=#D89555>トゥルーサイト</color>をモンスターやNPCに追加します\n <color=#F0DAA0>[設定内の<b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>をコレクション]</color></i>
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+<color=#D89555>非常に遮蔽された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>クラウドキル</color>、<color=#D89555>フォグクラウド</color>、<color=#D89555>焼夷雲</color>、<color=#D89555>ペタルストーム</color>、<color=#D89555>みぞれの嵐</color>、<color=#D89555>臭い雲</color>]</color></i>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+<color=#D89555>魔法で隠された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>ダークネス</color>の呪文効果の発生源]</color ></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じて、<color=#D89555>ダークビジョン</color>、<color=#D89555>ブラインドサイト</color>、<color=#D89555>トゥルーサイト</color>をモンスターやNPCに追加します\n <color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストで最も強力なクリーチャーのみを表示</i>
 ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b> による「ソラスタの主観ガイド」を開きます
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を乗算します</color> <color=#C04040E0>[%]</color>
@@ -287,6 +287,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にし
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を与える</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</color>の重量は2ポンドを使用してください
-ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>ライティング、オブスキュレーション、ビジョン</color>ルールを使用してください。\n<i><color=#F0DAA0>[知覚する攻撃者、知覚できない攻撃者はADVを取得し、知覚しない攻撃者はADVを取得します。攻撃者が DIS を受けることを感知できる防御者は、\n ひどく隠されたエリアで盲目状態を引き起こし、そのクリーチャーに対する攻撃ロールが有利で、クリーチャーの攻撃ロールが不利になる\n 個人を対象とする遠距離呪文はすべて、盲目になっている場合を除いて唱えることができない<b>EffectsThatTargetDistantIndividualsAndDontRequireSight</b>]</color></i> 設定のエフェクト用
+ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>照明、遮蔽、視覚</color>戦闘ルールを使用する\n<i><color=#F0DAA0>[攻撃者を認識できる攻撃者はADVを取得し、攻撃者を認識できない攻撃者はADVを取得し、そうでない攻撃者はADVを取得します。攻撃者がDISられることを知覚できる防御者を知覚する\n ひどく隠された領域は盲目状態を引き起こす。クリーチャーに対する攻撃ロールは有利であり、クリーチャーの攻撃ロールは不利である\n 攻撃者が盲目になっている場合、個人を対象とする遠距離呪文はすべて唱えることができないただし、設定のコレクション <b>EffectsThatTargetDistantIndividualsAndDontRequireSight</b>]</color></i> のものは除きます。
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは、公式の<color=#D89555>小規模種族ルール</color>を使用してください<i><color=#F0DAA0>[攻撃には不利があります]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

@@ -200,9 +200,9 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 키를 누르며 주문을
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>획득 경험치에y</color> <color=#C04040E0>[%]</color><color=white>를 곱함</color>
 ModUi/&NoExperienceOnLevelUp=레벨 업에 경험치가 필요하지 않게 설정
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 세계관에 어울리는 이름을 추가
-ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D89555>심하게 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>클라우드 킬</color>, <color=#D89555>안개 구름 </color>, <color=#D89555>발화 구름</color>, <color=#D89555>꽃잎 폭풍</color>, <color=#D89555>진눈깨비</color>, <color=#D89555> 악취나는 구름</color>]</color>
-ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법의 어둠</color> 영역을 발사체 차단기로 변경</i>
-ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 필요할 때마다 몬스터와 NPC에 <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> 및 <color=#D89555>TrueSight</color>를 추가합니다.\n <color=#F0DAA0>[설정에서 <b>암흑시야를 가져야 하는 MonstersThatShouldDarkvision</b>, <b>TrueSight를 가져야 하는 Monsters</b>, <b>BlindSight를 가져야 하는 Monsters</b> 컬렉션]</color></i>
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D89555>심하게 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>클라우드 킬</color>, <color=#D89555>안개 구름 </color>, <color=#D89555>발화 구름</color>, <color=#D89555>꽃잎 폭풍</color>, <color=#D89555>진눈깨비</color>, <color=#D89555> 악취나는 구름</color>]</color></i>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법으로 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>어둠</color> 주문 효과의 모든 소스]</color ></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 필요할 때마다 몬스터와 NPC에 <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> 및 <color=#D89555>TrueSight</color>를 추가합니다.\n <color=#F0DAA0>[설정 컬렉션 <b>암흑시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈이 멀게 해야 하는 괴물</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 주문 목록에서 가장 강력한 크리쳐만 표시</i>
 ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b>의 주관적인 솔라스타 가이드 (영문)
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
@@ -287,6 +287,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 활성화 
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 도달 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
-ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 가리기, 시야</color> 규칙을 사용하세요\n<i><color=#F0DAA0>[인지하는 공격자는 인지하지 못하는 방어자는 ADV를 받고 인지하지 못하는 공격자는 공격자를 인지할 수 있는 방어자는 DIS를 얻습니다.\n 심하게 가려진 영역은 생물에 대한 공격 굴림이 유리하고 생물의 공격 굴림이 불리한 상태를 초래합니다.\n 개인을 대상으로 하는 모든 거리 주문은 눈이 먼 경우에는 발동할 수 없습니다. <b>EffectsThatTargetDistantIndividualsAndDontRequireSight</b>]</color></i> 설정의 효과
+ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시야</color> 전투 규칙을 사용하세요\n<i><color=#F0DAA0>[공격자를 인지하지 못하는 방어자를 인지하는 공격자는 ADV를 얻고, 그렇지 않은 공격자는 공격자를 인지할 수 있는 방어자는 DIS를 얻습니다.\n 심하게 가려진 영역은 생물에 대한 공격 굴림이 유리하고 생물의 공격 굴림이 불리한 상태를 유발합니다.\n 공격자가 눈이 먼 경우 개인을 대상으로 하는 모든 거리 주문을 시전할 수 없습니다. 설정 컬렉션 <b>EffectsThatTargetDistantIndividualsAndDontRequireSight</b>]</color></i>에 있는 항목 제외
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족 규칙</color>을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>비주얼:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>

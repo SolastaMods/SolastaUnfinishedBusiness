@@ -126,8 +126,6 @@ internal static class RulesDisplay
                 Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
                 SrdAndHouseRulesContext.SwitchMonstersOnObscurementRules();
             }
-
-            UI.Label();
         }
 
         UI.Label();
