@@ -287,6 +287,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 활성화 
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 도달 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
-ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시야</color> 전투 규칙을 사용하세요\n<i><color=#F0DAA0>[공격자를 인지하지 못하는 방어자를 인지하는 공격자는 ADV를 얻고, 그렇지 않은 공격자는 공격자를 인지할 수 있는 방어자는 DIS를 얻습니다.\n 심하게 가려진 영역은 생물에 대한 공격 굴림이 유리하고 생물의 공격 굴림이 불리한 상태를 유발합니다.\n 공격자가 눈이 먼 경우 개인을 대상으로 하는 모든 거리 주문을 시전할 수 없습니다. 설정 컬렉션 <b>EffectsThatTargetDistantIndividualsAndDontRequireSight</b>]</color></i>에 있는 항목 제외
+ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시야</color> 전투 규칙을 사용하세요\n<i><color=#F0DAA0>[인지하는 공격자는 인지하지 못하는 방어자는 ADV를 얻고, 그렇지 않은 공격자는 그것을 인지할 수 있는 방어자는 DIS\n 심하게 가려진 영역이 실명 상태를 유발합니다. 여기서 생물에 대한 공격 굴림에는 ADV가 있고 생물의 공격 굴림에는 DIS\n가 있습니다. 개인을 대상으로 하는 모든 거리 주문은 공격자가 눈이 먼 경우 시전할 수 없습니다. 시력이 필요하다고 명확하게 명시하지 않은 경우는 제외]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족 규칙</color>을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>비주얼:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
