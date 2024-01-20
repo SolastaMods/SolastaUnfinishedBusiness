@@ -76,6 +76,59 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
+            //BUGFIX: vanilla always consume a main action on battle surprise phase even if a bonus power or spell
+            if (Gui.Battle != null &&
+                Gui.Battle.CurrentRound == 1 &&
+                Gui.Battle.ActiveContender == Gui.Battle.InitiativeSortedContenders[0])
+            {
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (__instance.ActionId)
+                {
+                    case ActionDefinitions.Id.PowerMain when
+                        __instance.ActionParams.RulesetEffect is RulesetEffectPower effectPower &&
+                        effectPower.PowerDefinition.ActivationTime != ActivationTime.Action:
+                    {
+                        var actionType = effectPower.ActionType;
+                        var allActionDefinitions = ServiceRepository
+                            .GetService<IGameLocationActionService>().AllActionDefinitions;
+
+                        if (actionType == ActionDefinitions.ActionType.Bonus)
+                        {
+                            __instance.ActionParams.actionDefinition =
+                                allActionDefinitions[ActionDefinitions.Id.PowerBonus];
+                        }
+                        else if (actionType == ActionDefinitions.ActionType.NoCost)
+                        {
+                            __instance.ActionParams.actionDefinition =
+                                allActionDefinitions[ActionDefinitions.Id.PowerNoCost];
+                        }
+                        else
+                        {
+                            __instance.ActionParams.actionDefinition = __instance.ActionParams.actionDefinition;
+                        }
+
+                        break;
+                    }
+                    case ActionDefinitions.Id.CastMain when
+                        __instance.ActionParams.RulesetEffect is RulesetEffectSpell effectSpell &&
+                        effectSpell.SpellDefinition.ActivationTime != ActivationTime.Action:
+                    {
+                        var actionType = effectSpell.ActionType;
+                        var allActionDefinitions = ServiceRepository
+                            .GetService<IGameLocationActionService>().AllActionDefinitions;
+
+                        __instance.ActionParams.actionDefinition = actionType switch
+                        {
+                            ActionDefinitions.ActionType.Bonus => allActionDefinitions[ActionDefinitions.Id.CastBonus],
+                            ActionDefinitions.ActionType.NoCost => allActionDefinitions
+                                [ActionDefinitions.Id.CastNoCost],
+                            _ => __instance.ActionParams.actionDefinition
+                        };
+                        break;
+                    }
+                }
+            }
+
             //PATCH: support `IPreventRemoveConcentrationOnPowerUse`
             if (ActionShouldKeepConcentration(__instance))
             {
