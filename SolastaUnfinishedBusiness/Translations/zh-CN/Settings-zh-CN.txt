@@ -288,6 +288,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 还可以进行远程攻击<co
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用触及攻击<color=#F0DAA0>[禁用精确数学]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 将优势改为 +1 攻击掷骰</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
-ModUi/&UseOfficialObscurementRules=使用官方的<color=#D89555>光照、遮挡和视觉</color>战斗规则\n<i><color=#F0DAA0>[感知到防御者的攻击者获得 ADV，没有感知到的攻击者获得 ADV感知能够感知到它的防御者会获得 DIS\n 严重遮挡的区域造成失明状态，其中针对该生物的攻击骰具有 ADV，并且该生物的攻击骰具有 DIS\n 如果攻击者失明，则无法施放针对个人的所有距离法术，除了那些明确没有注明需要视力的]</color></i>
+ModUi/&UseOfficialObscurementRules=使用官方的<color=#D89555>光照、遮挡和视觉</color>战斗规则\n<i><color=#F0DAA0>[感知到防御者的攻击者获得 ADV，没有感知到的攻击者获得 ADV感知 能够感知到它的防御者会受到 DIS\n 严重遮挡的区域造成失明状态，其中针对该生物的攻击骰具有 ADV，并且该生物的攻击骰具有 DIS\n 如果攻击者没有视力，则无法施放针对个人的所有距离法术，除了那些明确没有说明需要视力的]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=使用重型武器时请使用官方<color=#D89555>小型比赛规则</color><i><color=#F0DAA0>[你的攻击处于劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>

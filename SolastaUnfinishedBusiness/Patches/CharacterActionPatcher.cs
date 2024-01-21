@@ -92,20 +92,14 @@ public static class CharacterActionPatcher
                         var allActionDefinitions = ServiceRepository
                             .GetService<IGameLocationActionService>().AllActionDefinitions;
 
-                        if (actionType == ActionDefinitions.ActionType.Bonus)
+                        __instance.ActionParams.actionDefinition = actionType switch
                         {
-                            __instance.ActionParams.actionDefinition =
-                                allActionDefinitions[ActionDefinitions.Id.PowerBonus];
-                        }
-                        else if (actionType == ActionDefinitions.ActionType.NoCost)
-                        {
-                            __instance.ActionParams.actionDefinition =
-                                allActionDefinitions[ActionDefinitions.Id.PowerNoCost];
-                        }
-                        else
-                        {
-                            __instance.ActionParams.actionDefinition = __instance.ActionParams.actionDefinition;
-                        }
+                            ActionDefinitions.ActionType.Bonus =>
+                                allActionDefinitions[ActionDefinitions.Id.PowerBonus],
+                            ActionDefinitions.ActionType.NoCost =>
+                                allActionDefinitions[ActionDefinitions.Id.PowerNoCost],
+                            _ => __instance.ActionParams.actionDefinition
+                        };
 
                         break;
                     }
@@ -119,11 +113,13 @@ public static class CharacterActionPatcher
 
                         __instance.ActionParams.actionDefinition = actionType switch
                         {
-                            ActionDefinitions.ActionType.Bonus => allActionDefinitions[ActionDefinitions.Id.CastBonus],
-                            ActionDefinitions.ActionType.NoCost => allActionDefinitions
-                                [ActionDefinitions.Id.CastNoCost],
+                            ActionDefinitions.ActionType.Bonus =>
+                                allActionDefinitions[ActionDefinitions.Id.CastBonus],
+                            ActionDefinitions.ActionType.NoCost =>
+                                allActionDefinitions[ActionDefinitions.Id.CastNoCost],
                             _ => __instance.ActionParams.actionDefinition
                         };
+
                         break;
                     }
                 }

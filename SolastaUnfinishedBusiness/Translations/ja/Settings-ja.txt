@@ -287,6 +287,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にし
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ アドバンテージの代わりに攻撃ロールに +1 を与える</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の<color=#D89555>食料配給量</color>の重量は2ポンドを使用してください
-ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>照明、遮蔽、視覚</color>戦闘ルールを使用する\n<i><color=#F0DAA0>[認識できる攻撃者と認識できない防御者はADVを取得し、認識しない攻撃者はADVを取得します。それを知覚できる防御者を知覚する DIS\n ひどく隠された領域は盲目状態を引き起こす。そのクリーチャーに対する攻撃ロールは ADV を持ち、クリーチャーの攻撃ロールは DIS\n を持つ。攻撃者が盲目になっている場合、個人を対象とするすべての遠距離呪文は唱えることができない。視覚が必須であると明確に述べられていないものを除く]</color></i>
+ModUi/&UseOfficialObscurementRules=公式の<color=#D89555>照明、遮蔽、視覚</color>戦闘ルールを使用する\n<i><color=#F0DAA0>[認識できる攻撃者と認識できない防御者はADVを取得し、認識しない攻撃者はADVを取得します。それを知覚できる防御者を知覚する DIS\n ひどく遮られた領域は盲目状態を与える、そのクリーチャーに対する攻撃ロールは ADV を持ち、クリーチャーの攻撃ロールは DIS\n を持つ 個人を対象とするすべての遠距離呪文は、攻撃者が視力を持たない場合は唱えることができない、視覚が必須であると明確に述べられていないものを除く]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=重火器を使用するときは、公式の<color=#D89555>小規模種族ルール</color>を使用してください<i><color=#F0DAA0>[攻撃には不利があります]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
