@@ -329,6 +329,51 @@ public static class CharacterActionPatcher
 
                     break;
                 }
+                case CharacterActionSpendPower actionSpendPower:
+                {
+                    var activePower = actionSpendPower.activePower;
+                    var power = activePower.PowerDefinition;
+
+                    if (power.EffectDescription.RangeType
+                        is RangeType.Touch
+                        or RangeType.MeleeHit
+                        or RangeType.RangeHit)
+                    {
+                        if ((actionSpendPower.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
+                             && Main.Settings.StealthBreaksWhenAttackHits)
+                            || (actionSpendPower.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                                && Main.Settings.StealthBreaksWhenAttackMisses))
+                        {
+                            ShouldBanter = false;
+                            roll = false;
+                        }
+                    }
+
+                    break;
+                }
+
+                case CharacterActionUsePower actionUsePower:
+                {
+                    var activePower = actionUsePower.activePower;
+                    var power = activePower.PowerDefinition;
+
+                    if (power.EffectDescription.RangeType
+                        is RangeType.Touch
+                        or RangeType.MeleeHit
+                        or RangeType.RangeHit)
+                    {
+                        if ((actionUsePower.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
+                             && Main.Settings.StealthBreaksWhenAttackHits)
+                            || (actionUsePower.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                                && Main.Settings.StealthBreaksWhenAttackMisses))
+                        {
+                            ShouldBanter = false;
+                            roll = false;
+                        }
+                    }
+
+                    break;
+                }
             }
 
             return __instance.ComputeStealthBreak(roll, actionModifier, detectorsWithAdvantage);

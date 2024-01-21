@@ -17,10 +17,11 @@ GO INTO THE LIGHT, STAY IN THE LIGHT, FIND YOUR BEST FRIEND HEY JUDE. ONE DAY, T
 - fixed Lightning Arrow spell main target damage value determination on a miss [roll all dices and inflict half dmg]
 - fixed main action spells interaction with action switching allowing bonus spells to be cast
 - fixed Roguish Slayer elimination feature not triggering on magical attacks
+- fixed Stealth Break Behavior setting to also trigger when heroes use powers to initiate combat
 - fixed vanilla always consuming a main action on battle surprise phase even if a bonus power or spell
-- fixed vanilla Cloud Kill and Incendiary Cloud spells not triggering on activation
+- fixed vanilla Cloud Kill and Incendiary Cloud spells not triggering heavy obscurement on activation
 - fixed vanilla Illusion spells except Silent to let target automatically save if true sight sense in range
-- fixed vanilla Ray of Enfeeblement to be recurrent on activation and turn start
+- fixed vanilla Ray of Enfeeblement to be applied via attack roll instead of saving throw
 
 1.5.94.42:
 
