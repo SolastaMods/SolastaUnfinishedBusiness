@@ -392,6 +392,7 @@ internal static partial class SpellBuilders
         powerRingOfBlades.AddCustomSubFeatures(
             new CustomBehaviorPowerRingOfBlades(powerRingOfBlades, conditionRingOfBlades));
         powerRingOfBladesFree.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.InCombat,
             // it's indeed powerRingOfBlades here
             new MagicEffectFinishedByMeRingOfBladesFree(powerRingOfBlades, conditionRingOfBladesFree),
             new CustomBehaviorPowerRingOfBlades(powerRingOfBladesFree, conditionRingOfBlades));
