@@ -70,73 +70,39 @@ public class Settings : UnityModManager.ModSettings
 
     public HashSet<String> MonstersThatShouldHaveDarkvision { get; set; } =
     [
-        "Mutant_Ape",
-        "Mutant_Ape_Range",
-        "Mutant_Direwolf",
-        "Badlands_Ape_MonsterDefinition",
-        "BadlandsBear",
-        "BadlandsBear_POI_ONLY",
-        "Eagle_Matriarch",
-        "KindredSpiritApe",
-        "KindredSpiritBear",
-        "KindredSpiritEagle",
-        "KindredSpiritTiger",
-        "KindredSpiritViper",
-        "KindredSpiritWolf",
-        "WildshapeDirewolf",
-        "WildShapeWolf",
-        "AlphaWolf",
-        "ConjuredEightBeast_Wolf",
-        "ConjuredTwoBeast_Direwolf",
-        "Direwolf",
-        "DLC1_Complex_Trained_Direwolf",
-        "DLC1_Complex_Trained_Wolf",
-        "StarvingWolf",
-        "Wolf",
-        "FeyBear",
-        "FeyGiant_Eagle",
-        "FeyGiantApe",
-        "FeyWolf",
-        "DLC3_Elven_06_Guard",
-        "DLC3_Elven_07_Guard",
-        "DLC3_Elven_Suspect_05_Guard_Traitor",
-        "Generic_Darkweaver",
-        "SRD_Werewolf",
         "Adam_The_Twelth",
-        "Captain_Verissa_Ironshell",
-        "Conjuration_TheSuperEgo_Master_Humanoid",
-        "DLC1_Complex_NPC_Sitinero",
-        "DLC1_Complex_NPC_Sitinero_DM_Monster",
-        "DLC1_NPC_Fusioned_Orenetis_Sitenero",
-        "DLC1_NPC_Sitenero",
-        "DLC1_NPC_Tuznut",
-        "DLC1_NPC_Tuznut_Hostile",
-        "DLC1_NPC_Tuznut_Hostile_DM_Monster",
-        "DLC1_Valley_NPC_Samko_Flint",
-        "DLC1_Valley_NPC_Telerien_Purevoice",
-        "DLC3_NPC_Generic_ElvenCitizen_Husk",
+        "DLC3_Elven_07_Guard",
+        "SRD_DLC_Mage",
+        "SRD_Mage",
         "DLC1_NPC_Forge_Escorted_01",
-        "DLC1_NPC_Forge_Hasdrubal",
-        "DLC1_NPC_Nobleman_ThePeople07",
-        "DLC1_NPC_Orenetis_Apprentice",
-        "DLC1_NPC_ThePeople_Reya_Outpost",
+        "DLC3_NPC_Generic_ElvenCitizen_Husk",
+        "Generic_Darkweaver",
         "DLC3_ElvenClans_Leralyn",
-        "DLC3_NPC_Einareum_Merchant_General",
-        "DLC3_NPC_SouthernClans_Generic_Cousin_Husk",
-        "Lizzaria_Of_Grimhold",
-        "Merchant_Gorim_Ironsoot",
-        "Merchant_Hugo_Requer",
-        "Priest_Of_Misaye_Nel"
+        "DLC3_NPC_Elven3_DLC3_Ending",
+        "DLC3_NPC_Elven5_DLC3_Ending",
+        "Generic_HighPriest",
+        "DLC3_Elven_Suspect_05_Guard_Traitor",
+        "DLC3_Elven_06_Guard",
+        "SRD_DLC3_Archmage",
+        "Generic_ShockArcanist"
     ];
 
     public HashSet<String> MonstersThatShouldHaveTrueSight { get; set; } =
     [
         "Couatl",
-        "Conjuration_TheSuperEgo_Master_Humanoid"
+        "CubeOfLight"
     ];
 
     public HashSet<String> MonstersThatShouldHaveBlindSight { get; set; } =
     [
+        "Aksha",
+        "Aksha_Legendary"
+    ];
+
+    public HashSet<String> MonstersThatShouldNotHaveTremorSense { get; set; } =
+    [
+        "Aksha",
+        "Aksha_Legendary"
     ];
 
     public HashSet<String> EffectsThatTargetDistantIndividualsAndDontRequireSight { get; set; } =

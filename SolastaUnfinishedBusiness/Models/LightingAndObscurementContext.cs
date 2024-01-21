@@ -262,6 +262,11 @@ internal static class LightingAndObscurementContext
                 {
                     monster.Features.TryAdd(SenseBlindSight16);
                 }
+
+                if (Main.Settings.MonstersThatShouldNotHaveTremorSense.Contains(name))
+                {
+                    monster.Features.Remove(SenseTremorsense16);
+                }
             }
             else
             {
@@ -278,6 +283,11 @@ internal static class LightingAndObscurementContext
                 if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
                 {
                     monster.Features.Remove(SenseBlindSight16);
+                }
+
+                if (Main.Settings.MonstersThatShouldNotHaveTremorSense.Contains(name))
+                {
+                    monster.Features.TryAdd(SenseTremorsense16);
                 }
             }
         }

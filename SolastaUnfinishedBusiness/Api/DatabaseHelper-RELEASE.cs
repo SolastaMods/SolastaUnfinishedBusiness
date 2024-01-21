@@ -2217,6 +2217,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSense SenseSuperiorDarkvision { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseSuperiorDarkvision");
 
+        internal static FeatureDefinitionSense SenseTremorsense16 { get; } =
+            GetDefinition<FeatureDefinitionSense>("SenseTremorsense16");
+
         internal static FeatureDefinitionSense SenseTruesight16 { get; } =
             GetDefinition<FeatureDefinitionSense>("SenseTruesight16");
 
