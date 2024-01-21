@@ -67,7 +67,7 @@ public sealed class MartialDefender : AbstractSubclass
             .Create($"CombatAffinity{Name}ShoutOfProvocationAlly")
             .SetGuiPresentation($"Condition{Name}ShoutOfProvocation", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .SetSituationalContext((SituationalContext)ExtraSituationalContext.TargetIsNotEffectSource)
+            .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
             .AddToDB();
 
         var combatAffinityShoutOfProvocationSelf = FeatureDefinitionCombatAffinityBuilder
