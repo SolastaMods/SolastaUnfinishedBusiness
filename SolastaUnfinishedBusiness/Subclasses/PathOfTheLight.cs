@@ -30,7 +30,7 @@ public sealed class PathOfTheLight : AbstractSubclass
             FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.LightSource);
 
         var invisibleConditions = DatabaseRepository.GetDatabase<ConditionDefinition>()
-            .Where(x => x == ConditionInvisibleBase || x.parentCondition == ConditionInvisibleBase)
+            .Where(x => x.IsSubtypeOf(ConditionInvisibleBase.Name))
             .ToList();
 
         var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =

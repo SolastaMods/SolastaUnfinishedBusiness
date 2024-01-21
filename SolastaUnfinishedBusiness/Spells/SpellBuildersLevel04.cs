@@ -816,8 +816,7 @@ internal static partial class SpellBuilders
             }
 
             if (!defender.AllConditions.Any(x =>
-                    (x.ConditionDefinition == ConditionDefinitions.ConditionCharmed ||
-                     x.ConditionDefinition.parentCondition == ConditionDefinitions.ConditionCharmed) &&
+                    x.ConditionDefinition.IsSubtypeOf(ConditionDefinitions.ConditionCharmed.Name) &&
                     x.SourceGuid == caster.Guid))
             {
                 return;

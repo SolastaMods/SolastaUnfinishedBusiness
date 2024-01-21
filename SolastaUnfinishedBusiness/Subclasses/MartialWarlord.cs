@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
@@ -87,8 +88,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .Create($"CombatAffinity{Name}ExploitOpening")
             .SetGuiPresentation($"Condition{Name}PredictAttack", Category.Condition)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-            .SetSituationalContext(
-                (SituationalContext)ExtraSituationalContext.IsNotSourceOfCondition)
+            .SetSituationalContext(ExtraSituationalContext.IsNotSourceOfCondition)
             .AddToDB();
 
         var conditionExploitOpening = ConditionDefinitionBuilder
