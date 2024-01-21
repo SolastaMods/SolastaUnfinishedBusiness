@@ -32,7 +32,7 @@ public static class GameLocationCharacterExtensions
         return GetDistance(source, target) <= range;
     }
 
-    public static bool IsMagicEffectValidUnderBlindness(
+    public static bool IsMagicEffectValidUnderOfficialLightingObscurementAndVisionRules(
         this GameLocationCharacter source,
         IMagicEffect magicEffect,
         GameLocationCharacter target)
@@ -48,22 +48,27 @@ public static class GameLocationCharacterExtensions
         }
 
         var rulesetSource = source.RulesetActor;
+        var sourceIsHeavilyObscuredOrInNaturalDarkness =
+            rulesetSource.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionBlinded.Name) ||
+            source.LightingState == LocationDefinitions.LightingState.Unlit;
+        
         var rulesetTarget = target.RulesetActor;
+        var targetIsHeavilyObscuredOrInNaturalDarkness =
+            rulesetTarget.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionBlinded.Name) ||
+            target.LightingState == LocationDefinitions.LightingState.Unlit;
 
-        if (!rulesetSource.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionBlinded.Name) &&
-            !rulesetTarget.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionBlinded.Name))
+        if (!sourceIsHeavilyObscuredOrInNaturalDarkness && !targetIsHeavilyObscuredOrInNaturalDarkness)
         {
             return true;
         }
 
-        var effectDescription = magicEffect.EffectDescription;
-        var shouldTrigger = effectDescription is
+        var isDistantEffectTargetingIndividuals = magicEffect.EffectDescription is
         {
             RangeType: RuleDefinitions.RangeType.Distance,
             TargetType: RuleDefinitions.TargetType.Individuals or RuleDefinitions.TargetType.IndividualsUnique
         };
 
-        return !shouldTrigger || source.CanPerceiveTarget(target);
+        return !isDistantEffectTargetingIndividuals || source.CanPerceiveTarget(target);
     }
 
     // consolidate all checks if a character can perceive another

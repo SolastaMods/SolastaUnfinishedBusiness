@@ -49,7 +49,8 @@ public static class ConsiderationCanCastMagicPatcher
             {
                 // BEGIN PATCH
                 if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules &&
-                    !locationCharacter.IsMagicEffectValidUnderBlindness(availableMagicEffect, context.character))
+                    !locationCharacter.IsMagicEffectValidUnderOfficialLightingObscurementAndVisionRules(
+                        availableMagicEffect, context.character))
                 {
                     Main.Info($"{locationCharacter.Name} => {availableMagicEffect.Name} : OBSCUREMENT DISCARDED");
 
