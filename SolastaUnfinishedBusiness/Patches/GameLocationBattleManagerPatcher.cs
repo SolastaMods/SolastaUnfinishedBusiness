@@ -656,7 +656,7 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
             //handle lighting and obscurement logic disabled in `GLC.ComputeLightingModifierForIlluminable`
-            SrdAndHouseRulesContext.ApplyObscurementRules(attackParams);
+            LightingAndObscurementContext.ApplyObscurementRules(attackParams);
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams);

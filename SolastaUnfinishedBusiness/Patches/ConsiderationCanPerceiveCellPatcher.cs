@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Models;
 using TA.AI;
 using TA.AI.Considerations;
 
@@ -17,26 +17,20 @@ public static class ConsiderationCanPerceiveCellPatcher
     public static class Score_Patch
     {
         [UsedImplicitly]
-#pragma warning disable IDE0060
-        public static bool Prefix(
-            CanPerceiveCell __instance,
-            DecisionContext context,
-            ConsiderationDescription consideration,
-            DecisionParameters parameters,
-            ScoringResult scoringResult)
-#pragma warning restore IDE0060
+        public static bool Prefix(DecisionContext context, DecisionParameters parameters, ScoringResult scoringResult)
         {
-            var locationCharacter = parameters.character.GameLocationCharacter;
-            var position = context.position;
+            if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+            {
+                return true;
+            }
+
             var visibilityService =
                 parameters.situationalInformation.VisibilityService as GameLocationVisibilityManager;
+            var position = context.position;
+            var locationCharacter = parameters.character.GameLocationCharacter;
+            var score = visibilityService.MyIsCellPerceivedByCharacter(position, locationCharacter);
 
-            var flag = Main.Settings.UseOfficialLightingObscurementAndVisionRules
-                ? visibilityService.MyIsCellPerceivedByCharacter(position, locationCharacter)
-                : visibilityService!.IsCellPerceivedByCharacter(position, locationCharacter);
-
-            Main.Info($"{locationCharacter.Name} => {position} : {scoringResult.Score}");
-            scoringResult.Score = flag ? 1f : 0.0f;
+            scoringResult.Score = score ? 1f : 0.0f;
 
             return false;
         }

@@ -5,6 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
@@ -35,9 +36,9 @@ public static class CursorLocationSelectTargetPatcher
 
             //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
             if (__result &&
-                Main.Settings.UseOfficialLightingObscurementAndVisionRules &&
                 definition is IMagicEffect magicEffect &&
-                !actingCharacter.IsMagicEffectValidUnderOfficialLightingObscurementAndVisionRules(magicEffect, target))
+                !LightingAndObscurementContext.IsMagicEffectValidIfHeavilyObscuredOrInNaturalDarkness(
+                    actingCharacter, magicEffect, target))
             {
                 __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoPerceptionOfTargetDescription");
                 __result = false;
