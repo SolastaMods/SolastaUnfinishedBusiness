@@ -945,12 +945,6 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacterHero __instance)
         {
-            //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
-            if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
-            {
-                LightingAndObscurementContext.ResetState();
-            }
-
             //TODO: add slot and item to the interface?
             __instance.GetSubFeaturesByType<IOnItemEquipped>()
                 .ForEach(f => f.OnItemEquipped(__instance));

@@ -1519,12 +1519,6 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix(RulesetCharacter __instance)
         {
-            //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
-            if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
-            {
-                LightingAndObscurementContext.ResetState();
-            }
-
             return !CharacterActionExtensions
                 .ShouldKeepConcentrationOnPowerUseOrSpend(__instance); // abort if should keep
         }

@@ -112,8 +112,6 @@ internal static class LightingAndObscurementContext
         .SetTopologyForm(TopologyForm.Type.ProjectileBlocker, true)
         .Build();
 
-    private static readonly Dictionary<int3, LightingState> PositionLightingStateCache = [];
-
     internal static void LateLoad()
     {
         ConditionBlindedByDarkness.GuiPresentation.description = BlindExtendedDescription;
@@ -359,11 +357,6 @@ internal static class LightingAndObscurementContext
         }
     }
 
-    internal static void ResetState()
-    {
-        PositionLightingStateCache.Clear();
-    }
-
     // called from GLBM.CanAttack to correctly determine ADV/DIS scenarios
     internal static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams)
     {
@@ -459,6 +452,7 @@ internal static class LightingAndObscurementContext
         void HandleTrueSightSpecialCase()
         {
             if (attackerActor is not RulesetCharacter attackerCharacter ||
+                IsBlindNotFromDarkness(attackerCharacter) ||
                 !attackAdvantageTrends.Any(BlindedDisadvantage))
             {
                 return;
@@ -474,7 +468,8 @@ internal static class LightingAndObscurementContext
             var senseModeTrueSight =
                 attackerCharacter.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
 
-            if (senseModeTrueSight == null || !attacker.IsWithinRange(defender, senseModeTrueSight.SenseRange))
+            if (senseModeTrueSight == null ||
+                !attacker.IsWithinRange(defender, senseModeTrueSight.SenseRange))
             {
                 return;
             }
@@ -625,11 +620,6 @@ internal static class LightingAndObscurementContext
         GameLocationCharacter instance,
         int3 targetPosition)
     {
-        if (PositionLightingStateCache.TryGetValue(targetPosition, out var lightingState))
-        {
-            return lightingState;
-        }
-
         // this is a hack to allow calling GetAllPositionsToCheck inside ComputeIllumination
         // we save the character's current position and set it to the target location we need to calculate
         var savePosition = new int3(
@@ -642,8 +632,6 @@ internal static class LightingAndObscurementContext
         var illumination = ComputeIllumination(instance, targetPosition);
 
         instance.LocationPosition = savePosition;
-
-        PositionLightingStateCache.Add(targetPosition, illumination);
 
         return illumination;
 
@@ -684,7 +672,7 @@ internal static class LightingAndObscurementContext
                 if (locationCharacter.RulesetActor is not RulesetCharacterEffectProxy rulesetProxy)
                 {
                     targetPositionCharacterLightingState = locationCharacter.LightingState;
-                    
+
                     continue;
                 }
 
