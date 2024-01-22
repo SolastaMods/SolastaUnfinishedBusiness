@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} активирует силу {1}, чтобы п
 Feedback/&TrueSightAndIllusionSpells={0} обладает Истинным зрением, и на него не действует это заклинание
 Format/&LevelAndExperienceFormat=Level: {0}\nОпыт: {1}\n{2} очков до уровня {3}
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nОпыт: {1}\nдостигнут максимальный уровень
+Invocation/&DevilsSightExtendedDescription=Вы можете нормально видеть в темноте, как магическую, так и немагическую, на расстоянии 80 футов.
 Message/&CharacterExportDuplicateNameErrorDescription=Экспортирование отменено:\n\nГерой с таким именем уже существует.\nПожалуйста, попробуйте другое имя.
 Message/&CharacterExportEmptyNameErrorDescription=Экспортирование отменено:\n\nПожалуйста, укажите не пустое имя.
 Message/&CharacterExportModalContentDescription=Введите имя героя для экспортирования:

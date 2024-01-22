@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} 激活 {1} 以重投 {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0}拥有真实视觉并且不受此法术影响
 Format/&LevelAndExperienceFormat=等级：{0}\n经验：{1}\n升到{3}级需要 {2} 经验
 Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验：{1}\n已达到最高等级
+Invocation/&DevilsSightExtendedDescription=您可以在黑暗中正常看到 80 英尺的距离，无论是魔法还是非魔法。
 Message/&CharacterExportDuplicateNameErrorDescription=导出已取消：\n\n池中已存在同名的英雄。\n请尝试其他名称。
 Message/&CharacterExportEmptyNameErrorDescription=导出已取消：\n\n请尝试非空名称。
 Message/&CharacterExportModalContentDescription=输入要导出的英雄名称：

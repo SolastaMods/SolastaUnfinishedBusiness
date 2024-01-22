@@ -140,6 +140,7 @@ Feedback/&TriggerRerollLine={0} attiva il potere {1} per ripetere il tiro {2} = 
 Feedback/&TrueSightAndIllusionSpells={0} ha Vera Vista e non è influenzato da questo incantesimo
 Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti richiesti per raggiungere il livello {3}
 Format/&LevelAndExperienceMaxedFormat=Livello: {0}\nEsperienza: {1}\nlivello massimo raggiunto
+Invocation/&DevilsSightExtendedDescription=Puoi vedere normalmente nell'oscurità, sia magica che non magica, fino a una distanza di 80 piedi.
 Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\n\nUn eroe con questo nome esiste già nel gruppo.\nProva con un nome diverso.
 Message/&CharacterExportEmptyNameErrorDescription=Esportazione annullata:\n\nprova con un nome non vuoto.
 Message/&CharacterExportModalContentDescription=Inserisci il nome dell'eroe da esportare:

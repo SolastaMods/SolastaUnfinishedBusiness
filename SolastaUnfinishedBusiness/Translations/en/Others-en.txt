@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} activates the {1} power to reroll {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} has True Sight and is unaffected by this spell
 Format/&LevelAndExperienceFormat=Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nExperience: {1}\nmax level reached
+Invocation/&DevilsSightExtendedDescription=You can see normally in darkness, both magical and non-magical, to a distance of 80 feet.
 Message/&CharacterExportDuplicateNameErrorDescription=Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription=Export Cancelled:\n\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription=Enter the hero name to export:

@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} ativa o poder {1} para rolar novamente {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} tem Visão Verdadeira e não é afetado por este feitiço
 Format/&LevelAndExperienceFormat=Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
 Format/&LevelAndExperienceMaxedFormat=Nível: {0}\nExperiência: {1}\nnível máximo alcançado
+Invocation/&DevilsSightExtendedDescription=Você pode ver normalmente na escuridão, tanto mágica quanto não mágica, a uma distância de 25 metros.
 Message/&CharacterExportDuplicateNameErrorDescription=Exportação cancelada:\n\nJá existe um herói com este nome no pool.\nTente um nome diferente.
 Message/&CharacterExportEmptyNameErrorDescription=Exportação cancelada:\n\nPor favor, tente um nome não vazio.
 Message/&CharacterExportModalContentDescription=Digite o nome do herói para exportar:

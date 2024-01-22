@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} active le pouvoir {1} pour relancer {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} a True Sight et n'est pas affecté par ce sort
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
+Invocation/&DevilsSightExtendedDescription=Vous pouvez voir normalement dans l'obscurité, à la fois magique et non magique, jusqu'à une distance de 80 pieds.
 Message/&CharacterExportDuplicateNameErrorDescription=Exportation annulée :\n\nUn héros portant ce nom existe déjà dans le groupe.\nVeuillez essayer un autre nom.
 Message/&CharacterExportEmptyNameErrorDescription=Exportation annulée :\n\nVeuillez essayer un nom non vide.
 Message/&CharacterExportModalContentDescription=Saisissez le nom du héros à exporter :

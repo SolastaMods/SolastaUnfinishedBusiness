@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} activa el poder {1} para volver a tirar {2} = {3
 Feedback/&TrueSightAndIllusionSpells={0} tiene True Sight y no se ve afectado por este hechizo
 Format/&LevelAndExperienceFormat=Nivel: {0}\nExperiencia: {1}\n{2} puntos necesarios para alcanzar el nivel {3}
 Format/&LevelAndExperienceMaxedFormat=Nivel: {0}\nExperiencia: {1}\nnivel máximo alcanzado
+Invocation/&DevilsSightExtendedDescription=Puedes ver normalmente en la oscuridad, tanto mágica como no mágica, hasta una distancia de 80 pies.
 Message/&CharacterExportDuplicateNameErrorDescription=Exportación cancelada:\n\nYa existe un héroe con este nombre en el grupo.\nPruebe con otro nombre.
 Message/&CharacterExportEmptyNameErrorDescription=Exportación cancelada:\n\nintente con un nombre que no esté vacío.
 Message/&CharacterExportModalContentDescription=Ingrese el nombre del héroe para exportar:

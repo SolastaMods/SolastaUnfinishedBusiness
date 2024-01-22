@@ -9,13 +9,16 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;
+using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.EffectProxyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPerceptionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.InvocationDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -23,6 +26,17 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class LightingAndObscurementContext
 {
     private const string BlindExtendedDescription = "Condition/&ConditionBlindedExtendedDescription";
+
+    // ProxyDarkness is a special use case that is handled apart
+    private static readonly HashSet<EffectProxyDefinition> SightImpairedProxies =
+    [
+        ProxyCloudKill,
+        ProxyFogCloud,
+        ProxyIncendiaryCloud,
+        ProxyPetalStorm,
+        ProxySleetStorm,
+        ProxyStinkingCloud
+    ];
 
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByDarkness")
@@ -98,6 +112,8 @@ internal static class LightingAndObscurementContext
         .SetTopologyForm(TopologyForm.Type.ProjectileBlocker, true)
         .Build();
 
+    private static readonly Dictionary<int3, LightingState> PositionLightingStateCache = [];
+
     internal static void LateLoad()
     {
         ConditionBlindedByDarkness.GuiPresentation.description = BlindExtendedDescription;
@@ -146,6 +162,7 @@ internal static class LightingAndObscurementContext
             // Darkness
 
             FeatureSetInvocationDevilsSight.FeatureSet.SetRange(SenseTruesight16, SenseDarkvision24);
+            DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightExtendedDescription";
 
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionBlindedByDarkness;
 
@@ -210,6 +227,7 @@ internal static class LightingAndObscurementContext
                 SenseBlindSight16,
                 SenseSeeInvisible16,
                 ConditionAffinityInvocationDevilsSight);
+            DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightDescription";
 
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionDarkness;
 
@@ -341,6 +359,11 @@ internal static class LightingAndObscurementContext
         }
     }
 
+    internal static void ResetState()
+    {
+        PositionLightingStateCache.Clear();
+    }
+
     // called from GLBM.CanAttack to correctly determine ADV/DIS scenarios
     internal static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams)
     {
@@ -410,9 +433,14 @@ internal static class LightingAndObscurementContext
         void HandleTrueSightSpecialCase()
         {
             if (attackerActor is not RulesetCharacter attackerCharacter ||
-                !attackAdvantageTrends.Any(BlindedDisadvantage) ||
-                !TargetIsBlindFromDarkness(defenderActor) ||
-                TargetIsBlindNotFromDarkness(defenderActor))
+                !attackAdvantageTrends.Any(BlindedDisadvantage))
+            {
+                return;
+            }
+
+            var lightingState = ComputeLightingStateOnTargetPosition(attacker, defender.LocationPosition);
+
+            if (lightingState == (LightingState)MyLightingState.HeavilyObscured)
             {
                 return;
             }
@@ -446,23 +474,6 @@ internal static class LightingAndObscurementContext
                source.CanPerceiveTarget(target);
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool TargetIsBlindFromDarkness(RulesetActor actor)
-    {
-        return actor != null && actor.HasConditionOfType(ConditionBlindedByDarkness);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool TargetIsBlindNotFromDarkness(RulesetActor actor)
-    {
-        return
-            actor != null &&
-            actor.AllConditions
-                .Select(y => y.ConditionDefinition)
-                .Any(x => (x == ConditionBlinded || x.parentCondition == ConditionBlinded) &&
-                          x != ConditionBlindedByDarkness);
-    }
-
     // improved cell perception routine that takes sight into consideration
     // most of the usages is to determine if a character can perceive a cell in teleport scenarios
     // when target not null it helps determine visibility on attacks and effects targeting scenarios
@@ -475,14 +486,7 @@ internal static class LightingAndObscurementContext
     {
         // let vanilla do the heavy lift on perception
         var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
-
-        // try to get the lighting state from the target otherwise calculate on cell position
-        // no need to compute lightning if vanilla cannot perceive cell as it'll end up exiting earlier
-        var targetLightingState = result
-            ? target?.LightingState ?? ComputeLightingStateOnTargetPosition(sensor, cellPosition)
-            // this bright is a never used placeholder because of 2 !result in sequence checks
-            // save some cycles avoid calling ComputeLightingStateOnTargetPosition too much
-            : LightingState.Bright;
+        var targetLightingState = ComputeLightingStateOnTargetPosition(sensor, cellPosition);
 
         // if setting is off or vanilla cannot perceive
         if (!result ||
@@ -499,28 +503,36 @@ internal static class LightingAndObscurementContext
         }
 
         var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
-
         var targetIsNotTouchingGround =
             target != null &&
             !target.RulesetActor.IsTouchingGround();
 
-        var targetIsBlindFromDarkness = TargetIsBlindFromDarkness(target?.RulesetActor);
-        var targetIsBlindNotFromDarkness = TargetIsBlindNotFromDarkness(target?.RulesetActor);
-        var targetIsBlind = targetIsBlindFromDarkness || targetIsBlindNotFromDarkness;
-
         // try to find any sense mode that is valid for the current lighting state and is within range
         foreach (var senseMode in sensor.RulesetCharacter.SenseModes)
         {
+            var senseType = senseMode.SenseType;
+
+            if (senseType == SenseMode.Type.Tremorsense && targetIsNotTouchingGround)
+            {
+                continue;
+            }
+
             // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (targetLightingState is LightingState.Unlit)
             {
-                var senseType = senseMode.SenseType;
+                if (senseType == SenseMode.Type.NormalVision)
+                {
+                    continue;
+                }
+            }
 
-                if (senseType == SenseMode.Type.NormalVision ||
-                    (senseType == SenseMode.Type.Darkvision && targetIsBlind) ||
-                    (senseType == SenseMode.Type.SuperiorDarkvision && targetIsBlind) ||
-                    (senseType == SenseMode.Type.Truesight && targetIsBlindNotFromDarkness) ||
-                    (senseType == SenseMode.Type.Tremorsense && targetIsNotTouchingGround))
+            else if (targetLightingState is (LightingState)MyLightingState.HeavilyObscured)
+            {
+                if (senseType is
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision or
+                    SenseMode.Type.Truesight)
                 {
                     continue;
                 }
@@ -528,13 +540,10 @@ internal static class LightingAndObscurementContext
 
             else if (targetLightingState is LightingState.Darkness)
             {
-                var senseType = senseMode.SenseType;
-
-                if (senseType == SenseMode.Type.NormalVision ||
-                    senseType == SenseMode.Type.Darkvision ||
-                    senseType == SenseMode.Type.SuperiorDarkvision ||
-                    (senseType == SenseMode.Type.Truesight && targetIsBlindNotFromDarkness) ||
-                    (senseType == SenseMode.Type.Tremorsense && targetIsNotTouchingGround))
+                if (senseType is
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision)
                 {
                     continue;
                 }
@@ -555,6 +564,11 @@ internal static class LightingAndObscurementContext
         GameLocationCharacter instance,
         int3 targetPosition)
     {
+        if (PositionLightingStateCache.TryGetValue(targetPosition, out var lightingState))
+        {
+            return lightingState;
+        }
+
         var savePosition = new int3(
             instance.LocationPosition.x,
             instance.LocationPosition.y,
@@ -562,22 +576,17 @@ internal static class LightingAndObscurementContext
 
         instance.LocationPosition = targetPosition;
 
-        var illumination = ComputeIllumination(instance);
+        var illumination = ComputeIllumination(instance, targetPosition);
 
         instance.LocationPosition = savePosition;
 
+        PositionLightingStateCache.Add(targetPosition, illumination);
+
         return illumination;
 
-        // this is copy-and-paste from vanilla code GameLocationVisibilityManager.ComputeIllumination
-        // except for Darkness determination in patch block and some clean up for not required scenarios
-        static LightingState ComputeIllumination(IIlluminable illuminable)
+        static LightingState ComputeIllumination(IIlluminable illuminable, int3 targetPosition)
         {
             const LightingState UNLIT = LightingState.Unlit;
-
-            if (!illuminable.Valid)
-            {
-                return UNLIT;
-            }
 
             var visibilityManager =
                 ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
@@ -590,16 +599,53 @@ internal static class LightingAndObscurementContext
                 return UNLIT;
             }
 
-            var gridAccessor = new GridAccessor(visibilityManager.positionCache[0]);
+            //
+            // try to determine if heavily obscured or darkness
+            //
 
-            if (visibilityManager.positionCache.Any(position =>
-                    (gridAccessor.RuntimeFlags(position) & CellFlags.Runtime.DynamicSightImpaired) !=
-                    CellFlags.Runtime.None))
+            // alternate heavily obscured determination that differentiate between heavily obscured and darkness
+            var gridAccessor = new GridAccessor(visibilityManager.positionCache[0]);
+            var locationCharacters = new List<GameLocationCharacter>();
+
+            if (gridAccessor.Occupants_TryGet(targetPosition, out var value))
+            {
+                locationCharacters.SetRange(value);
+            }
+
+            var isDarkness = false;
+
+            foreach (var locationCharacter in locationCharacters)
+            {
+                if (locationCharacter.RulesetActor is not RulesetCharacterEffectProxy rulesetProxy)
+                {
+                    continue;
+                }
+
+                if (rulesetProxy.EffectProxyDefinition == ProxyDarkness)
+                {
+                    isDarkness = true;
+                }
+                else
+                {
+                    if (SightImpairedProxies.All(effectProxy => rulesetProxy.EffectProxyDefinition != effectProxy))
+                    {
+                        continue;
+                    }
+
+                    return (LightingState)MyLightingState.HeavilyObscured;
+                }
+            }
+
+            if (isDarkness)
             {
                 return LightingState.Darkness;
             }
 
-            var lightingState1 = LightingState.Unlit;
+            //
+            // try to determine if outside and if in daylight exit earlier
+            //
+
+            var globalLightingState = LightingState.Unlit;
 
             foreach (var position in visibilityManager.positionCache)
             {
@@ -610,15 +656,19 @@ internal static class LightingAndObscurementContext
                     continue;
                 }
 
-                lightingState1 = gridAccessor.sector.GlobalLightingState;
+                globalLightingState = gridAccessor.sector.GlobalLightingState;
 
-                if (lightingState1 != LightingState.Bright)
+                if (globalLightingState != LightingState.Bright)
                 {
                     continue;
                 }
 
                 return LightingState.Bright;
             }
+
+            //
+            // try to fetch all light sources to correctly determine if bright, dim or unlit
+            //
 
             visibilityManager.lightsByDistance.Clear();
 
@@ -634,12 +684,11 @@ internal static class LightingAndObscurementContext
                 }
 
                 var dimRange = key.RulesetLightSource.DimRange;
-                var magnitude = (locationPosition - illuminable.Position).magnitude;
+                var magnitude = (locationPosition - targetPosition).magnitude;
 
-                if (magnitude <= dimRange + (double)illuminable.DetectionRange &&
-                    (!visibilityManager.charactersByLight.TryGetValue(key.RulesetLightSource,
-                         out var locationCharacter3) ||
-                     locationCharacter3 is { IsValidForVisibility: true }))
+                if (magnitude <= dimRange + illuminable.DetectionRange &&
+                    (!visibilityManager.charactersByLight.TryGetValue(key.RulesetLightSource, out var glc) ||
+                     glc is { IsValidForVisibility: true }))
                 {
                     visibilityManager.lightsByDistance.Add(
                         new KeyValuePair<GameLocationLightSource, float>(key, magnitude));
@@ -648,7 +697,7 @@ internal static class LightingAndObscurementContext
 
             visibilityManager.lightsByDistance.Sort(visibilityManager.lightSortMethod);
 
-            var lightingState2 = LightingState.Unlit;
+            var lightsLightingState = LightingState.Unlit;
 
             foreach (var int3 in visibilityManager.positionCache)
             {
@@ -664,15 +713,15 @@ internal static class LightingAndObscurementContext
                         continue;
                     }
 
+                    var flag = true;
                     var fromGridPosition1 =
                         visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(
                             key.LocationPosition);
                     var fromGridPosition2 =
                         visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(int3);
-                    visibilityManager.AdaptRayForVerticalityAndDiagonals(key.LocationPosition, int3,
-                        ref fromGridPosition1,
-                        true);
-                    var flag = true;
+
+                    visibilityManager.AdaptRayForVerticalityAndDiagonals(
+                        key.LocationPosition, int3, ref fromGridPosition1, true);
 
                     if (key.RulesetLightSource.IsSpot)
                     {
@@ -684,35 +733,50 @@ internal static class LightingAndObscurementContext
                     }
 
                     if (!flag ||
-                        visibilityManager.gameLocationPositioningService.RaycastGridSightBlocker(fromGridPosition1,
-                            fromGridPosition2, visibilityManager.GameLocationService) ||
+                        visibilityManager.gameLocationPositioningService.RaycastGridSightBlocker(
+                            fromGridPosition1, fromGridPosition2, visibilityManager.GameLocationService) ||
                         visibilityManager.gameLocationPositioningService.IsSightImpaired(key.LocationPosition, int3))
                     {
                         continue;
                     }
 
-                    lightingState2 =
+                    lightsLightingState =
                         key.RulesetLightSource.BrightRange <= 0.0 || magnitudeSqr >
                         key.RulesetLightSource.BrightRange * key.RulesetLightSource.BrightRange
                             ? LightingState.Dim
                             : LightingState.Bright;
-                    if (lightingState2 == LightingState.Bright)
+
+                    if (lightsLightingState == LightingState.Bright)
                     {
                         break;
                     }
                 }
 
-                if (lightingState2 != LightingState.Unlit)
+                if (lightsLightingState != LightingState.Unlit)
                 {
                     break;
                 }
             }
 
-            return
-                lightingState1 != LightingState.Dim ||
-                lightingState2 != LightingState.Unlit
-                    ? lightingState2
-                    : LightingState.Dim;
+            return globalLightingState != LightingState.Dim || lightsLightingState != LightingState.Unlit
+                ? lightsLightingState
+                : LightingState.Dim;
         }
+    }
+
+    private enum MyLightingState
+    {
+        // ReSharper disable once UnusedMember.Local
+        Unlit,
+
+        // ReSharper disable once UnusedMember.Local
+        Dim,
+
+        // ReSharper disable once UnusedMember.Local
+        Bright,
+
+        // ReSharper disable once UnusedMember.Local
+        Darkness,
+        HeavilyObscured
     }
 }

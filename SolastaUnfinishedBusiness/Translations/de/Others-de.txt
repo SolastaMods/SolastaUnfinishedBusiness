@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} aktiviert die Kraft {1}, um {2} = {3} erneut zu 
 Feedback/&TrueSightAndIllusionSpells={0} hat Wahre Sicht und ist von diesem Zauber nicht betroffen
 Format/&LevelAndExperienceFormat=Level: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Level {3} zu erreichen
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nErfahrung: {1}\nmaximales Level erreicht
+Invocation/&DevilsSightExtendedDescription=Sie können in der Dunkelheit, sowohl magisch als auch nicht magisch, normal bis zu einer Entfernung von 80 Fuß sehen.
 Message/&CharacterExportDuplicateNameErrorDescription=Export abgebrochen:\n\nEin Held mit diesem Namen existiert bereits im Pool.\nBitte versuchen Sie es mit einem anderen Namen.
 Message/&CharacterExportEmptyNameErrorDescription=Export abgebrochen:\n\nBitte versuchen Sie es mit einem nicht leeren Namen.
 Message/&CharacterExportModalContentDescription=Geben Sie den Heldennamen zum Exportieren ein:

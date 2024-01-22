@@ -747,6 +747,21 @@ internal static partial class DatabaseHelper
 
         internal static EffectProxyDefinition ProxyStinkingCloud { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyStinkingCloud");
+
+        internal static EffectProxyDefinition ProxyCloudKill { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyCloudKill");
+
+        internal static EffectProxyDefinition ProxyFogCloud { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyFogCloud");
+
+        internal static EffectProxyDefinition ProxyIncendiaryCloud { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyIncendiaryCloud");
+
+        internal static EffectProxyDefinition ProxySleetStorm { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxySleetStorm");
+
+        internal static EffectProxyDefinition ProxyDarkness { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyDarkness");
     }
 
     internal static class FactionDefinitions
@@ -2326,6 +2341,9 @@ internal static partial class DatabaseHelper
 
     internal static class InvocationDefinitions
     {
+        internal static InvocationDefinition DevilsSight { get; } =
+            GetDefinition<InvocationDefinition>("DevilsSight");
+
         internal static InvocationDefinition EldritchSpear { get; } =
             GetDefinition<InvocationDefinition>("EldritchSpear");
 

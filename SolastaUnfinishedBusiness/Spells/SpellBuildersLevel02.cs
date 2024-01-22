@@ -173,69 +173,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Petal Storm
-
-    [NotNull]
-    internal static SpellDefinition BuildPetalStorm()
-    {
-        const string NAME = "PetalStorm";
-
-        var sprite = Sprites.GetSprite(NAME, Resources.PetalStorm, 128);
-
-        var proxyPetalStorm = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyInsectPlague, $"Proxy{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, sprite)
-            .SetCanMove()
-            .SetIsEmptyPresentation(false)
-            .SetCanMoveOnCharacters()
-            .SetAttackMethod(ProxyAttackMethod.ReproduceDamageForms)
-            .SetActionId(ActionDefinitions.Id.ProxyFlamingSphere)
-            .SetPortrait(WindWall.GuiPresentation.SpriteReference)
-            .AddAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove6)
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder
-            .Create(InsectPlague, NAME)
-            .SetGuiPresentation(Category.Spell, sprite)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetSpellLevel(2)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetSomaticComponent(true)
-            .SetVerboseComponent(true)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(InsectPlague.EffectDescription)
-                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 3)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                    .SetRecurrentEffect(
-                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Strength,
-                        false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetDamageForm(DamageTypeSlashing, 3, DieType.D4)
-                            .Build(),
-                        EffectFormBuilder.ConditionForm(ConditionHeavilyObscured),
-                        EffectFormBuilder.TopologyForm(TopologyForm.Type.SightImpaired, true),
-                        EffectFormBuilder
-                            .Create()
-                            .SetSummonEffectProxyForm(proxyPetalStorm)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    #endregion
-
     #region Protect Threshold
 
     [NotNull]
@@ -470,6 +407,66 @@ internal static partial class SpellBuilders
                             .SetTopologyForm(TopologyForm.Type.DangerousZone, true)
                             .Build())
                     .SetParticleEffectParameters(BladeBarrierWallLine)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Petal Storm
+
+    [NotNull] internal static readonly EffectProxyDefinition ProxyPetalStorm = EffectProxyDefinitionBuilder
+        .Create(EffectProxyDefinitions.ProxyInsectPlague, "ProxyPetalStorm")
+        .SetGuiPresentation("PetalStorm", Category.Spell)
+        .SetCanMove()
+        .SetIsEmptyPresentation(false)
+        .SetCanMoveOnCharacters()
+        .SetAttackMethod(ProxyAttackMethod.ReproduceDamageForms)
+        .SetActionId(ActionDefinitions.Id.ProxyFlamingSphere)
+        .SetPortrait(WindWall.GuiPresentation.SpriteReference)
+        .AddAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove6)
+        .AddToDB();
+
+    internal static SpellDefinition BuildPetalStorm()
+    {
+        const string NAME = "PetalStorm";
+
+        var spell = SpellDefinitionBuilder
+            .Create(InsectPlague, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PetalStorm, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(2)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(InsectPlague.EffectDescription)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 3)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Strength,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetDamageForm(DamageTypeSlashing, 3, DieType.D4)
+                            .Build(),
+                        EffectFormBuilder.ConditionForm(ConditionHeavilyObscured),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.SightImpaired, true),
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonEffectProxyForm(ProxyPetalStorm)
+                            .Build())
                     .Build())
             .AddToDB();
 

@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} は、{2} = {3} を再ロールするための {
 Feedback/&TrueSightAndIllusionSpells={0}は真の視力を持っており、この呪文の影響を受けません
 Format/&LevelAndExperienceFormat=レベル: {0}\n経験値: {1}\n{2} ポイントがレベル {3} に到達するために必要です
 Format/&LevelAndExperienceMaxedFormat=レベル: {0}\n経験値: {1}\n最大レベルに到達しました
+Invocation/&DevilsSightExtendedDescription=通常、暗闇の中でも、魔法のようなものもそうでないものも、80 フィートの距離まで見ることができます。
 Message/&CharacterExportDuplicateNameErrorDescription=エクスポートがキャンセルされました:\n\nこの名前のヒーローはプールにすでに存在します。\n別の名前を試してください。
 Message/&CharacterExportEmptyNameErrorDescription=エクスポートがキャンセルされました:\n\n空でない名前を試してください。
 Message/&CharacterExportModalContentDescription=エクスポートするヒーロー名を入力してください:

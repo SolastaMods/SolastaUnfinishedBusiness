@@ -76,6 +76,12 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
+            //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
+            if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+            {
+                LightingAndObscurementContext.ResetState();
+            }
+
             //BUGFIX: vanilla always consume a main action on battle surprise phase even if a bonus power or spell
             if (Gui.Battle != null &&
                 Gui.Battle.CurrentRound == 1 &&

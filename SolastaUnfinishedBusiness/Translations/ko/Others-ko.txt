@@ -139,6 +139,7 @@ Feedback/&TriggerRerollLine={0} 이 {1} 을 활성화, {2} = {3} 다시 굴림
 Feedback/&TrueSightAndIllusionSpells={0}은(는) 진정한 시력을 갖고 있으며 이 주문의 영향을 받지 않습니다.
 Format/&LevelAndExperienceFormat=레벨: {0}\n경험치: 레벨 {3}에 도달하는 데 필요한 포인트: {1}\n{2} 포인트
 Format/&LevelAndExperienceMaxedFormat=레벨: {0}\n경험치: {1}\n최대 레벨 도달
+Invocation/&DevilsSightExtendedDescription=당신은 일반적으로 어둠 속에서 마법적이든 비마법적이든 80피트 거리까지 볼 수 있습니다.
 Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n\n이 이름의 영웅이 이미 풀에 있습니다.\n다른 이름을 입력해 보십시오.
 Message/&CharacterExportEmptyNameErrorDescription=내보내기 취소됨:\n\n빈 칸 없이 이름을 입력해 주세요.
 Message/&CharacterExportModalContentDescription=내보낼 영웅 이름을 입력합니다:
