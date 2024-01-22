@@ -219,6 +219,21 @@
         <string>WayOfTheDistantHand</string>
     </DeprecatedSubsList>
     <MonstersThatShouldHaveDarkvision>
+        <string>Adam_The_Twelth</string>
+        <string>DLC3_Elven_07_Guard</string>
+        <string>SRD_DLC_Mage</string>
+        <string>SRD_Mage</string>
+        <string>DLC1_NPC_Forge_Escorted_01</string>
+        <string>DLC3_NPC_Generic_ElvenCitizen_Husk</string>
+        <string>Generic_Darkweaver</string>
+        <string>DLC3_ElvenClans_Leralyn</string>
+        <string>DLC3_NPC_Elven3_DLC3_Ending</string>
+        <string>DLC3_NPC_Elven5_DLC3_Ending</string>
+        <string>Generic_HighPriest</string>
+        <string>DLC3_Elven_Suspect_05_Guard_Traitor</string>
+        <string>DLC3_Elven_06_Guard</string>
+        <string>SRD_DLC3_Archmage</string>
+        <string>Generic_ShockArcanist</string>
         <string>Mutant_Ape</string>
         <string>Mutant_Ape_Range</string>
         <string>Mutant_Direwolf</string>
@@ -246,12 +261,7 @@
         <string>FeyGiant_Eagle</string>
         <string>FeyGiantApe</string>
         <string>FeyWolf</string>
-        <string>DLC3_Elven_06_Guard</string>
-        <string>DLC3_Elven_07_Guard</string>
-        <string>DLC3_Elven_Suspect_05_Guard_Traitor</string>
-        <string>Generic_Darkweaver</string>
         <string>SRD_Werewolf</string>
-        <string>Adam_The_Twelth</string>
         <string>Captain_Verissa_Ironshell</string>
         <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
         <string>DLC1_Complex_NPC_Sitinero</string>
@@ -263,13 +273,10 @@
         <string>DLC1_NPC_Tuznut_Hostile_DM_Monster</string>
         <string>DLC1_Valley_NPC_Samko_Flint</string>
         <string>DLC1_Valley_NPC_Telerien_Purevoice</string>
-        <string>DLC3_NPC_Generic_ElvenCitizen_Husk</string>
-        <string>DLC1_NPC_Forge_Escorted_01</string>
         <string>DLC1_NPC_Forge_Hasdrubal</string>
         <string>DLC1_NPC_Nobleman_ThePeople07</string>
         <string>DLC1_NPC_Orenetis_Apprentice</string>
         <string>DLC1_NPC_ThePeople_Reya_Outpost</string>
-        <string>DLC3_ElvenClans_Leralyn</string>
         <string>DLC3_NPC_Einareum_Merchant_General</string>
         <string>DLC3_NPC_SouthernClans_Generic_Cousin_Husk</string>
         <string>Lizzaria_Of_Grimhold</string>
@@ -279,9 +286,17 @@
     </MonstersThatShouldHaveDarkvision>
     <MonstersThatShouldHaveTrueSight>
         <string>Couatl</string>
+        <string>CubeOfLight</string>
         <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
     </MonstersThatShouldHaveTrueSight>
-    <MonstersThatShouldHaveBlindSight/>
+    <MonstersThatShouldHaveBlindSight>
+        <string>Aksha</string>
+        <string>Aksha_Legendary</string>
+    </MonstersThatShouldHaveBlindSight>
+    <MonstersThatShouldNotHaveTremorSense>
+        <string>Aksha</string>
+        <string>Aksha_Legendary</string>
+    </MonstersThatShouldNotHaveTremorSense>
     <EffectsThatTargetDistantIndividualsAndDontRequireSight>
         <string>AcidSplash</string>
         <string>Aid</string>
@@ -454,6 +469,8 @@
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
+    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
+    </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
     <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>

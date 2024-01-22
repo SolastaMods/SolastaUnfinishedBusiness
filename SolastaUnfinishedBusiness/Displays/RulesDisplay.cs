@@ -165,6 +165,13 @@ internal static class RulesDisplay
             Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
         }
 
+        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
+        }
+
         toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
         if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
                 UI.AutoWidth()))

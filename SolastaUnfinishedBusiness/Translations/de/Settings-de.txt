@@ -171,6 +171,7 @@ ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Füge während einer kurzen oder langen Pause eine Kraft hinzu, um <color=#D89555>magische Gegenstände zu identifizieren</color>
 ModUi/&IgnoreHandXbowFreeHandRequirements=Für die Verwendung von <color=#D89555>Handarmbrüsten</color> ist keine freie Hand erforderlich
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusionszauber schlagen bei Zielen mit <color=#D89555>TrueSight</color> in Reichweite automatisch fehl
 ModUi/&ImproveLevelUpFeaturesSelection=Verbesserung der Auswahl der Levelaufstiegsfunktionen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[Auswirkungen auf <color= #D89555>Waldläufer</color> Bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> Verwandtes Biest, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</color></i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl an abgestimmten Gegenständen auf Stufe 10 auf 4 und auf Stufe 18 auf 5

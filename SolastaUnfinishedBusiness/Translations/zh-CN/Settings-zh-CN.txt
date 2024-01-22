@@ -171,6 +171,7 @@ ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步长显示怪物的生命值
 ModUi/&House=<color=#F0DAA0>房规：</color>
 ModUi/&IdentifyAfterRest=通过短休或长休增加识别魔法物品的能力
 ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻象法术对范围内 <color=#D89555>TrueSight</color> 的目标自动失败
 ModUi/&ImproveLevelUpFeaturesSelection=改进升级功能选择<b><i><color=#C04040E0>[需要重启]</color></i></b>\n<i><color=#F0DAA0>[影响<color=#D89555>游侠</color>宿敌和擅长地形，<color=#D89555>德鲁伊</color>血缘野兽，<color=#D89555>野蛮人</color>元素之路和龙类子职选择]</color></i>
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=在第10级将最大同调物品增加到4个，在第18级增加到5个

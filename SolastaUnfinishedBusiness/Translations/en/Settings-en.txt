@@ -171,6 +171,7 @@ ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75%
 ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IdentifyAfterRest=Add a power to <color=#D89555>identify magic items</color> over a short or long rest
 ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use <color=#D89555>Hand Crossbows</color>
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusion spells automatically fail against targets with <color=#D89555>TrueSight</color> in range
 ModUi/&ImproveLevelUpFeaturesSelection=Improve level up features selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[impacts <color=#D89555>Ranger</color> Preferred Enemy and Terrain Affinity, <color=#D89555>Druid</color> Kindred Beast, <color=#D89555>Barbarian</color> Path of the Elements and subclasses Draconic choices]</color></i>
 ModUi/&IncreaseGameTimeBy=Increase game time by
 ModUi/&IncreaseMaxAttunedItems=Increase max attuned items to 4 at level 10th and 5 at level 18th

@@ -171,6 +171,7 @@ ModUi/&HideMonsterHitPoints=Отображать здоровье противн
 ModUi/&House=<color=#F0DAA0>Домашние правила:</color>
 ModUi/&IdentifyAfterRest=Добавить возможность <color=#D89555>опознавать магические предметы</color> после короткого или продолжительного отдыха
 ModUi/&IgnoreHandXbowFreeHandRequirements=Не требовать наличие свободной руки для использования <color=#D89555>ручных арбалетов</color>
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Заклинания иллюзии автоматически терпят неудачу против целей, находящихся в радиусе действия <color=#D89555>TrueSight</color>.
 ModUi/&ImproveLevelUpFeaturesSelection=Улучшить выбор умений при повышении уровня <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>\n<i><color=#F0DAA0>[затрагивает Предпочтительного противника и Родство с местностью <color=#D89555>Следопыта</color>, Родственного зверя <color=#D89555>Друида</color>, Путь элементов и Драконьи архетипы <color=#D89555>Варвара</color>]</color></i>
 ModUi/&IncreaseGameTimeBy=Увеличить время игры на
 ModUi/&IncreaseMaxAttunedItems=Увеличить максимальное возможное для настройки количество предметов до 4 на 10-м уровне и до 5 на 18-м уровне

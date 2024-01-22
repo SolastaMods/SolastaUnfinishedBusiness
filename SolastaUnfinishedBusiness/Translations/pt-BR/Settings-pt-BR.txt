@@ -171,6 +171,7 @@ ModUi/&HideMonsterHitPoints=Exibir a saúde dos monstros em etapas de 25% / 50% 
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Adicione um poder para <color=#D89555>identificar itens mágicos</color> durante um descanso curto ou longo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Não requer mão livre para usar <color=#D89555>Bestas de mão</color>
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Feitiços de ilusão falham automaticamente contra alvos com <color=#D89555>TrueSight</color> ao alcance
 ModUi/&ImproveLevelUpFeaturesSelection=Melhore a seleção de recursos de nível <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[impactos <color= #D89555>Ranger</color> Inimigo preferido e afinidade de terreno, <color=#D89555>Druida</color> Besta gémea, <color=#D89555>Bárbaro</color> Caminho dos Elementos e subclasses Escolhas dracônicas]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumente o máximo de itens sintonizados para 4 no nível 10 e 5 no nível 18

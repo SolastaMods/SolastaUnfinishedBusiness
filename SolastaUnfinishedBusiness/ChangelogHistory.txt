@@ -3,6 +3,7 @@
 THIS VERSION IS A TRIBUTE TO SGT. PEPPER, THE BEST BOSTON TERRIER ANYONE COULD HAVE HAD AS A FRIEND!
 GO INTO THE LIGHT, STAY IN THE LIGHT, FIND YOUR BEST FRIEND HEY JUDE. ONE DAY, THE BAND WILL REUNITE
 
+- added Gameplay > Rules > 'Illusion spells automatically fail against targets with TrueSight in range'
 - added Gameplay > Rules > 'Use official lighting, obscurement, and vision rules'
 - added Adder's Fangs, Foresight, Heroic Infusion, Mind Blank, Power Word: Heal, and Power Word: Kill spell sprites
 - added Protector of The Wild, Ring of Blades, Shapechange, Vitality Transfer, and Weird spell sprites

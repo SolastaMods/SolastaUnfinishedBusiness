@@ -741,7 +741,8 @@ public static class RulesetImplementationManagerPatcher
             PathOfTheSavagery.OnRollSavingThrowFuriousDefense(target, ref savingThrowAbility);
 
             //PATCH: illusionary spells against creatures with True Sight should automatically save
-            if (sourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolIllusion } ||
+            if (!Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange ||
+                sourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolIllusion } ||
                 sourceDefinition == DatabaseHelper.SpellDefinitions.Silence)
             {
                 return true;

@@ -171,6 +171,7 @@ ModUi/&HideMonsterHitPoints=正確なヒットポイントではなく、モン�
 ModUi/&House=<color=#F0DAA0>家:</color>
 ModUi/&IdentifyAfterRest=短いまたは長い休憩中に<color=#D89555>魔法のアイテムを識別</color>する能力を追加します
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>ハンドクロスボウ</color>を使用するのにフリーハンドは必要ありません
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=イリュージョン呪文は範囲内に<color=#D89555>TrueSight</color>があるターゲットに対して自動的に失敗します。
 ModUi/&ImproveLevelUpFeaturesSelection=レベルアップ機能の選択を改善 <b><i><color=#C04040E0>[再起動が必要]</color></i></b>\n<i><color=#F0DAA0>[影響 <color= #D89555>レンジャー</color> 優先敵と地形親和性、<color=#D89555>ドルイド</color> 同族の獣、<color=#D89555>バーバリアン</color> エレメントとサブクラスのパス ドラコニックの選択]</color></i>
 ModUi/&IncreaseGameTimeBy=ゲーム時間を延長する
 ModUi/&IncreaseMaxAttunedItems=最大同調アイテムはレベル10で4個、レベル18で5個に増加します

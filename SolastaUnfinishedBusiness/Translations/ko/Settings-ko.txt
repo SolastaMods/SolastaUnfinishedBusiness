@@ -171,6 +171,7 @@ ModUi/&HideMonsterHitPoints=몬스터의 체력을 정확한 수치 대신 25% /
 ModUi/&House=<color=#F0DAA0>하우스 룰(자체 규칙):</color>
 ModUi/&IdentifyAfterRest=짧은 혹은 긴 휴식을 통해 <color=#D89555>마법 아이템 식별</color>에 힘을 추가
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>핸드 크로스보우</color>를 사용하기 위해 빈 손을 요구하지 않음
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=환영 주문은 범위 내에 <color=#D89555>TrueSight</color>가 있는 대상에게는 자동으로 실패합니다.
 ModUi/&ImproveLevelUpFeaturesSelection=레벨업 특성 선택 개선<b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>\n<i><color=#F0DAA0>[<color=#D89555>레인저</color>의 선호하는 적과 지형 친화도,<color=#D89555>드루이드</color>의 결속 야수, <color=#D89555>바바리안</color>의 원소의 길, 용 서브클래스 선택에 영향을 줍니다]</color></i>
 ModUi/&IncreaseGameTimeBy=게임 시간을 다음만큼 늘립니다
 ModUi/&IncreaseMaxAttunedItems=최대 조율 아이템이 10레벨에서 4개, 18레벨에서 5개로 증가
