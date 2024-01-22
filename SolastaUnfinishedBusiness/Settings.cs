@@ -247,6 +247,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
     public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
+    public bool OfficialObscurementRulesCancelAdvDisPairs { get; set; }
     public bool OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker { get; set; }
     public bool OfficialObscurementRulesMagicalDarknessAsProjectileBlocker { get; set; }
     public bool OfficialObscurementRulesTweakMonsters { get; set; }

@@ -380,15 +380,26 @@ internal static class LightingAndObscurementContext
 
         var attacker = attackParams.attacker;
         var attackerActor = attacker.RulesetActor;
+        var attackerIsBlind = attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
 
         var defender = attackParams.defender;
         var defenderActor = defender.RulesetActor;
+        var defenderIsBlind = defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
 
         HandleTrueSightSpecialCase();
 
+        if (Main.Settings.OfficialObscurementRulesCancelAdvDisPairs)
+        {
+            if (attackAdvantageTrends.Any(BlindedAdvantage) &&
+                attackAdvantageTrends.Any(BlindedDisadvantage))
+            {
+                attackAdvantageTrends.RemoveAll(BlindedAdvantage);
+                attackAdvantageTrends.RemoveAll(BlindedDisadvantage);
+            }
+        }
+
         // nothing to do here if both contenders are already blinded
-        if (attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded) &&
-            defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded))
+        if (attackerIsBlind && defenderIsBlind)
         {
             return;
         }
@@ -401,12 +412,28 @@ internal static class LightingAndObscurementContext
         var defenderCanPerceiveAttacker = defender.CanPerceiveTarget(attacker);
         var defenderHasNoLight = defender.LightingState is LightingState.Unlit or LightingState.Darkness;
 
-        if (!attackerIsStealthy && !defenderCanPerceiveAttacker && (attackerCanPerceiveDefender || attackerHasNoLight))
+        var adv =
+            !attackerIsStealthy &&
+            !defenderIsBlind &&
+            !defenderCanPerceiveAttacker &&
+            (attackerCanPerceiveDefender || attackerHasNoLight);
+
+        var dis =
+            !attackerIsBlind &&
+            !attackerCanPerceiveDefender &&
+            (defenderCanPerceiveAttacker || defenderHasNoLight);
+
+        if (Main.Settings.OfficialObscurementRulesCancelAdvDisPairs && !(adv ^ dis))
+        {
+            return;
+        }
+
+        if (adv)
         {
             attackAdvantageTrends.Add(PerceiveAdvantage());
         }
 
-        if (!attackerCanPerceiveDefender && (defenderCanPerceiveAttacker || defenderHasNoLight))
+        if (dis)
         {
             attackAdvantageTrends.Add(PerceiveDisadvantage());
         }
@@ -421,6 +448,11 @@ internal static class LightingAndObscurementContext
         RuleDefinitions.TrendInfo PerceiveDisadvantage()
         {
             return new RuleDefinitions.TrendInfo(-1, RuleDefinitions.FeatureSourceType.Lighting, TAG, defenderActor);
+        }
+
+        static bool BlindedAdvantage(RuleDefinitions.TrendInfo trendInfo)
+        {
+            return trendInfo.sourceName == ConditionBlinded.Name && trendInfo.value == 1;
         }
 
         static bool BlindedDisadvantage(RuleDefinitions.TrendInfo trendInfo)
@@ -748,28 +780,28 @@ internal static class LightingAndObscurementContext
                         continue;
                     }
 
-                    var flag = true;
-                    var fromGridPosition1 =
+                    var hasLineOfSight = true;
+                    var sourcePosition =
                         visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(
                             key.LocationPosition);
-                    var fromGridPosition2 =
+                    var destinationPosition =
                         visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(int3);
 
                     visibilityManager.AdaptRayForVerticalityAndDiagonals(
-                        key.LocationPosition, int3, ref fromGridPosition1, true);
+                        key.LocationPosition, int3, ref sourcePosition, true);
 
                     if (key.RulesetLightSource.IsSpot)
                     {
-                        var to = fromGridPosition2 - fromGridPosition1;
+                        var to = destinationPosition - sourcePosition;
 
                         to.Normalize();
-                        flag = Vector3.Angle(key.RulesetLightSource.SpotDirection, to)
+                        hasLineOfSight = Vector3.Angle(key.RulesetLightSource.SpotDirection, to)
                             .IsInferiorOrNearlyEqual(key.RulesetLightSource.SpotAngle * 0.5f);
                     }
 
-                    if (!flag ||
+                    if (!hasLineOfSight ||
                         visibilityManager.gameLocationPositioningService.RaycastGridSightBlocker(
-                            fromGridPosition1, fromGridPosition2, visibilityManager.GameLocationService) ||
+                            sourcePosition, destinationPosition, visibilityManager.GameLocationService) ||
                         visibilityManager.gameLocationPositioningService.IsSightImpaired(key.LocationPosition, int3))
                     {
                         continue;
