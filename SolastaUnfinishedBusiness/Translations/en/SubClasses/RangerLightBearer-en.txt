@@ -1,6 +1,6 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=Blinded by Blessed Glow
 Condition/&ConditionRangerLightBearerAngelicFormDescription=You have a flying speed equal to your walking speed, and your attacks also count as magical.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Angelic Form
-Condition/&ConditionBlindedByBlessedGlowTitle=Blinded by Blessed Glow
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=When hit by the caster with a weapon attack, all damage dealt by the attack becomes radiant damage, and the you take an extra 1d8 radiant damage from the attack. Starting at 11th level, the extra damage increases to 2d8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marked by Blessed Warrior
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=You can cast light as an action and gain bonus spells that are considered ranger spells for you and don't count against the number of spells you know:\n{0}

@@ -1,8 +1,8 @@
+Condition/&ConditionBlindedBySearingVengeanceTitle=Blinded by Searing Vengeance
 Feature/&BonusCantripCelestialDescription=You learn the <b>Light</b> and <b>Sacred Flame</b> cantrips. They count as warlock cantrips for you, but they don't count against your number of cantrips known.
 Feature/&BonusCantripCelestialTitle=Bonus Cantrips
 Feature/&FeatureSetCelestialRadiantSoulDescription=Your link to the Celestial allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant or fire damage, you add your Charisma modifier to one radiant or fire damage roll of that spell.
 Feature/&FeatureSetCelestialRadiantSoulTitle=Radiant Soul
-Condition/&ConditionBlindedBySearingVengeanceTitle=Blinded by Searing Vengeance
 Feature/&PowerCelestialCelestialResistanceDescription=You gain temporary hit points whenever you finish a short or long rest. These temporary hit points equal your warlock level + your Charisma modifier. Additionally, all original party members gain temporary hit points equal to half your warlock level + your Charisma modifier.
 Feature/&PowerCelestialCelestialResistanceTitle=Celestial Resistance
 Feature/&PowerCelestialHealingLightDescription=You gain the ability to channel celestial energy to heal wounds. You have a pool of D6s that you spend to fuel this healing. The number of dice in the pool equals 1 + your Warlock level. As a bonus action, you can heal one creature you can see within 60 feet of you, spending dice from the pool. The maximum number of dice you can spend at once equals your Charisma modifier (minimum of one die and maximum of six). Roll the dice you spend, add them together, and restore a number of hit points equal to the total. Your pool regains all expended dice when you finish a long rest.

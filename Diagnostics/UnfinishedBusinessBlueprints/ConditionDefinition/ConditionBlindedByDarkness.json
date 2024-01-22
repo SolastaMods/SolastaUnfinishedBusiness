@@ -264,7 +264,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Condition/&ConditionBlindedByDarknessTitle",
-    "description": "Condition/&ConditionBlindedExtendedDescription",
+    "description": "Rules/&ConditionBlindedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",
