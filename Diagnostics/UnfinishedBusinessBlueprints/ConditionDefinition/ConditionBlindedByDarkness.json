@@ -1,13 +1,9 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityHeavilyObscured:37285cb4ed0361e45aadf367f6e8c421",
-    "Definition:CombatAffinityHeavilyObscuredMagicallySelf:2cbc214a-c5a7-56f9-985a-2b0c3130076d",
-    "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

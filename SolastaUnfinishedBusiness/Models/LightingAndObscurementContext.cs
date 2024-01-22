@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
+using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPerceptionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
@@ -25,18 +25,8 @@ internal static class LightingAndObscurementContext
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByDarkness")
         .SetOrUpdateGuiPresentation(Category.Condition)
-        .SetFeatures(
-            CombatAffinityHeavilyObscured,
-            FeatureDefinitionCombatAffinityBuilder
-                .Create("CombatAffinityHeavilyObscuredMagicallySelf")
-                .SetGuiPresentationNoContent(true)
-                .SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage)
-                .SetNullifiedBySelfSenses(
-                    SenseMode.Type.Truesight, SenseMode.Type.Blindsight, SenseMode.Type.Tremorsense)
-                .AddToDB(),
-            PerceptionAffinityConditionBlinded)
-        // add a soft parent to avoid this condition to leverage parent features
-        .AddCustomSubFeatures(new ForceConditionParentBlindedByDarkness())
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
@@ -90,8 +80,7 @@ internal static class LightingAndObscurementContext
             // ConditionAffinityInvocationDevilsSight
             // Darkness
 
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetInvocationDevilsSight.FeatureSet.SetRange(
-                SenseBlindSight16);
+            FeatureSetInvocationDevilsSight.FeatureSet.SetRange(SenseTruesight16, SenseDarkvision24);
 
             Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionBlindedByDarkness;
 
@@ -158,7 +147,7 @@ internal static class LightingAndObscurementContext
             // ConditionAffinityInvocationDevilsSight
             // Darkness
 
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetInvocationDevilsSight.FeatureSet.SetRange(
+            FeatureSetInvocationDevilsSight.FeatureSet.SetRange(
                 SenseBlindSight16,
                 SenseSeeInvisible16,
                 ConditionAffinityInvocationDevilsSight);
@@ -293,109 +282,132 @@ internal static class LightingAndObscurementContext
         }
     }
 
+    // called from GLBM.CanAttack to correctly determine ADV/DIS scenarios
     internal static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams)
     {
-        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules ||
+            attackParams.effectDescription is
+                { RangeType: not (RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit) })
         {
             return;
         }
 
         const string TAG = "Perceive";
 
-        // get initial required states
+        var attackAdvantageTrends = attackParams.attackModifier.AttackAdvantageTrends;
+
         var attacker = attackParams.attacker;
         var attackerActor = attacker.RulesetActor;
-        var attackerIsBlinded =
-            attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
 
         var defender = attackParams.defender;
         var defenderActor = defender.RulesetActor;
-        var defenderIsBlinded =
-            defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
+
+        HandleTrueSightSpecialCase();
 
         // nothing to do here if both contenders are already blinded
-        if (attackerIsBlinded && defenderIsBlinded)
+        if (attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded) &&
+            defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded))
         {
             return;
         }
 
-        // get remaining required states after early return to save some cycles
-        var attackerCanPerceiveDefender = attacker.CanPerceiveTarget(defender);
         var attackerIsStealthy = attackerActor.HasConditionOfType(ConditionStealthy);
-        var attackerHasNoLight = attacker.LightingState is
-            LightingState.Unlit or LightingState.Darkness;
+
+        var attackerCanPerceiveDefender = attacker.CanPerceiveTarget(defender);
+        var attackerHasNoLight = attacker.LightingState is LightingState.Unlit or LightingState.Darkness;
 
         var defenderCanPerceiveAttacker = defender.CanPerceiveTarget(attacker);
-        var defenderHasNoLight = defender.LightingState is
-            LightingState.Unlit or LightingState.Darkness;
-
-        var attackAdvantageTrends = attackParams.attackModifier.AttackAdvantageTrends;
+        var defenderHasNoLight = defender.LightingState is LightingState.Unlit or LightingState.Darkness;
 
         if (!attackerIsStealthy && !defenderCanPerceiveAttacker && (attackerCanPerceiveDefender || attackerHasNoLight))
         {
-            attackAdvantageTrends.Add(
-                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, TAG, attackerActor));
+            attackAdvantageTrends.Add(PerceiveAdvantage());
         }
 
         if (!attackerCanPerceiveDefender && (defenderCanPerceiveAttacker || defenderHasNoLight))
         {
-            attackAdvantageTrends.Add(
-                new RuleDefinitions.TrendInfo(-1, RuleDefinitions.FeatureSourceType.Lighting, TAG, defenderActor));
+            attackAdvantageTrends.Add(PerceiveDisadvantage());
+        }
+
+        return;
+
+        RuleDefinitions.TrendInfo PerceiveAdvantage()
+        {
+            return new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, TAG, attackerActor);
+        }
+
+        RuleDefinitions.TrendInfo PerceiveDisadvantage()
+        {
+            return new RuleDefinitions.TrendInfo(-1, RuleDefinitions.FeatureSourceType.Lighting, TAG, defenderActor);
+        }
+
+        static bool BlindedDisadvantage(RuleDefinitions.TrendInfo trendInfo)
+        {
+            return trendInfo.sourceName == ConditionBlinded.Name && trendInfo.value == -1;
+        }
+
+        // conditions with parent inherit their features which makes true sight quite hard to manage
+        // the combat affinity won't have true sight as nullified sense so we check it here and revert
+        void HandleTrueSightSpecialCase()
+        {
+            if (attackerActor is not RulesetCharacter attackerCharacter ||
+                !attackAdvantageTrends.Any(BlindedDisadvantage) ||
+                !TargetIsBlindFromDarkness(defenderActor) ||
+                TargetIsBlindNotFromDarkness(defenderActor))
+            {
+                return;
+            }
+
+            var senseModeTrueSight =
+                attackerCharacter.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
+
+            if (senseModeTrueSight == null || !attacker.IsWithinRange(defender, senseModeTrueSight.SenseRange))
+            {
+                return;
+            }
+
+            attackAdvantageTrends.RemoveAll(BlindedDisadvantage);
         }
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMagicEffectValidIfHeavilyObscuredOrInNaturalDarkness(
         GameLocationCharacter source,
         IMagicEffect magicEffect,
         GameLocationCharacter target)
     {
-        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
-        {
-            return true;
-        }
+        return target == null ||
+               !Main.Settings.UseOfficialLightingObscurementAndVisionRules ||
+               magicEffect.EffectDescription is not
+               {
+                   RangeType: RuleDefinitions.RangeType.Distance,
+                   TargetType: RuleDefinitions.TargetType.Individuals or RuleDefinitions.TargetType.IndividualsUnique
+               } ||
+               Main.Settings.EffectsThatTargetDistantIndividualsAndDontRequireSight.Contains(magicEffect.Name) ||
+               source.CanPerceiveTarget(target);
+    }
 
-        if (target == null)
-        {
-            return true;
-        }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TargetIsBlindFromDarkness(RulesetActor actor)
+    {
+        return actor != null && actor.HasConditionOfType(ConditionBlindedByDarkness);
+    }
 
-        if (Main.Settings.EffectsThatTargetDistantIndividualsAndDontRequireSight.Contains(magicEffect.Name))
-        {
-            return true;
-        }
-
-        var isEffectTargetingDistantIndividuals = magicEffect.EffectDescription is
-        {
-            RangeType: RuleDefinitions.RangeType.Distance,
-            TargetType: RuleDefinitions.TargetType.Individuals or RuleDefinitions.TargetType.IndividualsUnique
-        };
-
-        if (!isEffectTargetingDistantIndividuals)
-        {
-            return true;
-        }
-
-        var rulesetSource = source.RulesetActor;
-        var sourceIsHeavilyObscured =
-            rulesetSource.HasConditionOfTypeOrSubType(ConditionBlinded.Name);
-
-        var rulesetTarget = target.RulesetActor;
-        var targetIsHeavilyObscuredOrInNaturalDarkness =
-            rulesetTarget.HasConditionOfTypeOrSubType(ConditionBlinded.Name) ||
-            target.LightingState == LightingState.Unlit;
-
-        if (!sourceIsHeavilyObscured && !targetIsHeavilyObscuredOrInNaturalDarkness)
-        {
-            return true;
-        }
-
-        return source.CanPerceiveTarget(target);
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TargetIsBlindNotFromDarkness(RulesetActor actor)
+    {
+        return
+            actor != null &&
+            actor.AllConditions
+                .Select(y => y.ConditionDefinition)
+                .Any(x => (x == ConditionBlinded || x.parentCondition == ConditionBlinded) &&
+                          x != ConditionBlindedByDarkness);
     }
 
     // improved cell perception routine that takes sight into consideration
     // most of the usages is to determine if a character can perceive a cell in teleport scenarios
-    // when target not null it helps determine visibility on attacks and targeting scenarios
-    public static bool MyIsCellPerceivedByCharacter(
+    // when target not null it helps determine visibility on attacks and effects targeting scenarios
+    internal static bool MyIsCellPerceivedByCharacter(
         this GameLocationVisibilityManager instance,
         int3 cellPosition,
         GameLocationCharacter sensor,
@@ -407,10 +419,11 @@ internal static class LightingAndObscurementContext
 
         // try to get the lighting state from the target otherwise calculate on cell position
         // no need to compute lightning if vanilla cannot perceive cell as it'll end up exiting earlier
-        var targetLightingState =
-            result
-                ? target?.LightingState ?? ComputeLightingStateOnTargetPosition(sensor, cellPosition)
-                : LightingState.Bright; // this bright value will never be used
+        var targetLightingState = result
+            ? target?.LightingState ?? ComputeLightingStateOnTargetPosition(sensor, cellPosition)
+            // this bright is a never used placeholder because of 2 !result in sequence checks
+            // save some cycles avoid calling ComputeLightingStateOnTargetPosition too much
+            : LightingState.Bright;
 
         // if setting is off or vanilla cannot perceive
         if (!result ||
@@ -432,16 +445,9 @@ internal static class LightingAndObscurementContext
             target != null &&
             !target.RulesetActor.IsTouchingGround();
 
-        var targetHasMagicalBlindness =
-            target != null &&
-            target.RulesetActor.HasConditionOfType(ConditionBlindedByDarkness);
-
-        var targetHasNonMagicalBlindness =
-            target != null &&
-            target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBlinded.Name) &&
-            !target.RulesetActor.HasConditionOfType(ConditionBlindedByDarkness);
-
-        var targetHasBlindness = targetHasMagicalBlindness || targetHasNonMagicalBlindness;
+        var targetIsBlindFromDarkness = TargetIsBlindFromDarkness(target?.RulesetActor);
+        var targetIsBlindNotFromDarkness = TargetIsBlindNotFromDarkness(target?.RulesetActor);
+        var targetIsBlind = targetIsBlindFromDarkness || targetIsBlindNotFromDarkness;
 
         // try to find any sense mode that is valid for the current lighting state and is within range
         foreach (var senseMode in sensor.RulesetCharacter.SenseModes)
@@ -452,23 +458,23 @@ internal static class LightingAndObscurementContext
                 var senseType = senseMode.SenseType;
 
                 if (senseType == SenseMode.Type.NormalVision ||
-                    (senseType == SenseMode.Type.Darkvision && targetHasBlindness) ||
-                    (senseType == SenseMode.Type.SuperiorDarkvision && targetHasBlindness) ||
-                    (senseType == SenseMode.Type.Truesight && targetHasNonMagicalBlindness) ||
+                    (senseType == SenseMode.Type.Darkvision && targetIsBlind) ||
+                    (senseType == SenseMode.Type.SuperiorDarkvision && targetIsBlind) ||
+                    (senseType == SenseMode.Type.Truesight && targetIsBlindNotFromDarkness) ||
                     (senseType == SenseMode.Type.Tremorsense && targetIsNotTouchingGround))
                 {
                     continue;
                 }
             }
 
-            if (targetLightingState is LightingState.Darkness)
+            else if (targetLightingState is LightingState.Darkness)
             {
                 var senseType = senseMode.SenseType;
 
                 if (senseType == SenseMode.Type.NormalVision ||
                     senseType == SenseMode.Type.Darkvision ||
                     senseType == SenseMode.Type.SuperiorDarkvision ||
-                    (senseType == SenseMode.Type.Truesight && targetHasNonMagicalBlindness) ||
+                    (senseType == SenseMode.Type.Truesight && targetIsBlindNotFromDarkness) ||
                     (senseType == SenseMode.Type.Tremorsense && targetIsNotTouchingGround))
                 {
                     continue;
@@ -648,14 +654,6 @@ internal static class LightingAndObscurementContext
                 lightingState2 != LightingState.Unlit
                     ? lightingState2
                     : LightingState.Dim;
-        }
-    }
-
-    private sealed class ForceConditionParentBlindedByDarkness : IForceConditionParent
-    {
-        public string Parent(ConditionDefinition source)
-        {
-            return ConditionBlinded.Name;
         }
     }
 }
