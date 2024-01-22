@@ -398,12 +398,6 @@ internal static class LightingAndObscurementContext
             }
         }
 
-        // nothing to do here if both contenders are already blinded
-        if (attackerIsBlind && defenderIsBlind)
-        {
-            return;
-        }
-
         var attackerIsStealthy = attackerActor.HasConditionOfType(ConditionStealthy);
 
         var attackerCanPerceiveDefender = attacker.CanPerceiveTarget(defender);
@@ -653,8 +647,6 @@ internal static class LightingAndObscurementContext
 
         static LightingState ComputeIllumination(IIlluminable illuminable, int3 targetPosition)
         {
-            const LightingState UNLIT = LightingState.Unlit;
-
             var visibilityManager =
                 ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
 
@@ -663,7 +655,7 @@ internal static class LightingAndObscurementContext
 
             if (visibilityManager.positionCache == null || visibilityManager.positionCache.Empty())
             {
-                return UNLIT;
+                return LightingState.Unlit;
             }
 
             //
@@ -731,6 +723,7 @@ internal static class LightingAndObscurementContext
             foreach (var position in visibilityManager.positionCache)
             {
                 gridAccessor.FetchSector(position);
+
                 if (gridAccessor.sector == null ||
                     gridAccessor.sector.GlobalLightingState == LightingState.Unlit)
                 {
@@ -797,12 +790,12 @@ internal static class LightingAndObscurementContext
                     var hasLineOfSight = true;
                     var sourcePosition =
                         visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(
-                            key.LocationPosition);
+                            locationPosition);
                     var destinationPosition =
                         visibilityManager.gameLocationPositioningService.GetWorldPositionFromGridPosition(int3);
 
                     visibilityManager.AdaptRayForVerticalityAndDiagonals(
-                        key.LocationPosition, int3, ref sourcePosition, true);
+                        locationPosition, int3, ref sourcePosition, true);
 
                     if (key.RulesetLightSource.IsSpot)
                     {
@@ -816,7 +809,7 @@ internal static class LightingAndObscurementContext
                     if (!hasLineOfSight ||
                         visibilityManager.gameLocationPositioningService.RaycastGridSightBlocker(
                             sourcePosition, destinationPosition, visibilityManager.GameLocationService) ||
-                        visibilityManager.gameLocationPositioningService.IsSightImpaired(key.LocationPosition, int3))
+                        visibilityManager.gameLocationPositioningService.IsSightImpaired(locationPosition, int3))
                     {
                         continue;
                     }
