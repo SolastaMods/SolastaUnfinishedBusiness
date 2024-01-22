@@ -63,7 +63,6 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=武术 - 额外徒
 Feature/&AttributeModifierMonkAbundantKiDescription=将一半的熟练加值（向上舍入）添加到您的 Ki 点数池中。
 Feature/&AttributeModifierMonkAbundantKiTitle=气量充沛
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
-Feature/&DieRollModifierTrueSightIllusionarySaving=由于真实视域，{0}会自动豁免幻象法术。
 Feature/&EnhancedIndomitableResistanceDescription=如果你的豁免检定失败，你可以重新投掷，并获得相当于你的战士等级的奖励。如果您这样做，则必须使用新的骰子，并且在完成长时间休息之前不能再次使用此功能。
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=扩展法术
@@ -137,6 +136,7 @@ Feedback/&ReturningWeaponActivates={1} 返回 {0}！
 Feedback/&SmallRace=小赛
 Feedback/&TriggerFeatureLine={0} 触发 {1}
 Feedback/&TriggerRerollLine={0} 激活 {1} 以重投 {2} = {3}
+Feedback/&TrueSightAndIllusionSpells={0}拥有真实视觉并且不受此法术影响
 Format/&LevelAndExperienceFormat=等级：{0}\n经验：{1}\n升到{3}级需要 {2} 经验
 Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验：{1}\n已达到最高等级
 Message/&CharacterExportDuplicateNameErrorDescription=导出已取消：\n\n池中已存在同名的英雄。\n请尝试其他名称。

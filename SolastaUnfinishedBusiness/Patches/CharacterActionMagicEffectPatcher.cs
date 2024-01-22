@@ -5,12 +5,10 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -120,33 +118,6 @@ public static class CharacterActionMagicEffectPatcher
             CharacterActionMagicEffect __instance)
         {
             var baseDefinition = __instance.GetBaseDefinition();
-
-            //PATCH: illusionary spells against creatures with True Sight should automatically save
-            if (baseDefinition is SpellDefinition { SchoolOfMagic: SchoolIllusion } &&
-                __instance.ActionParams.TargetCharacters.Count > 0 &&
-                baseDefinition != DatabaseHelper.SpellDefinitions.Silence)
-            {
-                var target = __instance.ActionParams.TargetCharacters[0];
-                var rulesetTarget = target.RulesetCharacter;
-                var senseMode = rulesetTarget.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
-
-                if (senseMode != null && __instance.ActingCharacter.IsWithinRange(target, senseMode.SenseRange))
-                {
-                    rulesetTarget.InflictCondition(
-                        SrdAndHouseRulesContext.ConditionAutomaticSavingThrow.Name,
-                        DurationType.Round,
-                        0,
-                        TurnOccurenceType.StartOfTurn,
-                        AttributeDefinitions.TagEffect,
-                        rulesetTarget.Guid,
-                        rulesetTarget.CurrentFaction.Name,
-                        1,
-                        SrdAndHouseRulesContext.ConditionAutomaticSavingThrow.Name,
-                        0,
-                        0,
-                        0);
-                }
-            }
 
             //PATCH: supports `IMagicEffectInitiatedByMe`
             // no need to check for gui.battle != null

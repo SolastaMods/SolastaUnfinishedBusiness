@@ -63,7 +63,6 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Artes marciales: b
 Feature/&AttributeModifierMonkAbundantKiDescription=Agregue la mitad de su bonificación de competencia (redondeado hacia arriba) a su grupo de Ki Points.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abundante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
-Feature/&DieRollModifierTrueSightIllusionarySaving={0} se guarda automáticamente contra hechizos ilusorios gracias a True Sight.
 Feature/&EnhancedIndomitableResistanceDescription=Si fallas una tirada de salvación, puedes volver a tirarla con una bonificación igual a tu nivel de Luchador. Si lo haces, deberás utilizar la nueva tirada y no podrás volver a utilizar esta función hasta que termines un descanso prolongado.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Hechizos ampliados
@@ -137,6 +136,7 @@ Feedback/&ReturningWeaponActivates=¡{1} vuelve a {0}!
 Feedback/&SmallRace=Raza pequeña
 Feedback/&TriggerFeatureLine={0} activa {1}
 Feedback/&TriggerRerollLine={0} activa el poder {1} para volver a tirar {2} = {3}
+Feedback/&TrueSightAndIllusionSpells={0} tiene True Sight y no se ve afectado por este hechizo
 Format/&LevelAndExperienceFormat=Nivel: {0}\nExperiencia: {1}\n{2} puntos necesarios para alcanzar el nivel {3}
 Format/&LevelAndExperienceMaxedFormat=Nivel: {0}\nExperiencia: {1}\nnivel máximo alcanzado
 Message/&CharacterExportDuplicateNameErrorDescription=Exportación cancelada:\n\nYa existe un héroe con este nombre en el grupo.\nPruebe con otro nombre.

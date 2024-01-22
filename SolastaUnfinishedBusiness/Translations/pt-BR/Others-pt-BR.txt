@@ -63,7 +63,6 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Artes Marciais - A
 Feature/&AttributeModifierMonkAbundantKiDescription=Adicione metade do seu bônus de proficiência (arredondado para cima) à sua reserva de Ki Points.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki Abundante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
-Feature/&DieRollModifierTrueSightIllusionarySaving={0} salva automaticamente contra feitiços ilusórios por causa da Visão Verdadeira.
 Feature/&EnhancedIndomitableResistanceDescription=Se você falhar em um teste de resistência, poderá jogá-lo novamente com um bônus igual ao seu nível de Lutador. Se fizer isso, você deverá usar o novo teste e não poderá usar esse recurso novamente até terminar um descanso longo.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Feitiços Expandidos
@@ -137,6 +136,7 @@ Feedback/&ReturningWeaponActivates={1} retorna para {0}!
 Feedback/&SmallRace=Corrida Pequena
 Feedback/&TriggerFeatureLine={0} gatilhos {1}
 Feedback/&TriggerRerollLine={0} ativa o poder {1} para rolar novamente {2} = {3}
+Feedback/&TrueSightAndIllusionSpells={0} tem Visão Verdadeira e não é afetado por este feitiço
 Format/&LevelAndExperienceFormat=Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
 Format/&LevelAndExperienceMaxedFormat=Nível: {0}\nExperiência: {1}\nnível máximo alcançado
 Message/&CharacterExportDuplicateNameErrorDescription=Exportação cancelada:\n\nJá existe um herói com este nome no pool.\nTente um nome diferente.

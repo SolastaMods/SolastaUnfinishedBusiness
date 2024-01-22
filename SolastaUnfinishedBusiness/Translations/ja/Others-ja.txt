@@ -63,7 +63,6 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=マーシャルア
 Feature/&AttributeModifierMonkAbundantKiDescription=熟練度ボーナスの半分（切り上げ）を Ki ポイントプールに追加します。
 Feature/&AttributeModifierMonkAbundantKiTitle=豊かな気
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
-Feature/&DieRollModifierTrueSightIllusionarySaving={0}はTrue Sightのおかげで幻想的な呪文に対して自動的にセーブします。
 Feature/&EnhancedIndomitableResistanceDescription=セーヴィング スローに失敗した場合は、ファイター レベルに等しいボーナスを獲得して再ロールできます。その場合は、新しいロールを使用する必要があり、長い休憩が終了するまでこの機能を再度使用することはできません。
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=拡張された呪文
@@ -137,6 +136,7 @@ Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
 Feedback/&SmallRace=スモールレース
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします
 Feedback/&TriggerRerollLine={0} は、{2} = {3} を再ロールするための {1} パワーを有効にします
+Feedback/&TrueSightAndIllusionSpells={0}は真の視力を持っており、この呪文の影響を受けません
 Format/&LevelAndExperienceFormat=レベル: {0}\n経験値: {1}\n{2} ポイントがレベル {3} に到達するために必要です
 Format/&LevelAndExperienceMaxedFormat=レベル: {0}\n経験値: {1}\n最大レベルに到達しました
 Message/&CharacterExportDuplicateNameErrorDescription=エクスポートがキャンセルされました:\n\nこの名前のヒーローはプールにすでに存在します。\n別の名前を試してください。

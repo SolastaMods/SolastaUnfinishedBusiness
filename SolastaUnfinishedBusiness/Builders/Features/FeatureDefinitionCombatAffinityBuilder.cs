@@ -1,7 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -93,12 +92,6 @@ internal class FeatureDefinitionCombatAffinityBuilder
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {
         Definition.situationalContext = (SituationalContext)context;
-        return this;
-    }
-
-    internal FeatureDefinitionCombatAffinityBuilder SetNullifiedBySelfSenses(params SenseMode.Type[] senses)
-    {
-        Definition.nullifiedBySelfSenses.SetRange(senses);
         return this;
     }
 

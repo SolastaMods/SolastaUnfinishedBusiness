@@ -63,7 +63,6 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=무술 - 보너스
 Feature/&AttributeModifierMonkAbundantKiDescription=숙련도 보너스의 절반(반올림)을 기 포인트 풀에 추가합니다.
 Feature/&AttributeModifierMonkAbundantKiTitle=풍부한 기
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
-Feature/&DieRollModifierTrueSightIllusionarySaving={0}은 True Sight 덕분에 환상 주문으로부터 자동으로 저장됩니다.
 Feature/&EnhancedIndomitableResistanceDescription=내성 굴림에 실패하면 파이터 레벨과 동일한 보너스를 받아 다시 굴릴 수 있습니다. 그럴 경우 새 롤을 사용해야 하며, 긴 휴식을 마칠 때까지 이 기능을 다시 사용할 수 없습니다.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=확장된 주문
@@ -137,6 +136,7 @@ Feedback/&ReturningWeaponActivates={1}이 {0}으로 돌아감!
 Feedback/&SmallRace=소규모 경주
 Feedback/&TriggerFeatureLine={0}이 {1}을 촉발
 Feedback/&TriggerRerollLine={0} 이 {1} 을 활성화, {2} = {3} 다시 굴림
+Feedback/&TrueSightAndIllusionSpells={0}은(는) 진정한 시력을 갖고 있으며 이 주문의 영향을 받지 않습니다.
 Format/&LevelAndExperienceFormat=레벨: {0}\n경험치: 레벨 {3}에 도달하는 데 필요한 포인트: {1}\n{2} 포인트
 Format/&LevelAndExperienceMaxedFormat=레벨: {0}\n경험치: {1}\n최대 레벨 도달
 Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n\n이 이름의 영웅이 이미 풀에 있습니다.\n다른 이름을 입력해 보십시오.

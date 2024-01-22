@@ -63,7 +63,6 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Arti Marziali: Col
 Feature/&AttributeModifierMonkAbundantKiDescription=Aggiungi metà del tuo bonus di competenza (arrotondato per eccesso) al tuo pool di punti Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abbondante
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
-Feature/&DieRollModifierTrueSightIllusionarySaving={0} salva automaticamente contro gli incantesimi illusori grazie a True Sight.
 Feature/&EnhancedIndomitableResistanceDescription=Se fallisci un tiro salvezza, puoi lanciarlo nuovamente con un bonus pari al tuo livello da Guerriero. Se lo fai, devi utilizzare il nuovo tiro e non potrai utilizzare nuovamente questo privilegio finché non avrai terminato un riposo lungo.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Incantesimi espansi
@@ -138,6 +137,7 @@ Feedback/&ReturningWeaponActivates={1} torna a {0}!
 Feedback/&SmallRace=Piccola Razza
 Feedback/&TriggerFeatureLine={0} trigger {1}
 Feedback/&TriggerRerollLine={0} attiva il potere {1} per ripetere il tiro {2} = {3}
+Feedback/&TrueSightAndIllusionSpells={0} ha Vera Vista e non è influenzato da questo incantesimo
 Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti richiesti per raggiungere il livello {3}
 Format/&LevelAndExperienceMaxedFormat=Livello: {0}\nEsperienza: {1}\nlivello massimo raggiunto
 Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\n\nUn eroe con questo nome esiste già nel gruppo.\nProva con un nome diverso.

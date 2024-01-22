@@ -63,7 +63,6 @@ Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle=Arts martiaux – 
 Feature/&AttributeModifierMonkAbundantKiDescription=Ajoutez la moitié de votre bonus de compétence (arrondi au supérieur) à votre réserve de points Ki.
 Feature/&AttributeModifierMonkAbundantKiTitle=Ki abondant
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
-Feature/&DieRollModifierTrueSightIllusionarySaving={0} sauvegarde automatiquement contre les sorts illusoires grâce à True Sight.
 Feature/&EnhancedIndomitableResistanceDescription=Si vous échouez à un jet de sauvegarde, vous pouvez le relancer avec un bonus égal à votre niveau de Combattant. Si vous le faites, vous devez utiliser le nouveau jet et vous ne pourrez plus utiliser cette fonctionnalité tant que vous n'aurez pas terminé un repos long.
 Feature/&ExpandedSpellsDescription={0}\n\n
 Feature/&ExpandedSpellsTitle=Sorts étendus
@@ -137,6 +136,7 @@ Feedback/&ReturningWeaponActivates={1} revient à {0} !
 Feedback/&SmallRace=Petite course
 Feedback/&TriggerFeatureLine={0} déclenche {1}
 Feedback/&TriggerRerollLine={0} active le pouvoir {1} pour relancer {2} = {3}
+Feedback/&TrueSightAndIllusionSpells={0} a True Sight et n'est pas affecté par ce sort
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
 Message/&CharacterExportDuplicateNameErrorDescription=Exportation annulée :\n\nUn héros portant ce nom existe déjà dans le groupe.\nVeuillez essayer un autre nom.

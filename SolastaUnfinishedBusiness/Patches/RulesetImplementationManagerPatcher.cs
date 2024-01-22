@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -724,12 +725,12 @@ public static class RulesetImplementationManagerPatcher
         }
 
         [UsedImplicitly]
-        public static void Prefix(
+        public static bool Prefix(
             RulesetCharacter caster,
             RulesetActor target,
-            ActionModifier actionModifier,
+            //ActionModifier actionModifier,
             ref string savingThrowAbility,
-            List<EffectForm> effectForms,
+            //List<EffectForm> effectForms,
             BaseDefinition sourceDefinition)
         {
             //PATCH: supports Oath of Ancients / Oath of Dread Path of The Savagery
@@ -738,6 +739,26 @@ public static class RulesetImplementationManagerPatcher
             OnRollSavingThrowOath(caster, target, sourceDefinition, OathOfDread.ConditionAspectOfDreadName,
                 OathOfDread.ConditionAspectOfDreadEnemy);
             PathOfTheSavagery.OnRollSavingThrowFuriousDefense(target, ref savingThrowAbility);
+
+            //PATCH: illusionary spells against creatures with True Sight should automatically save
+            if (sourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolIllusion } ||
+                sourceDefinition == DatabaseHelper.SpellDefinitions.Silence)
+            {
+                return true;
+            }
+
+            var glCaster = GameLocationCharacter.GetFromActor(caster);
+            var glTarget = GameLocationCharacter.GetFromActor(target);
+
+            if (glCaster == null || glTarget == null)
+            {
+                return true;
+            }
+
+            var senseMode = glTarget.RulesetCharacter.SenseModes
+                .FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
+
+            return senseMode == null || !glTarget.IsWithinRange(glCaster, senseMode.SenseRange);
         }
 
         internal static void OnRollSavingThrowOath(
