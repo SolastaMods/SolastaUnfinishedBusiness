@@ -1,4 +1,4 @@
-Condition/&ConditionBlindedBySearingVengeanceTitle=Ослепленный жгучей местью
+Condition/&ConditionBlindedBySearingVengeanceTitle=Ослеплён Жгучим возмездием
 Feature/&BonusCantripCelestialDescription=Вы узнаёте заговоры <b>Свет</b> и <b>Священное пламя</b>. Для вас они считаются заговорами колдуна и не учитываются при подсчёте известных вам заговоров.
 Feature/&BonusCantripCelestialTitle=Дополнительные заговоры
 Feature/&FeatureSetCelestialRadiantSoulDescription=Ваша связь с Небожителем позволяет вам служить проводником для сияющей энергии. Вы получаете сопротивление урону излучением, и когда вы накладываете заклинание, которое наносит урон излучением или огнём, вы можете добавить модификатор Харизмы к одному броску урона излучением или огнём этого заклинания.

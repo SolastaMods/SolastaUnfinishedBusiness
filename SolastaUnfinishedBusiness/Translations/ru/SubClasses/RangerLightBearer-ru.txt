@@ -1,4 +1,4 @@
-Condition/&ConditionBlindedByBlessedGlowTitle=Ослепленный благословенным сиянием
+Condition/&ConditionBlindedByBlessedGlowTitle=Ослеплён Благословенным сиянием
 Condition/&ConditionRangerLightBearerAngelicFormDescription=Вы обладаете скоростью полёта, равной скоростью ходьбы, а ваши атаки считаются магическими.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Ангельская форма
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Когда наложивший метку поражает вас атакой оружием, весь урон, нанесённый атакой, становится уроном излучением, и вы получаете дополнительно 1d8 урона излучением от этой атаки. Начиная с 11-го уровня, дополнительный урон увеличивается до 2d8.
