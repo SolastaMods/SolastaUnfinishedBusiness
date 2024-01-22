@@ -474,6 +474,23 @@ internal static class LightingAndObscurementContext
                source.CanPerceiveTarget(target);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool IsBlindFromDarkness(RulesetActor actor)
+    {
+        return actor != null && actor.HasConditionOfType(ConditionBlindedByDarkness);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool IsBlindNotFromDarkness(RulesetActor actor)
+    {
+        return
+            actor != null &&
+            actor.AllConditions
+                .Select(y => y.ConditionDefinition)
+                .Any(x => (x == ConditionBlinded || x.parentCondition == ConditionBlinded) &&
+                          x != ConditionBlindedByDarkness);
+    }
+
     // improved cell perception routine that takes sight into consideration
     // most of the usages is to determine if a character can perceive a cell in teleport scenarios
     // when target not null it helps determine visibility on attacks and effects targeting scenarios
@@ -503,16 +520,34 @@ internal static class LightingAndObscurementContext
         }
 
         var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
-        var targetIsNotTouchingGround =
-            target != null &&
-            !target.RulesetActor.IsTouchingGround();
+        var sensorCharacter = sensor.RulesetCharacter;
+        var sourceIsBlindFromDarkness = IsBlindFromDarkness(sensorCharacter);
+        var sourceIsBlindNotFromDarkness = IsBlindNotFromDarkness(sensorCharacter);
+        var targetIsNotTouchingGround = target != null && !target.RulesetActor.IsTouchingGround();
 
         // try to find any sense mode that is valid for the current lighting state and is within range
         foreach (var senseMode in sensor.RulesetCharacter.SenseModes)
         {
             var senseType = senseMode.SenseType;
 
-            if (senseType == SenseMode.Type.Tremorsense && targetIsNotTouchingGround)
+            if (sourceIsBlindNotFromDarkness && senseType is
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision or
+                    SenseMode.Type.Truesight)
+            {
+                continue;
+            }
+
+            if (sourceIsBlindFromDarkness && senseType is
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision)
+            {
+                continue;
+            }
+
+            if (targetIsNotTouchingGround && senseType is SenseMode.Type.Tremorsense)
             {
                 continue;
             }
@@ -766,17 +801,6 @@ internal static class LightingAndObscurementContext
 
     private enum MyLightingState
     {
-        // ReSharper disable once UnusedMember.Local
-        Unlit,
-
-        // ReSharper disable once UnusedMember.Local
-        Dim,
-
-        // ReSharper disable once UnusedMember.Local
-        Bright,
-
-        // ReSharper disable once UnusedMember.Local
-        Darkness,
-        HeavilyObscured
+        HeavilyObscured = 9000
     }
 }
