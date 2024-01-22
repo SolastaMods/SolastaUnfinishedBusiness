@@ -558,7 +558,7 @@ internal static class LightingAndObscurementContext
         var targetIsNotTouchingGround = target != null && !target.RulesetActor.IsTouchingGround();
 
         // try to find any sense mode that is valid for the current lighting state and is within range
-        foreach (var senseMode in sensor.RulesetCharacter.SenseModes)
+        foreach (var senseMode in sensorCharacter.SenseModes)
         {
             var senseType = senseMode.SenseType;
 
@@ -680,9 +680,17 @@ internal static class LightingAndObscurementContext
             }
 
             var isDarkness = false;
+            var targetPositionCharacterLightingState = (LightingState)MyLightingState.Invalid;
 
             foreach (var locationCharacter in locationCharacters)
             {
+                if (locationCharacter.RulesetActor is RulesetCharacter)
+                {
+                    targetPositionCharacterLightingState = locationCharacter.LightingState;
+
+                    continue;
+                }
+
                 if (locationCharacter.RulesetActor is not RulesetCharacterEffectProxy rulesetProxy)
                 {
                     continue;
@@ -706,6 +714,12 @@ internal static class LightingAndObscurementContext
             if (isDarkness)
             {
                 return LightingState.Darkness;
+            }
+
+            // if there is a character on target position don't waste time re-calculating it's lighting state
+            if (targetPositionCharacterLightingState != (LightingState)MyLightingState.Invalid)
+            {
+                return targetPositionCharacterLightingState;
             }
 
             //
@@ -833,6 +847,7 @@ internal static class LightingAndObscurementContext
 
     private enum MyLightingState
     {
-        HeavilyObscured = 9000
+        HeavilyObscured = 9000,
+        Invalid = 9001
     }
 }
