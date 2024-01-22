@@ -630,6 +630,8 @@ internal static class LightingAndObscurementContext
             return lightingState;
         }
 
+        // this is a hack to allow calling GetAllPositionsToCheck inside ComputeIllumination
+        // we save the character's current position and set it to the target location we need to calculate
         var savePosition = new int3(
             instance.LocationPosition.x,
             instance.LocationPosition.y,
@@ -645,6 +647,9 @@ internal static class LightingAndObscurementContext
 
         return illumination;
 
+        //
+        // extended lighting state determination routine that differentiates darkness effect from other obscured ones
+        //
         static LightingState ComputeIllumination(IIlluminable illuminable, int3 targetPosition)
         {
             var visibilityManager =
@@ -676,15 +681,10 @@ internal static class LightingAndObscurementContext
 
             foreach (var locationCharacter in locationCharacters)
             {
-                if (locationCharacter.RulesetActor is RulesetCharacter)
-                {
-                    targetPositionCharacterLightingState = locationCharacter.LightingState;
-
-                    continue;
-                }
-
                 if (locationCharacter.RulesetActor is not RulesetCharacterEffectProxy rulesetProxy)
                 {
+                    targetPositionCharacterLightingState = locationCharacter.LightingState;
+                    
                     continue;
                 }
 
@@ -703,19 +703,20 @@ internal static class LightingAndObscurementContext
                 }
             }
 
+            // it's indeed only darkness and no other heavily obscured effect
             if (isDarkness)
             {
                 return LightingState.Darkness;
             }
 
-            // if there is a character on target position don't waste time re-calculating it's lighting state
+            // if there is a character at target position don't waste time re-calculating it's lighting state
             if (targetPositionCharacterLightingState != (LightingState)MyLightingState.Invalid)
             {
                 return targetPositionCharacterLightingState;
             }
 
             //
-            // try to determine if outside and if in daylight exit earlier
+            // try to determine if outside and if in bright daylight exit earlier
             //
 
             var globalLightingState = LightingState.Unlit;
