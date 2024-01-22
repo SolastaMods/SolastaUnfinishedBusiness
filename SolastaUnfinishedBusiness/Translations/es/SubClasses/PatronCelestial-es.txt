@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedBySearingVengeanceTitle=Cegado por una venganza abrasadora
 Feature/&BonusCantripCelestialDescription=Aprendes los trucos de <b>Luz</b> y <b>Llama Sagrada</b>. Cuentan como trucos de brujo para ti, pero no cuentan contra tu número de trucos conocidos.
 Feature/&BonusCantripCelestialTitle=Trucos adicionales
 Feature/&FeatureSetCelestialRadiantSoulDescription=Tu vínculo con lo Celestial te permite servir como conducto para la energía radiante. Tienes resistencia al daño radiante, y cuando lanzas un hechizo que causa daño radiante o de fuego, agregas tu modificador de Carisma a una tirada de daño radiante o de fuego de ese hechizo.

@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=被致盲重击致盲
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=被虚空的饥饿所蒙蔽
 Condition/&ConditionCorruptingBoltDescription=该生物很容易受到下一次受到的伤害。
 Condition/&ConditionCorruptingBoltTitle=已损坏
 Condition/&ConditionCrusadersMantleDescription=在你的攻击中获得额外的 1d4 光耀伤害。

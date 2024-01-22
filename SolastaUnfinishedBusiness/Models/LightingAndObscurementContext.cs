@@ -22,8 +22,52 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class LightingAndObscurementContext
 {
+    private const string BlindExtendedDescription = "Condition/&ConditionBlindedExtendedDescription";
+
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByDarkness")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByCloudKill = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByCloudKill")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByFogCloud = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByFogCloud")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByIncendiaryCloud = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByIncendiaryCloud")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByPetalStorm = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByPetalStorm")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedBySleetStorm = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedBySleetStorm")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByStinkingCloud = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
         .SetOrUpdateGuiPresentation(Category.Condition)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
@@ -41,7 +85,11 @@ internal static class LightingAndObscurementContext
                 .AddToDB())
         .AddToDB();
 
-    private static readonly EffectForm FormBlinded = EffectFormBuilder.ConditionForm(ConditionBlinded);
+    private static readonly EffectForm FormBlindedByCloudKill =
+        EffectFormBuilder.ConditionForm(ConditionBlindedByCloudKill);
+
+    private static readonly EffectForm FormBlindedByIncendiaryCloud =
+        EffectFormBuilder.ConditionForm(ConditionBlindedByIncendiaryCloud);
 
     private static readonly EffectForm FormLightlyObscured = EffectFormBuilder.ConditionForm(ConditionLightlyObscured);
 
@@ -50,22 +98,39 @@ internal static class LightingAndObscurementContext
         .SetTopologyForm(TopologyForm.Type.ProjectileBlocker, true)
         .Build();
 
+    internal static void LateLoad()
+    {
+        ConditionBlindedByDarkness.GuiPresentation.description = BlindExtendedDescription;
+        ConditionBlindedByCloudKill.GuiPresentation.description = BlindExtendedDescription;
+        ConditionBlindedByFogCloud.GuiPresentation.description = BlindExtendedDescription;
+        ConditionBlindedByIncendiaryCloud.GuiPresentation.description = BlindExtendedDescription;
+        ConditionBlindedByPetalStorm.GuiPresentation.description = BlindExtendedDescription;
+        ConditionBlindedBySleetStorm.GuiPresentation.description = BlindExtendedDescription;
+        ConditionBlindedByStinkingCloud.GuiPresentation.description = BlindExtendedDescription;
+        SwitchOfficialObscurementRules();
+    }
+
     internal static void SwitchOfficialObscurementRules()
     {
+        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
+                     .Where(x => x.IsSubtypeOf(ConditionBlinded.Name)))
+        {
+            condition.GuiPresentation.description = Main.Settings.UseOfficialLightingObscurementAndVisionRules
+                ? BlindExtendedDescription
+                : "Rules/&ConditionBlindedDescription";
+        }
+
+        SwitchHeavilyObscuredOnObscurementRules();
+        SwitchMagicalDarknessOnObscurementRules();
+        SwitchMonstersOnObscurementRules();
+        SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
-            SwitchHeavilyObscuredOnObscurementRules();
-            SwitchMagicalDarknessOnObscurementRules();
-            SwitchMonstersOnObscurementRules();
-
             ConditionBlinded.Features.SetRange(
                 CombatAffinityHeavilyObscured,
                 CombatAffinityHeavilyObscuredSelf,
                 PerceptionAffinityConditionBlinded);
-
-            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
-
-            ConditionBlinded.GuiPresentation.description = ConditionBlindedByDarkness.GuiPresentation.description;
 
             // >> ConditionVeil
             // ConditionAffinityVeilImmunity
@@ -88,24 +153,26 @@ internal static class LightingAndObscurementContext
             // FogCloud
             // PetalStorm
 
-            FogCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionBlinded;
+            FogCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionBlindedByFogCloud;
 
             SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
-                ConditionBlinded;
+                ConditionBlindedByPetalStorm;
 
             // >> ConditionInStinkingCloud
             // StinkingCloud
 
-            StinkingCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionBlinded;
+            StinkingCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
+                ConditionBlindedByStinkingCloud;
 
             // >> ConditionSleetStorm
             // SleetStorm
 
-            SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionBlinded;
+            SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
+                ConditionBlindedBySleetStorm;
 
             // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
-            CloudKill.EffectDescription.EffectForms.TryAdd(FormBlinded);
-            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormBlinded);
+            CloudKill.EffectDescription.EffectForms.TryAdd(FormBlindedByCloudKill);
+            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormBlindedByIncendiaryCloud);
 
             // Make Insect Plague lightly obscured
             InsectPlague.EffectDescription.EffectForms.Add(FormLightlyObscured);
@@ -123,17 +190,9 @@ internal static class LightingAndObscurementContext
         }
         else
         {
-            SwitchHeavilyObscuredOnObscurementRules();
-            SwitchMagicalDarknessOnObscurementRules();
-            SwitchMonstersOnObscurementRules();
-
             ConditionBlinded.Features.SetRange(
                 CombatAffinityBlinded,
                 PerceptionAffinityConditionBlinded);
-
-            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
-
-            ConditionBlinded.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
 
             // >> ConditionVeil
             // ConditionAffinityVeilImmunity
@@ -174,8 +233,8 @@ internal static class LightingAndObscurementContext
             SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionSleetStorm;
 
             // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
-            CloudKill.EffectDescription.EffectForms.Remove(FormBlinded);
-            IncendiaryCloud.EffectDescription.EffectForms.Remove(FormBlinded);
+            CloudKill.EffectDescription.EffectForms.Remove(FormBlindedByCloudKill);
+            IncendiaryCloud.EffectDescription.EffectForms.Remove(FormBlindedByIncendiaryCloud);
 
             // Remove lightly obscured from Insect Plague
             InsectPlague.EffectDescription.EffectForms.Remove(FormLightlyObscured);

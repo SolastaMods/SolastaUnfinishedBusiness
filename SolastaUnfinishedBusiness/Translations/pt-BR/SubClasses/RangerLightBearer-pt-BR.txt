@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=Cegado pelo brilho abençoado
 Condition/&ConditionRangerLightBearerAngelicFormDescription=Você tem um deslocamento de voo igual ao seu deslocamento de caminhada e seus ataques também contam como mágicos.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Forma angelical
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Quando atingido pelo lançador com um ataque de arma, todo o dano causado pelo ataque se torna dano radiante e você recebe 1d8 de dano radiante extra do ataque. A partir do 11º nível, o dano extra aumenta para 2d8.

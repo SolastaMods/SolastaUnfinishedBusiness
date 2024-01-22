@@ -29,6 +29,16 @@ internal static partial class SpellBuilders
     {
         const string NAME = "BlindingSmite";
 
+        var conditionBlindedByBlindingSmite = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBlinded, $"ConditionBlindedBy{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
+            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+            .SetFeatures()
+            .AddToDB();
+
+        conditionBlindedByBlindingSmite.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
+
         var additionalDamageBlindingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
@@ -44,7 +54,7 @@ internal static partial class SpellBuilders
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = ConditionBlinded_Sunburst,
+                    conditionDefinition = conditionBlindedByBlindingSmite,
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             // doesn't follow the standard impact particle reference
@@ -1275,10 +1285,13 @@ internal static partial class SpellBuilders
         const string Name = "HungerOfTheVoid";
 
         var conditionHungerOfTheVoid = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}")
+            .Create(ConditionDefinitions.ConditionBlinded, $"ConditionBlindedBy{Name}")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionDefinitions.ConditionBlinded)
             .SetFeatures()
             .AddToDB();
+
+        conditionHungerOfTheVoid.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
 
         conditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(conditionHungerOfTheVoid));
 

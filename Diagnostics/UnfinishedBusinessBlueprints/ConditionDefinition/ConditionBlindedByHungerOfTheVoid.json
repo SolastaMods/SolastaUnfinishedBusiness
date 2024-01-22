@@ -263,8 +263,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionBlindedByDarknessTitle",
-    "description": "Condition/&ConditionBlindedExtendedDescription",
+    "title": "Condition/&ConditionBlindedByHungerOfTheVoidTitle",
+    "description": "Rules/&ConditionBlindedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",
@@ -284,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0262e7d0-0f38-5a86-8fc5-4ee1b2888cc1",
+  "guid": "67d38be7-9dee-5f02-9a24-75a521c64439",
   "contentPack": 9999,
-  "name": "ConditionBlindedByDarkness"
+  "name": "ConditionBlindedByHungerOfTheVoid"
 }

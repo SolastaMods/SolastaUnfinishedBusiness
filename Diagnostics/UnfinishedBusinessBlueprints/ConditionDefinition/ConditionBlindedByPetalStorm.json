@@ -263,8 +263,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionBlindedTitle",
-    "description": "Rules/&ConditionBlindedDescription",
+    "title": "Condition/&ConditionBlindedByPetalStormTitle",
+    "description": "Condition/&ConditionBlindedExtendedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",
@@ -284,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2b6ea2e1-0f8d-53b2-9dcf-e9aac46911b8",
+  "guid": "919d6ea7-996f-5d48-914c-04f8b0f0235e",
   "contentPack": 9999,
-  "name": "ConditionHungerOfTheVoid"
+  "name": "ConditionBlindedByPetalStorm"
 }

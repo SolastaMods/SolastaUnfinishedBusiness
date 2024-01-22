@@ -90,8 +90,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionHungerOfTheVoid",
-          "conditionDefinition": "Definition:ConditionHungerOfTheVoid:2b6ea2e1-0f8d-53b2-9dcf-e9aac46911b8",
+          "conditionDefinitionName": "ConditionBlindedByHungerOfTheVoid",
+          "conditionDefinition": "Definition:ConditionBlindedByHungerOfTheVoid:67d38be7-9dee-5f02-9a24-75a521c64439",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

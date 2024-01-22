@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedBySearingVengeanceTitle=Geblendet von sengender Rache
 Feature/&BonusCantripCelestialDescription=Du lernst die Cantrips <b>Licht</b> und <b>Heilige Flamme</b>. Sie zählen für Sie als Hexenmeister-Cantrips, zählen jedoch nicht zu Ihrer Anzahl bekannter Cantrips.
 Feature/&BonusCantripCelestialTitle=Bonus-Cantrips
 Feature/&FeatureSetCelestialRadiantSoulDescription=Ihre Verbindung zum Himmlischen ermöglicht es Ihnen, als Kanal für Strahlungsenergie zu dienen. Du hast Widerstand gegen Strahlungsschaden, und wenn du einen Zauber wirkst, der Strahlungs- oder Feuerschaden verursacht, addierst du deinen Charisma-Modifikator zu einem Strahlungs- oder Feuerschadenswurf dieses Zaubers.

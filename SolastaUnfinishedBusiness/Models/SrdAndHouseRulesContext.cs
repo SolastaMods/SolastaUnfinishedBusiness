@@ -117,7 +117,6 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
-        LightingAndObscurementContext.SwitchOfficialObscurementRules();
     }
 
     internal static void SwitchSchoolRestrictionsFromShadowCaster()

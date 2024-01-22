@@ -190,6 +190,15 @@ public class PatronCelestial : AbstractSubclass
 
         // Searing Vengeance
 
+        var conditionBlindedBySearingVengeance = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBlinded, "ConditionBlindedBySearingVengeance")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
+            .SetFeatures()
+            .AddToDB();
+
+        conditionBlindedBySearingVengeance.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
+
         var powerSearingVengeance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SearingVengeance")
             .SetGuiPresentation(Category.Feature)
@@ -207,7 +216,7 @@ public class PatronCelestial : AbstractSubclass
                             .SetDamageForm(DamageTypeRadiant, 2, DieType.D8)
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .Build(),
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBlinded))
+                        EffectFormBuilder.ConditionForm(conditionBlindedBySearingVengeance))
                     .SetParticleEffectParameters(PowerDomainSunHeraldOfTheSun)
                     .Build())
             .AddToDB();

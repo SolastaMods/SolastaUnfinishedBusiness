@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=눈부신 강타로 눈이 멀다
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=공허의 굶주림에 눈이 멀다
 Condition/&ConditionCorruptingBoltDescription=생물은 받는 다음 피해 인스턴스에 취약합니다.
 Condition/&ConditionCorruptingBoltTitle=타락함
 Condition/&ConditionCrusadersMantleDescription=공격에 1d4 추가 광휘 피해를 얻습니다.

@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=Aveuglé par Blinding Smite
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=Aveuglé par la faim du vide
 Condition/&ConditionCorruptingBoltDescription=La créature est vulnérable à la prochaine instance de dégâts qu'elle reçoit.
 Condition/&ConditionCorruptingBoltTitle=Corrompu
 Condition/&ConditionCrusadersMantleDescription=Gagnez un bonus de 1d4 dégâts radiants sur vos attaques.

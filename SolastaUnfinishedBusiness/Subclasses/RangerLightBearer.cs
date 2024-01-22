@@ -122,6 +122,15 @@ public sealed class RangerLightBearer : AbstractSubclass
 
         // Blessed Glow
 
+        var conditionBlindedByBlessedGlow = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBlinded, "ConditionBlindedByBlessedGlow")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
+            .SetFeatures()
+            .AddToDB();
+
+        conditionBlindedByBlessedGlow.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
+
         var powerBlessedGlow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BlessedGlow")
             .SetGuiPresentation(Category.Feature)
@@ -141,7 +150,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
-                                ConditionDefinitions.ConditionBlinded,
+                                conditionBlindedByBlessedGlow,
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())

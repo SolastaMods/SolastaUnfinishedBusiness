@@ -263,7 +263,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionBlindedByDarknessTitle",
+    "title": "Condition/&ConditionBlindedByIncendiaryCloudTitle",
     "description": "Condition/&ConditionBlindedExtendedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -284,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0262e7d0-0f38-5a86-8fc5-4ee1b2888cc1",
+  "guid": "c5240d4d-9ea6-5d50-8382-23d1cc059b7a",
   "contentPack": 9999,
-  "name": "ConditionBlindedByDarkness"
+  "name": "ConditionBlindedByIncendiaryCloud"
 }

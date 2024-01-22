@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=ブラインディング・スマイトで目がくらむ
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=虚空の飢えに目がくらんだ
 Condition/&ConditionCorruptingBoltDescription=クリーチャーは次にダメージを与える個体に対して脆弱になります。
 Condition/&ConditionCorruptingBoltTitle=破損した
 Condition/&ConditionCrusadersMantleDescription=攻撃時にボーナス 1d4 放射ダメージを獲得します。

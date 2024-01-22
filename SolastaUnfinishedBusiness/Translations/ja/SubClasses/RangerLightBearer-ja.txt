@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=祝福された輝きに目がくらむ
 Condition/&ConditionRangerLightBearerAngelicFormDescription=飛行速度は歩行速度と同じで、攻撃も魔法としてカウントされます。
 Condition/&ConditionRangerLightBearerAngelicFormTitle=エンジェリックフォーム
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=術者が武器攻撃を受けると、その攻撃によって与えられたすべてのダメージが放射ダメージとなり、あなたはその攻撃から追加の 1d8 放射ダメージを受けます。 11 レベル以降、追加ダメージは 2d8 に増加します。

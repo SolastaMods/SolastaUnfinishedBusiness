@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=Geblendet durch Blending Smite
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=Geblendet vom Hunger der Leere
 Condition/&ConditionCorruptingBoltDescription=Die Kreatur ist anfällig für die nächste Schadensinstanz, die sie erhält.
 Condition/&ConditionCorruptingBoltTitle=Beschädigt
 Condition/&ConditionCrusadersMantleDescription=Erhalte einen zusätzlichen Strahlungsschaden von 1W4 bei deinen Angriffen.

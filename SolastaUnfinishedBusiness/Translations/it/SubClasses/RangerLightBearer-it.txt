@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=Accecato dal Bagliore Benedetto
 Condition/&ConditionRangerLightBearerAngelicFormDescription=Hai una velocità di volo pari alla tua velocità di camminata e anche i tuoi attacchi contano come magici.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Forma Angelica
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Quando viene colpito dall'incantatore con un attacco con un'arma, tutti i danni inflitti dall'attacco diventano danni radiosi e si subiscono 1d8 danni radiosi extra dall'attacco. A partire dall'11° livello, il danno extra aumenta a 2d8.

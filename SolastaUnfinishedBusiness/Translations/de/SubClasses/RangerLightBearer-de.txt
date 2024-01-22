@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=Geblendet durch gesegnetes Leuchten
 Condition/&ConditionRangerLightBearerAngelicFormDescription=Deine Fluggeschwindigkeit entspricht deiner Gehgeschwindigkeit und auch deine Angriffe gelten als magisch.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Engelsgestalt
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Wenn der Zauberer mit einem Waffenangriff getroffen wird, wird der gesamte durch den Angriff verursachte Schaden zu Strahlungsschaden, und Sie erleiden zusätzlich 1W8 Strahlungsschaden durch den Angriff. Ab der 11. Stufe erhöht sich der zusätzliche Schaden auf 2W8.

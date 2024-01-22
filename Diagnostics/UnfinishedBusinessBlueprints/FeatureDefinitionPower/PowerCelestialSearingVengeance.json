@@ -113,8 +113,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBlinded",
-          "conditionDefinition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
+          "conditionDefinitionName": "ConditionBlindedBySearingVengeance",
+          "conditionDefinition": "Definition:ConditionBlindedBySearingVengeance:4f7ff326-42bc-507b-94ff-19bc581c468e",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

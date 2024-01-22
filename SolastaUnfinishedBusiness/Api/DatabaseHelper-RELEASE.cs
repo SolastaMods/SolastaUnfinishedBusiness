@@ -322,9 +322,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionBlinded { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlinded");
 
-        internal static ConditionDefinition ConditionBlinded_Sunburst { get; } =
-            GetDefinition<ConditionDefinition>("ConditionBlinded_Sunburst");
-
         internal static ConditionDefinition ConditionBlindedEndOfNextTurn { get; } =
             GetDefinition<ConditionDefinition>("ConditionBlindedEndOfNextTurn");
 
