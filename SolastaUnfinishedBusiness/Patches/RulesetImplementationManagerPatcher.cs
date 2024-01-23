@@ -487,7 +487,7 @@ public static class RulesetImplementationManagerPatcher
         public static bool Prefix(EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            var originalHero = formsParams.sourceCharacter.GetOriginalHero();
+            var originalHero = formsParams.sourceCharacter?.GetOriginalHero();
 
             // this shouldn't happen so passing the problem back to original game code
             if (originalHero == null)

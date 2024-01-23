@@ -114,24 +114,23 @@ internal static class LightingAndObscurementContext
 
     internal static void LateLoad()
     {
-        ConditionBlindedByDarkness.GuiPresentation.description = BlindExtendedDescription;
-        ConditionBlindedByCloudKill.GuiPresentation.description = BlindExtendedDescription;
-        ConditionBlindedByFogCloud.GuiPresentation.description = BlindExtendedDescription;
-        ConditionBlindedByIncendiaryCloud.GuiPresentation.description = BlindExtendedDescription;
-        ConditionBlindedByPetalStorm.GuiPresentation.description = BlindExtendedDescription;
-        ConditionBlindedBySleetStorm.GuiPresentation.description = BlindExtendedDescription;
-        ConditionBlindedByStinkingCloud.GuiPresentation.description = BlindExtendedDescription;
         SwitchOfficialObscurementRules();
     }
 
     internal static void SwitchOfficialObscurementRules()
     {
+        var searchTerm = !Main.Settings.UseOfficialLightingObscurementAndVisionRules
+            ? BlindExtendedDescription
+            : "Rules/&ConditionBlindedDescription";
+
+        var replaceTerm = Main.Settings.UseOfficialLightingObscurementAndVisionRules
+            ? BlindExtendedDescription
+            : "Rules/&ConditionBlindedDescription";
+
         foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
-                     .Where(x => x.IsSubtypeOf(ConditionBlinded.Name)))
+                     .Where(x => x.GuiPresentation.description == searchTerm))
         {
-            condition.GuiPresentation.description = Main.Settings.UseOfficialLightingObscurementAndVisionRules
-                ? BlindExtendedDescription
-                : "Rules/&ConditionBlindedDescription";
+            condition.GuiPresentation.description = replaceTerm;
         }
 
         SwitchHeavilyObscuredOnObscurementRules();
