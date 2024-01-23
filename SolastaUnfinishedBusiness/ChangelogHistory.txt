@@ -21,7 +21,6 @@ GO INTO THE LIGHT, STAY IN THE LIGHT, FIND YOUR BEST FRIEND HEY JUDE. ONE DAY, T
 - fixed Stealth Break Behavior setting to also trigger when heroes use powers to initiate combat
 - fixed vanilla always consuming a main action on battle surprise phase even if a bonus power or spell
 - fixed vanilla Cloud Kill and Incendiary Cloud spells not triggering heavy obscurement on activation
-- fixed vanilla Illusion spells except Silent to let target automatically save if true sight sense in range
 - fixed vanilla Ray of Enfeeblement to be applied via attack roll instead of saving throw
 
 1.5.94.42:
