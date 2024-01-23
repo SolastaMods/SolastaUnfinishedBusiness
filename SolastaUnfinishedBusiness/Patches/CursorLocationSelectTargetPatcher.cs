@@ -5,6 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
 using UnityEngine;
 using static RuleDefinitions;
@@ -28,8 +29,24 @@ public static class CursorLocationSelectTargetPatcher
             ref bool __result)
         {
             var definition = __instance.ActionParams.activeEffect.SourceDefinition;
+            var actingCharacter = __instance.actionParams.actingCharacter;
 
-            //PATCH: supports IFilterTargetingCharacter
+            // required for familiar attack
+            actingCharacter.UsedSpecialFeatures.Remove("FamiliarAttack");
+
+            //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
+            if (__result &&
+                definition is IMagicEffect magicEffect &&
+                !LightingAndObscurementContext.IsMagicEffectValidIfHeavilyObscuredOrInNaturalDarkness(
+                    actingCharacter, magicEffect, target))
+            {
+                __instance.actionModifier.FailureFlags.Add("Failure/&FailureFlagNoPerceptionOfTargetDescription");
+                __result = false;
+
+                return;
+            }
+
+            //PATCH: supports `IFilterTargetingCharacter`
             foreach (var filterTargetingMagicEffect in
                      definition.GetAllSubFeaturesOfType<IFilterTargetingCharacter>())
             {
@@ -45,13 +62,13 @@ public static class CursorLocationSelectTargetPatcher
             if (__instance.actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
                 rulesetEffectSpell.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
             {
-                var rulesetCharacter = __instance.actionParams.actingCharacter.RulesetCharacter;
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                var rulesetCharacter = actingCharacter.RulesetCharacter;
 
                 if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     gameLocationBattleService is { IsBattleInProgress: true })
                 {
-                    var familiar = gameLocationBattleService.Battle.PlayerContenders
+                    var familiar = gameLocationBattleService.Battle.AllContenders
                         .FirstOrDefault(x =>
                             x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
                             rulesetCharacterMonster.MonsterDefinition.Name == SpellBuilders.OwlFamiliar &&
@@ -59,17 +76,17 @@ public static class CursorLocationSelectTargetPatcher
                                 y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
                                 y.SourceGuid == rulesetCharacter.Guid));
 
-                    var canAttack = familiar != null && gameLocationBattleService.IsWithin1Cell(familiar, target);
+                    var canAttack = familiar != null && familiar.IsWithinRange(target, 1);
 
                     if (canAttack)
                     {
                         var effectDescription = new EffectDescription();
 
                         effectDescription.Copy(__instance.effectDescription);
-                        effectDescription.rangeType = RangeType.RangeHit;
                         effectDescription.rangeParameter = 24;
 
                         __instance.effectDescription = effectDescription;
+                        actingCharacter.UsedSpecialFeatures.Add("FamiliarAttack", 0);
                     }
                     else
                     {

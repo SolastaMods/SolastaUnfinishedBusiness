@@ -312,8 +312,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            return helper.CanReact()
-                   && defender.IsOppositeSide(helper.Side);
+            return helper.CanReact() && helper.CanPerceiveTarget(defender);
         }
     }
 }

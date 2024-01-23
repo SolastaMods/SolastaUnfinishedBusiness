@@ -147,13 +147,16 @@ public static class GameLocationActionManagerPatcher
             ReactionRequestGroup reactionRequestGroup)
         {
             //PATCH: ensure whoever reacts first will get the reaction handled first by game
-            reactionRequestGroup.Requests.Sort((a, b) =>
+            if (!Global.IsMultiplayer)
             {
-                a.Character.UsedSpecialFeatures.TryGetValue(ReactionTimestamp, out var aTimestamp);
-                b.Character.UsedSpecialFeatures.TryGetValue(ReactionTimestamp, out var bTimestamp);
+                reactionRequestGroup.Requests.Sort((a, b) =>
+                {
+                    a.Character.UsedSpecialFeatures.TryGetValue(ReactionTimestamp, out var aTimestamp);
+                    b.Character.UsedSpecialFeatures.TryGetValue(ReactionTimestamp, out var bTimestamp);
 
-                return aTimestamp <= bTimestamp ? -1 : 1;
-            });
+                    return aTimestamp <= bTimestamp ? -1 : 1;
+                });
+            }
 
             while (values.MoveNext())
             {

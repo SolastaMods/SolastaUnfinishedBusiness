@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -271,7 +272,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionHeroicInfusion),
                         EffectFormBuilder
                             .Create()
-                            .SetTempHpForm(50, DieType.D1, 0, true)
+                            .SetTempHpForm(50)
                             .Build())
                     .SetParticleEffectParameters(DivineFavor)
                     .Build())
@@ -337,7 +338,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
                     .SetParticleEffectParameters(ShadowDagger)
                     .Build())
@@ -345,6 +346,24 @@ internal static partial class SpellBuilders
 
         powerRingOfBlades.EffectDescription.EffectParticleParameters.casterParticleReference = PowerDomainLawWordOfLaw
             .EffectDescription.EffectParticleParameters.casterParticleReference;
+
+        var powerRingOfBladesFree = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Free")
+            .SetGuiPresentation($"Power{NAME}", Category.Feature,
+                Sprites.GetSprite($"Power{NAME}", Resources.PowerRingOfBlades, 128))
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.None, 1, 6)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
+                    .SetParticleEffectParameters(ShadowDagger)
+                    .Build())
+            .AddToDB();
+
+        powerRingOfBladesFree.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainLawWordOfLaw
+                .EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var conditionRingOfBlades = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -355,6 +374,15 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
+        var conditionRingOfBladesFree = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Free")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerRingOfBladesFree)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
         conditionRingOfBlades.conditionParticleReference = PowerSorcererChildRiftDeflection.EffectDescription
             .EffectParticleParameters.conditionParticleReference;
         conditionRingOfBlades.conditionEndParticleReference = PowerSorcererChildRiftDeflection.EffectDescription
@@ -363,13 +391,18 @@ internal static partial class SpellBuilders
 
         powerRingOfBlades.AddCustomSubFeatures(
             new CustomBehaviorPowerRingOfBlades(powerRingOfBlades, conditionRingOfBlades));
+        powerRingOfBladesFree.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.InCombat,
+            // it's indeed powerRingOfBlades here
+            new MagicEffectFinishedByMeRingOfBladesFree(powerRingOfBlades, conditionRingOfBladesFree),
+            new CustomBehaviorPowerRingOfBlades(powerRingOfBladesFree, conditionRingOfBlades));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RingOfBlades, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(6)
-            .SetCastingTime(ActivationTime.Action)
+            .SetCastingTime(ActivationTime.BonusAction)
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 500, false)
             .SetVerboseComponent(true)
@@ -382,7 +415,9 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionRingOfBlades))
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionRingOfBlades),
+                        EffectFormBuilder.ConditionForm(conditionRingOfBladesFree))
                     .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeSpellRingOfBlades(conditionRingOfBlades))
@@ -392,6 +427,28 @@ internal static partial class SpellBuilders
             .EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
+    }
+
+    private sealed class MagicEffectFinishedByMeRingOfBladesFree(
+        FeatureDefinitionPower powerRingOfBlades,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionRingOfBladesFree) : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(powerRingOfBlades, rulesetCharacter);
+
+            rulesetCharacter.UsePower(usablePower);
+
+            if (rulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionRingOfBladesFree.Name, out var activeCondition))
+            {
+                rulesetCharacter.RemoveCondition(activeCondition);
+            }
+
+            yield break;
+        }
     }
 
     private sealed class CustomBehaviorPowerRingOfBlades(
@@ -404,17 +461,24 @@ internal static partial class SpellBuilders
         // STEP 1: change attackRollModifier to use spell casting feature
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var rulesetCaster = action.ActingCharacter.RulesetCharacter;
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
             if (action.ActionParams.actionModifiers.Count == 0)
             {
                 yield break;
             }
 
-            if (!rulesetCaster.TryGetConditionOfCategoryAndType(
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
                     conditionRingOfBlades.Name,
                     out var activeCondition))
+            {
+                yield break;
+            }
+
+            var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.sourceGuid);
+
+            if (rulesetCaster == null)
             {
                 yield break;
             }
@@ -481,13 +545,17 @@ internal static partial class SpellBuilders
 
             var rulesetCaster = action.ActingCharacter.RulesetCharacter;
 
-            if (rulesetCaster.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionRingOfBlades.Name,
-                    out var activeCondition))
+            foreach (var rulesetTarget in action.ActionParams.TargetCharacters
+                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
             {
-                activeCondition.Amount =
-                    rulesetCaster.SpellRepertoires.IndexOf(actionCastSpell.activeSpell.SpellRepertoire);
+                if (rulesetTarget.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect,
+                        conditionRingOfBlades.Name,
+                        out var activeCondition))
+                {
+                    activeCondition.Amount =
+                        rulesetCaster.SpellRepertoires.IndexOf(actionCastSpell.activeSpell.SpellRepertoire);
+                }
             }
         }
     }

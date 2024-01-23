@@ -145,6 +145,26 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="Weird" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/Weird.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="ShapeChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/ShapeChange.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerWordHeal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/PowerWordHeal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerWordKill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/PowerWordKill.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="BurningBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BurningBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -307,6 +327,11 @@
   </data>
   <data name="PowerBulwark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PowerSilhouetteStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerSilhouetteStep.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>

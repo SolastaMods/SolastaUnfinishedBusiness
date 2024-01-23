@@ -190,6 +190,16 @@
       "hasSavingThrow": false,
       "operation": "Remove",
       "conditionName": "",
+      "conditionDefinition": "Definition:ConditionInvisibleUncatchable:66bbc257eb8991b4799a2056830429e0",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    },
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Remove",
+      "conditionName": "",
       "conditionDefinition": "Definition:ConditionInvisibilityEveryRoundHidden:f7094006-33e0-5e31-a5c8-b6f3d825eba7",
       "saveAffinity": "None",
       "canSaveToCancel": false,

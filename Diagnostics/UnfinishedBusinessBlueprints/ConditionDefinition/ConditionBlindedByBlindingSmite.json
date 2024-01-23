@@ -3,22 +3,18 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5",
-    "Definition:SavingThrowAffinityConditionBlinded:83e5202a11865fa48ae4eccb125d0873",
-    "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Round",
+  "durationType": "Minute",
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -267,7 +263,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionBlindedTitle",
+    "title": "Condition/&ConditionBlindedByBlindingSmiteTitle",
     "description": "Rules/&ConditionBlindedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -288,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8ccf63e3-0675-5144-b324-68b4e7e355f0",
+  "guid": "d3436e86-c822-51d0-ab7f-7301cd5ba1e2",
   "contentPack": 9999,
-  "name": "ConditionPatronMountainIceboundSoul"
+  "name": "ConditionBlindedByBlindingSmite"
 }

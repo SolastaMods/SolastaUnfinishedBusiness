@@ -180,6 +180,29 @@
         "saveOccurence": "EndOfTurn",
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
+          "changeType": "DangerousZone",
+          "impactsFlyingCharacters": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Topology",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "topologyForm": {
+          "$type": "TopologyForm, Assembly-CSharp",
           "changeType": "DifficultThrough",
           "impactsFlyingCharacters": false
         },

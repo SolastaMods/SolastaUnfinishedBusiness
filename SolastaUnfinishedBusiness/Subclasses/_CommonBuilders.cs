@@ -96,7 +96,7 @@ internal static class CommonBuilders
             .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
-    // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
+    // kept as power for backward compatibility
     internal static readonly FeatureDefinitionPower PowerCasterFightingWarMagic = FeatureDefinitionPowerBuilder
         .Create("PowerCasterFightingWarMagic")
         .SetGuiPresentation(Category.Feature)

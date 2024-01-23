@@ -89,8 +89,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBlinded",
-          "conditionDefinition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
+          "conditionDefinitionName": "ConditionBlindedByBlessedGlow",
+          "conditionDefinition": "Definition:ConditionBlindedByBlessedGlow:cc7f75cf-52a8-541b-b718-21004a2b17a7",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

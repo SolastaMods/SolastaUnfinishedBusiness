@@ -34,6 +34,13 @@ internal static class GambitsBuilders
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
 
+    internal static FeatureDefinitionCustomInvocationPool Learn1Gambit { get; } =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolGambitLearn1")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.Gambit)
+            .AddToDB();
+
     internal static FeatureDefinitionCustomInvocationPool Learn2Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn2")
@@ -115,7 +122,7 @@ internal static class GambitsBuilders
             .Create($"CombatAffinity{name}")
             .SetGuiPresentation($"Condition{name}Distracted", Category.Condition, Gui.NoLocalization)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-            .SetSituationalContext((SituationalContext)ExtraSituationalContext.IsNotSourceOfCondition)
+            .SetSituationalContext(ExtraSituationalContext.IsNotSourceOfCondition)
             .AddToDB();
 
         var conditionDistracted = ConditionDefinitionBuilder
@@ -484,6 +491,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .ExcludeCaster()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
@@ -1130,17 +1138,12 @@ internal static class GambitsBuilders
                 return;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                return;
-            }
-
             var glcMyself = GameLocationCharacter.GetFromActor(myself);
             var glcDefender = GameLocationCharacter.GetFromActor(defender);
 
-            if (!gameLocationBattleService.IsWithinXCells(glcMyself, glcDefender, DaggerCloseRange))
+            if (glcMyself != null &&
+                glcDefender != null &&
+                !glcMyself.IsWithinRange(glcDefender, DaggerCloseRange))
             {
                 attackModifier.AttackAdvantageTrends.Add(
                     new TrendInfo(-1, FeatureSourceType.Equipment, "Tooltip/&ProximityLongRangeTitle", null));
@@ -1400,7 +1403,7 @@ internal static class GambitsBuilders
             }
 
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == defender)
+            if (defender.IsMyTurn())
             {
                 yield break;
             }
@@ -1426,7 +1429,7 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!melee && battle.IsWithin1Cell(defender, attacker))
+            if (!melee && defender.IsWithinRange(attacker, 1))
             {
                 yield break;
             }
@@ -1692,8 +1695,12 @@ internal static class GambitsBuilders
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
 
-        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
-            GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
         {
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
@@ -1704,7 +1711,7 @@ internal static class GambitsBuilders
 
             var character = me.RulesetCharacter;
 
-            if (character.GetRemainingPowerCharges(pool) <= 0)
+            if (character.GetRemainingPowerCharges(pool) <= 0 || !me.CanPerceiveTarget(target))
             {
                 yield break;
             }
@@ -1909,19 +1916,24 @@ internal static class GambitsBuilders
             return false;
         }
 
-        public void EnumerateValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition,
-            List<int3> validPositions)
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
             if (!actingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
             {
-                return;
+                yield break;
             }
 
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2;
             var boxInt = new BoxInt(
                 targetCharacter.LocationPosition,
@@ -1930,12 +1942,20 @@ internal static class GambitsBuilders
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (gameLocationPositioningService.CanPlaceCharacter(
-                        targetCharacter, position, CellHelpers.PlacementMode.Station) &&
-                    gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
-                        targetCharacter, position, onlyCheckCellsWithRealGround: true))
+                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !positioningService.CanPlaceCharacter(
+                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
                 {
-                    validPositions.Add(position);
+                    continue;
+                }
+
+                cursorLocationSelectPosition.validPositionsCache.Add(position);
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
                 }
             }
         }
@@ -2031,10 +2051,8 @@ internal static class GambitsBuilders
             }
 
             var firstTarget = selectedTargets[0];
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (gameLocationBattleService is { IsBattleInProgress: true } &&
-                gameLocationBattleService.IsWithin1Cell(firstTarget, target))
+            if (firstTarget.IsWithinRange(target, 1))
             {
                 return true;
             }

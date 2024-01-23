@@ -476,7 +476,7 @@ internal static class MeleeCombatFeats
             var reactionRequest = new ReactionRequestCustom("DefensiveDuelist", actionParams);
 
             actionManager.AddInterruptRequest(reactionRequest);
-            
+
             yield return battleManager.WaitForReactions(me, actionService, count);
 
             if (!actionParams.ReactionValidated)
@@ -551,10 +551,9 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            var battle = Gui.Battle;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (battle == null || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -625,7 +624,7 @@ internal static class MeleeCombatFeats
             }
 
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle.ActiveContenderIgnoringLegendary == target)
+            if (target.IsMyTurn())
             {
                 yield break;
             }
@@ -645,7 +644,7 @@ internal static class MeleeCombatFeats
 
             var enemy = characterAction.ActingCharacter;
 
-            if (!battle.IsWithin1Cell(target, enemy))
+            if (!target.IsWithinRange(enemy, 1))
             {
                 yield break;
             }

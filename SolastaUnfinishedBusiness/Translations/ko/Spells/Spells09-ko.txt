@@ -17,6 +17,6 @@ Spell/&PowerWordKillTitle=권능어: 죽음
 Spell/&ShapechangeDescription=지속시간 동안 다른 크리쳐의 형상을 취합니다. 변하려는 크리쳐의 CR은 시전자의 레벨 이하여야 합니다.
 Spell/&ShapechangeTitle=형상변화
 Spell/&TimeStopDescription=자신을 제외한 모드의 시간의 흐름을 잠시 멈춥니다. 다른 크리쳐들에 한해 시간이 흐르지 않는 동안, 시전자는 연속으로 1d4+1턴을 받습니다. 그동안 이동하고 행동을 취할 수 있습니다.
-Spell/&TimeStopTitle=시간 정지
+Spell/&TimeStopTitle=기다리는 시간
 Spell/&WeirdDescription=크리쳐 무리의 가장 깊숙한 공포를 끌어내어, 대상들의 마음에 그들에게만 보이는 환영으로 된 크리쳐들을 만듭니다. 사거리 내 지정점 반경 30ft 내의 모든 크리쳐는 지혜 내성굴림 실패 시 지속시간 동안 공포 상태에 빠집니다. 이 환영은 대상의 가장 깊은 공포를 반영합니다. 대상은 자신 차례 종료마다 지혜 내성굴림을 해야만 합니다. 실패 시 4d10 정신 피해를 입습니다. 성공 시 대상에 한해 주문이 종료됩니다.
 Spell/&WeirdTitle=기괴

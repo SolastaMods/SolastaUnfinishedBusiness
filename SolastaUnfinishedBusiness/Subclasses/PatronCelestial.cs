@@ -190,6 +190,15 @@ public class PatronCelestial : AbstractSubclass
 
         // Searing Vengeance
 
+        var conditionBlindedBySearingVengeance = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBlinded, "ConditionBlindedBySearingVengeance")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
+            .SetFeatures()
+            .AddToDB();
+
+        conditionBlindedBySearingVengeance.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
+
         var powerSearingVengeance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SearingVengeance")
             .SetGuiPresentation(Category.Feature)
@@ -207,7 +216,7 @@ public class PatronCelestial : AbstractSubclass
                             .SetDamageForm(DamageTypeRadiant, 2, DieType.D8)
                             .SetBonusMode(AddBonusMode.AbilityBonus)
                             .Build(),
-                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBlinded))
+                        EffectFormBuilder.ConditionForm(conditionBlindedBySearingVengeance))
                     .SetParticleEffectParameters(PowerDomainSunHeraldOfTheSun)
                     .Build())
             .AddToDB();
@@ -381,12 +390,7 @@ public class PatronCelestial : AbstractSubclass
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
             var usablePower = UsablePowersProvider.Get(powerSearingVengeance, rulesetCharacter);
-            var targets = battle.Battle.AllContenders
-                .Where(x =>
-                    x.IsOppositeSide(source.Side)
-                    && battle.IsWithinXCells(source, x, 5))
-                .ToList();
-
+            var targets = battle.Battle.GetContenders(source, isWithinXCells: 5);
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false);

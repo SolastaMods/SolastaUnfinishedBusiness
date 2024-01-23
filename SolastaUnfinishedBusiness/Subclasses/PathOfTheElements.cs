@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -470,12 +469,8 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            foreach (var targetLocationCharacter in gameLocationBattleService.Battle.AllContenders
-                         .Where(x =>
-                             x.IsOppositeSide(locationCharacter.Side) &&
-                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
-                         .ToList()) // avoid changing enumerator
+            foreach (var targetLocationCharacter in gameLocationBattleService.Battle.GetContenders(locationCharacter,
+                         isWithinXCells: 1))
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
@@ -574,13 +569,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            foreach (var targetLocationCharacter in battle.AllContenders
-                         .Where(x =>
-                             x.IsOppositeSide(locationCharacter.Side) &&
-                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
-                         .ToList())
+            foreach (var targetLocationCharacter in battle.GetContenders(locationCharacter, isWithinXCells: 1))
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
@@ -646,7 +635,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             }
 
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == defender)
+            if (defender.IsMyTurn())
             {
                 yield break;
             }

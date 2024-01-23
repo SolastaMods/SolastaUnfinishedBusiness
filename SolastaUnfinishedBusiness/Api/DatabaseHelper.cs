@@ -393,9 +393,7 @@ internal static partial class DatabaseHelper
             GetDefinition<ActionDefinition>("WildShape");
     }
 
-    internal static class AdventureLogDefinitions
-    {
-    }
+    internal static class AdventureLogDefinitions;
 
     internal static class AlignmentDefinitions
     {
@@ -448,13 +446,9 @@ internal static partial class DatabaseHelper
             GetDefinition<ArmorCategoryDefinition>("ShieldCategory");
     }
 
-    internal static class BestiaryStatsDefinitions
-    {
-    }
+    internal static class BestiaryStatsDefinitions;
 
-    internal static class BestiaryTableDefinitions
-    {
-    }
+    internal static class BestiaryTableDefinitions;
 
     internal static class CharacterBackgroundDefinitions
     {
@@ -2431,17 +2425,11 @@ internal static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionWounded_Quest_WhiteCity");
     }
 
-    internal static class ConsoleTableDefinitions
-    {
-    }
+    internal static class ConsoleTableDefinitions;
 
-    internal static class CreditsTableDefinitions
-    {
-    }
+    internal static class CreditsTableDefinitions;
 
-    internal static class DailyLogDefinitions
-    {
-    }
+    internal static class DailyLogDefinitions;
 
     internal static class DamageDefinitions
     {
@@ -2503,9 +2491,7 @@ internal static partial class DatabaseHelper
             GetDefinition<DeityDefinition>("Pakri");
     }
 
-    internal static class DocumentTableDefinitions
-    {
-    }
+    internal static class DocumentTableDefinitions;
 
     internal static class EffectProxyDefinitions
     {
@@ -23217,17 +23203,11 @@ internal static partial class DatabaseHelper
             GetDefinition<MorphotypeElementDefinition>("TailLength");
     }
 
-    internal static class NarrativeTreeDefinitions
-    {
-    }
+    internal static class NarrativeTreeDefinitions;
 
-    internal static class PropBlueprints
-    {
-    }
+    internal static class PropBlueprints;
 
-    internal static class QuestTreeDefinitions
-    {
-    }
+    internal static class QuestTreeDefinitions;
 
     internal static class ReactionDefinitions
     {
@@ -24423,9 +24403,7 @@ internal static partial class DatabaseHelper
             GetDefinition<RecipeDefinition>("RecipeScroll_L8_Thunderstorm");
     }
 
-    internal static class RoomBlueprints
-    {
-    }
+    internal static class RoomBlueprints;
 
     internal static class SchoolOfMagicDefinitions
     {
@@ -25645,9 +25623,7 @@ internal static partial class DatabaseHelper
             GetDefinition<SpellListDefinition>("SpellListWizardGreenmage");
     }
 
-    internal static class SubtitleTableDefinitions
-    {
-    }
+    internal static class SubtitleTableDefinitions;
 
     internal static class DecisionPackageDefinitions
     {
@@ -26168,9 +26144,7 @@ internal static partial class DatabaseHelper
             GetDefinition<ToolTypeDefinition>("ThievesToolsType");
     }
 
-    internal static class TravelJournalDefinitions
-    {
-    }
+    internal static class TravelJournalDefinitions;
 
     internal static class TreasureTableDefinitions
     {
@@ -26460,13 +26434,9 @@ internal static partial class DatabaseHelper
             GetDefinition<TreasureTableDefinition>("RandomWeaponTable");
     }
 
-    internal static class TutorialTableDefinitions
-    {
-    }
+    internal static class TutorialTableDefinitions;
 
-    internal static class TutorialTocDefinitions
-    {
-    }
+    internal static class TutorialTocDefinitions;
 
     internal static class WeaponCategoryDefinitions
     {

@@ -323,12 +323,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x =>
-                    x.IsOppositeSide(attacker.Side) &&
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                    gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2))
-                .ToList());
+            actionParams.TargetCharacters.SetRange(
+                gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

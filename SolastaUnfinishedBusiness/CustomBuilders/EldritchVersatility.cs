@@ -16,7 +16,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
-using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -606,11 +605,8 @@ internal static class EldritchVersatility
                     yield break;
                 }
 
-                var posOwner = attacker.locationPosition;
-                var posDefender = defender.locationPosition;
-
                 supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EarnPoints,
-                    int3.Distance(posOwner, posDefender) <= 6f && characterAttacker.HasAnyFeature(FeatureBlastPursuit)
+                    attacker.IsWithinRange(defender, 6) && characterAttacker.HasAnyFeature(FeatureBlastPursuit)
                         ? 2
                         : 1
                 );
@@ -669,9 +665,9 @@ internal static class EldritchVersatility
         {
             var rulesetCharacter = character.RulesetCharacter;
 
-            if (Gui.Battle is null
-                || !IsEldritchBlast(actionParams.RulesetEffect)
-                || !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if (Gui.Battle == null ||
+                !IsEldritchBlast(actionParams.RulesetEffect) ||
+                !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 return;
             }
@@ -695,7 +691,7 @@ internal static class EldritchVersatility
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
             RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
-            if (Gui.Battle is null ||
+            if (Gui.Battle == null ||
                 caster.RulesetCharacter != featureOwner ||
                 selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
                 !featureOwner.GetVersatilitySupportCondition(out var supportCondition) ||
@@ -829,17 +825,9 @@ internal static class EldritchVersatility
 
                 var owner = GameLocationCharacter.GetFromActor(featureOwner);
 
-                if (owner != null)
+                if (owner != null && (!owner.IsWithinRange(caster, 12) || !caster.CanPerceiveTarget(owner)))
                 {
-                    var posOwner = owner.locationPosition;
-                    var posCaster = caster.locationPosition;
-                    var battleManager = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                    if (int3.Distance(posOwner, posCaster) > 12f
-                        || !battleManager.CanAttackerSeeCharacterFromPosition(posCaster, posOwner, caster, owner))
-                    {
-                        yield break;
-                    }
+                    yield break;
                 }
             }
 
@@ -1035,12 +1023,8 @@ internal static class EldritchVersatility
             var alreadyBlocked =
                 EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
                     defenderCharacter, out var eldritchAegisSupportCondition);
-            var posOwner = me.locationPosition;
-            var posDefender = defender.locationPosition;
 
-            if (!alreadyBlocked
-                && (int3.Distance(posOwner, posDefender) > 6f
-                    || !battleManager.CanAttackerSeeCharacterFromPosition(posDefender, posOwner, defender, me)))
+            if (!alreadyBlocked && (!me.IsWithinRange(defender, 6) || !defender.CanPerceiveTarget(me)))
             {
                 yield break;
             }
@@ -1048,6 +1032,12 @@ internal static class EldritchVersatility
             // This function also adjust AC to just enough block the attack, so if alreadyBlocked, we should not abort.
             if ((!me.CanReact(true) && !alreadyBlocked)
                 || !me.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            {
+                yield break;
+            }
+
+            //Can this unit see defender?
+            if (!me.CanPerceiveTarget(defender))
             {
                 yield break;
             }
@@ -1236,7 +1226,7 @@ internal static class EldritchVersatility
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!ShouldTrigger(battleManager, defender, helper))
+            if (!ShouldTrigger(defender, helper))
             {
                 yield break;
             }
@@ -1301,16 +1291,11 @@ internal static class EldritchVersatility
         }
 
         // ReSharper disable once SuggestBaseTypeForParameter
-        private static bool ShouldTrigger(
-            GameLocationBattleManager gameLocationBattleManager,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
+        private static bool ShouldTrigger(GameLocationCharacter defender, GameLocationCharacter helper)
         {
             return helper.CanReact()
-                   && !defender.IsOppositeSide(helper.Side)
-                   && gameLocationBattleManager.IsWithinXCells(helper, defender, 7)
-                   && gameLocationBattleManager.CanAttackerSeeCharacterFromPosition(
-                       defender.LocationPosition, helper.LocationPosition, defender, helper);
+                   && helper.CanPerceiveTarget(defender)
+                   && helper.IsWithinRange(defender, 7);
         }
     }
 
@@ -1404,7 +1389,7 @@ internal static class EldritchVersatility
         {
             var rulesetCharacter = character.RulesetCharacter;
 
-            if (Gui.Battle is null ||
+            if (Gui.Battle == null ||
                 !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
@@ -1426,7 +1411,7 @@ internal static class EldritchVersatility
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
             RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
-            if (Gui.Battle is null ||
+            if (Gui.Battle == null ||
                 caster.RulesetCharacter != featureOwner ||
                 selectedSpellDefinition != SpellDefinitions.EldritchBlast ||
                 !IsInvocationActive(featureOwner, InvocationName, out var invocation) ||

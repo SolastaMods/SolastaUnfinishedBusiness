@@ -2,23 +2,21 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Neutral",
   "features": [
-    "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5",
-    "Definition:SavingThrowAffinityConditionBlinded:83e5202a11865fa48ae4eccb125d0873",
-    "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5"
+    "Definition:AbilityCheckAffinityLightlyObscured:8973e9df-edcf-5021-b87a-188a040215a6"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Minute",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
+  "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -42,19 +40,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "a1709422dd78d964e9dbef20ad79c3d3",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "2fb59c86519dd104a8b75863927aea9a",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "48d43d702483f604685b7401f56dc4d7",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -267,8 +265,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionBlindedTitle",
-    "description": "Rules/&ConditionBlindedDescription",
+    "title": "Condition/&ConditionLightlyObscuredTitle",
+    "description": "Condition/&ConditionLightlyObscuredDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",
@@ -288,7 +286,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f4dd3787-cbde-5773-a7ae-d599891dd1fd",
+  "guid": "b4f6a93a-e532-5b1e-9482-4fc19a163c4a",
   "contentPack": 9999,
-  "name": "ConditionBlindingSmiteEnemy"
+  "name": "ConditionLightlyObscured"
 }

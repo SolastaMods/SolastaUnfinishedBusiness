@@ -1,16 +1,12 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5",
-    "Definition:SavingThrowAffinityConditionBlinded:83e5202a11865fa48ae4eccb125d0873",
-    "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -267,7 +263,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionBlindedTitle",
+    "title": "Condition/&ConditionBlindedByDarknessTitle",
     "description": "Rules/&ConditionBlindedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -288,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2b6ea2e1-0f8d-53b2-9dcf-e9aac46911b8",
+  "guid": "0262e7d0-0f38-5a86-8fc5-4ee1b2888cc1",
   "contentPack": 9999,
-  "name": "ConditionHungerOfTheVoid"
+  "name": "ConditionBlindedByDarkness"
 }

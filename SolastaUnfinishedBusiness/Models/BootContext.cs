@@ -121,6 +121,7 @@ internal static class BootContext
             // Set anything on subs that depends on spells and others
             SubclassesContext.LateLoad();
             InventorClass.LateLoadSpellStoringItem();
+            LightingAndObscurementContext.LateLoad();
 
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();

@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=Blinded by Blinding Smite
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=Blinded by Hunger of The Void
 Condition/&ConditionCorruptingBoltDescription=The creature is vulnerable to the next damaging instance it receives.
 Condition/&ConditionCorruptingBoltTitle=Corrupted
 Condition/&ConditionCrusadersMantleDescription=Gain a bonus 1d4 radiant damage on your attacks.

@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연�
 ModUi/&AllowUnmarkedSorcerers=기원 및 문신이 없는 <color=#D89555>소서러</color> 허용
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키는 파티 시야에 있는 물체만 강조 표시합니다 <i><color=#F0DAA0>[사용자 지정 던전만 해당]</color></i>
 ModUi/&ArcaneShieldstaffOptions=모든 직업이 <color=#D89555>비전 보호 스태프</color>를 조율할 수 있도록 허용
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=<color=#D89555>어둠시야</color>를 가진 공격자는 그렇지 않은 방어자에게 이점을 받음
 ModUi/&Backgrounds=<color=#F0DAA0>배경</color>
 ModUi/&BackgroundsAndRaces=배경 및 종족
 ModUi/&Basic=<color=#F0DAA0>기본:</color>
@@ -172,6 +171,7 @@ ModUi/&HideMonsterHitPoints=몬스터의 체력을 정확한 수치 대신 25% /
 ModUi/&House=<color=#F0DAA0>하우스 룰(자체 규칙):</color>
 ModUi/&IdentifyAfterRest=짧은 혹은 긴 휴식을 통해 <color=#D89555>마법 아이템 식별</color>에 힘을 추가
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>핸드 크로스보우</color>를 사용하기 위해 빈 손을 요구하지 않음
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=환영 주문은 범위 내에 <color=#D89555>TrueSight</color>가 있는 대상에게는 자동으로 실패합니다.
 ModUi/&ImproveLevelUpFeaturesSelection=레벨업 특성 선택 개선<b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>\n<i><color=#F0DAA0>[<color=#D89555>레인저</color>의 선호하는 적과 지형 친화도,<color=#D89555>드루이드</color>의 결속 야수, <color=#D89555>바바리안</color>의 원소의 길, 용 서브클래스 선택에 영향을 줍니다]</color></i>
 ModUi/&IncreaseGameTimeBy=게임 시간을 다음만큼 늘립니다
 ModUi/&IncreaseMaxAttunedItems=최대 조율 아이템이 10레벨에서 4개, 18레벨에서 5개로 증가
@@ -201,6 +201,10 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 키를 누르며 주문을
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>획득 경험치에y</color> <color=#C04040E0>[%]</color><color=white>를 곱함</color>
 ModUi/&NoExperienceOnLevelUp=레벨 업에 경험치가 필요하지 않게 설정
 ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 세계관에 어울리는 이름을 추가
+ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ <color=#D89555>장점 / 단점</color> 맹목 및 인식 쌍 취소 <color=#F0DAA0>[공식 <color=#D89555>장점 / 단점</color> 규칙과 함께 유용함]< /색상></i>
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D89555>심하게 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>클라우드 킬</color>, <color=#D89555>안개 구름 </color>, <color=#D89555>발화 구름</color>, <color=#D89555>꽃잎 폭풍</color>, <color=#D89555>진눈깨비</color>, <color=#D89555> 악취나는 구름</color>]</color></i>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법으로 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>어둠</color> 주문 효과의 모든 소스]</color ></i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 필요할 때마다 몬스터와 NPC에 <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> 및 <color=#D89555>TrueSight</color>를 추가합니다.\n <color=#F0DAA0>[설정 컬렉션 <b>암흑시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈이 멀게 해야 하는 괴물</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 주문 목록에서 가장 강력한 크리쳐만 표시</i>
 ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b>의 주관적인 솔라스타 가이드 (영문)
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
@@ -285,5 +289,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 활성화 
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 도달 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ 이점 대신 명중 굴림에 +1 부여</i>
 ModUi/&UseOfficialFoodRationsWeight=<color=#D89555>식량</color> 무게를 공식 규칙에 따라 2파운드로 변경
+ModUi/&UseOfficialObscurementRules=공식 <color=#D89555>조명, 모호함, 시야</color> 전투 규칙을 사용하세요\n<i><color=#F0DAA0>[인지하는 공격자는 인지하지 못하는 방어자는 ADV를 얻고, 그렇지 않은 공격자는 이를 인지할 수 있는 방어자는 DIS\n를 얻습니다. 매우 가려진 영역은 실명 상태를 유발합니다. 생물에 대한 공격 굴림에는 ADV가 있고 생물의 공격 굴림에는 DIS\n가 있습니다. 개인을 대상으로 하는 모든 거리 주문은 공격자가 시력이 없으면 시전할 수 없습니다. , 시력이 필요하다고 명확하게 명시하지 않은 경우는 제외]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=무거운 무기를 휘두를 때 공식 <color=#D89555>소규모 종족 규칙</color>을 사용하세요. <i><color=#F0DAA0>[공격에 불이익이 있습니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>비주얼:</color> <b><i><color=#C04040E0>[재시작 필요]</color></i></b>

@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedBySearingVengeanceTitle=灼熱の復讐に目がくらむ
 Feature/&BonusCantripCelestialDescription=キャントリップは<b>光</b>と<b>聖なる炎</b>を習得します。それらはウォーロックのキャントリップとしてカウントされますが、既知のキャントリップの数にはカウントされません。
 Feature/&BonusCantripCelestialTitle=ボーナスキャントリップ
 Feature/&FeatureSetCelestialRadiantSoulDescription=天体とのつながりにより、放射エネルギーの導管として機能することができます。あなたは放射ダメージに対する耐性を持っており、放射ダメージまたは火ダメージを与える呪文を唱えるとき、その呪文の放射ダメージまたは火ダメージロール１つにカリスマ修正値を追加します。

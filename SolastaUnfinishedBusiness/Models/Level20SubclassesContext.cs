@@ -1600,16 +1600,14 @@ internal static class Level20SubclassesContext
             var clericLevel = rulesetAlly.GetClassLevel(CharacterClassDefinitions.Cleric);
             var healingPool = clericLevel;
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
             // haven't died within 30 ft of Cleric
-            if (!gameLocationBattleService.IsWithinXCells(downedCreature, ally, 6))
+            if (!downedCreature.IsWithinRange(ally, 6))
             {
                 yield break;
             }
 
             var contenders =
-                gameLocationBattleService.Battle?.AllContenders ??
+                Gui.Battle?.AllContenders ??
                 ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
 
             if (contenders.Count != 0)
@@ -1618,9 +1616,10 @@ internal static class Level20SubclassesContext
             }
 
             foreach (var unit in contenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                     && x.Side == ally.Side
-                                     && gameLocationBattleService.IsWithinXCells(x, ally, 6))
+                         .Where(x =>
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                             x.Side == ally.Side &&
+                             x.IsWithinRange(ally, 6))
                          .OrderByDescending(x => x.RulesetCharacter.MissingHitPoints)
                          .ToList())
             {
@@ -1994,11 +1993,7 @@ internal static class Level20SubclassesContext
 
             attacker.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
 
-            foreach (var ally in battleManager.Battle.AllContenders
-                         .Where(x => x.Side == attacker.Side &&
-                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     battleManager.IsWithinXCells(attacker, x, 4))
-                         .ToList()) // avoid changing enumerator
+            foreach (var ally in battleManager.Battle.GetContenders(attacker, false, false, isWithinXCells: 4))
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
             }
@@ -2126,13 +2121,8 @@ internal static class Level20SubclassesContext
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var rulesetDefender in Gui.Battle.AllContenders
-                         .Where(x =>
-                             x.Side == gameLocationDefender.Side &&
-                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                             x != gameLocationDefender)
-                         .ToList()
-                         .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter))
+            foreach (var rulesetDefender in Gui.Battle.GetContenders(gameLocationDefender, false)
+                         .Select(defender => defender.RulesetCharacter))
             {
                 if (rulesetDefender.TryGetConditionOfCategoryAndType(
                         AttributeDefinitions.TagEffect,
@@ -2343,7 +2333,7 @@ internal static class Level20SubclassesContext
         {
             var battle = Gui.Battle;
 
-            if (battle.CurrentRound > 1)
+            if (battle == null || battle.CurrentRound > 1)
             {
                 return;
             }

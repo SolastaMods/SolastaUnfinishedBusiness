@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedBySearingVengeanceTitle=Aveuglé par une vengeance brûlante
 Feature/&BonusCantripCelestialDescription=Vous apprenez les sorts mineurs <b>Lumière</b> et <b>Flamme sacrée</b>. Ils comptent pour vous comme des sorts mineurs de démoniste, mais ils ne comptent pas dans votre nombre de sorts mineurs connus.
 Feature/&BonusCantripCelestialTitle=Cantrips bonus
 Feature/&FeatureSetCelestialRadiantSoulDescription=Votre lien avec le Céleste vous permet de servir de conduit à l’énergie rayonnante. Vous avez une résistance aux dégâts radiants, et lorsque vous lancez un sort qui inflige des dégâts radiants ou de feu, vous ajoutez votre modificateur de Charisme à un jet de dégâts radiants ou de feu de ce sort.

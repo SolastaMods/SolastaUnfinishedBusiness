@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=Aveuglé par Blessed Glow
 Condition/&ConditionRangerLightBearerAngelicFormDescription=Vous avez une vitesse de vol égale à votre vitesse de marche, et vos attaques comptent également comme magiques.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Forme Angélique
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Lorsqu'il est touché par le lanceur de sorts avec une arme, tous les dégâts infligés par l'attaque deviennent des dégâts radiants et vous subissez 1d8 dégâts radiants supplémentaires de l'attaque. À partir du niveau 11, les dégâts supplémentaires passent à 2d8.

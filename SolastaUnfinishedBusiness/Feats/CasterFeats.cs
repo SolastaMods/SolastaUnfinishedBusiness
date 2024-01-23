@@ -570,7 +570,6 @@ internal static class CasterFeats
         {
             sprite = Sprites.GetSprite(motionTypeName, Resources.TelekinesisPull, 128);
 
-            // keep backward compatibility
             motionTypeName = string.Empty;
         }
         else

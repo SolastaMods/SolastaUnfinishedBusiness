@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using TA;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -10,6 +11,44 @@ namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {
+    public static bool IsMyTurn(this GameLocationCharacter character)
+    {
+        return Gui.Battle != null && Gui.Battle.ActiveContenderIgnoringLegendary == character;
+    }
+
+    public static float GetDistance(this GameLocationCharacter source, GameLocationCharacter target)
+    {
+        if (Main.Settings.UseOfficialDistanceCalculation)
+        {
+            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target);
+        }
+
+        return int3.Distance(source.LocationPosition, target.LocationPosition);
+    }
+
+    public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
+    {
+        return GetDistance(source, target) <= range;
+    }
+
+    // consolidate all checks if a character can perceive another
+    public static bool CanPerceiveTarget(
+        this GameLocationCharacter __instance,
+        GameLocationCharacter target)
+    {
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        {
+            return (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
+                   (__instance.Side != target.Side && __instance.PerceivedFoes.Contains(target));
+        }
+
+        // can only perceive targets on cells that can be perceived
+        var visibilityService =
+            ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+        return visibilityService.MyIsCellPerceivedByCharacter(target.LocationPosition, __instance, target);
+    }
+
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
         this GameLocationCharacter instance,
         GameLocationCharacter target,
@@ -233,7 +272,8 @@ public static class GameLocationCharacterExtensions
     }
 #endif
 
-    internal static FeatureDefinition GetCurrentAdditionalActionFeature(this GameLocationCharacter instance,
+    internal static FeatureDefinition GetCurrentAdditionalActionFeature(
+        this GameLocationCharacter instance,
         ActionType type)
     {
         if (!instance.currentActionRankByType.TryGetValue(type, out var rank))
@@ -245,7 +285,8 @@ public static class GameLocationCharacterExtensions
         return rank >= filters.Count ? null : PerformanceFilterExtraData.GetData(filters[rank])?.Feature;
     }
 
-    internal static bool CanCastAnyInvocationOfActionId(this GameLocationCharacter instance,
+    internal static bool CanCastAnyInvocationOfActionId(
+        this GameLocationCharacter instance,
         Id actionId,
         ActionScope scope,
         bool canCastSpells,

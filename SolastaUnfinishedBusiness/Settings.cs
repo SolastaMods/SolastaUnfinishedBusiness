@@ -6,6 +6,8 @@ using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
 
+// ReSharper disable StringLiteralTypo
+
 namespace SolastaUnfinishedBusiness;
 
 public sealed class Core;
@@ -58,7 +60,93 @@ public class Settings : UnityModManager.ModSettings
 
     // change this at your own risk as these subclasses will be fully removed from mod in the near future
     public String[] DeprecatedSubsList { get; set; } =
-        ["CollegeOfHarlequin", "MartialMarshal", "MartialMartialDefender", "RoguishRaven", "WayOfTheDistantHand"];
+    [
+        "CollegeOfHarlequin",
+        "MartialMarshal",
+        "MartialMartialDefender",
+        "RoguishRaven",
+        "WayOfTheDistantHand"
+    ];
+
+    public HashSet<String> MonstersThatShouldHaveDarkvision { get; set; } =
+    [
+        "Adam_The_Twelth",
+        "DLC3_Elven_07_Guard",
+        "SRD_DLC_Mage",
+        "SRD_Mage",
+        "DLC1_NPC_Forge_Escorted_01",
+        "DLC3_NPC_Generic_ElvenCitizen_Husk",
+        "Generic_Darkweaver",
+        "DLC3_ElvenClans_Leralyn",
+        "DLC3_NPC_Elven3_DLC3_Ending",
+        "DLC3_NPC_Elven5_DLC3_Ending",
+        "Generic_HighPriest",
+        "DLC3_Elven_Suspect_05_Guard_Traitor",
+        "DLC3_Elven_06_Guard",
+        "SRD_DLC3_Archmage",
+        "Generic_ShockArcanist"
+    ];
+
+    public HashSet<String> MonstersThatShouldHaveTrueSight { get; set; } =
+    [
+        "Couatl",
+        "CubeOfLight"
+    ];
+
+    public HashSet<String> MonstersThatShouldHaveBlindSight { get; set; } =
+    [
+        "Aksha",
+        "Aksha_Legendary"
+    ];
+
+    public HashSet<String> MonstersThatShouldNotHaveTremorSense { get; set; } =
+    [
+        "Aksha",
+        "Aksha_Legendary"
+    ];
+
+    public HashSet<String> EffectsThatTargetDistantIndividualsAndDontRequireSight { get; set; } =
+    [
+        "AcidSplash",
+        "Aid",
+        "AnimalShapes",
+        "BeaconOfHope",
+        "Bless",
+        "BlessingOfRime",
+        "CommandApproach",
+        "CommandDrop",
+        "CommandFlee",
+        "CommandGrovel",
+        "CommandHalt",
+        "DispelMagic",
+        "FeatherFall",
+        "Knock",
+        "Levitate",
+        "MassCureWounds",
+        "PassWithoutTrace",
+        "RayOfEnfeeblement",
+        "ResonatingStrike",
+        "Sanctuary",
+        "ShieldOfFaith",
+        "Sparkle",
+        "TrueStrike",
+        "PowerBardHopeWordsOfHope6",
+        "PowerBardTraditionManacalonsPerfection",
+        "PowerCelestialSearingVengeance",
+        "PowerCollegeOfValianceHeroicInspiration",
+        "PowerDomainElementalHeraldOfTheElementsThunder",
+        "PowerInnovationWeaponArcaneJolt",
+        "PowerOathOfJugementPurgeCorruption",
+        "PowerOathOfJugementRetribution",
+        "PowerOathOfThunderThunderousRebuke",
+        "PowerPatronFiendHurlThroughHell",
+        "PowerRangerHellWalkerMarkOfTheDammed",
+        "PowerRangerLightBearerBlessedWarrior",
+        "PowerRiftWalkerRiftStrike",
+        "PowerSorcerousPsionMindOverMatter",
+        "PowerWayOfTheDistantHandZenArrowTechnique",
+        "PowerWayOfTheDistantHandZenArrowUpgradedTechnique"
+    ];
 
     //
     // Gameplay - Tools
@@ -158,19 +246,17 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialDistanceCalculation { get; set; }
     public bool UseOfficialSmallRacesDisWithHeavyWeapons { get; set; }
-
-    public bool
-        KeepStealthOnHeroIfPerceivedDuringSurpriseAttack
-    {
-        get;
-        set;
-    } // removing stealth from hero if within enemy perceived range during a surprise attack
-
+    public bool UseOfficialLightingObscurementAndVisionRules { get; set; }
+    public bool OfficialObscurementRulesCancelAdvDisPairs { get; set; }
+    public bool OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker { get; set; }
+    public bool OfficialObscurementRulesMagicalDarknessAsProjectileBlocker { get; set; }
+    public bool OfficialObscurementRulesTweakMonsters { get; set; }
+    public bool KeepStealthOnHeroIfPerceivedDuringSurpriseAttack { get; set; }
     public bool StealthBreaksWhenAttackHits { get; set; }
     public bool StealthBreaksWhenAttackMisses { get; set; }
     public bool DontEndTurnAfterReady { get; set; }
-    public bool AttackersWithDarkvisionHaveAdvantageOverDefendersWithout { get; set; }
     public bool KeepInvisibilityWhenUsingItems { get; set; }
+    public bool IllusionSpellsAutomaticallyFailAgainstTrueSightInRange { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }

@@ -140,7 +140,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
         // Perfect Shot
 
-        // backward compatibility
+        // kept for backward compatibility
         _ = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}PerfectShot")
             .SetGuiPresentation(Category.Feature)
@@ -204,7 +204,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
-            if (Gui.Battle?.ActiveContender != attacker)
+            if (!attacker.IsMyTurn())
             {
                 yield break;
             }
@@ -282,9 +282,8 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
-                || rulesetAttacker.GetRemainingPowerCharges(power) <= 0
-                || !ValidatorsWeapon.IsTwoHandedRanged(attackMode))
+            if (rulesetAttacker.GetRemainingPowerCharges(power) <= 0 ||
+                !ValidatorsWeapon.IsTwoHandedRanged(attackMode) || !me.CanPerceiveTarget(target))
             {
                 yield break;
             }

@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=Cegado por el resplandor bendito
 Condition/&ConditionRangerLightBearerAngelicFormDescription=Tienes una velocidad de vuelo igual a tu velocidad al caminar, y tus ataques también cuentan como mágicos.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Forma angelical
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Cuando el lanzador te golpea con un ataque de arma, todo el daño infligido por el ataque se convierte en daño radiante, y recibes 1d8 de daño radiante adicional del ataque. A partir del nivel 11, el daño adicional aumenta a 2d8.

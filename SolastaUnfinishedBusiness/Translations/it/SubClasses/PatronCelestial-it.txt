@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedBySearingVengeanceTitle=Accecato dalla vendetta bruciante
 Feature/&BonusCantripCelestialDescription=Impari i trucchetti <b>Luce</b> e <b>Fiamma Sacra</b>. Contano come trucchetti da stregone per te, ma non contano nel numero di trucchetti conosciuti.
 Feature/&BonusCantripCelestialTitle=Trucchetti bonus
 Feature/&FeatureSetCelestialRadiantSoulDescription=Il tuo collegamento con il Celestiale ti consente di fungere da condotto per l'energia radiante. Hai resistenza ai danni radiosi e quando lanci un incantesimo che infligge danni radiosi o da fuoco, aggiungi il tuo modificatore di Carisma a un tiro per i danni radiosi o da fuoco di quell'incantesimo.

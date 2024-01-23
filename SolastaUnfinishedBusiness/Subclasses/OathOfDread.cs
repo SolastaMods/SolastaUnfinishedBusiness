@@ -79,7 +79,7 @@ public sealed class OathOfDread : AbstractSubclass
 
         var combatAffinityMarkOfTheSubmission = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}{MARK_OF_SUBMISSION}")
-            .SetGuiPresentation($"Condition{Name}{MARK_OF_SUBMISSION}", Category.Condition)
+            .SetGuiPresentation($"Condition{Name}{MARK_OF_SUBMISSION}", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(SituationalContext.TargetHasCondition, conditionMarkOfTheSubmission)
             .AddToDB();
@@ -387,7 +387,7 @@ public sealed class OathOfDread : AbstractSubclass
             int damageAmount)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (me.IsMyTurn())
             {
                 yield break;
             }
@@ -433,12 +433,6 @@ public sealed class OathOfDread : AbstractSubclass
                 {
                     yield break;
                 }
-            }
-
-            // do I need to check this as well?
-            if (!gameLocationBattleService.IsWithinBattleRange(me, attacker))
-            {
-                yield break;
             }
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);

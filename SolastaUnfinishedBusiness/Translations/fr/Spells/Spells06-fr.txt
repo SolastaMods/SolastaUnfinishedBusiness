@@ -1,6 +1,6 @@
 Condition/&ConditionHeroicInfusionDescription=Vous vous dotez d'une endurance et de prouesses martiales alimentées par la magie.
 Condition/&ConditionHeroicInfusionTitle=Infusion héroïque
-Feature/&PowerRingOfBladesDescription=Par une action bonus, vous pouvez lancer une attaque magique à distance sur une créature située à moins de 9 mètres de vous, en utilisant l'une de vos épées Ring of Blades.
+Feature/&PowerRingOfBladesDescription=Par une action bonus, vous pouvez lancer une attaque magique à distance sur une créature située à moins de 60 pieds de vous, en utilisant l'une de vos épées Ring of Blades.
 Feature/&PowerRingOfBladesTitle=Anneau de lames
 Feedback/&AdditionalDamageHeroicInfusionFormat=Infusion héroïque !
 Feedback/&AdditionalDamageHeroicInfusionLine={0} frappe héroïquement {1} ! (+{2})
@@ -16,6 +16,6 @@ Spell/&MysticalCloakLowerPlaneTitle=Cape mystique : plan inférieur
 Spell/&MysticalCloakTitle=Cape mystique
 Spell/&PoisonWaveDescription=Une vague empoisonnée jaillit de vous, engloutissant ceux qui se trouvent à proximité. Chaque créature dans le rayon du sort doit effectuer un jet de sauvegarde de Constitution, subissant 6d10 dégâts de poison en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature qui rate son jet de sauvegarde est également empoisonnée pendant 1 minute, et peut refaire le jet de sauvegarde à la fin de chacun de son tour. Lorsque vous lancez ce sort en utilisant un emplacement de niveau 7 ou supérieur, les dégâts augmentent de 1d10 pour chaque niveau d'emplacement supérieur au 6e.
 Spell/&PoisonWaveTitle=Vague de poison
-Spell/&RingOfBladesDescription=Vous levez les deux mains en évoquant six lames transparentes autour de vous. Par une action bonus, vous pouvez lancer une de ces lames sur une créature située à moins de 9 mètres de vous. Faites une attaque magique à distance pour lui. En cas de coup, la cible subit 4d8 dégâts de force. Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 7 ou supérieur, les dégâts de chaque lame augmentent de 1d8 pour chaque niveau d'emplacement supérieur au 6.
+Spell/&RingOfBladesDescription=Vous levez les deux mains et évoquez six lames transparentes autour de vous en guise d'action bonus. Lorsque vous lancez ce sort, et comme une action bonus à chaque tour suivant, vous pouvez lancer une de ces lames sur une créature à moins de 60 pieds de vous. Effectuez une attaque magique à distance. En cas de coup, la cible subit 4d8 dégâts de force. Lorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 7 ou supérieur, les dégâts de chaque lame augmentent de 1d8 pour chaque niveau d'emplacement supérieur au 6.
 Spell/&RingOfBladesTitle=Anneau de lames
 Tooltip/&MustBeLargeOrSmaller=Doit être de grande taille ou plus petit pour être ciblé

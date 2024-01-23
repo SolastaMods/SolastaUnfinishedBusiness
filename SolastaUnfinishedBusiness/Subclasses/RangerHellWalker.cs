@@ -345,14 +345,15 @@ public sealed class RangerHellWalker : AbstractSubclass
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var gameLocationCharacter in Gui.Battle.AllContenders
-                         .Where(x => x.Side == gameLocationDefender.Side
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .Where(x => x != gameLocationDefender)
-                         .ToList()) // avoid changing enumerator
+            foreach (var gameLocationCharacter in Gui.Battle.GetContenders(gameLocationDefender, false))
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
                 var rulesetCondition = rulesetDefender.AllConditions
@@ -363,8 +364,6 @@ public sealed class RangerHellWalker : AbstractSubclass
                     rulesetDefender.RemoveCondition(rulesetCondition);
                 }
             }
-
-            yield break;
         }
 
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)

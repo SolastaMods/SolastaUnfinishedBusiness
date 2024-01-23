@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=축복받은 빛에 눈이 멀다
 Condition/&ConditionRangerLightBearerAngelicFormDescription=보행속도와 동일한 비행속도를 얻으며, 공격이 마법적 공격으로 취급됩니다.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=천사의 형태
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=시전자에게 무기 공격을 당할 경우, 받는 모든 피해가 광휘 피해가 됩니다. 또한 해당 공격으로부터 추가 1d8 광휘 피해를 입습니다. 11레벨부터, 추가 피해량이 2d8로 증가합니다.

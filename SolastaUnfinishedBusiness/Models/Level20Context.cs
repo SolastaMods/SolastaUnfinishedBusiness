@@ -675,15 +675,10 @@ internal static class Level20Context
         return invocationPoolWizardSignatureSpells;
     }
 
-    private sealed class ActionFinishedByMeArchDruid : IActionFinishedByMe
+    private sealed class ActionFinishedByMeArchDruid(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition) : IActionFinishedByMe
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public ActionFinishedByMeArchDruid(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower
@@ -705,7 +700,7 @@ internal static class Level20Context
 
             usablePower.Recharge();
 
-            rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
+            rulesetCharacter.LogCharacterUsedFeature(featureDefinition);
         }
     }
 
@@ -760,15 +755,11 @@ internal static class Level20Context
         }
     }
 
-    private sealed class BattleStartedListenerMonkPerfectSelf : ICharacterBattleStartedListener
+    private sealed class BattleStartedListenerMonkPerfectSelf(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : ICharacterBattleStartedListener
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public BattleStartedListenerMonkPerfectSelf(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
@@ -785,7 +776,7 @@ internal static class Level20Context
 
             character.ForceKiPointConsumption(-4);
             character.KiPointsAltered?.Invoke(character, character.RemainingKiPoints);
-            character.LogCharacterUsedFeature(_featureDefinition);
+            character.LogCharacterUsedFeature(featureDefinition);
         }
     }
 
@@ -816,15 +807,11 @@ internal static class Level20Context
         }
     }
 
-    private sealed class ModifyWeaponAttackModeRangerFoeSlayer : IModifyWeaponAttackMode
+    private sealed class ModifyWeaponAttackModeRangerFoeSlayer(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : IModifyWeaponAttackMode
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public ModifyWeaponAttackModeRangerFoeSlayer(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
             var damage = attackMode?.EffectDescription.FindFirstDamageForm();
@@ -839,20 +826,14 @@ internal static class Level20Context
 
             damage.BonusDamage += wisdomModifier;
             damage.DamageBonusTrends.Add(new TrendInfo(wisdomModifier, FeatureSourceType.CharacterFeature,
-                _featureDefinition.Name,
-                _featureDefinition));
+                featureDefinition.Name,
+                featureDefinition));
         }
     }
 
-    private class TryAlterOutcomePhysicalAttackRogueStrokeOfLuck : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
+        : ITryAlterOutcomePhysicalAttack
     {
-        private readonly FeatureDefinitionPower _power;
-
-        public TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
-        {
-            _power = power;
-        }
-
         public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager battle,
             CharacterAction action,
@@ -862,7 +843,8 @@ internal static class Level20Context
         {
             var rulesetCharacter = me.RulesetCharacter;
 
-            if (rulesetCharacter == null || !rulesetCharacter.CanUsePower(_power))
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.CanUsePower(power) || !me.CanPerceiveTarget(target))
             {
                 yield break;
             }
@@ -893,22 +875,18 @@ internal static class Level20Context
 
             var delta = -action.AttackSuccessDelta;
 
-            rulesetCharacter.UsePower(UsablePowersProvider.Get(_power, rulesetCharacter));
+            rulesetCharacter.UsePower(UsablePowersProvider.Get(power, rulesetCharacter));
             action.AttackRollOutcome = RollOutcome.Success;
             attackModifier.AttackRollModifier += delta;
-            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, _power.Name, _power));
+            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
     }
 
-    private sealed class BattleStartedListenerBardSuperiorInspiration : ICharacterBattleStartedListener
+    private sealed class BattleStartedListenerBardSuperiorInspiration(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureDefinition)
+        : ICharacterBattleStartedListener
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public BattleStartedListenerBardSuperiorInspiration(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
@@ -925,7 +903,7 @@ internal static class Level20Context
 
             character.usedBardicInspiration--;
             character.BardicInspirationAltered?.Invoke(character, character.RemainingBardicInspirations);
-            character.LogCharacterUsedFeature(_featureDefinition);
+            character.LogCharacterUsedFeature(featureDefinition);
         }
     }
 }

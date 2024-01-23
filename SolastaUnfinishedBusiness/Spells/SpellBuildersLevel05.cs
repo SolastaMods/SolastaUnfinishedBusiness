@@ -402,10 +402,13 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var source = action.ActingCharacter;
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
 
-            source.contextualFormation = [];
+            var actingCharacter = action.ActingCharacter;
+
+            actingCharacter.contextualFormation = [];
 
             foreach (var boxInt in action.ActionParams.TargetCharacters
                          .Select(targetCharacter => new BoxInt(
@@ -413,13 +416,16 @@ internal static partial class SpellBuilders
             {
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
-                    if (gameLocationPositioningService.CanPlaceCharacter(
-                            source, position, CellHelpers.PlacementMode.Station) &&
-                        gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
-                            source, position, onlyCheckCellsWithRealGround: true))
+                    if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                        !positioningService.CanPlaceCharacter(
+                            actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                        !positioningService.CanCharacterStayAtPosition_Floor(
+                            actingCharacter, position, onlyCheckCellsWithRealGround: true))
                     {
-                        source.ContextualFormation.Add(position);
+                        continue;
                     }
+
+                    actingCharacter.ContextualFormation.Add(position);
                 }
             }
 
@@ -429,12 +435,13 @@ internal static partial class SpellBuilders
 
     private sealed class FilterTargetingPositionSteelWhirlwind : IFilterTargetingPosition
     {
-        public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
-            validPositions.SetRange(source.ContextualFormation);
+            cursorLocationSelectPosition.validPositionsCache.SetRange(source.ContextualFormation);
+
+            yield break;
         }
     }
 

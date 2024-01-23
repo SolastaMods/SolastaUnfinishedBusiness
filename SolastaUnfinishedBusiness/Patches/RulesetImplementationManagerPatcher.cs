@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -486,18 +487,10 @@ public static class RulesetImplementationManagerPatcher
         public static bool Prefix(EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            var originalHero = formsParams.sourceCharacter as RulesetCharacterHero;
-            var substituteHero =
-                originalHero ?? formsParams.sourceCharacter.OriginalFormCharacter as RulesetCharacterHero;
+            var originalHero = formsParams.sourceCharacter.GetOriginalHero();
 
             // this shouldn't happen so passing the problem back to original game code
-            if (substituteHero == null)
-            {
-                return true;
-            }
-
-            // patch is only required for Wildshape Heroes or Multiclass ones
-            if (!SharedSpellsContext.IsMulticaster(originalHero))
+            if (originalHero == null)
             {
                 return true;
             }
@@ -510,22 +503,22 @@ public static class RulesetImplementationManagerPatcher
                     when SharedSpellsContext.RecoverySlots.TryGetValue(formsParams.activeEffect.Name,
                         out var invokerClass) && invokerClass is CharacterClassDefinition characterClassDefinition:
                 {
-                    foreach (var spellRepertoire in substituteHero.SpellRepertoires)
+                    foreach (var spellRepertoire in originalHero.SpellRepertoires)
                     {
                         var currentValue = 0;
 
                         if (spellRepertoire.SpellCastingClass == characterClassDefinition)
                         {
-                            currentValue = substituteHero.ClassesAndLevels[characterClassDefinition];
+                            currentValue = originalHero.ClassesAndLevels[characterClassDefinition];
                         }
                         else if (spellRepertoire.SpellCastingSubclass != null)
                         {
-                            var characterClass = substituteHero.ClassesAndSubclasses
+                            var characterClass = originalHero.ClassesAndSubclasses
                                 .FirstOrDefault(x => x.Value == spellRepertoire.SpellCastingSubclass).Key;
 
                             if (characterClass == characterClassDefinition)
                             {
-                                currentValue = substituteHero.ClassesAndLevels[characterClassDefinition];
+                                currentValue = originalHero.ClassesAndLevels[characterClassDefinition];
                             }
                         }
 
@@ -536,9 +529,12 @@ public static class RulesetImplementationManagerPatcher
 
                         var slotsCapital = (currentValue % 2) + (currentValue / 2);
 
-                        Gui.GuiService.GetScreen<SlotRecoveryModal>()
-                            .ShowSlotRecovery(substituteHero, formsParams.activeEffect.SourceDefinition.Name,
-                                spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
+                        Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(
+                            originalHero,
+                            formsParams.activeEffect.SourceDefinition.Name,
+                            spellRepertoire,
+                            slotsCapital,
+                            spellSlotsForm.MaxSlotLevel);
 
                         break;
                     }
@@ -550,9 +546,10 @@ public static class RulesetImplementationManagerPatcher
                 //
                 case SpellSlotsForm.EffectType.CreateSpellSlot or SpellSlotsForm.EffectType.CreateSorceryPoints:
                 {
-                    var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
+                    var spellRepertoire = originalHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
-                    Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(substituteHero,
+                    Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(
+                        originalHero,
                         spellRepertoire,
                         spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
                     break;
@@ -562,7 +559,7 @@ public static class RulesetImplementationManagerPatcher
                     break;
                 case SpellSlotsForm.EffectType.RecovererSorceryHalfLevelUp:
                 {
-                    var currentValue = substituteHero.ClassesAndLevels[Sorcerer];
+                    var currentValue = originalHero.ClassesAndLevels[Sorcerer];
                     var sorceryPointsGain = (currentValue % 2) + (currentValue / 2);
 
                     formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
@@ -570,7 +567,7 @@ public static class RulesetImplementationManagerPatcher
                 }
                 case SpellSlotsForm.EffectType.RechargePower when formsParams.targetCharacter is RulesetCharacter:
                 {
-                    foreach (var usablePower in substituteHero.UsablePowers.Where(usablePower =>
+                    foreach (var usablePower in originalHero.UsablePowers.Where(usablePower =>
                                  usablePower.PowerDefinition == spellSlotsForm.PowerDefinition))
                     {
                         usablePower.Recharge();
@@ -723,17 +720,17 @@ public static class RulesetImplementationManagerPatcher
                     effectForms);
             }
 
-            // BUGFIX: saving throw not passing correct saving delta on attack actions
+            //BUGFIX: saving throw not passing correct saving delta on attack actions
             Global.SetAttackActionSaveOutcomeDelta(outcomeDelta);
         }
 
         [UsedImplicitly]
-        public static void Prefix(
+        public static bool Prefix(
             RulesetCharacter caster,
             RulesetActor target,
-            ActionModifier actionModifier,
+            //ActionModifier actionModifier,
             ref string savingThrowAbility,
-            List<EffectForm> effectForms,
+            //List<EffectForm> effectForms,
             BaseDefinition sourceDefinition)
         {
             //PATCH: supports Oath of Ancients / Oath of Dread Path of The Savagery
@@ -742,6 +739,28 @@ public static class RulesetImplementationManagerPatcher
             OnRollSavingThrowOath(caster, target, sourceDefinition, OathOfDread.ConditionAspectOfDreadName,
                 OathOfDread.ConditionAspectOfDreadEnemy);
             PathOfTheSavagery.OnRollSavingThrowFuriousDefense(target, ref savingThrowAbility);
+
+            //PATCH: illusionary spells against creatures with True Sight should automatically save
+            if (!Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange ||
+                sourceDefinition is not
+                    SpellDefinition { SchoolOfMagic: SchoolIllusion, EffectDescription.TargetSide: Side.Enemy } ||
+                sourceDefinition == DatabaseHelper.SpellDefinitions.Silence)
+            {
+                return true;
+            }
+
+            var glCaster = GameLocationCharacter.GetFromActor(caster);
+            var glTarget = GameLocationCharacter.GetFromActor(target);
+
+            if (glCaster == null || glTarget == null)
+            {
+                return true;
+            }
+
+            var senseMode = glTarget.RulesetCharacter.SenseModes
+                .FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
+
+            return senseMode == null || !glTarget.IsWithinRange(glCaster, senseMode.SenseRange);
         }
 
         internal static void OnRollSavingThrowOath(
@@ -751,7 +770,9 @@ public static class RulesetImplementationManagerPatcher
             string selfConditionName,
             ConditionDefinition conditionDefinitionEnemy)
         {
-            if (caster == null || !caster.HasAnyConditionOfType(selfConditionName) || caster.Side == target.Side)
+            if (caster == null ||
+                caster.Side == target.Side ||
+                !caster.HasAnyConditionOfType(selfConditionName))
             {
                 return;
             }
@@ -763,14 +784,12 @@ public static class RulesetImplementationManagerPatcher
                 return;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
             var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
 
             if (gameLocationCaster == null ||
                 gameLocationTarget == null ||
-                gameLocationBattleService == null ||
-                !gameLocationBattleService.IsWithinXCells(gameLocationCaster, gameLocationTarget, 2))
+                !gameLocationCaster.IsWithinRange(gameLocationTarget, 2))
             {
                 return;
             }

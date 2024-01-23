@@ -27,7 +27,6 @@ Size: *Medium*
 * Walk 6
 * Constrict
 * Normal Vision
-* Truesight
 
 *Attacks:*
 | Type | Reach | Hit Bonus | Max Uses |

@@ -39,7 +39,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionPatronMountainIceboundSoul:8ccf63e3-0675-5144-b324-68b4e7e355f0",
+      "conditionDefinition": "Definition:ConditionBlindedEndOfNextTurn:fec8524775c5c134c9313deb3bedc345",
       "saveAffinity": "Negates",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"

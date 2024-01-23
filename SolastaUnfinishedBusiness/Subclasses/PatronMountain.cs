@@ -165,12 +165,6 @@ public class PatronMountain : AbstractSubclass
 
         // Icebound Soul
 
-        var conditionIceboundSoul = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}IceboundSoul")
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
-            .AddToDB();
-
         var additionalDamageIceboundSoul = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}IceboundSoul")
             .SetGuiPresentation($"FeatureSet{Name}IceboundSoul", Category.Feature)
@@ -180,7 +174,7 @@ public class PatronMountain : AbstractSubclass
             .SetConditionOperations(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
-                conditionDefinition = conditionIceboundSoul,
+                conditionDefinition = ConditionDefinitions.ConditionBlindedEndOfNextTurn,
                 hasSavingThrow = true,
                 saveAffinity = EffectSavingThrowType.Negates
             })
@@ -246,7 +240,7 @@ public class PatronMountain : AbstractSubclass
         {
             if (rulesetEffect == null)
             {
-                yield return HandleReaction(defender, me);
+                yield return HandleReaction(attacker, defender, me);
             }
         }
 
@@ -260,13 +254,16 @@ public class PatronMountain : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender, me);
+            yield return HandleReaction(attacker, defender, me);
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter defender, GameLocationCharacter me)
+        private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter me)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (me.IsMyTurn())
             {
                 yield break;
             }
@@ -293,7 +290,9 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            if (!gameLocationBattleManager.IsWithinXCells(me, defender, 7))
+            if (!me.CanPerceiveTarget(defender) ||
+                !me.CanPerceiveTarget(attacker) ||
+                !me.IsWithinRange(defender, 7))
             {
                 yield break;
             }

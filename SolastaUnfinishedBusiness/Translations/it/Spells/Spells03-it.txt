@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=Accecato dalla Punizione Accecante
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=Accecato dalla Fame del Vuoto
 Condition/&ConditionCorruptingBoltDescription=La creatura è vulnerabile alla successiva istanza di danno che riceve.
 Condition/&ConditionCorruptingBoltTitle=Corrotti
 Condition/&ConditionCrusadersMantleDescription=Ottieni un bonus di 1d4 danni radianti ai tuoi attacchi.

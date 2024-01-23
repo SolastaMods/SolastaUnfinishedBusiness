@@ -57,7 +57,7 @@ internal static class RangedCombatFeats
                         ShortbowType)))
             .AddToDB();
 
-        // backward compatibility
+        // kept for backward compatibility
         _ = FightingStyleBuilder
             .Create(Name)
             .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Archery)

@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
@@ -87,8 +88,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .Create($"CombatAffinity{Name}ExploitOpening")
             .SetGuiPresentation($"Condition{Name}PredictAttack", Category.Condition)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-            .SetSituationalContext(
-                (SituationalContext)ExtraSituationalContext.IsNotSourceOfCondition)
+            .SetSituationalContext(ExtraSituationalContext.IsNotSourceOfCondition)
             .AddToDB();
 
         var conditionExploitOpening = ConditionDefinitionBuilder
@@ -220,6 +220,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .ExcludeCaster()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
@@ -418,20 +419,24 @@ public sealed class MartialWarlord : AbstractSubclass
             return false;
         }
 
-        public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition,
-            List<int3> validPositions)
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
             if (!actingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
             {
-                return;
+                yield break;
             }
 
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(
                 targetCharacter.LocationPosition,
@@ -440,12 +445,20 @@ public sealed class MartialWarlord : AbstractSubclass
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
-                if (gameLocationPositioningService.CanPlaceCharacter(
-                        targetCharacter, position, CellHelpers.PlacementMode.Station) &&
-                    gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
-                        targetCharacter, position, onlyCheckCellsWithRealGround: true))
+                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                    !positioningService.CanPlaceCharacter(
+                        actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(
+                        actingCharacter, position, onlyCheckCellsWithRealGround: true))
                 {
-                    validPositions.Add(position);
+                    continue;
+                }
+
+                cursorLocationSelectPosition.validPositionsCache.Add(position);
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
                 }
             }
         }
@@ -569,8 +582,9 @@ public sealed class MartialWarlord : AbstractSubclass
                 ActionModifier modifier;
 
                 //prefer melee if main hand is melee or if enemy is close
-                var preferMelee = ValidatorsWeapon.IsMelee(partyCharacter.RulesetCharacter.GetMainWeapon())
-                                  || (battleManager != null && battleManager.IsWithin1Cell(partyCharacter, defender));
+                var preferMelee =
+                    ValidatorsWeapon.IsMelee(partyCharacter.RulesetCharacter.GetMainWeapon()) ||
+                    partyCharacter.IsWithinRange(defender, 1);
 
                 var (meleeMode, meleeModifier) = partyCharacter.GetFirstMeleeModeThatCanAttack(defender);
                 var (rangedMode, rangedModifier) = partyCharacter.GetFirstRangedModeThatCanAttack(defender);
@@ -688,12 +702,8 @@ public sealed class MartialWarlord : AbstractSubclass
                 return;
             }
 
-            foreach (var player in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.Side == locationCharacter.Side &&
-                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithinXCells(locationCharacter, x, 6))
-                         .ToList())
-
+            foreach (var player in gameLocationBattleService.Battle
+                         .GetContenders(locationCharacter, false, false, isWithinXCells: 6))
             {
                 player.RulesetCharacter.InflictCondition(
                     conditionWisdomInitiative.Name,

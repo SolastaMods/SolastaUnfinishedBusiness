@@ -1425,9 +1425,10 @@ internal static class CharacterContext
 
     private sealed class FilterTargetingPositionPowerTeleportSummon : IFilterTargetingPosition
     {
-        public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var summoner = source.RulesetCharacter.GetMySummoner();
@@ -1441,7 +1442,12 @@ internal static class CharacterContext
                     gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
                         source, position, onlyCheckCellsWithRealGround: true))
                 {
-                    validPositions.Add(position);
+                    cursorLocationSelectPosition.validPositionsCache.Add(position);
+                }
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
                 }
             }
         }
@@ -1846,10 +1852,10 @@ internal static class CharacterContext
 
                 // it's a Duelist and target is dueling with him
                 return attacker.RulesetCharacter.GetSubclassLevel(Rogue, RoguishDuelist.Name) > 0 &&
-                       gameLocationBattleManager.IsWithin1Cell(attacker, defender) &&
+                       attacker.IsWithinRange(defender, 1) &&
                        Gui.Battle.AllContenders
                            .Where(x => x != attacker && x != defender)
-                           .All(x => !gameLocationBattleManager.IsWithin1Cell(attacker, x));
+                           .All(x => !attacker.IsWithinRange(x, 1));
         }
     }
 

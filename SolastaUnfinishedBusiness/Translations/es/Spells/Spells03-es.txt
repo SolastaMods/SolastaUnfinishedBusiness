@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=Cegado por Castigo Cegador
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=Cegado por el hambre del vacío
 Condition/&ConditionCorruptingBoltDescription=La criatura es vulnerable a la siguiente instancia dañina que reciba.
 Condition/&ConditionCorruptingBoltTitle=Corrupto
 Condition/&ConditionCrusadersMantleDescription=Gana una bonificación de 1d4 de daño radiante en tus ataques.

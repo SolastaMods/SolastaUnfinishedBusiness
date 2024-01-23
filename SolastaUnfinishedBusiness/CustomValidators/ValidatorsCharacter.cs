@@ -98,11 +98,19 @@ internal static class ValidatorsCharacter
 
         var hasShield = HasShield(hero);
         var hasShieldExpert =
-            hero.TrainedFeats.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
-            hero.TrainedFightingStyles.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName));
+            hero.TrainedFightingStyles.Any(x => x.Name == ShieldExpert.ShieldExpertName);
 
         return hasShield && hasShieldExpert;
     };
+
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndNoBonusAttackInOffhand = character =>
+        HasMeleeWeaponInMainHand(character) &&
+        (
+            HasShield(character)
+                ? character.GetOriginalHero() is { } hero &&
+                  hero.TrainedFightingStyles.All(x => x.Name != ShieldExpert.ShieldExpertName)
+                : HasMeleeWeaponInOffHand(character)
+        );
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);

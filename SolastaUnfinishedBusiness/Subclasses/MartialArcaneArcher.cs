@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -623,13 +622,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         };
 
         // apply damage to all targets
-        foreach (var rulesetDefender in gameLocationBattleService.Battle.AllContenders
-                     .Where(x => x.Side == defender.Side
-                                 && x != defender
-                                 && gameLocationBattleService.IsWithinXCells(defender, x, 3))
-                     .ToList() // avoid changing enumerator
-                     .Select(targetCharacter => targetCharacter.RulesetCharacter))
+        foreach (var target in gameLocationBattleService.Battle.GetContenders(defender, false, isWithinXCells: 3))
         {
+            var rulesetTarget = target.RulesetCharacter;
             var damageForm = new DamageForm
             {
                 DamageType = DamageTypeForce, DieType = DieType.D6, DiceNumber = diceNumber, BonusDamage = 0
@@ -644,8 +639,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 damageRoll,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                rulesetDefender,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                rulesetTarget,
                 false,
                 attacker.Guid,
                 false,
@@ -743,8 +738,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                !IsBow(attackMode, null, null))
+            if (!IsBow(attackMode, null, null) || !me.CanPerceiveTarget(target))
             {
                 yield break;
             }

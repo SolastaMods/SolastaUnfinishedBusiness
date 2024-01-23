@@ -10,6 +10,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
@@ -1191,14 +1193,10 @@ internal static class InvocationsBuilders
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
             // apply damage to all targets
-            foreach (var rulesetDefender in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(attacker.Side)
-                                     && x != defender
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                     && gameLocationBattleService.IsWithin1Cell(defender, x))
-                         .ToList() // avoid changing enumerator
-                         .Select(targetCharacter => targetCharacter.RulesetCharacter))
+            foreach (var target in gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 1)
+                         .Where(x => x != defender))
             {
+                var rulesetTarget = target.RulesetCharacter;
                 var damageForm = new DamageForm
                 {
                     DamageType = DamageTypePsychic,
@@ -1215,8 +1213,8 @@ internal static class InvocationsBuilders
                     damageRoll,
                     damageForm,
                     damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                    rulesetDefender,
+                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                    rulesetTarget,
                     false,
                     rulesetAttacker.Guid,
                     false,
@@ -1277,7 +1275,9 @@ internal static class InvocationsBuilders
                             .Build())
                     .SetParticleEffectParameters(PowerMelekTeleport)
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorInexorableHex())
+            .AddCustomSubFeatures(
+                ValidatorsValidatePowerUse.InCombat,
+                new CustomBehaviorInexorableHex())
             .AddToDB();
 
         return InvocationDefinitionWithPrerequisitesBuilder
@@ -1289,47 +1289,51 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorInexorableHex : IFilterTargetingPosition, IValidatePowerUse
+    private sealed class CustomBehaviorInexorableHex : IFilterTargetingPosition
     {
-        public void EnumerateValidPositions(
-            CursorLocationSelectPosition cursorLocationSelectPosition, List<int3> validPositions)
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
+            cursorLocationSelectPosition.validPositionsCache.Clear();
+
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
-                return;
+                yield break;
             }
 
-            var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
 
-            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var gameLocationCharacter in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(source.Side)
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                     && CanApplyHex(x.RulesetCharacter))
-                         .ToList())
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (var gameLocationCharacter in gameLocationBattleService.Battle.GetContenders(actingCharacter)
+                         .Where(x => CanApplyHex(x.RulesetCharacter)))
             {
                 var boxInt = new BoxInt(
                     gameLocationCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1));
 
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {
-                    if (gameLocationPositioningService.CanPlaceCharacter(
-                            source, position, CellHelpers.PlacementMode.Station) &&
-                        gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
-                            source, position, onlyCheckCellsWithRealGround: true))
+                    if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
+                        !positioningService.CanPlaceCharacter(
+                            actingCharacter, position, CellHelpers.PlacementMode.Station) ||
+                        !positioningService.CanCharacterStayAtPosition_Floor(
+                            actingCharacter, position, onlyCheckCellsWithRealGround: true))
                     {
-                        validPositions.Add(position);
+                        continue;
+                    }
+
+                    cursorLocationSelectPosition.validPositionsCache.Add(position);
+
+                    if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                    {
+                        yield return null;
                     }
                 }
             }
-        }
-
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            return Gui.Battle != null;
         }
     }
 

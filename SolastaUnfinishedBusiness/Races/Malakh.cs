@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -313,12 +313,7 @@ internal static class RaceMalakhBuilder
             };
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var enemy in gameLocationBattleService.Battle.AllContenders
-                         .Where(x =>
-                             x.IsOppositeSide(locationCharacter.Side)
-                             && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                             && gameLocationBattleService.IsWithinXCells(locationCharacter, x, 3))
-                         .ToList()) // avoid changing enumerator
+            foreach (var enemy in gameLocationBattleService.Battle.GetContenders(locationCharacter, isWithinXCells: 3))
             {
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {

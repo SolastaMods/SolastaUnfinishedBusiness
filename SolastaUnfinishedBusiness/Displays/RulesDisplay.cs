@@ -74,7 +74,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialFoodRationsWeight = toggle;
-            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
+            SrdAndHouseRulesContext.SwitchOfficialFoodRationsWeight();
         }
 
         toggle = Main.Settings.UseOfficialDistanceCalculation;
@@ -87,6 +87,54 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons = toggle;
+        }
+
+        toggle = Main.Settings.UseOfficialLightingObscurementAndVisionRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialObscurementRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialLightingObscurementAndVisionRules = toggle;
+            Main.Settings.OfficialObscurementRulesCancelAdvDisPairs =
+                Main.Settings.UseOfficialAdvantageDisadvantageRules;
+            Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker = false;
+            Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker = false;
+            Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
+            LightingAndObscurementContext.SwitchOfficialObscurementRules();
+        }
+
+        UI.Label();
+        UI.Label();
+
+        if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        {
+            toggle = Main.Settings.OfficialObscurementRulesCancelAdvDisPairs;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesCancelAdvDisPairs"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesCancelAdvDisPairs = toggle;
+            }
+
+            toggle = Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker = toggle;
+                LightingAndObscurementContext.SwitchHeavilyObscuredOnObscurementRules();
+            }
+
+            toggle = Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker = toggle;
+                LightingAndObscurementContext.SwitchMagicalDarknessOnObscurementRules();
+            }
+
+            toggle = Main.Settings.OfficialObscurementRulesTweakMonsters;
+            if (UI.Toggle(Gui.Localize("ModUi/&OfficialObscurementRulesTweakMonsters"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.OfficialObscurementRulesTweakMonsters = toggle;
+                LightingAndObscurementContext.SwitchMonstersOnObscurementRules();
+            }
         }
 
         UI.Label();
@@ -120,18 +168,17 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout;
-        if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout = toggle;
-            SrdAndHouseRulesContext.SwitchDarknessSpell();
-        }
-
         toggle = Main.Settings.KeepInvisibilityWhenUsingItems;
         if (UI.Toggle(Gui.Localize("ModUi/&KeepInvisibilityWhenUsingItems"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.KeepInvisibilityWhenUsingItems = toggle;
+        }
+
+        toggle = Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange = toggle;
         }
 
         toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
@@ -139,7 +186,7 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
-            SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
+            SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
         UI.Label();
@@ -149,7 +196,7 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
-            SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
+            SrdAndHouseRulesContext.SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         }
 
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
@@ -165,7 +212,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddBleedingToLesserRestoration = toggle;
-            SrdAndHouseRulesContext.AddBleedingToRestoration();
+            SrdAndHouseRulesContext.SwitchAddBleedingToLesserRestoration();
         }
 
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
@@ -206,14 +253,14 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+            SrdAndHouseRulesContext.SwitchChangeSleetStormToCube();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;
         if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseHeightOneCylinderEffect = toggle;
-            SrdAndHouseRulesContext.UseHeightOneCylinderEffect();
+            SrdAndHouseRulesContext.SwitchUseHeightOneCylinderEffect();
         }
 
         toggle = Main.Settings.FixEldritchBlastRange;

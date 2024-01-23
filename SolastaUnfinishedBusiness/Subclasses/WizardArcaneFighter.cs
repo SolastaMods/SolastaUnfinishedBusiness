@@ -111,8 +111,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
                 yield break;
             }
 
-            // only process in my own turn
-            if (Gui.Battle?.ActiveContender != attacker)
+            if (!attacker.IsMyTurn())
             {
                 yield break;
             }

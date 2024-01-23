@@ -25,6 +25,7 @@ internal static class FightingStyleContext
         LoadStyle(new MonkShieldExpert());
         LoadStyle(new PolearmExpert());
         LoadStyle(new Pugilist());
+        LoadStyle(new RemarkableTechnique());
         LoadStyle(new RopeItUp());
         LoadStyle(new Sentinel());
         LoadStyle(new ShieldExpert());
@@ -108,11 +109,20 @@ internal static class FightingStyleContext
                 continue;
             }
 
+            // disallow Shield Expert to work with Dueling Fighting Style
+            if (trainedFightingStyle.Condition == FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon)
+            {
+                hero.activeFightingStyles.Remove(trainedFightingStyle);
+            }
+
             isActive = trainedFightingStyle.Condition switch
             {
                 // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
                 FightingStyleDefinition.TriggerCondition.RangedWeaponAttack => true,
-                // allow Shield Expert benefit from Two Weapon Fighting Style
+                // disallow Shield Expert to work with Dueling Fighting Style
+                FightingStyleDefinition.TriggerCondition.OneHandedMeleeWeapon =>
+                    ValidatorsCharacter.HasMeleeWeaponInMainAndNoBonusAttackInOffhand(hero),
+                // allow Shield Expert to work with Two Weapon Fighting Style
                 FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded =>
                     ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero),
                 _ => false

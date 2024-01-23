@@ -323,9 +323,9 @@
     "description": "Spell/&WeirdDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c7f804c97e651fd4b8505cca490d0297",
-      "m_SubObjectName": "PhantasmalKiller",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "1d446fd9-a8ae-517c-8067-74e66d8ba2d8",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

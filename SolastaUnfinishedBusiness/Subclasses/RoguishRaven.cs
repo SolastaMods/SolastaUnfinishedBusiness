@@ -283,7 +283,7 @@ public sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            if (Gui.Battle?.ActiveContender != attacker)
+            if (!attacker.IsMyTurn())
             {
                 yield break;
             }
@@ -323,9 +323,8 @@ public sealed class RoguishRaven : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
-                || rulesetAttacker.GetRemainingPowerCharges(power) <= 0
-                || !attackMode.ranged)
+            if (rulesetAttacker.GetRemainingPowerCharges(power) <= 0 || !me.CanPerceiveTarget(target) ||
+                !attackMode.ranged)
             {
                 yield break;
             }

@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -21,6 +20,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -196,6 +196,7 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build(),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
                         EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false))
                     .Build())
             .AddToDB();
@@ -762,11 +763,8 @@ internal static partial class SpellBuilders
             var effectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
             var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
 
-            foreach (var enemy in gameLocationBattleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(caster.Side) &&
-                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithin1Cell(x, target))
-                         .ToList())
+            foreach (var enemy in gameLocationBattleService.Battle.GetContenders(
+                         target, false, false, isWithinXCells: 1))
             {
                 var rulesetEnemy = enemy.RulesetCharacter;
                 var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
@@ -944,8 +942,9 @@ internal static partial class SpellBuilders
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            // only add the damage condition if in my own turn
-            if (Gui.Battle == null || Gui.Battle.ActiveContenderIgnoringLegendary.RulesetCharacter != target)
+            var glc = GameLocationCharacter.GetFromActor(target);
+
+            if (glc == null || !glc.IsMyTurn())
             {
                 return;
             }
@@ -1888,10 +1887,9 @@ internal static partial class SpellBuilders
 
             var targets = new List<GameLocationCharacter>();
 
-            targets.SetRange(Gui.Battle.AllContenders
-                .Where(x =>
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                    && battleManager.IsWithin1Cell(x, defender)));
+            targets.SetRange(
+                Gui.Battle.AllContenders.Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(defender, 1)));
 
             if (targets.Empty())
             {

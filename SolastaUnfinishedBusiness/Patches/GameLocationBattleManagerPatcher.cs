@@ -403,10 +403,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for `IAttackBeforeHitConfirmedOnMeOrAlly`
             if (__instance.Battle != null)
             {
-                foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.IsOppositeSide(attacker.Side)
-                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()) // avoid changing enumerator
+                foreach (var ally in __instance.Battle.GetContenders(attacker))
                 {
                     foreach (var attackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
                                  .GetSubFeaturesByType<IAttackBeforeHitConfirmedOnMeOrAlly>())
@@ -646,28 +643,27 @@ public static class GameLocationBattleManagerPatcher
     {
         [UsedImplicitly]
         public static void Postfix(
-            BattleDefinitions.AttackEvaluationParams attackParams,
             bool __result,
-            GameLocationBattleManager __instance)
+            BattleDefinitions.AttackEvaluationParams attackParams)
         {
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
 
-            //PATCH: add modifier or advantage/disadvantage for physical and spell attack
-            ApplyCustomModifiers(attackParams, __result);
-
-            //PATCH: add a rule to grant adv to attacks that the target unable to see
-            PatchIlluminationBasedAdvantage(__instance, __result, attackParams);
-        }
-
-        //TODO: move this somewhere else and maybe split?
-        private static void ApplyCustomModifiers(BattleDefinitions.AttackEvaluationParams attackParams, bool __result)
-        {
             if (!__result)
             {
                 return;
             }
 
+            //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
+            //handle lighting and obscurement logic disabled in `GLC.ComputeLightingModifierForIlluminable`
+            LightingAndObscurementContext.ApplyObscurementRules(attackParams);
+
+            //PATCH: add modifier or advantage/disadvantage for physical and spell attack
+            ApplyCustomModifiers(attackParams);
+        }
+
+        private static void ApplyCustomModifiers(BattleDefinitions.AttackEvaluationParams attackParams)
+        {
             var attacker = attackParams.attacker.RulesetCharacter;
             var defender = attackParams.defender.RulesetCharacter;
 
@@ -676,9 +672,7 @@ public static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            var modifyAttackActionModifiers = attacker.GetSubFeaturesByType<IModifyAttackActionModifier>();
-
-            foreach (var modifyAttackActionModifier in modifyAttackActionModifiers)
+            foreach (var modifyAttackActionModifier in attacker.GetSubFeaturesByType<IModifyAttackActionModifier>())
             {
                 modifyAttackActionModifier.OnAttackComputeModifier(
                     attacker,
@@ -688,52 +682,6 @@ public static class GameLocationBattleManagerPatcher
                     attackParams.effectName,
                     ref attackParams.attackModifier);
             }
-        }
-
-        private static void PatchIlluminationBasedAdvantage(
-            GameLocationBattleManager __instance,
-            bool __result,
-            BattleDefinitions.AttackEvaluationParams attackParams)
-        {
-            if (!__result || !Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
-            {
-                return;
-            }
-
-            var attackerLoc = attackParams.attacker;
-            var defenderLoc = attackParams.defender;
-            var attackerChr = attackerLoc.RulesetCharacter;
-            var defenderChr = defenderLoc.RulesetCharacter;
-
-            if (attackerChr == null || defenderChr == null)
-            {
-                return;
-            }
-
-            var attackerGravityCenter =
-                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(attackerLoc);
-            var defenderGravityCenter =
-                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(defenderLoc);
-
-            IIlluminable attacker = attackerLoc;
-
-            var lightingState = attackerLoc.LightingState;
-            var distance = (defenderGravityCenter - attackerGravityCenter).magnitude;
-            var flag = defenderLoc.RulesetCharacter.SenseModes
-                .Where(senseMode => distance <= senseMode.SenseRange)
-                .Any(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState));
-
-            if (flag)
-            {
-                return;
-            }
-
-            attackParams.attackModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Lighting, lightingState.ToString(),
-                    attacker.TargetSource, (string)null));
-            attackParams.attackModifier.AbilityCheckAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Lighting, lightingState.ToString(),
-                    attacker.TargetSource, (string)null));
         }
     }
 
@@ -828,10 +776,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 //PATCH: Support for `IOnReducedToZeroHpByMeOrAlly` feature
-                foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.Side == attacker.Side
-                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList())
+                foreach (var ally in __instance.Battle.GetContenders(attacker, false, false))
                 {
                     foreach (var onReducedToZeroHpByMeOrAlly in
                              ally.RulesetActor.GetSubFeaturesByType<IOnReducedToZeroHpByMeOrAlly>())
@@ -887,6 +832,31 @@ public static class GameLocationBattleManagerPatcher
 
                 if (rulesetEffect is { SourceDefinition: SpellDefinition spellDefinition })
                 {
+                    //PATCH: illusionary spells against creatures with True Sight should automatically save
+                    if (Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange &&
+                        spellDefinition.SchoolOfMagic == SchoolIllusion &&
+                        spellDefinition.EffectDescription.TargetSide == Side.Enemy &&
+                        spellDefinition != DatabaseHelper.SpellDefinitions.Silence)
+                    {
+                        var rulesetDefender = defender.RulesetCharacter;
+                        var senseMode =
+                            rulesetDefender.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
+
+                        if (senseMode != null && attacker.IsWithinRange(defender, senseMode.SenseRange))
+                        {
+                            var console = Gui.Game.GameConsole;
+                            var entry = new GameConsoleEntry(
+                                "Feedback/&TrueSightAndIllusionSpells", console.consoleTableDefinition)
+                            {
+                                Indent = true
+                            };
+
+                            console.AddCharacterEntry(rulesetDefender, entry);
+                            console.AddEntry(entry);
+                            actualEffectForms.Clear();
+                        }
+                    }
+
                     var magicalAttackBeforeHitConfirmedOnEnemy =
                         spellDefinition.GetFirstSubFeatureOfType<IMagicalAttackBeforeHitConfirmedOnEnemy>();
 
@@ -1039,10 +1009,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: allow custom behavior when physical attack initiates on me or ally
             if (__instance.Battle != null)
             {
-                foreach (var ally in __instance.Battle.AllContenders
-                             .Where(x => x.IsOppositeSide(attacker.Side)
-                                         && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList()) // avoid changing enumerator
+                foreach (var ally in __instance.Battle.GetContenders(attacker))
                 {
                     foreach (var physicalAttackInitiatedOnMeOrAlly in ally.RulesetCharacter
                                  .GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>())
@@ -1087,14 +1054,11 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            foreach (var opposingContender in __instance.Battle.AllContenders
+            foreach (var opposingContender in __instance.Battle.GetContenders(attacker, isWithinXCells: 1)
                          .Where(opposingContender =>
-                             opposingContender.IsOppositeSide(attacker.Side) &&
                              opposingContender != defender &&
-                             opposingContender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              opposingContender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
                              ActionDefinitions.ActionStatus.Available &&
-                             __instance.IsWithin1Cell(opposingContender, defender) &&
                              opposingContender.GetActionStatus(ActionDefinitions.Id.BlockAttack,
                                  ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) ==
                              ActionDefinitions.ActionStatus.Available))
@@ -1155,10 +1119,7 @@ public static class GameLocationBattleManagerPatcher
                 if (__instance.Battle != null)
                 {
                     // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                    foreach (var gameLocationAlly in __instance.Battle.AllContenders
-                                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                             && x.Side == attacker.Side)
-                                 .ToList()) // avoid changing enumerator
+                    foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker, false, false))
                     {
                         var allyFeatures =
                             gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMeOrAlly>();
@@ -1177,10 +1138,7 @@ public static class GameLocationBattleManagerPatcher
                 if (__instance.Battle != null)
                 {
                     // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                    foreach (var gameLocationAlly in __instance.Battle.AllContenders
-                                 .Where(x => x.IsOppositeSide(attacker.Side)
-                                             && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                                 .ToList()) // avoid changing enumerator
+                    foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker))
                     {
                         var allyFeatures =
                             gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
@@ -1256,10 +1214,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 //PATCH: Support for features before hit possible, e.g. spiritual shielding
-                foreach (var extraEvents in __instance.Battle.AllContenders
-                             .Where(u => u.IsOppositeSide(attacker.Side)
-                                         && u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList() // avoid changing enumerator
+                foreach (var extraEvents in __instance.Battle.GetContenders(attacker)
                              .SelectMany(featureOwner => featureOwner.RulesetCharacter
                                  .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
                                  .Select(x =>
@@ -1295,8 +1250,13 @@ public static class GameLocationBattleManagerPatcher
             int3 defenderPosition,
             ActionModifier attackModifier,
             ref CoverType bestCoverType,
-            bool ignoreCoverFromCharacters)
+            ref bool ignoreCoverFromCharacters)
         {
+            if (attacker.UsedSpecialFeatures.ContainsKey("FamiliarAttack"))
+            {
+                ignoreCoverFromCharacters = true;
+            }
+
             var modifiers = defender.RulesetCharacter.GetSubFeaturesByType<IModifyCoverType>();
 
             foreach (var modifier in modifiers)

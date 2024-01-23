@@ -83,28 +83,27 @@ internal static class SrdAndHouseRulesContext
         //SETTING: modify normal vision range
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
 
-        AddBleedingToRestoration();
-        AllowTargetingSelectionWhenCastingChainLightningSpell();
-        ApplyConditionBlindedShouldNotAllowOpportunityAttack();
-        ApplySrdWeightToFoodRations();
+        ActionSwitching.Load();
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
+        SwitchAddBleedingToLesserRestoration();
         SwitchAllowClubsToBeThrown();
-        SwitchDarknessSpell();
+        SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
+        SwitchChangeSleetStormToCube();
+        SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         SwitchDruidAllowMetalArmor();
         SwitchEldritchBlastRange();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFilterOnHideousLaughter();
         SwitchFullyControlConjurations();
-        SwitchMagicStaffFoci();
-        SwitchRecurringEffectOnEntangle();
-        SwitchUniversalSylvanArmorAndLightbringer();
-        UseCubeOnSleetStorm();
-        UseHeightOneCylinderEffect();
         SwitchHastedCasing();
+        SwitchMagicStaffFoci();
+        SwitchOfficialFoodRationsWeight();
+        SwitchRecurringEffectOnEntangle();
         SwitchSchoolRestrictionsFromShadowCaster();
         SwitchSchoolRestrictionsFromSpellBlade();
-        ActionSwitching.Load();
+        SwitchUniversalSylvanArmorAndLightbringer();
+        SwitchUseHeightOneCylinderEffect();
     }
 
     internal static void SwitchSchoolRestrictionsFromShadowCaster()
@@ -289,28 +288,24 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
+    internal static void SwitchConditionBlindedShouldNotAllowOpportunityAttack()
     {
         if (Main.Settings.BlindedConditionDontAllowAttackOfOpportunity)
         {
-            if (!ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionBlind))
-            {
-                ConditionDefinitions.ConditionBlinded.Features.Add(ActionAffinityConditionBlind);
-            }
+            ConditionDefinitions.ConditionBlinded.Features.TryAdd(ActionAffinityConditionBlind);
+            LightingAndObscurementContext.ConditionBlindedByDarkness.Features.TryAdd(ActionAffinityConditionBlind);
         }
         else
         {
-            if (ConditionDefinitions.ConditionBlinded.Features.Contains(ActionAffinityConditionBlind))
-            {
-                ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
-            }
+            ConditionDefinitions.ConditionBlinded.Features.Remove(ActionAffinityConditionBlind);
+            LightingAndObscurementContext.ConditionBlindedByDarkness.Features.Remove(ActionAffinityConditionBlind);
         }
     }
 
     /// <summary>
     ///     Allow the user to select targets when using 'Chain Lightning'.
     /// </summary>
-    internal static void AllowTargetingSelectionWhenCastingChainLightningSpell()
+    internal static void SwitchAllowTargetingSelectionWhenCastingChainLightningSpell()
     {
         var spell = ChainLightning.EffectDescription;
 
@@ -331,7 +326,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void ApplySrdWeightToFoodRations()
+    internal static void SwitchOfficialFoodRationsWeight()
     {
         var foodSrdWeight = Food_Ration;
         var foodForagedSrdWeight = Food_Ration_Foraged;
@@ -376,7 +371,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void UseCubeOnSleetStorm()
+    internal static void SwitchChangeSleetStormToCube()
     {
         var sleetStormEffect = SleetStorm.EffectDescription;
 
@@ -396,37 +391,19 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void SwitchDarknessSpell()
-    {
-        //BUGFIX: Now that we have better handled sight and advantage elsewhere, darkness should no more give other source of disadvantage on attack
-        // and the immunity to condition darkness provided by the condition affinity below prevents one with devil sight and similar abilities, causing other problems
-        // so here we remove this immunity
-        if (Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
-        {
-            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.None;
-            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType =
-                ConditionAffinityType.None;
-        }
-        else
-        {
-            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.Disadvantage;
-            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType =
-                ConditionAffinityType.Immunity;
-        }
-    }
-
     internal static void SwitchEldritchBlastRange()
     {
         EldritchBlast.effectDescription.rangeParameter = Main.Settings.FixEldritchBlastRange ? 24 : 16;
     }
 
-    internal static void UseHeightOneCylinderEffect()
+    internal static void SwitchUseHeightOneCylinderEffect()
     {
         // always applicable
         ClearTargetParameter2ForTargetTypeCube();
 
         // Change SpikeGrowth to be height 1 round cylinder/sphere
         var spikeGrowthEffect = SpikeGrowth.EffectDescription;
+
         spikeGrowthEffect.targetParameter = 4;
 
         if (Main.Settings.UseHeightOneCylinderEffect)
@@ -504,7 +481,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void AddBleedingToRestoration()
+    internal static void SwitchAddBleedingToLesserRestoration()
     {
         var cf = LesserRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
 
@@ -721,7 +698,8 @@ internal static class SrdAndHouseRulesContext
                && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name;
     }
 
-    internal static void HandleSmallRaces(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    internal static void HandleSmallRaces(
+        BattleDefinitions.AttackEvaluationParams evaluationParams)
     {
         if (!Main.Settings.UseOfficialSmallRacesDisWithHeavyWeapons)
         {
@@ -755,10 +733,7 @@ internal static class SrdAndHouseRulesContext
                 return false;
             }
 
-            //TODO: show only if has detected unidentified items
-            //TODO: show only if anyone in party has identify (optional)
-            return Main.Settings.IdentifyAfterRest
-                   && hero.HasNonIdentifiedItems();
+            return Main.Settings.IdentifyAfterRest && hero.HasNonIdentifiedItems();
         }
     }
 
@@ -782,8 +757,7 @@ internal static class SrdAndHouseRulesContext
 ///     Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
 ///     of lesser value components (e.g. 4 x 300gp diamonds).
 ///     Note that this implementation will only work with identical components - e.g. 'all diamonds', it won't consider
-///     combining
-///     different types of items with the tag 'gem'.
+///     combining different types of items with the tag 'gem'.
 /// </summary>
 internal static class StackedMaterialComponent
 {
@@ -1079,13 +1053,8 @@ internal static class FlankingAndHigherGroundRules
             return false;
         }
 
-        var allies = gameLocationBattleService.Battle.AllContenders
-            .Where(x =>
-                x != attacker &&
-                x.Side == attacker.Side &&
-                x.CanAct() &&
-                gameLocationBattleService.IsWithin1Cell(x, defender))
-            .ToList();
+        var allies = gameLocationBattleService.Battle.GetContenders(defender, isWithinXCells: 1)
+            .Where(x => x.CanAct()).ToList();
 
         if (allies.Count == 0)
         {
@@ -1146,13 +1115,9 @@ internal static class FlankingAndHigherGroundRules
             new FlankingMathExtensions.Point3D(defender.LocationBattleBoundingBox.Max + 1));
 
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var ally in gameLocationBattleService.Battle.AllContenders)
+        foreach (var ally in gameLocationBattleService.Battle.GetContenders(defender, isWithinXCells: 1))
         {
-            if (ally == attacker
-                || ally == defender
-                || ally.IsOppositeSide(attacker.Side)
-                || !ally.CanAct()
-                || !gameLocationBattleService.IsWithin1Cell(ally, defender))
+            if (ally == defender || !ally.CanAct())
             {
                 continue;
             }
@@ -1192,10 +1157,8 @@ internal static class FlankingAndHigherGroundRules
 
         var attacker = evaluationParams.attacker;
         var defender = evaluationParams.defender;
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach &&
-            (gameLocationBattleService == null || !gameLocationBattleService.IsWithin1Cell(attacker, defender)))
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach && !attacker.IsWithinRange(defender, 1))
         {
             return;
         }

@@ -320,9 +320,9 @@
     "description": "Spell/&PowerWordKillDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a113495fea575ee4a9867630477506bc",
-      "m_SubObjectName": "Disintegrate",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "d2059edc-adba-5961-b0f8-d2c2b4ba0b64",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

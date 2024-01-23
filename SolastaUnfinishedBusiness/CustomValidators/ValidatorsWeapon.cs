@@ -216,12 +216,9 @@ internal static class ValidatorsWeapon
             return true;
         }
 
-        var currentAttackAction = Global.CurrentAttackAction.Peek();
+        var currentAttack = Global.CurrentAttackAction.Peek();
 
         // handle combat situations and ensure we don't validate if attack not within range
-        return ServiceRepository.GetService<IGameLocationBattleService>().IsWithinXCells(
-            currentAttackAction.ActingCharacter,
-            currentAttackAction.ActionParams.TargetCharacters[0],
-            reach);
+        return currentAttack.ActingCharacter.IsWithinRange(currentAttack.ActionParams.TargetCharacters[0], reach);
     }
 }

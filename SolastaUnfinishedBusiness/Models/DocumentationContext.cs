@@ -72,6 +72,11 @@ internal static class DocumentationContext
         DumpOthers<InvocationDefinition>("UnfinishedBusinessVersatilities",
             x => x is InvocationDefinitionCustom y &&
                  y.PoolType == InvocationPoolTypeCustom.Pools.EldritchVersatilityPool);
+
+#if false
+        DumpSpellsCsv();
+        DumpPowersCsv();
+#endif
     }
 
     private static string LazyManStripXml(string input)
@@ -516,4 +521,173 @@ internal static class DocumentationContext
 
         return outString.ToString();
     }
+
+#if false
+    private static void DumpSpellsCsv()
+    {
+        var outString = new StringBuilder();
+
+        outString.Append("Name");
+        outString.Append('\t');
+        outString.Append("Spell Level");
+        outString.Append('\t');
+        outString.Append("Spell");
+        outString.Append('\t');
+        outString.Append("Description");
+        outString.Append('\t');
+        outString.Append("Range Type");
+        outString.Append('\t');
+        outString.Append("Range Parameter");
+        outString.Append('\t');
+        outString.Append("Target Side");
+        outString.Append('\t');
+        outString.Append("Target Type");
+        outString.Append('\t');
+        outString.Append("Target Parameter");
+        outString.Append('\t');
+        outString.Append("Duration Type");
+        outString.Append('\t');
+        outString.Append("Duration Parameter");
+        outString.Append('\t');
+        outString.Append("End of Effect");
+        outString.Append('\t');
+        outString.Append("Saving");
+        outString.Append('\t');
+        outString.Append("Ignore Cover");
+        outString.Append('\t');
+        outString.Append("Source");
+        outString.AppendLine();
+
+        foreach (var spell in DatabaseRepository.GetDatabase<SpellDefinition>()
+                     .Where(x => x.ContentPack != CeContentPackContext.CeContentPack ||
+                                 SpellsContext.Spells.Contains(x)))
+        {
+            outString.Append(spell.Name);
+            outString.Append('\t');
+            outString.Append(spell.SpellLevel);
+            outString.Append('\t');
+            outString.Append(spell.FormatTitle());
+            outString.Append('\t');
+            outString.Append(spell.FormatDescription().Replace("\n", " "));
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.RangeType);
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.RangeParameter);
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.TargetSide);
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.TargetType);
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.TargetParameter);
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.DurationType);
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.DurationParameter);
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.EndOfEffect);
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.HasSavingThrow
+                ? spell.EffectDescription.SavingThrowAbility
+                : "NONE");
+            outString.Append('\t');
+            outString.Append(spell.EffectDescription.IgnoreCover);
+            outString.Append('\t');
+            outString.Append(spell.ContentPack == CeContentPackContext.CeContentPack ? "MOD" : "VANILLA");
+            outString.AppendLine();
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/spells.txt");
+        sw.WriteLine(outString.ToString());
+    }
+
+    private static void DumpPowersCsv()
+    {
+        var outString = new StringBuilder();
+
+        outString.Append("Name");
+        outString.Append('\t');
+        outString.Append("Power");
+        outString.Append('\t');
+        outString.Append("Description");
+        outString.Append('\t');
+        outString.Append("Range Type");
+        outString.Append('\t');
+        outString.Append("Range Parameter");
+        outString.Append('\t');
+        outString.Append("Target Side");
+        outString.Append('\t');
+        outString.Append("Target Type");
+        outString.Append('\t');
+        outString.Append("Target Parameter");
+        outString.Append('\t');
+        outString.Append("Duration Type");
+        outString.Append('\t');
+        outString.Append("Duration Parameter");
+        outString.Append('\t');
+        outString.Append("End of Effect");
+        outString.Append('\t');
+        outString.Append("Saving");
+        outString.Append('\t');
+        outString.Append("Ignore Cover");
+        outString.AppendLine();
+        outString.Append("Source");
+        outString.AppendLine();
+
+        var classPowers = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .SelectMany(y => y.FeatureUnlocks
+                .Select(z => z.FeatureDefinition))
+            .OfType<FeatureDefinitionPower>()
+            .ToArray();
+
+        var racePowers = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+            .SelectMany(y => y.FeatureUnlocks
+                .Select(z => z.FeatureDefinition))
+            .OfType<FeatureDefinitionPower>().ToArray();
+
+        var subClassPowers = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .SelectMany(y => y.FeatureUnlocks
+                .Select(z => z.FeatureDefinition))
+            .OfType<FeatureDefinitionPower>().ToArray();
+
+        foreach (var power in DatabaseRepository.GetDatabase<FeatureDefinition>()
+                     .OfType<FeatureDefinitionPower>()
+                     .Where(x => !x.GuiPresentation.Hidden &&
+                                 (classPowers.Contains(x) || racePowers.Contains(x) || subClassPowers.Contains(x))))
+        {
+            outString.Append(power.Name);
+            outString.Append('\t');
+            outString.Append(power.FormatTitle());
+            outString.Append('\t');
+            outString.Append(power.FormatDescription().Replace("\n", " "));
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.RangeType);
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.RangeParameter);
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.TargetSide);
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.TargetType);
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.TargetParameter);
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.DurationType);
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.DurationParameter);
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.EndOfEffect);
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.HasSavingThrow
+                ? power.EffectDescription.SavingThrowAbility
+                : "NONE");
+            outString.Append('\t');
+            outString.Append(power.EffectDescription.IgnoreCover);
+            outString.Append('\t');
+            outString.Append(power.ContentPack == CeContentPackContext.CeContentPack ? "MOD" : "VANILLA");
+            outString.AppendLine();
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/powers.txt");
+        sw.WriteLine(outString.ToString());
+    }
+#endif
 }

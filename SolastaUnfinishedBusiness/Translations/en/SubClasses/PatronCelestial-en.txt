@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedBySearingVengeanceTitle=Blinded by Searing Vengeance
 Feature/&BonusCantripCelestialDescription=You learn the <b>Light</b> and <b>Sacred Flame</b> cantrips. They count as warlock cantrips for you, but they don't count against your number of cantrips known.
 Feature/&BonusCantripCelestialTitle=Bonus Cantrips
 Feature/&FeatureSetCelestialRadiantSoulDescription=Your link to the Celestial allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant or fire damage, you add your Charisma modifier to one radiant or fire damage roll of that spell.

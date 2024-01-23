@@ -104,7 +104,15 @@ public class MirrorImageLogic
             return;
         }
 
-        var distance = (int)attacker.DistanceTo(target);
+        var locA = GameLocationCharacter.GetFromActor(attacker);
+        var locB = GameLocationCharacter.GetFromActor(target);
+
+        if (locA == null || locB == null)
+        {
+            return;
+        }
+
+        var distance = locA.GetDistance(locB);
 
         foreach (var sense in attacker.SenseModes
                      .Where(sense => sense.senseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight
@@ -118,7 +126,6 @@ public class MirrorImageLogic
         }
 
         //TODO: Bonus points if we can manage to change attack `GameConsole.AttackRolled` to show duplicate, instead of the target
-
         //TODO: add custom context and modify Halfling's Lucky to include it
         var result = target.RollDie(RuleDefinitions.DieType.D20, RuleDefinitions.RollContext.None, false,
             RuleDefinitions.AdvantageType.None, out _, out _, skill: TargetMirrorImageTag);
@@ -156,8 +163,8 @@ public class MirrorImageLogic
             return;
         }
 
-        if (!testMode
-            && outcome is RuleDefinitions.RollOutcome.Success or RuleDefinitions.RollOutcome.CriticalSuccess)
+        if (!testMode &&
+            outcome is RuleDefinitions.RollOutcome.Success or RuleDefinitions.RollOutcome.CriticalSuccess)
         {
             //attacker hit our mirror image, need to remove one of them
             var conditions = GetConditions(target as RulesetCharacter);

@@ -43,19 +43,25 @@ Your expert training with a polearm grants you these benefits:
 
 Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 
-# 11. - Rope it Up
+# 11. - Remarkable Technique
+
+You have martial training that allows you to perform special combat techniques called gambits:
+• You learn one gambit of your choice from the Tactician subclass. The Gambit DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
+• You gain 1 Gambit Die. The die is a d6 and it doesn't increase in size if you are not a Tactician. This die is used to fuel your gambits. It is expended when you use it, and is regained when you finish a short or long rest.
+
+# 12. - Rope it Up
 
 Your thrown strikes get +1 to attack and damage rolls, you increase both it's long and short range by 10 feet and it returns to your hand immediately after it is used to make a thrown attack.
 
-# 12. - Shield Expert
+# 13. - Shield Expert
 
 You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 
-# 13. - Torchbearer
+# 14. - Torchbearer
 
 You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 3 turns or until extinguished.
 
-# 14. - Warden
+# 15. - Warden
 
 When a creature you can see hits a target, other than you, within 5 feet of you with an attack, you can use your reaction to reduce the damage the target takes by 1d10 + your proficiency bonus. You must wield a shield or a simple or martial weapon to use this reaction.
 

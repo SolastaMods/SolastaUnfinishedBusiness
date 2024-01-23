@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=Вы получаете иммунитет к урону холодом. Когда вы в первый раз в свой ход поражаете врага атакой, он должен пройти спасбросок Телосложения против Сл заклинаний вашего колдуна или ослепнуть до конца вашего следующего хода.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=Вы получаете иммунитет к урону холодом. Когда вы в первый раз в свой ход поражаете противника атакой, он должен пройти спасбросок Телосложения против Сл заклинаний вашего колдуна или ослепнуть до конца своего следующего хода.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Скованная льдом душа
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Вы получаете владение навыками Природы и Выживания. Вы также получаете Горы в качестве предпочитаемого типа местности.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=Знания эонов

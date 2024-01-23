@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=냉기 피해 면역을 얻습니다. 자신 차례에 적을 공격해 처음 적중시킬 경우, 대상은 당신의 워락 주문 DC를 기준으로 건강 내성굴림을 해 실패할 경우 당신의 다음 차례 종료까지 실명 상태에 빠집니다.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=냉기 피해에 면역이 됩니다. 당신의 턴에 처음으로 적을 공격할 때, 그들은 당신의 흑마법사 주문 DC에 대해 헌법 내성 굴림을 해야 하며, 그렇지 않으면 다음 턴이 끝날 때까지 눈이 멀게 됩니다.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=만년설
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=자연과 생존 기술 숙련 습득. 산맥 지형이 선호하는 지형이 됩니다.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=불멸의 지식

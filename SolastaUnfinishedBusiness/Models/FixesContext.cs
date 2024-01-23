@@ -29,6 +29,7 @@ internal static class FixesContext
     internal static void Load()
     {
         InitMagicAffinitiesAndCastSpells();
+        FixMinorSpellIssues();
     }
 
     internal static void LateLoad()
@@ -41,7 +42,6 @@ internal static class FixesContext
         FixGorillaWildShapeRocksToUnlimited();
         FixMartialArtsProgression();
         FixMeleeHitEffectsRange();
-        FixMinorSpellIssues();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
         FixSmitesAndStrikesDiceProgression();
@@ -409,6 +409,24 @@ internal static class FixesContext
 
     private static void FixMinorSpellIssues()
     {
+        ConditionDefinitions.ConditionBlinded.Features.Remove(
+            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlinded);
+
+        CloudKill.EffectDescription.EffectForms.TryAdd(
+            EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHeavilyObscured));
+
+        CloudKill.EffectDescription.recurrentEffect =
+            RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd;
+
+        Entangle.EffectDescription.EffectForms.Add(
+            EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false));
+
+        IncendiaryCloud.EffectDescription.EffectForms.TryAdd(
+            EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionHeavilyObscured));
+
+        SleetStorm.EffectDescription.recurrentEffect =
+            RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnEnd;
+
         //BUGFIX: add an effect to Counterspell
         Counterspell.EffectDescription.effectParticleParameters =
             DreadfulOmen.EffectDescription.effectParticleParameters;
@@ -443,6 +461,13 @@ internal static class FixesContext
         InsectPlague.EffectDescription.savingThrowAbility = AttributeDefinitions.Constitution;
         InsectPlague.EffectDescription.EffectForms[0].hasSavingThrow = true;
         InsectPlague.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
+
+        //BUGFIX: Ray of Enfeeblement should be recurrent on activation and turn start
+        RayOfEnfeeblement.EffectDescription.HasSavingThrow = false;
+        RayOfEnfeeblement.EffectDescription.RangeType = RangeType.RangeHit;
+        RayOfEnfeeblement.EffectDescription.EffectForms[0].canSaveToCancel = true;
+        RayOfEnfeeblement.EffectDescription.recurrentEffect =
+            RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart;
 
         //BUGFIX: Sorcerers should have Insect Plague at level 5
         SpellListSorcerer.SpellsByLevel.FirstOrDefault(x => x.Level == 5)!.Spells.Add(InsectPlague);

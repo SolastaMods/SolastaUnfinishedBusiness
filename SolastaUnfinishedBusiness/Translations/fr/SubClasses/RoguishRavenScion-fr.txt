@@ -15,7 +15,7 @@ Feature/&PowerRavenScionHeartSeekingShotDescription=Par une action gratuite, vou
 Feature/&PowerRavenScionHeartSeekingShotTitle=Tir à la recherche du cœur
 Feedback/&AdditionalDamageSniperAimFormat=Objectif du tireur d'élite
 Feedback/&AdditionalDamageSniperAimLine=La Visée du Sniper inflige +{2} dégâts supplémentaires !
-Feedback/&TriggerRavenScionRerollLine={0} lance {1} = {2}. Heart-Seeking Shot forcera un coup critique.
+Feedback/&TriggerRavenScionRerollLine={0} lance {1} = {2}. Deadly Focus forcera un coup critique.
 Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Utilisez votre concentration mortelle pour réessayer l'attaque.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Utilisez votre concentration mortelle pour réessayer l'attaque.
 Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Réessayer l'attaque

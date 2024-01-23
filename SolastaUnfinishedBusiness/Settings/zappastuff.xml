@@ -218,6 +218,168 @@
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>
     </DeprecatedSubsList>
+    <MonstersThatShouldHaveDarkvision>
+        <string>Adam_The_Twelth</string>
+        <string>DLC3_Elven_07_Guard</string>
+        <string>SRD_DLC_Mage</string>
+        <string>SRD_Mage</string>
+        <string>DLC1_NPC_Forge_Escorted_01</string>
+        <string>DLC3_NPC_Generic_ElvenCitizen_Husk</string>
+        <string>Generic_Darkweaver</string>
+        <string>DLC3_ElvenClans_Leralyn</string>
+        <string>DLC3_NPC_Elven3_DLC3_Ending</string>
+        <string>DLC3_NPC_Elven5_DLC3_Ending</string>
+        <string>Generic_HighPriest</string>
+        <string>DLC3_Elven_Suspect_05_Guard_Traitor</string>
+        <string>DLC3_Elven_06_Guard</string>
+        <string>SRD_DLC3_Archmage</string>
+        <string>Generic_ShockArcanist</string>
+        <string>Mutant_Ape</string>
+        <string>Mutant_Ape_Range</string>
+        <string>Mutant_Direwolf</string>
+        <string>Badlands_Ape_MonsterDefinition</string>
+        <string>BadlandsBear</string>
+        <string>BadlandsBear_POI_ONLY</string>
+        <string>Eagle_Matriarch</string>
+        <string>KindredSpiritApe</string>
+        <string>KindredSpiritBear</string>
+        <string>KindredSpiritEagle</string>
+        <string>KindredSpiritTiger</string>
+        <string>KindredSpiritViper</string>
+        <string>KindredSpiritWolf</string>
+        <string>WildshapeDirewolf</string>
+        <string>WildShapeWolf</string>
+        <string>AlphaWolf</string>
+        <string>ConjuredEightBeast_Wolf</string>
+        <string>ConjuredTwoBeast_Direwolf</string>
+        <string>Direwolf</string>
+        <string>DLC1_Complex_Trained_Direwolf</string>
+        <string>DLC1_Complex_Trained_Wolf</string>
+        <string>StarvingWolf</string>
+        <string>Wolf</string>
+        <string>FeyBear</string>
+        <string>FeyGiant_Eagle</string>
+        <string>FeyGiantApe</string>
+        <string>FeyWolf</string>
+        <string>SRD_Werewolf</string>
+        <string>Captain_Verissa_Ironshell</string>
+        <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
+        <string>DLC1_Complex_NPC_Sitinero</string>
+        <string>DLC1_Complex_NPC_Sitinero_DM_Monster</string>
+        <string>DLC1_NPC_Fusioned_Orenetis_Sitenero</string>
+        <string>DLC1_NPC_Sitenero</string>
+        <string>DLC1_NPC_Tuznut</string>
+        <string>DLC1_NPC_Tuznut_Hostile</string>
+        <string>DLC1_NPC_Tuznut_Hostile_DM_Monster</string>
+        <string>DLC1_Valley_NPC_Samko_Flint</string>
+        <string>DLC1_Valley_NPC_Telerien_Purevoice</string>
+        <string>DLC1_NPC_Forge_Hasdrubal</string>
+        <string>DLC1_NPC_Nobleman_ThePeople07</string>
+        <string>DLC1_NPC_Orenetis_Apprentice</string>
+        <string>DLC1_NPC_ThePeople_Reya_Outpost</string>
+        <string>DLC3_NPC_Einareum_Merchant_General</string>
+        <string>DLC3_NPC_SouthernClans_Generic_Cousin_Husk</string>
+        <string>Lizzaria_Of_Grimhold</string>
+        <string>Merchant_Gorim_Ironsoot</string>
+        <string>Merchant_Hugo_Requer</string>
+        <string>Priest_Of_Misaye_Nel</string>
+    </MonstersThatShouldHaveDarkvision>
+    <MonstersThatShouldHaveTrueSight>
+        <string>Couatl</string>
+        <string>CubeOfLight</string>
+        <string>Conjuration_TheSuperEgo_Master_Humanoid</string>
+    </MonstersThatShouldHaveTrueSight>
+    <MonstersThatShouldHaveBlindSight>
+        <string>Aksha</string>
+        <string>Aksha_Legendary</string>
+    </MonstersThatShouldHaveBlindSight>
+    <MonstersThatShouldNotHaveTremorSense>
+        <string>Aksha</string>
+        <string>Aksha_Legendary</string>
+    </MonstersThatShouldNotHaveTremorSense>
+    <EffectsThatTargetDistantIndividualsAndDontRequireSight>
+        <string>AcidSplash</string>
+        <string>Aid</string>
+        <string>AnimalShapes</string>
+        <string>BeaconOfHope</string>
+        <string>Bless</string>
+        <string>BlessingOfRime</string>
+        <string>CommandApproach</string>
+        <string>CommandDrop</string>
+        <string>CommandFlee</string>
+        <string>CommandGrovel</string>
+        <string>CommandHalt</string>
+        <string>DispelMagic</string>
+        <string>FeatherFall</string>
+        <string>Knock</string>
+        <string>Levitate</string>
+        <string>MassCureWounds</string>
+        <string>PassWithoutTrace</string>
+        <string>RayOfEnfeeblement</string>
+        <string>ResonatingStrike</string>
+        <string>Sanctuary</string>
+        <string>ShieldOfFaith</string>
+        <string>Sparkle</string>
+        <string>TrueStrike</string>
+        <string>PowerBardHopeWordsOfHope6</string>
+        <string>PowerBardTraditionManacalonsPerfection</string>
+        <string>PowerCelestialSearingVengeance</string>
+        <string>PowerCollegeOfValianceHeroicInspiration</string>
+        <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
+        <string>PowerInnovationWeaponArcaneJolt</string>
+        <string>PowerOathOfJugementPurgeCorruption</string>
+        <string>PowerOathOfJugementRetribution</string>
+        <string>PowerOathOfThunderThunderousRebuke</string>
+        <string>PowerPatronFiendHurlThroughHell</string>
+        <string>PowerRangerHellWalkerMarkOfTheDammed</string>
+        <string>PowerRangerLightBearerBlessedWarrior</string>
+        <string>PowerRiftWalkerRiftStrike</string>
+        <string>PowerSorcerousPsionMindOverMatter</string>
+        <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
+        <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
+        <string>AnimateDead</string>
+        <string>ArcaneSword</string>
+        <string>ConjureAnimalsFourBeasts</string>
+        <string>ConjureAnimalsOneBeast</string>
+        <string>ConjureAnimalsTwoBeasts</string>
+        <string>ConjureCelestial</string>
+        <string>ConjureCelestialCouatl</string>
+        <string>ConjureCelestialKutkartal</string>
+        <string>ConjureCelestialMelek</string>
+        <string>ConjureElemental</string>
+        <string>ConjureElementalAir</string>
+        <string>ConjureElementalEarth</string>
+        <string>ConjureElementalFire</string>
+        <string>ConjureFey_Ape</string>
+        <string>ConjureFey_Bear</string>
+        <string>ConjureFey_Dryad</string>
+        <string>ConjureFey_Eagle</string>
+        <string>ConjureFey_GreenHag</string>
+        <string>ConjureFey_Wolf</string>
+        <string>ConjureFey</string>
+        <string>ConjureGoblinoids</string>
+        <string>ConjureMinorElementals</string>
+        <string>ConjureMinorElementalsFour</string>
+        <string>ConjureMinorElementalsOne_b</string>
+        <string>ConjureMinorElementalsOne</string>
+        <string>ConjureMinorElementalsTwo</string>
+        <string>CreateDeadRisenGhost</string>
+        <string>CreateDeadRisenGhoul</string>
+        <string>CreateDeadRisenSkeleton_Archer</string>
+        <string>CreateDeadRisenSkeleton_Enforcer</string>
+        <string>CreateDeadRisenSkeleton_Knight</string>
+        <string>CreateDeadRisenSkeleton_Marksman</string>
+        <string>CreateDeadRisenSkeleton</string>
+        <string>CreateDeadRisenWight</string>
+        <string>CreateDeadRisenWightLord</string>
+        <string>DancingLights</string>
+        <string>DimensionDoor</string>
+        <string>FindFamiliar</string>
+        <string>GiantInsect</string>
+        <string>SpiritualWeapon</string>
+        <string>WaterBreathing</string>
+        <string>WaterWalk</string>
+    </EffectsThatTargetDistantIndividualsAndDontRequireSight>
     <DisableUpdateMessage>false</DisableUpdateMessage>
     <DisableUnofficialTranslations>true</DisableUnofficialTranslations>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -287,7 +449,7 @@
     <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
     <UnlockSkinColors>true</UnlockSkinColors>
     <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
-    <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
+    <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
     <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
     <UseMathFlankingRules>true</UseMathFlankingRules>
     <UseOfficialFlankingRulesButAddAttackModifier>false</UseOfficialFlankingRulesButAddAttackModifier>
@@ -296,13 +458,20 @@
     <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
     <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
+    <UseOfficialLightingObscurementAndVisionRules>true</UseOfficialLightingObscurementAndVisionRules>
+    <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
+    <OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>false
+    </OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>
+    <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>false
+    </OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>
+    <OfficialObscurementRulesTweakMonsters>true</OfficialObscurementRulesTweakMonsters>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>true</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>true</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
-    <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>true
-    </AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
+    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
+    </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
     <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
@@ -833,6 +1002,7 @@
         <string>FeatGroupCelestialTouched</string>
         <string>FeatCharismaticDefense</string>
         <string>FeatCharismaticPrecision</string>
+        <string>FeatHandAndAHalf</string>
         <string>FeatCleavingAttack</string>
         <string>FeatGroupCloseQuarters</string>
         <string>FeatCrippling</string>
@@ -861,7 +1031,6 @@
         <string>FeatFrostAdaptation</string>
         <string>FeatGreatWeapon</string>
         <string>FeatHammerThePoint</string>
-        <string>FeatHandAndAHalf</string>
         <string>FeatGroupHardy</string>
         <string>FeatHealer</string>
         <string>FeatHeavyArmorMaster</string>
@@ -869,6 +1038,7 @@
         <string>FeatInfernalConstitution</string>
         <string>FeatInfusionsAdept</string>
         <string>FeatInspiringLeader</string>
+        <string>FeatZenArcher</string>
         <string>FeatGroupIridescentTouched</string>
         <string>FeatLongswordFinesse</string>
         <string>FeatLunger</string>
@@ -900,6 +1070,7 @@
         <string>FeatPugilist</string>
         <string>FeatRangedExpert</string>
         <string>FeatRecklessAttack</string>
+        <string>FeatRemarkableTechnique</string>
         <string>FeatGroupRetinueTouched</string>
         <string>FeatGroupRevenantGreatSword</string>
         <string>FeatRopeItUp</string>
@@ -925,7 +1096,6 @@
         <string>FeatInterception</string>
         <string>FeatWiseDefense</string>
         <string>FeatWisePrecision</string>
-        <string>FeatZenArcher</string>
     </FeatEnabled>
     <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
     <FeatGroupEnabled>
@@ -962,15 +1132,16 @@
     <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
     <FightingStyleEnabled>
         <string>BlindFighting</string>
+        <string>HandAndAHalf</string>
         <string>Crippling</string>
         <string>Executioner</string>
-        <string>HandAndAHalf</string>
         <string>Lunger</string>
         <string>Merciless</string>
         <string>MonkShieldExpert</string>
         <string>Sentinel</string>
         <string>PolearmExpert</string>
         <string>Pugilist</string>
+        <string>RemarkableTechnique</string>
         <string>RopeItUp</string>
         <string>ShieldExpert</string>
         <string>Torchbearer</string>

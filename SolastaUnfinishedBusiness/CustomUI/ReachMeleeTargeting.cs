@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using TA;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -17,7 +18,7 @@ internal static class ReachMeleeTargeting
         var reachRange = attackMode.ReachRange;
         var validDestinations = cursor.validDestinations;
 
-        if (cursor.BattleService.IsWithinXCells(actor, target, reachRange) || validDestinations.Empty())
+        if (actor.IsWithinRange(target, reachRange) || validDestinations.Empty())
         {
             return true;
         }

@@ -32,7 +32,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selecci
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
-ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Los atacantes con <color=#D89555>Darkvision</color> tienen ventaja sobre los defensores sin
 ModUi/&Backgrounds=<color=#F0DAA0>Fondos</color>
 ModUi/&BackgroundsAndRaces=Fondos y razas
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
@@ -172,6 +171,7 @@ ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25 %/5
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Añade un poder para <color=#D89555>identificar objetos mágicos</color> durante un descanso corto o largo
 ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar <color=#D89555>Ballestas de mano</color>
+ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Los hechizos de ilusión fallan automáticamente contra objetivos con <color=#D89555>TrueSight</color> dentro del alcance.
 ModUi/&ImproveLevelUpFeaturesSelection=Mejorar la selección de funciones para subir de nivel <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n<i><color=#F0DAA0>[impacta <color= #D89555>Guardabosques</color> Enemigo preferido y afinidad de terreno, <color=#D89555>Druida</color> Bestia afín, <color=#D89555>Bárbaro</color> Camino de los Elementos y opciones de subclases Draconic]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta el tiempo de juego en
 ModUi/&IncreaseMaxAttunedItems=Aumente el máximo de elementos sintonizados a 4 en el nivel 10 y 5 en el nivel 18
@@ -201,6 +201,10 @@ ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechi
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia ganada por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrezca nombres amigables adicionales en la creación de personajes
+ModUi/&OfficialObscurementRulesCancelAdvDisPairs=<i>+ Cancelar <color=#D89555>ventaja/desventaja</color> pares ciegos y percibidos <color=#F0DAA0>[útil junto con las reglas oficiales de <color=#D89555>ventaja/desventaja</color>]< /color></i>
+ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Cambia las áreas <color=#D89555>muy oscurecidas</color> para que sean bloqueadores de proyectiles <color=#F0DAA0>[<color=#D89555>Cloud Kill</color>, <color=#D89555>Nube de niebla </color>, <color=#D89555>Nube incendiaria</color>, <color=#D89555>Tormenta de pétalos</color>, <color=#D89555>Tormenta de aguanieve</color>, <color=#D89555> Nube apestosa</color>]</color></i>
+ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia las áreas <color=#D89555>oscurecidas mágicamente</color> para que sean bloqueadores de proyectiles <color=#F0DAA0>[cualquier fuente del efecto de hechizo <color=#D89555>Oscuridad</color>]</color >>i>
+ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Añade <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> y <color=#D89555>TrueSight</color> a monstruos y NPC cuando sea apropiado.\n <color=#F0DAA0>[colecciones de configuración <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuros</i>
 ModUi/&OpenSubjectiveGuide=Abre La guía subjetiva de Solasta de <b><color=#D89555>u/CounterYolo</color></b>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
@@ -285,5 +289,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ También habilitado para ataqu
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ También habilitado para ataques de alcance <color=#F0DAA0>[desactiva las matemáticas precisas]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ En lugar de ventaja otorga +1 a la tirada de ataque</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilice <color=#D89555>ración de alimentos</color> con un peso oficial de 2 libras
+ModUi/&UseOfficialObscurementRules=Utilice las reglas de combate oficiales de <color=#D89555>iluminación, oscurecimiento y visión</color>\n<i><color=#F0DAA0>[el atacante que percibe al defensor que no puede percibirlo obtiene ADV y el atacante que no percibir al defensor que puede percibirlo obtiene DIS\n las áreas muy oscurecidas infligen una condición de ceguera, donde las tiradas de ataque contra la criatura tienen ADV y las tiradas de ataque de la criatura tienen DIS\n todos los hechizos de distancia dirigidos a individuos no se pueden lanzar si el atacante no tiene vista , excepto aquellos que claramente no indican que se requiere visión]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Usa las <color=#D89555>reglas oficiales de razas pequeñas</color> cuando empuñas armas pesadas <i><color=#F0DAA0>[tus ataques tienen desventaja]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>

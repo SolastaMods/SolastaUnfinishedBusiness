@@ -1,3 +1,5 @@
+Condition/&ConditionBlindedByBlindingSmiteTitle=Cegado por Blinding Smite
+Condition/&ConditionBlindedByHungerOfTheVoidTitle=Cegado pela Fome do Vazio
 Condition/&ConditionCorruptingBoltDescription=A criatura fica vulnerável à próxima instância de dano que receber.
 Condition/&ConditionCorruptingBoltTitle=Corrompido
 Condition/&ConditionCrusadersMantleDescription=Ganhe um bônus de 1d4 de dano radiante em seus ataques.

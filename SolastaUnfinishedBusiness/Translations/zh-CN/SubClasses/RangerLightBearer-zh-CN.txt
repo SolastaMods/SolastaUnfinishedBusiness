@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedByBlessedGlowTitle=被祝福之光蒙蔽
 Condition/&ConditionRangerLightBearerAngelicFormDescription=你的飞行速度等于你的步行速度，你的攻击也算作魔法。
 Condition/&ConditionRangerLightBearerAngelicFormTitle=天使形态
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=当被施法者用武器攻击击中时，攻击造成的所有伤害都会变成光耀伤害，并且你会因此受到额外的 1d8 光耀伤害。从 11 级开始，额外伤害增加到 2d8。

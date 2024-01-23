@@ -29,6 +29,16 @@ internal static partial class SpellBuilders
     {
         const string NAME = "BlindingSmite";
 
+        var conditionBlindedByBlindingSmite = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionBlinded, $"ConditionBlindedBy{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
+            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+            .SetFeatures()
+            .AddToDB();
+
+        conditionBlindedByBlindingSmite.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
+
         var additionalDamageBlindingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(NAME, Category.Spell)
@@ -44,10 +54,7 @@ internal static partial class SpellBuilders
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionDefinitions.ConditionBlinded, $"Condition{NAME}Enemy")
-                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                        .AddToDB(),
+                    conditionDefinition = conditionBlindedByBlindingSmite,
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             // doesn't follow the standard impact particle reference
@@ -938,9 +945,7 @@ internal static partial class SpellBuilders
     private sealed class CustomBehaviorLightningArrow(
         FeatureDefinitionPower powerLightningArrowLeap,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionLightningArrow)
-        :
-            IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
+        ConditionDefinition conditionLightningArrow) : IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private const int MainTargetDiceNumber = 3;
 
@@ -1022,13 +1027,13 @@ internal static partial class SpellBuilders
                 {
                     DamageType = DamageTypeLightning,
                     DieType = DieType.D8,
-                    DiceNumber = (MainTargetDiceNumber + additionalDice) / 2
+                    DiceNumber = MainTargetDiceNumber + additionalDice
                 };
                 var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
                 var rulesetDefender = defender.RulesetCharacter;
 
                 RulesetActor.InflictDamage(
-                    damageRoll,
+                    damageRoll / 2,
                     damageForm,
                     damageForm.DamageType,
                     new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
@@ -1050,13 +1055,8 @@ internal static partial class SpellBuilders
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(battleManager.Battle.AllContenders
-                .Where(x =>
-                    x.IsOppositeSide(attacker.Side)
-                    && x != defender
-                    && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                    && battleManager.IsWithinXCells(defender, x, 2))
-                .ToList());
+            actionParams.TargetCharacters.SetRange(
+                battleManager.Battle.GetContenders(defender, false, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -1285,9 +1285,13 @@ internal static partial class SpellBuilders
         const string Name = "HungerOfTheVoid";
 
         var conditionHungerOfTheVoid = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}")
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .Create(ConditionDefinitions.ConditionBlinded, $"ConditionBlindedBy{Name}")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionBlinded)
+            .SetFeatures()
             .AddToDB();
+
+        conditionHungerOfTheVoid.GuiPresentation.description = "Rules/&ConditionBlindedDescription";
 
         conditionHungerOfTheVoid.AddCustomSubFeatures(new CustomBehaviorHungerOfTheVoid(conditionHungerOfTheVoid));
 
@@ -1309,19 +1313,15 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
                     .SetEffectAdvancement(
                         EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
-                    .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter)
-                    .AddEffectForms(Darkness.EffectDescription.EffectForms.ToArray())
-                    .AddEffectForms(
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionHungerOfTheVoid),
-                        Entangle.EffectDescription.EffectForms[1])
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, true),
+                        EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, true))
                     .SetParticleEffectParameters(Darkness)
                     .Build())
             .AddToDB();
-
-        // remove original condition blinded from Darkness spell
-        spell.EffectDescription.EffectForms.RemoveAll(x =>
-            x.FormType == EffectForm.EffectFormType.Condition
-            && x.ConditionForm.ConditionDefinition == ConditionDefinitions.ConditionBlinded);
 
         return spell;
     }

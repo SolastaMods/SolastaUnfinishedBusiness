@@ -218,6 +218,76 @@
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>
     </DeprecatedSubsList>
+    <MonstersThatShouldHaveDarkvision>
+        <string>Adam_The_Twelth</string>
+        <string>DLC3_Elven_07_Guard</string>
+        <string>SRD_DLC_Mage</string>
+        <string>SRD_Mage</string>
+        <string>DLC1_NPC_Forge_Escorted_01</string>
+        <string>DLC3_NPC_Generic_ElvenCitizen_Husk</string>
+        <string>Generic_Darkweaver</string>
+        <string>DLC3_ElvenClans_Leralyn</string>
+        <string>DLC3_NPC_Elven3_DLC3_Ending</string>
+        <string>DLC3_NPC_Elven5_DLC3_Ending</string>
+        <string>Generic_HighPriest</string>
+        <string>DLC3_Elven_Suspect_05_Guard_Traitor</string>
+        <string>DLC3_Elven_06_Guard</string>
+        <string>SRD_DLC3_Archmage</string>
+        <string>Generic_ShockArcanist</string>
+    </MonstersThatShouldHaveDarkvision>
+    <MonstersThatShouldHaveTrueSight>
+        <string>Couatl</string>
+        <string>CubeOfLight</string>
+    </MonstersThatShouldHaveTrueSight>
+    <MonstersThatShouldHaveBlindSight>
+        <string>Aksha</string>
+        <string>Aksha_Legendary</string>
+    </MonstersThatShouldHaveBlindSight>
+    <MonstersThatShouldNotHaveTremorSense>
+        <string>Aksha</string>
+        <string>Aksha_Legendary</string>
+    </MonstersThatShouldNotHaveTremorSense>
+    <EffectsThatTargetDistantIndividualsAndDontRequireSight>
+        <string>AcidSplash</string>
+        <string>Aid</string>
+        <string>AnimalShapes</string>
+        <string>BeaconOfHope</string>
+        <string>Bless</string>
+        <string>BlessingOfRime</string>
+        <string>CommandApproach</string>
+        <string>CommandDrop</string>
+        <string>CommandFlee</string>
+        <string>CommandGrovel</string>
+        <string>CommandHalt</string>
+        <string>DispelMagic</string>
+        <string>FeatherFall</string>
+        <string>Knock</string>
+        <string>Levitate</string>
+        <string>MassCureWounds</string>
+        <string>PassWithoutTrace</string>
+        <string>RayOfEnfeeblement</string>
+        <string>ResonatingStrike</string>
+        <string>Sanctuary</string>
+        <string>ShieldOfFaith</string>
+        <string>Sparkle</string>
+        <string>TrueStrike</string>
+        <string>PowerBardHopeWordsOfHope6</string>
+        <string>PowerBardTraditionManacalonsPerfection</string>
+        <string>PowerCelestialSearingVengeance</string>
+        <string>PowerCollegeOfValianceHeroicInspiration</string>
+        <string>PowerDomainElementalHeraldOfTheElementsThunder</string>
+        <string>PowerInnovationWeaponArcaneJolt</string>
+        <string>PowerOathOfJugementPurgeCorruption</string>
+        <string>PowerOathOfJugementRetribution</string>
+        <string>PowerOathOfThunderThunderousRebuke</string>
+        <string>PowerPatronFiendHurlThroughHell</string>
+        <string>PowerRangerHellWalkerMarkOfTheDammed</string>
+        <string>PowerRangerLightBearerBlessedWarrior</string>
+        <string>PowerRiftWalkerRiftStrike</string>
+        <string>PowerSorcerousPsionMindOverMatter</string>
+        <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
+        <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
+    </EffectsThatTargetDistantIndividualsAndDontRequireSight>
     <DisableUpdateMessage>false</DisableUpdateMessage>
     <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
@@ -296,13 +366,20 @@
     <UseOfficialFoodRationsWeight>false</UseOfficialFoodRationsWeight>
     <UseOfficialDistanceCalculation>false</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>false</UseOfficialSmallRacesDisWithHeavyWeapons>
+    <UseOfficialLightingObscurementAndVisionRules>false</UseOfficialLightingObscurementAndVisionRules>
+    <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
+    <OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>false
+    </OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>
+    <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>false
+    </OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>
+    <OfficialObscurementRulesTweakMonsters>false</OfficialObscurementRulesTweakMonsters>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>false</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
     <StealthBreaksWhenAttackHits>false</StealthBreaksWhenAttackHits>
     <StealthBreaksWhenAttackMisses>false</StealthBreaksWhenAttackMisses>
     <DontEndTurnAfterReady>false</DontEndTurnAfterReady>
-    <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>false
-    </AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
     <KeepInvisibilityWhenUsingItems>false</KeepInvisibilityWhenUsingItems>
+    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
+    </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
     <AllowTargetingSelectionWhenCastingChainLightningSpell>false</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>false</RemoveHumanoidFilterOnHideousLaughter>
@@ -994,7 +1071,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

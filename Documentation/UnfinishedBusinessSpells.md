@@ -375,7 +375,7 @@ A powerful, ethereal undead creature.
 
 # 88. - Ring of Blades (M,V,S) level 6 Conjuration [Concentration]
 
-You raise both hands as you evoke six transparent blades around you. As a bonus action, you can throw one of these blades at a creature within 30 feet from you. Make a ranged spell attack for it. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d8 for each slot level above 6th.
+You raise both hands as you evoke six transparent blades around you as a bonus action. When you cast this spell, and as a bonus action on each subsequent turn, you can throw one of these blades at a creature within 60 feet from you. Make a ranged spell attack. On a hit, the target takes 4d8 force damage. When you cast this spell using a spell slot of 7th level or higher, the damage of each blade increases by 1d8 for each slot level above 6th.
 
 # 89. - Alter Gravity (V,S) level 7 Transmutation [Concentration]
 
@@ -411,7 +411,7 @@ You utter a word of power that can compel one creature you can see within range 
 
 A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 
-# 97. - Halt (V) level 9 Transmutation
+# 97. - Halt Time (V) level 9 Transmutation
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 

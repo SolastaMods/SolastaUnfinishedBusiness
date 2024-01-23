@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -28,47 +31,60 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
         // Silhouette Arts
 
-        var powerWayOfSilhouetteDarkness = FeatureDefinitionPowerBuilder
+        var powerDarkness = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Darkness")
             .SetGuiPresentation(Darkness.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(Darkness.EffectDescription)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Darkness)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
+                    .SetEffectForms()
+                    .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeDarkness())
             .AddToDB();
 
-        var powerWayOfSilhouetteDarkvision = FeatureDefinitionPowerBuilder
+        #region
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Darkvision")
             .SetGuiPresentation(Darkvision.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(Darkvision.EffectDescription)
             .AddToDB();
 
-        var powerWayOfSilhouettePassWithoutTrace = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}PassWithoutTrace")
             .SetGuiPresentation(PassWithoutTrace.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(PassWithoutTrace.EffectDescription)
             .AddToDB();
 
-        var powerWayOfSilhouetteSilence = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Silence")
             .SetGuiPresentation(Silence.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(Silence.EffectDescription)
             .AddToDB();
 
+        #endregion
+
         var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SilhouetteArts")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                powerWayOfSilhouetteDarkness,
-                powerWayOfSilhouetteDarkvision,
-                powerWayOfSilhouettePassWithoutTrace,
-                powerWayOfSilhouetteSilence)
+                SenseDarkvision12,
+                powerDarkness)
             .AddToDB();
 
-        // Cloak of Silhouettes Weak
+        #region
 
-        var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionLightAffinityBuilder
             .Create($"LightAffinity{Name}CloakOfSilhouettesWeak")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
@@ -78,23 +94,27 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             })
             .AddToDB();
 
-        // LEVEL 06
-
-        // Silhouette Step
-
-        var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SilhouetteStep")
-            .SetGuiPresentation(Category.Feature, MistyStep)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(MistyStep.EffectDescription)
-            .SetShowCasting(true)
-            .AddToDB();
+        #endregion
 
         // Strike the Vitals
 
-        var additionalDamageStrikeTheVitalsD6 = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageStrikeTheVitals = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}StrikeTheVitals")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("StrikeTheVitals")
+            .SetDamageDice(DieType.D4, 1)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .AddCustomSubFeatures(new ModifyAdditionalDamageFormStrikeTheVitals())
+            .AddToDB();
+
+        #region
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}StrikeTheVitalsD6")
-            .SetGuiPresentation($"AdditionalDamage{Name}StrikeTheVitals", Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("StrikeTheVitals")
             .SetDamageDice(DieType.D6, 1)
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
@@ -102,7 +122,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddToDB();
 
-        var additionalDamageStrikeTheVitalsD8 = FeatureDefinitionAdditionalDamageBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}StrikeTheVitalsD8")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("StrikeTheVitals")
@@ -110,11 +131,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddCustomSubFeatures(
-                new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD6))
             .AddToDB();
 
-        var additionalDamageStrikeTheVitalsD10 = FeatureDefinitionAdditionalDamageBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}StrikeTheVitalsD10")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("StrikeTheVitals")
@@ -122,15 +142,54 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .AddToDB();
+
+        #endregion
+
+        // LEVEL 06
+
+        var conditionSilhouetteStep = ConditionDefinitionBuilder
+            .Create($"Condition{Name}SilhouetteStep")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
+            .SetPossessive()
+            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{Name}SilhouetteStep")
+                    .SetGuiPresentation($"Condition{Name}SilhouetteStep", Category.Condition, Gui.NoLocalization)
+                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .AddToDB())
+            .AddToDB();
+
+        var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SilhouetteStep")
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerSilhouetteStep, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                    .SetDurationData(DurationType.Round)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionSilhouetteStep, ConditionForm.ConditionOperation.Add,
+                            true, true),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishDarkweaverShadowy)
+                    .Build())
             .AddCustomSubFeatures(
-                new CustomLevelUpLogicAdditionalDamageStrikeTheVitals(additionalDamageStrikeTheVitalsD8))
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight),
+                new FilterTargetingPositionSilhouetteStep())
             .AddToDB();
 
         // LEVEL 11
 
-        // Cloak of Silhouettes Strong
+        #region
 
-        var lightAffinityCloakOfSilhouettesStrong = FeatureDefinitionLightAffinityBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionLightAffinityBuilder
             .Create($"LightAffinity{Name}CloakOfSilhouettesStrong")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
@@ -145,9 +204,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             })
             .AddToDB();
 
-        // Improved Silhouette Step
-
-        var powerWayOfSilhouetteImprovedSilhouetteStep = FeatureDefinitionPowerBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ImprovedSilhouetteStep")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetOverriddenPower(powerWayOfSilhouetteSilhouetteStep)
@@ -155,6 +213,17 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(DimensionDoor.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
+
+        #endregion
+
+        // Shadow Flurry
+
+        var featureShadowFlurry = FeatureDefinitionBuilder
+            .Create($"Feature{Name}ShadowFlurry")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureShadowFlurry.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackShadowFlurry(featureShadowFlurry));
 
         // LEVEL 17
 
@@ -174,26 +243,16 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         powerWayOfSilhouetteShadowySanctuary.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
+            new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight),
+            new CustomBehaviorShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite(Name, Resources.WayOfTheSilhouette, 256))
-            .AddFeaturesAtLevel(3,
-                featureSetWayOfSilhouetteSilhouetteArts,
-                lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,
-                FeatureDefinitionCastSpells.CastSpellTraditionLight)
-            .AddFeaturesAtLevel(6,
-                powerWayOfSilhouetteSilhouetteStep,
-                additionalDamageStrikeTheVitalsD6)
-            .AddFeaturesAtLevel(11,
-                lightAffinityCloakOfSilhouettesStrong,
-                powerWayOfSilhouetteImprovedSilhouetteStep,
-                additionalDamageStrikeTheVitalsD8)
-            .AddFeaturesAtLevel(17,
-                powerWayOfSilhouetteShadowySanctuary,
-                additionalDamageStrikeTheVitalsD10)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheSilhouette, 256))
+            .AddFeaturesAtLevel(3, additionalDamageStrikeTheVitals, featureSetWayOfSilhouetteSilhouetteArts)
+            .AddFeaturesAtLevel(6, powerWayOfSilhouetteSilhouetteStep)
+            .AddFeaturesAtLevel(11, featureShadowFlurry)
+            .AddFeaturesAtLevel(17, powerWayOfSilhouetteShadowySanctuary)
             .AddToDB();
     }
 
@@ -207,26 +266,144 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomLevelUpLogicAdditionalDamageStrikeTheVitals(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionAdditionalDamage additionalDamageToRemove) : ICustomLevelUpLogic
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == additionalDamageToRemove);
-            }
-        }
+    //
+    // Darkness
+    //
 
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+    private sealed class MagicEffectFinishedByMeDarkness : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            // Empty
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var actionParams = action.ActionParams.Clone();
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
+            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, -1, false);
+
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
     }
 
-    private class AttackBeforeHitConfirmedOnMeShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
-        : IAttackBeforeHitConfirmedOnMe
+    //
+    // Strike the Vitals
+    //
+
+    private sealed class ModifyAdditionalDamageFormStrikeTheVitals : IModifyAdditionalDamageForm
+    {
+        public DamageForm AdditionalDamageForm(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            IAdditionalDamageProvider provider,
+            DamageForm damageForm)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var dieType = rulesetAttacker.GetMonkDieType();
+            var levels = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
+            var diceNumber = levels switch
+            {
+                >= 17 => 3,
+                >= 11 => 2,
+                _ => 1
+            };
+
+            damageForm.dieType = dieType;
+            damageForm.diceNumber = diceNumber;
+
+            return damageForm;
+        }
+    }
+
+    //
+    // Silhouette Step
+    //
+
+    private class FilterTargetingPositionSilhouetteStep : IFilterTargetingPosition
+    {
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            yield return cursorLocationSelectPosition.MyComputeValidPositions(LocationDefinitions.LightingState.Bright);
+        }
+    }
+
+    //
+    // Shadow Flurry
+    //
+
+    private class TryAlterOutcomePhysicalAttackShadowFlurry(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureShadowFlurry)
+        : ITryAlterOutcomePhysicalAttack
+    {
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
+        {
+            var rulesetMe = me.RulesetCharacter;
+
+            if (rulesetMe is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            if (!ValidatorsCharacter.IsNotInBrightLight(rulesetMe))
+            {
+                yield break;
+            }
+
+            if (!me.OncePerTurnIsValid(featureShadowFlurry.Name))
+            {
+                yield break;
+            }
+
+            me.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
+
+            var attackMode = action.actionParams.attackMode;
+            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
+            var rollCaption = action.AttackRoll == 1
+                ? "Feedback/&RollCheckCriticalFailureTitle"
+                : "Feedback/&CriticalAttackFailureOutcome";
+
+            rulesetMe.LogCharacterUsedFeature(featureShadowFlurry,
+                "Feedback/&TriggerRerollLine",
+                false,
+                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
+
+            var roll = rulesetMe.RollAttack(
+                attackMode.toHitBonus,
+                target.RulesetCharacter,
+                attackMode.sourceDefinition,
+                attackModifier.attackToHitTrends,
+                attackModifier.IgnoreAdvantage,
+                attackModifier.AttackAdvantageTrends,
+                attackMode.ranged,
+                false,
+                attackModifier.attackRollModifier,
+                out var outcome,
+                out var successDelta,
+                -1,
+                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
+                true);
+
+            action.AttackRollOutcome = outcome;
+            action.AttackSuccessDelta = successDelta;
+            action.AttackRoll = roll;
+        }
+    }
+
+    //
+    // Shadowy Sanctuary
+    //
+
+    private class CustomBehaviorShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
+        : IAttackBeforeHitConfirmedOnMe, IPreventRemoveConcentrationOnPowerUse
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
@@ -241,13 +418,14 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            if (!me.CanReact())
             {
                 yield break;
             }
 
-            if (!me.CanReact())
+            var rulesetMe = me.RulesetCharacter;
+
+            if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
@@ -263,13 +441,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
-            var rulesetMe = me.RulesetCharacter;
-
-            if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
@@ -308,6 +479,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             actionParams.TargetCharacters.SetRange(me);
 
+            EffectHelpers.StartVisualEffect(me, attacker,
+                FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will, EffectHelpers.EffectType.Caster);
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, false);
         }

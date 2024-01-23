@@ -1,4 +1,4 @@
-Feature/&FeatureSetPatronMountainIceboundSoulDescription=Vous êtes immunisé contre les dégâts de froid. La première fois que vous touchez un ennemi avec une attaque à votre tour, il doit effectuer un jet de sauvegarde de Constitution contre le DD de votre sort de sorcier ou devenir aveuglé jusqu'à la fin de votre prochain tour.
+Feature/&FeatureSetPatronMountainIceboundSoulDescription=Gagnez l’immunité contre les dégâts du froid. La première fois que vous frappez un ennemi avec une attaque pendant votre tour, il doit effectuer un jet de sauvegarde de Constitution contre le DD de votre sort de démoniste ou devenir aveuglé jusqu'à la fin de son prochain tour.
 Feature/&FeatureSetPatronMountainIceboundSoulTitle=Âme liée à la glace
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsDescription=Acquérir la maîtrise de la nature et de la survie. Gagnez Montagne comme type de terrain préféré.
 Feature/&FeatureSetPatronMountainKnowledgeOfAeonsTitle=Connaissance des Eons

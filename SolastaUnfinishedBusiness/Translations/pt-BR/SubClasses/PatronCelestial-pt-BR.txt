@@ -1,3 +1,4 @@
+Condition/&ConditionBlindedBySearingVengeanceTitle=Cegado pela Vingança Abrasadora
 Feature/&BonusCantripCelestialDescription=Você aprende os truques <b>Luz</b> e <b>Chama Sagrada</b>. Eles contam como truques de bruxo para você, mas não contam no número de truques conhecidos.
 Feature/&BonusCantripCelestialTitle=Truques bônus
 Feature/&FeatureSetCelestialRadiantSoulDescription=Sua ligação com o Celestial permite que você sirva como um canal para a energia radiante. Você tem resistência a dano radiante e, quando conjura uma magia que causa dano radiante ou de fogo, você adiciona seu modificador de Carisma a uma jogada de dano radiante ou de fogo daquela magia.

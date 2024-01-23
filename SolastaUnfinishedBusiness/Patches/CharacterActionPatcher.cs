@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -77,6 +76,55 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
+            //BUGFIX: vanilla always consume a main action on battle surprise phase even if a bonus power or spell
+            if (Gui.Battle != null &&
+                Gui.Battle.CurrentRound == 1 &&
+                Gui.Battle.ActiveContender == Gui.Battle.InitiativeSortedContenders[0])
+            {
+                // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                switch (__instance.ActionId)
+                {
+                    case ActionDefinitions.Id.PowerMain when
+                        __instance.ActionParams.RulesetEffect is RulesetEffectPower effectPower &&
+                        effectPower.PowerDefinition.ActivationTime != ActivationTime.Action:
+                    {
+                        var actionType = effectPower.ActionType;
+                        var allActionDefinitions = ServiceRepository
+                            .GetService<IGameLocationActionService>().AllActionDefinitions;
+
+                        __instance.ActionParams.actionDefinition = actionType switch
+                        {
+                            ActionDefinitions.ActionType.Bonus =>
+                                allActionDefinitions[ActionDefinitions.Id.PowerBonus],
+                            ActionDefinitions.ActionType.NoCost =>
+                                allActionDefinitions[ActionDefinitions.Id.PowerNoCost],
+                            _ => __instance.ActionParams.actionDefinition
+                        };
+
+                        break;
+                    }
+                    case ActionDefinitions.Id.CastMain when
+                        __instance.ActionParams.RulesetEffect is RulesetEffectSpell effectSpell &&
+                        effectSpell.SpellDefinition.ActivationTime != ActivationTime.Action:
+                    {
+                        var actionType = effectSpell.ActionType;
+                        var allActionDefinitions = ServiceRepository
+                            .GetService<IGameLocationActionService>().AllActionDefinitions;
+
+                        __instance.ActionParams.actionDefinition = actionType switch
+                        {
+                            ActionDefinitions.ActionType.Bonus =>
+                                allActionDefinitions[ActionDefinitions.Id.CastBonus],
+                            ActionDefinitions.ActionType.NoCost =>
+                                allActionDefinitions[ActionDefinitions.Id.CastNoCost],
+                            _ => __instance.ActionParams.actionDefinition
+                        };
+
+                        break;
+                    }
+                }
+            }
+
             //PATCH: support `IPreventRemoveConcentrationOnPowerUse`
             if (ActionShouldKeepConcentration(__instance))
             {
@@ -142,11 +190,7 @@ public static class CharacterActionPatcher
             //PATCH: support for `IActionFinishedByEnemy`
             if (Gui.Battle != null)
             {
-                foreach (var target in Gui.Battle.AllContenders
-                             .Where(x =>
-                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                                 && x.IsOppositeSide(actingCharacter.Side))
-                             .ToList()) // avoid changing enumerator
+                foreach (var target in Gui.Battle.GetContenders(actingCharacter))
                 {
                     var rulesetTarget = target.RulesetCharacter;
 
@@ -273,6 +317,51 @@ public static class CharacterActionPatcher
                              Main.Settings.StealthBreaksWhenCastingMaterial)
                             || (spell.SomaticComponent && Main.Settings.StealthBreaksWhenCastingSomatic && !isSubtle)
                             || (spell.VerboseComponent && Main.Settings.StealthBreaksWhenCastingVerbose && !isSubtle))
+                        {
+                            ShouldBanter = false;
+                            roll = false;
+                        }
+                    }
+
+                    break;
+                }
+                case CharacterActionSpendPower actionSpendPower:
+                {
+                    var activePower = actionSpendPower.activePower;
+                    var power = activePower.PowerDefinition;
+
+                    if (power.EffectDescription.RangeType
+                        is RangeType.Touch
+                        or RangeType.MeleeHit
+                        or RangeType.RangeHit)
+                    {
+                        if ((actionSpendPower.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
+                             && Main.Settings.StealthBreaksWhenAttackHits)
+                            || (actionSpendPower.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                                && Main.Settings.StealthBreaksWhenAttackMisses))
+                        {
+                            ShouldBanter = false;
+                            roll = false;
+                        }
+                    }
+
+                    break;
+                }
+
+                case CharacterActionUsePower actionUsePower:
+                {
+                    var activePower = actionUsePower.activePower;
+                    var power = activePower.PowerDefinition;
+
+                    if (power.EffectDescription.RangeType
+                        is RangeType.Touch
+                        or RangeType.MeleeHit
+                        or RangeType.RangeHit)
+                    {
+                        if ((actionUsePower.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess
+                             && Main.Settings.StealthBreaksWhenAttackHits)
+                            || (actionUsePower.AttackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure
+                                && Main.Settings.StealthBreaksWhenAttackMisses))
                         {
                             ShouldBanter = false;
                             roll = false;

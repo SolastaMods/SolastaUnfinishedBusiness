@@ -75,6 +75,33 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionGrappledRestrainedSpellWeb",
+          "conditionDefinition": "Definition:ConditionGrappledRestrainedSpellWeb:7593e0f9-a1ff-539c-bf19-9ba1c7abfd60",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
         "formType": "Summon",
         "addBonusMode": "None",
         "applyLevel": "No",
@@ -120,7 +147,7 @@
         "saveOccurence": "EndOfTurn",
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
-          "changeType": "DifficultThrough",
+          "changeType": "DangerousZone",
           "impactsFlyingCharacters": false
         },
         "hasFilterId": false,
@@ -128,7 +155,7 @@
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Topology",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -136,19 +163,15 @@
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionGrappledRestrainedSpellWeb",
-          "conditionDefinition": "Definition:ConditionGrappledRestrainedSpellWeb:7593e0f9-a1ff-539c-bf19-9ba1c7abfd60",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "topologyForm": {
+          "$type": "TopologyForm, Assembly-CSharp",
+          "changeType": "DifficultThrough",
+          "impactsFlyingCharacters": false
         },
         "hasFilterId": false,
         "filterId": 0

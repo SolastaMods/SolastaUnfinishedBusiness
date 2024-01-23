@@ -20,6 +20,20 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
+    //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
+    //let ADV/DIS be handled elsewhere in `GLBM.CanAttack` if alternate lighting and obscurement rules in place
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.ComputeLightingModifierForIlluminable))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeLightingModifierForIlluminable_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix()
+        {
+            return !Main.Settings.UseOfficialLightingObscurementAndVisionRules;
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.StartBattleTurn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -199,7 +213,8 @@ public static class GameLocationCharacterPatcher
             ReplaceAttackWithCantrip.AllowCastDuringMainAttack(__instance, actionId, scope, ref __result);
 
             //PATCH: support for custom invocation action ids
-            CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
+            CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope,
+                actionTypeStatus,
                 ignoreMovePoints);
 
             //PATCH: support `EnableMonkDoNotRequireAttackActionForFlurry`
@@ -336,6 +351,14 @@ public static class GameLocationCharacterPatcher
                 __instance.UsedMainSpell = true;
             }
 
+            //PATCH: ensure if a main spell is cast, no more bonus spells are allowed
+            if (Main.Settings.EnableActionSwitching
+                && actionParams.ActionDefinition.ActionType == ActionDefinitions.ActionType.Main
+                && actionParams.RulesetEffect is RulesetEffectSpell)
+            {
+                __instance.UsedBonusSpell = true;
+            }
+
             //PATCH: support for action switching
             ActionSwitching.CheckIfActionSwitched(
                 __instance, actionParams, scope, _mainRank, _mainAttacks, _bonusRank, _bonusAttacks);
@@ -378,7 +401,8 @@ public static class GameLocationCharacterPatcher
     public static class IsActionOnGoing_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(GameLocationCharacter __instance, ref bool __result, ActionDefinitions.Id actionId)
+        public static bool Prefix(GameLocationCharacter __instance, ref bool __result,
+            ActionDefinitions.Id actionId)
         {
             if (!CustomActionIdContext.IsCustomActionIdToggle(actionId))
             {
@@ -431,7 +455,8 @@ public static class GameLocationCharacterPatcher
         {
             __instance.RulesetCharacter.TryGetFirstConditionOfCategory(AttributeDefinitions.TagLightSensitivity,
                 out var activeCondition);
-            __instance.RulesetCharacter.RemoveAllConditionsOfCategory(AttributeDefinitions.TagLightSensitivity, false);
+            __instance.RulesetCharacter.RemoveAllConditionsOfCategory(AttributeDefinitions.TagLightSensitivity,
+                false);
 
             for (var index = __instance.affectingLightEffects.Count - 1; index >= 0; --index)
             {

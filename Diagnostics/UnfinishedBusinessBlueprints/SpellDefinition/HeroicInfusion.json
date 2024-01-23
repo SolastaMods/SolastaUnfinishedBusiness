@@ -120,7 +120,7 @@
           "diceNumber": 0,
           "dieType": "D1",
           "bonusHitPoints": 50,
-          "applyToSelf": true
+          "applyToSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
