@@ -835,6 +835,7 @@ public static class GameLocationBattleManagerPatcher
                     //PATCH: illusionary spells against creatures with True Sight should automatically save
                     if (Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange &&
                         spellDefinition.SchoolOfMagic == SchoolIllusion &&
+                        spellDefinition.EffectDescription.TargetSide == Side.Enemy &&
                         spellDefinition != DatabaseHelper.SpellDefinitions.Silence)
                     {
                         var rulesetDefender = defender.RulesetCharacter;
