@@ -1,4 +1,8 @@
-﻿1.5.94.43:
+﻿1.5.94.44:
+
+- fixed a crash introduced on v43 that developer's tremor sense wasn't able to detect [it's a flying bug]
+
+1.5.94.43:
 
 THIS VERSION IS A TRIBUTE TO SGT. PEPPER, THE BEST BOSTON TERRIER ANYONE COULD HAVE HAD AS A FRIEND!
 GO INTO THE LIGHT, STAY IN THE LIGHT, FIND YOUR BEST FRIEND HEY JUDE. ONE DAY, THE BAND WILL REUNITE
