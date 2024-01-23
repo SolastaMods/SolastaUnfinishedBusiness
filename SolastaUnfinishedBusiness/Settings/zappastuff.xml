@@ -459,9 +459,10 @@
     <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
     <UseOfficialLightingObscurementAndVisionRules>true</UseOfficialLightingObscurementAndVisionRules>
+    <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
     <OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>false
     </OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>
-    <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>true
+    <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>false
     </OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>
     <OfficialObscurementRulesTweakMonsters>true</OfficialObscurementRulesTweakMonsters>
     <KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>true</KeepStealthOnHeroIfPerceivedDuringSurpriseAttack>
@@ -469,7 +470,7 @@
     <StealthBreaksWhenAttackMisses>true</StealthBreaksWhenAttackMisses>
     <DontEndTurnAfterReady>true</DontEndTurnAfterReady>
     <KeepInvisibilityWhenUsingItems>true</KeepInvisibilityWhenUsingItems>
-    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>false
+    <IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>true
     </IllusionSpellsAutomaticallyFailAgainstTrueSightInRange>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
     <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>

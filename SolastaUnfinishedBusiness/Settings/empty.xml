@@ -367,6 +367,7 @@
     <UseOfficialDistanceCalculation>false</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>false</UseOfficialSmallRacesDisWithHeavyWeapons>
     <UseOfficialLightingObscurementAndVisionRules>false</UseOfficialLightingObscurementAndVisionRules>
+    <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
     <OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>false
     </OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker>
     <OfficialObscurementRulesMagicalDarknessAsProjectileBlocker>false
