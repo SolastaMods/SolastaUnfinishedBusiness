@@ -742,7 +742,8 @@ public static class RulesetImplementationManagerPatcher
 
             //PATCH: illusionary spells against creatures with True Sight should automatically save
             if (!Main.Settings.IllusionSpellsAutomaticallyFailAgainstTrueSightInRange ||
-                sourceDefinition is not SpellDefinition { SchoolOfMagic: SchoolIllusion } ||
+                sourceDefinition is not
+                    SpellDefinition { SchoolOfMagic: SchoolIllusion, EffectDescription.TargetSide: Side.Enemy } ||
                 sourceDefinition == DatabaseHelper.SpellDefinitions.Silence)
             {
                 return true;
