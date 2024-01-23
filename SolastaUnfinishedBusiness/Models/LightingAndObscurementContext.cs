@@ -374,10 +374,15 @@ internal static class LightingAndObscurementContext
         var attacker = attackParams.attacker;
         var attackerActor = attacker.RulesetActor;
         var attackerIsBlind = attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
+        var attackerIsInvisible = attackerActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionInvisible);
+        var attackerIsStealthy = attackerActor.HasConditionOfType(ConditionStealthy);
+        var attackerHasNoLight = attacker.LightingState is LightingState.Unlit or LightingState.Darkness;
 
         var defender = attackParams.defender;
         var defenderActor = defender.RulesetActor;
         var defenderIsBlind = defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBlinded);
+        var defenderIsInvisible = defenderActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionInvisible);
+        var defenderHasNoLight = defender.LightingState is LightingState.Unlit or LightingState.Darkness;
 
         HandleTrueSightSpecialCase();
 
@@ -391,21 +396,18 @@ internal static class LightingAndObscurementContext
             }
         }
 
-        var attackerIsStealthy = attackerActor.HasConditionOfType(ConditionStealthy);
-
         var attackerCanPerceiveDefender = attacker.CanPerceiveTarget(defender);
-        var attackerHasNoLight = attacker.LightingState is LightingState.Unlit or LightingState.Darkness;
-
         var defenderCanPerceiveAttacker = defender.CanPerceiveTarget(attacker);
-        var defenderHasNoLight = defender.LightingState is LightingState.Unlit or LightingState.Darkness;
 
         var adv =
             !attackerIsStealthy &&
+            !attackerIsInvisible &&
             !defenderIsBlind &&
             !defenderCanPerceiveAttacker &&
             (attackerCanPerceiveDefender || attackerHasNoLight);
 
         var dis =
+            !defenderIsInvisible &&
             !attackerIsBlind &&
             !attackerCanPerceiveDefender &&
             (defenderCanPerceiveAttacker || defenderHasNoLight);
@@ -451,16 +453,10 @@ internal static class LightingAndObscurementContext
         // the combat affinity won't have true sight as nullified sense so we check it here and revert
         void HandleTrueSightSpecialCase()
         {
-            if (attackerActor is not RulesetCharacter attackerCharacter ||
-                IsBlindNotFromDarkness(attackerCharacter) ||
-                !attackAdvantageTrends.Any(BlindedDisadvantage))
-            {
-                return;
-            }
-
-            var lightingState = ComputeLightingStateOnTargetPosition(attacker, defender.LocationPosition);
-
-            if (lightingState == (LightingState)MyLightingState.HeavilyObscured)
+            if (IsBlindNotFromDarkness(attackerActor) ||
+                IsBlindNotFromDarkness(defenderActor) ||
+                !attackAdvantageTrends.Any(BlindedDisadvantage) ||
+                attackerActor is not RulesetCharacter attackerCharacter)
             {
                 return;
             }
@@ -545,13 +541,17 @@ internal static class LightingAndObscurementContext
         var sourceIsBlindFromDarkness = IsBlindFromDarkness(sensorCharacter);
         var sourceIsBlindNotFromDarkness = IsBlindNotFromDarkness(sensorCharacter);
         var targetIsNotTouchingGround = target != null && !target.RulesetActor.IsTouchingGround();
+        var targetIsInvisible =
+            target != null && target.RulesetActor.HasConditionOfTypeOrSubType(ConditionInvisible.Name);
 
         // try to find any sense mode that is valid for the current lighting state and is within range
+        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
         foreach (var senseMode in sensorCharacter.SenseModes)
         {
             var senseType = senseMode.SenseType;
 
             if (sourceIsBlindNotFromDarkness && senseType is
+                    SenseMode.Type.DetectInvisibility or
                     SenseMode.Type.NormalVision or
                     SenseMode.Type.Darkvision or
                     SenseMode.Type.SuperiorDarkvision or
@@ -561,9 +561,21 @@ internal static class LightingAndObscurementContext
             }
 
             if (sourceIsBlindFromDarkness && senseType is
+                    SenseMode.Type.DetectInvisibility or
                     SenseMode.Type.NormalVision or
                     SenseMode.Type.Darkvision or
                     SenseMode.Type.SuperiorDarkvision)
+            {
+                continue;
+            }
+
+            if (targetIsInvisible && senseType is
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision or
+                    SenseMode.Type.Truesight or
+                    SenseMode.Type.Blindsight or
+                    SenseMode.Type.Tremorsense)
             {
                 continue;
             }
@@ -574,35 +586,26 @@ internal static class LightingAndObscurementContext
             }
 
             // ReSharper disable once ConvertIfStatementToSwitchStatement
-            if (targetLightingState is LightingState.Unlit)
+            if (targetLightingState is LightingState.Unlit && senseType is SenseMode.Type.NormalVision)
             {
-                if (senseType == SenseMode.Type.NormalVision)
-                {
-                    continue;
-                }
+                continue;
             }
 
-            else if (targetLightingState is (LightingState)MyLightingState.HeavilyObscured)
-            {
-                if (senseType is
+            if (targetLightingState is (LightingState)MyLightingState.HeavilyObscured && senseType is
                     SenseMode.Type.NormalVision or
                     SenseMode.Type.Darkvision or
                     SenseMode.Type.SuperiorDarkvision or
                     SenseMode.Type.Truesight)
-                {
-                    continue;
-                }
+            {
+                continue;
             }
 
-            else if (targetLightingState is LightingState.Darkness)
-            {
-                if (senseType is
+            if (targetLightingState is LightingState.Darkness && senseType is
                     SenseMode.Type.NormalVision or
                     SenseMode.Type.Darkvision or
                     SenseMode.Type.SuperiorDarkvision)
-                {
-                    continue;
-                }
+            {
+                continue;
             }
 
             if (distance <= senseMode.SenseRange)
