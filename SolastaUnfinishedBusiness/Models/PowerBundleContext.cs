@@ -37,7 +37,7 @@ internal static class PowerBundleContext
             }
 
             var ruleChar = functorParameters.RestingHero;
-            var usablePower = UsablePowersProvider.Get(power, ruleChar);
+            var usablePower = PowerProvider.Get(power, ruleChar);
 
             if (power.EffectDescription.TargetType == TargetType.Self)
             {

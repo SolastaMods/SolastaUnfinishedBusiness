@@ -50,7 +50,7 @@ internal static class SubpowerSelectionModalExtensions
                 {
                     if (instance.subpowerEngaged != null)
                     {
-                        var usablePower = UsablePowersProvider.Get(instance.powerDefinitions[index], instance.caster);
+                        var usablePower = PowerProvider.Get(instance.powerDefinitions[index], instance.caster);
                         instance.subpowerEngaged(usablePower, index);
                     }
 

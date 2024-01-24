@@ -62,7 +62,7 @@ public class PatronEldritchSurge : AbstractSubclass
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-        .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     public PatronEldritchSurge()

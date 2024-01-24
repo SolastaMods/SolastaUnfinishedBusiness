@@ -63,7 +63,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorDisplacement(), PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(new CustomBehaviorDisplacement(), ForcePushOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06
@@ -141,7 +141,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
+                PowerProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
@@ -153,7 +153,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
+                PowerProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
@@ -315,7 +315,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerApply, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

@@ -14,7 +14,7 @@ internal class PortraitPointCoordinatedAssault : ICustomPortraitPointPoolProvide
 
     string ICustomPortraitPointPoolProvider.Tooltip(RulesetCharacter character)
     {
-        var usablePower = UsablePowersProvider.Get(MartialWarlord.PowerCoordinatedAssault, character);
+        var usablePower = PowerProvider.Get(MartialWarlord.PowerCoordinatedAssault, character);
         var max = character.GetMaxUsesOfPower(usablePower);
         var remaining = character.GetRemainingUsesOfPower(usablePower);
 
@@ -25,7 +25,7 @@ internal class PortraitPointCoordinatedAssault : ICustomPortraitPointPoolProvide
 
     public string GetPoints(RulesetCharacter character)
     {
-        var usablePower = UsablePowersProvider.Get(MartialWarlord.PowerCoordinatedAssault, character);
+        var usablePower = PowerProvider.Get(MartialWarlord.PowerCoordinatedAssault, character);
         var remaining = character.GetRemainingUsesOfPower(usablePower);
 
         return $"{remaining}";

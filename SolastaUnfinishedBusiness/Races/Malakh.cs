@@ -167,7 +167,7 @@ internal static class RaceMalakhBuilder
             .SetGuiPresentation(guiPresentation)
             .SetPoolType(InvocationPoolTypeCustom.Pools.AngelicFormChoice)
             .SetGrantedFeature(power)
-            .AddCustomSubFeatures(HiddenInvocation.Marker)
+            .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
             .AddToDB();
     }
 

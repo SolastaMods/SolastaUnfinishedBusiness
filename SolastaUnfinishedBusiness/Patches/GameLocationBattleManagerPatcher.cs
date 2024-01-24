@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -328,7 +329,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 var extraEvents =
-                    GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(
+                    GuardianAura.ProcessOnCharacterAttackHitFinished(
                         __instance, attacker, defender, attackerAttackMode, rulesetEffect, damageAmount);
 
                 while (extraEvents.MoveNext())
@@ -647,7 +648,7 @@ public static class GameLocationBattleManagerPatcher
             BattleDefinitions.AttackEvaluationParams attackParams)
         {
             //PATCH: support for features removing ranged attack disadvantage
-            RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
+            RemoveRangedAttackInMeleeDisadvantage.CheckToRemoveRangedDisadvantage(attackParams);
 
             if (!__result)
             {
@@ -707,7 +708,7 @@ public static class GameLocationBattleManagerPatcher
             bool firstTarget)
         {
             //PATCH: Completely replace this method to support several features. Modified method based on TA provided sources.
-            __result = GameLocationBattleManagerTweaks.HandleAdditionalDamageOnCharacterAttackHitConfirmed(
+            __result = GLBM.HandleAdditionalDamageOnCharacterAttackHitConfirmed(
                 __instance, attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
                 actualEffectForms, rulesetEffect, criticalHit, firstTarget);
 
@@ -733,7 +734,7 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit)
         {
             //PATCH: Completely replace this method to support several features. Modified method based on TA provided sources.
-            GameLocationBattleManagerTweaks.ComputeAndNotifyAdditionalDamage(
+            GLBM.ComputeAndNotifyAdditionalDamage(
                 __instance, attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
 
             return false;
@@ -1270,4 +1271,8 @@ public static class GameLocationBattleManagerPatcher
             }
         }
     }
+}
+
+public class GameLocationBattleManagerTweaks
+{
 }

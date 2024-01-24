@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 using static MetricsDefinitions;
 using static RuleDefinitions;
 
@@ -20,7 +21,7 @@ internal static class MetamagicBuilders
 
     internal static MetamagicOptionDefinition BuildMetamagicAltruisticSpell()
     {
-        var validator = new MetamagicApplicationValidator(IsMetamagicAltruisticSpellValid);
+        var validator = new ValidateMetamagicApplication(IsMetamagicAltruisticSpellValid);
 
         var altruisticAlly = MetamagicOptionDefinitionBuilder
             .Create($"{MetamagicAltruistic}Ally")
@@ -121,7 +122,7 @@ internal static class MetamagicBuilders
 
     internal static MetamagicOptionDefinition BuildMetamagicFocusedSpell()
     {
-        var validator = new MetamagicApplicationValidator(IsMetamagicFocusedSpellValid);
+        var validator = new ValidateMetamagicApplication(IsMetamagicFocusedSpellValid);
 
         var magicAffinity = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagiAffinity{MetamagicFocused}")
@@ -197,7 +198,7 @@ internal static class MetamagicBuilders
 
     internal static MetamagicOptionDefinition BuildMetamagicPowerfulSpell()
     {
-        var validator = new MetamagicApplicationValidator(IsMetamagicPowerfulSpellValid);
+        var validator = new ValidateMetamagicApplication(IsMetamagicPowerfulSpellValid);
 
         return MetamagicOptionDefinitionBuilder
             .Create(MetamagicPowerful)
@@ -255,7 +256,7 @@ internal static class MetamagicBuilders
 
     internal static MetamagicOptionDefinition BuildMetamagicWidenedSpell()
     {
-        var validator = new MetamagicApplicationValidator(IsMetamagicWidenedSpellValid);
+        var validator = new ValidateMetamagicApplication(IsMetamagicWidenedSpellValid);
 
         return MetamagicOptionDefinitionBuilder
             .Create(MetamagicWidened)

@@ -80,7 +80,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             .AddToDB();
 
         powerTerrificPerformance.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
         );
 
@@ -111,7 +111,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                                         FeatureDefinitionMovementAffinityBuilder
                                             .Create($"MovementAffinity{Name}CombatInspirationMovementEnhancement")
                                             .SetGuiPresentation(Category.Feature)
-                                            .AddCustomSubFeatures(new AddConditionAmountToSpeedModifier())
+                                            .AddCustomSubFeatures(new ModifyMovementSpeedAdditionCombatInspiration())
                                             .AddToDB(),
                                         FeatureDefinitionAttackModifierBuilder
                                             .Create($"AttackModifier{Name}CombatInspirationAttackEnhancement")
@@ -284,7 +284,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var level = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = level >= 14 ? power14 : power6;
 
-            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
@@ -297,6 +297,14 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    private sealed class ModifyMovementSpeedAdditionCombatInspiration : IModifyMovementSpeedAddition
+    {
+        public int ModifySpeedAddition(RulesetCharacter character, IMovementAffinityProvider provider)
+        {
+            return character.FindFirstConditionHoldingFeature(provider as FeatureDefinition)?.Amount ?? 0;
         }
     }
 }

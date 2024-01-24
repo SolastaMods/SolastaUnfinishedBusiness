@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -392,7 +393,7 @@ internal static class RaceWyrmkinBuilder
 
             if (reactionParams.ReactionValidated)
             {
-                rulesetCharacter.UsePower(UsablePowersProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetCharacter));
+                rulesetCharacter.UsePower(PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetCharacter));
             }
         }
     }

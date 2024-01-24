@@ -138,7 +138,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
-            .AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;

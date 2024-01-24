@@ -8,6 +8,8 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
+internal delegate int CustomModifierProvider(RulesetCharacter rulesetCharacter);
+
 internal class CanUseAttribute : IModifyWeaponAttackAttribute
 {
     private const string SpellCastingAbilityTag = "SpellCastingAbility";
@@ -50,6 +52,7 @@ internal class CanUseAttribute : IModifyWeaponAttackAttribute
 
         var oldAttribute = attackMode.AbilityScore;
         var oldValue = character.TryGetAttributeValue(oldAttribute);
+
         oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(oldValue);
 
         var attribute = _attribute;

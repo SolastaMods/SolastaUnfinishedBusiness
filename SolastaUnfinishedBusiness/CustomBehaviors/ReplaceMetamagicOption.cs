@@ -24,6 +24,7 @@ public class ReplaceMetamagicOption
         foreach (var option in options)
         {
             var replacer = option.GetFirstSubFeatureOfType<ReplaceMetamagicOption>();
+
             if (replacer == null)
             {
                 continue;

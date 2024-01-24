@@ -283,7 +283,7 @@ internal static class RaceImpBuilder
 
             // maybe add some toggle here similar to Paladin Smite
 
-            var usablePower = UsablePowersProvider.Get(powerPool, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
             var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
 

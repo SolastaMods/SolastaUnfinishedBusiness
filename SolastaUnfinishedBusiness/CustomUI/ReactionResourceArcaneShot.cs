@@ -17,7 +17,7 @@ public class ReactionResourceArcaneShot : ICustomReactionResource
 
     public string GetUses(RulesetCharacter character)
     {
-        var usablePower = UsablePowersProvider.Get(MartialArcaneArcher.PowerArcaneShot, character);
+        var usablePower = PowerProvider.Get(MartialArcaneArcher.PowerArcaneShot, character);
 
         return character.GetRemainingUsesOfPower(usablePower).ToString();
     }

@@ -232,7 +232,7 @@ internal static class RaceOligathBuilder
             }
 
 
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetMe);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
                 UsablePower = usablePower

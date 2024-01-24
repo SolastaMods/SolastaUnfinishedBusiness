@@ -61,7 +61,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
         powerPsychokinesisFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                UsablePowersProvider.Get(powerPsychokinesisFixed, character).RemainingUses > 0
+                PowerProvider.Get(powerPsychokinesisFixed, character).RemainingUses > 0
                 || character.GetClassLevel(CharacterClassDefinitions.Sorcerer) < 2));
 
         var powerPsychokinesisFixedDrag = FeatureDefinitionPowerSharedPoolBuilder
@@ -156,7 +156,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
         powerPsychokinesisPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                UsablePowersProvider.Get(powerPsychokinesisFixed, character).RemainingUses == 0
+                PowerProvider.Get(powerPsychokinesisFixed, character).RemainingUses == 0
                 && character.GetClassLevel(CharacterClassDefinitions.Sorcerer) >= 2));
 
         PowerBundle.RegisterPowerBundle(powerPsychokinesisFixed, true,
@@ -360,7 +360,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (rulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -395,7 +395,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
-            var usablePower = UsablePowersProvider.Get(powerMindOverMatter, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
             var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 2);
 
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -443,7 +443,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             _hasConcentrationChanged = false;
 
             var character = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerSupremeWill, character);
+            var usablePower = PowerProvider.Get(powerSupremeWill, character);
 
             character.UsePower(usablePower);
             character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);

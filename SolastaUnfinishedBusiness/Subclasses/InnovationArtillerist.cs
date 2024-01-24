@@ -1054,7 +1054,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
             var selectedTarget = actionParams.TargetCharacters[0];
             var targets = new List<GameLocationCharacter>();
-            var usablePower = UsablePowersProvider.Get(_powerEldritchDetonation, rulesetCharacter);
+            var usablePower = PowerProvider.Get(_powerEldritchDetonation, rulesetCharacter);
             var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetCharacter, usablePower, false);

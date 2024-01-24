@@ -273,7 +273,7 @@ internal static class InvocationsBuilders
         var power = FeatureDefinitionPowerBuilder
             .Create(PowerSorakShadowEscape, $"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Invocation, PowerSorakShadowEscape)
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .DelegatedToAction()
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(

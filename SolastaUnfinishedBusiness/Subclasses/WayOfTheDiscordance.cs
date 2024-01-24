@@ -187,7 +187,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerSorakDreadLaughter)
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         //
@@ -251,7 +251,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 .AddToDB();
 
             powerBurstOfDisharmony.AddCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
+                ModifyPowerVisibility.Hidden,
                 new MagicEffectFinishedByMeBurstOfDisharmony(
                     conditionDiscordance, powerDiscordance, conditionHadTurmoil, powerTurmoil),
                 new ValidatorsValidatePowerUse(
@@ -300,7 +300,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .AddToDB();
 
         powerTidesOfChaos.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeOrAllyTidesOfChaos(conditionTurmoil, powerTidesOfChaos));
 
         //
@@ -428,7 +428,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             FeatureDefinitionPower featureDefinitionPower)
         {
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -496,7 +496,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
             var actionParamsDiscordance = action.ActionParams.Clone();
-            var usablePowerDiscordance = UsablePowersProvider.Get(powerDiscordance, rulesetCharacter);
+            var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
 
             actionParamsDiscordance.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParamsDiscordance.RulesetEffect = rulesetImplementationService
@@ -527,7 +527,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             var actionParamsTurmoil = action.ActionParams.Clone();
-            var usablePowerTurmoil = UsablePowersProvider.Get(powerTurmoil, rulesetCharacter);
+            var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
 
             actionParamsTurmoil.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParamsTurmoil.RulesetEffect = rulesetImplementationService
@@ -599,7 +599,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             rulesetAlly.KiPointsAltered?.Invoke(rulesetAlly, rulesetAlly.RemainingKiPoints);
 
             // temporarily heal
-            var usablePower = UsablePowersProvider.Get(powerTidesOfChaos, rulesetAlly);
+            var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
             var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,

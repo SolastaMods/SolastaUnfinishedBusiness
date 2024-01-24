@@ -527,7 +527,7 @@ internal static class FixesContext
     {
         //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
         MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(
-            new MetamagicApplicationValidator(
+            new ValidateMetamagicApplication(
                 (RulesetCharacter _,
                     RulesetEffectSpell spell,
                     MetamagicOptionDefinition _,
@@ -667,7 +667,7 @@ internal static class FixesContext
 
             var actionParams = action.ActionParams.Clone();
             var usablePower =
-                UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
+                PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

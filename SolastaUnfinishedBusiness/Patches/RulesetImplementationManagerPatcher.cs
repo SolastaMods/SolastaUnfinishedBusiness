@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -360,7 +361,7 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: allows for extra careful tracking of summoned items
             //removes tracked items from any character, container or loot pile
             //used for Inventor's item summoning
-            ExtraCarefulTrackedItem.Process(activeEffect);
+            TrackItemsCarefully.Process(activeEffect);
         }
 
         [UsedImplicitly]

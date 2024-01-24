@@ -32,7 +32,7 @@ public static class LocalCommandManagerPatcher
 
         private static void Check(GameLocationCharacter character, ActionDefinitions.ActionType type)
         {
-            if (!character.RulesetCharacter.HasSubFeatureOfType<FreeWeaponSwitching>())
+            if (!character.RulesetCharacter.HasSubFeatureOfType<AllowFreeWeaponSwitching>())
             {
                 character.SpendActionType(type);
             }

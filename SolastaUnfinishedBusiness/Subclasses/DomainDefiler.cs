@@ -453,7 +453,7 @@ public sealed class DomainDefiler : AbstractSubclass
             bool criticalHit)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerDyingLight, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerDyingLight, rulesetAttacker);
 
             _isValid = actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage &&
                                                   x.DamageForm.DamageType == DamageTypeNecrotic) &&

@@ -1573,7 +1573,7 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
+        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.Familiar, spell);
 
         return spell;
     }
@@ -1673,7 +1673,7 @@ internal static partial class SpellBuilders
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerThunderousSmite, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerThunderousSmite, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -1899,7 +1899,7 @@ internal static partial class SpellBuilders
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerSpikeBarrage, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetCharacter);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = rulesetImplementationService

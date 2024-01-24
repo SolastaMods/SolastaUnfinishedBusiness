@@ -101,7 +101,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             .Create($"Feature{Name}LightEnergyCrossbowBolt")
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(IsOathOfDemonHunterWeapon),
+                new RemoveRangedAttackInMeleeDisadvantage(IsOathOfDemonHunterWeapon),
                 new PhysicalAttackFinishedByMeLightEnergyCrossbowBolt(conditionTrialMark, powerTrialMark))
             .AddToDB();
 
@@ -234,7 +234,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(powerTrialMark, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
             var reactionParams =
                 new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {

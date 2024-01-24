@@ -24,6 +24,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
+using MirrorImage = SolastaUnfinishedBusiness.CustomSpecificBehaviors.MirrorImage;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -264,10 +265,10 @@ internal static class Level20SubclassesContext
 
         var conditionMirrorImage = ConditionDefinitionBuilder
             .Create("ConditionFortuneFavorTheBoldMirrorImage")
-            .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+            .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionBlurred)
-            .AddCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+            .AddCustomSubFeatures(MirrorImage.DuplicateProvider.Mark)
             .AddToDB();
 
         var conditionPsychicDamage = ConditionDefinitionBuilder
@@ -315,7 +316,7 @@ internal static class Level20SubclassesContext
                                 null)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerDomainMischiefStrikeOfChaos17 = FeatureDefinitionPowerBuilder
@@ -1526,7 +1527,7 @@ internal static class Level20SubclassesContext
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
             var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
@@ -1926,7 +1927,7 @@ internal static class Level20SubclassesContext
                 0,
                 0);
 
-            var usablePower = UsablePowersProvider.Get(powerPhysicalPerfection, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,

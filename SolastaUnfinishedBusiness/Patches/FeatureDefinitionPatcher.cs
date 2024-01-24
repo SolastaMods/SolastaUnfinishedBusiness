@@ -17,7 +17,7 @@ public static class FeatureDefinitionPatcher
         [UsedImplicitly]
         public static void Postfix(FeatureDefinition __instance, out bool __result)
         {
-            __result = __instance.HasSubFeatureOfType<AllowDuplicates>();
+            __result = __instance.HasSubFeatureOfType<AllowConditionDuplicates>();
         }
     }
 }

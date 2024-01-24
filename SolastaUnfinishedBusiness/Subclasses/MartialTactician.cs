@@ -109,7 +109,7 @@ public sealed class MartialTactician : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create("PowerTacticianSharedVigilance")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(
                 EffectDescriptionBuilder

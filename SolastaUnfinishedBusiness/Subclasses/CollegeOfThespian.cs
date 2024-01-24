@@ -69,7 +69,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}CombatInspiration")
                     .SetGuiPresentationNoContent(true)
-                    .AddCustomSubFeatures(new AddConditionAmountToSpeedModifier())
+                    .AddCustomSubFeatures(new ModifyMovementSpeedAdditionCombatInspirationMovement())
                     .AddToDB())
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedCombatInspired())
             .AddToDB();
@@ -174,11 +174,11 @@ public sealed class CollegeOfThespian : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(SpellDefinitions.Fear)
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         powerTerrificPerformance.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerTerrificPerformance));
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -307,7 +307,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
 
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = classLevel < 14 ? powerTerrificPerformance : powerImprovedTerrificPerformance;
-            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
@@ -319,6 +319,14 @@ public sealed class CollegeOfThespian : AbstractSubclass
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    private sealed class ModifyMovementSpeedAdditionCombatInspirationMovement : IModifyMovementSpeedAddition
+    {
+        public int ModifySpeedAddition(RulesetCharacter character, IMovementAffinityProvider provider)
+        {
+            return character.FindFirstConditionHoldingFeature(provider as FeatureDefinition)?.Amount ?? 0;
         }
     }
 }

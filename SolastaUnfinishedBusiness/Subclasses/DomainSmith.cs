@@ -66,8 +66,8 @@ public sealed class DomainSmith : AbstractSubclass
                 $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(1), spriteReference)
             .SetUniqueInstance()
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
+                TrackItemsCarefully.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanArmorBeReinforced))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
@@ -88,7 +88,7 @@ public sealed class DomainSmith : AbstractSubclass
                                         .Create($"AttributeModifier{NAME}ReinforceArmor1")
                                         .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
                                             AttributeReinforceDescription(1), spriteReference)
-                                        .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .AddCustomSubFeatures(TrackItemsCarefully.Marker)
                                         .SetModifier(AttributeModifierOperation.Additive,
                                             AttributeDefinitions.ArmorClass, 1)
                                         .AddToDB(),
@@ -103,8 +103,8 @@ public sealed class DomainSmith : AbstractSubclass
                 $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(2), spriteReference)
             .SetUniqueInstance()
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
+                TrackItemsCarefully.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanArmorBeReinforced))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
@@ -126,7 +126,7 @@ public sealed class DomainSmith : AbstractSubclass
                                         .Create($"AttributeModifier{NAME}ReinforceArmor2")
                                         .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
                                             AttributeReinforceDescription(2), spriteReference)
-                                        .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .AddCustomSubFeatures(TrackItemsCarefully.Marker)
                                         .SetModifier(
                                             AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
                                         .AddToDB(),
@@ -141,8 +141,8 @@ public sealed class DomainSmith : AbstractSubclass
                 $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(3), spriteReference)
             .SetUniqueInstance()
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
+                TrackItemsCarefully.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanArmorBeReinforced))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
@@ -164,7 +164,7 @@ public sealed class DomainSmith : AbstractSubclass
                                         .Create($"AttributeModifier{NAME}ReinforceArmor3")
                                         .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
                                             AttributeReinforceDescription(3), spriteReference)
-                                        .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .AddCustomSubFeatures(TrackItemsCarefully.Marker)
                                         .SetModifier(
                                             AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
                                         .AddToDB(),
@@ -179,8 +179,8 @@ public sealed class DomainSmith : AbstractSubclass
                 $"Power{NAME}ReinforceArmor", Category.Feature, PowerReinforceDescription(4), spriteReference)
             .SetUniqueInstance()
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
+                TrackItemsCarefully.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanArmorBeReinforced))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
@@ -202,7 +202,7 @@ public sealed class DomainSmith : AbstractSubclass
                                         .Create($"AttributeModifier{NAME}ReinforceArmor4")
                                         .SetGuiPresentation($"AttributeModifier{NAME}ReinforceArmor", Category.Feature,
                                             AttributeReinforceDescription(4), spriteReference)
-                                        .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+                                        .AddCustomSubFeatures(TrackItemsCarefully.Marker)
                                         .SetModifier(
                                             AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 4)
                                         .AddToDB(),
@@ -325,7 +325,7 @@ public sealed class DomainSmith : AbstractSubclass
 
         // MAIN
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.DomainSmithReinforceArmor,
+        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.DomainSmithReinforceArmor,
             powerReinforceArmor1,
             powerReinforceArmor6,
             powerReinforceArmor11,

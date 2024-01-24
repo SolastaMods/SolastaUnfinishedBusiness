@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 
 //This should have default namespace so that it can be properly created by `CharacterActionPatcher`
 // ReSharper disable once CheckNamespace
@@ -14,6 +14,7 @@ public class CharacterActionPrioritizeAction(CharacterActionParams actionParams)
         ActionSwitching.DoPrioritizeAction(actionParams.ActingCharacter,
             (ActionDefinitions.ActionType)actionParams.IntParameter,
             actionParams.IntParameter2);
+
         yield break;
     }
 }

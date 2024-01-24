@@ -32,7 +32,7 @@ public static class RulesetInvocationPatcher
         public static void Postfix(RulesetInvocation __instance)
         {
             //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
-            if (__instance.invocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>())
+            if (__instance.invocationDefinition.HasSubFeatureOfType<RechargeInvocationOnShortRest>())
             {
                 __instance.used = true;
             }

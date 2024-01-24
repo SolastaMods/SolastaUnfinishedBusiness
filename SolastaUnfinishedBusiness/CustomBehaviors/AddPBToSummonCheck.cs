@@ -29,9 +29,9 @@ public class AddPBToSummonCheck(int multiplier, params string[] abilities)
             return;
         }
 
-        var mult = mods.Max(m => m.Modifier(proficiency));
+        var multiplier = mods.Max(m => m.Modifier(proficiency));
 
-        if (mult == 0)
+        if (multiplier == 0)
         {
             return;
         }
@@ -50,7 +50,7 @@ public class AddPBToSummonCheck(int multiplier, params string[] abilities)
             return;
         }
 
-        pb *= mult;
+        pb *= multiplier;
 
         if (trends != null)
         {

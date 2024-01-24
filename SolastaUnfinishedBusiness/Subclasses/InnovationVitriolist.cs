@@ -105,7 +105,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionCorroded))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Misery
@@ -145,7 +145,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionMiserable))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Affliction
@@ -177,7 +177,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionPoisoned))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Viscosity
@@ -204,7 +204,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionConfused))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Mixture
@@ -394,7 +394,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerMixture, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerMixture, rulesetCharacter);
 
             rulesetCharacter.RepayPowerUse(usablePower);
 

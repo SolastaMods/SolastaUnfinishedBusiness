@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -757,7 +758,7 @@ internal static class ClassFeats
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var repertoire = character.GetClassSpellRepertoire(Druid);
-            var rulesetUsablePower = UsablePowersProvider.Get(PowerDruidWildShape, character);
+            var rulesetUsablePower = PowerProvider.Get(PowerDruidWildShape, character);
 
             if (repertoire == null)
             {
@@ -787,7 +788,7 @@ internal static class ClassFeats
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
-            var rulesetUsablePower = UsablePowersProvider.Get(PowerDruidWildShape, character);
+            var rulesetUsablePower = PowerProvider.Get(PowerDruidWildShape, character);
 
             character.UpdateUsageForPowerPool(1, rulesetUsablePower);
 

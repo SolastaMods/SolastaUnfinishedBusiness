@@ -145,7 +145,7 @@ public sealed class MartialDefender : AbstractSubclass
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
             .SetMaxAttacksNumber(-1)
-            .AddCustomSubFeatures(AdditionalActionAttackValidator.Shield)
+            .AddCustomSubFeatures(ValidateAdditionalActionAttack.Shield)
             .AddToDB();
 
         var conditionAegisParagon = ConditionDefinitionBuilder
@@ -165,7 +165,7 @@ public sealed class MartialDefender : AbstractSubclass
         // BEHAVIORS
 
         powerAegisAssault.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new PhysicalAttackFinishedByMeAegisAssault(powerAegisAssault, conditionAegisParagon));
 
         // MAIN
@@ -277,7 +277,7 @@ public sealed class MartialDefender : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerAegisAssault, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerAegisAssault, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

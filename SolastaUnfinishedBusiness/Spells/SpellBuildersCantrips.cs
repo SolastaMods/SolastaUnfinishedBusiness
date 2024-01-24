@@ -571,7 +571,7 @@ internal static partial class SpellBuilders
 
         spell.AddCustomSubFeatures(
             AttackAfterMagicEffect.SunlitBladeAttack,
-            new UpgradeRangeBasedOnWeaponReach(spell));
+            new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -706,7 +706,7 @@ internal static partial class SpellBuilders
 
         spell.AddCustomSubFeatures(
             AttackAfterMagicEffect.BoomingBladeAttack,
-            new UpgradeRangeBasedOnWeaponReach(spell));
+            new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -967,7 +967,7 @@ internal static partial class SpellBuilders
             var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var actionParams = action.ActionParams.Clone();
 
-            var usablePower = UsablePowersProvider.Get(_powerResonatingStrike, rulesetCharacter);
+            var usablePower = PowerProvider.Get(_powerResonatingStrike, rulesetCharacter);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
             actionParams.RulesetEffect = rulesetImplementationService

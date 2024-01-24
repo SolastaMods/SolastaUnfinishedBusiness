@@ -333,7 +333,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var sprite = Sprites.GetSprite("AlchemyBombForceSplash", Resources.AlchemyBombForceSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombForceBreath", Resources.AlchemyBombForceBreath, 128);
         particle = WallOfForce.EffectDescription.effectParticleParameters;
@@ -375,7 +375,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var sprite = Sprites.GetSprite("AlchemyBombRadiantSplash", Resources.AlchemyBombRadiantSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombRadiantBreath", Resources.AlchemyBombRadiantBreath, 128);
         particle = BurningHands_B.EffectDescription.effectParticleParameters;
@@ -421,7 +421,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var sprite = Sprites.GetSprite("AlchemyBombNecroticSplash", Resources.AlchemyBombNecroticSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombNecroticBreath", Resources.AlchemyBombNecroticBreath, 128);
         particle = VampiricTouch.EffectDescription.effectParticleParameters;
@@ -470,7 +470,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var sprite = Sprites.GetSprite("AlchemyBombThunderSplash", Resources.AlchemyBombThunderSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombThunderBreath", Resources.AlchemyBombThunderBreath, 128);
         particle = Thunderwave.EffectDescription.effectParticleParameters;
@@ -522,7 +522,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var sprite = Sprites.GetSprite("AlchemyBombPsychicSplash", Resources.AlchemyBombPsychicSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombPsychicBreath", Resources.AlchemyBombPsychicBreath, 128);
         particle = splash; //PhantasmalKiller.EffectDescription.effectParticleParameters;
@@ -564,7 +564,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
+        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
 
         return (power, new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(marker.name)));
     }
@@ -594,7 +594,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
+        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
 
         return power;
     }
@@ -651,7 +651,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .AddToDB();
 
         power.AddCustomSubFeatures(
-            PowerVisibilityModifier.Visible,
+            ModifyPowerVisibility.Visible,
             new AddPBToDamage(power),
             new Overcharge(),
             validator,
@@ -698,7 +698,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .AddToDB();
 
         power.AddCustomSubFeatures(
-            PowerVisibilityModifier.Visible,
+            ModifyPowerVisibility.Visible,
             new AddPBToDamage(power),
             new Overcharge(),
             validator,
@@ -745,7 +745,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
             .AddToDB();
 
         power.AddCustomSubFeatures(
-            PowerVisibilityModifier.Visible,
+            ModifyPowerVisibility.Visible,
             new AddPBToDamage(power),
             new Overcharge(),
             validator,
@@ -759,7 +759,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyPool")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden, HasModifiedUses.Marker)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, HasModifiedUses.Marker)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest, 1, 3)
             .AddToDB();
 
@@ -833,7 +833,7 @@ public sealed class InnovationAlchemy : AbstractSubclass
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var rulesetRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
-            var rulesetUsablePower = UsablePowersProvider.Get(powerAlchemyPool, rulesetCharacter);
+            var rulesetUsablePower = PowerProvider.Get(powerAlchemyPool, rulesetCharacter);
 
             rulesetRepertoire!.SpendSpellSlot(slotLevel);
             rulesetUsablePower.remainingUses += slotLevel;

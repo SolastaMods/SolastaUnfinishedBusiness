@@ -211,11 +211,11 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
 
         powerTouchOfDarknessFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
-                character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
+                character => PowerProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
 
         powerTouchOfDarknessPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
-                character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses == 0));
+                character => PowerProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses == 0));
 
         var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder
             .Create(TOUCH_OF_DARKNESS_NAME)

@@ -128,7 +128,7 @@ public static class GameLocationActionManagerPatcher
             bool massiveDamage)
         {
             //PATCH: support for `DoNotTerminateWhileUnconscious`
-            yield return DoNotTerminateWhileUnconscious.TerminateAllSpellsAndEffects(
+            yield return RestrictEffectToNotTerminateWhileUnconscious.TerminateAllSpellsAndEffects(
                 values, rulesetTarget, wasConscious, stillConscious, massiveDamage);
         }
     }

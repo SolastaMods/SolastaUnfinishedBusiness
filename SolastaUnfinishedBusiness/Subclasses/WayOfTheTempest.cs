@@ -410,7 +410,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
 using TMPro;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -54,7 +55,7 @@ internal static class Tooltips
             return def;
         }
 
-        var usablePower = UsablePowersProvider.Get(power, character);
+        var usablePower = PowerProvider.Get(power, character);
         var maxUses = character.GetMaxUsesOfPower(usablePower);
         var remainingUses = character.GetRemainingUsesOfPower(usablePower);
 

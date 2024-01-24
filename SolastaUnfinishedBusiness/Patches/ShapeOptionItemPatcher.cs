@@ -32,7 +32,7 @@ public static class ShapeOptionItemPatcher
 
             // special Circle of the Night that requires 2 shapes available on some forms
             var isCircleOfTheNight = shapeDefinition.CreatureTags.Contains(CircleOfTheNight.Name);
-            var rulesetUsablePower = UsablePowersProvider.Get(PowerDruidWildShape, rulesetCharacterHero);
+            var rulesetUsablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacterHero);
             var hasAtLeastTwoShapes = shifter.GetRemainingUsesOfPower(rulesetUsablePower) > 1;
             var isShapeOptionAvailable = requiredLevel <= levels && (!isCircleOfTheNight || hasAtLeastTwoShapes);
 

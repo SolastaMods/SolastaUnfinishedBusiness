@@ -222,7 +222,7 @@ public sealed class MartialMarshal : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
+        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
 
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierMarshalEternalComradeHP")

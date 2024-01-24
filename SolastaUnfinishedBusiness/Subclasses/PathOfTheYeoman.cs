@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -109,7 +110,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 combatAffinityBulwark)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
             .AddCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(IsLongBow),
+                new RemoveRangedAttackInMeleeDisadvantage(IsLongBow),
                 new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
             .AddToDB();
 
@@ -186,7 +187,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             powerMightyShot.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         powerMightyShot.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),
             new PhysicalAttackFinishedByMeMightyShot(powerMightyShot));
 
@@ -339,7 +340,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerMightyShot, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerMightyShot, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

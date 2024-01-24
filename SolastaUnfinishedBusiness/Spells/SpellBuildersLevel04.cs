@@ -211,7 +211,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
                     .Build())
-            .AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;

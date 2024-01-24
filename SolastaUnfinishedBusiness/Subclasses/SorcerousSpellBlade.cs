@@ -100,11 +100,11 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
 
         powerManaShield.AddCustomSubFeatures(
             new ModifyEffectDescriptionManaShield(powerManaShield, powerManaShieldPoints),
-            new PowerVisibilityModifierManaShield());
+            new ModifyPowerVisibilityManaShield());
 
         powerManaShieldPoints.AddCustomSubFeatures(
             new ModifyEffectDescriptionManaShield(powerManaShieldPoints, powerManaShieldPoints),
-            new PowerVisibilityModifierManaShieldPoints(powerManaShield));
+            new ModifyPowerVisibilityManaShieldPoints(powerManaShield));
 
         var featureSetManaShield = FeatureDefinitionFeatureSetBuilder
             .Create(MANA_SHIELD_NAME)
@@ -205,11 +205,11 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
     // Mana Shield
     //
 
-    private sealed class PowerVisibilityModifierManaShield() : PowerVisibilityModifier((character, power, _) =>
+    private sealed class ModifyPowerVisibilityManaShield() : ModifyPowerVisibility((character, power, _) =>
         character.CanUsePower(power) || character.RemainingSorceryPoints < 2);
 
-    private sealed class PowerVisibilityModifierManaShieldPoints(FeatureDefinitionPower powerManaShield)
-        : PowerVisibilityModifier((character, _, _) =>
+    private sealed class ModifyPowerVisibilityManaShieldPoints(FeatureDefinitionPower powerManaShield)
+        : ModifyPowerVisibility((character, _, _) =>
             !character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2);
 
     private sealed class ModifyEffectDescriptionManaShield(
@@ -245,7 +245,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
                 return effectDescription;
             }
 
-            var usablePower = UsablePowersProvider.Get(powerManaShieldPoints, character);
+            var usablePower = PowerProvider.Get(powerManaShieldPoints, character);
 
             character.RepayPowerUse(usablePower);
 

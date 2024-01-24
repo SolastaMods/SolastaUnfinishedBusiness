@@ -13,7 +13,8 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
 
     public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
-        foreach (var power in rulesetCondition.ConditionDefinition.features.OfType<FeatureDefinitionPower>())
+        foreach (var power in rulesetCondition.ConditionDefinition.Features
+                     .OfType<FeatureDefinitionPower>())
         {
             if (target.UsablePowers.Any(u => u.PowerDefinition == power))
             {
@@ -30,7 +31,8 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
 
     public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
-        var powers = rulesetCondition.ConditionDefinition.features.OfType<FeatureDefinitionPower>()
+        var powers = rulesetCondition.ConditionDefinition.Features
+            .OfType<FeatureDefinitionPower>()
             .ToList();
 
         target.UsablePowers.RemoveAll(usablePower => powers.Contains(usablePower.PowerDefinition));

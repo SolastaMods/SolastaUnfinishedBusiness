@@ -101,7 +101,7 @@ internal static class CommonBuilders
         .Create("PowerCasterFightingWarMagic")
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")

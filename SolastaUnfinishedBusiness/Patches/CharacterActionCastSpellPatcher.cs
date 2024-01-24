@@ -132,7 +132,7 @@ public static class CharacterActionCastSpellPatcher
         public static bool Prefix([NotNull] CharacterActionCastSpell __instance)
         {
             //PATCH: terminates all matching spells and powers of same group
-            GlobalUniqueEffects.TerminateMatchingUniqueEffect(
+            ForceGlobalUniqueEffects.TerminateMatchingUniqueEffect(
                 __instance.ActingCharacter.RulesetCharacter,
                 __instance.ActiveSpell);
 

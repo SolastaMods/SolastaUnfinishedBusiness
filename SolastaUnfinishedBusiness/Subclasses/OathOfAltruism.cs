@@ -4,8 +4,8 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -55,13 +55,13 @@ public sealed class OathOfAltruism : AbstractSubclass
             .Create($"Condition{Name}AuraOfTheGuardian")
             .SetGuiPresentation(Category.Condition, ConditionShielded)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianConditionMarker)
+            .AddCustomSubFeatures(GuardianAura.AuraGuardianConditionMarker)
             .AddToDB();
 
         var powerAuraOfTheGuardian = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, $"Power{Name}AuraOfTheGuardian")
             .SetGuiPresentation(Category.Feature, GuardianOfFaith)
-            .AddCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
+            .AddCustomSubFeatures(GuardianAura.AuraGuardianUserMarker)
             .AddToDB();
 
         powerAuraOfTheGuardian.EffectDescription.EffectForms[0] = EffectFormBuilder
@@ -86,7 +86,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             .Create(powerAuraOfTheGuardian, $"Power{Name}AuraOfTheGuardian18")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(powerAuraOfTheGuardian)
-            .AddCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
+            .AddCustomSubFeatures(GuardianAura.AuraGuardianUserMarker)
             .AddToDB();
 
         powerAuraOfTheGuardian18.EffectDescription.targetParameter = 13;

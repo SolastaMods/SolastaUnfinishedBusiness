@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -177,7 +178,7 @@ internal static class InventorInfusions
                 .Create($"Power{name}")
                 .SetGuiPresentation(name, Category.Feature, sprite)
                 .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-                .AddCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddCustomSubFeatures(ModifyPowerFromInvocation.Marker)
                 .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
@@ -239,7 +240,7 @@ internal static class InventorInfusions
                 .Create($"Power{name}")
                 .SetGuiPresentation(name, Category.Feature, sprite)
                 .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-                .AddCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddCustomSubFeatures(ModifyPowerFromInvocation.Marker)
                 .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
@@ -283,7 +284,7 @@ internal static class InventorInfusions
                 .Create($"Power{name}")
                 .SetGuiPresentation(name, Category.Feature, sprite)
                 .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-                .AddCustomSubFeatures(PowerFromInvocation.Marker)
+                .AddCustomSubFeatures(ModifyPowerFromInvocation.Marker)
                 .AddToDB());
 
         PowerBundle.RegisterPowerBundle(masterPower, true, powers);
@@ -422,11 +423,11 @@ internal static class InventorInfusions
             .SetGuiPresentation(guiName, Category.Feature, icon)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
+                TrackItemsCarefully.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,
-                PowerFromInvocation.Marker,
+                ModifyPowerFromInvocation.Marker,
                 itemFilter)
             .SetEffectDescription(BuildInfuseItemWithFeaturesEffect(features))
             .AddToDB();
@@ -448,7 +449,7 @@ internal static class InventorInfusions
     {
         var properties = features.Select(f =>
         {
-            f.AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker);
+            f.AddCustomSubFeatures(TrackItemsCarefully.Marker);
             return new FeatureUnlockByLevel(f, 0);
         });
 
@@ -475,11 +476,11 @@ internal static class InventorInfusions
             .SetGuiPresentation(Category.Feature, item)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
+                TrackItemsCarefully.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,
-                PowerFromInvocation.Marker)
+                ModifyPowerFromInvocation.Marker)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

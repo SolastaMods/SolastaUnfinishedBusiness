@@ -58,7 +58,7 @@ internal static class EldritchVersatility
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(VersatilitySupportRulesetCondition.BindingDefinition))
                 .Build())
-        .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     public static readonly FeatureDefinitionCustomInvocationPool Learn1Versatility =
@@ -176,7 +176,7 @@ internal static class EldritchVersatility
                     .SetParticleEffectParameters(SpellDefinitions.Haste)
                     .Build())
             .AddCustomSubFeatures(
-                PowerFromInvocation.Marker,
+                ModifyPowerFromInvocation.Marker,
                 new BattlefieldConversionRestoreSlot())
             .AddToDB();
 

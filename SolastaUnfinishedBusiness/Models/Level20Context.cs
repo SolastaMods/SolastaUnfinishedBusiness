@@ -16,6 +16,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
@@ -662,7 +663,7 @@ internal static class Level20Context
                     .SetPoolType(InvocationPoolTypeCustom.Pools.SignatureSpells)
                     .SetGrantedSpell(spell)
                     .AddCustomSubFeatures(
-                        InvocationShortRestRecharge.Marker,
+                        RechargeInvocationOnShortRest.Marker,
                         ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name))
                     .AddToDB());
 
@@ -696,7 +697,7 @@ internal static class Level20Context
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, rulesetCharacter);
+            var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
 
             usablePower.Recharge();
 
@@ -875,7 +876,7 @@ internal static class Level20Context
 
             var delta = -action.AttackSuccessDelta;
 
-            rulesetCharacter.UsePower(UsablePowersProvider.Get(power, rulesetCharacter));
+            rulesetCharacter.UsePower(PowerProvider.Get(power, rulesetCharacter));
             action.AttackRollOutcome = RollOutcome.Success;
             attackModifier.AttackRollModifier += delta;
             attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));

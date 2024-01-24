@@ -697,7 +697,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
+            var usablePower = PowerProvider.Get(powerElementalBreathProficiency, character);
             var glc = GameLocationCharacter.GetFromActor(character);
 
             if (glc == null || !glc.OnceInMyTurnIsValid("ElementalBreath"))
@@ -755,7 +755,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            var usablePower = UsablePowersProvider.Get(powerElementalBreathProficiency, character);
+            var usablePower = PowerProvider.Get(powerElementalBreathProficiency, character);
             var glc = GameLocationCharacter.GetFromActor(character);
 
             if (glc == null || !glc.OnceInMyTurnIsValid("ElementalBreath"))
@@ -994,7 +994,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(powerReactiveHide, rulesetMe);
+            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {

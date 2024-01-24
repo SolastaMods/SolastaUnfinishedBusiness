@@ -34,7 +34,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(
                     new CustomLevelUpLogicWayOfTheDistantHandCombat(),
-                    new RangedAttackInMeleeDisadvantageRemover(ValidatorsCharacter.HasBowWithoutArmor))
+                    new RemoveRangedAttackInMeleeDisadvantage(ValidatorsCharacter.HasBowWithoutArmor))
                 .AddToDB();
 
         // ZEN ARROW
@@ -44,7 +44,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .AddCustomSubFeatures(
-                IsPowerPool.Marker,
+                IsModifyPowerPool.Marker,
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) &&
@@ -78,7 +78,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowPush = FeatureDefinitionPowerBuilder
@@ -103,7 +103,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
@@ -143,7 +143,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -162,7 +162,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .AddCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
+                ModifyPowerVisibility.Hidden,
                 new UpgradeFlurry(
                     ConditionDefinitionBuilder
                         .Create($"Condition{Name}AttackedWithMonkWeapon")
@@ -201,7 +201,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .AddCustomSubFeatures(
-                IsPowerPool.Marker,
+                IsModifyPowerPool.Marker,
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     ValidatorsCharacter.HasBowWithoutArmor(attacker.RulesetCharacter) &&
@@ -253,7 +253,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedPush = FeatureDefinitionPowerBuilder
@@ -278,7 +278,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedDistract = FeatureDefinitionPowerBuilder
@@ -316,7 +316,7 @@ public sealed class WayOfTheDistantHand : AbstractSubclass
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(

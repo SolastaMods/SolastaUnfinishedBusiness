@@ -235,7 +235,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetMe);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {

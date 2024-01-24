@@ -132,7 +132,7 @@ public sealed class InnovationArmor : AbstractSubclass
                 new ValidatorsValidatePowerUse(NotGuardianMode),
                 ValidatorsValidatePowerUse.NotInCombat,
                 new AddGauntletAttack(),
-                DoNotTerminateWhileUnconscious.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always)
             .SetSharedPool(ActivationTime.BonusAction, pool)
             .SetEffectDescription(
@@ -154,7 +154,7 @@ public sealed class InnovationArmor : AbstractSubclass
                 new ValidatorsValidatePowerUse(NotInfiltratorMode),
                 ValidatorsValidatePowerUse.NotInCombat,
                 new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode),
-                DoNotTerminateWhileUnconscious.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always)
             .SetSharedPool(ActivationTime.BonusAction, pool)
             .SetEffectDescription(
@@ -175,7 +175,7 @@ public sealed class InnovationArmor : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(InGuardianMode),
                 InventorClassHolder.Marker,
-                RecurrenceOnlyOnSelfTurn.Mark)
+                RestrictRecurrentEffectsOnSelfTurnOnly.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder

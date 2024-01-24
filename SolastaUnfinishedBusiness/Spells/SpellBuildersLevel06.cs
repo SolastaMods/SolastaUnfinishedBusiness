@@ -437,7 +437,7 @@ internal static partial class SpellBuilders
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerRingOfBlades, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerRingOfBlades, rulesetCharacter);
 
             rulesetCharacter.UsePower(usablePower);
 

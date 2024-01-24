@@ -88,7 +88,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var usablePower = UsablePowersProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
+            var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
             var distance = _criticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {

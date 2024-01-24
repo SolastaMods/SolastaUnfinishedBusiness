@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -19,8 +20,7 @@ internal enum AttackModeOrder
 
 internal abstract class AddExtraAttackBase(
     ActionDefinitions.ActionType actionType,
-    params IsCharacterValidHandler[] validators)
-    : IAddExtraAttack
+    params IsCharacterValidHandler[] validators) : IAddExtraAttack
 {
     // private readonly List<string> additionalTags = new();
     protected readonly ActionDefinitions.ActionType ActionType = actionType;
@@ -36,18 +36,13 @@ internal abstract class AddExtraAttackBase(
 
         var newAttacks = GetAttackModes(character);
 
-        if (newAttacks == null || newAttacks.Empty())
+        if (newAttacks == null || newAttacks.Count == 0)
         {
             return;
         }
 
         foreach (var attackMode in newAttacks)
         {
-            // foreach (var tag in additionalTags)
-            // {
-            //     attackMode.AddAttackTagAsNeeded(tag);
-            // }
-
             var same = attackModes.FirstOrDefault(m => ModesEqual(attackMode, m));
 
             if (same != null)
@@ -60,6 +55,7 @@ internal abstract class AddExtraAttackBase(
             else
             {
                 var order = GetOrder(character);
+
                 switch (order)
                 {
                     case AttackModeOrder.Start:
@@ -107,12 +103,6 @@ internal abstract class AddExtraAttackBase(
         var freeOffHand = a.freeOffHand == b.freeOffHand;
         var automaticHit = a.automaticHit == b.automaticHit;
         var afterChargeOnly = a.afterChargeOnly == b.afterChargeOnly;
-
-        // if (ValidatorsWeapon.IsUnarmedWeapon(a) && ValidatorsWeapon.IsUnarmedWeapon(b))
-        // {
-        //     // Main.Log(
-        //     //     $"EQUAL actionType:{actionType}, sourceDefinition: {sourceDefinition}, sourceObject: {sourceObject}, slotName: {slotName}, ranged: {ranged}, thrown: {thrown}, reach: {reach}, reachRange: {reachRange}, closeRange: {closeRange}, maxRange: {maxRange}, toHitBonus: {toHitBonus}, attacksNumber: {attacksNumber}, useVersatileDamage: {useVersatileDamage}, freeOffHand: {freeOffHand}, automaticHit: {automaticHit}, afterChargeOnly: {afterChargeOnly}");
-        // }
 
         return actionType
                && sourceDefinition
@@ -229,7 +219,8 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 {
     private readonly IsWeaponValidHandler _weaponValidator;
 
-    internal AddExtraRangedAttack(ActionDefinitions.ActionType actionType,
+    internal AddExtraRangedAttack(
+        ActionDefinitions.ActionType actionType,
         IsWeaponValidHandler weaponValidator,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
@@ -406,8 +397,9 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         var bonus = features
             .OfType<FeatureDefinitionAttributeModifier>()
-            .Where(x => x.ModifiedAttribute == AttributeDefinitions.ArmorClass &&
-                        x.ModifierOperation == AttributeModifierOperation.Additive)
+            .Where(x =>
+                x.ModifiedAttribute == AttributeDefinitions.ArmorClass &&
+                x.ModifierOperation == AttributeModifierOperation.Additive)
             .Sum(x => x.ModifierValue);
 
         if (offHandItem.ItemDefinition.Magical || bonus > 0)

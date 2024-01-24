@@ -104,7 +104,7 @@ public static class GameLocationManagerPatcher
 
             //PATCH: remove carefully tracked dynamic item properties that have effect guid, but effect is removed
             //fixes Inventor's Infusions sometimes breaking and lingering forever without ability to remove them
-            ExtraCarefulTrackedItem.FixDynamicPropertiesWithoutEffect();
+            TrackItemsCarefully.FixDynamicPropertiesWithoutEffect();
 
             //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
             if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered || Gui.GameLocation.UserLocation == null)

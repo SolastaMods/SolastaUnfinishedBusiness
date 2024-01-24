@@ -157,7 +157,7 @@ internal static class RulesetCharacterExtensions
                 }
             }
 
-            if (PowerVisibilityModifier.IsPowerHidden(character, power, type))
+            if (ModifyPowerVisibility.IsPowerHidden(character, power, type))
             {
                 continue;
             }

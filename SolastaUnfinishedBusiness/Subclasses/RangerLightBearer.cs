@@ -412,7 +412,7 @@ public sealed class RangerLightBearer : AbstractSubclass
             rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

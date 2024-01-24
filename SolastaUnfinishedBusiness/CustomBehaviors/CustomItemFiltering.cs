@@ -25,8 +25,8 @@ internal class CustomItemFilter : ICustomItemFilter
 
     internal static void FilterItems(InventoryPanel panel)
     {
-        if (panel.InventoryManagementMode != ActionDefinitions.InventoryManagementMode.SelectItem
-            || panel.ItemSelectionType != ActionDefinitions.ItemSelectionType.Carried)
+        if (panel.InventoryManagementMode != ActionDefinitions.InventoryManagementMode.SelectItem ||
+            panel.ItemSelectionType != ActionDefinitions.ItemSelectionType.Carried)
         {
             return;
         }
@@ -50,8 +50,8 @@ internal class CustomItemFilter : ICustomItemFilter
                 continue;
             }
 
-            box.ValidForItemSelection = filter.IsValid(actionParams.ActingCharacter.RulesetCharacter, item,
-                actionParams.RulesetEffect);
+            box.ValidForItemSelection = filter.IsValid(
+                actionParams.ActingCharacter.RulesetCharacter, item, actionParams.RulesetEffect);
         }
     }
 }

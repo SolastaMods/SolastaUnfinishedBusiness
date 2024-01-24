@@ -324,7 +324,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 return;
             }
 
-            var rulesetUsablePower = UsablePowersProvider.Get(powerGrandChallenge, rulesetCharacter);
+            var rulesetUsablePower = PowerProvider.Get(powerGrandChallenge, rulesetCharacter);
 
             if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
             {

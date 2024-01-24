@@ -70,7 +70,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
                 .SetGrantedFeature(featureSpecialization)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
 
@@ -412,7 +412,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             // Focused Strikes
 
             var powerFocusedStrikes = GetDefinition<FeatureDefinitionPower>($"Power{Name}FocusedStrikes");
-            var rulesetUsablePower = UsablePowersProvider.Get(powerFocusedStrikes, rulesetCharacter);
+            var rulesetUsablePower = PowerProvider.Get(powerFocusedStrikes, rulesetCharacter);
 
             if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
             {

@@ -102,7 +102,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .AddCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(CustomSpecificBehaviors.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Intelligence)
@@ -112,7 +112,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .AddCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(CustomSpecificBehaviors.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Wisdom)
@@ -122,7 +122,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .AddCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(CustomSpecificBehaviors.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Charisma)
@@ -132,7 +132,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .AddCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(CustomSpecificBehaviors.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         //

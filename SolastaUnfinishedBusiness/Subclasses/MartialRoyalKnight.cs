@@ -116,7 +116,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             .Create("PowerRoyalKnightInspiringProtectionAura")
             .SetGuiPresentation(TEXT, Category.Feature)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -286,7 +286,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(Power, rulesetOriginalHelper);
+            var usablePower = PowerProvider.Get(Power, rulesetOriginalHelper);
             var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
             var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
             {

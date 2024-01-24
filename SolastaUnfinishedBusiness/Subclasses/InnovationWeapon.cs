@@ -113,7 +113,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .Create(NAME)
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
+                ModifyPowerVisibility.Hidden,
                 HasModifiedUses.Marker,
                 new ValidatorsValidatePowerUse(HasInjuredDefender),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
@@ -193,7 +193,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .Build())
             .SetUniqueInstance()
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
@@ -225,7 +225,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetUniqueInstance()
             .SetOverriddenPower(overridenPower)
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
@@ -487,7 +487,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddCustomSubFeatures(
                 CountPowerUseInSpecialFeatures.Marker,
                 ValidatorsValidatePowerUse.UsedLessTimesThan(1),
-                PowerVisibilityModifier.Default)
+                ModifyPowerVisibility.Default)
             .SetShowCasting(false)
             .AddToDB();
     }

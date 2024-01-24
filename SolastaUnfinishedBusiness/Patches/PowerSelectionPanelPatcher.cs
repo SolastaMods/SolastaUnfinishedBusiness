@@ -49,7 +49,7 @@ public static class PowerSelectionPanelPatcher
                          .Select(power => new
                          {
                              power,
-                             feature = power.PowerDefinition.GetFirstSubFeatureOfType<PowerVisibilityModifier>()
+                             feature = power.PowerDefinition.GetFirstSubFeatureOfType<ModifyPowerVisibility>()
                          })
                          .Where(t => t.feature != null)
                          .Where(t => t.feature.IsVisible(character, t.power.PowerDefinition, actionType))
@@ -63,7 +63,7 @@ public static class PowerSelectionPanelPatcher
                 var power = relevantPowers[i];
 
                 if (ValidatorsValidatePowerUse.IsPowerNotValid(character, power)
-                    || PowerVisibilityModifier.IsPowerHidden(character, power, actionType))
+                    || ModifyPowerVisibility.IsPowerHidden(character, power, actionType))
                 {
                     relevantPowers.RemoveAt(i);
                 }

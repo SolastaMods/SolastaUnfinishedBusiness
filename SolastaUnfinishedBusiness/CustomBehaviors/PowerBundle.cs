@@ -15,11 +15,11 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class PowerBundle
 {
-    private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = new();
-    private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
-    private static readonly Dictionary<FeatureDefinitionPower, Bundle> Bundles = new();
+    private static readonly Dictionary<SpellDefinition, FeatureDefinitionPower> Spells2Powers = [];
+    private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = [];
+    private static readonly Dictionary<FeatureDefinitionPower, Bundle> Bundles = [];
 
-    private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
+    private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = [];
 
     private static Transform _parent;
 
@@ -121,10 +121,11 @@ internal static class PowerBundle
 
         var poolPower = pool.GetUsagePoolPower();
 
-        return UsablePowersProvider.Get(poolPower, character);
+        return PowerProvider.Get(poolPower, character);
     }
 
-    internal static int GetMaxUsesForPool(this RulesetCharacter character,
+    internal static int GetMaxUsesForPool(
+        this RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power)
     {
         if (power is IPowerSharedPool poolPower)
@@ -132,12 +133,13 @@ internal static class PowerBundle
             power = poolPower.GetUsagePoolPower();
         }
 
-        var usablePower = UsablePowersProvider.Get(power, character);
+        var usablePower = PowerProvider.Get(power, character);
 
         return character.GetMaxUsesOfPower(usablePower);
     }
 
-    internal static void UpdateUsageForPower(this RulesetCharacter character,
+    internal static void UpdateUsageForPower(
+        this RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power,
         int poolUsage)
     {
@@ -146,12 +148,13 @@ internal static class PowerBundle
             power = poolPower.GetUsagePoolPower();
         }
 
-        var usablePower = UsablePowersProvider.Get(power, character);
+        var usablePower = PowerProvider.Get(power, character);
 
         UpdateUsageForPowerPool(character, poolUsage, usablePower);
     }
 
-    internal static void UpdateUsageForPower(this RulesetCharacter character,
+    internal static void UpdateUsageForPower(
+        this RulesetCharacter character,
         [NotNull] RulesetUsablePower modifiedPower,
         int poolUsage)
     {
@@ -161,9 +164,9 @@ internal static class PowerBundle
         {
             var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
-            usablePower = UsablePowersProvider.Get(pointPoolPower, character);
+            usablePower = PowerProvider.Get(pointPoolPower, character);
         }
-        else if (modifiedPower.PowerDefinition.HasSubFeatureOfType<IsPowerPool>())
+        else if (modifiedPower.PowerDefinition.HasSubFeatureOfType<IsModifyPowerPool>())
         {
             usablePower = modifiedPower;
         }
@@ -255,12 +258,13 @@ internal static class PowerBundle
             return GetRemainingPowerPoolUses(character, poolPower) / power.CostPerUse;
         }
 
-        var usablePower = UsablePowersProvider.Get(power, character);
+        var usablePower = PowerProvider.Get(power, character);
 
         return usablePower.RemainingUses / power.CostPerUse;
     }
 
-    internal static int GetRemainingPowerCharges(this RulesetCharacter character,
+    internal static int GetRemainingPowerCharges(
+        this RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power)
     {
         if (power is IPowerSharedPool poolPower)
@@ -268,7 +272,7 @@ internal static class PowerBundle
             return GetRemainingPowerPoolUses(character, poolPower);
         }
 
-        var usablePower = UsablePowersProvider.Get(power, character);
+        var usablePower = PowerProvider.Get(power, character);
 
         return usablePower.RemainingUses;
     }
@@ -279,7 +283,7 @@ internal static class PowerBundle
     {
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
-        return UsablePowersProvider.Get(pointPoolPower, character).RemainingUses;
+        return PowerProvider.Get(pointPoolPower, character).RemainingUses;
     }
 
     internal static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
@@ -429,13 +433,17 @@ internal static class PowerBundle
         return result;
     }
 
-    internal static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
+    internal static void RegisterPowerBundle(
+        [NotNull] FeatureDefinitionPower masterPower,
+        bool terminateAll,
         [NotNull] params FeatureDefinitionPower[] subPowers)
     {
         RegisterPowerBundle(masterPower, terminateAll, subPowers.ToList());
     }
 
-    public static void RegisterPowerBundle([NotNull] FeatureDefinitionPower masterPower, bool terminateAll,
+    public static void RegisterPowerBundle(
+        [NotNull] FeatureDefinitionPower masterPower,
+        bool terminateAll,
         [NotNull] IEnumerable<FeatureDefinitionPower> subPowers)
     {
         if (Bundles.ContainsKey(masterPower))
@@ -765,8 +773,8 @@ internal static class PowerBundle
 
     internal sealed class Bundle
     {
-        internal Bundle(FeatureDefinitionPower masterPower, IEnumerable<FeatureDefinitionPower> subPowers,
-            bool terminateAll)
+        internal Bundle(
+            FeatureDefinitionPower masterPower, IEnumerable<FeatureDefinitionPower> subPowers, bool terminateAll)
         {
             // MasterPower = masterPower;
             SubPowers = [..subPowers];
@@ -799,11 +807,11 @@ internal static class PowerBundle
     }
 }
 
-internal class IsPowerPool : PowerVisibilityModifier
+internal class IsModifyPowerPool : ModifyPowerVisibility
 {
-    private IsPowerPool() : base((_, _, _) => false)
+    private IsModifyPowerPool() : base((_, _, _) => false)
     {
     }
 
-    public static IsPowerPool Marker { get; } = new();
+    public static IsModifyPowerPool Marker { get; } = new();
 }

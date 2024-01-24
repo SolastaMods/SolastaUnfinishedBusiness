@@ -306,7 +306,7 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(power, rulesetMe);
+            var usablePower = PowerProvider.Get(power, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {

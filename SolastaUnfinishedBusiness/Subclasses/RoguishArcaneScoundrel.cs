@@ -153,7 +153,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddToDB();
 
         powerArcaneBacklash.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new ActionFinishedByMeArcaneBackslash(
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell,
@@ -327,7 +327,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerArcaneBackslash, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

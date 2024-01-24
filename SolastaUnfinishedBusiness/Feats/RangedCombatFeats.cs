@@ -231,7 +231,7 @@ internal static class RangedCombatFeats
                     .AddCustomSubFeatures(
                         ValidatorsCharacter.HasOffhandWeaponType(
                             CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType),
-                        new RangedAttackInMeleeDisadvantageRemover(),
+                        new RemoveRangedAttackInMeleeDisadvantage(),
                         new InnovationArmor.AddLauncherAttack(ActionDefinitions.ActionType.Bonus,
                             InnovationArmor.InInfiltratorMode,
                             ValidatorsCharacter.HasAttacked),

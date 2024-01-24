@@ -175,7 +175,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesFixed(ActivationTime.NoCost)
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // connect them all together

@@ -44,7 +44,9 @@ internal static class ReplaceAttackWithCantrip
         }
     }
 
-    internal static void AllowAttacksAfterCantrip(GameLocationCharacter character, CharacterActionParams actionParams,
+    internal static void AllowAttacksAfterCantrip(
+        GameLocationCharacter character,
+        CharacterActionParams actionParams,
         ActionScope scope)
     {
         if (scope != ActionScope.Battle)
@@ -79,7 +81,6 @@ internal static class ReplaceAttackWithCantrip
             character.currentActionRankByType[ACTION_TYPE]++;
             return;
         }
-
 
         var maxAllowedAttacks = character.actionPerformancesByType[ACTION_TYPE][rank].MaxAttacksNumber;
         var maxAttacksNumber = rulesetCharacter.AttackModes

@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using static RuleDefinitions;
@@ -367,7 +368,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             rulesetAttacker.UpdateUsageForPower(powerHailOfBlades, powerHailOfBlades.CostPerUse);
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerHailOfBlades, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -408,7 +409,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(powerHailOfBlades, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
 
             rulesetAttacker.RepayPowerUse(usablePower);
         }

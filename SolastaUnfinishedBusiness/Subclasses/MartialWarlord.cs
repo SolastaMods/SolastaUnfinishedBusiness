@@ -76,7 +76,7 @@ public sealed class MartialWarlord : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
                     .Build())
             .AddCustomSubFeatures(
-                IsPowerPool.Marker,
+                IsModifyPowerPool.Marker,
                 new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
                     mode != null && // IsWeaponOrUnarmedAttack
@@ -732,7 +732,7 @@ public sealed class MartialWarlord : AbstractSubclass
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerCoordinatedAssault, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerCoordinatedAssault, rulesetCharacter);
 
             rulesetCharacter.RepayPowerUse(usablePower);
         }

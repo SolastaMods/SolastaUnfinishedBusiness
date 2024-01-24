@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -165,7 +166,7 @@ public static class CharacterActionPanelPatcher
 
                 __instance.actionId = power.BattleActionId;
                 __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
-                __instance.PowerEngaged(UsablePowersProvider.Get(power, __instance.GuiCharacter.RulesetCharacter));
+                __instance.PowerEngaged(PowerProvider.Get(power, __instance.GuiCharacter.RulesetCharacter));
 
                 return false;
             }

@@ -68,7 +68,7 @@ public static class InvocationDefinitionExtensions
     {
         if (invocation.GrantedFeature is FeatureDefinitionPower power)
         {
-            return power.HasSubFeatureOfType<PowerFromInvocation>() ? power : null;
+            return power.HasSubFeatureOfType<ModifyPowerFromInvocation>() ? power : null;
         }
 
         return null;

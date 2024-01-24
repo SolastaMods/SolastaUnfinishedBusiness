@@ -50,7 +50,7 @@ public static class GameLocationEnvironmentManagerPatcher
                 return guid;
             }
 
-            if (!effect.SourceDefinition.HasSubFeatureOfType<RecurrenceOnlyOnSelfTurn>())
+            if (!effect.SourceDefinition.HasSubFeatureOfType<RestrictRecurrentEffectsOnSelfTurnOnly>())
             {
                 return guid;
             }

@@ -394,7 +394,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            rulesetCharacter.UsePower(UsablePowersProvider.Get(featureDefinitionPower, rulesetCharacter));
+            rulesetCharacter.UsePower(PowerProvider.Get(featureDefinitionPower, rulesetCharacter));
         }
     }
 

@@ -9,7 +9,9 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 using static RuleDefinitions;
@@ -246,11 +248,11 @@ public static class GameLocationCharacterPatcher
                 //PATCH: Support for `IValidateDefinitionApplication`
                 .ReplaceEnumerateFeaturesToBrowse<IActionPerformanceProvider>(
                     "GameLocationCharacter.RefreshActionPerformances.ValidateActionPerformanceProviders",
-                    FeatureApplicationValidation.EnumerateActionPerformanceProviders)
+                    ValidateFeatureApplication.EnumerateActionPerformanceProviders)
                 //PATCH: Support for action switching
                 .ReplaceEnumerateFeaturesToBrowse<IAdditionalActionsProvider>(
                     "GameLocationCharacter.RefreshActionPerformances.ValidateAdditionalActionProviders",
-                    FeatureApplicationValidation.EnumerateAdditionalActionProviders);
+                    ValidateFeatureApplication.EnumerateAdditionalActionProviders);
         }
 
         [UsedImplicitly]
@@ -428,7 +430,7 @@ public static class GameLocationCharacterPatcher
             bool stillConscious)
         {
             //PATCH: support for EffectWithConcentrationCheck
-            EffectWithConcentrationCheck.ProcessConcentratedEffects(__instance, damage, damageType, stillConscious);
+            ForceConcentrationCheck.ProcessConcentratedEffects(__instance, damage, damageType, stillConscious);
         }
     }
 

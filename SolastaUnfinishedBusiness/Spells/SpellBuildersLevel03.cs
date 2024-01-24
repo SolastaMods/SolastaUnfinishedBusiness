@@ -467,7 +467,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(effectParticleParameters)
                     .Build())
-            .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+            .AddCustomSubFeatures(TrackItemsCarefully.Marker)
             .AddToDB();
 
         return spell;
@@ -691,7 +691,7 @@ internal static partial class SpellBuilders
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerExplode, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -1048,7 +1048,7 @@ internal static partial class SpellBuilders
 
             // leap damage on enemies within 10 ft from target
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerLightningArrowLeap, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()

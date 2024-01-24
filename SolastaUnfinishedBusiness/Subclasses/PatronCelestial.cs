@@ -151,7 +151,7 @@ public class PatronCelestial : AbstractSubclass
         RestActivityDefinitionBuilder
             .Create($"RestActivity{Name}CelestialResistanceShortRest")
             .SetGuiPresentation(CelestialResistanceName, Category.Feature)
-            .AddCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .AddCustomSubFeatures(new ValidateRestActivity(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
@@ -163,7 +163,7 @@ public class PatronCelestial : AbstractSubclass
         RestActivityDefinitionBuilder
             .Create($"RestActivity{Name}CelestialResistanceLongRest")
             .SetGuiPresentation(CelestialResistanceName, Category.Feature)
-            .AddCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .AddCustomSubFeatures(new ValidateRestActivity(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,
@@ -182,7 +182,7 @@ public class PatronCelestial : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .AddCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
+                ModifyPowerVisibility.Hidden,
                 new MagicEffectFinishedByMeCelestialResistance())
             .AddToDB();
 
@@ -392,7 +392,7 @@ public class PatronCelestial : AbstractSubclass
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
-            var usablePower = UsablePowersProvider.Get(powerSearingVengeance, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
             var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 5);
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource

@@ -47,7 +47,7 @@ public static class RulesetEffectPowerPatcher
 
             var usablePower = __instance.UsablePower;
 
-            UsablePowersProvider.UpdateSaveDc(user, usablePower, classDefinition);
+            PowerProvider.UpdateSaveDc(user, usablePower, classDefinition);
             __result = usablePower.SaveDC;
         }
     }

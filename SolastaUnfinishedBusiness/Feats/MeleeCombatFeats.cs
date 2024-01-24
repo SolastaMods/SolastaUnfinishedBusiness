@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -844,7 +845,7 @@ internal static class MeleeCombatFeats
                     .Create($"Feature{Name}Finish")
                     .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, Gui.NoLocalization)
                     .AddCustomSubFeatures(
-                        AdditionalActionAttackValidator.MeleeOnly,
+                        ValidateAdditionalActionAttack.MeleeOnly,
                         new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
                     .AddToDB())
             .AddToDB();
@@ -1307,8 +1308,7 @@ internal static class MeleeCombatFeats
                 attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
 
                 var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-                var lowOutcome = GameLocationBattleManagerTweaks.GetAttackResult(
-                    lowestAttackRoll, modifier, rulesetDefender);
+                var lowOutcome = GLBM.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
 
                 Gui.Game.GameConsole.AttackRolled(
                     rulesetAttacker,
@@ -1467,8 +1467,7 @@ internal static class MeleeCombatFeats
                 case AdvantageType.Advantage when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
 
-                    var lowOutcome =
-                        GameLocationBattleManagerTweaks.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
+                    var lowOutcome = GLBM.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
 
                     Gui.Game.GameConsole.AttackRolled(
                         rulesetAttacker,
@@ -1484,7 +1483,7 @@ internal static class MeleeCombatFeats
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
                         var actionParams = action.ActionParams.Clone();
-                        var usablePower = UsablePowersProvider.Get(_power, rulesetAttacker);
+                        var usablePower = PowerProvider.Get(_power, rulesetAttacker);
 
                         actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
                         actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -1510,8 +1509,7 @@ internal static class MeleeCombatFeats
                         break;
                     }
 
-                    var higherOutcome =
-                        GameLocationBattleManagerTweaks.GetAttackResult(highestAttackRoll, modifier, rulesetDefender);
+                    var higherOutcome = GLBM.GetAttackResult(highestAttackRoll, modifier, rulesetDefender);
 
                     if (higherOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
                     {

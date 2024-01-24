@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -73,14 +74,14 @@ public static class CharacterActionUsePowerPatcher
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: terminates all matching spells and powers of same group
-            GlobalUniqueEffects.TerminateMatchingUniqueEffect(
+            ForceGlobalUniqueEffects.TerminateMatchingUniqueEffect(
                 __instance.ActingCharacter.RulesetCharacter,
                 __instance.activePower);
 
             //PATCH: Support for limited power effect instances
             //terminates earliest power effect instances of same limit, if limit reached
             //used to limit Inventor's infusions
-            GlobalUniqueEffects.EnforceLimitedInstancePower(__instance);
+            ForceGlobalUniqueEffects.EnforceLimitedInstancePower(__instance);
 
             return false;
         }

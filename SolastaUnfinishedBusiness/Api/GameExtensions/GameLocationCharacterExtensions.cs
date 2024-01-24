@@ -317,7 +317,7 @@ public static class GameLocationCharacterExtensions
                 .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
                 .All(v => v(character, definition));
 
-            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
+            if (definition.HasSubFeatureOfType<ModifyInvocationVisibility>() || !isValid)
             {
                 continue;
             }
@@ -394,7 +394,7 @@ public static class GameLocationCharacterExtensions
         if (!Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
             rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
         {
-            var usablePower = UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+            var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
             var actionParams = new CharacterActionParams(instance, Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,

@@ -114,7 +114,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                         .SetActionType(ActionDefinitions.ActionType.Main)
                         .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
                         .SetMaxAttacksNumber(1)
-                        .AddCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
+                        .AddCustomSubFeatures(ValidateAdditionalActionAttack.TwoHandedRanged)
                         .AddToDB())
                     .AddToDB()))
             .AddToDB();
