@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
@@ -172,7 +173,7 @@ public static class CharacterActionPatcher
             //PATCH: clear flanking rules determination cache on every action end
             if (Main.Settings.UseOfficialFlankingRules && Gui.Battle != null)
             {
-                FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
+                FlankingAndHigherGround.ClearFlankingDeterminationCache();
             }
 
             var actingCharacter = __instance.ActingCharacter;

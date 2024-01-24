@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using TMPro;
 using UnityEngine;
 using Object = UnityEngine.Object;

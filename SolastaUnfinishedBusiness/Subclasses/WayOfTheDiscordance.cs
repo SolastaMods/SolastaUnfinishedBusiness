@@ -487,7 +487,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     && x.RulesetCharacter.AllConditions.Count(y =>
                         y.ConditionDefinition == conditionDiscordance) > 1));
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 yield break;
             }
@@ -521,7 +521,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }
                 || x.RulesetCharacter.HasConditionOfType(conditionHadTurmoil));
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 yield break;
             }

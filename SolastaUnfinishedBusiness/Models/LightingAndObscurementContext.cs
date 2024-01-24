@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;
@@ -23,8 +23,10 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
+// FIX DESCRIPTIONS    / FIX FLANKING
 internal static class LightingAndObscurementContext
 {
+    private const string BlindDescription = "Rules/&ConditionBlindedDescription";
     private const string BlindExtendedDescription = "Condition/&ConditionBlindedExtendedDescription";
 
     // ProxyDarkness is a special use case that is handled apart
@@ -39,52 +41,52 @@ internal static class LightingAndObscurementContext
     ];
 
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByDarkness")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .Create("ConditionBlindedByDarkness")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByCloudKill = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByCloudKill")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .Create("ConditionBlindedByCloudKill")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByFogCloud = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByFogCloud")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .Create("ConditionBlindedByFogCloud")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByIncendiaryCloud = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByIncendiaryCloud")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .Create("ConditionBlindedByIncendiaryCloud")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByPetalStorm = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByPetalStorm")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .Create("ConditionBlindedByPetalStorm")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedBySleetStorm = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedBySleetStorm")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .Create("ConditionBlindedBySleetStorm")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByStinkingCloud = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .Create("ConditionBlindedByStinkingCloud")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
@@ -119,13 +121,13 @@ internal static class LightingAndObscurementContext
 
     internal static void SwitchOfficialObscurementRules()
     {
-        var searchTerm = !Main.Settings.UseOfficialLightingObscurementAndVisionRules
-            ? BlindExtendedDescription
-            : "Rules/&ConditionBlindedDescription";
+        var searchTerm = Main.Settings.UseOfficialLightingObscurementAndVisionRules
+            ? BlindDescription
+            : BlindExtendedDescription;
 
-        var replaceTerm = Main.Settings.UseOfficialLightingObscurementAndVisionRules
-            ? BlindExtendedDescription
-            : "Rules/&ConditionBlindedDescription";
+        var replaceTerm = !Main.Settings.UseOfficialLightingObscurementAndVisionRules
+            ? BlindDescription
+            : BlindExtendedDescription;
 
         foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
                      .Where(x => x.GuiPresentation.description == searchTerm))
@@ -648,7 +650,7 @@ internal static class LightingAndObscurementContext
             visibilityManager!.positionCache.Clear();
             illuminable.GetAllPositionsToCheck(visibilityManager.positionCache);
 
-            if (visibilityManager.positionCache == null || visibilityManager.positionCache.Empty())
+            if (visibilityManager.positionCache == null || visibilityManager.positionCache.Count == 0)
             {
                 return LightingState.Unlit;
             }

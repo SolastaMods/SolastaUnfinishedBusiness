@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
@@ -48,10 +48,10 @@ public static class AttackEvaluationParamsPatcher
             MetamagicOptionDefinition metamagicOption)
         {
             //PATCH: apply flanking rules
-            FlankingAndHigherGroundRules.HandleFlanking(__instance);
+            FlankingAndHigherGround.HandleFlanking(__instance);
 
             //PATCH: apply higher ground rules
-            FlankingAndHigherGroundRules.HandleHigherGround(__instance);
+            FlankingAndHigherGround.HandleHigherGround(__instance);
 
             //PATCH: apply small races rules
             SrdAndHouseRulesContext.HandleSmallRaces(__instance);
@@ -78,10 +78,10 @@ public static class AttackEvaluationParamsPatcher
             ref BattleDefinitions.AttackEvaluationParams __instance)
         {
             //PATCH: apply flanking rules
-            FlankingAndHigherGroundRules.HandleFlanking(__instance);
+            FlankingAndHigherGround.HandleFlanking(__instance);
 
             //PATCH: apply higher ground rules
-            FlankingAndHigherGroundRules.HandleHigherGround(__instance);
+            FlankingAndHigherGround.HandleHigherGround(__instance);
 
             //PATCH: apply small races rules
             SrdAndHouseRulesContext.HandleSmallRaces(__instance);
@@ -100,10 +100,10 @@ public static class AttackEvaluationParamsPatcher
             ref BattleDefinitions.AttackEvaluationParams __instance)
         {
             //PATCH: apply flanking rules
-            FlankingAndHigherGroundRules.HandleFlanking(__instance);
+            FlankingAndHigherGround.HandleFlanking(__instance);
 
             //PATCH: apply higher ground rules
-            FlankingAndHigherGroundRules.HandleHigherGround(__instance);
+            FlankingAndHigherGround.HandleHigherGround(__instance);
 
             //PATCH: apply small races rules
             SrdAndHouseRulesContext.HandleSmallRaces(__instance);

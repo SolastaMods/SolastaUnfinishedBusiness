@@ -55,7 +55,7 @@ internal static class ValidateFeatureApplication
                 TriggerCondition: AdditionalActionTriggerCondition.HasDownedAnEnemy
             });
 
-            if (onKill.Empty())
+            if (onKill.Count == 0)
             {
                 return;
             }

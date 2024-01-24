@@ -220,6 +220,7 @@ internal static class ValidatorsWeapon
         var currentAttack = Global.CurrentAttackAction.Peek();
 
         // handle combat situations and ensure we don't validate if attack not within range
-        return currentAttack.ActingCharacter.IsWithinRange(currentAttack.ActionParams.TargetCharacters[0], reach);
+        return currentAttack.ActionParams.TargetCharacters.Count == 0 ||
+               currentAttack.ActingCharacter.IsWithinRange(currentAttack.ActionParams.TargetCharacters[0], reach);
     }
 }

@@ -346,7 +346,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             var caster = actionParams.ActingCharacter;
             var targets = Gui.Battle.GetContenders(caster, isWithinXCells: 1);
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 return null;
             }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using TA;
@@ -14,16 +15,6 @@ public static class GameLocationCharacterExtensions
     public static bool IsMyTurn(this GameLocationCharacter character)
     {
         return Gui.Battle != null && Gui.Battle.ActiveContenderIgnoringLegendary == character;
-    }
-
-    public static float GetDistance(this GameLocationCharacter source, GameLocationCharacter target)
-    {
-        if (Main.Settings.UseOfficialDistanceCalculation)
-        {
-            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target);
-        }
-
-        return int3.Distance(source.LocationPosition, target.LocationPosition);
     }
 
     public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
@@ -302,7 +293,7 @@ public static class GameLocationCharacterExtensions
     {
         var character = instance.RulesetCharacter;
 
-        if (character.Invocations.Empty())
+        if (character.Invocations.Count == 0)
         {
             return false;
         }

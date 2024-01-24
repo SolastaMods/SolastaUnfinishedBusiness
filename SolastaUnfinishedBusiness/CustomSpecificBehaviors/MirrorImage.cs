@@ -93,7 +93,7 @@ public class MirrorImage
 
         var conditions = GetConditions(target as RulesetCharacter);
 
-        if (conditions.Empty())
+        if (conditions.Count == 0)
         {
             return;
         }
@@ -112,13 +112,11 @@ public class MirrorImage
             return;
         }
 
-        var distance = locA.GetDistance(locB);
-
         foreach (var sense in attacker.SenseModes
                      .Where(sense => sense.senseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight
                          or SenseMode.Type.Tremorsense)
                      .Where(sense => sense.senseType is not SenseMode.Type.Tremorsense || target.IsTouchingGround())
-                     .Where(sense => sense.senseRange >= distance))
+                     .Where(sense => locA.IsWithinRange(locB, sense.SenseRange)))
         {
             ReportAttackerHasSense(attacker, sense.senseType);
 
@@ -268,7 +266,7 @@ public class MirrorImage
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (!GetConditions(target).Empty())
+            if (GetConditions(target).Count != 0)
             {
                 return;
             }
