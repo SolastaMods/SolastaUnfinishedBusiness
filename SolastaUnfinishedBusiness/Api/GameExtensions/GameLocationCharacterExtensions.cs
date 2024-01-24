@@ -28,7 +28,15 @@ public static class GameLocationCharacterExtensions
 
     public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
-        return GetDistance(source, target) <= range;
+        if (Main.Settings.UseOfficialDistanceCalculation)
+        {
+            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target) <= range;
+        }
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        return gameLocationBattleService != null &&
+               gameLocationBattleService.IsWithinXCells(source, target, range);
     }
 
     // consolidate all checks if a character can perceive another
