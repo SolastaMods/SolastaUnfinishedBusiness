@@ -258,7 +258,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasBorrowedLuck)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == helper)
+            if (helper.IsMyTurn())
             {
                 yield break;
             }
