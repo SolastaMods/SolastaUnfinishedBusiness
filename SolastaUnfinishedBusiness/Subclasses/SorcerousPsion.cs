@@ -348,9 +348,19 @@ public sealed class SorcerousPsion : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
             {
                 yield break;
             }
@@ -360,24 +370,18 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
 
             var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
                 StringParameter = "Reaction/&CustomReactionMindOverMatterDescription"
             };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("MindOverMatter", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -392,7 +396,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
             var usablePower = UsablePowersProvider.Get(powerMindOverMatter, rulesetCharacter);
-            var targets = battle.Battle.GetContenders(source, isWithinXCells: 2);
+            var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 2);
 
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource

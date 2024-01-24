@@ -326,6 +326,16 @@ internal static class RaceWyrmkinBuilder
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             //do not trigger on my own turn, so won't retaliate on AoO
             if (defender.IsMyTurn())
             {
@@ -351,14 +361,6 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var (retaliationMode, retaliationModifier) = defender.GetFirstMeleeModeThatCanAttack(attacker);
 
             if (retaliationMode == null)
@@ -380,12 +382,13 @@ internal static class RaceWyrmkinBuilder
             reactionParams.AttackMode = retaliationMode;
 
             var rulesetCharacter = defender.RulesetCharacter;
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("ReactiveRetribution", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
 
             if (reactionParams.ReactionValidated)
             {

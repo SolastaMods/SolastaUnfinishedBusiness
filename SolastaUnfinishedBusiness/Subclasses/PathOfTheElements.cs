@@ -454,10 +454,8 @@ public sealed class PathOfTheElements : AbstractSubclass
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (implementationService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null || implementationService == null)
             {
                 return;
             }
@@ -469,8 +467,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            foreach (var targetLocationCharacter in gameLocationBattleService.Battle.GetContenders(locationCharacter,
-                         isWithinXCells: 1))
+            foreach (var targetLocationCharacter in Gui.Battle.GetContenders(locationCharacter, isWithinXCells: 1))
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);

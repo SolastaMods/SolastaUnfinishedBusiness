@@ -683,9 +683,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -699,11 +697,12 @@ internal static partial class SpellBuilders
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                            && x != attacker
-                            && !actionParams.TargetCharacters.Contains(x)
-                            && gameLocationBattleService.IsWithinXCells(attacker, x, 2))
+            actionParams.TargetCharacters.SetRange(Gui.Battle.AllContenders
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x != attacker &&
+                    !actionParams.TargetCharacters.Contains(x) &&
+                    attacker.IsWithinRange(x, 2))
                 .ToList());
 
             // special case don't ExecuteAction on MagicEffectInitiated

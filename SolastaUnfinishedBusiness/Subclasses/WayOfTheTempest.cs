@@ -317,20 +317,14 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 return false;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
-            {
-                return false;
-            }
-
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
             evalParams.FillForPhysicalReachAttack(
                 caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-            return battleService.CanAttack(evalParams);
+            return gameLocationBattleService.CanAttack(evalParams);
         }
 
         [CanBeNull]
@@ -344,15 +338,13 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 return null;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 return null;
             }
 
             var caster = actionParams.ActingCharacter;
-            var targets = battleService.Battle.GetContenders(caster, isWithinXCells: 1);
+            var targets = Gui.Battle.GetContenders(caster, isWithinXCells: 1);
 
             if (targets.Empty())
             {
@@ -410,9 +402,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -426,7 +416,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.GetContenders(attacker)
+            actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker)
                 .Where(x =>
                     x.RulesetCharacter.AllConditions
                         .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&

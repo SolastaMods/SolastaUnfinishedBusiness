@@ -1240,13 +1240,6 @@ internal static class GambitsBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var targetCharacters = action.ActionParams.TargetCharacters;
             var ally = targetCharacters[0];
             var target = targetCharacters[1];

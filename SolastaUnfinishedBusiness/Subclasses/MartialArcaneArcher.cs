@@ -604,9 +604,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneArcherData arcaneArcherData,
         CharacterAction action)
     {
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        if (Gui.Battle == null)
         {
             return;
         }
@@ -622,7 +620,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         };
 
         // apply damage to all targets
-        foreach (var target in gameLocationBattleService.Battle.GetContenders(defender, false, isWithinXCells: 3))
+        foreach (var target in Gui.Battle.GetContenders(defender, false, isWithinXCells: 3))
         {
             var rulesetTarget = target.RulesetCharacter;
             var damageForm = new DamageForm

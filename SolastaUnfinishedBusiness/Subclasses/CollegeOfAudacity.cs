@@ -342,12 +342,10 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             // add slashing whirl targets
             else if (power == powerSlashingWhirl)
             {
-                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                if (gameLocationBattleService is { Battle: not null })
+                if (Gui.Battle != null)
                 {
                     targetCharacters.AddRange(
-                        gameLocationBattleService.Battle
+                        Gui.Battle
                             .GetContenders(actingCharacter, hasToPerceiveTarget: true, isWithinXCells: 1));
                 }
             }

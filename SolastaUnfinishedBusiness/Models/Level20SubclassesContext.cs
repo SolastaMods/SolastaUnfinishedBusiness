@@ -1606,9 +1606,11 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                Gui.Battle?.AllContenders ??
-                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
             if (contenders.Count != 0)
             {
@@ -1876,6 +1878,16 @@ internal static class Level20SubclassesContext
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var rulesetCharacter = source.RulesetCharacter;
 
             if (rulesetCharacter == null)
@@ -1883,21 +1895,14 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("PhysicalPerfection", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -2111,9 +2116,7 @@ internal static class Level20SubclassesContext
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -2163,20 +2166,14 @@ internal static class Level20SubclassesContext
                 return false;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
-            {
-                return false;
-            }
-
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
             evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
                 target.LocationPosition, attackModifier);
 
-            return battleService.CanAttack(evalParams);
+            return gameLocationBattleService.CanAttack(evalParams);
         }
 
         [CanBeNull]
@@ -2186,13 +2183,6 @@ internal static class Level20SubclassesContext
             var actionParams = effect?.ActionParams;
 
             if (actionParams == null)
-            {
-                return null;
-            }
-
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
             {
                 return null;
             }

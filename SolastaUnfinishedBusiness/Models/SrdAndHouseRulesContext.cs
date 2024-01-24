@@ -1037,6 +1037,17 @@ internal static class FlankingAndHigherGroundRules
         }
     }
 
+    private static bool GetAllies(GameLocationCharacter defender, out List<GameLocationCharacter> allies)
+    {
+        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+        allies = locationCharacterService.PartyCharacters
+            .Union(locationCharacterService.GuestCharacters)
+            .Where(x => x.IsWithinRange(defender, 1) && x.CanAct())
+            .ToList();
+
+        return allies.Count > 0;
+    }
+
     private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
     {
         if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out var result))
@@ -1046,17 +1057,7 @@ internal static class FlankingAndHigherGroundRules
 
         FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
 
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        if (gameLocationBattleService is not { IsBattleInProgress: true })
-        {
-            return false;
-        }
-
-        var allies = gameLocationBattleService.Battle.GetContenders(defender, isWithinXCells: 1)
-            .Where(x => x.CanAct()).ToList();
-
-        if (allies.Count == 0)
+        if (!GetAllies(defender, out var alliesInRange))
         {
             return false;
         }
@@ -1078,7 +1079,7 @@ internal static class FlankingAndHigherGroundRules
             }
         }
 
-        result = allies
+        result = alliesInRange
             .Any(ally => GetPositions(ally)
                 .Any(allyPosition => GetPositions(defender)
                     .Any(defenderPosition =>
@@ -1102,9 +1103,7 @@ internal static class FlankingAndHigherGroundRules
 
         FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
 
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        if (!GetAllies(defender, out var alliesInRange))
         {
             return false;
         }
@@ -1114,16 +1113,9 @@ internal static class FlankingAndHigherGroundRules
             new FlankingMathExtensions.Point3D(defender.LocationBattleBoundingBox.Min),
             new FlankingMathExtensions.Point3D(defender.LocationBattleBoundingBox.Max + 1));
 
-        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var ally in gameLocationBattleService.Battle.GetContenders(defender, isWithinXCells: 1))
+        foreach (var allyCenter in alliesInRange
+                     .Select(ally => new FlankingMathExtensions.Point3D(ally.LocationBattleBoundingBox.Center)))
         {
-            if (ally == defender || !ally.CanAct())
-            {
-                continue;
-            }
-
-            var allyCenter = new FlankingMathExtensions.Point3D(ally.LocationBattleBoundingBox.Center);
-
             result = FlankingMathExtensions.LineIntersectsCubeOppositeSides(attackerCenter, allyCenter, defenderCube);
 
             if (result)

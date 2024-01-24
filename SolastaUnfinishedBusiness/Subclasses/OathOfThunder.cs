@@ -367,9 +367,7 @@ public sealed class OathOfThunder : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -384,7 +382,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 //CHECK: no need for AddAsActivePowerToSource
                 .InstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(
-                gameLocationBattleService.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2));
+                Gui.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

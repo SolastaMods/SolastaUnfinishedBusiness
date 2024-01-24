@@ -25,19 +25,17 @@ public static class ConditionRemovedOnSourceTurnStartPatch
         RulesetActor __instance,
         RuleDefinitions.TurnOccurenceType occurenceType)
     {
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+        
         if (occurenceType != RuleDefinitions.TurnOccurenceType.StartOfTurn)
         {
             return;
         }
 
-        var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        if (battleService is not { IsBattleInProgress: true })
-        {
-            return;
-        }
-
-        foreach (var contender in battleService.Battle.AllContenders
+        foreach (var contender in Gui.Battle.AllContenders
                      .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: not null })
                      .ToList())
         {

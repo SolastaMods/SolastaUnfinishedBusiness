@@ -253,6 +253,11 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
             // activeEffect != null means a magical attack
             if (attackMode == null || activeEffect != null)
             {
@@ -266,15 +271,10 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            var targets = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 3)
-                .Where(x => x.CanPerceiveTarget(attacker)).ToList();
+            var targets = Gui.Battle
+                .GetContenders(attacker, isWithinXCells: 3)
+                .Where(x => x.CanPerceiveTarget(attacker))
+                .ToList();
 
             if (targets.Empty())
             {

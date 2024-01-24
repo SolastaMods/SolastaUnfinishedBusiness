@@ -373,10 +373,12 @@ public sealed class RangerLightBearer : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } gameLocationBattleService)
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -385,14 +387,6 @@ public sealed class RangerLightBearer : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
-            {
-                yield break;
-            }
-
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionService == null)
             {
                 yield break;
             }

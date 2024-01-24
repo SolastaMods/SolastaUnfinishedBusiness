@@ -242,17 +242,22 @@ internal static class RaceImpBuilder
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
-            // check action affinity for backward compatibility
-            if (attacker.RulesetCharacter.HasAnyFeature(actionAffinityImpishWrathToggle) &&
-                !attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
 
-            if (implementationService == null
-                || gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            if (rulesetImplementationService == null)
+            {
+                yield break;
+            }
+
+            // check action affinity for backward compatibility
+            if (attacker.RulesetCharacter.HasAnyFeature(actionAffinityImpishWrathToggle) &&
+                !attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
             {
                 yield break;
             }

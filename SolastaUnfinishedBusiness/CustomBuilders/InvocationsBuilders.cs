@@ -1178,9 +1178,7 @@ internal static class InvocationsBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -1193,7 +1191,8 @@ internal static class InvocationsBuilders
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
             // apply damage to all targets
-            foreach (var target in gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 1)
+            foreach (var target in Gui.Battle
+                         .GetContenders(attacker, isWithinXCells: 1)
                          .Where(x => x != defender))
             {
                 var rulesetTarget = target.RulesetCharacter;
@@ -1295,9 +1294,7 @@ internal static class InvocationsBuilders
         {
             cursorLocationSelectPosition.validPositionsCache.Clear();
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -1309,7 +1306,8 @@ internal static class InvocationsBuilders
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
             // ReSharper disable once LoopCanBeConvertedToQuery
-            foreach (var gameLocationCharacter in gameLocationBattleService.Battle.GetContenders(actingCharacter)
+            foreach (var gameLocationCharacter in Gui.Battle
+                         .GetContenders(actingCharacter)
                          .Where(x => CanApplyHex(x.RulesetCharacter)))
             {
                 var boxInt = new BoxInt(

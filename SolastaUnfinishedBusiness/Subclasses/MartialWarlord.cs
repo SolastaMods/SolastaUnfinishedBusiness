@@ -669,9 +669,7 @@ public sealed class MartialWarlord : AbstractSubclass
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 return;
             }
@@ -702,7 +700,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 return;
             }
 
-            foreach (var player in gameLocationBattleService.Battle
+            foreach (var player in Gui.Battle
                          .GetContenders(locationCharacter, false, false, isWithinXCells: 6))
             {
                 player.RulesetCharacter.InflictCondition(

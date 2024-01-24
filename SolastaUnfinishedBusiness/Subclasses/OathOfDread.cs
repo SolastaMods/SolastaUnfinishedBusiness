@@ -386,7 +386,16 @@ public sealed class OathOfDread : AbstractSubclass
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            //do not trigger on my own turn, so won't retaliate on AoO
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             if (me.IsMyTurn())
             {
                 yield break;
@@ -409,16 +418,6 @@ public sealed class OathOfDread : AbstractSubclass
                 x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened));
 
             if (!hasFrightened && !rulesetAttacker.HasConditionOfType(conditionMarkOfTheSubmission))
-            {
-                yield break;
-            }
-
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }

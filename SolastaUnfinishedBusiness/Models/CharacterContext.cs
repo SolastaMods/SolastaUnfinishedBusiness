@@ -1835,10 +1835,8 @@ internal static class CharacterContext
                 return false;
             case AdvantageType.None:
             default:
-                var gameLocationBattleManager =
-                    ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-                if (gameLocationBattleManager == null)
+                if (ServiceRepository.GetService<IGameLocationBattleService>() is not 
+                    GameLocationBattleManager { IsBattleInProgress: true } gameLocationBattleManager)
                 {
                     return false;
                 }

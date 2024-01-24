@@ -228,17 +228,19 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         rulesetCharacter.ReceiveTemporaryHitPoints(
             hitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        if (levels < 14)
+        {
+            return;
+        }
 
-        if (levels < 14 || gameLocationBattleService is not { IsBattleInProgress: true })
+        if (Gui.Battle == null)
         {
             return;
         }
 
         rulesetCharacter.LogCharacterUsedPower(powerSuperiorBarkWard);
 
-        foreach (var ally in
-                 gameLocationBattleService.Battle.GetContenders(locationCharacter, false, isWithinXCells: 3))
+        foreach (var ally in Gui.Battle.GetContenders(locationCharacter, false, isWithinXCells: 3))
         {
             ally.RulesetCharacter.ReceiveTemporaryHitPoints(
                 hitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);

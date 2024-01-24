@@ -59,39 +59,34 @@ public static class CursorLocationSelectTargetPatcher
             }
 
             //PATCH: supports Find Familiar specific case for any caster as spell can be granted to other classes
-            if (__instance.actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
+            if (Gui.Battle != null &&
+                actingCharacter.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                __instance.actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
                 rulesetEffectSpell.EffectDescription.RangeType is RangeType.Touch or RangeType.MeleeHit)
             {
-                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-                var rulesetCharacter = actingCharacter.RulesetCharacter;
+                var familiar = Gui.Battle.AllContenders
+                    .FirstOrDefault(x =>
+                        x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
+                        rulesetCharacterMonster.MonsterDefinition.Name == SpellBuilders.OwlFamiliar &&
+                        rulesetCharacterMonster.AllConditions.Exists(y =>
+                            y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
+                            y.SourceGuid == actingCharacter.Guid));
 
-                if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                    gameLocationBattleService is { IsBattleInProgress: true })
+                var canAttack = familiar != null && familiar.IsWithinRange(target, 1);
+
+                if (canAttack)
                 {
-                    var familiar = gameLocationBattleService.Battle.AllContenders
-                        .FirstOrDefault(x =>
-                            x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
-                            rulesetCharacterMonster.MonsterDefinition.Name == SpellBuilders.OwlFamiliar &&
-                            rulesetCharacterMonster.AllConditions.Exists(y =>
-                                y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
-                                y.SourceGuid == rulesetCharacter.Guid));
+                    var effectDescription = new EffectDescription();
 
-                    var canAttack = familiar != null && familiar.IsWithinRange(target, 1);
+                    effectDescription.Copy(__instance.effectDescription);
+                    effectDescription.rangeParameter = 24;
 
-                    if (canAttack)
-                    {
-                        var effectDescription = new EffectDescription();
-
-                        effectDescription.Copy(__instance.effectDescription);
-                        effectDescription.rangeParameter = 24;
-
-                        __instance.effectDescription = effectDescription;
-                        actingCharacter.UsedSpecialFeatures.Add("FamiliarAttack", 0);
-                    }
-                    else
-                    {
-                        __instance.effectDescription = __instance.ActionParams.RulesetEffect.EffectDescription;
-                    }
+                    __instance.effectDescription = effectDescription;
+                    actingCharacter.UsedSpecialFeatures.Add("FamiliarAttack", 0);
+                }
+                else
+                {
+                    __instance.effectDescription = __instance.ActionParams.RulesetEffect.EffectDescription;
                 }
             }
 

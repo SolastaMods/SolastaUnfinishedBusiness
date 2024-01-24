@@ -278,10 +278,8 @@ internal static class RaceMalakhBuilder
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (implementationService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null || implementationService == null)
             {
                 return;
             }
@@ -313,7 +311,7 @@ internal static class RaceMalakhBuilder
             };
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var enemy in gameLocationBattleService.Battle.GetContenders(locationCharacter, isWithinXCells: 3))
+            foreach (var enemy in Gui.Battle.GetContenders(locationCharacter, isWithinXCells: 3))
             {
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {

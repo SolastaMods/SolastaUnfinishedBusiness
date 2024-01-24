@@ -745,9 +745,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -763,8 +761,8 @@ internal static partial class SpellBuilders
             var effectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
             var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
 
-            foreach (var enemy in gameLocationBattleService.Battle.GetContenders(
-                         target, false, false, isWithinXCells: 1))
+            foreach (var enemy in Gui.Battle
+                         .GetContenders(target, false, false, isWithinXCells: 1))
             {
                 var rulesetEnemy = enemy.RulesetCharacter;
                 var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
@@ -1009,10 +1007,12 @@ internal static partial class SpellBuilders
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1043,12 +1043,11 @@ internal static partial class SpellBuilders
             {
                 IntParameter = slotLevel, StringParameter = spellDefinition.Name, SpellRepertoire = spellRepertoire
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToSpendSpellSlot(reactionParams);
+            gameLocationActionService.ReactToSpendSpellSlot(reactionParams);
 
-            yield return battleManager.WaitForReactions(defender, actionService, count);
+            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

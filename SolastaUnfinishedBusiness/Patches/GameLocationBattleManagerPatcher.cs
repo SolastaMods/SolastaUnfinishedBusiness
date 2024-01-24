@@ -894,14 +894,15 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMeOrAlly`
             // should also happen outside battles
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                __instance.Battle?.AllContenders ??
-                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
             foreach (var ally in contenders
                          .Where(x => x.IsOppositeSide(attacker.Side)
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList()) // avoid changing enumerator
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
             {
                 foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
                              .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMeOrAlly>())
@@ -944,13 +945,14 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: support for `ITryAlterOutcomeFailedSavingThrow`
             // should also happen outside battles
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                __instance.Battle?.AllContenders ??
-                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
             foreach (var unit in contenders
-                         .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList()) // avoid changing enumerator
+                         .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
             {
                 foreach (var feature in unit.RulesetCharacter
                              .GetSubFeaturesByType<ITryAlterOutcomeFailedSavingThrow>())

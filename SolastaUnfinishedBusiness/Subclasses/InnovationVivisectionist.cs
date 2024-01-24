@@ -254,19 +254,19 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker.GetRemainingPowerCharges(powerOrganDonation) <= 0)
-            {
-                yield break;
-            }
-
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.GetRemainingPowerCharges(powerOrganDonation) <= 0)
             {
                 yield break;
             }

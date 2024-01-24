@@ -76,14 +76,12 @@ internal sealed class Merciless : AbstractFightingStyle
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            if (Gui.Battle == null)
             {
                 yield break;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }
@@ -98,8 +96,10 @@ internal sealed class Merciless : AbstractFightingStyle
                 RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
                     //CHECK: no need for AddAsActivePowerToSource
                     .InstantiateEffectPower(rulesetAttacker, usablePower, false),
-                targetCharacters = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: distance)
-                    .Where(x => x.CanPerceiveTarget(attacker)).ToList()
+                targetCharacters = Gui.Battle
+                    .GetContenders(attacker, isWithinXCells: distance)
+                    .Where(x => x.CanPerceiveTarget(attacker))
+                    .ToList()
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

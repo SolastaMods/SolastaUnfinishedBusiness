@@ -608,6 +608,11 @@ internal static class CustomConditionsContext
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
             if (characterAction.ActionType != ActionType.Move &&
                 // also checking attack action to handle reach > 1 scenarios or throw or ranged
                 characterAction.ActionId is not (
@@ -620,16 +625,9 @@ internal static class CustomConditionsContext
                 yield break;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var actingCharacter = characterAction.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var targets = gameLocationBattleService.Battle.GetContenders(actingCharacter);
+            var targets = Gui.Battle.GetContenders(actingCharacter);
 
             foreach (var target in targets)
             {
@@ -660,13 +658,6 @@ internal static class CustomConditionsContext
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
             if (characterAction.ActionType != ActionType.Move)
-            {
-                yield break;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }

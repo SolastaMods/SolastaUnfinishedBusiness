@@ -278,6 +278,11 @@ public sealed class CollegeOfThespian : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
             if (!ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
@@ -290,15 +295,10 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            var targets = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 3)
-                .Where(x => x.CanPerceiveTarget(attacker)).ToList();
+            var targets = Gui.Battle
+                .GetContenders(attacker, isWithinXCells: 3)
+                .Where(x => x.CanPerceiveTarget(attacker))
+                .ToList();
 
             if (targets.Empty())
             {

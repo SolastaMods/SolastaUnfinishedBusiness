@@ -238,7 +238,6 @@ public static class CharacterActionMagicEffectPatcher
         public static IEnumerator Postfix(
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance,
-            IGameLocationBattleService battleService,
             GameLocationCharacter target)
         {
             while (values.MoveNext())
@@ -258,14 +257,15 @@ public static class CharacterActionMagicEffectPatcher
 
             //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
             // should also happen outside battles
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                battleService.Battle?.AllContenders ??
-                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
             foreach (var ally in contenders
                          .Where(x => x.Side == attacker.Side
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList()) // avoid changing enumerator
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
             {
                 foreach (var magicalAttackFinishedByMeOrAlly in ally.RulesetCharacter
                              .GetSubFeaturesByType<IMagicalAttackFinishedByMeOrAlly>())
