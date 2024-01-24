@@ -366,7 +366,7 @@ public static class ActionSwitching
             TriggerCondition: RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy
         });
 
-        if (!onKill.Empty())
+        if (onKill.Count != 0)
         {
             features.RemoveAll(x => onKill.Contains(x));
             features.AddRange(onKill);
@@ -456,7 +456,7 @@ public static class ActionSwitching
 
         condition.ConditionDefinition.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(conditionFeatures);
 
-        if (conditionFeatures.Empty())
+        if (conditionFeatures.Count == 0)
         {
             // ReSharper disable once InvocationIsSkipped
             Main.Log($"AccountRemovedCondition [{character.Name}] '{condition.Name}' NO ACTIONS");

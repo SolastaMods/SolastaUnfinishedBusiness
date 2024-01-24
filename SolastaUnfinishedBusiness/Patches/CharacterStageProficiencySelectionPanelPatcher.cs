@@ -74,8 +74,10 @@ public static class CharacterStageProficiencySelectionPanelPatcher
                         //get all restricted tools
                         .GetDatabase<ToolTypeDefinition>()
                         //remove ones already known or trained this level
-                        .Where(s => pool.RestrictedChoices == null || pool.RestrictedChoices.Empty() ||
-                                    pool.RestrictedChoices.Contains(s.Name))
+                        .Where(s =>
+                            pool.RestrictedChoices == null ||
+                            pool.RestrictedChoices.Count == 0 ||
+                            pool.RestrictedChoices.Contains(s.Name))
                         .All(s => service.IsToolTypeKnownOrTrained(buildingData, s)))
                     {
                         needSkip = true;

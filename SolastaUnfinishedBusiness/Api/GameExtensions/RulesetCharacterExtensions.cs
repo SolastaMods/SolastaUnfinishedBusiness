@@ -363,7 +363,7 @@ internal static class RulesetCharacterExtensions
         Id actionId,
         ActionScope scope)
     {
-        if (instance.Invocations.Empty())
+        if (instance.Invocations.Count == 0)
         {
             return false;
         }
@@ -538,7 +538,7 @@ internal static class RulesetCharacterExtensions
             .Where(c => types.Contains(c.conditionDefinition.Name))
             .ToList();
 
-        if (conditions == null || conditions.Empty())
+        if (conditions == null || conditions.Count == 0)
         {
             return false;
         }

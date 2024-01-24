@@ -1890,7 +1890,7 @@ internal static partial class SpellBuilders
                 Gui.Battle.AllContenders.Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(defender, 1)));
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 yield break;
             }

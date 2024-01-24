@@ -30,8 +30,8 @@ internal sealed class ForcePushOrDragFromEffectPoint
     {
         var positions = action.ActionParams.Positions;
 
-        if (!positions.Empty()
-            && formsParams.activeEffect.SourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
+        if (positions.Count != 0 &&
+            formsParams.activeEffect.SourceDefinition.HasSubFeatureOfType<ForcePushOrDragFromEffectPoint>())
         {
             formsParams.position = positions[0];
         }

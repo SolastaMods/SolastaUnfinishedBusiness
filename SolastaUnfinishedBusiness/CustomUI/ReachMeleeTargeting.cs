@@ -18,7 +18,7 @@ internal static class ReachMeleeTargeting
         var reachRange = attackMode.ReachRange;
         var validDestinations = cursor.validDestinations;
 
-        if (actor.IsWithinRange(target, reachRange) || validDestinations.Empty())
+        if (actor.IsWithinRange(target, reachRange) || validDestinations.Count == 0)
         {
             return true;
         }

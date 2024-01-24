@@ -146,7 +146,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             p.sourceDefinition.Name is SummonSteelDefenderPower or SummonAdvancedSteelDefenderPower);
         var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
 
-        return summons.Empty() ? null : summons[0];
+        return summons.Count == 0 ? null : summons[0];
     }
 
     private static bool HasInjuredDefender(RulesetCharacter character)

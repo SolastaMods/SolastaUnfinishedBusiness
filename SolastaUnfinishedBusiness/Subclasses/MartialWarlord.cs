@@ -604,7 +604,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 {
                     var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
 
-                    if (cantrips == null || cantrips.Empty())
+                    if (cantrips == null || cantrips.Count == 0)
                     {
                         continue;
                     }
@@ -627,7 +627,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 reactions.Add(reactionParams);
             }
 
-            if (reactions.Empty() || battleManager is not { IsBattleInProgress: true })
+            if (reactions.Count == 0 || battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }

@@ -706,7 +706,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     public override void UpdateRelevance()
     {
         UpdateGrantedFeatures();
-        IsRelevant = !_gainedCustomFeatures.Empty();
+        IsRelevant = _gainedCustomFeatures.Count != 0;
     }
 
     public override void EnterStage()
@@ -777,9 +777,10 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     public override bool CanProceedToNextStage(out string failureString)
     {
-        if (!IsFinalStep
-            || !initialized
-            || (!_allPools.Empty() && _allPools[_allPools.Count - 1].Remaining > 0))
+        if (!IsFinalStep ||
+            !initialized ||
+            (_allPools.Count != 0 &&
+             _allPools[_allPools.Count - 1].Remaining > 0))
         {
             failureString = Gui.Localize("UI/&CustomFeatureSelectionStageNotDone");
             return false;

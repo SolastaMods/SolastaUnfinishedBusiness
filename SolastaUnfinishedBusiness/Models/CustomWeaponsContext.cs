@@ -124,7 +124,7 @@ internal static class CustomWeaponsContext
                 .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot);
         }
 
-        if (!properties.Empty())
+        if (properties.Length != 0)
         {
             _ = builder.MakeMagical();
 

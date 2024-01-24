@@ -564,7 +564,7 @@ internal static class PowerBundle
             return;
         }
 
-        if (GetMasterPowersBySubPower(usablePower.PowerDefinition).Empty())
+        if (GetMasterPowersBySubPower(usablePower.PowerDefinition).Count == 0)
         {
             return;
         }

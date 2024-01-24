@@ -32,7 +32,7 @@ public class CharacterActionPushedCustom : CharacterAction
     public override IEnumerator ExecuteImpl()
     {
         // Main.Log2($"CharacterActionPushedCustom [{ActionParams.ActingCharacter.Name}] ExecuteImpl START", true);
-        if (!GameLocationCharacter.IsValidCharacter(ActionParams.ActingCharacter) || ActionParams.Positions.Empty())
+        if (!GameLocationCharacter.IsValidCharacter(ActionParams.ActingCharacter) || ActionParams.Positions.Count == 0)
         {
             yield break;
         }

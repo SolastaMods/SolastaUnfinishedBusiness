@@ -300,7 +300,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 .Where(x => x.CanPerceiveTarget(attacker))
                 .ToList();
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 yield break;
             }

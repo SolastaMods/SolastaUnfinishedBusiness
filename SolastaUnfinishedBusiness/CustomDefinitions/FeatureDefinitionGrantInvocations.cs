@@ -17,7 +17,7 @@ internal class FeatureDefinitionGrantInvocations : FeatureDefinition
             .OfType<FeatureDefinitionGrantInvocations>()
             .ToList();
 
-        if (features.Empty())
+        if (features.Count == 0)
         {
             return;
         }
@@ -39,7 +39,7 @@ internal class FeatureDefinitionGrantInvocations : FeatureDefinition
             .OfType<FeatureDefinitionGrantInvocations>()
             .ToList();
 
-        if (features.Empty())
+        if (features.Count == 0)
         {
             return;
         }

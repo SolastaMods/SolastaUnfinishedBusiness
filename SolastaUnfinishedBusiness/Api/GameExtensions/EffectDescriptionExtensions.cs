@@ -11,7 +11,7 @@ internal static class EffectDescriptionExtensions
         return effect?.effectForms
             .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
                         (x.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.Negates) | canForceHalfDamage &&
-                        (types == null || types.Empty() || types.Contains(x.damageForm.damageType)))
+                        (types == null || types.Count == 0 || types.Contains(x.damageForm.damageType)))
             .Select(effectForm => effectForm.damageForm)
             .FirstOrDefault();
     }
@@ -19,8 +19,9 @@ internal static class EffectDescriptionExtensions
     public static DamageForm FindFirstDamageFormOfType(this EffectDescription effect, List<string> types)
     {
         return effect?.effectForms
-            .Where(x => x.FormType == EffectForm.EffectFormType.Damage &&
-                        (types == null || types.Empty() || types.Contains(x.damageForm.damageType)))
+            .Where(x => 
+                x.FormType == EffectForm.EffectFormType.Damage &&
+                        (types == null || types.Count == 0 || types.Contains(x.damageForm.damageType)))
             .Select(effectForm => effectForm.damageForm)
             .FirstOrDefault();
     }

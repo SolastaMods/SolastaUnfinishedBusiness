@@ -43,7 +43,7 @@ public static class FeatureDefinitionMagicAffinityPatcher
             }
 
             foreach (var level in levels
-                         .Where(level => spells.ContainsKey(level) && spells[level].Empty()))
+                         .Where(level => spells.ContainsKey(level) && spells[level].Count == 0))
             {
                 spells.Remove(level);
             }

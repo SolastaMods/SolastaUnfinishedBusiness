@@ -24,7 +24,7 @@ public class AddPBToSummonCheck(int multiplier, params string[] abilities)
 
         var mods = features.SelectMany(f => f.GetAllSubFeaturesOfType<AddPBToSummonCheck>()).ToList();
 
-        if (mods.Empty())
+        if (mods.Count == 0)
         {
             return;
         }

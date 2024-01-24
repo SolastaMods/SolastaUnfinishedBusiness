@@ -2194,7 +2194,7 @@ internal static class Level20SubclassesContext
                             x.RulesetCharacter.HasAnyConditionOfTypeOrSubType("ConditionHitByDirtyFighting"))
                 .ToList(); // avoid changing enumerator
 
-            if (caster == null || targets.Empty())
+            if (caster == null || targets.Count == 0)
             {
                 return null;
             }

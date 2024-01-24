@@ -75,7 +75,7 @@ internal class TrackItemsCarefully
 
         var itemService = ServiceRepository.GetService<IGameLocationItemService>();
 
-        if (activeEffect.TrackedSummonedItemGuids.Empty())
+        if (activeEffect.TrackedSummonedItemGuids.Count == 0)
         {
             return;
         }
@@ -107,7 +107,7 @@ internal class TrackItemsCarefully
 
     private static void ProcessItemProperties(RulesetEffect activeEffect, IEnumerable<RulesetEntity> allEntities)
     {
-        if (activeEffect.TrackedItemPropertyGuids.Empty())
+        if (activeEffect.TrackedItemPropertyGuids.Count == 0)
         {
             return;
         }

@@ -69,7 +69,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
         var actingCharacter = reactionParams.ActingCharacter;
         var cantrips = GetValidCantrips(battleManager, actingCharacter, reactionParams.targetCharacters[0]);
 
-        if (cantrips != null && !cantrips.Empty())
+        if (cantrips != null && cantrips.Count != 0)
         {
             reactionParams.SpellRepertoire = new RulesetSpellRepertoire();
 

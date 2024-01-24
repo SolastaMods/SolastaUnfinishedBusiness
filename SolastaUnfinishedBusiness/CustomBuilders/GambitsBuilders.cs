@@ -1174,7 +1174,7 @@ internal static class GambitsBuilders
             //
             // only allow allies that can react
             //
-            if (selectedTargets.Empty())
+            if (selectedTargets.Count == 0)
             {
                 if (target.Side == Side.Enemy || target.CanReact())
                 {

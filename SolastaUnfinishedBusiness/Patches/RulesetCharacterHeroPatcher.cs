@@ -856,7 +856,7 @@ public static class RulesetCharacterHeroPatcher
 
             var providers = __instance.GetSubFeaturesByType<PowerPoolDevice>();
 
-            if (providers.Empty())
+            if (providers.Count == 0)
             {
                 return;
             }
