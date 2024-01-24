@@ -34,33 +34,31 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
+        AddAdditionalActionTitles();
+        ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
+        FixArmorClassOnLegendaryArmors();
         FixAttackBuffsAffectingSpellDamage();
+        FixBlackDragonLegendaryActions();
         FixColorTables();
+        FixCriticalThresholdModifiers();
         FixDivineBlade();
+        FixDragonBreathPowerSavingAttribute();
+        FixEagerForBattleTexts();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
+        FixLanguagesPointPoolsToIncludeAllLanguages();
         FixMartialArtsProgression();
         FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
+        FixMummyDreadfulGlareSavingAttribute();
+        FixPowerDragonbornBreathWeaponDiceProgression();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
+        FixSavingThrowAffinityManaPainterAbsorption();
         FixSmitesAndStrikesDiceProgression();
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
-        FixCriticalThresholdModifiers();
-        FixEagerForBattleTexts();
-        AddAdditionalActionTitles();
-        FixRageActionSpending();
-        FixGrantBardicInspirationForActionSwitchingFeature();
-        FixPowerDragonbornBreathWeaponDiceProgression();
-        FixDragonBreathPowerSavingAttribute();
-        FixBlackDragonLegendaryActions();
-        FixMummyDreadfulGlareSavingAttribute();
-        FixArmorClassOnLegendaryArmors();
-        ExtendCharmImmunityToDemonicInfluence();
-        FixSavingThrowAffinityManaPainterAbsorption();
-        FixLanguagesPointPoolsToIncludeAllLanguages();
 
         // fix condition UI
         FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
@@ -595,18 +593,6 @@ internal static class FixesContext
         //Bonus Action
         // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
         //     = ExpeditiousRetreat.GuiPresentation.Title;
-    }
-
-    private static void FixRageActionSpending()
-    {
-        //TA's implementation of Rage Start spends Bonus Action twice - not a big problem in vanilla, but breaks action switching code
-        //use our custom rage start class that doesn't have this issue
-        DatabaseHelper.ActionDefinitions.RageStart.classNameOverride = "CombatRageStart";
-    }
-
-    private static void FixGrantBardicInspirationForActionSwitchingFeature()
-    {
-        DatabaseHelper.ActionDefinitions.GrantBardicInspiration.classNameOverride = "UsePower";
     }
 
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe

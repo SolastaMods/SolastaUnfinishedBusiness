@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using SolastaUnfinishedBusiness.CustomValidators;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -82,7 +81,6 @@ internal static class SrdAndHouseRulesContext
         //SETTING: modify normal vision range
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
 
-        ActionSwitching.Load();
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
         SwitchAddBleedingToLesserRestoration();

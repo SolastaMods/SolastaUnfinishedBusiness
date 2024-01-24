@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -18,8 +19,15 @@ public static class ActionSwitching
         .SetGuiPresentation(Category.Tutorial, Sprites.TutorialActionSwitching)
         .AddToDB();
 
-    internal static void Load()
+    internal static void LateLoad()
     {
+        //TA's implementation of Rage Start spends Bonus Action twice
+        //not a big problem in vanilla, but breaks action switching code
+        //use our custom rage start class that doesn't have this issue
+        DatabaseHelper.ActionDefinitions.RageStart.classNameOverride = "CombatRageStart";
+
+        DatabaseHelper.ActionDefinitions.GrantBardicInspiration.classNameOverride = "UsePower";
+
         //Mark Action Surge to track spell flags separately
         FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain
             .AddCustomSubFeatures(ActionWithCustomSpellTracking.Mark);
