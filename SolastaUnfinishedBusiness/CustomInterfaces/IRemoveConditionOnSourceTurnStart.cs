@@ -29,7 +29,7 @@ public static class ConditionRemovedOnSourceTurnStartPatch
         {
             return;
         }
-        
+
         if (occurenceType != RuleDefinitions.TurnOccurenceType.StartOfTurn)
         {
             return;

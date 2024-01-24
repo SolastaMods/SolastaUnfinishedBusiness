@@ -41,52 +41,52 @@ internal static class LightingAndObscurementContext
     ];
 
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
-        .Create("ConditionBlindedByDarkness")
+        .Create(ConditionBlinded,"ConditionBlindedByDarkness")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+        .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByCloudKill = ConditionDefinitionBuilder
-        .Create("ConditionBlindedByCloudKill")
+        .Create(ConditionBlinded, "ConditionBlindedByCloudKill")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+        .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByFogCloud = ConditionDefinitionBuilder
-        .Create("ConditionBlindedByFogCloud")
+        .Create(ConditionBlinded, "ConditionBlindedByFogCloud")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+        .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByIncendiaryCloud = ConditionDefinitionBuilder
-        .Create("ConditionBlindedByIncendiaryCloud")
+        .Create(ConditionBlinded, "ConditionBlindedByIncendiaryCloud")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+        .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByPetalStorm = ConditionDefinitionBuilder
-        .Create("ConditionBlindedByPetalStorm")
+        .Create(ConditionBlinded, "ConditionBlindedByPetalStorm")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+        .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedBySleetStorm = ConditionDefinitionBuilder
-        .Create("ConditionBlindedBySleetStorm")
+        .Create(ConditionBlinded, "ConditionBlindedBySleetStorm")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+        .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByStinkingCloud = ConditionDefinitionBuilder
-        .Create("ConditionBlindedByStinkingCloud")
+        .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
+        .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder

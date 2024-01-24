@@ -19,9 +19,9 @@ internal static class EffectDescriptionExtensions
     public static DamageForm FindFirstDamageFormOfType(this EffectDescription effect, List<string> types)
     {
         return effect?.effectForms
-            .Where(x => 
+            .Where(x =>
                 x.FormType == EffectForm.EffectFormType.Damage &&
-                        (types == null || types.Count == 0 || types.Contains(x.damageForm.damageType)))
+                (types == null || types.Count == 0 || types.Contains(x.damageForm.damageType)))
             .Select(effectForm => effectForm.damageForm)
             .FirstOrDefault();
     }

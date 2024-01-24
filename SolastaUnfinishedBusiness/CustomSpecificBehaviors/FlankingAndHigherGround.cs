@@ -69,11 +69,11 @@ internal static class FlankingAndHigherGround
     private static bool GetAllies(GameLocationCharacter defender, out List<GameLocationCharacter> allies)
     {
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
         allies = locationCharacterService.PartyCharacters
             .Union(locationCharacterService.GuestCharacters)
             .Where(x =>
                 x.IsWithinRange(defender, 1) &&
-                x.CanPerceiveTarget(defender) &&
                 x.CanAct())
             .ToList();
 

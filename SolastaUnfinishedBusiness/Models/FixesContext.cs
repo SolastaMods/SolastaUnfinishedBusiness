@@ -414,14 +414,14 @@ internal static class FixesContext
         {
             affinityGroup.savingThrowModifierType = FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice;
         }
-        
+
         foreach (var abilityCheckAffinity in DatabaseRepository.GetDatabase<FeatureDefinitionAbilityCheckAffinity>()
                      .Where(x => x.Name.Contains("ConditionBackFromDead"))
                      .SelectMany(x => x.AffinityGroups))
         {
             abilityCheckAffinity.abilityCheckGroupOperation = AbilityCheckGroupOperation.SubstractDie;
         }
-        
+
         ConditionDefinitions.ConditionBlinded.Features.Remove(
             FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlinded);
 
