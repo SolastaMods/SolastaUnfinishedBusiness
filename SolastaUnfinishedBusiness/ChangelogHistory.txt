@@ -1,4 +1,9 @@
-﻿1.5.94.44:
+﻿1.5.94.55:
+
+- fixed distance calculation logic affecting some subclasses, feats, powers, and spells
+- fixed vanilla Raise Dead spell adding modifiers instead of subtracting them from ability and saving checks
+
+1.5.94.44:
 
 - fixed a crash introduced on v43 that developer's tremor sense wasn't able to detect [it's a flying bug]
 

@@ -407,6 +407,21 @@ internal static class FixesContext
 
     private static void FixMinorSpellIssues()
     {
+        // fix raise dead spells adding a buff instead of debuff after raising from dead
+        foreach (var affinityGroup in DatabaseRepository.GetDatabase<FeatureDefinitionSavingThrowAffinity>()
+                     .Where(x => x.Name.Contains("ConditionBackFromDead"))
+                     .SelectMany(x => x.AffinityGroups))
+        {
+            affinityGroup.savingThrowModifierType = FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice;
+        }
+        
+        foreach (var abilityCheckAffinity in DatabaseRepository.GetDatabase<FeatureDefinitionAbilityCheckAffinity>()
+                     .Where(x => x.Name.Contains("ConditionBackFromDead"))
+                     .SelectMany(x => x.AffinityGroups))
+        {
+            abilityCheckAffinity.abilityCheckGroupOperation = AbilityCheckGroupOperation.SubstractDie;
+        }
+        
         ConditionDefinitions.ConditionBlinded.Features.Remove(
             FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlinded);
 
