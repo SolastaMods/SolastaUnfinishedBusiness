@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomGenericBehaviors;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;

@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 
 namespace SolastaUnfinishedBusiness.Patches;
 

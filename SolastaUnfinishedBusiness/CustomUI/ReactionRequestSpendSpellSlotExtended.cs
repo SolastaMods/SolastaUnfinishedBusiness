@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses.Builders;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 

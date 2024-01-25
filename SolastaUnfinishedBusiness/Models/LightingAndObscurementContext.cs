@@ -41,7 +41,7 @@ internal static class LightingAndObscurementContext
     ];
 
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
-        .Create(ConditionBlinded,"ConditionBlindedByDarkness")
+        .Create(ConditionBlinded, "ConditionBlindedByDarkness")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
@@ -521,7 +521,7 @@ internal static class LightingAndObscurementContext
     {
         // let vanilla do the heavy lift on perception
         var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
-        
+
         // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(sensor, cellPosition);
 
@@ -556,7 +556,7 @@ internal static class LightingAndObscurementContext
             {
                 continue;
             }
-            
+
             var senseType = senseMode.SenseType;
 
             // UNLIT
@@ -564,7 +564,7 @@ internal static class LightingAndObscurementContext
             {
                 continue;
             }
-            
+
             // MAGICAL DARKNESS
             if (sourceIsBlindFromDarkness && senseType is
                     SenseMode.Type.DetectInvisibility or
@@ -583,7 +583,7 @@ internal static class LightingAndObscurementContext
             {
                 continue;
             }
-                        
+
             // HEAVILY OBSCURED
             if (sourceIsBlindNotFromDarkness && senseType is
                     SenseMode.Type.DetectInvisibility or
@@ -604,13 +604,13 @@ internal static class LightingAndObscurementContext
             {
                 continue;
             }
-            
+
             // TREMOR SENSE
             if (targetIsNotTouchingGround && senseType is SenseMode.Type.Tremorsense)
             {
                 continue;
             }
-            
+
             // INVISIBLE
             if (targetIsInvisible && senseType is
                     SenseMode.Type.NormalVision or

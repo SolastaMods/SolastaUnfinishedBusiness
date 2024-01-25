@@ -1,0 +1,3 @@
+﻿namespace SolastaUnfinishedBusiness.CustomGenericBehaviors;
+
+public delegate string ModifyRestPowerTitleHandler(RulesetCharacter character);

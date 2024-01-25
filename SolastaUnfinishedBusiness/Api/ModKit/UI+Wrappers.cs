@@ -124,64 +124,64 @@ internal static partial class UI
     }
 
     [UsedImplicitly]
-    public static GL.AreaScope AreaScope(Rect screenRect)
+    public static GUILayout.AreaScope AreaScope(Rect screenRect)
     {
-        return new GL.AreaScope(screenRect);
+        return new GUILayout.AreaScope(screenRect);
     }
 
     [UsedImplicitly]
-    public static GL.AreaScope AreaScope(Rect screenRect, string text)
+    public static GUILayout.AreaScope AreaScope(Rect screenRect, string text)
     {
-        return new GL.AreaScope(screenRect, text);
+        return new GUILayout.AreaScope(screenRect, text);
     }
 
     [UsedImplicitly]
-    public static GL.HorizontalScope HorizontalScope(params GUILayoutOption[] options)
+    public static GUILayout.HorizontalScope HorizontalScope(params GUILayoutOption[] options)
     {
-        return new GL.HorizontalScope(options);
+        return new GUILayout.HorizontalScope(options);
     }
 
     [UsedImplicitly]
-    public static GL.HorizontalScope HorizontalScope(float width)
+    public static GUILayout.HorizontalScope HorizontalScope(float width)
     {
-        return new GL.HorizontalScope(Width(width));
+        return new GUILayout.HorizontalScope(Width(width));
     }
 
     [UsedImplicitly]
-    public static GL.HorizontalScope HorizontalScope(GUIStyle style, params GUILayoutOption[] options)
+    public static GUILayout.HorizontalScope HorizontalScope(GUIStyle style, params GUILayoutOption[] options)
     {
-        return new GL.HorizontalScope(style, options);
+        return new GUILayout.HorizontalScope(style, options);
     }
 
     [UsedImplicitly]
-    public static GL.HorizontalScope HorizontalScope(GUIStyle style, float width)
+    public static GUILayout.HorizontalScope HorizontalScope(GUIStyle style, float width)
     {
-        return new GL.HorizontalScope(style, Width(width));
+        return new GUILayout.HorizontalScope(style, Width(width));
     }
 
     [UsedImplicitly]
-    public static GL.VerticalScope VerticalScope(params GUILayoutOption[] options)
+    public static GUILayout.VerticalScope VerticalScope(params GUILayoutOption[] options)
     {
-        return new GL.VerticalScope(options);
+        return new GUILayout.VerticalScope(options);
     }
 
     [UsedImplicitly]
-    public static GL.VerticalScope VerticalScope(GUIStyle style, params GUILayoutOption[] options)
+    public static GUILayout.VerticalScope VerticalScope(GUIStyle style, params GUILayoutOption[] options)
     {
-        return new GL.VerticalScope(style, options);
+        return new GUILayout.VerticalScope(style, options);
     }
 
     [UsedImplicitly]
-    public static GL.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, params GUILayoutOption[] options)
+    public static GUILayout.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, params GUILayoutOption[] options)
     {
-        return new GL.ScrollViewScope(scrollPosition, options);
+        return new GUILayout.ScrollViewScope(scrollPosition, options);
     }
 
     [UsedImplicitly]
-    public static GL.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, GUIStyle style,
+    public static GUILayout.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, GUIStyle style,
         params GUILayoutOption[] options)
     {
-        return new GL.ScrollViewScope(scrollPosition, style, options);
+        return new GUILayout.ScrollViewScope(scrollPosition, style, options);
     }
 
     [UsedImplicitly]

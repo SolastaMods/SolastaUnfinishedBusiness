@@ -31,7 +31,7 @@ internal static class GuardianAura
         RulesetEffect rulesetEffect,
         int damageAmount)
     {
-        var units = Gui.Battle.GetContenders(defender, isOppositeSide: false)
+        var units = Gui.Battle.GetContenders(defender, false)
             .ToList(); // avoid changing enumerator
 
         foreach (var unit in units)

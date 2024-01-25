@@ -5,8 +5,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -1207,6 +1207,7 @@ internal static class SpellsByLevelGroupExtensions
             var isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var canUnlearn = !isUnlearned && alreadyHas;
+
             PowerBundle.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
 
             box.SetupUI(hero, pool.Sprite, requirements);

@@ -1,7 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Subclasses.Builders;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
@@ -38,7 +38,7 @@ internal static class IconsOnPortrait
             pools.Add(PortraitPointChannelDivinity.Instance);
         }
 
-        if (character.HasAnyFeature(EldritchVersatility.PowerEldritchVersatilityPointPool))
+        if (character.HasAnyFeature(EldritchVersatilityBuilders.PowerEldritchVersatilityPointPool))
         {
             pools.Add(PortraitPointEldritchVersatility.Instance);
         }
