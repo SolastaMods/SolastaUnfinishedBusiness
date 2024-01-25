@@ -139,18 +139,74 @@ public static class RulesetActorPatcher
 
             var definition = newCondition.ConditionDefinition;
 
-            //PATCH: notifies custom condition features that condition is applied
             if (__instance is not RulesetCharacter rulesetCharacter)
             {
                 return;
             }
 
+            //PATCH: notifies custom condition features that condition is applied
             definition.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>()
                 .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
 
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
                 .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
+
+            //PATCH: enforce OnActivation behavior for custom raging auras
+            if (!newCondition.ConditionDefinition.IsSubtypeOf(ConditionRaging))
+            {
+                return;
+            }
+
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            if (gameLocationCharacterService == null)
+            {
+                return;
+            }
+
+            var sourceCharacter = GameLocationCharacter.GetFromActor(__instance);
+
+            if (sourceCharacter == null)
+            {
+                return;
+            }
+
+            foreach (var usablePower in rulesetCharacter.UsablePowers
+                         .Where(x =>
+                             x.PowerDefinition.ActivationTime == ActivationTime.OnRageStartAutomatic &&
+                             x.PowerDefinition.EffectDescription.TargetType != TargetType.Self))
+            {
+                var effectDescription = usablePower.PowerDefinition.EffectDescription;
+                var range = effectDescription.TargetType switch
+                {
+                    TargetType.Cube => (effectDescription.TargetParameter - 1) / 2,
+                    TargetType.Sphere => effectDescription.TargetParameter,
+                    _ => 0
+                };
+
+                if (range == 0)
+                {
+                    continue;
+                }
+
+                var actionParams = new CharacterActionParams(sourceCharacter, ActionDefinitions.Id.SpendPower)
+                {
+                    RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                        //CHECK: no need for AddAsActivePowerToSource
+                        .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    targetCharacters = gameLocationCharacterService.AllValidEntities
+                        .Where(x =>
+                            x.Side == effectDescription.TargetSide &&
+                            x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                            x.IsWithinRange(sourceCharacter, range) &&
+                            (!effectDescription.TargetExcludeCaster || x != sourceCharacter))
+                        .ToList()
+                };
+
+                ServiceRepository.GetService<ICommandService>()
+                    ?.ExecuteAction(actionParams, null, false);
+            }
         }
     }
 

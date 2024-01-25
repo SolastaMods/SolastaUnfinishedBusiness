@@ -1,6 +1,6 @@
 ﻿1.5.94.55:
 
-- fixed distance calculation logic affecting some subclasses, feats, powers, and spells
+- fixed distance calculation logic affecting some feats, features, fighting styles, invocations, and spells
 - fixed vanilla Raise Dead spell adding modifiers instead of subtracting them from ability and saving checks
 
 1.5.94.44:

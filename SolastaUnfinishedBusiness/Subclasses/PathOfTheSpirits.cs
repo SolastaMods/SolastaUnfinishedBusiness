@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -28,7 +27,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         // Yours is a path that seeks attunement with the natural world, giving you a kinship with beasts.
         // At 3rd level when you adopt this path, you gain the ability to cast the AnimalFriendship and FindTraps spells at will.
         var featureSetPathOfTheSpiritsSpiritSeeker = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetPathOfTheSpiritsSpiritSeeker")
+            .Create($"FeatureSet{Name}SpiritSeeker")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 BuildSpiritSeekerSpell(SpellDefinitions.AnimalFriendship),
@@ -38,7 +37,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Spirit
         // At 3rd level, when you adopt this path, you choose an animal spirit as a guide and gain its feature.
         var featureSetPathOfTheSpiritsAnimalSpirit = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
+            .Create($"FeatureSet{Name}AnimalSpiritChoices")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
@@ -46,7 +45,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 PowerPathOfTheSpiritsBearResistance(),
                 // Eagle: The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take the Dash, Disengage, or Hide action as a Bonus Action.
                 FeatureDefinitionActionAffinityBuilder
-                    .Create(ActionAffinityRogueCunningAction, "ActionAffinityPathOfTheSpiritsCunningAction")
+                    .Create(ActionAffinityRogueCunningAction, $"ActionAffinity{Name}CunningAction")
                     .SetOrUpdateGuiPresentation(Category.Feature)
                     .AddToDB(),
                 // Wolf: The spirit of the wolf makes you a leader of hunters. While you're raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you.
@@ -60,7 +59,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Aspect
         // At 6th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at 3rd level or a different one.
         var featureSetPathOfTheSpiritsAnimalAspect = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetPathOfTheSpiritsAnimalAspectChoices")
+            .Create($"FeatureSet{Name}AnimalAspectChoices")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
@@ -91,7 +90,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         // On a successful save, the creature takes half as much damage.
         // You can use this feature a number of times equal to your proficiency modifier.
         var featureSetPathOfTheSpiritsSpiritWalker = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetPathOfTheSpiritsSpiritWalker")
+            .Create($"FeatureSet{Name}SpiritWalker")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(PowerSpiritGuardian())
             .AddToDB();
@@ -103,7 +102,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Aspect
         // At 14th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at previous levels or a different one.
         var featureSetPathOfTheSpiritsHonedAnimalAspects = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetPathOfTheSpiritsHonedAnimalAspectChoices")
+            .Create($"FeatureSet{Name}HonedAnimalAspectChoices")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
@@ -122,8 +121,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("PathOfTheSpirits", Resources.PathOfTheSpirits, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheSpirits, 256))
             .AddFeaturesAtLevel(3,
                 featureSetPathOfTheSpiritsSpiritSeeker,
                 featureSetPathOfTheSpiritsAnimalSpirit)
@@ -156,7 +154,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
 
         return FeatureDefinitionPowerBuilder
-            .Create($"PowerPathOfTheSpirits{spellDefinition.name}")
+            .Create($"Power{Name}{spellDefinition.name}")
             .SetGuiPresentation(spellDefinition.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
@@ -168,7 +166,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         params FeatureDefinition[] featureDefinitions)
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSetPathOfTheSpiritsAnimalAspectChoice{name}")
+            .Create($"FeatureSet{Name}AnimalAspectChoice{name}")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(featureDefinitions)
             .AddToDB();
@@ -177,8 +175,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinitionPower PowerPathOfTheSpiritsBearResistance()
     {
         var conditionPathOfTheSpiritsBearResistance = ConditionDefinitionBuilder
-            .Create("ConditionPathOfTheSpiritsBearResistance")
-            .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature,
+            .Create($"Condition{Name}BearResistance")
+            .SetGuiPresentation($"Power{Name}BearResistance", Category.Feature,
                 ConditionDefinitions.ConditionBarkskin)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.RageStop, ConditionInterruption.BattleEnd)
@@ -198,7 +196,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         return FeatureDefinitionPowerBuilder
-            .Create("PowerPathOfTheSpiritsBearResistance")
+            .Create($"Power{Name}BearResistance")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(
@@ -219,7 +217,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinitionAttributeModifier AttributeModifierBearDurability()
     {
         return FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierPathOfTheSpiritsBearDurability")
+            .Create($"AttributeModifier{Name}BearDurability")
             .SetGuiPresentationNoContent(true)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
             .AddToDB();
@@ -228,45 +226,35 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinitionPower PowerPathOfTheSpiritsWolfLeadership()
     {
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
-            .Create("ConditionPathOfTheSpiritsWolfLeadershipPack")
+            .Create($"Condition{Name}WolfLeadershipPack")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
-                    .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Condition,
+                    .Create($"CombatAffinity{Name}WolfLeadershipPack")
+                    .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
                         Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();
 
         var powerPathOfTheSpiritsWolfLeadership = FeatureDefinitionPowerBuilder
-            .Create("PowerPathOfTheSpiritsWolfLeadership")
+            .Create($"Power{Name}WolfLeadership")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
-                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .ExcludeCaster()
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack))
                     .Build())
             .AddToDB();
-
-        var customBehaviorWolfLeadership = new CustomRagingAura(
-            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack, true);
-
-        conditionPathOfTheSpiritsWolfLeadershipPack.AddCustomSubFeatures(customBehaviorWolfLeadership);
-        powerPathOfTheSpiritsWolfLeadership.AddCustomSubFeatures(customBehaviorWolfLeadership);
 
         return powerPathOfTheSpiritsWolfLeadership;
     }
@@ -274,7 +262,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityPathOfTheSpiritsBearMight()
     {
         return FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityPathOfTheSpiritsBearMight")
+            .Create($"AbilityCheckAffinity{Name}BearMight")
             .SetGuiPresentationNoContent(true)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
                 (AttributeDefinitions.Strength, string.Empty))
@@ -284,14 +272,15 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinitionPower PowerSpiritGuardian()
     {
         return FeatureDefinitionPowerBuilder
-            .Create("PowerPathOfTheSpiritsSpiritGuardians")
+            .Create($"Power{Name}SpiritGuardians")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
-                    .SetSavingThrowData(false,
-                        AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .Build())
             .AddToDB();
     }
@@ -301,18 +290,17 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var conditionHonedAnimalAspectsBear = ConditionDefinitionBuilder
             .Create($"Condition{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+            .SetPossessive()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityPowerHonedAnimalAspectsBear")
+                    .Create($"CombatAffinity{Name}HonedAnimalAspectsBear")
                     .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition,
                         Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
-            .SetPossessive()
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .AddToDB();
 
         var powerHonedAnimalAspectsBear = FeatureDefinitionPowerBuilder
@@ -322,25 +310,14 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
                     .ExcludeCaster()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
-                    .SetDurationData(DurationType.Permanent)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionHonedAnimalAspectsBear,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHonedAnimalAspectsBear))
                     .Build())
             .AddToDB();
-
-        var customBehaviorHonedBear = new CustomRagingAura(
-            powerHonedAnimalAspectsBear, conditionHonedAnimalAspectsBear, false);
-
-        conditionHonedAnimalAspectsBear.AddCustomSubFeatures(customBehaviorHonedBear);
-        powerHonedAnimalAspectsBear.AddCustomSubFeatures(customBehaviorHonedBear);
 
         return powerHonedAnimalAspectsBear;
     }
@@ -349,8 +326,10 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     {
         var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlying12, $"Condition{Name}HonedAnimalAspectsEagle")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying12)
-            .AddSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly8)
             .AddToDB();
 
@@ -361,13 +340,9 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionHonedAnimalAspectsEagle, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHonedAnimalAspectsEagle))
                     .Build())
             .AddToDB();
 
@@ -376,15 +351,16 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
     private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedWolf()
     {
-        var actionAffinityHonedAnimalAspectsWolf = FeatureDefinitionActionAffinityBuilder
-            .Create(ActionAffinityMountaineerShieldCharge, "ActionAffinityHonedAnimalAspectsWolf")
-            .AddToDB();
-
         var conditionHonedAnimalAspectsWolf = ConditionDefinitionBuilder
             .Create($"Condition{Name}HonedAnimalAspectsWolf")
             .SetGuiPresentation(Category.Condition)
-            .AddFeatures(actionAffinityHonedAnimalAspectsWolf)
-            .AddSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetPossessive()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
+            .AddFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create(ActionAffinityMountaineerShieldCharge, $"ActionAffinity{Name}HonedAnimalAspectsWolf")
+                    .AddToDB())
             .AddToDB();
 
         var powerHonedAnimalAspectsWolf = FeatureDefinitionPowerBuilder
@@ -394,13 +370,9 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionHonedAnimalAspectsWolf, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHonedAnimalAspectsWolf))
                     .Build())
             .AddToDB();
 

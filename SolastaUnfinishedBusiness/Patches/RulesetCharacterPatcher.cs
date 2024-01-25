@@ -139,6 +139,8 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
+            ProcessConditionsMatchingInterruptionSourceRageStop(__instance, activeCondition);
+
             //PATCH: support 'EnableCharactersOnFireToEmitLight'
             SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
 
@@ -151,6 +153,49 @@ public static class RulesetCharacterPatcher
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
                 .Do(c => c.OnConditionRemoved(__instance, activeCondition));
+        }
+
+        // ReSharper disable once SuggestBaseTypeForParameter
+        private static void ProcessConditionsMatchingInterruptionSourceRageStop(
+            RulesetCharacter sourceCharacter,
+            RulesetCondition activeCondition)
+        {
+            if (!activeCondition.ConditionDefinition.IsSubtypeOf(ConditionRaging))
+            {
+                return;
+            }
+
+            // var rulesetEffectPower =
+            //     sourceCharacter.PowersUsedByMe.FirstOrDefault(x =>
+            //         x.trackedConditionGuids.Contains(activeCondition.guid));
+            //
+            // if (rulesetEffectPower != null)
+            // {
+            //     sourceCharacter.TerminatePower(rulesetEffectPower);
+            // }
+
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            if (gameLocationCharacterService == null)
+            {
+                return;
+            }
+
+            foreach (var targetRulesetCharacter in gameLocationCharacterService.AllValidEntities
+                         .Select(x => x.RulesetActor)
+                         .OfType<RulesetCharacter>()
+                         .ToList())
+            {
+                foreach (var rulesetCondition in targetRulesetCharacter.AllConditions
+                             .Where(x =>
+                                 x.ConditionDefinition.SpecialInterruptions.Contains(
+                                     (ConditionInterruption)ExtraConditionInterruption.SourceRageStop) &&
+                                 x.SourceGuid == sourceCharacter.Guid)
+                             .ToList())
+                {
+                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
+                }
+            }
         }
     }
 
