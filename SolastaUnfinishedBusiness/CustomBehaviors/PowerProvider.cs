@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -7,8 +6,8 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class PowerProvider
 {
-    private static readonly Dictionary<(FeatureDefinitionPower, RulesetCharacter), RulesetUsablePower>
-        UsablePowers = [];
+    // private static readonly Dictionary<(FeatureDefinitionPower, RulesetCharacter), RulesetUsablePower>
+    //     UsablePowers = [];
 
     [NotNull]
     internal static RulesetUsablePower Get(FeatureDefinitionPower power, [CanBeNull] RulesetCharacter actor = null)
@@ -25,14 +24,14 @@ internal static class PowerProvider
             return result;
         }
 
-        if (UsablePowers.TryGetValue((power, actor), out var usablePower))
-        {
-            result = usablePower;
-        }
-        else
+        // if (UsablePowers.TryGetValue((power, actor), out var usablePower))
+        // {
+        //     result = usablePower;
+        // }
+        // else
         {
             result = new RulesetUsablePower(power, null, null);
-            UsablePowers.Add((power, actor), result);
+            //UsablePowers.Add((power, actor), result);
         }
 
         //Update properties to match actor
@@ -63,7 +62,9 @@ internal static class PowerProvider
         usablePower.remainingUses = pool.RemainingUses / powerCost;
     }
 
-    internal static void UpdateSaveDc([CanBeNull] RulesetCharacter actor, [NotNull] RulesetUsablePower usablePower,
+    internal static void UpdateSaveDc(
+        [CanBeNull] RulesetCharacter actor,
+        [NotNull] RulesetUsablePower usablePower,
         CharacterClassDefinition classDefinition = null)
     {
         var power = usablePower.PowerDefinition;
