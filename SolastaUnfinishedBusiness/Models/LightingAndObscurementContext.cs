@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomSpecificBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;

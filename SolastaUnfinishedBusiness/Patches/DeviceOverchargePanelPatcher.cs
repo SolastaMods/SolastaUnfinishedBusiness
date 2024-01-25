@@ -2,7 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomGenericBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using UnityEngine;
 using UnityEngine.UI;
 using static RuleDefinitions;

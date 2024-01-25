@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Definitions;
 using UnityEngine;
 using UnityEngine.UI;
 using static RuleDefinitions;

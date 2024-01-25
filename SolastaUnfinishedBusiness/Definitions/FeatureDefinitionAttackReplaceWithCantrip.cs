@@ -1,0 +1,5 @@
+﻿using SolastaUnfinishedBusiness.Interfaces;
+
+namespace SolastaUnfinishedBusiness.Definitions;
+
+internal class FeatureDefinitionAttackReplaceWithCantrip : FeatureDefinition, IAttackReplaceWithCantrip;

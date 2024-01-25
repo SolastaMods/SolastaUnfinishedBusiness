@@ -202,7 +202,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Dispelled)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -237,6 +237,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
                         Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .SetSituationalContext(ExtraSituationalContext.HasSimpleOrMartialWeaponInHands)
                     .AddToDB())
             .AddToDB();
 
@@ -248,7 +249,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .SetDurationData(DurationType.Permanent)
                     .ExcludeCaster()
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
@@ -310,7 +311,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
                     .ExcludeCaster()
                     .SetRecurrentEffect(
@@ -340,7 +341,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHonedAnimalAspectsEagle))
                     .Build())
@@ -370,7 +371,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Instantaneous)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHonedAnimalAspectsWolf))
                     .Build())
