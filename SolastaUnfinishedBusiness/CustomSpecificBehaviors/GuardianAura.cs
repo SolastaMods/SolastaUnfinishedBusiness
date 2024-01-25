@@ -31,10 +31,7 @@ internal static class GuardianAura
         RulesetEffect rulesetEffect,
         int damageAmount)
     {
-        var units = Gui.Battle.AllContenders
-            .Where(unit => unit.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                           attacker != unit &&
-                           defender != unit)
+        var units = Gui.Battle.GetContenders(defender, isOppositeSide: false)
             .ToList(); // avoid changing enumerator
 
         foreach (var unit in units)
@@ -58,10 +55,7 @@ internal static class GuardianAura
             yield break;
         }
 
-        if (!attacker.IsOppositeSide(unit.Side)
-            || defender.IsOppositeSide(unit.Side)
-            || unit == defender
-            || !(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false)
+        if (!(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false)
             || !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))
         {
             yield break;
