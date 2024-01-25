@@ -521,6 +521,8 @@ internal static class LightingAndObscurementContext
     {
         // let vanilla do the heavy lift on perception
         var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
+        
+        // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(sensor, cellPosition);
 
         // if setting is off or vanilla cannot perceive
@@ -537,6 +539,7 @@ internal static class LightingAndObscurementContext
                    targetLightingState != additionalBlockedLightingState;
         }
 
+        // determine constraints
         var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
         var sensorCharacter = sensor.RulesetCharacter;
         var sourceIsBlindFromDarkness = IsBlindFromDarkness(sensorCharacter);
@@ -545,12 +548,43 @@ internal static class LightingAndObscurementContext
         var targetIsInvisible =
             target != null && target.RulesetActor.HasConditionOfTypeOrSubType(ConditionInvisible.Name);
 
-        // try to find any sense mode that is valid for the current lighting state and is within range
+        // try to find any sense mode that is valid for the current lighting state and constraints
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
         foreach (var senseMode in sensorCharacter.SenseModes)
         {
+            if (distance > senseMode.SenseRange)
+            {
+                continue;
+            }
+            
             var senseType = senseMode.SenseType;
 
+            // UNLIT
+            if (targetLightingState is LightingState.Unlit && senseType is SenseMode.Type.NormalVision)
+            {
+                continue;
+            }
+            
+            // MAGICAL DARKNESS
+            if (sourceIsBlindFromDarkness && senseType is
+                    SenseMode.Type.DetectInvisibility or
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision)
+            {
+                continue;
+            }
+
+            if (targetLightingState is LightingState.Darkness && senseType is
+                    SenseMode.Type.DetectInvisibility or
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision)
+            {
+                continue;
+            }
+                        
+            // HEAVILY OBSCURED
             if (sourceIsBlindNotFromDarkness && senseType is
                     SenseMode.Type.DetectInvisibility or
                     SenseMode.Type.NormalVision or
@@ -561,38 +595,24 @@ internal static class LightingAndObscurementContext
                 continue;
             }
 
-            if (sourceIsBlindFromDarkness && senseType is
+            if (targetLightingState is (LightingState)MyLightingState.HeavilyObscured && senseType is
                     SenseMode.Type.DetectInvisibility or
                     SenseMode.Type.NormalVision or
                     SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision)
-            {
-                continue;
-            }
-
-            if (targetIsInvisible && senseType is
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
                     SenseMode.Type.SuperiorDarkvision or
-                    SenseMode.Type.Truesight or
-                    SenseMode.Type.Blindsight or
-                    SenseMode.Type.Tremorsense)
+                    SenseMode.Type.Truesight)
             {
                 continue;
             }
-
+            
+            // TREMOR SENSE
             if (targetIsNotTouchingGround && senseType is SenseMode.Type.Tremorsense)
             {
                 continue;
             }
-
-            // ReSharper disable once ConvertIfStatementToSwitchStatement
-            if (targetLightingState is LightingState.Unlit && senseType is SenseMode.Type.NormalVision)
-            {
-                continue;
-            }
-
-            if (targetLightingState is (LightingState)MyLightingState.HeavilyObscured && senseType is
+            
+            // INVISIBLE
+            if (targetIsInvisible && senseType is
                     SenseMode.Type.NormalVision or
                     SenseMode.Type.Darkvision or
                     SenseMode.Type.SuperiorDarkvision or
@@ -601,20 +621,9 @@ internal static class LightingAndObscurementContext
                 continue;
             }
 
-            if (targetLightingState is LightingState.Darkness && senseType is
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision)
-            {
-                continue;
-            }
-
-            if (distance <= senseMode.SenseRange)
-            {
-                // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-                return additionalBlockedLightingState == LightingState.Darkness ||
-                       targetLightingState != additionalBlockedLightingState;
-            }
+            // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
+            return additionalBlockedLightingState == LightingState.Darkness ||
+                   targetLightingState != additionalBlockedLightingState;
         }
 
         return false;
