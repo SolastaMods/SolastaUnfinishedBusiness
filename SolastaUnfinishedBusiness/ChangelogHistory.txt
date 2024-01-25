@@ -7,7 +7,7 @@
 
 1.5.94.44:
 
-- fixed a crash introduced on v43 that developer's tremor sense wasn't able to detect [it's a flying bug]
+- fixed a crash introduced on v43 that developer's tremor sense wasn't able to detect
 
 1.5.94.43:
 
