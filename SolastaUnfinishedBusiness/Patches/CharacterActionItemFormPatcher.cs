@@ -2,7 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Interfaces;
 using TA.AddressableAssets;
 using UnityEngine;
 

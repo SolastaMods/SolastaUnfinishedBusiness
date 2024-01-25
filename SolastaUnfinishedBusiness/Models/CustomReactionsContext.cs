@@ -161,6 +161,6 @@ internal static class CustomReactionsContext
 
         readied.RemoveAll(c => c != preferred);
 
-        return !readied.Empty();
+        return readied.Count != 0;
     }
 }

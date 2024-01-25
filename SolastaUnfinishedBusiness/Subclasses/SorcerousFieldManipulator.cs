@@ -6,11 +6,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -63,7 +63,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorDisplacement(), PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(new CustomBehaviorDisplacement(), ForcePushOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06
@@ -141,7 +141,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
+                PowerProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
@@ -153,7 +153,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                UsablePowersProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
+                PowerProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
@@ -307,9 +307,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -317,14 +315,15 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerApply, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(
-                gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 2));
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
+            actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

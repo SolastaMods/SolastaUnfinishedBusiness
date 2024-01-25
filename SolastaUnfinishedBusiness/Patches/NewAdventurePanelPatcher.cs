@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using Object = UnityEngine.Object;

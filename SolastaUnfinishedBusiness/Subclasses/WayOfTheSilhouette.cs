@@ -7,11 +7,12 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
@@ -277,11 +278,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var actionParams = action.ActionParams.Clone();
-
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, null, Darkness, -1, false);
 
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
+            actionParams.RulesetEffect = effectSpell;
+            rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
 
             yield break;
@@ -445,7 +447,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetMe);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
@@ -469,12 +471,15 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             rulesetMe.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetMe, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetMe, usablePower, false)
             };
 
             actionParams.TargetCharacters.SetRange(me);

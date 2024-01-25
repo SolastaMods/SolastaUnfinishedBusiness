@@ -6,12 +6,12 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -324,7 +324,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 return;
             }
 
-            var rulesetUsablePower = UsablePowersProvider.Get(powerGrandChallenge, rulesetCharacter);
+            var rulesetUsablePower = PowerProvider.Get(powerGrandChallenge, rulesetCharacter);
 
             if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
             {

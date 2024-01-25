@@ -1,7 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Definitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;

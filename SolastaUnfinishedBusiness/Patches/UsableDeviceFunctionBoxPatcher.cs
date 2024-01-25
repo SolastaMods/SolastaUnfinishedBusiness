@@ -3,7 +3,8 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;

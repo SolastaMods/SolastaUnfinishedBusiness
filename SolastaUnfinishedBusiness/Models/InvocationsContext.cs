@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
 using UnityEngine.UI;
-using static SolastaUnfinishedBusiness.CustomBuilders.InvocationsBuilders;
+using static SolastaUnfinishedBusiness.Subclasses.Builders.InvocationsBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
 

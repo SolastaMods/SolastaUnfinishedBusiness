@@ -1,5 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 

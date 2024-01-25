@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;

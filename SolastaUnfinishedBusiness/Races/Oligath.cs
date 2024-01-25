@@ -6,9 +6,9 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -232,7 +232,7 @@ internal static class RaceOligathBuilder
             }
 
 
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetMe);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
                 UsablePower = usablePower

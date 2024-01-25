@@ -7,12 +7,13 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
@@ -373,10 +374,12 @@ public sealed class RangerLightBearer : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } gameLocationBattleService)
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -385,14 +388,6 @@ public sealed class RangerLightBearer : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
-            {
-                yield break;
-            }
-
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionService == null)
             {
                 yield break;
             }
@@ -418,12 +413,14 @@ public sealed class RangerLightBearer : AbstractSubclass
             rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(
                 gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 5));
 

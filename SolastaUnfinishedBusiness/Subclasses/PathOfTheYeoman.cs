@@ -6,11 +6,12 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -109,7 +110,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 combatAffinityBulwark)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
             .AddCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(IsLongBow),
+                new RemoveRangedAttackInMeleeDisadvantage(IsLongBow),
                 new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
             .AddToDB();
 
@@ -186,7 +187,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             powerMightyShot.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         powerMightyShot.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),
             new PhysicalAttackFinishedByMeMightyShot(powerMightyShot));
 
@@ -339,12 +340,14 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerMightyShot, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerMightyShot, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(
                 battleManager.Battle.GetContenders(defender, false, isWithinXCells: 3));
 

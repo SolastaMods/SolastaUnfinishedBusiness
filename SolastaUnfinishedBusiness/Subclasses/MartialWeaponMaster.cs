@@ -6,13 +6,13 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -70,7 +70,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
                 .SetGrantedFeature(featureSpecialization)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
 
@@ -412,7 +412,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             // Focused Strikes
 
             var powerFocusedStrikes = GetDefinition<FeatureDefinitionPower>($"Power{Name}FocusedStrikes");
-            var rulesetUsablePower = UsablePowersProvider.Get(powerFocusedStrikes, rulesetCharacter);
+            var rulesetUsablePower = PowerProvider.Get(powerFocusedStrikes, rulesetCharacter);
 
             if (rulesetUsablePower.MaxUses == rulesetUsablePower.RemainingUses)
             {

@@ -19,7 +19,7 @@ public static class FeatureDefinitionPointPoolPatcher
         {
             var choices = __instance.RestrictedChoices;
 
-            if (__instance.poolType != HeroDefinitions.PointsPoolType.Tool || choices == null || choices.Empty())
+            if (__instance.poolType != HeroDefinitions.PointsPoolType.Tool || choices == null || choices.Count == 0)
             {
                 return true;
             }

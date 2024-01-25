@@ -6,11 +6,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
@@ -80,7 +80,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             .AddToDB();
 
         powerTerrificPerformance.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved)
         );
 
@@ -111,7 +111,7 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                                         FeatureDefinitionMovementAffinityBuilder
                                             .Create($"MovementAffinity{Name}CombatInspirationMovementEnhancement")
                                             .SetGuiPresentation(Category.Feature)
-                                            .AddCustomSubFeatures(new AddConditionAmountToSpeedModifier())
+                                            .AddCustomSubFeatures(new ModifyMovementSpeedAdditionCombatInspiration())
                                             .AddToDB(),
                                         FeatureDefinitionAttackModifierBuilder
                                             .Create($"AttackModifier{Name}CombatInspirationAttackEnhancement")
@@ -253,6 +253,11 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
             // activeEffect != null means a magical attack
             if (attackMode == null || activeEffect != null)
             {
@@ -266,17 +271,12 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var targets = Gui.Battle
+                .GetContenders(attacker, isWithinXCells: 3)
+                .Where(x => x.CanPerceiveTarget(attacker))
+                .ToList();
 
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            var targets = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 3)
-                .Where(x => x.CanPerceiveTarget(attacker)).ToList();
-
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 yield break;
             }
@@ -284,19 +284,30 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var level = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = level >= 14 ? power14 : power6;
 
-            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 targetCharacters = targets
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    private sealed class ModifyMovementSpeedAdditionCombatInspiration : IModifyMovementSpeedAddition
+    {
+        public int ModifySpeedAddition(RulesetCharacter character, IMovementAffinityProvider provider)
+        {
+            return character.FindFirstConditionHoldingFeature(provider as FeatureDefinition)?.Amount ?? 0;
         }
     }
 }

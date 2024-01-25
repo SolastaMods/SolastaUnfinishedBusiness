@@ -5,11 +5,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -114,7 +114,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                         .SetActionType(ActionDefinitions.ActionType.Main)
                         .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
                         .SetMaxAttacksNumber(1)
-                        .AddCustomSubFeatures(AdditionalActionAttackValidator.TwoHandedRanged)
+                        .AddCustomSubFeatures(ValidateAdditionalActionAttack.TwoHandedRanged)
                         .AddToDB())
                     .AddToDB()))
             .AddToDB();

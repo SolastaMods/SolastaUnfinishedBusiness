@@ -10,12 +10,13 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -23,6 +24,7 @@ using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using MirrorImage = SolastaUnfinishedBusiness.BehaviorsSpecific.MirrorImage;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -137,6 +139,8 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
+            ProcessConditionsMatchingInterruptionSourceRageStop(__instance, activeCondition);
+
             //PATCH: support 'EnableCharactersOnFireToEmitLight'
             SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, activeCondition);
 
@@ -149,6 +153,49 @@ public static class RulesetCharacterPatcher
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
                 .Do(c => c.OnConditionRemoved(__instance, activeCondition));
+        }
+
+        // ReSharper disable once SuggestBaseTypeForParameter
+        private static void ProcessConditionsMatchingInterruptionSourceRageStop(
+            RulesetCharacter sourceCharacter,
+            RulesetCondition activeCondition)
+        {
+            if (!activeCondition.ConditionDefinition.IsSubtypeOf(ConditionRaging))
+            {
+                return;
+            }
+
+            // var rulesetEffectPower =
+            //     sourceCharacter.PowersUsedByMe.FirstOrDefault(x =>
+            //         x.trackedConditionGuids.Contains(activeCondition.guid));
+            //
+            // if (rulesetEffectPower != null)
+            // {
+            //     sourceCharacter.TerminatePower(rulesetEffectPower);
+            // }
+
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            if (gameLocationCharacterService == null)
+            {
+                return;
+            }
+
+            foreach (var targetRulesetCharacter in gameLocationCharacterService.AllValidEntities
+                         .Select(x => x.RulesetActor)
+                         .OfType<RulesetCharacter>()
+                         .ToList())
+            {
+                foreach (var rulesetCondition in targetRulesetCharacter.AllConditions
+                             .Where(x =>
+                                 x.ConditionDefinition.SpecialInterruptions.Contains(
+                                     (ConditionInterruption)ExtraConditionInterruption.SourceRageStop) &&
+                                 x.SourceGuid == sourceCharacter.Guid)
+                             .ToList())
+                {
+                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
+                }
+            }
         }
     }
 
@@ -607,7 +654,7 @@ public static class RulesetCharacterPatcher
                 FeatureDefinition,
                 RulesetCharacter,
                 FeatureDefinition
-            >(FeatureApplicationValidation.ValidateAttributeModifier).Method;
+            >(ValidateFeatureApplication.ValidateAttributeModifier).Method;
 
             return instructions.ReplaceCode(instruction => instruction.opcode == OpCodes.Isinst,
                 -1, "RulesetCharacter.RefreshAttributeModifiersFromConditions",
@@ -726,7 +773,7 @@ public static class RulesetCharacterPatcher
                 //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
                 // successDelta = attackRoll - target.GetAttribute("ArmorClass").CurrentValue;
                 successDelta = attackRoll -
-                               MirrorImageLogic.GetAC(target.GetAttribute("ArmorClass"), target, toHitTrends);
+                               MirrorImage.GetAC(target.GetAttribute("ArmorClass"), target, toHitTrends);
                 // END PATCH
 
                 if (successDelta >= 0)
@@ -860,10 +907,10 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
-            MirrorImageLogic.AttackRollPrefix(__instance, target, toHitTrends, testMode);
+            MirrorImage.AttackRollPrefix(__instance, target, toHitTrends, testMode);
 
             //PATCH: support Elven Precision - sets up flag if this physical attack is valid 
-            ElvenPrecisionLogic.PhysicalAttackRollPrefix(__instance, attackMode);
+            ElvenPrecision.PhysicalAttackRollPrefix(__instance, attackMode);
         }
 
         [UsedImplicitly]
@@ -876,13 +923,13 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
-            MirrorImageLogic.AttackRollPostfix(attackMode, target, toHitTrends,
+            MirrorImage.AttackRollPostfix(attackMode, target, toHitTrends,
                 ref outcome,
                 ref successDelta,
                 testMode);
 
             //PATCH: support for Elven Precision - reset flag after physical attack is finished
-            ElvenPrecisionLogic.Active = false;
+            ElvenPrecision.Active = false;
         }
     }
 
@@ -904,10 +951,10 @@ public static class RulesetCharacterPatcher
             CurrentMagicEffect = activeEffect;
 
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
-            MirrorImageLogic.AttackRollPrefix(__instance, target, toHitTrends, testMode);
+            MirrorImage.AttackRollPrefix(__instance, target, toHitTrends, testMode);
 
             //PATCH: support Elven Precision - sets up flag if this physical attack is valid 
-            ElvenPrecisionLogic.MagicAttackRollPrefix(__instance, activeEffect);
+            ElvenPrecision.MagicAttackRollPrefix(__instance, activeEffect);
         }
 
         [UsedImplicitly]
@@ -919,10 +966,10 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
-            MirrorImageLogic.AttackRollPostfix(null, target, toHitTrends, ref outcome, ref successDelta, testMode);
+            MirrorImage.AttackRollPostfix(null, target, toHitTrends, ref outcome, ref successDelta, testMode);
 
             //PATCH: support for Elven Precision - reset flag after magic attack is finished
-            ElvenPrecisionLogic.Active = false;
+            ElvenPrecision.Active = false;
             CurrentMagicEffect = null;
         }
     }
@@ -1162,7 +1209,7 @@ public static class RulesetCharacterPatcher
                     .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
                     .All(v => v(__instance, definition));
 
-                if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
+                if (definition.HasSubFeatureOfType<ModifyInvocationVisibility>() || !isValid)
                 {
                     continue;
                 }
@@ -1253,7 +1300,7 @@ public static class RulesetCharacterPatcher
             //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
             foreach (var invocation in __instance.Invocations
                          .Where(invocation =>
-                             invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>()))
+                             invocation.InvocationDefinition.HasSubFeatureOfType<RechargeInvocationOnShortRest>()))
             {
                 invocation.Recharge();
             }
@@ -1475,7 +1522,7 @@ public static class RulesetCharacterPatcher
 
             var power = function.DeviceFunctionDescription.FeatureDefinitionPower;
 
-            if (PowerVisibilityModifier.IsPowerHidden(character, power, ActionType.Main)
+            if (ModifyPowerVisibility.IsPowerHidden(character, power, ActionType.Main)
                 || !character.CanUsePower(power, false))
             {
                 return false;

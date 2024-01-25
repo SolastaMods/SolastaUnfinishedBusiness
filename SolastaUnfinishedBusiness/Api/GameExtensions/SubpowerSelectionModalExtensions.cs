@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,7 +50,7 @@ internal static class SubpowerSelectionModalExtensions
                 {
                     if (instance.subpowerEngaged != null)
                     {
-                        var usablePower = UsablePowersProvider.Get(instance.powerDefinitions[index], instance.caster);
+                        var usablePower = PowerProvider.Get(instance.powerDefinitions[index], instance.caster);
                         instance.subpowerEngaged(usablePower, index);
                     }
 

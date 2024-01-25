@@ -4,10 +4,11 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.FightingStyles;
+using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static ActionDefinitions;
 
@@ -157,7 +158,7 @@ internal static class RulesetCharacterExtensions
                 }
             }
 
-            if (PowerVisibilityModifier.IsPowerHidden(character, power, type))
+            if (ModifyPowerVisibility.IsPowerHidden(character, power, type))
             {
                 continue;
             }
@@ -363,7 +364,7 @@ internal static class RulesetCharacterExtensions
         Id actionId,
         ActionScope scope)
     {
-        if (instance.Invocations.Empty())
+        if (instance.Invocations.Count == 0)
         {
             return false;
         }
@@ -538,7 +539,7 @@ internal static class RulesetCharacterExtensions
             .Where(c => types.Contains(c.conditionDefinition.Name))
             .ToList();
 
-        if (conditions == null || conditions.Empty())
+        if (conditions == null || conditions.Count == 0)
         {
             return false;
         }

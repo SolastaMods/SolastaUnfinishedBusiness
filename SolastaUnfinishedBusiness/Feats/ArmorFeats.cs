@@ -6,9 +6,9 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static EquipmentDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
@@ -175,6 +175,16 @@ internal static class ArmorFeats
             bool firstTarget,
             bool criticalHit)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             if (!defender.CanReact() || !defender.RulesetCharacter.IsWearingShield())
             {
                 yield break;
@@ -187,25 +197,18 @@ internal static class ArmorFeats
                 yield break;
             }
 
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null || battleManager == null)
-            {
-                yield break;
-            }
-
             var reactionParams =
                 new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "Reaction/&CustomReactionShieldTechniquesReactDescription"
                 };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("ShieldTechniques", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(defender, manager, previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(defender, gameLocationActionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {

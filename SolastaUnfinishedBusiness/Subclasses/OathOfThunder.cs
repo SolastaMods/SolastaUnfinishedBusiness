@@ -6,12 +6,13 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -367,9 +368,7 @@ public sealed class OathOfThunder : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -377,14 +376,16 @@ public sealed class OathOfThunder : AbstractSubclass
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerBifrostDamage, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerBifrostDamage, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(
-                gameLocationBattleService.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2));
+                Gui.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

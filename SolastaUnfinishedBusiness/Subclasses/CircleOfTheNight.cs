@@ -5,12 +5,12 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -394,7 +394,7 @@ public sealed class CircleOfTheNight : AbstractSubclass
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            rulesetCharacter.UsePower(UsablePowersProvider.Get(featureDefinitionPower, rulesetCharacter));
+            rulesetCharacter.UsePower(PowerProvider.Get(featureDefinitionPower, rulesetCharacter));
         }
     }
 

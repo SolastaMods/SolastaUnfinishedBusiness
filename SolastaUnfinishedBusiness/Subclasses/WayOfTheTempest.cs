@@ -7,11 +7,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -317,20 +317,14 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 return false;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
-            {
-                return false;
-            }
-
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
             evalParams.FillForPhysicalReachAttack(
                 caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-            return battleService.CanAttack(evalParams);
+            return gameLocationBattleService.CanAttack(evalParams);
         }
 
         [CanBeNull]
@@ -344,17 +338,15 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 return null;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 return null;
             }
 
             var caster = actionParams.ActingCharacter;
-            var targets = battleService.Battle.GetContenders(caster, isWithinXCells: 1);
+            var targets = Gui.Battle.GetContenders(caster, isWithinXCells: 1);
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 return null;
             }
@@ -410,9 +402,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -420,13 +410,15 @@ public sealed class WayOfTheTempest : AbstractSubclass
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.GetContenders(attacker)
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
+            actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker)
                 .Where(x =>
                     x.RulesetCharacter.AllConditions
                         .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&

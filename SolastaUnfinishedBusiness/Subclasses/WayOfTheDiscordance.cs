@@ -7,11 +7,12 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static AttributeDefinitions;
 using static ConditionForm;
 using static FeatureDefinitionSavingThrowAffinity;
@@ -187,7 +188,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerSorakDreadLaughter)
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         //
@@ -251,7 +252,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 .AddToDB();
 
             powerBurstOfDisharmony.AddCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
+                ModifyPowerVisibility.Hidden,
                 new MagicEffectFinishedByMeBurstOfDisharmony(
                     conditionDiscordance, powerDiscordance, conditionHadTurmoil, powerTurmoil),
                 new ValidatorsValidatePowerUse(
@@ -300,7 +301,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .AddToDB();
 
         powerTidesOfChaos.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeOrAllyTidesOfChaos(conditionTurmoil, powerTidesOfChaos));
 
         //
@@ -428,12 +429,14 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             FeatureDefinitionPower featureDefinitionPower)
         {
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -487,21 +490,22 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                     && x.RulesetCharacter.AllConditions.Count(y =>
                         y.ConditionDefinition == conditionDiscordance) > 1));
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var actionParamsDiscordance = action.ActionParams.Clone();
-            var usablePowerDiscordance = UsablePowersProvider.Get(powerDiscordance, rulesetCharacter);
+            var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
 
             actionParamsDiscordance.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParamsDiscordance.RulesetEffect = rulesetImplementationService
+            actionParamsDiscordance.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false);
             actionParamsDiscordance.TargetCharacters.SetRange(targets);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -521,18 +525,18 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 x.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false }
                 || x.RulesetCharacter.HasConditionOfType(conditionHadTurmoil));
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 yield break;
             }
 
             var actionParamsTurmoil = action.ActionParams.Clone();
-            var usablePowerTurmoil = UsablePowersProvider.Get(powerTurmoil, rulesetCharacter);
+            var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
 
             actionParamsTurmoil.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParamsTurmoil.RulesetEffect = rulesetImplementationService
+            actionParamsTurmoil.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false);
             actionParamsTurmoil.TargetCharacters.SetRange(targets);
 
             // must enqueue actions
@@ -599,13 +603,15 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             rulesetAlly.KiPointsAltered?.Invoke(rulesetAlly, rulesetAlly.RemainingKiPoints);
 
             // temporarily heal
-            var usablePower = UsablePowersProvider.Get(powerTidesOfChaos, rulesetAlly);
+            var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetAlly, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
                 targetCharacters = { ally }
             };
 

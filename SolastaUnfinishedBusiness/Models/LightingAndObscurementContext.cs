@@ -5,7 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;
@@ -23,8 +23,10 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
+// FIX DESCRIPTIONS    / FIX FLANKING
 internal static class LightingAndObscurementContext
 {
+    private const string BlindDescription = "Rules/&ConditionBlindedDescription";
     private const string BlindExtendedDescription = "Condition/&ConditionBlindedExtendedDescription";
 
     // ProxyDarkness is a special use case that is handled apart
@@ -40,49 +42,49 @@ internal static class LightingAndObscurementContext
 
     internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByDarkness")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByCloudKill = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByCloudKill")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByFogCloud = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByFogCloud")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByIncendiaryCloud = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByIncendiaryCloud")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByPetalStorm = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByPetalStorm")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedBySleetStorm = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedBySleetStorm")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionBlindedByStinkingCloud = ConditionDefinitionBuilder
         .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
-        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
         .SetFeatures()
         .AddToDB();
@@ -119,13 +121,13 @@ internal static class LightingAndObscurementContext
 
     internal static void SwitchOfficialObscurementRules()
     {
-        var searchTerm = !Main.Settings.UseOfficialLightingObscurementAndVisionRules
-            ? BlindExtendedDescription
-            : "Rules/&ConditionBlindedDescription";
+        var searchTerm = Main.Settings.UseOfficialLightingObscurementAndVisionRules
+            ? BlindDescription
+            : BlindExtendedDescription;
 
-        var replaceTerm = Main.Settings.UseOfficialLightingObscurementAndVisionRules
-            ? BlindExtendedDescription
-            : "Rules/&ConditionBlindedDescription";
+        var replaceTerm = !Main.Settings.UseOfficialLightingObscurementAndVisionRules
+            ? BlindDescription
+            : BlindExtendedDescription;
 
         foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
                      .Where(x => x.GuiPresentation.description == searchTerm))
@@ -519,6 +521,8 @@ internal static class LightingAndObscurementContext
     {
         // let vanilla do the heavy lift on perception
         var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
+
+        // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(sensor, cellPosition);
 
         // if setting is off or vanilla cannot perceive
@@ -535,6 +539,7 @@ internal static class LightingAndObscurementContext
                    targetLightingState != additionalBlockedLightingState;
         }
 
+        // determine constraints
         var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
         var sensorCharacter = sensor.RulesetCharacter;
         var sourceIsBlindFromDarkness = IsBlindFromDarkness(sensorCharacter);
@@ -543,12 +548,43 @@ internal static class LightingAndObscurementContext
         var targetIsInvisible =
             target != null && target.RulesetActor.HasConditionOfTypeOrSubType(ConditionInvisible.Name);
 
-        // try to find any sense mode that is valid for the current lighting state and is within range
+        // try to find any sense mode that is valid for the current lighting state and constraints
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
         foreach (var senseMode in sensorCharacter.SenseModes)
         {
+            if (distance > senseMode.SenseRange)
+            {
+                continue;
+            }
+
             var senseType = senseMode.SenseType;
 
+            // UNLIT
+            if (targetLightingState is LightingState.Unlit && senseType is SenseMode.Type.NormalVision)
+            {
+                continue;
+            }
+
+            // MAGICAL DARKNESS
+            if (sourceIsBlindFromDarkness && senseType is
+                    SenseMode.Type.DetectInvisibility or
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision)
+            {
+                continue;
+            }
+
+            if (targetLightingState is LightingState.Darkness && senseType is
+                    SenseMode.Type.DetectInvisibility or
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision)
+            {
+                continue;
+            }
+
+            // HEAVILY OBSCURED
             if (sourceIsBlindNotFromDarkness && senseType is
                     SenseMode.Type.DetectInvisibility or
                     SenseMode.Type.NormalVision or
@@ -559,38 +595,8 @@ internal static class LightingAndObscurementContext
                 continue;
             }
 
-            if (sourceIsBlindFromDarkness && senseType is
-                    SenseMode.Type.DetectInvisibility or
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision)
-            {
-                continue;
-            }
-
-            if (targetIsInvisible && senseType is
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision or
-                    SenseMode.Type.Truesight or
-                    SenseMode.Type.Blindsight or
-                    SenseMode.Type.Tremorsense)
-            {
-                continue;
-            }
-
-            if (targetIsNotTouchingGround && senseType is SenseMode.Type.Tremorsense)
-            {
-                continue;
-            }
-
-            // ReSharper disable once ConvertIfStatementToSwitchStatement
-            if (targetLightingState is LightingState.Unlit && senseType is SenseMode.Type.NormalVision)
-            {
-                continue;
-            }
-
             if (targetLightingState is (LightingState)MyLightingState.HeavilyObscured && senseType is
+                    SenseMode.Type.DetectInvisibility or
                     SenseMode.Type.NormalVision or
                     SenseMode.Type.Darkvision or
                     SenseMode.Type.SuperiorDarkvision or
@@ -599,20 +605,25 @@ internal static class LightingAndObscurementContext
                 continue;
             }
 
-            if (targetLightingState is LightingState.Darkness && senseType is
-                    SenseMode.Type.NormalVision or
-                    SenseMode.Type.Darkvision or
-                    SenseMode.Type.SuperiorDarkvision)
+            // TREMOR SENSE
+            if (targetIsNotTouchingGround && senseType is SenseMode.Type.Tremorsense)
             {
                 continue;
             }
 
-            if (distance <= senseMode.SenseRange)
+            // INVISIBLE
+            if (targetIsInvisible && senseType is
+                    SenseMode.Type.NormalVision or
+                    SenseMode.Type.Darkvision or
+                    SenseMode.Type.SuperiorDarkvision or
+                    SenseMode.Type.Truesight)
             {
-                // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-                return additionalBlockedLightingState == LightingState.Darkness ||
-                       targetLightingState != additionalBlockedLightingState;
+                continue;
             }
+
+            // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
+            return additionalBlockedLightingState == LightingState.Darkness ||
+                   targetLightingState != additionalBlockedLightingState;
         }
 
         return false;
@@ -648,7 +659,7 @@ internal static class LightingAndObscurementContext
             visibilityManager!.positionCache.Clear();
             illuminable.GetAllPositionsToCheck(visibilityManager.positionCache);
 
-            if (visibilityManager.positionCache == null || visibilityManager.positionCache.Empty())
+            if (visibilityManager.positionCache == null || visibilityManager.positionCache.Count == 0)
             {
                 return LightingState.Unlit;
             }

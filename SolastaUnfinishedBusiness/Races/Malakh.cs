@@ -4,10 +4,10 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -167,7 +167,7 @@ internal static class RaceMalakhBuilder
             .SetGuiPresentation(guiPresentation)
             .SetPoolType(InvocationPoolTypeCustom.Pools.AngelicFormChoice)
             .SetGrantedFeature(power)
-            .AddCustomSubFeatures(HiddenInvocation.Marker)
+            .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
             .AddToDB();
     }
 
@@ -278,10 +278,8 @@ internal static class RaceMalakhBuilder
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (implementationService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null || implementationService == null)
             {
                 return;
             }
@@ -313,7 +311,7 @@ internal static class RaceMalakhBuilder
             };
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var enemy in gameLocationBattleService.Battle.GetContenders(locationCharacter, isWithinXCells: 3))
+            foreach (var enemy in Gui.Battle.GetContenders(locationCharacter, isWithinXCells: 3))
             {
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {

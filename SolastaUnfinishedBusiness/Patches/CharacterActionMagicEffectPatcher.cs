@@ -7,8 +7,8 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -217,8 +217,8 @@ public static class CharacterActionMagicEffectPatcher
             // used for Grenadier's force grenades
             // sets position of the formsParams to the first position from ActionParams, when applicable
             var method =
-                typeof(PushesOrDragFromEffectPoint).GetMethod(
-                    nameof(PushesOrDragFromEffectPoint.SetPositionAndApplyForms),
+                typeof(ForcePushOrDragFromEffectPoint).GetMethod(
+                    nameof(ForcePushOrDragFromEffectPoint.SetPositionAndApplyForms),
                     BindingFlags.Static | BindingFlags.NonPublic);
 
             return instructions.ReplaceCall(
@@ -238,7 +238,6 @@ public static class CharacterActionMagicEffectPatcher
         public static IEnumerator Postfix(
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance,
-            IGameLocationBattleService battleService,
             GameLocationCharacter target)
         {
             while (values.MoveNext())
@@ -258,14 +257,15 @@ public static class CharacterActionMagicEffectPatcher
 
             //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
             // should also happen outside battles
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                battleService.Battle?.AllContenders ??
-                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
             foreach (var ally in contenders
                          .Where(x => x.Side == attacker.Side
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList()) // avoid changing enumerator
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
             {
                 foreach (var magicalAttackFinishedByMeOrAlly in ally.RulesetCharacter
                              .GetSubFeaturesByType<IMagicalAttackFinishedByMeOrAlly>())

@@ -1,5 +1,5 @@
-﻿using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomUI;

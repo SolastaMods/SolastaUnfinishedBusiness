@@ -5,9 +5,10 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -254,19 +255,19 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker.GetRemainingPowerCharges(powerOrganDonation) <= 0)
-            {
-                yield break;
-            }
-
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
             if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.GetRemainingPowerCharges(powerOrganDonation) <= 0)
             {
                 yield break;
             }
@@ -291,11 +292,11 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             rulesetAttacker.UpdateUsageForPower(powerOrganDonation, powerOrganDonation.CostPerUse);
             rulesetAttacker.LogCharacterUsedPower(powerOrganDonation);
 
-            var usablePowerEmergencyCure = UsablePowersProvider.Get(powerEmergencyCure, rulesetAttacker);
+            var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);
 
             rulesetAttacker.RepayPowerUse(usablePowerEmergencyCure);
 
-            var usablePowerEmergencySurgery = UsablePowersProvider.Get(powerEmergencySurgery, rulesetAttacker);
+            var usablePowerEmergencySurgery = PowerProvider.Get(powerEmergencySurgery, rulesetAttacker);
 
             rulesetAttacker.RepayPowerUse(usablePowerEmergencySurgery);
         }

@@ -9,13 +9,14 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions.RollContext;
@@ -618,6 +619,16 @@ internal static class MeleeCombatFeats
     {
         public IEnumerator OnActionFinishedByEnemy(CharacterAction characterAction, GameLocationCharacter target)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             if (characterAction.ActionId != ActionDefinitions.Id.StandUp)
             {
                 yield break;
@@ -630,14 +641,6 @@ internal static class MeleeCombatFeats
             }
 
             if (!target.CanReact())
-            {
-                yield break;
-            }
-
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -670,12 +673,13 @@ internal static class MeleeCombatFeats
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("OldTactics", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(target, manager, previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(target, gameLocationActionService,
+                previousReactionCount);
         }
     }
 
@@ -841,7 +845,7 @@ internal static class MeleeCombatFeats
                     .Create($"Feature{Name}Finish")
                     .SetGuiPresentation($"Condition{Name}Finish", Category.Condition, Gui.NoLocalization)
                     .AddCustomSubFeatures(
-                        AdditionalActionAttackValidator.MeleeOnly,
+                        ValidateAdditionalActionAttack.MeleeOnly,
                         new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
                     .AddToDB())
             .AddToDB();
@@ -1304,8 +1308,7 @@ internal static class MeleeCombatFeats
                 attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
 
                 var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-                var lowOutcome = GameLocationBattleManagerTweaks.GetAttackResult(
-                    lowestAttackRoll, modifier, rulesetDefender);
+                var lowOutcome = GLBM.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
 
                 Gui.Game.GameConsole.AttackRolled(
                     rulesetAttacker,
@@ -1464,8 +1467,7 @@ internal static class MeleeCombatFeats
                 case AdvantageType.Advantage when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
 
-                    var lowOutcome =
-                        GameLocationBattleManagerTweaks.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
+                    var lowOutcome = GLBM.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
 
                     Gui.Game.GameConsole.AttackRolled(
                         rulesetAttacker,
@@ -1481,12 +1483,14 @@ internal static class MeleeCombatFeats
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
                         var actionParams = action.ActionParams.Clone();
-                        var usablePower = UsablePowersProvider.Get(_power, rulesetAttacker);
-
+                        var usablePower = PowerProvider.Get(_power, rulesetAttacker);
+                        var implementationManagerService =
+                            ServiceRepository.GetService<IRulesetImplementationService>() as
+                                RulesetImplementationManager;
                         actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-                        actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                        actionParams.RulesetEffect = implementationManagerService
                             //CHECK: no need for AddAsActivePowerToSource
-                            .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                            .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
                         actionParams.TargetCharacters.SetRange(defender);
 
                         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -1507,8 +1511,7 @@ internal static class MeleeCombatFeats
                         break;
                     }
 
-                    var higherOutcome =
-                        GameLocationBattleManagerTweaks.GetAttackResult(highestAttackRoll, modifier, rulesetDefender);
+                    var higherOutcome = GLBM.GetAttackResult(highestAttackRoll, modifier, rulesetDefender);
 
                     if (higherOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
                     {

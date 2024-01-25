@@ -10,13 +10,14 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Definitions;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 
@@ -198,7 +199,7 @@ public static class RulesetCharacterHeroPatcher
                 .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
                 .All(v => v(__instance, definition));
 
-            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
+            if (definition.HasSubFeatureOfType<ModifyInvocationVisibility>() || !isValid)
             {
                 __result = false;
 
@@ -228,9 +229,6 @@ public static class RulesetCharacterHeroPatcher
         {
             foreach (var invocation in __instance.Invocations)
             {
-                //PATCH: mark some invocation as disabled by default
-                invocation.active = !invocation.invocationDefinition.HasSubFeatureOfType<InvocationDisabledByDefault>();
-
                 //PATCH: allow customized repertoire matching for invocation
                 var matcher = invocation.InvocationDefinition
                     .GetFirstSubFeatureOfType<RepertoireValidForAutoPreparedFeature>();
@@ -437,7 +435,7 @@ public static class RulesetCharacterHeroPatcher
             //used to prevent hand crossbows use with no free hand
             __instance.AttackModes.RemoveAll(mode => SrdAndHouseRulesContext.IsAttackModeInvalid(__instance, mode));
             //PATCH: support for IAdditionalActionAttackValidator
-            AdditionalActionAttackValidator.ValidateAttackModes(__instance);
+            ValidateAdditionalActionAttack.ValidateAttackModes(__instance);
 
             //refresh character if needed after postfix
             if (_callRefresh && __instance.CharacterRefreshed != null)
@@ -858,7 +856,7 @@ public static class RulesetCharacterHeroPatcher
 
             var providers = __instance.GetSubFeaturesByType<PowerPoolDevice>();
 
-            if (providers.Empty())
+            if (providers.Count == 0)
             {
                 return;
             }
@@ -929,8 +927,8 @@ public static class RulesetCharacterHeroPatcher
                     return false;
                 }
 
-                var p = activity.GetFirstSubFeatureOfType<RestActivityValidationParams>()
-                        ?? new RestActivityValidationParams(true, true);
+                var p = activity.GetFirstSubFeatureOfType<ValidateRestActivity>()
+                        ?? new ValidateRestActivity(true, true);
 
                 return !__instance.CanUsePower(power, p.ConsiderUses, p.ConsiderHaving);
             });

@@ -5,11 +5,11 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -145,7 +145,7 @@ public sealed class MartialDefender : AbstractSubclass
             .SetActionType(ActionDefinitions.ActionType.Bonus)
             .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
             .SetMaxAttacksNumber(-1)
-            .AddCustomSubFeatures(AdditionalActionAttackValidator.Shield)
+            .AddCustomSubFeatures(ValidateAdditionalActionAttack.Shield)
             .AddToDB();
 
         var conditionAegisParagon = ConditionDefinitionBuilder
@@ -165,7 +165,7 @@ public sealed class MartialDefender : AbstractSubclass
         // BEHAVIORS
 
         powerAegisAssault.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new PhysicalAttackFinishedByMeAegisAssault(powerAegisAssault, conditionAegisParagon));
 
         // MAIN
@@ -277,12 +277,14 @@ public sealed class MartialDefender : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerAegisAssault, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerAegisAssault, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

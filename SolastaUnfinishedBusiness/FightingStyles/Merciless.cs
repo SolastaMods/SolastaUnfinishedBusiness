@@ -5,12 +5,12 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
@@ -76,30 +76,32 @@ internal sealed class Merciless : AbstractFightingStyle
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            if (Gui.Battle == null)
             {
                 yield break;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
             {
                 yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var usablePower = UsablePowersProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
+            var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var distance = _criticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetAttacker, usablePower, false),
-                targetCharacters = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: distance)
-                    .Where(x => x.CanPerceiveTarget(attacker)).ToList()
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                targetCharacters = Gui.Battle
+                    .GetContenders(attacker, isWithinXCells: distance)
+                    .Where(x => x.CanPerceiveTarget(attacker))
+                    .ToList()
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

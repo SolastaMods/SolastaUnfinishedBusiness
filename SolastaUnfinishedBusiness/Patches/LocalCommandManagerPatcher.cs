@@ -6,8 +6,8 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Interfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -32,7 +32,7 @@ public static class LocalCommandManagerPatcher
 
         private static void Check(GameLocationCharacter character, ActionDefinitions.ActionType type)
         {
-            if (!character.RulesetCharacter.HasSubFeatureOfType<FreeWeaponSwitching>())
+            if (!character.RulesetCharacter.HasSubFeatureOfType<AllowFreeWeaponSwitching>())
             {
                 character.SpendActionType(type);
             }

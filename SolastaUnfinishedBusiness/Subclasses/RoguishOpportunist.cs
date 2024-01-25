@@ -3,8 +3,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static AttributeDefinitions;
 using static FeatureDefinitionSavingThrowAffinity;
@@ -258,7 +258,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasBorrowedLuck)
         {
             //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == helper)
+            if (helper.IsMyTurn())
             {
                 yield break;
             }

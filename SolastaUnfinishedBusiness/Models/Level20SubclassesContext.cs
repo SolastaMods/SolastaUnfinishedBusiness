@@ -8,11 +8,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -24,6 +24,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
+using MirrorImage = SolastaUnfinishedBusiness.BehaviorsSpecific.MirrorImage;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -264,10 +265,10 @@ internal static class Level20SubclassesContext
 
         var conditionMirrorImage = ConditionDefinitionBuilder
             .Create("ConditionFortuneFavorTheBoldMirrorImage")
-            .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+            .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionBlurred)
-            .AddCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+            .AddCustomSubFeatures(MirrorImage.DuplicateProvider.Mark)
             .AddToDB();
 
         var conditionPsychicDamage = ConditionDefinitionBuilder
@@ -315,7 +316,7 @@ internal static class Level20SubclassesContext
                                 null)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerDomainMischiefStrikeOfChaos17 = FeatureDefinitionPowerBuilder
@@ -1526,13 +1527,15 @@ internal static class Level20SubclassesContext
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 targetCharacters = { actingCharacter }
             };
 
@@ -1606,9 +1609,11 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                Gui.Battle?.AllContenders ??
-                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
             if (contenders.Count != 0)
             {
@@ -1876,6 +1881,16 @@ internal static class Level20SubclassesContext
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var rulesetCharacter = source.RulesetCharacter;
 
             if (rulesetCharacter == null)
@@ -1883,21 +1898,14 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("PhysicalPerfection", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1921,13 +1929,15 @@ internal static class Level20SubclassesContext
                 0,
                 0);
 
-            var usablePower = UsablePowersProvider.Get(powerPhysicalPerfection, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 targetCharacters = { source }
             };
 
@@ -2111,9 +2121,7 @@ internal static class Level20SubclassesContext
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -2163,20 +2171,14 @@ internal static class Level20SubclassesContext
                 return false;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
-            {
-                return false;
-            }
-
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
             evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
                 target.LocationPosition, attackModifier);
 
-            return battleService.CanAttack(evalParams);
+            return gameLocationBattleService.CanAttack(evalParams);
         }
 
         [CanBeNull]
@@ -2190,20 +2192,13 @@ internal static class Level20SubclassesContext
                 return null;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
-            {
-                return null;
-            }
-
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                             x.RulesetCharacter.HasAnyConditionOfTypeOrSubType("ConditionHitByDirtyFighting"))
                 .ToList(); // avoid changing enumerator
 
-            if (caster == null || targets.Empty())
+            if (caster == null || targets.Count == 0)
             {
                 return null;
             }

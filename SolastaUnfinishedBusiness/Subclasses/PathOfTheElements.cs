@@ -4,12 +4,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -87,8 +86,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetGuiPresentation($"Condition{Name}{ElementalBlessing}", Category.Condition,
                 ConditionDefinitions.ConditionBlessed)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance)
             .AddToDB();
 
@@ -103,19 +101,9 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetDurationData(DurationType.Permanent)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionElementalBlessingStorm, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElementalBlessingStorm))
                     .Build())
             .AddToDB();
-
-        var customBehaviorStorm =
-            new CustomRagingAura(powerElementalBlessingStorm, conditionElementalBlessingStorm, true);
-
-        conditionElementalBlessingStorm.AddCustomSubFeatures(customBehaviorStorm);
-        powerElementalBlessingStorm.AddCustomSubFeatures(customBehaviorStorm);
 
         // Blizzard
 
@@ -124,8 +112,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetGuiPresentation($"Condition{Name}{ElementalBlessing}", Category.Condition,
                 ConditionDefinitions.ConditionBlessed)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
             .AddToDB();
 
@@ -140,19 +127,9 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetDurationData(DurationType.Permanent)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionElementalBlessingBlizzard, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElementalBlessingBlizzard))
                     .Build())
             .AddToDB();
-
-        var customBehaviorBlizzard =
-            new CustomRagingAura(powerElementalBlessingBlizzard, conditionElementalBlessingBlizzard, true);
-
-        conditionElementalBlessingBlizzard.AddCustomSubFeatures(customBehaviorBlizzard);
-        powerElementalBlessingBlizzard.AddCustomSubFeatures(customBehaviorBlizzard);
 
         // Wildfire
 
@@ -161,8 +138,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetGuiPresentation($"Condition{Name}{ElementalBlessing}", Category.Condition,
                 ConditionDefinitions.ConditionBlessed)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance)
             .AddToDB();
 
@@ -177,19 +153,9 @@ public sealed class PathOfTheElements : AbstractSubclass
                     .SetDurationData(DurationType.Permanent)
                     .SetRecurrentEffect(
                         RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionElementalBlessingWildfire, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionElementalBlessingWildfire))
                     .Build())
             .AddToDB();
-
-        var customBehaviorWildfire =
-            new CustomRagingAura(powerElementalBlessingWildfire, conditionElementalBlessingWildfire, true);
-
-        conditionElementalBlessingWildfire.AddCustomSubFeatures(customBehaviorWildfire);
-        powerElementalBlessingWildfire.AddCustomSubFeatures(customBehaviorWildfire);
 
         // Elemental Blessing
 
@@ -371,7 +337,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.UntilAnyRest)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -454,10 +420,8 @@ public sealed class PathOfTheElements : AbstractSubclass
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (implementationService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null || implementationService == null)
             {
                 return;
             }
@@ -469,8 +433,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            foreach (var targetLocationCharacter in gameLocationBattleService.Battle.GetContenders(locationCharacter,
-                         isWithinXCells: 1))
+            foreach (var targetLocationCharacter in Gui.Battle.GetContenders(locationCharacter, isWithinXCells: 1))
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);

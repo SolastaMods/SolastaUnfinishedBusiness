@@ -150,7 +150,7 @@ public static class MovementHelperPatcher
             {
                 var movementOutline = __instance.movementOutlines[index];
 
-                if (movementOutline.Empty())
+                if (movementOutline.Count == 0)
                 {
                     break;
                 }

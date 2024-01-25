@@ -6,9 +6,10 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -120,7 +121,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Slashing Whirl
@@ -135,7 +136,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Mobile Whirl
@@ -150,7 +151,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Audacious Whirl
@@ -342,12 +343,10 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             // add slashing whirl targets
             else if (power == powerSlashingWhirl)
             {
-                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-                if (gameLocationBattleService is { Battle: not null })
+                if (Gui.Battle != null)
                 {
                     targetCharacters.AddRange(
-                        gameLocationBattleService.Battle
+                        Gui.Battle
                             .GetContenders(actingCharacter, hasToPerceiveTarget: true, isWithinXCells: 1));
                 }
             }

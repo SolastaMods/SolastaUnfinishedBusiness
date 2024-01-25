@@ -9,12 +9,13 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
@@ -1050,14 +1051,17 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = action.ActionParams.Clone();
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
             var selectedTarget = actionParams.TargetCharacters[0];
             var targets = new List<GameLocationCharacter>();
-            var usablePower = UsablePowersProvider.Get(_powerEldritchDetonation, rulesetCharacter);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+            var usablePower = PowerProvider.Get(_powerEldritchDetonation, rulesetCharacter);
+
+            var effectPower = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
                 selectedTarget, effectPower.EffectDescription, targets, []);

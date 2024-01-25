@@ -7,8 +7,8 @@
     "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -18,7 +18,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "RageStop"
+    9004
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -224,7 +224,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,

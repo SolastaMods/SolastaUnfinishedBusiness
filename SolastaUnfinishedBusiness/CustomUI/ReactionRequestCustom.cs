@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using SolastaUnfinishedBusiness.Interfaces;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 

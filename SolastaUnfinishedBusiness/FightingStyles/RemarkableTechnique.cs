@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Subclasses.Builders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;

@@ -5,12 +5,12 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
@@ -113,7 +113,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .Create(NAME)
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
+                ModifyPowerVisibility.Hidden,
                 HasModifiedUses.Marker,
                 new ValidatorsValidatePowerUse(HasInjuredDefender),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
@@ -146,7 +146,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             p.sourceDefinition.Name is SummonSteelDefenderPower or SummonAdvancedSteelDefenderPower);
         var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
 
-        return summons.Empty() ? null : summons[0];
+        return summons.Count == 0 ? null : summons[0];
     }
 
     private static bool HasInjuredDefender(RulesetCharacter character)
@@ -193,7 +193,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                     .Build())
             .SetUniqueInstance()
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
@@ -225,7 +225,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetUniqueInstance()
             .SetOverriddenPower(overridenPower)
             .AddCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
+                RestrictEffectToNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
@@ -487,7 +487,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddCustomSubFeatures(
                 CountPowerUseInSpecialFeatures.Marker,
                 ValidatorsValidatePowerUse.UsedLessTimesThan(1),
-                PowerVisibilityModifier.Default)
+                ModifyPowerVisibility.Default)
             .SetShowCasting(false)
             .AddToDB();
     }

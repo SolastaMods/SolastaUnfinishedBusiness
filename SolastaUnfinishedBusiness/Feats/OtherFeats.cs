@@ -8,15 +8,16 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomBuilders;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Subclasses.Builders;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -54,7 +55,7 @@ internal static class OtherFeats
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
         // Static build elsewhere for convenience
-        var featEldritchVersatilityAdept = EldritchVersatility.FeatEldritchVersatilityAdept;
+        var featEldritchVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
@@ -947,12 +948,13 @@ internal static class OtherFeats
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerPoisonousSkin, me);
-
+            var usablePower = PowerProvider.Get(powerPoisonousSkin, me);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(me, usablePower, false);
+                .MyInstantiateEffectPower(me, usablePower, false);
             actionParams.TargetCharacters.SetRange(target);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

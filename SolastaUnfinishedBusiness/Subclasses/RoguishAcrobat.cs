@@ -5,12 +5,13 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.FightingStyles;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -235,7 +236,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(featureDefinitionPower, rulesetMe);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {

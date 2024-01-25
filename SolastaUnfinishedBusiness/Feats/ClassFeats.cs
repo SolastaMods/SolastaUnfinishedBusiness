@@ -10,13 +10,14 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -395,6 +396,16 @@ internal static class ClassFeats
             GameLocationCharacter defender,
             GameLocationCharacter me)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
@@ -423,14 +434,6 @@ internal static class ClassFeats
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(defender);
 
             if (retaliationMode == null || retaliationMode.ranged)
@@ -447,12 +450,13 @@ internal static class ClassFeats
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("Exploiter", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(me, gameLocationActionService, previousReactionCount);
         }
     }
 
@@ -754,7 +758,7 @@ internal static class ClassFeats
         {
             var character = action.ActingCharacter.RulesetCharacter;
             var repertoire = character.GetClassSpellRepertoire(Druid);
-            var rulesetUsablePower = UsablePowersProvider.Get(PowerDruidWildShape, character);
+            var rulesetUsablePower = PowerProvider.Get(PowerDruidWildShape, character);
 
             if (repertoire == null)
             {
@@ -784,7 +788,7 @@ internal static class ClassFeats
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var character = action.ActingCharacter.RulesetCharacter;
-            var rulesetUsablePower = UsablePowersProvider.Get(PowerDruidWildShape, character);
+            var rulesetUsablePower = PowerProvider.Get(PowerDruidWildShape, character);
 
             character.UpdateUsageForPowerPool(1, rulesetUsablePower);
 

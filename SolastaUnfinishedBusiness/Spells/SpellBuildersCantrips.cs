@@ -7,9 +7,9 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -571,7 +571,7 @@ internal static partial class SpellBuilders
 
         spell.AddCustomSubFeatures(
             AttackAfterMagicEffect.SunlitBladeAttack,
-            new UpgradeRangeBasedOnWeaponReach(spell));
+            new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -706,7 +706,7 @@ internal static partial class SpellBuilders
 
         spell.AddCustomSubFeatures(
             AttackAfterMagicEffect.BoomingBladeAttack,
-            new UpgradeRangeBasedOnWeaponReach(spell));
+            new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
@@ -964,15 +964,15 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var actionParams = action.ActionParams.Clone();
-
-            var usablePower = UsablePowersProvider.Get(_powerResonatingStrike, rulesetCharacter);
+            var usablePower = PowerProvider.Get(_powerResonatingStrike, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
-            actionParams.RulesetEffect = rulesetImplementationService
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(_secondTarget);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

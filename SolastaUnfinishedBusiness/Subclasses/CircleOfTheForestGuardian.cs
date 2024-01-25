@@ -5,11 +5,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -175,7 +175,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
             .SetUsesFixed(ActivationTime.NoCost)
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // connect them all together
@@ -228,17 +228,19 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         rulesetCharacter.ReceiveTemporaryHitPoints(
             hitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        if (levels < 14)
+        {
+            return;
+        }
 
-        if (levels < 14 || gameLocationBattleService is not { IsBattleInProgress: true })
+        if (Gui.Battle == null)
         {
             return;
         }
 
         rulesetCharacter.LogCharacterUsedPower(powerSuperiorBarkWard);
 
-        foreach (var ally in
-                 gameLocationBattleService.Battle.GetContenders(locationCharacter, false, isWithinXCells: 3))
+        foreach (var ally in Gui.Battle.GetContenders(locationCharacter, false, isWithinXCells: 3))
         {
             ally.RulesetCharacter.ReceiveTemporaryHitPoints(
                 hitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);

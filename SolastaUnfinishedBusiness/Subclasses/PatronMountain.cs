@@ -6,8 +6,9 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -306,7 +307,7 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(power, rulesetMe);
+            var usablePower = PowerProvider.Get(power, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {

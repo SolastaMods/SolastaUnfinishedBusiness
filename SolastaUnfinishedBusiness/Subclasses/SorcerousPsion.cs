@@ -7,12 +7,13 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -61,7 +62,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
         powerPsychokinesisFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                UsablePowersProvider.Get(powerPsychokinesisFixed, character).RemainingUses > 0
+                PowerProvider.Get(powerPsychokinesisFixed, character).RemainingUses > 0
                 || character.GetClassLevel(CharacterClassDefinitions.Sorcerer) < 2));
 
         var powerPsychokinesisFixedDrag = FeatureDefinitionPowerSharedPoolBuilder
@@ -156,7 +157,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
         powerPsychokinesisPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
-                UsablePowersProvider.Get(powerPsychokinesisFixed, character).RemainingUses == 0
+                PowerProvider.Get(powerPsychokinesisFixed, character).RemainingUses == 0
                 && character.GetClassLevel(CharacterClassDefinitions.Sorcerer) >= 2));
 
         PowerBundle.RegisterPowerBundle(powerPsychokinesisFixed, true,
@@ -348,9 +349,19 @@ public sealed class SorcerousPsion : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -360,24 +371,18 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
 
             var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
                 StringParameter = "Reaction/&CustomReactionMindOverMatterDescription"
             };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("MindOverMatter", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -391,12 +396,14 @@ public sealed class SorcerousPsion : AbstractSubclass
                 tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
-            var usablePower = UsablePowersProvider.Get(powerMindOverMatter, rulesetCharacter);
-            var targets = battle.Battle.GetContenders(source, isWithinXCells: 2);
+            var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
+            var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 2);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(targets);
 
             EffectHelpers.StartVisualEffect(
@@ -439,7 +446,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             _hasConcentrationChanged = false;
 
             var character = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerSupremeWill, character);
+            var usablePower = PowerProvider.Get(powerSupremeWill, character);
 
             character.UsePower(usablePower);
             character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);

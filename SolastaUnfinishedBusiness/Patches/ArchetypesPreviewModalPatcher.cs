@@ -6,7 +6,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;

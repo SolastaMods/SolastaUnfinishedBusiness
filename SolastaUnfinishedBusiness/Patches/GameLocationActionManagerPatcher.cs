@@ -3,9 +3,10 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
@@ -128,7 +129,7 @@ public static class GameLocationActionManagerPatcher
             bool massiveDamage)
         {
             //PATCH: support for `DoNotTerminateWhileUnconscious`
-            yield return DoNotTerminateWhileUnconscious.TerminateAllSpellsAndEffects(
+            yield return RestrictEffectToNotTerminateWhileUnconscious.TerminateAllSpellsAndEffects(
                 values, rulesetTarget, wasConscious, stillConscious, massiveDamage);
         }
     }

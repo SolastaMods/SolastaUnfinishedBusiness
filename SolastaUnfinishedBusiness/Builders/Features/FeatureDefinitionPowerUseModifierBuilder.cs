@@ -1,8 +1,8 @@
 ﻿using System;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Definitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 

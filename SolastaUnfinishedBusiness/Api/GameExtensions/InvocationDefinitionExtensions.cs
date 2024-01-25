@@ -1,5 +1,5 @@
-﻿using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+﻿using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Definitions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -68,7 +68,7 @@ public static class InvocationDefinitionExtensions
     {
         if (invocation.GrantedFeature is FeatureDefinitionPower power)
         {
-            return power.HasSubFeatureOfType<PowerFromInvocation>() ? power : null;
+            return power.HasSubFeatureOfType<ModifyPowerFromInvocation>() ? power : null;
         }
 
         return null;

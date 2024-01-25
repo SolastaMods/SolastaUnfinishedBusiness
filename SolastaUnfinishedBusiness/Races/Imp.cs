@@ -5,12 +5,12 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -242,17 +242,22 @@ internal static class RaceImpBuilder
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
-            // check action affinity for backward compatibility
-            if (attacker.RulesetCharacter.HasAnyFeature(actionAffinityImpishWrathToggle) &&
-                !attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
 
-            if (implementationService == null
-                || gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            if (rulesetImplementationService == null)
+            {
+                yield break;
+            }
+
+            // check action affinity for backward compatibility
+            if (attacker.RulesetCharacter.HasAnyFeature(actionAffinityImpishWrathToggle) &&
+                !attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
             {
                 yield break;
             }
@@ -278,7 +283,7 @@ internal static class RaceImpBuilder
 
             // maybe add some toggle here similar to Paladin Smite
 
-            var usablePower = UsablePowersProvider.Get(powerPool, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
             var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
 

@@ -7,11 +7,11 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -467,7 +467,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(effectParticleParameters)
                     .Build())
-            .AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+            .AddCustomSubFeatures(TrackItemsCarefully.Marker)
             .AddToDB();
 
         return spell;
@@ -683,9 +683,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -693,17 +691,20 @@ internal static partial class SpellBuilders
             var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerExplode, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(gameLocationBattleService.Battle.AllContenders
-                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
-                            && x != attacker
-                            && !actionParams.TargetCharacters.Contains(x)
-                            && gameLocationBattleService.IsWithinXCells(attacker, x, 2))
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
+            actionParams.TargetCharacters.SetRange(Gui.Battle.AllContenders
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x != attacker &&
+                    !actionParams.TargetCharacters.Contains(x) &&
+                    attacker.IsWithinRange(x, 2))
                 .ToList());
 
             // special case don't ExecuteAction on MagicEffectInitiated
@@ -1049,12 +1050,14 @@ internal static partial class SpellBuilders
 
             // leap damage on enemies within 10 ft from target
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerLightningArrowLeap, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(
                 battleManager.Battle.GetContenders(defender, false, isWithinXCells: 2));
 

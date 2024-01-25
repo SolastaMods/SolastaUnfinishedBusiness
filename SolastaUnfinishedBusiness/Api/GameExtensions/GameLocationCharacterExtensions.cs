@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -16,19 +17,17 @@ public static class GameLocationCharacterExtensions
         return Gui.Battle != null && Gui.Battle.ActiveContenderIgnoringLegendary == character;
     }
 
-    public static float GetDistance(this GameLocationCharacter source, GameLocationCharacter target)
+    public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
         if (Main.Settings.UseOfficialDistanceCalculation)
         {
-            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target);
+            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target) <= range;
         }
 
-        return int3.Distance(source.LocationPosition, target.LocationPosition);
-    }
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-    public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
-    {
-        return GetDistance(source, target) <= range;
+        return gameLocationBattleService != null &&
+               gameLocationBattleService.IsWithinXCells(source, target, range);
     }
 
     // consolidate all checks if a character can perceive another
@@ -294,7 +293,7 @@ public static class GameLocationCharacterExtensions
     {
         var character = instance.RulesetCharacter;
 
-        if (character.Invocations.Empty())
+        if (character.Invocations.Count == 0)
         {
             return false;
         }
@@ -309,7 +308,7 @@ public static class GameLocationCharacterExtensions
                 .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
                 .All(v => v(character, definition));
 
-            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
+            if (definition.HasSubFeatureOfType<ModifyInvocationVisibility>() || !isValid)
             {
                 continue;
             }
@@ -386,13 +385,15 @@ public static class GameLocationCharacterExtensions
         if (!Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
             rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
         {
-            var usablePower = UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+            var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = new CharacterActionParams(instance, Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 targetCharacters = { instance }
             };
 

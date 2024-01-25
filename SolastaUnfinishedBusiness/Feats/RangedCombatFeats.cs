@@ -5,13 +5,13 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
@@ -231,7 +231,7 @@ internal static class RangedCombatFeats
                     .AddCustomSubFeatures(
                         ValidatorsCharacter.HasOffhandWeaponType(
                             CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType),
-                        new RangedAttackInMeleeDisadvantageRemover(),
+                        new RemoveRangedAttackInMeleeDisadvantage(),
                         new InnovationArmor.AddLauncherAttack(ActionDefinitions.ActionType.Bonus,
                             InnovationArmor.InInfiltratorMode,
                             ValidatorsCharacter.HasAttacked),

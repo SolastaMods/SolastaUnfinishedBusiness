@@ -6,8 +6,9 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -105,7 +106,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionCorroded))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Misery
@@ -145,7 +146,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(conditionMiserable))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Affliction
@@ -177,7 +178,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionPoisoned))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Viscosity
@@ -204,7 +205,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionConfused))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Mixture
@@ -394,7 +395,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerMixture, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerMixture, rulesetCharacter);
 
             rulesetCharacter.RepayPowerUse(usablePower);
 

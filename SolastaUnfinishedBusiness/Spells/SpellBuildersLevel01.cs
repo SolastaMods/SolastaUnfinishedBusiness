@@ -7,11 +7,11 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -745,9 +745,7 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 yield break;
             }
@@ -763,8 +761,8 @@ internal static partial class SpellBuilders
             var effectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
             var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
 
-            foreach (var enemy in gameLocationBattleService.Battle.GetContenders(
-                         target, false, false, isWithinXCells: 1))
+            foreach (var enemy in Gui.Battle
+                         .GetContenders(target, false, false, isWithinXCells: 1))
             {
                 var rulesetEnemy = enemy.RulesetCharacter;
                 var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
@@ -1009,10 +1007,12 @@ internal static partial class SpellBuilders
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
-            if (ServiceRepository.GetService<IGameLocationBattleService>() is not GameLocationBattleManager
-                {
-                    IsBattleInProgress: true
-                } battleManager)
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1043,12 +1043,11 @@ internal static partial class SpellBuilders
             {
                 IntParameter = slotLevel, StringParameter = spellDefinition.Name, SpellRepertoire = spellRepertoire
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToSpendSpellSlot(reactionParams);
+            gameLocationActionService.ReactToSpendSpellSlot(reactionParams);
 
-            yield return battleManager.WaitForReactions(defender, actionService, count);
+            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1574,7 +1573,7 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
+        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.Familiar, spell);
 
         return spell;
     }
@@ -1674,12 +1673,14 @@ internal static partial class SpellBuilders
             }
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerThunderousSmite, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerThunderousSmite, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -1891,21 +1892,21 @@ internal static partial class SpellBuilders
                 Gui.Battle.AllContenders.Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(defender, 1)));
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 yield break;
             }
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerSpikeBarrage, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = rulesetImplementationService
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(targets);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

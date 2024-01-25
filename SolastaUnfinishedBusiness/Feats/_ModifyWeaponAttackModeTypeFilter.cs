@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;

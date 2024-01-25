@@ -10,14 +10,14 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomBuilders;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Definitions;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Subclasses.Builders;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using UnityEngine;
 using static RuleDefinitions;
@@ -139,18 +139,77 @@ public static class RulesetActorPatcher
 
             var definition = newCondition.ConditionDefinition;
 
-            //PATCH: notifies custom condition features that condition is applied
             if (__instance is not RulesetCharacter rulesetCharacter)
             {
                 return;
             }
 
+            //PATCH: notifies custom condition features that condition is applied
             definition.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>()
                 .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
 
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<IOnConditionAddedOrRemoved>())
                 .Do(c => c.OnConditionAdded(rulesetCharacter, newCondition));
+
+            //PATCH: enforce OnActivation behavior for custom raging auras
+            if (!newCondition.ConditionDefinition.IsSubtypeOf(ConditionRaging))
+            {
+                return;
+            }
+
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            if (gameLocationCharacterService == null)
+            {
+                return;
+            }
+
+            var sourceCharacter = GameLocationCharacter.GetFromActor(__instance);
+
+            if (sourceCharacter == null)
+            {
+                return;
+            }
+
+            foreach (var usablePower in rulesetCharacter.UsablePowers
+                         .Where(x =>
+                             x.PowerDefinition.ActivationTime == ActivationTime.OnRageStartAutomatic &&
+                             x.PowerDefinition.EffectDescription.TargetType != TargetType.Self))
+            {
+                var effectDescription = usablePower.PowerDefinition.EffectDescription;
+                var range = effectDescription.TargetType switch
+                {
+                    TargetType.Cube => (effectDescription.TargetParameter - 1) / 2,
+                    TargetType.Sphere => effectDescription.TargetParameter,
+                    _ => 0
+                };
+
+                if (range == 0)
+                {
+                    continue;
+                }
+
+                var implementationManagerService =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+                var actionParams = new CharacterActionParams(sourceCharacter, ActionDefinitions.Id.SpendPower)
+                {
+                    RulesetEffect = implementationManagerService
+                        //CHECK: no need for AddAsActivePowerToSource
+                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    targetCharacters = gameLocationCharacterService.AllValidEntities
+                        .Where(x =>
+                            x.Side == effectDescription.TargetSide &&
+                            x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                            x.IsWithinRange(sourceCharacter, range) &&
+                            (!effectDescription.TargetExcludeCaster || x != sourceCharacter))
+                        .ToList()
+                };
+
+                ServiceRepository.GetService<ICommandService>()
+                    ?.ExecuteAction(actionParams, null, false);
+            }
         }
     }
 
@@ -658,7 +717,7 @@ public static class RulesetActorPatcher
             int result;
 
             if (rollContext == RollContext.AttackRoll &&
-                advantageType == AdvantageType.Advantage && ElvenPrecisionLogic.Active)
+                advantageType == AdvantageType.Advantage && ElvenPrecision.Active)
             {
                 result = Roll3DicesAndKeepBest(actor.Name, dieType, out firstRoll, out secondRoll, rollAlterationScore);
             }

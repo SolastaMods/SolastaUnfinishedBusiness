@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Definitions;
 using UnityEngine;
 using UnityEngine.UI;
 using static RuleDefinitions;
@@ -76,7 +76,7 @@ internal class CustomTooltipProvider : GuiBaseDefinitionWrapper, ISubTitleProvid
 
     internal void SetPrerequisites(List<string> missingRequirements)
     {
-        _prerequisites = missingRequirements == null || missingRequirements.Empty()
+        _prerequisites = missingRequirements == null || missingRequirements.Count == 0
             ? string.Empty
             : String.Join("\n", missingRequirements.Select(e => Gui.Localize(e)));
     }

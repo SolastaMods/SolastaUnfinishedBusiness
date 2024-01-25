@@ -4,13 +4,14 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static ActionDefinitions;
@@ -389,7 +390,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             powerKindredSpiritWolf15);
 
         // required to avoid beast duplicates when they get upgraded from 6 to 7, 10 to 11, 14 to 15
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.WildMasterBeast,
+        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.WildMasterBeast,
             powerKindredSpiritBear03,
             powerKindredSpiritEagle03,
             powerKindredSpiritWolf03,

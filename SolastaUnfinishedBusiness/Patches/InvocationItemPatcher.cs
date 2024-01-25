@@ -2,9 +2,9 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Definitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 

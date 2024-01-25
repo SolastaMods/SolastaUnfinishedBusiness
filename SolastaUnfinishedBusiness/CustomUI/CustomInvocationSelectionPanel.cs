@@ -5,8 +5,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Definitions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -706,7 +706,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     public override void UpdateRelevance()
     {
         UpdateGrantedFeatures();
-        IsRelevant = !_gainedCustomFeatures.Empty();
+        IsRelevant = _gainedCustomFeatures.Count != 0;
     }
 
     public override void EnterStage()
@@ -777,9 +777,10 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     public override bool CanProceedToNextStage(out string failureString)
     {
-        if (!IsFinalStep
-            || !initialized
-            || (!_allPools.Empty() && _allPools[_allPools.Count - 1].Remaining > 0))
+        if (!IsFinalStep ||
+            !initialized ||
+            (_allPools.Count != 0 &&
+             _allPools[_allPools.Count - 1].Remaining > 0))
         {
             failureString = Gui.Localize("UI/&CustomFeatureSelectionStageNotDone");
             return false;
@@ -1206,6 +1207,7 @@ internal static class SpellsByLevelGroupExtensions
             var isUnlearned = unlearnedSpells != null && unlearnedSpells.Contains(boxFeature);
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var canUnlearn = !isUnlearned && alreadyHas;
+
             PowerBundle.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators, out var requirements);
 
             box.SetupUI(hero, pool.Sprite, requirements);

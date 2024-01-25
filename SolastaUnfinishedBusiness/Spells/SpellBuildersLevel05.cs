@@ -6,12 +6,12 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -138,7 +138,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
-            .AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;

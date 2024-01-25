@@ -4,14 +4,14 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
@@ -101,7 +101,7 @@ internal static class CommonBuilders
         .Create("PowerCasterFightingWarMagic")
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")

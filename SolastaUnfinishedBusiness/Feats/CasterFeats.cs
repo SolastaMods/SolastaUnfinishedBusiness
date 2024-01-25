@@ -5,11 +5,12 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Definitions;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -541,7 +542,7 @@ internal static class CasterFeats
 
             if (!longRest)
             {
-                invocation.AddCustomSubFeatures(InvocationShortRestRecharge.Marker);
+                invocation.AddCustomSubFeatures(RechargeInvocationOnShortRest.Marker);
             }
 
             invocations.Add(invocation);
@@ -580,7 +581,7 @@ internal static class CasterFeats
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}{savingThrowDifficultyAbility}{motionTypeName}")
             .SetGuiPresentation($"{NAME}{motionTypeName}", Category.Feature, sprite)
-            .AddCustomSubFeatures(PowerFromInvocation.Marker)
+            .AddCustomSubFeatures(ModifyPowerFromInvocation.Marker)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder

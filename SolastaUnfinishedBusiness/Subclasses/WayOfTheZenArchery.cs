@@ -6,11 +6,11 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -258,13 +258,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
                 return false;
             }
 
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
-            {
-                return false;
-            }
-
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
             var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
@@ -272,7 +266,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
             evalParams.FillForPhysicalRangeAttack(
                 caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
-            return battleService.CanAttack(evalParams);
+            return gameLocationBattleService.CanAttack(evalParams);
         }
 
         [CanBeNull]
@@ -282,13 +276,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
             var actionParams = effect?.ActionParams;
 
             if (actionParams == null)
-            {
-                return null;
-            }
-
-            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (battleService is not { IsBattleInProgress: true })
             {
                 return null;
             }

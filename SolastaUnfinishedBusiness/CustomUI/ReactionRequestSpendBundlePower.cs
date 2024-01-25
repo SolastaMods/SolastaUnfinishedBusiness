@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -121,11 +122,12 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
         var spell = ReactionParams.SpellRepertoire.KnownSpells[option];
         var power = PowerBundle.GetPower(spell);
 
-        var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
+        var implementationManagerService =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCharacter = actingCharacter.RulesetCharacter;
-        var usablePower = UsablePowersProvider.Get(power, rulesetCharacter);
-        var powerEffect = rulesService
-            .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+        var usablePower = PowerProvider.Get(power, rulesetCharacter);
+        var powerEffect = implementationManagerService
+            .MyInstantiateEffectPower(rulesetCharacter, usablePower, false)
             .AddAsActivePowerToSource();
 
         ReactionParams.RulesetEffect = powerEffect;

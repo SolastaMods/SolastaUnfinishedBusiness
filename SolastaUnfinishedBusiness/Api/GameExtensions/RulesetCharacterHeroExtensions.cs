@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
@@ -154,7 +154,7 @@ internal static class RulesetCharacterHeroExtensions
             return limit;
         }
 
-        var mods = hero.GetSubFeaturesByType<AttunementLimitModifier>();
+        var mods = hero.GetSubFeaturesByType<ModifyAttunementLimit>();
 
         limit += mods.Sum(mod => mod.Value);
 

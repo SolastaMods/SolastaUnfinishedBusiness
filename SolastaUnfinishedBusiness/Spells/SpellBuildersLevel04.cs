@@ -4,11 +4,11 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static RuleDefinitions;
@@ -211,7 +211,7 @@ internal static partial class SpellBuilders
                             .Build())
                     .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
                     .Build())
-            .AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
+            .AddCustomSubFeatures(ForcePushOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;

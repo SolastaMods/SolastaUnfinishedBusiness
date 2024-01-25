@@ -7,15 +7,16 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -206,7 +207,7 @@ internal static class CharacterContext
                         .Build())
                 .UseQuickAnimations()
                 .Build())
-        .AddCustomSubFeatures(PowerVisibilityModifier.NotInCombat, new FilterTargetingPositionPowerTeleportSummon())
+        .AddCustomSubFeatures(ModifyPowerVisibility.NotInCombat, new FilterTargetingPositionPowerTeleportSummon())
         .AddToDB();
 
     internal static readonly FeatureDefinitionPower PowerVanishSummon = FeatureDefinitionPowerBuilder
@@ -433,7 +434,7 @@ internal static class CharacterContext
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
                 .SetGrantedFeature(featureMonkWeaponSpecialization)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
     }
@@ -674,7 +675,7 @@ internal static class CharacterContext
                 .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.KindredSpiritChoice)
                 .SetGrantedFeature(featureDefinitionPower)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
 
@@ -1004,7 +1005,7 @@ internal static class CharacterContext
                 .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, elementalFuriesSprites[name])
                 .SetPoolType(InvocationPoolTypeCustom.Pools.PathOfTheElementsElementalFuryChoiceChoice)
                 .SetGrantedFeature(featureDefinitionAncestry)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
 
@@ -1102,7 +1103,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
                 .SetGrantedFeature(featureDefinitionTerrainTypeAffinity)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
 
@@ -1145,7 +1146,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
                 .SetGrantedFeature(featureDefinitionPreferredEnemy)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
 
@@ -1232,7 +1233,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(invocationPoolTypeCustom)
                 .SetGrantedFeature(featureDefinitionAncestry)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
 
@@ -1536,7 +1537,8 @@ internal static class CharacterContext
                     .Build())
             .AddToDB();
 
-        powerPool.AddCustomSubFeatures(IsPowerPool.Marker, new PhysicalAttackInitiatedByMeCunningStrike(powerPool));
+        powerPool.AddCustomSubFeatures(IsModifyPowerPool.Marker,
+            new PhysicalAttackInitiatedByMeCunningStrike(powerPool));
 
         // Disarm
 
@@ -1571,7 +1573,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionDisarmed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Poison
@@ -1595,7 +1597,7 @@ internal static class CharacterContext
                                 ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Trip
@@ -1617,7 +1619,7 @@ internal static class CharacterContext
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Withdraw
@@ -1659,7 +1661,7 @@ internal static class CharacterContext
                     .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         //
@@ -1715,7 +1717,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionDazed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Knock Out
@@ -1745,7 +1747,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionKnockOut, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Obscure
@@ -1769,7 +1771,7 @@ internal static class CharacterContext
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // MAIN
@@ -1835,10 +1837,8 @@ internal static class CharacterContext
                 return false;
             case AdvantageType.None:
             default:
-                var gameLocationBattleManager =
-                    ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-                if (gameLocationBattleManager == null)
+                if (ServiceRepository.GetService<IGameLocationBattleService>() is not
+                    GameLocationBattleManager { IsBattleInProgress: true } gameLocationBattleManager)
                 {
                     return false;
                 }
@@ -1928,14 +1928,16 @@ internal static class CharacterContext
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(powerRogueCunningStrike, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = powerRogueCunningStrike.Name,
                 TargetCharacters = { defender },
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false)
             };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestSpendBundlePower(reactionParams);
@@ -2003,12 +2005,14 @@ internal static class CharacterContext
 
             var actionParams = action.ActionParams.Clone();
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

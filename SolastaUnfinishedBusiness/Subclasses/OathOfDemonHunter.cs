@@ -3,12 +3,12 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -101,7 +101,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             .Create($"Feature{Name}LightEnergyCrossbowBolt")
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(IsOathOfDemonHunterWeapon),
+                new RemoveRangedAttackInMeleeDisadvantage(IsOathOfDemonHunterWeapon),
                 new PhysicalAttackFinishedByMeLightEnergyCrossbowBolt(conditionTrialMark, powerTrialMark))
             .AddToDB();
 
@@ -234,7 +234,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(powerTrialMark, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
             var reactionParams =
                 new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {

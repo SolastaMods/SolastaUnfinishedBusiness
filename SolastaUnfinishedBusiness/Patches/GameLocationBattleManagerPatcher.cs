@@ -9,12 +9,13 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 
@@ -328,7 +329,7 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 var extraEvents =
-                    GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(
+                    GuardianAura.ProcessOnCharacterAttackHitFinished(
                         __instance, attacker, defender, attackerAttackMode, rulesetEffect, damageAmount);
 
                 while (extraEvents.MoveNext())
@@ -647,7 +648,7 @@ public static class GameLocationBattleManagerPatcher
             BattleDefinitions.AttackEvaluationParams attackParams)
         {
             //PATCH: support for features removing ranged attack disadvantage
-            RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
+            RemoveRangedAttackInMeleeDisadvantage.CheckToRemoveRangedDisadvantage(attackParams);
 
             if (!__result)
             {
@@ -707,7 +708,7 @@ public static class GameLocationBattleManagerPatcher
             bool firstTarget)
         {
             //PATCH: Completely replace this method to support several features. Modified method based on TA provided sources.
-            __result = GameLocationBattleManagerTweaks.HandleAdditionalDamageOnCharacterAttackHitConfirmed(
+            __result = GLBM.HandleAdditionalDamageOnCharacterAttackHitConfirmed(
                 __instance, attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
                 actualEffectForms, rulesetEffect, criticalHit, firstTarget);
 
@@ -733,7 +734,7 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit)
         {
             //PATCH: Completely replace this method to support several features. Modified method based on TA provided sources.
-            GameLocationBattleManagerTweaks.ComputeAndNotifyAdditionalDamage(
+            GLBM.ComputeAndNotifyAdditionalDamage(
                 __instance, attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
 
             return false;
@@ -894,14 +895,15 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: support for `IMagicalAttackBeforeHitConfirmedOnMeOrAlly`
             // should also happen outside battles
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                __instance.Battle?.AllContenders ??
-                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
             foreach (var ally in contenders
                          .Where(x => x.IsOppositeSide(attacker.Side)
-                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList()) // avoid changing enumerator
+                                     && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
             {
                 foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
                              .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMeOrAlly>())
@@ -944,13 +946,14 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: support for `ITryAlterOutcomeFailedSavingThrow`
             // should also happen outside battles
+            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var contenders =
-                __instance.Battle?.AllContenders ??
-                ServiceRepository.GetService<IGameLocationCharacterService>().PartyCharacters;
+                (Gui.Battle?.AllContenders ??
+                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                .ToList();
 
             foreach (var unit in contenders
-                         .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                         .ToList()) // avoid changing enumerator
+                         .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
             {
                 foreach (var feature in unit.RulesetCharacter
                              .GetSubFeaturesByType<ITryAlterOutcomeFailedSavingThrow>())

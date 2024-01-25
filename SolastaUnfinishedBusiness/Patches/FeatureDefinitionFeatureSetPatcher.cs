@@ -27,7 +27,7 @@ public static class FeatureDefinitionFeatureSetPatcher
 
             featureSet.RemoveAll(f => f.GuiPresentation.Hidden);
 
-            if (!featureSet.Empty())
+            if (!featureSet.Count == 0)
             {
                 description += "\n\n" + string.Join("\n\n", featureSet.Select(f =>
                     $"{Gui.Colorize(f.FormatTitle(), Gui.ColorBrightBlue)}\n{f.FormatDescription()}"));

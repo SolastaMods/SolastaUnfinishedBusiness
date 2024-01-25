@@ -5,11 +5,12 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -87,7 +88,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .Build())
             .AddCustomSubFeatures(
-                IsPowerPool.Marker,
+                IsModifyPowerPool.Marker,
                 HasModifiedUses.Marker,
                 ReactionResourceArcaneShot.Instance,
                 new SpendPowerFinishedByMeArcaneShot(),
@@ -260,7 +261,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerBanishingArrow,
@@ -294,7 +295,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerBeguilingArrow,
@@ -322,7 +323,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(_powerBurstingArrow,
@@ -354,7 +355,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var abilityCheckAffinityEnfeeblingArrow = FeatureDefinitionAbilityCheckAffinityBuilder
@@ -415,7 +416,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var conditionGraspingArrow = ConditionDefinitionBuilder
@@ -470,7 +471,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                                 lightSourceForm.graphicsPrefabReference)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerInsightArrow,
@@ -504,7 +505,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerShadowArrow,
@@ -538,7 +539,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                             .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 6, 11)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         ArcaneShotPowers.Add(powerSlowingArrow,
@@ -562,7 +563,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 .SetGuiPresentation(guiPresentation)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.ArcaneShotChoice)
                 .SetGrantedFeature(power)
-                .AddCustomSubFeatures(HiddenInvocation.Marker)
+                .AddCustomSubFeatures(ModifyInvocationVisibility.Marker)
                 .AddToDB();
         }
     }
@@ -604,9 +605,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         ArcaneArcherData arcaneArcherData,
         CharacterAction action)
     {
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        if (Gui.Battle == null)
         {
             return;
         }
@@ -622,7 +621,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         };
 
         // apply damage to all targets
-        foreach (var target in gameLocationBattleService.Battle.GetContenders(defender, false, isWithinXCells: 3))
+        foreach (var target in Gui.Battle.GetContenders(defender, false, isWithinXCells: 3))
         {
             var rulesetTarget = target.RulesetCharacter;
             var damageForm = new DamageForm
@@ -823,7 +822,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(PowerArcaneShot, character);
+            var usablePower = PowerProvider.Get(PowerArcaneShot, character);
 
             if (character.GetRemainingUsesOfPower(usablePower) > 0)
             {

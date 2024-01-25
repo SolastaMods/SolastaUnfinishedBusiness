@@ -5,11 +5,11 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -153,7 +153,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddToDB();
 
         powerArcaneBacklash.AddCustomSubFeatures(
-            PowerVisibilityModifier.Hidden,
+            ModifyPowerVisibility.Hidden,
             new ActionFinishedByMeArcaneBackslash(
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell,
@@ -327,12 +327,14 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerArcaneBackslash, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             // different follow up pattern [not adding to ResultingActions]
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);

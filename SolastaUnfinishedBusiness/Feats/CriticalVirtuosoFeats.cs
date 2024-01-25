@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Validators;
 
 namespace SolastaUnfinishedBusiness.Feats;
 

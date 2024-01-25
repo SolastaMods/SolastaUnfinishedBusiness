@@ -4,8 +4,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -47,7 +48,7 @@ public static class RulesetEffectPowerPatcher
 
             var usablePower = __instance.UsablePower;
 
-            UsablePowersProvider.UpdateSaveDc(user, usablePower, classDefinition);
+            PowerProvider.UpdateSaveDc(user, usablePower, classDefinition);
             __result = usablePower.SaveDC;
         }
     }

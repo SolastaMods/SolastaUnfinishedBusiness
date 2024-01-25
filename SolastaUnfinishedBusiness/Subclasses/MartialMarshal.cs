@@ -7,10 +7,10 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -222,7 +222,7 @@ public sealed class MartialMarshal : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
+        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
 
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierMarshalEternalComradeHP")
@@ -464,7 +464,7 @@ public sealed class MartialMarshal : AbstractSubclass
                 {
                     var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
 
-                    if (cantrips == null || cantrips.Empty())
+                    if (cantrips == null || cantrips.Count == 0)
                     {
                         continue;
                     }
@@ -486,7 +486,7 @@ public sealed class MartialMarshal : AbstractSubclass
                 reactions.Add(reactionParams);
             }
 
-            if (reactions.Empty() || battleManager is not { IsBattleInProgress: true })
+            if (reactions.Count == 0 || battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }

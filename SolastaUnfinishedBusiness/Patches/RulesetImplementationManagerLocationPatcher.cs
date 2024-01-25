@@ -5,7 +5,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Validators;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -43,7 +45,7 @@ public static class RulesetImplementationManagerLocationPatcher
             ref string failure)
         {
             //PATCH: support for custom metamagic
-            var validator = metamagicOption.GetFirstSubFeatureOfType<MetamagicApplicationValidator>();
+            var validator = metamagicOption.GetFirstSubFeatureOfType<ValidateMetamagicApplication>();
             validator?.Invoke(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
         }
     }
@@ -103,7 +105,7 @@ public static class RulesetImplementationManagerLocationPatcher
             // used for Grenadier's force grenades
             // if effect source definition has marker, and forms params have position, will try to push target from that point
 
-            var useDefaultLogic = PushesOrDragFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
+            var useDefaultLogic = ForcePushOrDragFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
 
             if (useDefaultLogic)
             {

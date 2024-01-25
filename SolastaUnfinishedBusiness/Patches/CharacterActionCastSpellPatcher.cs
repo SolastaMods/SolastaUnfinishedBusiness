@@ -8,8 +8,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -132,7 +132,7 @@ public static class CharacterActionCastSpellPatcher
         public static bool Prefix([NotNull] CharacterActionCastSpell __instance)
         {
             //PATCH: terminates all matching spells and powers of same group
-            GlobalUniqueEffects.TerminateMatchingUniqueEffect(
+            ForceGlobalUniqueEffects.TerminateMatchingUniqueEffect(
                 __instance.ActingCharacter.RulesetCharacter,
                 __instance.ActiveSpell);
 

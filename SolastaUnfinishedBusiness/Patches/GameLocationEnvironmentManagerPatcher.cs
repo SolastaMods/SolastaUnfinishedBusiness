@@ -7,7 +7,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -50,7 +50,7 @@ public static class GameLocationEnvironmentManagerPatcher
                 return guid;
             }
 
-            if (!effect.SourceDefinition.HasSubFeatureOfType<RecurrenceOnlyOnSelfTurn>())
+            if (!effect.SourceDefinition.HasSubFeatureOfType<RestrictRecurrentEffectsOnSelfTurnOnly>())
             {
                 return guid;
             }

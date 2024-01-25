@@ -1,5 +1,5 @@
 ﻿using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 

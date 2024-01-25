@@ -6,10 +6,10 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine;
 using static EquipmentDefinitions;
 using static RuleDefinitions;
@@ -34,33 +34,31 @@ internal static class FixesContext
 
     internal static void LateLoad()
     {
+        AddAdditionalActionTitles();
+        ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
+        FixArmorClassOnLegendaryArmors();
         FixAttackBuffsAffectingSpellDamage();
+        FixBlackDragonLegendaryActions();
         FixColorTables();
+        FixCriticalThresholdModifiers();
         FixDivineBlade();
+        FixDragonBreathPowerSavingAttribute();
+        FixEagerForBattleTexts();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
+        FixLanguagesPointPoolsToIncludeAllLanguages();
         FixMartialArtsProgression();
         FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
+        FixMummyDreadfulGlareSavingAttribute();
+        FixPowerDragonbornBreathWeaponDiceProgression();
         FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
+        FixSavingThrowAffinityManaPainterAbsorption();
         FixSmitesAndStrikesDiceProgression();
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
-        FixCriticalThresholdModifiers();
-        FixEagerForBattleTexts();
-        AddAdditionalActionTitles();
-        FixRageActionSpending();
-        FixGrantBardicInspirationForActionSwitchingFeature();
-        FixPowerDragonbornBreathWeaponDiceProgression();
-        FixDragonBreathPowerSavingAttribute();
-        FixBlackDragonLegendaryActions();
-        FixMummyDreadfulGlareSavingAttribute();
-        FixArmorClassOnLegendaryArmors();
-        ExtendCharmImmunityToDemonicInfluence();
-        FixSavingThrowAffinityManaPainterAbsorption();
-        FixLanguagesPointPoolsToIncludeAllLanguages();
 
         // fix condition UI
         FeatureDefinitionCombatAffinitys.CombatAffinityForeknowledge.GuiPresentation.Description = Gui.NoLocalization;
@@ -409,6 +407,21 @@ internal static class FixesContext
 
     private static void FixMinorSpellIssues()
     {
+        // fix raise dead spells adding a buff instead of debuff after raising from dead
+        foreach (var affinityGroup in DatabaseRepository.GetDatabase<FeatureDefinitionSavingThrowAffinity>()
+                     .Where(x => x.Name.Contains("ConditionBackFromDead"))
+                     .SelectMany(x => x.AffinityGroups))
+        {
+            affinityGroup.savingThrowModifierType = FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice;
+        }
+
+        foreach (var abilityCheckAffinity in DatabaseRepository.GetDatabase<FeatureDefinitionAbilityCheckAffinity>()
+                     .Where(x => x.Name.Contains("ConditionBackFromDead"))
+                     .SelectMany(x => x.AffinityGroups))
+        {
+            abilityCheckAffinity.abilityCheckGroupOperation = AbilityCheckGroupOperation.SubstractDie;
+        }
+
         ConditionDefinitions.ConditionBlinded.Features.Remove(
             FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlinded);
 
@@ -527,7 +540,7 @@ internal static class FixesContext
     {
         //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
         MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(
-            new MetamagicApplicationValidator(
+            new ValidateMetamagicApplication(
                 (RulesetCharacter _,
                     RulesetEffectSpell spell,
                     MetamagicOptionDefinition _,
@@ -597,18 +610,6 @@ internal static class FixesContext
         //     = ExpeditiousRetreat.GuiPresentation.Title;
     }
 
-    private static void FixRageActionSpending()
-    {
-        //TA's implementation of Rage Start spends Bonus Action twice - not a big problem in vanilla, but breaks action switching code
-        //use our custom rage start class that doesn't have this issue
-        DatabaseHelper.ActionDefinitions.RageStart.classNameOverride = "CombatRageStart";
-    }
-
-    private static void FixGrantBardicInspirationForActionSwitchingFeature()
-    {
-        DatabaseHelper.ActionDefinitions.GrantBardicInspiration.classNameOverride = "UsePower";
-    }
-
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -667,12 +668,13 @@ internal static class FixesContext
 
             var actionParams = action.ActionParams.Clone();
             var usablePower =
-                UsablePowersProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
-
+                PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

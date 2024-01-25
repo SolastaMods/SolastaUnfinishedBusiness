@@ -8,15 +8,16 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.CustomBuilders.EldritchVersatility;
+using static SolastaUnfinishedBusiness.Subclasses.Builders.EldritchVersatilityBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -62,7 +63,7 @@ public class PatronEldritchSurge : AbstractSubclass
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-        .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+        .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
         .AddToDB();
 
     public PatronEldritchSurge()

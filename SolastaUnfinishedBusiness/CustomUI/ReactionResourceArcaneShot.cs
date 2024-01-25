@@ -1,6 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine.AddressableAssets;
 
@@ -17,7 +17,7 @@ public class ReactionResourceArcaneShot : ICustomReactionResource
 
     public string GetUses(RulesetCharacter character)
     {
-        var usablePower = UsablePowersProvider.Get(MartialArcaneArcher.PowerArcaneShot, character);
+        var usablePower = PowerProvider.Get(MartialArcaneArcher.PowerArcaneShot, character);
 
         return character.GetRemainingUsesOfPower(usablePower).ToString();
     }

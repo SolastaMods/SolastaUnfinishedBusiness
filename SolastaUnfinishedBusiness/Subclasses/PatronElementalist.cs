@@ -3,7 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;

@@ -6,10 +6,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -367,12 +368,14 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             rulesetAttacker.UpdateUsageForPower(powerHailOfBlades, powerHailOfBlades.CostPerUse);
 
             var actionParams = action.ActionParams.Clone();
-            var usablePower = UsablePowersProvider.Get(powerHailOfBlades, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(
                 battleManager.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 3));
 
@@ -408,7 +411,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(powerHailOfBlades, rulesetAttacker);
+            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
 
             rulesetAttacker.RepayPowerUse(usablePower);
         }

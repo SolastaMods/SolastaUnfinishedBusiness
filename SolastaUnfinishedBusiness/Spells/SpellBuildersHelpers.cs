@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -57,12 +57,6 @@ internal static partial class SpellBuilders
             }
 
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                return false;
-            }
-
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
@@ -104,7 +98,7 @@ internal static partial class SpellBuilders
             var caster = actionParams.ActingCharacter;
             var targets = actionParams.TargetCharacters;
 
-            if (targets.Empty())
+            if (targets.Count == 0)
             {
                 return attacks;
             }

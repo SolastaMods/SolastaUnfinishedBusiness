@@ -47,7 +47,7 @@ internal class PerformanceFilterExtraData
 
     private static PerformanceFilterExtraData Get()
     {
-        return Pool.Empty() ? new PerformanceFilterExtraData() : Pool.Pop();
+        return Pool.Count == 0 ? new PerformanceFilterExtraData() : Pool.Pop();
     }
 
     private static void Return(PerformanceFilterExtraData data)

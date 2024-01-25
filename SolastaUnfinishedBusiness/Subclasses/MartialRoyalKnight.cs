@@ -4,9 +4,9 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -116,7 +116,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             .Create("PowerRoyalKnightInspiringProtectionAura")
             .SetGuiPresentation(TEXT, Category.Feature)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .AddCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -286,15 +286,17 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(Power, rulesetOriginalHelper);
-            var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var usablePower = PowerProvider.Get(Power, rulesetOriginalHelper);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = ReactionName,
                 StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
-                RulesetEffect = rulesService
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
             };
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;

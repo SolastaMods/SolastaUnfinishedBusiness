@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;
@@ -102,6 +103,9 @@ internal static class BootContext
 
             // SRD rules switches
             SrdAndHouseRulesContext.LateLoad();
+
+            // Action Switching
+            ActionSwitching.LateLoad();
 
             // Vanilla Fixes
             FixesContext.LateLoad();

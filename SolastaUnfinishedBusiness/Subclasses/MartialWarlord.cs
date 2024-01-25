@@ -7,12 +7,13 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -76,7 +77,7 @@ public sealed class MartialWarlord : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
                     .Build())
             .AddCustomSubFeatures(
-                IsPowerPool.Marker,
+                IsModifyPowerPool.Marker,
                 new MagicEffectFinishedByMePressTheAdvantage(),
                 new RestrictReactionAttackMode((_, attacker, _, mode, _) =>
                     mode != null && // IsWeaponOrUnarmedAttack
@@ -604,7 +605,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 {
                     var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
 
-                    if (cantrips == null || cantrips.Empty())
+                    if (cantrips == null || cantrips.Count == 0)
                     {
                         continue;
                     }
@@ -627,7 +628,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 reactions.Add(reactionParams);
             }
 
-            if (reactions.Empty() || battleManager is not { IsBattleInProgress: true })
+            if (reactions.Count == 0 || battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -669,9 +670,7 @@ public sealed class MartialWarlord : AbstractSubclass
     {
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (Gui.Battle == null)
             {
                 return;
             }
@@ -702,7 +701,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 return;
             }
 
-            foreach (var player in gameLocationBattleService.Battle
+            foreach (var player in Gui.Battle
                          .GetContenders(locationCharacter, false, false, isWithinXCells: 6))
             {
                 player.RulesetCharacter.InflictCondition(
@@ -734,7 +733,7 @@ public sealed class MartialWarlord : AbstractSubclass
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(powerCoordinatedAssault, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerCoordinatedAssault, rulesetCharacter);
 
             rulesetCharacter.RepayPowerUse(usablePower);
         }

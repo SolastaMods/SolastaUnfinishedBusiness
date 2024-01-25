@@ -6,12 +6,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -21,6 +20,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
+using MirrorImage = SolastaUnfinishedBusiness.BehaviorsSpecific.MirrorImage;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -140,13 +140,13 @@ internal static partial class SpellBuilders
         //Use Condition directly, instead of ConditionName to guarantee it gets built
         var condition = ConditionDefinitionBuilder
             .Create("ConditionMirrorImageMark")
-            .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+            .SetGuiPresentation(MirrorImage.Condition.Name, Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .CopyParticleReferences(ConditionBlurred)
-            .AddCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+            .AddCustomSubFeatures(MirrorImage.DuplicateProvider.Mark)
             .AddToDB();
 
-        var spell = MirrorImage;
+        var spell = SpellDefinitions.MirrorImage;
 
         spell.contentPack = CeContentPackContext.CeContentPack; // required otherwise it FUP spells UI
         spell.implemented = true;

@@ -2,10 +2,10 @@
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static AttributeDefinitions;
@@ -211,11 +211,11 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
 
         powerTouchOfDarknessFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
-                character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
+                character => PowerProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
 
         powerTouchOfDarknessPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
-                character => UsablePowersProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses == 0));
+                character => PowerProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses == 0));
 
         var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder
             .Create(TOUCH_OF_DARKNESS_NAME)

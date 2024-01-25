@@ -5,11 +5,11 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -29,9 +29,11 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
 
     private static readonly ConditionDefinition ConditionWarDance = BuildConditionWarDance();
 
-    private static readonly DamageDieProvider UpgradeDice = (character, _) => GetMomentumDice(character);
+    private static readonly ProvideAdditionalDamageDieType UpgradeDiceType = (character, _) =>
+        GetMomentumDice(character);
 
-    private static readonly DieNumProvider UpgradeDieNum = (character, _) => GetMomentumDiceNum(character);
+    private static readonly ProvideAdditionalDamageDiceNumber UpgradeDieNum = (character, _) =>
+        GetMomentumDiceNum(character);
 
     private static readonly ConditionDefinition WarDanceMomentum = ConditionDefinitionBuilder
         .Create("ConditionWarDanceMomentum")
@@ -50,7 +52,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                 .SetIgnoreCriticalDoubleDice(true)
                 .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                 .SetNotificationTag("Momentum")
-                .AddCustomSubFeatures(UpgradeDice, UpgradeDieNum)
+                .AddCustomSubFeatures(UpgradeDiceType, UpgradeDieNum)
                 .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
@@ -64,7 +66,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             FeatureDefinitionAdditionalActionBuilder
                 .Create("AdditionalActionWarDanceMomentum")
                 .SetGuiPresentation(ImproveWarDance.GuiPresentation)
-                .AddCustomSubFeatures(AllowDuplicates.Mark, AdditionalActionAttackValidator.MeleeOnly)
+                .AddCustomSubFeatures(AllowConditionDuplicates.Mark, ValidateAdditionalActionAttack.MeleeOnly)
                 .SetActionType(ActionType.Main)
                 .SetMaxAttacksNumber(1)
                 .SetRestrictedActions(Id.AttackMain)
@@ -95,7 +97,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                         EffectFormBuilder.ConditionForm(ConditionWarDance),
                         EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration))
                     .Build())
-            .AddCustomSubFeatures(EffectWithConcentrationCheck.Mark,
+            .AddCustomSubFeatures(ForceConcentrationCheck.Mark,
                 ValidatorsValidatePowerUse.HasNoneOfConditions(ConditionWarDance.Name))
             .AddToDB();
 
@@ -142,7 +144,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
                     .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
                     .AddCustomSubFeatures(
-                        FreeWeaponSwitching.Mark,
+                        AllowFreeWeaponSwitching.Mark,
                         new StopMomentumAndAttacksWhenRemoved(),
                         new WarDanceFlurryPhysicalAttack(),
                         new WarDanceFlurryWeaponAttackModifier(),

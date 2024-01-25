@@ -1,6 +1,13 @@
-﻿1.5.94.44:
+﻿1.5.94.55:
 
-- fixed a crash introduced on v43 that developer's tremor sense wasn't able to detect [it's a flying bug]
+- fixed distance calculation logic affecting some feats, features, fighting styles, invocations, and spells
+- fixed lighting, obscurement, and vision under invisibility scenarios [allow blind sight and tremor sense]
+- fixed Path of The Spirits wolf leadership to grant advantage to all allies within 5 ft except raging self
+- fixed vanilla Raise Dead spell adding modifiers instead of subtracting them from ability and saving check
+
+1.5.94.44:
+
+- fixed a crash introduced on v43 that developer's tremor sense wasn't able to detect
 
 1.5.94.43:
 

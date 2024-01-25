@@ -3,7 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;

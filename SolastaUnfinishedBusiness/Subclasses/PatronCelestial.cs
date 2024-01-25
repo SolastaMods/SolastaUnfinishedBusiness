@@ -7,11 +7,12 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -151,7 +152,7 @@ public class PatronCelestial : AbstractSubclass
         RestActivityDefinitionBuilder
             .Create($"RestActivity{Name}CelestialResistanceShortRest")
             .SetGuiPresentation(CelestialResistanceName, Category.Feature)
-            .AddCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .AddCustomSubFeatures(new ValidateRestActivity(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
@@ -163,7 +164,7 @@ public class PatronCelestial : AbstractSubclass
         RestActivityDefinitionBuilder
             .Create($"RestActivity{Name}CelestialResistanceLongRest")
             .SetGuiPresentation(CelestialResistanceName, Category.Feature)
-            .AddCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .AddCustomSubFeatures(new ValidateRestActivity(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,
@@ -182,7 +183,7 @@ public class PatronCelestial : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .AddCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
+                ModifyPowerVisibility.Hidden,
                 new MagicEffectFinishedByMeCelestialResistance())
             .AddToDB();
 
@@ -348,6 +349,16 @@ public class PatronCelestial : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var rulesetCharacter = source.RulesetCharacter;
 
             if (rulesetCharacter == null)
@@ -360,24 +371,17 @@ public class PatronCelestial : AbstractSubclass
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (manager == null || battle is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
             var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
                 StringParameter = "Reaction/&CustomReactionSearingVengeanceDescription"
             };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("SearingVengeance", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService,
+                previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -389,11 +393,14 @@ public class PatronCelestial : AbstractSubclass
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
-            var usablePower = UsablePowersProvider.Get(powerSearingVengeance, rulesetCharacter);
-            var targets = battle.Battle.GetContenders(source, isWithinXCells: 5);
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
+            var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 5);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(targets);
 
             EffectHelpers.StartVisualEffect(
