@@ -429,11 +429,13 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         {
             var actionParams = action.ActionParams.Clone();
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -493,15 +495,16 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var actionParamsDiscordance = action.ActionParams.Clone();
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
 
             actionParamsDiscordance.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParamsDiscordance.RulesetEffect = rulesetImplementationService
+            actionParamsDiscordance.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false);
             actionParamsDiscordance.TargetCharacters.SetRange(targets);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -530,9 +533,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
 
             actionParamsTurmoil.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParamsTurmoil.RulesetEffect = rulesetImplementationService
+            actionParamsTurmoil.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false);
             actionParamsTurmoil.TargetCharacters.SetRange(targets);
 
             // must enqueue actions
@@ -600,12 +603,14 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
             // temporarily heal
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetAlly, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
                 targetCharacters = { ally }
             };
 

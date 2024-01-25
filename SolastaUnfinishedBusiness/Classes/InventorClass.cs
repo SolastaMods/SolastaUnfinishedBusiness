@@ -923,14 +923,15 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
         }
 
         var usablePower = PowerProvider.Get(Power, rulesetOriginalHelper);
-        var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
+        var implementationManagerService =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
         {
             StringParameter = ReactionName,
             StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
-            RulesetEffect = rulesService
+            RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
+                .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
         };
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;

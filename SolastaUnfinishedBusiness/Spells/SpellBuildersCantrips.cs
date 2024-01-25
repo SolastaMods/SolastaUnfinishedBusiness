@@ -964,15 +964,15 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var actionParams = action.ActionParams.Clone();
-
             var usablePower = PowerProvider.Get(_powerResonatingStrike, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
-            actionParams.RulesetEffect = rulesetImplementationService
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(_secondTarget);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

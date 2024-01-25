@@ -949,11 +949,12 @@ internal static class OtherFeats
 
             var actionParams = action.ActionParams.Clone();
             var usablePower = PowerProvider.Get(powerPoisonousSkin, me);
-
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(me, usablePower, false);
+                .MyInstantiateEffectPower(me, usablePower, false);
             actionParams.TargetCharacters.SetRange(target);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

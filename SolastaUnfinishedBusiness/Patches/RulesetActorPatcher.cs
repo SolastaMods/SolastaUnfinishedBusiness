@@ -190,11 +190,14 @@ public static class RulesetActorPatcher
                     continue;
                 }
 
+                var implementationManagerService =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
                 var actionParams = new CharacterActionParams(sourceCharacter, ActionDefinitions.Id.SpendPower)
                 {
-                    RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                    RulesetEffect = implementationManagerService
                         //CHECK: no need for AddAsActivePowerToSource
-                        .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                     targetCharacters = gameLocationCharacterService.AllValidEntities
                         .Where(x =>
                             x.Side == effectDescription.TargetSide &&

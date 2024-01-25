@@ -50,7 +50,8 @@ internal static class PowerBundleContext
 
                 fromActor ??= GameLocationCharacter.GetFromActor(ruleChar);
 
-                var rules = ServiceRepository.GetService<IRulesetImplementationService>();
+                var implementationManagerService =
+                    ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
                 if (fromActor != null)
                 {
@@ -61,8 +62,8 @@ internal static class PowerBundleContext
 
                     actionParams.TargetCharacters.Add(fromActor);
                     actionParams.ActionModifiers.Add(new ActionModifier());
-                    actionParams.RulesetEffect = rules
-                        .InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
+                    actionParams.RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
                         .AddAsActivePowerToSource();
                     actionParams.SkipAnimationsAndVFX = true;
 
@@ -79,8 +80,8 @@ internal static class PowerBundleContext
                     var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
                     formsParams.FillSourceAndTarget(ruleChar, ruleChar);
-                    formsParams.FillFromActiveEffect(rules
-                        .InstantiateEffectPower(ruleChar, usablePower, false)
+                    formsParams.FillFromActiveEffect(implementationManagerService
+                        .MyInstantiateEffectPower(ruleChar, usablePower, false)
                         .AddAsActivePowerToSource());
                     formsParams.effectSourceType = EffectSourceType.Power;
 

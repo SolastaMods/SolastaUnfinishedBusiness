@@ -1050,14 +1050,17 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = action.ActionParams.Clone();
             var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
             var selectedTarget = actionParams.TargetCharacters[0];
             var targets = new List<GameLocationCharacter>();
             var usablePower = PowerProvider.Get(_powerEldritchDetonation, rulesetCharacter);
-            var effectPower = ServiceRepository.GetService<IRulesetImplementationService>()
+
+            var effectPower = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
                 selectedTarget, effectPower.EffectDescription, targets, []);

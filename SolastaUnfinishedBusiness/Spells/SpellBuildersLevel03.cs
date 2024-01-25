@@ -692,11 +692,13 @@ internal static partial class SpellBuilders
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(Gui.Battle.AllContenders
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -1049,11 +1051,13 @@ internal static partial class SpellBuilders
             // leap damage on enemies within 10 ft from target
             var actionParams = action.ActionParams.Clone();
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(
                 battleManager.Battle.GetContenders(defender, false, isWithinXCells: 2));
 

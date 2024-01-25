@@ -89,13 +89,15 @@ internal sealed class Merciless : AbstractFightingStyle
             var rulesetAttacker = attacker.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var distance = _criticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 targetCharacters = Gui.Battle
                     .GetContenders(attacker, isWithinXCells: distance)
                     .Where(x => x.CanPerceiveTarget(attacker))

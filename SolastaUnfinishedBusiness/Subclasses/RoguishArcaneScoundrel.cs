@@ -328,11 +328,13 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             var actionParams = action.ActionParams.Clone();
             var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             // different follow up pattern [not adding to ResultingActions]
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);

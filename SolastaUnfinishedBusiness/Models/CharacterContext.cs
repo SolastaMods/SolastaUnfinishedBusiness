@@ -1928,13 +1928,15 @@ internal static class CharacterContext
             }
 
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = powerRogueCunningStrike.Name,
                 TargetCharacters = { defender },
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false)
             };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestSpendBundlePower(reactionParams);
@@ -2003,11 +2005,13 @@ internal static class CharacterContext
             var actionParams = action.ActionParams.Clone();
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

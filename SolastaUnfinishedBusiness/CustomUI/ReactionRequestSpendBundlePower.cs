@@ -121,11 +121,12 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest, IReacti
         var spell = ReactionParams.SpellRepertoire.KnownSpells[option];
         var power = PowerBundle.GetPower(spell);
 
-        var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
+        var implementationManagerService =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var rulesetCharacter = actingCharacter.RulesetCharacter;
         var usablePower = PowerProvider.Get(power, rulesetCharacter);
-        var powerEffect = rulesService
-            .InstantiateEffectPower(rulesetCharacter, usablePower, false)
+        var powerEffect = implementationManagerService
+            .MyInstantiateEffectPower(rulesetCharacter, usablePower, false)
             .AddAsActivePowerToSource();
 
         ReactionParams.RulesetEffect = powerEffect;

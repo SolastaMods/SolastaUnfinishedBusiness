@@ -394,9 +394,12 @@ public class PatronCelestial : AbstractSubclass
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
             var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
             var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 5);
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(targets);
 
             EffectHelpers.StartVisualEffect(

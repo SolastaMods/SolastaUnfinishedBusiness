@@ -277,11 +277,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var actionParams = action.ActionParams.Clone();
-
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, null, Darkness, -1, false);
 
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
+            actionParams.RulesetEffect = effectSpell;
+            rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
 
             yield break;
@@ -469,12 +470,15 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             rulesetMe.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetMe, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetMe, usablePower, false)
             };
 
             actionParams.TargetCharacters.SetRange(me);

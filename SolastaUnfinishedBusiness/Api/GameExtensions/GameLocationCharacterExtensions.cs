@@ -386,12 +386,14 @@ public static class GameLocationCharacterExtensions
             rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
         {
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = new CharacterActionParams(instance, Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 targetCharacters = { instance }
             };
 

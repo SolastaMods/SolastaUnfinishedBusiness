@@ -1528,12 +1528,14 @@ internal static class Level20SubclassesContext
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 targetCharacters = { actingCharacter }
             };
 
@@ -1928,12 +1930,14 @@ internal static class Level20SubclassesContext
                 0);
 
             var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
             {
                 ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
-                RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+                RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .InstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 targetCharacters = { source }
             };
 

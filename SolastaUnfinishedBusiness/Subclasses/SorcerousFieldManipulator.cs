@@ -316,11 +316,13 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker, isWithinXCells: 2));
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();

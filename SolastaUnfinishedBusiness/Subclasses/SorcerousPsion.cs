@@ -397,10 +397,12 @@ public sealed class SorcerousPsion : AbstractSubclass
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
             var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
             var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 2);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetCharacter, usablePower, false);
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
             actionParams.TargetCharacters.SetRange(targets);
 
             EffectHelpers.StartVisualEffect(

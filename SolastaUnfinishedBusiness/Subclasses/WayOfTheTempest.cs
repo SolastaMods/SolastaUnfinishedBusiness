@@ -411,11 +411,13 @@ public sealed class WayOfTheTempest : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = ServiceRepository.GetService<IRulesetImplementationService>()
+            actionParams.RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .InstantiateEffectPower(rulesetAttacker, usablePower, false);
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
             actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker)
                 .Where(x =>
                     x.RulesetCharacter.AllConditions
