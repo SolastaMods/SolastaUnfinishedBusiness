@@ -1,4 +1,8 @@
-﻿1.5.94.55:
+﻿1.5.94.56:
+
+- fixed enemies flanking rules
+
+1.5.94.55:
 
 - fixed distance calculation logic affecting some feats, features, fighting styles, invocations, and spells
 - fixed lighting, obscurement, and vision under invisibility scenarios [allow blind sight and tremor sense]
