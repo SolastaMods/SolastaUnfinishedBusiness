@@ -1,8 +1,9 @@
 ﻿1.5.94.56:
 
 - fixed enemies flanking rules
-- fixed gadgets targeting lighting and obscurement rules
-- fixed Remarkable Technique fighting style not offering gambit selection
+- fixed Ethereal Step spell
+- fixed lighting and obscurement rules
+- fixed Remarkable Technique fighting style
 
 1.5.94.55:
 
