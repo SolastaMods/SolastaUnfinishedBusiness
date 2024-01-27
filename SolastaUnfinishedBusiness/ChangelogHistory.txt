@@ -2,6 +2,7 @@
 
 - fixed enemies flanking rules
 - fixed gadgets targeting lighting and obscurement rules
+- fixed Remarkable Technique fighting style not offering gambit selection
 
 1.5.94.55:
 

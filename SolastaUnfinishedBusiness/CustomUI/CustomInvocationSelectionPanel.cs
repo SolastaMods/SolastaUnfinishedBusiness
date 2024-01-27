@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Definitions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -100,13 +100,17 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             CommonData.CharacterStatsPanel.RefreshNow();
 
             // don't use ? on Unity Objects
+#pragma warning disable IDE0031
             if (CommonData.AttackModesPanel != null)
+#pragma warning restore IDE0031
             {
                 CommonData.AttackModesPanel.RefreshNow();
             }
 
             // don't use ? on Unity Objects
+#pragma warning disable IDE0031
             if (CommonData.PersonalityMapPanel != null)
+#pragma warning restore IDE0031
             {
                 CommonData.PersonalityMapPanel.RefreshNow();
             }
@@ -224,10 +228,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         pool.Used = 0;
         pool.Skipped = false;
         GetOrMakeLearnedList(pool.Id).Clear();
-
         GrantAcquiredFeatures(onDone);
     }
-
 
     private void MoveToNextLearnStep()
     {
@@ -256,6 +258,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             _currentLearnStep--;
             ResetLearnings(_currentLearnStep);
+
             if (IsUnlearnStep(_currentLearnStep))
             {
                 heroBuildingCommandService.AcknowledgePreviousCharacterBuildingCommandLocally(() =>
@@ -422,6 +425,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         var learned = new List<InvocationDefinitionCustom>();
 
         _learnedInvocations.Add(id, learned);
+
         return learned;
     }
 
@@ -465,7 +469,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private void CollectTags()
     {
-        Dictionary<PoolId, FeaturePool> tags = new();
+        Dictionary<PoolId, FeaturePool> tags = [];
 
         UpdateGrantedFeatures();
         _allPools.Clear();
@@ -507,29 +511,45 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
         var hero = characterBuildingService.CurrentLocalHeroCharacter;
 
-        // note we assume pools from feats are merged on class tags
-        if (hero != null)
+        if (hero == null)
         {
-            var heroBuildingData = hero.GetHeroBuildingData();
+            return;
+        }
 
-            _gainedCustomFeatures.AddRange(heroBuildingData.LevelupTrainedFeats
-                .SelectMany(x => x.Value)
-                .SelectMany(f => f.Features)
+        // note we assume pools from feats are merged on class tags
+        var heroBuildingData = hero.GetHeroBuildingData();
+
+        // add from feats
+        _gainedCustomFeatures.AddRange(heroBuildingData.LevelupTrainedFeats
+            .SelectMany(x => x.Value)
+            .SelectMany(f => f.Features)
+            .OfType<FeatureDefinitionCustomInvocationPool>()
+            .Where(x => x.PoolType != null)
+            .Select(f => (poolTag, f)));
+
+        if (poolTag != null)
+        {
+            _gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(_gainedClass.FeatureUnlocks
+                    .Where(f => f.Level == _gainedClassLevel)
+                    .Select(f => f.FeatureDefinition))
                 .OfType<FeatureDefinitionCustomInvocationPool>()
                 .Where(x => x.PoolType != null)
                 .Select(f => (poolTag, f))
             );
+
+            // add from class FS
+            if (hero.TrainedFightingStyles.Count > 0 &&
+                hero.ActiveFeatures[poolTag]
+                    .OfType<FeatureDefinitionFightingStyleChoice>()
+                    .Any())
+            {
+                _gainedCustomFeatures.AddRange(hero.TrainedFightingStyles.Last().Features
+                    .OfType<FeatureDefinitionCustomInvocationPool>()
+                    .Where(x => x.PoolType != null)
+                    .Select(f => (poolTag, f))
+                );
+            }
         }
-
-        poolTag = GetClassTag();
-
-        _gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(_gainedClass.FeatureUnlocks
-                .Where(f => f.Level == _gainedClassLevel)
-                .Select(f => f.FeatureDefinition))
-            .OfType<FeatureDefinitionCustomInvocationPool>()
-            .Where(x => x.PoolType != null)
-            .Select(f => (poolTag, f))
-        );
 
         poolTag = GetSubClassTag();
 
@@ -542,6 +562,19 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
                 .Where(x => x.PoolType != null)
                 .Select(f => (poolTag, f))
             );
+
+            // add from subclass FS
+            if (hero.TrainedFightingStyles.Count > 0 &&
+                hero.ActiveFeatures[poolTag]
+                    .OfType<FeatureDefinitionFightingStyleChoice>()
+                    .Any())
+            {
+                _gainedCustomFeatures.AddRange(hero.TrainedFightingStyles.Last().Features
+                    .OfType<FeatureDefinitionCustomInvocationPool>()
+                    .Where(x => x.PoolType != null)
+                    .Select(f => (poolTag, f))
+                );
+            }
         }
 
         var gainedRace = currentHero.RaceDefinition;
@@ -666,8 +699,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private void Setup()
     {
         var spellsPanel = GetComponent<CharacterStageSpellSelectionPanel>();
-        stageDefinition = spellsPanel.StageDefinition;
 
+        stageDefinition = spellsPanel.StageDefinition;
         _spellsByLevelTable = spellsPanel.spellsByLevelTable;
         _spellsByLevelPrefab = spellsPanel.spellsByLevelPrefab;
         _spellsScrollRect = spellsPanel.spellsScrollRect;
@@ -683,7 +716,6 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             spellsPanel.RectTransform.FindChildRecursive("SpellsInfoTitle").GetComponent<GuiLabel>();
         _rightFeaturesDescription = spellsPanel.RectTransform.FindChildRecursive("ProficienciesIntroDescription")
             .GetComponent<GuiLabel>();
-
         CharacterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
         currentHero = spellsPanel.currentHero;
 
@@ -787,6 +819,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         }
 
         failureString = string.Empty;
+
         return true;
     }
 
@@ -868,6 +901,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         float totalWidth = 0;
         float lastWidth = 0;
         var layout = _spellsByLevelTable.GetComponent<HorizontalLayoutGroup>();
+
         layout.padding.left = (int)SpellsByLevelMargin;
 
         for (var i = 0; i < _spellsByLevelTable.childCount; i++)
@@ -1013,7 +1047,9 @@ internal static class LearnStepItemExtension
         instance.rank = rank;
         instance.ignoreAvailable = pool.IsUnlearn;
         instance.autoLearnAvailable = false;
+
         var header = pool.Type.FormatTitle(pool.IsUnlearn);
+
         instance.headerLabelActive.Text = header;
         instance.headerLabelInactive.Text = header;
         instance.OnBackOneStepActivated = onBackOneStepActivated;
@@ -1117,7 +1153,9 @@ internal static class SpellsByLevelGroupExtensions
         for (var index = 0; index < allFeatures.Count; ++index)
         {
             var feature = allFeatures[index];
+
             spellsTable.GetChild(index).gameObject.SetActive(true);
+
             var box = spellsTable.GetChild(index).GetComponent<SpellBox>();
             var isUnlearned = unlearned.Contains(feature);
             var bindMode = unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning;
@@ -1170,8 +1208,8 @@ internal static class SpellsByLevelGroupExtensions
             var alreadyHas = hero.TrainedInvocations.Contains(boxFeature);
             var selected = learned.Contains(boxFeature);
             var isUnlearned = unlearnedFeatures != null && unlearnedFeatures.Contains(boxFeature);
-            var isValid = PowerBundle.ValidatePrerequisites(hero, boxFeature, boxFeature.Validators,
-                out var requirements);
+            var isValid = PowerBundle.ValidatePrerequisites(
+                hero, boxFeature, boxFeature.Validators, out var requirements);
             var canLearn = !selected && !alreadyHas && isValid;
 
             box.SetupUI(hero, pool.Sprite, requirements);
@@ -1189,7 +1227,8 @@ internal static class SpellsByLevelGroupExtensions
     }
 
     // ReSharper disable once SuggestBaseTypeForParameter
-    private static void RefreshUnlearning(this SpellsByLevelGroup instance,
+    private static void RefreshUnlearning(
+        this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         InvocationPoolTypeCustom pool,
         List<InvocationDefinitionCustom> unlearnedSpells,
@@ -1281,8 +1320,8 @@ internal static class SpellBoxExtensions
         instance.name = feature.Name;
     }
 
-    internal static void CustomRefreshLearningInProgress(this SpellBox instance, bool canLearn, bool selected,
-        bool known)
+    internal static void CustomRefreshLearningInProgress(
+        this SpellBox instance, bool canLearn, bool selected, bool known)
     {
         var autoPrepared = instance.autoPrepared;
 
@@ -1294,8 +1333,8 @@ internal static class SpellBoxExtensions
         instance.Refresh();
     }
 
-    internal static void SetupUI(this SpellBox instance, RulesetCharacterHero hero, AssetReferenceSprite sprite,
-        List<string> requirements)
+    internal static void SetupUI(
+        this SpellBox instance, RulesetCharacterHero hero, AssetReferenceSprite sprite, List<string> requirements)
     {
         var title = instance.titleLabel;
         var image = instance.spellImage;
