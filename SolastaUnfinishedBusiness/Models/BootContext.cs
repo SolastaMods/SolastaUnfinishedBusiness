@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.CustomUI;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;

@@ -20,7 +20,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
-using MirrorImage = SolastaUnfinishedBusiness.BehaviorsSpecific.MirrorImage;
+using MirrorImage = SolastaUnfinishedBusiness.Behaviors.Specific.MirrorImage;
 
 namespace SolastaUnfinishedBusiness.Spells;
 

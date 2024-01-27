@@ -1,5 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine.AddressableAssets;
 

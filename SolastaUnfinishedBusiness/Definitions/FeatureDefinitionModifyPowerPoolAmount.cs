@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.BehaviorsGeneric;
+﻿using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
 
 // ReSharper disable once CheckNamespace

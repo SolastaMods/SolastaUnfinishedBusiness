@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Behaviors;
 using static RuleDefinitions;
 
 // ReSharper disable once CheckNamespace
