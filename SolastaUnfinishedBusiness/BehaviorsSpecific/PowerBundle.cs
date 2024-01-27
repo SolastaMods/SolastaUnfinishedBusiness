@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.BehaviorsGeneric;
-using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -34,7 +33,7 @@ internal static class PowerBundle
         {
             FeatureDefinitionPower rechargedPower;
 
-            if (usablePower.PowerDefinition is IPowerSharedPool pool)
+            if (usablePower.PowerDefinition is FeatureDefinitionPowerSharedPool pool)
             {
                 rechargedPower = pool.GetUsagePoolPower();
             }
@@ -85,7 +84,7 @@ internal static class PowerBundle
         {
             var power = usablePower.PowerDefinition;
 
-            if (power is not IPowerSharedPool pool)
+            if (power is not FeatureDefinitionPowerSharedPool pool)
             {
                 continue;
             }
@@ -115,7 +114,7 @@ internal static class PowerBundle
     [CanBeNull]
     internal static RulesetUsablePower GetPoolPower([NotNull] RulesetUsablePower power, RulesetCharacter character)
     {
-        if (power.PowerDefinition is not IPowerSharedPool pool)
+        if (power.PowerDefinition is not FeatureDefinitionPowerSharedPool pool)
         {
             return null;
         }
@@ -129,7 +128,7 @@ internal static class PowerBundle
         this RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power)
     {
-        if (power is IPowerSharedPool poolPower)
+        if (power is FeatureDefinitionPowerSharedPool poolPower)
         {
             power = poolPower.GetUsagePoolPower();
         }
@@ -144,7 +143,7 @@ internal static class PowerBundle
         [NotNull] FeatureDefinitionPower power,
         int poolUsage)
     {
-        if (power is IPowerSharedPool poolPower)
+        if (power is FeatureDefinitionPowerSharedPool poolPower)
         {
             power = poolPower.GetUsagePoolPower();
         }
@@ -161,7 +160,7 @@ internal static class PowerBundle
     {
         RulesetUsablePower usablePower = null;
 
-        if (modifiedPower.PowerDefinition is IPowerSharedPool sharedPoolPower)
+        if (modifiedPower.PowerDefinition is FeatureDefinitionPowerSharedPool sharedPoolPower)
         {
             var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
@@ -254,7 +253,7 @@ internal static class PowerBundle
 #endif
         }
 
-        if (power is IPowerSharedPool poolPower)
+        if (power is FeatureDefinitionPowerSharedPool poolPower)
         {
             return GetRemainingPowerPoolUses(character, poolPower) / power.CostPerUse;
         }
@@ -268,7 +267,7 @@ internal static class PowerBundle
         this RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power)
     {
-        if (power is IPowerSharedPool poolPower)
+        if (power is FeatureDefinitionPowerSharedPool poolPower)
         {
             return GetRemainingPowerPoolUses(character, poolPower);
         }
@@ -280,7 +279,7 @@ internal static class PowerBundle
 
     private static int GetRemainingPowerPoolUses(
         this RulesetCharacter character,
-        [NotNull] IPowerSharedPool sharedPoolPower)
+        [NotNull] FeatureDefinitionPowerSharedPool sharedPoolPower)
     {
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 

@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.BehaviorsGeneric;
-using SolastaUnfinishedBusiness.Definitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 

@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Definitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 

@@ -6,7 +6,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Definitions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;

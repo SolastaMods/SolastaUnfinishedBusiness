@@ -1,4 +1,4 @@
-﻿namespace SolastaUnfinishedBusiness.Definitions;
+﻿// ReSharper disable once CheckNamespace
 
 internal class FeatureDefinitionCustomInvocationPool : FeatureDefinition
 {

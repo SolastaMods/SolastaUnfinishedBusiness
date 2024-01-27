@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
+// ReSharper disable once CheckNamespace
 internal sealed class FeatureDefinitionDieRollModifierDamageTypeDependent : FeatureDefinitionDieRollModifier
 {
     public List<string> damageTypes = [];

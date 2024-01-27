@@ -1,12 +1,9 @@
-﻿namespace SolastaUnfinishedBusiness.Definitions;
+﻿// ReSharper disable once CheckNamespace
 
-public interface IPowerSharedPool
-{
-    public FeatureDefinitionPower GetUsagePoolPower();
-}
 
 // Features using a shared pool should have UsesDetermination == Fixed.
-internal sealed class FeatureDefinitionPowerSharedPool : FeatureDefinitionPower, IPowerSharedPool
+
+internal sealed class FeatureDefinitionPowerSharedPool : FeatureDefinitionPower
 {
     internal BaseDefinition SourceDefinition { get; set; }
     internal FeatureDefinitionPower SharedPool { get; set; }

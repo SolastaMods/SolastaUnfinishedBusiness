@@ -1,8 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.Interfaces;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
+// ReSharper disable once CheckNamespace
 internal sealed class FeatureDefinitionPowerUseModifier : FeatureDefinition, IModifyPowerPoolAmount
 {
     internal ModifyPowerPoolAmount Modifier { get; } = new();

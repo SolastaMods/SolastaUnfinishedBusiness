@@ -9,10 +9,9 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.BehaviorsSpecific;
-using SolastaUnfinishedBusiness.Definitions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -1292,7 +1291,8 @@ public static class RulesetCharacterPatcher
 
             // The player isn't recharging the shared pool features, just the pool.
             // Hide the features that use the pool from the UI.
-            foreach (var feature in __instance.RecoveredFeatures.Where(f => f is IPowerSharedPool).ToArray())
+            foreach (var feature in __instance.RecoveredFeatures.Where(f => f is FeatureDefinitionPowerSharedPool)
+                         .ToArray())
             {
                 __instance.RecoveredFeatures.Remove(feature);
             }

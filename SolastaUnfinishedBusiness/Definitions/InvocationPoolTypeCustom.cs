@@ -9,8 +9,7 @@ using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
+// ReSharper disable once CheckNamespace
 internal class InvocationPoolTypeCustom
 {
     private static readonly List<InvocationPoolTypeCustom> PrivatePools = [];

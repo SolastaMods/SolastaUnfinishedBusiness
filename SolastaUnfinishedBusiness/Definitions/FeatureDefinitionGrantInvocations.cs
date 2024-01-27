@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
+// ReSharper disable once CheckNamespace
 internal class FeatureDefinitionGrantInvocations : FeatureDefinition
 {
     // ReSharper disable once CollectionNeverUpdated.Local
