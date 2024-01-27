@@ -4,9 +4,9 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
@@ -48,13 +48,20 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(CustomActionIdContext.FarStep)
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .AddEffectForms(
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, true)
                             .Build())
+                    .SetParticleEffectParameters(MistyStep)
+                    .UseQuickAnimations()
                     .Build())
             .AddToDB();
     }

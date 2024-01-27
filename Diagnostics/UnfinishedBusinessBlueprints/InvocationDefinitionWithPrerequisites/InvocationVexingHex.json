@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.Definitions.InvocationDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
   "requiredLevel": 5,
   "requiredPact": null,

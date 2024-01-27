@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.Definitions.FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
   "damageTypes": [
     "DamageCold"
   ],

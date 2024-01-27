@@ -66,13 +66,16 @@ internal static class FlankingAndHigherGround
         }
     }
 
-    private static bool GetAllies(GameLocationCharacter defender, out List<GameLocationCharacter> allies)
+    private static bool GetAllies(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        out List<GameLocationCharacter> allies)
     {
         var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        allies = locationCharacterService.PartyCharacters
-            .Union(locationCharacterService.GuestCharacters)
+        allies = locationCharacterService.AllValidEntities
             .Where(x =>
+                x.Side == attacker.Side &&
                 x.IsWithinRange(defender, 1) &&
                 x.CanAct())
             .ToList();
@@ -89,7 +92,7 @@ internal static class FlankingAndHigherGround
 
         FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
 
-        if (!GetAllies(defender, out var alliesInRange))
+        if (!GetAllies(attacker, defender, out var alliesInRange))
         {
             return false;
         }
@@ -135,7 +138,7 @@ internal static class FlankingAndHigherGround
 
         FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
 
-        if (!GetAllies(defender, out var alliesInRange))
+        if (!GetAllies(attacker, defender, out var alliesInRange))
         {
             return false;
         }
