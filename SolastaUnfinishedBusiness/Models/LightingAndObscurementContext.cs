@@ -3,9 +3,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;
@@ -520,7 +520,9 @@ internal static class LightingAndObscurementContext
         LightingState additionalBlockedLightingState = LightingState.Darkness)
     {
         // let vanilla do the heavy lift on perception
-        var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
+        var result =
+            sensor.RulesetActor is RulesetGadget ||
+            instance.IsCellPerceivedByCharacter(cellPosition, sensor);
 
         // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(sensor, cellPosition);
@@ -682,10 +684,15 @@ internal static class LightingAndObscurementContext
 
             foreach (var locationCharacter in locationCharacters)
             {
-                if (locationCharacter.RulesetActor is not RulesetCharacterEffectProxy rulesetProxy)
+                if (locationCharacter.RulesetActor is RulesetCharacterHero or RulesetCharacterMonster)
                 {
                     targetPositionCharacterLightingState = locationCharacter.LightingState;
 
+                    continue;
+                }
+
+                if (locationCharacter.RulesetActor is not RulesetCharacterEffectProxy rulesetProxy)
+                {
                     continue;
                 }
 
