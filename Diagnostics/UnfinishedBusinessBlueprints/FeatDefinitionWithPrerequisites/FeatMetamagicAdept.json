@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.Definitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],

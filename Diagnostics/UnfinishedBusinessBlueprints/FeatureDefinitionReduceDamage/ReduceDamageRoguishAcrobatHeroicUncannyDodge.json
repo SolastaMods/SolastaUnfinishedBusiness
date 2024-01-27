@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReduceDamage, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.Definitions.FeatureDefinitionReduceDamage, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

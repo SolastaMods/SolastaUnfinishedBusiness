@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionAttackReplaceWithCantrip, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.Definitions.FeatureDefinitionAttackReplaceWithCantrip, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

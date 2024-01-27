@@ -14,7 +14,7 @@
   "requiresConcentration": true,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
+    "rangeType": "Distance",
     "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],

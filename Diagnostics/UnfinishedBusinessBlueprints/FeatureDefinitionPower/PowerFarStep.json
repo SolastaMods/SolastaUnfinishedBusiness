@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
+    "rangeType": "Distance",
     "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
