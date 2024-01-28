@@ -681,10 +681,7 @@ internal static class Level20Context
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower
-                || (characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind
-                    && characterActionUsePower.activePower.PowerDefinition !=
-                    CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat))
+            if (action is not CharacterActionUsePower actionUsePower)
             {
                 yield break;
             }
@@ -696,10 +693,20 @@ internal static class Level20Context
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(PowerDruidWildShape, rulesetCharacter);
+            var power = actionUsePower.activePower.PowerDefinition == PowerDruidWildShape
+                ? PowerDruidWildShape
+                : actionUsePower.activePower.PowerDefinition == CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat
+                    ? CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat
+                    : null;
+
+            if (power == null)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
 
             usablePower.Recharge();
-
             rulesetCharacter.LogCharacterUsedFeature(featureDefinition);
         }
     }

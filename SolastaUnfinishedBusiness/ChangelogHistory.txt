@@ -1,5 +1,6 @@
 ﻿1.5.94.48:
 
+- fixed Circle of The Nights interaction with ArchDruid feature at level 20
 - fixed gadgets under attack rolls enforcing disadvantage with lighting and obscurement rules enabled
 - improved 'Cold Resistance also grants immunity to chilled condition and reduces frozen to chilled'
 
