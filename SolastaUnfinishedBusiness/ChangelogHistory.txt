@@ -1,4 +1,8 @@
-﻿1.5.94.47:
+﻿1.5.94.48:
+
+- gadgets should not enforce disadvantage under lighting and obscurement rules
+
+1.5.94.47:
 
 - added Gameplay > Rules > 'Cold Resistance also grants immunity to chilled condition'
 - added Gameplay > Rules > 'Cold Immunity also grants immunity to chilled and frozen conditions'
