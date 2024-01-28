@@ -441,6 +441,24 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition;
+        if (UI.Toggle(Gui.Localize("ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition = toggle;
+            SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+        }
+
+        toggle = Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition;
+        if (UI.Toggle(Gui.Localize("ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition = toggle;
+            SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+        }
+
+        UI.Label();
+
         var intValue = Main.Settings.IncreaseSenseNormalVision;
         UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
         if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"),

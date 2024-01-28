@@ -294,6 +294,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCharactersOnFireToEmitLight { get; set; }
     public bool EnableHigherGroundRules { get; set; }
     public bool FullyControlConjurations { get; set; }
+    public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }
+    public bool ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition { get; set; }
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }

@@ -48,6 +48,8 @@ ModUi/&Changelog=<b><color=#D89555>Journal des modifications</color></b>
 ModUi/&Character=Personnage
 ModUi/&CharactersPool=Groupe de personnages
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=L'<color=#D89555>Immunité au froid</color> confère également l'immunité au froid et au gel.
+ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=La <color=#D89555>Résistance au froid</color> confère également l'immunité au froid.
 ModUi/&Combat=<color=#F0DAA0>Combat :</color>
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
 ModUi/&CraftingHelp=. Appuyez sur le bouton pour faire apprendre les recettes instantanément au groupe actif\n. Le rafraîchissement des stocks d'articles ajoutés aux magasins peut nécessiter que le groupe quitte puis revienne à la localité

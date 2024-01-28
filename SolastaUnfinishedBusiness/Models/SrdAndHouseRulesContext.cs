@@ -13,6 +13,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
@@ -87,6 +88,7 @@ internal static class SrdAndHouseRulesContext
         SwitchAllowClubsToBeThrown();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
         SwitchChangeSleetStormToCube();
+        SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
         SwitchConditionBlindedShouldNotAllowOpportunityAttack();
         SwitchDruidAllowMetalArmor();
         SwitchEldritchBlastRange();
@@ -529,6 +531,114 @@ internal static class SrdAndHouseRulesContext
         if (summonForm != null)
         {
             summonForm.monsterDefinitionName = InvisibleStalker.Name;
+        }
+    }
+
+    internal static void SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity()
+    {
+        foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
+        {
+            if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
+            {
+                if (monster.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
+                {
+                    monster.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                }
+            }
+            else
+            {
+                monster.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+            }
+
+            if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
+            {
+                // ReSharper disable once InvertIf
+                if (monster.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
+                {
+                    monster.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                    monster.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
+                }
+            }
+            else
+            {
+                monster.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+                monster.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
+            }
+        }
+
+        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>())
+        {
+            if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
+            {
+                if (condition.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
+                {
+                    condition.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                }
+            }
+            else
+            {
+                condition.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+            }
+
+            if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
+            {
+                // ReSharper disable once InvertIf
+                if (condition.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
+                {
+                    condition.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                    condition.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
+                }
+            }
+            else
+            {
+                condition.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+                condition.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
+            }
+        }
+
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
+        {
+            if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
+            {
+                var itemProperty = item.staticProperties.FirstOrDefault(x =>
+                    x.FeatureDefinition == FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance);
+
+                if (itemProperty != null)
+                {
+                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
+                    {
+                        featureDefinition = ConditionAffinityWeatherChilledImmunity
+                    });
+                }
+            }
+            else
+            {
+                item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherChilledImmunity);
+            }
+
+            if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
+            {
+                var itemProperty = item.staticProperties.FirstOrDefault(x =>
+                    x.FeatureDefinition == FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity);
+
+                // ReSharper disable once InvertIf
+                if (itemProperty != null)
+                {
+                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
+                    {
+                        featureDefinition = ConditionAffinityWeatherChilledImmunity
+                    });
+                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
+                    {
+                        featureDefinition = ConditionAffinityWeatherFrozenImmunity
+                    });
+                }
+            }
+            else
+            {
+                item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherChilledImmunity);
+                item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherFrozenImmunity);
+            }
         }
     }
 

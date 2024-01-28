@@ -1,4 +1,9 @@
-﻿1.5.94.56:
+﻿1.5.94.57:
+
+- added Gameplay > Rules > 'Cold Resistance also grants immunity to chilled condition'
+- added Gameplay > Rules > 'Cold Immunity also grants immunity to chilled and frozen conditions'
+
+1.5.94.56:
 
 - fixed enemies flanking rules [triggering false positives on allies]
 - fixed Ethereal Step spell [offering no positions]
