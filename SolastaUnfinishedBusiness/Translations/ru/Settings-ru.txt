@@ -48,8 +48,8 @@ ModUi/&Changelog=<b><color=#D89555>Список изменений</color></b>
 ModUi/&Character=Персонаж
 ModUi/&CharactersPool=Пул персонажей
 ModUi/&Classes=<color=#F0DAA0>Классы</color>
-ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Иммунитет к холоду</color> также дает иммунитет к охлаждению и замерзанию.
-ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Сопротивление холоду</color> также дает иммунитет к охлаждению и снижает замерзание до состояния охлаждения.
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Иммунитет к урону холодом</color> также даёт иммунитет к состояниям охлаждения и замерзания
+ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Сопротивление урону холодом</color> также даёт иммунитет к состоянию охлаждения, а состояние замерзания нивелирует до охлаждения
 ModUi/&Combat=<color=#F0DAA0>Бой:</color>
 ModUi/&Crafting=<color=#F0DAA0>Крафтинг:</color>
 ModUi/&CraftingHelp=. Нажмите на кнопку, чтобы активная пати сразу изучила рецепты\n. Добавление предметов в магазины может потребовать, чтобы пати переместилась на другую локацию и обратно
