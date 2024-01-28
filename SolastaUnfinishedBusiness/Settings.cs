@@ -64,6 +64,7 @@ public class Settings : UnityModManager.ModSettings
         "CollegeOfHarlequin",
         "MartialMarshal",
         "MartialMartialDefender",
+        "PatronMoonlit",
         "RoguishRaven",
         "WayOfTheDistantHand"
     ];
