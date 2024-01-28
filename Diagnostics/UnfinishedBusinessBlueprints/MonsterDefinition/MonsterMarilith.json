@@ -107,9 +107,7 @@
     "Definition:PowerPhaseMarilithTeleport:bd5e55fd2ab911844ad1373ba9ac67e7",
     "Definition:PowerMarilithTail:eea9e36c449e37d41a1f52d338348566",
     "Definition:PowerMarilithParry:2e4f2a002e84b284ca55e171446f8cea",
-    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
-    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
-    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
   ],
   "attackIterations": [
     {
