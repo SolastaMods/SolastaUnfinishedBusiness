@@ -1,6 +1,7 @@
 ﻿1.5.94.48:
 
-- gadgets should not enforce disadvantage under lighting and obscurement rules
+- fixed gadgets under attack rolls enforcing disadvantage with lighting and obscurement rules enabled
+- improved 'Cold Resistance also grants immunity to chilled condition and reduces frozen to chilled'
 
 1.5.94.47:
 

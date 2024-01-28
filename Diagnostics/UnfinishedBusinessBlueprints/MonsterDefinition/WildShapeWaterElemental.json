@@ -112,8 +112,7 @@
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
     "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
     "Definition:DamageAffinityFireVulnerability:3f6fefd9cd5a7e442b3173bafed47822",
-    "Definition:PowerIceElementalBlizzard:7415e71a3e5e7ab45b5aaf24aa74f108",
-    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
+    "Definition:PowerIceElementalBlizzard:7415e71a3e5e7ab45b5aaf24aa74f108"
   ],
   "attackIterations": [
     {

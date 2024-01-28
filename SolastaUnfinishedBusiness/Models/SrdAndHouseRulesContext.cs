@@ -536,24 +536,45 @@ internal static class SrdAndHouseRulesContext
 
     internal static void SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity()
     {
-        foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
+        foreach (var featureSet in DatabaseRepository.GetDatabase<FeatureDefinitionFeatureSet>())
         {
             if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
             {
-                if (monster.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
+                if (featureSet.FeatureSet.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
                 {
-                    monster.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherFrozenImmunity);
                 }
             }
             else
             {
-                monster.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+                featureSet.FeatureSet.Remove(ConditionAffinityWeatherChilledImmunity);
+                featureSet.FeatureSet.Remove(ConditionAffinityWeatherFrozenImmunity);
             }
 
             if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
             {
                 // ReSharper disable once InvertIf
-                if (monster.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
+                if (featureSet.FeatureSet.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
+                {
+                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
+                    featureSet.FeatureSet.TryAdd(ConditionAffinityWeatherFrozenImmunity);
+                }
+            }
+            else
+            {
+                featureSet.FeatureSet.Remove(ConditionAffinityWeatherChilledImmunity);
+                featureSet.FeatureSet.Remove(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
+                featureSet.FeatureSet.Remove(ConditionAffinityWeatherFrozenImmunity);
+            }
+        }
+
+        foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
+        {
+            if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
+            {
+                if (monster.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
                 {
                     monster.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
                     monster.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
@@ -562,6 +583,23 @@ internal static class SrdAndHouseRulesContext
             else
             {
                 monster.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+                monster.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
+            }
+
+            if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
+            {
+                // ReSharper disable once InvertIf
+                if (monster.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
+                {
+                    monster.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                    monster.Features.TryAdd(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
+                    monster.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
+                }
+            }
+            else
+            {
+                monster.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+                monster.Features.Remove(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
                 monster.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
             }
         }
@@ -573,11 +611,13 @@ internal static class SrdAndHouseRulesContext
                 if (condition.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
                 {
                     condition.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                    condition.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
                 }
             }
             else
             {
                 condition.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+                condition.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
             }
 
             if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
@@ -586,12 +626,14 @@ internal static class SrdAndHouseRulesContext
                 if (condition.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
                 {
                     condition.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
+                    condition.Features.TryAdd(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
                     condition.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
                 }
             }
             else
             {
                 condition.Features.Remove(ConditionAffinityWeatherChilledImmunity);
+                condition.Features.Remove(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
                 condition.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
             }
         }
@@ -609,11 +651,16 @@ internal static class SrdAndHouseRulesContext
                     {
                         featureDefinition = ConditionAffinityWeatherChilledImmunity
                     });
+                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
+                    {
+                        featureDefinition = ConditionAffinityWeatherFrozenImmunity
+                    });
                 }
             }
             else
             {
                 item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherChilledImmunity);
+                item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherFrozenImmunity);
             }
 
             if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
@@ -630,6 +677,10 @@ internal static class SrdAndHouseRulesContext
                     });
                     item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
                     {
+                        featureDefinition = ConditionAffinityWeatherChilledInsteadOfFrozenImmunity
+                    });
+                    item.staticProperties.TryAdd(new ItemPropertyDescription(itemProperty)
+                    {
                         featureDefinition = ConditionAffinityWeatherFrozenImmunity
                     });
                 }
@@ -637,6 +688,8 @@ internal static class SrdAndHouseRulesContext
             else
             {
                 item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherChilledImmunity);
+                item.staticProperties.RemoveAll(x =>
+                    x.FeatureDefinition == ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
                 item.staticProperties.RemoveAll(x => x.FeatureDefinition == ConditionAffinityWeatherFrozenImmunity);
             }
         }
