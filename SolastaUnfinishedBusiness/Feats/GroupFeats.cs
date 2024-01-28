@@ -4,7 +4,6 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Definitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 

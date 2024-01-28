@@ -48,6 +48,8 @@ ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
 ModUi/&Character=Character
 ModUi/&CharactersPool=Characters Pool
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Cold Immunity</color> also grants immunity to chilled and frozen conditions
+ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Cold Resistance</color> also grants immunity to chilled condition
 ModUi/&Combat=<color=#F0DAA0>Combat:</color>
 ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
 ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active party\n. Items added to stores might need the party to travel away from the location and come back

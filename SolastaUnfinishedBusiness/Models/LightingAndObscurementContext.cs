@@ -3,7 +3,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using TA;
@@ -519,10 +519,14 @@ internal static class LightingAndObscurementContext
         GameLocationCharacter target = null,
         LightingState additionalBlockedLightingState = LightingState.Darkness)
     {
+        // gadgets cannot perceive anything
+        if (sensor.RulesetActor is RulesetGadget)
+        {
+            return true;
+        }
+
         // let vanilla do the heavy lift on perception
-        var result =
-            sensor.RulesetActor is RulesetGadget ||
-            instance.IsCellPerceivedByCharacter(cellPosition, sensor);
+        var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
 
         // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(sensor, cellPosition);

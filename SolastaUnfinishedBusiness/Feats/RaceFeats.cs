@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -102,7 +102,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .AddCustomSubFeatures(BehaviorsSpecific.ElvenPrecision.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(Behaviors.Specific.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Intelligence)
@@ -112,7 +112,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .AddCustomSubFeatures(BehaviorsSpecific.ElvenPrecision.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(Behaviors.Specific.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Wisdom)
@@ -122,7 +122,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .AddCustomSubFeatures(BehaviorsSpecific.ElvenPrecision.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(Behaviors.Specific.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Charisma)
@@ -132,7 +132,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .AddCustomSubFeatures(BehaviorsSpecific.ElvenPrecision.ElvenPrecisionContext.Mark)
+            .AddCustomSubFeatures(Behaviors.Specific.ElvenPrecision.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         //

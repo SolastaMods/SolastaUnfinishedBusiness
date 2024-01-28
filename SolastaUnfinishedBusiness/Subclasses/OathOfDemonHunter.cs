@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;

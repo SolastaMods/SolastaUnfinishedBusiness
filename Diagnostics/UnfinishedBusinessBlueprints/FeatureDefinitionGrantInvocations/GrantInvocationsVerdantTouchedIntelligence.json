@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.Definitions.FeatureDefinitionGrantInvocations, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionGrantInvocations, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
-using SolastaUnfinishedBusiness.BehaviorsSpecific;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA;

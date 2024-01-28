@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 
 //This should have default namespace so that it can be properly created by `CharacterActionPatcher`
 // ReSharper disable once CheckNamespace

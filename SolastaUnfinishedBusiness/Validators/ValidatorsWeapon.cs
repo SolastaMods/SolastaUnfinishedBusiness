@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;

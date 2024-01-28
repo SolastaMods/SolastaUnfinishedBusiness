@@ -1,8 +1,8 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static MetricsDefinitions;

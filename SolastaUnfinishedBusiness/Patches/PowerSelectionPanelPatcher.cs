@@ -7,7 +7,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Validators;
 
 namespace SolastaUnfinishedBusiness.Patches;

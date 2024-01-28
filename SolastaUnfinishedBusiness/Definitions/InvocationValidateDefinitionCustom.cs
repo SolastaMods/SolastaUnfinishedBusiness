@@ -5,8 +5,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using static ActionDefinitions;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
+// ReSharper disable once CheckNamespace
 internal class InvocationDefinitionCustom : InvocationDefinition, IValidateDefinitionPreRequisites
 {
     internal InvocationPoolTypeCustom PoolType { get; set; }

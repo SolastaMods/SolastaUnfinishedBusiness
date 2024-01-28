@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.BehaviorsSpecific;
+﻿using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine.AddressableAssets;
 

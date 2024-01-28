@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.BehaviorsGeneric;
-using SolastaUnfinishedBusiness.Definitions;
+﻿using SolastaUnfinishedBusiness.Behaviors;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;

@@ -48,6 +48,8 @@ ModUi/&Changelog=<b><color=#D89555>変更ログ</color></b>
 ModUi/&Character=キャラクター
 ModUi/&CharactersPool=キャラクタープール
 ModUi/&Classes=<color=#F0DAA0>クラス</color>
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>寒さに対する耐性</color>は、冷蔵および冷凍状態に対する耐性も付与します。
+ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>耐寒性</color>により、低温状態に対する耐性も付与されます
 ModUi/&Combat=<color=#F0DAA0>戦闘:</color>
 ModUi/&Crafting=<color=#F0DAA0>クラフト:</color>
 ModUi/&CraftingHelp=。ボタンを押すと、アクティブなパーティーでレシピを即座に学習できます\n。ストアにアイテムを追加するには、パーティがその場所から離れて戻ってくる必要がある場合があります

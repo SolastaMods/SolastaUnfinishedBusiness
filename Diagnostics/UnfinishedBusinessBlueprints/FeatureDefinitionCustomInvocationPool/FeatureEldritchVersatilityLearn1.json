@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.Definitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

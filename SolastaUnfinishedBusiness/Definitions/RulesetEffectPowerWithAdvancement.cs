@@ -1,10 +1,9 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
+using SolastaUnfinishedBusiness.Behaviors;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
+// ReSharper disable once CheckNamespace
 internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
 {
     private int _effectLevel;

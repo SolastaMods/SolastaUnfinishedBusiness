@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
-using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using TMPro;
 using UnityEngine;
 using Object = UnityEngine.Object;

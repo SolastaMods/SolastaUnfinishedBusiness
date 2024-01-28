@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.BehaviorsSpecific;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Definitions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -539,14 +538,16 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             // add from class FS
             if (hero.TrainedFightingStyles.Count > 0 &&
-                hero.ActiveFeatures[poolTag]
+                hero.ActiveFeatures.TryGetValue(poolTag, out var featureDefinitions) &&
+                featureDefinitions
                     .OfType<FeatureDefinitionFightingStyleChoice>()
                     .Any())
             {
-                _gainedCustomFeatures.AddRange(hero.TrainedFightingStyles.Last().Features
-                    .OfType<FeatureDefinitionCustomInvocationPool>()
-                    .Where(x => x.PoolType != null)
-                    .Select(f => (poolTag, f))
+                _gainedCustomFeatures.AddRange(
+                    hero.TrainedFightingStyles.Last().Features
+                        .OfType<FeatureDefinitionCustomInvocationPool>()
+                        .Where(x => x.PoolType != null)
+                        .Select(f => (poolTag, f))
                 );
             }
         }
@@ -565,14 +566,16 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
             // add from subclass FS
             if (hero.TrainedFightingStyles.Count > 0 &&
-                hero.ActiveFeatures[poolTag]
+                hero.ActiveFeatures.TryGetValue(poolTag, out var featureDefinitions) &&
+                featureDefinitions
                     .OfType<FeatureDefinitionFightingStyleChoice>()
                     .Any())
             {
-                _gainedCustomFeatures.AddRange(hero.TrainedFightingStyles.Last().Features
-                    .OfType<FeatureDefinitionCustomInvocationPool>()
-                    .Where(x => x.PoolType != null)
-                    .Select(f => (poolTag, f))
+                _gainedCustomFeatures.AddRange(
+                    hero.TrainedFightingStyles.Last().Features
+                        .OfType<FeatureDefinitionCustomInvocationPool>()
+                        .Where(x => x.PoolType != null)
+                        .Select(f => (poolTag, f))
                 );
             }
         }

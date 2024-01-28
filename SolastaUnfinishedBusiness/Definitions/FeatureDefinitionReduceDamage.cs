@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
+// ReSharper disable once CheckNamespace
 internal delegate int ReducedDamageHandler(
     GameLocationCharacter attacker,
     GameLocationCharacter defender);

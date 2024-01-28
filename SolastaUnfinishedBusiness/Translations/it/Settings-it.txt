@@ -48,6 +48,8 @@ ModUi/&Changelog=<b><color=#D89555>Registro modifiche</color></b>
 ModUi/&Character=Carattere
 ModUi/&CharactersPool=Pool di personaggi
 ModUi/&Classes=<color=#F0DAA0>Classi</color>
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Immunità al freddo</color> garantisce anche l'immunità alle condizioni fredde e congelate
+ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistenza al freddo</color> garantisce anche l'immunità alla condizione di freddo
 ModUi/&Combat=<color=#F0DAA0>Combattimento:</color>
 ModUi/&Crafting=<color=#F0DAA0>Creazione:</color>
 ModUi/&CraftingHelp=. Premi il pulsante per imparare le ricette all'istante sulla festa attiva\n. Gli articoli aggiunti ai negozi potrebbero richiedere che il gruppo si allontani dal luogo e ritorni

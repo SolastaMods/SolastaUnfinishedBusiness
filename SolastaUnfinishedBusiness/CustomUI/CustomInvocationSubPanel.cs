@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Definitions;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;

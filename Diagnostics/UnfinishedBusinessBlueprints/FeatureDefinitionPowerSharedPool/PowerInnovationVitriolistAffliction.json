@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.Definitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "RangeHit",

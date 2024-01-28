@@ -48,6 +48,8 @@ ModUi/&Changelog=<b><color=#D89555>Änderungsprotokoll</color></b>
 ModUi/&Character=Charakter
 ModUi/&CharactersPool=Zeichenpool
 ModUi/&Classes=<color=#F0DAA0>Klassen</color>
+ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Kälteimmunität</color> gewährt auch Immunität gegen Kälte- und Frostbedingungen
+ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Kälteresistenz</color> gewährt außerdem Immunität gegen Kältezustände
 ModUi/&Combat=<color=#F0DAA0>Kampf:</color>
 ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
 ModUi/&CraftingHelp=. Drücken Sie die Taste, um Rezepte sofort auf der aktiven Gruppe zu lernen\n. Für Artikel, die zu Geschäften hinzugefügt werden, kann es erforderlich sein, dass die Gruppe den Standort verlässt und zurückkommt

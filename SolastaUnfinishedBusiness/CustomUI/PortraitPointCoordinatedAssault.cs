@@ -1,6 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.BehaviorsGeneric;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine.AddressableAssets;

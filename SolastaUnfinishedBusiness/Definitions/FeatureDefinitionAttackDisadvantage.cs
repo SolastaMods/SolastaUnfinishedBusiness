@@ -2,11 +2,10 @@
 using JetBrains.Annotations;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
 /// <summary>
 ///     Imposes disadvantage when attacking anyone but the source of the specified condition.
 /// </summary>
+// ReSharper disable once CheckNamespace
 internal sealed class FeatureDefinitionAttackDisadvantage : FeatureDefinition, ICombatAffinityProvider
 {
     internal string ConditionName { get; set; }

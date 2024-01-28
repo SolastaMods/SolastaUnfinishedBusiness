@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaUnfinishedBusiness.Definitions;
-
+// ReSharper disable once CheckNamespace
 internal sealed class InvocationDefinitionWithPrerequisites : InvocationDefinition
 {
     internal List<Func<InvocationDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>>

@@ -1,11 +1,19 @@
-﻿1.5.94.56:
+﻿1.5.94.47:
+
+- added Gameplay > Rules > 'Cold Resistance also grants immunity to chilled condition'
+- added Gameplay > Rules > 'Cold Immunity also grants immunity to chilled and frozen conditions'
+- deprecated Patron Moonlit subclass [you can always edit settings.xml deprecated subclasses list at will]
+- fixed level up [crashing after remarkable technique fix]
+- fixed lighting and obscurement rules [still crashing with gadgets]
+
+1.5.94.46:
 
 - fixed enemies flanking rules [triggering false positives on allies]
 - fixed Ethereal Step spell [offering no positions]
 - fixed lighting and obscurement rules [crashing with gadgets]
 - fixed Remarkable Technique fighting style [offering no gambits]
 
-1.5.94.55:
+1.5.94.45:
 
 - fixed distance calculation logic affecting some feats, features, fighting styles, invocations, and spells
 - fixed lighting, obscurement, and vision under invisibility scenarios [allow blind sight and tremor sense]
