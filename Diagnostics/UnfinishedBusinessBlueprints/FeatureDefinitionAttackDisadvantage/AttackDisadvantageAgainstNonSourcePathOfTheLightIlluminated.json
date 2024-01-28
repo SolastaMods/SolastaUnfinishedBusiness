@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.Definitions.FeatureDefinitionAttackDisadvantage, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionAttackDisadvantage, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
