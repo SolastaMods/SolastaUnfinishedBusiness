@@ -3318,50 +3318,36 @@ Your patron is a spirit of the moon, an entity that embodies the cyclical nature
 
 	IV	Greater Invisibility, Guardian of Faith
 
-	V	Dominate Person, Mind Twist
+	V	Cone of Cold, Greater Restoration
 
 
 
-* Superior Sight
+* Lunar Cloak
 
-You can see perfectly in all lighting conditions and have blind sight up to 80 ft, allowing you to perceive enemies even through invisibility and magical darkness.
-
-* Umbral Cloak
-
-If you start your turn in natural darkness, you become invisible. Moving out of darkness, attacking or using any power or spell that does not only target yourself breaks the invisibility.
+You can use your bonus action to conjure a cloak of light or darkness, gaining one of the following benefits for one minute:
+Full Moon: You shed bright light in a 15-foot radius and dim light in an additional 15-foot radius around you and gain the lunar radiance power. Make a melee spell attack. On a hit, the creature takes 1d8 radiant damage and has a –1 penalty to AC until the end of your next turn.
+New Moon: You are obscured in non-magical darkness. If you move to a tile that is in dim or bright light, you are considered to be in non-magical darkness instead, and gain the lunar chill power. Make a melee spell attack. On a hit, the creature takes 1d8 cold damage and is hindered until the end of your next turn.
 
 
 ### Level 6
 
-* Dark Moon
+* Midnight Blessing
 
-You can cast Darkness a number of times per long rest equal to your proficiency bonus.
-
-* Full Moon
-
-You can cast Daylight a number of times per long rest equal to your proficiency bonus.
-
-* Improved Umbral Cloak
-
-Umbral Cloak now works in dim light and magical darkness.
+You are resistant to radiant damage while Full Moon cloak is active and you are resistant to cold damage while New Moon cloak is active. You also learn Moon Beam spell if you haven't already done so. You can cast it once per long rest without expanding a spell slot at your highest slot level. When you reach 11th level, you can cast it as a 6th level spell, as 7th level on 13th, as 8th level on 15th and 9th level on 17th level. When you cast Moon Beam this way, you gain temporary hit points equal to your warlock level for one minute.
 
 
 ### Level 10
 
-* Dance of the Night Sky
+* Lunar Embrace
 
-You can cast Fly on 4 targets once per day.
-
-* Moon Touched
-
-You conjure the gravitational pull of the moon in a small area, causing creatures who fail a saving throw to float upwards.
+The damage of your Lunar Cloak increases to 2d8. In addition, whenever you conjure a cloak, you gain flying speed equal to your walking speed for the duration of the cloak.
 
 
 ### Level 14
 
-* Light Control
+* Moonlight Guise
 
-Your control of moon light has increased to a new level. You can cast the spells Moonbeam and Faerie Fire at will.
+Whenever a creature damages you, you can use your reaction to become invisible until the end of your next turn. You can use this feature once per short rest.
 
 
 

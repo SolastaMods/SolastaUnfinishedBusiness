@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerMoonlitScionFullMoon:7e3adf79-55ac-52db-b8a4-b9b657246098",
+    "Definition:PowerMoonlitScionLunarCloak:3fd46238-041d-5e31-a95f-f69f06c81351",
+    "Definition:PowerMoonlitScionNewMoon:f3211da8-b00f-5b04-87f3-3bf152251fe3"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetMoonlitScionLunarCloakTitle",
+    "description": "Feature/&FeatureSetMoonlitScionLunarCloakDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "886aa625-0ca0-5394-a0b9-ebcd9aecae9a",
+  "contentPack": 9999,
+  "name": "FeatureSetMoonlitScionLunarCloak"
+}
