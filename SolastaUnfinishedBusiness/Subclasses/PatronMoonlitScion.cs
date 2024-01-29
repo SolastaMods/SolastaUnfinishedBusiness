@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -507,24 +506,28 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Warlock);
-
-            rulesetCharacter.ReceiveTemporaryHitPoints(
-                levels, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
-
-            var actionParams = action.ActionParams.Clone();
             var slotLevel = levels switch
             {
-                < 11 => 2,
+                < 7 => 3,
+                < 9 => 4,
+                < 11 => 5,
                 < 13 => 6,
                 < 15 => 7,
                 < 17 => 8,
                 _ => 9
             };
+            
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                levels, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
+
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, null, MoonBeam, slotLevel, false);
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
-            actionParams.RulesetEffect = effectSpell;
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.CastNoCost)
+            {
+                RulesetEffect = effectSpell, positions = action.ActionParams.Positions
+            };
+
             rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
 
