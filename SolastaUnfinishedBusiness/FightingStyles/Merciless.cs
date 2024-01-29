@@ -26,7 +26,7 @@ internal sealed class Merciless : AbstractFightingStyle
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Cube)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.Cube)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                 .SetSavingThrowData(
                     false,

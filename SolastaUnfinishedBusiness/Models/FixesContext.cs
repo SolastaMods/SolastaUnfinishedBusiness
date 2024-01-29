@@ -29,7 +29,7 @@ internal static class FixesContext
     internal static void Load()
     {
         InitMagicAffinitiesAndCastSpells();
-        FixMinorSpellIssues();
+        FixMinorMagicEffectsIssues();
     }
 
     internal static void LateLoad()
@@ -405,8 +405,22 @@ internal static class FixesContext
         }
     }
 
-    private static void FixMinorSpellIssues()
+    private static void FixMinorMagicEffectsIssues()
     {
+        // fix touch powers with range parameter greater than zero
+        foreach (var power in DatabaseRepository.GetDatabase<SpellDefinition>()
+                     .Where(x => x.EffectDescription.RangeType == RangeType.Touch))
+        {
+            power.EffectDescription.rangeParameter = 0;
+        }
+
+        // fix touch spells with range parameter greater than zero
+        foreach (var spell in DatabaseRepository.GetDatabase<SpellDefinition>()
+                     .Where(x => x.EffectDescription.RangeType == RangeType.Touch))
+        {
+            spell.EffectDescription.rangeParameter = 0;
+        }
+
         // fix raise dead spells adding a buff instead of debuff after raising from dead
         foreach (var affinityGroup in DatabaseRepository.GetDatabase<FeatureDefinitionSavingThrowAffinity>()
                      .Where(x => x.Name.Contains("ConditionBackFromDead"))
