@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -867,7 +866,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return PoisonTarget(action, target.RulesetCharacter, action.ActingCharacter);
+            yield return PoisonTarget(target, action.ActingCharacter);
         }
 
         //Poison characters that I shove
@@ -878,11 +877,11 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
 
             foreach (var target in action.actionParams.TargetCharacters)
             {
-                yield return PoisonTarget(action, rulesetAttacker, target);
+                yield return PoisonTarget(actingCharacter, target);
             }
         }
 
@@ -908,7 +907,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return PoisonTarget(action, me.RulesetCharacter, target);
+            yield return PoisonTarget(me, target);
         }
 
         //Poison melee attacker
@@ -933,11 +932,12 @@ internal static class OtherFeats
                 yield break;
             }
 
-            yield return PoisonTarget(action, me.RulesetCharacter, attacker);
+            yield return PoisonTarget(me, attacker);
         }
 
-        private IEnumerator PoisonTarget(CharacterAction action, RulesetCharacter me, GameLocationCharacter target)
+        private IEnumerator PoisonTarget(GameLocationCharacter me, GameLocationCharacter target)
         {
+            var rulesetMe = me.RulesetCharacter;
             var rulesetTarget = target.RulesetCharacter;
 
             if (rulesetTarget is not { IsDeadOrDyingOrUnconscious: false })
@@ -945,15 +945,18 @@ internal static class OtherFeats
                 yield break;
             }
 
-            var actionParams = action.ActionParams.Clone();
-            var usablePower = PowerProvider.Get(powerPoisonousSkin, me);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(me, usablePower, false);
-            actionParams.TargetCharacters.SetRange(target);
+
+            var usablePower = PowerProvider.Get(powerPoisonousSkin, rulesetMe);
+            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { target }
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

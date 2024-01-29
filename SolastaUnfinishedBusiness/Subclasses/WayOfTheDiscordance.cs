@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -413,30 +412,35 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            SpendPower(action, rulesetAttacker, powerDiscordance);
+            SpendPower(attacker, defender, powerDiscordance);
 
             if (monkLevel >= TurmoilLevel &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 !defender.RulesetCharacter.HasConditionOfType(conditionHadTurmoil))
             {
-                SpendPower(action, rulesetAttacker, powerTurmoil);
+                SpendPower(attacker, defender, powerTurmoil);
             }
         }
 
         private static void SpendPower(
-            CharacterAction action,
-            RulesetCharacter rulesetAttacker,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
             FeatureDefinitionPower featureDefinitionPower)
         {
-            var actionParams = action.ActionParams.Clone();
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var rulesetAttacker = attacker.RulesetCharacter;
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -495,18 +499,21 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var actionParamsDiscordance = action.ActionParams.Clone();
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
-
-            actionParamsDiscordance.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParamsDiscordance.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false);
-            actionParamsDiscordance.TargetCharacters.SetRange(targets);
+            var actionParamsDiscordance = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false),
+                UsablePower = usablePowerDiscordance,
+                targetCharacters = targets
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -530,14 +537,15 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            var actionParamsTurmoil = action.ActionParams.Clone();
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
-
-            actionParamsTurmoil.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParamsTurmoil.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false);
-            actionParamsTurmoil.TargetCharacters.SetRange(targets);
+            var actionParamsTurmoil = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false),
+                UsablePower = usablePowerTurmoil,
+                targetCharacters = targets
+            };
 
             // must enqueue actions
             actionService.ExecuteAction(actionParamsTurmoil, null, true);
@@ -603,16 +611,17 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             rulesetAlly.KiPointsAltered?.Invoke(rulesetAlly, rulesetAlly.RemainingKiPoints);
 
             // temporarily heal
-            var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
             var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
-                targetCharacters = { ally }
+                UsablePower = usablePower,
+                TargetCharacters = { ally }
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

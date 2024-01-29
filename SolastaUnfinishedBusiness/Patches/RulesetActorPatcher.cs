@@ -197,6 +197,7 @@ public static class RulesetActorPatcher
                     RulesetEffect = implementationManagerService
                         //CHECK: no need for AddAsActivePowerToSource
                         .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                    UsablePower = usablePower,
                     targetCharacters = gameLocationCharacterService.AllValidEntities
                         .Where(x =>
                             x.Side == effectDescription.TargetSide &&

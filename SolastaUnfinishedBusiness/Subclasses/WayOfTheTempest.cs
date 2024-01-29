@@ -407,22 +407,26 @@ public sealed class WayOfTheTempest : AbstractSubclass
                 yield break;
             }
 
-            var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker)
-                .Where(x =>
-                    x.RulesetCharacter.AllConditions
-                        .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
-                                  y.SourceGuid == rulesetAttacker.Guid)));
+            var usablePower = PowerProvider.Get(powerEyeOfTheStormLeap, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = Gui.Battle.GetContenders(attacker)
+                    .Where(x =>
+                        x.RulesetCharacter.AllConditions
+                            .Any(y => y.ConditionDefinition == conditionEyeOfTheStorm &&
+                                      y.SourceGuid == rulesetAttacker.Guid))
+                    .ToList()
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

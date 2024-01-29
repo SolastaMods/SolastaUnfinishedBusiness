@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -476,13 +475,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetMe, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { me }
             };
-
-            actionParams.TargetCharacters.SetRange(me);
 
             EffectHelpers.StartVisualEffect(me, attacker,
                 FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will, EffectHelpers.EffectType.Caster);

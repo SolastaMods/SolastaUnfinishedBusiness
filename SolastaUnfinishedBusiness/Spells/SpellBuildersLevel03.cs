@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -688,24 +686,27 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(Gui.Battle.AllContenders
-                .Where(x =>
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                    x != attacker &&
-                    !actionParams.TargetCharacters.Contains(x) &&
-                    attacker.IsWithinRange(x, 2))
-                .ToList());
+            var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = Gui.Battle.AllContenders
+                    .Where(x =>
+                        x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                        x != attacker &&
+                        !action.ActionParams.TargetCharacters.Contains(x) &&
+                        attacker.IsWithinRange(x, 2))
+                    .ToList()
+            };
 
             // special case don't ExecuteAction on MagicEffectInitiated
             action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
@@ -1049,17 +1050,18 @@ internal static partial class SpellBuilders
             }
 
             // leap damage on enemies within 10 ft from target
-            var actionParams = action.ActionParams.Clone();
-            var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(
-                battleManager.Battle.GetContenders(defender, false, isWithinXCells: 2));
+            var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = battleManager.Battle.GetContenders(defender, false, isWithinXCells: 2)
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

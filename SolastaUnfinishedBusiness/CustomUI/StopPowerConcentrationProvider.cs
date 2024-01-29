@@ -27,9 +27,6 @@ internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvi
             return;
         }
 
-        var usable = PowerProvider.Get(StopPower, character);
-        var implementationManagerService =
-            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
 
         if (locationCharacter == null)
@@ -37,13 +34,18 @@ internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvi
             return;
         }
 
+        var implementationManagerService =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var usablePower = PowerProvider.Get(StopPower, character);
         var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
         {
-            SkipAnimationsAndVFX = true,
-            TargetCharacters = { locationCharacter },
             ActionModifiers = { new ActionModifier() },
             //CHECK: no need for AddAsActivePowerToSource
-            RulesetEffect = implementationManagerService.MyInstantiateEffectPower(character, usable, true)
+            RulesetEffect = implementationManagerService.MyInstantiateEffectPower(character, usablePower, true),
+            UsablePower = usablePower,
+            TargetCharacters = { locationCharacter },
+            SkipAnimationsAndVFX = true
         };
 
         ServiceRepository.GetService<ICommandService>()

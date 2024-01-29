@@ -931,7 +931,8 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
             StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
             RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
+                .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
+            UsablePower = usablePower
         };
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
