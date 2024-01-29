@@ -211,14 +211,7 @@
     <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <DeprecatedSubsList>
-        <string>CollegeOfHarlequin</string>
-        <string>MartialMarshal</string>
-        <string>MartialMartialDefender</string>
-        <string>PatronMoonlit</string>
-        <string>RoguishRaven</string>
-        <string>WayOfTheDistantHand</string>
-    </DeprecatedSubsList>
+    <DeprecatedSubsReenableList/>
     <MonstersThatShouldHaveDarkvision>
         <string>Adam_The_Twelth</string>
         <string>DLC3_Elven_07_Guard</string>
@@ -1075,7 +1068,4 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

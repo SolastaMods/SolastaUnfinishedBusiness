@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>0</DisplayModMessage>
+    <DisplayModMessage>29</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -211,14 +211,7 @@
     <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <DeprecatedSubsList>
-        <string>CollegeOfHarlequin</string>
-        <string>MartialMarshal</string>
-        <string>MartialMartialDefender</string>
-        <string>PatronMoonlit</string>
-        <string>RoguishRaven</string>
-        <string>WayOfTheDistantHand</string>
-    </DeprecatedSubsList>
+    <DeprecatedSubsReenableList/>
     <MonstersThatShouldHaveDarkvision>
         <string>Adam_The_Twelth</string>
         <string>DLC3_Elven_07_Guard</string>
@@ -948,7 +941,6 @@
                     <string>PatronCelestial</string>
                     <string>PatronEldritchSurge</string>
                     <string>PatronElementalist</string>
-                    <string>PatronMoonlit</string>
                     <string>PatronMountain</string>
                     <string>PatronRiftWalker</string>
                     <string>PatronSoulBlade</string>
