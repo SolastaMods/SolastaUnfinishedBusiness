@@ -215,6 +215,7 @@
         <string>CollegeOfHarlequin</string>
         <string>MartialMarshal</string>
         <string>MartialMartialDefender</string>
+        <string>PatronMoonlit</string>
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>
     </DeprecatedSubsList>
@@ -508,6 +509,9 @@
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>true</EnableHigherGroundRules>
     <FullyControlConjurations>true</FullyControlConjurations>
+    <ColdResistanceAlsoGrantsImmunityToChilledCondition>true</ColdResistanceAlsoGrantsImmunityToChilledCondition>
+    <ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>true
+    </ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>
     <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>

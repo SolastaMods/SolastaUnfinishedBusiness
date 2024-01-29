@@ -215,6 +215,7 @@
         <string>CollegeOfHarlequin</string>
         <string>MartialMarshal</string>
         <string>MartialMartialDefender</string>
+        <string>PatronMoonlit</string>
         <string>RoguishRaven</string>
         <string>WayOfTheDistantHand</string>
     </DeprecatedSubsList>
@@ -416,6 +417,9 @@
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>false</EnableHigherGroundRules>
     <FullyControlConjurations>false</FullyControlConjurations>
+    <ColdResistanceAlsoGrantsImmunityToChilledCondition>false</ColdResistanceAlsoGrantsImmunityToChilledCondition>
+    <ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>false
+    </ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>
     <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
@@ -1071,4 +1075,7 @@
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
     <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+    <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+    <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

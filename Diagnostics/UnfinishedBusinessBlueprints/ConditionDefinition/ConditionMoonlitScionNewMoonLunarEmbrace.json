@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:MovementAffinityConditionFlyingAdaptive:4f9ac82da0669a247bb79fb3858b6f64",
+    "Definition:MovementAffinityMoonlitScionFullMoonLunarEmbrace:48f1f58f-ce9f-5544-93ea-ee439891ddf4",
     "Definition:PowerMoonlitScionLunarChill:e5e8a27e-7f73-5ad8-8310-0d6a3e7d71d2"
   ],
   "allowMultipleInstances": false,
