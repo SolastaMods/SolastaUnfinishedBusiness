@@ -57,20 +57,13 @@ public static class CharacterActionPatcher
     {
         private static bool ActionShouldKeepConcentration(CharacterAction action)
         {
-            var isProtectedUsePower = action is CharacterActionUsePower { activePower: not null } actionUsePower
-                                      && actionUsePower.activePower.PowerDefinition
-                                          .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
+            var isProtectedPower =
+                action is CharacterActionUsePower or CharacterActionSpendPower or CharacterActionDoNothing &&
+                action.ActionParams.UsablePower != null &&
+                action.ActionParams.UsablePower.PowerDefinition
+                    .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
 
-            if (isProtectedUsePower)
-            {
-                return true;
-            }
-
-            var isProtectedSpendPower = action is CharacterActionSpendPower { activePower: not null } actionSpendPower
-                                        && actionSpendPower.activePower.PowerDefinition
-                                            .HasSubFeatureOfType<IPreventRemoveConcentrationOnPowerUse>();
-
-            return isProtectedSpendPower;
+            return isProtectedPower;
         }
 
         [UsedImplicitly]
