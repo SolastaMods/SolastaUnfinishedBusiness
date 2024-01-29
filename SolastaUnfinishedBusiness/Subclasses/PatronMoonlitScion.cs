@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -102,6 +103,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerLunarRadianceNoCost.EffectDescription.effectParticleParameters.effectParticleReference =
+            new AssetReference();
+
         var conditionFullMoonNoCost = ConditionDefinitionBuilder
             .Create($"Condition{Name}FullMoonNoCost")
             .SetGuiPresentationNoContent(true)
@@ -133,6 +137,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionLightBlindingFlash)
                     .Build())
             .AddToDB();
+
+        powerLunarRadiance.EffectDescription.effectParticleParameters.effectParticleReference = new AssetReference();
 
         var conditionFullMoon = ConditionDefinitionBuilder
             .Create($"Condition{Name}FullMoon")
@@ -318,17 +324,23 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
         // Lunar Embrace
 
+        var movementAffinityFullMoonLunarEmbrace = FeatureDefinitionMovementAffinityBuilder
+            .Create(FeatureDefinitionMovementAffinitys.MovementAffinityConditionFlyingAdaptive,
+                $"MovementAffinity{Name}FullMoonLunarEmbrace")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         var conditionFullMoonLunarEmbrace =
             ConditionDefinitionBuilder
                 .Create(conditionFullMoonMidnightBlessing, $"Condition{Name}FullMoonLunarEmbrace")
-                .AddFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityConditionFlyingAdaptive)
+                .AddFeatures(movementAffinityFullMoonLunarEmbrace)
                 .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                 .AddToDB();
 
         var conditionNewMoonLunarEmbrace =
             ConditionDefinitionBuilder
                 .Create(conditionNewMoonMidnightBlessing, $"Condition{Name}NewMoonLunarEmbrace")
-                .AddFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityConditionFlyingAdaptive)
+                .AddFeatures(movementAffinityFullMoonLunarEmbrace)
                 .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
                 .AddToDB();
 
@@ -516,7 +528,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 < 17 => 8,
                 _ => 9
             };
-            
+
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 levels, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
 
