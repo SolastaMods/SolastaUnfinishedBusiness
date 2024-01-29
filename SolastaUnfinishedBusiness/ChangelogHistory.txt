@@ -1,7 +1,8 @@
 ﻿1.5.94.48:
 
+- added revised Patron Moonlit subclass [design by hiddenHax]
 - fixed Circle of The Nights interaction with ArchDruid feature at level 20
-- fixed gadgets under attack rolls enforcing disadvantage with lighting and obscurement rules enabled
+- fixed gadgets under attack rolls enforcing disadvantage with lighting and obscurement rules
 - improved 'Cold Resistance also grants immunity to chilled condition and reduces frozen to chilled'
 
 1.5.94.47:
