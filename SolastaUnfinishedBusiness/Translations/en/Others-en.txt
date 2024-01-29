@@ -207,6 +207,7 @@ Rules/&SituationalContext1014Format=Has shield in hands:
 Rules/&SituationalContext1015Format=Target doesn't have condition:
 Rules/&SituationalContext1016Format=Has simple or martial weapons in hand:
 Rules/&TurnOccurenceEndOfSourceTurnFormat=End Source of Turn
+Screen/&PatronExtraSpellDescription=Patron
 Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
 Screen/&EditorLocationSize3Title=Huge [MODDED]
 Screen/&EditorLocationSize4Title=Gargantuan [MODDED]

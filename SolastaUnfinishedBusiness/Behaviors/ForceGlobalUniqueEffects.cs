@@ -164,6 +164,7 @@ internal static class ForceGlobalUniqueEffects
         Familiar,
         GrenadierGrenadeMode,
         InventorSpellStoringItem,
-        WildMasterBeast
+        WildMasterBeast,
+        MoonlitNewAndFullMoon
     }
 }

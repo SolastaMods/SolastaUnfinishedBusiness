@@ -1528,6 +1528,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMovementAffinity MovementAffinityCarriedByWind { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityCarriedByWind");
 
+        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionFlyingAdaptive { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionFlyingAdaptive");
+
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionHindered { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionHindered");
 
