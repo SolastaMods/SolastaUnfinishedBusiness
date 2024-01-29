@@ -570,40 +570,6 @@ internal static class SrdAndHouseRulesContext
             }
         }
 
-        foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
-        {
-            if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
-            {
-                if (monster.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance))
-                {
-                    monster.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
-                    monster.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
-                }
-            }
-            else
-            {
-                monster.Features.Remove(ConditionAffinityWeatherChilledImmunity);
-                monster.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
-            }
-
-            if (Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition)
-            {
-                // ReSharper disable once InvertIf
-                if (monster.Features.Contains(FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity))
-                {
-                    monster.Features.TryAdd(ConditionAffinityWeatherChilledImmunity);
-                    monster.Features.TryAdd(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
-                    monster.Features.TryAdd(ConditionAffinityWeatherFrozenImmunity);
-                }
-            }
-            else
-            {
-                monster.Features.Remove(ConditionAffinityWeatherChilledImmunity);
-                monster.Features.Remove(ConditionAffinityWeatherChilledInsteadOfFrozenImmunity);
-                monster.Features.Remove(ConditionAffinityWeatherFrozenImmunity);
-            }
-        }
-
         foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>())
         {
             if (Main.Settings.ColdResistanceAlsoGrantsImmunityToChilledCondition)
