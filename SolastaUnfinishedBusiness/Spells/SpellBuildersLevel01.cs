@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -302,7 +301,7 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Hour, 8)
             .SetParticleEffectParameters(ExpeditiousRetreat)
             .SetEffectForms(
@@ -1593,7 +1592,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -1672,15 +1671,18 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var actionParams = action.ActionParams.Clone();
-            var usablePower = PowerProvider.Get(powerThunderousSmite, rulesetAttacker);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
+            var usablePower = PowerProvider.Get(powerThunderousSmite, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -1720,7 +1722,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Hour, 8)
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1897,17 +1899,20 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var actionParams = action.ActionParams.Clone();
-            var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetCharacter);
+            var rulesetAttacker = attacker.RulesetCharacter;
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
-            actionParams.TargetCharacters.SetRange(targets);
+            var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

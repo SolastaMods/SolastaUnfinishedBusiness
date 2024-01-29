@@ -17,4 +17,4 @@ Feature/&PowerMoonlitFullMoonTitle=Luna piena
 Feature/&PowerMoonlitMoonTouchedDescription=Evochi l'attrazione gravitazionale della luna in una piccola area, facendo fluttuare verso l'alto le creature che falliscono un tiro salvezza.
 Feature/&PowerMoonlitMoonTouchedTitle=Luna Toccata
 Subclass/&PatronMoonlitDescription=Il tuo protettore è uno spirito della luna, un'entità che incarna la natura ciclica della luce e dell'oscurità. Questi spiriti cercano di mantenere il potere della luna nel cielo notturno, tenendo a bada i poteri profani che inseguono l'oscurità e assegnano lo stesso compito ai loro stregoni, garantendo loro il comando sui poteri della luna e sui suoi effetti.
-Subclass/&PatronMoonlitTitle=Il chiaro di luna
+Subclass/&PatronMoonlitTitle=Il chiaro di luna non tagliato

@@ -89,7 +89,7 @@ internal static class RaceMalakhBuilder
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()

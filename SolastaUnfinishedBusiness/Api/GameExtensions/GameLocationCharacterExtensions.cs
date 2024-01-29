@@ -385,16 +385,17 @@ public static class GameLocationCharacterExtensions
         if (!Main.Settings.EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack &&
             rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk) > 0)
         {
-            var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
             var actionParams = new CharacterActionParams(instance, Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                targetCharacters = { instance }
+                UsablePower = usablePower,
+                TargetCharacters = { instance }
             };
 
             ServiceRepository.GetService<ICommandService>()

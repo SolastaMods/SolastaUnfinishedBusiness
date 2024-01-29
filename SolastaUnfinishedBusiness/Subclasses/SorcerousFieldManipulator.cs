@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -312,18 +311,21 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 yield break;
             }
 
-            var actionParams = action.ActionParams.Clone();
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(Gui.Battle.GetContenders(attacker, isWithinXCells: 2));
+            var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = Gui.Battle.GetContenders(attacker, isWithinXCells: 2)
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

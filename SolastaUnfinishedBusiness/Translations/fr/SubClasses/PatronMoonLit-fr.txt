@@ -17,4 +17,4 @@ Feature/&PowerMoonlitFullMoonTitle=Pleine lune
 Feature/&PowerMoonlitMoonTouchedDescription=Vous invoquez l'attraction gravitationnelle de la lune dans une petite zone, ce qui fait flotter vers le haut les créatures qui échouent à un jet de sauvegarde.
 Feature/&PowerMoonlitMoonTouchedTitle=Lune touchée
 Subclass/&PatronMoonlitDescription=Votre patron est un esprit de la lune, une entité qui incarne la nature cyclique de la lumière et des ténèbres. Ces esprits cherchent à maintenir le pouvoir de la lune sur le ciel nocturne tout en gardant à distance les pouvoirs profanes qui traquent les ténèbres et en chargent leurs sorciers, leur accordant le contrôle des pouvoirs de la lune et de ses effets.
-Subclass/&PatronMoonlitTitle=Le clair de lune
+Subclass/&PatronMoonlitTitle=Le clair de lune non coupé

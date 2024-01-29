@@ -59,14 +59,16 @@ internal static class PowerBundleContext
                     functor._powerUsed = false;
                     ServiceRepository.GetService<IGameLocationActionService>();
 
-                    var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
-
-                    actionParams.TargetCharacters.Add(fromActor);
-                    actionParams.ActionModifiers.Add(new ActionModifier());
-                    actionParams.RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
-                        .AddAsActivePowerToSource();
-                    actionParams.SkipAnimationsAndVFX = true;
+                    var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain)
+                    {
+                        ActionModifiers = { new ActionModifier() },
+                        RulesetEffect = implementationManagerService
+                            .MyInstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true)
+                            .AddAsActivePowerToSource(),
+                        UsablePower = usablePower,
+                        TargetCharacters = { fromActor },
+                        SkipAnimationsAndVFX = true
+                    };
 
                     ServiceRepository.GetService<ICommandService>()
                         .ExecuteAction(actionParams, functor.ActionExecuted, false);

@@ -522,7 +522,7 @@ internal static class LightingAndObscurementContext
         // gadgets cannot perceive anything
         if (sensor.RulesetActor is RulesetGadget)
         {
-            return true;
+            return false;
         }
 
         // let vanilla do the heavy lift on perception

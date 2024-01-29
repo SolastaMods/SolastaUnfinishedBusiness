@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -1389,7 +1388,7 @@ internal static class MeleeCombatFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1481,21 +1480,24 @@ internal static class MeleeCombatFeats
 
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
-                        var actionParams = action.ActionParams.Clone();
-                        var usablePower = PowerProvider.Get(_power, rulesetAttacker);
                         var implementationManagerService =
                             ServiceRepository.GetService<IRulesetImplementationService>() as
                                 RulesetImplementationManager;
-                        actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-                        actionParams.RulesetEffect = implementationManagerService
-                            //CHECK: no need for AddAsActivePowerToSource
-                            .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-                        actionParams.TargetCharacters.SetRange(defender);
+
+                        var usablePower = PowerProvider.Get(_power, rulesetAttacker);
+                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+                        {
+                            RulesetEffect = implementationManagerService
+                                //CHECK: no need for AddAsActivePowerToSource
+                                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                            UsablePower = usablePower,
+                            TargetCharacters = { defender }
+                        };
 
                         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
                         // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-                        actionService.ExecuteAction(actionParams, null, true);
+                        actionService?.ExecuteAction(actionParams, null, true);
                     }
 
                     break;

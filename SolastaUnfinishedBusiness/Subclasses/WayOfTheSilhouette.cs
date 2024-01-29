@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -277,12 +275,14 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var actionParams = action.ActionParams.Clone();
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, -1, false);
+                .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 2, false);
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
-            actionParams.RulesetEffect = effectSpell;
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.CastNoCost)
+            {
+                RulesetEffect = effectSpell, positions = action.ActionParams.Positions
+            };
+
             rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
 
@@ -476,13 +476,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetMe, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { me }
             };
-
-            actionParams.TargetCharacters.SetRange(me);
 
             EffectHelpers.StartVisualEffect(me, attacker,
                 FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will, EffectHelpers.EffectType.Caster);

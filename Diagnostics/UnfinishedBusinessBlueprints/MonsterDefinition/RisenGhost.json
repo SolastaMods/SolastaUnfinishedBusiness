@@ -69,6 +69,8 @@
     "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:ConditionAffinityHinderedByFrostImmunity:f0b82f8e00ab71b499cba40f950a034b",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
     "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [

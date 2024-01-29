@@ -286,17 +286,18 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(Power, rulesetOriginalHelper);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
+            var usablePower = PowerProvider.Get(Power, rulesetOriginalHelper);
             var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = ReactionName,
                 StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
+                UsablePower = usablePower
             };
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
@@ -305,14 +306,14 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             yield return battleManager.WaitForReactions(originalHelper, actionService, count);
 
-            if (reactionParams.ReactionValidated)
+            if (!reactionParams.ReactionValidated)
             {
-                rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-                rulesetOriginalHelper.UsePower(usablePower);
-                action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
+                yield break;
             }
 
-            reactionParams.RulesetEffect.Terminate(true);
+            rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
+            rulesetOriginalHelper.UsePower(usablePower);
+            action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
         }
 
         private static bool ShouldTrigger(

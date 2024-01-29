@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -276,15 +275,18 @@ public sealed class MartialDefender : AbstractSubclass
                 yield break;
             }
 
-            var actionParams = action.ActionParams.Clone();
-            var usablePower = PowerProvider.Get(powerAegisAssault, rulesetAttacker);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
+            var usablePower = PowerProvider.Get(powerAegisAssault, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

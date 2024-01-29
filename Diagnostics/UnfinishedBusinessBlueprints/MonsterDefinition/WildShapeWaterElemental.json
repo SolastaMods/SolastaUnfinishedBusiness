@@ -113,6 +113,8 @@
     "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
     "Definition:DamageAffinityFireVulnerability:3f6fefd9cd5a7e442b3173bafed47822",
     "Definition:PowerIceElementalBlizzard:7415e71a3e5e7ab45b5aaf24aa74f108",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
     "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [

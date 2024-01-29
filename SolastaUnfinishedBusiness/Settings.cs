@@ -59,15 +59,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
 
     // change this at your own risk as these subclasses will be fully removed from mod in the near future
-    public String[] DeprecatedSubsList { get; set; } =
-    [
-        "CollegeOfHarlequin",
-        "MartialMarshal",
-        "MartialMartialDefender",
-        "PatronMoonlit",
-        "RoguishRaven",
-        "WayOfTheDistantHand"
-    ];
+    public List<string> DeprecatedSubsReenableList { get; set; } = [];
 
     public HashSet<String> MonstersThatShouldHaveDarkvision { get; set; } =
     [

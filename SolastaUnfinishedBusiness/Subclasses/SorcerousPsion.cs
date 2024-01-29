@@ -4,7 +4,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -395,16 +394,19 @@ public sealed class SorcerousPsion : AbstractSubclass
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
-            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
-            var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
-            var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 2);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
-            actionParams.TargetCharacters.SetRange(targets);
+            var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
+            var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 2);
+            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
 
             EffectHelpers.StartVisualEffect(
                 source, source, PowerPatronFiendDarkOnesBlessing, EffectHelpers.EffectType.Effect);

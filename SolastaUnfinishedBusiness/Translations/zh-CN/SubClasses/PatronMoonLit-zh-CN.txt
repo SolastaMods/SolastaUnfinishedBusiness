@@ -17,4 +17,4 @@ Feature/&PowerMoonlitFullMoonTitle=月盈
 Feature/&PowerMoonlitMoonTouchedDescription=你在一个小范围内召唤月球的引力，使豁免失败的生物向上漂浮。
 Feature/&PowerMoonlitMoonTouchedTitle=潮汐引力
 Subclass/&PatronMoonlitDescription=你的守护神是月之精灵，其承载着光明与黑暗的循环。这些精灵试图维持月亮对夜空的影响力，同时抵御潜伏在黑暗中的亵渎之力，并让他们的术士承担同样的任务，赋予他们掌控月亮及其效应的能力。
-Subclass/&PatronMoonlitTitle=月华
+Subclass/&PatronMoonlitTitle=月光下的未切割

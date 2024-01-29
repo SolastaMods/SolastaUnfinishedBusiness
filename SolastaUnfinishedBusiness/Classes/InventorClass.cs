@@ -931,7 +931,8 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
             StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
             RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false)
+                .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
+            UsablePower = usablePower
         };
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
@@ -940,14 +941,14 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
 
         yield return battleManager.WaitForReactions(originalHelper, actionService, count);
 
-        if (reactionParams.ReactionValidated)
+        if (!reactionParams.ReactionValidated)
         {
-            rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-            rulesetOriginalHelper.UsePower(usablePower); // non fixed powers must be explicitly used on custom
-            action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
+            yield break;
         }
 
-        reactionParams.RulesetEffect.Terminate(true);
+        rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
+        rulesetOriginalHelper.UsePower(usablePower); // non fixed powers must be explicitly used on custom
+        action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
     }
 
     // ReSharper disable once SuggestBaseTypeForParameter

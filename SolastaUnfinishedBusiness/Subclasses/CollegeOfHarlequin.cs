@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -284,16 +283,16 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             var level = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = level >= 14 ? power14 : power6;
 
-            var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
                 targetCharacters = targets
             };
 

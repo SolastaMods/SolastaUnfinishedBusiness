@@ -17,4 +17,4 @@ Feature/&PowerMoonlitFullMoonTitle=Vollmond
 Feature/&PowerMoonlitMoonTouchedDescription=Sie beschwören die Anziehungskraft des Mondes in einem kleinen Bereich und lassen Kreaturen, denen ein Rettungswurf misslingt, nach oben schweben.
 Feature/&PowerMoonlitMoonTouchedTitle=Mond berührt
 Subclass/&PatronMoonlitDescription=Ihr Schutzpatron ist ein Geist des Mondes, ein Wesen, das die zyklische Natur von Licht und Dunkelheit verkörpert. Diese Geister versuchen, die Macht des Mondes über den Nachthimmel aufrechtzuerhalten, während sie gleichzeitig profane Kräfte, die die Dunkelheit verfolgen, in Schach halten und ihre Hexenmeister damit beauftragen, ihnen die Macht über die Kräfte des Mondes und seine Auswirkungen zu übertragen.
-Subclass/&PatronMoonlitTitle=Der Mondschein
+Subclass/&PatronMoonlitTitle=The Moonlit Uncut

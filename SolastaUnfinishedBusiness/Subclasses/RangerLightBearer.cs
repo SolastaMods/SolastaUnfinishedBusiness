@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -412,17 +410,18 @@ public sealed class RangerLightBearer : AbstractSubclass
 
             rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
 
-            var actionParams = action.ActionParams.Clone();
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-            actionParams.TargetCharacters.SetRange(
-                gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 5));
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 5)
+            };
 
             // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);

@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -1050,14 +1049,15 @@ public sealed class InnovationArtillerist : AbstractSubclass
                 yield break;
             }
 
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var selectedTarget = action.ActionParams.TargetCharacters[0];
+            var targets = new List<GameLocationCharacter>();
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            var actionParams = action.ActionParams.Clone();
-            var rulesetCharacter = actionParams.ActingCharacter.RulesetCharacter;
-            var selectedTarget = actionParams.TargetCharacters[0];
-            var targets = new List<GameLocationCharacter>();
-            var usablePower = PowerProvider.Get(_powerEldritchDetonation, rulesetCharacter);
 
+            var usablePower = PowerProvider.Get(_powerEldritchDetonation, rulesetCharacter);
             var effectPower = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
                 .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
@@ -1065,9 +1065,10 @@ public sealed class InnovationArtillerist : AbstractSubclass
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
                 selectedTarget, effectPower.EffectDescription, targets, []);
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.PowerNoCost;
-            actionParams.RulesetEffect = effectPower;
-            actionParams.TargetCharacters.SetRange(targets);
+            var actionParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
+            {
+                RulesetEffect = effectPower, UsablePower = usablePower, targetCharacters = targets
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

@@ -1527,16 +1527,18 @@ internal static class Level20SubclassesContext
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
             var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                targetCharacters = { actingCharacter }
+                UsablePower = usablePower,
+                TargetCharacters = { actingCharacter }
             };
 
             ServiceRepository.GetService<ICommandService>()
@@ -1929,16 +1931,17 @@ internal static class Level20SubclassesContext
                 0,
                 0);
 
-            var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                targetCharacters = { source }
+                UsablePower = usablePower,
+                TargetCharacters = { source }
             };
 
             ServiceRepository.GetService<ICommandService>()

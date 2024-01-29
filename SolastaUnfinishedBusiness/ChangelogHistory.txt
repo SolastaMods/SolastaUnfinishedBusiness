@@ -1,4 +1,12 @@
-﻿1.5.94.47:
+﻿1.5.94.48:
+
+- added revised Patron Moonlit subclass [design by HiddenHax]
+- fixed Circle of The Nights interaction with Arch Druid feature at level 20
+- fixed gadgets under attack rolls enforcing disadvantage with lighting and obscurement rules
+- fixed vanilla powers and spells with range type touch and distance greater than zero
+- improved 'Cold Resistance also grants immunity to chilled condition and reduces frozen to chilled'
+
+1.5.94.47:
 
 - added Gameplay > Rules > 'Cold Resistance also grants immunity to chilled condition'
 - added Gameplay > Rules > 'Cold Immunity also grants immunity to chilled and frozen conditions'

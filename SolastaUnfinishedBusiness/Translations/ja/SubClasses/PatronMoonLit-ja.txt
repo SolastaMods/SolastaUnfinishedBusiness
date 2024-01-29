@@ -17,4 +17,4 @@ Feature/&PowerMoonlitFullMoonTitle=満月
 Feature/&PowerMoonlitMoonTouchedDescription=狭い範囲に月の引力を呼び起こし、セーヴィング スローに失敗したクリーチャーを上に浮き上がらせます。
 Feature/&PowerMoonlitMoonTouchedTitle=月に触れた
 Subclass/&PatronMoonlitDescription=あなたの守護者は月の精霊であり、光と闇の周期的な性質を体現する存在です。これらの精霊は、闇に忍び寄る不敬な力を寄せ付けずに夜空にかかる月の力を維持しようと努めており、彼らの魔法使いに月の力とその影響を制御する権限を与えるという同じ任務を与えています。
-Subclass/&PatronMoonlitTitle=月明かりに照らされて
+Subclass/&PatronMoonlitTitle=月明かりに照らされたノーカット

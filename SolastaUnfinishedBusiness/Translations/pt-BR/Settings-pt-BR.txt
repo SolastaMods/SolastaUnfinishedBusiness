@@ -49,7 +49,7 @@ ModUi/&Character=Personagem
 ModUi/&CharactersPool=Conjunto de Personagens
 ModUi/&Classes=<color=#F0DAA0>Aulas</color>
 ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>Imunidade ao Frio</color> também concede imunidade a condições de resfriamento e congelamento
-ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistência ao Frio</color> também concede imunidade a condições de frio
+ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistência ao Frio</color> também concede imunidade à condição de resfriado e reduz a condição de congelado a resfriado
 ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Criação:</color>
 ModUi/&CraftingHelp=. Pressione o botão para aprender receitas instantaneamente na parte ativa\n. Os itens adicionados às lojas podem exigir que o grupo se afaste do local e volte

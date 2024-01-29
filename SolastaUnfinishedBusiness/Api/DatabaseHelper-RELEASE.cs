@@ -19,7 +19,6 @@ internal static partial class DatabaseHelper
     {
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
         internal static ActionDefinition CastInvocation { get; } = GetDefinition<ActionDefinition>("CastInvocation");
-        internal static ActionDefinition CastNoCost { get; } = GetDefinition<ActionDefinition>("CastNoCost");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition DisengageMain { get; } = GetDefinition<ActionDefinition>("DisengageMain");
         internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
@@ -28,10 +27,8 @@ internal static partial class DatabaseHelper
             GetDefinition<ActionDefinition>("GrantBardicInspiration");
 
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
-        internal static ActionDefinition PowerNoCost { get; } = GetDefinition<ActionDefinition>("PowerNoCost");
         internal static ActionDefinition Pushed { get; } = GetDefinition<ActionDefinition>("Pushed");
         internal static ActionDefinition RageStart { get; } = GetDefinition<ActionDefinition>("RageStart");
-        internal static ActionDefinition SpendPower { get; } = GetDefinition<ActionDefinition>("SpendPower");
         internal static ActionDefinition StepBack { get; } = GetDefinition<ActionDefinition>("StepBack");
 
         internal static ActionDefinition StunningStrikeToggle { get; } =
@@ -1327,6 +1324,12 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherChilledImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherChilledImmunity");
 
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherChilledInsteadOfFrozenImmunity
+        {
+            get;
+        } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherChilledInsteadOfFrozenImmunity");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherFrozenImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherFrozenImmunity");
     }
@@ -1521,6 +1524,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMovementAffinity MovementAffinityCarriedByWind { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityCarriedByWind");
+
+        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionFlyingAdaptive { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionFlyingAdaptive");
 
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionHindered { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionHindered");

@@ -392,16 +392,19 @@ public class PatronCelestial : AbstractSubclass
 
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
-            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower);
-            var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
-            var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 5);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
-            actionParams.TargetCharacters.SetRange(targets);
+            var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
+            var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 5);
+            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
 
             EffectHelpers.StartVisualEffect(
                 source, source, HolyAura, EffectHelpers.EffectType.Effect);

@@ -211,13 +211,7 @@
     <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <DeprecatedSubsList>
-        <string>CollegeOfHarlequin</string>
-        <string>MartialMarshal</string>
-        <string>MartialMartialDefender</string>
-        <string>RoguishRaven</string>
-        <string>WayOfTheDistantHand</string>
-    </DeprecatedSubsList>
+    <DeprecatedSubsReenableList/>
     <MonstersThatShouldHaveDarkvision>
         <string>Adam_The_Twelth</string>
         <string>DLC3_Elven_07_Guard</string>
@@ -416,6 +410,9 @@
     <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
     <EnableHigherGroundRules>false</EnableHigherGroundRules>
     <FullyControlConjurations>false</FullyControlConjurations>
+    <ColdResistanceAlsoGrantsImmunityToChilledCondition>false</ColdResistanceAlsoGrantsImmunityToChilledCondition>
+    <ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>false
+    </ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>
     <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>

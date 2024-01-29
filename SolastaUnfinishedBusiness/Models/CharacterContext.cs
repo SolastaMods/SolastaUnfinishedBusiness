@@ -184,7 +184,7 @@ internal static class CharacterContext
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(CustomConditionsContext.Distracted))
                 .Build())
@@ -1927,16 +1927,18 @@ internal static class CharacterContext
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = powerRogueCunningStrike.Name,
-                TargetCharacters = { defender },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false)
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
             };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestSpendBundlePower(reactionParams);
@@ -2002,16 +2004,20 @@ internal static class CharacterContext
                 yield break;
             }
 
-            var actionParams = action.ActionParams.Clone();
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionParams.ActionDefinition = SpendPower;
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
 
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 

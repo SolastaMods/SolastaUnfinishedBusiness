@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -305,17 +304,19 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 yield break;
             }
 
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Bard);
             var power = classLevel < 14 ? powerTerrificPerformance : powerImprovedTerrificPerformance;
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
                 targetCharacters = targets
             };
 

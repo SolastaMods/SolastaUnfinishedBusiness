@@ -58,14 +58,13 @@ internal static class RaceOligathBuilder
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
             .AddToDB();
 
+        // chilled and frozen immunities are handled by srd house rules now
         var damageAffinityOligathHotBlooded = FeatureDefinitionFeatureSetBuilder
             .Create($"DamageAffinity{Name}HotBlooded")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddFeatureSet(
-                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherFrozenImmunity,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityWeatherChilledImmunity)
+                FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
             .AddToDB();
 
         var powerOligathStoneEndurance = BuildPowerOligathStoneEndurance();

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
@@ -26,7 +25,7 @@ internal sealed class Merciless : AbstractFightingStyle
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Cube)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.Cube)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                 .SetSavingThrowData(
                     false,
@@ -88,16 +87,18 @@ internal sealed class Merciless : AbstractFightingStyle
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
+            var distance = _criticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            var distance = _criticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+
+            var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                ActionDefinition = DatabaseHelper.ActionDefinitions.SpendPower,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
                 targetCharacters = Gui.Battle
                     .GetContenders(attacker, isWithinXCells: distance)
                     .Where(x => x.CanPerceiveTarget(attacker))
