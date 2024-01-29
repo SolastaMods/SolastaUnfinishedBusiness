@@ -941,14 +941,14 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
 
         yield return battleManager.WaitForReactions(originalHelper, actionService, count);
 
-        if (reactionParams.ReactionValidated)
+        if (!reactionParams.ReactionValidated)
         {
-            rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-            rulesetOriginalHelper.UsePower(usablePower); // non fixed powers must be explicitly used on custom
-            action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
+            yield break;
         }
 
-        reactionParams.RulesetEffect.Terminate(true);
+        rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
+        rulesetOriginalHelper.UsePower(usablePower); // non fixed powers must be explicitly used on custom
+        action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
     }
 
     // ReSharper disable once SuggestBaseTypeForParameter

@@ -306,14 +306,14 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             yield return battleManager.WaitForReactions(originalHelper, actionService, count);
 
-            if (reactionParams.ReactionValidated)
+            if (!reactionParams.ReactionValidated)
             {
-                rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-                rulesetOriginalHelper.UsePower(usablePower);
-                action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
+                yield break;
             }
 
-            reactionParams.RulesetEffect.Terminate(true);
+            rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
+            rulesetOriginalHelper.UsePower(usablePower);
+            action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
         }
 
         private static bool ShouldTrigger(
