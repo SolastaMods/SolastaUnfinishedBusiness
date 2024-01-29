@@ -22,6 +22,30 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
+    //PATCH: supports IForceLightingState
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.LightingState), MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class LightingState_Getter_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            GameLocationCharacter __instance,
+            ref LocationDefinitions.LightingState __result)
+        {
+            var modifiers = __instance.RulesetActor.GetSubFeaturesByType<IForceLightingState>();
+
+            if (modifiers.Count == 0)
+            {
+                return true;
+            }
+
+            __result = modifiers[0].GetLightingState(__instance, __result);
+
+            return false;
+        }
+    }
+
     //PATCH: supports `UseOfficialLightingObscurementAndVisionRules`
     //let ADV/DIS be handled elsewhere in `GLBM.CanAttack` if alternate lighting and obscurement rules in place
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.ComputeLightingModifierForIlluminable))]
