@@ -11,29 +11,42 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SubclassesContext
 {
-    internal static readonly SortedList<string, CharacterClassDefinition> Klasses = new();
+    internal static readonly SortedList<string, CharacterClassDefinition> Klasses = [];
 
-    internal static readonly Dictionary<CharacterClassDefinition, KlassListContext> KlassListContextTab = new();
+    internal static readonly Dictionary<CharacterClassDefinition, KlassListContext> KlassListContextTab = [];
 
     private static Dictionary<CharacterSubclassDefinition, DeityDefinition> DeityChoiceList
     {
         get;
-    } = new();
+    } = [];
 
     private static Dictionary<CharacterSubclassDefinition, FeatureDefinitionSubclassChoice> SubclassesChoiceList
     {
         get;
-    } = new();
+    } = [];
+
+    private static List<string> DeprecatedSubsList { get; } =
+    [
+        "CollegeOfHarlequin",
+        "MartialMarshal",
+        "MartialMartialDefender",
+        "PatronMoonlit",
+        "RoguishRaven",
+        "WayOfTheDistantHand"
+    ];
 
     internal static void Load()
     {
         RegisterClassesContext();
 
+        var finalDeprecatedList =
+            DeprecatedSubsList.RemoveAll(x => Main.Settings.DeprecatedSubsReenableList.Contains(x));
+
         foreach (var abstractSubClassInstance in typeof(AbstractSubclass)
                      .Assembly.GetTypes()
                      .Where(t => t.IsSubclassOf(typeof(AbstractSubclass)) && !t.IsAbstract)
                      .Select(t => (AbstractSubclass)Activator.CreateInstance(t))
-                     .Where(t => !Main.Settings.DeprecatedSubsList.Contains(t.Subclass.Name)))
+                     .Where(t => !DeprecatedSubsList.Contains(t.Subclass.Name)))
         {
             LoadSubclass(abstractSubClassInstance);
         }
