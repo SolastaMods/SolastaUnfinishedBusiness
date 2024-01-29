@@ -371,7 +371,7 @@ internal static class InvocationsBuilders
             .Create(Haste, "Kinesis")
             .AddToDB();
 
-        spellKinesis.EffectDescription.targetFilteringMethod = TargetFilteringMethod.CharacterOnly;
+        spellKinesis.EffectDescription.targetParameter = 2;
 
         return InvocationDefinitionBuilder
             .Create(NAME)

@@ -1,4 +1,8 @@
-﻿1.5.94.48:
+﻿1.5.94.49:
+
+- fixed Kinesis invocation not allowing a second target to be selected
+
+1.5.94.48:
 
 - added revised Patron Moonlit subclass [design by HiddenHax]
 - fixed Circle of The Nights interaction with Arch Druid feature at level 20
