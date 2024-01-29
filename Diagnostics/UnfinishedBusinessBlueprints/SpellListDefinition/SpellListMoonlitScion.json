@@ -1,0 +1,101 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 9,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:FaerieFire:72b2d8c811efbb04e8d70c0a41f5d963",
+        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:MoonBeam:2888ca7e95be24447b669a33ccf80e9b",
+        "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Daylight:73762817061cfec47b824d2f3a9fc3f6",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7",
+        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+        "Definition:GreaterRestoration:6131d7d4650604b44ad3c74b21cc3eb2"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
+    }
+  ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "603cd97b-74e0-581b-95b4-0d5815080da0",
+  "contentPack": 9999,
+  "name": "SpellListMoonlitScion"
+}
