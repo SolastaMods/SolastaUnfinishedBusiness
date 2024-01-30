@@ -966,7 +966,7 @@ internal static partial class SpellBuilders
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
