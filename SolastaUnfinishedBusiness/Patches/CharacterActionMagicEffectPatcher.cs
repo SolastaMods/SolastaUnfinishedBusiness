@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,6 +10,8 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Interfaces;
+using TA;
+using UnityEngine;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -157,6 +160,378 @@ public static class CharacterActionMagicEffectPatcher
             if (magicEffectFinishedByMe != null)
             {
                 yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
+            }
+        }
+
+        // FULL VANILLA CODE FOR REFERENCE
+        private static IEnumerator ExecuteImpl(CharacterActionMagicEffect __instance)
+        {
+            var actingCharacter = __instance.ActingCharacter;
+            var actionParams = __instance.ActionParams;
+
+            if (actionParams == null)
+            {
+                Trace.LogException(new Exception(
+                    "[TACTICAL INVISIBLE FOR PLAYERS] null ActionParams in CharacterActionMagicEffect.ExecuteImpl()."));
+            }
+            else
+            {
+                var rulesetEffect = actionParams.RulesetEffect;
+
+                if (rulesetEffect == null)
+                {
+                    Trace.LogException(new Exception(
+                        "[TACTICAL INVISIBLE FOR PLAYERS] null RulesetEffect in CharacterActionMagicEffect.ExecuteImpl()."));
+                }
+                else if (rulesetEffect.EntityImplementation is not GameLocationEffect)
+                {
+                    Trace.LogError($"Error Context : {rulesetEffect}");
+                    Trace.LogException(new Exception(
+                        "[TACTICAL INVISIBLE FOR PLAYERS] null GameLocationEffect in CharacterActionMagicEffect.ExecuteImpl()."));
+                }
+                else
+                {
+                    yield return actingCharacter.WaitForHitAnimation();
+
+                    __instance.Countered = false;
+                    __instance.ExecutionFailed = false;
+                    __instance.immuneTargets.Clear();
+                    __instance.hitTargets.Clear();
+                    __instance.showCasting = !actionParams.SkipAnimationsAndVFX;
+                    __instance.needToWaitCastAnimation = false;
+
+                    var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                    var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+                    var targetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
+                    var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+
+                    var targets = actionParams.TargetCharacters;
+                    var targetPositions = actionParams.Positions;
+                    var actionModifiers = actionParams.ActionModifiers;
+                    var effectDescription = actionParams.RulesetEffect.EffectDescription;
+
+                    implementationService.ClearDamageFormsByIndex();
+
+                    __instance.TargetItem = actionParams.TargetItem;
+                    __instance.actualEffectForms = [];
+
+                    var locationPosition1 = actingCharacter.LocationPosition;
+                    var locationPosition2 = actionParams.Positions.Count > 0
+                        ? actionParams.Positions[0]
+                        : locationPosition1;
+                    var locationPosition3 = actionParams.Positions.Count > 1
+                        ? actionParams.Positions[1]
+                        : int3.zero;
+
+                    var isUsingFloatingImpactPoint = IsUsingFloatingImpactPoint(
+                        effectDescription.RangeType, effectDescription.TargetType);
+                    var impactPoint = !actionParams.HasMagneticTargeting & isUsingFloatingImpactPoint
+                        ? actionParams.CursorHoveredPosition
+                        : positioningService.GetWorldPositionFromGridPosition(locationPosition2);
+                    var fromGridPosition = positioningService.GetWorldPositionFromGridPosition(locationPosition2);
+                    var castingPoint = positioningService.GetWorldPositionFromGridPosition(locationPosition1);
+                    var impactPlanePoint = positioningService.GetImpactPlanePosition(impactPoint);
+
+                    if (actionParams.RulesetEffect.EntityImplementation is GameLocationEffect entityImplementation)
+                    {
+                        entityImplementation.Position = locationPosition2;
+                        entityImplementation.Position2 = locationPosition3;
+                        entityImplementation.HasMagneticTargeting = actionParams.HasMagneticTargeting;
+
+                        if (actionParams.RulesetEffect.EffectDescription.HasFormOfType(
+                                EffectForm.EffectFormType.Motion) &&
+                            actionParams.RulesetEffect.EffectDescription
+                                .GetFirstFormOfType(EffectForm.EffectFormType.Motion).MotionForm.Type ==
+                            MotionForm.MotionType.Telekinesis && actionParams.Positions.Count > 0)
+                        {
+                            entityImplementation.Position = actionParams.Positions[0];
+                        }
+
+                        entityImplementation.SourceOriginalPosition =
+                            actingCharacter.LocationPosition;
+                    }
+
+                    var origin = new Vector3();
+                    var direction = new Vector3();
+                    var shapeType = effectDescription.ShapeType;
+
+                    if (actingCharacter is { RulesetActor: RulesetCharacterHero } &&
+                        actionParams.RulesetEffect.OriginItem != null)
+                    {
+                        var slotHoldingItem =
+                            (actingCharacter.RulesetActor as RulesetCharacterHero)?.CharacterInventory
+                            .FindSlotHoldingItem(actionParams.RulesetEffect.OriginItem);
+
+                        if (slotHoldingItem != null && !slotHoldingItem.SlotTypeDefinition.BodySlot)
+                        {
+                            actingCharacter.SpendActionType(ActionDefinitions.ActionType.FreeOnce);
+                        }
+                    }
+
+                    targetingService.ComputeTargetingParameters(
+                        impactPoint,
+                        actingCharacter,
+                        actingCharacter.LocationPosition,
+                        shapeType,
+                        actionParams.RulesetEffect.EffectDescription.RangeType,
+                        ref origin,
+                        ref direction);
+
+                    if (effectDescription.TargetType == TargetType.Cube &&
+                        effectDescription.RangeType == RangeType.Distance)
+                    {
+                        var vector3 = new Vector3();
+                        var targetParameter = actionParams.RulesetEffect.EffectDescription
+                            .TargetParameter;
+
+                        if (actionParams.HasMagneticTargeting)
+                        {
+                            if (targetParameter % 2 == 0)
+                            {
+                                vector3 = new Vector3(0.5f, 0.5f, 0.5f);
+                            }
+                        }
+                        else
+                        {
+                            vector3 = new Vector3(0.0f, (float)((0.5 * targetParameter) - 0.5), 0.0f);
+                            if (targetParameter % 2 == 0)
+                            {
+                                vector3 += new Vector3(0.5f, 0.0f, 0.5f);
+                            }
+                        }
+
+                        impactPoint += vector3;
+                    }
+
+                    var locationCharacterList = new List<GameLocationCharacter>();
+                    var int3List = new List<int3>();
+
+                    __instance.computedTargetParameter =
+                        actionParams.RulesetEffect.ComputeTargetParameter();
+
+                    if (effectDescription.TargetType == TargetType.PerceivingWithinDistance)
+                    {
+                        targetingService.CollectPerceivingTargetsWithinDistance(actingCharacter,
+                            effectDescription, locationCharacterList, actionModifiers, int3List);
+                    }
+                    else
+                    {
+                        targetingService.ComputeTargetsOfAreaOfEffect(
+                            origin,
+                            direction,
+                            fromGridPosition,
+                            shapeType,
+                            actingCharacter.Side,
+                            effectDescription,
+                            __instance.computedTargetParameter,
+                            actionParams.RulesetEffect.ComputeTargetParameter2(),
+                            locationCharacterList, actionParams.HasMagneticTargeting,
+                            actingCharacter,
+                            int3List,
+                            groundOnly: effectDescription.AffectOnlyGround);
+                    }
+
+                    if (targets.Count == 1)
+                    {
+                        targetingService.ComputeAndSortSubtargets(
+                            actionParams.ActingCharacter, actionParams.RulesetEffect, targets[0],
+                            __instance.subTargets);
+
+                        if (!__instance.subTargets.Empty())
+                        {
+                            targets.AddRange(__instance.subTargets);
+                            actionModifiers.AddRange(__instance.subTargets.Select(_ => new ActionModifier()));
+                        }
+                    }
+
+                    actionModifiers.AddRange(locationCharacterList
+                        .Where(locationCharacter => targets.TryAdd(locationCharacter))
+                        .Select(_ => new ActionModifier()));
+
+                    __instance.SpendMagicEffectUses();
+                    __instance.CheckInterruptionBefore();
+
+                    yield return __instance.WaitSpellCastAction(battleService);
+
+                    if (__instance.Countered)
+                    {
+                        actionParams.RulesetEffect.Terminate(false);
+                    }
+                    else
+                    {
+                        yield return __instance.CheckExecutionFailure();
+
+                        if (__instance.ExecutionFailed)
+                        {
+                            actionParams.RulesetEffect.Terminate(false);
+                        }
+                        else
+                        {
+                            __instance.RemoveConcentrationAsNeeded();
+
+                            yield return __instance.HandleSpecialCastingTime();
+
+                            __instance.HandleEffectUniqueness();
+                            __instance.GetAdvancementData();
+
+                            yield return __instance.CounterEffectAction(__instance);
+
+                            __instance.ApplyTargetFiltering(
+                                effectDescription, targets, __instance.GetBaseDefinition());
+
+                            if (effectDescription.TargetType == TargetType.ClosestWithinDistance)
+                            {
+                                targetingService.FilterClosestTargets(
+                                    (Vector3Int)actingCharacter.LocationPosition, targets);
+                            }
+
+                            if (effectDescription.TargetType == TargetType.Position ||
+                                effectDescription.HasEffectProxy)
+                            {
+                                yield return __instance.MagicEffectExecuteOnPositions(
+                                    targetPositions, castingPoint, impactPoint, impactPlanePoint);
+
+                                __instance.ShowCasting = false;
+                            }
+
+                            if (effectDescription.TargetType != TargetType.Position ||
+                                effectDescription.HasEffectProxy)
+                            {
+                                if (IsTargeted(effectDescription.TargetType))
+                                {
+                                    yield return __instance.MagicEffectExecuteOnTargets(targets, actionModifiers,
+                                        castingPoint, impactPoint, impactPlanePoint, origin, direction);
+                                }
+                                else
+                                {
+                                    yield return __instance.MagicEffectExecuteOnZone(targets, actionModifiers,
+                                        castingPoint, impactPoint, impactPlanePoint, origin, direction);
+                                }
+                            }
+
+                            foreach (var locationCharacter in targets)
+                            {
+                                locationCharacter.WillBePushedByMagicalEffect = false;
+                            }
+
+                            __instance.PersistantEffectAction();
+
+                            var hasDamageForm = effectDescription.HasDamageForm();
+
+                            if (hasDamageForm &&
+                                __instance.ActionId != ActionDefinitions.Id.CastReaction &&
+                                __instance.ActionId != ActionDefinitions.Id.PowerReaction)
+                            {
+                                foreach (var locationCharacter in targets
+                                             .Where(x =>
+                                                 !__instance.immuneTargets.Contains(x) &&
+                                                 __instance.hitTargets.Contains(x) &&
+                                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                                 !x.Prone))
+                                {
+                                    if (!__instance.isResultingActionSpendPowerWithMotionForm &&
+                                        !locationCharacter.RulesetCharacter.IsDeadOrDying)
+                                    {
+                                        yield return locationCharacter.WaitForHitAnimation();
+                                    }
+
+                                    __instance.hitTargets.Remove(locationCharacter);
+                                }
+                            }
+
+                            for (var i = 0; i < targets.Count; ++i)
+                            {
+                                var defender = targets[i];
+
+                                if (!__instance.damagePerTargetIndexCache.TryGetValue(i, out var damageAmount))
+                                {
+                                    damageAmount = 0;
+                                }
+
+                                yield return battleService.HandleCharacterAttackFinished(
+                                    __instance,
+                                    actingCharacter,
+                                    defender,
+                                    null,
+                                    actionParams.RulesetEffect,
+                                    __instance.AttackRollOutcome,
+                                    damageAmount);
+                            }
+
+                            if (__instance.needToWaitCastAnimation)
+                            {
+                                if (!__instance.isResultingActionSpendPowerWithMotionForm)
+                                {
+                                    yield return actingCharacter.EventSystem.WaitForEvent(
+                                        GameLocationCharacterEventSystem.Event.MagicEffectAnimationEnd);
+                                }
+                                else
+                                {
+                                    actingCharacter.EventSystem.AbsorbNextEvent(
+                                        GameLocationCharacterEventSystem.Event.MagicEffectAnimationEnd);
+                                }
+
+                                actingCharacter.CastEnd(__instance.ActionId);
+                                __instance.needToWaitCastAnimation = false;
+                            }
+
+                            __instance.CheckInterruptionAfter();
+
+                            if (castingPoint != impactPoint)
+                            {
+                                var rulesetCharacter =
+                                    actingCharacter.RulesetCharacter as RulesetCharacterEffectProxy;
+
+                                if ((__instance.ActionId == ActionDefinitions.Id.CastReadied ||
+                                     __instance.ActionId == ActionDefinitions.Id.AttackReadied ||
+                                     __instance.ActionType != ActionDefinitions.ActionType.Reaction) &&
+                                    (rulesetCharacter == null || rulesetCharacter.EffectProxyDefinition.CanMove))
+                                {
+                                    actingCharacter.TurnTowards(impactPoint);
+
+                                    yield return actingCharacter.EventSystem
+                                        .UpdateMotionsAndWaitForEvent(
+                                            GameLocationCharacterEventSystem.Event.RotationEnd);
+                                }
+                            }
+
+                            var rangeAttack =
+                                effectDescription.RangeType != RangeType.MeleeHit &&
+                                effectDescription.RangeType != RangeType.Touch;
+
+                            if (!rangeAttack)
+                            {
+                                foreach (var locationCharacter in targets
+                                             .Where(x =>
+                                                 x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                                 x != actingCharacter &&
+                                                 !x.Prone &&
+                                                 !x.MoveStepInProgress &&
+                                                 !x.IsCharging &&
+                                                 (x.PerceivedAllies.Contains(actingCharacter) ||
+                                                  x.PerceivedFoes.Contains(actingCharacter))))
+                                {
+                                    locationCharacter.TurnTowards(actingCharacter);
+
+                                    yield return locationCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
+                                        GameLocationCharacterEventSystem.Event.RotationEnd);
+                                }
+                            }
+
+                            __instance.StartConcentrationAsNeeded();
+                            implementationService.ClearDamageFormsByIndex();
+
+                            if (__instance.isPostSpecialMove && battleService.IsBattleInProgress)
+                            {
+                                yield return battleService.HandleCharacterMoveEnd(actingCharacter);
+                            }
+
+                            yield return __instance.HandlePostExecution();
+                            yield return battleService.HandleCharacterAttackOrMagicEffectFinishedLate(
+                                __instance, actingCharacter);
+                        }
+                    }
+                }
             }
         }
     }
