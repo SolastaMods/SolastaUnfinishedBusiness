@@ -512,24 +512,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeSaveDC))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    // ReSharper disable once InconsistentNaming
-    public static class ComputeSaveDC_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, ref int __result)
-        {
-            //PATCH: support for `IIncreaseSpellDC`
-            //Adds extra modifiers to spell DC
-
-            var features = __instance.GetSubFeaturesByType<IModifySpellDC>();
-
-            __result += features.Sum(feature => feature.GetSpellDC(__instance));
-        }
-    }
-
     //PATCH: ensures that the wildshape heroes or heroes under rage cannot cast any spells (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpells))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
