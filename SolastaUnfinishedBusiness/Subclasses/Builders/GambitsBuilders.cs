@@ -439,7 +439,7 @@ internal static class GambitsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted))
                     .Build())
             .AddToDB();
@@ -809,7 +809,6 @@ internal static class GambitsBuilders
                     .SetGuiPresentation($"Condition{name}Good", Category.Condition)
                     .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                     .AddToDB())
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
             .AddToDB();
 
         var bad = ConditionDefinitionBuilder
@@ -1587,7 +1586,7 @@ internal static class GambitsBuilders
                 good.Name,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 caster.Guid,
                 caster.CurrentFaction.Name,

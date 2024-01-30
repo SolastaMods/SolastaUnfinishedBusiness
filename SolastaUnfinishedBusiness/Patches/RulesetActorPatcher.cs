@@ -332,8 +332,45 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetActor __instance, TurnOccurenceType occurenceType)
         {
-            //PATCH: support for `IRemoveConditionOnSourceTurnStart` - removes appropriately marked conditions
-            ConditionRemovedOnSourceTurnStartPatch.RemoveConditionIfNeeded(__instance, occurenceType);
+            //PATCH: support for `ExtraTurnOccurenceType.StartOfSourceTurn`
+            RemoveStartOfSourceTurnOccuranceIfNeeded(__instance, occurenceType);
+        }
+
+        private static void RemoveStartOfSourceTurnOccuranceIfNeeded(
+            // ReSharper disable once SuggestBaseTypeForParameter
+            RulesetActor __instance,
+            TurnOccurenceType occurenceType)
+        {
+            if (Gui.Battle == null)
+            {
+                return;
+            }
+
+            if (occurenceType != TurnOccurenceType.StartOfTurn)
+            {
+                return;
+            }
+
+            foreach (var contender in Gui.Battle.AllContenders
+                         .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: not null })
+                         .ToList())
+            {
+                var conditionsToRemove = new List<RulesetCondition>();
+
+                conditionsToRemove.AddRange(
+                    contender.RulesetActor.ConditionsByCategory
+                        .SelectMany(x => x.Value)
+                        .Where(x =>
+                            x.SourceGuid == __instance.Guid &&
+                            //TODO: check this later with proper QA
+                            // x.RemainingRounds == 0 &&
+                            x.EndOccurence == (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn));
+
+                foreach (var conditionToRemove in conditionsToRemove)
+                {
+                    contender.RulesetActor.RemoveCondition(conditionToRemove);
+                }
+            }
         }
     }
 

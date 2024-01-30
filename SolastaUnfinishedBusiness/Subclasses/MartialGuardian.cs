@@ -76,7 +76,7 @@ public sealed class MartialGuardian : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.PerceivingWithinDistance, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Wisdom, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Constitution)
@@ -231,7 +231,7 @@ public sealed class MartialGuardian : AbstractSubclass
                 CustomConditionsContext.Taunted.Name,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.Guid,
                 rulesetAttacker.CurrentFaction.Name,

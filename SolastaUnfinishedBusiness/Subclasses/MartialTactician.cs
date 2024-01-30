@@ -239,11 +239,10 @@ public sealed class MartialTactician : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddCustomSubFeatures(
                 new RefundPowerUseWhenTargetWithConditionDies(GambitsBuilders.GambitPool, feature),
-                RemoveConditionOnSourceTurnStart.Mark,
                 //by default this condition is applied under Effects tag, which is removed right at death - too early for us to detect
                 //this feature will add this effect under Combat tag, which is not removed
                 new ForceConditionCategory(AttributeDefinitions.TagCombat))
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
             .AddToDB();
 
         return feature;
