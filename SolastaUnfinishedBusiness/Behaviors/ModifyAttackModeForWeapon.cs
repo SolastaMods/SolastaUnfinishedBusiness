@@ -10,6 +10,15 @@ namespace SolastaUnfinishedBusiness.Behaviors;
 
 internal delegate int CustomModifierProvider(RulesetCharacter rulesetCharacter);
 
+internal interface IModifyWeaponAttackAttribute
+{
+    void ModifyAttribute(
+        RulesetCharacter character,
+        RulesetAttackMode attackMode,
+        RulesetItem weapon,
+        bool canAddAbilityDamageBonus);
+}
+
 internal class CanUseAttribute : IModifyWeaponAttackAttribute
 {
     private const string SpellCastingAbilityTag = "SpellCastingAbility";
