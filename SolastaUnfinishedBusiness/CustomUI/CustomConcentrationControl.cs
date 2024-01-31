@@ -1,6 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -62,5 +62,13 @@ internal class CustomConcentrationControl : MonoBehaviour
 
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => provider.Stop(character));
+    }
+
+    internal interface ICustomConcentrationProvider
+    {
+        public string Name { get; }
+        public string Tooltip { get; }
+        public AssetReferenceSprite Icon { get; }
+        public void Stop(RulesetCharacter character);
     }
 }

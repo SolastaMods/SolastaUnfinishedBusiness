@@ -872,7 +872,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                IgnoreInterruptionCheck.Marker,
+                IgnoreInvisibilityInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
@@ -893,7 +893,7 @@ internal static class MeleeCombatFeats
                             .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         var featCleavingAttack = FeatDefinitionBuilder
@@ -1653,7 +1653,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                IgnoreInterruptionCheck.Marker,
+                IgnoreInvisibilityInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
 
@@ -1673,7 +1673,7 @@ internal static class MeleeCombatFeats
                             .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         var featPowerAttack = FeatDefinitionBuilder

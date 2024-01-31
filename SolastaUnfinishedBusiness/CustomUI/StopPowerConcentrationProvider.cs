@@ -1,11 +1,10 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider
+internal sealed class StopPowerConcentrationProvider : CustomConcentrationControl.ICustomConcentrationProvider
 {
     internal FeatureDefinitionPower StopPower;
 

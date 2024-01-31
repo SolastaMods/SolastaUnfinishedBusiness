@@ -215,7 +215,7 @@ public sealed class RoguishRaven : AbstractSubclass
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                IgnoreInterruptionCheck.Marker,
+                IgnoreInvisibilityInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
             .AddToDB();
 
@@ -240,7 +240,7 @@ public sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         concentrationProvider.StopPower = powerRavenTurnOffHeartSeekingShot;
