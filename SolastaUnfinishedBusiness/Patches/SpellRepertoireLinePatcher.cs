@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -29,7 +29,7 @@ public static class SpellRepertoireLinePatcher
             //PATCH: Enable Blast Reload feature
             var hero = __instance.caster.rulesetCharacter;
 
-            hero?.GetSubFeaturesByType<IQualifySpellToRepertoireLine>()
+            hero?.GetSubFeaturesByType<PatronEldritchSurge.IQualifySpellToRepertoireLine>()
                 .ForEach(f => f.QualifySpells(hero, __instance, spellDefinitions));
         }
     }

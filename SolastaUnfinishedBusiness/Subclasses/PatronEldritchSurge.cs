@@ -255,6 +255,11 @@ public class PatronEldritchSurge : AbstractSubclass
         }
     }
 
+    internal interface IQualifySpellToRepertoireLine
+    {
+        void QualifySpells(RulesetCharacter character, SpellRepertoireLine line, IEnumerable<SpellDefinition> spells);
+    }
+
     private sealed class BlastReloadCustom :
         IActionFinishedByMe, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
     {
