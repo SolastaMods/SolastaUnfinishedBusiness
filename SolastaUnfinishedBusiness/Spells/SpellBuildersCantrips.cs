@@ -1017,16 +1017,16 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        spell.AddCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(spell));
+        spell.AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyTollTheDead(spell));
 
         return spell;
     }
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class MagicalAttackBeforeHitConfirmedOnEnemyTollTheDead(SpellDefinition spellTollTheDead)
-        : IMagicalAttackBeforeHitConfirmedOnEnemy
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyTollTheDead(SpellDefinition spellTollTheDead)
+        : IMagicEffectBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

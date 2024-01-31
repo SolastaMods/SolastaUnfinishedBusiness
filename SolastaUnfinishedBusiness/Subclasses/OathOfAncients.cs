@@ -155,7 +155,7 @@ public sealed class OathOfAncients : AbstractSubclass
 
         var featureAuraWarding = FeatureDefinitionBuilder
             .Create($"Feature{Name}AuraWarding")
-            .AddCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnMeAuraWarding(conditionAuraWardingResistance))
+            .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnMeAuraWarding(conditionAuraWardingResistance))
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
@@ -268,16 +268,16 @@ public sealed class OathOfAncients : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class MagicalAttackBeforeHitConfirmedOnMeAuraWarding : IMagicalAttackBeforeHitConfirmedOnMe
+    private sealed class MagicEffectBeforeHitConfirmedOnMeAuraWarding : IMagicEffectBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionWardingAura;
 
-        internal MagicalAttackBeforeHitConfirmedOnMeAuraWarding(ConditionDefinition conditionWardingAura)
+        internal MagicEffectBeforeHitConfirmedOnMeAuraWarding(ConditionDefinition conditionWardingAura)
         {
             _conditionWardingAura = conditionWardingAura;
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

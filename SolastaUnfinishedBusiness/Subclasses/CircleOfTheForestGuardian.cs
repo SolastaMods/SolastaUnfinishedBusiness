@@ -259,7 +259,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
     }
 
     private sealed class BeforeHitConfirmedOnMeBarkWard(FeatureDefinitionPower powerBarkOrImprovedBarkWard)
-        : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe, IActionFinishedByEnemy
+        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IActionFinishedByEnemy
     {
         private bool _shouldTrigger;
 
@@ -303,7 +303,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             yield break;
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

@@ -186,9 +186,9 @@ internal static class RaceImpBuilder
         FeatureDefinitionPower powerPool,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionActionAffinity actionAffinityImpishWrathToggle)
-        : IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
+        : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnMagicalAttackFinishedByMe(
+        public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)

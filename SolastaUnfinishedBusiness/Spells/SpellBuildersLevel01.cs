@@ -894,9 +894,9 @@ internal static partial class SpellBuilders
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class CustomBehaviorConditionElementalInfusion(ConditionDefinition conditionElementalInfusion) :
-        IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
+        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnMagicalAttackFinishedByMe(
+        public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
@@ -965,7 +965,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(SpellDefinition spellDefinition) :
-        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+        IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly IEnumerable<string> AllowedDamageTypes = DamagesAndEffects
             .Where(x => x.Item1 != DamageTypePoison)
@@ -990,7 +990,7 @@ internal static partial class SpellBuilders
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

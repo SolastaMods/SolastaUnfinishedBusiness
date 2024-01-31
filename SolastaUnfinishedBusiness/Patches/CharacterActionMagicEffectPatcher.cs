@@ -686,9 +686,10 @@ public static class CharacterActionMagicEffectPatcher
 
             //PATCH: support for `IMagicalAttackFinishedByMe`
             foreach (var magicalAttackFinishedByMe in actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IMagicalAttackFinishedByMe>())
+                         .GetSubFeaturesByType<IMagicEffectFinishedByMeAny>())
             {
-                yield return magicalAttackFinishedByMe.OnMagicalAttackFinishedByMe(__instance, actingCharacter, target);
+                yield return
+                    magicalAttackFinishedByMe.OnMagicEffectFinishedByMeAny(__instance, actingCharacter, target);
             }
 
             //PATCH: support for `IMagicalAttackFinishedByMeOrAlly`
@@ -703,10 +704,10 @@ public static class CharacterActionMagicEffectPatcher
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
             {
                 foreach (var magicalAttackFinishedByMeOrAlly in ally.RulesetCharacter
-                             .GetSubFeaturesByType<IMagicalAttackFinishedByMeOrAlly>())
+                             .GetSubFeaturesByType<IMagicEffectFinishedByMeOrAllyAny>())
                 {
                     yield return magicalAttackFinishedByMeOrAlly
-                        .OnMagicalAttackFinishedByMeOrAlly(__instance, actingCharacter, target, ally);
+                        .OnMagicEffectFinishedByMeOrAllyAny(__instance, actingCharacter, target, ally);
                 }
             }
         }

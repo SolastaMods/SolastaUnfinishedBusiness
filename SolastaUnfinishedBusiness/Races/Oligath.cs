@@ -165,7 +165,7 @@ internal static class RaceOligathBuilder
         FeatureDefinitionPower featureDefinitionPower,
         ConditionDefinition conditionDefinition)
         :
-            IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+            IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -185,7 +185,7 @@ internal static class RaceOligathBuilder
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

@@ -1402,7 +1402,7 @@ internal static class InvocationsBuilders
     private sealed class CustomBehaviorTombOfFrost(
         FeatureDefinitionPower powerTombOfFrost,
         ConditionDefinition conditionTombOfFrostLazy)
-        : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
@@ -1423,7 +1423,7 @@ internal static class InvocationsBuilders
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

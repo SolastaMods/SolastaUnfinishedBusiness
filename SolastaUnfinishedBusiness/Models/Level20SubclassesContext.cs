@@ -1416,7 +1416,7 @@ internal static class Level20SubclassesContext
 
     private sealed class CustomBehaviorFinalWord :
         IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-        IMagicalAttackBeforeHitConfirmedOnEnemy, IMagicalAttackFinishedByMe
+        IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMeAny
     {
         private const string ConditionSilenced = "ConditionSilenced";
         private static GameLocationCharacter _attacker;
@@ -1443,7 +1443,7 @@ internal static class Level20SubclassesContext
             defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -1458,7 +1458,7 @@ internal static class Level20SubclassesContext
             yield break;
         }
 
-        public IEnumerator OnMagicalAttackFinishedByMe(
+        public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)

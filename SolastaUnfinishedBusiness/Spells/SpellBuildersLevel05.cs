@@ -582,7 +582,7 @@ internal static partial class SpellBuilders
         conditionCircleOfMagicalNegation.GuiPresentation.Description = Gui.NoLocalization;
 
         conditionCircleOfMagicalNegation.AddCustomSubFeatures(
-            new MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation(conditionCircleOfMagicalNegation));
+            new MagicEffectBeforeHitConfirmedOnMeCircleOfMagicalNegation(conditionCircleOfMagicalNegation));
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -610,13 +610,13 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicalAttackBeforeHitConfirmedOnMeCircleOfMagicalNegation(
+    private sealed class MagicEffectBeforeHitConfirmedOnMeCircleOfMagicalNegation(
         ConditionDefinition conditionCircleOfMagicalNegation) :
-        IMagicalAttackBeforeHitConfirmedOnMe, IRollSavingThrowFinished
+        IMagicEffectBeforeHitConfirmedOnMe, IRollSavingThrowFinished
     {
         private RollOutcome _saveOutcome;
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

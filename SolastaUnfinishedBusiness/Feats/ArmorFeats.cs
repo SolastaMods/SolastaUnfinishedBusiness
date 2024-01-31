@@ -163,10 +163,10 @@ internal static class ArmorFeats
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionShieldTechniquesResistance)
         :
-            IRollSavingThrowInitiated, IMagicalAttackBeforeHitConfirmedOnMe
+            IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
     {
         // halve any damage taken
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

@@ -549,7 +549,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
     private sealed class CustomBehaviorMoonlightGuise(
         FeatureDefinitionPower powerMoonlightGuise)
-        : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
@@ -570,7 +570,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

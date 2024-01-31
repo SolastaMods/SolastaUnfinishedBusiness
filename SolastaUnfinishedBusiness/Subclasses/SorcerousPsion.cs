@@ -265,7 +265,7 @@ public sealed class SorcerousPsion : AbstractSubclass
     // Mind Sculpt
     //
 
-    private sealed class CustomBehaviorMindSculpt : IMagicalAttackBeforeHitConfirmedOnEnemy, IActionFinishedByMe
+    private sealed class CustomBehaviorMindSculpt : IMagicEffectBeforeHitConfirmedOnEnemy, IActionFinishedByMe
     {
         private bool _hasDamageChanged;
 
@@ -289,7 +289,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

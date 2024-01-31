@@ -775,7 +775,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         FeatureDefinitionPower powerReactiveHide,
         ConditionDefinition conditionReactiveHide)
         :
-            IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+            IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -795,7 +795,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

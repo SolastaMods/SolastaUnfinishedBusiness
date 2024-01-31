@@ -822,9 +822,9 @@ public static class GameLocationBattleManagerPatcher
             if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 foreach (var magicalAttackBeforeHitConfirmedOnEnemy in attacker.RulesetCharacter
-                             .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnEnemy>())
+                             .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnEnemy>())
                 {
-                    yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicalAttackBeforeHitConfirmedOnEnemy(
+                    yield return magicalAttackBeforeHitConfirmedOnEnemy.OnMagicEffectBeforeHitConfirmedOnEnemy(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
 
@@ -856,9 +856,9 @@ public static class GameLocationBattleManagerPatcher
                     }
 
                     var magicalAttackBeforeHitConfirmedOnEnemy =
-                        spellDefinition.GetFirstSubFeatureOfType<IMagicalAttackBeforeHitConfirmedOnEnemy>();
+                        spellDefinition.GetFirstSubFeatureOfType<IMagicEffectBeforeHitConfirmedOnEnemy>();
 
-                    yield return magicalAttackBeforeHitConfirmedOnEnemy?.OnMagicalAttackBeforeHitConfirmedOnEnemy(
+                    yield return magicalAttackBeforeHitConfirmedOnEnemy?.OnMagicEffectBeforeHitConfirmedOnEnemy(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
@@ -870,10 +870,10 @@ public static class GameLocationBattleManagerPatcher
                 foreach (var magicalAttackBeforeHitConfirmedOnMe in defender.RulesetCharacter.usableSpells
                              .Where(usableSpell =>
                                  usableSpell.ActivationTime == ActivationTime.Reaction)
-                             .SelectMany(x => x.GetAllSubFeaturesOfType<IMagicalAttackBeforeHitConfirmedOnMe>())
+                             .SelectMany(x => x.GetAllSubFeaturesOfType<IMagicEffectBeforeHitConfirmedOnMe>())
                              .ToList())
                 {
-                    yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicalAttackBeforeHitConfirmedOnMe(
+                    yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnMe(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
@@ -883,9 +883,9 @@ public static class GameLocationBattleManagerPatcher
             if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 foreach (var magicalAttackBeforeHitConfirmedOnMe in defender.RulesetCharacter
-                             .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMe>())
+                             .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnMe>())
                 {
-                    yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicalAttackBeforeHitConfirmedOnMe(
+                    yield return magicalAttackBeforeHitConfirmedOnMe.OnMagicEffectBeforeHitConfirmedOnMe(
                         attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
                 }
             }
@@ -903,10 +903,10 @@ public static class GameLocationBattleManagerPatcher
                                      && x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
             {
                 foreach (var magicalAttackBeforeHitConfirmedOnMeOrAlly in ally.RulesetCharacter
-                             .GetSubFeaturesByType<IMagicalAttackBeforeHitConfirmedOnMeOrAlly>())
+                             .GetSubFeaturesByType<IMagicEffectBeforeHitConfirmedOnMeOrAlly>())
                 {
                     yield return magicalAttackBeforeHitConfirmedOnMeOrAlly
-                        .OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
+                        .OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
                             attacker, defender, ally, magicModifier, rulesetEffect, actualEffectForms, firstTarget,
                             criticalHit);
                 }
@@ -1181,11 +1181,11 @@ public static class GameLocationBattleManagerPatcher
 
             foreach (var allyCharacter in allyCharacters.Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
             {
-                var magicalAttackCastedSpells = allyCharacter.GetSubFeaturesByType<IMagicalAttackCastedSpell>();
+                var magicalAttackCastedSpells = allyCharacter.GetSubFeaturesByType<IOnSpellCasted>();
 
                 foreach (var magicalAttackCastedSpell in magicalAttackCastedSpells)
                 {
-                    yield return magicalAttackCastedSpell.OnMagicalAttackCastedSpell(
+                    yield return magicalAttackCastedSpell.OnSpellCasted(
                         allyCharacter, caster, castAction, selectEffectSpell, selectedRepertoire,
                         selectedSpellDefinition);
                 }

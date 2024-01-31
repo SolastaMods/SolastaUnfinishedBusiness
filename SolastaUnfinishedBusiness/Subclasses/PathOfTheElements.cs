@@ -210,7 +210,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalLightningBlade),
+                new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -249,7 +249,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalIceLance),
+                new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -294,7 +294,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                new MagicalAttackFinishedByMeElementalBurst(PowerDomainElementalFireBurst),
+                new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -494,13 +494,13 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Burst
     //
 
-    private sealed class MagicalAttackFinishedByMeElementalBurst(IMagicEffect magicEffect) : IMagicalAttackFinishedByMe
+    private sealed class MagicEffectFinishedByMeElementalBurst(IMagicEffect magicEffect) : IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicalAttackFinishedByMe(
-            CharacterActionMagicEffect action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var attacker = action.ActingCharacter;
+            var defender = action.ActionParams.TargetCharacters[0];
+
             EffectHelpers.StartVisualEffect(attacker, defender, magicEffect, EffectHelpers.EffectType.Effect);
 
             yield break;

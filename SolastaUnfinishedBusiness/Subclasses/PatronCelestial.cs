@@ -134,7 +134,7 @@ public class PatronCelestial : AbstractSubclass
         var featureRadiantSoul = FeatureDefinitionBuilder
             .Create($"Feature{Name}RadiantSoul")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new MagicalAttackBeforeHitConfirmedOnEnemyRadiantSoul())
+            .AddCustomSubFeatures(new MagicEffectBeforeHitConfirmedOnEnemyRadiantSoul())
             .AddToDB();
 
         var featureSetRadiantSoul = FeatureDefinitionFeatureSetBuilder
@@ -267,9 +267,9 @@ public class PatronCelestial : AbstractSubclass
     // Radiant Soul
     //
 
-    private sealed class MagicalAttackBeforeHitConfirmedOnEnemyRadiantSoul : IMagicalAttackBeforeHitConfirmedOnEnemy
+    private sealed class MagicEffectBeforeHitConfirmedOnEnemyRadiantSoul : IMagicEffectBeforeHitConfirmedOnEnemy
     {
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
