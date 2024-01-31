@@ -236,7 +236,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
         public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager instance,
             CharacterAction action,
-            GameLocationCharacter attacker, 
+            GameLocationCharacter attacker,
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
@@ -246,13 +246,13 @@ public sealed class RoguishRavenScion : AbstractSubclass
             }
 
             var sourceDefinition = action.ActionParams.attackMode.SourceDefinition;
-            
+
             if (sourceDefinition is not ItemDefinition itemDefinition
                 || !ValidatorsWeapon.IsTwoHandedRanged(itemDefinition))
             {
                 yield break;
             }
-            
+
             action.AttackRollOutcome = RollOutcome.CriticalSuccess;
             action.AttackSuccessDelta = 0;
         }

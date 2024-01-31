@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Interfaces;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors;

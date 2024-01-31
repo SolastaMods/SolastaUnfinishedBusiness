@@ -263,7 +263,7 @@ public class PatronEldritchSurge : AbstractSubclass
             var actingCharacter = action.ActingCharacter;
             var actionParams = action.ActionParams;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-        
+
             // only collect cantrips
             if (Gui.Battle == null
                 || actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
