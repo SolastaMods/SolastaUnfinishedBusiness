@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Interfaces;
+﻿// ReSharper disable once CheckNamespace
+internal interface IAttackReplaceWithCantrip;
 
-// ReSharper disable once CheckNamespace
 internal class FeatureDefinitionAttackReplaceWithCantrip : FeatureDefinition, IAttackReplaceWithCantrip;
