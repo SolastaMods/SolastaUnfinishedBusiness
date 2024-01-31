@@ -48,13 +48,13 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "17a879eb5f29a6c48aecc23f1700f0c7",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "c75f9987e9ed4ec4eaac5bd4182a58c7",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },

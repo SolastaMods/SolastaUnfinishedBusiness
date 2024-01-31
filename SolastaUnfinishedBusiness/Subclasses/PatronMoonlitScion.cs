@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -67,7 +68,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         // Lunar Radiance Debuff
 
         var conditionLunarRadianceEnemy = ConditionDefinitionBuilder
-            .Create($"Condition{Name}LunarRadianceEnemy")
+            .Create(ConditionDefinitions.ConditionLuminousKi, $"Condition{Name}LunarRadianceEnemy")
             .SetGuiPresentation($"Power{Name}LunarRadiance", Category.Feature,
                 ConditionDefinitions.ConditionLightSensitive)
             .SetConditionType(ConditionType.Detrimental)
@@ -141,10 +142,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         powerLunarRadiance.EffectDescription.effectParticleParameters.effectParticleReference = new AssetReference();
 
         var conditionFullMoon = ConditionDefinitionBuilder
-            .Create($"Condition{Name}FullMoon")
+            .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}FullMoon")
             .SetGuiPresentation($"Power{Name}FullMoon", Category.Feature,
-                ConditionDefinitions.ConditionProtectedInsideMagicCircle)
+                ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
             .SetPossessive()
+            .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerLunarRadiance)
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
@@ -175,6 +177,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
                     .Build())
             .AddToDB();
 
@@ -187,6 +190,15 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .AddToDB();
 
         conditionLunarChillEnemy.GuiPresentation.description = Gui.NoLocalization;
+        conditionLunarChillEnemy.conditionStartParticleReference = FeatureDefinitionPowers
+            .PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionLunarChillEnemy.conditionParticleReference = FeatureDefinitionPowers
+            .PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionLunarChillEnemy.conditionEndParticleReference = FeatureDefinitionPowers
+            .PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         // Lunar Chill No Cost
 
@@ -251,6 +263,12 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .AddToDB();
 
         conditionNewMoon.GuiPresentation.description = Gui.NoLocalization;
+        conditionNewMoon.conditionStartParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionNewMoon.conditionParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionNewMoon.conditionEndParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         // New Moon
 
@@ -266,6 +284,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionNewMoon),
                         EffectFormBuilder.ConditionForm(conditionNewMoonNoCost))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMagebaneSpellCrusher)
                     .Build())
             .AddToDB();
 
@@ -333,16 +352,26 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         var conditionFullMoonLunarEmbrace =
             ConditionDefinitionBuilder
                 .Create(conditionFullMoonMidnightBlessing, $"Condition{Name}FullMoonLunarEmbrace")
+                .SetParentCondition(ConditionDefinitions.ConditionFlying)
                 .AddFeatures(movementAffinityFullMoonLunarEmbrace)
                 .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                 .AddToDB();
 
+        // there is indeed a typo on tag
+        // ReSharper disable once StringLiteralTypo
+        conditionFullMoonLunarEmbrace.ConditionTags.Add("Verticality");
+
         var conditionNewMoonLunarEmbrace =
             ConditionDefinitionBuilder
                 .Create(conditionNewMoonMidnightBlessing, $"Condition{Name}NewMoonLunarEmbrace")
+                .SetParentCondition(ConditionDefinitions.ConditionFlying)
                 .AddFeatures(movementAffinityFullMoonLunarEmbrace)
                 .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
                 .AddToDB();
+
+        // there is indeed a typo on tag
+        // ReSharper disable once StringLiteralTypo
+        conditionNewMoonLunarEmbrace.ConditionTags.Add("Verticality");
 
         var featureLunarEmbrace = FeatureDefinitionBuilder
             .Create($"Feature{Name}LunarEmbrace")
@@ -535,12 +564,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, null, MoonBeam, slotLevel, false);
 
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.CastNoCost)
-            {
-                RulesetEffect = effectSpell, positions = action.ActionParams.Positions
-            };
+            var actionParams = action.ActionParams.Clone();
 
-            rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
+            actionParams.RulesetEffect = effectSpell;
+
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
 
             yield break;

@@ -328,11 +328,16 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionFlying12, $"Condition{Name}HonedAnimalAspectsEagle")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
             .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly8)
             .AddToDB();
+
+        // there is indeed a typo on tag
+        // ReSharper disable once StringLiteralTypo
+        conditionHonedAnimalAspectsEagle.ConditionTags.Add("Verticality");
 
         var powerHonedAnimalAspectsEagle = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HonedAnimalAspectsEagle")

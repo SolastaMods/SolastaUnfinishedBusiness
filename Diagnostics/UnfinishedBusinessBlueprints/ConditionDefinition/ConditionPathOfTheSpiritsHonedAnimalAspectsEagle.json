@@ -26,7 +26,9 @@
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
-  "conditionTags": [],
+  "conditionTags": [
+    "Verticality"
+  ],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,

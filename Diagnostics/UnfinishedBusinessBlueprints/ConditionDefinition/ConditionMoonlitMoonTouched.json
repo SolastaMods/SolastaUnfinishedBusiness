@@ -1,10 +1,9 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionFlying:ec82fae48f9a55a41a49fd96d93b49b5",
   "conditionType": "Neutral",
   "features": [
-    "Definition:MovementAffinityConditionLevitate:32fdd2daba519764da7e9d78eb7b0e37",
     "Definition:MoveModeFly2:0196408f7a256674d8272106dfa74a0a"
   ],
   "allowMultipleInstances": false,
