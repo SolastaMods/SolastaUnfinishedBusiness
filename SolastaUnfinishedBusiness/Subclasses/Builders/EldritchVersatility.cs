@@ -646,7 +646,7 @@ internal static class EldritchVersatilityBuilders
     }
 
     private sealed class BlastBreakthroughCustom :
-        ToggleableOnInvocation, IOnSpellCasted, IModifyDamageAffinity, IActionExecutionHandled
+        ToggleableOnInvocation, IOnSpellCasted, IModifyDamageAffinity, IActionFinishedByMe
     {
         private static readonly ConditionDefinition ConditionBlastBreakthroughRemoveImmunity =
             ConditionDefinitionBuilder.Create("ConditionBlastBreakthroughRemoveImmunity")
@@ -659,22 +659,23 @@ internal static class EldritchVersatilityBuilders
             InvocationName = invocationName;
         }
 
-        public void OnActionExecutionHandled(
-            GameLocationCharacter character, CharacterActionParams actionParams, ActionScope scope)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var rulesetCharacter = character.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (Gui.Battle == null ||
                 !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
-                return;
+                yield break;
             }
 
             // Invalidate damage affinity and spell immunity
             if (!supportCondition.IsValidBlastBreakthrough)
             {
-                return;
+                yield break;
             }
 
             supportCondition.IsValidBlastBreakthrough = false;
@@ -1380,20 +1381,21 @@ internal static class EldritchVersatilityBuilders
         public abstract void OnInvocationToggled(GameLocationCharacter character, RulesetInvocation rulesetInvocation);
     }
 
-    private class BlastEmpowerActiveSwitch(string invocationName) : IActionExecutionHandled, IOnSpellCasted
+    private class BlastEmpowerActiveSwitch(string invocationName) : IActionFinishedByMe, IOnSpellCasted
     {
         private string InvocationName { get; } = invocationName;
 
-        public void OnActionExecutionHandled(GameLocationCharacter character, CharacterActionParams actionParams,
-            ActionScope scope)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var rulesetCharacter = character.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (Gui.Battle == null ||
                 !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
-                return;
+                yield break;
             }
 
             var invocation = rulesetCharacter.Invocations.Find(invocation =>

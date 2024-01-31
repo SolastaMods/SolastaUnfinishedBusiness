@@ -278,57 +278,56 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class WarDanceExtraAttacks : IActionExecutionHandled
+    private sealed class WarDanceExtraAttacks : IActionFinishedByMe
     {
-        public void OnActionExecutionHandled(
-            GameLocationCharacter hero,
-            CharacterActionParams actionParams,
-            ActionScope scope)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var actionDefinition = actionParams.ActionDefinition;
-            var rulesetHero = hero.RulesetCharacter;
 
             //Wrong scope or type of action, skip
-            if (scope != ActionScope.Battle
+            if (Gui.Battle == null
                 || actionDefinition.ActionType != ActionType.Main)
             {
-                return;
+                yield break;
             }
 
             //Character isn't War Dancing or doesn't have Improved War Dance, skip
-            if (!rulesetHero.HasConditionOfType(ConditionWarDance)
-                || !rulesetHero.HasAnyFeature(ImproveWarDance))
+            if (!rulesetCharacter.HasConditionOfType(ConditionWarDance)
+                || !rulesetCharacter.HasAnyFeature(ImproveWarDance))
             {
-                return;
+                yield break;
             }
 
             //Still has attacks, skip
-            if (hero.GetActionAvailableIterations(Id.AttackMain) > 0)
+            if (actingCharacter.GetActionAvailableIterations(Id.AttackMain) > 0)
             {
-                return;
+                yield break;
             }
 
             //Wrong action or weapon or a miss after momentum started, skip
-            var extraAttacks = GetExtraAttacks(rulesetHero);
+            var extraAttacks = GetExtraAttacks(rulesetCharacter);
             var wrongAction = actionDefinition.Id is not Id.AttackMain;
             var wrongWeapon = !ValidatorsWeapon.IsMelee(actionParams.attackMode);
-            var missed = rulesetHero.RemoveAllConditionsOfType(WarDanceMissedAttack.Name);
+            var missed = rulesetCharacter.RemoveAllConditionsOfType(WarDanceMissedAttack.Name);
 
             if (extraAttacks > 0 && (wrongAction || wrongWeapon || missed))
             {
-                return;
+                yield break;
             }
 
             //Too many extra attacks, skip
-            var maxAttacks = rulesetHero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) / 2;
+            var maxAttacks = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) / 2;
 
             if (extraAttacks >= maxAttacks)
             {
-                return;
+                yield break;
             }
 
-            GrantWarDanceCondition(rulesetHero, WarDanceExtraAttack);
-            rulesetHero.LogCharacterUsedFeature(ImproveWarDance, "Feedback/&ActivateWarDancerAttack", true);
+            GrantWarDanceCondition(rulesetCharacter, WarDanceExtraAttack);
+            rulesetCharacter.LogCharacterUsedFeature(ImproveWarDance, "Feedback/&ActivateWarDancerAttack", true);
         }
     }
 

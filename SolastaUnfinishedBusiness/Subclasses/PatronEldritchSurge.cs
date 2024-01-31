@@ -256,32 +256,31 @@ public class PatronEldritchSurge : AbstractSubclass
     }
 
     private sealed class BlastReloadCustom :
-        IActionExecutionHandled, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
+        IActionFinishedByMe, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
     {
-        public void OnActionExecutionHandled(
-            GameLocationCharacter gameLocationCharacter,
-            CharacterActionParams actionParams,
-            ActionScope scope)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+        
             // only collect cantrips
-            if (scope != ActionScope.Battle
+            if (Gui.Battle == null
                 || actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
                 || rulesetEffectSpell.SpellDefinition.SpellLevel != 0)
             {
-                return;
+                yield break;
             }
-
-            var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
                     rulesetCharacter, out var supportCondition))
             {
-                return;
+                yield break;
             }
 
             supportCondition.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);

@@ -322,10 +322,6 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
 
-            //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
-            rulesetCharacter.GetSubFeaturesByType<IActionExecutionHandled>()
-                .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
-
             //PATCH: support for action switching interaction with metamagic quickened spell
             if (Main.Settings.EnableActionSwitching
                 && actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell
