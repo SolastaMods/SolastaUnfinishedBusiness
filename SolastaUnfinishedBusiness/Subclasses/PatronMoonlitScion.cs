@@ -630,7 +630,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 ConditionInvisible,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,

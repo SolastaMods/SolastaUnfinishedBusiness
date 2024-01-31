@@ -703,7 +703,7 @@ internal static class CustomConditionsContext
                 _taunter.Name,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 sourceCharacter.Guid,
                 sourceCharacter.CurrentFaction.Name,
