@@ -1,6 +1,9 @@
 ﻿1.5.94.49:
 
-- fixed Kinesis invocation not allowing a second target to be selected
+- fixed Burning Blade spell crashing when attempting to damage 2nd target
+- fixed Kinesis invocation not allowing a 2nd target to be selected
+- fixed Lighting and Obscurement rules interaction with defenders with True Sight sense
+- improved Patron Moonlit condition icons and SFX
 
 1.5.94.48:
 
