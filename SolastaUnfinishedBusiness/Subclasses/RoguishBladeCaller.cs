@@ -57,7 +57,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
-                new RogueClassHolder(),
+                new RogueModifyAdditionalDamageClassLevelHolder(),
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, character, _, _, mode, _) =>
                         (OperationType.Set, IsBladeCallerWeapon(mode, null, character))))
@@ -203,7 +203,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // Blade Mark
     //
 
-    private sealed class RogueClassHolder : IClassHoldingFeature
+    private sealed class RogueModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }

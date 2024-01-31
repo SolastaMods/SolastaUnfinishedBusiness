@@ -39,7 +39,7 @@ public static class RulesetEffectPowerPatcher
                 user = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? user;
             }
 
-            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
 
             if (classHolder != null)
             {
@@ -67,7 +67,7 @@ public static class RulesetEffectPowerPatcher
             }
 
             //PATCH: support for `IClassHoldingFeature`
-            var holder = __instance.PowerDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            var holder = __instance.PowerDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
 
             if (holder == null)
             {

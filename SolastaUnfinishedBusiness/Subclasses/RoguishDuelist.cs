@@ -115,7 +115,7 @@ public sealed class RoguishDuelist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class RogueHolder : IClassHoldingFeature
+    private sealed class RogueHolder : IModifyAdditionalDamageClassLevel
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }

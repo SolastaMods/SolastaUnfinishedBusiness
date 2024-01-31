@@ -790,31 +790,6 @@ public static class RulesetCharacterPatcher
                 isCriticalAutomaticOnMe = true;
             }
 
-            //PATCH: support `IModifyAttackOutcome`
-            var modifyAttackOutcomes = __instance.GetSubFeaturesByType<IModifyAttackOutcome>();
-
-            foreach (var modifyAttackOutcome in modifyAttackOutcomes)
-            {
-                modifyAttackOutcome.OnAttackOutcome(
-                    __instance,
-                    ref rawRoll,
-                    toHitBonus,
-                    target,
-                    attackMethod,
-                    toHitTrends,
-                    ignoreAdvantage,
-                    advantageTrends,
-                    rangeAttack,
-                    opportunity,
-                    rollModifier,
-                    ref outcome,
-                    ref successDelta,
-                    predefinedRoll,
-                    testMode,
-                    reactionCounterAttackType);
-            }
-            // END PATCH
-
             if (outcome == RollOutcome.CriticalSuccess
                 && target is RulesetCharacter rulesetCharacter
                 && rulesetCharacter.IsImmuneToCriticalHits())
@@ -1876,7 +1851,7 @@ public static class RulesetCharacterPatcher
 
             //PATCH: replaces feature holding class with one provided by custom interface
             //used for features that are not granted directly through class but need to scale with class levels
-            var classHolder = featureDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>()?.Class;
+            var classHolder = featureDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>()?.Class;
 
             if (classHolder == null)
             {

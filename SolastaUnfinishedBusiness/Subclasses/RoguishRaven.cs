@@ -188,7 +188,7 @@ public sealed class RoguishRaven : AbstractSubclass
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
-                        new RogueClassHolder())
+                        new RogueModifyAdditionalDamageClassLevelHolder())
                     .AddToDB())
             .AddToDB();
 
@@ -255,7 +255,7 @@ public sealed class RoguishRaven : AbstractSubclass
     // marker to reroll any damage die including sneak attack
     internal sealed class RavenRerollAnyDamageDieMarker;
 
-    private sealed class RogueClassHolder : IClassHoldingFeature
+    private sealed class RogueModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }

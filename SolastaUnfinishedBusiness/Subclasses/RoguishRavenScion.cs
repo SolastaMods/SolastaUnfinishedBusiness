@@ -60,7 +60,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.CharacterLevel)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
-                new RogueClassHolder(),
+                new RogueModifyAdditionalDamageClassLevelHolder(),
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, _, _, _, mode, _) => (OperationType.Set, ValidatorsWeapon.IsTwoHandedRanged(mode))))
             .AddToDB();
@@ -173,7 +173,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class RogueClassHolder : IClassHoldingFeature
+    private sealed class RogueModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
@@ -231,38 +231,30 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Heart-Seeking Shot
     //
 
-    private class ModifyAttackOutcomeHeartSeekingShot : IModifyAttackOutcome
+    private class ModifyAttackOutcomeHeartSeekingShot : ITryAlterOutcomePhysicalAttack
     {
-        public void OnAttackOutcome(
-            RulesetCharacter __instance,
-            ref int __result,
-            int toHitBonus,
-            RulesetActor target,
-            BaseDefinition attackMethod,
-            List<TrendInfo> toHitTrends,
-            bool ignoreAdvantage,
-            List<TrendInfo> advantageTrends,
-            bool rangeAttack,
-            bool opportunity,
-            int rollModifier,
-            ref RollOutcome outcome,
-            ref int successDelta,
-            int predefinedRoll,
-            bool testMode,
-            ActionDefinitions.ReactionCounterAttackType reactionCounterAttackType)
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker, 
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
         {
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                return;
+                yield break;
             }
 
-            if (attackMethod is not ItemDefinition itemDefinition
+            var sourceDefinition = action.ActionParams.attackMode.SourceDefinition;
+            
+            if (sourceDefinition is not ItemDefinition itemDefinition
                 || !ValidatorsWeapon.IsTwoHandedRanged(itemDefinition))
             {
-                return;
+                yield break;
             }
-
-            outcome = RollOutcome.CriticalSuccess;
+            
+            action.AttackRollOutcome = RollOutcome.CriticalSuccess;
+            action.AttackSuccessDelta = 0;
         }
     }
 

@@ -104,7 +104,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(InventorClassHolder.Marker)
+            .AddCustomSubFeatures(InventorModifyAdditionalDamageClassLevelHolder.Marker)
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder

@@ -779,7 +779,7 @@ internal static class InventorClass
             .SetOrUpdateGuiPresentation(title, description)
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
-            .AddCustomSubFeatures(InventorClassHolder.Marker)
+            .AddCustomSubFeatures(InventorModifyAdditionalDamageClassLevelHolder.Marker)
             .SetCosts(Costs)
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
@@ -857,13 +857,13 @@ internal static class InventorClass
     }
 }
 
-internal class InventorClassHolder : IClassHoldingFeature
+internal class InventorModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
 {
-    private InventorClassHolder()
+    private InventorModifyAdditionalDamageClassLevelHolder()
     {
     }
 
-    public static InventorClassHolder Marker { get; } = new();
+    public static InventorModifyAdditionalDamageClassLevelHolder Marker { get; } = new();
 
     public CharacterClassDefinition Class => InventorClass.Class;
 }

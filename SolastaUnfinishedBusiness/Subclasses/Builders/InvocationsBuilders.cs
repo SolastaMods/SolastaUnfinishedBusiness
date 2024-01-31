@@ -946,13 +946,13 @@ internal static class InvocationsBuilders
         As an action, you can conjure a suit of magical armor onto your body that grants you an AC equal to 14 + your Charisma modifier. (edited)
      */
 
-    private sealed class WarlockHolder : IClassHoldingFeature
+    private sealed class WarlockHolder : IModifyAdditionalDamageClassLevel
     {
         private WarlockHolder()
         {
         }
 
-        public static IClassHoldingFeature Instance { get; } = new WarlockHolder();
+        public static IModifyAdditionalDamageClassLevel Instance { get; } = new WarlockHolder();
 
         public CharacterClassDefinition Class => CharacterClassDefinitions.Warlock;
     }
