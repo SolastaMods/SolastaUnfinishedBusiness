@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -49,6 +50,7 @@ public static class CharacterActionAttackPatcher
             if ((!canAttackMain && __instance.ActionType == ActionDefinitions.ActionType.Main)
                 || (!canAttackOff && __instance.ActionType == ActionDefinitions.ActionType.Bonus))
             {
+                // ReSharper disable once InvocationIsSkipped
                 Trace.Assert(false,
                     $"CharacterActionAttack called with an unavailable action type : {__instance.ActionType}");
 
@@ -241,28 +243,31 @@ public static class CharacterActionAttackPatcher
 
                 var boneType = AnimationDefinitions.BoneType.Prop1;
 
-                if (!isMonkReturnMissile && attackMode.SourceDefinition is MonsterAttackDefinition attackDefinition)
+                switch (isMonkReturnMissile)
                 {
-                    boneType = attackDefinition.ProjectileBone;
-                }
-                else
-                {
+                    case false when attackMode.SourceDefinition is MonsterAttackDefinition attackDefinition:
+                        boneType = attackDefinition.ProjectileBone;
+                        break;
                     // Get correct bone based on equipped slot
-                    if (isMonkReturnMissile)
-                    {
+                    case true:
                         boneType = AnimationDefinitions.BoneType.Prop1;
-                    }
-                    else if (attackMode.SourceDefinition is ItemDefinition itemDefinition &&
-                             !string.IsNullOrEmpty(attackMode.SlotName))
+                        break;
+                    default:
                     {
-                        if (itemDefinition.IsWeapon)
+                        if (attackMode.SourceDefinition is ItemDefinition itemDefinition &&
+                            !string.IsNullOrEmpty(attackMode.SlotName))
                         {
-                            var isBow = itemDefinition.WeaponDescription.WeaponTypeDefinition.IsBow;
+                            if (itemDefinition.IsWeapon)
+                            {
+                                var isBow = itemDefinition.WeaponDescription.WeaponTypeDefinition.IsBow;
 
-                            boneType = !isBow && attackMode.SlotName == EquipmentDefinitions.SlotTypeOffHand
-                                ? AnimationDefinitions.BoneType.Prop2
-                                : AnimationDefinitions.BoneType.Prop1;
+                                boneType = !isBow && attackMode.SlotName == EquipmentDefinitions.SlotTypeOffHand
+                                    ? AnimationDefinitions.BoneType.Prop2
+                                    : AnimationDefinitions.BoneType.Prop1;
+                            }
                         }
+
+                        break;
                     }
                 }
 
@@ -442,14 +447,11 @@ public static class CharacterActionAttackPatcher
                         var effectDescription =
                             characterActionSpendPower.ActionParams.RulesetEffect.EffectDescription;
 
-                        foreach (var effectForm in effectDescription.EffectForms)
+                        foreach (var effectForm in effectDescription.EffectForms
+                                     .Where(effectForm =>
+                                         effectForm.FormType == EffectForm.EffectFormType.Motion &&
+                                         MotionForm.IsPushMotion(effectForm.MotionForm.Type)))
                         {
-                            if (effectForm.FormType != EffectForm.EffectFormType.Motion ||
-                                !MotionForm.IsPushMotion(effectForm.MotionForm.Type))
-                            {
-                                continue;
-                            }
-
                             isResultingActionSpendPowerWithMotionForm = true;
                             effectForm.MotionForm.ForceTurnTowardsSourceCharacterAfterPush = true;
                             effectForm.MotionForm.ForceSourceCharacterTurnTowardsTargetAfterPush = true;
@@ -597,8 +599,9 @@ public static class CharacterActionAttackPatcher
                 }
                 else
                 {
-                    Trace.Log("Thrown object has been destroyed, no position to fall to was found below {0}",
-                        droppingPoint);
+                    // ReSharper disable once InvocationIsSkipped
+                    Trace.Log(
+                        "Thrown object has been destroyed, no position to fall to was found below {0}", droppingPoint);
                 }
             }
 

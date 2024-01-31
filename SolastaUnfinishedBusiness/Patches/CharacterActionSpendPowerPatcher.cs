@@ -83,11 +83,6 @@ public static class CharacterActionSpendPowerPatcher
                 }
             }
 
-            // Not modified for now
-            var addHP = 0;
-            var addTempHP = 0;
-            var addDice = 0;
-
             for (var i = 0; i < __instance.targets.Count; i++)
             {
                 var target = __instance.targets[i];
@@ -128,7 +123,7 @@ public static class CharacterActionSpendPowerPatcher
                     applyFormsParams.FillFromActiveEffect(__instance.activePower);
                     applyFormsParams.FillSpecialParameters(
                         __instance.RolledSaveThrow,
-                        addDice, addHP, addTempHP, 0,
+                        0, 0, 0, 0,
                         actionModifier,
                         __instance.SaveOutcome,
                         __instance.SaveOutcomeDelta,

@@ -46,6 +46,7 @@ public static class CharacterActionMagicEffectPatcher
                 yield break;
             }
 
+            // ReSharper disable once InvocationIsSkipped
             Trace.Assert(
                 actionParams.TargetCharacters.Count == actionParams.ActionModifiers.Count,
                 $"Mismatch between number of targets ({actionParams.TargetCharacters.Count}) and number of action modifiers ({actionParams.ActionModifiers.Count}).");
@@ -255,21 +256,14 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     targets.AddRange(__instance.subTargets);
 
-                    foreach (var _ in __instance.subTargets)
-                    {
-                        actionModifiers.Add(new ActionModifier());
-                    }
+                    actionModifiers.AddRange(__instance.subTargets.Select(_ => new ActionModifier()));
                 }
             }
 
             // Safety: merge lists of target, in case the client did not fill them.
-            foreach (var affectedCharacter in affectedCharacters)
-            {
-                if (targets.TryAdd(affectedCharacter))
-                {
-                    actionModifiers.Add(new ActionModifier());
-                }
-            }
+            actionModifiers.AddRange(affectedCharacters
+                .Where(affectedCharacter => targets.TryAdd(affectedCharacter))
+                .Select(_ => new ActionModifier()));
 
             __instance.SpendMagicEffectUses();
 
@@ -361,51 +355,21 @@ public static class CharacterActionMagicEffectPatcher
             __instance.PersistantEffectAction();
 
             // Apply environmental damage
-            var applyDamage = false;
-
-            foreach (var effectForm in effectDescription.EffectForms)
-            {
-                if (effectForm.FormType == EffectForm.EffectFormType.Damage)
-                {
-                    applyDamage = true;
-                }
-            }
+            var applyDamage =
+                effectDescription.EffectForms.Any(effectForm =>
+                    effectForm.FormType == EffectForm.EffectFormType.Damage);
 
             if (applyDamage &&
                 __instance.ActionId != ActionDefinitions.Id.CastReaction &&
                 __instance.ActionId != ActionDefinitions.Id.PowerReaction)
             {
                 // Wait for targets to take damage
-                foreach (var target in targets)
+                foreach (var target in targets.Where(target =>
+                             !__instance.immuneTargets.Contains(target) &&
+                             __instance.hitTargets.Contains(target) &&
+                             target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                             !target.Prone))
                 {
-                    if (__instance.immuneTargets.Contains(target))
-                    {
-                        continue;
-                    }
-
-                    if (!__instance.hitTargets.Contains(target))
-                    {
-                        continue;
-                    }
-
-                    // Dont wait for gadget characters
-                    if (target.RulesetCharacter == null)
-                    {
-                        continue;
-                    }
-
-                    // Not ideal, but fix a case if a target is in the list multiple times and has been killed
-                    if (target.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-                    {
-                        continue;
-                    }
-
-                    // TODO : Remove this check if a prone hit animation has been integrated
-                    if (target.Prone)
-                    {
-                        continue;
-                    }
-
                     if (!__instance.isResultingActionSpendPowerWithMotionForm && !target.RulesetCharacter.IsDeadOrDying)
                     {
                         yield return target.WaitForHitAnimation();
@@ -471,22 +435,20 @@ public static class CharacterActionMagicEffectPatcher
             var rangeAttack = effectDescription.RangeType != RangeType.MeleeHit &&
                               effectDescription.RangeType != RangeType.Touch;
 
-            foreach (var target in targets)
+            foreach (var target in targets.Where(target =>
+                         target != actingCharacter &&
+                         !rangeAttack &&
+                         !target.Prone &&
+                         target.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
+                         !target.MoveStepInProgress &&
+                         !target.IsCharging &&
+                         (target.PerceivedAllies.Contains(actingCharacter) ||
+                          target.PerceivedFoes.Contains(actingCharacter))))
             {
-                if (target != actingCharacter &&
-                    !rangeAttack &&
-                    !target.Prone &&
-                    !(target.RulesetCharacter?.IsDeadOrDyingOrUnconscious ?? false) &&
-                    !target.MoveStepInProgress &&
-                    !target.IsCharging &&
-                    (target.PerceivedAllies.Contains(actingCharacter) ||
-                     target.PerceivedFoes.Contains(actingCharacter)))
-                {
-                    target.TurnTowards(actingCharacter);
+                target.TurnTowards(actingCharacter);
 
-                    yield return target.EventSystem.UpdateMotionsAndWaitForEvent(
-                        GameLocationCharacterEventSystem.Event.RotationEnd);
-                }
+                yield return target.EventSystem.UpdateMotionsAndWaitForEvent(
+                    GameLocationCharacterEventSystem.Event.RotationEnd);
             }
 
             // Concentrate on the new spell
