@@ -18,136 +18,165 @@ public static class CharacterActionSpendPowerPatcher
     {
         [UsedImplicitly]
         public static IEnumerator Postfix(
-            [NotNull] IEnumerator values,
+#pragma warning disable IDE0060
+            IEnumerator values,
+#pragma warning restore IDE0060
             CharacterActionSpendPower __instance)
         {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            //PATCH: support for shared pool powers that character got from conditions to properly consume uses when triggered
-            if (__instance.ActionParams.RulesetEffect is not RulesetEffectPower { OriginItem: null } activePower)
-            {
-                yield break;
-            }
-
-            var usablePower = activePower.UsablePower;
-
-            // in this case base game already calls `UsePower`
-            if (usablePower.OriginClass != null || usablePower.OriginRace != null)
-            {
-                yield break;
-            }
-
-            if (usablePower.powerDefinition.HasSubFeatureOfType<ForcePowerUseInSpendPowerAction>())
-            {
-                __instance.ActingCharacter.RulesetCharacter.UsePower(usablePower);
-            }
+            yield return ExecuteImpl(__instance);
         }
 
-        // FULL VANILLA CODE FOR REFERENCE
         private static IEnumerator ExecuteImpl(CharacterActionSpendPower __instance)
         {
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var actingCharacter = __instance.ActingCharacter;
+            var actionParams = __instance.ActionParams;
+            var rulesetEffect = actionParams.RulesetEffect;
+            var effectDescription = rulesetEffect.EffectDescription;
 
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            // Retrieve the target
             __instance.targets.Clear();
-            __instance.targets.AddRange(__instance.ActionParams.TargetCharacters);
+            __instance.targets.AddRange(actionParams.TargetCharacters);
 
-            var effectDescription = __instance.ActionParams.RulesetEffect.EffectDescription;
 
-            __instance.activePower = __instance.ActionParams.RulesetEffect as RulesetEffectPower;
+            // BEGIN PATCH
+
+            if (rulesetEffect is not RulesetEffectPower { OriginItem: null } activePower)
+            {
+                yield break;
+            }
+
+            // END PATCH
+
+            // Create an active power
+            __instance.activePower = activePower;
 
             var actionModifier = new ActionModifier();
 
+            // Spend the power, if this does not come from an item
             if (__instance.activePower is { OriginItem: null })
             {
+                // Fire shield retaliation has no class or race origin
                 if (__instance.activePower.UsablePower.OriginClass != null ||
                     __instance.activePower.UsablePower.OriginRace != null)
                 {
-                    __instance.ActingCharacter.RulesetCharacter.UsePower(__instance.activePower.UsablePower);
+                    actingCharacter.RulesetCharacter.UsePower(__instance.activePower.UsablePower);
                 }
+
+                // BEGIN PATCH
+
+                //PATCH: support for shared pool powers that character got from conditions to properly consume uses when triggered
+                if (activePower.UsablePower.powerDefinition.HasSubFeatureOfType<ForcePowerUseInSpendPowerAction>())
+                {
+                    __instance.ActingCharacter.RulesetCharacter.UsePower(activePower.UsablePower);
+                }
+
+                // END PATCH
             }
             else
             {
                 if (__instance.activePower != null)
                 {
-                    __instance.ActingCharacter.RulesetCharacter.UseDevicePower(
+                    actingCharacter.RulesetCharacter.UseDevicePower(
                         __instance.activePower.OriginItem, __instance.activePower.PowerDefinition);
                 }
             }
 
-            for (var i = 0; i < __instance.targets.Count; ++i)
+            // Not modified for now
+            var addHP = 0;
+            var addTempHP = 0;
+            var addDice = 0;
+
+            for (var i = 0; i < __instance.targets.Count; i++)
             {
                 var target = __instance.targets[i];
+
+                // These bool information must be store as a class member, as it is passed to HandleFailedSavingThrow
                 var hasBorrowedLuck =
-                    target.RulesetActor.HasConditionOfTypeOrSubType("ConditionDomainMischiefBorrowedLuck");
+                    target.RulesetActor.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionBorrowedLuck);
 
                 if (__instance.activePower != null)
                 {
                     __instance.RolledSaveThrow = __instance.activePower.TryRollSavingThrow(
-                        __instance.ActingCharacter.RulesetCharacter,
-                        __instance.ActingCharacter.Side,
+                        actingCharacter.RulesetCharacter, actingCharacter.Side,
                         target.RulesetActor,
-                        actionModifier, __instance.activePower.EffectDescription.EffectForms,
+                        actionModifier,
+                        __instance.activePower.EffectDescription.EffectForms,
                         false,
                         out var saveOutcome,
                         out var saveOutcomeDelta);
-
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
 
                     if (__instance.RolledSaveThrow)
                     {
-                        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+                        // Legendary Resistance or Indomitable?
+                        var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
                         if (__instance.SaveOutcome == RuleDefinitions.RollOutcome.Failure)
                         {
-                            yield return gameLocationBattleService.HandleFailedSavingThrow(
-                                __instance, __instance.ActingCharacter, target, actionModifier, false, hasBorrowedLuck);
+                            yield return battleService.HandleFailedSavingThrow(
+                                __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck);
                         }
                     }
 
-                    var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
+                    // Apply the forms of the power
+                    var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
-                    formsParams.FillSourceAndTarget(
-                        __instance.ActingCharacter.RulesetCharacter, target.RulesetCharacter);
-                    formsParams.FillFromActiveEffect(__instance.activePower);
-                    formsParams.FillSpecialParameters(__instance.RolledSaveThrow, 0, 0, 0, 0,
-                        actionModifier, __instance.SaveOutcome, __instance.SaveOutcomeDelta, false, 0, 1, null);
-                    formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
-                    implementationService.ApplyEffectForms(effectDescription.EffectForms, formsParams, null,
-                        out _, out _, effectApplication: effectDescription.EffectApplication,
-                        filters: effectDescription.EffectFormFilters);
+                    applyFormsParams.FillSourceAndTarget(actingCharacter.RulesetCharacter, target.RulesetCharacter);
+                    applyFormsParams.FillFromActiveEffect(__instance.activePower);
+                    applyFormsParams.FillSpecialParameters(
+                        __instance.RolledSaveThrow,
+                        addDice, addHP, addTempHP, 0,
+                        actionModifier,
+                        __instance.SaveOutcome,
+                        __instance.SaveOutcomeDelta,
+                        false,
+                        0,
+                        1,
+                        null);
+                    applyFormsParams.effectSourceType = RuleDefinitions.EffectSourceType.Power;
+                    rulesetImplementationService.ApplyEffectForms(
+                        effectDescription.EffectForms,
+                        applyFormsParams,
+                        null,
+                        effectApplication: effectDescription.EffectApplication,
+                        filters: effectDescription.EffectFormFilters,
+                        damageAbsorbedByTemporaryHitPoints: out _,
+                        terminateEffectOnTarget: out _);
 
-                    var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-                    var impactCenter = new Vector3();
-                    var identity = Quaternion.identity;
+                    // Impact particles
+                    var gameLocationPositioningService =
+                        ServiceRepository.GetService<IGameLocationPositioningService>();
+                    var impactPoint = new Vector3();
+                    var impactRotation = Quaternion.identity;
 
-                    positioningService.ComputeImpactCenterPositionAndRotation(target, ref impactCenter, ref identity);
+                    gameLocationPositioningService.ComputeImpactCenterPositionAndRotation(
+                        target, ref impactPoint, ref impactRotation);
 
-                    var impactPlanePosition = positioningService.GetImpactPlanePosition(impactCenter);
-                    var data = new ActionDefinitions.MagicEffectCastData
+                    var impactPlanePoint = gameLocationPositioningService.GetImpactPlanePosition(impactPoint);
+                    var impactTarget = new ActionDefinitions.MagicEffectCastData
                     {
                         Source = __instance.activePower.Name,
                         EffectDescription = effectDescription,
-                        Caster = __instance.ActingCharacter,
+                        Caster = actingCharacter,
                         Targets = __instance.targets,
                         TargetIndex = i,
-                        SubTargets = __instance.ActionParams.SubTargets,
+                        SubTargets = actionParams.SubTargets,
                         SubTargetIndex = 0,
-                        ImpactPoint = impactCenter,
-                        ImpactRotation = identity,
-                        ImpactPlanePoint = impactPlanePosition,
+                        ImpactPoint = impactPoint,
+                        ImpactRotation = impactRotation,
+                        ImpactPlanePoint = impactPlanePoint,
                         ActionType = __instance.ActionType,
                         ActionId = __instance.ActionId,
                         IsDivertHit = false,
                         ComputedTargetParameter = __instance.activePower.ComputeTargetParameter()
                     };
-                    var magicEffectHitTarget =
-                        ServiceRepository.GetService<IGameLocationActionService>().MagicEffectHitTarget;
 
-                    magicEffectHitTarget?.Invoke(ref data);
+                    var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+                    actionService.MagicEffectHitTarget?.Invoke(ref impactTarget);
                 }
 
                 if (!__instance.RolledSaveThrow ||
@@ -159,6 +188,8 @@ public static class CharacterActionSpendPowerPatcher
             }
 
             __instance.PersistantEffectAction();
+
+            yield return null;
         }
     }
 }
