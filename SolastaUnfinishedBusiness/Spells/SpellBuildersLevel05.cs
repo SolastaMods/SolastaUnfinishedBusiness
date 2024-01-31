@@ -471,7 +471,7 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .AddCustomSubFeatures(
                 ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack,
-                new OnPhysicalAttackHitBanishingSmite(conditionBanishingSmiteEnemy))
+                new PhysicalAttackFinishedByMeBanishingSmite(conditionBanishingSmiteEnemy))
             .SetDamageDice(DieType.D10, 5)
             .SetSpecificDamageType(DamageTypeForce)
             // doesn't follow the standard impact particle reference
@@ -510,18 +510,19 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class OnPhysicalAttackHitBanishingSmite(
+    private sealed class PhysicalAttackFinishedByMeBanishingSmite(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition)
-        : IPhysicalAttackAfterDamage
+        : IPhysicalAttackFinishedByMe
     {
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
@@ -531,7 +532,7 @@ internal static partial class SpellBuilders
                 rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetDefender.CurrentHitPoints > 50)
             {
-                return;
+                yield break;
             }
 
             //TODO: ideally we need to banish extra planar creatures forever (kill them?)

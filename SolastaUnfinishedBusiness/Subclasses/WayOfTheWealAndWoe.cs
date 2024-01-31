@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -90,7 +91,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorWealAndWoe : IPhysicalAttackAfterDamage, IModifyDiceRoll
+    private sealed class CustomBehaviorWealAndWoe : IPhysicalAttackFinishedByMe, IModifyDiceRoll
     {
         private readonly ConditionDefinition _conditionWeal;
         private readonly FeatureDefinition _featureBrutalWeal;
@@ -150,26 +151,27 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             result = 1;
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             if (!ValidatorsWeapon.IsUnarmed(attackMode) &&
                 !rulesetAttacker.IsMonkWeapon(attackMode?.SourceDefinition as ItemDefinition))
             {
-                return;
+                yield break;
             }
 
             var level = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);

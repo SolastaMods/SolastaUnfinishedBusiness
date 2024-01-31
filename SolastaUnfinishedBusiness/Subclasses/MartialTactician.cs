@@ -206,7 +206,8 @@ public sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feature.AddCustomSubFeatures(new RefundPowerUsePhysicalAttackAfterCrit(GambitsBuilders.GambitPool, feature));
+        feature.AddCustomSubFeatures(
+            new PhysicalAttackFinishedByMeAdaptiveStrategy(GambitsBuilders.GambitPool, feature));
 
         return feature;
     }
@@ -219,8 +220,6 @@ public sealed class MartialTactician : AbstractSubclass
             .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
             .AddToDB();
 
-        feature.AddCustomSubFeatures(new RefundPowerUsePhysicalAttackAfterCrit(GambitsBuilders.GambitPool, feature));
-
         return feature;
     }
 
@@ -231,7 +230,7 @@ public sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feature.AddCustomSubFeatures(new OnReducedToZeroHpByMeRefundPowerUse(GambitsBuilders.GambitPool, feature));
+        feature.AddCustomSubFeatures(new OnReducedToZeroHpByMeOvercomingStrategy(GambitsBuilders.GambitPool, feature));
 
         ConditionDefinitionBuilder
             .Create(MarkDamagedByGambit)
@@ -320,63 +319,56 @@ public sealed class MartialTactician : AbstractSubclass
     }
 #endif
 
-    private class RefundPowerUsePhysicalAttackAfterCrit(
+    private class PhysicalAttackFinishedByMeAdaptiveStrategy(
         FeatureDefinitionPower power,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition feature)
-        : IPhysicalAttackAfterDamage
+        : IPhysicalAttackFinishedByMe
     {
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess))
             {
-                // ReSharper disable once InvocationIsSkipped
-                Main.Log("AdaptiveStrategy: not critical. exiting.");
-                return;
+                yield break;
             }
 
             if (attackMode == null)
             {
-                return;
+                yield break;
             }
 
             // once per turn
             if (!attacker.OncePerTurnIsValid("AdaptiveStrategy"))
             {
-                // ReSharper disable once InvocationIsSkipped
-                Main.Log("AdaptiveStrategy: once per turn. exiting.");
-                return;
+                yield break;
             }
 
             var character = attacker.RulesetCharacter;
 
             if (character is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
-                // ReSharper disable once InvocationIsSkipped
-                Main.Log("AdaptiveStrategy: nothing to refuel. exiting.");
-                return;
+                yield break;
             }
 
             character.LogCharacterUsedFeature(feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
             character.UpdateUsageForPower(power, -1);
-            // ReSharper disable once InvocationIsSkipped
-            Main.Log("AdaptiveStrategy: refueled.");
         }
     }
 
-    private class OnReducedToZeroHpByMeRefundPowerUse(
+    private class OnReducedToZeroHpByMeOvercomingStrategy(
         FeatureDefinitionPower power,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition feature)

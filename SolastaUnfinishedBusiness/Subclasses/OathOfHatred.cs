@@ -123,7 +123,7 @@ public sealed class OathOfHatred : AbstractSubclass
         var featureDauntlessPursuer = FeatureDefinitionBuilder
             .Create("FeatureHatredDauntlessPursuer")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new OnDamagesDauntlessPursuer(conditionDauntlessPursuer))
+            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeDauntlessPursuer(conditionDauntlessPursuer))
             .AddToDB();
 
         //
@@ -208,31 +208,32 @@ public sealed class OathOfHatred : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class OnDamagesDauntlessPursuer : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackFinishedByMeDauntlessPursuer : IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDauntlessPursuerAfterAttack;
 
-        internal OnDamagesDauntlessPursuer(ConditionDefinition conditionDauntlessPursuerAfterAttack)
+        internal PhysicalAttackFinishedByMeDauntlessPursuer(ConditionDefinition conditionDauntlessPursuerAfterAttack)
         {
             _conditionDauntlessPursuerAfterAttack = conditionDauntlessPursuerAfterAttack;
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
-                return;
+                yield break;
             }
 
             if (attackMode?.actionType != ActionDefinitions.ActionType.Reaction)
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;

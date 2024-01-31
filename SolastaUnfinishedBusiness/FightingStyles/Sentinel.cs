@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -25,7 +26,7 @@ internal sealed class Sentinel : AbstractFightingStyle
                 .AddCustomSubFeatures(
                     AttacksOfOpportunity.IgnoreDisengage,
                     AttacksOfOpportunity.SentinelFeatMarker,
-                    new OnPhysicalAttackHitFeatSentinel(
+                    new PhysicalAttackFinishedByMeFeatSentinel(
                         ConditionDefinitionBuilder
                             .Create(CustomConditionsContext.StopMovement, "ConditionStopMovementSentinel")
                             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
@@ -42,36 +43,37 @@ internal sealed class Sentinel : AbstractFightingStyle
         FightingStyleRanger
     ];
 
-    private sealed class OnPhysicalAttackHitFeatSentinel : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackFinishedByMeFeatSentinel : IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionSentinelStopMovement;
 
-        internal OnPhysicalAttackHitFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
+        internal PhysicalAttackFinishedByMeFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
         {
             _conditionSentinelStopMovement = conditionSentinelStopMovement;
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                return;
+                yield break;
             }
 
             if (attackMode is not { ActionType: ActionDefinitions.ActionType.Reaction })
             {
-                return;
+                yield break;
             }
 
             if (attackMode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -80,7 +82,7 @@ internal sealed class Sentinel : AbstractFightingStyle
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             rulesetDefender.InflictCondition(

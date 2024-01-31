@@ -102,7 +102,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         var featureUnbridledFerocity = FeatureDefinitionBuilder
             .Create($"Feature{Name}UnbridledFerocity")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new PhysicalAttackAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
+            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeUnbridledFerocity(conditionUnbridledFerocity))
             .AddToDB();
 
         // MAIN
@@ -177,22 +177,23 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         abilityScoreName = AttributeDefinitions.Strength;
     }
 
-    private sealed class PhysicalAttackAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
-        : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackFinishedByMeUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
+        : IPhysicalAttackFinishedByMe
     {
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             // ReSharper disable once ConvertIfStatementToSwitchStatement

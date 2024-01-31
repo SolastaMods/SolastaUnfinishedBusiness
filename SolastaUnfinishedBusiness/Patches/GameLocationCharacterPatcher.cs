@@ -121,38 +121,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.AttackImpactOn))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class AttackImpactOn_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(
-            [NotNull] GameLocationCharacter __instance,
-            GameLocationCharacter target,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            //PATCH: support for `IOnAttackHitEffect` - calls after attack handlers
-            var character = __instance.RulesetCharacter;
-
-            if (character == null)
-            {
-                return;
-            }
-
-            var features = character.GetSubFeaturesByType<IPhysicalAttackAfterDamage>();
-
-            foreach (var effect in features)
-            {
-                effect.OnPhysicalAttackAfterDamage(__instance, target, outcome, actionParams, attackMode,
-                    attackModifier);
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CanUseAtLeastOnPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
