@@ -1933,6 +1933,7 @@ internal static class CharacterContext
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { attackModifier },
                 StringParameter = powerRogueCunningStrike.Name,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
