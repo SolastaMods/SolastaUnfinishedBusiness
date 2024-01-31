@@ -187,7 +187,6 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
-            // ReSharper disable once InvertIf
             if (__instance.Battle != null && mover.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
@@ -221,7 +220,6 @@ public static class GameLocationBattleManagerPatcher
         {
             //PATCH: support for Polearm Expert AoO
             //clears movement cache on battle end
-
             AttacksOfOpportunity.CleanMovingCache();
         }
     }
@@ -743,7 +741,7 @@ public static class GameLocationBattleManagerPatcher
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleTargetReducedToZeroHP))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-// ReSharper disable once InconsistentNaming
+    // ReSharper disable once InconsistentNaming
     public static class HandleTargetReducedToZeroHP_Patch
     {
         [UsedImplicitly]
@@ -1071,95 +1069,94 @@ public static class GameLocationBattleManagerPatcher
                 break;
             }
         }
+    }
 
-        [HarmonyPatch(typeof(GameLocationBattleManager),
-            nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackFinished))]
-        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [HarmonyPatch(typeof(GameLocationBattleManager),
+        nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackFinished))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleCharacterPhysicalAttackFinished_Patch
+    {
         [UsedImplicitly]
-        public static class HandleCharacterPhysicalAttackFinished_Patch
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction attackAction,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
-            [UsedImplicitly]
-            public static IEnumerator Postfix(
-                IEnumerator values,
-                GameLocationBattleManager __instance,
-                CharacterAction attackAction,
-                GameLocationCharacter attacker,
-                GameLocationCharacter defender,
-                RulesetAttackMode attackerAttackMode,
-                RollOutcome attackRollOutcome,
-                int damageAmount)
+            while (values.MoveNext())
             {
-                while (values.MoveNext())
-                {
-                    yield return values.Current;
-                }
+                yield return values.Current;
+            }
 
-                if (__instance.Battle != null && attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            if (__instance.Battle != null && attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                //PATCH: allow custom behavior when physical attack finished
+                foreach (var feature in attacker.RulesetCharacter
+                             .GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
                 {
-                    //PATCH: allow custom behavior when physical attack finished
-                    foreach (var feature in attacker.RulesetCharacter
-                                 .GetSubFeaturesByType<IPhysicalAttackFinishedByMe>())
+                    yield return feature.OnPhysicalAttackFinishedByMe(
+                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        damageAmount);
+                }
+            }
+
+            if (__instance.Battle != null && defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            {
+                //PATCH: allow custom behavior when physical attack finished on defender
+                foreach (var feature in defender.RulesetCharacter
+                             .GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
+                {
+                    yield return feature.OnPhysicalAttackFinishedOnMe(
+                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        damageAmount);
+                }
+            }
+
+            if (__instance.Battle != null)
+            {
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker, false, false))
+                {
+                    var allyFeatures =
+                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMeOrAlly>();
+
+                    foreach (var feature in allyFeatures)
                     {
-                        yield return feature.OnPhysicalAttackFinishedByMe(
-                            __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        yield return feature.OnPhysicalAttackFinishedByMeOrAlly(
+                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
+                            attackRollOutcome,
                             damageAmount);
                     }
                 }
+            }
 
-                if (__instance.Battle != null && defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            // ReSharper disable once InvertIf
+            if (__instance.Battle != null)
+            {
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker))
                 {
-                    //PATCH: allow custom behavior when physical attack finished on defender
-                    foreach (var feature in defender.RulesetCharacter
-                                 .GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
+                    var allyFeatures =
+                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
+
+                    foreach (var feature in allyFeatures)
                     {
-                        yield return feature.OnPhysicalAttackFinishedOnMe(
-                            __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        yield return feature.OnPhysicalAttackFinishedOnMeOrAlly(
+                            __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
+                            attackRollOutcome,
                             damageAmount);
-                    }
-                }
-
-                if (__instance.Battle != null)
-                {
-                    // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                    foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker, false, false))
-                    {
-                        var allyFeatures =
-                            gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMeOrAlly>();
-
-                        foreach (var feature in allyFeatures)
-                        {
-                            yield return feature.OnPhysicalAttackFinishedByMeOrAlly(
-                                __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
-                                attackRollOutcome,
-                                damageAmount);
-                        }
-                    }
-                }
-
-                // ReSharper disable once InvertIf
-                if (__instance.Battle != null)
-                {
-                    // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                    foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker))
-                    {
-                        var allyFeatures =
-                            gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMeOrAlly>();
-
-                        foreach (var feature in allyFeatures)
-                        {
-                            yield return feature.OnPhysicalAttackFinishedOnMeOrAlly(
-                                __instance, attackAction, attacker, defender, gameLocationAlly, attackerAttackMode,
-                                attackRollOutcome,
-                                damageAmount);
-                        }
                     }
                 }
             }
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager),
-        nameof(GameLocationBattleManager.HandleSpellCast))]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleSpellCast))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleSpellCast_Patch

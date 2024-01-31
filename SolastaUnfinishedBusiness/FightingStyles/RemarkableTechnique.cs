@@ -11,16 +11,15 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class RemarkableTechnique : AbstractFightingStyle
 {
-    private const string RemarkableTechniqueName = "RemarkableTechnique";
+    private const string Name = "RemarkableTechnique";
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create(RemarkableTechniqueName)
-        .SetGuiPresentation(Category.FightingStyle,
-            Sprites.GetSprite("RemarkableTechnique", Resources.MartialTactician, 256))
+        .Create(Name)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(Name, Resources.MartialTactician, 256))
         .SetFeatures(
             GambitsBuilders.GambitPool,
             GambitsBuilders.Learn1Gambit,
-            MartialTactician.BuildGambitPoolIncrease(1, "RemarkableTechnique"))
+            MartialTactician.BuildGambitPoolIncrease(1, Name))
         .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
