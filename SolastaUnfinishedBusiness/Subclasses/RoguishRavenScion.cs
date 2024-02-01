@@ -86,7 +86,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
                             .SetPossessive()
                             .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                            .AddCustomSubFeatures(new ModifyAttackByMeOutcomeHeartSeekingShot())
+                            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeHeartSeekingShot())
                             .AddToDB()))
                     .SetParticleEffectParameters(PowerPactChainImp)
                     .Build())
@@ -231,7 +231,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Heart-Seeking Shot
     //
 
-    private class ModifyAttackByMeOutcomeHeartSeekingShot : ITryAlterOutcomePhysicalAttackByMe
+    private class TryAlterOutcomePhysicalAttackByMeHeartSeekingShot : ITryAlterOutcomePhysicalAttackByMe
     {
         public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager instance,
@@ -262,7 +262,8 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Deadly Focus
     //
 
-    private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttackByMe
+    private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power)
+        : ITryAlterOutcomePhysicalAttackByMe
     {
         public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,

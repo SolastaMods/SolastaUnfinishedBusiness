@@ -210,6 +210,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     }
 
     private sealed class CustomBehaviorBladeMark(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionBladeMark,
         ConditionDefinition conditionBladeSurge,
         FeatureDefinitionPower powerHailOfBlades)

@@ -817,6 +817,7 @@ internal static class OtherFeats
             .Create("PowerFeatPoisonousSkin")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

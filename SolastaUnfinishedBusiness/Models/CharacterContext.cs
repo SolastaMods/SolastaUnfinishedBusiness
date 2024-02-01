@@ -1530,6 +1530,7 @@ internal static class CharacterContext
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1560,6 +1561,7 @@ internal static class CharacterContext
             .Create($"Power{Cunning}Disarm")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1583,6 +1585,7 @@ internal static class CharacterContext
             .Create($"Power{Cunning}Poison")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1607,6 +1610,7 @@ internal static class CharacterContext
             .Create($"Power{Cunning}Trip")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1655,6 +1659,7 @@ internal static class CharacterContext
             .Create($"Power{Cunning}Withdraw")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1704,6 +1709,7 @@ internal static class CharacterContext
             .Create($"Power{Devious}Daze")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool, 2)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1734,6 +1740,7 @@ internal static class CharacterContext
             .Create($"Power{Devious}KnockOut")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool, 6)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1757,6 +1764,7 @@ internal static class CharacterContext
             .Create($"Power{Devious}Obscure")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool, 3)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
