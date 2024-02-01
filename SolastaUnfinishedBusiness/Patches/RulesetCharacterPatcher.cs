@@ -1705,28 +1705,13 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: allow modifiers from items to be considered on concentration checks
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollConcentrationCheckFromDamage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RollConcentrationCheckFromDamage_Patch
     {
-        [UsedImplicitly]
-        public static bool Prefix(RulesetCharacter __instance)
-        {
-            var concentratedSpell = __instance.ConcentratedSpell;
-
-            if (concentratedSpell == null)
-            {
-                return true;
-            }
-
-            return __instance.GetSubFeaturesByType<IPreventRemoveConcentrationOnDamage>()
-                .All(x =>
-                    !x.SpellsThatShouldNotCheckConcentrationOnDamage(__instance)
-                        .Contains(concentratedSpell.SpellDefinition));
-        }
-
+        //PATCH: allow modifiers from items to be considered on concentration checks
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {

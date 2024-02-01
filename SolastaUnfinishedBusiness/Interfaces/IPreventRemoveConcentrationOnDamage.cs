@@ -4,5 +4,6 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 
 public interface IPreventRemoveConcentrationOnDamage
 {
-    public HashSet<SpellDefinition> SpellsThatShouldNotCheckConcentrationOnDamage(RulesetCharacter rulesetCharacter);
+    public HashSet<SpellDefinition> SpellsThatShouldNotRollConcentrationCheckFromDamage(
+        RulesetCharacter rulesetCharacter);
 }

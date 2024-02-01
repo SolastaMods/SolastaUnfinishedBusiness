@@ -410,6 +410,31 @@ public static class GameLocationCharacterPatcher
     [UsedImplicitly]
     public static class CheckConcentration_Patch
     {
+        //PATCH: supports `IPreventRemoveConcentrationOnDamage`
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance)
+        {
+            if (__instance.RulesetCharacter is not { } rulesetCharacter)
+            {
+                return true;
+            }
+
+            var hero = rulesetCharacter.GetOriginalHero();
+            var concentratedSpell = hero?.ConcentratedSpell;
+
+            if (concentratedSpell == null)
+            {
+                return true;
+            }
+
+            var shouldKeepConcentration = hero.GetSubFeaturesByType<IPreventRemoveConcentrationOnDamage>()
+                .Any(x =>
+                    x.SpellsThatShouldNotRollConcentrationCheckFromDamage(hero)
+                        .Contains(concentratedSpell.SpellDefinition));
+
+            return !shouldKeepConcentration;
+        }
+
         [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,

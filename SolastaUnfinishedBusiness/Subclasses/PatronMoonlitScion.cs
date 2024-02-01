@@ -592,7 +592,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             yield break;
         }
 
-        public HashSet<SpellDefinition> SpellsThatShouldNotCheckConcentrationOnDamage(RulesetCharacter rulesetCharacter)
+        public HashSet<SpellDefinition> SpellsThatShouldNotRollConcentrationCheckFromDamage(
+            RulesetCharacter rulesetCharacter)
         {
             return rulesetCharacter.HasConditionOfType(conditionMidnightBlessing)
                 ? [MoonBeam]
