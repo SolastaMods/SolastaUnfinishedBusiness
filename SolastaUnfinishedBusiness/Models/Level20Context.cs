@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -869,9 +870,11 @@ internal static class Level20Context
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "Reaction/&CustomReactionRogueStrokeOfLuckReactDescription"
+                StringParameter = "Reaction/&CustomReactionRogueStrokeOfLuckReactDescription",
+                UsablePower = usablePower
             };
             var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("RogueStrokeOfLuck", reactionParams);
@@ -885,9 +888,10 @@ internal static class Level20Context
                 yield break;
             }
 
+            rulesetCharacter.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
+
             var delta = -action.AttackSuccessDelta;
 
-            rulesetCharacter.UsePower(PowerProvider.Get(power, rulesetCharacter));
             action.AttackRollOutcome = RollOutcome.Success;
             action.AttackSuccessDelta = 0;
             action.AttackRoll += delta;

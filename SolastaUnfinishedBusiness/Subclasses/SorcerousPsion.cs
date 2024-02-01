@@ -451,7 +451,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             var character = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSupremeWill, character);
 
-            character.UsePower(usablePower);
+            character.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
             character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }

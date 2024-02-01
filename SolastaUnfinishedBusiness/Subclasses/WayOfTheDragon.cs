@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -1014,7 +1015,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            rulesetMe.UsePower(usablePower);
+            rulesetMe.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetMe.InflictCondition(
                 conditionReactiveHide.Name,
                 DurationType.Round,

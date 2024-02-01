@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -253,7 +254,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetDefender.InflictCondition(
                 conditionTrialMark.Name,
                 conditionTrialMark.DurationType,

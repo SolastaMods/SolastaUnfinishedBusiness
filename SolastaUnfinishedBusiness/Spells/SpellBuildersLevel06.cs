@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -448,7 +449,7 @@ internal static partial class SpellBuilders
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerRingOfBlades, rulesetCharacter);
 
-            rulesetCharacter.UsePower(usablePower);
+            rulesetCharacter.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             if (rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionRingOfBladesFree.Name, out var activeCondition))

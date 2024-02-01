@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -233,7 +234,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
+    private class
+        TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
     {
         internal TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection(
             FeatureDefinitionPower power, string reactionName, string auraConditionName)
@@ -316,8 +318,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
+            rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-            rulesetOriginalHelper.UsePower(usablePower);
             action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
         }
 

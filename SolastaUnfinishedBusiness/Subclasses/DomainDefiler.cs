@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -465,7 +466,7 @@ public sealed class DomainDefiler : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
     }

@@ -951,8 +951,8 @@ internal class TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius : ITryAlte
             yield break;
         }
 
+        rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
         rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-        rulesetOriginalHelper.UsePower(usablePower); // non fixed powers must be explicitly used on custom
         action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
     }
 
