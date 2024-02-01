@@ -1712,6 +1712,22 @@ public static class RulesetCharacterPatcher
     public static class RollConcentrationCheckFromDamage_Patch
     {
         [UsedImplicitly]
+        public static bool Prefix(RulesetCharacter __instance)
+        {
+            var concentratedSpell = __instance.ConcentratedSpell;
+
+            if (concentratedSpell == null)
+            {
+                return true;
+            }
+
+            return __instance.GetSubFeaturesByType<IPreventRemoveConcentrationOnDamage>()
+                .All(x =>
+                    !x.SpellsThatShouldNotCheckConcentrationOnDamage(__instance)
+                        .Contains(concentratedSpell.SpellDefinition));
+        }
+
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: make FeatureDefinitionMagicAffinity from dynamic item properties apply to repertoires
