@@ -19,13 +19,15 @@ public static class CharacterActionSpendPowerPatcher
     public static class ExecuteImpl_Patch
     {
         [UsedImplicitly]
-        public static IEnumerator Postfix(
+        public static bool Prefix(
 #pragma warning disable IDE0060
-            IEnumerator values,
+            out IEnumerator values,
 #pragma warning restore IDE0060
             CharacterActionSpendPower __instance)
         {
-            yield return ExecuteImpl(__instance);
+            values = ExecuteImpl(__instance);
+
+            return false;
         }
 
         private static IEnumerator ExecuteImpl(CharacterActionSpendPower __instance)
