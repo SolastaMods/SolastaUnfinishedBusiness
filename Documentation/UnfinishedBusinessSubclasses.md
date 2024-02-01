@@ -3333,7 +3333,7 @@ New Moon: You are obscured in non-magical darkness. If you move to a tile that i
 
 * Midnight Blessing
 
-You are resistant to radiant damage while Full Moon cloak is active and you are resistant to cold damage while New Moon cloak is active. You also learn Moon Beam spell if you haven't already done so. You can cast it once per long rest without expanding a spell slot at your highest slot level. When you cast Moon Beam this way, you gain temporary hit points equal to your warlock level for one minute.
+You are resistant to radiant damage while Full Moon cloak is active and you are resistant to cold damage while New Moon cloak is active. You also learn Moon Beam spell if you haven't already done so. You can cast it once per long rest without expanding a spell slot at your highest slot level. When you cast Moon Beam this way, you gain temporary hit points equal to your warlock level for one minute and taking damage cannot break your concentration for this spell.
 
 
 ### Level 10

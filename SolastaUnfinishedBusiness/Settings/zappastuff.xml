@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <DisplayModMessage>29</DisplayModMessage>
+    <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
     <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -450,7 +450,6 @@
     <UseOfficialFlankingRulesAlsoForRanged>false</UseOfficialFlankingRulesAlsoForRanged>
     <UseOfficialFlankingRulesAlsoForReach>false</UseOfficialFlankingRulesAlsoForReach>
     <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
-    <UseOfficialDistanceCalculation>true</UseOfficialDistanceCalculation>
     <UseOfficialSmallRacesDisWithHeavyWeapons>true</UseOfficialSmallRacesDisWithHeavyWeapons>
     <UseOfficialLightingObscurementAndVisionRules>true</UseOfficialLightingObscurementAndVisionRules>
     <OfficialObscurementRulesCancelAdvDisPairs>false</OfficialObscurementRulesCancelAdvDisPairs>
