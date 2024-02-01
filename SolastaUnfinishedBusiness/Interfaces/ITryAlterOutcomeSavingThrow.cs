@@ -3,9 +3,9 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface ITryAlterOutcomeFailedSavingThrow
+public interface ITryAlterOutcomeSavingThrow
 {
-    IEnumerator OnFailedSavingTryAlterOutcome(
+    IEnumerator OnSavingThrowTryAlterOutcome(
         GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,

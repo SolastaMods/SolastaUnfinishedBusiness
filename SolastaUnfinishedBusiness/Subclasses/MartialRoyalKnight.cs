@@ -129,7 +129,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .AddCustomSubFeatures(
-                                new TryAlterOutcomeFailedSavingThrowInspiringProtection(
+                                new TryAlterOutcomeSavingThrowInspiringProtection(
                                     powerRoyalKnightInspiringProtection,
                                     "RoyalKnightInspiringProtection",
                                     "ConditionRoyalKnightInspiringProtectionAura"))
@@ -233,9 +233,9 @@ public sealed class MartialRoyalKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class TryAlterOutcomeFailedSavingThrowInspiringProtection : ITryAlterOutcomeFailedSavingThrow
+    private class TryAlterOutcomeSavingThrowInspiringProtection : ITryAlterOutcomeSavingThrow
     {
-        internal TryAlterOutcomeFailedSavingThrowInspiringProtection(
+        internal TryAlterOutcomeSavingThrowInspiringProtection(
             FeatureDefinitionPower power, string reactionName, string auraConditionName)
         {
             Power = power;
@@ -247,7 +247,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         private string ReactionName { get; }
         private string AuraConditionName { get; }
 
-        public IEnumerator OnFailedSavingTryAlterOutcome(
+        public IEnumerator OnSavingThrowTryAlterOutcome(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -257,6 +257,11 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
+            if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+            {
+                yield break;
+            }
+
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })

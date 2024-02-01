@@ -920,48 +920,6 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleFailedSavingThrow))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class HandleFailedSavingThrow_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier saveModifier,
-            bool hasHitVisual,
-            bool hasBorrowedLuck)
-        {
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            //PATCH: support for `ITryAlterOutcomeFailedSavingThrow`
-            // should also happen outside battles
-            var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var contenders =
-                (Gui.Battle?.AllContenders ??
-                 locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                .ToList();
-
-            foreach (var unit in contenders
-                         .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
-            {
-                foreach (var feature in unit.RulesetCharacter
-                             .GetSubFeaturesByType<ITryAlterOutcomeFailedSavingThrow>())
-                {
-                    yield return feature.OnFailedSavingTryAlterOutcome(
-                        __instance, action, attacker, defender, unit, saveModifier, hasHitVisual, hasBorrowedLuck);
-                }
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationBattleManager),
         nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackInitiated))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

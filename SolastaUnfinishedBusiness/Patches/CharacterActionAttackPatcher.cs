@@ -2,6 +2,8 @@
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 using static RuleDefinitions;
 using Coroutine = TA.Coroutine;
@@ -27,6 +29,10 @@ public static class CharacterActionAttackPatcher
 
         private static IEnumerator ExecuteImpl(CharacterActionAttack __instance)
         {
+            var actingCharacter = __instance.ActingCharacter;
+            var actionParams = __instance.ActionParams;
+            var attackMode = actionParams.AttackMode;
+
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var locationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var locationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
@@ -36,16 +42,16 @@ public static class CharacterActionAttackPatcher
 
             // Check action params
             var canAttackMain =
-                __instance.ActingCharacter.GetActionStatus(
+                actingCharacter.GetActionStatus(
                     ActionDefinitions.Id.AttackMain,
                     ActionDefinitions.ActionScope.Battle,
-                    optionalAttackMode: __instance.ActionParams.AttackMode) == ActionDefinitions.ActionStatus.Available;
+                    optionalAttackMode: attackMode) == ActionDefinitions.ActionStatus.Available;
 
             var canAttackOff =
-                __instance.ActingCharacter.GetActionStatus(
+                actingCharacter.GetActionStatus(
                     ActionDefinitions.Id.AttackOff,
                     ActionDefinitions.ActionScope.Battle,
-                    optionalAttackMode: __instance.ActionParams.AttackMode) == ActionDefinitions.ActionStatus.Available;
+                    optionalAttackMode: attackMode) == ActionDefinitions.ActionStatus.Available;
 
             if ((!canAttackMain && __instance.ActionType == ActionDefinitions.ActionType.Main)
                 || (!canAttackOff && __instance.ActionType == ActionDefinitions.ActionType.Bonus))
@@ -61,33 +67,32 @@ public static class CharacterActionAttackPatcher
                     yield break;
                 }
 
-                __instance.ActingCharacter.IsCharging = false;
-                __instance.ActingCharacter.MovingToDestination = false; // Safety
+                actingCharacter.IsCharging = false;
+                actingCharacter.MovingToDestination = false; // Safety
 
                 yield break;
             }
 
-            var targets = __instance.ActionParams.TargetCharacters;
+            var targets = actionParams.TargetCharacters;
             var target = targets[0];
             var defenderWasConscious = !target.RulesetActor.IsDeadOrDyingOrUnconscious;
 
             // Check if the attack is possible, and compute modifiers
             var attackParams = new BattleDefinitions.AttackEvaluationParams();
             var attackModifier = new ActionModifier();
-            var attackMode = __instance.ActionParams.AttackMode;
 
             if (!attackMode.Ranged)
             {
                 attackParams.FillForPhysicalReachAttack(
-                    __instance.ActingCharacter,
-                    __instance.ActingCharacter.LocationPosition,
+                    actingCharacter,
+                    actingCharacter.LocationPosition,
                     attackMode, target, target.LocationPosition, attackModifier);
             }
             else
             {
                 attackParams.FillForPhysicalRangeAttack(
-                    __instance.ActingCharacter,
-                    __instance.ActingCharacter.LocationPosition,
+                    actingCharacter,
+                    actingCharacter.LocationPosition,
                     attackMode, target, target.LocationPosition, attackModifier);
             }
 
@@ -98,13 +103,13 @@ public static class CharacterActionAttackPatcher
 
             if (!canAttack)
             {
-                var attackModifiers = __instance.ActionParams.ActionModifiers;
+                var attackModifiers = actionParams.ActionModifiers;
 
                 attackModifier = attackModifiers[0];
             }
 
             yield return battleService.HandleCharacterPhysicalAttackInitiated(
-                __instance, __instance.ActingCharacter, target, attackModifier, attackMode);
+                __instance, actingCharacter, target, attackModifier, attackMode);
 
             // Determine the attack success
             __instance.AttackRollOutcome = RollOutcome.Failure;
@@ -117,7 +122,7 @@ public static class CharacterActionAttackPatcher
             // Automatic hit is for Flaming Sphere, which hits automatically with a saving throw
             if (!attackMode.AutomaticHit)
             {
-                __instance.AttackRoll = __instance.ActingCharacter.RulesetCharacter.RollAttackMode(
+                __instance.AttackRoll = actingCharacter.RulesetCharacter.RollAttackMode(
                     attackMode,
                     rangeAttack,
                     target.RulesetActor,
@@ -146,15 +151,15 @@ public static class CharacterActionAttackPatcher
 
             if (!__instance.skipAnimationWarmup)
             {
-                __instance.ActingCharacter.TurnTowards(target, false, false);
+                actingCharacter.TurnTowards(target, false, false);
 
                 actingCharacterTurnCoroutine = Coroutine.StartCoroutine(
-                    __instance.ActingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
+                    actingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
                         GameLocationCharacterEventSystem.Event.RotationEnd));
             }
 
-            var isTargetAware = target.PerceivedAllies.Contains(__instance.ActingCharacter) ||
-                                target.PerceivedFoes.Contains(__instance.ActingCharacter);
+            var isTargetAware = target.PerceivedAllies.Contains(actingCharacter) ||
+                                target.PerceivedFoes.Contains(actingCharacter);
 
             if (isTargetAware &&
                 target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -163,7 +168,7 @@ public static class CharacterActionAttackPatcher
                 !target.MoveStepInProgress &&
                 !target.IsCharging)
             {
-                target.TurnTowards(__instance.ActingCharacter, false, false);
+                target.TurnTowards(actingCharacter, false, false);
                 targetCharacterTurnCoroutine = Coroutine.StartCoroutine(
                     target.EventSystem.UpdateMotionsAndWaitForEvent(
                         GameLocationCharacterEventSystem.Event.RotationEnd));
@@ -205,33 +210,33 @@ public static class CharacterActionAttackPatcher
             }
 
             // Wait for monster weapon swap ?
-            if (__instance.ActingCharacter.RulesetCharacter is RulesetCharacterMonster &&
+            if (actingCharacter.RulesetCharacter is RulesetCharacterMonster &&
                 attackMode.SourceDefinition is MonsterAttackDefinition definition)
             {
                 var hasChanged =
-                    __instance.ActingCharacter.SetCurrentMonsterAttack(definition);
+                    actingCharacter.SetCurrentMonsterAttack(definition);
 
                 if (hasChanged)
                 {
-                    yield return __instance.ActingCharacter.EventSystem.WaitForEvent(
+                    yield return actingCharacter.EventSystem.WaitForEvent(
                         GameLocationCharacterEventSystem.Event.MonsterWeaponSwapped);
                 }
             }
 
             // Acting character could be trying to act during a hit animation
-            yield return __instance.ActingCharacter.WaitForHitAnimation();
+            yield return actingCharacter.WaitForHitAnimation();
 
-            __instance.ActingCharacter.AttackOn(
-                target, __instance.AttackRollOutcome, __instance.ActionParams, attackMode, attackModifier);
+            actingCharacter.AttackOn(
+                target, __instance.AttackRollOutcome, actionParams, attackMode, attackModifier);
 
-            yield return __instance.ActingCharacter.EventSystem.WaitForEvent(
+            yield return actingCharacter.EventSystem.WaitForEvent(
                 GameLocationCharacterEventSystem.Event.AttackImpact);
 
             // If this roll is failed (not critically), can we use a bardic inspiration to change the outcome?
             if (__instance.AttackRollOutcome == RollOutcome.Failure)
             {
                 yield return battleService.HandleBardicInspirationForAttack(
-                    __instance, __instance.ActingCharacter, target, attackModifier);
+                    __instance, actingCharacter, target, attackModifier);
             }
 
             if (rangeAttack)
@@ -239,7 +244,7 @@ public static class CharacterActionAttackPatcher
                 var isMonkReturnMissile = attackMode.ReturnProjectileOnly;
 
                 locationEntityFactoryService.TryFindWorldCharacter(
-                    __instance.ActingCharacter, out var worldLocationCharacter);
+                    actingCharacter, out var worldLocationCharacter);
 
                 var boneType = AnimationDefinitions.BoneType.Prop1;
 
@@ -322,7 +327,7 @@ public static class CharacterActionAttackPatcher
 
                 //TODO: Mask thrown weapon here !
                 yield return battleService.HandleRangeAttackVFX(
-                    __instance.ActingCharacter, target, attackMode, sourcePoint, impactPoint, projectileFlightDuration);
+                    actingCharacter, target, attackMode, sourcePoint, impactPoint, projectileFlightDuration);
             }
 
             var isResultingActionSpendPowerWithMotionForm = false;
@@ -340,7 +345,7 @@ public static class CharacterActionAttackPatcher
                 if (__instance.AttackRoll != DiceMaxValue[(int)DieType.D20] && !attackMode.AutomaticHit)
                 {
                     yield return battleService.HandleCharacterAttackHitPossible(
-                        __instance.ActingCharacter,
+                        actingCharacter,
                         target,
                         attackMode,
                         null,
@@ -353,7 +358,7 @@ public static class CharacterActionAttackPatcher
                 // Execute the final step of the attack
                 if (!attackMode.AutomaticHit)
                 {
-                    __instance.ActingCharacter.RulesetCharacter.RollAttackMode(
+                    actingCharacter.RulesetCharacter.RollAttackMode(
                         attackMode,
                         rangeAttack,
                         target.RulesetActor,
@@ -372,18 +377,18 @@ public static class CharacterActionAttackPatcher
                 }
                 else
                 {
-                    __instance.ActingCharacter.RulesetCharacter.AttackAutomaticHit?.Invoke(
-                        __instance.ActingCharacter.RulesetCharacter, target.RulesetActor, attackMode.SourceDefinition);
+                    actingCharacter.RulesetCharacter.AttackAutomaticHit?.Invoke(
+                        actingCharacter.RulesetCharacter, target.RulesetActor, attackMode.SourceDefinition);
                 }
 
                 // Is this still a success?
                 if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                 {
                     hit = true;
-                    __instance.ActingCharacter.AttackedHitCreatureIds.TryAdd(target.RulesetActor.Guid);
+                    actingCharacter.AttackedHitCreatureIds.TryAdd(target.RulesetActor.Guid);
 
                     // For recovering ammunition
-                    __instance.ActingCharacter.RulesetCharacter.AcknowledgeAttackHit(
+                    actingCharacter.RulesetCharacter.AcknowledgeAttackHit(
                         target, attackMode, attackModifier.Proximity);
 
                     __instance.actualEffectForms.Clear();
@@ -395,7 +400,7 @@ public static class CharacterActionAttackPatcher
                         attackHasDamaged = true;
                         yield return battleService.HandleCharacterAttackHitConfirmed(
                             __instance,
-                            __instance.ActingCharacter,
+                            actingCharacter,
                             target,
                             attackModifier,
                             attackMode,
@@ -417,7 +422,7 @@ public static class CharacterActionAttackPatcher
 
                     // These bool information must be store as a class member, as it is passed to HandleFailedSavingThrow
                     __instance.RolledSaveThrow = attackMode.TryRollSavingThrow(
-                        __instance.ActingCharacter.RulesetCharacter, target.RulesetActor, attackModifier,
+                        actingCharacter.RulesetCharacter, target.RulesetActor, attackModifier,
                         __instance.actualEffectForms, out var saveOutcome, out var saveOutcomeDelta);
                     __instance.SaveOutcome = saveOutcome;
                     __instance.SaveOutcomeDelta = saveOutcomeDelta;
@@ -431,9 +436,33 @@ public static class CharacterActionAttackPatcher
                         if (__instance.SaveOutcome == RollOutcome.Failure)
                         {
                             yield return battleService.HandleFailedSavingThrow(
-                                __instance, __instance.ActingCharacter,
+                                __instance, actingCharacter,
                                 target, attackModifier, false, hasBorrowedLuck);
                         }
+
+                        // BEGIN PATCH
+
+                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
+                        // should also happen outside battles
+                        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                        var contenders =
+                            (Gui.Battle?.AllContenders ??
+                             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                            .ToList();
+
+                        foreach (var unit in contenders
+                                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                        {
+                            foreach (var feature in unit.RulesetCharacter
+                                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
+                            {
+                                yield return feature.OnSavingThrowTryAlterOutcome(
+                                    battleService as GameLocationBattleManager, __instance, actingCharacter,
+                                    target, unit, attackModifier, false, hasBorrowedLuck);
+                            }
+                        }
+
+                        // END PATCH
                     }
 
                     // Check for resulting actions, if any of them is a CharacterSpendPower w/ a Motion effect form, don't wait for hit animation
@@ -465,7 +494,7 @@ public static class CharacterActionAttackPatcher
                     var wasDeadOrDyingOrUnconscious = target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: true };
                     var formParams = new RulesetImplementationDefinitions.ApplyFormsParams();
 
-                    formParams.FillSourceAndTarget(__instance.ActingCharacter.RulesetCharacter, target.RulesetActor);
+                    formParams.FillSourceAndTarget(actingCharacter.RulesetCharacter, target.RulesetActor);
                     formParams.FillFromAttackMode(attackMode);
                     formParams.FillAttackModeSpecialParameters(
                         __instance.RolledSaveThrow,
@@ -476,28 +505,28 @@ public static class CharacterActionAttackPatcher
                     formParams.effectSourceType = EffectSourceType.Attack;
 
                     // Do we need to add special effect forms from a power?
-                    // Do not call RulesetCharacter.UsePower(__instance.ActionParams.UsablePower) here, it should have been
+                    // Do not call RulesetCharacter.UsePower(actionParams.UsablePower) here, it should have been
                     // done earlier in the parent action since we must pay the power's price no matter if the attack hits or not
-                    if (__instance.ActionParams.UsablePower != null)
+                    if (actionParams.UsablePower != null)
                     {
                         // Add the effect forms
                         __instance.actualEffectForms.AddRange(
-                            __instance.ActionParams.UsablePower.PowerDefinition.EffectDescription.EffectForms);
+                            actionParams.UsablePower.PowerDefinition.EffectDescription.EffectForms);
 
                         // Specify the class level for forms which depend on it
                         formParams.classLevel =
-                            __instance.ActingCharacter.RulesetCharacter.TryGetAttributeValue(
+                            actingCharacter.RulesetCharacter.TryGetAttributeValue(
                                 AttributeDefinitions.CharacterLevel);
                     }
 
-                    __instance.ActingCharacter.RulesetCharacter.EvaluateAndNotifyBardicNegativeInspiration(
+                    actingCharacter.RulesetCharacter.EvaluateAndNotifyBardicNegativeInspiration(
                         RollContext.AttackDamageValueRoll);
 
                     var saveOutcomeSuccess =
                         __instance.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
 
                     yield return battleService.HandleDefenderBeforeDamageReceived(
-                        __instance.ActingCharacter,
+                        actingCharacter,
                         target,
                         attackMode,
                         null,
@@ -513,17 +542,17 @@ public static class CharacterActionAttackPatcher
                         damageAbsorbedByTemporaryHitPoints: out var damageAbsorbedByTemporaryHitPoints,
                         terminateEffectOnTarget: out _);
 
-                    __instance.ActingCharacter.AttackImpactOn(
-                        target, __instance.AttackRollOutcome, __instance.ActionParams, attackMode, attackModifier);
+                    actingCharacter.AttackImpactOn(
+                        target, __instance.AttackRollOutcome, actionParams, attackMode, attackModifier);
 
                     // Call this now that the damage has been properly applied
                     if (damageReceived > 0 || damageAbsorbedByTemporaryHitPoints)
                     {
                         yield return battleService.HandleDefenderOnDamageReceived(
-                            __instance.ActingCharacter, target, damageReceived, null, __instance.effectiveDamageTypes);
+                            actingCharacter, target, damageReceived, null, __instance.effectiveDamageTypes);
 
                         yield return battleService.HandleAttackerOnDefenderDamageReceived(
-                            __instance.ActingCharacter, target, damageReceived, null, __instance.effectiveDamageTypes);
+                            actingCharacter, target, damageReceived, null, __instance.effectiveDamageTypes);
 
                         if (!damageAbsorbedByTemporaryHitPoints)
                         {
@@ -537,13 +566,13 @@ public static class CharacterActionAttackPatcher
                         isResultingActionSpendPowerWithMotionForm = false;
 
                         yield return battleService.HandleTargetReducedToZeroHP(
-                            __instance.ActingCharacter, target, attackMode, null);
+                            actingCharacter, target, attackMode, null);
                     }
                 }
             }
             else
             {
-                __instance.ActingCharacter.RulesetCharacter.RollAttackMode(
+                actingCharacter.RulesetCharacter.RollAttackMode(
                     attackMode, rangeAttack,
                     target.RulesetActor,
                     attackMode.SourceDefinition,
@@ -558,13 +587,13 @@ public static class CharacterActionAttackPatcher
                 __instance.AttackRollOutcome = attackRollOutcome2;
                 __instance.AttackSuccessDelta = successDelta2;
 
-                __instance.ActingCharacter.AttackImpactOn(
-                    target, __instance.AttackRollOutcome, __instance.ActionParams, attackMode, attackModifier);
+                actingCharacter.AttackImpactOn(
+                    target, __instance.AttackRollOutcome, actionParams, attackMode, attackModifier);
             }
 
             var multiAttackInProgress =
-                __instance.ActingCharacter.ControllerId == PlayerControllerManager.DmControllerId &&
-                __instance.ActingCharacter.GetActionAvailableIterations(ActionDefinitions.Id.AttackMain) > 1;
+                actingCharacter.ControllerId == PlayerControllerManager.DmControllerId &&
+                actingCharacter.GetActionAvailableIterations(ActionDefinitions.Id.AttackMain) > 1;
 
             // Reset this flag after the application of the attack effect forms
             target.WillBePushedByMagicalEffect = false;
@@ -580,10 +609,10 @@ public static class CharacterActionAttackPatcher
                 yield return target.WaitForHitAnimation();
             }
 
-            __instance.ActingCharacter.HasAttackedSinceLastTurn = true;
-            __instance.ActingCharacter.RulesetCharacter.AcknowledgeAttackUse(
+            actingCharacter.HasAttackedSinceLastTurn = true;
+            actingCharacter.RulesetCharacter.AcknowledgeAttackUse(
                 attackMode, attackModifier.Proximity, hit, out var droppedItem, out var needToRefresh);
-            __instance.ActingCharacter.RulesetCharacter.AcknowledgeAttackedCharacter(
+            actingCharacter.RulesetCharacter.AcknowledgeAttackedCharacter(
                 target.RulesetCharacter, attackModifier.Proximity);
 
             if (droppedItem != null)
@@ -591,7 +620,7 @@ public static class CharacterActionAttackPatcher
                 // Drop the item on the floor
                 needToRefresh = true;
                 var droppingPoint =
-                    target?.LocationPosition ?? __instance.ActingCharacter.LocationPosition;
+                    target?.LocationPosition ?? actingCharacter.LocationPosition;
 
                 if (positioningService.TryGetWalkableGroundBelowPosition(droppingPoint, out var groundPosition))
                 {
@@ -606,59 +635,59 @@ public static class CharacterActionAttackPatcher
             }
 
             // Possible condition interruption, after the attack is done. Example: if an invisible character performs an attack, his invisible condition is broken
-            __instance.ActingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+            actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
                 ConditionInterruption.Attacks);
 
-            if (__instance.ActingCharacter.RulesetCharacter.IsWieldingBow())
+            if (actingCharacter.RulesetCharacter.IsWieldingBow())
             {
-                __instance.ActingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
                     ConditionInterruption.AttacksWithBow);
             }
 
             // Handle specific reactions after the attack has been executed
             yield return battleService.HandleCharacterPhysicalAttackFinished(
-                __instance, __instance.ActingCharacter,
+                __instance, actingCharacter,
                 target, attackParams.attackMode, __instance.AttackRollOutcome, damageReceived);
             yield return battleService.HandleCharacterAttackFinished(
-                __instance, __instance.ActingCharacter, target,
+                __instance, actingCharacter, target,
                 attackParams.attackMode, null, __instance.AttackRollOutcome, damageReceived);
 
             if (attackHasDamaged)
             {
-                __instance.ActingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
                     ConditionInterruption.AttacksAndDamages, damageReceived);
             }
 
             // Did I down the target?
             if (defenderWasConscious && target.RulesetActor.IsDeadOrDyingOrUnconscious)
             {
-                __instance.ActingCharacter.EnemiesDownedByAttack++;
+                actingCharacter.EnemiesDownedByAttack++;
             }
 
             if (needToRefresh)
             {
-                __instance.ActingCharacter.RulesetCharacter.RefreshAttackModes();
+                actingCharacter.RulesetCharacter.RefreshAttackModes();
             }
 
             if (!isResultingActionSpendPowerWithMotionForm)
             {
-                yield return __instance.ActingCharacter.EventSystem.WaitForEvent(
+                yield return actingCharacter.EventSystem.WaitForEvent(
                     GameLocationCharacterEventSystem.Event.AttackAnimationEnd);
             }
             else
             {
-                __instance.ActingCharacter.EventSystem.AbsorbNextEvent(
+                actingCharacter.EventSystem.AbsorbNextEvent(
                     GameLocationCharacterEventSystem.Event.AttackAnimationEnd);
             }
 
-            if (!__instance.ActingCharacter.RulesetActor.IsDeadOrDyingOrUnconscious &&
+            if (!actingCharacter.RulesetActor.IsDeadOrDyingOrUnconscious &&
                 !multiAttackInProgress)
             {
                 if (!isResultingActionSpendPowerWithMotionForm)
                 {
-                    __instance.ActingCharacter.TurnTowards(target);
+                    actingCharacter.TurnTowards(target);
                     actingCharacterTurnCoroutine = Coroutine.StartCoroutine(
-                        __instance.ActingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
+                        actingCharacter.EventSystem.UpdateMotionsAndWaitForEvent(
                             GameLocationCharacterEventSystem.Event.RotationEnd));
                 }
             }
@@ -677,7 +706,7 @@ public static class CharacterActionAttackPatcher
             {
                 if (!isResultingActionSpendPowerWithMotionForm)
                 {
-                    target.TurnTowards(__instance.ActingCharacter);
+                    target.TurnTowards(actingCharacter);
                     targetCharacterTurnCoroutine = Coroutine.StartCoroutine(
                         target.EventSystem.UpdateMotionsAndWaitForEvent(
                             GameLocationCharacterEventSystem.Event.RotationEnd));
@@ -720,15 +749,15 @@ public static class CharacterActionAttackPatcher
 
             if (__instance.isChargeAttack)
             {
-                __instance.ActingCharacter.IsCharging = false;
-                __instance.ActingCharacter.MovingToDestination = false;
+                actingCharacter.IsCharging = false;
+                actingCharacter.MovingToDestination = false;
             }
 
             target.RulesetActor.ProcessConditionsMatchingInterruption(
                 ConditionInterruption.PhysicalAttackReceivedExecuted);
 
             yield return battleService.HandleCharacterAttackOrMagicEffectFinishedLate(
-                __instance, __instance.ActingCharacter);
+                __instance, actingCharacter);
         }
     }
 }

@@ -1215,9 +1215,9 @@ internal static class EldritchVersatilityBuilders
         }
     }
 
-    private class EldritchWardAidSave : ITryAlterOutcomeFailedSavingThrow
+    private class EldritchWardAidSave : ITryAlterOutcomeSavingThrow
     {
-        public IEnumerator OnFailedSavingTryAlterOutcome(
+        public IEnumerator OnSavingThrowTryAlterOutcome(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1227,6 +1227,11 @@ internal static class EldritchVersatilityBuilders
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
+            if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+            {
+                yield break;
+            }
+
             if (!ShouldTrigger(defender, helper))
             {
                 yield break;

@@ -498,6 +498,234 @@ public static class CharacterActionMagicEffectPatcher
         }
     }
 
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ExecuteMagicAttack))]
+    [UsedImplicitly]
+    public static class ExecuteMagicAttack_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+#pragma warning disable IDE0060
+            IEnumerator values,
+#pragma warning restore IDE0060
+            CharacterActionMagicEffect __instance,
+            RulesetEffect activeEffect,
+            GameLocationCharacter target,
+            ActionModifier attackModifier,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool checkMagicalAttackDamage)
+        {
+            yield return ExecuteMagicAttack(__instance,
+                activeEffect, target, attackModifier, actualEffectForms, firstTarget, checkMagicalAttackDamage);
+        }
+
+        private static IEnumerator ExecuteMagicAttack(
+            CharacterActionMagicEffect __instance,
+            RulesetEffect activeEffect,
+            GameLocationCharacter target,
+            ActionModifier attackModifier,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool checkMagicalAttackDamage)
+        {
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var effectDescription = activeEffect.EffectDescription;
+
+            __instance.AttackRollOutcome = RollOutcome.Success;
+
+            var needToRollDie = effectDescription.NeedsToRollDie();
+            var hasSavingThrowAnimation = !effectDescription.HideSavingThrowAnimation && !needToRollDie;
+
+            if (needToRollDie)
+            {
+                // Roll dice + handle target reaction
+                __instance.AttackRoll = __instance.ActingCharacter.RulesetCharacter.RollMagicAttack(
+                    activeEffect,
+                    target.RulesetActor,
+                    activeEffect.GetEffectSource(),
+                    attackModifier.AttacktoHitTrends,
+                    attackModifier.AttackAdvantageTrends,
+                    false,
+                    attackModifier.AttackRollModifier,
+                    out var outcome,
+                    out var successDelta,
+                    -1,
+                    true);
+                __instance.AttackRollOutcome = outcome;
+                __instance.AttackSuccessDelta = successDelta;
+
+                // If this roll is failed (not critically), can we use a bardic inspiration to change the outcome?
+                if (__instance.AttackRollOutcome == RollOutcome.Failure)
+                {
+                    yield return battleService.HandleBardicInspirationForAttack(
+                        __instance, __instance.ActingCharacter, target, attackModifier);
+                }
+
+                __instance.isResultingActionSpendPowerWithMotionForm = false;
+
+                // Is this a success?
+                if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                {
+                    // No need to test this even if the hit was automatic (natural 20). Warning: Critical Success can occur without rolling a 20 (Champion fighter crits at 19)
+                    if (__instance.AttackRoll != DiceMaxValue[(int)DieType.D20])
+                    {
+                        // Can the target do anything to change the outcome of the hit?
+                        yield return battleService.HandleCharacterAttackHitPossible(
+                            __instance.ActingCharacter,
+                            target,
+                            null,
+                            activeEffect,
+                            attackModifier,
+                            __instance.AttackRoll,
+                            __instance.AttackSuccessDelta,
+                            effectDescription.RangeType == RangeType.RangeHit);
+                    }
+
+                    // Execute the final step of the attack
+                    __instance.ActingCharacter.RulesetCharacter.RollMagicAttack(
+                        activeEffect, target.RulesetActor,
+                        activeEffect.GetEffectSource(),
+                        attackModifier.AttacktoHitTrends,
+                        attackModifier.AttackAdvantageTrends,
+                        false,
+                        attackModifier.AttackRollModifier,
+                        out outcome,
+                        out successDelta,
+                        __instance.AttackRoll,
+                        false);
+                    __instance.AttackRollOutcome = outcome;
+                    __instance.AttackSuccessDelta = successDelta;
+
+                    // Is this still a success?
+                    if (__instance.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                    {
+                        // Handle special cases, if there is at least one damage
+                        if (checkMagicalAttackDamage && __instance.HasOneDamageForm(actualEffectForms))
+                        {
+                            yield return battleService.HandleCharacterMagicalAttackHitConfirmed(
+                                __instance,
+                                __instance.ActingCharacter,
+                                target,
+                                attackModifier,
+                                activeEffect,
+                                actualEffectForms,
+                                firstTarget,
+                                __instance.AttackRollOutcome == RollOutcome.CriticalSuccess);
+                        }
+                    }
+                }
+                else
+                {
+                    __instance.ActingCharacter.RulesetCharacter.RollMagicAttack(
+                        activeEffect, target.RulesetActor,
+                        activeEffect.GetEffectSource(),
+                        attackModifier.AttacktoHitTrends,
+                        attackModifier.AttackAdvantageTrends,
+                        false, attackModifier.AttackRollModifier,
+                        out outcome,
+                        out successDelta,
+                        __instance.AttackRoll,
+                        false);
+                    __instance.AttackRollOutcome = outcome;
+                    __instance.AttackSuccessDelta = successDelta;
+                }
+
+                // Possible condition interruption, after the attack is done. Example: if a creature attacks with the Rousing Shout condition
+                __instance.ActingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                    ConditionInterruption.Attacks);
+            }
+            else
+            {
+                // Handle special cases, if there is at least one damage
+                if (checkMagicalAttackDamage && __instance.HasOneDamageForm(actualEffectForms))
+                {
+                    yield return battleService.HandleCharacterMagicalAttackHitConfirmed(
+                        __instance,
+                        __instance.ActingCharacter,
+                        target,
+                        attackModifier,
+                        activeEffect,
+                        actualEffectForms,
+                        firstTarget,
+                        false);
+                }
+            }
+
+            // No need to roll the saving throw if the attack missed
+            if (!needToRollDie ||
+                __instance.AttackRollOutcome == RollOutcome.Success ||
+                __instance.AttackRollOutcome == RollOutcome.CriticalSuccess ||
+                activeEffect.EffectDescription.HalfDamageOnAMiss)
+            {
+                // Roll the saving throw, if it is the right time
+                if (activeEffect.EffectDescription.RecurrentEffect == RecurrentEffect.No ||
+                    (activeEffect.EffectDescription.RecurrentEffect & RecurrentEffect.OnActivation) != 0)
+                {
+                    var hasBorrowedLuck = target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
+                    var side = __instance.ActingCharacter?.Side ?? Side.Neutral;
+
+                    __instance.RolledSaveThrow = activeEffect.TryRollSavingThrow(
+                        __instance.ActingCharacter?.RulesetCharacter,
+                        side,
+                        target.RulesetActor,
+                        attackModifier,
+                        actualEffectForms,
+                        hasSavingThrowAnimation,
+                        out var saveOutcome,
+                        out var saveOutcomeDelta);
+                    __instance.SaveOutcome = saveOutcome;
+                    __instance.SaveOutcomeDelta = saveOutcomeDelta;
+
+                    target.RulesetActor?.GrantConditionOnSavingThrowOutcome(
+                        activeEffect.EffectDescription, saveOutcome, false);
+
+                    // Legendary Resistance or Indomitable?
+                    if (__instance.RolledSaveThrow && __instance.SaveOutcome == RollOutcome.Failure)
+                    {
+                        yield return battleService.HandleFailedSavingThrow(
+                            __instance,
+                            __instance.ActingCharacter,
+                            target,
+                            attackModifier,
+                            !needToRollDie,
+                            hasBorrowedLuck);
+                    }
+
+                    // BEGIN PATCH
+
+                    //PATCH: support for `ITryAlterOutcomeSavingThrow`
+                    // should also happen outside battles
+                    var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                    var contenders =
+                        (Gui.Battle?.AllContenders ??
+                         locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                        .ToList();
+
+                    foreach (var unit in contenders
+                                 .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                    {
+                        foreach (var feature in unit.RulesetCharacter
+                                     .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
+                        {
+                            yield return feature.OnSavingThrowTryAlterOutcome(
+                                battleService as GameLocationBattleManager, __instance, __instance.ActingCharacter,
+                                target,
+                                unit, attackModifier, false, hasBorrowedLuck);
+                        }
+                    }
+
+                    // END PATCH
+                }
+            }
+
+            if (!__instance.RolledSaveThrow && activeEffect.EffectDescription.HasShoveRoll)
+            {
+                __instance.successfulShove =
+                    CharacterActionShove.ResolveRolls(__instance.ActingCharacter, target, ActionDefinitions.Id.Shove);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ApplyForms))]
     [HarmonyPatch([
         typeof(GameLocationCharacter), // caster

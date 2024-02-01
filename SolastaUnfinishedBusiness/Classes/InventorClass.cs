@@ -809,7 +809,7 @@ internal static class InventorClass
             .AddToDB();
 
         //should be hidden from user
-        var flashOfGenius = new TryAlterOutcomeFailedSavingThrowFlashOfGenius(
+        var flashOfGenius = new TryAlterOutcomeSavingThrowFlashOfGenius(
             bonusPower, "InventorFlashOfGenius", "ConditionInventorFlashOfGeniusAura");
 
         var auraPower = FeatureDefinitionPowerBuilder
@@ -867,9 +867,9 @@ internal class InventorModifyAdditionalDamageClassLevelHolder : IModifyAdditiona
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeFailedSavingThrow
+internal class TryAlterOutcomeSavingThrowFlashOfGenius : ITryAlterOutcomeSavingThrow
 {
-    internal TryAlterOutcomeFailedSavingThrowFlashOfGenius(
+    internal TryAlterOutcomeSavingThrowFlashOfGenius(
         FeatureDefinitionPower power, string reactionName, string auraConditionName)
     {
         Power = power;
@@ -881,7 +881,8 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
     private string ReactionName { get; }
     private string AuraConditionName { get; }
 
-    public IEnumerator OnFailedSavingTryAlterOutcome(GameLocationBattleManager battleManager,
+    public IEnumerator OnSavingThrowTryAlterOutcome(
+        GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -890,6 +891,11 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
         bool hasHitVisual,
         bool hasBorrowedLuck)
     {
+        if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+        {
+            yield break;
+        }
+
         var rulesetDefender = defender.RulesetCharacter;
 
         if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })

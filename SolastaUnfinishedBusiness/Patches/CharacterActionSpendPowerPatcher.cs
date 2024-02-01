@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -114,6 +116,30 @@ public static class CharacterActionSpendPowerPatcher
                             yield return battleService.HandleFailedSavingThrow(
                                 __instance, actingCharacter, target, actionModifier, false, hasBorrowedLuck);
                         }
+
+                        // BEGIN PATCH
+
+                        //PATCH: support for `ITryAlterOutcomeSavingThrow`
+                        // should also happen outside battles
+                        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                        var contenders =
+                            (Gui.Battle?.AllContenders ??
+                             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
+                            .ToList();
+
+                        foreach (var unit in contenders
+                                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                        {
+                            foreach (var feature in unit.RulesetCharacter
+                                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
+                            {
+                                yield return feature.OnSavingThrowTryAlterOutcome(
+                                    battleService as GameLocationBattleManager, __instance, actingCharacter, target,
+                                    unit, actionModifier, false, hasBorrowedLuck);
+                            }
+                        }
+
+                        // END PATCH
                     }
 
                     // Apply the forms of the power
