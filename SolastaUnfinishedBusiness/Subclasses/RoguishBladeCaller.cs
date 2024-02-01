@@ -269,7 +269,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 // offer Hail of Blades
                 if (rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle))
                 {
-                    yield return HandleHailOfBlades(battleManager, attacker);
+                    yield return HandleHailOfBlades(battleManager, attacker, defender);
                 }
             }
 
@@ -331,7 +331,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
         private IEnumerator HandleHailOfBlades(
             GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker)
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -371,7 +372,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
             var targets = battleManager.Battle
-                .GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2)
+                .GetContenders(defender, false, hasToPerceiveTarget: true, isWithinXCells: 2)
                 .ToList();
             //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)

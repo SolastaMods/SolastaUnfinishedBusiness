@@ -25,7 +25,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class PatronMoonlitScion : AbstractSubclass
 {
-    internal const string Name = "MoonlitScion";
+    private const string Name = "MoonlitScion";
 
     public PatronMoonlitScion()
     {

@@ -1341,6 +1341,7 @@ internal static class Level20SubclassesContext
             .SetOverriddenPower(PowerSorcererManaPainterDrain)
             .AddToDB();
 
+        powerSorcererManaPainterMasterDrain.EffectDescription.rangeParameter = 1;
         powerSorcererManaPainterMasterDrain.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
         powerSorcererManaPainterMasterDrain.EffectDescription.EffectForms[1].SpellSlotsForm.sorceryPointsGain = 2;
 
