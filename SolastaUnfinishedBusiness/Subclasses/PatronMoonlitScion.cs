@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -298,19 +299,23 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
         // Midnight's Blessing
 
-        var conditionFullMoonMidnightBlessing =
-            ConditionDefinitionBuilder
-                .Create(conditionFullMoon, $"Condition{Name}FullMoonMidnightBlessing")
-                .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance)
-                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
-                .AddToDB();
+        var conditionFullMoonMidnightBlessing = ConditionDefinitionBuilder
+            .Create(conditionFullMoon, $"Condition{Name}FullMoonMidnightBlessing")
+            .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
 
-        var conditionNewMoonMidnightBlessing =
-            ConditionDefinitionBuilder
-                .Create(conditionNewMoon, $"Condition{Name}NewMoonMidnightBlessing")
-                .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
-                .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
-                .AddToDB();
+        var conditionNewMoonMidnightBlessing = ConditionDefinitionBuilder
+            .Create(conditionNewMoon, $"Condition{Name}NewMoonMidnightBlessing")
+            .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
+            .AddToDB();
+
+        var conditionMidnightBlessing = ConditionDefinitionBuilder
+            .Create($"Condition{Name}MidnightBlessing")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
 
         var powerMidnightBlessing = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MidnightBlessing")
@@ -322,7 +327,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .Create(MoonBeam)
                     .SetEffectForms()
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeMidnightBlessing())
+            .AddCustomSubFeatures(new CustomBehaviorMidnightBlessing(conditionMidnightBlessing))
             .AddToDB();
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
@@ -361,13 +366,12 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         // ReSharper disable once StringLiteralTypo
         conditionFullMoonLunarEmbrace.ConditionTags.Add("Verticality");
 
-        var conditionNewMoonLunarEmbrace =
-            ConditionDefinitionBuilder
-                .Create(conditionNewMoonMidnightBlessing, $"Condition{Name}NewMoonLunarEmbrace")
-                .SetParentCondition(ConditionDefinitions.ConditionFlying)
-                .AddFeatures(movementAffinityFullMoonLunarEmbrace)
-                .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
-                .AddToDB();
+        var conditionNewMoonLunarEmbrace = ConditionDefinitionBuilder
+            .Create(conditionNewMoonMidnightBlessing, $"Condition{Name}NewMoonLunarEmbrace")
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .AddFeatures(movementAffinityFullMoonLunarEmbrace)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
+            .AddToDB();
 
         // there is indeed a typo on tag
         // ReSharper disable once StringLiteralTypo
@@ -540,7 +544,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeMidnightBlessing : IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorMidnightBlessing(ConditionDefinition conditionMidnightBlessing)
+        : IMagicEffectFinishedByMe, IPreventRemoveConcentrationOnDamage
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -558,6 +563,19 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 _ => 9
             };
 
+            rulesetCharacter.InflictCondition(
+                conditionMidnightBlessing.Name,
+                DurationType.Minute,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionMidnightBlessing.Name,
+                0,
+                0,
+                0);
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 levels, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
 
@@ -572,6 +590,13 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
 
             yield break;
+        }
+
+        public HashSet<SpellDefinition> SpellsThatShouldNotCheckConcentrationOnDamage(RulesetCharacter rulesetCharacter)
+        {
+            return rulesetCharacter.HasConditionOfType(conditionMidnightBlessing)
+                ? [MoonBeam]
+                : [];
         }
     }
 
@@ -653,6 +678,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 yield break;
             }
 
+            EffectHelpers.StartVisualEffect(defender, defender, Banishment, EffectHelpers.EffectType.Effect);
             rulesetDefender.UpdateUsageForPower(powerMoonlightGuise, powerMoonlightGuise.CostPerUse);
             rulesetDefender.InflictCondition(
                 ConditionInvisible,
