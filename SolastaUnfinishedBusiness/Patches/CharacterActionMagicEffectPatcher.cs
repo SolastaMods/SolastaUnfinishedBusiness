@@ -618,12 +618,12 @@ public static class CharacterActionMagicEffectPatcher
 
                 //PATCH: support for IAlterAttackOutcome
                 foreach (var extraEvents in actingCharacter.RulesetCharacter
-                             .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttack>()
+                             .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttackByMe>()
                              .TakeWhile(_ =>
                                  __instance.AttackRollOutcome == RollOutcome.Failure &&
                                  __instance.AttackSuccessDelta < 0)
                              .Select(feature =>
-                                 feature.OnAttackTryAlterOutcome(battleService as GameLocationBattleManager, __instance,
+                                 feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager, __instance,
                                      actingCharacter, target, attackModifier)))
                 {
                     while (extraEvents.MoveNext())
@@ -778,9 +778,9 @@ public static class CharacterActionMagicEffectPatcher
                                  .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
                     {
                         foreach (var feature in unit.RulesetCharacter
-                                     .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
+                                     .GetSubFeaturesByType<ITryAlterOutcomeSavingThrowFromAllyOrEnemy>())
                         {
-                            yield return feature.OnSavingThrowTryAlterOutcome(
+                            yield return feature.OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
                                 battleService as GameLocationBattleManager, __instance, actingCharacter,
                                 target,
                                 unit, attackModifier, false, hasBorrowedLuck);

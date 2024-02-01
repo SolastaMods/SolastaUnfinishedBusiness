@@ -131,9 +131,9 @@ public static class CharacterActionSpendPowerPatcher
                                      .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
                         {
                             foreach (var feature in unit.RulesetCharacter
-                                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
+                                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrowFromAllyOrEnemy>())
                             {
-                                yield return feature.OnSavingThrowTryAlterOutcome(
+                                yield return feature.OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
                                     battleService as GameLocationBattleManager, __instance, actingCharacter, target,
                                     unit, actionModifier, false, hasBorrowedLuck);
                             }

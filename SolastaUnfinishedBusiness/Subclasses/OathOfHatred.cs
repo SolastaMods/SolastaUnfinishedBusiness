@@ -257,7 +257,7 @@ public sealed class OathOfHatred : AbstractSubclass
     private sealed class CustomBehaviorArdentHate(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower power)
-        : IModifyDamageAffinity, ITryAlterOutcomePhysicalAttack
+        : IModifyDamageAffinity, ITryAlterOutcomePhysicalAttackByMe
     {
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
@@ -265,7 +265,7 @@ public sealed class OathOfHatred : AbstractSubclass
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
         }
 
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,

@@ -223,7 +223,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureShadowFlurry.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackShadowFlurry(featureShadowFlurry));
+        featureShadowFlurry.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeShadowFlurry(featureShadowFlurry));
 
         // LEVEL 17
 
@@ -337,12 +337,12 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // Shadow Flurry
     //
 
-    private class TryAlterOutcomePhysicalAttackShadowFlurry(
+    private class TryAlterOutcomePhysicalAttackByMeShadowFlurry(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureShadowFlurry)
-        : ITryAlterOutcomePhysicalAttack
+        : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,

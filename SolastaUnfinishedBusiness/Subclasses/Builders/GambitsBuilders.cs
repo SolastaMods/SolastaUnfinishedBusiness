@@ -1681,12 +1681,12 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
-        : ITryAlterOutcomePhysicalAttack
+        : ITryAlterOutcomePhysicalAttackByMe
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
 
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,

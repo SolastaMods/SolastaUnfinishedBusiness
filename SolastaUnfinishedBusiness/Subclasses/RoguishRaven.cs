@@ -94,7 +94,7 @@ public sealed class RoguishRaven : AbstractSubclass
         var featureRavenDeadlyAim = FeatureDefinitionBuilder
             .Create($"Feature{Name}DeadlyAim")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackDeadlyAim(powerDeadlyAim))
+            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyAim))
             .AddToDB();
 
         var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
@@ -312,9 +312,9 @@ public sealed class RoguishRaven : AbstractSubclass
     // Deadly Aim
     //
 
-    private class TryAlterOutcomePhysicalAttackDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,

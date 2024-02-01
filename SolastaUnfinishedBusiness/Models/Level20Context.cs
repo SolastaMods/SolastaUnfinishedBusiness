@@ -414,7 +414,7 @@ internal static class Level20Context
             .AddToDB();
 
         powerRogueStrokeOfLuck.AddCustomSubFeatures(
-            new TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+            new TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -838,10 +838,10 @@ internal static class Level20Context
         }
     }
 
-    private class TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
-        : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(FeatureDefinitionPower power)
+        : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,

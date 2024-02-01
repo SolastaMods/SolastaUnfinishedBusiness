@@ -129,7 +129,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .AddCustomSubFeatures(
-                                new TryAlterOutcomeSavingThrowInspiringProtection(
+                                new TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection(
                                     powerRoyalKnightInspiringProtection,
                                     "RoyalKnightInspiringProtection",
                                     "ConditionRoyalKnightInspiringProtectionAura"))
@@ -233,9 +233,9 @@ public sealed class MartialRoyalKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class TryAlterOutcomeSavingThrowInspiringProtection : ITryAlterOutcomeSavingThrow
+    private class TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
     {
-        internal TryAlterOutcomeSavingThrowInspiringProtection(
+        internal TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection(
             FeatureDefinitionPower power, string reactionName, string auraConditionName)
         {
             Power = power;
@@ -247,7 +247,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         private string ReactionName { get; }
         private string AuraConditionName { get; }
 
-        public IEnumerator OnSavingThrowTryAlterOutcome(
+        public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

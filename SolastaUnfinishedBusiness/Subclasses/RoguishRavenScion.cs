@@ -86,7 +86,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
                             .SetPossessive()
                             .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                            .AddCustomSubFeatures(new ModifyAttackOutcomeHeartSeekingShot())
+                            .AddCustomSubFeatures(new ModifyAttackByMeOutcomeHeartSeekingShot())
                             .AddToDB()))
                     .SetParticleEffectParameters(PowerPactChainImp)
                     .Build())
@@ -132,7 +132,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackDeadlyAim(powerDeadlyFocus));
+        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyFocus));
 
         //
         // LEVEL 17
@@ -231,9 +231,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Heart-Seeking Shot
     //
 
-    private class ModifyAttackOutcomeHeartSeekingShot : ITryAlterOutcomePhysicalAttack
+    private class ModifyAttackByMeOutcomeHeartSeekingShot : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -262,9 +262,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Deadly Focus
     //
 
-    private class TryAlterOutcomePhysicalAttackDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,
