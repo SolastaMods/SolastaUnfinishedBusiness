@@ -321,6 +321,11 @@ public sealed class RoguishRaven : AbstractSubclass
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 

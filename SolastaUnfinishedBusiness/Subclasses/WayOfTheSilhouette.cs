@@ -349,6 +349,11 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var rulesetMe = me.RulesetCharacter;
 
             if (rulesetMe is not { IsDeadOrDyingOrUnconscious: false })

@@ -528,6 +528,7 @@ public static class CharacterActionMagicEffectPatcher
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
+            var actingCharacter = __instance.ActingCharacter;
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var effectDescription = activeEffect.EffectDescription;
 
@@ -539,7 +540,7 @@ public static class CharacterActionMagicEffectPatcher
             if (needToRollDie)
             {
                 // Roll dice + handle target reaction
-                __instance.AttackRoll = __instance.ActingCharacter.RulesetCharacter.RollMagicAttack(
+                __instance.AttackRoll = actingCharacter.RulesetCharacter.RollMagicAttack(
                     activeEffect,
                     target.RulesetActor,
                     activeEffect.GetEffectSource(),
@@ -558,8 +559,39 @@ public static class CharacterActionMagicEffectPatcher
                 if (__instance.AttackRollOutcome == RollOutcome.Failure)
                 {
                     yield return battleService.HandleBardicInspirationForAttack(
-                        __instance, __instance.ActingCharacter, target, attackModifier);
+                        __instance, actingCharacter, target, attackModifier);
+
+                    // BEGIN PATCH
+
+                    //BUGFIX: vanilla doesn't add the bardic die roll to attack success delta
+                    if (__instance.AttackRollOutcome == RollOutcome.Success &&
+                        __instance.BardicDieRoll > 0)
+                    {
+                        __instance.AttackSuccessDelta += __instance.BardicDieRoll;
+                    }
+
+                    // END PATCH
                 }
+
+                // BEGIN PATCH
+
+                //PATCH: support for IAlterAttackOutcome
+                foreach (var extraEvents in actingCharacter.RulesetCharacter
+                             .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttack>()
+                             .TakeWhile(_ =>
+                                 __instance.AttackRollOutcome == RollOutcome.Failure &&
+                                 __instance.AttackSuccessDelta < 0)
+                             .Select(feature =>
+                                 feature.OnAttackTryAlterOutcome(battleService as GameLocationBattleManager, __instance,
+                                     actingCharacter, target, attackModifier)))
+                {
+                    while (extraEvents.MoveNext())
+                    {
+                        yield return extraEvents.Current;
+                    }
+                }
+
+                // END PATCH
 
                 __instance.isResultingActionSpendPowerWithMotionForm = false;
 
@@ -571,7 +603,7 @@ public static class CharacterActionMagicEffectPatcher
                     {
                         // Can the target do anything to change the outcome of the hit?
                         yield return battleService.HandleCharacterAttackHitPossible(
-                            __instance.ActingCharacter,
+                            actingCharacter,
                             target,
                             null,
                             activeEffect,
@@ -582,7 +614,7 @@ public static class CharacterActionMagicEffectPatcher
                     }
 
                     // Execute the final step of the attack
-                    __instance.ActingCharacter.RulesetCharacter.RollMagicAttack(
+                    actingCharacter.RulesetCharacter.RollMagicAttack(
                         activeEffect, target.RulesetActor,
                         activeEffect.GetEffectSource(),
                         attackModifier.AttacktoHitTrends,
@@ -604,7 +636,7 @@ public static class CharacterActionMagicEffectPatcher
                         {
                             yield return battleService.HandleCharacterMagicalAttackHitConfirmed(
                                 __instance,
-                                __instance.ActingCharacter,
+                                actingCharacter,
                                 target,
                                 attackModifier,
                                 activeEffect,
@@ -616,7 +648,7 @@ public static class CharacterActionMagicEffectPatcher
                 }
                 else
                 {
-                    __instance.ActingCharacter.RulesetCharacter.RollMagicAttack(
+                    actingCharacter.RulesetCharacter.RollMagicAttack(
                         activeEffect, target.RulesetActor,
                         activeEffect.GetEffectSource(),
                         attackModifier.AttacktoHitTrends,
@@ -631,7 +663,7 @@ public static class CharacterActionMagicEffectPatcher
                 }
 
                 // Possible condition interruption, after the attack is done. Example: if a creature attacks with the Rousing Shout condition
-                __instance.ActingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
+                actingCharacter.RulesetCharacter.ProcessConditionsMatchingInterruption(
                     ConditionInterruption.Attacks);
             }
             else
@@ -641,7 +673,7 @@ public static class CharacterActionMagicEffectPatcher
                 {
                     yield return battleService.HandleCharacterMagicalAttackHitConfirmed(
                         __instance,
-                        __instance.ActingCharacter,
+                        actingCharacter,
                         target,
                         attackModifier,
                         activeEffect,
@@ -662,10 +694,10 @@ public static class CharacterActionMagicEffectPatcher
                     (activeEffect.EffectDescription.RecurrentEffect & RecurrentEffect.OnActivation) != 0)
                 {
                     var hasBorrowedLuck = target.RulesetActor.HasConditionOfTypeOrSubType(ConditionBorrowedLuck);
-                    var side = __instance.ActingCharacter?.Side ?? Side.Neutral;
+                    var side = actingCharacter?.Side ?? Side.Neutral;
 
                     __instance.RolledSaveThrow = activeEffect.TryRollSavingThrow(
-                        __instance.ActingCharacter?.RulesetCharacter,
+                        actingCharacter?.RulesetCharacter,
                         side,
                         target.RulesetActor,
                         attackModifier,
@@ -684,7 +716,7 @@ public static class CharacterActionMagicEffectPatcher
                     {
                         yield return battleService.HandleFailedSavingThrow(
                             __instance,
-                            __instance.ActingCharacter,
+                            actingCharacter,
                             target,
                             attackModifier,
                             !needToRollDie,
@@ -708,7 +740,7 @@ public static class CharacterActionMagicEffectPatcher
                                      .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
                         {
                             yield return feature.OnSavingThrowTryAlterOutcome(
-                                battleService as GameLocationBattleManager, __instance, __instance.ActingCharacter,
+                                battleService as GameLocationBattleManager, __instance, actingCharacter,
                                 target,
                                 unit, attackModifier, false, hasBorrowedLuck);
                         }
@@ -721,7 +753,7 @@ public static class CharacterActionMagicEffectPatcher
             if (!__instance.RolledSaveThrow && activeEffect.EffectDescription.HasShoveRoll)
             {
                 __instance.successfulShove =
-                    CharacterActionShove.ResolveRolls(__instance.ActingCharacter, target, ActionDefinitions.Id.Shove);
+                    CharacterActionShove.ResolveRolls(actingCharacter, target, ActionDefinitions.Id.Shove);
             }
         }
     }

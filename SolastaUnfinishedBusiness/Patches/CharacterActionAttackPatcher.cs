@@ -237,7 +237,38 @@ public static class CharacterActionAttackPatcher
             {
                 yield return battleService.HandleBardicInspirationForAttack(
                     __instance, actingCharacter, target, attackModifier);
+
+                // BEGIN PATCH
+
+                //BUGFIX: vanilla doesn't add the bardic die roll to attack success delta
+                if (__instance.AttackRollOutcome == RollOutcome.Success &&
+                    __instance.BardicDieRoll > 0)
+                {
+                    __instance.AttackSuccessDelta += __instance.BardicDieRoll;
+                }
+
+                // END PATCH
             }
+
+            // BEGIN PATCH
+
+            //PATCH: support for IAlterAttackOutcome
+            foreach (var extraEvents in actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttack>()
+                         .TakeWhile(_ =>
+                             __instance.AttackRollOutcome == RollOutcome.Failure &&
+                             __instance.AttackSuccessDelta < 0)
+                         .Select(feature =>
+                             feature.OnAttackTryAlterOutcome(battleService as GameLocationBattleManager, __instance,
+                                 actingCharacter, target, attackModifier)))
+            {
+                while (extraEvents.MoveNext())
+                {
+                    yield return extraEvents.Current;
+                }
+            }
+
+            // END PATCH
 
             if (rangeAttack)
             {

@@ -224,52 +224,6 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager),
-        nameof(GameLocationBattleManager.HandleBardicInspirationForAttack))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class HandleBardicInspirationForAttack_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter target,
-            ActionModifier attackModifier)
-        {
-            //PATCH: support for IAlterAttackOutcome
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            if (action.BardicDieRoll > 0)
-            {
-                action.AttackSuccessDelta += action.BardicDieRoll;
-            }
-
-            // ReSharper disable once InvertIf
-            if (__instance.Battle != null && attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            {
-                foreach (var extraEvents in attacker.RulesetCharacter
-                             .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttack>()
-                             .TakeWhile(_ =>
-                                 action.AttackRollOutcome == RollOutcome.Failure &&
-                                 action.AttackSuccessDelta < 0)
-                             .Select(feature =>
-                                 feature.OnAttackTryAlterOutcome(__instance, action, attacker, target, attackModifier)))
-                {
-                    while (extraEvents.MoveNext())
-                    {
-                        yield return extraEvents.Current;
-                    }
-                }
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterAttackFinished))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

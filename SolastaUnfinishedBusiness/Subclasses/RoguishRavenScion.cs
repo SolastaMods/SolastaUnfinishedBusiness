@@ -240,15 +240,15 @@ public sealed class RoguishRavenScion : AbstractSubclass
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
-            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (action.AttackRollOutcome != RollOutcome.Success)
             {
                 yield break;
             }
 
             var sourceDefinition = action.ActionParams.attackMode.SourceDefinition;
 
-            if (sourceDefinition is not ItemDefinition itemDefinition
-                || !ValidatorsWeapon.IsTwoHandedRanged(itemDefinition))
+            if (sourceDefinition is not ItemDefinition itemDefinition ||
+                !ValidatorsWeapon.IsTwoHandedRanged(itemDefinition))
             {
                 yield break;
             }
@@ -271,6 +271,11 @@ public sealed class RoguishRavenScion : AbstractSubclass
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 

@@ -272,6 +272,11 @@ public sealed class OathOfHatred : AbstractSubclass
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = me.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
@@ -309,9 +314,15 @@ public sealed class OathOfHatred : AbstractSubclass
             }
 
             me.UsedSpecialFeatures.TryAdd(power.Name, 1);
-            action.AttackRoll += -action.AttackSuccessDelta;
-            action.AttackSuccessDelta = 0;
+
+            var delta = -action.AttackSuccessDelta;
+
             action.AttackRollOutcome = RollOutcome.Success;
+            action.AttackSuccessDelta = 0;
+            action.AttackRoll += delta;
+            attackModifier.ignoreAdvantage = false;
+            attackModifier.AttackRollModifier += delta;
+            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
     }
 }

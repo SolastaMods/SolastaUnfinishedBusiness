@@ -848,6 +848,11 @@ internal static class Level20Context
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var rulesetCharacter = me.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
@@ -884,6 +889,9 @@ internal static class Level20Context
 
             rulesetCharacter.UsePower(PowerProvider.Get(power, rulesetCharacter));
             action.AttackRollOutcome = RollOutcome.Success;
+            action.AttackSuccessDelta = 0;
+            action.AttackRoll += delta;
+            attackModifier.ignoreAdvantage = false;
             attackModifier.AttackRollModifier += delta;
             attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
