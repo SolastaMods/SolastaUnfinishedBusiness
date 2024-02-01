@@ -20,12 +20,10 @@ public static class CharacterActionSpendPowerPatcher
     {
         [UsedImplicitly]
         public static bool Prefix(
-#pragma warning disable IDE0060
-            out IEnumerator values,
-#pragma warning restore IDE0060
+            out IEnumerator __result,
             CharacterActionSpendPower __instance)
         {
-            values = ExecuteImpl(__instance);
+            __result = ExecuteImpl(__instance);
 
             return false;
         }

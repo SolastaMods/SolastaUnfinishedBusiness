@@ -26,12 +26,10 @@ public static class CharacterActionMagicEffectPatcher
     {
         [UsedImplicitly]
         public static bool Prefix(
-#pragma warning disable IDE0060
-            out IEnumerator values,
-#pragma warning restore IDE0060
+            out IEnumerator __result,
             CharacterActionMagicEffect __instance)
         {
-            values = ExecuteImpl(__instance);
+            __result = ExecuteImpl(__instance);
 
             return false;
         }
@@ -547,9 +545,7 @@ public static class CharacterActionMagicEffectPatcher
     {
         [UsedImplicitly]
         public static bool Prefix(
-#pragma warning disable IDE0060
-            out IEnumerator values,
-#pragma warning restore IDE0060
+            out IEnumerator __result,
             CharacterActionMagicEffect __instance,
             RulesetEffect activeEffect,
             GameLocationCharacter target,
@@ -558,7 +554,7 @@ public static class CharacterActionMagicEffectPatcher
             bool firstTarget,
             bool checkMagicalAttackDamage)
         {
-            values = ExecuteMagicAttack(__instance,
+            __result = ExecuteMagicAttack(__instance,
                 activeEffect, target, attackModifier, actualEffectForms, firstTarget, checkMagicalAttackDamage);
 
             return false;
