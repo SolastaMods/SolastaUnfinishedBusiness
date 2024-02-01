@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -278,10 +279,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 2, false);
 
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.CastNoCost)
-            {
-                RulesetEffect = effectSpell, positions = action.ActionParams.Positions
-            };
+            var actionParams = action.ActionParams.Clone();
+
+            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
+            actionParams.RulesetEffect = effectSpell;
 
             rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
