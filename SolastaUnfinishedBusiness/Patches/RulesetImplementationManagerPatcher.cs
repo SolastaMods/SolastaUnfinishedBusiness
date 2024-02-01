@@ -485,7 +485,8 @@ public static class RulesetImplementationManagerPatcher
     public static class ApplySpellSlotsForm_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(EffectForm effectForm,
+        public static bool Prefix(
+            EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             var originalHero = formsParams.sourceCharacter?.GetOriginalHero();
@@ -528,6 +529,13 @@ public static class RulesetImplementationManagerPatcher
                             continue;
                         }
 
+                        if (ServiceRepository.GetService<IPlayerControllerService>()?
+                                .ActivePlayerController?
+                                .IsCharacterControlled(originalHero) == false)
+                        {
+                            break;
+                        }
+
                         var slotsCapital = (currentValue % 2) + (currentValue / 2);
 
                         Gui.GuiService.GetScreen<SlotRecoveryModal>().ShowSlotRecovery(
@@ -547,6 +555,13 @@ public static class RulesetImplementationManagerPatcher
                 //
                 case SpellSlotsForm.EffectType.CreateSpellSlot or SpellSlotsForm.EffectType.CreateSorceryPoints:
                 {
+                    if (ServiceRepository.GetService<IPlayerControllerService>()?
+                            .ActivePlayerController?
+                            .IsCharacterControlled(originalHero) == false)
+                    {
+                        break;
+                    }
+
                     var spellRepertoire = originalHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
                     Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(
