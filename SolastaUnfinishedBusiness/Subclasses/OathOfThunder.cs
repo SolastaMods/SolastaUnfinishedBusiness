@@ -95,7 +95,9 @@ public sealed class OathOfThunder : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerThunderousRebuke.AddCustomSubFeatures(new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
+        powerThunderousRebuke.AddCustomSubFeatures(
+            ForcePowerUseInSpendPowerAction.Marker,
+            new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
 
         // Divine Bolt
 
