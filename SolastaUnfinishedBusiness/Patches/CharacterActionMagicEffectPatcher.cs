@@ -9,6 +9,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using UnityEngine;
@@ -392,6 +393,46 @@ public static class CharacterActionMagicEffectPatcher
                 yield return battleService.HandleCharacterAttackFinished(
                     __instance, actingCharacter, target, null, actionParams.RulesetEffect, __instance.AttackRollOutcome,
                     damageReceived);
+
+                // BEGIN PATCH
+
+                if (actionParams.RulesetEffect.EffectDescription.RangeType is not
+                    (RangeType.MeleeHit or RangeType.RangeHit))
+                {
+                    continue;
+                }
+
+                //PATCH: support for Sentinel Fighting Style - allows attacks of opportunity on enemies attacking allies
+                var extraAttacksOfOpportunityEvents =
+                    AttacksOfOpportunity.ProcessOnCharacterAttackFinished(battleService as GameLocationBattleManager,
+                        actingCharacter, target);
+
+                while (extraAttacksOfOpportunityEvents.MoveNext())
+                {
+                    yield return extraAttacksOfOpportunityEvents.Current;
+                }
+
+                //PATCH: support for Defensive Strike Power - allows adding Charisma modifier and chain reactions
+                var extraDefensiveStrikeAttackEvents =
+                    DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(battleService as GameLocationBattleManager,
+                        actingCharacter, target);
+
+                while (extraDefensiveStrikeAttackEvents.MoveNext())
+                {
+                    yield return extraDefensiveStrikeAttackEvents.Current;
+                }
+
+                //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
+                var extraGuardianAuraEvents =
+                    GuardianAura.ProcessOnCharacterAttackHitFinished(battleService as GameLocationBattleManager,
+                        actingCharacter, target, null, actionParams.RulesetEffect, damageReceived);
+
+                while (extraGuardianAuraEvents.MoveNext())
+                {
+                    yield return extraGuardianAuraEvents.Current;
+                }
+
+                // END PATCH
             }
 
             // Wait for cast animation to finish

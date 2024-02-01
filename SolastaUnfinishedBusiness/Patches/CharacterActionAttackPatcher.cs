@@ -3,6 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine;
 using static RuleDefinitions;
@@ -682,6 +683,40 @@ public static class CharacterActionAttackPatcher
             yield return battleService.HandleCharacterAttackFinished(
                 __instance, actingCharacter, target,
                 attackParams.attackMode, null, __instance.AttackRollOutcome, damageReceived);
+
+            // BEGIN PATCH
+
+            //PATCH: support for Sentinel Fighting Style - allows attacks of opportunity on enemies attacking allies
+            var extraAttacksOfOpportunityEvents =
+                AttacksOfOpportunity.ProcessOnCharacterAttackFinished(battleService as GameLocationBattleManager,
+                    actingCharacter, target);
+
+            while (extraAttacksOfOpportunityEvents.MoveNext())
+            {
+                yield return extraAttacksOfOpportunityEvents.Current;
+            }
+
+            //PATCH: support for Defensive Strike Power - allows adding Charisma modifier and chain reactions
+            var extraDefensiveStrikeAttackEvents =
+                DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(battleService as GameLocationBattleManager,
+                    actingCharacter, target);
+
+            while (extraDefensiveStrikeAttackEvents.MoveNext())
+            {
+                yield return extraDefensiveStrikeAttackEvents.Current;
+            }
+
+            //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
+            var extraGuardianAuraEvents =
+                GuardianAura.ProcessOnCharacterAttackHitFinished(battleService as GameLocationBattleManager,
+                    actingCharacter, target, attackMode, null, damageReceived);
+
+            while (extraGuardianAuraEvents.MoveNext())
+            {
+                yield return extraGuardianAuraEvents.Current;
+            }
+
+            // END PATCH
 
             if (attackHasDamaged)
             {
