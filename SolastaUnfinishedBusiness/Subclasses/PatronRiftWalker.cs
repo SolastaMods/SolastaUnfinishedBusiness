@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -93,7 +94,9 @@ public class PatronRiftWalker : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetNoSavingThrow()
                     .Build())
-            .AddCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
+            .AddCustomSubFeatures(
+                ForcePowerUseInSpendPowerAction.Marker,
+                new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
         // LEVEL 10
