@@ -10,7 +10,6 @@ Feature/&FeatureRoguishBladeCallerBladeSurgeDescription=13레벨부터, 칼날 �
 Feature/&FeatureRoguishBladeCallerBladeSurgeTitle=칼날 연쇄
 Feature/&FeatureSetRoguishBladeCallerBladeMarkDescription=자신 차례에 1회, 대거를 사용한 공격으로 적중시킨 첫 크리쳐에게 자신의 다음 차례 종료까지 칼날 표식 상태를 부여합니다. 이 상태는 중첩되지 않습니다. 칼날 표식이 있는 크리쳐를 공격할 경우, 표식을 소모해 해당 명중굴림에 이점을 부여할 수 있습니다. 대거를 사용한 공격 적중 시, 대상은 당신의 로그 레벨의 절반(올림)에 해당하는 추가 피해를 입습니다.
 Feature/&FeatureSetRoguishBladeCallerBladeMarkTitle=칼날 표식
-Feature/&FeatureSetRoguishBladeCallerHailOfBladesDescription=9레벨부터, 칼날 표식이 있는 크리쳐를 대거를 이용해 공격하여 적중한 경우, 반응행동으로 영체의 소용돌이를 소환해 적들에게 쏟아부을 수 있습니다. 공격 대상을 포함한 반경 15ft 내의 모든 크리쳐는 민첩 내성굴림 실패 시 당신의 암습 피해량만큼의 역장 피해를 입고, 내성굴림 결과와 무관하게 칼날 표식 상태가 됩니다. 이 특성은 휴식 종료당 1회 사용 가능합니다.
 Feature/&FeatureSetRoguishBladeCallerHailOfBladesTitle=칼날비
 Feature/&PowerRoguishBladeCallerHailOfBladesDescription=반응행동으로 영체 칼날의 소용돌이를 소환해 적들에게 쏟아부을 수 있습니다.
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=칼날비

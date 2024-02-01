@@ -371,7 +371,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
             var targets = battleManager.Battle
-                .GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 3)
+                .GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2)
                 .ToList();
             //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
