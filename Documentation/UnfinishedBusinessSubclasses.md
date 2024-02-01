@@ -2693,7 +2693,7 @@ Once during your turn, the first creature you hit with a dagger attack receives 
 
 * Hail of Blades
 
-Starting at 9th level, when you hit a creature affected by Blade Mark with a dagger attack, you can use your reaction to summon a maelstrom of ethereal blades and hurl them at your enemies. Each creature within 15 feet of the target, including the target, must pass a Dexterity saving throw or receive force damage equal to your sneak attack damage and become affected by Blade Mark condition regardless of if they pass the saving throw or not. You can use this feature once per short rest. 
+Starting at 9th level, when you hit a creature affected by Blade Mark with a dagger attack, you can use your reaction to summon a maelstrom of ethereal blades and hurl them at your enemies. Each creature within 10 feet of the target that you can see, including the target, must pass a Dexterity saving throw or receive force damage equal to your sneak attack damage and become affected by Blade Mark condition regardless of if they pass the saving throw or not. You can use this feature once per short rest.
 
 
 ### Level 13
