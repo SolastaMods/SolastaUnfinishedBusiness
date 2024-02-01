@@ -49,7 +49,6 @@ internal static class FixesContext
         FixGorillaWildShapeRocksToUnlimited();
         FixLanguagesPointPoolsToIncludeAllLanguages();
         FixMartialArtsProgression();
-        FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixMummyDreadfulGlareSavingAttribute();
         FixPowerDragonbornBreathWeaponDiceProgression();
@@ -383,25 +382,6 @@ internal static class FixesContext
         foreach (var feature in features)
         {
             feature.AddCustomSubFeatures(provider);
-        }
-    }
-
-    private static void FixMeleeHitEffectsRange()
-    {
-        //BEHAVIOR: Ensures any spell or power effect in game that uses MeleeHit has a correct range of 1
-        //Otherwise our AttackEvaluationParams.FillForMagicReachAttack will use incorrect data
-        foreach (var effectDescription in DatabaseRepository.GetDatabase<SpellDefinition>()
-                     .Select(x => x.EffectDescription)
-                     .Where(x => x.rangeType == RangeType.MeleeHit))
-        {
-            effectDescription.rangeParameter = 1;
-        }
-
-        foreach (var effectDescription in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
-                     .Select(x => x.EffectDescription)
-                     .Where(x => x.rangeType == RangeType.MeleeHit))
-        {
-            effectDescription.rangeParameter = 1;
         }
     }
 

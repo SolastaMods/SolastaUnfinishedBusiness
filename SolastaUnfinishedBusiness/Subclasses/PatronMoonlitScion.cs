@@ -25,7 +25,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class PatronMoonlitScion : AbstractSubclass
 {
-    private const string Name = "MoonlitScion";
+    internal const string Name = "MoonlitScion";
 
     public PatronMoonlitScion()
     {
@@ -326,6 +326,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(MoonBeam)
                     .SetEffectForms()
+                    .SetNoSavingThrow()
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorMidnightBlessing(conditionMidnightBlessing))
             .AddToDB();
@@ -579,8 +580,10 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 levels, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
 
+            var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
+                x.SpellCastingClass == CharacterClassDefinitions.Warlock);
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, null, MoonBeam, slotLevel, false);
+                .InstantiateEffectSpell(rulesetCharacter, spellRepertoire, MoonBeam, slotLevel, false);
 
             var actionParams = action.ActionParams.Clone();
 
