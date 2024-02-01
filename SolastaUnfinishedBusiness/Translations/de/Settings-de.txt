@@ -285,7 +285,6 @@ ModUi/&UseElfFaceModelsOnTieflings=Verwenden Sie <color=#D89555>Elfen</color>-Ge
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> oder <color=#D89555 wirken>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Verwenden Sie präzise Mathematik, um flankierende <color=#F0DAA0>[kann sich auf langsamen Maschinen auf die Leistung auswirken]</color></i> zu bestimmen
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils-/Nachteilregeln <i><color=#F0DAA0>[Wenn Umstände dazu führen, dass ein Wurf beides hat, wird davon ausgegangen, dass Sie keines davon haben]</color></i>
-ModUi/&UseOfficialDistanceCalculation=Verwenden Sie die offizielle Entfernungsberechnung, die auf der Entfernung vom Würfel einer Kreatur zum anderen basiert <i><color=#F0DAA0>[anstelle der Standardentfernungsberechnung von Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Verwenden Sie die offiziellen Flankierungsregeln <i><color=#F0DAA0>[ein Angreifer hat einen Vorteil, wenn sich ein Verbündeter auf der gegenüberliegenden Seite des Ziels befindet]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernangriffe aktiviert <color=#F0DAA0>[deaktiviert präzise Mathematik]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren <color=#F0DAA0>[deaktiviert präzise Mathematik]</color></i>

@@ -119,13 +119,9 @@ public static class AttackEvaluationParamsPatcher
         [UsedImplicitly]
         public static bool Prefix(ref BattleDefinitions.AttackEvaluationParams __instance)
         {
-            if (!Main.Settings.UseOfficialDistanceCalculation)
-            {
-                return true;
-            }
-
-            __instance.distance =
-                DistanceCalculation.CalculateDistanceFromTwoCharacters(__instance.attacker, __instance.defender);
+            //PATCH: use better distance calculation algorithm
+            __instance.distance = DistanceCalculation
+                .GetDistanceFromCharacters(__instance.attacker, __instance.defender);
 
             return false;
         }

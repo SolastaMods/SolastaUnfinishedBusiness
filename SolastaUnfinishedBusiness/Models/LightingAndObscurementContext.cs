@@ -558,7 +558,7 @@ internal static class LightingAndObscurementContext
         }
 
         // determine constraints
-        var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
+        var distance = DistanceCalculation.GetDistanceFromPositions(sensor.LocationPosition, cellPosition);
         var sensorCharacter = sensor.RulesetCharacter;
         var sourceIsBlindFromDarkness = IsBlindFromDarkness(sensorCharacter);
         var sourceIsBlindNotFromDarkness = IsBlindNotFromDarkness(sensorCharacter);

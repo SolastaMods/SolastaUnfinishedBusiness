@@ -5,14 +5,22 @@ namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
 internal static class DistanceCalculation
 {
-    internal static int CalculateDistanceFromTwoCharacters(
+    internal static int GetDistanceFromPositions(int3 position1, int3 position2)
+    {
+        var rawDistance = position1 - position2;
+        var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
+
+        return distance;
+    }
+
+    internal static int GetDistanceFromCharacters(
         GameLocationCharacter character1,
         GameLocationCharacter character2)
     {
         var character1ClosestCube = GetCharacterClosestCubeToPosition(character1, GetPositionCenter(character2));
         var character2ClosestCube = GetCharacterClosestCubeToPosition(character2, character1ClosestCube);
 
-        var distance = GetDistanceFromTwoPositions(character1ClosestCube, character2ClosestCube);
+        var distance = GetDistanceFromPositions(character1ClosestCube, character2ClosestCube);
 
         return distance;
     }
@@ -68,13 +76,5 @@ internal static class DistanceCalculation
         return new int3((int)gameLocationCharacter.LocationBattleBoundingBox.Center.x,
             (int)gameLocationCharacter.LocationBattleBoundingBox.Center.y,
             (int)gameLocationCharacter.LocationBattleBoundingBox.Center.z);
-    }
-
-    internal static int GetDistanceFromTwoPositions(int3 position1, int3 position2)
-    {
-        var rawDistance = position1 - position2;
-        var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
-
-        return distance;
     }
 }

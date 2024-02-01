@@ -285,7 +285,6 @@ ModUi/&UseElfFaceModelsOnTieflings=Usa modelos de cara <color=#D89555>Elf</color
 ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento de picos</color> <i><color=#F0DAA0>[redondo]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use matemáticas precisas para determinar el flanqueo <color=#F0DAA0>[puede tener un impacto en el rendimiento en máquinas lentas]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa las reglas oficiales de ventaja/desventaja <i><color=#F0DAA0>[si las circunstancias hacen que una tirada tenga ambas, se considera que no tienes ninguna de ellas]</color></i>
-ModUi/&UseOfficialDistanceCalculation=Usa el cálculo de distancia oficial para que se base en la distancia entre el cubo de una criatura y la otra <i><color=#F0DAA0>[en lugar del cálculo de distancia predeterminado de Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Usa las reglas oficiales de flanqueo <i><color=#F0DAA0>[un atacante tiene ventaja si un aliado está en el lado opuesto del objetivo]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ También habilitado para ataques a distancia <color=#F0DAA0>[desactiva las matemáticas precisas]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ También habilitado para ataques de alcance <color=#F0DAA0>[desactiva las matemáticas precisas]</color></i>
