@@ -896,12 +896,14 @@ internal static class CharacterContext
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
             PowerMonkMartialArts.GuiPresentation.title =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle";
-            PowerMonkMartialArts.activationTime = ActivationTime.Reaction;
+            PowerMonkMartialArts.GuiPresentation.hidden = true;
+            PowerMonkMartialArts.activationTime = ActivationTime.NoCost;
         }
         else
         {
             PowerMonkMartialArts.GuiPresentation.description = "Action/&MartialArtsDescription";
             PowerMonkMartialArts.GuiPresentation.title = "Action/&MartialArtsTitle";
+            PowerMonkMartialArts.GuiPresentation.hidden = false;
             PowerMonkMartialArts.activationTime = ActivationTime.OnAttackHitMartialArts;
         }
 

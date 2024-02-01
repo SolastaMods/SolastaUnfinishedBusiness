@@ -108,15 +108,14 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         var powerRoyalKnightInspiringProtection = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightInspiringProtection")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
-            .SetReactionContext(ReactionTriggerContext.None)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerRoyalKnightInspiringProtectionAura = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightInspiringProtectionAura")
             .SetGuiPresentation(TEXT, Category.Feature)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -136,6 +135,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                                     "ConditionRoyalKnightInspiringProtectionAura"))
                             .AddToDB()))
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var featureSetRoyalKnightInspiringProtection = FeatureDefinitionFeatureSetBuilder

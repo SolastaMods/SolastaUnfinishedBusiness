@@ -112,8 +112,7 @@ public sealed class MartialSpellShield : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionArcaneDeflection))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionArcaneDeflection))
                     .SetParticleEffectParameters(Shield)
                     .Build())
             .AddToDB();

@@ -127,7 +127,10 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Counterspell.EffectDescription)
+                    .Create(
+                        EffectDescriptionBuilder
+                            .Create(Counterspell)
+                            .Build())
                     .Build())
             .AddToDB();
 

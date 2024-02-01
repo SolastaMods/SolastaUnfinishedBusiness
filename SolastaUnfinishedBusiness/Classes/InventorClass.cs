@@ -806,7 +806,6 @@ internal static class InventorClass
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .AddCustomSubFeatures(ModifyPowerVisibility.Visible)
-            .SetReactionContext(ReactionTriggerContext.None)
             .AddToDB();
 
         //should be hidden from user

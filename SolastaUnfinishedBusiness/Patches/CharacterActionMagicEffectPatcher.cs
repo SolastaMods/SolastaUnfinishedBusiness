@@ -439,7 +439,7 @@ public static class CharacterActionMagicEffectPatcher
                          target != actingCharacter &&
                          !rangeAttack &&
                          !target.Prone &&
-                         target.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
+                         target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                          !target.MoveStepInProgress &&
                          !target.IsCharging &&
                          (target.PerceivedAllies.Contains(actingCharacter) ||
