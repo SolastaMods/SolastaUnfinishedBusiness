@@ -59,7 +59,7 @@ internal static class PowerBundleContext
                     functor._powerUsed = false;
                     ServiceRepository.GetService<IGameLocationActionService>();
 
-                    var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain)
+                    var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerNoCost)
                     {
                         ActionModifiers = { new ActionModifier() },
                         RulesetEffect = implementationManagerService

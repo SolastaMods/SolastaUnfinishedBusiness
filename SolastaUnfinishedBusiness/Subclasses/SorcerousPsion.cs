@@ -399,6 +399,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
             var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 2);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService

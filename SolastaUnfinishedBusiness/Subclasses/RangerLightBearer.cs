@@ -414,17 +414,21 @@ public sealed class RangerLightBearer : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, Id.SpendPower)
+            var targets = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 5).ToList();
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 5)
+                targetCharacters = targets
             };
 
             // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 

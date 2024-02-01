@@ -587,7 +587,8 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
             actionParams.RulesetEffect = effectSpell;
 
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
 
             yield break;
         }

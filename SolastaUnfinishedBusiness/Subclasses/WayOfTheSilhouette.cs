@@ -285,7 +285,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             actionParams.RulesetEffect = effectSpell;
 
             rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
 
             yield break;
         }
@@ -474,9 +475,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetMe, usablePower, false),
@@ -486,8 +488,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             EffectHelpers.StartVisualEffect(me, attacker,
                 FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will, EffectHelpers.EffectType.Caster);
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 }

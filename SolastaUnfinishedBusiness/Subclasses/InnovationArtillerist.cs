@@ -952,8 +952,8 @@ public sealed class InnovationArtillerist : AbstractSubclass
             locationCharacter.usedTacticalMoves = locationCharacter.MaxTacticalMoves;
 
             // or use powers so force the dodge action
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character)
@@ -1064,15 +1064,14 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
                 selectedTarget, effectPower.EffectDescription, targets, []);
-
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
             {
                 RulesetEffect = effectPower, UsablePower = usablePower, targetCharacters = targets
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            actionService.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 

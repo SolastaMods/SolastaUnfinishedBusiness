@@ -963,6 +963,7 @@ internal static partial class SpellBuilders
             }
 
             var usablePower = PowerProvider.Get(_powerResonatingStrike, rulesetCharacter);
+            //CHECK: must be spend power
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
@@ -975,10 +976,9 @@ internal static partial class SpellBuilders
                 TargetCharacters = { _secondTarget }
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

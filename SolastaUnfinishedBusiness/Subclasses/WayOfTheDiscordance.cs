@@ -288,7 +288,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Hour, 1)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -433,8 +433,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
@@ -442,10 +444,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 TargetCharacters = { defender }
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -486,13 +487,12 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
             // Discordance Damage
-            var targets = new List<GameLocationCharacter>();
-
-            targets.SetRange(action.actionParams.TargetCharacters
+            var targets = action.actionParams.TargetCharacters
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }
                     && x.RulesetCharacter.AllConditions.Count(y =>
-                        y.ConditionDefinition == conditionDiscordance) > 1));
+                        y.ConditionDefinition == conditionDiscordance) > 1)
+                .ToList();
 
             if (targets.Count == 0)
             {
@@ -506,8 +506,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
-            var actionParamsDiscordance = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParamsDiscordance = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false),
@@ -515,10 +517,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 targetCharacters = targets
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions
-            actionService.ExecuteAction(actionParamsDiscordance, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParamsDiscordance, null, true);
 
             // Turmoil
             var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
@@ -538,8 +539,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
-            var actionParamsTurmoil = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParamsTurmoil = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false),
@@ -548,7 +551,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             };
 
             // must enqueue actions
-            actionService.ExecuteAction(actionParamsTurmoil, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParamsTurmoil, null, true);
         }
     }
 
@@ -615,8 +619,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
-            var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
@@ -625,8 +631,8 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

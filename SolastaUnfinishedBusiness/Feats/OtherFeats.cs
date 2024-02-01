@@ -949,8 +949,10 @@ internal static class OtherFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPoisonousSkin, rulesetMe);
-            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetMe, usablePower, false),
@@ -958,10 +960,9 @@ internal static class OtherFeats
                 TargetCharacters = { target }
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

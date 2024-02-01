@@ -1388,7 +1388,7 @@ internal static class MeleeCombatFeats
         var fellHandedAdvantage = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Advantage")
             .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}AdvantageDescription", hidden: true)
-            .SetUsesFixed(ActivationTime.Reaction)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1489,6 +1489,7 @@ internal static class MeleeCombatFeats
                                 RulesetImplementationManager;
 
                         var usablePower = PowerProvider.Get(_power, rulesetAttacker);
+                        //CHECK: must be spend power
                         var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
                         {
                             RulesetEffect = implementationManagerService
@@ -1498,10 +1499,9 @@ internal static class MeleeCombatFeats
                             TargetCharacters = { defender }
                         };
 
-                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
                         // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-                        actionService?.ExecuteAction(actionParams, null, true);
+                        ServiceRepository.GetService<IGameLocationActionService>()?
+                            .ExecuteAction(actionParams, null, true);
                     }
 
                     break;

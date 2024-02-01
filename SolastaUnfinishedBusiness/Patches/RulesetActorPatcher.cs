@@ -192,19 +192,22 @@ public static class RulesetActorPatcher
                 var implementationManagerService =
                     ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-                var actionParams = new CharacterActionParams(sourceCharacter, ActionDefinitions.Id.SpendPower)
+                var targets = gameLocationCharacterService.AllValidEntities
+                    .Where(x =>
+                        x.Side == effectDescription.TargetSide &&
+                        x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                        x.IsWithinRange(sourceCharacter, range) &&
+                        (!effectDescription.TargetExcludeCaster || x != sourceCharacter))
+                    .ToList();
+                //CHECK: must be power no cost
+                var actionParams = new CharacterActionParams(sourceCharacter, ActionDefinitions.Id.PowerNoCost)
                 {
+                    ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                     RulesetEffect = implementationManagerService
                         //CHECK: no need for AddAsActivePowerToSource
                         .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                     UsablePower = usablePower,
-                    targetCharacters = gameLocationCharacterService.AllValidEntities
-                        .Where(x =>
-                            x.Side == effectDescription.TargetSide &&
-                            x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                            x.IsWithinRange(sourceCharacter, range) &&
-                            (!effectDescription.TargetExcludeCaster || x != sourceCharacter))
-                        .ToList()
+                    targetCharacters = targets
                 };
 
                 ServiceRepository.GetService<ICommandService>()

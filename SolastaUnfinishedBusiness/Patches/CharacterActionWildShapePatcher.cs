@@ -28,7 +28,7 @@ public class CharacterActionWildShapePatcher
             var service = ServiceRepository.GetService<IGameLocationActionService>();
             var newParams = __instance.ActionParams.Clone();
 
-            newParams.ActionDefinition = service.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];
+            newParams.ActionDefinition = service?.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];
 
             if (__instance.ActingCharacter.RulesetCharacter is RulesetCharacterMonster { IsSubstitute: true } monster)
             {
@@ -37,7 +37,8 @@ public class CharacterActionWildShapePatcher
                     ConditionWildShapeSubstituteForm);
             }
 
-            service.ExecuteAction(newParams, null, true);
+            service?
+                .ExecuteAction(newParams, null, true);
         }
     }
 }

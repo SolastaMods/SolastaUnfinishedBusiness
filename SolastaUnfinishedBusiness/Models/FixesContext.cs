@@ -684,6 +684,7 @@ internal static class FixesContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -692,14 +693,10 @@ internal static class FixesContext
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
             };
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

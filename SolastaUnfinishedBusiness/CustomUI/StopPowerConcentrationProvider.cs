@@ -37,6 +37,7 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
         var usablePower = PowerProvider.Get(StopPower, character);
+        //CHECK: must be spend power no cost
         var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
         {
             ActionModifiers = { new ActionModifier() },
@@ -47,7 +48,7 @@ internal sealed class StopPowerConcentrationProvider : CustomConcentrationContro
             SkipAnimationsAndVFX = true
         };
 
-        ServiceRepository.GetService<ICommandService>()
+        ServiceRepository.GetService<ICommandService>()?
             .ExecuteAction(actionParams, _ => { }, false);
     }
 }
