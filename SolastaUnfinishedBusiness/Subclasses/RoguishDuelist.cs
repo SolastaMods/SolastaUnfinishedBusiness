@@ -216,7 +216,9 @@ public sealed class RoguishDuelist : AbstractSubclass
     // Master Duelist
     //
 
-    private sealed class PhysicalAttackFinishedByMeMasterDuelist(ConditionDefinition conditionDaringDuel)
+    private sealed class PhysicalAttackFinishedByMeMasterDuelist(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDaringDuel)
         : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
