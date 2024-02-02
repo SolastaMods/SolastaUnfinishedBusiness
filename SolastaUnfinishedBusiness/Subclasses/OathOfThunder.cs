@@ -387,7 +387,8 @@ public sealed class OathOfThunder : AbstractSubclass
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = Gui.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2)
+                targetCharacters = Gui.Battle
+                    .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2)
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?

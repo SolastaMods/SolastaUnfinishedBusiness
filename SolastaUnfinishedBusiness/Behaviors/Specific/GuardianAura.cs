@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -36,8 +35,8 @@ internal static class GuardianAura
             yield break;
         }
 
-        var units = Gui.Battle.GetContenders(defender, false)
-            .ToList(); // avoid changing enumerator
+        var units = Gui.Battle
+            .GetContenders(defender, isOppositeSide: false);
 
         foreach (var unit in units)
         {
