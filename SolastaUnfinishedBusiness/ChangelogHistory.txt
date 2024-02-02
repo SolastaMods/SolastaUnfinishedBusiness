@@ -1,11 +1,10 @@
 ﻿1.5.94.49:
 
 - fixed Arcane Recovery and Flexible Casting modals getting presented to all players in a MP session
-- fixed Burning Blade spell crashing when attempting the 2nd target damage
+- fixed Burning Blade spell causing an instability when attempting the 2nd target damage
 - fixed Kinesis invocation not allowing a 2nd target selection per description
 - fixed Lighting and Obscurement rules interaction with True Sight capable targets
-- fixed Oath of Thunder thunderous rebuke feature not updating usage
-- fixed Patron Rift Walker rift strike feature not updating usage
+- fixed Oath of Thunder thunderous rebuke feature and Patron Rift Walker rift strike feature not updating usage
 - improved conditions with fly moves to have self with proper flying stance and immunities to grease and prone
 - improved Patron Moonlit conditions icons, features SFX, and midnight blessing feature
 - improved Rogue Duelist master duelist feature to be closer to UA
