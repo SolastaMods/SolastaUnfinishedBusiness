@@ -93,13 +93,6 @@ public sealed class RoguishDuelist : AbstractSubclass
 
         // LEVEL 17
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}MasterDuelist")
-            .SetGuiPresentation($"FeatureSet{Name}MasterDuelist", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 2)
-            .AddToDB();
-
         var featureMasterDuelist = FeatureDefinitionBuilder
             .Create($"Feature{Name}MasterDuelist")
             .SetGuiPresentationNoContent(true)
