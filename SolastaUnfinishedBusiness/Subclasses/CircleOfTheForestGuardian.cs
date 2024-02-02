@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -41,65 +40,23 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Druid)
             .AddToDB();
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}SylvanDurability")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
-            .AddToDB();
-
         var attackModifierSylvanMagic = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}SylvanDurability")
             .SetGuiPresentation(Category.Feature)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .AddCustomSubFeatures(
                 new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
-                    (OperationType.Set, (mode is { ActionType: ActionDefinitions.ActionType.Main } &&
-                                         ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(character) &&
-                                         ValidatorsCharacter.HasMeleeWeaponInMainHand(character)) ||
-                                        (mode is { ActionType: ActionDefinitions.ActionType.Bonus } &&
-                                         character.GetOriginalHero() is { } hero &&
-                                         hero.ActiveFightingStyles.Contains(FightingStyleDefinitions.TwoWeapon) &&
-                                         ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character)))),
+                    (OperationType.Set,
+                        (mode is { ActionType: ActionDefinitions.ActionType.Main } &&
+                         ValidatorsCharacter.HasFreeHandWithoutTwoHandedInMain(character) &&
+                         ValidatorsCharacter.HasMeleeWeaponInMainHand(character)) ||
+                        (mode is { ActionType: ActionDefinitions.ActionType.Bonus } &&
+                         character.GetOriginalHero() is { } hero &&
+                         hero.ActiveFightingStyles.Contains(FightingStyleDefinitions.TwoWeapon) &&
+                         ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(character)))),
                 new CanUseAttribute(AttributeDefinitions.Wisdom, CanWeaponBeEnchanted),
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
-
-        #region
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ImprovedBarkWard")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SuperiorBarkWard")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        #endregion
 
         var conditionBarkWard = ConditionDefinitionBuilder
             .Create($"Condition{Name}BarkWard")
@@ -115,10 +72,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         conditionBarkWard.conditionEndParticleReference = effectParticleParameters.conditionEndParticleReference;
 
         var conditionImprovedBarkWard = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ImprovedBarkWard")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
-            .SetPossessive()
-            .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .Create(conditionBarkWard, $"Condition{Name}ImprovedBarkWard")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(conditionBarkWard)
             .SetFeatures(
                 FeatureDefinitionDamageAffinityBuilder
@@ -128,13 +83,6 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetDamageType(DamageTypePoison)
                     .AddToDB())
             .AddToDB();
-
-        conditionImprovedBarkWard.conditionStartParticleReference =
-            effectParticleParameters.conditionStartParticleReference;
-        conditionImprovedBarkWard.conditionParticleReference =
-            effectParticleParameters.conditionParticleReference;
-        conditionImprovedBarkWard.conditionEndParticleReference =
-            effectParticleParameters.conditionEndParticleReference;
 
         var powerBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}BarkWard")
@@ -149,7 +97,6 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .Build())
             .AddToDB();
 
-
         powerBarkWard.EffectDescription.EffectParticleParameters.casterParticleReference =
             SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
 
@@ -163,13 +110,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionImprovedBarkWard))
+                    .SetParticleEffectParameters(powerBarkWard)
                     .Build())
             .SetOverriddenPower(powerBarkWard)
             .AddToDB();
-
-
-        powerImprovedBarkWard.EffectDescription.EffectParticleParameters.casterParticleReference =
-            SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var powerSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")
@@ -192,8 +136,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"CircleOfThe{Name}")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite(Name, Resources.CircleOfTheForestGuardian, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CircleOfTheForestGuardian, 256))
             .AddFeaturesAtLevel(2, autoPreparedSpellsForestGuardian, attackModifierSylvanMagic, powerBarkWard)
             .AddFeaturesAtLevel(6, AttributeModifierCasterFightingExtraAttack, AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(10, powerImprovedBarkWard)
@@ -295,9 +238,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         {
             if (attackMode != null)
             {
-                _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
-                                 defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
-                                 ValidatorsWeapon.IsMelee(attackMode);
+                _shouldTrigger =
+                    defender.RulesetCharacter.TemporaryHitPoints > 0 &&
+                    defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
+                    ValidatorsWeapon.IsMelee(attackMode);
             }
 
             yield break;
@@ -312,9 +256,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            _shouldTrigger = defender.RulesetCharacter.TemporaryHitPoints > 0 &&
-                             defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
-                             rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.Touch;
+            _shouldTrigger =
+                defender.RulesetCharacter.TemporaryHitPoints > 0 &&
+                defender.RulesetCharacter.HasConditionOfTypeOrSubType($"Condition{Name}BarkWard") &&
+                rulesetEffect.EffectDescription.RangeType is RangeType.MeleeHit or RangeType.Touch;
 
             yield break;
         }
