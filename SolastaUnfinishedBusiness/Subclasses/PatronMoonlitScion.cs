@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -550,6 +549,13 @@ public sealed class PatronMoonlitScion : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                yield break;
+            }
+
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Warlock);
@@ -587,13 +593,10 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
             var actionParams = action.ActionParams.Clone();
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
+            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
             actionParams.RulesetEffect = effectSpell;
 
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
-
-            yield break;
+            actionService.ExecuteAction(actionParams, null, true);
         }
 
         public HashSet<SpellDefinition> SpellsThatShouldNotRollConcentrationCheckFromDamage(

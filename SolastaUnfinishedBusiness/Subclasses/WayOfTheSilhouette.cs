@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -223,7 +222,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureShadowFlurry.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeShadowFlurry(featureShadowFlurry));
+        featureShadowFlurry.AddCustomSubFeatures(
+            new TryAlterOutcomePhysicalAttackByMeShadowFlurry(featureShadowFlurry));
 
         // LEVEL 17
 
@@ -274,6 +274,13 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                yield break;
+            }
+
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
@@ -281,14 +288,11 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var actionParams = action.ActionParams.Clone();
 
-            actionParams.ActionDefinition = DatabaseHelper.ActionDefinitions.CastNoCost;
+            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
             actionParams.RulesetEffect = effectSpell;
 
             rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
-
-            yield break;
+            actionService.ExecuteAction(actionParams, null, true);
         }
     }
 
