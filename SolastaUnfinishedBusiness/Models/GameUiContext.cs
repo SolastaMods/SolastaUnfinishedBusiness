@@ -789,18 +789,6 @@ internal static class GameUiContext
             .AddToDB();
     }
 
-    internal static FeatureDefinitionActionAffinity ActionAffinityMonkKiPointsToggle { get; private set; }
-
-    private static void LoadMonkKiPointsToggle()
-    {
-        ActionAffinityMonkKiPointsToggle = FeatureDefinitionActionAffinityBuilder
-            .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
-                "ActionAffinityMonkKiPointsToggle")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)
-            .AddToDB();
-    }
-
     internal static FeatureDefinitionActionAffinity ActionAffinityPaladinSmiteToggle { get; private set; }
 
     private static void LoadPaladinSmiteToggle()
@@ -897,7 +885,6 @@ internal static class GameUiContext
         SwitchEmpressGarb();
         LoadRemoveBugVisualModels();
         LoadFeatCrusherToggle();
-        LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
         LoadFormationGrid();
 

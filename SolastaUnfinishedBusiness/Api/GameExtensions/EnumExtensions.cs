@@ -212,7 +212,6 @@ internal enum ExtraActionId
     BondOfTheTalismanTeleport = 9010,
     DoNothingFree = 9011,
     DoNothingReaction = 9012,
-    MonkKiPointsToggle = 9013,
     PaladinSmiteToggle = 9014,
     AudaciousWhirlToggle = 9015,
     CombatWildShape = 9016,

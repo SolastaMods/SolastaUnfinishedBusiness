@@ -1,4 +1,8 @@
-﻿1.5.94.49:
+﻿1.5.94.50:
+
+- remove deprecated Martial Defender, Patron Moonlit Uncut, and Way of Distant Hand [RESPEC required]
+
+1.5.94.49:
 
 - fixed Arcane Recovery and Flexible Casting modals getting presented to all players in a MP session
 - fixed Burning Blade spell causing an instability when attempting the 2nd target damage
