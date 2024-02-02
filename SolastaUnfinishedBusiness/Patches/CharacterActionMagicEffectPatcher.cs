@@ -480,7 +480,7 @@ public static class CharacterActionMagicEffectPatcher
                          target != actingCharacter &&
                          !rangeAttack &&
                          !target.Prone &&
-                         target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                         target.RulesetCharacter is null or { IsDeadOrDyingOrUnconscious: false } &&
                          !target.MoveStepInProgress &&
                          !target.IsCharging &&
                          (target.PerceivedAllies.Contains(actingCharacter) ||
@@ -623,8 +623,8 @@ public static class CharacterActionMagicEffectPatcher
                                  __instance.AttackRollOutcome == RollOutcome.Failure &&
                                  __instance.AttackSuccessDelta < 0)
                              .Select(feature =>
-                                 feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager, __instance,
-                                     actingCharacter, target, attackModifier)))
+                                 feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager,
+                                     __instance, actingCharacter, target, attackModifier)))
                 {
                     while (extraEvents.MoveNext())
                     {
