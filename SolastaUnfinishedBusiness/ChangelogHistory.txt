@@ -8,6 +8,7 @@
 - fixed Patron Rift Walker rift strike feature not updating usage
 - improved conditions with fly moves to have self with proper flying stance and immunities to grease and prone
 - improved Patron Moonlit conditions icons, features SFX, and midnight blessing feature
+- improved Rogue Duelist master duelist feature to be closer to UA
 
 1.5.94.48:
 

@@ -2745,7 +2745,7 @@ Starting at 13th level, once per turn while you aren't incapacitated, shocked or
 
 * Master Duelist
 
-Starting at 17th level, your mastery of the blade lets you turn failure into success in combat. If you miss with an attack roll, you can roll it again with advantage. You can use this feature twice per short rest.
+Starting at 17th level, immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you. 
 
 
 
