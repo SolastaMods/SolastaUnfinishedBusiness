@@ -25,10 +25,16 @@ public class CharacterActionWildShapePatcher
             }
 
             //PATCH: changes Wildshape action to use power as NoCost so it doesn't consume main action twice and break action switching
-            var service = ServiceRepository.GetService<IGameLocationActionService>();
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                yield break;
+            }
+
             var newParams = __instance.ActionParams.Clone();
 
-            newParams.ActionDefinition = service?.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];
+            newParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];
 
             if (__instance.ActingCharacter.RulesetCharacter is RulesetCharacterMonster { IsSubstitute: true } monster)
             {
@@ -37,8 +43,7 @@ public class CharacterActionWildShapePatcher
                     ConditionWildShapeSubstituteForm);
             }
 
-            service?
-                .ExecuteAction(newParams, null, true);
+            actionService.ExecuteAction(newParams, null, true);
         }
     }
 }

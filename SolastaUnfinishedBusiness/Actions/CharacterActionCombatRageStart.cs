@@ -18,6 +18,12 @@ public class CharacterActionCombatRageStart(CharacterActionParams actionParams) 
         }
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+        if (actionService == null)
+        {
+            yield break;
+        }
+
         var newParams = ActionParams.Clone();
 
         newParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];

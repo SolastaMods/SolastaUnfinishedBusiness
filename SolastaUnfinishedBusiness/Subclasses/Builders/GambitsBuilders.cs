@@ -1964,7 +1964,6 @@ internal static class GambitsBuilders
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
             var targetPosition = action.ActionParams.Positions[0];
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actionParams =
                 new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
                 {
@@ -1992,7 +1991,9 @@ internal static class GambitsBuilders
 
             targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
             targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
-            actionService.ExecuteAction(actionParams, null, false);
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 

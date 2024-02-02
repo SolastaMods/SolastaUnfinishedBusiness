@@ -195,9 +195,8 @@ public static class CharacterActionSpendPowerPatcher
                         ComputedTargetParameter = __instance.activePower.ComputeTargetParameter()
                     };
 
-                    var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-                    actionService.MagicEffectHitTarget?.Invoke(ref impactTarget);
+                    ServiceRepository.GetService<IGameLocationActionService>()?
+                        .MagicEffectHitTarget?.Invoke(ref impactTarget);
                 }
 
                 if (!__instance.RolledSaveThrow ||
