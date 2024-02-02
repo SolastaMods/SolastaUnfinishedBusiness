@@ -1,6 +1,7 @@
 ﻿1.5.94.50:
 
-- remove deprecated Martial Defender, Patron Moonlit Uncut, and Way of Distant Hand [RESPEC required]
+- removed backward compatibility from Way of Silhouette
+- removed deprecated Martial Defender, Patron Moonlit Uncut, and Way of Distant Hand [RESPEC required]
 
 1.5.94.49:
 

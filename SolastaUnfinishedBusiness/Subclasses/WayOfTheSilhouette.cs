@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -44,34 +43,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .AddCustomSubFeatures(new MagicEffectFinishedByMeDarkness())
             .AddToDB();
 
-        #region
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Darkvision")
-            .SetGuiPresentation(Darkvision.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(Darkvision.EffectDescription)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}PassWithoutTrace")
-            .SetGuiPresentation(PassWithoutTrace.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(PassWithoutTrace.EffectDescription)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Silence")
-            .SetGuiPresentation(Silence.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
-            .SetEffectDescription(Silence.EffectDescription)
-            .AddToDB();
-
-        #endregion
-
         var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SilhouetteArts")
             .SetGuiPresentation(Category.Feature)
@@ -79,21 +50,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 SenseDarkvision12,
                 powerDarkness)
             .AddToDB();
-
-        #region
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionLightAffinityBuilder
-            .Create($"LightAffinity{Name}CloakOfSilhouettesWeak")
-            .SetGuiPresentation(Category.Feature)
-            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-            {
-                lightingState = LocationDefinitions.LightingState.Unlit,
-                condition = CustomConditionsContext.InvisibilityEveryRound
-            })
-            .AddToDB();
-
-        #endregion
 
         // Strike the Vitals
 
@@ -107,43 +63,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddCustomSubFeatures(new ModifyAdditionalDamageFormStrikeTheVitals())
             .AddToDB();
-
-        #region
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}StrikeTheVitalsD6")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("StrikeTheVitals")
-            .SetDamageDice(DieType.D6, 1)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}StrikeTheVitalsD8")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("StrikeTheVitals")
-            .SetDamageDice(DieType.D8, 2)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}StrikeTheVitalsD10")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("StrikeTheVitals")
-            .SetDamageDice(DieType.D10, 3)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddToDB();
-
-        #endregion
 
         // LEVEL 06
 
@@ -184,36 +103,6 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         // LEVEL 11
-
-        #region
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionLightAffinityBuilder
-            .Create($"LightAffinity{Name}CloakOfSilhouettesStrong")
-            .SetGuiPresentation(Category.Feature)
-            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-            {
-                lightingState = LocationDefinitions.LightingState.Dim,
-                condition = CustomConditionsContext.InvisibilityEveryRound
-            })
-            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
-            {
-                lightingState = LocationDefinitions.LightingState.Darkness,
-                condition = CustomConditionsContext.InvisibilityEveryRound
-            })
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ImprovedSilhouetteStep")
-            .SetGuiPresentation(Category.Feature, DimensionDoor)
-            .SetOverriddenPower(powerWayOfSilhouetteSilhouetteStep)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(DimensionDoor.EffectDescription)
-            .SetUniqueInstance()
-            .AddToDB();
-
-        #endregion
 
         // Shadow Flurry
 
