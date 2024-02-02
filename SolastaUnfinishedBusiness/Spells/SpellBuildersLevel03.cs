@@ -1191,7 +1191,7 @@ internal static partial class SpellBuilders
             var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false }
-                || (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success))
+                || (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success))
             {
                 yield break;
             }
