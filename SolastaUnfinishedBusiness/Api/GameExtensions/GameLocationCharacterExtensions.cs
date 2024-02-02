@@ -193,11 +193,13 @@ public static class GameLocationCharacterExtensions
     {
         var character = instance.RulesetCharacter;
 
-        return character is { IsDeadOrDyingOrUnconscious: false }
-               && !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne)
-               && !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated)
-               && !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned)
-               && !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
+        return character is { IsDeadOrDyingOrUnconscious: false } &&
+               !instance.IsCharging &&
+               !instance.MoveStepInProgress &&
+               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
+               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated) &&
+               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) && 
+               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
     }
 
     internal static bool IsReactionAvailable(this GameLocationCharacter instance, bool ignoreReactionUses = false)

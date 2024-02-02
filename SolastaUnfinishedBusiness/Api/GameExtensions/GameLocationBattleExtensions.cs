@@ -14,7 +14,10 @@ internal static class GameLocationBattleExtensions
     {
         var aliveContenders = battle.AllContenders
             .Where(x =>
-                x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && (!excludeSelf || x != character));
+                x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && 
+                !x.IsCharging &&
+                !x.MoveStepInProgress &
+                (!excludeSelf || x != character));
 
         if (character == null)
         {
