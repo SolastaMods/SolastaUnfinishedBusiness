@@ -53,7 +53,7 @@ internal static class IconsOnPortrait
             CustomPortraitPointPool.Setup(provider, character, poolPrefab, layout);
         }
 
-        var concentrations = character.GetSubFeaturesByType<ICustomConcentrationProvider>();
+        var concentrations = character.GetSubFeaturesByType<CustomConcentrationControl.ICustomConcentrationProvider>();
 
         foreach (var provider in concentrations)
         {

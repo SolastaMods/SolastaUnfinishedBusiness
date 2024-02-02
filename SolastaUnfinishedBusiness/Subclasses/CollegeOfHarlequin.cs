@@ -287,8 +287,10 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
@@ -297,8 +299,8 @@ public sealed class CollegeOfHarlequin : AbstractSubclass
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

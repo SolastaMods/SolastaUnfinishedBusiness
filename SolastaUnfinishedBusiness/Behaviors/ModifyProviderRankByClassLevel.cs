@@ -1,9 +1,13 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Interfaces;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
-public class ModifyProviderRankByClassLevel(CharacterClassDefinition klass) : IModifyProviderRank
+internal interface IModifyProviderRank
+{
+    int GetRank(RulesetCharacter character);
+}
+
+internal class ModifyProviderRankByClassLevel(CharacterClassDefinition klass) : IModifyProviderRank
 {
     public int GetRank(RulesetCharacter character)
     {

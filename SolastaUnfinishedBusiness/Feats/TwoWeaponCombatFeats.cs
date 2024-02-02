@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -65,7 +66,7 @@ internal static class TwoWeaponCombatFeats
                     .Create("OnAttackDamageEffectFeatDualFlurry")
                     .SetGuiPresentation("FeatDualFlurry", Category.Feat)
                     .AddCustomSubFeatures(
-                        new OnPhysicalAttackHitFeatDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
+                        new PhysicalAttackFinishedByMeDualFlurry(conditionDualFlurryGrant, conditionDualFlurryApply))
                     .AddToDB())
             .AddToDB();
     }
@@ -89,12 +90,12 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
-    private sealed class OnPhysicalAttackHitFeatDualFlurry : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackFinishedByMeDualFlurry : IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
 
-        internal OnPhysicalAttackHitFeatDualFlurry(
+        internal PhysicalAttackFinishedByMeDualFlurry(
             ConditionDefinition conditionDualFlurryGrant,
             ConditionDefinition conditionDualFlurryApply)
         {
@@ -102,32 +103,33 @@ internal static class TwoWeaponCombatFeats
             _conditionDualFlurryApply = conditionDualFlurryApply;
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                return;
+                yield break;
             }
 
             if (attacker.RulesetCharacter is not RulesetCharacterHero hero)
             {
-                return;
+                yield break;
             }
 
             if (attackMode == null || !ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(hero))
             {
-                return;
+                yield break;
             }
 
             if (!attacker.OnceInMyTurnIsValid(_conditionDualFlurryGrant.Name))
             {
-                return;
+                yield break;
             }
 
             var condition = _conditionDualFlurryApply;

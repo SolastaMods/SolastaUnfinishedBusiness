@@ -894,9 +894,9 @@ internal static partial class SpellBuilders
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class CustomBehaviorConditionElementalInfusion(ConditionDefinition conditionElementalInfusion) :
-        IPhysicalAttackFinishedByMe, IMagicalAttackFinishedByMe
+        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnMagicalAttackFinishedByMe(
+        public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
@@ -965,7 +965,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class AttackBeforeHitPossibleOnMeOrAllyElementalInfusion(SpellDefinition spellDefinition) :
-        IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+        IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         private static readonly IEnumerable<string> AllowedDamageTypes = DamagesAndEffects
             .Where(x => x.Item1 != DamageTypePoison)
@@ -990,7 +990,7 @@ internal static partial class SpellBuilders
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -1675,6 +1675,7 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerThunderousSmite, rulesetAttacker);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -1684,10 +1685,9 @@ internal static partial class SpellBuilders
                 TargetCharacters = { defender }
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -1888,11 +1888,10 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var targets = new List<GameLocationCharacter>();
-
-            targets.SetRange(
-                Gui.Battle.AllContenders.Where(x =>
-                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(defender, 1)));
+            var targets = Gui.Battle.AllContenders
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && x.IsWithinRange(defender, 1))
+                .ToList();
 
             if (targets.Count == 0)
             {
@@ -1905,6 +1904,7 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -1914,10 +1914,9 @@ internal static partial class SpellBuilders
                 targetCharacters = targets
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

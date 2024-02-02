@@ -94,7 +94,7 @@ public sealed class RoguishRaven : AbstractSubclass
         var featureRavenDeadlyAim = FeatureDefinitionBuilder
             .Create($"Feature{Name}DeadlyAim")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackDeadlyAim(powerDeadlyAim))
+            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyAim))
             .AddToDB();
 
         var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
@@ -188,7 +188,7 @@ public sealed class RoguishRaven : AbstractSubclass
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
-                        new RogueClassHolder())
+                        new RogueModifyAdditionalDamageClassLevelHolder())
                     .AddToDB())
             .AddToDB();
 
@@ -215,7 +215,7 @@ public sealed class RoguishRaven : AbstractSubclass
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                IgnoreInterruptionCheck.Marker,
+                IgnoreInvisibilityInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
             .AddToDB();
 
@@ -240,7 +240,7 @@ public sealed class RoguishRaven : AbstractSubclass
                             .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         concentrationProvider.StopPower = powerRavenTurnOffHeartSeekingShot;
@@ -255,7 +255,7 @@ public sealed class RoguishRaven : AbstractSubclass
     // marker to reroll any damage die including sneak attack
     internal sealed class RavenRerollAnyDamageDieMarker;
 
-    private sealed class RogueClassHolder : IClassHoldingFeature
+    private sealed class RogueModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
@@ -312,15 +312,20 @@ public sealed class RoguishRaven : AbstractSubclass
     // Deadly Aim
     //
 
-    private class TryAlterOutcomePhysicalAttackDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 

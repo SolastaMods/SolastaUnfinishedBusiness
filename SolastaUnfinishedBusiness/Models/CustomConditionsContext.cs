@@ -82,7 +82,7 @@ internal static class CustomConditionsContext
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark, new CustomBehaviorTaunted())
+            .AddCustomSubFeatures(new CustomBehaviorTaunted())
             .AddToDB();
 
         _taunter = ConditionDefinitionBuilder
@@ -703,7 +703,7 @@ internal static class CustomConditionsContext
                 _taunter.Name,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 sourceCharacter.Guid,
                 sourceCharacter.CurrentFaction.Name,

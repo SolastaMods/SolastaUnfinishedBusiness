@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -107,6 +106,15 @@ public sealed class PatronMoonlit : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
+        var conditionMoonTouched = ConditionDefinitionBuilder
+            .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
+                $"Condition{Name}MoonTouched")
+            .SetGuiPresentation(Category.Condition)
+            .SetParentCondition(DatabaseHelper.ConditionDefinitions.ConditionFlying)
+            .SetConditionType(ConditionType.Neutral)
+            .SetFeatures(MoveModeFly2)
+            .AddToDB();
+
         var powerMoonlitMoonTouched = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MoonTouched")
             .SetGuiPresentation(Category.Feature)
@@ -127,13 +135,7 @@ public sealed class PatronMoonlit : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate,
-                                        $"Condition{Name}MoonTouched")
-                                    .SetGuiPresentation(Category.Condition)
-                                    .SetConditionType(ConditionType.Neutral)
-                                    .SetFeatures(MoveModeFly2, MovementAffinityConditionLevitate)
-                                    .AddToDB(),
+                                conditionMoonTouched,
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),

@@ -64,13 +64,13 @@ internal static class RaceFeats
             .Create("PowerFeatFadeAwayInvisible")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetReactionContext(ReactionTriggerContext.DamagedByAnySource)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(Invisibility.EffectDescription)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Round, 1)
                     .Build())
-            .SetReactionContext(ReactionTriggerContext.DamagedByAnySource)
             .AddToDB();
 
         // Fade Away (Dexterity)

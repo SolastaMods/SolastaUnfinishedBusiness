@@ -455,23 +455,35 @@ internal static class LightingAndObscurementContext
         void HandleTrueSightSpecialCase()
         {
             if (IsBlindNotFromDarkness(attackerActor) ||
-                IsBlindNotFromDarkness(defenderActor) ||
-                !attackAdvantageTrends.Any(BlindedDisadvantage) ||
-                attackerActor is not RulesetCharacter attackerCharacter)
+                IsBlindNotFromDarkness(defenderActor))
             {
                 return;
             }
 
-            var senseModeTrueSight =
-                attackerCharacter.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
-
-            if (senseModeTrueSight == null ||
-                !attacker.IsWithinRange(defender, senseModeTrueSight.SenseRange))
+            if (attackerActor is RulesetCharacter attackerCharacter)
             {
-                return;
+                var senseModeTrueSightAttacker =
+                    attackerCharacter.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
+
+                if (senseModeTrueSightAttacker != null &&
+                    attacker.IsWithinRange(defender, senseModeTrueSightAttacker.SenseRange))
+                {
+                    attackAdvantageTrends.RemoveAll(BlindedDisadvantage);
+                }
             }
 
-            attackAdvantageTrends.RemoveAll(BlindedDisadvantage);
+            // ReSharper disable once InvertIf
+            if (defenderActor is RulesetCharacter defenderCharacter)
+            {
+                var senseModeTrueSightDefender =
+                    defenderCharacter.SenseModes.FirstOrDefault(x => x.SenseType == SenseMode.Type.Truesight);
+
+                if (senseModeTrueSightDefender != null &&
+                    defender.IsWithinRange(attacker, senseModeTrueSightDefender.SenseRange))
+                {
+                    attackAdvantageTrends.RemoveAll(BlindedAdvantage);
+                }
+            }
         }
     }
 
@@ -546,7 +558,7 @@ internal static class LightingAndObscurementContext
         }
 
         // determine constraints
-        var distance = DistanceCalculation.GetDistanceFromTwoPositions(sensor.LocationPosition, cellPosition);
+        var distance = DistanceCalculation.GetDistanceFromPositions(sensor.LocationPosition, cellPosition);
         var sensorCharacter = sensor.RulesetCharacter;
         var sourceIsBlindFromDarkness = IsBlindFromDarkness(sensorCharacter);
         var sourceIsBlindNotFromDarkness = IsBlindNotFromDarkness(sensorCharacter);

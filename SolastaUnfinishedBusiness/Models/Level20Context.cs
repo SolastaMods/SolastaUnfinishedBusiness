@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -414,7 +415,7 @@ internal static class Level20Context
             .AddToDB();
 
         powerRogueStrokeOfLuck.AddCustomSubFeatures(
-            new TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+            new TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -838,16 +839,21 @@ internal static class Level20Context
         }
     }
 
-    private class TryAlterOutcomePhysicalAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
-        : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(FeatureDefinitionPower power)
+        : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var rulesetCharacter = me.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
@@ -864,9 +870,11 @@ internal static class Level20Context
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
             var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "Reaction/&CustomReactionRogueStrokeOfLuckReactDescription"
+                StringParameter = "Reaction/&CustomReactionRogueStrokeOfLuckReactDescription",
+                UsablePower = usablePower
             };
             var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("RogueStrokeOfLuck", reactionParams);
@@ -880,10 +888,14 @@ internal static class Level20Context
                 yield break;
             }
 
+            rulesetCharacter.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
+
             var delta = -action.AttackSuccessDelta;
 
-            rulesetCharacter.UsePower(PowerProvider.Get(power, rulesetCharacter));
             action.AttackRollOutcome = RollOutcome.Success;
+            action.AttackSuccessDelta = 0;
+            action.AttackRoll += delta;
+            attackModifier.ignoreAdvantage = false;
             attackModifier.AttackRollModifier += delta;
             attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }

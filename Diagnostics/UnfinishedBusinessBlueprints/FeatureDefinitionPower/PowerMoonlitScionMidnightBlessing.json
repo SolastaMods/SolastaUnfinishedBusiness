@@ -34,7 +34,7 @@
     "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": true,
+    "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Constitution",
     "ignoreCover": false,

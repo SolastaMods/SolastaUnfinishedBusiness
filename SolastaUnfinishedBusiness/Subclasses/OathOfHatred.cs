@@ -123,7 +123,7 @@ public sealed class OathOfHatred : AbstractSubclass
         var featureDauntlessPursuer = FeatureDefinitionBuilder
             .Create("FeatureHatredDauntlessPursuer")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new OnDamagesDauntlessPursuer(conditionDauntlessPursuer))
+            .AddCustomSubFeatures(new PhysicalAttackFinishedByMeDauntlessPursuer(conditionDauntlessPursuer))
             .AddToDB();
 
         //
@@ -208,31 +208,32 @@ public sealed class OathOfHatred : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class OnDamagesDauntlessPursuer : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackFinishedByMeDauntlessPursuer : IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDauntlessPursuerAfterAttack;
 
-        internal OnDamagesDauntlessPursuer(ConditionDefinition conditionDauntlessPursuerAfterAttack)
+        internal PhysicalAttackFinishedByMeDauntlessPursuer(ConditionDefinition conditionDauntlessPursuerAfterAttack)
         {
             _conditionDauntlessPursuerAfterAttack = conditionDauntlessPursuerAfterAttack;
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
-                return;
+                yield break;
             }
 
             if (attackMode?.actionType != ActionDefinitions.ActionType.Reaction)
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -256,7 +257,7 @@ public sealed class OathOfHatred : AbstractSubclass
     private sealed class CustomBehaviorArdentHate(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower power)
-        : IModifyDamageAffinity, ITryAlterOutcomePhysicalAttack
+        : IModifyDamageAffinity, ITryAlterOutcomePhysicalAttackByMe
     {
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
@@ -264,13 +265,18 @@ public sealed class OathOfHatred : AbstractSubclass
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
         }
 
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = me.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
@@ -308,9 +314,15 @@ public sealed class OathOfHatred : AbstractSubclass
             }
 
             me.UsedSpecialFeatures.TryAdd(power.Name, 1);
-            action.AttackRoll += -action.AttackSuccessDelta;
-            action.AttackSuccessDelta = 0;
+
+            var delta = -action.AttackSuccessDelta;
+
             action.AttackRollOutcome = RollOutcome.Success;
+            action.AttackSuccessDelta = 0;
+            action.AttackRoll += delta;
+            attackModifier.ignoreAdvantage = false;
+            attackModifier.AttackRollModifier += delta;
+            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, power.Name, power));
         }
     }
 }

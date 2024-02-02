@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -67,7 +68,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         // Lunar Radiance Debuff
 
         var conditionLunarRadianceEnemy = ConditionDefinitionBuilder
-            .Create($"Condition{Name}LunarRadianceEnemy")
+            .Create(ConditionDefinitions.ConditionLuminousKi, $"Condition{Name}LunarRadianceEnemy")
             .SetGuiPresentation($"Power{Name}LunarRadiance", Category.Feature,
                 ConditionDefinitions.ConditionLightSensitive)
             .SetConditionType(ConditionType.Detrimental)
@@ -95,7 +96,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
                         EffectFormBuilder.ConditionForm(conditionLunarRadianceEnemy))
@@ -130,7 +131,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
                         EffectFormBuilder.ConditionForm(conditionLunarRadianceEnemy))
@@ -141,10 +142,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         powerLunarRadiance.EffectDescription.effectParticleParameters.effectParticleReference = new AssetReference();
 
         var conditionFullMoon = ConditionDefinitionBuilder
-            .Create($"Condition{Name}FullMoon")
+            .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}FullMoon")
             .SetGuiPresentation($"Power{Name}FullMoon", Category.Feature,
-                ConditionDefinitions.ConditionProtectedInsideMagicCircle)
+                ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
             .SetPossessive()
+            .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerLunarRadiance)
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
@@ -175,6 +177,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerOathOfJugementWeightOfJustice)
                     .Build())
             .AddToDB();
 
@@ -187,6 +190,15 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .AddToDB();
 
         conditionLunarChillEnemy.GuiPresentation.description = Gui.NoLocalization;
+        conditionLunarChillEnemy.conditionStartParticleReference = FeatureDefinitionPowers
+            .PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionLunarChillEnemy.conditionParticleReference = FeatureDefinitionPowers
+            .PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionLunarChillEnemy.conditionEndParticleReference = FeatureDefinitionPowers
+            .PowerDomainElementalHeraldOfTheElementsCold
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         // Lunar Chill No Cost
 
@@ -201,7 +213,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeCold, 1, DieType.D8),
                         EffectFormBuilder.ConditionForm(conditionLunarChillEnemy))
@@ -233,7 +245,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeCold, 1, DieType.D8),
                         EffectFormBuilder.ConditionForm(conditionLunarChillEnemy))
@@ -251,6 +263,12 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .AddToDB();
 
         conditionNewMoon.GuiPresentation.description = Gui.NoLocalization;
+        conditionNewMoon.conditionStartParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionNewMoon.conditionParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionNewMoon.conditionEndParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         // New Moon
 
@@ -266,6 +284,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionNewMoon),
                         EffectFormBuilder.ConditionForm(conditionNewMoonNoCost))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMagebaneSpellCrusher)
                     .Build())
             .AddToDB();
 
@@ -279,19 +298,23 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
         // Midnight's Blessing
 
-        var conditionFullMoonMidnightBlessing =
-            ConditionDefinitionBuilder
-                .Create(conditionFullMoon, $"Condition{Name}FullMoonMidnightBlessing")
-                .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance)
-                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
-                .AddToDB();
+        var conditionFullMoonMidnightBlessing = ConditionDefinitionBuilder
+            .Create(conditionFullMoon, $"Condition{Name}FullMoonMidnightBlessing")
+            .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
 
-        var conditionNewMoonMidnightBlessing =
-            ConditionDefinitionBuilder
-                .Create(conditionNewMoon, $"Condition{Name}NewMoonMidnightBlessing")
-                .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
-                .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
-                .AddToDB();
+        var conditionNewMoonMidnightBlessing = ConditionDefinitionBuilder
+            .Create(conditionNewMoon, $"Condition{Name}NewMoonMidnightBlessing")
+            .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
+            .AddToDB();
+
+        var conditionMidnightBlessing = ConditionDefinitionBuilder
+            .Create($"Condition{Name}MidnightBlessing")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
 
         var powerMidnightBlessing = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MidnightBlessing")
@@ -302,8 +325,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(MoonBeam)
                     .SetEffectForms()
+                    .SetNoSavingThrow()
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeMidnightBlessing())
+            .AddCustomSubFeatures(new CustomBehaviorMidnightBlessing(conditionMidnightBlessing))
             .AddToDB();
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
@@ -333,16 +357,25 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         var conditionFullMoonLunarEmbrace =
             ConditionDefinitionBuilder
                 .Create(conditionFullMoonMidnightBlessing, $"Condition{Name}FullMoonLunarEmbrace")
+                .SetParentCondition(ConditionDefinitions.ConditionFlying)
                 .AddFeatures(movementAffinityFullMoonLunarEmbrace)
                 .AddCustomSubFeatures(new AddUsablePowersFromCondition())
                 .AddToDB();
 
-        var conditionNewMoonLunarEmbrace =
-            ConditionDefinitionBuilder
-                .Create(conditionNewMoonMidnightBlessing, $"Condition{Name}NewMoonLunarEmbrace")
-                .AddFeatures(movementAffinityFullMoonLunarEmbrace)
-                .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
-                .AddToDB();
+        // there is indeed a typo on tag
+        // ReSharper disable once StringLiteralTypo
+        conditionFullMoonLunarEmbrace.ConditionTags.Add("Verticality");
+
+        var conditionNewMoonLunarEmbrace = ConditionDefinitionBuilder
+            .Create(conditionNewMoonMidnightBlessing, $"Condition{Name}NewMoonLunarEmbrace")
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .AddFeatures(movementAffinityFullMoonLunarEmbrace)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
+            .AddToDB();
+
+        // there is indeed a typo on tag
+        // ReSharper disable once StringLiteralTypo
+        conditionNewMoonLunarEmbrace.ConditionTags.Add("Verticality");
 
         var featureLunarEmbrace = FeatureDefinitionBuilder
             .Create($"Feature{Name}LunarEmbrace")
@@ -511,10 +544,18 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         }
     }
 
-    private sealed class MagicEffectFinishedByMeMidnightBlessing : IMagicEffectFinishedByMe
+    private sealed class CustomBehaviorMidnightBlessing(ConditionDefinition conditionMidnightBlessing)
+        : IMagicEffectFinishedByMe, IPreventRemoveConcentrationOnDamage
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                yield break;
+            }
+
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Warlock);
@@ -529,27 +570,47 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 _ => 9
             };
 
+            rulesetCharacter.InflictCondition(
+                conditionMidnightBlessing.Name,
+                DurationType.Minute,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionMidnightBlessing.Name,
+                0,
+                0,
+                0);
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 levels, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
 
+            var spellRepertoire = rulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
+                x.SpellCastingClass == CharacterClassDefinitions.Warlock);
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
-                .InstantiateEffectSpell(rulesetCharacter, null, MoonBeam, slotLevel, false);
+                .InstantiateEffectSpell(rulesetCharacter, spellRepertoire, MoonBeam, slotLevel, false);
 
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.CastNoCost)
-            {
-                RulesetEffect = effectSpell, positions = action.ActionParams.Positions
-            };
+            var actionParams = action.ActionParams.Clone();
 
-            rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
+            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
+            actionParams.RulesetEffect = effectSpell;
 
-            yield break;
+            actionService.ExecuteAction(actionParams, null, true);
+        }
+
+        public HashSet<SpellDefinition> SpellsThatShouldNotRollConcentrationCheckFromDamage(
+            RulesetCharacter rulesetCharacter)
+        {
+            return rulesetCharacter.HasConditionOfType(conditionMidnightBlessing)
+                ? [MoonBeam]
+                : [];
         }
     }
 
     private sealed class CustomBehaviorMoonlightGuise(
         FeatureDefinitionPower powerMoonlightGuise)
-        : IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battle,
@@ -570,7 +631,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -625,12 +686,13 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 yield break;
             }
 
+            EffectHelpers.StartVisualEffect(defender, defender, Banishment, EffectHelpers.EffectType.Effect);
             rulesetDefender.UpdateUsageForPower(powerMoonlightGuise, powerMoonlightGuise.CostPerUse);
             rulesetDefender.InflictCondition(
                 ConditionInvisible,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,

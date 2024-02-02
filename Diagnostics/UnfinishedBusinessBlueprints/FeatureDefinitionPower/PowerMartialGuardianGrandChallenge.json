@@ -33,7 +33,7 @@
     "targetSide": "Enemy",
     "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfSourceTurn",
+    "endOfEffect": 9000,
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Wisdom",

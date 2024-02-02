@@ -127,7 +127,10 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(Counterspell.EffectDescription)
+                    .Create(
+                        EffectDescriptionBuilder
+                            .Create(Counterspell)
+                            .Build())
                     .Build())
             .AddToDB();
 
@@ -329,6 +332,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -339,7 +343,8 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             };
 
             // different follow up pattern [not adding to ResultingActions]
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 

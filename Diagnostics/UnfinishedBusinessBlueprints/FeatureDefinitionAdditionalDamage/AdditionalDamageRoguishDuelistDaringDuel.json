@@ -134,7 +134,18 @@
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [],
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionRoguishDuelistDaringDuel:4fcd9fa2-e822-5f30-928e-62e8c4a62702",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    }
+  ],
   "addLightSource": false,
   "lightSourceForm": {
     "$type": "LightSourceForm, Assembly-CSharp",

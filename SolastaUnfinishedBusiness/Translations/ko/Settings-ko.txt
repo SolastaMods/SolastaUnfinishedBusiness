@@ -285,7 +285,6 @@ ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color> 종족에 <c
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>검은 촉수, 얽힘, 기름</color> 주문이나 <color=#D89555>가시 성장</color>주문을 시전할 때 <i><color=#F0DAA0>[정사각형]</color></i> 혹은 <i><color=#F0DAA0>[원형]</color></i> 범위에 1 원통형 높이까지 효과가 적용
 ModUi/&UseMathFlankingRules=<i>+ 정확한 수학 계산으로 측면을 결정 <color=#F0DAA0>[저사양 컴퓨터는 성능에 영향을 미칠 수 있음]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=공식 이점/불리점 규칙 사용 <i><color=#F0DAA0>[상황에 따라 굴림에 두 효과 모두 있는 경우, 상쇄되어 모두 없는 것으로 간주]</color></i>
-ModUi/&UseOfficialDistanceCalculation=공식 거리 계산인 한 크리쳐의 육면체에서 다른 크리쳐 육면체까지의 거리를 기준으로 <i><color=#F0DAA0>[솔라스타의 기본 거리 계산 대신]</color></i> 계산
 ModUi/&UseOfficialFlankingRules=공식 측면 공격 규칙 사용 <i><color=#F0DAA0>[아군이 대상의 반대편에 있으면 공격자가 이점 받음]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 도달 공격도 활성화 <color=#F0DAA0>[정확한 수학 비활성화]</color></i>

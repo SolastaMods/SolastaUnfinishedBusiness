@@ -391,10 +391,14 @@ internal static class RaceWyrmkinBuilder
             yield return gameLocationBattleService
                 .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
 
-            if (reactionParams.ReactionValidated)
+            if (!reactionParams.ReactionValidated)
             {
-                rulesetCharacter.UsePower(PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetCharacter));
+                yield break;
             }
+
+            var usablePower = PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetCharacter);
+
+            rulesetCharacter.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
         }
     }
 

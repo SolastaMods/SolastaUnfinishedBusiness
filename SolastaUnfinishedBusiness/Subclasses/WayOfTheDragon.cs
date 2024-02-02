@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -775,7 +776,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         FeatureDefinitionPower powerReactiveHide,
         ConditionDefinition conditionReactiveHide)
         :
-            IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+            IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -795,7 +796,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -1014,7 +1015,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            rulesetMe.UsePower(usablePower);
+            rulesetMe.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetMe.InflictCondition(
                 conditionReactiveHide.Name,
                 DurationType.Round,

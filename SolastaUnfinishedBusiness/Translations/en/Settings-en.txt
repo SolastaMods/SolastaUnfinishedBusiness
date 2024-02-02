@@ -285,7 +285,6 @@ ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use precise math to determine flanking <color=#F0DAA0>[may have a performance impact on slow machines]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official <color=#D89555>advantage / disadvantage</color> rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
-ModUi/&UseOfficialDistanceCalculation=Use official <color=#D89555>distance calculation</color> to be based on distance from one creature's cube to the other <i><color=#F0DAA0>[instead of Solasta's default distance calculation]</color></i>
 ModUi/&UseOfficialFlankingRules=Use official <color=#D89555>flanking</color> rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks <color=#F0DAA0>[disable precise math]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Also enable for reach attacks <color=#F0DAA0>[disable precise math]</color></i>

@@ -1,7 +1,6 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerRoguishDuelistMasterDuelist:72556349-367c-5ee0-9745-17169f6c4821",
     "Definition:FeatureRoguishDuelistMasterDuelist:8f1d4252-d73f-5a80-b2be-38838ce3eb73"
   ],
   "mode": "Union",

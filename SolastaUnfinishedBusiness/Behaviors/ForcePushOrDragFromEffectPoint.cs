@@ -109,8 +109,8 @@ internal sealed class ForcePushOrDragFromEffectPoint
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-        actionService.StopCharacterActions(target, CharacterAction.InterruptionType.ForcedMovement);
-        actionService.ExecuteAction(
+        actionService?.StopCharacterActions(target, CharacterAction.InterruptionType.ForcedMovement);
+        actionService?.ExecuteAction(
             new CharacterActionParams(target, ActionDefinitions.Id.Pushed, destination)
             {
                 CanBeCancelled = false, CanBeAborted = false, BoolParameter4 = false

@@ -55,7 +55,7 @@ public static class RulesetEffectSpellPatcher
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
 
-            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
 
             __result = EffectHelpers.CalculateSaveDc(
                 caster, __instance.spellDefinition.effectDescription, classHolder?.Class);
@@ -86,7 +86,7 @@ public static class RulesetEffectSpellPatcher
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
 
-            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
 
             if (classHolder != null)
             {
@@ -126,7 +126,7 @@ public static class RulesetEffectSpellPatcher
                 caster = EffectHelpers.GetCharacterByEffectGuid(originItem.SourceSummoningEffectGuid) ?? caster;
             }
 
-            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            var classHolder = originItem.ItemDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
 
             if (classHolder != null)
             {
@@ -163,7 +163,7 @@ public static class RulesetEffectSpellPatcher
             }
 
             //PATCH: support for `IClassHoldingFeature`
-            var holder = __instance.SpellDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
+            var holder = __instance.SpellDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>();
 
             if (holder == null)
             {

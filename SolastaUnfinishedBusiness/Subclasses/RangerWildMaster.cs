@@ -635,8 +635,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .GetMySummoner()?.RulesetCharacter
                     .GetClassLevel(CharacterClassDefinitions.Ranger) < 7)
             {
-                ServiceRepository.GetService<ICommandService>()
-                    ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
+                ServiceRepository.GetService<ICommandService>()?
+                    .ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);
             }
         }
 

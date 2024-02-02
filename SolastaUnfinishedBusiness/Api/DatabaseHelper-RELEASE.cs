@@ -520,6 +520,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionLightSensitive { get; } =
             GetDefinition<ConditionDefinition>("ConditionLightSensitive");
 
+        internal static ConditionDefinition ConditionLightSensitiveSorakSaboteur { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLightSensitiveSorakSaboteur");
+
         internal static ConditionDefinition ConditionLongstrider { get; } =
             GetDefinition<ConditionDefinition>("ConditionLongstrider");
 
@@ -1530,9 +1533,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionHindered { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionHindered");
-
-        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionLevitate { get; } =
-            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionLevitate");
 
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionRestrained { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionRestrained");

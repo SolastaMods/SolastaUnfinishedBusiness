@@ -376,7 +376,7 @@ public sealed class PathOfTheLight : AbstractSubclass
         }
     }
 
-    private sealed class BarbarianHolder : IClassHoldingFeature
+    private sealed class BarbarianHolder : IModifyAdditionalDamageClassLevel
     {
         // allows Illuminating Strike damage to scale with barbarian level
         public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;

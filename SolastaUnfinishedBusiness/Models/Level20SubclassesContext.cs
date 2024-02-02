@@ -1341,6 +1341,7 @@ internal static class Level20SubclassesContext
             .SetOverriddenPower(PowerSorcererManaPainterDrain)
             .AddToDB();
 
+        powerSorcererManaPainterMasterDrain.EffectDescription.rangeParameter = 1;
         powerSorcererManaPainterMasterDrain.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
         powerSorcererManaPainterMasterDrain.EffectDescription.EffectForms[1].SpellSlotsForm.sorceryPointsGain = 2;
 
@@ -1416,7 +1417,7 @@ internal static class Level20SubclassesContext
 
     private sealed class CustomBehaviorFinalWord :
         IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe,
-        IMagicalAttackBeforeHitConfirmedOnEnemy, IMagicalAttackFinishedByMe
+        IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMeAny
     {
         private const string ConditionSilenced = "ConditionSilenced";
         private static GameLocationCharacter _attacker;
@@ -1443,7 +1444,7 @@ internal static class Level20SubclassesContext
             defender.RulesetCharacter.ConcentrationChanged += ConcentrationChanged;
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -1458,7 +1459,7 @@ internal static class Level20SubclassesContext
             yield break;
         }
 
-        public IEnumerator OnMagicalAttackFinishedByMe(
+        public IEnumerator OnMagicEffectFinishedByMeAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)

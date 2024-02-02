@@ -1,11 +1,10 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Interfaces;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider
+internal sealed class StopPowerConcentrationProvider : CustomConcentrationControl.ICustomConcentrationProvider
 {
     internal FeatureDefinitionPower StopPower;
 
@@ -38,6 +37,7 @@ internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvi
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
         var usablePower = PowerProvider.Get(StopPower, character);
+        //CHECK: must be spend power no cost
         var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.PowerNoCost)
         {
             ActionModifiers = { new ActionModifier() },
@@ -48,7 +48,7 @@ internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvi
             SkipAnimationsAndVFX = true
         };
 
-        ServiceRepository.GetService<ICommandService>()
+        ServiceRepository.GetService<ICommandService>()?
             .ExecuteAction(actionParams, _ => { }, false);
     }
 }

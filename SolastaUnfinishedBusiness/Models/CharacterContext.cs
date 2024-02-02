@@ -896,12 +896,14 @@ internal static class CharacterContext
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusDescription";
             PowerMonkMartialArts.GuiPresentation.title =
                 "Feature/&AttackModifierMonkMartialArtsUnarmedStrikeBonusTitle";
-            PowerMonkMartialArts.activationTime = ActivationTime.Reaction;
+            PowerMonkMartialArts.GuiPresentation.hidden = true;
+            PowerMonkMartialArts.activationTime = ActivationTime.NoCost;
         }
         else
         {
             PowerMonkMartialArts.GuiPresentation.description = "Action/&MartialArtsDescription";
             PowerMonkMartialArts.GuiPresentation.title = "Action/&MartialArtsTitle";
+            PowerMonkMartialArts.GuiPresentation.hidden = false;
             PowerMonkMartialArts.activationTime = ActivationTime.OnAttackHitMartialArts;
         }
 
@@ -1528,6 +1530,7 @@ internal static class CharacterContext
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1558,6 +1561,7 @@ internal static class CharacterContext
             .Create($"Power{Cunning}Disarm")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1581,6 +1585,7 @@ internal static class CharacterContext
             .Create($"Power{Cunning}Poison")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1605,6 +1610,7 @@ internal static class CharacterContext
             .Create($"Power{Cunning}Trip")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1653,6 +1659,7 @@ internal static class CharacterContext
             .Create($"Power{Cunning}Withdraw")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1702,6 +1709,7 @@ internal static class CharacterContext
             .Create($"Power{Devious}Daze")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool, 2)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1732,6 +1740,7 @@ internal static class CharacterContext
             .Create($"Power{Devious}KnockOut")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool, 6)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1755,6 +1764,7 @@ internal static class CharacterContext
             .Create($"Power{Devious}Obscure")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerPool, 3)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1933,6 +1943,7 @@ internal static class CharacterContext
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { attackModifier },
                 StringParameter = powerRogueCunningStrike.Name,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
@@ -2010,8 +2021,10 @@ internal static class CharacterContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
@@ -2019,10 +2032,9 @@ internal static class CharacterContext
                 TargetCharacters = { defender }
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

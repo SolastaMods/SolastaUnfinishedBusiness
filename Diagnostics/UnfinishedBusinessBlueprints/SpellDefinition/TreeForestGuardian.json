@@ -45,7 +45,7 @@
     "targetSide": "Enemy",
     "durationType": "Minute",
     "durationParameter": 1,
-    "endOfEffect": "EndOfSourceTurn",
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Strength",

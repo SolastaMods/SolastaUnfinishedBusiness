@@ -22,6 +22,7 @@ internal sealed class Merciless : AbstractFightingStyle
         .Create("PowerFightingStyleMerciless")
         .SetGuiPresentation("Merciless", Category.FightingStyle, hidden: true)
         .SetUsesFixed(ActivationTime.NoCost)
+        .SetShowCasting(false)
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -93,21 +94,24 @@ internal sealed class Merciless : AbstractFightingStyle
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var targets = Gui.Battle
+                .GetContenders(attacker, isWithinXCells: distance)
+                .Where(x => x.CanPerceiveTarget(attacker))
+                .ToList();
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = Gui.Battle
-                    .GetContenders(attacker, isWithinXCells: distance)
-                    .Where(x => x.CanPerceiveTarget(attacker))
-                    .ToList()
+                targetCharacters = targets
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(

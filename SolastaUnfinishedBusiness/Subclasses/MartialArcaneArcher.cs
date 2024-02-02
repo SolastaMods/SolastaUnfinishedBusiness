@@ -161,7 +161,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureGuidedShot.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackGuidedShot(featureGuidedShot));
+        featureGuidedShot.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeGuidedShot(featureGuidedShot));
 
         // LEVEL 10
 
@@ -723,16 +723,21 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     //
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private class TryAlterOutcomePhysicalAttackGuidedShot(FeatureDefinition featureDefinition)
-        : ITryAlterOutcomePhysicalAttack
+    private class TryAlterOutcomePhysicalAttackByMeGuidedShot(FeatureDefinition featureDefinition)
+        : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var attackMode = action.actionParams.attackMode;
             var rulesetAttacker = me.RulesetCharacter;
 

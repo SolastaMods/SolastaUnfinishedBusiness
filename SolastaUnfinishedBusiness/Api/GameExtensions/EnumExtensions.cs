@@ -152,16 +152,14 @@ public enum ExtraConditionInterruption
     SourceRageStop = 9004
 }
 
-#if false
 internal enum ExtraTurnOccurenceType
 {
-    StartOfTurn = TurnOccurenceType.StartOfTurn,
-    EndOfTurn = TurnOccurenceType.EndOfTurn,
-    EndOfTurnNoPerceptionOfSource = TurnOccurenceType.EndOfTurnNoPerceptionOfSource,
-    StartOfTurnWithPerceptionOfSource = 9000,
-    OnMoveEnd = 9001
+    // StartOfTurn = RuleDefinitions.TurnOccurenceType.StartOfTurn,
+    // EndOfTurn = RuleDefinitions.TurnOccurenceType.EndOfTurn,
+    // EndOfTurnNoPerceptionOfSource = RuleDefinitions.TurnOccurenceType.EndOfTurnNoPerceptionOfSource,
+    // EndOfSourceTurn = RuleDefinitions.TurnOccurenceType.EndOfSourceTurn,
+    StartOfSourceTurn = 9000
 }
-#endif
 
 internal enum ExtraAdditionalDamageAdvancement
 {

@@ -318,6 +318,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -327,9 +328,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 targetCharacters = Gui.Battle.GetContenders(attacker, isWithinXCells: 2)
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            actionService.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 }

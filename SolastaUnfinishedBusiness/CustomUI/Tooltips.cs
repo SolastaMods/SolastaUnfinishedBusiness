@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -133,7 +132,9 @@ internal static class Tooltips
             }
 
             // don't use ? on a type deriving from an unity object
+#pragma warning disable IDE0031
             if (_distanceTextObject != null)
+#pragma warning restore IDE0031
             {
                 _distanceTextObject.SetActive(true);
             }
@@ -141,7 +142,9 @@ internal static class Tooltips
         else if (!Main.Settings.EnableDistanceOnTooltip || battleService.Battle is null)
         {
             // don't use ? on a type deriving from an unity object
+#pragma warning disable IDE0031
             if (_distanceTextObject != null)
+#pragma warning restore IDE0031
             {
                 _distanceTextObject.SetActive(false);
             }
@@ -191,14 +194,8 @@ internal static class Tooltips
             : GetNextControlledCharacterInInitiative(
                 initiativeSortedContenders, activePlayerController, actingCharacter);
 
-        if (Main.Settings.UseOfficialDistanceCalculation)
-        {
-            return DistanceCalculation.CalculateDistanceFromTwoCharacters(characterToMeasureFrom, hoveredCharacter);
-        }
-
-        var rawDistance = characterToMeasureFrom.LocationPosition - hoveredCharacter.LocationPosition;
-
-        return Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
+        //PATCH: use better distance calculation algorithm
+        return DistanceCalculation.GetDistanceFromCharacters(characterToMeasureFrom, hoveredCharacter);
     }
 
     private static GameLocationCharacter GetNextControlledCharacterInInitiative(

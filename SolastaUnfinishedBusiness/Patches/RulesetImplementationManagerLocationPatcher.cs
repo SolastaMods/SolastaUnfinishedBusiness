@@ -114,7 +114,8 @@ public static class RulesetImplementationManagerLocationPatcher
             return useDefaultLogic;
         }
 
-        private static bool CustomSwap(EffectForm effectForm,
+        private static bool CustomSwap(
+            EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             // Main.Log2($"CustomSwap", true);
@@ -125,7 +126,13 @@ public static class RulesetImplementationManagerLocationPatcher
                 return true;
             }
 
-            var action = ServiceRepository.GetService<IGameLocationActionService>();
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                return true;
+            }
+
             var attacker = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
             var defender = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
 
@@ -136,12 +143,12 @@ public static class RulesetImplementationManagerLocationPatcher
 
             const ActionDefinitions.Id ACTION_ID = (ActionDefinitions.Id)ExtraActionId.PushedCustom;
 
-            action.ExecuteAction(
+            actionService.ExecuteAction(
                 new CharacterActionParams(attacker, ACTION_ID, defender.LocationPosition)
                 {
                     BoolParameter = false, BoolParameter4 = false, CanBeCancelled = false, CanBeAborted = false
                 }, null, true);
-            action.ExecuteAction(
+            actionService.ExecuteAction(
                 new CharacterActionParams(defender, ActionDefinitions.Id.Pushed, attacker.LocationPosition)
                 {
                     BoolParameter = false, BoolParameter4 = false, CanBeCancelled = false, CanBeAborted = false

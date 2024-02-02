@@ -41,9 +41,8 @@ internal static partial class SpellBuilders
                                     .Create(ConditionDefinitions.ConditionLevitate, "ConditionReverseGravity")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .SetConditionType(ConditionType.Neutral)
-                                    .SetFeatures(
-                                        FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
-                                        FeatureDefinitionMoveModes.MoveModeFly2)
+                                    .SetParentCondition(ConditionDefinitions.ConditionFlying)
+                                    .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly2)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)

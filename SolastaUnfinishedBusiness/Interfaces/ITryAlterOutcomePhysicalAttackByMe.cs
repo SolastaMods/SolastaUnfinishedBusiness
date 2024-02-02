@@ -2,9 +2,9 @@
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface ITryAlterOutcomePhysicalAttack
+public interface ITryAlterOutcomePhysicalAttackByMe
 {
-    IEnumerator OnAttackTryAlterOutcome(
+    IEnumerator OnAttackTryAlterOutcomeByMe(
         GameLocationBattleManager instance,
         CharacterAction action,
         GameLocationCharacter attacker,

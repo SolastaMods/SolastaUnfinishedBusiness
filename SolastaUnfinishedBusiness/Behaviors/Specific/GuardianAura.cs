@@ -31,6 +31,11 @@ internal static class GuardianAura
         RulesetEffect rulesetEffect,
         int damageAmount)
     {
+        if (Gui.Battle == null)
+        {
+            yield break;
+        }
+
         var units = Gui.Battle.GetContenders(defender, false)
             .ToList(); // avoid changing enumerator
 

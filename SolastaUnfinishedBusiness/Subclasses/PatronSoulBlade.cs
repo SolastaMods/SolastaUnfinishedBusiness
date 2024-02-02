@@ -171,8 +171,10 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .Create($"Power{Name}SoulShield")
             .SetGuiPresentation(Category.Feature, PowerFighterSecondWind)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetEffectDescription(Shield.EffectDescription)
-            .SetReactionContext(ReactionTriggerContext.None)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(Shield)
+                    .Build())
             .AddToDB();
 
         //

@@ -713,7 +713,7 @@ internal static class MeleeCombatFeats
         ConditionDefinition conditionDefinition,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureDefinition)
-        : IPhysicalAttackAfterDamage, ICharacterTurnEndListener
+        : IPhysicalAttackFinishedByMe, ICharacterTurnEndListener
     {
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
@@ -729,20 +729,21 @@ internal static class MeleeCombatFeats
             locationCharacter.ReadiedAction = ActionDefinitions.ReadyActionType.Melee;
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
 
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
                 (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
             {
-                return;
+                yield break;
             }
 
             rulesetCharacter.InflictCondition(
@@ -872,7 +873,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                IgnoreInterruptionCheck.Marker,
+                IgnoreInvisibilityInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
@@ -893,7 +894,7 @@ internal static class MeleeCombatFeats
                             .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         var featCleavingAttack = FeatDefinitionBuilder
@@ -919,7 +920,7 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class CustomBehaviorCleaving(ConditionDefinition conditionCleavingAttackFinish)
-        : IPhysicalAttackAfterDamage, IOnReducedToZeroHpByMe
+        : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe
     {
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
@@ -935,17 +936,18 @@ internal static class MeleeCombatFeats
             InflictCondition(attacker.RulesetCharacter);
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (outcome != RollOutcome.CriticalSuccess || !ValidateCleavingAttack(attackMode))
             {
-                return;
+                yield break;
             }
 
             InflictCondition(attacker.RulesetCharacter);
@@ -1208,7 +1210,7 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class CustomBehaviorFeatDevastatingStrikes :
-        IPhysicalAttackAfterDamage, IAttackBeforeHitConfirmedOnEnemy
+        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         private const string DevastatingStrikesDescription = "Feat/&FeatDevastatingStrikesDescription";
         private const string DevastatingStrikesTitle = "Feat/&FeatDevastatingStrikesTitle";
@@ -1263,24 +1265,25 @@ internal static class MeleeCombatFeats
                 0);
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             if (attackMode == null || outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
-                return;
+                yield break;
             }
 
             var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
 
             if (originalDamageForm == null)
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -1289,16 +1292,17 @@ internal static class MeleeCombatFeats
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
-                return;
+                yield break;
             }
 
             var bonusDamage = 0;
+            var attackModifier = action.ActionParams.ActionModifiers[0];
             var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
 
             if (advantageType == AdvantageType.Advantage)
@@ -1335,7 +1339,7 @@ internal static class MeleeCombatFeats
 
             if (bonusDamage == 0 && outcome is not RollOutcome.CriticalSuccess)
             {
-                return;
+                yield break;
             }
 
             var rolls = new List<int>();
@@ -1384,7 +1388,7 @@ internal static class MeleeCombatFeats
         var fellHandedAdvantage = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Advantage")
             .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}AdvantageDescription", hidden: true)
-            .SetUsesFixed(ActivationTime.Reaction)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1485,6 +1489,7 @@ internal static class MeleeCombatFeats
                                 RulesetImplementationManager;
 
                         var usablePower = PowerProvider.Get(_power, rulesetAttacker);
+                        //CHECK: must be spend power
                         var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
                         {
                             RulesetEffect = implementationManagerService
@@ -1494,10 +1499,9 @@ internal static class MeleeCombatFeats
                             TargetCharacters = { defender }
                         };
 
-                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
                         // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-                        actionService?.ExecuteAction(actionParams, null, true);
+                        ServiceRepository.GetService<IGameLocationActionService>()?
+                            .ExecuteAction(actionParams, null, true);
                     }
 
                     break;
@@ -1653,7 +1657,7 @@ internal static class MeleeCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                IgnoreInterruptionCheck.Marker,
+                IgnoreInvisibilityInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
 
@@ -1673,7 +1677,7 @@ internal static class MeleeCombatFeats
                             .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         var featPowerAttack = FeatDefinitionBuilder
@@ -1831,7 +1835,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackAfterDamageFeatSlasher : IPhysicalAttackAfterDamage
+    private sealed class PhysicalAttackAfterDamageFeatSlasher : IPhysicalAttackFinishedByMe
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly ConditionDefinition _criticalConditionDefinition;
@@ -1847,19 +1851,20 @@ internal static class MeleeCombatFeats
             _damageType = damageType;
         }
 
-        public void OnPhysicalAttackAfterDamage(
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RollOutcome outcome,
+            int damageAmount)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null || damage.DamageType != _damageType)
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -1868,7 +1873,7 @@ internal static class MeleeCombatFeats
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
             {
-                return;
+                yield break;
             }
 
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
@@ -1890,7 +1895,7 @@ internal static class MeleeCombatFeats
 
             if (outcome is not RollOutcome.CriticalSuccess)
             {
-                return;
+                yield break;
             }
 
             rulesetDefender.InflictCondition(

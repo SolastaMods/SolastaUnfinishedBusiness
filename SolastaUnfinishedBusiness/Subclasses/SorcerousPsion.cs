@@ -265,7 +265,7 @@ public sealed class SorcerousPsion : AbstractSubclass
     // Mind Sculpt
     //
 
-    private sealed class CustomBehaviorMindSculpt : IMagicalAttackBeforeHitConfirmedOnEnemy, IActionFinishedByMe
+    private sealed class CustomBehaviorMindSculpt : IMagicEffectBeforeHitConfirmedOnEnemy, IActionFinishedByMe
     {
         private bool _hasDamageChanged;
 
@@ -289,7 +289,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -399,6 +399,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
             var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 2);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -450,7 +451,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             var character = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSupremeWill, character);
 
-            character.UsePower(usablePower);
+            character.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
             character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }

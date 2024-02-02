@@ -14,7 +14,7 @@ public static class RulesetImplementationManagerExtensions
         var rulesetEffectPower = rulesetImplementationManager.InstantiateEffectPower(
             user, usablePower, delayRegistration);
 
-        user.PowersUsedByMe.TryAdd(rulesetEffectPower);
+        //user.PowersUsedByMe.TryAdd(rulesetEffectPower);
 
         return rulesetEffectPower;
     }

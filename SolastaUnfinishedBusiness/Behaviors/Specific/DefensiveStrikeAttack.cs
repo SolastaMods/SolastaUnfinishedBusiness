@@ -19,6 +19,11 @@ internal static class DefensiveStrikeAttack
         GameLocationCharacter attacker,
         GameLocationCharacter defender)
     {
+        if (Gui.Battle == null)
+        {
+            yield break;
+        }
+
         var units = Gui.Battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrUnconscious: false })
             .ToList(); // avoid changing enumerator

@@ -173,7 +173,7 @@ public sealed class InnovationArmor : AbstractSubclass
                 Sprites.GetSprite("PowerDefensiveField", Resources.PowerDefensiveField, 256, 128))
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(InGuardianMode),
-                InventorClassHolder.Marker,
+                InventorModifyAdditionalDamageClassLevelHolder.Marker,
                 RestrictRecurrentEffectsOnSelfTurnOnly.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(

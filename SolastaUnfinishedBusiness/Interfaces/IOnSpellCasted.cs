@@ -4,9 +4,9 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.Interfaces;
 
 // On spell being cast
-internal interface IMagicalAttackCastedSpell
+internal interface IOnSpellCasted
 {
-    IEnumerator OnMagicalAttackCastedSpell(
+    IEnumerator OnSpellCasted(
         RulesetCharacter featureOwner,
         GameLocationCharacter caster,
         CharacterActionCastSpell castAction,

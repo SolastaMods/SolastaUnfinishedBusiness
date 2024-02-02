@@ -779,7 +779,7 @@ internal static class InventorClass
             .SetOrUpdateGuiPresentation(title, description)
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
-            .AddCustomSubFeatures(InventorClassHolder.Marker)
+            .AddCustomSubFeatures(InventorModifyAdditionalDamageClassLevelHolder.Marker)
             .SetCosts(Costs)
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
@@ -806,11 +806,10 @@ internal static class InventorClass
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .AddCustomSubFeatures(ModifyPowerVisibility.Visible)
-            .SetReactionContext(ReactionTriggerContext.None)
             .AddToDB();
 
         //should be hidden from user
-        var flashOfGenius = new TryAlterOutcomeFailedSavingThrowFlashOfGenius(
+        var flashOfGenius = new TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius(
             bonusPower, "InventorFlashOfGenius", "ConditionInventorFlashOfGeniusAura");
 
         var auraPower = FeatureDefinitionPowerBuilder
@@ -857,20 +856,20 @@ internal static class InventorClass
     }
 }
 
-internal class InventorClassHolder : IClassHoldingFeature
+internal class InventorModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
 {
-    private InventorClassHolder()
+    private InventorModifyAdditionalDamageClassLevelHolder()
     {
     }
 
-    public static InventorClassHolder Marker { get; } = new();
+    public static InventorModifyAdditionalDamageClassLevelHolder Marker { get; } = new();
 
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeFailedSavingThrow
+internal class TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
 {
-    internal TryAlterOutcomeFailedSavingThrowFlashOfGenius(
+    internal TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius(
         FeatureDefinitionPower power, string reactionName, string auraConditionName)
     {
         Power = power;
@@ -882,7 +881,8 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
     private string ReactionName { get; }
     private string AuraConditionName { get; }
 
-    public IEnumerator OnFailedSavingTryAlterOutcome(GameLocationBattleManager battleManager,
+    public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
+        GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -891,6 +891,11 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
         bool hasHitVisual,
         bool hasBorrowedLuck)
     {
+        if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+        {
+            yield break;
+        }
+
         var rulesetDefender = defender.RulesetCharacter;
 
         if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
@@ -946,8 +951,8 @@ internal class TryAlterOutcomeFailedSavingThrowFlashOfGenius : ITryAlterOutcomeF
             yield break;
         }
 
+        rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
         rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-        rulesetOriginalHelper.UsePower(usablePower); // non fixed powers must be explicitly used on custom
         action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
     }
 

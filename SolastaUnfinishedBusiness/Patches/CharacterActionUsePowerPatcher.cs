@@ -27,7 +27,7 @@ public static class CharacterActionUsePowerPatcher
                 return false;
             }
 
-            return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInterruptionCheck>();
+            return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInvisibilityInterruptionCheck>();
         }
     }
 
@@ -47,7 +47,7 @@ public static class CharacterActionUsePowerPatcher
                 return false;
             }
 
-            return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInterruptionCheck>();
+            return !__instance.activePower.PowerDefinition.HasSubFeatureOfType<IIgnoreInvisibilityInterruptionCheck>();
         }
     }
 

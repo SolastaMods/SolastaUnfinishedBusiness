@@ -223,7 +223,7 @@ public class PatronMountain : AbstractSubclass
         FeatureDefinitionPower powerEternalGuardian,
         ConditionDefinition conditionDefinition)
         :
-            IAttackBeforeHitConfirmedOnMeOrAlly, IMagicalAttackBeforeHitConfirmedOnMeOrAlly
+            IAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
             GameLocationBattleManager battle,
@@ -245,7 +245,7 @@ public class PatronMountain : AbstractSubclass
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMeOrAlly(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter me,

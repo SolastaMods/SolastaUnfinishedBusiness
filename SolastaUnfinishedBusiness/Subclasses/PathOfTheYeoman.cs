@@ -128,7 +128,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                             .SetConditionForm(conditionBulwark, ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         var powerBulwarkTurnOff = FeatureDefinitionPowerBuilder
@@ -146,7 +146,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                             .SetConditionForm(conditionBulwark, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         movementAffinityBulwark.AddCustomSubFeatures(new StopPowerConcentrationProvider(
@@ -341,6 +341,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerMightyShot, rulesetAttacker);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -350,10 +351,9 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 targetCharacters = battleManager.Battle.GetContenders(defender, false, isWithinXCells: 3)
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

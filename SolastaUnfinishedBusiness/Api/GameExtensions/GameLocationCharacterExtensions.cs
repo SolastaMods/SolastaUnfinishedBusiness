@@ -19,15 +19,8 @@ public static class GameLocationCharacterExtensions
 
     public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
-        if (Main.Settings.UseOfficialDistanceCalculation)
-        {
-            return DistanceCalculation.CalculateDistanceFromTwoCharacters(source, target) <= range;
-        }
-
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        return gameLocationBattleService != null &&
-               gameLocationBattleService.IsWithinXCells(source, target, range);
+        //PATCH: use better distance calculation algorithm
+        return DistanceCalculation.GetDistanceFromCharacters(source, target) <= range;
     }
 
     // consolidate all checks if a character can perceive another
@@ -200,11 +193,13 @@ public static class GameLocationCharacterExtensions
     {
         var character = instance.RulesetCharacter;
 
-        return character is { IsDeadOrDyingOrUnconscious: false }
-               && !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne)
-               && !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated)
-               && !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned)
-               && !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
+        return character is { IsDeadOrDyingOrUnconscious: false } &&
+               !instance.IsCharging &&
+               !instance.MoveStepInProgress &&
+               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionProne) &&
+               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionIncapacitated) &&
+               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionStunned) && 
+               !character.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionParalyzed);
     }
 
     internal static bool IsReactionAvailable(this GameLocationCharacter instance, bool ignoreReactionUses = false)
@@ -389,6 +384,7 @@ public static class GameLocationCharacterExtensions
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkMartialArts, rulesetCharacter);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(instance, Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -398,8 +394,8 @@ public static class GameLocationCharacterExtensions
                 TargetCharacters = { instance }
             };
 
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
         }
 
         // burn one main attack

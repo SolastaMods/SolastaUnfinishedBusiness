@@ -95,7 +95,9 @@ public sealed class OathOfThunder : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerThunderousRebuke.AddCustomSubFeatures(new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
+        powerThunderousRebuke.AddCustomSubFeatures(
+            ForcePowerUseInSpendPowerAction.Marker,
+            new ModifyEffectDescriptionThunderousRebuke(powerThunderousRebuke));
 
         // Divine Bolt
 
@@ -378,6 +380,7 @@ public sealed class OathOfThunder : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerBifrostDamage, rulesetAttacker);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -387,9 +390,8 @@ public sealed class OathOfThunder : AbstractSubclass
                 targetCharacters = Gui.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 2)
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            actionService.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 }

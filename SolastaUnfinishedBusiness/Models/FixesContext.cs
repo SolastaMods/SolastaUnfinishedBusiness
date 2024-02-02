@@ -49,7 +49,6 @@ internal static class FixesContext
         FixGorillaWildShapeRocksToUnlimited();
         FixLanguagesPointPoolsToIncludeAllLanguages();
         FixMartialArtsProgression();
-        FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixMummyDreadfulGlareSavingAttribute();
         FixPowerDragonbornBreathWeaponDiceProgression();
@@ -386,25 +385,6 @@ internal static class FixesContext
         }
     }
 
-    private static void FixMeleeHitEffectsRange()
-    {
-        //BEHAVIOR: Ensures any spell or power effect in game that uses MeleeHit has a correct range of 1
-        //Otherwise our AttackEvaluationParams.FillForMagicReachAttack will use incorrect data
-        foreach (var effectDescription in DatabaseRepository.GetDatabase<SpellDefinition>()
-                     .Select(x => x.EffectDescription)
-                     .Where(x => x.rangeType == RangeType.MeleeHit))
-        {
-            effectDescription.rangeParameter = 1;
-        }
-
-        foreach (var effectDescription in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
-                     .Select(x => x.EffectDescription)
-                     .Where(x => x.rangeType == RangeType.MeleeHit))
-        {
-            effectDescription.rangeParameter = 1;
-        }
-    }
-
     private static void FixMinorMagicEffectsIssues()
     {
         // fix touch powers with range parameter greater than zero
@@ -684,6 +664,7 @@ internal static class FixesContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
+            //CHECK: must be spend power
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -692,14 +673,10 @@ internal static class FixesContext
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
             };
-            actionParams.RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false);
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

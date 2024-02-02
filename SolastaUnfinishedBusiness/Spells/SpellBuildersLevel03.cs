@@ -693,6 +693,7 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
+
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 RulesetEffect = implementationManagerService
@@ -1052,7 +1053,7 @@ internal static partial class SpellBuilders
             // leap damage on enemies within 10 ft from target
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
+            //CHECK: must be spend power
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
@@ -1063,10 +1064,9 @@ internal static partial class SpellBuilders
                 targetCharacters = battleManager.Battle.GetContenders(defender, false, isWithinXCells: 2)
             };
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            actionService.ExecuteAction(actionParams, null, true);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 

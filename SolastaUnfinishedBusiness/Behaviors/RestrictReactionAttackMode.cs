@@ -1,8 +1,24 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Interfaces;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
+
+internal interface IRestrictReactionAttackMode
+{
+    public bool ValidReactionMode(
+        CharacterAction action,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        RulesetAttackMode attackMode,
+        RulesetEffect rulesetEffect);
+}
+
+internal delegate bool ValidReactionModeHandler(
+    CharacterAction action,
+    GameLocationCharacter attacker,
+    GameLocationCharacter defender,
+    RulesetAttackMode attackMode,
+    RulesetEffect rulesetEffect);
 
 internal sealed class RestrictReactionAttackMode : IRestrictReactionAttackMode
 {

@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -277,7 +278,7 @@ public sealed class DomainDefiler : AbstractSubclass
     //
 
     private sealed class CustomBehaviorInsidiousDeathMagic :
-        IAttackBeforeHitConfirmedOnEnemy, IMagicalAttackBeforeHitConfirmedOnEnemy
+        IAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
     {
         private readonly ConditionDefinition _conditionInsidiousDeathMagic;
 
@@ -307,7 +308,7 @@ public sealed class DomainDefiler : AbstractSubclass
             yield return TryAddCondition(actualEffectForms, attacker, defender);
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -426,7 +427,7 @@ public sealed class DomainDefiler : AbstractSubclass
 
     private sealed class CustomBehaviorDyingLight(FeatureDefinitionPower powerDyingLight) :
         IForceMaxDamageTypeDependent,
-        IMagicalAttackBeforeHitConfirmedOnEnemy,
+        IMagicEffectBeforeHitConfirmedOnEnemy,
         IActionFinishedByMe
     {
         private bool _isValid;
@@ -443,7 +444,7 @@ public sealed class DomainDefiler : AbstractSubclass
             return damageForm.DamageType == DamageTypeNecrotic && _isValid;
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -465,7 +466,7 @@ public sealed class DomainDefiler : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UsePower(usablePower);
+            rulesetAttacker.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
     }

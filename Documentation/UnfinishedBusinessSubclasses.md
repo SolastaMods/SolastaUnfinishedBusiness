@@ -2693,7 +2693,7 @@ Once during your turn, the first creature you hit with a dagger attack receives 
 
 * Hail of Blades
 
-Starting at 9th level, when you hit a creature affected by Blade Mark with a dagger attack, you can use your reaction to summon a maelstrom of ethereal blades and hurl them at your enemies. Each creature within 15 feet of the target, including the target, must pass a Dexterity saving throw or receive force damage equal to your sneak attack damage and become affected by Blade Mark condition regardless of if they pass the saving throw or not. You can use this feature once per short rest. 
+Starting at 9th level, when you hit a creature affected by Blade Mark with a dagger attack, you can use your reaction to summon a maelstrom of ethereal blades and hurl them at your enemies. Each creature within 10 feet of the target that you can see, including the target, must pass a Dexterity saving throw or receive force damage equal to your sneak attack damage and become affected by Blade Mark condition regardless of if they pass the saving throw or not. You can use this feature once per short rest.
 
 
 ### Level 13
@@ -2745,7 +2745,7 @@ Starting at 13th level, once per turn while you aren't incapacitated, shocked or
 
 * Master Duelist
 
-Starting at 17th level, your mastery of the blade lets you turn failure into success in combat. If you miss with an attack roll, you can roll it again with advantage. You can use this feature twice per short rest.
+Starting at 17th level, immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you. 
 
 
 
@@ -3333,7 +3333,7 @@ New Moon: You are obscured in non-magical darkness. If you move to a tile that i
 
 * Midnight Blessing
 
-You are resistant to radiant damage while Full Moon cloak is active and you are resistant to cold damage while New Moon cloak is active. You also learn Moon Beam spell if you haven't already done so. You can cast it once per long rest without expanding a spell slot at your highest slot level. When you cast Moon Beam this way, you gain temporary hit points equal to your warlock level for one minute.
+You are resistant to radiant damage while Full Moon cloak is active and you are resistant to cold damage while New Moon cloak is active. You also learn Moon Beam spell if you haven't already done so. You can cast it once per long rest without expanding a spell slot at your highest slot level. When you cast Moon Beam this way, you gain temporary hit points equal to your warlock level for one minute and taking damage cannot break your concentration for this spell.
 
 
 ### Level 10

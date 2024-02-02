@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -165,7 +166,7 @@ internal static class RaceOligathBuilder
         FeatureDefinitionPower featureDefinitionPower,
         ConditionDefinition conditionDefinition)
         :
-            IAttackBeforeHitConfirmedOnMe, IMagicalAttackBeforeHitConfirmedOnMe
+            IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -185,7 +186,7 @@ internal static class RaceOligathBuilder
             }
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnMe(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -230,7 +231,6 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
@@ -249,7 +249,7 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            rulesetMe.UsePower(usablePower);
+            rulesetMe.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetMe.InflictCondition(
                 conditionDefinition.Name,
                 conditionDefinition.DurationType,

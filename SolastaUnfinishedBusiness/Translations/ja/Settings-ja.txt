@@ -285,7 +285,6 @@ ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>ティーフリング</color>�
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>黒い触手、絡み合い、グリース</color> <i><color=#F0DAA0>[square]</color></i> または <color=#D89555 をキャストするときに高さ 1 のシリンダー効果を使用します>スパイク成長</color> <i><color=#F0DAA0>[ラウンド]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ 正確な計算を使用して側面攻撃を決定します <color=#F0DAA0>[遅いマシンではパフォーマンスに影響を与える可能性があります]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=公式の有利/不利ルールを使用します<i><color=#F0DAA0>[状況によってロールに両方が存在する場合、どちらも持っていないとみなされます]</color></i>
-ModUi/&UseOfficialDistanceCalculation=1 つのクリーチャーのキューブから他のクリーチャーのキューブまでの距離に基づく公式の距離計算を使用します<i><color=#F0DAA0>[ソラスタのデフォルトの距離計算の代わりに]</color></i>
 ModUi/&UseOfficialFlankingRules=公式の側面ルールを使用する<i><color=#F0DAA0>[味方がターゲットの反対側にいる場合、攻撃側が有利]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 遠距離攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ リーチ攻撃も有効にします<color=#F0DAA0>[正確な計算を無効にする]</color></i>

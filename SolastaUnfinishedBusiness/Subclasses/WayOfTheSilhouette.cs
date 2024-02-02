@@ -222,7 +222,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureShadowFlurry.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackShadowFlurry(featureShadowFlurry));
+        featureShadowFlurry.AddCustomSubFeatures(
+            new TryAlterOutcomePhysicalAttackByMeShadowFlurry(featureShadowFlurry));
 
         // LEVEL 17
 
@@ -273,20 +274,25 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                yield break;
+            }
+
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
                 .InstantiateEffectSpell(rulesetCharacter, null, Darkness, 2, false);
 
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.CastNoCost)
-            {
-                RulesetEffect = effectSpell, positions = action.ActionParams.Positions
-            };
+            var actionParams = action.ActionParams.Clone();
+
+            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
+            actionParams.RulesetEffect = effectSpell;
 
             rulesetCharacter.SpellsCastByMe.TryAdd(effectSpell);
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, true);
-
-            yield break;
+            actionService.ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -335,18 +341,23 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // Shadow Flurry
     //
 
-    private class TryAlterOutcomePhysicalAttackShadowFlurry(
+    private class TryAlterOutcomePhysicalAttackByMeShadowFlurry(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureShadowFlurry)
-        : ITryAlterOutcomePhysicalAttack
+        : ITryAlterOutcomePhysicalAttackByMe
     {
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,
             GameLocationCharacter target,
             ActionModifier attackModifier)
         {
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
             var rulesetMe = me.RulesetCharacter;
 
             if (rulesetMe is not { IsDeadOrDyingOrUnconscious: false })
@@ -473,9 +484,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.SpendPower)
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetMe, usablePower, false),
@@ -485,8 +497,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             EffectHelpers.StartVisualEffect(me, attacker,
                 FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will, EffectHelpers.EffectType.Caster);
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 }

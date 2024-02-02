@@ -2,7 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Subclasses.Builders;
 using TA.AddressableAssets;
 using UnityEngine;
 
@@ -41,7 +41,7 @@ public static class CharacterActionItemFormPatcher
         {
             //PATCH: support for `IActionItemDiceBox` showing custom dice number/size
             var action = __instance.guiCharacterAction.ActionDefinition;
-            var provider = action.GetFirstSubFeatureOfType<IActionItemDiceBox>();
+            var provider = action.GetFirstSubFeatureOfType<GambitsBuilders.IActionItemDiceBox>();
 
             if (provider == null)
             {

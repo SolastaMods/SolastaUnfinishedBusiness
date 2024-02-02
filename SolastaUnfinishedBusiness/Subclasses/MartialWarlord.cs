@@ -98,7 +98,6 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityExploitOpening)
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
             .SetSpecialInterruptions(ExtraConditionInterruption.AttackedNotBySource)
             .CopyParticleReferences(ConditionDefinitions.ConditionLeadByExampleMarked)
             .AddToDB();
@@ -113,7 +112,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionExploitOpening))
                     .Build())
@@ -127,7 +126,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(
                             ConditionDefinitionBuilder
@@ -141,7 +140,6 @@ public sealed class MartialWarlord : AbstractSubclass
                                         .SetGuiPresentation($"Condition{Name}PredictAttack", Category.Condition)
                                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                         .AddToDB())
-                                .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
                                 .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                 .CopyParticleReferences(ConditionDefinitions.ConditionInsane)
                                 .AddToDB()))
@@ -167,11 +165,9 @@ public sealed class MartialWarlord : AbstractSubclass
                     .SetAttackOfOpportunityImmunity(true)
                     .SetSituationalContext(SituationalContext.SourceHasCondition, conditionCoveringStrike)
                     .AddToDB())
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
             .AddToDB();
 
         conditionCoveringStrike.AddCustomSubFeatures(
-            RemoveConditionOnSourceTurnStart.Mark,
             new OnConditionAddedOrRemovedCoveringStrike(conditionCoveringStrikeAlly));
 
         var powerCoveringStrike = FeatureDefinitionPowerSharedPoolBuilder
@@ -182,7 +178,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCoveringStrike))
                     .Build())
             .AddToDB();
@@ -380,7 +376,7 @@ public sealed class MartialWarlord : AbstractSubclass
                     conditionCoveringStrikeAlly.Name,
                     DurationType.Round,
                     1,
-                    TurnOccurenceType.EndOfSourceTurn,
+                    (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
                     AttributeDefinitions.TagEffect,
                     sourceCharacter.guid,
                     sourceCharacter.CurrentFaction.Name,
@@ -477,7 +473,6 @@ public sealed class MartialWarlord : AbstractSubclass
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
             var targetPosition = action.ActionParams.Positions[0];
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actionParams =
                 new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
                 {
@@ -503,7 +498,8 @@ public sealed class MartialWarlord : AbstractSubclass
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
             targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
-            actionService.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 

@@ -57,9 +57,8 @@ internal static class PowerBundleContext
                 if (fromActor != null)
                 {
                     functor._powerUsed = false;
-                    ServiceRepository.GetService<IGameLocationActionService>();
 
-                    var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain)
+                    var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerNoCost)
                     {
                         ActionModifiers = { new ActionModifier() },
                         RulesetEffect = implementationManagerService
@@ -70,7 +69,7 @@ internal static class PowerBundleContext
                         SkipAnimationsAndVFX = true
                     };
 
-                    ServiceRepository.GetService<ICommandService>()
+                    ServiceRepository.GetService<ICommandService>()?
                         .ExecuteAction(actionParams, functor.ActionExecuted, false);
 
                     while (!functor._powerUsed)

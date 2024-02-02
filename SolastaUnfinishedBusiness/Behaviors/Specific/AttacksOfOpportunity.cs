@@ -25,6 +25,11 @@ internal static class AttacksOfOpportunity
         GameLocationCharacter attacker,
         GameLocationCharacter defender)
     {
+        if (Gui.Battle == null)
+        {
+            yield break;
+        }
+
         //Process features on attacker or defender
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 

@@ -202,25 +202,20 @@ public static class ActionSwitching
 
     internal static void PrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type, int index)
     {
-        // ReSharper disable once InvocationIsSkipped
-        Main.Log($"PrioritizeAction [{character.Name}] {type}");
-        var service = ServiceRepository.GetService<IGameLocationActionService>();
-        var actionParams = new CharacterActionParams
+        var actionParams = new CharacterActionParams(character, (ActionDefinitions.Id)ExtraActionId.PrioritizeAction)
         {
-            ActingCharacter = character,
-            ActionDefinition = service.AllActionDefinitions[(ActionDefinitions.Id)ExtraActionId.PrioritizeAction],
-            IntParameter = (int)type,
-            IntParameter2 = index
+            IntParameter = (int)type, IntParameter2 = index
         };
-        service.ExecuteAction(actionParams, null, true);
+
+        ServiceRepository.GetService<IGameLocationActionService>()?
+            .ExecuteAction(actionParams, null, true);
     }
 
     internal static void DoPrioritizeAction(GameLocationCharacter character, ActionDefinitions.ActionType type,
         int index)
     {
-        // ReSharper disable once InvocationIsSkipped
-        Main.Log($"DoPrioritizeAction [{character.Name}] {type}");
         var rank = character.CurrentActionRankByType[type];
+
         if (index <= rank)
         {
             return;
@@ -234,6 +229,7 @@ public static class ActionSwitching
 
         //Store current action attacks
         var data = PerformanceFilterExtraData.GetData(filters[rank]);
+
         data?.StoreAttacks(character, type);
         data?.StoreSpellcasting(character, type);
 
@@ -299,6 +295,7 @@ public static class ActionSwitching
             Main.Log($"CheckIfActionSwitched [{character.Name}] {type} rank: {rank} - NO CHANGE");
             newData?.StoreAttacks(character, type);
             newData?.StoreSpellcasting(character, type);
+
             return false;
         }
 
@@ -317,12 +314,13 @@ public static class ActionSwitching
         wasData?.StoreSpellcasting(character, type);
         newData?.LoadAttacks(character, type);
         newData?.LoadSpellcasting(character, type);
+
         return true;
     }
 
     // ReSharper disable once SuggestBaseTypeForParameter
-    private static List<int> LoadIndexes(Dictionary<string, int> map, ActionDefinitions.ActionType type,
-        int max)
+    private static List<int> LoadIndexes(
+        Dictionary<string, int> map, ActionDefinitions.ActionType type, int max)
     {
         var list = new List<int>();
 

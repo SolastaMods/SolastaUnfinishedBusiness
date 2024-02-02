@@ -84,7 +84,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var featureSeizeTheChance = FeatureDefinitionBuilder
             .Create($"Feature{Name}SeizeTheChance")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new TryAlterOutcomeFailedSavingThrowSeizeTheChance())
+            .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowFromAllyOrEnemySeizeTheChance())
             .AddToDB();
 
         // LEVEL 13
@@ -245,9 +245,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
     // Seize the Chance
     //
 
-    private sealed class TryAlterOutcomeFailedSavingThrowSeizeTheChance : ITryAlterOutcomeFailedSavingThrow
+    private sealed class TryAlterOutcomeSavingThrowFromAllyOrEnemySeizeTheChance : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
     {
-        public IEnumerator OnFailedSavingTryAlterOutcome(
+        public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -257,6 +257,11 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
+            if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+            {
+                yield break;
+            }
+
             //do not trigger on my own turn, so won't retaliate on AoO
             if (helper.IsMyTurn())
             {

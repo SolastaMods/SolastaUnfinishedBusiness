@@ -286,7 +286,6 @@ ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>提夫林</color>上使用<
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油脂</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>尖峰生长</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
 ModUi/&UseMathFlankingRules=<i>+ 使用精确的数学来确定侧翼 <color=#F0DAA0>[可能会对慢速机器产生性能影响]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果同时具有优势和劣势，则视为既没有优势也没有劣势]</color></i>
-ModUi/&UseOfficialDistanceCalculation=使用基于一个生物立方体到另一个生物立方体的距离的官方距离计算<i><color=#F0DAA0>[而不是 Solasta 的默认距离计算]</color></i>
 ModUi/&UseOfficialFlankingRules=使用官方 DnD 夹击规则<i><color=#F0DAA0>[如果与盟友前后夹击，攻击具有优势]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 还可以进行远程攻击<color=#F0DAA0>[禁用精确数学]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 还启用触及攻击<color=#F0DAA0>[禁用精确数学]</color></i>

@@ -157,10 +157,10 @@ internal static class EldritchVersatilityBuilders
         featureOrPower = FeatureDefinitionBuilder
             .Create($"Feature{Name}{name}")
             .SetGuiPresentationNoContent(true)
-            .AddCustomSubFeatures(new BattlefieldShorthandCopySpells())
+            .AddCustomSubFeatures(new BattlefieldShorthandCopy())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, featureOrPower, new BattlefieldShorthandRemoveCopiedSpells());
+        BuildFeatureInvocation(name, sprite, featureOrPower, new BattlefieldShorthandRemoveCopied());
 
         name = "BattlefieldConversion";
         sprite = Sprites.GetSprite(name, Resources.BattlefieldConversion, 128);
@@ -567,7 +567,7 @@ internal static class EldritchVersatilityBuilders
 
         private sealed class OnConditionAddedOrRemovedVersatility :
             ICharacterBattleEndedListener,
-            IOnConditionAddedOrRemoved, IMagicalAttackBeforeHitConfirmedOnEnemy
+            IOnConditionAddedOrRemoved, IMagicEffectBeforeHitConfirmedOnEnemy
         {
             public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
             {
@@ -587,7 +587,7 @@ internal static class EldritchVersatilityBuilders
                 warlockRepertoire.KnownSpells.RemoveAll(x => copiedSpells.Contains(x));
             }
 
-            public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+            public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
                 GameLocationCharacter attacker,
                 GameLocationCharacter defender,
                 ActionModifier magicModifier,
@@ -646,7 +646,7 @@ internal static class EldritchVersatilityBuilders
     }
 
     private sealed class BlastBreakthroughCustom :
-        ToggleableOnInvocation, IMagicalAttackCastedSpell, IModifyDamageAffinity, IActionExecutionHandled
+        ToggleableOnInvocation, IOnSpellCasted, IModifyDamageAffinity, IActionFinishedByMe
     {
         private static readonly ConditionDefinition ConditionBlastBreakthroughRemoveImmunity =
             ConditionDefinitionBuilder.Create("ConditionBlastBreakthroughRemoveImmunity")
@@ -659,22 +659,23 @@ internal static class EldritchVersatilityBuilders
             InvocationName = invocationName;
         }
 
-        public void OnActionExecutionHandled(
-            GameLocationCharacter character, CharacterActionParams actionParams, ActionScope scope)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var rulesetCharacter = character.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (Gui.Battle == null ||
                 !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
-                return;
+                yield break;
             }
 
             // Invalidate damage affinity and spell immunity
             if (!supportCondition.IsValidBlastBreakthrough)
             {
-                return;
+                yield break;
             }
 
             supportCondition.IsValidBlastBreakthrough = false;
@@ -685,8 +686,35 @@ internal static class EldritchVersatilityBuilders
             );
         }
 
+        public void ModifyDamageAffinity(
+            [UsedImplicitly] RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
+        {
+            if (attacker is not RulesetCharacter attackCharacter ||
+                !attackCharacter.GetVersatilitySupportCondition(out var supportCondition) ||
+                !supportCondition.IsValidBlastBreakthrough)
+            {
+                return;
+            }
+
+            var modifier = GetAbilityScoreModifier(attackCharacter, AttributeDefinitions.Strength, supportCondition);
+
+            if (modifier < 3)
+            {
+                return;
+            }
+
+            features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
+
+            if (modifier < 4)
+            {
+                return;
+            }
+
+            features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity });
+        }
+
         // Spend reserved points on cast EB if success
-        public IEnumerator OnMagicalAttackCastedSpell(RulesetCharacter featureOwner, GameLocationCharacter caster,
+        public IEnumerator OnSpellCasted(RulesetCharacter featureOwner, GameLocationCharacter caster,
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
             RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
@@ -733,33 +761,6 @@ internal static class EldritchVersatilityBuilders
                     InflictCondition(ConditionBlastBreakthroughRemoveImmunity, featureOwner, x.RulesetCharacter));
         }
 
-        public void ModifyDamageAffinity(
-            [UsedImplicitly] RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
-        {
-            if (attacker is not RulesetCharacter attackCharacter ||
-                !attackCharacter.GetVersatilitySupportCondition(out var supportCondition) ||
-                !supportCondition.IsValidBlastBreakthrough)
-            {
-                return;
-            }
-
-            var modifier = GetAbilityScoreModifier(attackCharacter, AttributeDefinitions.Strength, supportCondition);
-
-            if (modifier < 3)
-            {
-                return;
-            }
-
-            features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
-
-            if (modifier < 4)
-            {
-                return;
-            }
-
-            features.RemoveAll(x => x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity });
-        }
-
         // Handle toggled in UI
         public override void OnInvocationToggled(GameLocationCharacter locCharacter, RulesetInvocation invocation)
         {
@@ -799,9 +800,9 @@ internal static class EldritchVersatilityBuilders
         }
     }
 
-    private sealed class BattlefieldShorthandCopySpells : IMagicalAttackCastedSpell
+    private sealed class BattlefieldShorthandCopy : IOnSpellCasted
     {
-        public IEnumerator OnMagicalAttackCastedSpell(
+        public IEnumerator OnSpellCasted(
             RulesetCharacter featureOwner,
             GameLocationCharacter caster,
             CharacterActionCastSpell castAction,
@@ -1214,9 +1215,9 @@ internal static class EldritchVersatilityBuilders
         }
     }
 
-    private class EldritchWardAidSave : ITryAlterOutcomeFailedSavingThrow
+    private class EldritchWardAidSave : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
     {
-        public IEnumerator OnFailedSavingTryAlterOutcome(
+        public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1226,6 +1227,11 @@ internal static class EldritchVersatilityBuilders
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
+            if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+            {
+                yield break;
+            }
+
             if (!ShouldTrigger(defender, helper))
             {
                 yield break;
@@ -1380,20 +1386,21 @@ internal static class EldritchVersatilityBuilders
         public abstract void OnInvocationToggled(GameLocationCharacter character, RulesetInvocation rulesetInvocation);
     }
 
-    private class BlastEmpowerActiveSwitch(string invocationName) : IActionExecutionHandled, IMagicalAttackCastedSpell
+    private class BlastEmpowerActiveSwitch(string invocationName) : IActionFinishedByMe, IOnSpellCasted
     {
         private string InvocationName { get; } = invocationName;
 
-        public void OnActionExecutionHandled(GameLocationCharacter character, CharacterActionParams actionParams,
-            ActionScope scope)
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            var rulesetCharacter = character.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             if (Gui.Battle == null ||
                 !IsEldritchBlast(actionParams.RulesetEffect) ||
                 !rulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
-                return;
+                yield break;
             }
 
             var invocation = rulesetCharacter.Invocations.Find(invocation =>
@@ -1407,7 +1414,7 @@ internal static class EldritchVersatilityBuilders
         }
 
         // Spend reserved points on cast EB
-        public IEnumerator OnMagicalAttackCastedSpell(RulesetCharacter featureOwner, GameLocationCharacter caster,
+        public IEnumerator OnSpellCasted(RulesetCharacter featureOwner, GameLocationCharacter caster,
             CharacterActionCastSpell castAction, RulesetEffectSpell selectEffectSpell,
             RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {
@@ -1428,9 +1435,9 @@ internal static class EldritchVersatilityBuilders
     }
 
     // Split this part to become a sub feature of invocation definition to make sure that the spells get removed even when the invocation is toggled off.
-    private class BattlefieldShorthandRemoveCopiedSpells : IMagicalAttackCastedSpell
+    private class BattlefieldShorthandRemoveCopied : IOnSpellCasted
     {
-        public IEnumerator OnMagicalAttackCastedSpell(RulesetCharacter featureOwner, GameLocationCharacter caster,
+        public IEnumerator OnSpellCasted(RulesetCharacter featureOwner, GameLocationCharacter caster,
             CharacterActionCastSpell castAction, [UsedImplicitly] RulesetEffectSpell selectEffectSpell,
             [UsedImplicitly] RulesetSpellRepertoire selectedRepertoire, SpellDefinition selectedSpellDefinition)
         {

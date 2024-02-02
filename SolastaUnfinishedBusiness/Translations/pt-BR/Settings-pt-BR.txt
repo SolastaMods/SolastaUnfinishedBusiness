@@ -285,7 +285,6 @@ ModUi/&UseElfFaceModelsOnTieflings=Use modelos de face <color=#D89555>Elf</color
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseMathFlankingRules=<i>+ Use matemática precisa para determinar o flanqueamento <color=#F0DAA0>[pode ter um impacto no desempenho em máquinas lentas]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem <i><color=#F0DAA0>[se as circunstâncias fizerem com que um teste tenha ambos, considera-se que você não tem nenhum deles]</color></i>
-ModUi/&UseOfficialDistanceCalculation=Use o cálculo de distância oficial para ser baseado na distância do cubo de uma criatura para o outro <i><color=#F0DAA0>[em vez do cálculo de distância padrão de Solasta]</color></i>
 ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento <i><color=#F0DAA0>[um atacante tem vantagem se um aliado estiver no lado oposto do alvo]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também ataques à distância <color=#F0DAA0>[desativa matemática precisa]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também ataques de alcance <color=#F0DAA0>[desativa matemática precisa]</color></i>

@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -34,6 +35,29 @@ internal static partial class SpellBuilders
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .AddToDB();
 
+        var conditionLowerPlane = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}LowerPlane")
+            .SetGuiPresentation($"{NAME}LowerPlane", Category.Spell,
+                ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .SetFeatures(
+                attributeModifierAC,
+                CommonBuilders.AttributeModifierCasterFightingExtraAttack,
+                FeatureDefinitionMoveModes.MoveModeFly8,
+                FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity)
+            .AddCustomSubFeatures(
+                CanUseAttribute.SpellCastingAbility,
+                new AddTagToWeaponWeaponAttack(
+                    TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
+            .AddToDB();
+
+        // there is indeed a typo on tag
+        // ReSharper disable once StringLiteralTypo
+        conditionLowerPlane.ConditionTags.Add("Verticality");
+
         var lowerPlane = SpellDefinitionBuilder
             .Create($"{NAME}LowerPlane")
             .SetGuiPresentation(Category.Spell)
@@ -51,25 +75,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{NAME}LowerPlane")
-                                .SetGuiPresentation($"{NAME}LowerPlane", Category.Spell,
-                                    ConditionDefinitions.ConditionMagicallyArmored)
-                                .SetPossessive()
-                                .SetFeatures(
-                                    attributeModifierAC,
-                                    CommonBuilders.AttributeModifierCasterFightingExtraAttack,
-                                    FeatureDefinitionMoveModes.MoveModeFly8,
-                                    FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
-                                    FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                                    FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity)
-                                .AddCustomSubFeatures(
-                                    CanUseAttribute.SpellCastingAbility,
-                                    new AddTagToWeaponWeaponAttack(
-                                        TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
-                                .AddToDB()))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionLowerPlane))
                     .SetParticleEffectParameters(MageArmor)
                     .Build())
             .AddToDB();
@@ -80,6 +86,28 @@ internal static partial class SpellBuilders
             ConditionDefinitions.ConditionFlyingAdaptive.conditionParticleReference;
         lowerPlane.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
             ConditionDefinitions.ConditionFlyingAdaptive.conditionEndParticleReference;
+
+        var conditionHigherPlane = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}HigherPlane")
+            .SetGuiPresentation($"{NAME}HigherPlane", Category.Spell,
+                ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetParentCondition(ConditionDefinitions.ConditionFlying)
+            .SetFeatures(
+                attributeModifierAC,
+                CommonBuilders.AttributeModifierCasterFightingExtraAttack,
+                FeatureDefinitionMoveModes.MoveModeFly8,
+                FeatureDefinitionDamageAffinitys.DamageAffinityRadiantImmunity,
+                FeatureDefinitionDamageAffinitys.DamageAffinityNecroticImmunity,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity)
+            .AddCustomSubFeatures(
+                CanUseAttribute.SpellCastingAbility,
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
+            .AddToDB();
+
+        // there is indeed a typo on tag
+        // ReSharper disable once StringLiteralTypo
+        conditionHigherPlane.ConditionTags.Add("Verticality");
 
         var higherPlane = SpellDefinitionBuilder
             .Create($"{NAME}HigherPlane")
@@ -98,25 +126,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create($"Condition{NAME}HigherPlane")
-                                .SetGuiPresentation($"{NAME}HigherPlane", Category.Spell,
-                                    ConditionDefinitions.ConditionMagicallyArmored)
-                                .SetPossessive()
-                                .SetFeatures(
-                                    attributeModifierAC,
-                                    CommonBuilders.AttributeModifierCasterFightingExtraAttack,
-                                    FeatureDefinitionMoveModes.MoveModeFly8,
-                                    FeatureDefinitionDamageAffinitys.DamageAffinityRadiantImmunity,
-                                    FeatureDefinitionDamageAffinitys.DamageAffinityNecroticImmunity,
-                                    FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity)
-                                .AddCustomSubFeatures(
-                                    CanUseAttribute.SpellCastingAbility,
-                                    new AddTagToWeaponWeaponAttack(
-                                        TagsDefinitions.MagicalWeapon, ValidatorsWeapon.AlwaysValid))
-                                .AddToDB()))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHigherPlane))
                     .SetParticleEffectParameters(MageArmor)
                     .Build())
             .AddToDB();
@@ -439,7 +449,7 @@ internal static partial class SpellBuilders
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerRingOfBlades, rulesetCharacter);
 
-            rulesetCharacter.UsePower(usablePower);
+            rulesetCharacter.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             if (rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionRingOfBladesFree.Name, out var activeCondition))

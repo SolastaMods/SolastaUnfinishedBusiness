@@ -512,24 +512,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeSaveDC))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    // ReSharper disable once InconsistentNaming
-    public static class ComputeSaveDC_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, ref int __result)
-        {
-            //PATCH: support for `IIncreaseSpellDC`
-            //Adds extra modifiers to spell DC
-
-            var features = __instance.GetSubFeaturesByType<IModifySpellDC>();
-
-            __result += features.Sum(feature => feature.GetSpellDC(__instance));
-        }
-    }
-
     //PATCH: ensures that the wildshape heroes or heroes under rage cannot cast any spells (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanCastSpells))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -807,31 +789,6 @@ public static class RulesetCharacterPatcher
                 outcome = RollOutcome.CriticalSuccess;
                 isCriticalAutomaticOnMe = true;
             }
-
-            //PATCH: support `IModifyAttackOutcome`
-            var modifyAttackOutcomes = __instance.GetSubFeaturesByType<IModifyAttackOutcome>();
-
-            foreach (var modifyAttackOutcome in modifyAttackOutcomes)
-            {
-                modifyAttackOutcome.OnAttackOutcome(
-                    __instance,
-                    ref rawRoll,
-                    toHitBonus,
-                    target,
-                    attackMethod,
-                    toHitTrends,
-                    ignoreAdvantage,
-                    advantageTrends,
-                    rangeAttack,
-                    opportunity,
-                    rollModifier,
-                    ref outcome,
-                    ref successDelta,
-                    predefinedRoll,
-                    testMode,
-                    reactionCounterAttackType);
-            }
-            // END PATCH
 
             if (outcome == RollOutcome.CriticalSuccess
                 && target is RulesetCharacter rulesetCharacter
@@ -1748,12 +1705,13 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: allow modifiers from items to be considered on concentration checks
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollConcentrationCheckFromDamage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RollConcentrationCheckFromDamage_Patch
     {
+        //PATCH: allow modifiers from items to be considered on concentration checks
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
@@ -1894,7 +1852,7 @@ public static class RulesetCharacterPatcher
 
             //PATCH: replaces feature holding class with one provided by custom interface
             //used for features that are not granted directly through class but need to scale with class levels
-            var classHolder = featureDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>()?.Class;
+            var classHolder = featureDefinition.GetFirstSubFeatureOfType<IModifyAdditionalDamageClassLevel>()?.Class;
 
             if (classHolder == null)
             {

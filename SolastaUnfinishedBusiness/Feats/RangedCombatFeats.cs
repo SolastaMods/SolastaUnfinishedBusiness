@@ -172,7 +172,7 @@ internal static class RangedCombatFeats
                             .Build())
                     .Build())
             .AddCustomSubFeatures(
-                IgnoreInterruptionCheck.Marker,
+                IgnoreInvisibilityInterruptionCheck.Marker,
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
             .AddToDB();
 
@@ -192,7 +192,7 @@ internal static class RangedCombatFeats
                             .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(IgnoreInterruptionCheck.Marker)
+            .AddCustomSubFeatures(IgnoreInvisibilityInterruptionCheck.Marker)
             .AddToDB();
 
         var featDeadeye = FeatDefinitionBuilder

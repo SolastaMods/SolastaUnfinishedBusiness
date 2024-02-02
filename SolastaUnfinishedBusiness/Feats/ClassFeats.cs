@@ -356,9 +356,9 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatExploiter : IMagicalAttackFinishedByMeOrAlly, IPhysicalAttackFinishedByMeOrAlly
+    private class CustomBehaviorFeatExploiter : IMagicEffectFinishedByMeOrAllyAny, IPhysicalAttackFinishedByMeOrAlly
     {
-        public IEnumerator OnMagicalAttackFinishedByMeOrAlly(
+        public IEnumerator OnMagicEffectFinishedByMeOrAllyAny(
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

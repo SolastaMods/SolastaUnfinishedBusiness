@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -44,7 +45,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddToDB();
 
         var additionalDamageBladeMark = FeatureDefinitionAdditionalDamageBuilder
@@ -57,7 +57,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
-                new RogueClassHolder(),
+                new RogueModifyAdditionalDamageClassLevelHolder(),
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, character, _, _, mode, _) =>
                         (OperationType.Set, IsBladeCallerWeapon(mode, null, character))))
@@ -85,6 +85,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -203,12 +204,13 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // Blade Mark
     //
 
-    private sealed class RogueClassHolder : IClassHoldingFeature
+    private sealed class RogueModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
 
     private sealed class CustomBehaviorBladeMark(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionBladeMark,
         ConditionDefinition conditionBladeSurge,
         FeatureDefinitionPower powerHailOfBlades)
@@ -267,7 +269,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 // offer Hail of Blades
                 if (rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle))
                 {
-                    yield return HandleHailOfBlades(battleManager, attacker);
+                    yield return HandleHailOfBlades(battleManager, attacker, defender);
                 }
             }
 
@@ -282,9 +284,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
             rulesetDefender.InflictCondition(
                 conditionBladeMark.Name,
-                conditionBladeMark.DurationType,
-                conditionBladeMark.DurationParameter,
-                conditionBladeMark.TurnOccurence,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -329,7 +331,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
         private IEnumerator HandleHailOfBlades(
             GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker)
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -368,18 +371,23 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var targets = battleManager.Battle
+                .GetContenders(defender, false, hasToPerceiveTarget: true, isWithinXCells: 2)
+                .ToList();
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters =
-                    battleManager.Battle.GetContenders(attacker, hasToPerceiveTarget: true, isWithinXCells: 3)
+                targetCharacters = targets
             };
 
             // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, false);
         }
 
         private enum BladeMarkStatus

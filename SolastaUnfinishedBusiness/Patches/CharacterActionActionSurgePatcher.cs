@@ -30,10 +30,16 @@ public static class CharacterActionActionSurgePatcher
                 yield break;
             }
 
-            var service = ServiceRepository.GetService<IGameLocationActionService>();
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                yield break;
+            }
+
             var actionParams = action.ActionParams.Clone();
 
-            actionParams.ActionDefinition = service.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];
+            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.PowerNoCost];
             //directly instantiate UsePower action instead of using CharacterAction.InstantiateAction - that one seems to fail here for some reason
             action.ResultingActions.Add(new CharacterActionUsePower(actionParams));
         }

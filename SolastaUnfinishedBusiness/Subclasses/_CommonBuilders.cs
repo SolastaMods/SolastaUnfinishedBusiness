@@ -101,7 +101,7 @@ internal static class CommonBuilders
         .SetGuiPresentation(Category.Feature)
         .AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
+            new MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
                 ConditionDefinitionBuilder
                     .Create("ConditionCasterFightingWarMagic")
                     .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
@@ -162,8 +162,8 @@ internal static class CommonBuilders
     }
 
     private sealed class
-        MagicalAttackBeforeHitConfirmedOnEnemyCasterFightingWarMagic(ConditionDefinition conditionDefinition) :
-        IMagicalAttackBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
+        MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(ConditionDefinition conditionDefinition) :
+        IMagicEffectBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
     {
         //supports Sunlit Blade and Resonating Strike
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
@@ -187,7 +187,7 @@ internal static class CommonBuilders
             yield return TryAddCondition(attacker);
         }
 
-        public IEnumerator OnMagicalAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,

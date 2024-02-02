@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -108,15 +109,14 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         var powerRoyalKnightInspiringProtection = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightInspiringProtection")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
-            .SetReactionContext(ReactionTriggerContext.None)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerRoyalKnightInspiringProtectionAura = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightInspiringProtectionAura")
             .SetGuiPresentation(TEXT, Category.Feature)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -130,12 +130,13 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .AddCustomSubFeatures(
-                                new TryAlterOutcomeFailedSavingThrowInspiringProtection(
+                                new TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection(
                                     powerRoyalKnightInspiringProtection,
                                     "RoyalKnightInspiringProtection",
                                     "ConditionRoyalKnightInspiringProtectionAura"))
                             .AddToDB()))
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var featureSetRoyalKnightInspiringProtection = FeatureDefinitionFeatureSetBuilder
@@ -233,9 +234,10 @@ public sealed class MartialRoyalKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class TryAlterOutcomeFailedSavingThrowInspiringProtection : ITryAlterOutcomeFailedSavingThrow
+    private class
+        TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
     {
-        internal TryAlterOutcomeFailedSavingThrowInspiringProtection(
+        internal TryAlterOutcomeSavingThrowFromAllyOrEnemyInspiringProtection(
             FeatureDefinitionPower power, string reactionName, string auraConditionName)
         {
             Power = power;
@@ -247,7 +249,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         private string ReactionName { get; }
         private string AuraConditionName { get; }
 
-        public IEnumerator OnFailedSavingTryAlterOutcome(
+        public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -257,6 +259,11 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
+            if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+            {
+                yield break;
+            }
+
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
@@ -311,8 +318,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 yield break;
             }
 
+            rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-            rulesetOriginalHelper.UsePower(usablePower);
             action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
         }
 

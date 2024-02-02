@@ -653,7 +653,7 @@ internal static class CustomWeaponsContext
 
         baseDescription.EffectDescription.DurationType = DurationType.Round;
         baseDescription.EffectDescription.DurationParameter = 1;
-        baseDescription.EffectDescription.EndOfEffect = TurnOccurenceType.EndOfSourceTurn;
+        baseDescription.EffectDescription.EndOfEffect = (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn;
         baseDescription.EffectDescription.EffectForms.Add(
             EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted));
 

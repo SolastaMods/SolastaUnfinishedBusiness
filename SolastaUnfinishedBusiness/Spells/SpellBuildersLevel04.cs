@@ -596,7 +596,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)

@@ -441,7 +441,7 @@ public sealed class RoguishSlayer : AbstractSubclass
         }
     }
 
-    private sealed class RogueHolder : IClassHoldingFeature
+    private sealed class RogueHolder : IModifyAdditionalDamageClassLevel
     {
         // allows Chain of Execution damage to scale with rogue level
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;

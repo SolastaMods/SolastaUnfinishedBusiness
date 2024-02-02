@@ -121,38 +121,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.AttackImpactOn))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class AttackImpactOn_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(
-            [NotNull] GameLocationCharacter __instance,
-            GameLocationCharacter target,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            //PATCH: support for `IOnAttackHitEffect` - calls after attack handlers
-            var character = __instance.RulesetCharacter;
-
-            if (character == null)
-            {
-                return;
-            }
-
-            var features = character.GetSubFeaturesByType<IPhysicalAttackAfterDamage>();
-
-            foreach (var effect in features)
-            {
-                effect.OnPhysicalAttackAfterDamage(__instance, target, outcome, actionParams, attackMode,
-                    attackModifier);
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CanUseAtLeastOnPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -354,10 +322,6 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
 
-            //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
-            rulesetCharacter.GetSubFeaturesByType<IActionExecutionHandled>()
-                .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
-
             //PATCH: support for action switching interaction with metamagic quickened spell
             if (Main.Settings.EnableActionSwitching
                 && actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell
@@ -446,6 +410,31 @@ public static class GameLocationCharacterPatcher
     [UsedImplicitly]
     public static class CheckConcentration_Patch
     {
+        //PATCH: supports `IPreventRemoveConcentrationOnDamage`
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance)
+        {
+            if (__instance.RulesetCharacter is not { } rulesetCharacter)
+            {
+                return true;
+            }
+
+            var hero = rulesetCharacter.GetOriginalHero();
+            var concentratedSpell = hero?.ConcentratedSpell;
+
+            if (concentratedSpell == null)
+            {
+                return true;
+            }
+
+            var shouldKeepConcentration = hero.GetSubFeaturesByType<IPreventRemoveConcentrationOnDamage>()
+                .Any(x =>
+                    x.SpellsThatShouldNotRollConcentrationCheckFromDamage(hero)
+                        .Contains(concentratedSpell.SpellDefinition));
+
+            return !shouldKeepConcentration;
+        }
+
         [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,

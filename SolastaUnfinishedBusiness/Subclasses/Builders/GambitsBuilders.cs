@@ -439,7 +439,7 @@ internal static class GambitsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(CustomConditionsContext.Taunted))
                     .Build())
             .AddToDB();
@@ -809,7 +809,6 @@ internal static class GambitsBuilders
                     .SetGuiPresentation($"Condition{name}Good", Category.Condition)
                     .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                     .AddToDB())
-            .AddCustomSubFeatures(RemoveConditionOnSourceTurnStart.Mark)
             .AddToDB();
 
         var bad = ConditionDefinitionBuilder
@@ -1587,7 +1586,7 @@ internal static class GambitsBuilders
                 good.Name,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 caster.Guid,
                 caster.CurrentFaction.Name,
@@ -1682,12 +1681,12 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
-        : ITryAlterOutcomePhysicalAttack
+        : ITryAlterOutcomePhysicalAttackByMe
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
 
-        public IEnumerator OnAttackTryAlterOutcome(
+        public IEnumerator OnAttackTryAlterOutcomeByMe(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,
@@ -1965,7 +1964,6 @@ internal static class GambitsBuilders
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
             var targetPosition = action.ActionParams.Positions[0];
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var actionParams =
                 new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
                 {
@@ -1993,7 +1991,9 @@ internal static class GambitsBuilders
 
             targetCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction]++;
             targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
-            actionService.ExecuteAction(actionParams, null, false);
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
         }
     }
 
@@ -2107,6 +2107,11 @@ internal static class GambitsBuilders
     }
 
     // supports displaying the gambit die type and remaining usages on action buttons
+    internal interface IActionItemDiceBox
+    {
+        (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character);
+    }
+
     internal sealed class GambitActionDiceBox : IActionItemDiceBox
     {
         private GambitActionDiceBox()
