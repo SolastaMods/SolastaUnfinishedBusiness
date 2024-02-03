@@ -254,20 +254,14 @@ public static class CharacterActionAttackPatcher
             // BEGIN PATCH
 
             //PATCH: support for IAlterAttackOutcome
-            foreach (var extraEvents in actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttackByMe>()
-                         .TakeWhile(_ =>
-                             __instance.AttackRollOutcome == RollOutcome.Failure &&
-                             __instance.AttackSuccessDelta < 0)
-                         .Select(feature =>
-                             feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager, __instance,
-                                 actingCharacter, target, attackModifier)))
-            {
-                while (extraEvents.MoveNext())
-                {
-                    yield return extraEvents.Current;
-                }
-            }
+            yield return actingCharacter.RulesetCharacter
+                .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttackByMe>()
+                .TakeWhile(_ =>
+                    __instance.AttackRollOutcome == RollOutcome.Failure &&
+                    __instance.AttackSuccessDelta < 0)
+                .Select(feature =>
+                    feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager,
+                        __instance, actingCharacter, target, attackModifier));
 
             // END PATCH
 
@@ -475,24 +469,9 @@ public static class CharacterActionAttackPatcher
                         // BEGIN PATCH
 
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        // should also happen outside battles
-                        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-                        var contenders =
-                            (Gui.Battle?.AllContenders ??
-                             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                            .ToList();
-
-                        foreach (var unit in contenders
-                                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
-                        {
-                            foreach (var feature in unit.RulesetCharacter
-                                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrowFromAllyOrEnemy>())
-                            {
-                                yield return feature.OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
-                                    battleService as GameLocationBattleManager, __instance, actingCharacter,
-                                    target, unit, attackModifier, false, hasBorrowedLuck);
-                            }
-                        }
+                        yield return TryAlterOutcomeSavingThrowFromAllyOrEnemy.Handler(
+                            battleService as GameLocationBattleManager,
+                            __instance, actingCharacter, target, attackModifier, hasBorrowedLuck);
 
                         // END PATCH
                     }
@@ -680,6 +659,7 @@ public static class CharacterActionAttackPatcher
             yield return battleService.HandleCharacterPhysicalAttackFinished(
                 __instance, actingCharacter,
                 target, attackParams.attackMode, __instance.AttackRollOutcome, damageReceived);
+
             yield return battleService.HandleCharacterAttackFinished(
                 __instance, actingCharacter, target,
                 attackParams.attackMode, null, __instance.AttackRollOutcome, damageReceived);
@@ -687,34 +667,16 @@ public static class CharacterActionAttackPatcher
             // BEGIN PATCH
 
             //PATCH: support for Sentinel Fighting Style - allows attacks of opportunity on enemies attacking allies
-            var extraAttacksOfOpportunityEvents =
-                AttacksOfOpportunity.ProcessOnCharacterAttackFinished(battleService as GameLocationBattleManager,
-                    actingCharacter, target);
-
-            while (extraAttacksOfOpportunityEvents.MoveNext())
-            {
-                yield return extraAttacksOfOpportunityEvents.Current;
-            }
+            yield return AttacksOfOpportunity.ProcessOnCharacterAttackFinished(
+                battleService as GameLocationBattleManager, actingCharacter, target);
 
             //PATCH: support for Defensive Strike Power - allows adding Charisma modifier and chain reactions
-            var extraDefensiveStrikeAttackEvents =
-                DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(battleService as GameLocationBattleManager,
-                    actingCharacter, target);
-
-            while (extraDefensiveStrikeAttackEvents.MoveNext())
-            {
-                yield return extraDefensiveStrikeAttackEvents.Current;
-            }
+            yield return DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(
+                battleService as GameLocationBattleManager, actingCharacter, target);
 
             //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
-            var extraGuardianAuraEvents =
-                GuardianAura.ProcessOnCharacterAttackHitFinished(battleService as GameLocationBattleManager,
-                    actingCharacter, target, attackMode, null, damageReceived);
-
-            while (extraGuardianAuraEvents.MoveNext())
-            {
-                yield return extraGuardianAuraEvents.Current;
-            }
+            yield return GuardianAura.ProcessOnCharacterAttackHitFinished(
+                battleService as GameLocationBattleManager, actingCharacter, target, attackMode, null, damageReceived);
 
             // END PATCH
 
