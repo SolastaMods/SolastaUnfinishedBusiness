@@ -259,7 +259,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
             {
                 yield break;
             }
@@ -320,7 +320,22 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-            action.RolledSaveThrow = TryModifyRoll(action, attacker, defender, saveModifier, hasHitVisual);
+            
+            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
+                ? action.ActionParams.AttackMode.TryRollSavingThrow(
+                    attacker.RulesetCharacter,
+                    defender.RulesetActor,
+                    saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms,
+                    out var saveOutcome, out var saveOutcomeDelta)
+                : action.ActionParams.RulesetEffect.TryRollSavingThrow(
+                    attacker.RulesetCharacter,
+                    attacker.Side,
+                    defender.RulesetActor,
+                    saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual, 
+                    out saveOutcome, out saveOutcomeDelta);
+
+            action.SaveOutcome = saveOutcome;
+            action.SaveOutcomeDelta = saveOutcomeDelta;
         }
 
         private static bool ShouldTrigger(
@@ -328,29 +343,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             GameLocationCharacter helper)
         {
             return helper.CanReact() && helper.CanPerceiveTarget(defender);
-        }
-
-        private static bool TryModifyRoll(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier saveModifier,
-            bool hasHitVisual)
-        {
-            // ReSharper disable once MergeConditionalExpression
-            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
-                ? action.ActionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter, defender.RulesetActor,
-                    saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out var saveOutcome,
-                    out var saveOutcomeDelta)
-                : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
-                    defender.RulesetActor, saveModifier,
-                    action.ActionParams.RulesetEffect.EffectDescription.EffectForms,
-                    hasHitVisual, out saveOutcome, out saveOutcomeDelta);
-
-            action.SaveOutcome = saveOutcome;
-            action.SaveOutcomeDelta = saveOutcomeDelta;
-
-            return true;
         }
 
         private static string FormatReactionDescription(

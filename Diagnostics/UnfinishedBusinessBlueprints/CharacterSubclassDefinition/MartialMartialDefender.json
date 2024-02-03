@@ -1,0 +1,84 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyMartialDefenderProtection:b03bc361-2bd6-587f-ac3b-97f29a738442",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyMartialDefenderShieldExpert:59b90b8e-ea44-5b44-8863-1546c02d82bd",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierMartialDefenderShieldMastery:f0b85305-1886-589d-b925-838c5d20e355",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityMartialDefenderAegisFinesse:66d16cd6-bb01-548c-8fb0-1d9eca1a9619",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialDefenderShoutOfProvocation:60e76d24-0f85-595b-aaf2-cf400ab65624",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialDefenderAegisAssault:22a8f80b-a248-5854-a17c-5c34b521a423",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierMartialDefenderShieldMastery:f0b85305-1886-589d-b925-838c5d20e355",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialDefenderBrutalAegis:eaeb4924-1762-5755-88de-fa4f7f8b1367",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialDefenderAegisParagon:7bd61719-e2a7-5d85-8cc4-649eb3092f5d",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierMartialDefenderShieldMastery:f0b85305-1886-589d-b925-838c5d20e355",
+      "level": 18
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&MartialMartialDefenderTitle",
+    "description": "Subclass/&MartialMartialDefenderDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "5d71490e307b6f84081ecb6b0c44b658",
+      "m_SubObjectName": "Protection",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d0489fa4-64e5-5072-9b9f-155c28511034",
+  "contentPack": 9999,
+  "name": "MartialMartialDefender"
+}

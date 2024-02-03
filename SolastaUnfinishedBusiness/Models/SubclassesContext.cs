@@ -29,7 +29,10 @@ internal static class SubclassesContext
     [
         "CollegeOfHarlequin",
         "MartialMarshal",
-        "RoguishRaven"
+        "MartialMartialDefender",
+        "PatronMoonlit",
+        "RoguishRaven",
+        "WayOfTheDistantHand"
     ];
 
     internal static void Load()

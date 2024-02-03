@@ -345,9 +345,8 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             {
                 if (Gui.Battle != null)
                 {
-                    targetCharacters.AddRange(
-                        Gui.Battle
-                            .GetContenders(actingCharacter, hasToPerceiveTarget: true, isWithinXCells: 1));
+                    targetCharacters.AddRange(Gui.Battle
+                            .GetContenders(actingCharacter, hasToPerceiveTarget: true, withinRange: 1));
                 }
             }
 

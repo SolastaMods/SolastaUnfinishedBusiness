@@ -348,7 +348,9 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = battleManager.Battle.GetContenders(defender, false, isWithinXCells: 3)
+                targetCharacters =
+                    battleManager.Battle
+                        .GetContenders(defender, isOppositeSide: false, withinRange: 3)
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

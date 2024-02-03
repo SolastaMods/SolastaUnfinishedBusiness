@@ -648,10 +648,13 @@ internal static class FixesContext
             }
 
             var wayOfZenArcheryLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfZenArchery.Name);
+            var wayOfTheDistantHandLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfTheDistantHand.Name);
 
-            // Zen Archery get stunning strike with bows at 6
+            // Zen Archery get stunning strike with bows at 6 and Distant Hand with bows at 11
             if (!ValidatorsWeapon.IsMelee(attackMode) &&
                 (wayOfZenArcheryLevels < WayOfZenArchery.StunningStrikeWithBowAllowedLevel ||
+                 !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)) &&
+                (wayOfTheDistantHandLevels < WayOfTheDistantHand.StunningStrikeWithBowAllowedLevel ||
                  !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)))
             {
                 yield break;

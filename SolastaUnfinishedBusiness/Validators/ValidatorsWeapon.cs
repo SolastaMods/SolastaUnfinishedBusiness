@@ -116,6 +116,15 @@ internal static class ValidatorsWeapon
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsShield(
+        RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter rulesetCharacter)
+    {
+        return (attackMode is { SourceDefinition: ItemDefinition itemDefinition } && IsShield(itemDefinition))
+               || IsShield(rulesetItem)
+               || IsShield(rulesetCharacter?.GetOffhandWeapon());
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsShield([CanBeNull] ItemDefinition itemDefinition)
     {
         return itemDefinition != null

@@ -57,6 +57,15 @@ internal static class RangedCombatFeats
                         ShortbowType)))
             .AddToDB();
 
+        // kept for backward compatibility
+        _ = FightingStyleBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Archery)
+            .SetFeatures(
+                DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Maraike,
+                attackModifier)
+            .AddToDB();
+
         return FeatDefinitionBuilder
             .Create($"Feat{Name}")
             .SetGuiPresentation(Name, Category.FightingStyle)

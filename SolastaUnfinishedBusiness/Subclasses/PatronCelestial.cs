@@ -396,7 +396,8 @@ public class PatronCelestial : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
-            var targets = gameLocationBattleService.Battle.GetContenders(source, isWithinXCells: 5);
+            var targets = gameLocationBattleService.Battle
+                .GetContenders(source, withinRange: 5);
             //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
             {

@@ -325,7 +325,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = Gui.Battle.GetContenders(attacker, isWithinXCells: 2)
+                targetCharacters = Gui.Battle
+                    .GetContenders(attacker, withinRange: 2)
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?

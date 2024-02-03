@@ -198,6 +198,16 @@
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
       "hasSavingThrow": false,
+      "operation": "Remove",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionInvisibilityEveryRoundHidden:f7094006-33e0-5e31-a5c8-b6f3d825eba7",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    },
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
       "conditionDefinition": "Definition:ConditionPathOfTheLightIlluminated:d7cf64bc-7d7a-56b2-8e06-c2b0abd66212",
