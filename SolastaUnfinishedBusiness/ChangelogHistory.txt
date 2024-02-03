@@ -1,7 +1,7 @@
-﻿1.5.94.50:
+1.5.94.50:
 
-- removed backward compatibility from Way of Silhouette
-- removed deprecated Martial Defender, Patron Moonlit Uncut, and Way of Distant Hand [RESPEC required]
+- fixed custom trigger AlterSavingThrowOutcome impacting Eldritch Ward, Flash of Genius, and Seize the Chance 
+- fixed lighting, obscurement, and vision rules to consider controller position and senses with proxy effects
 
 1.5.94.49:
 
