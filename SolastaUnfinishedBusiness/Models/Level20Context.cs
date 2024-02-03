@@ -840,28 +840,16 @@ internal static class Level20Context
     }
 
     private class TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(FeatureDefinitionPower power)
-        : ITryAlterOutcomePhysicalAttackByMe
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
+        public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = me.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetCharacter.CanUsePower(power) || !me.CanPerceiveTarget(target))
-            {
-                yield break;
-            }
-
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
@@ -870,8 +858,27 @@ internal static class Level20Context
                 yield break;
             }
 
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                yield break;
+            }
+
+            if (attacker != helper)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.CanUsePower(power) ||
+                !attacker.CanPerceiveTarget(defender))
+            {
+                yield break;
+            }
+
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
                 StringParameter = "Reaction/&CustomReactionRogueStrokeOfLuckReactDescription",
                 UsablePower = usablePower
@@ -881,7 +888,7 @@ internal static class Level20Context
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {

@@ -343,39 +343,40 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
     private class TryAlterOutcomePhysicalAttackByMeShadowFlurry(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureShadowFlurry)
-        : ITryAlterOutcomePhysicalAttackByMe
+        FeatureDefinition featureShadowFlurry) : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
+        public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
-            var rulesetMe = me.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetMe is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !attacker.OncePerTurnIsValid(featureShadowFlurry.Name) ||
+                !attacker.CanPerceiveTarget(defender) ||
+                !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
             {
                 yield break;
             }
 
-            if (!ValidatorsCharacter.IsNotInBrightLight(rulesetMe))
-            {
-                yield break;
-            }
-
-            if (!me.OncePerTurnIsValid(featureShadowFlurry.Name))
-            {
-                yield break;
-            }
-
-            me.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
+            attacker.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
 
             var attackMode = action.actionParams.attackMode;
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
@@ -383,15 +384,15 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            rulesetMe.LogCharacterUsedFeature(featureShadowFlurry,
+            rulesetCharacter.LogCharacterUsedFeature(featureShadowFlurry,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
-            var roll = rulesetMe.RollAttack(
+            var roll = rulesetCharacter.RollAttack(
                 attackMode.toHitBonus,
-                target.RulesetCharacter,
+                defender.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 attackModifier.IgnoreAdvantage,

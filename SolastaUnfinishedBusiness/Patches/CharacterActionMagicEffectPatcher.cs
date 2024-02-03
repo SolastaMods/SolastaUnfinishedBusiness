@@ -616,15 +616,9 @@ public static class CharacterActionMagicEffectPatcher
 
                 // BEGIN PATCH
 
-                //PATCH: support for IAlterAttackOutcome
-                yield return actingCharacter.RulesetCharacter
-                    .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttackByMe>()
-                    .TakeWhile(_ =>
-                        __instance.AttackRollOutcome == RollOutcome.Failure &&
-                        __instance.AttackSuccessDelta < 0)
-                    .Select(feature =>
-                        feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager,
-                            __instance, actingCharacter, target, attackModifier));
+                //PATCH: support for `ITryAlterOutcomeAttack`
+                yield return TryAlterOutcomeAttack.Handler(battleService as GameLocationBattleManager,
+                    __instance, actingCharacter, target, attackModifier);
 
                 // END PATCH
 

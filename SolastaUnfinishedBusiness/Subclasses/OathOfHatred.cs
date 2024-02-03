@@ -257,7 +257,7 @@ public sealed class OathOfHatred : AbstractSubclass
     private sealed class CustomBehaviorArdentHate(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower power)
-        : IModifyDamageAffinity, ITryAlterOutcomePhysicalAttackByMe
+        : IModifyDamageAffinity, ITryAlterOutcomeAttack
     {
         public void ModifyDamageAffinity(RulesetActor defender, RulesetActor attacker, List<FeatureDefinition> features)
         {
@@ -265,55 +265,57 @@ public sealed class OathOfHatred : AbstractSubclass
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance });
         }
 
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
+        public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
-            var rulesetAttacker = me.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                !me.OncePerTurnIsValid(power.Name) || !me.CanPerceiveTarget(target))
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !attacker.OncePerTurnIsValid(power.Name) ||
+                !attacker.CanPerceiveTarget(defender))
             {
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var guiAttacker = new GuiCharacter(attacker);
+            var guiDefender = new GuiCharacter(defender);
 
-            if (manager == null)
+            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                yield break;
-            }
-
-            var guiMe = new GuiCharacter(me);
-            var guiTarget = new GuiCharacter(target);
-
-            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-            {
-                StringParameter = Gui.Format("Reaction/&CustomReactionHatredArdentHateDescription",
-                    guiMe.Name,
-                    guiTarget.Name)
+                StringParameter = Gui.Format(
+                    "Reaction/&CustomReactionHatredArdentHateDescription", guiAttacker.Name, guiDefender.Name)
             };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("HatredArdentHate", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            me.UsedSpecialFeatures.TryAdd(power.Name, 1);
+            attacker.UsedSpecialFeatures.TryAdd(power.Name, 1);
 
             var delta = -action.AttackSuccessDelta;
 
