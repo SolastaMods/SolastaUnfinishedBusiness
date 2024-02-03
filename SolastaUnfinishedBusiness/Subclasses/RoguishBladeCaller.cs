@@ -385,9 +385,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 targetCharacters = targets
             };
 
-            // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
             ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
         }
 
         private enum BladeMarkStatus
