@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -26,338 +27,6 @@ namespace SolastaUnfinishedBusiness.Models;
 // FIX DESCRIPTIONS    / FIX FLANKING
 internal static class LightingAndObscurementContext
 {
-    private const string BlindDescription = "Rules/&ConditionBlindedDescription";
-    private const string BlindExtendedDescription = "Condition/&ConditionBlindedExtendedDescription";
-
-    // ProxyDarkness is a special use case that is handled apart
-    private static readonly HashSet<EffectProxyDefinition> SightImpairedProxies =
-    [
-        ProxyCloudKill,
-        ProxyFogCloud,
-        ProxyIncendiaryCloud,
-        ProxyPetalStorm,
-        ProxySleetStorm,
-        ProxyStinkingCloud
-    ];
-
-    internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByDarkness")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
-        .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionBlindedByCloudKill = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByCloudKill")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
-        .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionBlindedByFogCloud = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByFogCloud")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
-        .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionBlindedByIncendiaryCloud = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByIncendiaryCloud")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
-        .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionBlindedByPetalStorm = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByPetalStorm")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
-        .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionBlindedBySleetStorm = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedBySleetStorm")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
-        .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionBlindedByStinkingCloud = ConditionDefinitionBuilder
-        .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
-        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
-        .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
-        .AddToDB();
-
-    private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
-        .Create(ConditionHeavilyObscured, "ConditionLightlyObscured")
-        .SetOrUpdateGuiPresentation(Category.Condition)
-        .SetFeatures(
-            FeatureDefinitionAbilityCheckAffinityBuilder
-                .Create("AbilityCheckAffinityLightlyObscured")
-                .SetOrUpdateGuiPresentation("ConditionLightlyObscured", Category.Condition)
-                .BuildAndSetAffinityGroups(RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage,
-                    abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
-                .AddToDB())
-        .AddToDB();
-
-    private static readonly EffectForm FormBlindedByCloudKill =
-        EffectFormBuilder.ConditionForm(ConditionBlindedByCloudKill);
-
-    private static readonly EffectForm FormBlindedByIncendiaryCloud =
-        EffectFormBuilder.ConditionForm(ConditionBlindedByIncendiaryCloud);
-
-    private static readonly EffectForm FormLightlyObscured = EffectFormBuilder.ConditionForm(ConditionLightlyObscured);
-
-    private static readonly EffectForm FormProjectileBlocker = EffectFormBuilder
-        .Create()
-        .SetTopologyForm(TopologyForm.Type.ProjectileBlocker, true)
-        .Build();
-
-    internal static void LateLoad()
-    {
-        SwitchOfficialObscurementRules();
-    }
-
-    internal static void SwitchOfficialObscurementRules()
-    {
-        var searchTerm = Main.Settings.UseOfficialLightingObscurementAndVisionRules
-            ? BlindDescription
-            : BlindExtendedDescription;
-
-        var replaceTerm = !Main.Settings.UseOfficialLightingObscurementAndVisionRules
-            ? BlindDescription
-            : BlindExtendedDescription;
-
-        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
-                     .Where(x => x.GuiPresentation.description == searchTerm))
-        {
-            condition.GuiPresentation.description = replaceTerm;
-        }
-
-        SwitchHeavilyObscuredOnObscurementRules();
-        SwitchMagicalDarknessOnObscurementRules();
-        SwitchMonstersOnObscurementRules();
-        SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
-
-        if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
-        {
-            ConditionBlinded.Features.SetRange(
-                CombatAffinityHeavilyObscured,
-                CombatAffinityHeavilyObscuredSelf,
-                PerceptionAffinityConditionBlinded);
-
-            // >> ConditionVeil
-            // ConditionAffinityVeilImmunity
-            // PowerDefilerDarkness
-
-            ConditionAffinityVeilImmunity.conditionType = ConditionBlindedByDarkness.Name;
-
-            PowerDefilerDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
-                ConditionBlindedByDarkness;
-
-            // >> ConditionDarkness
-            // ConditionAffinityInvocationDevilsSight
-            // Darkness
-
-            FeatureSetInvocationDevilsSight.FeatureSet.SetRange(SenseTruesight16, SenseDarkvision24);
-            DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightExtendedDescription";
-
-            Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionBlindedByDarkness;
-
-            // >> ConditionHeavilyObscured
-            // FogCloud
-            // PetalStorm
-
-            FogCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionBlindedByFogCloud;
-
-            SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
-                ConditionBlindedByPetalStorm;
-
-            // >> ConditionInStinkingCloud
-            // StinkingCloud
-
-            StinkingCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
-                ConditionBlindedByStinkingCloud;
-
-            // >> ConditionSleetStorm
-            // SleetStorm
-
-            SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
-                ConditionBlindedBySleetStorm;
-
-            // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
-            CloudKill.EffectDescription.EffectForms.TryAdd(FormBlindedByCloudKill);
-            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormBlindedByIncendiaryCloud);
-
-            // Make Insect Plague lightly obscured
-            InsectPlague.EffectDescription.EffectForms.Add(FormLightlyObscured);
-            InsectPlague.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
-
-            // vanilla has this set as disadvantage so we flip it with nullified requirements
-            CombatAffinityHeavilyObscured.attackOnMeAdvantage = RuleDefinitions.AdvantageType.Advantage;
-            CombatAffinityHeavilyObscured.nullifiedBySenses = [];
-            CombatAffinityHeavilyObscured.nullifiedBySelfSenses =
-                [SenseMode.Type.Blindsight, SenseMode.Type.Tremorsense];
-
-            CombatAffinityHeavilyObscuredSelf.nullifiedBySenses = [];
-            CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
-                [SenseMode.Type.Blindsight, SenseMode.Type.Tremorsense];
-        }
-        else
-        {
-            ConditionBlinded.Features.SetRange(
-                CombatAffinityBlinded,
-                PerceptionAffinityConditionBlinded);
-
-            // >> ConditionVeil
-            // ConditionAffinityVeilImmunity
-            // PowerDefilerDarkness
-
-            ConditionAffinityVeilImmunity.conditionType = ConditionVeil.Name;
-
-            PowerDefilerDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionVeil;
-
-            // >> ConditionDarkness
-            // ConditionAffinityInvocationDevilsSight
-            // Darkness
-
-            FeatureSetInvocationDevilsSight.FeatureSet.SetRange(
-                SenseBlindSight16,
-                SenseSeeInvisible16,
-                ConditionAffinityInvocationDevilsSight);
-            DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightDescription";
-
-            Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionDarkness;
-
-            // >> ConditionHeavilyObscured
-            // FogCloud
-            // PetalStorm
-
-            FogCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionHeavilyObscured;
-
-            SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
-                ConditionHeavilyObscured;
-
-            // >> ConditionInStinkingCloud
-            // StinkingCloud
-
-            StinkingCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionInStinkingCloud;
-
-            // >> ConditionSleetStorm
-            // SleetStorm
-
-            SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionSleetStorm;
-
-            // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
-            CloudKill.EffectDescription.EffectForms.Remove(FormBlindedByCloudKill);
-            IncendiaryCloud.EffectDescription.EffectForms.Remove(FormBlindedByIncendiaryCloud);
-
-            // Remove lightly obscured from Insect Plague
-            InsectPlague.EffectDescription.EffectForms.Remove(FormLightlyObscured);
-            InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
-
-            // vanilla has this set as disadvantage so we flip it with nullified requirements
-            CombatAffinityHeavilyObscured.attackOnMeAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
-            CombatAffinityHeavilyObscured.nullifiedBySenses =
-                [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
-            CombatAffinityHeavilyObscured.nullifiedBySelfSenses = [];
-
-            CombatAffinityHeavilyObscuredSelf.nullifiedBySenses = [];
-            CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
-                [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
-        }
-    }
-
-    internal static void SwitchHeavilyObscuredOnObscurementRules()
-    {
-        if (Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker)
-        {
-            FogCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
-            SpellsContext.PetalStorm.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
-            StinkingCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
-            SleetStorm.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
-            CloudKill.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
-            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
-        }
-        else
-        {
-            FogCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
-            SpellsContext.PetalStorm.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
-            StinkingCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
-            SleetStorm.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
-            CloudKill.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
-            IncendiaryCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
-        }
-    }
-
-    internal static void SwitchMagicalDarknessOnObscurementRules()
-    {
-        if (Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker)
-        {
-            PowerDefilerDarkness.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
-            Darkness.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
-        }
-        else
-        {
-            PowerDefilerDarkness.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
-            Darkness.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
-        }
-    }
-
-    internal static void SwitchMonstersOnObscurementRules()
-    {
-        foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
-        {
-            var name = monster.Name;
-
-            if (Main.Settings.OfficialObscurementRulesTweakMonsters)
-            {
-                if (Main.Settings.MonstersThatShouldHaveDarkvision.Contains(name))
-                {
-                    monster.Features.TryAdd(SenseDarkvision);
-                }
-
-                if (Main.Settings.MonstersThatShouldHaveTrueSight.Contains(name))
-                {
-                    monster.Features.TryAdd(SenseTruesight16);
-                }
-
-                if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
-                {
-                    monster.Features.TryAdd(SenseBlindSight16);
-                }
-
-                if (Main.Settings.MonstersThatShouldNotHaveTremorSense.Contains(name))
-                {
-                    monster.Features.Remove(SenseTremorsense16);
-                }
-            }
-            else
-            {
-                if (Main.Settings.MonstersThatShouldHaveDarkvision.Contains(name))
-                {
-                    monster.Features.Remove(SenseDarkvision);
-                }
-
-                if (Main.Settings.MonstersThatShouldHaveTrueSight.Contains(name))
-                {
-                    monster.Features.Remove(SenseTruesight16);
-                }
-
-                if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
-                {
-                    monster.Features.Remove(SenseBlindSight16);
-                }
-
-                if (Main.Settings.MonstersThatShouldNotHaveTremorSense.Contains(name))
-                {
-                    monster.Features.TryAdd(SenseTremorsense16);
-                }
-            }
-        }
-    }
-
     // called from GLBM.CanAttack to correctly determine ADV/DIS scenarios
     internal static void ApplyObscurementRules(BattleDefinitions.AttackEvaluationParams attackParams)
     {
@@ -537,11 +206,29 @@ internal static class LightingAndObscurementContext
             return false;
         }
 
+        // if a proxy need to perceive from controller
+        var finalSensor = sensor;
+
+        if (sensor.RulesetCharacter is RulesetCharacterEffectProxy effectProxy)
+        {
+            var controller = EffectHelpers.GetCharacterByGuid(effectProxy.ControllerGuid);
+
+            if (controller != null)
+            {
+                var locationController = GameLocationCharacter.GetFromActor(controller);
+
+                if (locationController != null)
+                {
+                    finalSensor = locationController;
+                }
+            }
+        }
+
         // let vanilla do the heavy lift on perception
-        var result = instance.IsCellPerceivedByCharacter(cellPosition, sensor);
+        var result = instance.IsCellPerceivedByCharacter(cellPosition, finalSensor);
 
         // use the improved lighting state detection to diff between darkness and heavily obscured
-        var targetLightingState = ComputeLightingStateOnTargetPosition(sensor, cellPosition);
+        var targetLightingState = ComputeLightingStateOnTargetPosition(finalSensor, cellPosition);
 
         // if setting is off or vanilla cannot perceive
         if (!result ||
@@ -558,8 +245,8 @@ internal static class LightingAndObscurementContext
         }
 
         // determine constraints
-        var distance = DistanceCalculation.GetDistanceFromPositions(sensor.LocationPosition, cellPosition);
-        var sensorCharacter = sensor.RulesetCharacter;
+        var distance = DistanceCalculation.GetDistanceFromPositions(finalSensor.LocationPosition, cellPosition);
+        var sensorCharacter = finalSensor.RulesetCharacter;
         var sourceIsBlindFromDarkness = IsBlindFromDarkness(sensorCharacter);
         var sourceIsBlindNotFromDarkness = IsBlindNotFromDarkness(sensorCharacter);
         var targetIsNotTouchingGround = target != null && !target.RulesetActor.IsTouchingGround();
@@ -868,4 +555,344 @@ internal static class LightingAndObscurementContext
         HeavilyObscured = 9000,
         Invalid = 9001
     }
+
+    #region conditions
+
+    private const string BlindDescription = "Rules/&ConditionBlindedDescription";
+    private const string BlindExtendedDescription = "Condition/&ConditionBlindedExtendedDescription";
+
+    // ProxyDarkness is a special use case that is handled apart
+    private static readonly HashSet<EffectProxyDefinition> SightImpairedProxies =
+    [
+        ProxyCloudKill,
+        ProxyFogCloud,
+        ProxyIncendiaryCloud,
+        ProxyPetalStorm,
+        ProxySleetStorm,
+        ProxyStinkingCloud
+    ];
+
+    internal static readonly ConditionDefinition ConditionBlindedByDarkness = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByDarkness")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByCloudKill = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByCloudKill")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByFogCloud = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByFogCloud")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByIncendiaryCloud = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByIncendiaryCloud")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByPetalStorm = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByPetalStorm")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedBySleetStorm = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedBySleetStorm")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBlindedByStinkingCloud = ConditionDefinitionBuilder
+        .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
+        .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
+        .SetParentCondition(ConditionBlinded)
+        .SetFeatures()
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
+        .Create(ConditionHeavilyObscured, "ConditionLightlyObscured")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .SetFeatures(
+            FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create("AbilityCheckAffinityLightlyObscured")
+                .SetOrUpdateGuiPresentation("ConditionLightlyObscured", Category.Condition)
+                .BuildAndSetAffinityGroups(RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage,
+                    abilityProficiencyPairs: (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
+                .AddToDB())
+        .AddToDB();
+
+    private static readonly EffectForm FormBlindedByCloudKill =
+        EffectFormBuilder.ConditionForm(ConditionBlindedByCloudKill);
+
+    private static readonly EffectForm FormBlindedByIncendiaryCloud =
+        EffectFormBuilder.ConditionForm(ConditionBlindedByIncendiaryCloud);
+
+    private static readonly EffectForm FormLightlyObscured = EffectFormBuilder.ConditionForm(ConditionLightlyObscured);
+
+    private static readonly EffectForm FormProjectileBlocker = EffectFormBuilder
+        .Create()
+        .SetTopologyForm(TopologyForm.Type.ProjectileBlocker, true)
+        .Build();
+
+    #endregion
+
+    #region mod UI
+
+    internal static void LateLoad()
+    {
+        SwitchOfficialObscurementRules();
+    }
+
+    internal static void SwitchOfficialObscurementRules()
+    {
+        var searchTerm = Main.Settings.UseOfficialLightingObscurementAndVisionRules
+            ? BlindDescription
+            : BlindExtendedDescription;
+
+        var replaceTerm = !Main.Settings.UseOfficialLightingObscurementAndVisionRules
+            ? BlindDescription
+            : BlindExtendedDescription;
+
+        foreach (var condition in DatabaseRepository.GetDatabase<ConditionDefinition>()
+                     .Where(x => x.GuiPresentation.description == searchTerm))
+        {
+            condition.GuiPresentation.description = replaceTerm;
+        }
+
+        SwitchHeavilyObscuredOnObscurementRules();
+        SwitchMagicalDarknessOnObscurementRules();
+        SwitchMonstersOnObscurementRules();
+        SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
+
+        if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        {
+            ConditionBlinded.Features.SetRange(
+                CombatAffinityHeavilyObscured,
+                CombatAffinityHeavilyObscuredSelf,
+                PerceptionAffinityConditionBlinded);
+
+            // >> ConditionVeil
+            // ConditionAffinityVeilImmunity
+            // PowerDefilerDarkness
+
+            ConditionAffinityVeilImmunity.conditionType = ConditionBlindedByDarkness.Name;
+
+            PowerDefilerDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+                ConditionBlindedByDarkness;
+
+            // >> ConditionDarkness
+            // ConditionAffinityInvocationDevilsSight
+            // Darkness
+
+            FeatureSetInvocationDevilsSight.FeatureSet.SetRange(SenseTruesight16, SenseDarkvision24);
+            DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightExtendedDescription";
+
+            Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionBlindedByDarkness;
+
+            // >> ConditionHeavilyObscured
+            // FogCloud
+            // PetalStorm
+
+            FogCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionBlindedByFogCloud;
+
+            SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+                ConditionBlindedByPetalStorm;
+
+            // >> ConditionInStinkingCloud
+            // StinkingCloud
+
+            StinkingCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
+                ConditionBlindedByStinkingCloud;
+
+            // >> ConditionSleetStorm
+            // SleetStorm
+
+            SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition =
+                ConditionBlindedBySleetStorm;
+
+            // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
+            CloudKill.EffectDescription.EffectForms.TryAdd(FormBlindedByCloudKill);
+            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormBlindedByIncendiaryCloud);
+
+            // Make Insect Plague lightly obscured
+            InsectPlague.EffectDescription.EffectForms.Add(FormLightlyObscured);
+            InsectPlague.EffectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.None;
+
+            // vanilla has this set as disadvantage so we flip it with nullified requirements
+            CombatAffinityHeavilyObscured.attackOnMeAdvantage = RuleDefinitions.AdvantageType.Advantage;
+            CombatAffinityHeavilyObscured.nullifiedBySenses = [];
+            CombatAffinityHeavilyObscured.nullifiedBySelfSenses =
+                [SenseMode.Type.Blindsight, SenseMode.Type.Tremorsense];
+
+            CombatAffinityHeavilyObscuredSelf.nullifiedBySenses = [];
+            CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
+                [SenseMode.Type.Blindsight, SenseMode.Type.Tremorsense];
+        }
+        else
+        {
+            ConditionBlinded.Features.SetRange(
+                CombatAffinityBlinded,
+                PerceptionAffinityConditionBlinded);
+
+            // >> ConditionVeil
+            // ConditionAffinityVeilImmunity
+            // PowerDefilerDarkness
+
+            ConditionAffinityVeilImmunity.conditionType = ConditionVeil.Name;
+
+            PowerDefilerDarkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionVeil;
+
+            // >> ConditionDarkness
+            // ConditionAffinityInvocationDevilsSight
+            // Darkness
+
+            FeatureSetInvocationDevilsSight.FeatureSet.SetRange(
+                SenseBlindSight16,
+                SenseSeeInvisible16,
+                ConditionAffinityInvocationDevilsSight);
+            DevilsSight.GuiPresentation.description = "Invocation/&DevilsSightDescription";
+
+            Darkness.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition = ConditionDarkness;
+
+            // >> ConditionHeavilyObscured
+            // FogCloud
+            // PetalStorm
+
+            FogCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionHeavilyObscured;
+
+            SpellsContext.PetalStorm.EffectDescription.EffectForms[1].ConditionForm.ConditionDefinition =
+                ConditionHeavilyObscured;
+
+            // >> ConditionInStinkingCloud
+            // StinkingCloud
+
+            StinkingCloud.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionInStinkingCloud;
+
+            // >> ConditionSleetStorm
+            // SleetStorm
+
+            SleetStorm.EffectDescription.EffectForms[0].ConditionForm.ConditionDefinition = ConditionSleetStorm;
+
+            // Cloud Kill / Incendiary Cloud need same debuff as other heavily obscured
+            CloudKill.EffectDescription.EffectForms.Remove(FormBlindedByCloudKill);
+            IncendiaryCloud.EffectDescription.EffectForms.Remove(FormBlindedByIncendiaryCloud);
+
+            // Remove lightly obscured from Insect Plague
+            InsectPlague.EffectDescription.EffectForms.Remove(FormLightlyObscured);
+            InsectPlague.effectDescription.EffectForms[1].TopologyForm.changeType = TopologyForm.Type.SightImpaired;
+
+            // vanilla has this set as disadvantage so we flip it with nullified requirements
+            CombatAffinityHeavilyObscured.attackOnMeAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
+            CombatAffinityHeavilyObscured.nullifiedBySenses =
+                [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
+            CombatAffinityHeavilyObscured.nullifiedBySelfSenses = [];
+
+            CombatAffinityHeavilyObscuredSelf.nullifiedBySenses = [];
+            CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
+                [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
+        }
+    }
+
+    internal static void SwitchHeavilyObscuredOnObscurementRules()
+    {
+        if (Main.Settings.OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker)
+        {
+            FogCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            SpellsContext.PetalStorm.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            StinkingCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            SleetStorm.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            CloudKill.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            IncendiaryCloud.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+        }
+        else
+        {
+            FogCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            SpellsContext.PetalStorm.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            StinkingCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            SleetStorm.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            CloudKill.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            IncendiaryCloud.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+        }
+    }
+
+    internal static void SwitchMagicalDarknessOnObscurementRules()
+    {
+        if (Main.Settings.OfficialObscurementRulesMagicalDarknessAsProjectileBlocker)
+        {
+            PowerDefilerDarkness.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+            Darkness.EffectDescription.EffectForms.TryAdd(FormProjectileBlocker);
+        }
+        else
+        {
+            PowerDefilerDarkness.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+            Darkness.EffectDescription.EffectForms.Remove(FormProjectileBlocker);
+        }
+    }
+
+    internal static void SwitchMonstersOnObscurementRules()
+    {
+        foreach (var monster in DatabaseRepository.GetDatabase<MonsterDefinition>())
+        {
+            var name = monster.Name;
+
+            if (Main.Settings.OfficialObscurementRulesTweakMonsters)
+            {
+                if (Main.Settings.MonstersThatShouldHaveDarkvision.Contains(name))
+                {
+                    monster.Features.TryAdd(SenseDarkvision);
+                }
+
+                if (Main.Settings.MonstersThatShouldHaveTrueSight.Contains(name))
+                {
+                    monster.Features.TryAdd(SenseTruesight16);
+                }
+
+                if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
+                {
+                    monster.Features.TryAdd(SenseBlindSight16);
+                }
+
+                if (Main.Settings.MonstersThatShouldNotHaveTremorSense.Contains(name))
+                {
+                    monster.Features.Remove(SenseTremorsense16);
+                }
+            }
+            else
+            {
+                if (Main.Settings.MonstersThatShouldHaveDarkvision.Contains(name))
+                {
+                    monster.Features.Remove(SenseDarkvision);
+                }
+
+                if (Main.Settings.MonstersThatShouldHaveTrueSight.Contains(name))
+                {
+                    monster.Features.Remove(SenseTruesight16);
+                }
+
+                if (Main.Settings.MonstersThatShouldHaveBlindSight.Contains(name))
+                {
+                    monster.Features.Remove(SenseBlindSight16);
+                }
+
+                if (Main.Settings.MonstersThatShouldNotHaveTremorSense.Contains(name))
+                {
+                    monster.Features.TryAdd(SenseTremorsense16);
+                }
+            }
+        }
+    }
+
+    #endregion
 }
