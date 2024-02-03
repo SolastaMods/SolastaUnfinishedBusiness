@@ -253,8 +253,12 @@ public static class CharacterActionAttackPatcher
             // BEGIN PATCH
 
             //PATCH: support for `ITryAlterOutcomeAttack`
-            yield return TryAlterOutcomeAttack.Handler(battleService as GameLocationBattleManager,
-                __instance, actingCharacter, target, attackModifier);
+            foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack
+                         .Handler(battleService as GameLocationBattleManager,
+                             __instance, actingCharacter, target, attackModifier))
+            {
+                yield return tryAlterOutcomeAttack;
+            }
 
             // END PATCH
 
@@ -462,9 +466,12 @@ public static class CharacterActionAttackPatcher
                         // BEGIN PATCH
 
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        yield return TryAlterOutcomeSavingThrowFromAllyOrEnemy.Handler(
-                            battleService as GameLocationBattleManager,
-                            __instance, actingCharacter, target, attackModifier, hasBorrowedLuck);
+                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
+                                     battleService as GameLocationBattleManager,
+                                     __instance, actingCharacter, target, attackModifier, hasBorrowedLuck))
+                        {
+                            yield return tryAlterOutcomeSavingThrow;
+                        }
 
                         // END PATCH
                     }

@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness;
 
 internal static class Global
 {
-    //required to correctly determine isMelee as well as saving thrown delta bugfix
+    // required to correctly determine isMelee validation and ensure Zen Archer Hail of Arrows won't trigger PowerMonkMartialArts
     internal static readonly Stack<CharacterActionAttack> CurrentAttackAction = new();
 
     // true if in a multiplayer game
@@ -53,13 +53,4 @@ internal static class Global
         InspectedHero
         ?? LevelUpHero
         ?? SelectedLocationCharacter?.RulesetCharacter;
-
-    //BUGFIX: saving throw not passing correct saving delta on attack actions
-    internal static void SetAttackActionSaveOutcomeDelta(int saveOutcomeDelta)
-    {
-        if (CurrentAttackAction.Count > 0)
-        {
-            CurrentAttackAction.Peek().saveOutcomeDelta = saveOutcomeDelta;
-        }
-    }
 }

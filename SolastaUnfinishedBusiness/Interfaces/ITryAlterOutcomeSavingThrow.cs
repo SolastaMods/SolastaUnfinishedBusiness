@@ -18,7 +18,7 @@ public interface ITryAlterOutcomeSavingThrow
         [UsedImplicitly] bool hasBorrowedLuck);
 }
 
-internal static class TryAlterOutcomeSavingThrowFromAllyOrEnemy
+internal static class TryAlterOutcomeSavingThrow
 {
     internal static IEnumerable Handler(
         GameLocationBattleManager battleManager,

@@ -735,9 +735,6 @@ public static class RulesetImplementationManagerPatcher
                     ref outcomeDelta,
                     effectForms);
             }
-
-            //BUGFIX: saving throw not passing correct saving delta on attack actions
-            Global.SetAttackActionSaveOutcomeDelta(outcomeDelta);
         }
 
         [UsedImplicitly]

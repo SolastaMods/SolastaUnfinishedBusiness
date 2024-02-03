@@ -119,9 +119,12 @@ public static class CharacterActionSpendPowerPatcher
                         // BEGIN PATCH
 
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        yield return TryAlterOutcomeSavingThrowFromAllyOrEnemy.Handler(
-                            battleService as GameLocationBattleManager,
-                            __instance, actingCharacter, target, actionModifier, hasBorrowedLuck);
+                        foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
+                                     battleService as GameLocationBattleManager,
+                                     __instance, actingCharacter, target, actionModifier, hasBorrowedLuck))
+                        {
+                            yield return tryAlterOutcomeSavingThrow;
+                        }
 
                         // END PATCH
                     }
