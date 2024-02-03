@@ -372,8 +372,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
             var targets = battleManager.Battle
-                .GetContenders(defender, false, hasToPerceiveTarget: true, isWithinXCells: 2)
-                .ToList();
+                .GetContenders(defender, attacker,
+                    isOppositeSide: false, excludeSelf: false, hasToPerceiveTarget: true, withinRange: 2);
             //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
@@ -385,9 +385,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 targetCharacters = targets
             };
 
-            // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
             ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
         }
 
         private enum BladeMarkStatus

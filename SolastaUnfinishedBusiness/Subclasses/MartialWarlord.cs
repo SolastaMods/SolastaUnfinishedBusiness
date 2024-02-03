@@ -698,7 +698,7 @@ public sealed class MartialWarlord : AbstractSubclass
             }
 
             foreach (var player in Gui.Battle
-                         .GetContenders(locationCharacter, false, false, isWithinXCells: 6))
+                         .GetContenders(locationCharacter, isOppositeSide: false, excludeSelf: false, withinRange: 6))
             {
                 player.RulesetCharacter.InflictCondition(
                     conditionWisdomInitiative.Name,

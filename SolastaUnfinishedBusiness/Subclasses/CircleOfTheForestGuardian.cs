@@ -240,7 +240,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
 
         rulesetCharacter.LogCharacterUsedPower(powerSuperiorBarkWard);
 
-        foreach (var ally in Gui.Battle.GetContenders(locationCharacter, false, isWithinXCells: 3))
+        foreach (var ally in Gui.Battle
+                     .GetContenders(locationCharacter, isOppositeSide: false, withinRange: 3))
         {
             ally.RulesetCharacter.ReceiveTemporaryHitPoints(
                 hitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);

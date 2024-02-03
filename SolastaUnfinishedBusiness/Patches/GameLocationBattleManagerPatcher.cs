@@ -661,7 +661,8 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 //PATCH: Support for `IOnReducedToZeroHpByMeOrAlly` feature
-                foreach (var ally in __instance.Battle.GetContenders(attacker, false, false))
+                foreach (var ally in __instance.Battle
+                             .GetContenders(attacker, isOppositeSide: false, excludeSelf: false))
                 {
                     foreach (var onReducedToZeroHpByMeOrAlly in
                              ally.RulesetActor.GetSubFeaturesByType<IOnReducedToZeroHpByMeOrAlly>())
@@ -899,7 +900,7 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            foreach (var opposingContender in __instance.Battle.GetContenders(attacker, isWithinXCells: 1)
+            foreach (var opposingContender in __instance.Battle.GetContenders(attacker, withinRange: 1)
                          .Where(opposingContender =>
                              opposingContender != defender &&
                              opposingContender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
@@ -965,7 +966,8 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle != null)
             {
                 // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-                foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker, false, false))
+                foreach (var gameLocationAlly in __instance.Battle.GetContenders(attacker, isOppositeSide: false,
+                             excludeSelf: false))
                 {
                     var allyFeatures =
                         gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedByMeOrAlly>();

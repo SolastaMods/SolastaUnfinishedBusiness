@@ -620,7 +620,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
         };
 
         // apply damage to all targets
-        foreach (var target in Gui.Battle.GetContenders(defender, false, isWithinXCells: 3))
+        foreach (var target in Gui.Battle
+                     .GetContenders(defender, isOppositeSide: false, withinRange: 3))
         {
             var rulesetTarget = target.RulesetCharacter;
             var damageForm = new DamageForm

@@ -761,7 +761,7 @@ internal static partial class SpellBuilders
             var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
 
             foreach (var enemy in Gui.Battle
-                         .GetContenders(target, false, false, isWithinXCells: 1))
+                         .GetContenders(target, isOppositeSide: false, excludeSelf: false, withinRange: 1))
             {
                 var rulesetEnemy = enemy.RulesetCharacter;
                 var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;

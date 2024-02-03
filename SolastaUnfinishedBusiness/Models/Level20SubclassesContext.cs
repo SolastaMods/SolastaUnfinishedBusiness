@@ -2007,7 +2007,8 @@ internal static class Level20SubclassesContext
 
             attacker.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
 
-            foreach (var ally in battleManager.Battle.GetContenders(attacker, false, false, isWithinXCells: 4))
+            foreach (var ally in battleManager.Battle
+                         .GetContenders(attacker, isOppositeSide: false, hasToPerceiveTarget: false, withinRange: 4))
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
             }
@@ -2133,7 +2134,7 @@ internal static class Level20SubclassesContext
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
             // remove this condition from all other enemies
-            foreach (var rulesetDefender in Gui.Battle.GetContenders(gameLocationDefender, false)
+            foreach (var rulesetDefender in Gui.Battle.GetContenders(gameLocationDefender, isOppositeSide: false)
                          .Select(defender => defender.RulesetCharacter))
             {
                 if (rulesetDefender.TryGetConditionOfCategoryAndType(
