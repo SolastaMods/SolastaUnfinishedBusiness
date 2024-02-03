@@ -1,4 +1,9 @@
-﻿1.5.94.49:
+﻿1.5.94.50:
+
+- fixed custom trigger AlterSavingThrowOutcome impacting Eldritch Ward, Flash of Genius, and Seize the Chance 
+- fixed lighting, obscurement, and vision rules to consider controller position and senses with proxy effects
+
+1.5.94.49:
 
 - fixed Arcane Recovery and Flexible Casting modals getting presented to all players in a MP session
 - fixed Burning Blade spell causing an instability when attempting the 2nd target damage
