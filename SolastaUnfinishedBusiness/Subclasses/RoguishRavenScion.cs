@@ -97,25 +97,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
         powerHeartSeekingShot.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
             new AssetReference();
 
-        //
-        // LEVEL 13
-        //
-
-        // Deadly Focus
-
-        var powerDeadlyFocus = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}DeadlyFocus")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
-            .AddToDB();
-
-        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyFocus));
-
-        //
-        // LEVEL 17
-        //
-        
         // Killing Spree
 
         var featureRavenKillingSpree = FeatureDefinitionBuilder
@@ -136,6 +117,36 @@ public sealed class RoguishRavenScion : AbstractSubclass
                         .AddCustomSubFeatures(ValidateAdditionalActionAttack.TwoHandedRanged)
                         .AddToDB())
                     .AddToDB()))
+            .AddToDB();
+
+        //
+        // LEVEL 13
+        //
+
+        // Deadly Focus
+
+        var powerDeadlyFocus = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}DeadlyFocus")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyFocus));
+
+        //
+        // LEVEL 17
+        //
+
+        // Perfect Shot
+
+        // kept for backward compatibility
+        _ = FeatureDefinitionDieRollModifierBuilder
+            .Create($"DieRollModifier{Name}PerfectShot")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 2, 1,
+                "Feature/&DieRollModifierRavenPainMakerReroll")
+            .AddCustomSubFeatures(new RoguishRaven.RavenRerollAnyDamageDieMarker())
             .AddToDB();
 
         //
