@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -120,24 +119,9 @@ public static class CharacterActionSpendPowerPatcher
                         // BEGIN PATCH
 
                         //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                        // should also happen outside battles
-                        var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-                        var contenders =
-                            (Gui.Battle?.AllContenders ??
-                             locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                            .ToList();
-
-                        foreach (var unit in contenders
-                                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
-                        {
-                            foreach (var feature in unit.RulesetCharacter
-                                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrowFromAllyOrEnemy>())
-                            {
-                                yield return feature.OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
-                                    battleService as GameLocationBattleManager, __instance, actingCharacter, target,
-                                    unit, actionModifier, false, hasBorrowedLuck);
-                            }
-                        }
+                        yield return TryAlterOutcomeSavingThrowFromAllyOrEnemy.Handler(
+                            battleService as GameLocationBattleManager,
+                            __instance, actingCharacter, target, actionModifier, hasBorrowedLuck);
 
                         // END PATCH
                     }

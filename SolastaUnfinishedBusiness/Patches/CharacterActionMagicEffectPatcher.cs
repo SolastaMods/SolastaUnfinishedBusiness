@@ -617,20 +617,14 @@ public static class CharacterActionMagicEffectPatcher
                 // BEGIN PATCH
 
                 //PATCH: support for IAlterAttackOutcome
-                foreach (var extraEvents in actingCharacter.RulesetCharacter
-                             .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttackByMe>()
-                             .TakeWhile(_ =>
-                                 __instance.AttackRollOutcome == RollOutcome.Failure &&
-                                 __instance.AttackSuccessDelta < 0)
-                             .Select(feature =>
-                                 feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager,
-                                     __instance, actingCharacter, target, attackModifier)))
-                {
-                    while (extraEvents.MoveNext())
-                    {
-                        yield return extraEvents.Current;
-                    }
-                }
+                yield return actingCharacter.RulesetCharacter
+                    .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttackByMe>()
+                    .TakeWhile(_ =>
+                        __instance.AttackRollOutcome == RollOutcome.Failure &&
+                        __instance.AttackSuccessDelta < 0)
+                    .Select(feature =>
+                        feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager,
+                            __instance, actingCharacter, target, attackModifier));
 
                 // END PATCH
 
@@ -767,25 +761,9 @@ public static class CharacterActionMagicEffectPatcher
                     // BEGIN PATCH
 
                     //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                    // should also happen outside battles
-                    var locationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-                    var contenders =
-                        (Gui.Battle?.AllContenders ??
-                         locationCharacterService.PartyCharacters.Union(locationCharacterService.GuestCharacters))
-                        .ToList();
-
-                    foreach (var unit in contenders
-                                 .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
-                    {
-                        foreach (var feature in unit.RulesetCharacter
-                                     .GetSubFeaturesByType<ITryAlterOutcomeSavingThrowFromAllyOrEnemy>())
-                        {
-                            yield return feature.OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
-                                battleService as GameLocationBattleManager, __instance, actingCharacter,
-                                target,
-                                unit, attackModifier, false, hasBorrowedLuck);
-                        }
-                    }
+                    yield return TryAlterOutcomeSavingThrowFromAllyOrEnemy.Handler(
+                        battleService as GameLocationBattleManager,
+                        __instance, actingCharacter, target, attackModifier, hasBorrowedLuck);
 
                     // END PATCH
                 }
