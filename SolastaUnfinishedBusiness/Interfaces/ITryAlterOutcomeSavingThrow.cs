@@ -5,15 +5,15 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
-public interface ITryAlterOutcomeSavingThrowFromAllyOrEnemy
+public interface ITryAlterOutcomeSavingThrow
 {
-    IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
+    IEnumerator OnTryAlterOutcomeSavingThrow(
         GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter featureOwner,
-        ActionModifier saveModifier,
+        GameLocationCharacter helper,
+        ActionModifier actionModifier,
         bool hasHitVisual,
         [UsedImplicitly] bool hasBorrowedLuck);
 }
@@ -38,9 +38,9 @@ internal static class TryAlterOutcomeSavingThrowFromAllyOrEnemy
                      .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
         {
             foreach (var feature in unit.RulesetCharacter
-                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrowFromAllyOrEnemy>())
+                         .GetSubFeaturesByType<ITryAlterOutcomeSavingThrow>())
             {
-                yield return feature.OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
+                yield return feature.OnTryAlterOutcomeSavingThrow(
                     battleManager, action, attacker, defender, unit, actionModifier, false, hasBorrowedLuck);
             }
         }
