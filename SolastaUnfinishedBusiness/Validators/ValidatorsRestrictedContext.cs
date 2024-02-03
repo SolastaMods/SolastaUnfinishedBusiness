@@ -34,4 +34,9 @@ public static class ValidatorsRestrictedContext
         new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
             (OperationType.Set, character.GetSubclassLevel(Paladin, OathOfDemonHunter.Name) >= 3 &&
                                 OathOfDemonHunter.IsOathOfDemonHunterWeapon(mode, null, character)));
+
+    public static readonly IValidateContextInsteadOfRestrictedProperty IsZenArrowAttack =
+        new ValidateContextInsteadOfRestrictedProperty((_, _, character, _, _, mode, _) =>
+            (OperationType.Set, mode is { Ranged: true } &&
+                                character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition)));
 }

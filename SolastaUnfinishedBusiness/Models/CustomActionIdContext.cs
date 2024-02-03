@@ -30,6 +30,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
         (Id)ExtraActionId.MindSculptToggle,
+        (Id)ExtraActionId.MonkKiPointsToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.SupremeWillToggle,
@@ -267,6 +268,13 @@ public static class CustomActionIdContext
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.FeatCrusherToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "MonkKiPointsToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.MonkKiPointsToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
