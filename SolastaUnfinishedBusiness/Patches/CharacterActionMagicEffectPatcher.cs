@@ -616,15 +616,13 @@ public static class CharacterActionMagicEffectPatcher
 
                 // BEGIN PATCH
 
-                //PATCH: support for IAlterAttackOutcome
-                yield return actingCharacter.RulesetCharacter
-                    .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttackByMe>()
-                    .TakeWhile(_ =>
-                        __instance.AttackRollOutcome == RollOutcome.Failure &&
-                        __instance.AttackSuccessDelta < 0)
-                    .Select(feature =>
-                        feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager,
-                            __instance, actingCharacter, target, attackModifier));
+                //PATCH: support for `ITryAlterOutcomeAttack`
+                foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack
+                             .Handler(battleService as GameLocationBattleManager,
+                                 __instance, actingCharacter, target, attackModifier))
+                {
+                    yield return tryAlterOutcomeAttack;
+                }
 
                 // END PATCH
 
@@ -761,9 +759,12 @@ public static class CharacterActionMagicEffectPatcher
                     // BEGIN PATCH
 
                     //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                    yield return TryAlterOutcomeSavingThrowFromAllyOrEnemy.Handler(
-                        battleService as GameLocationBattleManager,
-                        __instance, actingCharacter, target, attackModifier, hasBorrowedLuck);
+                    foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
+                                 battleService as GameLocationBattleManager,
+                                 __instance, actingCharacter, target, attackModifier, hasBorrowedLuck))
+                    {
+                        yield return tryAlterOutcomeSavingThrow;
+                    }
 
                     // END PATCH
                 }

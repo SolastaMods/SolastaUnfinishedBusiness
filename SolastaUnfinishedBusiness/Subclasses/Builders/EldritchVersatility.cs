@@ -1215,9 +1215,9 @@ internal static class EldritchVersatilityBuilders
         }
     }
 
-    private class EldritchWardAidSave : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
+    private class EldritchWardAidSave : ITryAlterOutcomeSavingThrow
     {
-        public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,

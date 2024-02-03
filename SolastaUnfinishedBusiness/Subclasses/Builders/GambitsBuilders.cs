@@ -1681,33 +1681,47 @@ internal static class GambitsBuilders
     //
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private sealed class Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
-        : ITryAlterOutcomePhysicalAttackByMe
+        : ITryAlterOutcomeAttack
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
 
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
+        public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (manager == null)
+            if (gameLocationActionManager == null)
             {
                 yield break;
             }
 
-            var character = me.RulesetCharacter;
-
-            if (character.GetRemainingPowerCharges(pool) <= 0 || !me.CanPerceiveTarget(target))
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
-            var dieType = GetGambitDieSize(character);
+            if (attacker != helper)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.CanUsePower(pool) ||
+                !attacker.CanPerceiveTarget(defender))
+            {
+                yield break;
+            }
+
+            var dieType = GetGambitDieSize(rulesetCharacter);
             var max = DiceMaxValue[(int)dieType];
             var delta = Math.Abs(action.AttackSuccessDelta);
 
@@ -1716,36 +1730,34 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            var guiMe = new GuiCharacter(me);
-            var guiTarget = new GuiCharacter(target);
+            var guiAttacker = new GuiCharacter(attacker);
+            var guiDefender = new GuiCharacter(defender);
 
-            var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(),
-                Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {
-                    StringParameter = description
+                    StringParameter = Gui.Format(
+                        Format, guiAttacker.Name, guiDefender.Name, delta.ToString(), Gui.FormatDieTitle(dieType))
                 };
 
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
             {
                 Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            character.UpdateUsageForPower(pool, 1);
+            rulesetCharacter.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
-
             var hitTrends = attackModifier.AttacktoHitTrends;
 
             hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
@@ -1763,13 +1775,17 @@ internal static class GambitsBuilders
                 action.AttackRollOutcome = RollOutcome.Success;
             }
 
-            character.ShowDieRoll(dieType, dieRoll,
+            rulesetCharacter.ShowDieRoll(
+                dieType,
+                dieRoll,
                 title: feature.GuiPresentation.Title,
                 outcome: success ? RollOutcome.Success : RollOutcome.Failure,
                 displayOutcome: true
             );
 
-            character.LogCharacterUsedFeature(feature, Line,
+            rulesetCharacter.LogCharacterUsedFeature(
+                feature,
+                Line,
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),

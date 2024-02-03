@@ -725,42 +725,51 @@ public sealed class MartialArcaneArcher : AbstractSubclass
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
     private class TryAlterOutcomePhysicalAttackByMeGuidedShot(FeatureDefinition featureDefinition)
-        : ITryAlterOutcomePhysicalAttackByMe
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
+        public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
+            if (attacker != helper)
+            {
+                yield break;
+            }
+
             var attackMode = action.actionParams.attackMode;
-            var rulesetAttacker = me.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (!IsBow(attackMode, null, null) || !me.CanPerceiveTarget(target))
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !attacker.CanPerceiveTarget(defender) ||
+                !IsBow(attackMode, null, null))
             {
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null)
-            {
-                yield break;
-            }
-
-            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("MartialArcaneArcherGuidedShot", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -772,15 +781,15 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            rulesetAttacker.LogCharacterUsedFeature(featureDefinition,
+            rulesetCharacter.LogCharacterUsedFeature(featureDefinition,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
-            var roll = rulesetAttacker.RollAttack(
+            var roll = rulesetCharacter.RollAttack(
                 attackMode.toHitBonus,
-                target.RulesetCharacter,
+                defender.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,

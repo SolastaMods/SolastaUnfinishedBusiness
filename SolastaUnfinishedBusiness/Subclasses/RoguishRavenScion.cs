@@ -231,16 +231,22 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Heart-Seeking Shot
     //
 
-    private class TryAlterOutcomePhysicalAttackByMeHeartSeekingShot : ITryAlterOutcomePhysicalAttackByMe
+    private class TryAlterOutcomePhysicalAttackByMeHeartSeekingShot : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
-            GameLocationBattleManager instance,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter target,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
             if (action.AttackRollOutcome != RollOutcome.Success)
+            {
+                yield break;
+            }
+
+            if (attacker != helper)
             {
                 yield break;
             }
@@ -263,57 +269,61 @@ public sealed class RoguishRavenScion : AbstractSubclass
     //
 
     private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power)
-        : ITryAlterOutcomePhysicalAttackByMe
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
+        public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
             var attackMode = action.actionParams.attackMode;
-            var rulesetAttacker = me.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerCharges(power) <= 0 ||
-                !ValidatorsWeapon.IsTwoHandedRanged(attackMode) || !me.CanPerceiveTarget(target))
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.CanUsePower(power) ||
+                !attacker.CanPerceiveTarget(defender) ||
+                !attackMode.ranged)
             {
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null)
-            {
-                yield break;
-            }
-
-            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("RavenScionDeadlyFocus", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(power, power.CostPerUse);
+            rulesetCharacter.UpdateUsageForPower(power, power.CostPerUse);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            rulesetAttacker.LogCharacterUsedPower(
+            rulesetCharacter.LogCharacterUsedPower(
                 power,
                 $"Feedback/&Trigger{Name}RerollLine",
                 false,
@@ -323,9 +333,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var advantageTrends =
                 new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, power.Name, power) };
 
-            var roll = rulesetAttacker.RollAttack(
+            var roll = rulesetCharacter.RollAttack(
                 attackMode.toHitBonus,
-                target.RulesetCharacter,
+                defender.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,
