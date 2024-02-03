@@ -1,0 +1,35 @@
+{
+  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
+    "Definition:FeatureZenArcher:e592b0d3-9a0c-56b4-b0ad-9aaca5718ccc"
+  ],
+  "condition": "RangedWeaponAttack",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&ZenArcherTitle",
+    "description": "FightingStyle/&ZenArcherDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3caab56a24cd00d4ebd7d90b1142eea6",
+      "m_SubObjectName": "Archery",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "26f39505-d684-5413-a79b-241c345bbbb5",
+  "contentPack": 9999,
+  "name": "ZenArcher"
+}
