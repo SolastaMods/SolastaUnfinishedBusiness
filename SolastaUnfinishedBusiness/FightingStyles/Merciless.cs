@@ -95,9 +95,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
             var usablePower = PowerProvider.Get(PowerFightingStyleMerciless, rulesetAttacker);
             var targets = Gui.Battle
-                .GetContenders(attacker, isWithinXCells: distance)
-                .Where(x => x.CanPerceiveTarget(attacker))
-                .ToList();
+                .GetContenders(attacker, hasToPerceivePerceiver: true, withinRange: distance);
             //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {

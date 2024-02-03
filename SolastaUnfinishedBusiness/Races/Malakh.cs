@@ -310,7 +310,8 @@ internal static class RaceMalakhBuilder
             };
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var enemy in Gui.Battle.GetContenders(locationCharacter, isWithinXCells: 3))
+            foreach (var enemy in Gui.Battle
+                         .GetContenders(locationCharacter, withinRange: 3))
             {
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {

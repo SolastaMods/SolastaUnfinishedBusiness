@@ -295,9 +295,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
             }
 
             var targets = Gui.Battle
-                .GetContenders(attacker, isWithinXCells: 3)
-                .Where(x => x.CanPerceiveTarget(attacker))
-                .ToList();
+                .GetContenders(attacker, hasToPerceivePerceiver: true, withinRange: 3);
 
             if (targets.Count == 0)
             {

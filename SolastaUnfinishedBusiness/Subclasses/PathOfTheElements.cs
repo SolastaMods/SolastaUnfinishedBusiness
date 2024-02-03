@@ -433,7 +433,8 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            foreach (var targetLocationCharacter in Gui.Battle.GetContenders(locationCharacter, isWithinXCells: 1))
+            foreach (var targetLocationCharacter in Gui.Battle
+                         .GetContenders(locationCharacter, withinRange: 1))
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
@@ -532,7 +533,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            foreach (var targetLocationCharacter in battle.GetContenders(locationCharacter, isWithinXCells: 1))
+            foreach (var targetLocationCharacter in battle.GetContenders(locationCharacter, withinRange: 1))
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;

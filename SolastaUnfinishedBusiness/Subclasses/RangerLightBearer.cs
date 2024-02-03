@@ -415,7 +415,8 @@ public sealed class RangerLightBearer : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            var targets = gameLocationBattleService.Battle.GetContenders(attacker, isWithinXCells: 5).ToList();
+            var targets = gameLocationBattleService.Battle
+                .GetContenders(attacker, withinRange: 5);
             //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
             {
@@ -485,7 +486,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            using var onPhysicalAttackInitiatedOnMeOrAlly = __instance.Battle.GetContenders(attacker, isWithinXCells: 6)
+            using var onPhysicalAttackInitiatedOnMeOrAlly = __instance.Battle.GetContenders(attacker, withinRange: 6)
                 .Where(opposingContender =>
                     opposingContender.CanReact() &&
                     opposingContender.CanPerceiveTarget(attacker) &&

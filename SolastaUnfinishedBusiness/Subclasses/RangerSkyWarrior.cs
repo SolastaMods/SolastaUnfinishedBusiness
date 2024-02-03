@@ -298,8 +298,8 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             rulesetAttacker.LogCharacterUsedFeature(featureDefinition);
 
-            foreach (var gameLocationDefender in battle.Battle.GetContenders(attacker, hasToPerceiveTarget: true,
-                         isWithinXCells: 1))
+            foreach (var gameLocationDefender in battle.Battle
+                         .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 1))
             {
                 var rulesetDefender = gameLocationDefender.RulesetCharacter;
 

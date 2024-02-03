@@ -1061,7 +1061,8 @@ internal static partial class SpellBuilders
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = battleManager.Battle.GetContenders(defender, false, isWithinXCells: 2)
+                targetCharacters = battleManager.Battle
+                    .GetContenders(defender, isOppositeSide: false, withinRange: 2)
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
@@ -1191,7 +1192,7 @@ internal static partial class SpellBuilders
             var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
 
             if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false }
-                || (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success))
+                || !action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
             {
                 yield break;
             }

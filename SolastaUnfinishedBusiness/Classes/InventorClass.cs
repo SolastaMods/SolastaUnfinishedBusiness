@@ -891,7 +891,7 @@ internal class TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius : ITryAlte
         bool hasHitVisual,
         bool hasBorrowedLuck)
     {
-        if (action.RolledSaveThrow && action.SaveOutcome == RollOutcome.Success)
+        if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
         {
             yield break;
         }

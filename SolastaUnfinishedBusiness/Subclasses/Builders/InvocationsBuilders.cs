@@ -1192,7 +1192,7 @@ internal static class InvocationsBuilders
 
             // apply damage to all targets
             foreach (var target in Gui.Battle
-                         .GetContenders(attacker, isWithinXCells: 1)
+                         .GetContenders(attacker, withinRange: 1)
                          .Where(x => x != defender))
             {
                 var rulesetTarget = target.RulesetCharacter;

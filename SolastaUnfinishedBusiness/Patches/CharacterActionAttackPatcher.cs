@@ -163,7 +163,7 @@ public static class CharacterActionAttackPatcher
                                 target.PerceivedFoes.Contains(actingCharacter);
 
             if (isTargetAware &&
-                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                target.RulesetCharacter is null or { IsDeadOrDyingOrUnconscious: false } &&
                 !rangeAttack &&
                 !target.Prone &&
                 !target.MoveStepInProgress &&
@@ -763,7 +763,7 @@ public static class CharacterActionAttackPatcher
             }
 
             if (isTargetAware &&
-                target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                target.RulesetCharacter is null or { IsDeadOrDyingOrUnconscious: false } &&
                 !rangeAttack &&
                 !target.Prone &&
                 !target.IsCharging &&
