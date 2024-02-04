@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -13,13 +14,15 @@ internal class FeatureDefinitionDieRollModifierBuilder
         int rerollCount,
         int minRollValue,
         int minReRollValue,
-        string consoleLocalizationKey)
+        string consoleLocalizationKey,
+        params string[] validSkills)
     {
         Definition.validityContext = context;
         Definition.rerollLocalizationKey = consoleLocalizationKey;
         Definition.rerollCount = rerollCount;
         Definition.minRollValue = minRollValue;
         Definition.minRerollValue = minReRollValue;
+        Definition.validSkills.SetRange(validSkills);
         return this;
     }
 

@@ -30,7 +30,8 @@ internal static class TryAlterOutcomeAttack
         }
 
         foreach (var unit in Gui.Battle.AllContenders
-                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                     .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                     .ToList())
         {
             foreach (var feature in unit.RulesetCharacter
                          .GetSubFeaturesByType<ITryAlterOutcomeAttack>())
