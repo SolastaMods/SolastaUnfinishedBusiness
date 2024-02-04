@@ -1565,7 +1565,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1576,7 +1576,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionDisarmed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Poison
@@ -1589,7 +1589,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1601,7 +1601,7 @@ internal static class CharacterContext
                                 ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Trip
@@ -1614,7 +1614,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1624,7 +1624,7 @@ internal static class CharacterContext
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Withdraw
@@ -1667,7 +1667,7 @@ internal static class CharacterContext
                     .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         //
@@ -1713,7 +1713,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1724,7 +1724,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionDazed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Knock Out
@@ -1744,7 +1744,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1755,7 +1755,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionKnockOut, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Obscure
@@ -1768,7 +1768,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1780,7 +1780,7 @@ internal static class CharacterContext
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // MAIN
