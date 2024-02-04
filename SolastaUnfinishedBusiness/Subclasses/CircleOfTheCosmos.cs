@@ -779,7 +779,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var reactionParams =
                 new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionWealCosmosOmenSavingReactDescription",
+                    StringParameter = Gui.Format("Reaction/&CustomReactionWealCosmosOmenSavingDescription",
                         attacker.Name, defender.Name, helper.Name)
                 };
 
@@ -928,7 +928,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var reactionParams =
                 new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionWoeCosmosOmenSavingReactDescription",
+                    StringParameter = Gui.Format("Reaction/&CustomReactionWoeCosmosOmenSavingDescription",
                         attacker.Name, defender.Name, helper.Name)
                 };
 
