@@ -7,11 +7,14 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -46,7 +49,8 @@ public sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         ancestryStorm.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(ancestryStorm, SpellDefinitions.LightningBolt));
+            new CharacterTurnEndedElementalFury(
+                ancestryStorm, AdditionalDamagePathClawDragonsBlessing.lightningImpactParticleReference));
 
         var ancestryBlizzard = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Blizzard")
@@ -57,7 +61,8 @@ public sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         ancestryBlizzard.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(ancestryBlizzard, SpellDefinitions.RayOfFrost));
+            new CharacterTurnEndedElementalFury(
+                ancestryBlizzard,AdditionalDamagePathClawDragonsBlessing.fireImpactParticleReference));
 
         var ancestryWildfire = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Wildfire")
@@ -68,7 +73,8 @@ public sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         ancestryWildfire.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(ancestryWildfire, SpellDefinitions.FireBolt));
+            new CharacterTurnEndedElementalFury(
+                ancestryWildfire, AdditionalDamagePathClawDragonsBlessing.coldImpactParticleReference));
 
         // keep sorted
         FeatureSetElementalFury.FeatureSet.Add(ancestryBlizzard);
@@ -414,7 +420,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
     private sealed class CharacterTurnEndedElementalFury(
         FeatureDefinitionAncestry ancestry,
-        IMagicEffect magicEffect)
+        AssetReference assetReference)
         : ICharacterTurnEndListener
     {
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
@@ -477,7 +483,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     IgnoreCriticalDoubleDice = true
                 };
 
-                EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, magicEffect);
+                EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, assetReference);
 
                 implementationService.ApplyEffectForms(
                     [new EffectForm { damageForm = damageForm }],
