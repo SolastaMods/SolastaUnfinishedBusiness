@@ -1565,7 +1565,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1589,7 +1589,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1614,7 +1614,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
                     .SetEffectForms(
@@ -1713,7 +1713,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1744,7 +1744,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
@@ -1768,7 +1768,7 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity, 8)
