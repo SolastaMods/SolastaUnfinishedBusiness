@@ -148,8 +148,8 @@
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": null,
-        "m_SubObjectType": null
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
       },
       "effectSubTargetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -171,7 +171,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c403157f4552068439eefad683faff34",
+        "m_AssetGUID": "96018e15e8eba4b40a9a5bd637d7ae91",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

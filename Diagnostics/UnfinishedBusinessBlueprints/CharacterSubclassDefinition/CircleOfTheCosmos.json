@@ -28,7 +28,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetCircleOfTheCosmosNovaStar:0fe030f2-b212-59c1-b7bb-f0e0557cdce8",
+      "featureDefinition": "Definition:FeatureCircleOfTheCosmosNovaStar:1fa028a2-7e42-5138-a524-885b1eabc967",
       "level": 14
     }
   ],

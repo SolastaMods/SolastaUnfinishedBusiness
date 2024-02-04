@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:PowerRoyalKnightInspiringProtection:544bbcf5-09e1-5d48-8b06-fd5dedb733f2"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,

@@ -1,11 +1,12 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionFlying:ec82fae48f9a55a41a49fd96d93b49b5",
   "conditionType": "Beneficial",
   "features": [
     "Definition:DieRollModifierCircleOfTheCosmosDragonAbility:d01a3495-36ae-5cf6-a445-e4ed9c21b74d",
-    "Definition:DieRollModifierCircleOfTheCosmosDragonConcentration:f7b3822f-5c7e-5c38-a41e-c6c44f7ff755"
+    "Definition:DieRollModifierCircleOfTheCosmosDragonConcentration:f7b3822f-5c7e-5c38-a41e-c6c44f7ff755",
+    "Definition:MoveModeFly4:26430df9731e20f45958ef00a5e3bc7a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -25,7 +26,9 @@
   "interruptionDamageThreshold": 0,
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
-  "conditionTags": [],
+  "conditionTags": [
+    "Verticality"
+  ],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
@@ -60,14 +63,14 @@
   "recurrentEffectParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
@@ -76,26 +79,26 @@
     "startParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "particleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "endParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "coldParticleParameters": {
@@ -103,26 +106,26 @@
     "startParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "particleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "endParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "fireParticleParameters": {
@@ -130,26 +133,26 @@
     "startParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "particleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "endParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "lightningParticleParameters": {
@@ -157,26 +160,26 @@
     "startParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "particleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "endParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "poisonParticleParameters": {
@@ -184,26 +187,26 @@
     "startParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "particleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "endParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "recurrentEffectParticleReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     }
   },
   "overrideCharacterShaderColors": false,
@@ -287,7 +290,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aff64146-0efe-5724-b425-e25bc823f3c6",
+  "guid": "1ebb0967-385a-5a5b-9034-d497f16b7e83",
   "contentPack": 9999,
-  "name": "ConditionCircleOfTheCosmosDragon"
+  "name": "ConditionCircleOfTheCosmosDragon10"
 }

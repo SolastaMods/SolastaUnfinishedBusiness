@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:MovementAffinityConditionSpellbladeArcaneEscape:b3376f0b13030a64b8c4c6cbf57ef2d0"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

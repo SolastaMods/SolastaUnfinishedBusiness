@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:PowerInventorFlashOfGeniusBonus:8bdefff5-cbae-56f4-8642-c75fd661c940"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
