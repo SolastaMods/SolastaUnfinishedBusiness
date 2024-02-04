@@ -42,13 +42,6 @@ internal static class CharacterDisplay
             CharacterContext.SwitchHelpPower();
         }
 
-        toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
-        if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
-            CharacterContext.SwitchDragonbornElementalBreathUsages();
-        }
-
         toggle = Main.Settings.EnableAlternateHuman;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableAlternateHuman"), ref toggle, UI.AutoWidth()))
         {
@@ -63,24 +56,6 @@ internal static class CharacterDisplay
             FlexibleRacesContext.SwitchFlexibleRaces();
         }
 
-        UI.Label();
-
-        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
-            CharacterContext.SwitchDarknessPerceptive();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
-        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
-        }
-
-        UI.Label();
         UI.Label();
 
         toggle = Main.Settings.EnableEpicPointsAndArray;

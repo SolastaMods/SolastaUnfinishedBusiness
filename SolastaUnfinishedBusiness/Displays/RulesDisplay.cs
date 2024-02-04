@@ -392,6 +392,13 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeDragonbornElementalBreathUsages = toggle;
+            CharacterContext.SwitchDragonbornElementalBreathUsages();
+        }
+
         toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
         {
@@ -449,6 +456,23 @@ internal static class RulesDisplay
         {
             Main.Settings.ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition = toggle;
             SrdAndHouseRulesContext.SwitchColdResistanceAndImmunityAlsoGrantsWeatherImmunity();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddDarknessPerceptiveToDarkRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddDarknessPerceptiveToDarkRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddDarknessPerceptiveToDarkRaces = toggle;
+            CharacterContext.SwitchDarknessPerceptive();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.RaceLightSensitivityApplyOutdoorsOnly;
+        if (UI.Toggle(Gui.Localize("ModUi/&RaceLightSensitivityApplyOutdoorsOnly"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RaceLightSensitivityApplyOutdoorsOnly = toggle;
         }
 
         UI.Label();
