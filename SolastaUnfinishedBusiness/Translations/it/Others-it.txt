@@ -127,7 +127,6 @@ Feature/&PowerVanishSummonDescription=Puoi commettere Harakiri e partire da ques
 Feature/&PowerVanishSummonTitle=Svanire
 Feature/&ToolGainChoicesPluralDescription=Scegli {0} di questi strumenti: {1}
 Feature/&ToolGainChoicesSingleDescription=Scegli uno di questi strumenti: {1}
-Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} dà un bonus di {1}, il nuovo risultato è {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} tira per mantenere {1} {2} contro DC {3}, tira {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} tira per mantenere {1} contro DC {2}, tira {3} = {4}
 Feedback/&FlankingAttack=Fiancheggiamento

@@ -126,7 +126,6 @@ Feature/&PowerVanishSummonDescription=Vous pouvez commettre Harakiri et quitter 
 Feature/&PowerVanishSummonTitle=Disparaître
 Feature/&ToolGainChoicesPluralDescription=Choisissez {0} de ces outils : {1}
 Feature/&ToolGainChoicesSingleDescription=Choisissez l'un de ces outils : {1}
-Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} donne un bonus de {1}, le nouveau résultat est {2} (DC : {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} lance pour maintenir {1} {2} contre DD {3}, jet {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} lance pour maintenir {1} contre DD {2}, jet {3} = {4}
 Feedback/&FlankingAttack=Prise en Tenaille

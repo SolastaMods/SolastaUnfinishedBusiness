@@ -257,17 +257,15 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
-            {
-                yield break;
-            }
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (helper.IsMyTurn())
-            {
-                yield break;
-            }
-
-            if (!ShouldTrigger(defender, helper))
+            if (gameLocationActionManager == null ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome != RollOutcome.Failure ||
+                helper.IsMyTurn() ||
+                !helper.CanReact() ||
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
@@ -298,25 +296,17 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionParams = new CharacterActionParams(
                 helper,
                 ActionDefinitions.Id.AttackOpportunity,
                 helper.RulesetCharacter.AttackModes[0],
                 defender,
-                actionModifier) { stringParameter2 = "SeizeTheChance" };
+                actionModifier) { StringParameter2 = "SeizeTheChance" };
 
-            actionService.ReactForOpportunityAttack(reactionParams);
+            gameLocationActionManager.ReactForOpportunityAttack(reactionParams);
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
-        }
-
-        private static bool ShouldTrigger(
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            return helper.CanReact() && helper.CanPerceiveTarget(defender);
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
         }
     }
 }

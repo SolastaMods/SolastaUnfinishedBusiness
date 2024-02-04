@@ -1,11 +1,11 @@
 Feature/&DieRollModifierCircleOfTheCosmosDragonAbilityDescription=[知性] または [知恵] チェックを行う場合、d20 の 9 以下の出目は 10 として扱うことができます。
 Feature/&DieRollModifierCircleOfTheCosmosDragonConcentrationDescription=呪文への集中を維持するために憲法セーヴィング・スローを行う場合、d20 の 9 以下のロールを 10 として扱うことができます。
+Feature/&FeatureCircleOfTheCosmosNovaStarDescription=Starry Form にいる間、あなたは部分的に非実体となり、殴打、突き刺し、斬撃によるダメージに対する耐性を与えます。
+Feature/&FeatureCircleOfTheCosmosNovaStarTitle=ノヴァスター
 Feature/&FeatureSetCircleOfTheCosmosConstellationFormDescription=ボーナス アクションとして、ワイルド シェイプ機能を使用して、獣に変身するのではなく、星のような形をとることができます。星空の姿にいる間、あなたの体は光ります。この形状は半径 10 フィートの範囲で明るい光を放ち、さらに 10 フィートの範囲では薄暗い光を放ちます。このフォームは 10 分間持続します。無視したり、無力になったり、死亡したり、この機能を再度使用すると、早期に終了します。星空の姿になるたびに、あなたの体に輝く星座を選択してください: アーチャー、チャリス、またはドラゴン。
 Feature/&FeatureSetCircleOfTheCosmosConstellationFormTitle=星座の形
 Feature/&FeatureSetCircleOfTheCosmosConstellationMapDescription=天の研究の一環として星図を作成しました。この地図を保持している間、次のような利点があります:\n。あなたはガイダンスキャントリップを知っています。\n。あなたはGuiding Boltの呪文を準備しており、呪文スロットを消費せずにそれを唱えることができます。熟練度ボーナスに等しい回数だけこれを行うことができ、長い休憩が終了すると、消費した使用量はすべて回復されます。
 Feature/&FeatureSetCircleOfTheCosmosConstellationMapTitle=コスモスマップ
-Feature/&FeatureSetCircleOfTheCosmosNovaStarDescription=Starry Form にいる間、あなたは部分的に非実体となり、殴打、突き刺し、斬撃によるダメージに対する耐性を与えます。
-Feature/&FeatureSetCircleOfTheCosmosNovaStarTitle=ノヴァスター
 Feature/&FeatureSetCircleOfTheCosmosTwinklingStarsDescription=Starry Form の星座が改善されます。アーチャーと聖杯の 1d8 は 2d8 になり、ドラゴンがアクティブな間、飛行速度は 20 フィートになります。さらに、スターリー フォームで移動したり、ボーナスやメイン アクションをまだ使用していない場合は、あなたの体に輝く星座を変えることができます。
 Feature/&FeatureSetCircleOfTheCosmosTwinklingStarsTitle=きらめく星
 Feature/&PowerCircleOfTheCosmosArcherConstellationFormDescription=射手の星座があなたの上に現れます。この形態をアクティブにすると、継続中の次のターンのボーナス アクションとして、遠距離呪文攻撃を行うことができ、60 フィート以内のクリーチャー 1 体をターゲットに光る矢を投げることができます。ヒットすると、攻撃は 1d8 + [知恵] 修正値に等しい放射ダメージを与えます。このダメージはレベル10で2d8 + あなたの知恵修正値に増加します。

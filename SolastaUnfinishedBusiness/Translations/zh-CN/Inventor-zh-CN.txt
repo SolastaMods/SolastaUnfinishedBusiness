@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=你将熟练使用所有锻
 Feature/&ProficiencyInventorToolExpertiseTitle=发明家工具专长
 Feature/&ProficiencyInventorToolsTitle=发明家工具熟练项
 Feature/&ProficiencyInventorWeaponTitle=发明家武器熟练项
+Feedback/&FlashOfGeniusSavingToHitRoll={0} 使用 {1} 将智力修正值 ({2}) 添加到保存骰子 ({3}) 中
 Item/&CreateSpellStoringWandFormatDescription=制作一根可以施放<b>{0} ({1})</b> 法术的魔杖，使用你的发明家法术攻击修正值并保存DC。
 Item/&SpellStoringWandDescription=此魔杖允许使用发明家的施法属性施放 <b>{0}</b> 法术。
 Item/&SpellStoringWandTitle=魔杖 {0}

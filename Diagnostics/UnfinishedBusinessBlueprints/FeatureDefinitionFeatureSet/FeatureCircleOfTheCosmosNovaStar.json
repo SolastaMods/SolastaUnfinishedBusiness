@@ -1,10 +1,6 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6"
-  ],
+  "featureSet": [],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
@@ -15,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetCircleOfTheCosmosNovaStarTitle",
-    "description": "Feature/&FeatureSetCircleOfTheCosmosNovaStarDescription",
+    "title": "Feature/&FeatureCircleOfTheCosmosNovaStarTitle",
+    "description": "Feature/&FeatureCircleOfTheCosmosNovaStarDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0fe030f2-b212-59c1-b7bb-f0e0557cdce8",
+  "guid": "1fa028a2-7e42-5138-a524-885b1eabc967",
   "contentPack": 9999,
-  "name": "FeatureSetCircleOfTheCosmosNovaStar"
+  "name": "FeatureCircleOfTheCosmosNovaStar"
 }

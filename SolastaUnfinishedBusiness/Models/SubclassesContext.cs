@@ -39,14 +39,11 @@ internal static class SubclassesContext
     {
         RegisterClassesContext();
 
-        var finalDeprecatedList =
-            DeprecatedSubsList.Where(x => !Main.Settings.DeprecatedSubsReenableList.Contains(x));
-
         foreach (var abstractSubClassInstance in typeof(AbstractSubclass)
                      .Assembly.GetTypes()
                      .Where(t => t.IsSubclassOf(typeof(AbstractSubclass)) && !t.IsAbstract)
                      .Select(t => (AbstractSubclass)Activator.CreateInstance(t))
-                     .Where(t => !finalDeprecatedList.Contains(t.Subclass.Name)))
+                     .Where(t => !DeprecatedSubsList.Contains(t.Subclass.Name)))
         {
             LoadSubclass(abstractSubClassInstance);
         }

@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=Sie erlangen Kenntnisse im 
 Feature/&ProficiencyInventorToolExpertiseTitle=Erfinder-Werkzeugkompetenz
 Feature/&ProficiencyInventorToolsTitle=Kenntnisse in Erfinderwerkzeugen
 Feature/&ProficiencyInventorWeaponTitle=Waffenkompetenz des Erfinders
+Feedback/&FlashOfGeniusSavingToHitRoll={0} verwendet {1}, um den Intelligenzmodifikator ({2}) zum Rettungswurf ({3}) hinzuzufügen.
 Item/&CreateSpellStoringWandFormatDescription=Erstelle einen Zauberstab, der <b>{0} ({1})</b> Zauber wirken kann, indem du deinen Erfinder-Zauberangriffsmodifikator verwendest und SG spare.
 Item/&SpellStoringWandDescription=Mit diesem Zauberstab kann der Zauber <b>{0}</b> mithilfe der Zauberstatistiken des Erfinders gewirkt werden, der ihn erstellt hat.
 Item/&SpellStoringWandTitle=Zauberstab von {0}
