@@ -706,7 +706,49 @@ Cast Wall of Thorns a number of times a day equal to your proficiency bonus.
 
 
 
-## 2. Circle of the Eternal Grove
+## 2. Circle of the Cosmos
+
+The Circle of the Cosmos allows druids to draw on the power of starlight. These druids have tracked heavenly patterns since time immemorial, discovering secrets hidden amid the constellations. By revealing and understanding these secrets, the Circle of the Cosmos seeks to harness the powers of the stars.
+
+
+### Level 2
+
+* Constellation Form
+
+As a bonus action, you can expend a use of your Wild Shape feature to take on a starry form, rather than transforming into a beast. While in your starry form, your body becomes luminous. This form sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The form lasts for 10 minutes. It ends early if you dismiss it, are incapacitated, die, or use this feature again. Whenever you assume your starry form, choose which of the following constellations glimmers on your body: Archer, Chalice, or Dragon.
+
+* Cosmos Map
+
+You've created a star chart as part of your heavenly studies. While holding this map, you have these benefits:
+. You know the Guidance cantrip.
+. You have the Guiding Bolt spell prepared and can cast it without expending a spell slot. You can do so a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
+
+### Level 6
+
+* Cosmos Omen
+
+You learn to use your star map to divine the will of the cosmos. Whenever you finish a long rest, you can use a no cost power and until you finish your next long rest, you gain access to a special reaction based on whether you rolled an even or an odd number on the die:
+. Weal: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and add the number rolled to the total.
+. Woe: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and subtract the number rolled from the total.
+
+
+### Level 10
+
+* Twinkling Stars
+
+The constellations of your Starry Form improve. The 1d8 of the Archer and the Chalice becomes 2d8, and while the Dragon is active, you have a flying speed of 20 ft. Moreover, if you haven't moved or used any bonus or main action yet while in your Starry Form, you can change which constellation glimmers on your body.
+
+
+### Level 14
+
+* Nova Star
+
+While in your Starry Form, you become partially incorporeal, giving you resistance to bludgeoning, piercing, and slashing damage.
+
+
+
+## 3. Circle of the Eternal Grove
 
 The Circle of the Eternal Grove strives to protect and preserve as many living beings as it can. These druids understand the significance of every lifeform in the natural cycle, be it large or small, and that every one of them is worth saving.
 
@@ -759,7 +801,7 @@ Starting at 14th level, all healing spells you cast count as being cast at one s
 
 
 
-## 3. Circle of the Forest Guardian
+## 4. Circle of the Forest Guardian
 
 Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 
@@ -816,7 +858,7 @@ When you activate Bark Ward, and on subsequent start of each of your turns while
 
 
 
-## 4. Circle of the Night
+## 5. Circle of the Night
 
 Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
 

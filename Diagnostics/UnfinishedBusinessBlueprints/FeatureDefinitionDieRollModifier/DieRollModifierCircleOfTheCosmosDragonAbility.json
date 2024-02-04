@@ -1,13 +1,24 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 10,
   "maxRollValue": 0,
-  "minRerollValue": 2,
-  "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&PowerDivineHeartEmpoweredHealingReroll",
+  "minRerollValue": 0,
+  "rerollCount": 0,
+  "rerollLocalizationKey": "Feedback/&DieRollModifierCircleOfTheCosmosDragonReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "HealValueRoll",
-  "validSkills": [],
+  "validityContext": "AbilityCheck",
+  "validSkills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Nature",
+    "Religion",
+    "AnimalHandling",
+    "Insight",
+    "Medecine",
+    "Perception",
+    "Survival"
+  ],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
   "bardicInspirationForceMaxRoll": false,
@@ -17,8 +28,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDivineHeartEmpoweredHealingTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerCircleOfTheCosmosDragonConstellationFormTitle",
+    "description": "Feature/&DieRollModifierCircleOfTheCosmosDragonAbilityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +49,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dc266e71-5aa1-5cf2-baa6-84bf5a0b952a",
+  "guid": "d01a3495-36ae-5cf6-a445-e4ed9c21b74d",
   "contentPack": 9999,
-  "name": "DieRollModifierDivineHeartEmpoweredHealing"
+  "name": "DieRollModifierCircleOfTheCosmosDragonAbility"
 }

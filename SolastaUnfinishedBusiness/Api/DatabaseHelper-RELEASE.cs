@@ -1561,6 +1561,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMoveMode MoveModeFly2 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly2");
 
+        internal static FeatureDefinitionMoveMode MoveModeFly4 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly4");
+
         internal static FeatureDefinitionMoveMode MoveModeFly8 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly8");
 
