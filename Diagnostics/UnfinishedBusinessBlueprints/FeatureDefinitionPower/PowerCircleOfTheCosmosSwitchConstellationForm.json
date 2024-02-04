@@ -155,7 +155,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "TurnStart",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",

@@ -101,15 +101,32 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
         // Cosmos Omen
 
-        var powerWealCosmosOmen = FeatureDefinitionPowerBuilder
+        var powerCosmosOmenPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}CosmosOmenPool")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesProficiencyBonus(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        var powerWealCosmosOmen = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}WealCosmosOmen")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
+            .SetSharedPool(ActivationTime.Reaction, powerCosmosOmenPool)
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
         powerWealCosmosOmen.AddCustomSubFeatures(
             new TryAlterOutcomeSavingThrowWeal(powerWealCosmosOmen));
+
+        var powerWoeCosmosOmen = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}WoeCosmosOmen")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.Reaction, powerCosmosOmenPool)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        powerWoeCosmosOmen.AddCustomSubFeatures(
+            new TryAlterOutcomeSavingThrowWoe(powerWoeCosmosOmen));
 
         var conditionWealCosmosOmen = ConditionDefinitionBuilder
             .Create($"Condition{Name}WealCosmosOmen")
@@ -121,16 +138,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         conditionWealCosmosOmen.GuiPresentation.description = Gui.NoLocalization;
-
-        var powerWoeCosmosOmen = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}WoeCosmosOmen")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
-            .AddToDB();
-
-        powerWoeCosmosOmen.AddCustomSubFeatures(
-            new TryAlterOutcomeSavingThrowWoe(powerWoeCosmosOmen));
 
         var conditionWoeCosmosOmen = ConditionDefinitionBuilder
             .Create($"Condition{Name}WoeCosmosOmen")
@@ -174,7 +181,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}SwitchConstellationForm")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("SwitchConstellationForm", Resources.PowerSwitchConstellationForm, 256, 128))
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(character =>
                 {
@@ -261,7 +268,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PatronEldritchSurge, 256))
             .AddFeaturesAtLevel(2, featureSetConstellationMap, featureSetConstellationForm)
-            .AddFeaturesAtLevel(6, powerCosmosOmen)
+            .AddFeaturesAtLevel(6, powerCosmosOmen, powerCosmosOmenPool)
             .AddFeaturesAtLevel(10, featureSetTwinklingStars)
             .AddFeaturesAtLevel(14, featureSetNovaStar)
             .AddToDB();
@@ -296,11 +303,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetBonusMode(AddBonusMode.Proficiency)
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 2, 20, (10, 1))
                             .Build())
-                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
                     .Build())
             .AddToDB();
 
@@ -313,9 +317,13 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
-        powerArcherNoCost.EffectDescription.effectParticleParameters.effectParticleReference = new AssetReference();
+        powerArcherNoCost.EffectDescription.effectParticleParameters.casterParticleReference = new AssetReference();
+        powerArcherNoCost.EffectDescription.effectParticleParameters.impactParticleReference = Sunbeam
+            .EffectDescription.EffectParticleParameters.impactParticleReference;
+        
         powerArcherNoCost.AddCustomSubFeatures(
             ValidatorsValidatePowerUse.InCombat,
+            new ModifyEffectDescriptionArcher(powerArcherNoCost),
             new MagicEffectFinishedByMeArcherNoCost(conditionArcherNoCost));
 
         // Archer Bonus Action
@@ -333,20 +341,21 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetBonusMode(AddBonusMode.Proficiency)
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 2, 20, (10, 1))
                             .Build())
-                    .SetParticleEffectParameters(PowerTraditionLightBlindingFlash)
                     .Build())
             .AddToDB();
 
-        powerArcher.EffectDescription.effectParticleParameters.effectParticleReference = new AssetReference();
+        powerArcher.EffectDescription.effectParticleParameters.casterParticleReference = new AssetReference();
+        powerArcher.EffectDescription.effectParticleParameters.impactParticleReference = Sunbeam
+            .EffectDescription.EffectParticleParameters.impactParticleReference;
+
+        powerArcher.AddCustomSubFeatures(new ModifyEffectDescriptionArcher(powerArcher));
 
         var conditionArcher = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}Archer")
+            .Create(ConditionDefinitions.ConditionSunbeam, $"Condition{Name}Archer")
             .SetGuiPresentation($"Power{Name}Archer", Category.Feature,
-                ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
+                ConditionDefinitions.ConditionFeatTakeAim)
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerArcher)
@@ -403,16 +412,16 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetBonusMode(AddBonusMode.AbilityBonus)
                             .SetHealingForm(HealingComputation.Dice,
                                 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 2, 20, (10, 1))
                             .Build())
-                    .SetParticleEffectParameters(HealingWord)
+                    .SetParticleEffectParameters(CureWounds)
                     .Build())
             .AddToDB();
 
+        //TODO: find archer caster effect
         powerChalice.EffectDescription.effectParticleParameters.effectParticleReference = new AssetReference();
+        powerChalice.AddCustomSubFeatures(new ModifyEffectDescriptionChalice(powerChalice));
 
         var conditionChaliceHealing = ConditionDefinitionBuilder
             .Create($"Condition{Name}ChaliceHealing")
@@ -423,11 +432,12 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         var conditionChalice = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}Chalice")
+            .Create(ConditionDefinitions.ConditionSpellbladeArcaneEscape, $"Condition{Name}Chalice")
             .SetGuiPresentation($"Power{Name}Chalice", Category.Feature,
-                ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
+                ConditionDefinitions.ConditionBearsEndurance)
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
+            .SetFeatures()
             .AddCustomSubFeatures(new MagicEffectFinishedByMeAnyChalice(powerChalice, conditionChaliceHealing))
             .AddToDB();
 
@@ -456,6 +466,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                             .Build())
                     .Build())
             .AddToDB();
+
+        powerChaliceConstellationForm.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainLifePreserveLife.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         return powerChaliceConstellationForm;
     }
@@ -499,9 +512,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         var conditionDragon = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}Dragon")
+            .Create($"Condition{Name}Dragon")
             .SetGuiPresentation($"Power{Name}DragonConstellationForm", Category.Feature,
-                ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
+                ConditionDefinitions.ConditionPactChainPseudodragon)
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(
@@ -510,6 +523,12 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         conditionDragon.GuiPresentation.description = Gui.NoLocalization;
+        conditionDragon.conditionStartParticleReference = PowerSorcererDraconicElementalResistance
+            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        conditionDragon.conditionParticleReference = PowerSorcererDraconicElementalResistance
+            .EffectDescription.EffectParticleParameters.conditionParticleReference;
+        conditionDragon.conditionEndParticleReference = PowerSorcererDraconicElementalResistance
+            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         var conditionDragonHigher = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}DragonHigher")
@@ -555,6 +574,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerDragonConstellationForm.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainLawForceOfLaw.EffectDescription.EffectParticleParameters.casterParticleReference;
+
         powerDragonConstellationForm.AddCustomSubFeatures(
             new ModifyEffectDescriptionDragon(powerDragonConstellationForm, conditionDragon, conditionDragonHigher));
 
@@ -580,6 +602,45 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             }
 
             yield break;
+        }
+    }
+
+    private sealed class ModifyEffectDescriptionArcher(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerArcher) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerArcher;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+
+            var damageForm = effectDescription.EffectForms.FirstOrDefault(x =>
+                x.FormType == EffectForm.EffectFormType.Damage);
+
+            if (damageForm == null)
+            {
+                return effectDescription;
+            }
+
+            damageForm.damageForm.BonusDamage = wisMod;
+
+            var levels = character.GetClassLevel(Druid);
+
+            if (levels >= 10)
+            {
+                damageForm.damageForm.DiceNumber = 2;
+            }
+
+            return effectDescription;
         }
     }
 
@@ -629,6 +690,45 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 0,
                 0,
                 0);
+        }
+    }
+
+    private sealed class ModifyEffectDescriptionChalice(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerChalice) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerChalice;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+
+            var healingForm = effectDescription.EffectForms.FirstOrDefault(x =>
+                x.FormType == EffectForm.EffectFormType.Healing);
+
+            if (healingForm == null)
+            {
+                return effectDescription;
+            }
+
+            healingForm.healingForm.BonusHealing = wisMod;
+
+            var levels = character.GetClassLevel(Druid);
+
+            if (levels >= 10)
+            {
+                healingForm.healingForm.DiceNumber = 2;
+            }
+
+            return effectDescription;
         }
     }
 
@@ -685,7 +785,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         private static readonly int MaxDieTypeValue = DiceMaxValue[(int)DieType];
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -695,34 +795,66 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
+            var rulesetHelper = helper.RulesetCharacter;
+
             if (gameLocationActionManager == null ||
                 action.AttackRollOutcome != RollOutcome.Failure ||
                 action.AttackSuccessDelta + MaxDieTypeValue < 0 ||
+                !rulesetHelper.CanUsePower(powerWeal) ||
                 !helper.CanReact() ||
                 attacker.Side != helper.Side ||
-                !helper.IsWithinRange(attacker, 6))
+                !helper.IsWithinRange(attacker, 6) ||
+                !helper.CanPerceiveTarget(attacker))
             {
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionWealCosmosOmenAttackDescription",
-                        attacker.Name, defender.Name, helper.Name)
-                };
+            // var reactionParams =
+            //     new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            //     {
+            //         StringParameter = Gui.Format("Reaction/&SpendPowerWealCosmosOmenAttackDescription",
+            //             attacker.Name, defender.Name, helper.Name)
+            //     };
+            //
+            // var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            // var reactionRequest = new ReactionRequestCustom("WealCosmosOmenAttack", reactionParams);
+            //
+            // gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            //
+            // yield return battle.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
+            //
+            // if (!reactionParams.ReactionValidated)
+            // {
+            //     yield break;
+            // }
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("WealCosmosOmenAttack", reactionParams);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            var usablePower = PowerProvider.Get(powerWeal, rulesetHelper);
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "WealCosmosOmenAttack",
+                StringParameter2 = Gui.Format("Reaction/&SpendPowerWealCosmosOmenAttackDescription",
+                    attacker.Name, defender.Name, helper.Name),
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                UsablePower = usablePower
+            };
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            yield return battle.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(helper, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
+
+            rulesetHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             var dieRoll = RollDie(DieType, AdvantageType.None, out _, out _);
 
@@ -747,7 +879,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 "Feedback/&CosmosOmenAttackToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
                 ]);
         }
@@ -765,50 +896,83 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
+            var rulesetHelper = helper.RulesetCharacter;
+
             if (gameLocationActionManager == null ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
+                !rulesetHelper.CanUsePower(powerWeal) ||
                 !helper.CanReact() ||
                 defender.Side != helper.Side ||
-                !helper.IsWithinRange(defender, 6))
+                !helper.IsWithinRange(defender, 6) ||
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionWealCosmosOmenSavingDescription",
-                        attacker.Name, defender.Name, helper.Name)
-                };
+            // var reactionParams =
+            //     new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            //     {
+            //         StringParameter = Gui.Format("Reaction/&SpendPowerWealCosmosOmenSavingDescription",
+            //             attacker.Name, defender.Name, helper.Name)
+            //     };
+            //
+            // var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            // var reactionRequest = new ReactionRequestCustom("WealCosmosOmenSaving", reactionParams);
+            //
+            // gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            //
+            // yield return battleManager.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
+            //
+            // if (!reactionParams.ReactionValidated)
+            // {
+            //     yield break;
+            // }
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("WealCosmosOmenSaving", reactionParams);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            var usablePower = PowerProvider.Get(powerWeal, rulesetHelper);
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "WealCosmosOmenSaving",
+                StringParameter2 = Gui.Format("Reaction/&SpendPowerWealCosmosOmenSavingDescription",
+                    attacker.Name, defender.Name, helper.Name),
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                UsablePower = usablePower
+            };
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(helper, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
+            rulesetHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
-            saveModifier.SavingThrowModifierTrends.Add(
-                new TrendInfo(dieRoll, FeatureSourceType.Power, powerWeal.Name, powerWeal)
-                {
-                    dieType = DieType, dieFlag = TrendInfoDieFlag.None
-                });
+            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta += dieRoll;
 
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
             if (action.saveOutcomeDelta >= 0)
             {
                 action.saveOutcome = RollOutcome.Success;
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
             }
 
             helper.RulesetCharacter.LogCharacterUsedPower(
@@ -816,8 +980,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 "Feedback/&CosmosOmenSavingToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType)),
-                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
                 ]);
         }
     }
@@ -833,7 +997,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         private static readonly int MaxDieTypeValue = DiceMaxValue[(int)DieType];
 
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -843,35 +1007,66 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
+            var rulesetHelper = helper.RulesetCharacter;
+
             if (gameLocationActionManager == null ||
                 action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - MaxDieTypeValue >= 0 ||
                 !helper.CanReact() ||
+                !rulesetHelper.CanUsePower(powerWoe) ||
                 !attacker.IsOppositeSide(helper.Side) ||
                 !helper.IsWithinRange(attacker, 6) ||
-                action.AttackSuccessDelta - MaxDieTypeValue < 0)
+                !helper.CanPerceiveTarget(attacker))
             {
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionWoeCosmosOmenAttackDescription",
-                        attacker.Name, defender.Name, helper.Name)
-                };
+            // var reactionParams =
+            //     new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            //     {
+            //         StringParameter = Gui.Format("Reaction/&SpendPowerWoeCosmosOmenAttackDescription",
+            //             attacker.Name, defender.Name, helper.Name)
+            //     };
+            //
+            // var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            // var reactionRequest = new ReactionRequestCustom("WoeCosmosOmenAttack", reactionParams);
+            //
+            // gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            //
+            // yield return battle.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
+            //
+            // if (!reactionParams.ReactionValidated)
+            // {
+            //     yield break;
+            // }
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("WoeCosmosOmenAttack", reactionParams);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            var usablePower = PowerProvider.Get(powerWoe, rulesetHelper);
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "WoeCosmosOmenAttack",
+                StringParameter2 = Gui.Format("Reaction/&SpendPowerWoeCosmosOmenAttackDescription",
+                    attacker.Name, defender.Name, helper.Name),
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                UsablePower = usablePower
+            };
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            yield return battle.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(helper, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
+
+            rulesetHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
 
@@ -896,7 +1091,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 "Feedback/&CosmosOmenAttackToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType)),
                     (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
                 ]);
         }
@@ -914,50 +1108,83 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
+            var rulesetHelper = helper.RulesetCharacter;
+
             if (gameLocationActionManager == null ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Success ||
                 action.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
                 !helper.CanReact() ||
+                !rulesetHelper.CanUsePower(powerWoe) ||
                 !defender.IsOppositeSide(helper.Side) ||
-                !helper.IsWithinRange(defender, 6))
+                !helper.IsWithinRange(defender, 6) ||
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionWoeCosmosOmenSavingDescription",
-                        attacker.Name, defender.Name, helper.Name)
-                };
+            // var reactionParams =
+            //     new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            //     {
+            //         StringParameter = Gui.Format("Reaction/&SpendPowerWoeCosmosOmenSavingDescription",
+            //             attacker.Name, defender.Name, helper.Name)
+            //     };
+            //
+            // var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            // var reactionRequest = new ReactionRequestCustom("WoeCosmosOmenSaving", reactionParams);
+            //
+            // gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            //
+            // yield return battleManager.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
+            //
+            // if (!reactionParams.ReactionValidated)
+            // {
+            //     yield break;
+            // }
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("WoeCosmosOmenSaving", reactionParams);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            var usablePower = PowerProvider.Get(powerWoe, rulesetHelper);
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "WoeCosmosOmenSaving",
+                StringParameter2 = Gui.Format("Reaction/&SpendPowerWoeCosmosOmenSavingDescription",
+                    attacker.Name, defender.Name, helper.Name),
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                UsablePower = usablePower
+            };
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(helper, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
+            rulesetHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
-            saveModifier.SavingThrowModifierTrends.Add(
-                new TrendInfo(dieRoll, FeatureSourceType.Power, powerWoe.Name, powerWoe)
-                {
-                    dieType = DieType, dieFlag = TrendInfoDieFlag.None
-                });
+            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta += dieRoll;
 
+            (ConsoleStyleDuplet.ParameterType, string) extra;
+
             if (action.saveOutcomeDelta < 0)
             {
                 action.saveOutcome = RollOutcome.Failure;
+                extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
+            }
+            else
+            {
+                extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
             }
 
             helper.RulesetCharacter.LogCharacterUsedPower(
@@ -965,8 +1192,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 "Feedback/&CosmosOmenSavingToHitRoll",
                 extra:
                 [
-                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType)),
-                    (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString()),
+                    extra
                 ]);
         }
     }

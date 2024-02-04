@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -139,13 +139,13 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "Reaction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "None",
+  "reactionContext": 9000,
   "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
@@ -155,13 +155,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "TurnStart",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
+  "usesDetermination": "ProficiencyBonus",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -174,9 +174,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerCircleOfTheCosmosDragonConstellationFormTitle",
-    "description": "Feature/&PowerCircleOfTheCosmosDragonConstellationFormDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -196,7 +196,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5500bac6-5175-521d-9ab9-27ea92285b5b",
+  "guid": "fddab354-5c33-5fad-9314-f961b9a9d80a",
   "contentPack": 9999,
-  "name": "PowerCircleOfTheCosmosSwitchConstellationFormDragon"
+  "name": "PowerCircleOfTheCosmosCosmosOmenPool"
 }

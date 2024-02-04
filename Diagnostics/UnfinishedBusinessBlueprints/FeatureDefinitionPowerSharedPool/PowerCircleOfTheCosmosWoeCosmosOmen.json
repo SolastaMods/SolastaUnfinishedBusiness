@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -155,7 +155,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",

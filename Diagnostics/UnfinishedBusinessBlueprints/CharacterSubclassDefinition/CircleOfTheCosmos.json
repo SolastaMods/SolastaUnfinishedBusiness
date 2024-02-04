@@ -18,6 +18,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCircleOfTheCosmosCosmosOmenPool:fddab354-5c33-5fad-9314-f961b9a9d80a",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetCircleOfTheCosmosTwinklingStars:efdc1097-cafc-57be-8ad2-bb4fbd2c304b",
       "level": 10
     },

@@ -1711,6 +1711,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDomainInsightForeknowledge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainInsightForeknowledge");
 
+        internal static FeatureDefinitionPower PowerDomainLawForceOfLaw { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainLawForceOfLaw");
+
         internal static FeatureDefinitionPower PowerDomainLawHolyRetribution { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainLawHolyRetribution");
 
@@ -1947,6 +1950,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerSorcererCreateSpellSlot { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererCreateSpellSlot");
+
+        internal static FeatureDefinitionPower PowerSorcererDraconicElementalResistance { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererDraconicElementalResistance");
 
         internal static FeatureDefinitionPower PowerSorcererHauntedSoulSpiritVisage { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSpiritVisage");
@@ -3674,6 +3680,8 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition SpiritualWeapon { get; } = GetDefinition<SpellDefinition>("SpiritualWeapon");
         internal static SpellDefinition StinkingCloud { get; } = GetDefinition<SpellDefinition>("StinkingCloud");
         internal static SpellDefinition Stoneskin { get; } = GetDefinition<SpellDefinition>("Stoneskin");
+
+        internal static SpellDefinition Sunbeam { get; } = GetDefinition<SpellDefinition>("Sunbeam");
         internal static SpellDefinition Sunburst { get; } = GetDefinition<SpellDefinition>("Sunburst");
         internal static SpellDefinition Tongues { get; } = GetDefinition<SpellDefinition>("Tongues");
         internal static SpellDefinition Thunderwave { get; } = GetDefinition<SpellDefinition>("Thunderwave");

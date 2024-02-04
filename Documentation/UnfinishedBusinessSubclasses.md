@@ -742,7 +742,7 @@ The constellations of your Starry Form improve. The 1d8 of the Archer and the Ch
 
 ### Level 14
 
-* Nova Star
+* One with The Cosmos
 
 While in your Starry Form, you become partially incorporeal, giving you resistance to bludgeoning, piercing, and slashing damage.
 
