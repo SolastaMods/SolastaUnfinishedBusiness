@@ -90,13 +90,6 @@ internal static class ToolsDisplay
             Main.Settings.EnableSaveByLocation = toggle;
         }
 
-        toggle = Main.Settings.EnableRespec;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRespec = toggle;
-            ToolsContext.SwitchRespec();
-        }
-
         UI.Label();
 
         toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;

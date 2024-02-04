@@ -147,7 +147,6 @@ public class Settings : UnityModManager.ModSettings
     public bool FixAsianLanguagesTextWrap { get; set; }
     public bool EnablePcgRandom { get; set; }
     public bool EnableSaveByLocation { get; set; }
-    public bool EnableRespec { get; set; }
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     public List<string> DefaultPartyHeroes { get; } = [];
     public bool EnableCharacterChecker { get; set; }
@@ -366,6 +365,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnableActionSwitching { get; set; }
+    public bool EnableRespec { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableCustomPortraits { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
