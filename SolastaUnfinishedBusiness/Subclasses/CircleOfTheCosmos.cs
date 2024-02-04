@@ -695,32 +695,25 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (gameLocationActionManager == null ||
+                action.AttackRollOutcome != RollOutcome.Failure ||
+                action.AttackSuccessDelta + MaxDieTypeValue < 0 ||
+                !helper.CanReact() ||
+                attacker.Side != helper.Side ||
+                !helper.IsWithinRange(attacker, 6))
             {
                 yield break;
             }
-
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
-            if (!ShouldAttackTrigger(action, attacker, helper))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = helper.RulesetCharacter;
 
             var reactionParams =
                 new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionWealCosmosOmenDescription",
+                    StringParameter = Gui.Format("Reaction/&CustomReactionWealCosmosOmenAttackDescription",
                         attacker.Name, defender.Name, helper.Name)
                 };
 
             var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("WealCosmosOmen", reactionParams);
+            var reactionRequest = new ReactionRequestCustom("WealCosmosOmenAttack", reactionParams);
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
@@ -742,16 +735,16 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             action.AttackSuccessDelta += dieRoll;
             attackModifier.attackRollModifier += dieRoll;
 
-            var success = action.AttackSuccessDelta >= 0;
-
-            if (success)
+            if (action.AttackSuccessDelta >= 0)
             {
                 action.AttackRollOutcome = RollOutcome.Success;
             }
 
+            var rulesetCharacter = helper.RulesetCharacter;
+
             rulesetCharacter.LogCharacterUsedPower(
                 powerWeal,
-                "Feedback/&CosmosOmenToHitRoll",
+                "Feedback/&CosmosOmenAttackToHitRoll",
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType)),
@@ -772,121 +765,60 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (gameLocationActionManager == null ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome != RollOutcome.Failure ||
+                action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
+                !helper.CanReact() ||
+                defender.Side != helper.Side ||
+                !helper.IsWithinRange(defender, 6))
             {
                 yield break;
             }
 
-            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
-            {
-                yield break;
-            }
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = Gui.Format("Reaction/&CustomReactionWealCosmosOmenSavingReactDescription",
+                        attacker.Name, defender.Name, helper.Name)
+                };
 
-            if (!ShouldSavingTrigger(action, attacker, helper))
-            {
-                yield break;
-            }
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("WealCosmosOmenSaving", reactionParams);
 
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            var rulesetHelper = helper.RulesetCharacter;
-
-            var usablePower = PowerProvider.Get(powerWeal, rulesetHelper);
-            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "WealCosmosOmen",
-                StringParameter2 = Gui.Format("Reaction/&SpendPowerWealCosmosOmenReactDescription",
-                    defender.Name, attacker.Name, helper.Name),
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower
-            };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendPower(reactionParams);
-
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            TryModifyRoll(action, helper, saveModifier);
-        }
+            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
 
-        private static bool ShouldSavingTrigger(
-            CharacterAction action,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            return helper.CanReact() &&
-                   defender.Side == helper.Side &&
-                   helper.IsWithinRange(defender, 6) &&
-                   action.SaveOutcomeDelta + MaxDieTypeValue >= 0;
-        }
-
-        private static bool ShouldAttackTrigger(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter helper)
-        {
-            return helper.CanReact() &&
-                   attacker.Side == helper.Side &&
-                   helper.IsWithinRange(attacker, 6) &&
-                   action.AttackSuccessDelta + MaxDieTypeValue >= 0;
-        }
-
-        private void TryModifyRoll(
-            CharacterAction action,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter helper,
-            ActionModifier saveModifier)
-        {
-            var dieRoll = helper.RulesetCharacter
-                .RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
-            var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
-            var rolled = saveDc + action.saveOutcomeDelta + dieRoll;
-            var success = rolled >= saveDc;
-
-            saveModifier.SavingThrowModifierTrends?.Add(
+            saveModifier.SavingThrowModifierTrends.Add(
                 new TrendInfo(dieRoll, FeatureSourceType.Power, powerWeal.Name, powerWeal)
                 {
                     dieType = DieType, dieFlag = TrendInfoDieFlag.None
                 });
 
-            const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
-            string result;
-            ConsoleStyleDuplet.ParameterType resultType;
-
-            if (success)
-            {
-                result = GameConsole.SaveSuccessOutcome;
-                resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
-                action.saveOutcome = RollOutcome.Success;
-                action.saveOutcomeDelta += dieRoll;
-            }
-            else
-            {
-                result = GameConsole.SaveFailureOutcome;
-                resultType = ConsoleStyleDuplet.ParameterType.FailedRoll;
-            }
-
-            var console = Gui.Game.GameConsole;
-            var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
-
-            console.AddCharacterEntry(helper.RulesetCharacter, entry);
-
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{dieRoll}");
-            entry.AddParameter(resultType, Gui.Format(result, rolled.ToString()));
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDc.ToString());
-
-            console.AddEntry(entry);
-
             action.RolledSaveThrow = true;
+            action.saveOutcomeDelta += dieRoll;
+
+            if (action.saveOutcomeDelta >= 0)
+            {
+                action.saveOutcome = RollOutcome.Success;
+            }
+
+            helper.RulesetCharacter.LogCharacterUsedPower(
+                powerWeal,
+                "Feedback/&CosmosOmenSavingToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                ]);
         }
     }
 
@@ -911,32 +843,26 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (gameLocationActionManager == null ||
+                action.AttackRollOutcome != RollOutcome.Success ||
+                action.AttackSuccessDelta - MaxDieTypeValue >= 0 ||
+                !helper.CanReact() ||
+                !attacker.IsOppositeSide(helper.Side) ||
+                !helper.IsWithinRange(attacker, 6) ||
+                action.AttackSuccessDelta - MaxDieTypeValue < 0)
             {
                 yield break;
             }
-
-            if (action.AttackRollOutcome is not RollOutcome.Success)
-            {
-                yield break;
-            }
-
-            if (!ShouldAttackTrigger(action, attacker, helper))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = helper.RulesetCharacter;
 
             var reactionParams =
                 new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = Gui.Format("Reaction/&CustomReactionWoeCosmosOmenDescription",
+                    StringParameter = Gui.Format("Reaction/&CustomReactionWoeCosmosOmenAttackDescription",
                         attacker.Name, defender.Name, helper.Name)
                 };
 
             var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("WoeCosmosOmen", reactionParams);
+            var reactionRequest = new ReactionRequestCustom("WoeCosmosOmenAttack", reactionParams);
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
@@ -958,16 +884,16 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             action.AttackSuccessDelta += dieRoll;
             attackModifier.attackRollModifier += dieRoll;
 
-            var failure = action.AttackSuccessDelta < 0;
-
-            if (failure)
+            if (action.AttackSuccessDelta < 0)
             {
                 action.AttackRollOutcome = RollOutcome.Failure;
             }
 
+            var rulesetCharacter = helper.RulesetCharacter;
+
             rulesetCharacter.LogCharacterUsedPower(
                 powerWoe,
-                "Feedback/&CosmosOmenToHitRoll",
+                "Feedback/&CosmosOmenAttackToHitRoll",
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType)),
@@ -988,85 +914,37 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (gameLocationActionManager == null ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome != RollOutcome.Success ||
+                action.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
+                !helper.CanReact() ||
+                !defender.IsOppositeSide(helper.Side) ||
+                !helper.IsWithinRange(defender, 6))
             {
                 yield break;
             }
 
-            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
-            {
-                yield break;
-            }
+            var reactionParams =
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = Gui.Format("Reaction/&CustomReactionWoeCosmosOmenSavingReactDescription",
+                        attacker.Name, defender.Name, helper.Name)
+                };
 
-            if (!ShouldSavingTrigger(action, defender, helper))
-            {
-                yield break;
-            }
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("WoeCosmosOmenSaving", reactionParams);
 
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            var rulesetHelper = helper.RulesetCharacter;
-
-            var usablePower = PowerProvider.Get(powerWoe, rulesetHelper);
-            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "WoeCosmosOmen",
-                // StringParameter2 = Gui.Format("Reaction/&SpendPowerWoeCosmosOmenReactDescription",
-                //     defender.Name, attacker.Name, helper.Name),
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
-                UsablePower = usablePower
-            };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
-            actionService.ReactToSpendPower(reactionParams);
-
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            TryModifyRoll(action, helper, saveModifier);
-        }
-
-        private static bool ShouldSavingTrigger(
-            CharacterAction action,
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            return helper.CanReact() &&
-                   defender.IsOppositeSide(helper.Side) &&
-                   helper.IsWithinRange(defender, 6) &&
-                   action.SaveOutcomeDelta - MaxDieTypeValue < 0;
-        }
-
-        private static bool ShouldAttackTrigger(
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter helper)
-        {
-            return helper.CanReact() &&
-                   attacker.IsOppositeSide(helper.Side) &&
-                   helper.IsWithinRange(attacker, 6) &&
-                   action.AttackSuccessDelta - MaxDieTypeValue < 0;
-        }
-
-        private void TryModifyRoll(
-            CharacterAction action,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter helper,
-            ActionModifier saveModifier)
-        {
-            var dieRoll = -helper.RulesetCharacter
-                .RollDie(DieType, RollContext.None, false, AdvantageType.None, out _, out _);
-            var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
-            var rolled = saveDc + action.saveOutcomeDelta + dieRoll;
-            var failure = rolled < saveDc;
+            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
 
             saveModifier.SavingThrowModifierTrends.Add(
                 new TrendInfo(dieRoll, FeatureSourceType.Power, powerWoe.Name, powerWoe)
@@ -1074,35 +952,22 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                     dieType = DieType, dieFlag = TrendInfoDieFlag.None
                 });
 
-            const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
-            string result;
-            ConsoleStyleDuplet.ParameterType resultType;
-
-            if (failure)
-            {
-                result = GameConsole.SaveFailureOutcome;
-                resultType = ConsoleStyleDuplet.ParameterType.FailedRoll;
-                action.saveOutcome = RollOutcome.Failure;
-                action.saveOutcomeDelta += dieRoll;
-            }
-            else
-            {
-                result = GameConsole.SaveSuccessOutcome;
-                resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
-            }
-
-            var console = Gui.Game.GameConsole;
-            var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
-
-            console.AddCharacterEntry(helper.RulesetCharacter, entry);
-
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{dieRoll}");
-            entry.AddParameter(resultType, Gui.Format(result, rolled.ToString()));
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDc.ToString());
-
-            console.AddEntry(entry);
-
             action.RolledSaveThrow = true;
+            action.saveOutcomeDelta += dieRoll;
+
+            if (action.saveOutcomeDelta < 0)
+            {
+                action.saveOutcome = RollOutcome.Failure;
+            }
+
+            helper.RulesetCharacter.LogCharacterUsedPower(
+                powerWoe,
+                "Feedback/&CosmosOmenSavingToHitRoll",
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType)),
+                    (ConsoleStyleDuplet.ParameterType.Negative, dieRoll.ToString())
+                ]);
         }
     }
 
