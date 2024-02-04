@@ -238,6 +238,7 @@ Tooltip/&InvocationUsageShortRestAvailableDescription=Once it has been used, thi
 Tooltip/&InvocationUsageShortRestUsedDescription=This invocation requires a short or long rest to be activated again.
 Tooltip/&LightingTargetPerceiveFormat={0} is not Perceived
 Tooltip/&MonsterNaturalArmorTitle=Natural Armor
+Tooltip/&PowerCostSneakAttackDice=Sneak Dice
 Tooltip/&PreReqDoesNotKnow=Doesn't know {0}
 Tooltip/&PreReqIs=Is {0}
 Tooltip/&PreReqIsNot=Isn't {0}

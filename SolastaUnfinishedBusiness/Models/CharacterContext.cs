@@ -1576,7 +1576,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionDisarmed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Poison
@@ -1601,7 +1601,7 @@ internal static class CharacterContext
                                 ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Trip
@@ -1624,7 +1624,7 @@ internal static class CharacterContext
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Withdraw
@@ -1667,7 +1667,7 @@ internal static class CharacterContext
                     .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         //
@@ -1724,7 +1724,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionDazed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Knock Out
@@ -1755,7 +1755,7 @@ internal static class CharacterContext
                             .SetConditionForm(conditionKnockOut, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // Obscure
@@ -1780,7 +1780,7 @@ internal static class CharacterContext
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
             .AddToDB();
 
         // MAIN
