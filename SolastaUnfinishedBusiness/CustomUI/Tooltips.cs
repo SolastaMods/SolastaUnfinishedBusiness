@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using TMPro;
 using UnityEngine;
+using static RuleDefinitions.EffectDifficultyClassComputation;
 using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -59,6 +61,40 @@ internal static class Tooltips
         var remainingUses = character.GetRemainingUsesOfPower(usablePower);
 
         return $"{remainingUses}/{maxUses}";
+    }
+
+    internal static void UpdatePowerSaveDC(ITooltip tooltip, TooltipFeaturePowerParameters parameters)
+    {
+        if (tooltip.DataProvider is not GuiPowerDefinition guiPowerDefinition)
+        {
+            return;
+        }
+
+        if (!guiPowerDefinition.HasSavingThrow)
+        {
+            return;
+        }
+
+        var effectDescription = guiPowerDefinition.EffectDescription;
+        if (effectDescription.DifficultyClassComputation
+            is not (AbilityScoreAndProficiency or SpellCastingFeature))
+        {
+            return;
+        }
+
+        if (tooltip.Context is not RulesetCharacter character)
+        {
+            return;
+        }
+
+        var attribute = DatabaseRepository.GetDatabase<SmartAttributeDefinition>()
+            .GetElement(effectDescription.SavingThrowAbility);
+
+        var power = guiPowerDefinition.PowerDefinition;
+        var classDefinition = character.FindClassHoldingFeature(power);
+        var saveDC = EffectHelpers.CalculateSaveDc(character, effectDescription, classDefinition);
+
+        parameters.savingThrowLabel.Text = Gui.Format("{0} {1}", attribute.GuiPresentation.Title, saveDC.ToString());
     }
 
     internal static void UpdateCraftingTooltip(TooltipFeatureDescription description, ITooltip tooltip)

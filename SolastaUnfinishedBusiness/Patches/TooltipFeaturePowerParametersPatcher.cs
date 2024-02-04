@@ -18,6 +18,8 @@ public static class TooltipFeaturePowerParametersPatcher
         {
             //PATCH: updates power uses in the tooltip to include all usage bonuses
             Tooltips.UpdatePowerUses(tooltip, __instance);
+            //PATCH: updates power save DC to show actual value
+            Tooltips.UpdatePowerSaveDC(tooltip, __instance);
         }
     }
 }
