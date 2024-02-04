@@ -109,8 +109,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         var powerRoyalKnightInspiringProtection = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightInspiringProtection")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
         var powerRoyalKnightInspiringProtectionAura = FeatureDefinitionPowerBuilder
@@ -129,11 +129,10 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                             .Create("ConditionRoyalKnightInspiringProtectionAura")
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetFeatures(powerRoyalKnightInspiringProtection)
                             .AddCustomSubFeatures(
-                                new TryAlterOutcomeSavingThrowInspiringProtection(
-                                    powerRoyalKnightInspiringProtection,
-                                    "RoyalKnightInspiringProtection",
-                                    "ConditionRoyalKnightInspiringProtectionAura"))
+                                new AddUsablePowersFromCondition(),
+                                new TryAlterOutcomeSavingThrowInspiringProtection(powerRoyalKnightInspiringProtection))
                             .AddToDB()))
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
@@ -235,20 +234,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private class
-        TryAlterOutcomeSavingThrowInspiringProtection : ITryAlterOutcomeSavingThrow
+        TryAlterOutcomeSavingThrowInspiringProtection(FeatureDefinitionPower power) : ITryAlterOutcomeSavingThrow
     {
-        internal TryAlterOutcomeSavingThrowInspiringProtection(
-            FeatureDefinitionPower power, string reactionName, string auraConditionName)
-        {
-            Power = power;
-            ReactionName = reactionName;
-            AuraConditionName = auraConditionName;
-        }
-
-        private FeatureDefinitionPower Power { get; }
-        private string ReactionName { get; }
-        private string AuraConditionName { get; }
-
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -259,36 +246,30 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (!rulesetDefender.TryGetConditionOfCategoryAndType(
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetDefender.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    AuraConditionName,
+                    "ConditionRoyalKnightInspiringProtectionAura",
                     out var activeCondition))
             {
                 yield break;
             }
 
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
             RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
 
             var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
 
-            if (!ShouldTrigger(defender, originalHelper))
-            {
-                yield break;
-            }
-
-            if (!rulesetOriginalHelper.CanUsePower(Power))
+            if (gameLocationActionManager == null ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome != RollOutcome.Failure ||
+                !rulesetOriginalHelper.CanUsePower(power) ||
+                !originalHelper.CanReact() ||
+                !originalHelper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
@@ -296,22 +277,22 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(Power, rulesetOriginalHelper);
+            var usablePower = PowerProvider.Get(power, rulesetOriginalHelper);
             var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
             {
-                StringParameter = ReactionName,
+                StringParameter = "RoyalKnightInspiringProtection",
                 StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
                 UsablePower = usablePower
             };
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToSpendPower(reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            yield return battleManager.WaitForReactions(originalHelper, actionService, count);
+            gameLocationActionManager.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(originalHelper, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -319,8 +300,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             }
 
             rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
-            rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-            
+
             action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
                 ? action.ActionParams.AttackMode.TryRollSavingThrow(
                     attacker.RulesetCharacter,
@@ -331,18 +311,13 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                     attacker.RulesetCharacter,
                     attacker.Side,
                     defender.RulesetActor,
-                    saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual, 
+                    saveModifier, action.ActionParams.RulesetEffect.EffectDescription.EffectForms, hasHitVisual,
                     out saveOutcome, out saveOutcomeDelta);
 
             action.SaveOutcome = saveOutcome;
             action.SaveOutcomeDelta = saveOutcomeDelta;
-        }
 
-        private static bool ShouldTrigger(
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            return helper.CanReact() && helper.CanPerceiveTarget(defender);
+            rulesetOriginalHelper.LogCharacterUsedPower(power, indent: true);
         }
 
         private static string FormatReactionDescription(
