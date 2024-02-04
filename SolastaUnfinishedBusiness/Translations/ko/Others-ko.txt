@@ -126,7 +126,6 @@ Feature/&PowerVanishSummonDescription=당신은 하라키리를 범하고 이 �
 Feature/&PowerVanishSummonTitle=사라지다
 Feature/&ToolGainChoicesPluralDescription=다음 도구 중 {0}개를 선택합니다: {1}
 Feature/&ToolGainChoicesSingleDescription=다음 도구 중 하나를 선택합니다: {1}
-Feedback/&CharacterGivesBonusToSaveWithDCFormat={0}이 {1}의 보너스를 제공하여, 새 결과는 {2}(DC: {3})입니다
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 굴려 {1} {2} 대 DC {3} 유지, {4} = {5} 굴림
 Feedback/&ConcentrationEffectCheckRolledLine={0} 굴려 {1} 대 DC {2} 유지, {3} = {4} 굴림
 Feedback/&FlankingAttack=측면 공격

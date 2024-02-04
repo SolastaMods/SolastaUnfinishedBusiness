@@ -126,7 +126,6 @@ Feature/&PowerVanishSummonDescription=Sie können Harakiri begehen und diese Exi
 Feature/&PowerVanishSummonTitle=Verschwinden
 Feature/&ToolGainChoicesPluralDescription=Wählen Sie {0} dieser Tools: {1}
 Feature/&ToolGainChoicesSingleDescription=Wählen Sie eines dieser Tools: {1}
-Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} gibt einen Bonus von {1}, neues Ergebnis ist {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} würfelt, um {1} {2} gegen DC {3} aufrechtzuerhalten, würfelt {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} würfelt, um {1} gegen DC {2} aufrechtzuerhalten, würfelt {3} = {4}
 Feedback/&FlankingAttack=Flankierend

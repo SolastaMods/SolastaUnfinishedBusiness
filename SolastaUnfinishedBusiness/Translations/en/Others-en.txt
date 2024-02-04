@@ -126,7 +126,6 @@ Feature/&PowerVanishSummonDescription=You can commit Harakiri and depart from th
 Feature/&PowerVanishSummonTitle=Vanish
 Feature/&ToolGainChoicesPluralDescription=Choose {0} of these tools: {1}
 Feature/&ToolGainChoicesSingleDescription=Choose one of these tools: {1}
-Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} gives a bonus of {1}, new result is {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rolls to maintain {1} {2} versus DC {3}, rolls {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} rolls to maintain {1} versus DC {2}, rolls {3} = {4}
 Feedback/&FlankingAttack=Flanking

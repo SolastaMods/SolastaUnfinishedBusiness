@@ -126,7 +126,6 @@ Feature/&PowerVanishSummonDescription=Puedes cometer Harakiri y partir de este p
 Feature/&PowerVanishSummonTitle=Desaparecer
 Feature/&ToolGainChoicesPluralDescription=Elija {0} de estas herramientas: {1}
 Feature/&ToolGainChoicesSingleDescription=Elija una de estas herramientas: {1}
-Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} otorga una bonificación de {1}, el nuevo resultado es {2} (DC: {3})
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} tira para mantener {1} {2} versus DC {3}, tira {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} tira para mantener {1} versus DC {2}, tira {3} = {4}
 Feedback/&FlankingAttack=Flanqueando

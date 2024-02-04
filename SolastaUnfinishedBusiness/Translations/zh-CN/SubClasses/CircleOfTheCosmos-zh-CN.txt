@@ -1,11 +1,11 @@
 Feature/&DieRollModifierCircleOfTheCosmosDragonAbilityDescription=当你进行智力或感知检定时，你可以将 d20 上 9 或更低的骰子视为 10。
 Feature/&DieRollModifierCircleOfTheCosmosDragonConcentrationDescription=当你进行体质豁免以保持对法术的专注时，你可以将 d20 上 9 或更低的检定视为 10。
+Feature/&FeatureCircleOfTheCosmosNovaStarDescription=当你处于星空形态时，你会变得部分虚体，使你能够抵抗棍击、穿刺和砍击伤害。
+Feature/&FeatureCircleOfTheCosmosNovaStarTitle=新星
 Feature/&FeatureSetCircleOfTheCosmosConstellationFormDescription=作为奖励动作，你可以使用狂野形状功能来呈现星空形态，而不是变成野兽。当你处于星空形态时，你的身体会变得发光。这种形式在 10 英尺半径内发出明亮的光线，并在另外 10 英尺的范围内发出昏暗的光线。该表格持续 10 分钟。如果您解除它、丧失能力、死亡或再次使用此功能，它会提前结束。每当你呈现出星空形态时，请选择以下哪个星座在你的身上闪烁：弓箭手、圣杯或龙。
 Feature/&FeatureSetCircleOfTheCosmosConstellationFormTitle=星座形态
 Feature/&FeatureSetCircleOfTheCosmosConstellationMapDescription=你已经创建了一张星图作为你的天体研究的一部分。持有这张地图时，您可以获得以下好处：\n。您知道指导戏法。\n。你已经准备好了引导箭法术，并且可以在不消耗法术位的情况下施放它。你可以这样做的次数等于你的熟练加值，当你完成长时间的休息时，你会恢复所有消耗的用途。
 Feature/&FeatureSetCircleOfTheCosmosConstellationMapTitle=宇宙地图
-Feature/&FeatureSetCircleOfTheCosmosNovaStarDescription=当你处于星空形态时，你会变得部分虚体，使你能够抵抗棍击、穿刺和砍击伤害。
-Feature/&FeatureSetCircleOfTheCosmosNovaStarTitle=新星
 Feature/&FeatureSetCircleOfTheCosmosTwinklingStarsDescription=你的星空形态得到改善。弓箭手和圣杯的 1d8 变成 2d8，当龙处于活动状态时，你的飞行速度为 20 英尺。此外，如果你在星空形态下尚未移动或使用任何奖励或主要动作，你可以改变你身上闪烁的星座。
 Feature/&FeatureSetCircleOfTheCosmosTwinklingStarsTitle=闪烁的星星
 Feature/&PowerCircleOfTheCosmosArcherConstellationFormDescription=射手座出现在你身上。当你激活此形态时，并在其持续期间作为后续回合的奖励动作，你可以进行远程法术攻击，投掷一支发光箭，目标是距离你 60 英尺内的一个生物。命中时，攻击会造成相当于 1d8 + 你的感知调整值的光辉伤害。该伤害在 10 级时增加至 2d8 + 你的感知调整值。

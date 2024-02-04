@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=Ganas competencia con todas
 Feature/&ProficiencyInventorToolExpertiseTitle=Experiencia en herramientas de Inventor
 Feature/&ProficiencyInventorToolsTitle=Competencias de la herramienta Inventor
 Feature/&ProficiencyInventorWeaponTitle=Dominio del arma del inventor
+Feedback/&FlashOfGeniusSavingToHitRoll={0} usa {1} para agregar el modificador de Inteligencia ({2}) a la tirada de ahorro ({3})
 Item/&CreateSpellStoringWandFormatDescription=Crea una varita que pueda lanzar hechizos <b>{0} ({1})</b> usando tu modificador de ataque de hechizos de Inventor y ahorra CD.
 Item/&SpellStoringWandDescription=Esta varita permite lanzar el hechizo <b>{0}</b> utilizando las estadísticas de lanzamiento de hechizos del Inventor que lo creó.
 Item/&SpellStoringWandTitle=Varita de {0}

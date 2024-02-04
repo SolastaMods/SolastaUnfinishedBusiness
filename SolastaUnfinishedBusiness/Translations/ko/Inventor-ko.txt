@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=모든 제조 도구 숙련
 Feature/&ProficiencyInventorToolExpertiseTitle=인벤터 도구 전문화
 Feature/&ProficiencyInventorToolsTitle=인벤터 도구 숙련
 Feature/&ProficiencyInventorWeaponTitle=인벤터 무기 숙련
+Feedback/&FlashOfGeniusSavingToHitRoll={0}는 {1}를 사용하여 지능 수정자({2})를 저장 목록({3})에 추가합니다.
 Item/&CreateSpellStoringWandFormatDescription=자신의 인벤터 주문 공격 수정치와 주문 DC를 사용하는 <b>{0} ({1})</b> 주문을 시전할 수 있는 완드 하나를 만듭니다.
 Item/&SpellStoringWandDescription=이 완드는 이를 만든 인벤터의 주문시전 능력치를 사용하는 <b>{0}</b> 주문을 시전할 수 있게 해줍니다.
 Item/&SpellStoringWandTitle={0}의 완드

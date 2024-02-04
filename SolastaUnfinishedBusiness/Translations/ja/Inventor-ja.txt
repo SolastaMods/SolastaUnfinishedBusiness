@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=すべての作成ツール
 Feature/&ProficiencyInventorToolExpertiseTitle=Inventor ツールの専門知識
 Feature/&ProficiencyInventorToolsTitle=Inventor ツールの習熟度
 Feature/&ProficiencyInventorWeaponTitle=発明者の武器熟練度
+Feedback/&FlashOfGeniusSavingToHitRoll={0} は {1} を使用して、インテリジェンス修飾子 ({2}) をセービング ロール ({3}) に追加します。
 Item/&CreateSpellStoringWandFormatDescription=発明者呪文攻撃修正を使用して <b>{0} ({1})</b> 呪文を唱えることができる杖を作成し、DC を節約します。
 Item/&SpellStoringWandDescription=この杖を使用すると、それを作成した発明者の呪文詠唱統計を使用して <b>{0}</b> 呪文を唱えることができます。
 Item/&SpellStoringWandTitle={0}の杖

@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=Acquisisci competenza con t
 Feature/&ProficiencyInventorToolExpertiseTitle=Competenza sugli strumenti di Inventor
 Feature/&ProficiencyInventorToolsTitle=Competenze sugli strumenti di Inventor
 Feature/&ProficiencyInventorWeaponTitle=Competenza nelle armi dell'inventore
+Feedback/&FlashOfGeniusSavingToHitRoll={0} usa {1} per aggiungere il modificatore di Intelligenza ({2}) al tiro salvezza ({3})
 Item/&CreateSpellStoringWandFormatDescription=Crea una bacchetta in grado di lanciare l'incantesimo <b>{0} ({1})</b> usando il modificatore di attacco dell'incantesimo di Inventor e la CD del tiro salvezza.
 Item/&SpellStoringWandDescription=Questa bacchetta consente di lanciare l'incantesimo <b>{0}</b> utilizzando le statistiche di lancio degli incantesimi dell'inventore che l'ha creata.
 Item/&SpellStoringWandTitle=Bacchetta di {0}

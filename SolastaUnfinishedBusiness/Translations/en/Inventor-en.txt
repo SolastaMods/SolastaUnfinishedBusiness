@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=You gain proficiency with a
 Feature/&ProficiencyInventorToolExpertiseTitle=Inventor Tool Expertise
 Feature/&ProficiencyInventorToolsTitle=Inventor Tool Proficiencies
 Feature/&ProficiencyInventorWeaponTitle=Inventor Weapon Proficiency
+Feedback/&FlashOfGeniusSavingToHitRoll={0} uses {1} to add the Intelligence modifier ({2}) to the saving roll ({3})
 Item/&CreateSpellStoringWandFormatDescription=Create a wand that can cast <b>{0} ({1})</b> spell using your Inventor spell attack modifier and save DC.
 Item/&SpellStoringWandDescription=This wand allows casting the <b>{0}</b> spell using spell casting stats of the Inventor who created it.
 Item/&SpellStoringWandTitle=Wand of {0}
