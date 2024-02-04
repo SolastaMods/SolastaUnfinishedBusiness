@@ -165,6 +165,7 @@ internal static class ForceGlobalUniqueEffects
         GrenadierGrenadeMode,
         InventorSpellStoringItem,
         WildMasterBeast,
-        MoonlitNewAndFullMoon
+        MoonlitNewAndFullMoon,
+        ConstellationForm
     }
 }
