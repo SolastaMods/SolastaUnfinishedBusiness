@@ -68,7 +68,6 @@ ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Superior Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Desactive la compatibilidad con traducciones no oficiales para acelerar el mod <i><color=#F0DAA0>[a menos que hable chino, italiano, japonés, coreano o español]</color></i>
-ModUi/&DisableUpdateMessage=Deshabilitar los mensajes de actualización <i><color=#F0DAA0>[usuarios de la píldora azul, esta es su última oportunidad]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
 ModUi/&Donate=<b><color=#D89555>Donar:</color></b> <i>{0}</i>

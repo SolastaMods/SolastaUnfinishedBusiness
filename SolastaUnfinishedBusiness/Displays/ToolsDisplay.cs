@@ -52,13 +52,7 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.DisableUpdateMessage;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableUpdateMessage"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableUpdateMessage = toggle;
-        }
-
-        toggle = Main.Settings.DisableUnofficialTranslations;
+        var toggle = Main.Settings.DisableUnofficialTranslations;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableUnofficialTranslations = toggle;

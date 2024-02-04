@@ -146,7 +146,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
-    public bool DisableUpdateMessage { get; set; }
     public bool DisableUnofficialTranslations { get; set; }
     public bool FixAsianLanguagesTextWrap { get; set; }
     public bool EnablePcgRandom { get; set; }

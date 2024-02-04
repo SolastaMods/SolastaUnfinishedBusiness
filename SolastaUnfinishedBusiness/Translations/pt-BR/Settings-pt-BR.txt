@@ -68,7 +68,6 @@ ModUi/&DisableRacePrerequisitesOnModFeats=Desabilite os pré-requisitos de corri
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sentir visão no escuro</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Desative o suporte a traduções não oficiais para acelerar o mod <i><color=#F0DAA0>[a menos que eu fale chinês, italiano, japonês, coreano ou espanhol]</color></i>
-ModUi/&DisableUpdateMessage=Desative as mensagens de atualização <i><color=#F0DAA0>[usuários da pílula azul, esta é sua última chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
 ModUi/&Donate=<b><color=#D89555>Doar:</color></b> <i>{0}</i>
