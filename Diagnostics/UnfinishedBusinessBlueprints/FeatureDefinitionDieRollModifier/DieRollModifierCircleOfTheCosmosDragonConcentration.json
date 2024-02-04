@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 1,
+  "minRollValue": 10,
   "maxRollValue": 0,
-  "minRerollValue": 2,
-  "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&PowerDivineHeartEmpoweredHealingReroll",
+  "minRerollValue": 0,
+  "rerollCount": 0,
+  "rerollLocalizationKey": "Feedback/&DieRollModifierCircleOfTheCosmosDragonReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "HealValueRoll",
+  "validityContext": "ConcentrationCheck",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDivineHeartEmpoweredHealingTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerCircleOfTheCosmosDragonConstellationFormTitle",
+    "description": "Feature/&DieRollModifierCircleOfTheCosmosDragonConcentrationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dc266e71-5aa1-5cf2-baa6-84bf5a0b952a",
+  "guid": "f7b3822f-5c7e-5c38-a41e-c6c44f7ff755",
   "contentPack": 9999,
-  "name": "DieRollModifierDivineHeartEmpoweredHealing"
+  "name": "DieRollModifierCircleOfTheCosmosDragonConcentration"
 }

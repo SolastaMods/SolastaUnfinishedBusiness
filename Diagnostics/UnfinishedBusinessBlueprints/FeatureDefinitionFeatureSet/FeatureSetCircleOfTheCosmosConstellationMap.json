@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerCircleOfTheCosmosGuidingBolt:dc2b6665-486f-5deb-9306-f021b63c973c",
+    "Definition:BonusCantripsCircleOfTheCosmosConstellationMap:0d7c7c3f-5762-5330-a2dc-0f8393181777",
+    "Definition:AutoPreparedSpellsCircleOfTheCosmosConstellationMap:ee4daf40-cb0e-5508-a21c-48e14f0d912f"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetCircleOfTheCosmosConstellationMapTitle",
+    "description": "Feature/&FeatureSetCircleOfTheCosmosConstellationMapDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3b0cdc7a-cf01-52ef-bd9d-674242f46f1d",
+  "contentPack": 9999,
+  "name": "FeatureSetCircleOfTheCosmosConstellationMap"
+}
