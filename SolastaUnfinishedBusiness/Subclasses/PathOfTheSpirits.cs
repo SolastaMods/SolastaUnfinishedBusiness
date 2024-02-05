@@ -239,6 +239,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}BearResistance")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -276,8 +277,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .Create($"CombatAffinity{Name}WolfLeadershipPack")
                     .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
                         Gui.NoLocalization)
-                    .SetMyAttackAdvantage(AdvantageType.Advantage)
-                    .SetSituationalContext(ExtraSituationalContext.HasSimpleOrMartialWeaponInHands)
+                    .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
             .AddToDB();
 
@@ -285,10 +286,11 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}WolfLeadership")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Permanent)
                     .ExcludeCaster()
                     .SetRecurrentEffect(
@@ -332,6 +334,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -367,6 +370,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}HonedAnimalAspectsEagle")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -397,6 +401,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}HonedAnimalAspectsWolf")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

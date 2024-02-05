@@ -106,6 +106,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                     .Create("PowerPathOfTheLightIlluminatingStrike")
                     .SetGuiPresentationNoContent(true)
                     .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+                    .SetShowCasting(false)
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
@@ -260,6 +261,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                     .Create("PowerPathOfTheLightIlluminatingBurstInitiator")
                     .SetGuiPresentationNoContent(true)
                     .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+                    .SetShowCasting(false)
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
@@ -272,7 +274,6 @@ public sealed class PathOfTheLight : AbstractSubclass
                                         ConditionForm.ConditionOperation.Remove)
                                     .Build())
                             .Build())
-                    .SetShowCasting(false)
                     .AddToDB(),
                 FeatureDefinitionPowerBuilder
                     .Create(PowerPathOfTheLightIlluminatingBurstName)

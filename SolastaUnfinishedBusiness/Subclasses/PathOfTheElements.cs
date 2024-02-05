@@ -99,6 +99,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Storm")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -125,6 +126,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Blizzard")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -151,6 +153,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Wildfire")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -339,6 +342,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalConduit}Storm")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
