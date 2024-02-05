@@ -1,17 +1,22 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:ProficiencyPathOfTheSpiritsEagle:0c81506f-0c16-57e1-a1ad-e97238e76f6c",
-    "Definition:AbilityCheckAffinityPathOfTheSpiritsEagle:e7cba441-714a-533e-98ae-75f009720896",
-    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0"
+  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
+  "useControllerAbilityChecks": false,
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "proficiencyName": "Perception",
+      "affinity": "Advantage",
+      "abilityCheckGroupOperation": "AddDie",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    }
   ],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "ancestryType": "Sorcerer",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "substractBardicDieRoll": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -36,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3aafbe34-e3ef-5d05-9cac-1783a6ca178a",
+  "guid": "e7cba441-714a-533e-98ae-75f009720896",
   "contentPack": 9999,
-  "name": "FeatureSetPathOfTheSpiritsAnimalAspectChoiceEagle"
+  "name": "AbilityCheckAffinityPathOfTheSpiritsEagle"
 }

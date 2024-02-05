@@ -1,17 +1,10 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [
-    "Definition:PowerPathOfTheSpiritsIdentifyCreatures:729a93fb-8397-53f8-9fb3-8dfa558f4323",
-    "Definition:AbilityCheckAffinityPathOfTheSpiritsWolf:d4648506-f55e-5b44-9c27-843a44c6e4a7",
-    "Definition:ProficiencyPathOfTheSpiritsWolf:2aa4c7c6-f9b1-54e5-8da5-49799a44cf64"
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "SkillOrExpertise",
+  "proficiencies": [
+    "Survival"
   ],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "ancestryType": "Sorcerer",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -36,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0e70b207-a668-5547-a21c-6c5e06d6de33",
+  "guid": "2aa4c7c6-f9b1-54e5-8da5-49799a44cf64",
   "contentPack": 9999,
-  "name": "FeatureSetPathOfTheSpiritsAnimalAspectChoiceWolf"
+  "name": "ProficiencyPathOfTheSpiritsWolf"
 }
