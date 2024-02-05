@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
-  "type": 9000,
+  "type": 9001,
   "damageType": "DamageFire",
   "associatedFaceAndSkinColor": "",
   "myselfFamilyRestrictions": [],

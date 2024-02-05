@@ -15,7 +15,7 @@
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
   "requiredAncestryType": "Sorcerer",
-  "damageValueDetermination": 1000,
+  "damageValueDetermination": 9002,
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 0,

@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
   "ancestryDefinesDamageType": true,
-  "ancestryType": 9000,
+  "ancestryType": 9001,
   "damageType": "DamageFire",
   "savingThrowAdvantageType": "None",
   "savingThrowModifier": 0,

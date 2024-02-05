@@ -15,7 +15,7 @@
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
   "requiredAncestryType": "Sorcerer",
-  "damageValueDetermination": 1001,
+  "damageValueDetermination": 9001,
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 0,

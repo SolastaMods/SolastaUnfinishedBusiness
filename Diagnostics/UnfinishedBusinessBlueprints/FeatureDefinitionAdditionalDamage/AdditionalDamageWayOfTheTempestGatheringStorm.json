@@ -5,7 +5,7 @@
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": 9003,
+  "triggerCondition": 9000,
   "requiredProperty": "Unarmed",
   "attackModeOnly": false,
   "attackOnly": false,

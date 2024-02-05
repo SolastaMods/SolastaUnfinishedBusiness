@@ -13,7 +13,7 @@
   "ignoreCover": false,
   "permanentCover": "None",
   "ignoreRangeAdvantage": false,
-  "myAttackModifierValueDetermination": 1002,
+  "myAttackModifierValueDetermination": 9002,
   "myAttackModifierSign": "Add",
   "myAttackModifierDiceNumber": 1,
   "myAttackModifierDieType": "D4",
