@@ -22,7 +22,7 @@
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
   "situationalContext": "TargetIsEffectSource",
-  "requiredCondition": null,
+  "requiredCondition": "Definition:ConditionMartialDefenderShoutOfProvocation:8b3e77c1-ca1c-591f-a172-649fe33160c8",
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
   "multiAttackAffinity": false,

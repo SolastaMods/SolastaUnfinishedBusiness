@@ -1,3 +1,16 @@
+1.5.94.51:
+
+RESPEC MIGHT BE REQUIRED ON: Arcane Scoundrel, Defiler, Duelist, and Raven [if heroes or saves created in 2023]
+
+- added Circle of the Cosmos subclass [only difference compared with TT is it won't react on attribute checks]
+- fixed College of War Dancer improved war dancer not granting extra attacks while war dancer is active
+- improved Cunning Strike and Devil Strike tooltips to display power usage as amount of sneak dice used
+- improved Path of the Elements elemental fury blizzard, storm, and wildfire damage SFX
+- improved Path of the Spirits eagle and wolf aspect features at 6th, and spirit walker feature at 10th
+- improved mod backend for better maintainability, multiplayer compatibility, and performance
+- removed older 17h backward compatibility blueprints from Arcane Scoundrel, Duelist, and Raven
+- removed older 6th and 8th backward compatibility blueprints from Defiler
+
 1.5.94.50:
 
 - fixed custom trigger AlterSavingThrowOutcome impacting Eldritch Ward, Flash of Genius, and Seize the Chance 
