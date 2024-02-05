@@ -61,7 +61,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         ancestryBlizzard.AddCustomSubFeatures(
             new CharacterTurnEndedElementalFury(
-                ancestryBlizzard, AdditionalDamagePathClawDragonsBlessing.fireImpactParticleReference));
+                ancestryBlizzard, AdditionalDamagePathClawDragonsBlessing.coldImpactParticleReference));
 
         var ancestryWildfire = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Wildfire")
@@ -73,7 +73,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         ancestryWildfire.AddCustomSubFeatures(
             new CharacterTurnEndedElementalFury(
-                ancestryWildfire, AdditionalDamagePathClawDragonsBlessing.coldImpactParticleReference));
+                ancestryWildfire, AdditionalDamagePathClawDragonsBlessing.fireImpactParticleReference));
 
         // keep sorted
         FeatureSetElementalFury.FeatureSet.Add(ancestryBlizzard);
