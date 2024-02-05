@@ -188,7 +188,7 @@ Starting at 6th level, you gain a magical aspect based on the spirit animal of y
 
 * Spirit Walker
 
-Starting at 10th level, you can summon the protection of your animal spirit to guide and protect you. You gain the ability to cast Spirit Guardians as a Bonus Action a number of times equal to your proficiency modifier.
+While raging, you can also cast Spirit Guardians spell that lasts for one minute without any components and without requiring concentration. You can use this feature once per long rest. If you start raging and are out of use of this feature, you can expend one Rage charge instead to use it again.
 
 
 ### Level 14

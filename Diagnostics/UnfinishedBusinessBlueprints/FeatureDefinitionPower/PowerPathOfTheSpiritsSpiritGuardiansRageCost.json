@@ -393,7 +393,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "RagePoints",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -434,7 +434,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "73e0cc17-295c-5db0-beba-46fb156a0124",
+  "guid": "35d3fef6-be3e-50ff-99c9-3cf95dd9823d",
   "contentPack": 9999,
-  "name": "PowerPathOfTheSpiritsSpiritGuardians"
+  "name": "PowerPathOfTheSpiritsSpiritGuardiansRageCost"
 }

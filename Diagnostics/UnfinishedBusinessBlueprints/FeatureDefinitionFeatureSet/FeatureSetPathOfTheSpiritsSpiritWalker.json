@@ -1,7 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerPathOfTheSpiritsSpiritGuardians:73e0cc17-295c-5db0-beba-46fb156a0124"
+    "Definition:PowerPathOfTheSpiritsSpiritGuardians:73e0cc17-295c-5db0-beba-46fb156a0124",
+    "Definition:PowerPathOfTheSpiritsSpiritGuardiansRageCost:35d3fef6-be3e-50ff-99c9-3cf95dd9823d"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

@@ -97,10 +97,42 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
         // Spirit Walker
 
+        var powerSpiritGuardians = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SpiritGuardians")
+            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .Build())
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(character =>
+                character.HasConditionOfTypeOrSubType(ConditionRaging)))
+            .AddToDB();
+
+        var powerSpiritGuardiansRageCost = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SpiritGuardiansRageCost")
+            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.RagePoints)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .Build())
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(character =>
+                    character.HasConditionOfTypeOrSubType(ConditionRaging) &&
+                    PowerProvider.Get(powerSpiritGuardians, character).RemainingUses == 0))
+            .AddToDB();
+
         var featureSetPathOfTheSpiritsSpiritWalker = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SpiritWalker")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(PowerSpiritGuardian())
+            .AddFeatureSet(powerSpiritGuardians, powerSpiritGuardiansRageCost)
             .AddToDB();
 
         #endregion
@@ -275,54 +307,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
                 (AttributeDefinitions.Strength, string.Empty))
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionPower PowerSpiritGuardian()
-    {
-        var powerSpiritGuardians = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SpiritGuardians")
-            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
-                    .SetSavingThrowData(
-                        false, AttributeDefinitions.Wisdom, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .Build())
-            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(character =>
-                character.HasConditionOfTypeOrSubType(ConditionRaging)))
-            .AddToDB();
-
-        var powerSpiritGuardiansRageCost = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{Name}SpiritGuardiansRageCost")
-            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.RagePoints)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
-                    .SetSavingThrowData(
-                        false, AttributeDefinitions.Wisdom, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(character =>
-                    character.HasConditionOfTypeOrSubType(ConditionRaging) &&
-                    PowerProvider.Get(powerSpiritGuardians, character).RemainingUses == 0))
-            .AddToDB();
-
-        return FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SpiritGuardians")
-            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
-                    .SetSavingThrowData(
-                        false, AttributeDefinitions.Wisdom, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .Build())
             .AddToDB();
     }
 
