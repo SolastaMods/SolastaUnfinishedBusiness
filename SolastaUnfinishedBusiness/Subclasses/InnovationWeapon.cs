@@ -293,7 +293,7 @@ public sealed class InnovationWeapon : AbstractSubclass
                 //Bonuses from Inventor's Proficiency Bonus
                 ConditionDefinitionBuilder
                     .Create("ConditionInnovationWeaponSummonSteelDefenderProficiencyBonus")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation(Category.Condition, Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
                     .SetFeatures(toDamage)
