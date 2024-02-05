@@ -304,7 +304,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             var isActionAttack = action is CharacterActionAttack;
             var remainingAttacks =
                 actingCharacter.GetActionAvailableIterations(Id.AttackMain) - (isActionAttack ? 1 : 0);
-            
+
             //Still has attacks, skip
             if (remainingAttacks > 0)
             {

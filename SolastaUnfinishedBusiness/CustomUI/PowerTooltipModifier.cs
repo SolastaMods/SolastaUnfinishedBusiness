@@ -12,6 +12,9 @@ public abstract class PowerTooltipModifier
         Apply(parameters, guiPowerDefinition, tooltip.Context as RulesetCharacter);
     }
 
-    protected abstract void Apply(TooltipFeaturePowerParameters tooltip, GuiPowerDefinition guiPowerDefinition,
+    protected abstract void Apply(
+        TooltipFeaturePowerParameters tooltip,
+        GuiPowerDefinition guiPowerDefinition,
+        // ReSharper disable once UnusedParameter.Global
         RulesetCharacter character);
 }

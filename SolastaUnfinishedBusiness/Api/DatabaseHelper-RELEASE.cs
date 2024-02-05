@@ -892,9 +892,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenSight { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenSight");
 
-        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenSmell { get; } =
-            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenSmell");
-
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenHearing { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenHearing");
 
@@ -1510,9 +1507,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionMagicAffinitys
     {
-        internal static FeatureDefinitionMagicAffinity MagicAffinityAdditionalSpellSlot4 { get; } =
-            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityAdditionalSpellSlot4");
-
         internal static FeatureDefinitionMagicAffinity MagicAffinityBattleMagic { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityBattleMagic");
 

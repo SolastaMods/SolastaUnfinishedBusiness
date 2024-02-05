@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -62,7 +61,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         ancestryBlizzard.AddCustomSubFeatures(
             new CharacterTurnEndedElementalFury(
-                ancestryBlizzard,AdditionalDamagePathClawDragonsBlessing.fireImpactParticleReference));
+                ancestryBlizzard, AdditionalDamagePathClawDragonsBlessing.fireImpactParticleReference));
 
         var ancestryWildfire = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Wildfire")

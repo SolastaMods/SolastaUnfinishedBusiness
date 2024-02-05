@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
@@ -80,7 +79,7 @@ internal static class EffectHelpers
         AssetReference assetReference)
     {
         var graphicsResourceService = ServiceRepository.GetService<IGraphicsResourceService>();
-        
+
         if (graphicsResourceService == null)
         {
             return;
@@ -92,7 +91,7 @@ internal static class EffectHelpers
         {
             return;
         }
-        
+
         var sentParameters = new ParticleSentParameters(attacker, defender, prefab.name);
 
         WorldLocationPoolManager

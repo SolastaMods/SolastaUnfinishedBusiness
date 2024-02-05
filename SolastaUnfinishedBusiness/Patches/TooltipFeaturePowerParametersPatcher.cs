@@ -21,7 +21,7 @@ public static class TooltipFeaturePowerParametersPatcher
             Tooltips.UpdatePowerUses(tooltip, __instance);
             //PATCH: updates power save DC to show actual value
             Tooltips.UpdatePowerSaveDC(tooltip, __instance);
-            
+
             //PATCH: support for power tooltip customization
             if (tooltip.DataProvider is not GuiPowerDefinition guiPowerDefinition)
             {
