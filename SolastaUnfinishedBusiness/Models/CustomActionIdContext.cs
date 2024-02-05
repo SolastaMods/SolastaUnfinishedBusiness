@@ -404,7 +404,7 @@ public static class CustomActionIdContext
             }
             case (Id)ExtraActionId.CombatRageStart:
             {
-                if (character.HasAnyConditionOfType(ConditionRaging))
+                if (character.HasConditionOfTypeOrSubType(ConditionRaging))
                 {
                     result = ActionStatus.Unavailable;
                 }

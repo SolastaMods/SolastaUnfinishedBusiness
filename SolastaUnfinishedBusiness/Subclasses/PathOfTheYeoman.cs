@@ -239,7 +239,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             return rulesetAttacker is { IsDeadOrDyingOrUnconscious: false } &&
-                   rulesetAttacker.HasConditionOfType(ConditionRaging) &&
+                   rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) &&
                    !rulesetAttacker.IsWearingHeavyArmor() &&
                    IsLongBow(attackMode, null, null);
         }
@@ -330,7 +330,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetAttacker.HasConditionOfType(ConditionRaging) ||
+                !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) ||
                 rulesetAttacker.IsWearingHeavyArmor() ||
                 !IsLongBow(attackerAttackMode, null, null))
             {

@@ -434,7 +434,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetAttacker = locationCharacter.RulesetCharacter;
 
-            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            if (!rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
             {
                 return;
             }
@@ -534,7 +534,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetAttacker = locationCharacter.RulesetCharacter;
 
-            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            if (!rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
             {
                 return;
             }
@@ -620,7 +620,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.HasAnyConditionOfType(ConditionRaging))
+            if (!rulesetDefender.HasConditionOfTypeOrSubType(ConditionRaging))
             {
                 yield break;
             }

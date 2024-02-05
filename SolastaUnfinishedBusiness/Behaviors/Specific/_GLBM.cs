@@ -1316,7 +1316,7 @@ internal static class GLBM
                     case RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster
                         when defender?.RulesetCharacter != null:
                     {
-                        if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging) &&
+                        if (attacker.RulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionRaging) &&
                             defender.RulesetCharacter.SpellRepertoires.Count > 0)
                         {
                             validTrigger = true;
@@ -1327,7 +1327,7 @@ internal static class GLBM
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.Raging:
                     {
-                        if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging))
+                        if (attacker.RulesetCharacter.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionRaging))
                         {
                             validTrigger = true;
                         }

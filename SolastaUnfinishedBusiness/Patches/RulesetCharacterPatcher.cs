@@ -530,7 +530,7 @@ public static class RulesetCharacterPatcher
             }
 
             // raging
-            if (__instance.HasAnyConditionOfType(ConditionRaging))
+            if (__instance.HasConditionOfTypeOrSubType(ConditionRaging))
             {
                 __result = false;
             }

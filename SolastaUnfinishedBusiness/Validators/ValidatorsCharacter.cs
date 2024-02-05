@@ -143,13 +143,13 @@ internal static class ValidatorsCharacter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {
-        return character => conditions.Any(character.HasConditionOfType);
+        return character => conditions.Any(character.HasConditionOfTypeOrSubType);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasNoneOfConditions(params string[] conditions)
     {
-        return character => !conditions.Any(character.HasConditionOfType);
+        return character => !conditions.Any(character.HasConditionOfTypeOrSubType);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

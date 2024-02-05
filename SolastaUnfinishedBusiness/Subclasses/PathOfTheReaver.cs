@@ -152,7 +152,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
         var rulesetAttacker = attacker.RulesetCharacter;
 
-        if (rulesetAttacker.MissingHitPoints == 0 || !rulesetAttacker.HasConditionOfType(ConditionRaging))
+        if (rulesetAttacker.MissingHitPoints == 0 || !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
         {
             yield break;
         }
