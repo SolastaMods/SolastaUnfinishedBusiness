@@ -89,7 +89,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .Create($"CombatAffinity{Name}ExploitOpening")
             .SetGuiPresentation($"Condition{Name}PredictAttack", Category.Condition)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-            .SetSituationalContext(ExtraSituationalContext.IsNotSourceOfCondition)
+            .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
             .AddToDB();
 
         var conditionExploitOpening = ConditionDefinitionBuilder
