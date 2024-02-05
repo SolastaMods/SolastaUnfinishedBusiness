@@ -1,3 +1,4 @@
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=Hinzufügen des Fähigkeitsbonus seines Erstellers
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Zauberangriffsbonus seines Erstellers
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Lernen Sie und seien Sie immer vorbereitet:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Waffenschmied-Zauber

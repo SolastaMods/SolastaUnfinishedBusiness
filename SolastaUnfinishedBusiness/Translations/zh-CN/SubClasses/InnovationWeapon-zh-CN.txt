@@ -1,3 +1,4 @@
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=添加其创建者的熟练度奖励
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=其创造者的法术攻击加值
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=学习并时刻做好准备：\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=武器匠法术

@@ -1,3 +1,4 @@
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=добавление бонуса мастерства его создателя
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Бонус атаки заклинанием его создателя
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Вы изучаете следующие заклинания, они всегда считаются подготовленными:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Заклинания оружейника
