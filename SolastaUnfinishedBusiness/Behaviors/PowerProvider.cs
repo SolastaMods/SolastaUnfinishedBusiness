@@ -36,10 +36,48 @@ internal static class PowerProvider
         }
 
         //Update properties to match actor
+        UpdateUses(actor, result);
         UpdateSaveDc(actor, result);
         UpdatePoolUses(actor, result);
 
         return result;
+    }
+
+    private static void UpdateUses(RulesetCharacter actor, RulesetUsablePower usablePower)
+    {
+        if (actor == null) { return; }
+
+        var powerDefinition = usablePower.powerDefinition;
+        if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.ChannelDivinity)
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.ChannelDivinityNumber);
+        }
+        else if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.HealingPool)
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.HealingPool);
+        }
+        else if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.SorceryPoints)
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.SorceryPoints);
+        }
+        else if (powerDefinition.UsesDetermination == RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed)
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(powerDefinition.UsesAbilityScoreName);
+        }
+        else if (powerDefinition.UsesDetermination == RuleDefinitions.UsesDetermination.ProficiencyBonus)
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.ProficiencyBonus);
+        }
+        else if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.KiPoints)
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.KiPoints);
+        }
+        else if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.BardicInspiration)
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.BardicInspirationNumber);
+        }
+
+        usablePower.Recharge();
     }
 
     private static void UpdatePoolUses([CanBeNull] RulesetCharacter character, RulesetUsablePower usablePower)
