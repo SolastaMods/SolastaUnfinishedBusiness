@@ -25,7 +25,11 @@ public class FeatureElementEffectLinePatcher
         [UsedImplicitly]
         public static void Prefix([NotNull] FeatureElementEffectLine __instance)
         {
-            __instance.tooltip.Content = String.Empty;
+            var tooltip = __instance.tooltip;
+            if (tooltip != null)
+            {
+                tooltip.Content = String.Empty;
+            }
         }
     }
 }
