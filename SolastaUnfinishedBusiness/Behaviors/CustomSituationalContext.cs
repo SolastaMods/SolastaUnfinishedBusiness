@@ -60,8 +60,10 @@ internal static class CustomSituationalContext
                  ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
                 ValidatorsCharacter.HasTwoHandedQuarterstaff(contextParams.source),
 
-            ExtraSituationalContext.TargetIsNotEffectSource =>
-                contextParams.target.Guid != contextParams.sourceEffectId,
+            ExtraSituationalContext.TargetIsNotConditionSource =>
+                contextParams.source.Guid !=
+                contextParams.source.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition == contextParams.condition)?.SourceGuid,
 
             ExtraSituationalContext.TargetIsFavoriteEnemy =>
                 contextParams.source.IsMyFavoriteEnemy(contextParams.target),

@@ -266,21 +266,24 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
     private static FeatureDefinitionPower PowerPathOfTheSpiritsWolfLeadership()
     {
+        var combatAffinityWolfLeadershipPack = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}WolfLeadershipPack")
+            .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
+                Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .SetSituationalContext(ExtraSituationalContext.TargetIsNotConditionSource)
+            .AddToDB();
+
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
             .Create($"Condition{Name}WolfLeadershipPack")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{Name}WolfLeadershipPack")
-                    .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
-                        Gui.NoLocalization)
-                    .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-                    .AddToDB())
+            .SetFeatures(combatAffinityWolfLeadershipPack)
             .AddToDB();
+
+        combatAffinityWolfLeadershipPack.requiredCondition = conditionPathOfTheSpiritsWolfLeadershipPack;
 
         var powerPathOfTheSpiritsWolfLeadership = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}WolfLeadership")
@@ -290,7 +293,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Permanent)
                     .ExcludeCaster()
                     .SetRecurrentEffect(
@@ -326,7 +329,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition,
                         Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotConditionSource)
                     .AddToDB())
             .AddToDB();
 

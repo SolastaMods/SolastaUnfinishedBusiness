@@ -121,7 +121,7 @@ internal static class GambitsBuilders
             .Create($"CombatAffinity{name}")
             .SetGuiPresentation($"Condition{name}Distracted", Category.Condition, Gui.NoLocalization)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-            .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+            .SetSituationalContext(ExtraSituationalContext.TargetIsNotConditionSource)
             .AddToDB();
 
         var conditionDistracted = ConditionDefinitionBuilder

@@ -178,7 +178,7 @@ internal enum ExtraSituationalContext
     NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget,
     SummonerIsNextToBeast,
     TargetIsFavoriteEnemy,
-    TargetIsNotEffectSource,
+    TargetIsNotConditionSource,
     WearingNoArmorOrLightArmorWithoutShield,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff
 }

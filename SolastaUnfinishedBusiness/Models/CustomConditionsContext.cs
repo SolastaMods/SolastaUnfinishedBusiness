@@ -69,21 +69,24 @@ internal static class CustomConditionsContext
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
 
+        var combatAffinityTaunted = FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityTaunted")
+            .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+            .SetSituationalContext(ExtraSituationalContext.TargetIsNotConditionSource)
+            .AddToDB();
+
         Taunted = ConditionDefinitionBuilder
             .Create("ConditionTaunted")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
             .SetConditionType(ConditionType.Detrimental)
             .SetConditionParticleReference(
                 ConditionDefinitions.ConditionUnderDemonicInfluence.conditionParticleReference)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityTaunted")
-                    .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
-                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-                    .AddToDB())
+            .SetFeatures(combatAffinityTaunted)
             .AddCustomSubFeatures(new CustomBehaviorTaunted())
             .AddToDB();
+
+        combatAffinityTaunted.requiredCondition = Taunted;
 
         _taunter = ConditionDefinitionBuilder
             .Create("ConditionTaunter")
