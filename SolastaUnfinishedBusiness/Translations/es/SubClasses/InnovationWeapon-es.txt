@@ -1,4 +1,4 @@
-Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=agregando bonificación de competencia de su creador
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=Agregando bonificación de competencia de su creador
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bonificación de ataque con hechizos de su creador.
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Aprende y siempre prepárate:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Hechizos de armero

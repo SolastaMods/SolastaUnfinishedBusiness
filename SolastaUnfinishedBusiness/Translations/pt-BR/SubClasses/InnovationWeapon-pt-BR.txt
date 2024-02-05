@@ -1,4 +1,4 @@
-Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=adicionando Bônus de Proficiência de seu criador
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=Adicionando Bônus de Proficiência de seu criador
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bônus de ataque mágico de seu criador
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Aprenda e esteja sempre preparado:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Feitiços de Armeiro

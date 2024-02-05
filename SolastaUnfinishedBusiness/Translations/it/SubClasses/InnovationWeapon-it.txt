@@ -1,4 +1,4 @@
-Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=aggiungendo il Bonus di Competenza del suo creatore
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=Aggiungendo il Bonus di Competenza del suo creatore
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bonus di attacco dell'incantesimo del suo creatore
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Impara e sii sempre preparato:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Incantesimi dell'armaiolo

@@ -1,4 +1,4 @@
-Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=ajout du bonus de compétence de son créateur
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=Ajout du bonus de compétence de son créateur
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bonus d'attaque des sorts de son créateur
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Apprenez et soyez toujours préparé :\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Sorts de forgeron d'armes
