@@ -218,21 +218,24 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create($"Power{Name}SwitchConstellationFormArcher")
             .SetGuiPresentation($"Power{Name}ArcherConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Archer"))
+            .AddCustomSubFeatures(
+                new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Archer", powerArcherConstellationForm))
             .AddToDB();
 
         var powerSwitchConstellationFormChalice = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}SwitchConstellationFormChalice")
             .SetGuiPresentation($"Power{Name}ChaliceConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Chalice"))
+            .AddCustomSubFeatures(
+                new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Chalice", powerChaliceConstellationForm))
             .AddToDB();
 
         var powerSwitchConstellationFormDragon = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}SwitchConstellationFormDragon")
             .SetGuiPresentation($"Power{Name}DragonConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Dragon"))
+            .AddCustomSubFeatures(
+                new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Dragon", powerDragonConstellationForm))
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -1158,7 +1161,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // Twinkling Stars
     //
 
-    private sealed class MagicEffectFinishedByMeTwinklingStars(string conditionName) : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeTwinklingStars(
+        string conditionName,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower magicEffect) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1178,6 +1184,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var endOccurence = activeCondition.EndOccurence;
 
             rulesetCharacter.RemoveCondition(activeCondition);
+            EffectHelpers.StartVisualEffect(
+                actingCharacter, actingCharacter, magicEffect, EffectHelpers.EffectType.Caster);
             rulesetCharacter.InflictCondition(
                 conditionName,
                 durationType,
