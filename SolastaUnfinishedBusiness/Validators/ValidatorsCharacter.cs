@@ -82,7 +82,7 @@ internal static class ValidatorsCharacter
         return ValidatorsWeapon.IsMelee(weapon) || (weapon == null && InnovationArmor.InGuardianMode(character));
     };
 
-    private static readonly IsCharacterValidHandler HasMeleeWeaponInOffHand = character =>
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInOffHand = character =>
     {
         var weapon = character.GetOffhandWeapon();
 
@@ -114,6 +114,9 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
+
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainOrOffhand = character =>
+        HasMeleeWeaponInMainHand(character) || HasMeleeWeaponInOffHand(character);
 
     internal static readonly IsCharacterValidHandler IsUnarmedInMainHand = character =>
         ValidatorsWeapon.IsUnarmed(character.GetMainWeapon()?.ItemDefinition, null);

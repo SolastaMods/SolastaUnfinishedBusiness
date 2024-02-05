@@ -166,21 +166,22 @@ internal enum ExtraReactionContext
 internal enum ExtraSituationalContext
 {
     HasBladeMasteryWeaponTypesInHands = 9000,
-    HasGreatswordInHands,
-    HasLongswordInHands,
-    HasMeleeWeaponInMainHandWithFreeOffhand,
-    HasShieldInHands,
-    HasSimpleOrMartialWeaponInHands,
-    HasSpecializedWeaponInHands,
-    IsNotInBrightLight,
-    IsRagingAndDualWielding,
-    MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow,
-    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget,
-    SummonerIsNextToBeast,
-    TargetIsFavoriteEnemy,
-    TargetIsNotConditionSource,
-    WearingNoArmorOrLightArmorWithoutShield,
-    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff
+    HasGreatswordInHands = 9001,
+    HasLongswordInHands = 9002,
+    HasMeleeWeaponInMainHandWithFreeOffhand = 9003,
+    HasShieldInHands = 9004,
+    HasSimpleOrMartialWeaponInHands = 9005,
+    HasSpecializedWeaponInHands = 9006,
+    IsNotInBrightLight = 9007,
+    IsRagingAndDualWielding = 9008,
+    MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 9009,
+    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 9010,
+    SummonerIsNextToBeast = 9011,
+    TargetIsFavoriteEnemy = 9012,
+    IsNotConditionSource = 9013,
+    WearingNoArmorOrLightArmorWithoutShield = 9014,
+    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 9015,
+    IsNotConditionSourceWithSimpleOrMartialWeaponInHands = 9016
 }
 
 internal enum ExtraTurnOccurenceType

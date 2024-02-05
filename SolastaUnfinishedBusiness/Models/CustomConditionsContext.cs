@@ -73,7 +73,7 @@ internal static class CustomConditionsContext
             .Create("CombatAffinityTaunted")
             .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .SetSituationalContext(ExtraSituationalContext.TargetIsNotConditionSource)
+            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
             .AddToDB();
 
         Taunted = ConditionDefinitionBuilder

@@ -271,7 +271,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
                 Gui.NoLocalization)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
-            .SetSituationalContext(ExtraSituationalContext.TargetIsNotConditionSource)
+            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSourceWithSimpleOrMartialWeaponInHands)
             .AddToDB();
 
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
@@ -329,7 +329,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition,
                         Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotConditionSource)
+                    .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
                     .AddToDB())
             .AddToDB();
 

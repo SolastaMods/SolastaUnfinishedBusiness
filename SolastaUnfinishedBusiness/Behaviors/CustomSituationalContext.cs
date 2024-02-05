@@ -60,10 +60,22 @@ internal static class CustomSituationalContext
                  ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
                 ValidatorsCharacter.HasTwoHandedQuarterstaff(contextParams.source),
 
-            ExtraSituationalContext.TargetIsNotConditionSource =>
+            ExtraSituationalContext.IsNotConditionSource =>
+                // this is required whenever there is a SetMyAttackAdvantage (Taunted, Shout of Provocation)
                 contextParams.source.Guid !=
                 contextParams.source.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
+                // this is required whenever there is a SetAttackOnMeAdvantage (Exploit Opening, Distracted Strike)
+                contextParams.source.Guid !=
+                contextParams.target.AllConditions.FirstOrDefault(x =>
                     x.ConditionDefinition == contextParams.condition)?.SourceGuid,
+
+            ExtraSituationalContext.IsNotConditionSourceWithSimpleOrMartialWeaponInHands =>
+                // this is required whenever there is a SetMyAttackAdvantage (Wolf Leadership)
+                contextParams.source.Guid !=
+                contextParams.source.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
+                ValidatorsCharacter.HasMeleeWeaponInMainOrOffhand(contextParams.source),
 
             ExtraSituationalContext.TargetIsFavoriteEnemy =>
                 contextParams.source.IsMyFavoriteEnemy(contextParams.target),
