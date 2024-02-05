@@ -520,7 +520,7 @@ Unleash a wave of necrotic energy around you. Each non-undead hostile creature i
 
 * Beacon of Corruption
 
-You gain resistance to necrotic damage and necrotic damage dealt by your spells and features ignores resistance to necrotic damage.
+You gain resistance to necrotic damage and necrotic damage dealt by your spells and powers ignore resistance to necrotic damage.
 
 
 ### Level 8

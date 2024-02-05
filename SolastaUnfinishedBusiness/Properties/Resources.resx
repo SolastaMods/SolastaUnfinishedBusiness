@@ -1495,11 +1495,6 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
-  <data name="PowerMarkForDeath" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Powers\PowerMarkForDeath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
-  </data>
   <data name="PowerReflexes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerReflexes.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
