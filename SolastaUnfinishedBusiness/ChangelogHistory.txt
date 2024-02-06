@@ -4,10 +4,12 @@ RESPEC MIGHT BE REQUIRED ON: Arcane Scoundrel, Defiler, Duelist, and Raven [if h
 
 - added Circle of the Cosmos subclass [only difference compared with TT is it won't react on attribute checks]
 - fixed College of War Dancer improved war dancer not granting extra attacks while war dancer is active
+- fixed some reaction like powers not updating usage after confirmation [i.e.: Imp Wrath, etc.]
 - improved Cunning Strike and Devil Strike tooltips to display power usage as amount of sneak dice used
-- improved Path of the Elements elemental fury blizzard, storm, and wildfire damage SFX
-- improved Path of the Spirits eagle and wolf aspect features at 6th, and spirit walker feature at 10th
 - improved mod backend for better maintainability, multiplayer compatibility, and performance
+- improved Path of the Elements condition raging SFX to be based on chosen ancestry type
+- improved Path of the Spirits wolf spirit at 3rd, eagle and wolf aspect at 6th, and spirit walker at 10th
+- improved all custom reaction powers to present the source power usages on modal whenever appropriate
 - removed older 17h backward compatibility blueprints from Arcane Scoundrel, Duelist, and Raven
 - removed older 6th and 8th backward compatibility blueprints from Defiler
 

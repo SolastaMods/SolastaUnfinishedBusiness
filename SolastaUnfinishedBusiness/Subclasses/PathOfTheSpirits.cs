@@ -1,11 +1,12 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -61,8 +62,17 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
                 BuildAnimalAspectChoice("Bear",
-                    AttributeModifierBearDurability(),
-                    AbilityCheckAffinityPathOfTheSpiritsBearMight()),
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create($"AttributeModifier{Name}BearDurability")
+                        .SetGuiPresentationNoContent(true)
+                        .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
+                        .AddToDB(),
+                    FeatureDefinitionAbilityCheckAffinityBuilder
+                        .Create($"AbilityCheckAffinity{Name}BearMight")
+                        .SetGuiPresentationNoContent(true)
+                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                            (AttributeDefinitions.Strength, string.Empty))
+                        .AddToDB()),
                 BuildAnimalAspectChoice("Eagle",
                     SenseSuperiorDarkvision,
                     FeatureDefinitionProficiencyBuilder
@@ -100,33 +110,31 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var powerSpiritGuardians = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritGuardians")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .Build())
-            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(character =>
-                character.HasConditionOfTypeOrSubType(ConditionRaging)))
             .AddToDB();
 
         var powerSpiritGuardiansRageCost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritGuardiansRageCost")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.RagePoints)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.RagePoints)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(character =>
-                    character.HasConditionOfTypeOrSubType(ConditionRaging) &&
-                    PowerProvider.Get(powerSpiritGuardians, character).RemainingUses == 0))
             .AddToDB();
 
         var featureSetPathOfTheSpiritsSpiritWalker = FeatureDefinitionFeatureSetBuilder
@@ -134,6 +142,9 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerSpiritGuardians, powerSpiritGuardiansRageCost)
             .AddToDB();
+
+        powerSpiritGuardiansRageCost.AddCustomSubFeatures(
+            new ActionFinishedBySpiritWalker(powerSpiritGuardians, powerSpiritGuardiansRageCost));
 
         #endregion
 
@@ -184,23 +195,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionPower BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
-    {
-        var effectDescription = EffectDescriptionBuilder
-            .Create(spellDefinition.EffectDescription)
-            .Build();
-
-        // hack as Barbs don't have repertoires to get DC from spell casting feature (easier than recreate effect)
-        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-
-        return FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}{spellDefinition.name}")
-            .SetGuiPresentation(spellDefinition.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(effectDescription)
-            .AddToDB();
-    }
-
     private static FeatureDefinitionFeatureSet BuildAnimalAspectChoice(
         string name,
         params FeatureDefinition[] featureDefinitions)
@@ -209,6 +203,23 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"FeatureSet{Name}AnimalAspectChoice{name}")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(featureDefinitions)
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionPower BuildSpiritSeekerSpell(
+        SpellDefinition spellDefinition)
+    {
+        var effectDescription = EffectDescriptionBuilder
+            .Create(spellDefinition.EffectDescription)
+            .Build();
+
+        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+
+        return FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{spellDefinition.name}")
+            .SetGuiPresentation(spellDefinition.GuiPresentation)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
     }
 
@@ -255,15 +266,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionAttributeModifier AttributeModifierBearDurability()
-    {
-        return FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}BearDurability")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
-            .AddToDB();
-    }
-
     private static FeatureDefinitionPower PowerPathOfTheSpiritsWolfLeadership()
     {
         var combatAffinityWolfLeadershipPack = FeatureDefinitionCombatAffinityBuilder
@@ -303,16 +305,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         return powerPathOfTheSpiritsWolfLeadership;
-    }
-
-    private static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityPathOfTheSpiritsBearMight()
-    {
-        return FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create($"AbilityCheckAffinity{Name}BearMight")
-            .SetGuiPresentationNoContent(true)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                (AttributeDefinitions.Strength, string.Empty))
-            .AddToDB();
     }
 
     private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedBear()
@@ -415,5 +407,90 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         return powerHonedAnimalAspectsWolf;
+    }
+
+    private sealed class ActionFinishedBySpiritWalker(
+        FeatureDefinitionPower powerNoCost,
+        FeatureDefinitionPower powerRageCost) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition.Name != "PowerBarbarianRageStart")
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var power = rulesetCharacter.CanUsePower(powerNoCost)
+                ? powerNoCost
+                : rulesetCharacter.CanUsePower(powerRageCost)
+                    ? powerRageCost
+                    : null;
+
+            if (power == null)
+            {
+                yield break;
+            }
+
+            if (ServiceRepository.GetService<IGameLocationBattleService>()
+                    is not GameLocationBattleManager gameLocationBattleManager ||
+                ServiceRepository.GetService<IGameLocationActionService>()
+                    is not GameLocationActionManager gameLocationActionManager ||
+                ServiceRepository.GetService<IRulesetImplementationService>()
+                    is not RulesetImplementationManager implementationManagerService)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "SpiritWalker",
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower
+            };
+
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+
+            gameLocationActionManager.ReactToSpendPower(reactionParams);
+
+            yield return gameLocationBattleManager.WaitForReactions(actingCharacter, gameLocationActionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetCharacter.UsePower(usablePower);
+
+            if (power == powerRageCost)
+            {
+                rulesetCharacter.SpendRagePoint();
+            }
+
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                yield break;
+            }
+
+            //CHECK: must be power no cost
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
+            {
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower
+            };
+
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
     }
 }
