@@ -1,4 +1,3 @@
- Description=Utilisez votre concentration mortelle pour réessayer l'attaque.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Votre prochaine attaque avec une arme à distance entraînera un coup critique garanti si elle touche une créature.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Tir à la recherche du cœur
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Une fois par tour, lorsque vous touchez une créature avec une attaque avec une arme à distance, cette créature subit des dégâts supplémentaires du même type égaux à votre niveau de voleur.

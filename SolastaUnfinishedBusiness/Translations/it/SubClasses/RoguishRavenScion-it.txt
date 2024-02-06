@@ -1,4 +1,3 @@
- Description=Usa la tua concentrazione letale per ritentare l'attacco.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Il tuo prossimo attacco con arma a distanza avrà come risultato un colpo critico garantito se colpisce una creatura.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Tiro al cuore
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Una volta per turno, quando colpisci una creatura con un attacco con un'arma a distanza, quella creatura subisce danni extra dello stesso tipo pari al tuo livello da ladro.

@@ -1,4 +1,3 @@
- Description=使用你的致命焦点重试攻击。
 Condition/&ConditionRavenScionHeartSeekingShotDescription=如果你的下一次远程武器攻击击中了生物，则保证会造成致命一击。
 Condition/&ConditionRavenScionHeartSeekingShotTitle=觅心射击
 Feature/&AdditionalDamageRavenScionSniperAimDescription=每回合一次，当你用远程武器攻击击中一个生物时，该生物会受到等同于你的盗贼等级的相同类型的额外伤害。

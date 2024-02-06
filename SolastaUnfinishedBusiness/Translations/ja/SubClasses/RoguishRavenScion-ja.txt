@@ -1,4 +1,3 @@
- Description=致命的な集中力を使って攻撃を再試行してください。
 Condition/&ConditionRavenScionHeartSeekingShotDescription=次の遠隔武器攻撃がクリーチャーに命中した場合、クリティカルヒットが保証されます。
 Condition/&ConditionRavenScionHeartSeekingShotTitle=ハートシーキングショット
 Feature/&AdditionalDamageRavenScionSniperAimDescription=1ターンに1回、あなたが遠距離武器攻撃でクリーチャーを攻撃すると、そのクリーチャーはあなたのローグレベルに等しい同じタイプの追加ダメージを受ける。
