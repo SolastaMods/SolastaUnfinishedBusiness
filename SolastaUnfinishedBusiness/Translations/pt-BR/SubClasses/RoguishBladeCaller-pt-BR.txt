@@ -16,6 +16,7 @@ Feature/&PowerRoguishBladeCallerHailOfBladesDescription=Você pode usar sua rea�
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=Chuva de lâminas
 Feedback/&AdditionalDamageBladeMarkFormat=Marca de Lâmina
 Feedback/&AdditionalDamageBladeMarkLine=Blade Mark causa +{2} de dano extra!
+Reaction/&CustomReactionRoguishBladeCallerHailOfBladesDescription=Use sua reação para invocar um turbilhão de lâminas etéreas e arremessá-las contra seus inimigos.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactDescription=Use sua reação para convocar um turbilhão de lâminas etéreas e arremessá-las em seus inimigos.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactTitle=Chuva de lâminas
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesTitle=Chuva de lâminas

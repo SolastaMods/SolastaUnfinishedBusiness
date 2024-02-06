@@ -16,6 +16,7 @@ Feature/&PowerRoguishBladeCallerHailOfBladesDescription=Puoi usare la tua reazio
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=Grandine di Lame
 Feedback/&AdditionalDamageBladeMarkFormat=Marchio della lama
 Feedback/&AdditionalDamageBladeMarkLine=Blade Mark infligge danni extra +{2}!
+Reaction/&CustomReactionRoguishBladeCallerHailOfBladesDescription=Usa la tua reazione per evocare un vortice di lame eteree e scagliarle contro i tuoi nemici.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactDescription=Usa la tua reazione per evocare un vortice di lame eteree e scagliarle contro i tuoi nemici.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactTitle=Grandine di Lame
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesTitle=Grandine di Lame

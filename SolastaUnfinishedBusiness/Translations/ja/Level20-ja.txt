@@ -154,6 +154,7 @@ Reaction/&CustomReactionPhysicalPerfectionDescription=1 気を支払うと 1 ヒ
 Reaction/&CustomReactionPhysicalPerfectionReactDescription=1 気を支払うと 1 ヒット ポイントを回復できます。
 Reaction/&CustomReactionPhysicalPerfectionReactTitle=癒し
 Reaction/&CustomReactionPhysicalPerfectionTitle=肉体的な完璧さ
+Reaction/&SpendPowerRogueStrokeOfLuckDescription=幸運を利用して、この攻撃を自動的に成功させましょう。
 Reaction/&SpendPowerRogueStrokeOfLuckReactDescription=幸運を利用して、この攻撃を自動的に成功させましょう。
 Reaction/&SpendPowerRogueStrokeOfLuckReactTitle=成功した
 Reaction/&SpendPowerRogueStrokeOfLuckTitle=幸運のストローク

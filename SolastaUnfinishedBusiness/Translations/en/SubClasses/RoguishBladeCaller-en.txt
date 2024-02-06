@@ -16,6 +16,7 @@ Feature/&PowerRoguishBladeCallerHailOfBladesDescription=You can use your reactio
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=Hail of Blades
 Feedback/&AdditionalDamageBladeMarkFormat=Blade Mark
 Feedback/&AdditionalDamageBladeMarkLine=Blade Mark deals extra +{2} damage!
+Reaction/&CustomReactionRoguishBladeCallerHailOfBladesDescription=Use your reaction to summon a maelstrom of ethereal blades and hurl them at your enemies.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactDescription=Use your reaction to summon a maelstrom of ethereal blades and hurl them at your enemies.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactTitle=Hail of Blades
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesTitle=Hail of Blades

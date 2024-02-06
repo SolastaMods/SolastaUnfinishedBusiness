@@ -154,6 +154,7 @@ Reaction/&CustomReactionPhysicalPerfectionDescription=Puoi pagare 1 ki per ripri
 Reaction/&CustomReactionPhysicalPerfectionReactDescription=Puoi pagare 1 ki per ripristinare 1 punti ferita.
 Reaction/&CustomReactionPhysicalPerfectionReactTitle=Guarire
 Reaction/&CustomReactionPhysicalPerfectionTitle=Perfezione fisica
+Reaction/&SpendPowerRogueStrokeOfLuckDescription=Usa il tuo colpo di fortuna per riuscire automaticamente in questo attacco.
 Reaction/&SpendPowerRogueStrokeOfLuckReactDescription=Usa il tuo colpo di fortuna per riuscire automaticamente in questo attacco.
 Reaction/&SpendPowerRogueStrokeOfLuckReactTitle=Avere successo
 Reaction/&SpendPowerRogueStrokeOfLuckTitle=Colpo di fortuna

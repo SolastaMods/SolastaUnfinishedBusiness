@@ -16,6 +16,7 @@ Feature/&PowerRoguishBladeCallerHailOfBladesDescription=반응행동으로 영�
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=칼날비
 Feedback/&AdditionalDamageBladeMarkFormat=칼날 표식
 Feedback/&AdditionalDamageBladeMarkLine=칼날 표식이 추가로 +{2} 피해를 가합니다!
+Reaction/&CustomReactionRoguishBladeCallerHailOfBladesDescription=반응을 활용하여 천상의 칼날의 소용돌이를 소환하고 적에게 던집니다.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactDescription=반응행동으로 영체 칼날의 소용돌이를 소환해 적들에게 쏟아붓습니다.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactTitle=칼날비
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesTitle=칼날비

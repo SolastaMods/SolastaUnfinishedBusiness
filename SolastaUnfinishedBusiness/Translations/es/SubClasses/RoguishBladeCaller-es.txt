@@ -16,6 +16,7 @@ Feature/&PowerRoguishBladeCallerHailOfBladesDescription=Puedes usar tu reacción
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=Lluvia de cuchillas
 Feedback/&AdditionalDamageBladeMarkFormat=Marca de hoja
 Feedback/&AdditionalDamageBladeMarkLine=¡Blade Mark inflige +{2} daño extra!
+Reaction/&CustomReactionRoguishBladeCallerHailOfBladesDescription=Usa tu reacción para invocar una vorágine de espadas etéreas y arrojárselas a tus enemigos.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactDescription=Usa tu reacción para invocar una vorágine de cuchillas etéreas y lánzalas a tus enemigos.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactTitle=Lluvia de cuchillas
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesTitle=Lluvia de cuchillas

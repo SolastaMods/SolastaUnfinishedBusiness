@@ -16,6 +16,7 @@ Feature/&PowerRoguishBladeCallerHailOfBladesDescription=你可以利用你的反
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=剑刃颂歌
 Feedback/&AdditionalDamageBladeMarkFormat=剑刃印记
 Feedback/&AdditionalDamageBladeMarkLine=剑刃标记造成额外 +{2} 伤害！
+Reaction/&CustomReactionRoguishBladeCallerHailOfBladesDescription=利用你的反应召唤出一片空灵利刃的漩涡，并将它们投向你的敌人。
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactDescription=利用你的反应召唤出一片空灵利刃的漩涡，并将它们投向你的敌人。
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactTitle=剑刃颂歌
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesTitle=剑刃颂歌

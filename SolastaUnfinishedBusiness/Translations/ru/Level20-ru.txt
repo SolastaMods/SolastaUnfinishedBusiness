@@ -154,6 +154,7 @@ Reaction/&CustomReactionPhysicalPerfectionDescription=Вы можете потр
 Reaction/&CustomReactionPhysicalPerfectionReactDescription=Вы можете потратить 1 очко ци, чтобы восстановить 1 хит.
 Reaction/&CustomReactionPhysicalPerfectionReactTitle=Лечение
 Reaction/&CustomReactionPhysicalPerfectionTitle=Физическое совершенство
+Reaction/&SpendPowerRogueStrokeOfLuckDescription=Используйте Удачу, чтобы автоматически преуспеть в этой атаке.
 Reaction/&SpendPowerRogueStrokeOfLuckReactDescription=Используйте Удачу, чтобы автоматически преуспеть в этой атаке.
 Reaction/&SpendPowerRogueStrokeOfLuckReactTitle=Преуспейте в атаке
 Reaction/&SpendPowerRogueStrokeOfLuckTitle=Удача

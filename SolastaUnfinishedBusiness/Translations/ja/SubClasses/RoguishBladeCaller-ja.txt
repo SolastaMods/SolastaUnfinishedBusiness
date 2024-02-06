@@ -16,6 +16,7 @@ Feature/&PowerRoguishBladeCallerHailOfBladesDescription=あなたの反応を利
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=刃の雹
 Feedback/&AdditionalDamageBladeMarkFormat=ブレードマーク
 Feedback/&AdditionalDamageBladeMarkLine=ブレードマークは追加の +{2} ダメージを与える！
+Reaction/&CustomReactionRoguishBladeCallerHailOfBladesDescription=あなたの反応を利用して、エーテルの刃の大渦を召喚し、敵に投げつけます。
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactDescription=あなたの反応を利用して、エーテルの刃の大渦を召喚し、敵に投げつけます。
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactTitle=刃の雹
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesTitle=刃の雹

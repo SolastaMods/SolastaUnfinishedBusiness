@@ -154,6 +154,7 @@ Reaction/&CustomReactionPhysicalPerfectionDescription=Sie können 1 Ki bezahlen,
 Reaction/&CustomReactionPhysicalPerfectionReactDescription=Sie können 1 Ki bezahlen, um 1 Trefferpunkte wiederherzustellen.
 Reaction/&CustomReactionPhysicalPerfectionReactTitle=Heilen
 Reaction/&CustomReactionPhysicalPerfectionTitle=Körperliche Perfektion
+Reaction/&SpendPowerRogueStrokeOfLuckDescription=Nutzen Sie Ihren Glücksfall, um bei diesem Angriff automatisch erfolgreich zu sein.
 Reaction/&SpendPowerRogueStrokeOfLuckReactDescription=Nutzen Sie Ihren Glücksfall, um bei diesem Angriff automatisch erfolgreich zu sein.
 Reaction/&SpendPowerRogueStrokeOfLuckReactTitle=Erfolgreich
 Reaction/&SpendPowerRogueStrokeOfLuckTitle=Glückssträhne

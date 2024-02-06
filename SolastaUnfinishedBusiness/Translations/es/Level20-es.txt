@@ -154,6 +154,7 @@ Reaction/&CustomReactionPhysicalPerfectionDescription=Puedes pagar 1 ki para res
 Reaction/&CustomReactionPhysicalPerfectionReactDescription=Puedes pagar 1 ki para restaurar 1 puntos de golpe.
 Reaction/&CustomReactionPhysicalPerfectionReactTitle=Sanar
 Reaction/&CustomReactionPhysicalPerfectionTitle=Perfección física
+Reaction/&SpendPowerRogueStrokeOfLuckDescription=Usa tu golpe de suerte para tener éxito automáticamente en este ataque.
 Reaction/&SpendPowerRogueStrokeOfLuckReactDescription=Usa tu golpe de suerte para tener éxito automáticamente en este ataque.
 Reaction/&SpendPowerRogueStrokeOfLuckReactTitle=Tener éxito
 Reaction/&SpendPowerRogueStrokeOfLuckTitle=Golpe de suerte

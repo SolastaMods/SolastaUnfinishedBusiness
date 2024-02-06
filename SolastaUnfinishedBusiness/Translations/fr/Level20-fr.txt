@@ -154,6 +154,7 @@ Reaction/&CustomReactionPhysicalPerfectionDescription=Vous pouvez payer 1 ki pou
 Reaction/&CustomReactionPhysicalPerfectionReactDescription=Vous pouvez payer 1 ki pour restaurer 1 point de vie.
 Reaction/&CustomReactionPhysicalPerfectionReactTitle=Guérir
 Reaction/&CustomReactionPhysicalPerfectionTitle=Perfection physique
+Reaction/&SpendPowerRogueStrokeOfLuckDescription=Utilisez votre coup de chance pour réussir automatiquement cette attaque.
 Reaction/&SpendPowerRogueStrokeOfLuckReactDescription=Utilisez votre Coup de Chance pour réussir automatiquement cette attaque.
 Reaction/&SpendPowerRogueStrokeOfLuckReactTitle=Réussir
 Reaction/&SpendPowerRogueStrokeOfLuckTitle=Coup de chance

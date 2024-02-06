@@ -16,6 +16,7 @@ Feature/&PowerRoguishBladeCallerHailOfBladesDescription=Du kannst deine Reaktion
 Feature/&PowerRoguishBladeCallerHailOfBladesTitle=Hagel der Klingen
 Feedback/&AdditionalDamageBladeMarkFormat=Klingenmarkierung
 Feedback/&AdditionalDamageBladeMarkLine=Klingenmal verursacht zusätzlichen Schaden von +{2}!
+Reaction/&CustomReactionRoguishBladeCallerHailOfBladesDescription=Nutzen Sie Ihre Reaktion, um einen Mahlstrom ätherischer Klingen herbeizurufen und sie auf Ihre Feinde zu schleudern.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactDescription=Nutzen Sie Ihre Reaktion, um einen Mahlstrom ätherischer Klingen herbeizurufen und sie auf Ihre Feinde zu schleudern.
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesReactTitle=Hagel der Klingen
 Reaction/&CustomReactionRoguishBladeCallerHailOfBladesTitle=Hagel der Klingen

@@ -154,6 +154,7 @@ Reaction/&CustomReactionPhysicalPerfectionDescription=使用1点气点回复1点
 Reaction/&CustomReactionPhysicalPerfectionReactDescription=使用1点气点回复1点生命值。
 Reaction/&CustomReactionPhysicalPerfectionReactTitle=治疗
 Reaction/&CustomReactionPhysicalPerfectionTitle=完美之身
+Reaction/&SpendPowerRogueStrokeOfLuckDescription=利用你的运气来自动成功完成这次攻击。
 Reaction/&SpendPowerRogueStrokeOfLuckReactDescription=使用你的幸运之击自动命中该攻击。
 Reaction/&SpendPowerRogueStrokeOfLuckReactTitle=成功命中
 Reaction/&SpendPowerRogueStrokeOfLuckTitle=幸运之击

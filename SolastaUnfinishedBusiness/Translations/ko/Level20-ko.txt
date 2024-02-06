@@ -154,6 +154,7 @@ Reaction/&CustomReactionPhysicalPerfectionDescription=기 1을 지불하여 체�
 Reaction/&CustomReactionPhysicalPerfectionReactDescription=기 1을 지불하여 체력을 1 회복할 수 있습니다.
 Reaction/&CustomReactionPhysicalPerfectionReactTitle=치유
 Reaction/&CustomReactionPhysicalPerfectionTitle=완벽한 신체
+Reaction/&SpendPowerRogueStrokeOfLuckDescription=이 공격에 자동으로 성공하려면 행운을 사용하세요.
 Reaction/&SpendPowerRogueStrokeOfLuckReactDescription=뜻 밖의 행운을 사용하여 공격이 자동으로 성공합니다.
 Reaction/&SpendPowerRogueStrokeOfLuckReactTitle=성공
 Reaction/&SpendPowerRogueStrokeOfLuckTitle=뜻 밖의 행운
