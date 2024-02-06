@@ -42,19 +42,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "e93a9e29f35763940acb4955ce60d5b2",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "8bc6a625e714ba043a1d90d489520d99",
+    "m_AssetGUID": "5ed3abdf1ac428149afd181e4b2a9ecc",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "aa315960d51fe0149842924060067b43",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },

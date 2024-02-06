@@ -123,7 +123,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "4ea6a1dff30379a45bc0f00fd5dd99df",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

@@ -726,7 +726,7 @@ You've created a star chart as part of your heavenly studies. While holding this
 
 ### Level 6
 
-* Cosmos Omen
+* Fate in the Stars
 
 You learn to use your star map to divine the will of the cosmos. Whenever you finish a long rest, you can use a no cost power and until you finish your next long rest, you gain access to a special reaction based on whether you rolled an even or an odd number on the die:
 . Weal: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and add the number rolled to the total.
