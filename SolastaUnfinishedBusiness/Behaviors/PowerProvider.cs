@@ -43,39 +43,42 @@ internal static class PowerProvider
         return result;
     }
 
-    private static void UpdateUses(RulesetCharacter actor, RulesetUsablePower usablePower)
+    private static void UpdateUses(
+        // ReSharper disable once SuggestBaseTypeForParameter
+        RulesetCharacter actor,
+        RulesetUsablePower usablePower)
     {
-        if (actor == null) { return; }
+        if (actor == null)
+        {
+            return;
+        }
 
         var powerDefinition = usablePower.powerDefinition;
-        if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.ChannelDivinity)
+
+        usablePower.UsesAttribute = powerDefinition.RechargeRate switch
         {
-            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.ChannelDivinityNumber);
-        }
-        else if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.HealingPool)
-        {
-            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.HealingPool);
-        }
-        else if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.SorceryPoints)
-        {
-            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.SorceryPoints);
-        }
-        else if (powerDefinition.UsesDetermination == RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed)
-        {
-            usablePower.UsesAttribute = actor.GetAttribute(powerDefinition.UsesAbilityScoreName);
-        }
-        else if (powerDefinition.UsesDetermination == RuleDefinitions.UsesDetermination.ProficiencyBonus)
-        {
-            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.ProficiencyBonus);
-        }
-        else if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.KiPoints)
-        {
-            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.KiPoints);
-        }
-        else if (powerDefinition.RechargeRate == RuleDefinitions.RechargeRate.BardicInspiration)
-        {
-            usablePower.UsesAttribute = actor.GetAttribute(AttributeDefinitions.BardicInspirationNumber);
-        }
+            RuleDefinitions.RechargeRate.ChannelDivinity => 
+                actor.GetAttribute(AttributeDefinitions.ChannelDivinityNumber),
+            RuleDefinitions.RechargeRate.HealingPool => 
+                actor.GetAttribute(AttributeDefinitions.HealingPool),
+            RuleDefinitions.RechargeRate.SorceryPoints => 
+                actor.GetAttribute(AttributeDefinitions.SorceryPoints),
+            _ => powerDefinition.UsesDetermination switch
+            {
+                RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed => 
+                    actor.GetAttribute(powerDefinition.UsesAbilityScoreName),
+                RuleDefinitions.UsesDetermination.ProficiencyBonus => 
+                    actor.GetAttribute(AttributeDefinitions.ProficiencyBonus),
+                _ => powerDefinition.RechargeRate switch
+                {
+                    RuleDefinitions.RechargeRate.KiPoints =>
+                        actor.GetAttribute(AttributeDefinitions.KiPoints),
+                    RuleDefinitions.RechargeRate.BardicInspiration =>
+                        actor.GetAttribute(AttributeDefinitions.BardicInspirationNumber),
+                    _ => usablePower.UsesAttribute
+                }
+            }
+        };
 
         usablePower.Recharge();
     }
@@ -89,7 +92,8 @@ internal static class PowerProvider
 
         var pool = PowerBundle.GetPoolPower(usablePower, character);
 
-        if (pool == null || pool == usablePower)
+        if (pool == null ||
+            pool == usablePower)
         {
             return;
         }
@@ -109,7 +113,8 @@ internal static class PowerProvider
         var power = usablePower.PowerDefinition;
         var effectDescription = power.EffectDescription;
 
-        if (actor == null || !effectDescription.HasSavingThrow)
+        if (actor == null ||
+            !effectDescription.HasSavingThrow)
         {
             return;
         }

@@ -82,7 +82,7 @@ internal static class ValidatorsCharacter
         return ValidatorsWeapon.IsMelee(weapon) || (weapon == null && InnovationArmor.InGuardianMode(character));
     };
 
-    internal static readonly IsCharacterValidHandler HasMeleeWeaponInOffHand = character =>
+    private static readonly IsCharacterValidHandler HasMeleeWeaponInOffHand = character =>
     {
         var weapon = character.GetOffhandWeapon();
 
