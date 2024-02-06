@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -169,8 +170,11 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                                 conditionWealCosmosOmen,
                                 conditionWoeCosmosOmen)
                             .Build())
+                    .SetParticleEffectParameters(PowerMagebaneSpellCrusher)
                     .Build())
             .AddToDB();
+
+        powerCosmosOmen.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         // LEVEL 10
 
@@ -316,7 +320,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         powerArcherNoCost.EffectDescription.effectParticleParameters.casterParticleReference =
-            PowerTraditionLightBlindingFlash.EffectDescription.EffectParticleParameters.casterParticleReference;
+            PowerOathOfTirmarGoldenSpeech.EffectDescription.EffectParticleParameters.casterParticleReference;
         powerArcherNoCost.EffectDescription.effectParticleParameters.impactParticleReference = Sunbeam
             .EffectDescription.EffectParticleParameters.impactParticleReference;
 
@@ -346,7 +350,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         powerArcher.EffectDescription.effectParticleParameters.casterParticleReference =
-            PowerTraditionLightBlindingFlash.EffectDescription.EffectParticleParameters.casterParticleReference;
+            PowerOathOfTirmarGoldenSpeech.EffectDescription.EffectParticleParameters.casterParticleReference;
         powerArcher.EffectDescription.effectParticleParameters.impactParticleReference = Sunbeam
             .EffectDescription.EffectParticleParameters.impactParticleReference;
 
@@ -443,7 +447,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddToDB();
 
         var conditionChalice = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionSpellbladeArcaneEscape, $"Condition{Name}Chalice")
+            .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}Chalice")
             .SetGuiPresentation($"Power{Name}Chalice", Category.Feature,
                 ConditionDefinitions.ConditionBearsEndurance)
             .SetPossessive()
