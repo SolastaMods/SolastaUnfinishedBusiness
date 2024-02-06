@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
@@ -371,12 +370,13 @@ public class PatronCelestial : AbstractSubclass
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
             var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "Reaction/&CustomReactionSearingVengeanceDescription"
+                StringParameter = "SearingVengeance", UsablePower = usablePower
             };
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("SearingVengeance", reactionParams);
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
@@ -395,7 +395,6 @@ public class PatronCelestial : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
             var targets = gameLocationBattleService.Battle
                 .GetContenders(source, withinRange: 5);
             //CHECK: must be power no cost

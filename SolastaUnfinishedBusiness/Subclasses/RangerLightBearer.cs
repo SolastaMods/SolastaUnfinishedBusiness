@@ -391,13 +391,13 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingFree)
-                {
-                    StringParameter = "Reaction/&CustomReactionBlessedGlowDescription"
-                };
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+            var reactionParams = new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = "BlessedGlow", UsablePower = usablePower
+            };
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("BlessedGlow", reactionParams);
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
@@ -409,12 +409,9 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
-
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
             var targets = gameLocationBattleService.Battle
                 .GetContenders(attacker, withinRange: 5);
             //CHECK: must be power no cost

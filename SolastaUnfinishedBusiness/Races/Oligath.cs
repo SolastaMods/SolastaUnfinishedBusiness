@@ -233,10 +233,10 @@ internal static class RaceOligathBuilder
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
             var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
             {
-                UsablePower = usablePower
+                StringParameter = "StoneEndurance", UsablePower = usablePower
             };
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("StoneEndurance", reactionParams);
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 

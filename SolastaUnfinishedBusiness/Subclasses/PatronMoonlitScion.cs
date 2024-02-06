@@ -391,9 +391,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerMoonlightGuise.AddCustomSubFeatures(
-            ForcePowerUseInSpendPowerAction.Marker,
-            new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
+        powerMoonlightGuise.AddCustomSubFeatures(new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
 
         // MAIN
 
@@ -669,10 +667,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(powerMoonlightGuise, rulesetDefender);
             var reactionParams =
                 new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = "MoonlightGuise"
+                    StringParameter = "MoonlightGuise", UsablePower = usablePower
                 };
 
             var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
@@ -687,8 +686,6 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             {
                 yield break;
             }
-
-            var usablePower = PowerProvider.Get(powerMoonlightGuise, rulesetDefender);
 
             rulesetDefender.UsePower(usablePower);
 

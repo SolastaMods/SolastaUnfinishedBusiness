@@ -1459,10 +1459,11 @@ internal static class InvocationsBuilders
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(powerTombOfFrost, rulesetDefender);
             var reactionParams =
                 new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = "TombOfFrost"
+                    StringParameter = "TombOfFrost", UsablePower = usablePower
                 };
 
             var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
@@ -1477,8 +1478,6 @@ internal static class InvocationsBuilders
             {
                 yield break;
             }
-
-            var usablePower = PowerProvider.Get(powerTombOfFrost, rulesetDefender);
 
             rulesetDefender.UsePower(usablePower);
 

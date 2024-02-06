@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -348,13 +347,14 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
             var reactionParams =
                 new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = $"Reaction/&CustomReaction{Name}HailOfBladesReactDescription"
+                    StringParameter = $"{Name}HailOfBlades", UsablePower = usablePower
                 };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom($"{Name}HailOfBlades", reactionParams);
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
@@ -365,12 +365,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(powerHailOfBlades, powerHailOfBlades.CostPerUse);
-
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerHailOfBlades, rulesetAttacker);
             var targets = battleManager.Battle
                 .GetContenders(defender, attacker,
                     isOppositeSide: false, excludeSelf: false, hasToPerceiveTarget: true, withinRange: 2);

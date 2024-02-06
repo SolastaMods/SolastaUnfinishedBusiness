@@ -370,17 +370,24 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
             {
-                StringParameter = "Reaction/&CustomReactionMindOverMatterDescription"
+                StringParameter = "MindOverMatter",
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower
             };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("MindOverMatter", reactionParams);
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            yield return gameLocationBattleService
-                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
+            gameLocationActionService.ReactToSpendPower(reactionParams);
+
+            yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -393,10 +400,6 @@ public sealed class SorcerousPsion : AbstractSubclass
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
             var targets = gameLocationBattleService.Battle
                 .GetContenders(source, withinRange: 2);
             //CHECK: must be spend power
