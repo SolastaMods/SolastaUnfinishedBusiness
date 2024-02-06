@@ -7,13 +7,11 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -48,8 +46,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         ancestryStorm.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(
-                ancestryStorm, AdditionalDamagePathClawDragonsBlessing.lightningImpactParticleReference));
+            new CharacterTurnEndedElementalFury(ancestryStorm, SpellDefinitions.LightningBolt));
 
         var ancestryBlizzard = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Blizzard")
@@ -60,8 +57,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         ancestryBlizzard.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(
-                ancestryBlizzard, AdditionalDamagePathClawDragonsBlessing.coldImpactParticleReference));
+            new CharacterTurnEndedElementalFury(ancestryBlizzard, SpellDefinitions.RayOfFrost));
 
         var ancestryWildfire = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Wildfire")
@@ -72,8 +68,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         ancestryWildfire.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalFury(
-                ancestryWildfire, AdditionalDamagePathClawDragonsBlessing.fireImpactParticleReference));
+            new CharacterTurnEndedElementalFury(ancestryWildfire, SpellDefinitions.FireBolt));
 
         // keep sorted
         FeatureSetElementalFury.FeatureSet.Add(ancestryBlizzard);
@@ -99,7 +94,6 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Storm")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -126,7 +120,6 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Blizzard")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -153,7 +146,6 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBlessing}Wildfire")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -342,7 +334,6 @@ public sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalConduit}Storm")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -423,7 +414,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
     private sealed class CharacterTurnEndedElementalFury(
         FeatureDefinitionAncestry ancestry,
-        AssetReference assetReference)
+        IMagicEffect magicEffect)
         : ICharacterTurnEndListener
     {
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
@@ -437,7 +428,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetAttacker = locationCharacter.RulesetCharacter;
 
-            if (!rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
+            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 return;
             }
@@ -486,7 +477,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                     IgnoreCriticalDoubleDice = true
                 };
 
-                EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, assetReference);
+                EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, magicEffect);
 
                 implementationService.ApplyEffectForms(
                     [new EffectForm { damageForm = damageForm }],
@@ -537,7 +528,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetAttacker = locationCharacter.RulesetCharacter;
 
-            if (!rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
+            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 return;
             }
@@ -623,7 +614,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.HasConditionOfTypeOrSubType(ConditionRaging))
+            if (!rulesetDefender.HasAnyConditionOfType(ConditionRaging))
             {
                 yield break;
             }

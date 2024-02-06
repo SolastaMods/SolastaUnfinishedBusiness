@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -66,33 +65,6 @@ internal static class EffectHelpers
         }
 
         var sentParameters = new ParticleSentParameters(attacker, defender, "test");
-
-        WorldLocationPoolManager
-            .GetElement(prefab, true)
-            .GetComponent<ParticleSetup>()
-            .Setup(sentParameters);
-    }
-
-    internal static void StartVisualEffect(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        AssetReference assetReference)
-    {
-        var graphicsResourceService = ServiceRepository.GetService<IGraphicsResourceService>();
-
-        if (graphicsResourceService == null)
-        {
-            return;
-        }
-
-        var prefab = graphicsResourceService.LoadSyncParticlePrefab(assetReference);
-
-        if (prefab == null)
-        {
-            return;
-        }
-
-        var sentParameters = new ParticleSentParameters(attacker, defender, prefab.name);
 
         WorldLocationPoolManager
             .GetElement(prefab, true)

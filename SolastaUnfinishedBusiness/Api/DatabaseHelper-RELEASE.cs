@@ -973,9 +973,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePaladinImprovedDivineSmite { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePaladinImprovedDivineSmite");
 
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamagePathClawDragonsBlessing { get; } =
-            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePathClawDragonsBlessing");
-
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePoison_GhoulsCaress { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePoison_GhoulsCaress");
 
@@ -1872,6 +1869,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerOathOfTirmarAuraTruth { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerOathOfTirmarAuraTruth");
+
+        internal static FeatureDefinitionPower PowerOathOfTirmarGoldenSpeech { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerOathOfTirmarGoldenSpeech");
 
         internal static FeatureDefinitionPower PowerPactChainImp { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPactChainImp");
