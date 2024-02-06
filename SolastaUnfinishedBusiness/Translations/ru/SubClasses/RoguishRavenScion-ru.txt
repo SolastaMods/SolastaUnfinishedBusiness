@@ -1,4 +1,3 @@
- Description=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Ваше следующее попадание по существу атакой дальнобойным оружием гарантированно будет критическим.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Выстрел в сердце
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Один раз за ход, когда вы поражаете существо дальнобойной атакой оружием, оно получает дополнительный урон того же типа, равный вашему уровню плута.

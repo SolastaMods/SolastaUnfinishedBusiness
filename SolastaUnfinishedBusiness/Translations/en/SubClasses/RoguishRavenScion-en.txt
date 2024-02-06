@@ -1,4 +1,3 @@
- Description=Use your deadly focus to retry the attack.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Your next ranged weapon attack result in a guaranteed critical hit if it hits a creature.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Heart-Seeking Shot
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Once per turn, when you hit a creature with a ranged weapon attack, that creature takes extra damage of the same type equal to your rogue level.

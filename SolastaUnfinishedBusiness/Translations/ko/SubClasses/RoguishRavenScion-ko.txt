@@ -1,4 +1,3 @@
- Description=치명적인 집중력을 사용하여 공격을 다시 시도하세요.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=다음 원거리 무기 공격이 생물에 적중하면 치명타가 보장됩니다.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=마음을 찾는 사격
 Feature/&AdditionalDamageRavenScionSniperAimDescription=턴당 한 번, 원거리 무기 공격으로 생물을 공격하면 해당 생물은 도적 레벨과 동일한 유형의 추가 피해를 입습니다.

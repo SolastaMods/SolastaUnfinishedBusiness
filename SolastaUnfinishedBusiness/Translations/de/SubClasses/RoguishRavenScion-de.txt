@@ -1,4 +1,3 @@
- Description=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Ihr nächster Fernkampfwaffenangriff führt zu einem garantierten kritischen Treffer, wenn er eine Kreatur trifft.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Herzsuchender Schuss
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Wenn du einmal pro Spielzug eine Kreatur mit einem Fernkampfwaffenangriff triffst, erleidet diese Kreatur zusätzlichen Schaden derselben Art, der deiner Schurkenstufe entspricht.
