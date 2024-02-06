@@ -13,6 +13,7 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=Heart-Seeking Shot
 Feedback/&AdditionalDamageSniperAimFormat=Sniper's Aim
 Feedback/&AdditionalDamageSniperAimLine=Sniper's Aim deals extra +{2} damage!
 Feedback/&TriggerRavenScionRerollLine={0} rolls {1} = {2}. Deadly Focus will force a critical hit.
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Use your deadly focus to retry the attack.
 Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Use your deadly focus to retry the attack.
 Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Retry Attack
 Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Deadly Focus
