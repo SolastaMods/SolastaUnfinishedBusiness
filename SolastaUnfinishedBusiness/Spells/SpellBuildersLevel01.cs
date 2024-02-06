@@ -1675,9 +1675,9 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerThunderousSmite, rulesetAttacker);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
@@ -1904,9 +1904,9 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerSpikeBarrage, rulesetAttacker);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),

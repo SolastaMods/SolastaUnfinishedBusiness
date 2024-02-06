@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -380,15 +381,16 @@ public sealed class OathOfThunder : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerBifrostDamage, rulesetAttacker);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var targets = Gui.Battle
+                .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = Gui.Battle
-                    .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 2)
+                targetCharacters = targets
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?

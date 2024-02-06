@@ -1489,9 +1489,9 @@ internal static class MeleeCombatFeats
                                 RulesetImplementationManager;
 
                         var usablePower = PowerProvider.Get(_power, rulesetAttacker);
-                        //CHECK: must be spend power
-                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
                         {
+                            ActionModifiers = { new ActionModifier() },
                             RulesetEffect = implementationManagerService
                                 //CHECK: no need for AddAsActivePowerToSource
                                 .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),

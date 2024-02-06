@@ -506,11 +506,15 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            yield return __instance.HandlePostExecution();
-
-            yield return battleService.HandleCharacterAttackOrMagicEffectFinishedLate(__instance, actingCharacter);
-
             // BEGIN PATCH
+
+            //PATCH: supports `IMagicEffectFinishedByMe`
+            var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
+
+            if (magicEffectFinishedByMe != null)
+            {
+                yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
+            }
 
             //PATCH: supports `IPerformAttackAfterMagicEffectUse`
             var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
@@ -527,15 +531,11 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            //PATCH: supports `IMagicEffectFinishedByMe`
-            var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
-
-            if (magicEffectFinishedByMe != null)
-            {
-                yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
-            }
-
             // END PATCH
+
+            yield return __instance.HandlePostExecution();
+
+            yield return battleService.HandleCharacterAttackOrMagicEffectFinishedLate(__instance, actingCharacter);
         }
     }
 

@@ -1064,10 +1064,13 @@ public sealed class InnovationArtillerist : AbstractSubclass
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
                 selectedTarget, effectPower.EffectDescription, targets, []);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(actingCharacter, Id.SpendPower)
+
+            var actionParams = new CharacterActionParams(actingCharacter, Id.PowerNoCost)
             {
-                RulesetEffect = effectPower, UsablePower = usablePower, targetCharacters = targets
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                RulesetEffect = effectPower,
+                UsablePower = usablePower,
+                targetCharacters = targets
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?

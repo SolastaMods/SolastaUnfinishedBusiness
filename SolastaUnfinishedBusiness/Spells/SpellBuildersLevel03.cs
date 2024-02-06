@@ -693,20 +693,21 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var targets = Gui.Battle.AllContenders
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x != attacker &&
+                    !action.ActionParams.TargetCharacters.Contains(x) &&
+                    attacker.IsWithinRange(x, 2))
+                .ToList();
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = Gui.Battle.AllContenders
-                    .Where(x =>
-                        x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                        x != attacker &&
-                        !action.ActionParams.TargetCharacters.Contains(x) &&
-                        attacker.IsWithinRange(x, 2))
-                    .ToList()
+                targetCharacters = targets
             };
 
             // special case don't ExecuteAction on MagicEffectInitiated
@@ -1053,16 +1054,17 @@ internal static partial class SpellBuilders
             // leap damage on enemies within 10 ft from target
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            //CHECK: must be spend power
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var targets = battleManager.Battle
+                .GetContenders(defender, isOppositeSide: false, withinRange: 2);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = battleManager.Battle
-                    .GetContenders(defender, isOppositeSide: false, withinRange: 2)
+                targetCharacters = targets
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

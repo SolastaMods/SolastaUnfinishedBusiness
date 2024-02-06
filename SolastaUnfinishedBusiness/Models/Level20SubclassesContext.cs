@@ -1533,8 +1533,9 @@ internal static class Level20SubclassesContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerFortuneFavorTheBold, rulesetCharacter);
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
@@ -1936,8 +1937,9 @@ internal static class Level20SubclassesContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
-            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),

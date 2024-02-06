@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -210,6 +209,9 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerMindOverMatter.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerPatronFiendDarkOnesBlessing.EffectDescription.EffectParticleParameters.effectParticleReference;
+
         powerMindOverMatter.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyMindOverMatter(powerMindOverMatter));
 
         // LEVEL 18
@@ -402,24 +404,15 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var targets = gameLocationBattleService.Battle
                 .GetContenders(source, withinRange: 2);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
             };
-
-            EffectHelpers.StartVisualEffect(
-                source, source, PowerPatronFiendDarkOnesBlessing, EffectHelpers.EffectType.Effect);
-
-            foreach (var target in targets)
-            {
-                EffectHelpers.StartVisualEffect(
-                    source, target, PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
-            }
 
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(actionParams, null, false);
