@@ -20,6 +20,7 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
             {
                 continue;
             }
+
             target.UsablePowers.Add(PowerProvider.Get(power, target));
         }
     }

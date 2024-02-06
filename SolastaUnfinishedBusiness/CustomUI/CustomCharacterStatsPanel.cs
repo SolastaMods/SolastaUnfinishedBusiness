@@ -185,7 +185,7 @@ public class CustomCharacterStatsPanel
         {
             return;
         }
-        
+
         _root.position = new Vector3(225, 125, 0);
         _button.transform.position = new Vector3(50, 50, 0);
 
