@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -186,9 +184,8 @@ public sealed class CircleOfTheNight : AbstractSubclass
                                 ConditionDefinitions.ConditionWildShapeSubstituteForm, shapeOptions)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
-
-        power.AddCustomSubFeatures(new ActionFinishedByMeWildShape(power));
 
         ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.WildShape, "CombatWildShape")
@@ -380,23 +377,6 @@ public sealed class CircleOfTheNight : AbstractSubclass
             .Build();
 
         return effectDescription;
-    }
-
-    private sealed class ActionFinishedByMeWildShape(FeatureDefinitionPower featureDefinitionPower)
-        : IMagicEffectFinishedByMe, IPreventRemoveConcentrationOnPowerUse
-    {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
-        {
-            if (!action.ActionParams.TargetSubstitute.CreatureTags.Contains(Name))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetCharacter);
-
-            rulesetCharacter.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
-        }
     }
 
     private sealed class ModifyAttackActionModifierPrimalStrike : IModifyAttackActionModifier

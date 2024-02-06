@@ -477,10 +477,10 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            rulesetMe.UsePower(usablePower);
+
             // remove any negative effect
             actualEffectForms.Clear();
-
-            rulesetMe.UsePower(usablePower);
 
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
