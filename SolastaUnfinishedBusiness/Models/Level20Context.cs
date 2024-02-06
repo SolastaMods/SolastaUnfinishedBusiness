@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -415,6 +414,7 @@ internal static class Level20Context
             .AddToDB();
 
         powerRogueStrokeOfLuck.AddCustomSubFeatures(
+            ForcePowerUseInSpendPowerAction.Marker,
             new TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -843,7 +843,7 @@ internal static class Level20Context
         : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -877,25 +877,29 @@ internal static class Level20Context
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                StringParameter = "Reaction/&CustomReactionRogueStrokeOfLuckReactDescription",
+                StringParameter = "RogueStrokeOfLuck",
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower
             };
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("RogueStrokeOfLuck", reactionParams);
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+            gameLocationActionManager.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
-
-            rulesetCharacter.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             var delta = -action.AttackSuccessDelta;
 

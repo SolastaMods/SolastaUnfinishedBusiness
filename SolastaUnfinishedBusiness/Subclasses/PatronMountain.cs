@@ -148,8 +148,9 @@ public class PatronMountain : AbstractSubclass
             .SetOverriddenPower(powerBarrierOfStone)
             .AddToDB();
 
-        powerBarrierOfStone.AddCustomSubFeatures(new AttackBeforeHitConfirmedOnMeBarrierOfStone(
-            powerBarrierOfStone, powerEternalGuardian, conditionBarrierOfStone));
+        powerBarrierOfStone.AddCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnMeBarrierOfStone(
+                powerBarrierOfStone, powerEternalGuardian, conditionBarrierOfStone));
 
         // LEVEL 10
 
@@ -327,7 +328,8 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            rulesetMe.UpdateUsageForPower(power, power.CostPerUse);
+            rulesetDefender.UsePower(usablePower);
+
             rulesetDefender.InflictCondition(
                 conditionDefinition.Name,
                 conditionDefinition.DurationType,

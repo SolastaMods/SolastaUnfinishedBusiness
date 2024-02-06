@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -90,6 +89,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                             .SetConditionForm(conditionTrialMark, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker) // when used at level 7
             .AddToDB();
 
         //
@@ -235,26 +235,30 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                {
-                    StringParameter = "Reaction/&CustomReactionLightEnergyCrossbowBoltDescription",
-                    UsablePower = usablePower
-                };
-            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("LightEnergyCrossbowBolt", reactionParams);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "LightEnergyCrossbowBolt",
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower
+            };
 
-            actionService.AddInterruptRequest(reactionRequest);
+            var count = actionService.PendingReactionRequestGroups.Count;
 
-            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
+            actionService.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
             rulesetDefender.InflictCondition(
                 conditionTrialMark.Name,
                 conditionTrialMark.DurationType,

@@ -87,9 +87,7 @@ internal static class PowerBundleContext
                         .AddAsActivePowerToSource());
                     formsParams.effectSourceType = EffectSourceType.Power;
 
-                    //rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
-                    ruleChar.UpdateUsageForPower(usablePower, power.CostPerUse);
-
+                    ruleChar.UsePower(usablePower);
                     ruleChar.LogCharacterUsedPower(power, $"Feedback/&{power.Name}UsedWhileTravellingFormat");
                 }
             }

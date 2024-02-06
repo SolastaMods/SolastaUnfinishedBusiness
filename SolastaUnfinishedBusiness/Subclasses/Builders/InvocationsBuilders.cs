@@ -1478,7 +1478,9 @@ internal static class InvocationsBuilders
                 yield break;
             }
 
-            rulesetDefender.UpdateUsageForPower(powerTombOfFrost, powerTombOfFrost.CostPerUse);
+            var usablePower = PowerProvider.Get(powerTombOfFrost, rulesetDefender);
+
+            rulesetDefender.UsePower(usablePower);
 
             var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
             var tempHitPoints = classLevel * 10;

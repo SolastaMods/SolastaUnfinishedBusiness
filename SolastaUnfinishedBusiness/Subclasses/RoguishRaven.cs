@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -362,7 +361,9 @@ public sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            rulesetCharacter.UpdateUsageForPower(power, power.CostPerUse);
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+
+            rulesetCharacter.UsePower(usablePower);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1

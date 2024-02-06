@@ -1,3 +1,4 @@
+ Description=Use your deadly focus to retry the attack.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Your next ranged weapon attack result in a guaranteed critical hit if it hits a creature.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Heart-Seeking Shot
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Once per turn, when you hit a creature with a ranged weapon attack, that creature takes extra damage of the same type equal to your rogue level.
@@ -13,9 +14,8 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=Heart-Seeking Shot
 Feedback/&AdditionalDamageSniperAimFormat=Sniper's Aim
 Feedback/&AdditionalDamageSniperAimLine=Sniper's Aim deals extra +{2} damage!
 Feedback/&TriggerRavenScionRerollLine={0} rolls {1} = {2}. Deadly Focus will force a critical hit.
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Use your deadly focus to retry the attack.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Use your deadly focus to retry the attack.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Retry Attack
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Deadly Focus
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Use your deadly focus to retry the attack.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Retry Attack
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Deadly Focus
 Subclass/&RoguishRavenScionDescription=Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 Subclass/&RoguishRavenScionTitle=Raven

@@ -1,3 +1,4 @@
+ Description=致命的な集中力を使って攻撃を再試行してください。
 Condition/&ConditionRavenScionHeartSeekingShotDescription=次の遠隔武器攻撃がクリーチャーに命中した場合、クリティカルヒットが保証されます。
 Condition/&ConditionRavenScionHeartSeekingShotTitle=ハートシーキングショット
 Feature/&AdditionalDamageRavenScionSniperAimDescription=1ターンに1回、あなたが遠距離武器攻撃でクリーチャーを攻撃すると、そのクリーチャーはあなたのローグレベルに等しい同じタイプの追加ダメージを受ける。
@@ -13,9 +14,9 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=ハートシーキングショッ�
 Feedback/&AdditionalDamageSniperAimFormat=スナイパーの狙い
 Feedback/&AdditionalDamageSniperAimLine=スナイパーの狙いは追加の +{2} ダメージを与える！
 Feedback/&TriggerRavenScionRerollLine={0} は {1} = {2} をロールします。 Deadly Focus はクリティカルヒットを強制します。
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=致命的な集中力を使って攻撃を再試行してください。
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=致命的な集中力を使って攻撃を再試行してください。
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=リトライアタック
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=デッドリーフォーカス
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=致命的な集中力を使って攻撃を再試行してください。
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=致命的な集中力を使って攻撃を再試行してください。
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=リトライアタック
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=デッドリーフォーカス
 Subclass/&RoguishRavenScionDescription=サイオンは遠距離武器のスペシャリストであり、彼らの近親者のように世界の他の地域から羨望を集めることなく、敵を迅速かつ効果的に倒すように訓練されています。
 Subclass/&RoguishRavenScionTitle=レイヴンの末裔

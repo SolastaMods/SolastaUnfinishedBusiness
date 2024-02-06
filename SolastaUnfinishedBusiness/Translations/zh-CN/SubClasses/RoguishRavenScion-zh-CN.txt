@@ -1,3 +1,4 @@
+ Description=使用你的致命焦点重试攻击。
 Condition/&ConditionRavenScionHeartSeekingShotDescription=如果你的下一次远程武器攻击击中了生物，则保证会造成致命一击。
 Condition/&ConditionRavenScionHeartSeekingShotTitle=觅心射击
 Feature/&AdditionalDamageRavenScionSniperAimDescription=每回合一次，当你用远程武器攻击击中一个生物时，该生物会受到等同于你的盗贼等级的相同类型的额外伤害。
@@ -13,9 +14,9 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=觅心射击
 Feedback/&AdditionalDamageSniperAimFormat=狙击手的目标
 Feedback/&AdditionalDamageSniperAimLine=狙击手的瞄准造成额外 +{2} 伤害！
 Feedback/&TriggerRavenScionRerollLine={0} 卷 {1} = {2}。致命焦点会造成致命一击。
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=使用你的致命瞄准重试攻击。
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=使用你的致命瞄准重试攻击。
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=重试攻击
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=致命瞄准
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=使用你的致命瞄准重试攻击。
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=使用你的致命瞄准重试攻击。
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=重试攻击
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=致命瞄准
 Subclass/&RoguishRavenScionDescription=黑鸦是远程武器专家，经过训练可以快速有效地击倒敌人，而不会像他们的近亲遗产一样引起世界其他地方的嫉妒。
 Subclass/&RoguishRavenScionTitle=黑鸦

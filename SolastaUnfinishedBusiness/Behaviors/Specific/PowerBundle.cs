@@ -170,7 +170,6 @@ internal static class PowerBundle
             usablePower = modifiedPower;
         }
 
-
         if (usablePower != null)
         {
             UpdateUsageForPowerPool(character, poolUsage, usablePower);

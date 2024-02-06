@@ -646,8 +646,11 @@ public sealed class MartialWarlord : AbstractSubclass
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(PowerCoordinatedAssault, rulesetCharacter);
+
+            rulesetCharacter.UsePower(usablePower);
+
             rulesetCharacter.LogCharacterUsedPower(PowerCoordinatedAssault);
-            rulesetCharacter.UpdateUsageForPower(PowerCoordinatedAssault, PowerCoordinatedAssault.CostPerUse);
         }
     }
 

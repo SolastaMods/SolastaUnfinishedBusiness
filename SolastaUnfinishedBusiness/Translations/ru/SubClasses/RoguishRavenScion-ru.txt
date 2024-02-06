@@ -1,3 +1,4 @@
+ Description=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Ваше следующее попадание по существу атакой дальнобойным оружием гарантированно будет критическим.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Выстрел в сердце
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Один раз за ход, когда вы поражаете существо дальнобойной атакой оружием, оно получает дополнительный урон того же типа, равный вашему уровню плута.
@@ -13,9 +14,9 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=Выстрел в сердце
 Feedback/&AdditionalDamageSniperAimFormat=Снайперское прицеливание
 Feedback/&AdditionalDamageSniperAimLine=Снайперское прицеливание наносит дополнительно +{2} урона!
 Feedback/&TriggerRavenScionRerollLine={0} бросает {1} = {2}. Смертоносная концентрация вызывает повтор атаки.
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Повторить атаку
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Смертоносная концентрация
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Используйте свою смертоносную концентрацию, чтобы повторить атаку.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Повторить атаку
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Смертоносная концентрация
 Subclass/&RoguishRavenScionDescription=Вороны - специалисты по дальнобойному оружию, обученные быстро и эффективно уничтожать врагов.
 Subclass/&RoguishRavenScionTitle=Ворон

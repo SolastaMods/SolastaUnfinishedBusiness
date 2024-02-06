@@ -1,3 +1,4 @@
+ Description=Usa tu enfoque mortal para volver a intentar el ataque.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Tu próximo ataque con arma a distancia resultará en un golpe crítico garantizado si golpea a una criatura.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Disparo en busca del corazón
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Una vez por turno, cuando golpeas a una criatura con un ataque de arma a distancia, esa criatura sufre daño adicional del mismo tipo igual a tu nivel de pícaro.
@@ -13,9 +14,9 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=Disparo en busca del corazón
 Feedback/&AdditionalDamageSniperAimFormat=Objetivo del francotirador
 Feedback/&AdditionalDamageSniperAimLine=¡El objetivo del francotirador inflige +{2} de daño adicional!
 Feedback/&TriggerRavenScionRerollLine={0} tira {1} = {2}. Deadly Focus forzará un golpe crítico.
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Usa tu enfoque mortal para volver a intentar el ataque.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Usa tu enfoque mortal para volver a intentar el ataque.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Reintentar ataque
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Enfoque mortal
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Usa tu enfoque mortal para volver a intentar el ataque.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Usa tu enfoque mortal para volver a intentar el ataque.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Reintentar ataque
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Enfoque mortal
 Subclass/&RoguishRavenScionDescription=Los Scions son especialistas en armas a distancia que están entrenados para acabar con los enemigos de forma rápida y eficaz sin causar la envidia del resto del mundo como su herencia cercana.
 Subclass/&RoguishRavenScionTitle=Vástago del cuervo

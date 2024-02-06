@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -249,7 +248,8 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            rulesetMe.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
+            rulesetMe.UsePower(usablePower);
+
             rulesetMe.InflictCondition(
                 conditionDefinition.Name,
                 conditionDefinition.DurationType,

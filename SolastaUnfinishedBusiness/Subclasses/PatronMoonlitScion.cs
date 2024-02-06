@@ -391,7 +391,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerMoonlightGuise.AddCustomSubFeatures(new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
+        powerMoonlightGuise.AddCustomSubFeatures(
+            ForcePowerUseInSpendPowerAction.Marker,
+            new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
 
         // MAIN
 
@@ -686,8 +688,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(powerMoonlightGuise, rulesetDefender);
+
+            rulesetDefender.UsePower(usablePower);
+
             EffectHelpers.StartVisualEffect(defender, defender, Banishment, EffectHelpers.EffectType.Effect);
-            rulesetDefender.UpdateUsageForPower(powerMoonlightGuise, powerMoonlightGuise.CostPerUse);
             rulesetDefender.InflictCondition(
                 ConditionInvisible,
                 DurationType.Round,

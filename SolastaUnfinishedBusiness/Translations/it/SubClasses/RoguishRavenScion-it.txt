@@ -1,3 +1,4 @@
+ Description=Usa la tua concentrazione letale per ritentare l'attacco.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Il tuo prossimo attacco con arma a distanza avrà come risultato un colpo critico garantito se colpisce una creatura.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Tiro al cuore
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Una volta per turno, quando colpisci una creatura con un attacco con un'arma a distanza, quella creatura subisce danni extra dello stesso tipo pari al tuo livello da ladro.
@@ -13,9 +14,9 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro al cuore
 Feedback/&AdditionalDamageSniperAimFormat=Obiettivo del cecchino
 Feedback/&AdditionalDamageSniperAimLine=La Mira del cecchino infligge +{2} danni extra!
 Feedback/&TriggerRavenScionRerollLine={0} tira {1} = {2}. Deadly Focus imporrà un colpo critico.
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Usa la tua concentrazione letale per ritentare l'attacco.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Usa la tua concentrazione letale per ritentare l'attacco.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Riprova l'attacco
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Focus mortale
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Usa la tua concentrazione letale per ritentare l'attacco.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Usa la tua concentrazione letale per ritentare l'attacco.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Riprova l'attacco
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Focus mortale
 Subclass/&RoguishRavenScionDescription=Gli Scions sono specialisti di armi a distanza addestrati ad abbattere i nemici in modo rapido ed efficace senza causare l'invidia del resto del mondo come la loro eredità più vicina.
 Subclass/&RoguishRavenScionTitle=Rampollo del Corvo

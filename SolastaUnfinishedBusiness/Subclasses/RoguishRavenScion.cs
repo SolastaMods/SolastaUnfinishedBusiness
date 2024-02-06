@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -261,7 +261,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
         : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -292,20 +292,29 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("RavenScionDeadlyFocus", reactionParams);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "RavenScionDeadlyFocus",
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower
+            };
 
-            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+
+            gameLocationActionManager.ReactToSpendPower(reactionParams);
+
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
-
-            rulesetCharacter.UpdateUsageForPower(power, power.CostPerUse);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1

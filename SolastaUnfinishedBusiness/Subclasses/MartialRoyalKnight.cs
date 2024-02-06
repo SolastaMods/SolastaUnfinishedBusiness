@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -131,6 +130,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetFeatures(powerRoyalKnightInspiringProtection)
                             .AddCustomSubFeatures(
+                                ForcePowerUseInSpendPowerAction.Marker,
                                 new AddUsablePowersFromCondition(),
                                 new TryAlterOutcomeSavingThrowInspiringProtection(powerRoyalKnightInspiringProtection))
                             .AddToDB()))
@@ -233,8 +233,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class
-        TryAlterOutcomeSavingThrowInspiringProtection(FeatureDefinitionPower power) : ITryAlterOutcomeSavingThrow
+    private class TryAlterOutcomeSavingThrowInspiringProtection(FeatureDefinitionPower power)
+        : ITryAlterOutcomeSavingThrow
     {
         public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
@@ -298,8 +298,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             {
                 yield break;
             }
-
-            rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
                 ? action.ActionParams.AttackMode.TryRollSavingThrow(

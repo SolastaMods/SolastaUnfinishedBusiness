@@ -1,3 +1,4 @@
+ Description=Use seu foco mortal para tentar novamente o ataque.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Seu próximo ataque com arma de longo alcance resultará em um acerto crítico garantido se atingir uma criatura.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Tiro em busca do coração
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Uma vez por turno, quando você atinge uma criatura com um ataque com arma de longo alcance, aquela criatura sofre dano extra do mesmo tipo igual ao seu nível de ladino.
@@ -13,9 +14,9 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=Tiro em busca do coração
 Feedback/&AdditionalDamageSniperAimFormat=Mira do atirador
 Feedback/&AdditionalDamageSniperAimLine=Mira do Sniper causa +{2} de dano extra!
 Feedback/&TriggerRavenScionRerollLine={0} rola {1} = {2}. Deadly Focus forçará um acerto crítico.
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Use seu foco mortal para tentar novamente o ataque.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Use seu foco mortal para tentar novamente o ataque.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Tentar novamente o ataque
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Foco Mortal
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Use seu foco mortal para tentar novamente o ataque.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Use seu foco mortal para tentar novamente o ataque.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Tentar novamente o ataque
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Foco Mortal
 Subclass/&RoguishRavenScionDescription=Scions são especialistas em armas de longo alcance treinados para derrubar inimigos de forma rápida e eficaz, sem causar inveja no resto do mundo, como sua herança próxima.
 Subclass/&RoguishRavenScionTitle=Descendente do Corvo

@@ -188,11 +188,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(character =>
                 {
-                    if (Gui.Battle == null)
-                    {
-                        return false;
-                    }
-
                     if (!character.HasAnyConditionOfType(
                             $"Condition{Name}Archer",
                             $"Condition{Name}Chalice",
@@ -873,8 +868,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            rulesetHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
-
             var dieRoll = RollDie(DieType, AdvantageType.None, out _, out _);
 
             attackModifier.AttacktoHitTrends.Add(
@@ -955,8 +948,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             {
                 yield break;
             }
-
-            rulesetHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
 
@@ -1048,8 +1039,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            rulesetHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
-
             var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
 
             attackModifier.AttacktoHitTrends.Add(
@@ -1130,8 +1119,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             {
                 yield break;
             }
-
-            rulesetHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
 

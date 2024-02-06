@@ -1,3 +1,4 @@
+ Description=치명적인 집중력을 사용하여 공격을 다시 시도하세요.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=다음 원거리 무기 공격이 생물에 적중하면 치명타가 보장됩니다.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=마음을 찾는 사격
 Feature/&AdditionalDamageRavenScionSniperAimDescription=턴당 한 번, 원거리 무기 공격으로 생물을 공격하면 해당 생물은 도적 레벨과 동일한 유형의 추가 피해를 입습니다.
@@ -13,9 +14,9 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=마음을 찾는 사격
 Feedback/&AdditionalDamageSniperAimFormat=스나이퍼의 목표
 Feedback/&AdditionalDamageSniperAimLine=스나이퍼의 조준은 추가 +{2} 피해를 입힙니다!
 Feedback/&TriggerRavenScionRerollLine={0}은 {1}을 굴립니다 = {2}. Deadly Focus는 치명타를 발생시킵니다.
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=치명적인 집중력을 사용하여 공격을 다시 시도하세요.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=치명적인 집중력을 사용하여 공격을 다시 시도하세요.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=재시도 공격
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=치명적인 집중
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=치명적인 집중력을 사용하여 공격을 다시 시도하세요.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=치명적인 집중력을 사용하여 공격을 다시 시도하세요.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=재시도 공격
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=치명적인 집중
 Subclass/&RoguishRavenScionDescription=사이온은 가까운 전통처럼 전 세계의 부러움을 불러일으키지 않고 적을 빠르고 효과적으로 쓰러뜨리도록 훈련받은 원거리 무기 전문가입니다.
 Subclass/&RoguishRavenScionTitle=레이븐 사이온

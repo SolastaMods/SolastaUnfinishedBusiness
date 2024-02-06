@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -255,7 +254,8 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            rulesetMe.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
+            rulesetMe.UsePower(usablePower);
+
             rulesetMe.InflictCondition(
                 conditionDefinition.Name,
                 conditionDefinition.DurationType,

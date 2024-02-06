@@ -370,7 +370,6 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-
             var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
                 StringParameter = "Reaction/&CustomReactionMindOverMatterDescription"
@@ -452,7 +451,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             var character = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSupremeWill, character);
 
-            character.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
+            character.UsePower(usablePower);
             character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
             character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }

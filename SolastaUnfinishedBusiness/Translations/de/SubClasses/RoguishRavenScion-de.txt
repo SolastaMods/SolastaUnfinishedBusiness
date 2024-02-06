@@ -1,3 +1,4 @@
+ Description=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
 Condition/&ConditionRavenScionHeartSeekingShotDescription=Ihr nächster Fernkampfwaffenangriff führt zu einem garantierten kritischen Treffer, wenn er eine Kreatur trifft.
 Condition/&ConditionRavenScionHeartSeekingShotTitle=Herzsuchender Schuss
 Feature/&AdditionalDamageRavenScionSniperAimDescription=Wenn du einmal pro Spielzug eine Kreatur mit einem Fernkampfwaffenangriff triffst, erleidet diese Kreatur zusätzlichen Schaden derselben Art, der deiner Schurkenstufe entspricht.
@@ -13,9 +14,9 @@ Feature/&PowerRavenScionHeartSeekingShotTitle=Herzsuchender Schuss
 Feedback/&AdditionalDamageSniperAimFormat=Ziel des Scharfschützen
 Feedback/&AdditionalDamageSniperAimLine=Scharfschützenziel verursacht zusätzlichen Schaden von +{2}!
 Feedback/&TriggerRavenScionRerollLine={0} würfelt {1} = {2}. „Tödlicher Fokus“ erzwingt einen kritischen Treffer.
-Reaction/&CustomReactionRavenScionDeadlyFocusDescription=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactDescription=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
-Reaction/&CustomReactionRavenScionDeadlyFocusReactTitle=Wiederholen Sie den Angriff
-Reaction/&CustomReactionRavenScionDeadlyFocusTitle=Tödlicher Fokus
+Reaction/&SpendPowerRavenScionDeadlyFocusDescription=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactDescription=Nutze deinen tödlichen Fokus, um den Angriff zu wiederholen.
+Reaction/&SpendPowerRavenScionDeadlyFocusReactTitle=Wiederholen Sie den Angriff
+Reaction/&SpendPowerRavenScionDeadlyFocusTitle=Tödlicher Fokus
 Subclass/&RoguishRavenScionDescription=Scions sind Fernkampfwaffenspezialisten, die darauf trainiert sind, Feinde schnell und effektiv auszuschalten, ohne beim Rest der Welt Neid zu erregen wie ihre enge Abstammung.
 Subclass/&RoguishRavenScionTitle=Rabenspross

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -58,6 +59,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
 
         // LEVEL 14
@@ -162,7 +164,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
             yield break;
         }
 
-        if (rulesetAttacker.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
+        if (!rulesetAttacker.CanUsePower(featureDefinitionPower))
         {
             yield break;
         }
@@ -188,7 +190,10 @@ public sealed class PathOfTheReaver : AbstractSubclass
             yield break;
         }
 
-        rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
+        var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+
+        rulesetAttacker.UsePower(usablePower);
+        
         rulesetAttacker.LogCharacterUsedPower(featureDefinitionPower);
         ReceiveHealing(attacker, totalHealing);
     }

@@ -805,6 +805,7 @@ internal static class InventorClass
             .SetGuiPresentation("PowerInventorFlashOfGenius", Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
 
         var auraPower = FeatureDefinitionPowerBuilder
@@ -931,8 +932,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         {
             yield break;
         }
-
-        rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
         action.RolledSaveThrow = true;
         action.SaveOutcomeDelta += bonus;

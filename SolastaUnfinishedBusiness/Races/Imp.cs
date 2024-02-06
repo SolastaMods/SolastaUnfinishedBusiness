@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -132,8 +131,9 @@ internal static class RaceImpBuilder
             .Create($"Power{NAME}ImpishWrath")
             .SetGuiPresentation(Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.Reaction)
-            .DelegatedToAction()
             .SetReactionContext(ExtraReactionContext.Custom)
+            .DelegatedToAction()
+            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
 
         var toggle = ActionDefinitionBuilder
@@ -143,6 +143,7 @@ internal static class RaceImpBuilder
             .SetActionId(ExtraActionId.ImpishWrathToggle)
             .SetActivatedPower(powerImpForestImpishWrath)
             .AddToDB();
+
         toggle.parameter = ActionDefinitions.ActionParameter.ActivatePower;
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
@@ -283,32 +284,34 @@ internal static class RaceImpBuilder
             }
 
             // maybe add some toggle here similar to Paladin Smite
-
-            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
             var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
 
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                StringParameter = Gui.Format("Reaction/&CustomReactionImpishWrathDescription",
+                StringParameter = "ImpishWrath",
+                StringParameter2 = Gui.Format("Reaction/&SpendPowerImpishWrathDescription",
                     bonusDamage.ToString(), rulesetDefender.Name),
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower
             };
 
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("ImpishWrath", reactionParams);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            gameLocationActionService.ReactToSpendPower(reactionParams);
 
-            yield return gameLocationBattleService.WaitForReactions(
-                attacker, gameLocationActionService, previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
-
-            rulesetAttacker.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
 
             var damageForm = new DamageForm
             {
