@@ -522,12 +522,16 @@ public static class CharacterActionMagicEffectPatcher
             if (attackAfterMagicEffect != null)
             {
                 var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
-                var characterActionAttacks = performAttackAfterUse?.Invoke(__instance);
+                var characterActionParams = performAttackAfterUse?
+                    .Invoke(__instance);
 
-                if (characterActionAttacks != null)
+                if (characterActionParams != null)
                 {
-                    __instance.ResultingActions.AddRange(
-                        characterActionAttacks.Select(attackParams => new CharacterActionAttack(attackParams)));
+                    foreach (var actionParam in characterActionParams)
+                    {
+                        ServiceRepository.GetService<IGameLocationActionService>()?
+                            .ExecuteAction(actionParam, null, true);
+                    }
                 }
             }
 

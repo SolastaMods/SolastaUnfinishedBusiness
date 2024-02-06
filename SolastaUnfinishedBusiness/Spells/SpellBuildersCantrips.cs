@@ -651,7 +651,7 @@ internal static partial class SpellBuilders
         var conditionBoomingBlade = ConditionDefinitionBuilder
             .Create("ConditionBoomingBlade")
             .SetGuiPresentation(Category.Condition)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAdditionalDamageBuilder
@@ -853,7 +853,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique, 2)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetTargetProximityData(true, 1)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(

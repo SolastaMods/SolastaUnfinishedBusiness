@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
@@ -20,9 +21,6 @@ internal static partial class SpellBuilders
     {
         private const RollOutcome MinOutcomeToAttack = RollOutcome.Success;
         private const RollOutcome MinSaveOutcomeToAttack = RollOutcome.Failure;
-
-        // changed below to 1 based on
-        // https://rpg.stackexchange.com/questions/177342/can-the-spell-booming-blade-be-affected-by-the-twinned-spell-metamagic
 
         internal static readonly IAttackAfterMagicEffect BoomingBladeAttack =
             new AttackAfterMagicEffect(1);
@@ -67,10 +65,11 @@ internal static partial class SpellBuilders
         }
 
         [NotNull]
-        private List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
+        private List<CharacterActionParams> DefaultAttackHandler(
+            [CanBeNull] CharacterActionMagicEffect actionMagicEffect)
         {
             var attacks = new List<CharacterActionParams>();
-            var actionParams = effect?.ActionParams;
+            var actionParams = actionMagicEffect?.ActionParams;
 
             if (actionParams == null)
             {
@@ -78,19 +77,20 @@ internal static partial class SpellBuilders
             }
 
             //Spell got countered or it failed
-            if (effect.Countered || effect.ExecutionFailed)
+            if (actionMagicEffect.Countered ||
+                actionMagicEffect.ExecutionFailed)
             {
                 return attacks;
             }
 
             //Attack outcome is worse that required
-            if (effect.AttackRollOutcome > MinOutcomeToAttack)
+            if (actionMagicEffect.AttackRollOutcome > MinOutcomeToAttack)
             {
                 return attacks;
             }
 
             //Target rolled saving throw and got better result
-            if (effect.RolledSaveThrow && effect.SaveOutcome < MinSaveOutcomeToAttack)
+            if (actionMagicEffect.RolledSaveThrow && actionMagicEffect.SaveOutcome < MinSaveOutcomeToAttack)
             {
                 return attacks;
             }
@@ -117,13 +117,18 @@ internal static partial class SpellBuilders
             attackMode = rulesetAttackModeCopy;
 
             //set action type to be same as the one used for the magic effect
-            attackMode.ActionType = effect.ActionType;
+            attackMode.ActionType = actionMagicEffect.ActionType;
 
             //PATCH: ensure we flag cantrip used if action switch enabled
             if (Main.Settings.EnableActionSwitching)
             {
                 caster.UsedMainCantrip = true;
             }
+
+            var twinned =
+                actionMagicEffect is CharacterActionCastSpell castSpell &&
+                castSpell.ActiveSpell.MetamagicOption == MetamagicTwinnedSpell;
+            var maxAttacks = _maxAttacks + (twinned ? 1 : 0);
 
             var attackModifier = new ActionModifier();
 
@@ -136,7 +141,7 @@ internal static partial class SpellBuilders
                 attackActionParams.ActionModifiers.Add(attackModifier);
                 attacks.Add(attackActionParams);
 
-                if (attackActionParams.TargetCharacters.Count >= _maxAttacks)
+                if (attackActionParams.TargetCharacters.Count >= maxAttacks)
                 {
                     break;
                 }
