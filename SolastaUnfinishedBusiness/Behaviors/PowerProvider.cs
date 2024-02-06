@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
@@ -55,30 +56,24 @@ internal static class PowerProvider
 
         var powerDefinition = usablePower.powerDefinition;
 
-        usablePower.UsesAttribute = powerDefinition.RechargeRate switch
+        var attributeName = powerDefinition.RechargeRate switch
         {
-            RuleDefinitions.RechargeRate.ChannelDivinity => 
-                actor.GetAttribute(AttributeDefinitions.ChannelDivinityNumber),
-            RuleDefinitions.RechargeRate.HealingPool => 
-                actor.GetAttribute(AttributeDefinitions.HealingPool),
-            RuleDefinitions.RechargeRate.SorceryPoints => 
-                actor.GetAttribute(AttributeDefinitions.SorceryPoints),
+            RechargeRate.ChannelDivinity => AttributeDefinitions.ChannelDivinityNumber,
+            RechargeRate.HealingPool => AttributeDefinitions.HealingPool,
+            RechargeRate.SorceryPoints => AttributeDefinitions.SorceryPoints,
+            RechargeRate.KiPoints => AttributeDefinitions.KiPoints,
+            RechargeRate.BardicInspiration => AttributeDefinitions.BardicInspirationNumber,
             _ => powerDefinition.UsesDetermination switch
             {
-                RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed => 
-                    actor.GetAttribute(powerDefinition.UsesAbilityScoreName),
-                RuleDefinitions.UsesDetermination.ProficiencyBonus => 
-                    actor.GetAttribute(AttributeDefinitions.ProficiencyBonus),
-                _ => powerDefinition.RechargeRate switch
-                {
-                    RuleDefinitions.RechargeRate.KiPoints =>
-                        actor.GetAttribute(AttributeDefinitions.KiPoints),
-                    RuleDefinitions.RechargeRate.BardicInspiration =>
-                        actor.GetAttribute(AttributeDefinitions.BardicInspirationNumber),
-                    _ => usablePower.UsesAttribute
-                }
+                UsesDetermination.AbilityBonusPlusFixed => powerDefinition.UsesAbilityScoreName,
+                UsesDetermination.ProficiencyBonus => AttributeDefinitions.ProficiencyBonus,
+                _ => null
             }
         };
+        if (!string.IsNullOrEmpty(attributeName))
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(attributeName);
+        }
 
         usablePower.Recharge();
     }
