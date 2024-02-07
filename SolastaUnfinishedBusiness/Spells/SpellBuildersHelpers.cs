@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 internal static partial class SpellBuilders
 {
     internal const string PhysicalAttackFromCantrip = "PhysicalAttackFromCantrip";
-        
+
     private static readonly (string, IMagicEffect)[] DamagesAndEffects =
     [
         (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt),

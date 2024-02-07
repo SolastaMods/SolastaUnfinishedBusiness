@@ -43,8 +43,11 @@ internal static class DefensiveStrikeAttack
         GameLocationBattleManager battleManager)
     {
         var unitCharacter = unit.RulesetCharacter;
-        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender
-            || !unitCharacter.HasSubFeatureOfType<DefensiveStrikeMarker>())
+        
+        if (!attacker.IsOppositeSide(unit.Side) ||
+            defender.Side != unit.Side ||
+            unit == defender || 
+            !unitCharacter.HasSubFeatureOfType<DefensiveStrikeMarker>())
         {
             yield break;
         }
@@ -69,6 +72,7 @@ internal static class DefensiveStrikeAttack
 
         //Does unit has enough Channel Divinity uses left?
         var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
+        
         if (unitCharacter.UsedChannelDivinity >= maxUses)
         {
             yield break;
@@ -76,6 +80,7 @@ internal static class DefensiveStrikeAttack
 
         //Find defender's attack mode
         var (opportunityAttackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(attacker, battleManager);
+        
         if (opportunityAttackMode == null || actionModifier == null)
         {
             yield break;
@@ -84,23 +89,25 @@ internal static class DefensiveStrikeAttack
         //Calculate bonus
         var charisma = unitCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
         var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
-
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
-        var temp = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingFree)
-        {
-            StringParameter = $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
-                .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)
-        };
-
+        
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
         if (actionManager == null)
         {
             yield break;
         }
+        
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-        var reactionRequest = new ReactionRequestCustom(OathOfAltruism.DefensiveStrike, temp)
+        var actionParams = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingReaction)
+        {
+            StringParameter = $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
+                .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)
+        };
+
+        var count = actionService.PendingReactionRequestGroups.Count;
+        
+        var reactionRequest = new ReactionRequestCustom(OathOfAltruism.DefensiveStrike, actionParams)
         {
             Resource = ReactionResourceChannelDivinity.Instance
         };
@@ -109,14 +116,13 @@ internal static class DefensiveStrikeAttack
 
         yield return battleManager.WaitForReactions(unit, actionService, count);
 
-        if (!temp.ReactionValidated)
+        if (!actionParams.ReactionValidated)
         {
             yield break;
         }
 
         //spend resources
         unitCharacter.UsedChannelDivinity++;
-        defender.SpendActionType(ActionType.Reaction);
 
         //create attack mode copy so we won't affect real one
         var tmp = RulesetAttackMode.AttackModesPool.Get();

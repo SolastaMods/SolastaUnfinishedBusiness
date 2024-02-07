@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -125,7 +124,7 @@ internal static class RaceOligathBuilder
                 return totalReducedDamage;
             })
             .AddToDB();
-        
+
         var conditionOligathStoneEndurance = ConditionDefinitionBuilder
             .Create($"Condition{Name}StoneEndurance")
             .SetGuiPresentationNoContent(true)
@@ -133,7 +132,7 @@ internal static class RaceOligathBuilder
             .SetFeatures(reduceDamageOligathStoneEndurance)
             .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
-        
+
         var powerOligathStoneEndurance = FeatureDefinitionPowerBuilder
             .Create("PowerOligathStoneEndurance")
             .SetGuiPresentation(Category.Feature)
@@ -147,7 +146,7 @@ internal static class RaceOligathBuilder
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionOligathStoneEndurance))
                     .Build())
             .AddToDB();
-        
+
         powerOligathStoneEndurance.AddCustomSubFeatures(
             new AttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
 
@@ -198,21 +197,21 @@ internal static class RaceOligathBuilder
             {
                 yield break;
             }
-            
+
             var rulesetMe = me.RulesetCharacter;
 
             if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
-            
+
             // allow stone endurance when prone
             if (!me.IsReactionAvailable())
             {
                 yield break;
             }
 
-            if (rulesetMe is not { IsDeadOrUnconscious: false } || 
+            if (rulesetMe is not { IsDeadOrUnconscious: false } ||
                 rulesetMe.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
                 rulesetMe.HasConditionOfTypeOrSubType(ConditionStunned) ||
                 rulesetMe.HasConditionOfTypeOrSubType(ConditionParalyzed))
@@ -233,7 +232,7 @@ internal static class RaceOligathBuilder
                 UsablePower = usablePower,
                 TargetCharacters = { me }
             };
-            
+
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
             gameLocationActionService.ReactToUsePower(actionParams, "UsePower", me);

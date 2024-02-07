@@ -1389,8 +1389,7 @@ internal static class InvocationsBuilders
         powerTombOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference =
             RayOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference;
 
-        powerTombOfFrost.AddCustomSubFeatures(
-            new CustomBehaviorTombOfFrost(powerTombOfFrost, conditionTombOfFrostLazy));
+        powerTombOfFrost.AddCustomSubFeatures(new CustomBehaviorTombOfFrost(powerTombOfFrost));
 
         return InvocationDefinitionBuilder
             .Create(Name)
@@ -1400,9 +1399,7 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorTombOfFrost(
-        FeatureDefinitionPower powerTombOfFrost,
-        ConditionDefinition conditionTombOfFrostLazy)
+    private sealed class CustomBehaviorTombOfFrost(FeatureDefinitionPower powerTombOfFrost)
         : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(

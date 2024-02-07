@@ -463,12 +463,11 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
             var actionParams =
-                new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
+                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "ShadowySanctuary",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        //CHECK: no need for AddAsActivePowerToSource
                         .MyInstantiateEffectPower(rulesetMe, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { me }

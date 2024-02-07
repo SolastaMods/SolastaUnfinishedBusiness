@@ -400,7 +400,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         powerDefensiveDuelist.AddCustomSubFeatures(new SpiritualShieldingBlockAttack(powerDefensiveDuelist));
-        
+
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
