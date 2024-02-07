@@ -1367,7 +1367,6 @@ internal static class InvocationsBuilders
             .Create($"Condition{Name}Lazy")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedTombOfFrostLazy(conditionTombOfFrost))
             .AddToDB();
@@ -1375,12 +1374,14 @@ internal static class InvocationsBuilders
         var powerTombOfFrost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Invocation, sprite)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.None)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTombOfFrostLazy))
                     .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
                     .Build())
             .AddToDB();
@@ -1459,47 +1460,37 @@ internal static class InvocationsBuilders
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(powerTombOfFrost, rulesetDefender);
-            var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            var actionParams =
+                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
                 {
-                    StringParameter = "TombOfFrost", UsablePower = usablePower
+                    StringParameter = "TombOfFrost",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        //CHECK: no need for AddAsActivePowerToSource
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
                 };
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(
-                defender, gameLocationActionManager, previousReactionCount);
+            yield return gameLocationBattleManager.WaitForReactions(defender, gameLocationActionManager, count);
 
-            if (!reactionParams.ReactionValidated)
+            if (!actionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            rulesetDefender.UsePower(usablePower);
-
             var classLevel = rulesetDefender.GetClassLevel(CharacterClassDefinitions.Warlock);
-            var tempHitPoints = classLevel * 10;
-
-            var activeCondition = rulesetDefender.InflictCondition(
-                conditionTombOfFrostLazy.Name,
-                conditionTombOfFrostLazy.DurationType,
-                conditionTombOfFrostLazy.DurationParameter,
-                conditionTombOfFrostLazy.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.Guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionTombOfFrostLazy.Name,
-                0,
-                0,
-                0);
 
             rulesetDefender.ReceiveTemporaryHitPoints(
-                tempHitPoints, DurationType.Round, 0, TurnOccurenceType.EndOfTurn, activeCondition.Guid);
+                classLevel * 10, DurationType.Round, 0, TurnOccurenceType.EndOfTurn, rulesetDefender.Guid);
         }
     }
 
