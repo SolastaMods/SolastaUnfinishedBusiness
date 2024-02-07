@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -31,8 +32,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"FeatureSet{Name}SpiritSeeker")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                BuildSpiritSeekerSpell(SpellDefinitions.AnimalFriendship),
-                BuildSpiritSeekerSpell(SpellDefinitions.FindTraps))
+                BuildSpiritSeekerSpell(SpellDefinitions.AnimalFriendship, RechargeRate.ShortRest),
+                BuildSpiritSeekerSpell(SpellDefinitions.FindTraps, RechargeRate.ShortRest))
             .AddToDB();
 
         // Animal Spirit
@@ -98,7 +99,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                         .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
                             (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
                         .AddToDB(),
-                    BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures)))
+                    BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures, RechargeRate.LongRest)))
             .AddToDB();
 
         #endregion
@@ -207,7 +208,8 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     }
 
     private static FeatureDefinitionPower BuildSpiritSeekerSpell(
-        SpellDefinition spellDefinition)
+        SpellDefinition spellDefinition,
+        RechargeRate rechargeRate)
     {
         var effectDescription = EffectDescriptionBuilder
             .Create(spellDefinition.EffectDescription)
@@ -218,7 +220,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{spellDefinition.name}")
             .SetGuiPresentation(spellDefinition.GuiPresentation)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.BonusAction, rechargeRate)
             .SetEffectDescription(effectDescription)
             .AddToDB();
     }
@@ -416,7 +418,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition.Name != "PowerBarbarianRageStart")
+                characterActionUsePower.activePower.PowerDefinition != FeatureDefinitionPowers.PowerBarbarianRageStart)
             {
                 yield break;
             }
@@ -445,7 +447,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             }
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "SpiritWalker",
                 RulesetEffect = implementationManagerService
@@ -456,7 +458,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToSpendPower(reactionParams);
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", actingCharacter);
 
             yield return gameLocationBattleManager.WaitForReactions(actingCharacter, gameLocationActionManager, count);
 
@@ -465,32 +467,10 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 yield break;
             }
 
-            rulesetCharacter.UsePower(usablePower);
-
             if (power == powerRageCost)
             {
                 rulesetCharacter.SpendRagePoint();
             }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
-            {
-                yield break;
-            }
-
-            //CHECK: must be power no cost
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
-            {
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
         }
     }
 }
