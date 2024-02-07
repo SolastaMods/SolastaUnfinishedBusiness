@@ -148,7 +148,6 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .Create($"Condition{Name}HeroicUncannyDodge")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .SetFeatures(reduceDamageHeroicUncannyDodge)
             .AddToDB();
@@ -158,10 +157,17 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Dexterity)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionHeroicUncannyDodge))
+                    .Build())
             .AddToDB();
 
         powerHeroicUncannyDodge.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge, conditionHeroicUncannyDodge));
+            new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge));
 
         // MAIN
 
@@ -193,12 +199,11 @@ public sealed class RoguishAcrobat : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(
-        FeatureDefinitionPower featureDefinitionPower,
-        ConditionDefinition conditionDefinition)
+    private class AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(FeatureDefinitionPower powerHeroicUncannyDodge)
         : IAttackBeforeHitConfirmedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             ActionModifier attackModifier,
@@ -210,19 +215,11 @@ public sealed class RoguishAcrobat : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (me.IsMyTurn())
-            {
-                yield break;
-            }
-
-            if (!me.CanReact())
-            {
-                yield break;
-            }
-
             var rulesetMe = me.RulesetCharacter;
 
-            if (!rulesetMe.CanUsePower(featureDefinitionPower))
+            if (me.IsMyTurn() ||
+                !me.CanReact() ||
+                !rulesetMe.CanUsePower(powerHeroicUncannyDodge))
             {
                 yield break;
             }
@@ -235,40 +232,26 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
-            var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetMe);
+            var actionParams =
+                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
                 {
-                    StringParameter = "HeroicUncannyDodge", UsablePower = usablePower
+                    StringParameter = "HeroicUncannyDodge",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { me }
                 };
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            rulesetMe.UsePower(usablePower);
-
-            rulesetMe.InflictCondition(
-                conditionDefinition.Name,
-                conditionDefinition.DurationType,
-                conditionDefinition.DurationParameter,
-                conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetMe.guid,
-                rulesetMe.CurrentFaction.Name,
-                1,
-                conditionDefinition.Name,
-                0,
-                0,
-                0);
+            yield return battle.WaitForReactions(me, gameLocationActionManager, count);
         }
     }
 }
