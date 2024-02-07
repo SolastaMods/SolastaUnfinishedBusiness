@@ -57,7 +57,6 @@ public sealed class OathOfDemonHunter : AbstractSubclass
         var conditionTrialMark = ConditionDefinitionBuilder
             .Create(ConditionMarkedByHunter, $"Condition{Name}TrialMark")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 10)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .AddToDB();
@@ -89,7 +88,6 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                             .SetConditionForm(conditionTrialMark, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker) // when used at level 7
             .AddToDB();
 
         //
@@ -242,7 +240,7 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "LightEnergyCrossbowBolt",
-                ActionModifiers = {new ActionModifier()},
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
