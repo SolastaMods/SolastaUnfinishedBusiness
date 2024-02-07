@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -44,14 +43,6 @@ public class PatronMountain : AbstractSubclass
 
         // Barrier of Stone
 
-        var conditionBarrierOfStone = ConditionDefinitionBuilder
-            .Create($"Condition{Name}BarrierOfStone")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
-            .AddToDB();
-
         var reduceDamageBarrierOfStone = FeatureDefinitionReduceDamageBuilder
             .Create($"ReduceDamage{Name}BarrierOfStone")
             .SetGuiPresentation($"Power{Name}BarrierOfStone", Category.Feature)
@@ -64,16 +55,14 @@ public class PatronMountain : AbstractSubclass
                     return 0;
                 }
 
-                var usableCondition =
-                    rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                        x.ConditionDefinition == conditionBarrierOfStone);
-
-                if (usableCondition == null)
+                if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, $"Condition{Name}BarrierOfStone",
+                        out var activeCondition))
                 {
                     return 0;
                 }
 
-                var rulesetCaster = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
+                var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
                 if (rulesetCaster == null)
                 {
@@ -88,13 +77,27 @@ public class PatronMountain : AbstractSubclass
             })
             .AddToDB();
 
-        conditionBarrierOfStone.Features.Add(reduceDamageBarrierOfStone);
+        var conditionBarrierOfStone = ConditionDefinitionBuilder
+            .Create($"Condition{Name}BarrierOfStone")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(reduceDamageBarrierOfStone)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
 
         var powerBarrierOfStone = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BarrierOfStone")
             .SetGuiPresentation(Category.Feature)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBarrierOfStone))
+                    .SetParticleEffectParameters(Banishment)
+                    .Build())
             .AddToDB();
 
         // Knowledge of Aeons
@@ -297,7 +300,7 @@ public class PatronMountain : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetMe);
-            var reactionParams =
+            var actionParams =
                 new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "BarrierOfStone",
@@ -310,7 +313,7 @@ public class PatronMountain : AbstractSubclass
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", me);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
             yield return gameLocationBattleManager.WaitForReactions(me, gameLocationActionManager, count);
         }

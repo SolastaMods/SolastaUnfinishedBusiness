@@ -300,7 +300,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
             {
                 StringParameter = "RavenScionDeadlyFocus",
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower
             };
@@ -315,6 +314,8 @@ public sealed class RoguishRavenScion : AbstractSubclass
             {
                 yield break;
             }
+
+            rulesetCharacter.UsePower(usablePower);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1
