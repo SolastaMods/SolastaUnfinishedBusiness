@@ -119,6 +119,9 @@ internal static partial class SpellBuilders
             //set action type to be same as the one used for the magic effect
             attackMode.ActionType = actionMagicEffect.ActionType;
 
+            //mark this attack for proper integration with War Magic
+            attackMode.AttackTags.TryAdd("PhysicalAttackFromCantrip");
+
             //PATCH: ensure we flag cantrip used if action switch enabled
             if (Main.Settings.EnableActionSwitching)
             {

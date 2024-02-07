@@ -179,7 +179,8 @@ internal static class CommonBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic)
+            if (!Main.Settings.EnableCantripsTriggeringOnWarMagic ||
+                (attackMode != null && attackMode.AttackTags.Contains("PhysicalAttackFromCantrip")))
             {
                 yield break;
             }
