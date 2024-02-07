@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -149,8 +148,7 @@ public class PatronMountain : AbstractSubclass
             .AddToDB();
 
         powerBarrierOfStone.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeBarrierOfStone(
-                powerBarrierOfStone, powerEternalGuardian, conditionBarrierOfStone));
+            new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone, powerEternalGuardian));
 
         // LEVEL 10
 
@@ -221,8 +219,7 @@ public class PatronMountain : AbstractSubclass
 
     private class AttackBeforeHitConfirmedOnMeBarrierOfStone(
         FeatureDefinitionPower powerBarrierOfStone,
-        FeatureDefinitionPower powerEternalGuardian,
-        ConditionDefinition conditionDefinition)
+        FeatureDefinitionPower powerEternalGuardian)
         :
             IAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
     {
@@ -264,13 +261,17 @@ public class PatronMountain : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter me)
         {
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (me.IsMyTurn())
-            {
-                yield break;
-            }
+            var rulesetMe = me.RulesetCharacter;
+            var levels = rulesetMe.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
 
-            if (!me.CanReact() || me == defender)
+            if (me.IsMyTurn() ||
+                !me.CanReact() ||
+                !rulesetMe.CanUsePower(power) ||
+                me == defender ||
+                !me.CanPerceiveTarget(defender) ||
+                !me.CanPerceiveTarget(attacker) ||
+                !me.IsWithinRange(defender, 7))
             {
                 yield break;
             }
@@ -292,57 +293,26 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            if (!me.CanPerceiveTarget(defender) ||
-                !me.CanPerceiveTarget(attacker) ||
-                !me.IsWithinRange(defender, 7))
-            {
-                yield break;
-            }
-
-            var rulesetMe = me.RulesetCharacter;
-            var levels = rulesetMe.GetClassLevel(CharacterClassDefinitions.Warlock);
-            var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
-
-            if (rulesetMe.GetRemainingPowerCharges(power) <= 0)
-            {
-                yield break;
-            }
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetMe);
             var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
                 {
-                    StringParameter = "BarrierOfStone", UsablePower = usablePower
+                    StringParameter = "BarrierOfStone",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
                 };
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", me);
 
-            yield return gameLocationBattleManager.WaitForReactions(
-                me, gameLocationActionManager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            rulesetDefender.UsePower(usablePower);
-
-            rulesetDefender.InflictCondition(
-                conditionDefinition.Name,
-                conditionDefinition.DurationType,
-                conditionDefinition.DurationParameter,
-                conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetMe.Guid,
-                rulesetMe.CurrentFaction.Name,
-                1,
-                conditionDefinition.Name,
-                0,
-                0,
-                0);
+            yield return gameLocationBattleManager.WaitForReactions(me, gameLocationActionManager, count);
         }
     }
 }
