@@ -391,43 +391,27 @@ public sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingFree)
-            {
-                StringParameter = "BlessedGlow", UsablePower = usablePower
-            };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
-
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
-
-            yield return gameLocationBattleService.WaitForReactions(
-                attacker, gameLocationActionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
             var targets = gameLocationBattleService.Battle
                 .GetContenders(attacker, withinRange: 5);
-            //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, Id.PowerNoCost)
             {
+                StringParameter = "BlessedGlow",
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets
             };
 
-            // different follow up pattern [not adding to ResultingActions] as it doesn't work after a reaction
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, false);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+
+            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", attacker);
+
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
         }
     }
 
