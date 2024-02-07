@@ -97,21 +97,6 @@ internal static class RaceOligathBuilder
 
     private static FeatureDefinitionPower BuildPowerOligathStoneEndurance()
     {
-        var powerOligathStoneEndurance = FeatureDefinitionPowerBuilder
-            .Create("PowerOligathStoneEndurance")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
-            .AddToDB();
-
-        var conditionOligathStoneEndurance = ConditionDefinitionBuilder
-            .Create($"Condition{Name}StoneEndurance")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
-            .AddToDB();
-
         var reduceDamageOligathStoneEndurance = FeatureDefinitionReduceDamageBuilder
             .Create($"ReduceDamage{Name}StoneEndurance")
             .SetGuiPresentation($"Power{Name}StoneEndurance", Category.Feature)
@@ -119,27 +104,18 @@ internal static class RaceOligathBuilder
             {
                 var rulesetDefender = defender.RulesetCharacter;
 
-                if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-                {
-                    return 0;
-                }
-
-                var usableCondition =
-                    rulesetDefender.AllConditions.FirstOrDefault(x =>
-                        x.ConditionDefinition == conditionOligathStoneEndurance);
-
-                if (usableCondition == null)
+                if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+                    !rulesetDefender.HasConditionOfType($"Condition{Name}StoneEndurance"))
                 {
                     return 0;
                 }
 
                 var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
                 var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
-
-                var result = rulesetDefender.RollDie(
+                var dieRoll = rulesetDefender.RollDie(
                     DieType.D12, RollContext.None, false, AdvantageType.None, out _, out _);
 
-                var totalReducedDamage = result + constitutionModifier;
+                var totalReducedDamage = dieRoll + constitutionModifier;
 
                 if (totalReducedDamage < 0)
                 {
@@ -149,23 +125,37 @@ internal static class RaceOligathBuilder
                 return totalReducedDamage;
             })
             .AddToDB();
-
-        conditionOligathStoneEndurance.Features.Add(reduceDamageOligathStoneEndurance);
-
-        powerOligathStoneEndurance
-            .AddCustomSubFeatures(
-                new AttackBeforeHitConfirmedOnMeStoneEndurance(
-                    powerOligathStoneEndurance,
-                    conditionOligathStoneEndurance));
+        
+        var conditionOligathStoneEndurance = ConditionDefinitionBuilder
+            .Create($"Condition{Name}StoneEndurance")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(reduceDamageOligathStoneEndurance)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+        
+        var powerOligathStoneEndurance = FeatureDefinitionPowerBuilder
+            .Create("PowerOligathStoneEndurance")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesProficiencyBonus(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionOligathStoneEndurance))
+                    .Build())
+            .AddToDB();
+        
+        powerOligathStoneEndurance.AddCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
 
         return powerOligathStoneEndurance;
     }
 
-    private class AttackBeforeHitConfirmedOnMeStoneEndurance(
-        FeatureDefinitionPower featureDefinitionPower,
-        ConditionDefinition conditionDefinition)
-        :
-            IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
+    private class AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower featureDefinitionPower)
+        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -208,61 +198,47 @@ internal static class RaceOligathBuilder
             {
                 yield break;
             }
-
-            if (!me.IsReactionAvailable())
-            {
-                yield break;
-            }
-
+            
             var rulesetMe = me.RulesetCharacter;
-
-            // allow stone endurance when prone
-            if (rulesetMe is not { IsDeadOrUnconscious: false }
-                || rulesetMe.HasConditionOfTypeOrSubType(ConditionIncapacitated)
-                || rulesetMe.HasConditionOfTypeOrSubType(ConditionStunned)
-                || rulesetMe.HasConditionOfTypeOrSubType(ConditionParalyzed))
-            {
-                yield break;
-            }
 
             if (!rulesetMe.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
-
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
-            var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
-            {
-                StringParameter = "StoneEndurance", UsablePower = usablePower
-            };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
-
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
-
-            yield return gameLocationBattleService.WaitForReactions(
-                me, gameLocationActionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
+            
+            // allow stone endurance when prone
+            if (!me.IsReactionAvailable())
             {
                 yield break;
             }
 
-            rulesetMe.UsePower(usablePower);
+            if (rulesetMe is not { IsDeadOrUnconscious: false } || 
+                rulesetMe.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
+                rulesetMe.HasConditionOfTypeOrSubType(ConditionStunned) ||
+                rulesetMe.HasConditionOfTypeOrSubType(ConditionParalyzed))
+            {
+                yield break;
+            }
 
-            rulesetMe.InflictCondition(
-                conditionDefinition.Name,
-                conditionDefinition.DurationType,
-                conditionDefinition.DurationParameter,
-                conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetMe.Guid,
-                rulesetMe.CurrentFaction.Name,
-                1,
-                conditionDefinition.Name,
-                0,
-                0,
-                0);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
+            var actionParams = new CharacterActionParams(me, Id.PowerReaction)
+            {
+                StringParameter = "StoneEndurance",
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { me }
+            };
+            
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+
+            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", me);
+
+            yield return gameLocationBattleService.WaitForReactions(me, gameLocationActionService, count);
         }
     }
 }
