@@ -11,6 +11,8 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    internal const string PhysicalAttackFromCantrip = "PhysicalAttackFromCantrip";
+        
     private static readonly (string, IMagicEffect)[] DamagesAndEffects =
     [
         (DamageTypeAcid, AcidSplash), (DamageTypeCold, ConeOfCold), (DamageTypeFire, FireBolt),
@@ -120,7 +122,7 @@ internal static partial class SpellBuilders
             attackMode.ActionType = actionMagicEffect.ActionType;
 
             //mark this attack for proper integration with War Magic
-            attackMode.AttackTags.TryAdd("PhysicalAttackFromCantrip");
+            attackMode.AttackTags.TryAdd(PhysicalAttackFromCantrip);
 
             //PATCH: ensure we flag cantrip used if action switch enabled
             if (Main.Settings.EnableActionSwitching)

@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -180,7 +181,7 @@ internal static class CommonBuilders
             bool criticalHit)
         {
             if (!Main.Settings.EnableCantripsTriggeringOnWarMagic ||
-                (attackMode != null && attackMode.AttackTags.Contains("PhysicalAttackFromCantrip")))
+                (attackMode != null && !attackMode.AttackTags.Contains(SpellBuilders.PhysicalAttackFromCantrip)))
             {
                 yield break;
             }
