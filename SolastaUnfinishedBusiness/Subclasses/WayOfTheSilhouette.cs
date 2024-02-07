@@ -236,7 +236,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift)
-                    .SetParticleEffectParameters(Banishment)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will)
                     .Build())
             .SetShowCasting(true)
             .AddToDB();
@@ -458,47 +458,34 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
-            var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            var actionParams =
+                new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
                 {
-                    StringParameter = "ShadowySanctuary", UsablePower = usablePower
+                    StringParameter = "ShadowySanctuary",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        //CHECK: no need for AddAsActivePowerToSource
+                        .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { me }
                 };
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
+            yield return battle.WaitForReactions(me, gameLocationActionManager, count);
 
-            if (!reactionParams.ReactionValidated)
+            if (!actionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            rulesetMe.UsePower(usablePower);
-
-            // remove any negative effect
             actualEffectForms.Clear();
-
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            //CHECK: must be power no cost
-            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetMe, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { me }
-            };
-
-            EffectHelpers.StartVisualEffect(me, attacker,
-                FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will, EffectHelpers.EffectType.Caster);
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, false);
         }
     }
 }
