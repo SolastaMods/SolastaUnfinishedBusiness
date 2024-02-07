@@ -1,7 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerCircleOfTheCosmosSwitchConstellationForm:ce0a3880-7840-5088-82e2-69d5005167ee"
+    "Definition:PowerCircleOfTheCosmosSwitchConstellationForm:ce0a3880-7840-5088-82e2-69d5005167ee",
+    "Definition:PowerCircleOfTheCosmosSwitchConstellationFormAtWill:92cf517f-8281-50e9-a158-7b600d7d5d39"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
