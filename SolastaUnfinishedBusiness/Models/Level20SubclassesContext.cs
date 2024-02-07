@@ -761,16 +761,17 @@ internal static class Level20SubclassesContext
 
         var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionSurvivalUnbreakableBody, "PowerTraditionSurvivalPhysicalPerfection")
-            .SetGuiPresentation(Category.Feature, PowerTraditionSurvivalUnbreakableBody) // source is hidden
+            .SetGuiPresentation(Category.Feature, PowerTraditionSurvivalUnbreakableBody)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerTraditionSurvivalUnbreakableBody)
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionTraditionSurvivalPhysicalPerfection,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDodging),
+                        EffectFormBuilder.ConditionForm(conditionTraditionSurvivalPhysicalPerfection))
                     .Build())
             .SetOverriddenPower(PowerTraditionSurvivalUnbreakableBody)
             .AddToDB();
@@ -1902,14 +1903,26 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("PhysicalPerfection", reactionParams);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
+            {
+                StringParameter = "PhysicalPerfection",
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { source }
+            };
+
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
 
             yield return gameLocationBattleService
-                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
+                .WaitForReactions(source, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1919,36 +1932,6 @@ internal static class Level20SubclassesContext
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(1);
 
-            rulesetCharacter.InflictCondition(
-                ConditionDodging,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                attacker.Guid,
-                attacker.RulesetCharacter?.CurrentFaction.Name ?? string.Empty,
-                1,
-                ConditionDodging,
-                0,
-                0,
-                0);
-
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
-            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { source }
-            };
-
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
