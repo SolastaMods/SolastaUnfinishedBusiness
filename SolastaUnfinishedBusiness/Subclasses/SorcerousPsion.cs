@@ -376,18 +376,21 @@ public sealed class SorcerousPsion : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
+            var targets = gameLocationBattleService.Battle
+                .GetContenders(source, withinRange: 2);
+            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "MindOverMatter",
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower
+                UsablePower = usablePower,
+                targetCharacters = targets
             };
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToSpendPower(reactionParams);
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
 
             yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
 
@@ -402,22 +405,8 @@ public sealed class SorcerousPsion : AbstractSubclass
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
-            var targets = gameLocationBattleService.Battle
-                .GetContenders(source, withinRange: 2);
-            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 
