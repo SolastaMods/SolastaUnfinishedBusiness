@@ -212,10 +212,10 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var actionService =
+            var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionService == null)
+            if (gameLocationActionService == null)
             {
                 yield break;
             }
@@ -239,39 +239,22 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "LightEnergyCrossbowBolt",
+                ActionModifiers = {new ActionModifier()},
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
             };
 
-            var count = actionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            actionService.ReactToSpendPower(reactionParams);
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", attacker);
 
-            yield return battleManager.WaitForReactions(attacker, actionService, count);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            rulesetDefender.InflictCondition(
-                conditionTrialMark.Name,
-                conditionTrialMark.DurationType,
-                conditionTrialMark.DurationParameter,
-                conditionTrialMark.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.Guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionTrialMark.Name,
-                0,
-                0,
-                0);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionService, count);
         }
     }
 
