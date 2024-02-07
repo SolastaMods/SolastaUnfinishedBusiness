@@ -221,6 +221,9 @@ public class PatronCelestial : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerSearingVengeance.EffectDescription.EffectParticleParameters.casterParticleReference =
+            HolyAura.EffectDescription.EffectParticleParameters.effectParticleReference;
+
         powerSearingVengeance.AddCustomSubFeatures(new OnReducedToZeroHpByEnemySearingVengeance(powerSearingVengeance));
 
         //
@@ -360,28 +363,32 @@ public class PatronCelestial : AbstractSubclass
 
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (rulesetCharacter == null)
-            {
-                yield break;
-            }
-
             if (!rulesetCharacter.CanUsePower(powerSearingVengeance))
             {
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var targets = gameLocationBattleService.Battle
+                .GetContenders(source, withinRange: 5);
+            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
             {
-                StringParameter = "SearingVengeance", UsablePower = usablePower
+                StringParameter = "SearingVengeance",
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
             };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService,
-                previousReactionCount);
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
+
+            yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -392,33 +399,6 @@ public class PatronCelestial : AbstractSubclass
 
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var targets = gameLocationBattleService.Battle
-                .GetContenders(source, withinRange: 5);
-            //CHECK: must be power no cost
-            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            EffectHelpers.StartVisualEffect(
-                source, source, HolyAura, EffectHelpers.EffectType.Effect);
-
-            foreach (var target in targets)
-            {
-                EffectHelpers.StartVisualEffect(
-                    source, target, PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
-            }
-
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
