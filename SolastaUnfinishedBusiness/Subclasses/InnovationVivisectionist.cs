@@ -132,7 +132,6 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             .AddToDB();
 
         powerOrganDonation.AddCustomSubFeatures(
-            ForcePowerUseInSpendPowerAction.Marker,
             new OnReducedToZeroHpByMeOrganDonation(powerOrganDonation, powerEmergencySurgery, powerEmergencyCure));
 
         // LEVEL 15
@@ -296,6 +295,8 @@ public sealed class InnovationVivisectionist : AbstractSubclass
             {
                 yield break;
             }
+
+            rulesetAttacker.UsePower(usablePower);
 
             rulesetAttacker.LogCharacterUsedPower(powerOrganDonation);
 

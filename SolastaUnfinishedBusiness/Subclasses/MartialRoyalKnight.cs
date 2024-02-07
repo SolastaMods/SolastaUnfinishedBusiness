@@ -130,7 +130,6 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetFeatures(powerRoyalKnightInspiringProtection)
                             .AddCustomSubFeatures(
-                                ForcePowerUseInSpendPowerAction.Marker,
                                 new AddUsablePowersFromCondition(),
                                 new TryAlterOutcomeSavingThrowInspiringProtection(powerRoyalKnightInspiringProtection))
                             .AddToDB()))
@@ -298,6 +297,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             {
                 yield break;
             }
+
+            rulesetOriginalHelper.UsePower(usablePower);
 
             action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
                 ? action.ActionParams.AttackMode.TryRollSavingThrow(

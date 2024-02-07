@@ -1921,8 +1921,7 @@ internal static class Level20SubclassesContext
 
             gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
 
-            yield return gameLocationBattleService
-                .WaitForReactions(source, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

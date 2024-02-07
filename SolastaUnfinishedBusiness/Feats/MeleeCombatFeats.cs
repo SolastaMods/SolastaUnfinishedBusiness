@@ -659,8 +659,8 @@ internal static class MeleeCombatFeats
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(target, gameLocationActionService,
-                previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(target, gameLocationActionService, previousReactionCount);
         }
     }
 
@@ -1110,18 +1110,13 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                {
-                    StringParameter = "Reaction/&CustomReactionCrusherDescription"
-                };
+            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
             var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("Crusher", reactionParams);
 
             actionService.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(
-                attacker, actionService, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {

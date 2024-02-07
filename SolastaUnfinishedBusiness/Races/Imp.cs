@@ -133,7 +133,6 @@ internal static class RaceImpBuilder
             .SetUsesProficiencyBonus(ActivationTime.Reaction)
             .SetReactionContext(ExtraReactionContext.Custom)
             .DelegatedToAction()
-            .AddCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
 
         var toggle = ActionDefinitionBuilder
@@ -312,6 +311,8 @@ internal static class RaceImpBuilder
             {
                 yield break;
             }
+
+            rulesetAttacker.UsePower(usablePower);
 
             var damageForm = new DamageForm
             {

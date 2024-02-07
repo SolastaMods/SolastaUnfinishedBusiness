@@ -414,7 +414,6 @@ internal static class Level20Context
             .AddToDB();
 
         powerRogueStrokeOfLuck.AddCustomSubFeatures(
-            ForcePowerUseInSpendPowerAction.Marker,
             new TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -900,6 +899,8 @@ internal static class Level20Context
             {
                 yield break;
             }
+
+            rulesetCharacter.UsePower(usablePower);
 
             var delta = -action.AttackSuccessDelta;
 

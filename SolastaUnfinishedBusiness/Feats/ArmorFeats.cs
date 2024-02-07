@@ -209,7 +209,7 @@ internal static class ArmorFeats
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerShieldTechniques, rulesetDefender);
-            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "ShieldTechniques",
                 ActionModifiers = { new ActionModifier() },
@@ -221,10 +221,9 @@ internal static class ArmorFeats
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", defender);
+            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService
-                .WaitForReactions(defender, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
         }
 
         // add +2 on DEX savings

@@ -625,11 +625,9 @@ RaceWendigo	Male	Yeljor
 RaceWendigo	Male	Corfra
 RaceWendigo	Male	Aeghal
 RaceWendigo	Male	Stone
-RaceWendigo	Male	Maeradok
 RaceWendigo	Female	Lucky
 RaceWendigo	Female	Nightfall
 RaceWendigo	Female	Sylmoira
 RaceWendigo	Female	Fastina
 RaceWendigo	Female	Envaris
 RaceWendigo	Female	Wuenwetel
-RaceWendigo	Female	Tamadylyc
