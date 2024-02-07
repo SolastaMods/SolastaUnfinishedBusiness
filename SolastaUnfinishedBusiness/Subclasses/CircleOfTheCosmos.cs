@@ -188,10 +188,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(character =>
                 {
-                    if (!character.HasAnyConditionOfType(
-                            $"Condition{Name}Archer",
-                            $"Condition{Name}Chalice",
-                            $"Condition{Name}Dragon"))
+                    if (Gui.Battle == null || !HasConditionConstellationForm(character))
                     {
                         return false;
                     }
@@ -213,28 +210,35 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 }))
             .AddToDB();
 
+        powerSwitchConstellationForm.AddCustomSubFeatures(
+            new MagicEffectFinishedByMeTwinklingStarsRefund(powerSwitchConstellationForm));
+
+        var powerSwitchConstellationFormAtWill = FeatureDefinitionPowerBuilder
+            .Create(powerSwitchConstellationForm, $"Power{Name}SwitchConstellationFormAtWill")
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(c => Gui.Battle == null && HasConditionConstellationForm(c)))
+            .AddToDB();
+
         var powerSwitchConstellationFormArcher = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}SwitchConstellationFormArcher")
             .SetGuiPresentation($"Power{Name}ArcherConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Archer", powerArcherConstellationForm))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars(powerArcherConstellationForm))
             .AddToDB();
 
         var powerSwitchConstellationFormChalice = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}SwitchConstellationFormChalice")
             .SetGuiPresentation($"Power{Name}ChaliceConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Chalice", powerChaliceConstellationForm))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars(powerChaliceConstellationForm))
             .AddToDB();
 
         var powerSwitchConstellationFormDragon = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}SwitchConstellationFormDragon")
             .SetGuiPresentation($"Power{Name}DragonConstellationForm", Category.Feature)
             .SetSharedPool(ActivationTime.NoCost, powerSwitchConstellationForm)
-            .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeTwinklingStars($"Condition{Name}Dragon", powerDragonConstellationForm))
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeTwinklingStars(powerDragonConstellationForm))
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -247,7 +251,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var featureSetTwinklingStars = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}TwinklingStars")
             .SetGuiPresentation(Category.Feature)
-            .SetFeatureSet(powerSwitchConstellationForm)
+            .SetFeatureSet(powerSwitchConstellationForm, powerSwitchConstellationFormAtWill)
             .AddToDB();
 
         // LEVEL 14
@@ -269,6 +273,16 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddFeaturesAtLevel(10, featureSetTwinklingStars)
             .AddFeaturesAtLevel(14, featureNovaStar)
             .AddToDB();
+
+        return;
+
+        static bool HasConditionConstellationForm(
+            // ReSharper disable once SuggestBaseTypeForParameter
+            RulesetCharacter character)
+        {
+            return character
+                .HasAnyConditionOfType($"Condition{Name}Archer", $"Condition{Name}Chalice", $"Condition{Name}Dragon");
+        }
     }
 
     internal override CharacterClassDefinition Klass => Druid;
@@ -284,8 +298,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     private static FeatureDefinitionPowerSharedPool BuildArcher(ActivationTime activationTime)
     {
         var sprite = Sprites.GetSprite("ConstellationFormArcher", Resources.PowerArcher, 256, 128);
-
-        // Archer No Cost
 
         var powerArcherNoCost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcherNoCost")
@@ -323,8 +335,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             ValidatorsValidatePowerUse.InCombat,
             new ModifyEffectDescriptionArcher(powerArcherNoCost),
             new MagicEffectFinishedByMeArcherNoCost(conditionArcherNoCost));
-
-        // Archer Bonus Action
 
         var powerArcher = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Archer")
@@ -409,8 +419,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
     private static FeatureDefinitionPowerSharedPool BuildChalice(ActivationTime activationTime)
     {
-        // Chalice Bonus Action
-
         var powerChalice = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Chalice")
             .SetGuiPresentation(Category.Feature, PowerPaladinLayOnHands)
@@ -696,7 +704,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         {
             var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
             var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
-
             var damageForm = effectDescription.EffectForms.FirstOrDefault(x =>
                 x.FormType == EffectForm.EffectFormType.Damage);
 
@@ -784,7 +791,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         {
             var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
             var wisMod = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
-
             var healingForm = effectDescription.EffectForms.FirstOrDefault(x =>
                 x.FormType == EffectForm.EffectFormType.Healing);
 
@@ -1152,8 +1158,22 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
     // Twinkling Stars
     //
 
+    private sealed class MagicEffectFinishedByMeTwinklingStarsRefund(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower magicEffect) : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var usablePower = PowerProvider.Get(magicEffect, rulesetCharacter);
+
+            usablePower.Recharge();
+
+            yield break;
+        }
+    }
+
     private sealed class MagicEffectFinishedByMeTwinklingStars(
-        string conditionName,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower magicEffect) : IMagicEffectFinishedByMe
     {
@@ -1170,26 +1190,32 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var durationType = activeCondition.DurationType;
-            var rounds = activeCondition.RemainingRounds;
-            var endOccurence = activeCondition.EndOccurence;
+            var remainingRounds = activeCondition.RemainingRounds;
 
             rulesetCharacter.RemoveCondition(activeCondition);
-            EffectHelpers.StartVisualEffect(
-                actingCharacter, actingCharacter, magicEffect, EffectHelpers.EffectType.Caster);
-            rulesetCharacter.InflictCondition(
-                conditionName,
-                durationType,
-                rounds,
-                endOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                conditionName,
-                0,
-                0,
-                0);
+
+            var implementationManagerService = ServiceRepository.GetService<IRulesetImplementationService>()
+                as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(magicEffect, rulesetCharacter);
+            var effectPower = implementationManagerService
+                //CHECK: no need for AddAsActivePowerToSource
+                .MyInstantiateEffectPower(rulesetCharacter, usablePower, false);
+
+            effectPower.remainingRounds = remainingRounds;
+
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = effectPower,
+                UsablePower = usablePower,
+                TargetCharacters = { actingCharacter }
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+
+            usablePower.RepayUse();
         }
     }
 }
