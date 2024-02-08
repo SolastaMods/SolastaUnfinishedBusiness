@@ -186,7 +186,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -197,12 +197,12 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             }
 
             // ReSharper disable once ConvertIfStatementToSwitchStatement
-            if (outcome == RollOutcome.CriticalSuccess)
+            if (rollOutcome == RollOutcome.CriticalSuccess)
             {
                 rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionUnbridledFerocity.Name);
             }
-            else if (outcome == RollOutcome.Success && rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
+            else if (rollOutcome == RollOutcome.Success && rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
             {
                 rulesetAttacker.InflictCondition(
                     conditionUnbridledFerocity.Name,

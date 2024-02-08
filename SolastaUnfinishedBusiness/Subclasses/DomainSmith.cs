@@ -395,12 +395,12 @@ public sealed class DomainSmith : AbstractSubclass
         : IPhysicalAttackInitiatedOnMe
     {
         public IEnumerator OnPhysicalAttackInitiatedOnMe(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
             var rulesetDefender = defender.RulesetCharacter;
 

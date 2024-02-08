@@ -223,10 +223,10 @@ public sealed class OathOfHatred : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }

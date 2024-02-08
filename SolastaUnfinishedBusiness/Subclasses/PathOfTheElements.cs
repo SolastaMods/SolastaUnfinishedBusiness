@@ -589,11 +589,11 @@ public sealed class PathOfTheElements : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
@@ -679,7 +679,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 false,
                 rulesetAttacker.Guid,
                 false,
-                attackerAttackMode.AttackTags,
+                attackMode.AttackTags,
                 new RollInfo(DieType.D1, [], classLevel),
                 true,
                 out _);

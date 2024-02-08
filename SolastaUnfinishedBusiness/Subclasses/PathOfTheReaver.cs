@@ -232,10 +232,10 @@ public sealed class PathOfTheReaver : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            if (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess)
             {
                 yield break;
             }
@@ -261,7 +261,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             var multiplier = 1;
 
-            if (outcome is RollOutcome.CriticalSuccess)
+            if (rollOutcome is RollOutcome.CriticalSuccess)
             {
                 multiplier += 1;
             }
@@ -337,10 +337,10 @@ public sealed class PathOfTheReaver : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            if (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess)
             {
                 yield break;
             }

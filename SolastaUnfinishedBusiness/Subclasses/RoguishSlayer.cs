@@ -457,16 +457,16 @@ public sealed class RoguishSlayer : AbstractSubclass
         : IPhysicalAttackInitiatedByMe
     {
         public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (__instance is not { IsBattleInProgress: true } ||
+            if (battleManager is not { IsBattleInProgress: true } ||
                 rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {

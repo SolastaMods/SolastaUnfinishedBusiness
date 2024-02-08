@@ -1899,10 +1899,10 @@ internal static class CharacterContext
         private FeatureDefinitionPower _selectedPower;
 
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager gameLocationBattleManager,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -1925,14 +1925,14 @@ internal static class CharacterContext
                 yield break;
             }
 
-            if (!IsSneakAttackValid(attackModifier, attacker, defender, attackMode))
+            if (!IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
             {
                 yield break;
             }
 
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (manager == null || gameLocationBattleManager is not { IsBattleInProgress: true })
+            if (manager == null || battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1943,7 +1943,7 @@ internal static class CharacterContext
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = { attackModifier },
+                ActionModifiers = { actionModifier },
                 StringParameter = powerRogueCunningStrike.Name,
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
@@ -1956,7 +1956,7 @@ internal static class CharacterContext
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleManager.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, manager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1995,8 +1995,8 @@ internal static class CharacterContext
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             if (_selectedPower == null || _selectedPower.EffectDescription.RangeType != RangeType.MeleeHit)

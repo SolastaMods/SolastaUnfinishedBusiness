@@ -180,14 +180,13 @@ public sealed class OathOfAltruism : AbstractSubclass
 
     private class SpiritualShieldingBlockAttack : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter me,
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect,
-            ActionModifier attackModifier,
             int attackRoll)
         {
             if (rulesetEffect != null
@@ -197,21 +196,21 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var unitCharacter = me.RulesetCharacter;
+            var unitCharacter = helper.RulesetCharacter;
 
-            if (me == defender)
+            if (helper == defender)
             {
                 yield break;
             }
 
             //Is this unit able to react (not paralyzed, prone etc.)?
-            if (!me.CanReact(true))
+            if (!helper.CanReact(true))
             {
                 yield break;
             }
 
             //Can this unit see defender?
-            if (!me.CanPerceiveTarget(defender))
+            if (!helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
@@ -234,7 +233,7 @@ public sealed class OathOfAltruism : AbstractSubclass
 
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                              + attackModifier.AttackRollModifier;
+                              + actionModifier.AttackRollModifier;
 
             //Can shielding prevent hit?
             if (!rulesetDefender.CanMagicEffectPreventHit(Shield, totalAttack))
@@ -245,7 +244,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            var actionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
+            var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = "CustomReactionSpiritualShieldingDescription"
                     .Formatted(Category.Reaction, defender.Name, attacker.Name)
@@ -253,7 +252,7 @@ public sealed class OathOfAltruism : AbstractSubclass
 
             RequestCustomReaction("SpiritualShielding", actionParams);
 
-            yield return battleManager.WaitForReactions(me, actionService, count);
+            yield return battleManager.WaitForReactions(helper, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {

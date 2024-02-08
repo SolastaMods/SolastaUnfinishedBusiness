@@ -1065,8 +1065,8 @@ public static class GameLocationBattleManagerPatcher
                                  .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
                                  .Select(x =>
                                      x.OnAttackBeforeHitPossibleOnMeOrAlly(
-                                         __instance, featureOwner, attacker, defender, attackMode, rulesetEffect,
-                                         attackModifier, attackRoll))))
+                                         __instance, attacker, defender, featureOwner, attackModifier, attackMode,
+                                         rulesetEffect, attackRoll))))
                 {
                     while (extraEvents.MoveNext())
                     {

@@ -331,10 +331,10 @@ public sealed class MartialTactician : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -552,15 +552,15 @@ public sealed class MartialTactician : AbstractSubclass
         : IPhysicalAttackInitiatedByMe
     {
         public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
-            if (attackerAttackMode.actionType != ActionDefinitions.ActionType.Reaction &&
-                !attackerAttackMode.attackTags.Contains(TacticalAwareness))
+            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction &&
+                !attackMode.attackTags.Contains(TacticalAwareness))
             {
                 yield break;
             }

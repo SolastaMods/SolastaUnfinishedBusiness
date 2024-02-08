@@ -10,10 +10,11 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 public interface IAttackBeforeHitConfirmedOnMe
 {
     [UsedImplicitly]
-    IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+    IEnumerator OnAttackBeforeHitConfirmedOnMe(
+        GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ActionModifier attackModifier,
+        ActionModifier actionModifier,
         RulesetAttackMode attackMode,
         bool rangedAttack,
         AdvantageType advantageType,

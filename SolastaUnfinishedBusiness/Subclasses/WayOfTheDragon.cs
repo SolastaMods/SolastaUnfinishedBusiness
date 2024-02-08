@@ -779,10 +779,10 @@ public sealed class WayOfTheDragon : AbstractSubclass
         ConditionDefinition conditionReactiveHide)
         : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -800,7 +800,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier magicModifier,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
@@ -814,11 +814,11 @@ public sealed class WayOfTheDragon : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }

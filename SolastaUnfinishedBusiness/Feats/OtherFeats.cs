@@ -893,11 +893,11 @@ internal static class OtherFeats
             GameLocationCharacter me,
             GameLocationCharacter target,
             RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             //Missed: skipping
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
@@ -918,11 +918,11 @@ internal static class OtherFeats
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             //Missed: skipping
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }

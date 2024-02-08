@@ -227,11 +227,11 @@ public class PatronMountain : AbstractSubclass
             IAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            ActionModifier attackModifier,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -242,21 +242,21 @@ public class PatronMountain : AbstractSubclass
         {
             if (rulesetEffect == null)
             {
-                yield return HandleReaction(attacker, defender, me);
+                yield return HandleReaction(attacker, defender, helper);
             }
         }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMeOrAlly(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            ActionModifier magicModifier,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(attacker, defender, me);
+            yield return HandleReaction(attacker, defender, helper);
         }
 
         private IEnumerator HandleReaction(

@@ -203,10 +203,10 @@ public sealed class RoguishAcrobat : AbstractSubclass
         : IAttackBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -251,7 +251,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            yield return battle.WaitForReactions(me, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(me, gameLocationActionManager, count);
         }
     }
 }

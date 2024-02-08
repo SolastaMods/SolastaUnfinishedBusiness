@@ -12,8 +12,8 @@ public interface IPhysicalAttackFinishedByMeOrAlly
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter ally,
-        RulesetAttackMode attackerAttackMode,
-        RollOutcome attackRollOutcome,
+        GameLocationCharacter helper,
+        RulesetAttackMode attackMode,
+        RollOutcome rollOutcome,
         int damageAmount);
 }

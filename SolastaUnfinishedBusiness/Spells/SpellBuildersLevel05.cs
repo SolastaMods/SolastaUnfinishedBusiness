@@ -521,13 +521,13 @@ internal static partial class SpellBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
                 rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
                 rulesetDefender.CurrentHitPoints > 50)
@@ -620,7 +620,7 @@ internal static partial class SpellBuilders
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier magicModifier,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,

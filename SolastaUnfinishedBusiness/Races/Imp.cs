@@ -216,8 +216,8 @@ internal static class RaceImpBuilder
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             if (action.AttackRollOutcome != RollOutcome.Success &&
@@ -229,8 +229,8 @@ internal static class RaceImpBuilder
             yield return HandleImpishWrath(
                 attacker,
                 defender,
-                attackerAttackMode.attackTags,
-                attackerAttackMode.EffectDescription.FindFirstDamageForm()?.damageType);
+                attackMode.attackTags,
+                attackMode.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
         private IEnumerator HandleImpishWrath(

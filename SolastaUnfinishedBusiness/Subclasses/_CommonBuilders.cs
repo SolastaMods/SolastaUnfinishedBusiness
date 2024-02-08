@@ -168,10 +168,10 @@ internal static class CommonBuilders
     {
         //supports Sunlit Blade and Resonating Strike
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -192,7 +192,7 @@ internal static class CommonBuilders
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier magicModifier,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,

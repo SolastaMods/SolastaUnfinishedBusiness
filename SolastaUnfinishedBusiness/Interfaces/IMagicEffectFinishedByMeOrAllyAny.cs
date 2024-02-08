@@ -11,5 +11,5 @@ public interface IMagicEffectFinishedByMeOrAllyAny
         CharacterActionMagicEffect action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter ally);
+        GameLocationCharacter helper);
 }

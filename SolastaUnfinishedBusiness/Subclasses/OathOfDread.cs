@@ -381,9 +381,9 @@ public sealed class OathOfDread : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            GameLocationCharacter helper,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var gameLocationActionService =
@@ -396,12 +396,12 @@ public sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            if (me.IsMyTurn())
+            if (helper.IsMyTurn())
             {
                 yield break;
             }
 
-            if (!me.CanReact())
+            if (!helper.CanReact())
             {
                 yield break;
             }
@@ -422,11 +422,11 @@ public sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(attacker);
+            var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(attacker);
 
             if (retaliationMode == null)
             {
-                (retaliationMode, retaliationModifier) = me.GetFirstRangedModeThatCanAttack(attacker);
+                (retaliationMode, retaliationModifier) = helper.GetFirstRangedModeThatCanAttack(attacker);
 
                 if (retaliationMode == null)
                 {
@@ -436,7 +436,7 @@ public sealed class OathOfDread : AbstractSubclass
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+            var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity);
 
             reactionParams.TargetCharacters.Add(attacker);
             reactionParams.StringParameter = defender.Name;

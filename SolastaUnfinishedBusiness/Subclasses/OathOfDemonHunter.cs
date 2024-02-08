@@ -191,16 +191,16 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
 
-            if (!IsOathOfDemonHunterWeapon(attackerAttackMode, null, null))
+            if (!IsOathOfDemonHunterWeapon(attackMode, null, null))
             {
                 yield break;
             }

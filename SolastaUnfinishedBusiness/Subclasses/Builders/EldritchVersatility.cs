@@ -590,7 +590,7 @@ internal static class EldritchVersatilityBuilders
             public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
                 GameLocationCharacter attacker,
                 GameLocationCharacter defender,
-                ActionModifier magicModifier,
+                ActionModifier actionModifier,
                 RulesetEffect rulesetEffect,
                 List<EffectForm> actualEffectForms,
                 bool firstTarget,
@@ -1008,36 +1008,35 @@ internal static class EldritchVersatilityBuilders
 
     private sealed class EldritchAegisTwistHit : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter me,
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect,
-            ActionModifier attackModifier,
             int attackRoll)
         {
-            var ownerCharacter = me.RulesetCharacter;
+            var ownerCharacter = helper.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
             var alreadyBlocked =
                 EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
                     defenderCharacter, out var eldritchAegisSupportCondition);
 
-            if (!alreadyBlocked && (!me.IsWithinRange(defender, 6) || !defender.CanPerceiveTarget(me)))
+            if (!alreadyBlocked && (!helper.IsWithinRange(defender, 6) || !defender.CanPerceiveTarget(helper)))
             {
                 yield break;
             }
 
             // This function also adjust AC to just enough block the attack, so if alreadyBlocked, we should not abort.
-            if ((!me.CanReact(true) && !alreadyBlocked)
-                || !me.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if ((!helper.CanReact(true) && !alreadyBlocked)
+                || !helper.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
 
             //Can this unit see defender?
-            if (!me.CanPerceiveTarget(defender))
+            if (!helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
@@ -1045,7 +1044,7 @@ internal static class EldritchVersatilityBuilders
             // Get attack roll outcome
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                              + attackModifier.AttackRollModifier;
+                              + actionModifier.AttackRollModifier;
 
             var currentValue = defenderCharacter.RefreshArmorClass(true).CurrentValue;
             var requiredACAddition = totalAttack - currentValue + 1;
@@ -1101,14 +1100,14 @@ internal static class EldritchVersatilityBuilders
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            var actionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
+            var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = "CustomReactionEldritchAegis".Formatted(Category.Reaction, defender.Name)
             };
 
             RequestCustomReaction(actionService, "EldritchAegis", actionParams, requiredACAddition);
 
-            yield return battleManager.WaitForReactions(me, actionService, count);
+            yield return battleManager.WaitForReactions(helper, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {

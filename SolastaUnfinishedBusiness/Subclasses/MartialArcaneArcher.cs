@@ -686,8 +686,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             if (PowerSpent == null || !ArcaneShotPowers.TryGetValue(PowerSpent, out var arcaneArcherData))
@@ -707,7 +707,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             // apply arrow behaviors after attack is complete
             if (PowerSpent == _powerBurstingArrow)
             {
-                InflictBurstingArrowAreaDamage(attacker, defender, attackerAttackMode, arcaneArcherData, action);
+                InflictBurstingArrowAreaDamage(attacker, defender, attackMode, arcaneArcherData, action);
             }
             else
             {

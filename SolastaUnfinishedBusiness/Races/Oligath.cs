@@ -156,10 +156,10 @@ internal static class RaceOligathBuilder
     private class AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower featureDefinitionPower)
         : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -177,7 +177,7 @@ internal static class RaceOligathBuilder
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier magicModifier,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,

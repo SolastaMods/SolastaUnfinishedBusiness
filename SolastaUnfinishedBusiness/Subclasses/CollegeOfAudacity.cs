@@ -396,10 +396,10 @@ public sealed class CollegeOfAudacity : AbstractSubclass
 
         // collect damage type
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -428,8 +428,8 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;

@@ -820,11 +820,11 @@ internal static partial class SpellBuilders
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackerAttackMode is not { Ranged: true } or { Thrown: true })
+            if (attackMode is not { Ranged: true } or { Thrown: true })
             {
                 yield break;
             }
@@ -954,10 +954,10 @@ internal static partial class SpellBuilders
         private const int MainTargetDiceNumber = 3;
 
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -998,7 +998,7 @@ internal static partial class SpellBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             if (attackMode is not { Ranged: true } && attackMode is not { Thrown: true })
@@ -1024,7 +1024,7 @@ internal static partial class SpellBuilders
             rulesetAttacker.RemoveCondition(activeCondition);
 
             // half damage on target on a miss
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 var rolls = new List<int>();
                 var damageForm = new DamageForm
@@ -1200,7 +1200,7 @@ internal static partial class SpellBuilders
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var rulesetDefender in action.ActionParams.TargetCharacters
                          .Select(target => target.RulesetCharacter)
-                         .Where(rulesetDefender => 
+                         .Where(rulesetDefender =>
                              rulesetDefender is { IsDeadOrDyingOrUnconscious: false }))
             {
                 rulesetDefender.InflictCondition(
@@ -1267,7 +1267,7 @@ internal static partial class SpellBuilders
             var caster = action.ActingCharacter;
             var rulesetCaster = caster.RulesetCharacter;
             var diceNumber = 4 + actionCastSpell.activeSpell.EffectLevel - 3;
-            
+
             // need to loop over target characters to support twinned metamagic scenarios
             foreach (var target in action.ActionParams.TargetCharacters)
             {
@@ -1291,7 +1291,6 @@ internal static partial class SpellBuilders
 
                 rulesetTarget.ReceiveHealing(totalHealing, true, rulesetCaster.Guid);
             }
-
         }
     }
 

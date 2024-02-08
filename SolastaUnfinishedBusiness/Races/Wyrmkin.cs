@@ -229,16 +229,16 @@ internal static class RaceWyrmkinBuilder
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
 
-            if (attackerAttackMode.Ranged)
+            if (attackMode.Ranged)
             {
                 yield break;
             }
@@ -323,8 +323,8 @@ internal static class RaceWyrmkinBuilder
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var gameLocationActionService =
@@ -344,7 +344,7 @@ internal static class RaceWyrmkinBuilder
             }
 
             // only trigger on a hit
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }

@@ -140,10 +140,10 @@ public sealed class RoguishDuelist : AbstractSubclass
         : IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -164,7 +164,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            attackModifier.DefenderDamageMultiplier *= 0.5f;
+            actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParty);
         }
 
@@ -173,11 +173,11 @@ public sealed class RoguishDuelist : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -219,8 +219,8 @@ public sealed class RoguishDuelist : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetDefender = defender.RulesetCharacter;
@@ -246,10 +246,10 @@ public sealed class RoguishDuelist : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeMain = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
-            actionParams.AttackMode = attackMode;
+            actionParams.AttackMode = attackModeMain;
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);

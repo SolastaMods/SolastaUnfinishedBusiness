@@ -64,8 +64,8 @@ internal sealed class Interception : AbstractFightingStyle
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            ActionModifier attackModifier,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -74,22 +74,22 @@ internal sealed class Interception : AbstractFightingStyle
             bool firstTarget,
             bool criticalHit)
         {
-            if (me == defender)
+            if (helper == defender)
             {
                 yield break;
             }
 
-            if (!me.IsWithinRange(defender, 1))
+            if (!helper.IsWithinRange(defender, 1))
             {
                 yield break;
             }
 
-            if (!me.CanReact())
+            if (!helper.CanReact())
             {
                 yield break;
             }
 
-            var unitCharacter = me.RulesetCharacter;
+            var unitCharacter = helper.RulesetCharacter;
 
             if (ValidatorsWeapon.IsUnarmed(unitCharacter.GetMainWeapon()?.ItemDefinition, null)
                 && ValidatorsWeapon.IsUnarmed(unitCharacter.GetOffhandWeapon()?.ItemDefinition, null))
@@ -105,7 +105,7 @@ internal sealed class Interception : AbstractFightingStyle
             }
 
             var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "CustomReactionInterceptionDescription"
                         .Formatted(Category.Reaction, defender.Name, attacker.Name)
@@ -115,7 +115,7 @@ internal sealed class Interception : AbstractFightingStyle
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(me, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(helper, manager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {

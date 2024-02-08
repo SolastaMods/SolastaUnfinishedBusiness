@@ -311,10 +311,10 @@ public sealed class RangerLightBearer : AbstractSubclass
         : IAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -454,27 +454,27 @@ public sealed class RangerLightBearer : AbstractSubclass
     private sealed class PhysicalAttackInitiatedOnMeOrAllyWardingLight : IPhysicalAttackInitiatedOnMeOrAlly
     {
         public IEnumerator OnPhysicalAttackInitiatedOnMeOrAlly(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter ally,
+            GameLocationCharacter helper,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
-            if (__instance is not { IsBattleInProgress: true })
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
 
-            using var onPhysicalAttackInitiatedOnMeOrAlly = __instance.Battle.GetContenders(attacker, withinRange: 6)
+            using var onPhysicalAttackInitiatedOnMeOrAlly = battleManager.Battle.GetContenders(attacker, withinRange: 6)
                 .Where(opposingContender =>
                     opposingContender.CanReact() &&
                     opposingContender.CanPerceiveTarget(attacker) &&
                     opposingContender.CanPerceiveTarget(defender) &&
                     opposingContender.GetActionStatus(
                         Id.BlockAttack, ActionScope.Battle, ActionStatus.Available) == ActionStatus.Available)
-                .Select(opposingContender => __instance.PrepareAndReact(
+                .Select(opposingContender => battleManager.PrepareAndReact(
                     opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
                     additionalTargetCharacter: defender))
                 .GetEnumerator();

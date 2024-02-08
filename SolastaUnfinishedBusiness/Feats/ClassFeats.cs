@@ -362,7 +362,7 @@ internal static class ClassFeats
             CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter ally)
+            GameLocationCharacter helper)
         {
             var effectDescription = action.actionParams.RulesetEffect.EffectDescription;
 
@@ -373,7 +373,7 @@ internal static class ClassFeats
 
             var attackRollOutcome = action.AttackRollOutcome;
 
-            yield return HandleReaction(attackRollOutcome, attacker, defender, ally);
+            yield return HandleReaction(attackRollOutcome, attacker, defender, helper);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMeOrAlly(
@@ -381,12 +381,12 @@ internal static class ClassFeats
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter ally,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            GameLocationCharacter helper,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            yield return HandleReaction(attackRollOutcome, attacker, defender, ally);
+            yield return HandleReaction(rollOutcome, attacker, defender, helper);
         }
 
         private static IEnumerator HandleReaction(

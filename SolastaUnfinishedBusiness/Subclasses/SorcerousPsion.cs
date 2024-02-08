@@ -294,7 +294,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier magicModifier,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,

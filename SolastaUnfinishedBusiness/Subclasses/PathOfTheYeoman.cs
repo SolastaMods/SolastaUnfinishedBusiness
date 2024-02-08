@@ -319,11 +319,11 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
@@ -333,7 +333,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) ||
                 rulesetAttacker.IsWearingHeavyArmor() ||
-                !IsLongBow(attackerAttackMode, null, null))
+                !IsLongBow(attackMode, null, null))
             {
                 yield break;
             }
