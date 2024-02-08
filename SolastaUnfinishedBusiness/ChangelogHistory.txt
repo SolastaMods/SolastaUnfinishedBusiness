@@ -5,9 +5,9 @@ RESPEC MIGHT BE REQUIRED ON: Scoundrel, Defiler, Duelist, and Raven [if heroes o
 
 - added Circle of the Cosmos subclass [only difference compared with TT is it won't react on attribute checks]
 - fixed College of War Dancer improved war dancer not granting extra attacks while war dancer is active
-- fixed Resonating Blade interaction with twinned metamagic
+- fixed Corrupting Bolt, Ice Blade, Resonating Blade, Sanctuary, and Vitality Transfer interaction with twinned
 - fixed some reaction like powers not updating usage after confirmation [i.e.: Imp Wrath, etc.]
-- fixed War Magic incorrectly granting a bonus attack after a main one
+- fixed War Magic incorrectly granting a bonus attack after a main attack
 - improved all custom reaction powers to present the source power usages on modal whenever appropriate
 - improved Cunning Strike and Devil Strike tooltips to display power usage as amount of sneak dice used
 - improved mod backend for better maintainability, multiplayer compatibility, and performance
