@@ -68,7 +68,6 @@ ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzung
 ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktivieren Sie <color=#D89555>Superior Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Deaktivieren Sie die Unterstützung inoffizieller Übersetzungen, um den Mod zu beschleunigen <i><color=#F0DAA0>[es sei denn, ich spreche Chinesisch, Italienisch, Japanisch, Koreanisch oder Spanisch]</color></i>
-ModUi/&DisableUpdateMessage=Deaktivieren Sie Aktualisierungsnachrichten <i><color=#F0DAA0>[Benutzer der blauen Pille, dies ist Ihre letzte Chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Zeigt beim Levelaufstieg alle bekannten Zauber anderer Klassen an</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Paktslots für <color=#D89555>Hexenmeister</color> bei der Zauberauswahl statt im Charakterfenster anzeigen</i>
 ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>

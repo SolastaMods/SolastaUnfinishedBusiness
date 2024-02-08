@@ -211,7 +211,6 @@
     <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
-    <DeprecatedSubsReenableList/>
     <MonstersThatShouldHaveDarkvision>
         <string>Adam_The_Twelth</string>
         <string>DLC3_Elven_07_Guard</string>
@@ -282,12 +281,10 @@
         <string>PowerWayOfTheDistantHandZenArrowTechnique</string>
         <string>PowerWayOfTheDistantHandZenArrowUpgradedTechnique</string>
     </EffectsThatTargetDistantIndividualsAndDontRequireSight>
-    <DisableUpdateMessage>false</DisableUpdateMessage>
     <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
     <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
     <EnablePcgRandom>false</EnablePcgRandom>
     <EnableSaveByLocation>false</EnableSaveByLocation>
-    <EnableRespec>false</EnableRespec>
     <EnableTogglesToOverwriteDefaultTestParty>false</EnableTogglesToOverwriteDefaultTestParty>
     <DefaultPartyHeroes/>
     <EnableCharacterChecker>false</EnableCharacterChecker>
@@ -304,11 +301,8 @@
     <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
     <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
     <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
-    <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
     <EnableAlternateHuman>false</EnableAlternateHuman>
     <EnableFlexibleRaces>false</EnableFlexibleRaces>
-    <AddDarknessPerceptiveToDarkRaces>false</AddDarknessPerceptiveToDarkRaces>
-    <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
     <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
     <ImproveLevelUpFeaturesSelection>false</ImproveLevelUpFeaturesSelection>
     <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
@@ -403,6 +397,7 @@
     <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
     <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
     <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
+    <ChangeDragonbornElementalBreathUsages>false</ChangeDragonbornElementalBreathUsages>
     <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
     <AllowFlightSuspend>false</AllowFlightSuspend>
     <FlightSuspendWingedBoots>false</FlightSuspendWingedBoots>
@@ -412,6 +407,8 @@
     <ColdResistanceAlsoGrantsImmunityToChilledCondition>false</ColdResistanceAlsoGrantsImmunityToChilledCondition>
     <ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>false
     </ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>
+    <AddDarknessPerceptiveToDarkRaces>false</AddDarknessPerceptiveToDarkRaces>
+    <RaceLightSensitivityApplyOutdoorsOnly>false</RaceLightSensitivityApplyOutdoorsOnly>
     <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
@@ -836,6 +833,7 @@
     <AllowMoreRealStateOnRestPanel>false</AllowMoreRealStateOnRestPanel>
     <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
     <EnableActionSwitching>false</EnableActionSwitching>
+    <EnableRespec>false</EnableRespec>
     <EnableStatsOnHeroTooltip>false</EnableStatsOnHeroTooltip>
     <EnableCustomPortraits>false</EnableCustomPortraits>
     <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
@@ -1066,5 +1064,5 @@
     <SelectedLanguageCode>en</SelectedLanguageCode>
     <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
     <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
-    <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+    <DebugDisableVerifyDefinitionNameIsNotInUse>true</DebugDisableVerifyDefinitionNameIsNotInUse>
 </Settings>

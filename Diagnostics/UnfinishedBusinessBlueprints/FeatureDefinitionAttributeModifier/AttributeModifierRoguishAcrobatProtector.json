@@ -4,7 +4,7 @@
   "modifierOperation": "AddHalfProficiencyBonus",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
-  "situationalContext": 1012,
+  "situationalContext": 9015,
   "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {

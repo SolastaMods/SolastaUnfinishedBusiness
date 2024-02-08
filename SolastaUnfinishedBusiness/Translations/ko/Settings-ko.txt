@@ -68,7 +68,6 @@ ModUi/&DisableRacePrerequisitesOnModFeats=이 모드에서 제공하는 특성�
 ModUi/&DisableSenseDarkVisionFromAllRaces=플레이 가능한 모든 종족의 <color=#D89555>암흑 시야</color>를 비활성화 <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종족의 <color=#D89555>뛰어난 암흑시야</color>(일반 암흑시야의 두 배 거리)를 비활성화 <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&DisableUnofficialTranslations=비공식 번역 지원을 비활성화하여 모드 속도 향상 <i><color=#F0DAA0>[한국어, 일본어, 중국어, 이탈리아어, 스페인어 사용자가 아닐 경우 체크]</color></i>
-ModUi/&DisableUpdateMessage=업데이트 메시지 비활성화 <i><color=#F0DAA0>[파란약을 먹고 아무 소식도 듣지 않기]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨업 중 다른 직업의 모든 알려진 주문 표시</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택 시 <color=#D89555>워락</color> 계약 슬롯을 표시</i>
 ModUi/&Donate=<b><color=#D89555>후원하기:</color></b> <i>{0}</i>

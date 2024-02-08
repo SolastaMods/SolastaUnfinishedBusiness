@@ -68,7 +68,6 @@ ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci la visione oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Oscuro Senso Superiore</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Disabilita il supporto delle traduzioni non ufficiali per velocizzare la mod <i><color=#F0DAA0>[a meno che non parli cinese, italiano, giapponese, coreano o spagnolo]</color></i>
-ModUi/&DisableUpdateMessage=Disabilita i messaggi di aggiornamento <i><color=#F0DAA0>[utenti della pillola blu, questa è la tua ultima possibilità]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
 ModUi/&Donate=<b><color=#D89555>Dona:</color></b> <i>{0}</i>

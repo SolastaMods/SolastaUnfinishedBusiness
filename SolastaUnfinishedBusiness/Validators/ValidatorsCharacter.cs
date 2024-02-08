@@ -115,6 +115,9 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainAndOffhand = character =>
         HasMeleeWeaponInMainHand(character) && HasMeleeWeaponInOffHand(character);
 
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainOrOffhand = character =>
+        HasMeleeWeaponInMainHand(character) || HasMeleeWeaponInOffHand(character);
+
     internal static readonly IsCharacterValidHandler IsUnarmedInMainHand = character =>
         ValidatorsWeapon.IsUnarmed(character.GetMainWeapon()?.ItemDefinition, null);
 
@@ -143,13 +146,13 @@ internal static class ValidatorsCharacter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {
-        return character => conditions.Any(character.HasConditionOfType);
+        return character => conditions.Any(character.HasConditionOfTypeOrSubType);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasNoneOfConditions(params string[] conditions)
     {
-        return character => !conditions.Any(character.HasConditionOfType);
+        return character => !conditions.Any(character.HasConditionOfTypeOrSubType);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

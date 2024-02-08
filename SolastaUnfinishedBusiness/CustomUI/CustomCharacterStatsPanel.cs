@@ -186,6 +186,9 @@ public class CustomCharacterStatsPanel
             return;
         }
 
+        _root.position = new Vector3(225, 125, 0);
+        _button.transform.position = new Vector3(50, 50, 0);
+
         #region Stats
 
         _stats.initiativeBox.Refresh();
@@ -210,16 +213,17 @@ public class CustomCharacterStatsPanel
         for (var index = 0; index < _attacks.attackModesTable.childCount; ++index)
         {
             var child = _attacks.attackModesTable.GetChild(index);
-            if (index < _attacks.relevantAttackModes.Count)
+            var attackModeBox = child.GetComponent<AttackModeBox>();
+            attackModeBox.Unbind();
+
+            if (index >= _attacks.relevantAttackModes.Count)
             {
-                child.gameObject.SetActive(true);
-                child.GetComponent<AttackModeBox>().Bind(_attacks.relevantAttackModes[index]);
-            }
-            else
-            {
-                child.GetComponent<AttackModeBox>().Unbind();
                 child.gameObject.SetActive(false);
+                continue;
             }
+
+            child.gameObject.SetActive(true);
+            attackModeBox.Bind(_attacks.relevantAttackModes[index]);
         }
 
         #endregion

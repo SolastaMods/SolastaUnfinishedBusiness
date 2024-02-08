@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -14,7 +15,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -218,13 +218,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddFeatureSet(additionalDamagePossessed, powerEssenceTheft)
             .AddToDB();
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}PremeditationSlot")
-            .SetGuiPresentationNoContent(true)
-            .AddFeatureSet(MagicAffinityAdditionalSpellSlot4)
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
@@ -332,14 +325,15 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.SpendPower)
+            var targets = action.ActionParams.TargetCharacters.ToList();
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = action.ActionParams.TargetCharacters
+                targetCharacters = targets
             };
 
             // different follow up pattern [not adding to ResultingActions]

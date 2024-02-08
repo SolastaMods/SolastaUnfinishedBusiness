@@ -193,6 +193,18 @@ public static class RulesetCharacterPatcher
                              .ToList())
                 {
                     targetRulesetCharacter.RemoveCondition(rulesetCondition);
+
+                    if (targetRulesetCharacter.Guid != rulesetCondition.SourceGuid)
+                    {
+                        continue;
+                    }
+
+                    foreach (var effect in targetRulesetCharacter.PowersUsedByMe
+                                 .Where(x => x.Name == rulesetCondition.EffectDefinitionName)
+                                 .ToList())
+                    {
+                        targetRulesetCharacter.TerminatePower(effect);
+                    }
                 }
             }
         }
@@ -530,7 +542,7 @@ public static class RulesetCharacterPatcher
             }
 
             // raging
-            if (__instance.HasAnyConditionOfType(ConditionRaging))
+            if (__instance.HasConditionOfTypeOrSubType(ConditionRaging))
             {
                 __result = false;
             }

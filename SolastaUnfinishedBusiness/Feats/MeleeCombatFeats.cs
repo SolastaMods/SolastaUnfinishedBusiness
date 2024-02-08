@@ -390,8 +390,16 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(NAME, Category.Feat)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetReactionContext(ExtraReactionContext.Custom)
-            .AddCustomSubFeatures(new SpiritualShieldingBlockAttack(conditionDefensiveDuelist))
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDefensiveDuelist))
+                    .Build())
             .AddToDB();
+
+        powerDefensiveDuelist.AddCustomSubFeatures(new SpiritualShieldingBlockAttack(powerDefensiveDuelist));
 
         return FeatDefinitionBuilder
             .Create(NAME)
@@ -401,9 +409,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private class SpiritualShieldingBlockAttack(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefensiveDuelist)
+    private class SpiritualShieldingBlockAttack(FeatureDefinitionPower powerDefensiveDuelist)
         : IAttackBeforeHitPossibleOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
@@ -416,30 +422,18 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier,
             int attackRoll)
         {
-            if (me != defender)
-            {
-                yield break;
-            }
-
-            if (!me.CanReact())
-            {
-                yield break;
-            }
-
             if (rulesetEffect != null &&
                 rulesetEffect.EffectDescription.RangeType is not (RangeType.Touch or RangeType.MeleeHit))
             {
                 yield break;
             }
 
-            if (!ValidatorsWeapon.IsMelee(attackMode))
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
+            if (!me.CanReact() ||
+                me != defender ||
+                !ValidatorsWeapon.IsMelee(attackMode) ||
+                !ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
             {
                 yield break;
             }
@@ -457,45 +451,34 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-            var actionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-            {
-                StringParameter = "CustomReactionDefensiveDuelistDescription"
-                    .Formatted(Category.Reaction, defender.Name, attacker.Name)
-            };
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (actionManager == null)
+            if (gameLocationActionManager == null)
             {
                 yield break;
             }
 
-            var reactionRequest = new ReactionRequestCustom("DefensiveDuelist", actionParams);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            actionManager.AddInterruptRequest(reactionRequest);
+            var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetDefender);
+            var actionParams =
+                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
+                {
+                    StringParameter = "DefensiveDuelist",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { me }
+                };
 
-            yield return battleManager.WaitForReactions(me, actionService, count);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            rulesetDefender.InflictCondition(
-                conditionDefensiveDuelist.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionDefensiveDuelist.Name,
-                0,
-                0,
-                pb);
+            yield return battleManager.WaitForReactions(me, gameLocationActionManager, count);
         }
     }
 
@@ -676,8 +659,8 @@ internal static class MeleeCombatFeats
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(target, gameLocationActionService,
-                previousReactionCount);
+            yield return gameLocationBattleService
+                .WaitForReactions(target, gameLocationActionService, previousReactionCount);
         }
     }
 
@@ -1127,18 +1110,13 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                {
-                    StringParameter = "Reaction/&CustomReactionCrusherDescription"
-                };
+            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
             var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("Crusher", reactionParams);
 
             actionService.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(
-                attacker, actionService, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1489,9 +1467,9 @@ internal static class MeleeCombatFeats
                                 RulesetImplementationManager;
 
                         var usablePower = PowerProvider.Get(_power, rulesetAttacker);
-                        //CHECK: must be spend power
-                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
                         {
+                            ActionModifiers = { new ActionModifier() },
                             RulesetEffect = implementationManagerService
                                 //CHECK: no need for AddAsActivePowerToSource
                                 .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),

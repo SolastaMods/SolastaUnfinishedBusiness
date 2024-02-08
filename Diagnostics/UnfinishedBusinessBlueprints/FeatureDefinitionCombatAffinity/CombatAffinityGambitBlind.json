@@ -21,7 +21,7 @@
   "myDamageReductionValueDetermination": "None",
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
-  "situationalContext": 1017,
+  "situationalContext": 9013,
   "requiredCondition": "Definition:ConditionGambitBlindDistracted:7e76c4c3-151a-5227-a288-6604c44cedc3",
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],

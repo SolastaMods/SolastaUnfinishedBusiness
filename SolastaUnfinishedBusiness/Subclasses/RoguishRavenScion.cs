@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -97,6 +97,25 @@ public sealed class RoguishRavenScion : AbstractSubclass
         powerHeartSeekingShot.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
             new AssetReference();
 
+        //
+        // LEVEL 13
+        //
+
+        // Deadly Focus
+
+        var powerDeadlyFocus = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}DeadlyFocus")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyFocus));
+
+        //
+        // LEVEL 17
+        //
+
         // Killing Spree
 
         var featureRavenKillingSpree = FeatureDefinitionBuilder
@@ -117,36 +136,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
                         .AddCustomSubFeatures(ValidateAdditionalActionAttack.TwoHandedRanged)
                         .AddToDB())
                     .AddToDB()))
-            .AddToDB();
-
-        //
-        // LEVEL 13
-        //
-
-        // Deadly Focus
-
-        var powerDeadlyFocus = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}DeadlyFocus")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
-            .AddToDB();
-
-        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyFocus));
-
-        //
-        // LEVEL 17
-        //
-
-        // Perfect Shot
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionDieRollModifierBuilder
-            .Create($"DieRollModifier{Name}PerfectShot")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 2, 1,
-                "Feature/&DieRollModifierRavenPainMakerReroll")
-            .AddCustomSubFeatures(new RoguishRaven.RavenRerollAnyDamageDieMarker())
             .AddToDB();
 
         //
@@ -231,16 +220,22 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Heart-Seeking Shot
     //
 
-    private class TryAlterOutcomePhysicalAttackByMeHeartSeekingShot : ITryAlterOutcomePhysicalAttackByMe
+    private class TryAlterOutcomePhysicalAttackByMeHeartSeekingShot : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
-            GameLocationBattleManager instance,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter target,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
             if (action.AttackRollOutcome != RollOutcome.Success)
+            {
+                yield break;
+            }
+
+            if (attacker != helper)
             {
                 yield break;
             }
@@ -263,57 +258,71 @@ public sealed class RoguishRavenScion : AbstractSubclass
     //
 
     private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power)
-        : ITryAlterOutcomePhysicalAttackByMe
+        : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
-            GameLocationBattleManager battle,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battleManager,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
             var attackMode = action.actionParams.attackMode;
-            var rulesetAttacker = me.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerCharges(power) <= 0 ||
-                !ValidatorsWeapon.IsTwoHandedRanged(attackMode) || !me.CanPerceiveTarget(target))
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.CanUsePower(power) ||
+                !attacker.CanPerceiveTarget(defender) ||
+                !attackMode.ranged)
             {
                 yield break;
             }
 
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            if (manager == null)
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                yield break;
-            }
+                StringParameter = "RavenScionDeadlyFocus",
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower
+            };
 
-            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("RavenScionDeadlyFocus", reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            manager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToSpendPower(reactionParams);
 
-            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(power, power.CostPerUse);
+            rulesetCharacter.UsePower(usablePower);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            rulesetAttacker.LogCharacterUsedPower(
+            rulesetCharacter.LogCharacterUsedPower(
                 power,
                 $"Feedback/&Trigger{Name}RerollLine",
                 false,
@@ -323,9 +332,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var advantageTrends =
                 new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, power.Name, power) };
 
-            var roll = rulesetAttacker.RollAttack(
+            var roll = rulesetCharacter.RollAttack(
                 attackMode.toHitBonus,
-                target.RulesetCharacter,
+                defender.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 false,

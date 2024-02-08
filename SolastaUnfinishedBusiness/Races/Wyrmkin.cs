@@ -398,7 +398,7 @@ internal static class RaceWyrmkinBuilder
 
             var usablePower = PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetCharacter);
 
-            rulesetCharacter.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
+            rulesetCharacter.UsePower(usablePower);
         }
     }
 

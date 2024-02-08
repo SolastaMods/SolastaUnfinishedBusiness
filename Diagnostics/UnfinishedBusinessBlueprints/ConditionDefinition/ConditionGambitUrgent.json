@@ -19,7 +19,7 @@
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
     "Attacked",
-    9001
+    9002
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",

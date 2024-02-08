@@ -301,8 +301,12 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                 yield break;
             }
 
+            var isActionAttack = action is CharacterActionAttack;
+            var remainingAttacks =
+                actingCharacter.GetActionAvailableIterations(Id.AttackMain) - (isActionAttack ? 1 : 0);
+
             //Still has attacks, skip
-            if (actingCharacter.GetActionAvailableIterations(Id.AttackMain) > 0)
+            if (remainingAttacks > 0)
             {
                 yield break;
             }

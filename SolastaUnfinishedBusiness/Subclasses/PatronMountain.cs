@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -45,14 +43,6 @@ public class PatronMountain : AbstractSubclass
 
         // Barrier of Stone
 
-        var conditionBarrierOfStone = ConditionDefinitionBuilder
-            .Create($"Condition{Name}BarrierOfStone")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
-            .AddToDB();
-
         var reduceDamageBarrierOfStone = FeatureDefinitionReduceDamageBuilder
             .Create($"ReduceDamage{Name}BarrierOfStone")
             .SetGuiPresentation($"Power{Name}BarrierOfStone", Category.Feature)
@@ -65,16 +55,14 @@ public class PatronMountain : AbstractSubclass
                     return 0;
                 }
 
-                var usableCondition =
-                    rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                        x.ConditionDefinition == conditionBarrierOfStone);
-
-                if (usableCondition == null)
+                if (!rulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, $"Condition{Name}BarrierOfStone",
+                        out var activeCondition))
                 {
                     return 0;
                 }
 
-                var rulesetCaster = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
+                var rulesetCaster = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
                 if (rulesetCaster == null)
                 {
@@ -89,13 +77,27 @@ public class PatronMountain : AbstractSubclass
             })
             .AddToDB();
 
-        conditionBarrierOfStone.Features.Add(reduceDamageBarrierOfStone);
+        var conditionBarrierOfStone = ConditionDefinitionBuilder
+            .Create($"Condition{Name}BarrierOfStone")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(reduceDamageBarrierOfStone)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
 
         var powerBarrierOfStone = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BarrierOfStone")
             .SetGuiPresentation(Category.Feature)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBarrierOfStone))
+                    .SetParticleEffectParameters(Banishment)
+                    .Build())
             .AddToDB();
 
         // Knowledge of Aeons
@@ -148,8 +150,8 @@ public class PatronMountain : AbstractSubclass
             .SetOverriddenPower(powerBarrierOfStone)
             .AddToDB();
 
-        powerBarrierOfStone.AddCustomSubFeatures(new AttackBeforeHitConfirmedOnMeBarrierOfStone(
-            powerBarrierOfStone, powerEternalGuardian, conditionBarrierOfStone));
+        powerBarrierOfStone.AddCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone, powerEternalGuardian));
 
         // LEVEL 10
 
@@ -220,8 +222,7 @@ public class PatronMountain : AbstractSubclass
 
     private class AttackBeforeHitConfirmedOnMeBarrierOfStone(
         FeatureDefinitionPower powerBarrierOfStone,
-        FeatureDefinitionPower powerEternalGuardian,
-        ConditionDefinition conditionDefinition)
+        FeatureDefinitionPower powerEternalGuardian)
         :
             IAttackBeforeHitConfirmedOnMeOrAlly, IMagicEffectBeforeHitConfirmedOnMeOrAlly
     {
@@ -263,13 +264,17 @@ public class PatronMountain : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter me)
         {
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (me.IsMyTurn())
-            {
-                yield break;
-            }
+            var rulesetMe = me.RulesetCharacter;
+            var levels = rulesetMe.GetClassLevel(CharacterClassDefinitions.Warlock);
+            var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
 
-            if (!me.CanReact() || me == defender)
+            if (me.IsMyTurn() ||
+                !me.CanReact() ||
+                !rulesetMe.CanUsePower(power) ||
+                me == defender ||
+                !me.CanPerceiveTarget(defender) ||
+                !me.CanPerceiveTarget(attacker) ||
+                !me.IsWithinRange(defender, 7))
             {
                 yield break;
             }
@@ -291,56 +296,26 @@ public class PatronMountain : AbstractSubclass
                 yield break;
             }
 
-            if (!me.CanPerceiveTarget(defender) ||
-                !me.CanPerceiveTarget(attacker) ||
-                !me.IsWithinRange(defender, 7))
-            {
-                yield break;
-            }
-
-            var rulesetMe = me.RulesetCharacter;
-            var levels = rulesetMe.GetClassLevel(CharacterClassDefinitions.Warlock);
-            var power = levels < 6 ? powerBarrierOfStone : powerEternalGuardian;
-
-            if (rulesetMe.GetRemainingPowerCharges(power) <= 0)
-            {
-                yield break;
-            }
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetMe);
-            var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            var actionParams =
+                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
                 {
-                    StringParameter = "BarrierOfStone", UsablePower = usablePower
+                    StringParameter = "BarrierOfStone",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
                 };
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            yield return gameLocationBattleManager.WaitForReactions(
-                me, gameLocationActionManager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            rulesetMe.UpdateUsageForPower(power, power.CostPerUse);
-            rulesetDefender.InflictCondition(
-                conditionDefinition.Name,
-                conditionDefinition.DurationType,
-                conditionDefinition.DurationParameter,
-                conditionDefinition.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetMe.Guid,
-                rulesetMe.CurrentFaction.Name,
-                1,
-                conditionDefinition.Name,
-                0,
-                0,
-                0);
+            yield return gameLocationBattleManager.WaitForReactions(me, gameLocationActionManager, count);
         }
     }
 }

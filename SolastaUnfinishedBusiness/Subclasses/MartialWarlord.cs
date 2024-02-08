@@ -89,7 +89,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .Create($"CombatAffinity{Name}ExploitOpening")
             .SetGuiPresentation($"Condition{Name}PredictAttack", Category.Condition)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-            .SetSituationalContext(ExtraSituationalContext.IsNotSourceOfCondition)
+            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
             .AddToDB();
 
         var conditionExploitOpening = ConditionDefinitionBuilder
@@ -646,8 +646,11 @@ public sealed class MartialWarlord : AbstractSubclass
                 yield break;
             }
 
+            var usablePower = PowerProvider.Get(PowerCoordinatedAssault, rulesetCharacter);
+
+            rulesetCharacter.UsePower(usablePower);
+
             rulesetCharacter.LogCharacterUsedPower(PowerCoordinatedAssault);
-            rulesetCharacter.UpdateUsageForPower(PowerCoordinatedAssault, PowerCoordinatedAssault.CostPerUse);
         }
     }
 

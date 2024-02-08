@@ -145,7 +145,7 @@
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "None",
+  "reactionContext": 9000,
   "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,

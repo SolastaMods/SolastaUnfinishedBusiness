@@ -1,0 +1,55 @@
+{
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 10,
+  "maxRollValue": 0,
+  "minRerollValue": 0,
+  "rerollCount": 0,
+  "rerollLocalizationKey": "Feedback/&DieRollModifierCircleOfTheCosmosDragonReroll",
+  "forcedDamageOnDice": "None",
+  "validityContext": "AbilityCheck",
+  "validSkills": [
+    "Arcana",
+    "History",
+    "Investigation",
+    "Nature",
+    "Religion",
+    "AnimalHandling",
+    "Insight",
+    "Medecine",
+    "Perception",
+    "Survival"
+  ],
+  "requireProficiency": false,
+  "bardicInspirationAddChoice": false,
+  "bardicInspirationForceMaxRoll": false,
+  "bardicInspirationAdvantage": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerCircleOfTheCosmosDragonConstellationFormTitle",
+    "description": "Feature/&DieRollModifierCircleOfTheCosmosDragonAbilityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d01a3495-36ae-5cf6-a445-e4ed9c21b74d",
+  "contentPack": 9999,
+  "name": "DieRollModifierCircleOfTheCosmosDragonAbility"
+}

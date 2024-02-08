@@ -798,23 +798,18 @@ internal static class InventorClass
 
     private static FeatureDefinitionFeatureSet BuildFlashOfGenius()
     {
-        const string TEXT = "PowerInventorFlashOfGenius";
         var sprite = Sprites.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
         var bonusPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusBonus")
-            .SetGuiPresentation(TEXT, Category.Feature, sprite)
+            .SetGuiPresentation("PowerInventorFlashOfGenius", Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Visible)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
-
-        //should be hidden from user
-        var flashOfGenius = new TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius(
-            bonusPower, "InventorFlashOfGenius", "ConditionInventorFlashOfGeniusAura");
 
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
-            .SetGuiPresentation(TEXT, Category.Feature, sprite)
+            .SetGuiPresentation("PowerInventorFlashOfGenius", Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .SetEffectDescription(
@@ -832,7 +827,10 @@ internal static class InventorClass
                                     .Create("ConditionInventorFlashOfGeniusAura")
                                     .SetGuiPresentationNoContent(true)
                                     .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .AddCustomSubFeatures(flashOfGenius)
+                                    .SetFeatures(bonusPower)
+                                    .AddCustomSubFeatures(
+                                        new AddUsablePowersFromCondition(),
+                                        new TryAlterOutcomeSavingThrowFlashOfGenius(bonusPower))
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -841,7 +839,7 @@ internal static class InventorClass
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorFlashOfGenius")
-            .SetGuiPresentation(TEXT, Category.Feature)
+            .SetGuiPresentation("PowerInventorFlashOfGenius", Category.Feature)
             .AddFeatureSet(auraPower, bonusPower)
             .AddToDB();
     }
@@ -867,21 +865,9 @@ internal class InventorModifyAdditionalDamageClassLevelHolder : IModifyAdditiona
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
+internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower power) : ITryAlterOutcomeSavingThrow
 {
-    internal TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius(
-        FeatureDefinitionPower power, string reactionName, string auraConditionName)
-    {
-        Power = power;
-        ReactionName = reactionName;
-        AuraConditionName = auraConditionName;
-    }
-
-    private FeatureDefinitionPower Power { get; }
-    private string ReactionName { get; }
-    private string AuraConditionName { get; }
-
-    public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
+    public IEnumerator OnTryAlterOutcomeSavingThrow(
         GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
@@ -891,129 +877,91 @@ internal class TryAlterOutcomeSavingThrowFromAllyOrEnemyFlashOfGenius : ITryAlte
         bool hasHitVisual,
         bool hasBorrowedLuck)
     {
-        if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
-        {
-            yield break;
-        }
-
         var rulesetDefender = defender.RulesetCharacter;
 
-        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+        if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false } ||
+            !rulesetDefender.TryGetConditionOfCategoryAndType(
+                AttributeDefinitions.TagEffect,
+                "ConditionInventorFlashOfGeniusAura",
+                out var activeCondition))
         {
             yield break;
         }
 
-        rulesetDefender.TryGetConditionOfCategoryAndType(
-            AttributeDefinitions.TagEffect,
-            AuraConditionName,
-            out var activeCondition);
-
-        if (activeCondition == null)
-        {
-            yield break;
-        }
+        var gameLocationActionManager =
+            ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
         RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
 
         var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
+        var intelligence = rulesetOriginalHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+        var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
-        if (!ShouldTrigger(action, defender, originalHelper))
+        if (gameLocationActionManager == null ||
+            !action.RolledSaveThrow ||
+            action.SaveOutcome != RollOutcome.Failure ||
+            !rulesetOriginalHelper.CanUsePower(power) ||
+            !helper.CanReact() ||
+            action.SaveOutcomeDelta + bonus >= 0)
         {
             yield break;
         }
 
-        if (!rulesetOriginalHelper.CanUsePower(Power))
-        {
-            yield break;
-        }
-
-        var usablePower = PowerProvider.Get(Power, rulesetOriginalHelper);
         var implementationManagerService =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+        var usablePower = PowerProvider.Get(power, rulesetOriginalHelper);
         var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
         {
-            StringParameter = ReactionName,
+            StringParameter = "InventorFlashOfGenius",
             StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
             RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
                 .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
             UsablePower = usablePower
         };
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
 
-        actionService.ReactToSpendPower(reactionParams);
+        var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-        yield return battleManager.WaitForReactions(originalHelper, actionService, count);
+        gameLocationActionManager.ReactToSpendPower(reactionParams);
+
+        yield return battleManager.WaitForReactions(originalHelper, gameLocationActionManager, count);
 
         if (!reactionParams.ReactionValidated)
         {
             yield break;
         }
 
-        rulesetOriginalHelper.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
-        rulesetOriginalHelper.LogCharacterUsedPower(Power, indent: true);
-        action.RolledSaveThrow = TryModifyRoll(action, originalHelper, saveModifier);
-    }
+        rulesetOriginalHelper.UsePower(usablePower);
 
-    // ReSharper disable once SuggestBaseTypeForParameter
-    private static int GetBonus(RulesetActor helper)
-    {
-        var intelligence = helper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+        action.RolledSaveThrow = true;
+        action.SaveOutcomeDelta += bonus;
 
-        return Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
-    }
-
-    private static bool ShouldTrigger(
-        CharacterAction action,
-        GameLocationCharacter defender,
-        GameLocationCharacter helper)
-    {
-        return helper.CanReact()
-               && !defender.IsOppositeSide(helper.Side)
-               && action.SaveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
-    }
-
-    private static bool TryModifyRoll(
-        CharacterAction action,
-        GameLocationCharacter helper,
-        ActionModifier saveModifier)
-    {
-        var bonus = GetBonus(helper.RulesetActor);
-
-        //reuse DC modifier from previous checks, not 100% sure this is correct
-        var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
-        var rolled = saveDc + action.saveOutcomeDelta + bonus;
-        var success = rolled >= saveDc;
-
-        const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
-        string result;
-        ConsoleStyleDuplet.ParameterType resultType;
-
-        if (success)
+        if (action.saveOutcomeDelta + bonus >= 0)
         {
-            result = GameConsole.SaveSuccessOutcome;
-            resultType = ConsoleStyleDuplet.ParameterType.SuccessfulRoll;
             action.saveOutcome = RollOutcome.Success;
-            action.saveOutcomeDelta += bonus;
+        }
+
+        (ConsoleStyleDuplet.ParameterType, string) extra;
+
+        if (action.saveOutcomeDelta >= 0)
+        {
+            action.saveOutcome = RollOutcome.Success;
+            extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
         }
         else
         {
-            result = GameConsole.SaveFailureOutcome;
-            resultType = ConsoleStyleDuplet.ParameterType.FailedRoll;
+            extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
         }
 
-        var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
-
-        console.AddCharacterEntry(helper.RulesetCharacter, entry);
-        entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");
-        entry.AddParameter(resultType, Gui.Format(result, rolled.ToString()));
-        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDc.ToString());
-
-        console.AddEntry(entry);
-
-        return true;
+        helper.RulesetCharacter.LogCharacterUsedPower(
+            power,
+            "Feedback/&FlashOfGeniusSavingToHitRoll",
+            extra:
+            [
+                (ConsoleStyleDuplet.ParameterType.Positive, bonus.ToString()),
+                extra
+            ]);
     }
 
     private static string FormatReactionDescription(

@@ -7,7 +7,7 @@
   ],
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
-  "ancestryType": 9001,
+  "ancestryType": 9000,
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

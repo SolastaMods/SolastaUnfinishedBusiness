@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
@@ -36,10 +37,45 @@ internal static class PowerProvider
         }
 
         //Update properties to match actor
+        UpdateUses(actor, result);
         UpdateSaveDc(actor, result);
         UpdatePoolUses(actor, result);
 
         return result;
+    }
+
+    private static void UpdateUses(
+        // ReSharper disable once SuggestBaseTypeForParameter
+        RulesetCharacter actor,
+        RulesetUsablePower usablePower)
+    {
+        if (actor == null)
+        {
+            return;
+        }
+
+        var powerDefinition = usablePower.powerDefinition;
+
+        var attributeName = powerDefinition.RechargeRate switch
+        {
+            RechargeRate.ChannelDivinity => AttributeDefinitions.ChannelDivinityNumber,
+            RechargeRate.HealingPool => AttributeDefinitions.HealingPool,
+            RechargeRate.SorceryPoints => AttributeDefinitions.SorceryPoints,
+            RechargeRate.KiPoints => AttributeDefinitions.KiPoints,
+            RechargeRate.BardicInspiration => AttributeDefinitions.BardicInspirationNumber,
+            _ => powerDefinition.UsesDetermination switch
+            {
+                UsesDetermination.AbilityBonusPlusFixed => powerDefinition.UsesAbilityScoreName,
+                UsesDetermination.ProficiencyBonus => AttributeDefinitions.ProficiencyBonus,
+                _ => null
+            }
+        };
+        if (!string.IsNullOrEmpty(attributeName))
+        {
+            usablePower.UsesAttribute = actor.GetAttribute(attributeName);
+        }
+
+        usablePower.Recharge();
     }
 
     private static void UpdatePoolUses([CanBeNull] RulesetCharacter character, RulesetUsablePower usablePower)
@@ -51,7 +87,8 @@ internal static class PowerProvider
 
         var pool = PowerBundle.GetPoolPower(usablePower, character);
 
-        if (pool == null || pool == usablePower)
+        if (pool == null ||
+            pool == usablePower)
         {
             return;
         }
@@ -71,7 +108,8 @@ internal static class PowerProvider
         var power = usablePower.PowerDefinition;
         var effectDescription = power.EffectDescription;
 
-        if (actor == null || !effectDescription.HasSavingThrow)
+        if (actor == null ||
+            !effectDescription.HasSavingThrow)
         {
             return;
         }

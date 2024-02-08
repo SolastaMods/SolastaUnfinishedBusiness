@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=Vous acquérez la maîtrise
 Feature/&ProficiencyInventorToolExpertiseTitle=Expertise des outils d'inventeur
 Feature/&ProficiencyInventorToolsTitle=Maîtrise d'outil d'inventeur
 Feature/&ProficiencyInventorWeaponTitle=Maîtrise des armes d'inventeur
+Feedback/&FlashOfGeniusSavingToHitRoll={0} utilise {1} pour ajouter le modificateur Intelligence ({2}) au jet de sauvegarde ({3})
 Item/&CreateSpellStoringWandFormatDescription=Créez une baguette qui peut lancer un sort <b>{0} ({1})</b> utilisant votre modificateur d'attaque ou votre Degré de Difficulté de sort d'artificier.
 Item/&SpellStoringWandDescription=Cette baguette permet de lancer le sort <b>{0}</b> en utilisant les statistiques de lancement de sorts de l'inventeur qui l'a créé.
 Item/&SpellStoringWandTitle=Baguette de {0}

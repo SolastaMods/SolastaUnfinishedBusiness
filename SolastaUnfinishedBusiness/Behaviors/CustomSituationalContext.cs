@@ -21,18 +21,10 @@ internal static class CustomSituationalContext
         RulesetImplementationDefinitions.SituationalContextParams contextParams,
         bool def)
     {
-        var context = contextParams.situationalContext;
-        RulesetEntity effectSource = null;
-
-        if (contextParams.sourceEffectId != 0)
-        {
-            RulesetEntity.TryGetEntity(contextParams.sourceEffectId, out effectSource);
-        }
-
-        return (ExtraSituationalContext)context switch
+        return (ExtraSituationalContext)contextParams.situationalContext switch
         {
             ExtraSituationalContext.IsRagingAndDualWielding =>
-                contextParams.source.HasAnyConditionOfType(ConditionRaging) &&
+                contextParams.source.HasConditionOfTypeOrSubType(ConditionRaging) &&
                 ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(contextParams.source),
 
             ExtraSituationalContext.IsNotInBrightLight =>
@@ -68,8 +60,22 @@ internal static class CustomSituationalContext
                  ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
                 ValidatorsCharacter.HasTwoHandedQuarterstaff(contextParams.source),
 
-            ExtraSituationalContext.TargetIsNotEffectSource =>
-                contextParams.target != effectSource,
+            ExtraSituationalContext.IsNotConditionSource =>
+                // this is required whenever there is a SetMyAttackAdvantage (Taunted, Shout of Provocation)
+                contextParams.source.Guid !=
+                contextParams.source.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
+                // this is required whenever there is a SetAttackOnMeAdvantage (Exploit Opening, Distracted Strike)
+                contextParams.source.Guid !=
+                contextParams.target.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition == contextParams.condition)?.SourceGuid,
+
+            ExtraSituationalContext.IsNotConditionSourceWithSimpleOrMartialWeaponInHands =>
+                // this is required whenever there is a SetMyAttackAdvantage (Wolf Leadership)
+                contextParams.source.Guid !=
+                contextParams.source.AllConditions.FirstOrDefault(x =>
+                    x.ConditionDefinition == contextParams.condition)?.SourceGuid &&
+                ValidatorsCharacter.HasMeleeWeaponInMainOrOffhand(contextParams.source),
 
             ExtraSituationalContext.TargetIsFavoriteEnemy =>
                 contextParams.source.IsMyFavoriteEnemy(contextParams.target),
@@ -85,7 +91,6 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.HasShieldInHands => contextParams.source.IsWearingShield(),
 
-            ExtraSituationalContext.IsNotSourceOfCondition => IsNotSourceOfCondition(contextParams),
             // supports Monk Shield Expert scenarios
             (ExtraSituationalContext)SituationalContext.NotWearingArmorOrShield =>
                 !contextParams.source.IsWearingArmor() &&
@@ -99,21 +104,6 @@ internal static class CustomSituationalContext
 
             _ => def
         };
-    }
-
-    private static bool IsNotSourceOfCondition(
-        RulesetImplementationDefinitions.SituationalContextParams contextParams)
-    {
-        var target = contextParams.target;
-        var condition = contextParams.condition;
-        var rulesetCondition = target.AllConditions.FirstOrDefault(x => x.ConditionDefinition == condition);
-
-        if (rulesetCondition == null)
-        {
-            return false;
-        }
-
-        return contextParams.source.Guid != rulesetCondition.SourceGuid;
     }
 
     private static bool MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(

@@ -1,3 +1,4 @@
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=제작자의 숙련도 보너스 추가
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=구조체에 추가 주문 피해
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=배우며 항상 준비 돼 있길:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=웨폰스미스 주문

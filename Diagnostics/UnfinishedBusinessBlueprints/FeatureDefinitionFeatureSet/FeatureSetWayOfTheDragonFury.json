@@ -15,7 +15,7 @@
     "DamageLightning",
     "DamagePoison"
   ],
-  "ancestryType": 9000,
+  "ancestryType": 9001,
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,

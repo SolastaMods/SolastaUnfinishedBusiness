@@ -1215,9 +1215,9 @@ internal static class EldritchVersatilityBuilders
         }
     }
 
-    private class EldritchWardAidSave : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
+    private class EldritchWardAidSave : ITryAlterOutcomeSavingThrow
     {
-        public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1227,58 +1227,58 @@ internal static class EldritchVersatilityBuilders
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome == RollOutcome.Success ||
+                !helper.CanReact() ||
+                !helper.CanPerceiveTarget(defender) ||
+                !helper.IsWithinRange(defender, 7))
             {
                 yield break;
             }
 
-            if (!ShouldTrigger(defender, helper))
-            {
-                yield break;
-            }
+            var rulesetHelper = helper.RulesetCharacter;
 
-            var ownerCharacter = helper.RulesetCharacter;
-
-            if (!ownerCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if (!rulesetHelper.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
 
             var requiredSaveAddition = -action.SaveOutcomeDelta;
-            var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
+            var modifier = GetAbilityScoreModifier(rulesetHelper, AttributeDefinitions.Wisdom, supportCondition);
 
             // bonus > modifier or points not enough
             if (requiredSaveAddition > modifier ||
-                !supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.EldritchWard,
-                    requiredSaveAddition))
+                !supportCondition.TryEarnOrSpendPoints(
+                    PointAction.Require, PointUsage.EldritchWard, requiredSaveAddition))
             {
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
-
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
             {
                 StringParameter = "CustomReactionEldritchWard".Formatted(Category.Reaction, defender.Name)
             };
 
-            RequestCustomReaction(actionService, "EldritchWard", actionParams, requiredSaveAddition);
+            RequestCustomReaction(gameLocationActionManager, "EldritchWard", actionParams, requiredSaveAddition);
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
 
             if (!actionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            // Spend resources
-            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchWard,
-                requiredSaveAddition);
-            // Change outcome
+            supportCondition.TryEarnOrSpendPoints(
+                PointAction.Modify, PointUsage.EldritchWard, requiredSaveAddition);
+
             action.SaveOutcome = RollOutcome.Success;
             action.saveOutcomeDelta = 0;
-            // Log to console
+
             var console = Gui.Game.GameConsole;
             var entry =
                 new GameConsoleEntry("Feedback/&EldritchWardGivesSaveBonus", console.consoleTableDefinition)
@@ -1286,22 +1286,12 @@ internal static class EldritchVersatilityBuilders
                     Indent = true
                 };
 
-            console.AddCharacterEntry(ownerCharacter, entry);
+            console.AddCharacterEntry(rulesetHelper, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredSaveAddition}");
-
-            var dc = action.GetSaveDC().ToString();
-
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
-                Gui.Format(GameConsole.SaveSuccessOutcome, dc));
-            console.AddEntry(entry);
-        }
+                Gui.Format(GameConsole.SaveSuccessOutcome, action.GetSaveDC().ToString()));
 
-        // ReSharper disable once SuggestBaseTypeForParameter
-        private static bool ShouldTrigger(GameLocationCharacter defender, GameLocationCharacter helper)
-        {
-            return helper.CanReact()
-                   && helper.CanPerceiveTarget(defender)
-                   && helper.IsWithinRange(defender, 7);
+            console.AddEntry(entry);
         }
     }
 

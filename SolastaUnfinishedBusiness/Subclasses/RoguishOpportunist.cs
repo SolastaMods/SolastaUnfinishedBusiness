@@ -84,7 +84,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var featureSeizeTheChance = FeatureDefinitionBuilder
             .Create($"Feature{Name}SeizeTheChance")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowFromAllyOrEnemySeizeTheChance())
+            .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowSeizeTheChance())
             .AddToDB();
 
         // LEVEL 13
@@ -245,9 +245,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
     // Seize the Chance
     //
 
-    private sealed class TryAlterOutcomeSavingThrowFromAllyOrEnemySeizeTheChance : ITryAlterOutcomeSavingThrowFromAllyOrEnemy
+    private sealed class TryAlterOutcomeSavingThrowSeizeTheChance : ITryAlterOutcomeSavingThrow
     {
-        public IEnumerator OnSavingThrowTryAlterOutcomeFromAllyOrEnemy(
+        public IEnumerator OnTryAlterOutcomeSavingThrow(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -257,18 +257,15 @@ public sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
-            {
-                yield break;
-            }
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (helper.IsMyTurn())
-            {
-                yield break;
-            }
-
-            if (!ShouldTrigger(defender, helper))
+            if (gameLocationActionManager == null ||
+                !action.RolledSaveThrow ||
+                action.SaveOutcome != RollOutcome.Failure ||
+                helper.IsMyTurn() ||
+                !helper.CanReact() ||
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
@@ -299,25 +296,17 @@ public sealed class RoguishOpportunist : AbstractSubclass
                 yield break;
             }
 
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionParams = new CharacterActionParams(
                 helper,
                 ActionDefinitions.Id.AttackOpportunity,
                 helper.RulesetCharacter.AttackModes[0],
                 defender,
-                actionModifier) { stringParameter2 = "SeizeTheChance" };
+                actionModifier) { StringParameter2 = "SeizeTheChance" };
 
-            actionService.ReactForOpportunityAttack(reactionParams);
+            gameLocationActionManager.ReactForOpportunityAttack(reactionParams);
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
-        }
-
-        private static bool ShouldTrigger(
-            GameLocationCharacter defender,
-            GameLocationCharacter helper)
-        {
-            return helper.CanReact() && helper.CanPerceiveTarget(defender);
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
         }
     }
 }

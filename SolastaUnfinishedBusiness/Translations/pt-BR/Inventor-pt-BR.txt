@@ -26,6 +26,7 @@ Feature/&ProficiencyInventorToolExpertiseDescription=Você ganha proficiência c
 Feature/&ProficiencyInventorToolExpertiseTitle=Experiência em ferramentas do Inventor
 Feature/&ProficiencyInventorToolsTitle=Proficiências de ferramentas do Inventor
 Feature/&ProficiencyInventorWeaponTitle=Proficiência em Arma do Inventor
+Feedback/&FlashOfGeniusSavingToHitRoll={0} usa {1} para adicionar o modificador de Inteligência ({2}) à jogada de salvamento ({3})
 Item/&CreateSpellStoringWandFormatDescription=Crie uma varinha que pode lançar feitiços <b>{0} ({1})</b> usando seu modificador de ataque de feitiço do Inventor e salve a CD.
 Item/&SpellStoringWandDescription=Esta varinha permite lançar o feitiço <b>{0}</b> usando as estatísticas de lançamento do feitiço do Inventor que o criou.
 Item/&SpellStoringWandTitle=Varinha de {0}

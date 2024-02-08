@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -145,6 +144,13 @@ internal static class ArmorFeats
             .SetGuiPresentation(Name, Category.Feat)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionShieldTechniquesResistance))
+                    .Build())
             .AddToDB();
 
         powerShieldTechniques.AddCustomSubFeatures(
@@ -185,7 +191,9 @@ internal static class ArmorFeats
                 yield break;
             }
 
-            if (!defender.CanReact() || !defender.RulesetCharacter.IsWearingShield())
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!defender.CanReact() || !rulesetDefender.IsWearingShield())
             {
                 yield break;
             }
@@ -197,40 +205,25 @@ internal static class ArmorFeats
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "Reaction/&CustomReactionShieldTechniquesReactDescription"
-                };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("ShieldTechniques", reactionParams);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
-
-            yield return gameLocationBattleService
-                .WaitForReactions(defender, gameLocationActionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
+            var usablePower = PowerProvider.Get(powerShieldTechniques, rulesetDefender);
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
-                yield break;
-            }
+                StringParameter = "ShieldTechniques",
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            rulesetDefender.LogCharacterUsedPower(powerShieldTechniques);
-            rulesetDefender.InflictCondition(
-                conditionShieldTechniquesResistance.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.Guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionShieldTechniquesResistance.Name,
-                0,
-                0,
-                0);
+            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
+
+            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
         }
 
         // add +2 on DEX savings

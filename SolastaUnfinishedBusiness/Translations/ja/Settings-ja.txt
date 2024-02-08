@@ -68,7 +68,6 @@ ModUi/&DisableRacePrerequisitesOnModFeats=この MOD によって提供される
 ModUi/&DisableSenseDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>闇の視覚の感覚</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>優れた感覚ダークビジョン</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableUnofficialTranslations=非公式翻訳サポートを無効にして MOD <i><color=#F0DAA0>[中国語、イタリア語、日本語、韓国語、またはスペイン語を話せない場合]</color></i>
-ModUi/&DisableUpdateMessage=アップデート メッセージを無効にする <i><color=#F0DAA0>[青薬をお使いの方、これが最後のチャンスです]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のクラスの既知の呪文をすべて表示</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に<color=#D89555>ウォーロック</color>の協定スロットを表示する</i>
 ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>

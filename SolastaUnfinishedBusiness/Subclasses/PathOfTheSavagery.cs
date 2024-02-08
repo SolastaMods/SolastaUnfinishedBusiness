@@ -154,7 +154,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
     internal static void OnRollSavingThrowFuriousDefense(RulesetActor defender, ref string abilityScoreName)
     {
         if (abilityScoreName != AttributeDefinitions.Dexterity ||
-            !defender.HasAnyConditionOfType(ConditionRaging))
+            !defender.HasConditionOfTypeOrSubType(ConditionRaging))
         {
             return;
         }
@@ -202,7 +202,7 @@ public sealed class PathOfTheSavagery : AbstractSubclass
                 rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagEffect, conditionUnbridledFerocity.Name);
             }
-            else if (outcome == RollOutcome.Success && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            else if (outcome == RollOutcome.Success && rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
             {
                 rulesetAttacker.InflictCondition(
                     conditionUnbridledFerocity.Name,

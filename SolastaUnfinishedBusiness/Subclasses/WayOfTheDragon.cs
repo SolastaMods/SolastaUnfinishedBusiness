@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -337,6 +336,9 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionReactiveHide))
                     .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace)
                     .Build())
             .AddToDB();
@@ -775,8 +777,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
     private sealed class CustomBehaviorReactiveHide(
         FeatureDefinitionPower powerReactiveHide,
         ConditionDefinition conditionReactiveHide)
-        :
-            IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+        : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
             GameLocationCharacter attacker,
@@ -973,18 +974,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         private IEnumerator HandleReaction(GameLocationCharacter defender)
         {
-            if (!defender.CanReact())
-            {
-                yield break;
-            }
-
-            var rulesetMe = defender.RulesetCharacter;
-
-            if (!rulesetMe.CanUsePower(powerReactiveHide))
-            {
-                yield break;
-            }
-
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
@@ -995,40 +984,32 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetMe);
-            var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = $"{Name}ReactiveHide", UsablePower = usablePower
-                };
+            var rulesetDefender = defender.RulesetCharacter;
 
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
-
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
-
-            yield return gameLocationBattleService.WaitForReactions(
-                defender, gameLocationActionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
+            if (!defender.CanReact() ||
+                !rulesetDefender.CanUsePower(powerReactiveHide))
             {
                 yield break;
             }
 
-            rulesetMe.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
-            rulesetMe.InflictCondition(
-                conditionReactiveHide.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetMe.guid,
-                rulesetMe.CurrentFaction.Name,
-                1,
-                conditionReactiveHide.Name,
-                0,
-                0,
-                0);
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerReactiveHide, rulesetDefender);
+            var actionParams =
+                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
+                {
+                    StringParameter = "ReactiveHide",
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                    UsablePower = usablePower
+                };
+
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+
+            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
+
+            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
         }
     }
 }

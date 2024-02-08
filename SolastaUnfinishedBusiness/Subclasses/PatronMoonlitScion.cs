@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -389,6 +388,14 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionInvisible))
+                    .SetParticleEffectParameters(Banishment)
+                    .Build())
             .AddToDB();
 
         powerMoonlightGuise.AddCustomSubFeatures(new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
@@ -608,8 +615,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorMoonlightGuise(
-        FeatureDefinitionPower powerMoonlightGuise)
+    private sealed class CustomBehaviorMoonlightGuise(FeatureDefinitionPower powerMoonlightGuise)
         : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
@@ -655,52 +661,35 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 yield break;
             }
 
-            if (!defender.CanReact())
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.GetRemainingPowerCharges(powerMoonlightGuise) <= 0)
+            if (!defender.CanReact() ||
+                !rulesetDefender.CanUsePower(powerMoonlightGuise))
             {
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerMoonlightGuise, rulesetDefender);
             var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
                 {
-                    StringParameter = "MoonlightGuise"
+                    StringParameter = "MoonlightGuise",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        //CHECK: no need for AddAsActivePowerToSource
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
                 };
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(
-                defender, gameLocationActionManager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            EffectHelpers.StartVisualEffect(defender, defender, Banishment, EffectHelpers.EffectType.Effect);
-            rulesetDefender.UpdateUsageForPower(powerMoonlightGuise, powerMoonlightGuise.CostPerUse);
-            rulesetDefender.InflictCondition(
-                ConditionInvisible,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetDefender.Guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                ConditionInvisible,
-                0,
-                0,
-                0);
+            yield return gameLocationBattleManager.WaitForReactions(defender, gameLocationActionManager, count);
         }
     }
 }

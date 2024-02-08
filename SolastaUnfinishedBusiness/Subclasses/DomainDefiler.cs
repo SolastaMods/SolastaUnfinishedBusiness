@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -111,55 +110,6 @@ public sealed class DomainDefiler : AbstractSubclass
         // LEVEL 6 - Beacon of Corruption
         //
 
-        var conditionMarkForDeath = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}MarkForDeath")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDead)
-            .SetConditionType(ConditionType.Detrimental)
-            .CopyParticleReferences(ConditionDefinitions.ConditionChilled)
-            .AddFeatures(
-                FeatureDefinitionDamageAffinityBuilder
-                    .Create("DamageAffinityNecroticVulnerability")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageAffinityType(DamageAffinityType.Vulnerability)
-                    .SetDamageType(DamageTypeNecrotic)
-                    .AddToDB())
-            .AddToDB();
-
-        var powerMarkForDeath = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}MarkForDeath")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerMarkForDeath", Resources.PowerMarkForDeath, 128, 64))
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ChannelDivinity)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetParticleEffectParameters(Bane)
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Charisma,
-                        true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                            .SetConditionForm(
-                                conditionMarkForDeath,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{NAME}MarkForDeath")
-            .SetGuiPresentation(
-                divinePowerPrefix + powerMarkForDeath.FormatTitle(), powerMarkForDeath.FormatDescription())
-            .AddFeatureSet(powerMarkForDeath)
-            .AddToDB();
-
         var featureBeaconOfCorruption = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}BeaconOfCorruption")
             .SetGuiPresentation(Category.Feature)
@@ -188,16 +138,6 @@ public sealed class DomainDefiler : AbstractSubclass
                 ConditionDefinition = conditionInsidiousDeathMagic,
                 Operation = ConditionOperationDescription.ConditionOperation.Add
             })
-            .AddToDB();
-
-        // Divine Resistance
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionDamageAffinityBuilder
-            .Create($"DamageAffinity{NAME}DivineResistance")
-            .SetGuiPresentation(Category.Feature)
-            .SetDamageAffinityType(DamageAffinityType.Resistance)
-            .SetDamageType(DamageTypeNecrotic)
             .AddToDB();
 
         // LEVEL 14
@@ -466,7 +406,7 @@ public sealed class DomainDefiler : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
+            rulesetAttacker.UsePower(usablePower);
             rulesetAttacker.LogCharacterUsedPower(powerDyingLight);
         }
     }

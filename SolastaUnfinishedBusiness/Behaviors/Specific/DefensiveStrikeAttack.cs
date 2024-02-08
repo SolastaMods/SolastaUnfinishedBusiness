@@ -43,8 +43,11 @@ internal static class DefensiveStrikeAttack
         GameLocationBattleManager battleManager)
     {
         var unitCharacter = unit.RulesetCharacter;
-        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender
-            || !unitCharacter.HasSubFeatureOfType<DefensiveStrikeMarker>())
+
+        if (!attacker.IsOppositeSide(unit.Side) ||
+            defender.Side != unit.Side ||
+            unit == defender ||
+            !unitCharacter.HasSubFeatureOfType<DefensiveStrikeMarker>())
         {
             yield break;
         }
@@ -69,6 +72,7 @@ internal static class DefensiveStrikeAttack
 
         //Does unit has enough Channel Divinity uses left?
         var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
+
         if (unitCharacter.UsedChannelDivinity >= maxUses)
         {
             yield break;
@@ -76,6 +80,7 @@ internal static class DefensiveStrikeAttack
 
         //Find defender's attack mode
         var (opportunityAttackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(attacker, battleManager);
+
         if (opportunityAttackMode == null || actionModifier == null)
         {
             yield break;
@@ -85,14 +90,6 @@ internal static class DefensiveStrikeAttack
         var charisma = unitCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
         var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
 
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
-        var temp = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingFree)
-        {
-            StringParameter = $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
-                .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)
-        };
-
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
         if (actionManager == null)
@@ -100,7 +97,17 @@ internal static class DefensiveStrikeAttack
             yield break;
         }
 
-        var reactionRequest = new ReactionRequestCustom(OathOfAltruism.DefensiveStrike, temp)
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+        var actionParams = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingReaction)
+        {
+            StringParameter = $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
+                .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)
+        };
+
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        var reactionRequest = new ReactionRequestCustom(OathOfAltruism.DefensiveStrike, actionParams)
         {
             Resource = ReactionResourceChannelDivinity.Instance
         };
@@ -109,26 +116,25 @@ internal static class DefensiveStrikeAttack
 
         yield return battleManager.WaitForReactions(unit, actionService, count);
 
-        if (!temp.ReactionValidated)
+        if (!actionParams.ReactionValidated)
         {
             yield break;
         }
 
         //spend resources
         unitCharacter.UsedChannelDivinity++;
-        defender.SpendActionType(ActionType.Reaction);
 
         //create attack mode copy so we won't affect real one
-        var tmp = RulesetAttackMode.AttackModesPool.Get();
-        tmp.Copy(opportunityAttackMode);
-        opportunityAttackMode = tmp;
+        var attackMode = RulesetAttackMode.AttackModesPool.Get();
+
+        attackMode.Copy(opportunityAttackMode);
+        opportunityAttackMode = attackMode;
 
         //Apply bonus to hit and damage of the attack mode
-        opportunityAttackMode.EffectDescription.FindFirstDamageForm().bonusDamage += bonus;
-        opportunityAttackMode.toHitBonus += bonus;
-
-        opportunityAttackMode.ToHitBonusTrends.Add(new TrendInfo(bonus,
-            FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
+        opportunityAttackMode.EffectDescription.FindFirstDamageForm().BonusDamage += bonus;
+        opportunityAttackMode.ToHitBonus += bonus;
+        opportunityAttackMode.ToHitBonusTrends.Add(
+            new TrendInfo(bonus, FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
 
         //Create and execute attack
         var enums = new CharacterActionAttack(new CharacterActionParams(

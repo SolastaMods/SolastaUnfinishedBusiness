@@ -58,9 +58,6 @@ public class Settings : UnityModManager.ModSettings
     // TA made level ups of more than 1 level at a time disallowing unlearning spells/invocations to streamline process
     public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
 
-    // change this at your own risk as these subclasses will be fully removed from mod in the near future
-    public List<string> DeprecatedSubsReenableList { get; set; } = [];
-
     public HashSet<String> MonstersThatShouldHaveDarkvision { get; set; } =
     [
         "Adam_The_Twelth",
@@ -146,12 +143,10 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
-    public bool DisableUpdateMessage { get; set; }
     public bool DisableUnofficialTranslations { get; set; }
     public bool FixAsianLanguagesTextWrap { get; set; }
     public bool EnablePcgRandom { get; set; }
     public bool EnableSaveByLocation { get; set; }
-    public bool EnableRespec { get; set; }
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     public List<string> DefaultPartyHeroes { get; } = [];
     public bool EnableCharacterChecker { get; set; }
@@ -174,11 +169,8 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableSenseDarkVisionFromAllRaces { get; set; }
     public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool AddHelpActionToAllRaces { get; set; }
-    public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleRaces { get; set; }
-    public bool AddDarknessPerceptiveToDarkRaces { get; set; }
-    public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
     public bool ImproveLevelUpFeaturesSelection { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
@@ -280,6 +272,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowClubsToBeThrown { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
+    public bool ChangeDragonbornElementalBreathUsages { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowFlightSuspend { get; set; }
     public bool FlightSuspendWingedBoots { get; set; }
@@ -288,6 +281,8 @@ public class Settings : UnityModManager.ModSettings
     public bool FullyControlConjurations { get; set; }
     public bool ColdResistanceAlsoGrantsImmunityToChilledCondition { get; set; }
     public bool ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition { get; set; }
+    public bool AddDarknessPerceptiveToDarkRaces { get; set; }
+    public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }
@@ -370,6 +365,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool EnableActionSwitching { get; set; }
+    public bool EnableRespec { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableCustomPortraits { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }

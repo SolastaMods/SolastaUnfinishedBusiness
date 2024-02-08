@@ -5,7 +5,7 @@
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": 9000,
+  "triggerCondition": 9002,
   "requiredProperty": "None",
   "attackModeOnly": false,
   "attackOnly": true,

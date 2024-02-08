@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -239,7 +240,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             return rulesetAttacker is { IsDeadOrDyingOrUnconscious: false } &&
-                   rulesetAttacker.HasConditionOfType(ConditionRaging) &&
+                   rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) &&
                    !rulesetAttacker.IsWearingHeavyArmor() &&
                    IsLongBow(attackMode, null, null);
         }
@@ -330,7 +331,7 @@ public sealed class PathOfTheYeoman : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetAttacker.HasConditionOfType(ConditionRaging) ||
+                !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) ||
                 rulesetAttacker.IsWearingHeavyArmor() ||
                 !IsLongBow(attackerAttackMode, null, null))
             {
@@ -341,16 +342,16 @@ public sealed class PathOfTheYeoman : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerMightyShot, rulesetAttacker);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var targets = battleManager.Battle
+                .GetContenders(defender, isOppositeSide: false, withinRange: 3);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters =
-                    battleManager.Battle
-                        .GetContenders(defender, isOppositeSide: false, withinRange: 3)
+                targetCharacters = targets
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack

@@ -2,7 +2,6 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -58,7 +57,6 @@ public sealed class OathOfDemonHunter : AbstractSubclass
         var conditionTrialMark = ConditionDefinitionBuilder
             .Create(ConditionMarkedByHunter, $"Condition{Name}TrialMark")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 10)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .AddToDB();
@@ -212,10 +210,10 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
-            var actionService =
+            var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (actionService == null)
+            if (gameLocationActionService == null)
             {
                 yield break;
             }
@@ -235,39 +233,26 @@ public sealed class OathOfDemonHunter : AbstractSubclass
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(powerTrialMark, rulesetAttacker);
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                {
-                    StringParameter = "Reaction/&CustomReactionLightEnergyCrossbowBoltDescription",
-                    UsablePower = usablePower
-                };
-            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("LightEnergyCrossbowBolt", reactionParams);
-
-            actionService.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                yield break;
-            }
+                StringParameter = "LightEnergyCrossbowBolt",
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
 
-            rulesetAttacker.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
-            rulesetDefender.InflictCondition(
-                conditionTrialMark.Name,
-                conditionTrialMark.DurationType,
-                conditionTrialMark.DurationParameter,
-                conditionTrialMark.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.Guid,
-                rulesetDefender.CurrentFaction.Name,
-                1,
-                conditionTrialMark.Name,
-                0,
-                0,
-                0);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", attacker);
+
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionService, count);
         }
     }
 

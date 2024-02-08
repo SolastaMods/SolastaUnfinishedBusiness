@@ -89,7 +89,7 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
             .SetModifiers(
                 RollContext.HealValueRoll,
                 1,
-                0,
+                1,
                 2,
                 "Feature/&PowerDivineHeartEmpoweredHealingReroll")
             .AddToDB();

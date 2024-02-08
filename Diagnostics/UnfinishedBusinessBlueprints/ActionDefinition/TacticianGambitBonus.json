@@ -1,6 +1,6 @@
 {
   "$type": "ActionDefinition, Assembly-CSharp",
-  "id": 9006,
+  "id": 9044,
   "actionType": "Bonus",
   "actionScope": "Battle",
   "pairedActionId": "NoAction",

@@ -267,29 +267,37 @@ public sealed class InnovationVivisectionist : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerCharges(powerOrganDonation) <= 0)
+            if (!rulesetAttacker.CanUsePower(powerOrganDonation))
             {
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerOrganDonation, rulesetAttacker);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                StringParameter = "Reaction/&CustomReactionOrganDonationReactDescription"
+                StringParameter = "OrganDonation",
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower
             };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("OrganDonation", reactionParams);
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            yield return gameLocationBattleService.WaitForReactions(
-                attacker, gameLocationActionService, previousReactionCount);
+            gameLocationActionService.ReactToSpendPower(reactionParams);
+
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            rulesetAttacker.UpdateUsageForPower(powerOrganDonation, powerOrganDonation.CostPerUse);
+            rulesetAttacker.UsePower(usablePower);
+
             rulesetAttacker.LogCharacterUsedPower(powerOrganDonation);
 
             var usablePowerEmergencyCure = PowerProvider.Get(powerEmergencyCure, rulesetAttacker);

@@ -68,7 +68,6 @@ ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis d'Ascendan
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactiver <color=#D89555>Vision dans le noir</color> de toutes les Ascendances jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactiver <color=#D89555>Vision dans le noir supérieure</color> de toutes les Ascendances jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Désactiver la prise en charge des traductions non officielles pour accélérer le mod <i><color=#F0DAA0>[sauf si je parle chinois, italien, japonais, coréen ou espagnol]</color></i>
-ModUi/&DisableUpdateMessage=Désactiver les messages de mise à jour <i><color=#F0DAA0>[pour ceux qui prennent la pilule bleue, c'est votre dernière chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte de l'<color=#D89555>Occultiste</color> sur la sélection de sorts plutôt que sur l'écran de personnage</i>
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>

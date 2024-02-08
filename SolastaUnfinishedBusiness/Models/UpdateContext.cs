@@ -25,7 +25,7 @@ internal static class UpdateContext
 
         var day = DateTime.Now.Date.Day;
 
-        if (shouldUpdate && !Main.Settings.DisableUpdateMessage)
+        if (shouldUpdate)
         {
             DisplayUpdateMessage();
         }

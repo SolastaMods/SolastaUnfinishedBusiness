@@ -1,3 +1,4 @@
+Condition/&ConditionInnovationWeaponSummonSteelDefenderProficiencyBonusTitle=Adding Proficiency Bonus of its creator
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Spell attack bonus of its creator
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Learn and have always prepared:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Weaponsmith Spells

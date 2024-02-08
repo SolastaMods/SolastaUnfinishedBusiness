@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -348,25 +347,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = $"Reaction/&CustomReaction{Name}HailOfBladesReactDescription"
-                };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom($"{Name}HailOfBlades", reactionParams);
-
-            manager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, manager, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            rulesetAttacker.UpdateUsageForPower(powerHailOfBlades, powerHailOfBlades.CostPerUse);
-
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
@@ -374,19 +354,22 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             var targets = battleManager.Battle
                 .GetContenders(defender, attacker,
                     isOppositeSide: false, excludeSelf: false, hasToPerceiveTarget: true, withinRange: 2);
-            //CHECK: must be power no cost
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
+            var actionParams =
+                new CharacterActionParams(attacker, ActionDefinitions.Id.PowerReaction)
+                {
+                    StringParameter = "HailOfBlades",
+                    ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    UsablePower = usablePower,
+                    targetCharacters = targets
+                };
 
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, true);
+            var count = manager.PendingReactionRequestGroups.Count;
+
+            manager.ReactToUsePower(actionParams, "UsePower", attacker);
+
+            yield return battleManager.WaitForReactions(attacker, manager, count);
         }
 
         private enum BladeMarkStatus

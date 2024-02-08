@@ -4,7 +4,7 @@
   "modifierOperation": "AddAbilityScoreBonus",
   "modifierValue": 1,
   "modifierAbilityScore": "Intelligence",
-  "situationalContext": 1011,
+  "situationalContext": 9014,
   "minimum1": true,
   "useBonusFromCaster": false,
   "guiPresentation": {

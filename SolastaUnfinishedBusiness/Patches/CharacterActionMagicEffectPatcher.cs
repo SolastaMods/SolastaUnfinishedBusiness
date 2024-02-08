@@ -506,26 +506,7 @@ public static class CharacterActionMagicEffectPatcher
                 }
             }
 
-            yield return __instance.HandlePostExecution();
-
-            yield return battleService.HandleCharacterAttackOrMagicEffectFinishedLate(__instance, actingCharacter);
-
             // BEGIN PATCH
-
-            //PATCH: supports `IPerformAttackAfterMagicEffectUse`
-            var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
-
-            if (attackAfterMagicEffect != null)
-            {
-                var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
-                var characterActionAttacks = performAttackAfterUse?.Invoke(__instance);
-
-                if (characterActionAttacks != null)
-                {
-                    __instance.ResultingActions.AddRange(
-                        characterActionAttacks.Select(attackParams => new CharacterActionAttack(attackParams)));
-                }
-            }
 
             //PATCH: supports `IMagicEffectFinishedByMe`
             var magicEffectFinishedByMe = baseDefinition.GetFirstSubFeatureOfType<IMagicEffectFinishedByMe>();
@@ -535,7 +516,30 @@ public static class CharacterActionMagicEffectPatcher
                 yield return magicEffectFinishedByMe.OnMagicEffectFinishedByMe(__instance, baseDefinition);
             }
 
+            //PATCH: supports `IPerformAttackAfterMagicEffectUse`
+            var attackAfterMagicEffect = baseDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
+
+            if (attackAfterMagicEffect != null)
+            {
+                var performAttackAfterUse = attackAfterMagicEffect.PerformAttackAfterUse;
+                var characterActionParams = performAttackAfterUse?
+                    .Invoke(__instance);
+
+                if (characterActionParams != null)
+                {
+                    foreach (var actionParam in characterActionParams)
+                    {
+                        ServiceRepository.GetService<IGameLocationActionService>()?
+                            .ExecuteAction(actionParam, null, true);
+                    }
+                }
+            }
+
             // END PATCH
+
+            yield return __instance.HandlePostExecution();
+
+            yield return battleService.HandleCharacterAttackOrMagicEffectFinishedLate(__instance, actingCharacter);
         }
     }
 
@@ -616,15 +620,13 @@ public static class CharacterActionMagicEffectPatcher
 
                 // BEGIN PATCH
 
-                //PATCH: support for IAlterAttackOutcome
-                yield return actingCharacter.RulesetCharacter
-                    .GetSubFeaturesByType<ITryAlterOutcomePhysicalAttackByMe>()
-                    .TakeWhile(_ =>
-                        __instance.AttackRollOutcome == RollOutcome.Failure &&
-                        __instance.AttackSuccessDelta < 0)
-                    .Select(feature =>
-                        feature.OnAttackTryAlterOutcomeByMe(battleService as GameLocationBattleManager,
-                            __instance, actingCharacter, target, attackModifier));
+                //PATCH: support for `ITryAlterOutcomeAttack`
+                foreach (var tryAlterOutcomeAttack in TryAlterOutcomeAttack
+                             .Handler(battleService as GameLocationBattleManager,
+                                 __instance, actingCharacter, target, attackModifier))
+                {
+                    yield return tryAlterOutcomeAttack;
+                }
 
                 // END PATCH
 
@@ -761,9 +763,12 @@ public static class CharacterActionMagicEffectPatcher
                     // BEGIN PATCH
 
                     //PATCH: support for `ITryAlterOutcomeSavingThrow`
-                    yield return TryAlterOutcomeSavingThrowFromAllyOrEnemy.Handler(
-                        battleService as GameLocationBattleManager,
-                        __instance, actingCharacter, target, attackModifier, hasBorrowedLuck);
+                    foreach (var tryAlterOutcomeSavingThrow in TryAlterOutcomeSavingThrow.Handler(
+                                 battleService as GameLocationBattleManager,
+                                 __instance, actingCharacter, target, attackModifier, hasBorrowedLuck))
+                    {
+                        yield return tryAlterOutcomeSavingThrow;
+                    }
 
                     // END PATCH
                 }

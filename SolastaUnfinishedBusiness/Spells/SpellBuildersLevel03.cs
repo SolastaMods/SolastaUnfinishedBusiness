@@ -693,20 +693,21 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
-
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var targets = Gui.Battle.AllContenders
+                .Where(x =>
+                    x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    x != attacker &&
+                    !action.ActionParams.TargetCharacters.Contains(x) &&
+                    attacker.IsWithinRange(x, 2))
+                .ToList();
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = Gui.Battle.AllContenders
-                    .Where(x =>
-                        x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                        x != attacker &&
-                        !action.ActionParams.TargetCharacters.Contains(x) &&
-                        attacker.IsWithinRange(x, 2))
-                    .ToList()
+                targetCharacters = targets
             };
 
             // special case don't ExecuteAction on MagicEffectInitiated
@@ -1053,16 +1054,17 @@ internal static partial class SpellBuilders
             // leap damage on enemies within 10 ft from target
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            //CHECK: must be spend power
             var usablePower = PowerProvider.Get(powerLightningArrowLeap, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var targets = battleManager.Battle
+                .GetContenders(defender, isOppositeSide: false, withinRange: 2);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
-                targetCharacters = battleManager.Battle
-                    .GetContenders(defender, isOppositeSide: false, withinRange: 2)
+                targetCharacters = targets
             };
 
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
@@ -1188,28 +1190,33 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-            var rulesetDefender = action.ActionParams.TargetCharacters[0].RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false }
-                || !action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
+            if (!action.RolledSaveThrow || action.SaveOutcome == RollOutcome.Success)
             {
                 yield break;
             }
 
-            rulesetDefender.InflictCondition(
-                conditionCorruptingBolt.Name,
-                conditionCorruptingBolt.DurationType,
-                conditionCorruptingBolt.DurationParameter,
-                conditionCorruptingBolt.TurnOccurence,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionCorruptingBolt.Name,
-                0,
-                0,
-                0);
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            // need to loop over target characters to support twinned metamagic scenarios
+            foreach (var rulesetDefender in action.ActionParams.TargetCharacters
+                         .Select(target => target.RulesetCharacter)
+                         .Where(rulesetDefender => 
+                             rulesetDefender is { IsDeadOrDyingOrUnconscious: false }))
+            {
+                rulesetDefender.InflictCondition(
+                    conditionCorruptingBolt.Name,
+                    conditionCorruptingBolt.DurationType,
+                    conditionCorruptingBolt.DurationParameter,
+                    conditionCorruptingBolt.TurnOccurence,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionCorruptingBolt.Name,
+                    0,
+                    0,
+                    0);
+            }
         }
     }
 
@@ -1259,26 +1266,32 @@ internal static partial class SpellBuilders
 
             var caster = action.ActingCharacter;
             var rulesetCaster = caster.RulesetCharacter;
-            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
-            var rolls = new List<int>();
             var diceNumber = 4 + actionCastSpell.activeSpell.EffectLevel - 3;
-            var damageForm = new DamageForm
+            
+            // need to loop over target characters to support twinned metamagic scenarios
+            foreach (var target in action.ActionParams.TargetCharacters)
             {
-                DamageType = DamageTypeNecrotic, DiceNumber = diceNumber, DieType = DieType.D8
-            };
-            var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-            var totalHealing = totalDamage * 2;
-            var currentHitPoints = rulesetCaster.CurrentHitPoints;
+                var rulesetTarget = target.RulesetCharacter;
+                var rolls = new List<int>();
+                var damageForm = new DamageForm
+                {
+                    DamageType = DamageTypeNecrotic, DiceNumber = diceNumber, DieType = DieType.D8
+                };
+                var totalDamage = rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                var totalHealing = totalDamage * 2;
+                var currentHitPoints = rulesetCaster.CurrentHitPoints;
 
-            rulesetCaster.SustainDamage(totalDamage, damageForm.DamageType, false, rulesetCaster.Guid,
-                new RollInfo(damageForm.DieType, rolls, 0), out _);
+                rulesetCaster.SustainDamage(totalDamage, damageForm.DamageType, false, rulesetCaster.Guid,
+                    new RollInfo(damageForm.DieType, rolls, 0), out _);
 
-            EffectHelpers.StartVisualEffect(caster, caster, PowerSorcererChildRiftOffering);
+                EffectHelpers.StartVisualEffect(caster, caster, PowerSorcererChildRiftOffering);
 
-            rulesetCaster.DamageSustained?.Invoke(rulesetCaster, totalDamage, damageForm.DamageType, true,
-                currentHitPoints > totalDamage, false);
+                rulesetCaster.DamageSustained?.Invoke(rulesetCaster, totalDamage, damageForm.DamageType, true,
+                    currentHitPoints > totalDamage, false);
 
-            rulesetTarget.ReceiveHealing(totalHealing, true, rulesetCaster.Guid);
+                rulesetTarget.ReceiveHealing(totalHealing, true, rulesetCaster.Guid);
+            }
+
         }
     }
 

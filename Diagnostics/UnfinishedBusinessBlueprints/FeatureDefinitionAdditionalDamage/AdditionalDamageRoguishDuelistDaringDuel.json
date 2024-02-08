@@ -5,7 +5,7 @@
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": 9002,
+  "triggerCondition": 9001,
   "requiredProperty": "FinesseOrRangeWeapon",
   "attackModeOnly": false,
   "attackOnly": false,

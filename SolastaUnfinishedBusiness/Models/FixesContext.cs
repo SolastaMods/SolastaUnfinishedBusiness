@@ -648,13 +648,10 @@ internal static class FixesContext
             }
 
             var wayOfZenArcheryLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfZenArchery.Name);
-            var wayOfTheDistantHandLevels = rulesetAttacker.GetSubclassLevel(Monk, WayOfTheDistantHand.Name);
 
             // Zen Archery get stunning strike with bows at 6 and Distant Hand with bows at 11
             if (!ValidatorsWeapon.IsMelee(attackMode) &&
                 (wayOfZenArcheryLevels < WayOfZenArchery.StunningStrikeWithBowAllowedLevel ||
-                 !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)) &&
-                (wayOfTheDistantHandLevels < WayOfTheDistantHand.StunningStrikeWithBowAllowedLevel ||
                  !ValidatorsCharacter.HasBowWithoutArmor(rulesetAttacker)))
             {
                 yield break;
@@ -664,9 +661,9 @@ internal static class FixesContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(FeatureDefinitionPowers.PowerMonkStunningStrike, rulesetAttacker);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),

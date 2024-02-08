@@ -1,15 +1,17 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -24,31 +26,27 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         #region 3rd LEVEL FEATURES
 
         // Spirit Seeker
-        // Yours is a path that seeks attunement with the natural world, giving you a kinship with beasts.
-        // At 3rd level when you adopt this path, you gain the ability to cast the AnimalFriendship and FindTraps spells at will.
+
         var featureSetPathOfTheSpiritsSpiritSeeker = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SpiritSeeker")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                BuildSpiritSeekerSpell(SpellDefinitions.AnimalFriendship),
-                BuildSpiritSeekerSpell(SpellDefinitions.FindTraps))
+                BuildSpiritSeekerSpell(SpellDefinitions.AnimalFriendship, RechargeRate.ShortRest),
+                BuildSpiritSeekerSpell(SpellDefinitions.FindTraps, RechargeRate.ShortRest))
             .AddToDB();
 
         // Animal Spirit
-        // At 3rd level, when you adopt this path, you choose an animal spirit as a guide and gain its feature.
+
         var featureSetPathOfTheSpiritsAnimalSpirit = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AnimalSpiritChoices")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
-                // Bear: While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.
                 PowerPathOfTheSpiritsBearResistance(),
-                // Eagle: The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take the Dash, Disengage, or Hide action as a Bonus Action.
                 FeatureDefinitionActionAffinityBuilder
                     .Create(ActionAffinityRogueCunningAction, $"ActionAffinity{Name}CunningAction")
                     .SetOrUpdateGuiPresentation(Category.Feature)
                     .AddToDB(),
-                // Wolf: The spirit of the wolf makes you a leader of hunters. While you're raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you.
                 PowerPathOfTheSpiritsWolfLeadership())
             .AddToDB();
 
@@ -57,25 +55,50 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         #region 6th LEVEL FEATURES
 
         // Animal Aspect
-        // At 6th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at 3rd level or a different one.
+
         var featureSetPathOfTheSpiritsAnimalAspect = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}AnimalAspectChoices")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
-                //Bear: You gain the might of a bear. Your HP increases by 2 points for every level you take in this class and have advantage on Strength Checks.
                 BuildAnimalAspectChoice("Bear",
-                    AttributeModifierBearDurability(),
-                    AbilityCheckAffinityPathOfTheSpiritsBearMight()),
-                //Eagle: You gain the eyesight of an eagle. You gain superior darkvision and Keen Sight.
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create($"AttributeModifier{Name}BearDurability")
+                        .SetGuiPresentationNoContent(true)
+                        .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
+                        .AddToDB(),
+                    FeatureDefinitionAbilityCheckAffinityBuilder
+                        .Create($"AbilityCheckAffinity{Name}BearMight")
+                        .SetGuiPresentationNoContent(true)
+                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                            (AttributeDefinitions.Strength, string.Empty))
+                        .AddToDB()),
                 BuildAnimalAspectChoice("Eagle",
                     SenseSuperiorDarkvision,
-                    AbilityCheckAffinityKeenSight),
-                //Wolf: You gain the hunting sensibilities of a wolf. You can track other creatures by smell and hearing (Keen Smell and Keen Hearing). You also gain the ability of casting the IdentifyCreatures spell at will.
+                    FeatureDefinitionProficiencyBuilder
+                        .Create($"Proficiency{Name}Eagle")
+                        .SetGuiPresentation("FeatureSetPathOfTheSpiritsAnimalAspectChoiceEagle", Category.Feature)
+                        .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Perception)
+                        .AddToDB(),
+                    FeatureDefinitionAbilityCheckAffinityBuilder
+                        .Create($"AbilityCheckAffinity{Name}Eagle")
+                        .SetGuiPresentation("FeatureSetPathOfTheSpiritsAnimalAspectChoiceEagle", Category.Feature)
+                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                            (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
+                        .AddToDB()),
                 BuildAnimalAspectChoice("Wolf",
-                    BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures),
-                    AbilityCheckAffinityKeenSmell,
-                    AbilityCheckAffinityKeenHearing))
+                    FeatureDefinitionProficiencyBuilder
+                        .Create($"Proficiency{Name}Wolf")
+                        .SetGuiPresentation("FeatureSetPathOfTheSpiritsAnimalAspectChoiceWolf", Category.Feature)
+                        .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Survival)
+                        .AddToDB(),
+                    FeatureDefinitionAbilityCheckAffinityBuilder
+                        .Create($"AbilityCheckAffinity{Name}Wolf")
+                        .SetGuiPresentation("FeatureSetPathOfTheSpiritsAnimalAspectChoiceWolf", Category.Feature)
+                        .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                            (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
+                        .AddToDB(),
+                    BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures, RechargeRate.LongRest)))
             .AddToDB();
 
         #endregion
@@ -83,17 +106,45 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         #region 10th LEVEL FEATURES
 
         // Spirit Walker
-        // At 10th level, as a Bonus Action, you can summon the protection of your Animal Spirit to guide and protect you in a 15ft sphere area around you for 10 minutes.
-        // Enemy creatures in this sphere are affected by this feature. An affected creature's speed is halved in the area, and when the creature enters
-        // the area for the first time on a turn or starts its turn there, it must make a Wisdom saving throw.
-        // On a failed save, the creature takes 3d8 radiant damage (if you are good or neutral) or 3d8 necrotic damage (if you are evil).
-        // On a successful save, the creature takes half as much damage.
-        // You can use this feature a number of times equal to your proficiency modifier.
+
+        var powerSpiritGuardians = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SpiritGuardians")
+            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .Build())
+            .AddToDB();
+
+        var powerSpiritGuardiansRageCost = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}SpiritGuardiansRageCost")
+            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.RagePoints)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .Build())
+            .AddToDB();
+
         var featureSetPathOfTheSpiritsSpiritWalker = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SpiritWalker")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(PowerSpiritGuardian())
+            .AddFeatureSet(powerSpiritGuardians, powerSpiritGuardiansRageCost)
             .AddToDB();
+
+        powerSpiritGuardiansRageCost.AddCustomSubFeatures(
+            new ActionFinishedBySpiritWalker(powerSpiritGuardians, powerSpiritGuardiansRageCost));
 
         #endregion
 
@@ -144,23 +195,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionPower BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
-    {
-        var effectDescription = EffectDescriptionBuilder
-            .Create(spellDefinition.EffectDescription)
-            .Build();
-
-        // hack as Barbs don't have repertoires to get DC from spell casting feature (easier than recreate effect)
-        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
-
-        return FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}{spellDefinition.name}")
-            .SetGuiPresentation(spellDefinition.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(effectDescription)
-            .AddToDB();
-    }
-
     private static FeatureDefinitionFeatureSet BuildAnimalAspectChoice(
         string name,
         params FeatureDefinition[] featureDefinitions)
@@ -169,6 +203,24 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"FeatureSet{Name}AnimalAspectChoice{name}")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(featureDefinitions)
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionPower BuildSpiritSeekerSpell(
+        SpellDefinition spellDefinition,
+        RechargeRate rechargeRate)
+    {
+        var effectDescription = EffectDescriptionBuilder
+            .Create(spellDefinition.EffectDescription)
+            .Build();
+
+        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+
+        return FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{spellDefinition.name}")
+            .SetGuiPresentation(spellDefinition.GuiPresentation)
+            .SetUsesFixed(ActivationTime.BonusAction, rechargeRate)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
     }
 
@@ -199,6 +251,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}BearResistance")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -214,37 +267,32 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionAttributeModifier AttributeModifierBearDurability()
-    {
-        return FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}BearDurability")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
-            .AddToDB();
-    }
-
     private static FeatureDefinitionPower PowerPathOfTheSpiritsWolfLeadership()
     {
+        var combatAffinityWolfLeadershipPack = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}WolfLeadershipPack")
+            .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
+                Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSourceWithSimpleOrMartialWeaponInHands)
+            .AddToDB();
+
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
             .Create($"Condition{Name}WolfLeadershipPack")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ExtraConditionInterruption.SourceRageStop)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{Name}WolfLeadershipPack")
-                    .SetGuiPresentation($"Condition{Name}WolfLeadershipPack", Category.Condition,
-                        Gui.NoLocalization)
-                    .SetMyAttackAdvantage(AdvantageType.Advantage)
-                    .SetSituationalContext(ExtraSituationalContext.HasSimpleOrMartialWeaponInHands)
-                    .AddToDB())
+            .SetFeatures(combatAffinityWolfLeadershipPack)
             .AddToDB();
+
+        combatAffinityWolfLeadershipPack.requiredCondition = conditionPathOfTheSpiritsWolfLeadershipPack;
 
         var powerPathOfTheSpiritsWolfLeadership = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}WolfLeadership")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -258,32 +306,6 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         return powerPathOfTheSpiritsWolfLeadership;
-    }
-
-    private static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityPathOfTheSpiritsBearMight()
-    {
-        return FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create($"AbilityCheckAffinity{Name}BearMight")
-            .SetGuiPresentationNoContent(true)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                (AttributeDefinitions.Strength, string.Empty))
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionPower PowerSpiritGuardian()
-    {
-        return FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SpiritGuardians")
-            .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
-                    .SetSavingThrowData(
-                        false, AttributeDefinitions.Wisdom, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                    .Build())
-            .AddToDB();
     }
 
     private static FeatureDefinitionPower PowerPathOfTheSpiritsHonedBear()
@@ -300,7 +322,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                     .SetGuiPresentation($"Condition{Name}HonedAnimalAspectsBear", Category.Condition,
                         Gui.NoLocalization)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                    .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
                     .AddToDB())
             .AddToDB();
 
@@ -308,6 +330,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -343,6 +366,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}HonedAnimalAspectsEagle")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -373,6 +397,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{Name}HonedAnimalAspectsWolf")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -383,5 +408,68 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         return powerHonedAnimalAspectsWolf;
+    }
+
+    private sealed class ActionFinishedBySpiritWalker(
+        FeatureDefinitionPower powerNoCost,
+        FeatureDefinitionPower powerRageCost) : IActionFinishedByMe
+    {
+        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != FeatureDefinitionPowers.PowerBarbarianRageStart)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var power = rulesetCharacter.CanUsePower(powerNoCost)
+                ? powerNoCost
+                : rulesetCharacter.CanUsePower(powerRageCost)
+                    ? powerRageCost
+                    : null;
+
+            if (power == null)
+            {
+                yield break;
+            }
+
+            if (ServiceRepository.GetService<IGameLocationBattleService>()
+                    is not GameLocationBattleManager gameLocationBattleManager ||
+                ServiceRepository.GetService<IGameLocationActionService>()
+                    is not GameLocationActionManager gameLocationActionManager ||
+                ServiceRepository.GetService<IRulesetImplementationService>()
+                    is not RulesetImplementationManager implementationManagerService)
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
+            {
+                StringParameter = "SpiritWalker",
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower
+            };
+
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", actingCharacter);
+
+            yield return gameLocationBattleManager.WaitForReactions(actingCharacter, gameLocationActionManager, count);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            if (power == powerRageCost)
+            {
+                rulesetCharacter.SpendRagePoint();
+            }
+        }
     }
 }

@@ -2,8 +2,8 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:PowerPathOfTheSpiritsIdentifyCreatures:729a93fb-8397-53f8-9fb3-8dfa558f4323",
-    "Definition:AbilityCheckAffinityKeenHearing:4e042e049873e27469a28b7c8e9e1d72",
-    "Definition:AbilityCheckAffinityKeenSmell:ad58749fe3130524781820bdc7f034df"
+    "Definition:AbilityCheckAffinityPathOfTheSpiritsWolf:d4648506-f55e-5b44-9c27-843a44c6e4a7",
+    "Definition:ProficiencyPathOfTheSpiritsWolf:2aa4c7c6-f9b1-54e5-8da5-49799a44cf64"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

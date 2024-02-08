@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
-  "minRollValue": 0,
+  "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 2,
   "rerollCount": 1,

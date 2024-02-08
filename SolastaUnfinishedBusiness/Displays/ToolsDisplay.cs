@@ -52,13 +52,7 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.DisableUpdateMessage;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableUpdateMessage"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableUpdateMessage = toggle;
-        }
-
-        toggle = Main.Settings.DisableUnofficialTranslations;
+        var toggle = Main.Settings.DisableUnofficialTranslations;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableUnofficialTranslations = toggle;
@@ -94,13 +88,6 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSaveByLocation"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSaveByLocation = toggle;
-        }
-
-        toggle = Main.Settings.EnableRespec;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRespec = toggle;
-            ToolsContext.SwitchRespec();
         }
 
         UI.Label();

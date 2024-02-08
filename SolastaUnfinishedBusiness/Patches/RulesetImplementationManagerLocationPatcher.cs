@@ -61,8 +61,6 @@ public static class RulesetImplementationManagerLocationPatcher
             RulesetImplementationDefinitions.SituationalContextParams contextParams)
         {
             //PATCH: supports custom situational context
-            //used to tweak `Reckless` feat to properly work with reach weapons
-            //and for Blade Dancer subclass features
             __result = CustomSituationalContext.IsContextValid(contextParams, __result);
         }
     }

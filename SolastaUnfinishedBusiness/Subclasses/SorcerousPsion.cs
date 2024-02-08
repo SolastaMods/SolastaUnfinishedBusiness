@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -210,6 +209,9 @@ public sealed class SorcerousPsion : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerMindOverMatter.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerPatronFiendDarkOnesBlessing.EffectDescription.EffectParticleParameters.effectParticleReference;
+
         powerMindOverMatter.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyMindOverMatter(powerMindOverMatter));
 
         // LEVEL 18
@@ -370,18 +372,27 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
+            var targets = gameLocationBattleService.Battle
+                .GetContenders(source, withinRange: 2);
+            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
             {
-                StringParameter = "Reaction/&CustomReactionMindOverMatterDescription"
+                StringParameter = "MindOverMatter",
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
             };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("MindOverMatter", reactionParams);
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            yield return gameLocationBattleService
-                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
+
+            yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -394,35 +405,8 @@ public sealed class SorcerousPsion : AbstractSubclass
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
-            var targets = gameLocationBattleService.Battle
-                .GetContenders(source, withinRange: 2);
-            //CHECK: must be spend power
-            var actionParams = new CharacterActionParams(source, ActionDefinitions.Id.SpendPower)
-            {
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            EffectHelpers.StartVisualEffect(
-                source, source, PowerPatronFiendDarkOnesBlessing, EffectHelpers.EffectType.Effect);
-
-            foreach (var target in targets)
-            {
-                EffectHelpers.StartVisualEffect(
-                    source, target, PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
-            }
-
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(actionParams, null, false);
-            ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 
@@ -452,7 +436,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             var character = action.ActingCharacter.RulesetCharacter;
             var usablePower = PowerProvider.Get(powerSupremeWill, character);
 
-            character.UpdateUsageForPower(usablePower, usablePower.PowerDefinition.CostPerUse);
+            character.UsePower(usablePower);
             character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
             character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
         }

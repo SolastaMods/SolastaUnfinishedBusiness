@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -237,7 +236,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift)
-                    .SetParticleEffectParameters(Banishment)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will)
                     .Build())
             .SetShowCasting(true)
             .AddToDB();
@@ -343,39 +342,40 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
     private class TryAlterOutcomePhysicalAttackByMeShadowFlurry(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureShadowFlurry)
-        : ITryAlterOutcomePhysicalAttackByMe
+        FeatureDefinition featureShadowFlurry) : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnAttackTryAlterOutcomeByMe(
+        public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
             CharacterAction action,
-            GameLocationCharacter me,
-            GameLocationCharacter target,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
             if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
-            var rulesetMe = me.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetMe is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !attacker.OncePerTurnIsValid(featureShadowFlurry.Name) ||
+                !attacker.CanPerceiveTarget(defender) ||
+                !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
             {
                 yield break;
             }
 
-            if (!ValidatorsCharacter.IsNotInBrightLight(rulesetMe))
-            {
-                yield break;
-            }
-
-            if (!me.OncePerTurnIsValid(featureShadowFlurry.Name))
-            {
-                yield break;
-            }
-
-            me.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
+            attacker.UsedSpecialFeatures.TryAdd(featureShadowFlurry.Name, 1);
 
             var attackMode = action.actionParams.attackMode;
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
@@ -383,15 +383,15 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 ? "Feedback/&RollCheckCriticalFailureTitle"
                 : "Feedback/&CriticalAttackFailureOutcome";
 
-            rulesetMe.LogCharacterUsedFeature(featureShadowFlurry,
+            rulesetCharacter.LogCharacterUsedFeature(featureShadowFlurry,
                 "Feedback/&TriggerRerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
-            var roll = rulesetMe.RollAttack(
+            var roll = rulesetCharacter.RollAttack(
                 attackMode.toHitBonus,
-                target.RulesetCharacter,
+                defender.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
                 attackModifier.IgnoreAdvantage,
@@ -458,47 +458,33 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
-            var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+            var actionParams =
+                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
                 {
-                    StringParameter = "ShadowySanctuary", UsablePower = usablePower
+                    StringParameter = "ShadowySanctuary",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { me }
                 };
 
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
+            yield return battle.WaitForReactions(me, gameLocationActionManager, count);
 
-            if (!reactionParams.ReactionValidated)
+            if (!actionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            // remove any negative effect
             actualEffectForms.Clear();
-
-            rulesetMe.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
-
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-            //CHECK: must be power no cost
-            var actionParams = new CharacterActionParams(me, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetMe, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { me }
-            };
-
-            EffectHelpers.StartVisualEffect(me, attacker,
-                FeatureDefinitionPowers.PowerGlabrezuGeneralShadowEscape_at_will, EffectHelpers.EffectType.Caster);
-            ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(actionParams, null, false);
         }
     }
 }
