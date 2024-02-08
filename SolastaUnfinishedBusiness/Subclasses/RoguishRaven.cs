@@ -345,25 +345,32 @@ public sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                StringParameter = "Reaction/&CustomReactionRavenDeadlyAimReactDescription"
+                StringParameter = "DeadlyAim",
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower
             };
-            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("RavenDeadlyAim", reactionParams);
 
-            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            yield return battle.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
+
+            yield return battle.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(power, rulesetCharacter);
-
-            rulesetCharacter.UsePower(usablePower);
+            attackModifier.ignoreAdvantage = false;
+            attackModifier.attackAdvantageTrends =
+                [new TrendInfo(1, FeatureSourceType.CharacterFeature, power.Name, power)];
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1
@@ -382,20 +389,17 @@ public sealed class RoguishRaven : AbstractSubclass
                 defender.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
-                false,
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, power.Name, power)],
+                attackModifier.ignoreAdvantage,
+                attackModifier.attackAdvantageTrends,
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
                 out var outcome,
                 out var successDelta,
                 -1,
-                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
+                // avoids the roll to display on combat log as the original one will get there with these results
                 true);
 
-            attackModifier.ignoreAdvantage = false;
-            attackModifier.attackAdvantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, power.Name, power)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;
