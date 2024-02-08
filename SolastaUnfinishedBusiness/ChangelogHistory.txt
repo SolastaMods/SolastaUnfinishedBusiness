@@ -1,16 +1,20 @@
 1.5.94.51:
 
-RESPEC MIGHT BE REQUIRED ON: Arcane Scoundrel, Defiler, Duelist, and Raven [if heroes or saves created in 2023]
+RESPEC IS REQUIRED ON: Harlequin, Defender, Marshal, and Distant Hand [previously deprecated in 2023]
+RESPEC MIGHT BE REQUIRED ON: Scoundrel, Defiler, Duelist, and Raven [if heroes or saves created in 2023]
 
 - added Circle of the Cosmos subclass [only difference compared with TT is it won't react on attribute checks]
 - fixed College of War Dancer improved war dancer not granting extra attacks while war dancer is active
+- fixed Resonating Blade interaction with twinned metamagic
 - fixed some reaction like powers not updating usage after confirmation [i.e.: Imp Wrath, etc.]
+- fixed War Magic incorrectly granting a bonus attack after a main one
 - improved all custom reaction powers to present the source power usages on modal whenever appropriate
 - improved Cunning Strike and Devil Strike tooltips to display power usage as amount of sneak dice used
 - improved mod backend for better maintainability, multiplayer compatibility, and performance
 - improved Path of the Elements condition raging SFX to be based on chosen ancestry type
 - improved Path of the Spirits wolf spirit at 3rd, eagle and wolf aspect at 6th, and spirit walker at 10th
-- removed older 17h backward compatibility blueprints from Arcane Scoundrel, Duelist, and Raven
+- removed previously deprecated College of Harlequin, Martial Defender, Martial Marshal, and Way of Distant Hand
+- removed older 17h backward compatibility blueprints from Scoundrel, Duelist, and Raven
 - removed older 6th and 8th backward compatibility blueprints from Defiler
 
 1.5.94.50:

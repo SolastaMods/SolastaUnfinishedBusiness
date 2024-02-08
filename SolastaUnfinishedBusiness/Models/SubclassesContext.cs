@@ -27,12 +27,8 @@ internal static class SubclassesContext
 
     private static IEnumerable<string> DeprecatedSubsList { get; } =
     [
-        "CollegeOfHarlequin",
-        "MartialMarshal",
-        "MartialMartialDefender",
         "PatronMoonlit",
-        "RoguishRaven",
-        "WayOfTheDistantHand"
+        "RoguishRaven"
     ];
 
     internal static void Load()
