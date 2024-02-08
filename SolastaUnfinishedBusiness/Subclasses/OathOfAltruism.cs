@@ -180,7 +180,8 @@ public sealed class OathOfAltruism : AbstractSubclass
 
     private class SpiritualShieldingBlockAttack : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
@@ -189,41 +190,38 @@ public sealed class OathOfAltruism : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            if (rulesetEffect != null
-                && rulesetEffect.EffectDescription.RangeType != RangeType.Touch
-                && rulesetEffect.EffectDescription.RangeType != RangeType.MeleeHit)
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionService == null)
             {
                 yield break;
             }
 
-            var unitCharacter = helper.RulesetCharacter;
 
-            if (helper == defender)
+            var helperCharacter = helper.RulesetCharacter;
+
+            if (helper == defender ||
+                !helper.CanReact(true) ||
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
 
-            //Is this unit able to react (not paralyzed, prone etc.)?
-            if (!helper.CanReact(true))
+            if (rulesetEffect != null &&
+                rulesetEffect.EffectDescription.RangeType != RangeType.Touch &&
+                rulesetEffect.EffectDescription.RangeType != RangeType.MeleeHit)
             {
                 yield break;
             }
 
-            //Can this unit see defender?
-            if (!helper.CanPerceiveTarget(defender))
+            var maxUses = helperCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
+
+            if (helperCharacter.UsedChannelDivinity >= maxUses)
             {
                 yield break;
             }
 
-            //Does this unit has enough Channel Divinity uses left?
-            var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
-
-            if (unitCharacter.UsedChannelDivinity >= maxUses)
-            {
-                yield break;
-            }
-
-            //Is defender already shielded?
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender.HasConditionOfType(ConditionShielded))
@@ -231,18 +229,15 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var totalAttack = attackRoll
-                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                              + actionModifier.AttackRollModifier;
+            var totalAttack =
+                attackRoll +
+                (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
+                actionModifier.AttackRollModifier;
 
-            //Can shielding prevent hit?
             if (!rulesetDefender.CanMagicEffectPreventHit(Shield, totalAttack))
             {
                 yield break;
             }
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-            var count = actionService.PendingReactionRequestGroups.Count;
 
             var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
             {
@@ -250,9 +245,16 @@ public sealed class OathOfAltruism : AbstractSubclass
                     .Formatted(Category.Reaction, defender.Name, attacker.Name)
             };
 
-            RequestCustomReaction("SpiritualShielding", actionParams);
+            var reactionRequest = new ReactionRequestCustom("SpiritualShielding", actionParams)
+            {
+                Resource = ReactionResourceChannelDivinity.Instance
+            };
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(helper, gameLocationActionService, count);
 
             if (!actionParams.ReactionValidated)
             {
@@ -260,7 +262,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             }
 
             //Spend resources
-            unitCharacter.UsedChannelDivinity++;
+            helperCharacter.UsedChannelDivinity++;
 
             rulesetDefender.InflictCondition(
                 ConditionShielded.Name,
@@ -268,30 +270,13 @@ public sealed class OathOfAltruism : AbstractSubclass
                 0,
                 TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
-                unitCharacter.guid,
-                unitCharacter.CurrentFaction.Name,
+                helperCharacter.guid,
+                helperCharacter.CurrentFaction.Name,
                 1,
                 ConditionShielded.Name,
                 0,
                 0,
                 0);
-        }
-
-        private static void RequestCustomReaction(string type, CharacterActionParams actionParams)
-        {
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (actionManager == null)
-            {
-                return;
-            }
-
-            var reactionRequest = new ReactionRequestCustom(type, actionParams)
-            {
-                Resource = ReactionResourceChannelDivinity.Instance
-            };
-
-            actionManager.AddInterruptRequest(reactionRequest);
         }
     }
 }
