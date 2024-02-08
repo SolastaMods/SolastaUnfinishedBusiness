@@ -27,13 +27,34 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
-    private static readonly ConditionDefinition ConditionWarDance = BuildConditionWarDance();
+    private static readonly ConditionDefinition ConditionWarDance = ConditionDefinitionBuilder
+        .Create("ConditionWarDance")
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
+        .AddFeatures(
+            FeatureDefinitionMovementAffinityBuilder
+                .Create("MovementAffinityConditionWarDanceExtraMovement3")
+                .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
+                .SetBaseSpeedAdditiveModifier(3)
+                .SetImmunities(difficultTerrainImmunity: true)
+                .AddToDB(),
+            FeatureDefinitionAttackModifierBuilder
+                .Create("AttackModifierWarDance")
+                .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
+                .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
+                .AddToDB())
+        .AddCustomSubFeatures(
+            AllowFreeWeaponSwitching.Mark,
+            new StopMomentumAndAttacksWhenRemoved(),
+            new WarDanceFlurryPhysicalAttack(),
+            new WarDanceFlurryWeaponAttackModifier(),
+            new WarDanceExtraAttacks())
+        .AddToDB();
 
     private static readonly ProvideAdditionalDamageDieType UpgradeDiceType = (character, _) =>
         GetMomentumDice(character);
 
-    private static readonly ProvideAdditionalDamageDiceNumber UpgradeDieNum = (character, _) =>
-        GetMomentumDiceNum(character);
+    private static readonly ProvideAdditionalDamageDiceNumber UpgradeDiceNumber = (character, _) =>
+        GetMomentumDiceNumber(character);
 
     private static readonly ConditionDefinition WarDanceMomentum = ConditionDefinitionBuilder
         .Create("ConditionWarDanceMomentum")
@@ -45,14 +66,13 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageWarDanceMomentum")
                 .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("Momentum")
                 .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                 .SetDamageDice(DieType.D6, 2)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                 .SetAttackModeOnly()
                 .SetIgnoreCriticalDoubleDice(true)
-                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-                .SetNotificationTag("Momentum")
-                .AddCustomSubFeatures(UpgradeDiceType, UpgradeDieNum)
+                .AddCustomSubFeatures(UpgradeDiceType, UpgradeDiceNumber)
                 .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
@@ -65,7 +85,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         .SetFeatures(
             FeatureDefinitionAdditionalActionBuilder
                 .Create("AdditionalActionWarDanceMomentum")
-                .SetGuiPresentation(ImproveWarDance.GuiPresentation)
+                .SetGuiPresentationNoContent(true)
                 .AddCustomSubFeatures(AllowConditionDuplicates.Mark, ValidateAdditionalActionAttack.MeleeOnly)
                 .SetActionType(ActionType.Main)
                 .SetMaxAttacksNumber(1)
@@ -127,32 +147,6 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => null;
 
-    private static ConditionDefinition BuildConditionWarDance()
-    {
-        return ConditionDefinitionBuilder
-            .Create("ConditionWarDance")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
-            .AddFeatures(
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityConditionWarDanceExtraMovement3")
-                    .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
-                    .SetBaseSpeedAdditiveModifier(3)
-                    .SetImmunities(false, false, true)
-                    .AddToDB(),
-                FeatureDefinitionAttackModifierBuilder
-                    .Create("AttackModifierWarDance")
-                    .SetGuiPresentation("ConditionWarDance", Category.Condition, Gui.NoLocalization)
-                    .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
-                    .AddCustomSubFeatures(
-                        AllowFreeWeaponSwitching.Mark,
-                        new StopMomentumAndAttacksWhenRemoved(),
-                        new WarDanceFlurryPhysicalAttack(),
-                        new WarDanceFlurryWeaponAttackModifier(),
-                        new WarDanceExtraAttacks())
-                    .AddToDB())
-            .AddToDB();
-    }
-
     private static DieType GetMomentumDice(RulesetCharacter character)
     {
         var item = character.GetMainWeapon();
@@ -174,7 +168,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         return isHeavy ? DieType.D10 : DieType.D8;
     }
 
-    private static int GetMomentumDiceNum(RulesetCharacter character)
+    private static int GetMomentumDiceNumber(RulesetCharacter character)
     {
         var momentum = GetMomentumStacks(character);
 
@@ -218,11 +212,6 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
 
     private static void GrantWarDanceCondition(RulesetCharacter rulesetCharacter, BaseDefinition condition)
     {
-        if (rulesetCharacter is not RulesetCharacterHero)
-        {
-            return;
-        }
-
         rulesetCharacter.InflictCondition(
             condition.Name,
             DurationType.Round,
@@ -240,35 +229,29 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
 
     private sealed class WarDanceFlurryPhysicalAttack : IPhysicalAttackFinishedByMe
     {
-        public IEnumerator OnPhysicalAttackFinishedByMe(GameLocationBattleManager battleManager, CharacterAction action,
-            GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome, int damageAmount)
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (attackerAttackMode == null || rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            if (action.ActionType == ActionType.Reaction ||
+                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetCharacter.HasConditionOfType(ConditionWarDance) ||
+                !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
             }
 
-            if (action.ActionType == ActionType.Reaction)
-            {
-                yield break;
-            }
-
-            if (!rulesetCharacter.HasConditionOfType(ConditionWarDance))
-            {
-                yield break;
-            }
-
-            if (!ValidatorsWeapon.IsMelee(attackerAttackMode))
-            {
-                yield break;
-            }
-
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 GrantWarDanceCondition(rulesetCharacter, WarDanceMissedAttack);
+
                 yield break;
             }
 
@@ -287,26 +270,23 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var actionDefinition = actionParams.ActionDefinition;
 
-            //Wrong scope or type of action, skip
-            if (Gui.Battle == null
-                || actionDefinition.ActionType != ActionType.Main)
+            //Wrong scope or action type, skip
+            if (Gui.Battle == null ||
+                actionDefinition.ActionType != ActionType.Main)
             {
                 yield break;
             }
 
             //Character isn't War Dancing or doesn't have Improved War Dance, skip
-            if (!rulesetCharacter.HasConditionOfType(ConditionWarDance)
-                || !rulesetCharacter.HasAnyFeature(ImproveWarDance))
+            if (!rulesetCharacter.HasConditionOfType(ConditionWarDance) ||
+                !rulesetCharacter.HasAnyFeature(ImproveWarDance))
             {
                 yield break;
             }
 
-            var isActionAttack = action is CharacterActionAttack;
-            var remainingAttacks =
-                actingCharacter.GetActionAvailableIterations(Id.AttackMain) - (isActionAttack ? 1 : 0);
-
             //Still has attacks, skip
-            if (remainingAttacks > 0)
+            if (action is CharacterActionAttack &&
+                actingCharacter.GetActionAvailableIterations(Id.AttackMain) > 1)
             {
                 yield break;
             }
@@ -368,11 +348,9 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                 toHit += MomentumModifier * momentum;
             }
 
-            attackMode.toHitBonus += toHit;
-
-            var trendInfo = new TrendInfo(toHit, FeatureSourceType.Condition, WarDanceMomentum.Name, character);
-
-            attackMode.ToHitBonusTrends.Add(trendInfo);
+            attackMode.ToHitBonus += toHit;
+            attackMode.ToHitBonusTrends.Add(
+                new TrendInfo(toHit, FeatureSourceType.Condition, WarDanceMomentum.Name, character));
         }
     }
 
