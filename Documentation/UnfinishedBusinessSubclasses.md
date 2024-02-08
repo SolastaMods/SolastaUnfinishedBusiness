@@ -174,7 +174,7 @@ Starting at 3rd level, when you adopt this path, you choose an animal spirit as 
 
 * Spirit Seeker
 
-When you adopt this path, you gain the ability to cast Animal Friendship and Find Traps at will.
+When you adopt this path, you gain the ability to cast Animal Friendship and Find Traps once per short rest as a bonus action. You use your Wisdom as spellcasting modifier to cast these spells.
 
 
 ### Level 6
@@ -188,7 +188,7 @@ Starting at 6th level, you gain a magical aspect based on the spirit animal of y
 
 * Spirit Walker
 
-While raging, you can also cast Spirit Guardians spell that lasts for one minute without any components and without requiring concentration. You can use this feature once per long rest. If you start raging and are out of use of this feature, you can expend one Rage charge instead to use it again.
+Whenever you start raging, you can also cast Spirit Guardians spell as a part of Rage feature that lasts for one minute without any components and without requiring concentration. You can use this feature once per long rest. If you start raging and are out of use of this feature, you can instead, expend one Rage charge to use it again. 
 
 
 ### Level 14
