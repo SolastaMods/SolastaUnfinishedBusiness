@@ -78,6 +78,58 @@ public static class RulesetCharacterPatcher
             !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.UpdatePermanentPowersAsNeeded))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class UpdatePermanentPowersAsNeeded_Patch
+    {
+        //PATCH: mod adds/removes usable powers on the fly which breaks permanent powers update on location enter
+        //this is vanilla code except for the ToList() call on loop
+        private static void MyUpdatePermanentPowersAsNeeded(RulesetCharacter rulesetCharacter)
+        {
+            if (rulesetCharacter.Guid == 0)
+            {
+                return;
+            }
+
+            foreach (var usablePower in rulesetCharacter.UsablePowers
+                         .ToList()) // avoid enumerator change
+            {
+                // ReSharper disable once ConvertIfStatementToSwitchStatement
+                if (usablePower.PowerDefinition.ActivationTime == ActivationTime.Permanent)
+                {
+                    if (!rulesetCharacter.IsPowerActive(usablePower) &&
+                        !rulesetCharacter.autoActivatingPower)
+                    {
+                        rulesetCharacter.AutoactivatePower(usablePower);
+                    }
+                }
+                else if (usablePower.PowerDefinition.ActivationTime == ActivationTime.PermanentUnlessIncapacitated)
+                {
+                    if (!rulesetCharacter.IsPowerActive(usablePower) &&
+                        !rulesetCharacter.IsIncapacitated &&
+                        !rulesetCharacter.autoActivatingPower)
+                    {
+                        rulesetCharacter.AutoactivatePower(usablePower);
+                    }
+                    else if (rulesetCharacter.IsPowerActive(usablePower) &&
+                             rulesetCharacter.IsIncapacitated)
+                    {
+                        rulesetCharacter.TerminatePower(rulesetCharacter.GetActivePowerFromUsablePower(usablePower));
+                    }
+                }
+            }
+        }
+
+        [UsedImplicitly]
+        public static bool Postfix(RulesetCharacter __instance)
+        {
+            MyUpdatePermanentPowersAsNeeded(__instance);
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.IsWieldingMonkWeapon))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
