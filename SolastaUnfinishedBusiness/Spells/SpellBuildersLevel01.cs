@@ -755,56 +755,60 @@ internal static partial class SpellBuilders
             }
 
             var caster = actionCastSpell.ActingCharacter;
-            var target = actionCastSpell.ActionParams.TargetCharacters[0];
             var rulesetCaster = caster.RulesetCharacter;
             var effectLevel = actionCastSpell.ActionParams.activeEffect.EffectLevel;
             var isCritical = actionCastSpell.AttackRollOutcome == RollOutcome.CriticalSuccess;
 
-            foreach (var enemy in Gui.Battle
-                         .GetContenders(target, isOppositeSide: false, excludeSelf: false, withinRange: 1))
+            // need to loop over target characters to support twinned metamagic scenarios
+            foreach (var target in actionCastSpell.ActionParams.TargetCharacters)
             {
-                var rulesetEnemy = enemy.RulesetCharacter;
-                var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
-                var modifierTrend = rulesetEnemy.actionModifier.savingThrowModifierTrends;
-                var advantageTrends = rulesetEnemy.actionModifier.savingThrowAdvantageTrends;
-                var enemyDexModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                    rulesetEnemy.TryGetAttributeValue(AttributeDefinitions.Dexterity));
-
-                rulesetEnemy.RollSavingThrow(
-                    0, AttributeDefinitions.Dexterity, baseDefinition, modifierTrend, advantageTrends, enemyDexModifier,
-                    casterSaveDC,
-                    false, out var savingOutcome, out _);
-
-                if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                foreach (var enemy in Gui.Battle
+                             .GetContenders(target, isOppositeSide: false, excludeSelf: false, withinRange: 1))
                 {
-                    continue;
+                    var rulesetEnemy = enemy.RulesetCharacter;
+                    var casterSaveDC = 8 + actionCastSpell.ActiveSpell.MagicAttackBonus;
+                    var modifierTrend = rulesetEnemy.actionModifier.savingThrowModifierTrends;
+                    var advantageTrends = rulesetEnemy.actionModifier.savingThrowAdvantageTrends;
+                    var enemyDexModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                        rulesetEnemy.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+
+                    rulesetEnemy.RollSavingThrow(
+                        0, AttributeDefinitions.Dexterity, baseDefinition, modifierTrend, advantageTrends,
+                        enemyDexModifier,
+                        casterSaveDC,
+                        false, out var savingOutcome, out _);
+
+                    if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                    {
+                        continue;
+                    }
+
+                    var rolls = new List<int>();
+                    var damageForm = new DamageForm
+                    {
+                        DamageType = DamageTypeCold,
+                        DieType = DieType.D6,
+                        DiceNumber = 2 + (effectLevel - 1),
+                        BonusDamage = 0
+                    };
+                    var damageRoll =
+                        rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+
+                    EffectHelpers.StartVisualEffect(caster, target, ConeOfCold);
+                    RulesetActor.InflictDamage(
+                        damageRoll,
+                        damageForm,
+                        damageForm.DamageType,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetEnemy },
+                        rulesetEnemy,
+                        isCritical,
+                        rulesetCaster.Guid,
+                        false,
+                        [],
+                        new RollInfo(damageForm.DieType, rolls, 0),
+                        true,
+                        out _);
                 }
-
-                var rolls = new List<int>();
-                var damageForm = new DamageForm
-                {
-                    DamageType = DamageTypeCold,
-                    DieType = DieType.D6,
-                    DiceNumber = 2 + (effectLevel - 1),
-                    BonusDamage = 0
-                };
-                var damageRoll =
-                    rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
-
-                EffectHelpers.StartVisualEffect(caster, target, ConeOfCold);
-                RulesetActor.InflictDamage(
-                    damageRoll,
-                    damageForm,
-                    damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetEnemy },
-                    rulesetEnemy,
-                    isCritical,
-                    rulesetCaster.Guid,
-                    false,
-                    [],
-                    new RollInfo(damageForm.DieType, rolls, 0),
-                    true,
-                    out _);
             }
         }
     }
@@ -1406,19 +1410,23 @@ internal static partial class SpellBuilders
             }
 
             var rulesetCaster = action.ActingCharacter.RulesetCharacter;
-            var rulesetTarget = action.ActionParams.TargetCharacters[0].RulesetCharacter;
 
-            if (!rulesetTarget.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect,
-                    conditionSanctuary.Name,
-                    out var activeCondition))
+            // need to loop over target characters to support twinned metamagic scenarios
+            foreach (var rulesetTarget in action.ActionParams.TargetCharacters
+                         .Select(target => target.RulesetCharacter))
             {
-                yield break;
-            }
+                if (!rulesetTarget.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect,
+                        conditionSanctuary.Name,
+                        out var activeCondition))
+                {
+                    yield break;
+                }
 
-            rulesetTarget.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
-                rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
-            activeCondition.Amount = rulesetCaster.ComputeSaveDC(actionCastSpell.activeSpell.SpellRepertoire);
+                rulesetTarget.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(
+                    rulesetCaster.FeaturesToBrowse, rulesetCaster.FeaturesOrigin);
+                activeCondition.Amount = rulesetCaster.ComputeSaveDC(actionCastSpell.activeSpell.SpellRepertoire);
+            }
         }
     }
 
