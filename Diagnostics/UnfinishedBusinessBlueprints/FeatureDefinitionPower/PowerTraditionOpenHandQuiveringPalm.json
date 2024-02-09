@@ -295,7 +295,7 @@
   "activationTime": "OnAttackHitMeleeAuto",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "None",
-  "autoActivationPowerTag": "9042",
+  "autoActivationPowerTag": "9041",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",

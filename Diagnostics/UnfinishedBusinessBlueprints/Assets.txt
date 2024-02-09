@@ -39,7 +39,6 @@ ImpishWrathToggle	ActionDefinition	ActionDefinition	ef8a2e31-1745-5809-8b37-c88c
 InventorInfusion	ActionDefinition	ActionDefinition	642db154-e1fa-5314-a5f5-685937d12c3b
 MasterfulWhirlToggle	ActionDefinition	ActionDefinition	8cf1a81f-84f3-5845-af3e-a2018f722351
 MindSculptToggle	ActionDefinition	ActionDefinition	ed805865-b8d6-57f8-b89e-48629b42f88d
-MonkKiPointsToggle	ActionDefinition	ActionDefinition	ce5d3c3e-7e36-5333-a9a1-080bcadbdd95
 PaladinSmiteToggle	ActionDefinition	ActionDefinition	65d9b910-2fb6-5eee-afe8-dc65ad1386a9
 PressTheAdvantageToggle	ActionDefinition	ActionDefinition	73ab67e7-6aa3-565a-a86a-acc4a62094f5
 PrioritizeAction	ActionDefinition	ActionDefinition	118b1701-a7f2-509d-9ce2-90050c30e17c

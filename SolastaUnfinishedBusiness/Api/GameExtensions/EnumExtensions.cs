@@ -40,7 +40,6 @@ internal enum ExtraActionId
     InventorInfusion,
     MasterfulWhirlToggle,
     MindSculptToggle,
-    MonkKiPointsToggle,
     PaladinSmiteToggle,
     PressTheAdvantageToggle,
     PushedCustom,
