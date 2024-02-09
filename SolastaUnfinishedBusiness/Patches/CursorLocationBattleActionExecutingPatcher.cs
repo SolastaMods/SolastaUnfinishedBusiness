@@ -55,10 +55,10 @@ public static class CursorLocationBattleActionExecutingPatcher
             bool allowUsingDelegatedPowersAsPowers,
             CharacterAction action)
         {
-            // some NoCost powers without Recharge offering the selection again (i.e.: Urgent Orders Gambit)
+            // some NoCost powers without Recharge offering the selection again (i.e.: Gambits)
             if (action is CharacterActionUsePower actionUsePower &&
-                actionUsePower.activePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.NoCost &&
-                actionUsePower.activePower.EffectDescription.RangeType == RuleDefinitions.RangeType.Distance)
+                actionUsePower.activePower.PowerDefinition is FeatureDefinitionPowerSharedPool &&
+                actionUsePower.activePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.NoCost)
             {
                 return ActionDefinitions.ActionStatus.Unavailable;
             }
@@ -74,8 +74,8 @@ public static class CursorLocationBattleActionExecutingPatcher
                 return ActionDefinitions.ActionStatus.Unavailable;
             }
 
-            return instance.GetActionStatus(actionId, scope, actionTypeStatus, optionalAttackMode, ignoreMovePoints,
-                allowUsingDelegatedPowersAsPowers);
+            return instance.GetActionStatus(actionId,
+                scope, actionTypeStatus, optionalAttackMode, ignoreMovePoints, allowUsingDelegatedPowersAsPowers);
         }
     }
 }
