@@ -58,12 +58,6 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder ClearRestrictedCreatureFamilies()
-    {
-        _effect.RestrictedCreatureFamilies.Clear();
-        return this;
-    }
-
     internal EffectDescriptionBuilder RollSaveOnlyIfRelevantForms()
     {
         _effect.RollSaveOnlyIfRelevantForms = true;

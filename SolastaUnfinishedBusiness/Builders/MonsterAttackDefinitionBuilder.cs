@@ -19,12 +19,6 @@ internal class MonsterAttackDefinitionBuilder
         return this;
     }
 
-    public MonsterAttackDefinitionBuilder SetMagical()
-    {
-        Definition.magical = true;
-        return this;
-    }
-
     #region Constructors
 
     protected MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
