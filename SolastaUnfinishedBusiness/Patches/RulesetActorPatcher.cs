@@ -853,29 +853,13 @@ public static class RulesetActorPatcher
             }
         }
 
-        // TODO: make this more generic
+        //PATCH: avoid an infinite loop trying to re-roll D1s
         [UsedImplicitly]
-        public static void Prefix(RulesetActor __instance,
+        public static void Prefix(
             DieType dieType,
-            RollContext rollContext,
-            ref bool enumerateFeatures,
             ref bool canRerollDice)
         {
-            if (dieType == DieType.D1)
-            {
-                canRerollDice = false;
-                return;
-            }
-
-            //PATCH: support for `RoguishRaven` Rogue subclass
-            if (!__instance.HasSubFeatureOfType<RoguishRaven.RavenRerollAnyDamageDieMarker>() ||
-                rollContext != RollContext.AttackDamageValueRoll)
-            {
-                return;
-            }
-
-            enumerateFeatures = true;
-            canRerollDice = true;
+            canRerollDice = dieType != DieType.D1 && canRerollDice;
         }
     }
 
