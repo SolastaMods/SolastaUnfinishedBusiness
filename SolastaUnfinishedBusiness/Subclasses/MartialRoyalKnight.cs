@@ -128,9 +128,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                             .Create("ConditionRoyalKnightInspiringProtectionAura")
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetFeatures(powerRoyalKnightInspiringProtection)
                             .AddCustomSubFeatures(
-                                new AddUsablePowersFromCondition(),
                                 new TryAlterOutcomeSavingThrowInspiringProtection(powerRoyalKnightInspiringProtection))
                             .AddToDB()))
                     .Build())

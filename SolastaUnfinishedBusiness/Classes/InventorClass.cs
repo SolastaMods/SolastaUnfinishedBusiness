@@ -827,10 +827,7 @@ internal static class InventorClass
                                     .Create("ConditionInventorFlashOfGeniusAura")
                                     .SetGuiPresentationNoContent(true)
                                     .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .SetFeatures(bonusPower)
-                                    .AddCustomSubFeatures(
-                                        new AddUsablePowersFromCondition(),
-                                        new TryAlterOutcomeSavingThrowFlashOfGenius(bonusPower))
+                                    .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowFlashOfGenius(bonusPower))
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
