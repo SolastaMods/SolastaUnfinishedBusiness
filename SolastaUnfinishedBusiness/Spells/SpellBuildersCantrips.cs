@@ -853,7 +853,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique, 2)
                     .SetTargetProximityData(true, 1)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(
