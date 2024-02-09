@@ -26,14 +26,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
 {
     internal const string Name = "WayOfTheDragon";
 
-    internal static readonly FeatureDefinitionFeatureSet FeatureSetPathOfTheDragonDisciple =
-        FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Disciple")
-            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
-            .AddToDB();
-
     public WayOfTheDragon()
     {
         var damageAffinityAncestry = FeatureDefinitionDamageAffinityBuilder
@@ -65,6 +57,13 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildDiscipleFeatureSet()
     {
+        var featureSetDisciple = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Disciple")
+            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .AddToDB();
+
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var featureDefinitionAncestry in DatabaseRepository.GetDatabase<FeatureDefinitionAncestry>()
                      .Where(x => x.Type == AncestryType.BarbarianClaw)
@@ -76,10 +75,10 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 .SetAncestry(ExtraAncestryType.WayOfTheDragon)
                 .AddToDB();
 
-            FeatureSetPathOfTheDragonDisciple.FeatureSet.Add(ancestry);
+            featureSetDisciple.FeatureSet.Add(ancestry);
         }
 
-        return FeatureSetPathOfTheDragonDisciple;
+        return featureSetDisciple;
     }
 
     private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()

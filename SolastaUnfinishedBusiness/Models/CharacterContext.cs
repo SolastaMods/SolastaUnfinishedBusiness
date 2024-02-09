@@ -148,14 +148,6 @@ internal static class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.SorcererDraconicChoice)
             .AddToDB();
 
-    // kept for backward compatibility
-    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWayOfTheDragonDraconicChoice =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolWayOfTheDragonDraconicChoice")
-            .SetGuiPresentation(WayOfTheDragon.FeatureSetPathOfTheDragonDisciple.GuiPresentation)
-            .Setup(InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice)
-            .AddToDB();
-
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolKindredSpiritChoice =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolKindredSpiritChoice")
@@ -287,11 +279,6 @@ internal static class CharacterContext
             "Sorcerer", SorcerousDraconicBloodline,
             FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
             InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
-        // kept for backward compatibility
-        SwitchSubclassAncestriesToUseCustomInvocationPools(
-            "WayOfTheDragon", GetDefinition<CharacterSubclassDefinition>(WayOfTheDragon.Name),
-            WayOfTheDragon.FeatureSetPathOfTheDragonDisciple, InvocationPoolWayOfTheDragonDraconicChoice,
-            InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice);
     }
 
     private static void AddNameToRace(CharacterRaceDefinition raceDefinition, string gender, string name)
