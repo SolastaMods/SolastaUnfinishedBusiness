@@ -96,7 +96,7 @@ ModUi/&EnableCustomPortraits=启用自定义肖像
 ModUi/&EnableCustomPortraitsHelp=。将您的自定义肖像放在子文件夹 <i><b><color=#F0DAA0>Personal</color></b></i> 或 <i><b><color=#F0DAA0>PreGen</color></b></i>，以英雄名字<i><color=#F0DAA0>[即：Anton、Celia、Nialla 等]</color></i>\n 命名。使用 PNG 图像，大小为 256 x 384 像素，带有透明层<i><color=#F0DAA0>[使用 GIMP 以获得最佳效果]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=启用地城编辑器Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150和200x200的地牢大小以及简洁的混合来自所有环境的素材]</color></i>
 ModUi/&EnableEpicPointsAndArray=启用史诗级35点购点和默认骰<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注入、开局和多功能]</color></i>
+ModUi/&EnableExtendedProficienciesPanelDisplay=启用扩展熟练面板显示<i><color=#F0DAA0>[奥术射击、注入、开局和多功能]</color></i><b><i><color=#C04040E0>[角色性能提升检查。使用风险自负]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在等级2、10和18启用专长选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在6级和14级启用专长选择
 ModUi/&EnableFighterWeaponSpecialization=在8级和16级启用<color=#D89555>战士</color><b>武器专攻</b><i><color=#F0DAA0>[获得+1命中和伤害，但是使用其他武器时将获得劣势]</color></i>
