@@ -1,6 +1,8 @@
 1.5.94.52:
 
+RESPEC IS REQUIRED ON: Patron Moonlit and Roguish Raven [previously deprecated in 2023]
 RESPEC MIGHT BE REQUIRED ON: Martial Tactician and Way of Silhouette [if heroes or saves created in 2023]
+THIS SHOULD BE LAST TIME MOD REMOVES BACKWARD COMPATIBILITY BLUEPRINTS. IT'S REQUIRED TO FULLY REFACTOR BACKEND
 
 - added Morning Stars enchanted items and respective recipes
 - fixed Burning Blade spell not allowing a second target selection
@@ -9,6 +11,7 @@ RESPEC MIGHT BE REQUIRED ON: Martial Tactician and Way of Silhouette [if heroes 
 - fixed Monk Stunning Strike not checking for ki points availability
 - fixed Overwhelming Attack gambit modal staying open after targets selection
 - fixed Roguish Blade Caller hail of blades missing reaction modal description
+- removed previously deprecated Patron Moonlit and Roguish Raven
 - removed backward compatibility blueprints from Martial Tactician and Way of Silhouette
 
 1.5.94.51:
