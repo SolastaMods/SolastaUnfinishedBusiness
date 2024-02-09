@@ -293,7 +293,7 @@ public sealed class MartialWarlord : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoAvailableBonusAction),
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasUnavailableBonusAction),
                 new CustomBehaviorStrategicReposition(),
                 new CharacterBattleStartedListenerControlTheField(PowerCoordinatedAssault))
             .AddToDB();
