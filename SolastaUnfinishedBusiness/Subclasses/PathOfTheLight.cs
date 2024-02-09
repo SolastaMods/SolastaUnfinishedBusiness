@@ -34,10 +34,12 @@ public sealed class PathOfTheLight : AbstractSubclass
             .ToList();
 
         var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =
-            FeatureDefinitionAttackDisadvantageBuilder
+            FeatureDefinitionCombatAffinityBuilder
                 .Create("AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated")
-                .SetGuiPresentation(Category.Feature)
-                .SetConditionName(ConditionPathOfTheLightIlluminatedName)
+                .SetGuiPresentation("ConditionPathOfTheLightIlluminatedName", Category.Condition,
+                    Gui.NoLocalization)
+                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
                 .AddToDB();
 
         var featureSetPathOfTheLightIlluminatedPreventInvisibility = FeatureDefinitionFeatureSetBuilder
