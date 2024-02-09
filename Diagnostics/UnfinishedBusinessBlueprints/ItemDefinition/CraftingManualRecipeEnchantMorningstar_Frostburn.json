@@ -112,7 +112,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Enchant Item/&Morningstar_Frostburn_Title",
+    "title": "Enchant Frostburn Morningstar",
     "description": "Item/&Morningstar_Frostburn_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

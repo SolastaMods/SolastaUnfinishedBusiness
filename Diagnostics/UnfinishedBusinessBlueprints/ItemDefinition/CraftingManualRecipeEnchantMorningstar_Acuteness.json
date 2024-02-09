@@ -112,7 +112,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Enchant Item/&Morningstar_Acuteness_Title",
+    "title": "Enchant Morningstar of Acuteness",
     "description": "Item/&Morningstar_Acuteness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
