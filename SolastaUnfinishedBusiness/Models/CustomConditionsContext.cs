@@ -26,8 +26,6 @@ internal static class CustomConditionsContext
 
     internal static ConditionDefinition FlightSuspended;
 
-    internal static ConditionDefinition InvisibilityEveryRound;
-
     internal static ConditionDefinition LightSensitivity;
 
     internal static ConditionDefinition StopMovement;
@@ -37,8 +35,6 @@ internal static class CustomConditionsContext
     private static ConditionDefinition _taunter;
     private static FeatureDefinitionPower _flightSuspend;
     private static FeatureDefinitionPower _flightResume;
-    private static ConditionDefinition _conditionInvisibilityEveryRoundRevealed;
-    private static ConditionDefinition _conditionInvisibilityEveryRoundHidden;
 
     internal static void Load()
     {
@@ -57,8 +53,6 @@ internal static class CustomConditionsContext
 
         FlightSuspended = BuildFlightSuspended();
 
-        InvisibilityEveryRound = BuildInvisibilityEveryRound();
-
         LightSensitivity = BuildLightSensitivity();
 
         StopMovement = ConditionDefinitionBuilder
@@ -69,61 +63,7 @@ internal static class CustomConditionsContext
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
 
-        var combatAffinityTaunted = FeatureDefinitionCombatAffinityBuilder
-            .Create("CombatAffinityTaunted")
-            .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
-            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
-            .AddToDB();
-
-        Taunted = ConditionDefinitionBuilder
-            .Create("ConditionTaunted")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetConditionParticleReference(
-                ConditionDefinitions.ConditionUnderDemonicInfluence.conditionParticleReference)
-            .SetFeatures(combatAffinityTaunted)
-            .AddCustomSubFeatures(new CustomBehaviorTaunted())
-            .AddToDB();
-
-        combatAffinityTaunted.requiredCondition = Taunted;
-
-        _taunter = ConditionDefinitionBuilder
-            .Create("ConditionTaunter")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new ActionFinishedByMeTaunter())
-            .AddToDB();
-    }
-
-    private static ConditionDefinition BuildInvisibilityEveryRound()
-    {
-        _conditionInvisibilityEveryRoundRevealed = ConditionDefinitionBuilder
-            .Create("ConditionInvisibilityEveryRoundRevealed")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        _conditionInvisibilityEveryRoundHidden = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRoundHidden")
-            .SetCancellingConditions(_conditionInvisibilityEveryRoundRevealed)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(
-                ConditionInterruption.Attacks,
-                ConditionInterruption.CastSpell,
-                ConditionInterruption.UsePower)
-            .AddToDB();
-
-        var conditionInvisibilityEveryRound = ConditionDefinitionBuilder
-            .Create("ConditionInvisibilityEveryRound")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .AddCustomSubFeatures(new InvisibilityEveryRoundBehavior())
-            .AddToDB();
-
-        return conditionInvisibilityEveryRound;
+        Taunted = BuildTaunted();
     }
 
     private static ConditionDefinition BuildLightSensitivity()
@@ -155,6 +95,36 @@ internal static class CustomConditionsContext
         conditionLightSensitive.GuiPresentation.description = Gui.NoLocalization;
 
         return conditionLightSensitive;
+    }
+
+
+    private static ConditionDefinition BuildTaunted()
+    {
+        var combatAffinityTaunted = FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityTaunted")
+            .SetGuiPresentation("ConditionTaunted", Category.Condition, Gui.NoLocalization)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+            .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
+            .AddToDB();
+
+        combatAffinityTaunted.requiredCondition = Taunted;
+
+        _taunter = ConditionDefinitionBuilder
+            .Create("ConditionTaunter")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new ActionFinishedByMeTaunter())
+            .AddToDB();
+
+        return ConditionDefinitionBuilder
+            .Create("ConditionTaunted")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetConditionParticleReference(
+                ConditionDefinitions.ConditionUnderDemonicInfluence.conditionParticleReference)
+            .SetFeatures(combatAffinityTaunted)
+            .AddCustomSubFeatures(new CustomBehaviorTaunted())
+            .AddToDB();
     }
 
     private static ConditionDefinition BuildFlightSuspended()
@@ -335,124 +305,6 @@ internal static class CustomConditionsContext
             "PowerMartialGuardianGrandChallenge" => 6,
             _ => 18 // Thunder Gauntlet
         };
-    }
-
-    private sealed class InvisibilityEveryRoundBehavior : IActionFinishedByMe, IOnConditionAddedOrRemoved
-    {
-        private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
-        private const string CategoryHidden = "InvisibilityEveryRoundHidden";
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not (CharacterActionUsePower or CharacterActionCastSpell or CharacterActionAttack))
-            {
-                yield break;
-            }
-
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var actionParams = action.ActionParams;
-            var rulesetEffect = actionParams.RulesetEffect;
-
-            if (rulesetEffect == null || !IsAllowedEffect(rulesetEffect.EffectDescription))
-            {
-                BecomeRevealed(rulesetCharacter);
-            }
-        }
-
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            if (target is not RulesetCharacterMonster &&
-                !target.HasConditionOfType(_conditionInvisibilityEveryRoundRevealed))
-            {
-                BecomeHidden(target);
-            }
-        }
-
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            if (target is not RulesetCharacterMonster)
-            {
-                target.RemoveAllConditionsOfCategory(CategoryHidden, false);
-            }
-        }
-
-        // returns true if effect is self teleport or any self targeting spell that is self-buff
-        private static bool IsAllowedEffect(EffectDescription effect)
-        {
-            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-            switch (effect.TargetType)
-            {
-                case TargetType.Position:
-                {
-                    foreach (var form in effect.EffectForms)
-                    {
-                        if (form.FormType != EffectForm.EffectFormType.Motion)
-                        {
-                            return false;
-                        }
-
-                        if (form.MotionForm.Type != MotionForm.MotionType.TeleportToDestination)
-                        {
-                            return false;
-                        }
-                    }
-
-                    break;
-                }
-                case TargetType.Self:
-                {
-                    foreach (var form in effect.EffectForms)
-                    {
-                        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-                        switch (form.FormType)
-                        {
-                            case EffectForm.EffectFormType.Damage:
-                            case EffectForm.EffectFormType.Healing:
-                            case EffectForm.EffectFormType.ShapeChange:
-                            case EffectForm.EffectFormType.Summon:
-                            case EffectForm.EffectFormType.Counter:
-                            case EffectForm.EffectFormType.Motion:
-                                return false;
-                        }
-                    }
-
-                    break;
-                }
-                default:
-                    return false;
-            }
-
-            return true;
-        }
-
-        private static void BecomeRevealed(RulesetCharacter hero)
-        {
-            hero.AddConditionOfCategory(CategoryRevealed,
-                RulesetCondition.CreateActiveCondition(
-                    hero.Guid,
-                    _conditionInvisibilityEveryRoundRevealed,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.StartOfTurn,
-                    hero.Guid,
-                    hero.CurrentFaction.Name
-                ));
-        }
-
-        private static void BecomeHidden(RulesetCharacter hero)
-        {
-            hero.AddConditionOfCategory(CategoryHidden,
-                RulesetCondition.CreateActiveCondition(
-                    hero.Guid,
-                    _conditionInvisibilityEveryRoundHidden,
-                    DurationType.Permanent,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    hero.Guid,
-                    hero.CurrentFaction.Name),
-                false);
-        }
     }
 
     private sealed class OnConditionAddedOrRemovedFlightSuspendBehavior : IOnConditionAddedOrRemoved

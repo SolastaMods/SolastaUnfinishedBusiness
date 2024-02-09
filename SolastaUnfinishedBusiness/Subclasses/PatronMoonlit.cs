@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -44,8 +43,7 @@ public sealed class PatronMoonlit : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Unlit,
-                condition = CustomConditionsContext.InvisibilityEveryRound
+                lightingState = LocationDefinitions.LightingState.Unlit
             })
             .AddToDB();
 
@@ -54,13 +52,11 @@ public sealed class PatronMoonlit : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Dim,
-                condition = CustomConditionsContext.InvisibilityEveryRound
+                lightingState = LocationDefinitions.LightingState.Dim
             })
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Darkness,
-                condition = CustomConditionsContext.InvisibilityEveryRound
+                lightingState = LocationDefinitions.LightingState.Darkness
             })
             .AddToDB();
 

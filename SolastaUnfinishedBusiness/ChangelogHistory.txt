@@ -1,10 +1,15 @@
 1.5.94.52:
 
+RESPEC MIGHT BE REQUIRED ON: Martial Tactician and Way of Silhouette [if heroes or saves created in 2023]
+
 - added Morning Stars enchanted items and respective recipes
 - fixed Burning Blade spell not allowing a second target selection
 - fixed College of War Dancer not granting an extra attack after a non attack one
 - fixed Innovation Vitriolist mixtures missing detrimental condition description
+- fixed Monk Stunning Strike not checking for ki points availability
+- fixed Overwhelming Attack gambit modal staying open after targets selection
 - fixed Roguish Blade Caller hail of blades missing reaction modal description
+- removed backward compatibility blueprints from Martial Tactician and Way of Silhouette
 
 1.5.94.51:
 
