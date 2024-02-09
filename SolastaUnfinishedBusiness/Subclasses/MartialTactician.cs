@@ -30,13 +30,6 @@ public sealed class MartialTactician : AbstractSubclass
     {
         var unlearn = BuildUnlearn();
 
-        // kept for backward compatibility
-        _ = BuildEverVigilant();
-        // kept for backward compatibility
-        _ = BuildSharedVigilance();
-        // kept for backward compatibility
-        _ = BuildGambitDieSize(DieType.D8);
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
@@ -92,53 +85,6 @@ public sealed class MartialTactician : AbstractSubclass
                     .SetGuiPresentationNoContent()
                     .SetPool(HeroDefinitions.PointsPoolType.Expertise, 1)
                     .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionAttributeModifier BuildEverVigilant()
-    {
-        return FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierTacticianEverVigilant")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Intelligence)
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionPower BuildSharedVigilance()
-    {
-        return FeatureDefinitionPowerBuilder
-            .Create("PowerTacticianSharedVigilance")
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
-            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                    .ExcludeCaster()
-                    .SetRecurrentEffect(
-                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetDurationData(DurationType.Permanent)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create("ConditionTacticianSharedVigilance")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus,
-                                        AttributeDefinitions.Intelligence)
-                                    .SetFeatures(
-                                        FeatureDefinitionAttributeModifierBuilder
-                                            .Create("AttributeModifierTacticianSharedVigilance")
-                                            .SetGuiPresentation("AttributeModifierTacticianEverVigilant",
-                                                Category.Feature)
-                                            .SetAddConditionAmount(AttributeDefinitions.Initiative)
-                                            .AddToDB())
-                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
             .AddToDB();
     }
 
@@ -291,34 +237,6 @@ public sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-#if false
-    private static void BuildTacticalSurge()
-    {
-        const string CONDITION_NAME = "ConditionTacticianTacticalSurge";
-
-        var tick = FeatureDefinitionBuilder
-            .Create("FeatureTacticianTacticalSurgeTick")
-            .SetGuiPresentation(CONDITION_NAME, Category.Condition)
-            .AddToDB();
-
-        tick.AddCustomSubFeatures(new TacticalSurgeTick(GambitsBuilders.GambitPool, tick));
-
-        var feature = FeatureDefinitionBuilder
-            .Create("FeatureTacticianTacticalSurge")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        var condition = ConditionDefinitionBuilder
-            .Create(CONDITION_NAME)
-            .SetGuiPresentation(Category.Condition)
-            .SetPossessive()
-            .SetFeatures(tick)
-            .AddToDB();
-
-        feature.AddCustomSubFeatures(new TacticalSurge(GambitsBuilders.GambitPool, feature, condition));
-    }
-#endif
-
     private class PhysicalAttackFinishedByMeAdaptiveStrategy(
         FeatureDefinitionPower power,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
@@ -345,7 +263,7 @@ public sealed class MartialTactician : AbstractSubclass
             }
 
             // once per turn
-            if (!attacker.OncePerTurnIsValid("AdaptiveStrategy"))
+            if (!attacker.OncePerTurnIsValid(feature.Name))
             {
                 yield break;
             }
@@ -362,8 +280,8 @@ public sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
+            attacker.UsedSpecialFeatures.TryAdd(feature.Name, 1);
             character.LogCharacterUsedFeature(feature, indent: true);
-            attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
             character.UpdateUsageForPower(power, -1);
         }
     }
@@ -387,8 +305,6 @@ public sealed class MartialTactician : AbstractSubclass
 
             if (downedCreature.RulesetCharacter.HasConditionOfType(MarkDamagedByGambit))
             {
-                // ReSharper disable once InvocationIsSkipped
-                Main.Log("OvercomingStrategy: enemy is marked. exiting.");
                 yield break;
             }
 
@@ -398,10 +314,8 @@ public sealed class MartialTactician : AbstractSubclass
             }
 
             // once per turn
-            if (!attacker.OncePerTurnIsValid("OvercomingStrategy"))
+            if (!attacker.OncePerTurnIsValid(feature.Name))
             {
-                // ReSharper disable once InvocationIsSkipped
-                Main.Log("OvercomingStrategy: once per turn. exiting.");
                 yield break;
             }
 
@@ -414,16 +328,12 @@ public sealed class MartialTactician : AbstractSubclass
 
             if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
-                // ReSharper disable once InvocationIsSkipped
-                Main.Log("OvercomingStrategy: nothing to refuel. exiting.");
                 yield break;
             }
 
+            attacker.UsedSpecialFeatures.TryAdd(feature.Name, 1);
             character.LogCharacterUsedFeature(feature, indent: true);
-            attacker.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(power, -1);
-            // ReSharper disable once InvocationIsSkipped
-            Main.Log("OvercomingStrategy: refueled.");
         }
     }
 
@@ -463,7 +373,7 @@ public sealed class MartialTactician : AbstractSubclass
             }
 
             // once per turn
-            if (!locCharacter.OncePerTurnIsValid("OvercomingStrategy"))
+            if (!locCharacter.OncePerTurnIsValid("FeatureOvercomingStrategy"))
             {
                 return;
             }
@@ -473,78 +383,11 @@ public sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
+            locCharacter.UsedSpecialFeatures.TryAdd("FeatureOvercomingStrategy", 1);
             character.LogCharacterUsedFeature(feature, indent: true);
-            locCharacter.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(power, -1);
         }
     }
-
-#if false
-    private class TacticalSurge : IActionFinishedByMe
-    {
-        private readonly ConditionDefinition condition;
-        private readonly FeatureDefinition feature;
-        private readonly FeatureDefinitionPower power;
-
-        public TacticalSurge(FeatureDefinitionPower power, FeatureDefinition feature,
-            ConditionDefinition condition)
-        {
-            this.power = power;
-            this.feature = feature;
-            this.condition = condition;
-        }
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionActionSurge)
-            {
-                yield break;
-            }
-
-            var character = action.ActingCharacter.RulesetCharacter;
-            var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
-            charges = Math.Max(charges, -2);
-
-            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
-            if (charges < 0)
-            {
-                character.UpdateUsageForPower(power, charges);
-            }
-
-            character.InflictCondition(condition.Name, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect, character.Guid, character.CurrentFaction.Name, 1, feature.Name, 1, 0,
-                0);
-        }
-    }
-
-    private class TacticalSurgeTick : ICharacterTurnStartListener
-    {
-        private readonly FeatureDefinition feature;
-        private readonly FeatureDefinitionPower power;
-
-        public TacticalSurgeTick(FeatureDefinitionPower power, FeatureDefinition feature)
-        {
-            this.power = power;
-            this.feature = feature;
-        }
-
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var character = locationCharacter.RulesetCharacter;
-            var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
-
-            charges = Math.Max(charges, -1);
-
-            if (charges >= 0)
-            {
-                return;
-            }
-
-            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
-            character.UpdateUsageForPower(power, charges);
-        }
-    }
-#endif
 
     private sealed class PhysicalAttackInitiatedByMeTacticalAwareness(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
