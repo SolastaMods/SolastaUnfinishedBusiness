@@ -84,13 +84,13 @@ internal sealed class Interception : AbstractFightingStyle
 
             var helperCharacter = helper.RulesetCharacter;
 
-            if (ValidatorsWeapon.IsUnarmed(helperCharacter.GetMainWeapon()?.ItemDefinition, null) && 
+            if (ValidatorsWeapon.IsUnarmed(helperCharacter.GetMainWeapon()?.ItemDefinition, null) &&
                 ValidatorsWeapon.IsUnarmed(helperCharacter.GetOffhandWeapon()?.ItemDefinition, null))
             {
                 yield break;
             }
 
-            var gameLocationActionManager = 
+            var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (gameLocationActionManager == null)
@@ -104,7 +104,7 @@ internal sealed class Interception : AbstractFightingStyle
                     StringParameter = "CustomReactionInterceptionDescription"
                         .Formatted(Category.Reaction, defender.Name, attacker.Name)
                 };
-            
+
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom(Name, reactionParams);
 

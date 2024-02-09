@@ -167,21 +167,21 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
         var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
         var totalHealing = 2 * classLevel;
-        
+
         var implementationManagerService =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-        
+
         var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
         var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                StringParameter = "Bloodbath",
-                StringParameter2 = "UseBloodbathDescription"
-                    .Formatted(Category.Reaction, totalHealing.ToString()),
-                RulesetEffect = implementationManagerService
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
-            };
-        
+        {
+            StringParameter = "Bloodbath",
+            StringParameter2 = "UseBloodbathDescription"
+                .Formatted(Category.Reaction, totalHealing.ToString()),
+            RulesetEffect = implementationManagerService
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+            UsablePower = usablePower
+        };
+
         var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
         gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", attacker);

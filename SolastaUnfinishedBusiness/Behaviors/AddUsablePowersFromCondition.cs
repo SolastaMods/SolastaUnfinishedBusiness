@@ -42,7 +42,7 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
             {
                 target.TerminatePower(effectPower);
             }
-            
+
             target.UsablePowers.Remove(usablePower);
         }
     }

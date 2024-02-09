@@ -1,3 +1,11 @@
+1.5.94.52:
+
+- added Morning Stars enchanted items and respective recipes
+- fixed Burning Blade spell not allowing a second target selection
+- fixed College of War Dancer not granting an extra attack after a non attack one
+- fixed Innovation Vitriolist mixtures missing detrimental condition description
+- fixed Roguish Blade Caller hail of blades missing reaction modal description
+
 1.5.94.51:
 
 RESPEC IS REQUIRED ON: Harlequin, Defender, Marshal, and Distant Hand [previously deprecated in 2023]

@@ -42,6 +42,7 @@ internal static class CraftingContext
         { "Longbow", Gui.Localize("Equipment/&LongbowTypeTitle") },
         { "Maul", Gui.Localize("Equipment/&MaulTypeTitle") },
         { "MonkArmor", Gui.Localize("Equipment/&Monk_Armor_Title") },
+        { "Morningstar", Gui.Localize("Equipment/&MorningstarTypeTitle") },
         { "PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedTitle") },
         { "Plate", Gui.Localize("Equipment/&Armor_PlateTitle") },
         { "PrimedItems", Gui.Localize("ModUi/&PrimedItems") },
@@ -89,6 +90,7 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandCrossbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongMaceData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(MorningStarData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(PikeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(QuarterstaffData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(RapierData.Items);
