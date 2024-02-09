@@ -472,11 +472,6 @@ CustomInvocationAncestrySorcererDraconicBlue	Description='Your draconic ancestry
 CustomInvocationAncestrySorcererDraconicGold	Description='Your draconic ancestry gives you an affinity to Fire damage type.'.
 CustomInvocationAncestrySorcererDraconicGreen	Description='Your draconic ancestry gives you an affinity to Poison damage type.'.
 CustomInvocationAncestrySorcererDraconicSilver	Description='Your draconic ancestry gives you an affinity to Cold damage type.'.
-CustomInvocationAncestryWayOfTheDragonDraconicBlack	Description='Your draconic ancestry gives you an affinity to Acid damage type.'.
-CustomInvocationAncestryWayOfTheDragonDraconicBlue	Description='Your draconic ancestry gives you an affinity to Lightning damage type.'.
-CustomInvocationAncestryWayOfTheDragonDraconicGold	Description='Your draconic ancestry gives you an affinity to Fire damage type.'.
-CustomInvocationAncestryWayOfTheDragonDraconicGreen	Description='Your draconic ancestry gives you an affinity to Poison damage type.'.
-CustomInvocationAncestryWayOfTheDragonDraconicSilver	Description='Your draconic ancestry gives you an affinity to Cold damage type.'.
 CustomInvocationCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 CustomInvocationCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
 This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen.'.
