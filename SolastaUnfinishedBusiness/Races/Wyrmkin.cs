@@ -337,27 +337,17 @@ internal static class RaceWyrmkinBuilder
                 yield break;
             }
 
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (defender.IsMyTurn())
-            {
-                yield break;
-            }
-
             // only trigger on a hit
             if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
 
-            var rulesetEnemy = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (!defender.CanReact() ||
-                rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (defender.RulesetCharacter.GetRemainingPowerCharges(powerHighWyrmkinSwiftRetribution) <= 0)
+            if (defender.IsMyTurn() ||
+                !defender.CanReact() ||
+                !rulesetDefender.CanUsePower(powerHighWyrmkinSwiftRetribution))
             {
                 yield break;
             }
@@ -376,29 +366,29 @@ internal static class RaceWyrmkinBuilder
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(defender, Id.AttackOpportunity);
+            var actionParams = new CharacterActionParams(defender, Id.AttackOpportunity)
+            {
+                StringParameter = defender.Name,
+                ActionModifiers = { retaliationModifier },
+                AttackMode = retaliationMode,
+                TargetCharacters = { attacker }
+            };
 
-            reactionParams.TargetCharacters.Add(attacker);
-            reactionParams.ActionModifiers.Add(retaliationModifier);
-            reactionParams.AttackMode = retaliationMode;
-
-            var rulesetCharacter = defender.RulesetCharacter;
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack("ReactiveRetribution", reactionParams);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("ReactiveRetribution", actionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService
-                .WaitForReactions(attacker, gameLocationActionService, previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
 
-            if (!reactionParams.ReactionValidated)
+            if (!actionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerHighWyrmkinSwiftRetribution, rulesetDefender);
 
-            rulesetCharacter.UsePower(usablePower);
+            rulesetDefender.UsePower(usablePower);
         }
     }
 

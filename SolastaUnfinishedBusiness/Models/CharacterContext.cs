@@ -1785,7 +1785,6 @@ internal static class CharacterContext
             .Create($"Condition{Cunning}ReduceSneakDice")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
@@ -1928,24 +1927,22 @@ internal static class CharacterContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
-                ActionModifiers = { actionModifier },
                 StringParameter = powerRogueCunningStrike.Name,
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
+                UsablePower = usablePower
             };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(reactionParams);
+
+            var count = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, manager, count);
 
-            if (!reactionParams.ReactionValidated)
+            if (!actionParams.ReactionValidated)
             {
                 yield break;
             }
@@ -1964,9 +1961,9 @@ internal static class CharacterContext
             // inflict condition passing power cost on amount to be deducted later on from sneak dice
             rulesetAttacker.InflictCondition(
                 _conditionReduceSneakDice.Name,
-                _conditionReduceSneakDice.durationType,
-                _conditionReduceSneakDice.durationParameter,
-                _conditionReduceSneakDice.turnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -2008,7 +2005,6 @@ internal static class CharacterContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
-            //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },

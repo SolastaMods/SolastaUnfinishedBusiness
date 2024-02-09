@@ -393,7 +393,7 @@ internal static class ClassFeats
             RollOutcome attackRollOutcome,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me)
+            GameLocationCharacter helper)
         {
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -410,52 +410,37 @@ internal static class ClassFeats
                 yield break;
             }
 
-            //do not trigger on my own turn, so won't exploit on AoO
-            if (me.IsMyTurn())
+            if (attacker == helper ||
+                helper.IsMyTurn() ||
+                !helper.CanReact() ||
+                !helper.CanPerceiveTarget(defender))
             {
                 yield break;
             }
 
-            if (!me.CanReact() || attacker == me)
-            {
-                yield break;
-            }
+            var (retaliationMode, retaliationModifier) = helper.GetFirstMeleeModeThatCanAttack(defender);
 
-            if (!me.CanPerceiveTarget(defender))
-            {
-                yield break;
-            }
-
-            var rulesetEnemy = defender.RulesetCharacter;
-
-            if (rulesetEnemy is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(defender);
-
-            if (retaliationMode == null || retaliationMode.ranged)
+            if (retaliationMode == null)
             {
                 yield break;
             }
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+            var actionParams = new CharacterActionParams(helper, ActionDefinitions.Id.AttackOpportunity)
+            {
+                StringParameter = attacker.Name,
+                ActionModifiers = { retaliationModifier },
+                AttackMode = retaliationMode,
+                TargetCharacters = { defender }
+            };
 
-            reactionParams.TargetCharacters.Add(defender);
-            reactionParams.StringParameter = attacker.Name;
-            reactionParams.ActionModifiers.Add(retaliationModifier);
-            reactionParams.AttackMode = retaliationMode;
-
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack("Exploiter", reactionParams);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("Exploiter", actionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService
-                .WaitForReactions(me, gameLocationActionService, previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(helper, gameLocationActionService, count);
         }
     }
 

@@ -156,9 +156,10 @@ internal static class RaceOligathBuilder
     private class AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower featureDefinitionPower)
         : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battleManager,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
+            GameLocationCharacter defender,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
@@ -170,7 +171,7 @@ internal static class RaceOligathBuilder
         {
             if (rulesetEffect == null)
             {
-                yield return HandlePowerStoneEndurance(me);
+                yield return HandlePowerStoneEndurance(defender);
             }
         }
 
@@ -186,7 +187,7 @@ internal static class RaceOligathBuilder
             yield return HandlePowerStoneEndurance(defender);
         }
 
-        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter me)
+        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter defender)
         {
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -198,23 +199,19 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            var rulesetMe = me.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetMe.CanUsePower(featureDefinitionPower))
+            if (!rulesetDefender.CanUsePower(featureDefinitionPower))
             {
                 yield break;
             }
 
-            // allow stone endurance when prone
-            if (!me.IsReactionAvailable())
-            {
-                yield break;
-            }
-
-            if (rulesetMe is not { IsDeadOrUnconscious: false } ||
-                rulesetMe.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
-                rulesetMe.HasConditionOfTypeOrSubType(ConditionStunned) ||
-                rulesetMe.HasConditionOfTypeOrSubType(ConditionParalyzed))
+            // don't use CanReact() to allow stone endurance when prone
+            if (!defender.IsReactionAvailable() ||
+                rulesetDefender is not { IsDeadOrUnconscious: false } ||
+                rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
+                rulesetDefender.HasConditionOfTypeOrSubType(ConditionStunned) ||
+                rulesetDefender.HasConditionOfTypeOrSubType(ConditionParalyzed))
             {
                 yield break;
             }
@@ -222,22 +219,22 @@ internal static class RaceOligathBuilder
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetMe);
-            var actionParams = new CharacterActionParams(me, Id.PowerReaction)
+            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetDefender);
+            var actionParams = new CharacterActionParams(defender, Id.PowerReaction)
             {
                 StringParameter = "StoneEndurance",
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                    .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                 UsablePower = usablePower,
-                TargetCharacters = { me }
+                TargetCharacters = { defender }
             };
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", me);
+            gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(me, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
         }
     }
 }

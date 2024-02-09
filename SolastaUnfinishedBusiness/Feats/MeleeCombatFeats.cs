@@ -614,13 +614,8 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (target.IsMyTurn())
-            {
-                yield break;
-            }
-
-            if (!target.CanReact())
+            if (target.IsMyTurn() ||
+                !target.CanReact())
             {
                 yield break;
             }
@@ -646,20 +641,20 @@ internal static class MeleeCombatFeats
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity);
+            var actionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
+            {
+                StringParameter = target.Name,
+                ActionModifiers = { retaliationModifier },
+                AttackMode = retaliationMode,
+                TargetCharacters = { enemy }
+            };
 
-            reactionParams.TargetCharacters.Add(enemy);
-            reactionParams.StringParameter = target.Name;
-            reactionParams.ActionModifiers.Add(retaliationModifier);
-            reactionParams.AttackMode = retaliationMode;
-
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack("OldTactics", reactionParams);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("OldTactics", actionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService
-                .WaitForReactions(target, gameLocationActionService, previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(target, gameLocationActionService, count);
         }
     }
 
