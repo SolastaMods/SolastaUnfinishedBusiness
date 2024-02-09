@@ -622,6 +622,11 @@ internal static class FixesContext
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
+            if (!rulesetAttacker.CanUsePower(FeatureDefinitionPowers.PowerMonkStunningStrike))
+            {
+                yield break;
+            }
+
             // ensure Zen Archer Hail of Arrows won't trigger stunning strike without ki points
             if (attackMode.AttackTags.Contains(WayOfZenArchery.HailOfArrows))
             {
