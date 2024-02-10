@@ -134,7 +134,7 @@ ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do he
 ModUi/&EnableSumD20OnAlternateVotingSystem=. Além disso, cada herói adiciona um teste D20 ao peso para um pouco de aleatoriedade
 ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper as missões se teletransportar para um lugar desconhecido]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
-ModUi/&EnableTooltipDistance=Ative a exibição da distância na dica de ferramenta do painel ao passar o mouse sobre um personagem em combate
+ModUi/&EnableTooltipDistance=Ativar a exibição da distância nas dicas de ferramentas ao passar o mouse sobre um personagem em combate
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVttCamera=Ative <color=#1E81B0>CTRL-SHIFT-(V)</color> para alternar a câmera VTT <i><color=#F0DAA0>[clique com o botão direito e arraste para posicionar a câmera, WASD para panoramizar e Page Up/ Desça a página para ampliar]</color></i>
 ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>

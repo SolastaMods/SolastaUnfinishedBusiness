@@ -134,7 +134,7 @@ ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du h�
 ModUi/&EnableSumD20OnAlternateVotingSystem=. De plus, chaque héros ajoute un jet de D20 au poids de leur vote pour rajouter un peu d'aléatoire.
 ModUi/&EnableTeleportParty=Acutoriser <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pouvez bloquer des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
-ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans l'info-bulle du panneau lors du survol d'un personnage en combat
+ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bulles lors du survol d'un personnage en combat
 ModUi/&EnableUpcastConjureElementalAndFey=Activer la possibilité d'incanter <color=#D89555>Invocation d'élémentaire</color> et <color=#D89555>Invocation de fée</color> à des niveaux d'emplacements de sorts supérieurs
 ModUi/&EnableVttCamera=Activez <color=#1E81B0>CTRL-SHIFT-(V)</color> pour basculer la caméra VTT <i><color=#F0DAA0>[cliquez avec le bouton droit et faites glisser pour positionner la caméra, WASD pour effectuer un panoramique et Page précédente/ Page suivante pour zoomer]</color></i>
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation de Caractéristiques et la sélection des Dons lors des changement de niveaux concernés <i><color=#F0DAA0>[au lieu d'un choix mutuellement exclusif]</color></i>
