@@ -61,8 +61,6 @@ public sealed class RoguishSlayer : AbstractSubclass
                 conditionChainOfExecutionBeneficial,
                 conditionChainOfExecutionDetrimental));
 
-        var rogueHolder = new RogueHolder();
-
         var additionalDamageChainOfExecution = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{ChainOfExecution}")
             .SetGuiPresentationNoContent(true)
@@ -79,7 +77,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
             .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
-            .AddCustomSubFeatures(rogueHolder)
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
 
         // add the additional chain of execution dice based off sneak attack ones
@@ -114,7 +112,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
-            .AddCustomSubFeatures(rogueHolder)
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
 
         var featureChainOfExecution = FeatureDefinitionBuilder
@@ -439,12 +437,6 @@ public sealed class RoguishSlayer : AbstractSubclass
                 0,
                 0);
         }
-    }
-
-    private sealed class RogueHolder : IModifyAdditionalDamageClassLevel
-    {
-        // allows Chain of Execution damage to scale with rogue level
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
 
     //

@@ -95,7 +95,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                 ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetAddLightSource(true)
             .SetLightSourceForm(lightSourceForm)
-            .AddCustomSubFeatures(new BarbarianHolder())
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelBarbarian.Instance)
             .AddToDB();
 
         additionalDamagePathOfTheLightIlluminatingStrike.DiceByRankTable[9].diceNumber = 2;
@@ -385,11 +385,5 @@ public sealed class PathOfTheLight : AbstractSubclass
 
             character.PersonalLightSource = null;
         }
-    }
-
-    private sealed class BarbarianHolder : IModifyAdditionalDamageClassLevel
-    {
-        // allows Illuminating Strike damage to scale with barbarian level
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
     }
 }

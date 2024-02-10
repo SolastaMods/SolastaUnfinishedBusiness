@@ -49,7 +49,7 @@ internal static class InvocationsBuilders
                     .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
                     .SetImpactParticleReference(EldritchBlast)
                     .AddCustomSubFeatures(
-                        WarlockHolder.Instance,
+                        ModifyAdditionalDamageClassLevelWarlock.Instance,
                         new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne))
                     .AddToDB())
             .AddToDB();
@@ -917,44 +917,6 @@ internal static class InvocationsBuilders
             .SetRequirements(7, pact: FeatureSetPactChain)
             .SetGrantedFeature(featureAbilitiesOfTheChainMaster)
             .AddToDB();
-    }
-
-    /*
-
-    Celestial Blessing
-
-        Prerequisites: Celestial Subclass, 9th level
-
-        You can cast Bless as a 1st level spell at will without maintaining concentration. You can use this feature a number of times equal to your charisma modifier. You regain any extended uses after completing a long rest.
-
-    Ally of Nature
-
-        Prerequisite: 9th level
-
-        You can cast awaken once using a warlock spell slot. You can't do so again until you finish a long rest.
-
-    Witching Blade
-
-        Prerequisite: Pact of the Blade
-
-        You can use your Charisma modifier instead of your Strength or Dexterity modifiers for attack and damage rolls made with your pact weapon.
-
-    Witching Plate
-
-        Prerequisite: Pact of the Blade
-
-        As an action, you can conjure a suit of magical armor onto your body that grants you an AC equal to 14 + your Charisma modifier. (edited)
-     */
-
-    private sealed class WarlockHolder : IModifyAdditionalDamageClassLevel
-    {
-        private WarlockHolder()
-        {
-        }
-
-        public static IModifyAdditionalDamageClassLevel Instance { get; } = new WarlockHolder();
-
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Warlock;
     }
 
     private sealed class ModifyEffectDescriptionEldritchBlast : IModifyEffectDescription

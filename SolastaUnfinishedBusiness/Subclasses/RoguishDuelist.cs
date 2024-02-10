@@ -48,7 +48,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                     Operation = ConditionOperationDescription.ConditionOperation.Add,
                     ConditionDefinition = conditionDaringDuel
                 })
-            .AddCustomSubFeatures(new RogueHolder())
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
 
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
@@ -138,11 +138,6 @@ public sealed class RoguishDuelist : AbstractSubclass
             Gui.Battle.AllContenders
                 .Where(x => x != attacker && x != defender)
                 .All(x => !attacker.IsWithinRange(x, 1));
-    }
-
-    private sealed class RogueHolder : IModifyAdditionalDamageClassLevel
-    {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
 
     //
