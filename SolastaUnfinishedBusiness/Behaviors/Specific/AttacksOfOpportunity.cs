@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
-using static RuleDefinitions;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -91,23 +90,17 @@ internal static class AttacksOfOpportunity
         MovingCharactersCache.Clear();
     }
 
-    internal static bool IsSubjectToAttackOfOpportunity(RulesetCharacter character, RulesetCharacter attacker,
-        bool def, float distance)
+    internal static bool IsSubjectToAttackOfOpportunity(
+        RulesetCharacter defender,
+        RulesetCharacter attacker,
+        bool def,
+        float distance)
     {
-        if (attacker.GetSubFeaturesByType<IIgnoreAoOImmunity>()
-            .Any(f => f.CanIgnoreAoOImmunity(character, attacker, distance)))
-        {
-            return true;
-        }
-
-        if (character.HasSubFeatureOfType<IIgnoreAoOIfAttacked>() &&
-            character.proximityByAttackedCreature.TryGetValue(attacker.Guid, out var value) &&
-            value == (int)AttackProximity.Melee)
-        {
-            return false;
-        }
-
-        return def;
+        return
+            attacker.GetSubFeaturesByType<IIgnoreAoOImmunity>()
+                .Any(f => f.CanIgnoreAoOImmunity(defender, attacker, distance)) ||
+            (!defender.GetSubFeaturesByType<IIgnoreAoOOnMe>()
+                .Any(f => f.CanIgnoreAoOOnSelf(defender, attacker)) && def);
     }
 }
 

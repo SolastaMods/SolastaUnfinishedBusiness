@@ -141,10 +141,10 @@ public sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightLightsProtection")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                FeatureDefinitionOpportunityAttackImmunityBuilder
+                FeatureDefinitionBuilder
                     .Create("OpportunityAttackImmunityIfAttackerHasConditionPathOfTheLightLightsProtection")
                     .SetGuiPresentationNoContent(true)
-                    .SetConditionName(ConditionPathOfTheLightIlluminatedName)
+                    .AddCustomSubFeatures(new IgnoreAoOOnMeLightsProtection())
                     .AddToDB())
             .AddToDB();
 
@@ -318,6 +318,14 @@ public sealed class PathOfTheLight : AbstractSubclass
     //
     // behavior classes
     //
+
+    private sealed class IgnoreAoOOnMeLightsProtection : IIgnoreAoOOnMe
+    {
+        public bool CanIgnoreAoOOnSelf(RulesetCharacter defender, RulesetCharacter attacker)
+        {
+            return attacker.HasConditionOfType(ConditionPathOfTheLightIlluminatedName);
+        }
+    }
 
     private sealed class OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst : IOnConditionAddedOrRemoved
     {

@@ -758,7 +758,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddCustomSubFeatures(
-                        new AooImmunityFeatMobile(),
+                        new IgnoreAoOOnMeFeatMobile(),
                         new ActionFinishedByMeFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
@@ -805,7 +805,13 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class AooImmunityFeatMobile : IIgnoreAoOIfAttacked;
+    private sealed class IgnoreAoOOnMeFeatMobile : IIgnoreAoOOnMe
+    {
+        public bool CanIgnoreAoOOnSelf(RulesetCharacter defender, RulesetCharacter attacker)
+        {
+            return true;
+        }
+    }
 
     #endregion
 
