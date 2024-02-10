@@ -94,8 +94,9 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
+    // kept name for backward compatibility
     private static readonly ConditionDefinition WarDanceMissedAttack = ConditionDefinitionBuilder
-        .Create("ConditionWarDanceMomentumAlreadyApplied") //name kept from old code for backwards compatibility
+        .Create("ConditionWarDanceMomentumAlreadyApplied")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)

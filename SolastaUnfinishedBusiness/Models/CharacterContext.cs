@@ -1225,10 +1225,7 @@ internal static class CharacterContext
                 .AddToDB();
         }
 
-        // replace the original features with custom invocation pools
-
-        // remove check for WayOfTheDragon after backward compatibility is cleaned up
-        if (name == "WayOfTheDragon" || !Main.Settings.ImproveLevelUpFeaturesSelection)
+        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
         {
             return;
         }
