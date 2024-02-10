@@ -413,6 +413,12 @@ internal static class GameUiDisplay
         UI.Label(Gui.Localize("ModUi/&InventoryAndItems"));
         UI.Label();
 
+        toggle = Main.Settings.AddCustomIconsToOfficialItems;
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddCustomIconsToOfficialItems")), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddCustomIconsToOfficialItems = toggle;
+        }
+
         toggle = Main.Settings.DisableAutoEquip;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
         {
