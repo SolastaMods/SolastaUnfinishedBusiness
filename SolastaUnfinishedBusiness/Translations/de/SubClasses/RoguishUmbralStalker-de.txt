@@ -1,3 +1,5 @@
+Condition/&ConditionRoguishUmbralStalkerShadowDanceDescription=Du bist von magischer Dunkelheit umgeben, die du durchschauen kannst, und wann immer du hinterhältigen Angriffsschaden verursachst und bei einem deiner Würfelangriffe die maximale Zahl würfelst, wirfst du diesen Würfel erneut und addierst ihn zum Schaden.
+Condition/&ConditionRoguishUmbralStalkerShadowDanceTitle=Schattentanz
 Feature/&ActionAffinityGloomBladeToggleDescription=Du durchdringst deine Angriffe mit der Essenz der Dunkelheit selbst. Immer wenn du eine Kreatur mit einem Nahkampfwaffenangriff heimlich angreifst, verursachst du zusätzlich 1W6 nekrotischen Schaden und würfelst alle Einsen und Zweien auf den Schadenswürfeln dieses Angriffs neu und musst das zweite Ergebnis nehmen. Darüber hinaus können Sie Ihre Schadenswürfel für Hinterhältige Angriffe nach Belieben als nekrotischen Schaden würfeln.
 Feature/&ActionAffinityGloomBladeToggleTitle=Finsternis geht
 Feature/&FeatureSetRoguishUmbralStalkerDeadlyShadowsDescription=Du gewöhnst dich an die Dunkelheit und machst sie zu deinem tödlichen Spielplatz. Du erhältst Dunkelsicht von 60 Fuß. Du brauchst keinen Vorteil beim Angriffswurf, um deinen Hinterhältigen Angriff durchzuführen, wenn sowohl du als auch die Zielkreatur sich in schwachem Licht oder Dunkelheit befinden, du dich innerhalb von 5 Fuß von der Kreatur befindest und du keinen Nachteil beim Angriffswurf hast. Alle anderen Regeln für Hinterhältige Angriffe gelten weiterhin für Sie.
@@ -9,6 +11,8 @@ Feature/&PowerRoguishUmbralStalkerShadowStrideDescription=Einmal pro Spielzug k�
 Feature/&PowerRoguishUmbralStalkerShadowStrideTitle=Schattenschritt
 Feature/&PowerRoguishUmbralStalkerUmbralSoulDescription=Immer wenn Ihre Trefferpunkte auf 0 sinken, erhalten Sie eine Anzahl an Trefferpunkten zurück, die Ihrer Schurkenstufe entspricht, und stehen auf. Sie können diese Funktion einmal pro langer Pause nutzen.
 Feature/&PowerRoguishUmbralStalkerUmbralSoulTitle=Umbrale Seele
+Feature/&PowerRoguishUmbralStalkerShadowDanceDescription=Du kannst deine Bonusaktion nutzen, um dich eine Minute lang mit einem wirbelnden Nimbus aus Schattenenergie zu stärken. Solange diese Schattenenergie anhält, werden Sie von magischer Dunkelheit verdeckt, durch die Sie hindurchschauen können, und wann immer Sie Schleichangriffsschaden verursachen und bei einem Ihrer Würfelangriffe die maximale Zahl würfeln, würfeln Sie diesen Würfel erneut und addieren ihn zum Schaden. Sie können diese Funktion einmal pro langer Pause nutzen.
+Feature/&PowerRoguishUmbralStalkerShadowDanceTitle=Schattentanz
 Feedback/&AdditionalDamageGloomBladeFormat=Finsternis geht
 Feedback/&AdditionalDamageGloomBladeLine=Düsterklinge verursacht zusätzlichen Schaden von +{2}!
 Reaction/&UseUmbraSoulDescription=Du erhältst eine Anzahl an Trefferpunkten zurück, die deiner Stufe als Schurke entspricht, und stehst auf.

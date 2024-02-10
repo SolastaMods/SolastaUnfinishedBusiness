@@ -1833,7 +1833,7 @@ internal static class CharacterContext
                 // it's a Duelist and target is dueling with him
                 RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
                 // it's a Umbral Stalker and source and target are in dim light or darkness
-                RoguishUmbralStalker.SourceAndTargetAreNotBright(attacker, defender, advantageType)
+                RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType)
         };
     }
 

@@ -561,17 +561,20 @@ internal static class GLBM
          * [CE] EDIT START
          * Support for IModifyAdditionalDamageForm
          */
+        var originalDamageType = additionalDamageForm.DamageType;
+
         additionalDamageForm = hero.GetSubFeaturesByType<IModifyAdditionalDamageForm>()
             .Aggregate(additionalDamageForm,
                 (current, modifyAdditionalDamageForm) =>
                     modifyAdditionalDamageForm.AdditionalDamageForm(attacker, defender, provider, current));
-        /*
-         * Support for IModifyAdditionalDamageForm
-         * [CE] EDIT END
-         * ######################################
-         */
 
-        if (additionalDamageForm.DiceNumber > 0 || additionalDamageForm.BonusDamage > 0)
+        if (originalDamageType == additionalDamageForm.DamageType &&
+            /*
+             * Support for IModifyAdditionalDamageForm
+             * [CE] EDIT END
+             * ######################################
+             */
+            (additionalDamageForm.DiceNumber > 0 || additionalDamageForm.BonusDamage > 0))
         {
             // Add the new damage form
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
@@ -1178,10 +1181,10 @@ internal static class GLBM
                     }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBright:
+                        ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft:
                     {
                         validTrigger = RoguishUmbralStalker
-                            .SourceAndTargetAreNotBright(attacker, defender, advantageType);
+                            .SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType);
                         break;
                     }
                     /*

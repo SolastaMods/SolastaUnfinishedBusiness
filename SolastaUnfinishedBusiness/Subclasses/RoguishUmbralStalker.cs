@@ -23,6 +23,13 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 {
     private const string Name = "RoguishUmbralStalker";
 
+    internal static readonly ConditionDefinition ConditionShadowDanceAdditionalDice = ConditionDefinitionBuilder
+        .Create($"Condition{Name}ShadowDanceAdditionalDice")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+        .AddToDB();
+
     public RoguishUmbralStalker()
     {
         // LEVEL 3
@@ -35,7 +42,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
-            .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBright)
+            .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
@@ -74,7 +81,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityGloomBladeToggle")
             .SetGuiPresentation(Category.Feature)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle)
             .AddCustomSubFeatures(new CustomBehaviorGloomBlade(conditionGloomBlade))
             .AddToDB();
 
@@ -128,13 +135,24 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
         // Shadow Dance
 
-        /*
+        var conditionShadowDance = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ShadowDance")
+            .SetGuiPresentation(Category.Condition)
+            .AddCustomSubFeatures(new ForceLightingStateShadowDance())
+            .AddToDB();
 
-          you can use your bonus action to empower yourself with a swirling nimbus of shadow energy for one minute.
-          While this shadow energy persists, you are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your sneak dice, you reroll that die and add it to the damage of the sneak attack.
-          You can use this feature once per long rest.
-
-        */
+        var powerShadowDance = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ShadowDance")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionShadowDance))
+                    .Build())
+            .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -142,7 +160,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .AddFeaturesAtLevel(3, featureSetDeadlyShadows, actionAffinityHailOfBladesToggle)
             .AddFeaturesAtLevel(9, powerShadowStride)
             .AddFeaturesAtLevel(13, featureSetUmbralSoul)
-            .AddFeaturesAtLevel(17)
+            .AddFeaturesAtLevel(17, powerShadowDance)
             .AddToDB();
     }
 
@@ -156,7 +174,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static bool SourceAndTargetAreNotBright(
+    internal static bool SourceAndTargetAreNotBrightAndWithin5Ft(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         AdvantageType advantageType)
@@ -164,6 +182,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         return
             advantageType != AdvantageType.Disadvantage &&
             attacker.RulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Rogue, Name) > 0 &&
+            attacker.IsWithinRange(defender, 1) &&
             attacker.LightingState != LocationDefinitions.LightingState.Bright &&
             defender.LightingState != LocationDefinitions.LightingState.Bright;
     }
@@ -305,6 +324,55 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
+        }
+    }
+
+    //
+    // Shadow Dance
+    //
+
+    private sealed class ForceLightingStateShadowDance : IAttackBeforeHitConfirmedOnEnemy, IForceLightingState
+    {
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                ConditionShadowDanceAdditionalDice.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                ConditionShadowDanceAdditionalDice.Name,
+                0,
+                0,
+                0);
+        }
+
+        public LocationDefinitions.LightingState GetLightingState(
+            GameLocationCharacter gameLocationCharacter,
+            LocationDefinitions.LightingState lightingState)
+        {
+            return LocationDefinitions.LightingState.Darkness;
         }
     }
 }

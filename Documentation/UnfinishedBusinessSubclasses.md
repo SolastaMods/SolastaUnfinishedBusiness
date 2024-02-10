@@ -2931,6 +2931,13 @@ Once per turn as a free action, you can substitute any amount of your movement f
 You gain resistance to cold and necrotic damage. In addition, whenever you are reduced to 0 hit points, you regain a number of hit points equal to your rogue level, and stand up. You can use this feature once per long rest.
 
 
+### Level 17
+
+* Shadow Dance
+
+You can use your bonus action to empower yourself with a swirling nimbus of shadow energy for one minute. While this shadow energy persists, you are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your dice attack, you reroll that die and add it to the damage. You can use this feature once per long rest.
+
+
 
 # Sorcerer
 
