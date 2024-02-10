@@ -1166,7 +1166,7 @@ Your gambit die is upgraded to D10.
 
 You can replace one gambit you know with a new one.
 
-* Select Strategic Plan
+* Strategic Plan
 
 You can choose a strategy to deal with prolonged encounters - abilities that would allow you to gain gambit dice under certain circumstances.
 
@@ -2898,6 +2898,37 @@ Starting at 13th level, you can use your bonus action to become invisible for 1 
 * Fatal Strike
 
 Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier). On a failed save, double the damage of your attack against the creature.
+
+
+
+## 8. Umbral Stalker
+
+Rumors say there are things far darker than any shadow prowling the darkest corners of Solasta. Stories forewarning about entities wielding supernatural powers to manipulate darkness, ambushing the unfortunate and disappearing seemingly at will. Whether the stories are true or not, many look twice over their shoulders when traversing a dark alley in the dead of night.
+
+
+### Level 3
+
+* Deadly Shadows
+
+You become accustomed to darkness and make it your deadly playground. You gain darkvision of 60 feet. You don't need advantage on the attack roll to use your sneak attack if both you and the target creature are in dim light or darkness, you are within 5 feet of the creature, and you don't have disadvantage on the attack roll. All the other rules for sneak attack still apply to you.
+
+* Gloomblade
+
+You infuse your attacks with the essence of darkness itself. Whenever you sneak attack a creature with a melee weapon attack, you deal an additional 1d6 necrotic damage and reroll any 1s and 2s on damage dice of that attack and must take the second result. In addition, you can choose to roll your sneak attack damage dice as necrotic damage at will.
+
+
+### Level 9
+
+* Shadow Stride
+
+Once per turn as a free action, you can substitute any amount of your movement for a teleportation of the equivalent distance. When teleporting in this way, both your starting and final location must be in dim light or darkness.
+
+
+### Level 13
+
+* Umbral Soul
+
+You gain resistance to cold and necrotic damage. In addition, whenever you are reduced to 0 hit points, you regain a number of hit points equal to your rogue level, and stand up. You can use this feature once per long rest.
 
 
 

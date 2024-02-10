@@ -1,25 +1,19 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [],
-  "authorizedActions": [
-    9034
-  ],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 1,
+  "maxRollValue": 0,
+  "minRerollValue": 2,
+  "rerollCount": 1,
+  "rerollLocalizationKey": "Feature/&GloomBladeAttackReroll",
+  "forcedDamageOnDice": "None",
+  "validityContext": "AttackDamageValueRoll",
+  "validSkills": [],
+  "requireProficiency": false,
+  "bardicInspirationAddChoice": false,
+  "bardicInspirationForceMaxRoll": false,
+  "bardicInspirationAdvantage": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -44,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "869c1170-11cd-5c19-88fe-eba8456f7fda",
+  "guid": "95868c96-227e-5210-9c3e-5ef7e3e400cb",
   "contentPack": 9999,
-  "name": "ActionAffinityHailOfBladesToggle"
+  "name": "DieRollModifierRoguishUmbralStalkerGloomBlade"
 }

@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 1,
+    "rangeType": "Distance",
+    "rangeParameter": 24,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Position",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -30,8 +30,8 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Day",
+    "targetSide": "Ally",
+    "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Motion",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -76,14 +76,12 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionTraditionOpenHandQuiveringPalm",
-          "conditionDefinition": "Definition:ConditionTraditionOpenHandQuiveringPalm:fd7fb9c8-b520-585a-afe2-7617cbf3f3b5",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "motionForm": {
+          "$type": "MotionForm, Assembly-CSharp",
+          "type": "TeleportToDestination",
+          "distance": 0,
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -115,7 +113,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f540d0a67ac604c479c483b5b0e5c3bb",
+        "m_AssetGUID": "3d5e3356b30164542aa9cc43955eab41",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -133,7 +131,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "9d87bc59e9e6832408d0289920f13160",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -249,7 +247,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "1f4269faf93934946b0baf061776d756",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,7 +259,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "710595d3d2670d4418a2769ab48a6b07",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -292,10 +290,10 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "OnAttackHitMeleeAuto",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
-  "autoActivationRequiredTargetCreatureTag": "None",
-  "autoActivationPowerTag": "9042",
+  "autoActivationRequiredTargetCreatureTag": "",
+  "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
@@ -308,13 +306,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "KiPoints",
-  "costPerUse": 3,
+  "rechargeRate": "TurnStart",
+  "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 3,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -328,11 +326,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetTraditionOpenHandQuiveringPalmTitle",
-    "description": "Feature/&FeatureSetTraditionOpenHandQuiveringPalmDescription",
+    "title": "Feature/&PowerRoguishUmbralStalkerShadowStrideTitle",
+    "description": "Feature/&PowerRoguishUmbralStalkerShadowStrideDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "b48525af-3efb-5482-b9c1-e98a51be316a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -349,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9b1f88b1-bace-5a9a-ba01-4c833533f515",
+  "guid": "9be72d78-639b-519d-8317-366a8ea4c552",
   "contentPack": 9999,
-  "name": "PowerTraditionOpenHandQuiveringPalm"
+  "name": "PowerRoguishUmbralStalkerShadowStride"
 }

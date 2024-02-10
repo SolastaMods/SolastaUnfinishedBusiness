@@ -22,9 +22,9 @@
   "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&ActionAffinityGloomBladeToggleTitle",
+    "description": "Feature/&ActionAffinityGloomBladeToggleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -44,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "869c1170-11cd-5c19-88fe-eba8456f7fda",
+  "guid": "9072bd79-baa3-5e84-ac35-92c73dae5ed0",
   "contentPack": 9999,
-  "name": "ActionAffinityHailOfBladesToggle"
+  "name": "ActionAffinityGloomBladeToggle"
 }
