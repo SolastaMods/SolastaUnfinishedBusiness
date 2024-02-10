@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -128,18 +129,18 @@ public sealed class OathOfDemonHunter : AbstractSubclass
 
         const string DEMON_SLAYER_NAME = $"FeatureSet{Name}DemonSlayer";
 
-        var dieRollModifierDemonSlayerPhysics = FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+        var dieRollModifierDemonSlayerPhysics = FeatureDefinitionDieRollModifierBuilder
             .Create($"Feature{Name}DemonSlayerPhysics")
             .SetGuiPresentation(DEMON_SLAYER_NAME, Category.Feature, hidden: true)
-            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 3, 3,
-                $"Feature/&DieRollModifier{Name}DemonSlayer", DamageTypeRadiant)
+            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 3, 3, $"Feature/&DieRollModifier{Name}DemonSlayer")
+            .AddCustomSubFeatures(ValidateDieRollModifierDemonSlayerDamageTypeRadiant.Marker)
             .AddToDB();
 
-        var dieRollModifierDemonSlayerMagic = FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+        var dieRollModifierDemonSlayerMagic = FeatureDefinitionDieRollModifierBuilder
             .Create($"Feature{Name}DemonSlayerMagic")
             .SetGuiPresentation(DEMON_SLAYER_NAME, Category.Feature, hidden: true)
-            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 3, 3,
-                $"Feature/&DieRollModifier{Name}DemonSlayer", DamageTypeRadiant)
+            .SetModifiers(RollContext.MagicDamageValueRoll, 1, 3, 3, $"Feature/&DieRollModifier{Name}DemonSlayer")
+            .AddCustomSubFeatures(ValidateDieRollModifierDemonSlayerDamageTypeRadiant.Marker)
             .AddToDB();
 
         var featureSetDemonSlayer = FeatureDefinitionFeatureSetBuilder
@@ -266,6 +267,17 @@ public sealed class OathOfDemonHunter : AbstractSubclass
             }
 
             attackMode.maxRange += 6;
+        }
+    }
+
+    private sealed class ValidateDieRollModifierDemonSlayerDamageTypeRadiant : IValidateDieRollModifier
+    {
+        internal static readonly ValidateDieRollModifierDemonSlayerDamageTypeRadiant Marker = new();
+
+        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return damageTypes.Contains(DamageTypeRadiant);
         }
     }
 }

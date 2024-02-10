@@ -1526,10 +1526,10 @@ internal static class MeleeCombatFeats
     #region Piercer
 
     private static readonly FeatureDefinition FeatureFeatPiercer =
-        FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+        FeatureDefinitionDieRollModifierBuilder
             .Create("FeatureFeatPiercer")
             .SetGuiPresentationNoContent(true)
-            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll", DamageTypePiercing)
+            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
             .AddCustomSubFeatures(
                 new CustomAdditionalDamageFeatPiercer(
                     FeatureDefinitionAdditionalDamageBuilder
@@ -1538,8 +1538,7 @@ internal static class MeleeCombatFeats
                         .SetNotificationTag(GroupFeats.Piercer)
                         .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                         .SetIgnoreCriticalDoubleDice(true)
-                        .AddToDB(),
-                    DamageTypePiercing))
+                        .AddToDB()))
             .AddToDB();
 
     private static FeatDefinition BuildPiercerDex()
@@ -1568,9 +1567,15 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider, string damageType)
-        : CustomAdditionalDamage(provider)
+    private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider), IValidateDieRollModifier
     {
+        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return damageTypes.Contains(DamageTypePiercing);
+        }
+
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -1589,7 +1594,7 @@ internal static class MeleeCombatFeats
 
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
-            return criticalHit && damage != null && damage.DamageType == damageType;
+            return criticalHit && damage is { DamageType: DamageTypePiercing };
         }
     }
 

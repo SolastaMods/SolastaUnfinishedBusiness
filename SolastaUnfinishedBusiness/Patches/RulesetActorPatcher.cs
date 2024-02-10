@@ -86,8 +86,8 @@ public static class RulesetActorPatcher
         }
 
         __instance.featuresToBrowse.RemoveAll(x =>
-            x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
-            !y.damageTypes.Intersect(damageTypes).Any());
+            x.GetAllSubFeaturesOfType<IValidateDieRollModifier>().Any(y =>
+                !y.CanModifyRoll(__instance, __instance.featuresToBrowse, damageTypes)));
     }
 
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.AddConditionOfCategory))]
