@@ -1164,20 +1164,16 @@ internal static class GLBM
                         ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou:
                     {
                         validTrigger =
-                            advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
-                            attacker.IsWithinRange(defender, 1) &&
-                            Gui.Battle.AllContenders
-                                .Where(x => x != attacker && x != defender)
-                                .All(x => !attacker.IsWithinRange(x, 1));
+                            RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType);
                         break;
                     }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
                         ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
                     {
-                        validTrigger = attackMode != null &&
-                                       attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
-
+                        validTrigger =
+                            attackMode != null &&
+                            attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
                         break;
                     }
                     /*

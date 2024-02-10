@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -40,7 +41,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn) // yes Once Per Turn off sneak attack pattern
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -124,6 +125,20 @@ public sealed class RoguishDuelist : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static bool TargetIsDuelingWithRoguishDuelist(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        AdvantageType advantageType)
+    {
+        return
+            advantageType != AdvantageType.Disadvantage &&
+            attacker.RulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Rogue, Name) > 0 &&
+            attacker.IsWithinRange(defender, 1) &&
+            Gui.Battle.AllContenders
+                .Where(x => x != attacker && x != defender)
+                .All(x => !attacker.IsWithinRange(x, 1));
+    }
 
     private sealed class RogueHolder : IModifyAdditionalDamageClassLevel
     {

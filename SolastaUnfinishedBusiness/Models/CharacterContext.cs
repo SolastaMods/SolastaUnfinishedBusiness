@@ -1814,41 +1814,25 @@ internal static class CharacterContext
 
         // only trigger if haven't used sneak attack yet
         if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack") ||
-            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel"))
+            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel") ||
+            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishSlayerChainOfExecutionSneakAttack"))
         {
             return false;
         }
 
         var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
 
-        switch (advantageType)
+        return advantageType switch
         {
-            case AdvantageType.Advantage:
-                return true;
-            case AdvantageType.Disadvantage:
-                return false;
-            case AdvantageType.None:
-            default:
-                if (ServiceRepository.GetService<IGameLocationBattleService>() is not
-                    GameLocationBattleManager { IsBattleInProgress: true } gameLocationBattleManager)
-                {
-                    return false;
-                }
-
-                // it's an attack with a nearby enemy
-                if (gameLocationBattleManager
-                    .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker))
-                {
-                    return true;
-                }
-
+            AdvantageType.Advantage => true,
+            AdvantageType.Disadvantage => false,
+            _ =>
+                // it's an attack with a nearby enemy (standard sneak attack)
+                ServiceRepository.GetService<IGameLocationBattleService>()
+                    .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker) ||
                 // it's a Duelist and target is dueling with him
-                return attacker.RulesetCharacter.GetSubclassLevel(Rogue, RoguishDuelist.Name) > 0 &&
-                       attacker.IsWithinRange(defender, 1) &&
-                       Gui.Battle.AllContenders
-                           .Where(x => x != attacker && x != defender)
-                           .All(x => !attacker.IsWithinRange(x, 1));
-        }
+                RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType)
+        };
     }
 
     private sealed class ModifyAdditionalDamageFormRogueCunningStrike : IModifyAdditionalDamageForm
