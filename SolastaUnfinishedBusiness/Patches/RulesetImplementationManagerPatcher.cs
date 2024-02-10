@@ -269,6 +269,13 @@ public static class RulesetImplementationManagerPatcher
                 _ => 0
             };
 
+            //TODO: make this an interface in case other features need it
+            //PATCH: supports Umbral Stalker level 17th
+            if (rulesetActor.HasAnyConditionOfType(RoguishUmbralStalker.ConditionShadowDanceAdditionalDice.Name))
+            {
+                rollDamageOption = 2;
+            }
+
             var damage = rollDamageOption switch
             {
                 1 => RollDamageOption1(
