@@ -2,5 +2,8 @@
 
 public interface IIgnoreAoOOnMe
 {
-    public bool CanIgnoreAoOOnSelf(RulesetCharacter defender, RulesetCharacter attacker);
+    public bool CanIgnoreAoOOnSelf(
+        // ReSharper disable once UnusedParameter.Global
+        RulesetCharacter defender,
+        RulesetCharacter attacker);
 }
