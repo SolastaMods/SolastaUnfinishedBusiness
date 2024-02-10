@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetRoguishUmbralStalkerUmbralSoul:40694e69-a80f-5f66-91c1-f8419de3d63e",
       "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishUmbralStalkerShadowDance:ba4f4ef9-bf45-5e98-a580-1efbdd21e98b",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],
