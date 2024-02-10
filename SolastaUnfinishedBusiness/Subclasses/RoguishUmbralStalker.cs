@@ -35,7 +35,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
-            .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBright)
+            .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
@@ -74,7 +74,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityGloomBladeToggle")
             .SetGuiPresentation(Category.Feature)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle)
             .AddCustomSubFeatures(new CustomBehaviorGloomBlade(conditionGloomBlade))
             .AddToDB();
 
@@ -156,7 +156,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static bool SourceAndTargetAreNotBright(
+    internal static bool SourceAndTargetAreNotBrightAndWithin5Ft(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         AdvantageType advantageType)
@@ -164,6 +164,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         return
             advantageType != AdvantageType.Disadvantage &&
             attacker.RulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Rogue, Name) > 0 &&
+            attacker.IsWithinRange(defender, 1) &&
             attacker.LightingState != LocationDefinitions.LightingState.Bright &&
             defender.LightingState != LocationDefinitions.LightingState.Bright;
     }
