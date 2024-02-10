@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -11,7 +10,6 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using TA;
 using static RuleDefinitions;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -49,7 +47,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetFeatureSet(FeatureDefinitionSenses.SenseDarkvision, additionalDamageDeadlyShadows)
             .AddToDB();
 
-        // Gloom blade
+        // Gloomblade
 
         var dieRollModifierDieRollModifier = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}GloomBlade")
@@ -77,7 +75,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityGloomBladeToggle")
             .SetGuiPresentation(Category.Feature)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.HailOfBladesToggle)
-            .AddCustomSubFeatures(new AttackBeforeHitConfirmedOnEnemyGloomBlade(conditionGloomBlade))
+            .AddCustomSubFeatures(new CustomBehaviorGloomBlade(conditionGloomBlade))
             .AddToDB();
 
         // LEVEL 9
@@ -174,9 +172,9 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Gloom Blade
     //
 
-    private sealed class AttackBeforeHitConfirmedOnEnemyGloomBlade(
+    private sealed class CustomBehaviorGloomBlade(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionGloomBlade) : IAttackBeforeHitConfirmedOnEnemy
+        ConditionDefinition conditionGloomBlade) : IAttackBeforeHitConfirmedOnEnemy, IModifyAdditionalDamageForm
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -213,6 +211,21 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 0,
                 0);
         }
+
+        public DamageForm AdditionalDamageForm(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            IAdditionalDamageProvider provider,
+            DamageForm damageForm)
+        {
+            if (provider.NotificationTag == TagsDefinitions.AdditionalDamageSneakAttackTag &&
+                attacker.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle))
+            {
+                damageForm.DamageType = DamageTypeNecrotic;
+            }
+
+            return damageForm;
+        }
     }
 
     //
@@ -223,29 +236,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
-            cursorLocationSelectPosition.validPositionsCache.Clear();
-
-            var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
-            var range = source.RemainingTacticalMoves;
-            var boxInt = new BoxInt(
-                source.LocationPosition, new int3(-range, -range, -range), new int3(range, range, range));
-
-            foreach (var position in boxInt.EnumerateAllPositionsWithin())
-            {
-                if (gameLocationPositioningService.CanPlaceCharacter(
-                        source, position, CellHelpers.PlacementMode.Station) &&
-                    gameLocationPositioningService.CanCharacterStayAtPosition_Floor(
-                        source, position, onlyCheckCellsWithRealGround: true))
-                {
-                    cursorLocationSelectPosition.validPositionsCache.Add(position);
-                }
-
-                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                {
-                    yield return null;
-                }
-            }
+            yield return cursorLocationSelectPosition.MyComputeValidPositions(LocationDefinitions.LightingState.Bright,
+                cursorLocationSelectPosition.ActionParams.ActingCharacter.RemainingTacticalMoves);
         }
     }
 
