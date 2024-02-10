@@ -1,13 +1,10 @@
 {
-  "$type": "FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
-  "damageTypes": [
-    "DamageAcid"
-  ],
-  "minRollValue": 1,
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 3,
   "maxRollValue": 0,
-  "minRerollValue": 1,
+  "minRerollValue": 3,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
+  "rerollLocalizationKey": "Feature/&DieRollModifierOathOfDemonHunterDemonSlayer",
   "forcedDamageOnDice": "None",
   "validityContext": "MagicDamageValueRoll",
   "validSkills": [],
@@ -20,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Expert [Acid]",
-    "description": "Acid damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
+    "title": "Feature/&FeatureSetOathOfDemonHunterDemonSlayerTitle",
+    "description": "Feature/&FeatureSetOathOfDemonHunterDemonSlayerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2cb14c0f-08cc-5cd7-b95f-b7d2bf5bdda3",
+  "guid": "2bb84145-bd8e-5119-bd09-dbc1e0eb0018",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageAcidMagic"
+  "name": "FeatureOathOfDemonHunterDemonSlayerMagic"
 }

@@ -1,15 +1,12 @@
 {
-  "$type": "FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
-  "damageTypes": [
-    "DamageThunder"
-  ],
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
   "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
+  "rerollLocalizationKey": "Feat/&FeatPiercerReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "MagicDamageValueRoll",
+  "validityContext": "AttackDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -20,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Expert [Thunder]",
-    "description": "Thunder damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "37ab58e8-d515-58f2-a474-d4660e89a74a",
+  "guid": "338a8e7d-d1be-5434-b3b1-8d23c2346a90",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageThunderMagic"
+  "name": "FeatureFeatPiercer"
 }

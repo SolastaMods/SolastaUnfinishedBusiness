@@ -1,8 +1,5 @@
 {
-  "$type": "FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
-  "damageTypes": [
-    "DamageFire"
-  ],
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
   "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 1,
@@ -20,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Master [Fire]",
-    "description": "Fire damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
+    "title": "Elemental Master [Thunder]",
+    "description": "Thunder damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b9dd0f1e-c257-53ae-997b-e5b077c075d2",
+  "guid": "a36dee8e-f490-58a2-bd99-7fe78bd693e7",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalMasterDamageFire"
+  "name": "DieRollModifierDamageTypeDependentFeatElementalMasterDamageThunder"
 }

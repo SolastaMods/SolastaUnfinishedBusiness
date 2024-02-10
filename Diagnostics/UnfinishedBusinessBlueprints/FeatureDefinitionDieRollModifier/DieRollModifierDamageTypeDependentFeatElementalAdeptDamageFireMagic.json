@@ -1,15 +1,12 @@
 {
-  "$type": "FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
-  "damageTypes": [
-    "DamagePoison"
-  ],
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
   "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
   "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackDamageValueRoll",
+  "validityContext": "MagicDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -20,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Expert [Poison]",
-    "description": "Poison damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
+    "title": "Elemental Expert [Fire]",
+    "description": "Fire damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9bca2e0a-acb2-568a-919b-b5b9cd522149",
+  "guid": "367967bf-e31f-55fa-98ae-09ce8c64aafc",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamagePoison"
+  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageFireMagic"
 }

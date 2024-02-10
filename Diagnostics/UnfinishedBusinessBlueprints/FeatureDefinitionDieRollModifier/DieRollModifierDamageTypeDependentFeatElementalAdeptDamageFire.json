@@ -1,8 +1,5 @@
 {
-  "$type": "FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
-  "damageTypes": [
-    "DamageFire"
-  ],
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
   "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 1,

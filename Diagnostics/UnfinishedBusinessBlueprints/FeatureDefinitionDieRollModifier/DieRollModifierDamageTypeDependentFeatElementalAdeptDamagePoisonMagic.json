@@ -1,15 +1,12 @@
 {
-  "$type": "FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
-  "damageTypes": [
-    "DamagePiercing"
-  ],
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
   "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feat/&FeatPiercerReroll",
+  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackDamageValueRoll",
+  "validityContext": "MagicDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -20,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Elemental Expert [Poison]",
+    "description": "Poison damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "338a8e7d-d1be-5434-b3b1-8d23c2346a90",
+  "guid": "6d4fd87a-e1a0-571e-9333-e720c0b76803",
   "contentPack": 9999,
-  "name": "FeatureFeatPiercer"
+  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamagePoisonMagic"
 }

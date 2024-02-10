@@ -1,15 +1,12 @@
 {
-  "$type": "FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
-  "damageTypes": [
-    "DamagePoison"
-  ],
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
   "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalMasterReroll",
+  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackRoll",
+  "validityContext": "AttackDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -20,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Master [Poison]",
-    "description": "Poison damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
+    "title": "Elemental Expert [Lightning]",
+    "description": "Lightning damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d886814c-b4f4-50ff-9358-de7625ead233",
+  "guid": "9ecdb684-d6c6-54ba-8aab-7c3c80888d97",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalMasterDamagePoison"
+  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageLightning"
 }

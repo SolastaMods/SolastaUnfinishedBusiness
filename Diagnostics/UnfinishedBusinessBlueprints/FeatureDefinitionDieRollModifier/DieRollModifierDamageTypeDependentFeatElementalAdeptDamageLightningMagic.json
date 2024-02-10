@@ -1,15 +1,12 @@
 {
-  "$type": "FeatureDefinitionDieRollModifierDamageTypeDependent, SolastaUnfinishedBusiness",
-  "damageTypes": [
-    "DamageLightning"
-  ],
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
   "minRollValue": 1,
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalMasterReroll",
+  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
   "forcedDamageOnDice": "None",
-  "validityContext": "AttackRoll",
+  "validityContext": "MagicDamageValueRoll",
   "validSkills": [],
   "requireProficiency": false,
   "bardicInspirationAddChoice": false,
@@ -20,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Elemental Master [Lightning]",
-    "description": "Lightning damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
+    "title": "Elemental Expert [Lightning]",
+    "description": "Lightning damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -41,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "79da4630-7fbe-514f-8581-a20ee14bf5b5",
+  "guid": "059deb68-4164-597e-95bb-ab9548f0a265",
   "contentPack": 9999,
-  "name": "DieRollModifierDamageTypeDependentFeatElementalMasterDamageLightning"
+  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageLightningMagic"
 }

@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionOpportunityAttackImmunity, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
