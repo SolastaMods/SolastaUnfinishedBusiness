@@ -568,13 +568,13 @@ internal static class GLBM
                 (current, modifyAdditionalDamageForm) =>
                     modifyAdditionalDamageForm.AdditionalDamageForm(attacker, defender, provider, current));
 
-        if (originalDamageType == additionalDamageForm.DamageType &&
-            /*
-             * Support for IModifyAdditionalDamageForm
-             * [CE] EDIT END
-             * ######################################
-             */
-            (additionalDamageForm.DiceNumber > 0 || additionalDamageForm.BonusDamage > 0))
+        var newDamageType = additionalDamageForm.DamageType;
+        /*
+         * Support for IModifyAdditionalDamageForm
+         * [CE] EDIT END
+         * ######################################
+         */
+        if (additionalDamageForm.DiceNumber > 0 || additionalDamageForm.BonusDamage > 0)
         {
             // Add the new damage form
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
@@ -611,6 +611,21 @@ internal static class GLBM
 
                     break;
             }
+
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for IModifyAdditionalDamageForm
+             */
+            if (originalDamageType != newDamageType)
+            {
+                additionalDamageForm.DamageType = newDamageType;
+            }
+            /*
+             * Support for IModifyAdditionalDamageForm
+             * [CE] EDIT END
+             * ######################################
+             */
 
             // For ancestry damage, add to the existing / matching damage, instead of add a new effect form
             if (provider.AdditionalDamageType == RuleDefinitions.AdditionalDamageType.AncestryDamageType
