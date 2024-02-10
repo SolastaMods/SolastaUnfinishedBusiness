@@ -1801,7 +1801,7 @@ internal static class CharacterContext
             .AddToDB();
     }
 
-    private static bool IsSneakAttackValid(
+    internal static bool IsSneakAttackValid(
         ActionModifier attackModifier,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -1831,7 +1831,9 @@ internal static class CharacterContext
                 ServiceRepository.GetService<IGameLocationBattleService>()
                     .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker) ||
                 // it's a Duelist and target is dueling with him
-                RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType)
+                RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
+                // it's a Umbral Stalker and source and target are in dim light or darkness
+                RoguishUmbralStalker.SourceAndTargetAreNotBright(attacker, defender, advantageType)
         };
     }
 

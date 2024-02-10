@@ -1154,6 +1154,23 @@ internal static class GLBM
                      * Support for extra types of trigger conditions
                      */
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
+                        ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
+                    {
+                        validTrigger =
+                            attackMode != null &&
+                            attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
+                        break;
+                    }
+
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
+                        ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou:
+                    {
+                        validTrigger = RoguishDuelist
+                            .TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType);
+                        break;
+                    }
+
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
                         ExtraAdditionalDamageTriggerCondition.TargetIsWithin10Ft:
                     {
                         validTrigger = attacker.IsWithinRange(defender, 2);
@@ -1161,19 +1178,10 @@ internal static class GLBM
                     }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou:
+                        ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBright:
                     {
-                        validTrigger =
-                            RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType);
-                        break;
-                    }
-
-                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
-                    {
-                        validTrigger =
-                            attackMode != null &&
-                            attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
+                        validTrigger = RoguishUmbralStalker
+                            .SourceAndTargetAreNotBright(attacker, defender, advantageType);
                         break;
                     }
                     /*

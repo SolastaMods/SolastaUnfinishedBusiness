@@ -34,6 +34,7 @@ internal enum ExtraActionId
     FeatCrusherToggle,
     FlightResume,
     FlightSuspend,
+    GloomBladeToggle,
     HailOfArrows,
     HailOfBladesToggle,
     ImpishWrathToggle,
@@ -83,7 +84,8 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
     FlurryOfBlows = 9000,
     TargetIsDuelingWithYou,
-    TargetIsWithin10Ft
+    TargetIsWithin10Ft,
+    SourceAndTargetAreNotBright
 }
 
 internal enum ExtraAdditionalDamageValueDetermination
