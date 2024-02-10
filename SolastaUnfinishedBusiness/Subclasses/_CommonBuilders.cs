@@ -138,10 +138,11 @@ internal static class CommonBuilders
                 .Build())
         .AddToDB();
 
-    internal static readonly FeatureDefinitionAttackReplaceWithCantrip AttackReplaceWithCantripCasterFighting =
-        FeatureDefinitionReplaceAttackWithCantripBuilder
+    internal static readonly FeatureDefinition AttackReplaceWithCantripCasterFighting =
+        FeatureDefinitionBuilder
             .Create("ReplaceAttackWithCantripCasterFighting")
             .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new AttackReplaceWithCantrip())
             .AddToDB();
 
     //
@@ -161,6 +162,8 @@ internal static class CommonBuilders
                hero.TrainedFeats.Contains(MeleeCombatFeats.FeatFencer) ||
                hero.TrainedFightingStyles.Contains(DatabaseHelper.FightingStyleDefinitions.TwoWeapon);
     }
+
+    private sealed class AttackReplaceWithCantrip : IAttackReplaceWithCantrip;
 
     private sealed class
         MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(ConditionDefinition conditionDefinition) :
