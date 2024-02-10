@@ -83,7 +83,7 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
     FlurryOfBlows = 9000,
     TargetIsDuelingWithYou,
-    TargetWithin10Ft
+    TargetIsWithin10Ft
 }
 
 internal enum ExtraAdditionalDamageValueDetermination

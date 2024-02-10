@@ -1154,7 +1154,7 @@ internal static class GLBM
                      * Support for extra types of trigger conditions
                      */
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft:
+                        ExtraAdditionalDamageTriggerCondition.TargetIsWithin10Ft:
                     {
                         validTrigger = attacker.IsWithinRange(defender, 2);
                         break;

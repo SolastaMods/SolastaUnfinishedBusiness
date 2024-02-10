@@ -582,7 +582,7 @@ internal static partial class SpellBuilders
                                         .Create($"AdditionalDamage{SpiritShroudName}{damage}")
                                         .SetGuiPresentationNoContent(true)
                                         .SetNotificationTag($"{SpiritShroudName}{damage}")
-                                        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
+                                        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsWithin10Ft)
                                         .SetAttackOnly()
                                         .SetDamageDice(DieType.D8, 1)
                                         .SetSpecificDamageType(damage)
