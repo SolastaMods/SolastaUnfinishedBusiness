@@ -1,3 +1,5 @@
+Condition/&ConditionUmbralStalkerShadowDanceDescription=Estás oscurecido por una oscuridad mágica a través de la cual puedes ver, y cada vez que infliges daño de ataque furtivo y tiras el número máximo en uno de tus dados de ataque, vuelves a tirar ese dado y lo sumas al daño.
+Condition/&ConditionUmbralStalkerShadowDanceTitle=Baile de las sombras
 Feature/&ActionAffinityGloomBladeToggleDescription=Infundes a tus ataques la esencia de la oscuridad misma. Siempre que atacas furtivamente a una criatura con un ataque de arma cuerpo a cuerpo, infliges 1d6 de daño necrótico adicional y vuelves a tirar los 1 y 2 en los dados de daño de ese ataque y debes obtener el segundo resultado. Además, puedes optar por tirar tus dados de daño de ataque furtivo como daño necrótico a voluntad.
 Feature/&ActionAffinityGloomBladeToggleTitle=Hojas de oscuridad
 Feature/&FeatureSetRoguishUmbralStalkerDeadlyShadowsDescription=Te acostumbras a la oscuridad y la conviertes en tu patio de recreo mortal. Obtienes visión en la oscuridad de 60 pies. No necesitas ventaja en la tirada de ataque para usar tu ataque furtivo si tanto tú como la criatura objetivo están en condiciones de poca luz u oscuridad, estás a 5 pies de la criatura y no tienes desventaja en la tirada de ataque. Todas las demás reglas para el ataque furtivo aún se aplican a ti.
@@ -9,6 +11,8 @@ Feature/&PowerRoguishUmbralStalkerShadowStrideDescription=Una vez por turno, com
 Feature/&PowerRoguishUmbralStalkerShadowStrideTitle=Paso de las sombras
 Feature/&PowerRoguishUmbralStalkerUmbralSoulDescription=Siempre que quedes reducido a 0 puntos de vida, recuperas una cantidad de puntos de vida igual a tu nivel de pícaro y te levantas. Puede utilizar esta función una vez por descanso prolongado.
 Feature/&PowerRoguishUmbralStalkerUmbralSoulTitle=Alma Umbral
+Feature/&PowerUmbralStalkerShadowDanceDescription=Puedes usar tu acción adicional para potenciarte con un nimbo giratorio de energía de las sombras durante un minuto. Mientras esta energía de sombra persiste, estás oscurecido por una oscuridad mágica a través de la cual puedes ver, y cada vez que infliges daño de ataque furtivo y tiras el número máximo en uno de tus dados de ataque, vuelves a tirar ese dado y lo sumas al daño. Puede utilizar esta función una vez por descanso prolongado.
+Feature/&PowerUmbralStalkerShadowDanceTitle=Baile de las sombras
 Feedback/&AdditionalDamageGloomBladeFormat=Hojas de oscuridad
 Feedback/&AdditionalDamageGloomBladeLine=¡Gloomblade causa +{2} de daño adicional!
 Reaction/&UseUmbraSoulDescription=Recuperas una cantidad de puntos de vida igual a tu nivel de pícaro y te levantas.

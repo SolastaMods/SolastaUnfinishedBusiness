@@ -1,3 +1,5 @@
+Condition/&ConditionUmbralStalkerShadowDanceDescription=You are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your dice attack, you reroll that die and add it to the damage.
+Condition/&ConditionUmbralStalkerShadowDanceTitle=Shadow Dance
 Feature/&ActionAffinityGloomBladeToggleDescription=You infuse your attacks with the essence of darkness itself. Whenever you sneak attack a creature with a melee weapon attack, you deal an additional 1d6 necrotic damage and reroll any 1s and 2s on damage dice of that attack and must take the second result. In addition, you can choose to roll your sneak attack damage dice as necrotic damage at will.
 Feature/&ActionAffinityGloomBladeToggleTitle=Gloomblade
 Feature/&FeatureSetRoguishUmbralStalkerDeadlyShadowsDescription=You become accustomed to darkness and make it your deadly playground. You gain darkvision of 60 feet. You don't need advantage on the attack roll to use your sneak attack if both you and the target creature are in dim light or darkness, you are within 5 feet of the creature, and you don't have disadvantage on the attack roll. All the other rules for sneak attack still apply to you.
@@ -9,6 +11,8 @@ Feature/&PowerRoguishUmbralStalkerShadowStrideDescription=Once per turn as a fre
 Feature/&PowerRoguishUmbralStalkerShadowStrideTitle=Shadow Stride
 Feature/&PowerRoguishUmbralStalkerUmbralSoulDescription=Whenever you are reduced to 0 hit points, you regain a number of hit points equal to your rogue level, and stand up. You can use this feature once per long rest.
 Feature/&PowerRoguishUmbralStalkerUmbralSoulTitle=Umbral Soul
+Feature/&PowerUmbralStalkerShadowDanceDescription=You can use your bonus action to empower yourself with a swirling nimbus of shadow energy for one minute. While this shadow energy persists, you are obscured by magical darkness which you can see through, and whenever you deal sneak attack damage and roll the maximum number on one of your dice attack, you reroll that die and add it to the damage. You can use this feature once per long rest.
+Feature/&PowerUmbralStalkerShadowDanceTitle=Shadow Dance
 Feedback/&AdditionalDamageGloomBladeFormat=Gloomblade
 Feedback/&AdditionalDamageGloomBladeLine=Gloomblade deals extra +{2} damage!
 Reaction/&UseUmbraSoulDescription=You regain a number of hit points equal to your rogue level, and stand up.
