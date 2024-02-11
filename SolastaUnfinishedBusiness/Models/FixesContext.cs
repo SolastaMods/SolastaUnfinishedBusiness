@@ -612,15 +612,20 @@ internal static class FixesContext
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            if (!rulesetAttacker.CanUsePower(FeatureDefinitionPowers.PowerMonkStunningStrike))
+            {
+                yield break;
+            }
 
             // ensure Zen Archer Hail of Arrows won't trigger stunning strike without ki points
             if (attackMode.AttackTags.Contains(WayOfZenArchery.HailOfArrows))

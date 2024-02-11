@@ -156,7 +156,7 @@ internal static class RaceImpBuilder
             .AddToDB();
 
         powerImpForestImpishWrath.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedImpishWrath(powerImpForestImpishWrath, actionAffinityImpishWrathToggle));
+            new AttackBeforeHitConfirmedImpishWrath(powerImpForestImpishWrath));
 
         var featureSetImpForestImpishWrath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}ImpishWrath")
@@ -183,10 +183,7 @@ internal static class RaceImpBuilder
         return raceImpForest;
     }
 
-    private class AttackBeforeHitConfirmedImpishWrath(
-        FeatureDefinitionPower powerPool,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionActionAffinity actionAffinityImpishWrathToggle)
+    private class AttackBeforeHitConfirmedImpishWrath(FeatureDefinitionPower powerImpForestImpishWrath)
         : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
@@ -201,8 +198,10 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
-                action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if ((action.RolledSaveThrow &&
+                 action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                (action.AttackRoll != 0 &&
+                 action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield return HandleImpishWrath(attacker,
                     defender,
@@ -216,8 +215,8 @@ internal static class RaceImpBuilder
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             if (action.AttackRollOutcome != RollOutcome.Success &&
@@ -229,8 +228,8 @@ internal static class RaceImpBuilder
             yield return HandleImpishWrath(
                 attacker,
                 defender,
-                attackerAttackMode.attackTags,
-                attackerAttackMode.EffectDescription.FindFirstDamageForm()?.damageType);
+                attackMode.attackTags,
+                attackMode.EffectDescription.FindFirstDamageForm()?.damageType);
         }
 
         private IEnumerator HandleImpishWrath(
@@ -249,16 +248,7 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-
-            if (rulesetImplementationService == null)
-            {
-                yield break;
-            }
-
-            // check action affinity for backward compatibility
-            if (attacker.RulesetCharacter.HasAnyFeature(actionAffinityImpishWrathToggle) &&
-                !attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
+            if (!attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
             {
                 yield break;
             }
@@ -277,20 +267,19 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (!rulesetAttacker.CanUsePower(powerPool))
+            if (!rulesetAttacker.CanUsePower(powerImpForestImpishWrath))
             {
                 yield break;
             }
 
-            // maybe add some toggle here similar to Paladin Smite
             var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
 
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerPool, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "ImpishWrath",
                 StringParameter2 = Gui.Format("Reaction/&SpendPowerImpishWrathDescription",
@@ -303,11 +292,11 @@ internal static class RaceImpBuilder
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToSpendPower(reactionParams);
+            gameLocationActionService.ReactToSpendPower(actionParams);
 
             yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
-            if (!reactionParams.ReactionValidated)
+            if (!actionParams.ReactionValidated)
             {
                 yield break;
             }

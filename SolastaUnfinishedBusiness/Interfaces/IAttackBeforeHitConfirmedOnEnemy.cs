@@ -11,10 +11,10 @@ public interface IAttackBeforeHitConfirmedOnEnemy
 {
     [UsedImplicitly]
     IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-        GameLocationBattleManager battle,
+        GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ActionModifier attackModifier,
+        ActionModifier actionModifier,
         RulesetAttackMode attackMode,
         bool rangedAttack,
         AdvantageType advantageType,

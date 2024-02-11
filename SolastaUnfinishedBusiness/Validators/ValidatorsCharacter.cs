@@ -14,6 +14,18 @@ internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
 internal static class ValidatorsCharacter
 {
+    internal static readonly IsCharacterValidHandler HasAvailableMoves = character =>
+    {
+        var locationCharacter = GameLocationCharacter.GetFromActor(character);
+
+        if (locationCharacter == null)
+        {
+            return false;
+        }
+
+        return locationCharacter.RemainingTacticalMoves > 0;
+    };
+
     internal static readonly IsCharacterValidHandler HasAvailableBonusAction = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
@@ -26,7 +38,7 @@ internal static class ValidatorsCharacter
         return locationCharacter.CurrentActionRankByType[ActionDefinitions.ActionType.Bonus] == 0;
     };
 
-    internal static readonly IsCharacterValidHandler HasNoAvailableBonusAction = character =>
+    internal static readonly IsCharacterValidHandler HasUnavailableBonusAction = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);
 
@@ -71,10 +83,6 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasLongbow = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), LongbowType);
-
-    internal static readonly IsCharacterValidHandler HasTwoHandedRangedWeapon = character =>
-        ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
-            LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHand = character =>
     {

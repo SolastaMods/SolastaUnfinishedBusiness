@@ -258,10 +258,10 @@ public sealed class RangerSkyWarrior : AbstractSubclass
         : IAttackBeforeHitConfirmedOnEnemy
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -270,7 +270,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (battle is not { IsBattleInProgress: true })
+            if (battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -298,7 +298,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             rulesetAttacker.LogCharacterUsedFeature(featureDefinition);
 
-            foreach (var gameLocationDefender in battle.Battle
+            foreach (var gameLocationDefender in battleManager.Battle
                          .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 1))
             {
                 var rulesetDefender = gameLocationDefender.RulesetCharacter;

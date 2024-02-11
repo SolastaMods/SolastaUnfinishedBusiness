@@ -27,10 +27,10 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.CunningStrikeToggle,
         (Id)ExtraActionId.DyingLightToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
+        (Id)ExtraActionId.GloomBladeToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,
         (Id)ExtraActionId.MindSculptToggle,
-        (Id)ExtraActionId.MonkKiPointsToggle,
         (Id)ExtraActionId.PaladinSmiteToggle,
         (Id)ExtraActionId.PressTheAdvantageToggle,
         (Id)ExtraActionId.SupremeWillToggle,
@@ -208,38 +208,10 @@ public static class CustomActionIdContext
     private static void BuildCustomToggleActions()
     {
         ActionDefinitionBuilder
-            .Create(MetamagicToggle, "HailOfBladesToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.HailOfBladesToggle)
-            .AddToDB();
-
-        ActionDefinitionBuilder
             .Create(MetamagicToggle, "ArcaneArcherToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ArcaneArcherToggle)
-            .AddToDB();
-
-        ActionDefinitionBuilder
-            .Create(MetamagicToggle, "CoordinatedAssaultToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
-            .AddToDB();
-
-        ActionDefinitionBuilder
-            .Create(MetamagicToggle, "DyingLightToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.DyingLightToggle)
-            .AddToDB();
-
-        ActionDefinitionBuilder
-            .Create(MetamagicToggle, "PressTheAdvantageToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.PressTheAdvantageToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -250,6 +222,20 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
+            .Create(MetamagicToggle, "CoordinatedAssaultToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CoordinatedAssaultToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "CompellingStrikeToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CompellingStrikeToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
             .Create(MetamagicToggle, "CunningStrikeToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
@@ -257,10 +243,10 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(MetamagicToggle, "MasterfulWhirlToggle")
+            .Create(MetamagicToggle, "DyingLightToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.MasterfulWhirlToggle)
+            .SetActionId(ExtraActionId.DyingLightToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -271,17 +257,24 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(MetamagicToggle, "MonkKiPointsToggle")
+            .Create(MetamagicToggle, "GloomBladeToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.MonkKiPointsToggle)
+            .SetActionId(ExtraActionId.GloomBladeToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(MetamagicToggle, "PaladinSmiteToggle")
+            .Create(MetamagicToggle, "HailOfBladesToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.PaladinSmiteToggle)
+            .SetActionId(ExtraActionId.HailOfBladesToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "MasterfulWhirlToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.MasterfulWhirlToggle)
             .AddToDB();
 
         ActionDefinitionBuilder
@@ -292,17 +285,24 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
+            .Create(MetamagicToggle, "PaladinSmiteToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.PaladinSmiteToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(MetamagicToggle, "PressTheAdvantageToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.PressTheAdvantageToggle)
+            .AddToDB();
+
+        ActionDefinitionBuilder
             .Create(MetamagicToggle, "SupremeWillToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.SupremeWillToggle)
-            .AddToDB();
-
-        ActionDefinitionBuilder
-            .Create(MetamagicToggle, "CompellingStrikeToggle")
-            .SetOrUpdateGuiPresentation(Category.Action)
-            .RequiresAuthorization()
-            .SetActionId(ExtraActionId.CompellingStrikeToggle)
             .AddToDB();
     }
 

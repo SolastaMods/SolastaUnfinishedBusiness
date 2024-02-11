@@ -13,14 +13,15 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
 
     public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
-        foreach (var power in rulesetCondition.ConditionDefinition.Features
-                     .OfType<FeatureDefinitionPower>())
-        {
-            if (target.UsablePowers.Any(u => u.PowerDefinition == power))
-            {
-                continue;
-            }
+        //assuming mod won't have any case where same power is added twice to a condition
+        var powers = target.UsablePowers
+            .Select(x => x.PowerDefinition)
+            .ToList(); // avoid change enumerator
 
+        foreach (var power in rulesetCondition.ConditionDefinition.Features
+                     .OfType<FeatureDefinitionPower>()
+                     .Where(x => !powers.Contains(x)))
+        {
             target.UsablePowers.Add(PowerProvider.Get(power, target));
         }
     }
@@ -28,9 +29,21 @@ public class AddUsablePowersFromCondition : IOnConditionAddedOrRemoved
     public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
         var powers = rulesetCondition.ConditionDefinition.Features
-            .OfType<FeatureDefinitionPower>()
-            .ToList();
+            .OfType<FeatureDefinitionPower>();
 
-        target.UsablePowers.RemoveAll(usablePower => powers.Contains(usablePower.PowerDefinition));
+        foreach (var usablePower in target.UsablePowers
+                     .Where(x => powers.Contains(x.PowerDefinition))
+                     .ToList())
+        {
+            var effectPower = target.PowersUsedByMe
+                .FirstOrDefault(x => x.UsablePower == usablePower);
+
+            if (effectPower != null)
+            {
+                target.TerminatePower(effectPower);
+            }
+
+            target.UsablePowers.Remove(usablePower);
+        }
     }
 }

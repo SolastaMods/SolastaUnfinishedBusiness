@@ -25,12 +25,6 @@ internal static class SubclassesContext
         get;
     } = [];
 
-    private static IEnumerable<string> DeprecatedSubsList { get; } =
-    [
-        "PatronMoonlit",
-        "RoguishRaven"
-    ];
-
     internal static void Load()
     {
         RegisterClassesContext();
@@ -38,8 +32,7 @@ internal static class SubclassesContext
         foreach (var abstractSubClassInstance in typeof(AbstractSubclass)
                      .Assembly.GetTypes()
                      .Where(t => t.IsSubclassOf(typeof(AbstractSubclass)) && !t.IsAbstract)
-                     .Select(t => (AbstractSubclass)Activator.CreateInstance(t))
-                     .Where(t => !DeprecatedSubsList.Contains(t.Subclass.Name)))
+                     .Select(t => (AbstractSubclass)Activator.CreateInstance(t)))
         {
             LoadSubclass(abstractSubClassInstance);
         }

@@ -86,8 +86,8 @@ public static class RulesetActorPatcher
         }
 
         __instance.featuresToBrowse.RemoveAll(x =>
-            x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
-            !y.damageTypes.Intersect(damageTypes).Any());
+            x.GetAllSubFeaturesOfType<IValidateDieRollModifier>().Any(y =>
+                !y.CanModifyRoll(__instance, __instance.featuresToBrowse, damageTypes)));
     }
 
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.AddConditionOfCategory))]
@@ -853,29 +853,13 @@ public static class RulesetActorPatcher
             }
         }
 
-        // TODO: make this more generic
+        //PATCH: avoid an infinite loop trying to re-roll D1s
         [UsedImplicitly]
-        public static void Prefix(RulesetActor __instance,
+        public static void Prefix(
             DieType dieType,
-            RollContext rollContext,
-            ref bool enumerateFeatures,
             ref bool canRerollDice)
         {
-            if (dieType == DieType.D1)
-            {
-                canRerollDice = false;
-                return;
-            }
-
-            //PATCH: support for `RoguishRaven` Rogue subclass
-            if (!__instance.HasSubFeatureOfType<RoguishRaven.RavenRerollAnyDamageDieMarker>() ||
-                rollContext != RollContext.AttackDamageValueRoll)
-            {
-                return;
-            }
-
-            enumerateFeatures = true;
-            canRerollDice = true;
+            canRerollDice = dieType != DieType.D1 && canRerollDice;
         }
     }
 

@@ -1,3 +1,19 @@
+1.5.94.52:
+
+RESPEC IS REQUIRED ON: Moonlit and Raven Uncut [previously deprecated in 2023]
+RESPEC MIGHT BE REQUIRED ON: Tactician and Silhouette [if heroes or saves created in 2023]
+
+- added Morning Stars enchanted items and respective recipes
+- added Rogue Umbral Stalker subclass [design by HiddenHax]
+- fixed Burning Blade spell not allowing a second target selection
+- fixed College of War Dancer not granting an extra attack after a non attack one
+- fixed Monk Stunning Strike not checking for ki points availability
+- fixed no cost powers modal staying open after selection
+- improved Innovation Vitriolist mixtures power descriptions
+- improved Roguish Blade Caller hail of blades reaction descriptions
+- removed backward compatibility blueprints from Tactician and Silhouette
+- removed previously deprecated Moonlit and Raven Uncut
+
 1.5.94.51:
 
 RESPEC IS REQUIRED ON: Harlequin, Defender, Marshal, and Distant Hand [previously deprecated in 2023]

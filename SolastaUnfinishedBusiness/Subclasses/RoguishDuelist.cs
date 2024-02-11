@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -40,14 +41,14 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn) // yes Once Per Turn off sneak attack pattern
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
                     Operation = ConditionOperationDescription.ConditionOperation.Add,
                     ConditionDefinition = conditionDaringDuel
                 })
-            .AddCustomSubFeatures(new RogueHolder())
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
 
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
@@ -125,9 +126,18 @@ public sealed class RoguishDuelist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class RogueHolder : IModifyAdditionalDamageClassLevel
+    internal static bool TargetIsDuelingWithRoguishDuelist(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        AdvantageType advantageType)
     {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
+        return
+            advantageType != AdvantageType.Disadvantage &&
+            attacker.RulesetCharacter.GetSubclassLevel(CharacterClassDefinitions.Rogue, Name) > 0 &&
+            attacker.IsWithinRange(defender, 1) &&
+            Gui.Battle.AllContenders
+                .Where(x => x != attacker && x != defender)
+                .All(x => !attacker.IsWithinRange(x, 1));
     }
 
     //
@@ -140,10 +150,10 @@ public sealed class RoguishDuelist : AbstractSubclass
         : IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -164,7 +174,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            attackModifier.DefenderDamageMultiplier *= 0.5f;
+            actionModifier.DefenderDamageMultiplier *= 0.5f;
             rulesetDefender.DamageHalved(rulesetDefender, featureReflexiveParty);
         }
 
@@ -173,11 +183,11 @@ public sealed class RoguishDuelist : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -219,8 +229,8 @@ public sealed class RoguishDuelist : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetDefender = defender.RulesetCharacter;
@@ -246,10 +256,10 @@ public sealed class RoguishDuelist : AbstractSubclass
             }
 
             var actionParams = action.ActionParams.Clone();
-            var attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+            var attackModeMain = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
-            actionParams.AttackMode = attackMode;
+            actionParams.AttackMode = attackModeMain;
 
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);

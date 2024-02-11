@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -41,13 +40,6 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Druid)
             .AddToDB();
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}SylvanDurability")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
-            .AddToDB();
-
         var attackModifierSylvanMagic = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}SylvanDurability")
             .SetGuiPresentation(Category.Feature)
@@ -64,42 +56,6 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 new CanUseAttribute(AttributeDefinitions.Wisdom, CanWeaponBeEnchanted),
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
-
-        #region
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ImprovedBarkWard")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}SuperiorBarkWard")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        #endregion
 
         var conditionBarkWard = ConditionDefinitionBuilder
             .Create($"Condition{Name}BarkWard")
@@ -282,10 +238,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         }
 
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
-            GameLocationBattleManager battle,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -307,7 +263,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier magicModifier,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,

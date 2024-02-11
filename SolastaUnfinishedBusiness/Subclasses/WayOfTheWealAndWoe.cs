@@ -157,7 +157,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -177,7 +177,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             var level = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
 
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-            switch (outcome)
+            switch (rollOutcome)
             {
                 case RollOutcome.Failure:
                 case RollOutcome.Neutral:
@@ -205,13 +205,13 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                         if (rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                         {
                             rulesetAttacker.LogCharacterUsedFeature(_featureTheirWoe);
-                            InflictMartialArtDieDamage(rulesetAttacker, rulesetDefender, attackMode, outcome);
+                            InflictMartialArtDieDamage(rulesetAttacker, rulesetDefender, attackMode, rollOutcome);
                         }
                     }
                     else
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureWoe);
-                        InflictMartialArtDieDamage(rulesetAttacker, rulesetAttacker, attackMode, outcome);
+                        InflictMartialArtDieDamage(rulesetAttacker, rulesetAttacker, attackMode, rollOutcome);
                     }
 
                     // Weal (RESET)
@@ -232,7 +232,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     if (level >= 11 && rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureBrutalWeal);
-                        InflictMartialArtDieDamage(rulesetAttacker, rulesetDefender, attackMode, outcome);
+                        InflictMartialArtDieDamage(rulesetAttacker, rulesetDefender, attackMode, rollOutcome);
                     }
 
                     // Weal (RESET)

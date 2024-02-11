@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 1,
+  "maxRollValue": 0,
+  "minRerollValue": 1,
+  "rerollCount": 1,
+  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
+  "forcedDamageOnDice": "None",
+  "validityContext": "MagicDamageValueRoll",
+  "validSkills": [],
+  "requireProficiency": false,
+  "bardicInspirationAddChoice": false,
+  "bardicInspirationForceMaxRoll": false,
+  "bardicInspirationAdvantage": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Elemental Expert [Cold]",
+    "description": "Cold damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d35bb578-9510-5fd3-b8fd-c6a07acafb78",
+  "contentPack": 9999,
+  "name": "DieRollModifierDamageTypeDependentFeatElementalAdeptDamageColdMagic"
+}

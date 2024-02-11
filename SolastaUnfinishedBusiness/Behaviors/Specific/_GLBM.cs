@@ -561,16 +561,19 @@ internal static class GLBM
          * [CE] EDIT START
          * Support for IModifyAdditionalDamageForm
          */
+        var originalDamageType = additionalDamageForm.DamageType;
+
         additionalDamageForm = hero.GetSubFeaturesByType<IModifyAdditionalDamageForm>()
             .Aggregate(additionalDamageForm,
                 (current, modifyAdditionalDamageForm) =>
                     modifyAdditionalDamageForm.AdditionalDamageForm(attacker, defender, provider, current));
+
+        var newDamageType = additionalDamageForm.DamageType;
         /*
          * Support for IModifyAdditionalDamageForm
          * [CE] EDIT END
          * ######################################
          */
-
         if (additionalDamageForm.DiceNumber > 0 || additionalDamageForm.BonusDamage > 0)
         {
             // Add the new damage form
@@ -608,6 +611,21 @@ internal static class GLBM
 
                     break;
             }
+
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for IModifyAdditionalDamageForm
+             */
+            if (originalDamageType != newDamageType)
+            {
+                additionalDamageForm.DamageType = newDamageType;
+            }
+            /*
+             * Support for IModifyAdditionalDamageForm
+             * [CE] EDIT END
+             * ######################################
+             */
 
             // For ancestry damage, add to the existing / matching damage, instead of add a new effect form
             if (provider.AdditionalDamageType == RuleDefinitions.AdditionalDamageType.AncestryDamageType
@@ -1154,30 +1172,34 @@ internal static class GLBM
                      * Support for extra types of trigger conditions
                      */
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft:
+                        ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
                     {
-                        validTrigger = attacker.IsWithinRange(defender, 2);
+                        validTrigger =
+                            attackMode != null &&
+                            attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
                         break;
                     }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
                         ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou:
                     {
-                        validTrigger =
-                            advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
-                            attacker.IsWithinRange(defender, 1) &&
-                            Gui.Battle.AllContenders
-                                .Where(x => x != attacker && x != defender)
-                                .All(x => !attacker.IsWithinRange(x, 1));
+                        validTrigger = RoguishDuelist
+                            .TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType);
                         break;
                     }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
+                        ExtraAdditionalDamageTriggerCondition.TargetIsWithin10Ft:
                     {
-                        validTrigger = attackMode != null &&
-                                       attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
+                        validTrigger = attacker.IsWithinRange(defender, 2);
+                        break;
+                    }
 
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
+                        ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft:
+                    {
+                        validTrigger = RoguishUmbralStalker
+                            .SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType);
                         break;
                     }
                     /*

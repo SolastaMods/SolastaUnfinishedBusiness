@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -152,7 +153,9 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
         var rulesetAttacker = attacker.RulesetCharacter;
 
-        if (rulesetAttacker.MissingHitPoints == 0 || !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging))
+        if (rulesetAttacker.MissingHitPoints == 0 ||
+            !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) ||
+            !rulesetAttacker.CanUsePower(featureDefinitionPower))
         {
             yield break;
         }
@@ -162,37 +165,34 @@ public sealed class PathOfTheReaver : AbstractSubclass
             yield break;
         }
 
-        if (!rulesetAttacker.CanUsePower(featureDefinitionPower))
-        {
-            yield break;
-        }
-
         var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
         var totalHealing = 2 * classLevel;
-        var reactionParams =
-            new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-            {
-                StringParameter =
-                    Gui.Format("Reaction/&CustomReactionBloodbathDescription", totalHealing.ToString())
-            };
-        var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-        var reactionRequest = new ReactionRequestCustom("Bloodbath", reactionParams);
 
-        gameLocationActionService.AddInterruptRequest(reactionRequest);
+        var implementationManagerService =
+            ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-        yield return gameLocationBattleService.WaitForReactions(
-            attacker, gameLocationActionService, previousReactionCount);
+        var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
+        var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+        {
+            StringParameter = "Bloodbath",
+            StringParameter2 = "UseBloodbathDescription"
+                .Formatted(Category.Reaction, totalHealing.ToString()),
+            RulesetEffect = implementationManagerService
+                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+            UsablePower = usablePower
+        };
+
+        var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+
+        gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", attacker);
+
+        yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
         if (!reactionParams.ReactionValidated)
         {
             yield break;
         }
 
-        var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-
-        rulesetAttacker.UsePower(usablePower);
-
-        rulesetAttacker.LogCharacterUsedPower(featureDefinitionPower);
         ReceiveHealing(attacker, totalHealing);
     }
 
@@ -232,10 +232,10 @@ public sealed class PathOfTheReaver : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            if (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess)
             {
                 yield break;
             }
@@ -261,7 +261,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             var multiplier = 1;
 
-            if (outcome is RollOutcome.CriticalSuccess)
+            if (rollOutcome is RollOutcome.CriticalSuccess)
             {
                 multiplier += 1;
             }
@@ -337,10 +337,10 @@ public sealed class PathOfTheReaver : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            if (rollOutcome != RollOutcome.Success && rollOutcome != RollOutcome.CriticalSuccess)
             {
                 yield break;
             }

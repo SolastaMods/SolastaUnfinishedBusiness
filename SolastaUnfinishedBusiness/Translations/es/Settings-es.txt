@@ -96,7 +96,7 @@ ModUi/&EnableCustomPortraits=Habilitar retratos personalizados
 ModUi/&EnableCustomPortraitsHelp=. Coloque sus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color><. /b></i>, llamado así por el nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n. Utilice imágenes PNG, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[use GIMP para obtener mejores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y recursos de mezcla sencillos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar la visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, gambitos y versatilidad]</color></i>
+ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, gambitos y versatilidad]</color></i>\n<b><i><color=#C04040E0>[rendimiento afectado al personaje inspección. úsalo bajo tu propia responsabilidad]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niveles de clase 6 y 14
 ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
@@ -134,7 +134,7 @@ ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre h
 ModUi/&EnableSumD20OnAlternateVotingSystem=. Además, cada héroe agrega una tirada de D20 al peso para darle un poco de aleatoriedad.
 ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
-ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas del panel al pasar el mouse sobre un personaje en combate
+ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas al pasar el cursor sobre un personaje en combate.
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
 ModUi/&EnableVttCamera=Habilite <color=#1E81B0>CTRL-SHIFT-(V)</color> para alternar la cámara VTT <i><color=#F0DAA0>[haga clic derecho y arrastre para posicionar la cámara, WASD para desplazarse y Re Pág/ Avance de página para hacer zoom]</color></i>
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>

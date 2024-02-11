@@ -96,7 +96,7 @@ ModUi/&EnableCustomPortraits=カスタムポートレートを有効にする
 ModUi/&EnableCustomPortraitsHelp=。カスタム ポートレートをサブフォルダ <i><b><color=#F0DAA0>Personal</color></b></i> または <i><b><color=#F0DAA0>PreGen</color>< の下に配置します。 /b></i>、主人公の名前 <i><color=#F0DAA0>[例: アントン、セリア、ニアラなど]</color></i>\n にちなんで名付けられました。サイズ 256 x 384 ピクセルの透明レイヤーを含む PNG 画像を使用します<i><color=#F0DAA0>[最良の結果を得るには GIMP を使用]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro を有効にする\n<i><color=#F0DAA0>[フラット ルーム、150x150 および 200x200 のダンジョン サイズ、あらゆる環境のアセットを簡単に混合する機能が含まれます]</color></i>
 ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと配列 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 を有効にする>[再起動が必要]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネル表示を有効にする <i><color=#F0DAA0>[秘術ショット、注入、ギャンビット、多用途性]</color></i>
+ModUi/&EnableExtendedProficienciesPanelDisplay=拡張熟練度パネル表示を有効にする <i><color=#F0DAA0>[Arcane Shots、Infusions、Gambits、および Versatilities]</color></i>\n<b><i><color=#C04040E0>[キャラクターのパフォーマンス ヒット]検査。ご自身の責任で使用してください]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=クラスレベル2、10、18で特技選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=クラスレベル6および14で特技選択を有効にする
 ModUi/&EnableFighterWeaponSpecialization=クラスレベル 8 と 16 で<color=#D89555>ファイター</color>の<b>武器スペシャライゼーション</b>を有効にします<i><color=#F0DAA0>[ヒットとダメージに +1 を獲得しますが、他のものでは不利になります。武器の種類]</color></i>
@@ -134,7 +134,7 @@ ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報
 ModUi/&EnableSumD20OnAlternateVotingSystem=。また、各ヒーローは少しランダム性を持たせるためにウェイトに D20 ロールを追加します。
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color> を有効にしてパーティをテレポートします。<i><color=#F0DAA0>[未発見の場所にテレポートするとクエストが中断される可能性があります]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=キャラクタープールの切り替えを有効にして、デフォルトのプレイおよびテストパーティーを設定します
-ModUi/&EnableTooltipDistance=戦闘中にキャラクターの上にマウスを置くと、パネルのツールチップに距離が表示されるようになります。
+ModUi/&EnableTooltipDistance=戦闘中にキャラクターの上にマウスを置いたときにツールチップに距離を表示できるようになります
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>コンジュア・エレメンタル</color>と<color=#D89555>コンジュア・フェイ</color>のアップキャストを有効にする
 ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color> を有効にして VTT カメラを切り替えます<i><color=#F0DAA0>[右クリックしてドラッグしてカメラの位置を決め、WASD でパンと Page Up/ページダウンしてズーム]</color></i>
 ModUi/&EnablesAsiAndFeat=属性スコアの増加と特技の選択の両方を有効にします<i><color=#F0DAA0>[排他的な選択肢の代わりに]</color></i>

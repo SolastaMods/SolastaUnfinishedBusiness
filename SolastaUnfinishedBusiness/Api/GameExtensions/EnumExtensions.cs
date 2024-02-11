@@ -34,13 +34,13 @@ internal enum ExtraActionId
     FeatCrusherToggle,
     FlightResume,
     FlightSuspend,
+    GloomBladeToggle,
     HailOfArrows,
     HailOfBladesToggle,
     ImpishWrathToggle,
     InventorInfusion,
     MasterfulWhirlToggle,
     MindSculptToggle,
-    MonkKiPointsToggle,
     PaladinSmiteToggle,
     PressTheAdvantageToggle,
     PushedCustom,
@@ -84,7 +84,8 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
     FlurryOfBlows = 9000,
     TargetIsDuelingWithYou,
-    TargetWithin10Ft
+    TargetIsWithin10Ft,
+    SourceAndTargetAreNotBrightAndWithin5Ft
 }
 
 internal enum ExtraAdditionalDamageValueDetermination

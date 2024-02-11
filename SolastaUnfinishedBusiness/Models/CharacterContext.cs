@@ -148,14 +148,6 @@ internal static class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.SorcererDraconicChoice)
             .AddToDB();
 
-    // kept for backward compatibility
-    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWayOfTheDragonDraconicChoice =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolWayOfTheDragonDraconicChoice")
-            .SetGuiPresentation(WayOfTheDragon.FeatureSetPathOfTheDragonDisciple.GuiPresentation)
-            .Setup(InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice)
-            .AddToDB();
-
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolKindredSpiritChoice =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolKindredSpiritChoice")
@@ -287,11 +279,6 @@ internal static class CharacterContext
             "Sorcerer", SorcerousDraconicBloodline,
             FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
             InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
-        // kept for backward compatibility
-        SwitchSubclassAncestriesToUseCustomInvocationPools(
-            "WayOfTheDragon", GetDefinition<CharacterSubclassDefinition>(WayOfTheDragon.Name),
-            WayOfTheDragon.FeatureSetPathOfTheDragonDisciple, InvocationPoolWayOfTheDragonDraconicChoice,
-            InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice);
     }
 
     private static void AddNameToRace(CharacterRaceDefinition raceDefinition, string gender, string name)
@@ -1238,10 +1225,7 @@ internal static class CharacterContext
                 .AddToDB();
         }
 
-        // replace the original features with custom invocation pools
-
-        // remove check for WayOfTheDragon after backward compatibility is cleaned up
-        if (name == "WayOfTheDragon" || !Main.Settings.ImproveLevelUpFeaturesSelection)
+        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
         {
             return;
         }
@@ -1798,7 +1782,6 @@ internal static class CharacterContext
             .Create($"Condition{Cunning}ReduceSneakDice")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
@@ -1818,7 +1801,7 @@ internal static class CharacterContext
             .AddToDB();
     }
 
-    private static bool IsSneakAttackValid(
+    internal static bool IsSneakAttackValid(
         ActionModifier attackModifier,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -1831,41 +1814,27 @@ internal static class CharacterContext
 
         // only trigger if haven't used sneak attack yet
         if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack") ||
-            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel"))
+            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel") ||
+            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishSlayerChainOfExecutionSneakAttack"))
         {
             return false;
         }
 
         var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
 
-        switch (advantageType)
+        return advantageType switch
         {
-            case AdvantageType.Advantage:
-                return true;
-            case AdvantageType.Disadvantage:
-                return false;
-            case AdvantageType.None:
-            default:
-                if (ServiceRepository.GetService<IGameLocationBattleService>() is not
-                    GameLocationBattleManager { IsBattleInProgress: true } gameLocationBattleManager)
-                {
-                    return false;
-                }
-
-                // it's an attack with a nearby enemy
-                if (gameLocationBattleManager
-                    .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker))
-                {
-                    return true;
-                }
-
+            AdvantageType.Advantage => true,
+            AdvantageType.Disadvantage => false,
+            _ =>
+                // it's an attack with a nearby enemy (standard sneak attack)
+                ServiceRepository.GetService<IGameLocationBattleService>()
+                    .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker) ||
                 // it's a Duelist and target is dueling with him
-                return attacker.RulesetCharacter.GetSubclassLevel(Rogue, RoguishDuelist.Name) > 0 &&
-                       attacker.IsWithinRange(defender, 1) &&
-                       Gui.Battle.AllContenders
-                           .Where(x => x != attacker && x != defender)
-                           .All(x => !attacker.IsWithinRange(x, 1));
-        }
+                RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
+                // it's a Umbral Stalker and source and target are in dim light or darkness
+                RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType)
+        };
     }
 
     private sealed class ModifyAdditionalDamageFormRogueCunningStrike : IModifyAdditionalDamageForm
@@ -1899,10 +1868,10 @@ internal static class CharacterContext
         private FeatureDefinitionPower _selectedPower;
 
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager gameLocationBattleManager,
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -1925,14 +1894,14 @@ internal static class CharacterContext
                 yield break;
             }
 
-            if (!IsSneakAttackValid(attackModifier, attacker, defender, attackMode))
+            if (!IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
             {
                 yield break;
             }
 
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (manager == null || gameLocationBattleManager is not { IsBattleInProgress: true })
+            if (manager == null || battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1941,24 +1910,24 @@ internal static class CharacterContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerRogueCunningStrike, rulesetAttacker);
-            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
-                ActionModifiers = { attackModifier },
+                ActionModifiers = { actionModifier },
                 StringParameter = powerRogueCunningStrike.Name,
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
             };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(reactionParams);
+
+            var count = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleManager.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, manager, count);
 
-            if (!reactionParams.ReactionValidated)
+            if (!actionParams.ReactionValidated)
             {
                 yield break;
             }
@@ -1977,9 +1946,9 @@ internal static class CharacterContext
             // inflict condition passing power cost on amount to be deducted later on from sneak dice
             rulesetAttacker.InflictCondition(
                 _conditionReduceSneakDice.Name,
-                _conditionReduceSneakDice.durationType,
-                _conditionReduceSneakDice.durationParameter,
-                _conditionReduceSneakDice.turnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -1995,8 +1964,8 @@ internal static class CharacterContext
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             if (_selectedPower == null || _selectedPower.EffectDescription.RangeType != RangeType.MeleeHit)
@@ -2021,7 +1990,6 @@ internal static class CharacterContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetAttacker);
-            //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },

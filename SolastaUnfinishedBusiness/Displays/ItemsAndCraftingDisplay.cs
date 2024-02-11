@@ -86,13 +86,7 @@ internal static class ItemsAndCraftingDisplay
         UI.Label();
         UI.Label();
 
-        var toggle = Main.Settings.AddCustomIconsToOfficialItems;
-        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddCustomIconsToOfficialItems")), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddCustomIconsToOfficialItems = toggle;
-        }
-
-        toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
+        var toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
         if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;

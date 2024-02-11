@@ -6,13 +6,12 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 // rulesetEffect != null is a magical attack
 public interface IAttackBeforeHitPossibleOnMeOrAlly
 {
-    IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-        GameLocationBattleManager battleManager,
-        GameLocationCharacter featureOwner,
+    IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
+        GameLocationCharacter helper,
+        ActionModifier actionModifier,
         RulesetAttackMode attackMode,
         RulesetEffect rulesetEffect,
-        ActionModifier attackModifier,
         int attackRoll);
 }

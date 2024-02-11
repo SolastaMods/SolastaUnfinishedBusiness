@@ -292,7 +292,6 @@ public class Settings : UnityModManager.ModSettings
     // Gameplay - Items, Crafting & Merchants
     //
 
-    public bool AddCustomIconsToOfficialItems { get; set; }
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool AddPickPocketableLoot { get; set; }
@@ -421,6 +420,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCancelEditOnRightMouseClick { get; set; }
 
     // Inventory and Items
+    public bool AddCustomIconsToOfficialItems { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }

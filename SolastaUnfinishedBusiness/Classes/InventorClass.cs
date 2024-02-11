@@ -779,7 +779,7 @@ internal static class InventorClass
             .SetOrUpdateGuiPresentation(title, description)
             .SetRequiresIdentification(false)
             .HideFromDungeonEditor()
-            .AddCustomSubFeatures(InventorModifyAdditionalDamageClassLevelHolder.Marker)
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelInventor.Instance)
             .SetCosts(Costs)
             .SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
                 .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
@@ -827,10 +827,7 @@ internal static class InventorClass
                                     .Create("ConditionInventorFlashOfGeniusAura")
                                     .SetGuiPresentationNoContent(true)
                                     .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .SetFeatures(bonusPower)
-                                    .AddCustomSubFeatures(
-                                        new AddUsablePowersFromCondition(),
-                                        new TryAlterOutcomeSavingThrowFlashOfGenius(bonusPower))
+                                    .AddCustomSubFeatures(new TryAlterOutcomeSavingThrowFlashOfGenius(bonusPower))
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -852,17 +849,6 @@ internal static class InventorClass
                 p.PowerDefinition.GetFirstSubFeatureOfType<LimitEffectInstances>()?.Name == LimiterName) != null;
         }
     }
-}
-
-internal class InventorModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
-{
-    private InventorModifyAdditionalDamageClassLevelHolder()
-    {
-    }
-
-    public static InventorModifyAdditionalDamageClassLevelHolder Marker { get; } = new();
-
-    public CharacterClassDefinition Class => InventorClass.Class;
 }
 
 internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower power) : ITryAlterOutcomeSavingThrow

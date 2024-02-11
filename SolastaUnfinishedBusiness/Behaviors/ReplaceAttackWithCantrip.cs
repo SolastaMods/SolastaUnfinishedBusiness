@@ -4,6 +4,8 @@ using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Behaviors;
 
+internal interface IAttackReplaceWithCantrip;
+
 internal static class ReplaceAttackWithCantrip
 {
     internal static void AllowCastDuringMainAttack(

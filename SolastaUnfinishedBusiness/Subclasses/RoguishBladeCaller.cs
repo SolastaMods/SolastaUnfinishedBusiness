@@ -56,7 +56,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
-                new RogueModifyAdditionalDamageClassLevelHolder(),
+                ModifyAdditionalDamageClassLevelRogue.Instance,
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, character, _, _, mode, _) =>
                         (OperationType.Set, IsBladeCallerWeapon(mode, null, character))))
@@ -203,11 +203,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     // Blade Mark
     //
 
-    private sealed class RogueModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
-    {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
-    }
-
     private sealed class CustomBehaviorBladeMark(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionBladeMark,
@@ -222,8 +217,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetDefender = defender.RulesetCharacter;
@@ -236,7 +231,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             }
 
             // exit earlier if not a hit
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -297,16 +292,16 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         }
 
         public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
             _bladeMarkStatus = BladeMarkStatus.Invalid;
 
-            if (!IsBladeCallerWeapon(attackerAttackMode, null, null))
+            if (!IsBladeCallerWeapon(attackMode, null, null))
             {
                 yield break;
             }

@@ -1338,7 +1338,7 @@ internal static class GambitsBuilders
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
@@ -1354,12 +1354,12 @@ internal static class GambitsBuilders
         }
 
         public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
             if (action.ActionType != ActionDefinitions.ActionType.Bonus)
             {
@@ -1383,12 +1383,12 @@ internal static class GambitsBuilders
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             //trigger only on a miss
-            if (attackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            if (rollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
@@ -1802,10 +1802,10 @@ internal static class GambitsBuilders
     {
         private const string Line = "Feedback/&GambitParryDamageReduction";
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -1859,7 +1859,7 @@ internal static class GambitsBuilders
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(me, manager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1873,7 +1873,7 @@ internal static class GambitsBuilders
             var pb = 2 * character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var reduction = dieRoll + pb;
 
-            attackModifier.damageRollReduction += reduction;
+            actionModifier.damageRollReduction += reduction;
 
             character.ShowDieRoll(dieType, dieRoll,
                 title: feature.GuiPresentation.Title,

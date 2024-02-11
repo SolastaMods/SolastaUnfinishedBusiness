@@ -412,14 +412,13 @@ internal static class MeleeCombatFeats
     private class SpiritualShieldingBlockAttack(FeatureDefinitionPower powerDefensiveDuelist)
         : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter me,
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             RulesetEffect rulesetEffect,
-            ActionModifier attackModifier,
             int attackRoll)
         {
             if (rulesetEffect != null &&
@@ -430,8 +429,8 @@ internal static class MeleeCombatFeats
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!me.CanReact() ||
-                me != defender ||
+            if (!helper.CanReact() ||
+                helper != defender ||
                 !ValidatorsWeapon.IsMelee(attackMode) ||
                 !ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
             {
@@ -440,7 +439,7 @@ internal static class MeleeCombatFeats
 
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                              + attackModifier.AttackRollModifier;
+                              + actionModifier.AttackRollModifier;
             var armorClass = rulesetDefender.RefreshArmorClass(true).CurrentValue;
             var requiredACAddition = totalAttack - armorClass + 1;
             var pb = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
@@ -464,21 +463,21 @@ internal static class MeleeCombatFeats
 
             var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetDefender);
             var actionParams =
-                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "DefensiveDuelist",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
-                    TargetCharacters = { me }
+                    TargetCharacters = { helper }
                 };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
-            yield return battleManager.WaitForReactions(me, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
         }
     }
 
@@ -526,12 +525,12 @@ internal static class MeleeCombatFeats
         : IPhysicalAttackInitiatedByMe
     {
         public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
@@ -554,7 +553,7 @@ internal static class MeleeCombatFeats
             attackModifier.AttackRollModifier += attackedThisTurnCount;
             attackModifier.AttacktoHitTrends.Add(trendInfo);
 
-            var damage = attackerAttackMode?.EffectDescription.FindFirstDamageForm();
+            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
@@ -615,13 +614,8 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (target.IsMyTurn())
-            {
-                yield break;
-            }
-
-            if (!target.CanReact())
+            if (target.IsMyTurn() ||
+                !target.CanReact())
             {
                 yield break;
             }
@@ -647,20 +641,20 @@ internal static class MeleeCombatFeats
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity);
+            var actionParams = new CharacterActionParams(target, ActionDefinitions.Id.AttackOpportunity)
+            {
+                StringParameter = target.Name,
+                ActionModifiers = { retaliationModifier },
+                AttackMode = retaliationMode,
+                TargetCharacters = { enemy }
+            };
 
-            reactionParams.TargetCharacters.Add(enemy);
-            reactionParams.StringParameter = target.Name;
-            reactionParams.ActionModifiers.Add(retaliationModifier);
-            reactionParams.AttackMode = retaliationMode;
-
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack("OldTactics", reactionParams);
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("OldTactics", actionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService
-                .WaitForReactions(target, gameLocationActionService, previousReactionCount);
+            yield return gameLocationBattleService.WaitForReactions(target, gameLocationActionService, count);
         }
     }
 
@@ -718,12 +712,12 @@ internal static class MeleeCombatFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
                 (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode)))
             {
                 yield break;
@@ -783,16 +777,16 @@ internal static class MeleeCombatFeats
         : IPhysicalAttackInitiatedByMe
     {
         public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
             if ((action.ActionId == ActionDefinitions.Id.SwiftRetaliation ||
                  action.ActionType == ActionDefinitions.ActionType.Reaction) &&
-                ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)(attackerAttackMode, null, null))
+                ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)(attackMode, null, null))
             {
                 attackModifier.attackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.Feat, featDefinition.Name, featDefinition));
@@ -925,10 +919,10 @@ internal static class MeleeCombatFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (outcome != RollOutcome.CriticalSuccess || !ValidateCleavingAttack(attackMode))
+            if (rollOutcome != RollOutcome.CriticalSuccess || !ValidateCleavingAttack(attackMode))
             {
                 yield break;
             }
@@ -1055,8 +1049,8 @@ internal static class MeleeCombatFeats
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetDefender = defender.RulesetCharacter;
@@ -1068,7 +1062,7 @@ internal static class MeleeCombatFeats
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (attackRollOutcome is RollOutcome.CriticalSuccess)
+            if (rollOutcome is RollOutcome.CriticalSuccess)
             {
                 rulesetDefender.InflictCondition(
                     conditionDefinition.Name,
@@ -1085,7 +1079,7 @@ internal static class MeleeCombatFeats
                     0);
             }
 
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -1104,8 +1098,8 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            if (attackerAttackMode.ranged ||
-                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackerAttackMode, null, null))
+            if (attackMode.ranged ||
+                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackMode, null, null))
             {
                 yield break;
             }
@@ -1203,10 +1197,10 @@ internal static class MeleeCombatFeats
             _conditionBypassResistance = conditionBypassResistance;
         }
 
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -1249,10 +1243,10 @@ internal static class MeleeCombatFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackMode == null || outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (attackMode == null || rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -1315,7 +1309,7 @@ internal static class MeleeCombatFeats
                 }
             }
 
-            if (bonusDamage == 0 && outcome is not RollOutcome.CriticalSuccess)
+            if (bonusDamage == 0 && rollOutcome is not RollOutcome.CriticalSuccess)
             {
                 yield break;
             }
@@ -1325,7 +1319,7 @@ internal static class MeleeCombatFeats
             {
                 DamageType = originalDamageForm.DamageType,
                 DieType = originalDamageForm.DieType,
-                DiceNumber = outcome == RollOutcome.CriticalSuccess ? 1 : 0,
+                DiceNumber = rollOutcome == RollOutcome.CriticalSuccess ? 1 : 0,
                 BonusDamage = bonusDamage
             };
             var damageRoll = rulesetAttacker.RollDamage(
@@ -1420,7 +1414,7 @@ internal static class MeleeCombatFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
@@ -1444,7 +1438,7 @@ internal static class MeleeCombatFeats
 
             switch (advantageType)
             {
-                case AdvantageType.Advantage when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                case AdvantageType.Advantage when rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
 
                     var lowOutcome = GLBM.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
@@ -1483,7 +1477,7 @@ internal static class MeleeCombatFeats
                     }
 
                     break;
-                case AdvantageType.Disadvantage when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
+                case AdvantageType.Disadvantage when rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
                     attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var highestAttackRoll);
 
                     var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
@@ -1532,10 +1526,10 @@ internal static class MeleeCombatFeats
     #region Piercer
 
     private static readonly FeatureDefinition FeatureFeatPiercer =
-        FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+        FeatureDefinitionDieRollModifierBuilder
             .Create("FeatureFeatPiercer")
             .SetGuiPresentationNoContent(true)
-            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll", DamageTypePiercing)
+            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
             .AddCustomSubFeatures(
                 new CustomAdditionalDamageFeatPiercer(
                     FeatureDefinitionAdditionalDamageBuilder
@@ -1544,8 +1538,7 @@ internal static class MeleeCombatFeats
                         .SetNotificationTag(GroupFeats.Piercer)
                         .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                         .SetIgnoreCriticalDoubleDice(true)
-                        .AddToDB(),
-                    DamageTypePiercing))
+                        .AddToDB()))
             .AddToDB();
 
     private static FeatDefinition BuildPiercerDex()
@@ -1574,9 +1567,15 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider, string damageType)
-        : CustomAdditionalDamage(provider)
+    private sealed class CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider)
+        : CustomAdditionalDamage(provider), IValidateDieRollModifier
     {
+        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return damageTypes.Contains(DamageTypePiercing);
+        }
+
         internal override bool IsValid(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
@@ -1595,7 +1594,7 @@ internal static class MeleeCombatFeats
 
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
-            return criticalHit && damage != null && damage.DamageType == damageType;
+            return criticalHit && damage is { DamageType: DamageTypePiercing };
         }
     }
 
@@ -1835,7 +1834,7 @@ internal static class MeleeCombatFeats
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome outcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
@@ -1854,7 +1853,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetDefender.InflictCondition(
                     _conditionDefinition.Name,
@@ -1871,7 +1870,7 @@ internal static class MeleeCombatFeats
                     0);
             }
 
-            if (outcome is not RollOutcome.CriticalSuccess)
+            if (rollOutcome is not RollOutcome.CriticalSuccess)
             {
                 yield break;
             }

@@ -117,11 +117,11 @@ internal sealed class Merciless : AbstractFightingStyle
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            _criticalHit = attackRollOutcome == RollOutcome.CriticalSuccess;
+            _criticalHit = rollOutcome == RollOutcome.CriticalSuccess;
 
             yield break;
         }

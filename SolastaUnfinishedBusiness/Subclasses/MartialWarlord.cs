@@ -293,7 +293,7 @@ public sealed class MartialWarlord : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoAvailableBonusAction),
+                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasUnavailableBonusAction),
                 new CustomBehaviorStrategicReposition(),
                 new CharacterBattleStartedListenerControlTheField(PowerCoordinatedAssault))
             .AddToDB();
@@ -515,7 +515,7 @@ public sealed class MartialWarlord : AbstractSubclass
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetCharacter = attacker.RulesetCharacter;
@@ -538,7 +538,7 @@ public sealed class MartialWarlord : AbstractSubclass
             var actionParams = action.actionParams;
 
             // non-reaction melee hits only
-            if (attackMode.ranged || attackRollOutcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
+            if (attackMode.ranged || rollOutcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
                 actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
             {
                 yield break;

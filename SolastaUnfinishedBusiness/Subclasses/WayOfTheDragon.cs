@@ -26,14 +26,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
 {
     internal const string Name = "WayOfTheDragon";
 
-    internal static readonly FeatureDefinitionFeatureSet FeatureSetPathOfTheDragonDisciple =
-        FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Disciple")
-            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
-            .AddToDB();
-
     public WayOfTheDragon()
     {
         var damageAffinityAncestry = FeatureDefinitionDamageAffinityBuilder
@@ -65,6 +57,13 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildDiscipleFeatureSet()
     {
+        var featureSetDisciple = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Disciple")
+            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .AddToDB();
+
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var featureDefinitionAncestry in DatabaseRepository.GetDatabase<FeatureDefinitionAncestry>()
                      .Where(x => x.Type == AncestryType.BarbarianClaw)
@@ -76,10 +75,10 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 .SetAncestry(ExtraAncestryType.WayOfTheDragon)
                 .AddToDB();
 
-            FeatureSetPathOfTheDragonDisciple.FeatureSet.Add(ancestry);
+            featureSetDisciple.FeatureSet.Add(ancestry);
         }
 
-        return FeatureSetPathOfTheDragonDisciple;
+        return featureSetDisciple;
     }
 
     private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
@@ -779,10 +778,10 @@ public sealed class WayOfTheDragon : AbstractSubclass
         ConditionDefinition conditionReactiveHide)
         : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battle,
+        public IEnumerator OnAttackBeforeHitConfirmedOnMe(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -800,7 +799,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier magicModifier,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
@@ -814,11 +813,11 @@ public sealed class WayOfTheDragon : AbstractSubclass
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }

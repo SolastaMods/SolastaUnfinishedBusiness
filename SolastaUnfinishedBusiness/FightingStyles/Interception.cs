@@ -17,20 +17,20 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Interception : AbstractFightingStyle
 {
-    private const string InterceptionName = "Interception";
+    private const string Name = "Interception";
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create(InterceptionName)
+        .Create(Name)
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.FightingStyleDefinitions.Defense)
         .SetFeatures(
             FeatureDefinitionPowerBuilder
-                .Create("PowerInterception")
-                .SetGuiPresentation(InterceptionName, Category.FightingStyle)
+                .Create($"Power{Name}")
+                .SetGuiPresentation(Name, Category.FightingStyle)
                 .SetUsesFixed(ActivationTime.Reaction)
                 .SetReactionContext(ExtraReactionContext.Custom)
                 .AddCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyInterception(
                     ConditionDefinitionBuilder
-                        .Create("ConditionInterception")
+                        .Create($"Condition{Name}")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
@@ -38,11 +38,11 @@ internal sealed class Interception : AbstractFightingStyle
                         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
                         .AddFeatures(
                             FeatureDefinitionReduceDamageBuilder
-                                .Create("ReduceDamageInterception")
-                                .SetGuiPresentation(InterceptionName, Category.FightingStyle)
+                                .Create($"ReduceDamage{Name}")
+                                .SetGuiPresentation(Name, Category.FightingStyle)
                                 .SetAlwaysActiveReducedDamage(
                                     (_, defender) => defender.RulesetCharacter.AllConditions.FirstOrDefault(
-                                        x => x.ConditionDefinition.Name == "ConditionInterception")!.Amount)
+                                        x => x.ConditionDefinition.Name == $"Condition{Name}")!.Amount)
                                 .AddToDB())
                         .AddToDB()))
                 .AddToDB())
@@ -64,8 +64,8 @@ internal sealed class Interception : AbstractFightingStyle
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter me,
-            ActionModifier attackModifier,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
             AdvantageType advantageType,
@@ -74,56 +74,51 @@ internal sealed class Interception : AbstractFightingStyle
             bool firstTarget,
             bool criticalHit)
         {
-            if (me == defender)
+            if (helper == defender ||
+                !helper.CanReact() ||
+                !helper.CanPerceiveTarget(defender) ||
+                !helper.IsWithinRange(defender, 1))
             {
                 yield break;
             }
 
-            if (!me.IsWithinRange(defender, 1))
+            var helperCharacter = helper.RulesetCharacter;
+
+            if (ValidatorsWeapon.IsUnarmed(helperCharacter.GetMainWeapon()?.ItemDefinition, null) &&
+                ValidatorsWeapon.IsUnarmed(helperCharacter.GetOffhandWeapon()?.ItemDefinition, null))
             {
                 yield break;
             }
 
-            if (!me.CanReact())
-            {
-                yield break;
-            }
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            var unitCharacter = me.RulesetCharacter;
-
-            if (ValidatorsWeapon.IsUnarmed(unitCharacter.GetMainWeapon()?.ItemDefinition, null)
-                && ValidatorsWeapon.IsUnarmed(unitCharacter.GetOffhandWeapon()?.ItemDefinition, null))
-            {
-                yield break;
-            }
-
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null)
+            if (gameLocationActionManager == null)
             {
                 yield break;
             }
 
             var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(helper, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "CustomReactionInterceptionDescription"
                         .Formatted(Category.Reaction, defender.Name, attacker.Name)
                 };
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom($"{InterceptionName}", reactionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom(Name, reactionParams);
 
-            yield return battleManager.WaitForReactions(me, manager, previousReactionCount);
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            var roll = unitCharacter.RollDie(DieType.D10, RollContext.None, true, AdvantageType.None, out _, out _);
-            var reducedDamage = roll + unitCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var roll = helperCharacter.RollDie(DieType.D10, RollContext.None, true, AdvantageType.None, out _, out _);
+            var reducedDamage = roll + helperCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             defender.RulesetCharacter.InflictCondition(
                 conditionDefinition.Name,
@@ -131,8 +126,8 @@ internal sealed class Interception : AbstractFightingStyle
                 conditionDefinition.DurationParameter,
                 conditionDefinition.TurnOccurence,
                 AttributeDefinitions.TagEffect,
-                unitCharacter.guid,
-                unitCharacter.CurrentFaction.Name,
+                helperCharacter.guid,
+                helperCharacter.CurrentFaction.Name,
                 1,
                 conditionDefinition.Name,
                 reducedDamage,

@@ -96,7 +96,7 @@ ModUi/&EnableCustomPortraits=맞춤 인물 사진 활성화
 ModUi/&EnableCustomPortraitsHelp=. 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color>< 아래에 넣으세요. /b></i>, 영웅 이름 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n을 따서 명명되었습니다. 투명도 레이어가 포함된 256 x 384 픽셀 크기의 PNG 이미지를 사용하세요. <i><color=#F0DAA0>[최상의 결과를 얻으려면 GIMP 사용]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=던전 메이커 프로 활성화\n<i><color=#F0DAA0>[침실, 150x150 및 200x200 던전 크기 포함, 모든 환경의 에셋을 혼합하지 않음]</color></i>
 ModUi/&EnableEpicPointsAndArray=에픽 35 포인트 분배 시스템 및 정해진 능력치 분배 활성화<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=확장된 숙련도 패널 표시 활성화 <i><color=#F0DAA0>[Arcane Shots, Infusions, Gambits, and Versatilities]</color></i>
+ModUi/&EnableExtendedProficienciesPanelDisplay=숙련도 확장 패널 표시 활성화 <i><color=#F0DAA0>[비전 사격, 주입, 갬빗 및 다용도]</color></i>\n<b><i><color=#C04040E0>[캐릭터에 대한 성능 적중 점검. 사용에 따른 책임은 사용자 본인에게 있습니다]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10, 18에 재주 선택 활성화
 ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6, 14에 재주 선택 활성화
 ModUi/&EnableFighterWeaponSpecialization=<color=#D89555>파이터</color> 클래스 레벨 8 과 16에서 <b>무기 특화</b> 활성화<i><color=#F0DAA0>[명중과 피해에 +1을 얻지만 다른 무기 유형으론 불리점을 받습니다]</color></i>
@@ -134,7 +134,7 @@ ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0D
 ModUi/&EnableSumD20OnAlternateVotingSystem=. 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다.
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color>를 눌러 파티 순간이동 활성화 <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있습니다]</i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=캐릭터 풀에서 토글로 기본 플레이 및 테스트 파티를 설정 활성화
-ModUi/&EnableTooltipDistance=전투 중 캐릭터 위에 마우스를 올리면 툴팁에 거리 표시 활성화 <i><color=#F0DAA0>[규칙에 따라 공식 거리 계산 옵션과 함께 사용하도록 권장]</color></i>
+ModUi/&EnableTooltipDistance=전투 중 캐릭터 위로 마우스를 가져갈 때 툴팁에 거리 표시 활성화
 ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 소환 주문</color>과 <color=#D89555>페이 소환 주문</color>의 강화 시전 활성화
 ModUi/&EnableVttCamera=<color=#1E81B0>CTRL-SHIFT-(V)</color>를 활성화하여 VTT 카메라를 전환합니다. <i><color=#F0DAA0>[마우스 오른쪽 버튼을 클릭하고 드래그하여 카메라 위치를 지정하고 WASD를 사용하여 팬 및 페이지 위로/ 확대하려면 페이지를 아래로 내리세요]</color></i>
 ModUi/&EnablesAsiAndFeat=능력치 증가와 재주 선택을 동시에 받기 <i><color=#F0DAA0>[기존엔 둘 중 하나만 선택 가능]</color></i>

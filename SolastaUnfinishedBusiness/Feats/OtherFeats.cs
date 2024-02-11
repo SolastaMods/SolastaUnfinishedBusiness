@@ -623,18 +623,18 @@ internal static class OtherFeats
                 .Create($"{NAME}{damageType}")
                 .SetGuiPresentation(guiPresentation)
                 .SetFeatures(
-                    FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+                    FeatureDefinitionDieRollModifierBuilder
                         .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
                         .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.AttackDamageValueRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
                         .AddToDB(),
-                    FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+                    FeatureDefinitionDieRollModifierBuilder
                         .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}Magic")
                         .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                            "Feature/&DieRollModifierFeatElementalAdeptReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalAdept(damageType))
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
@@ -652,7 +652,7 @@ internal static class OtherFeats
         return elementalAdeptGroup;
     }
 
-    private sealed class ModifyDamageResistanceElementalAdept : IModifyDamageAffinity
+    private sealed class ModifyDamageResistanceElementalAdept : IModifyDamageAffinity, IValidateDieRollModifier
     {
         private readonly List<string> _damageTypes = [];
 
@@ -666,6 +666,12 @@ internal static class OtherFeats
             features.RemoveAll(x =>
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Resistance } y &&
                 _damageTypes.Contains(y.DamageType));
+        }
+
+        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return _damageTypes.Intersect(damageTypes).Any();
         }
     }
 
@@ -697,11 +703,11 @@ internal static class OtherFeats
                 .Create($"{NAME}{damageType}")
                 .SetGuiPresentation(guiPresentation)
                 .SetFeatures(
-                    FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+                    FeatureDefinitionDieRollModifierBuilder
                         .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
                         .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalMasterReroll", damageType)
+                            "Feature/&DieRollModifierFeatElementalMasterReroll")
                         .AddCustomSubFeatures(new ModifyDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
                     FeatureDefinitionDamageAffinityBuilder
@@ -726,7 +732,7 @@ internal static class OtherFeats
         return elementalAdeptGroup;
     }
 
-    private sealed class ModifyDamageResistanceElementalMaster : IModifyDamageAffinity
+    private sealed class ModifyDamageResistanceElementalMaster : IModifyDamageAffinity, IValidateDieRollModifier
     {
         private readonly List<string> _damageTypes = [];
 
@@ -740,6 +746,12 @@ internal static class OtherFeats
             features.RemoveAll(x =>
                 x is IDamageAffinityProvider { DamageAffinityType: DamageAffinityType.Immunity } y &&
                 _damageTypes.Contains(y.DamageType));
+        }
+
+        public bool CanModifyRoll(RulesetCharacter character, List<FeatureDefinition> features,
+            List<string> damageTypes)
+        {
+            return _damageTypes.Intersect(damageTypes).Any();
         }
     }
 
@@ -758,7 +770,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddCustomSubFeatures(
-                        new AooImmunityFeatMobile(),
+                        new IgnoreAoOOnMeFeatMobile(),
                         new ActionFinishedByMeFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
@@ -805,7 +817,13 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class AooImmunityFeatMobile : IIgnoreAoOIfAttacked;
+    private sealed class IgnoreAoOOnMeFeatMobile : IIgnoreAoOOnMe
+    {
+        public bool CanIgnoreAoOOnSelf(RulesetCharacter defender, RulesetCharacter attacker)
+        {
+            return true;
+        }
+    }
 
     #endregion
 
@@ -893,11 +911,11 @@ internal static class OtherFeats
             GameLocationCharacter me,
             GameLocationCharacter target,
             RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             //Missed: skipping
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
@@ -918,11 +936,11 @@ internal static class OtherFeats
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RulesetAttackMode attackMode,
-            RollOutcome attackRollOutcome,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             //Missed: skipping
-            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }

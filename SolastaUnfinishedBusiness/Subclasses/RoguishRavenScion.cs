@@ -60,7 +60,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.CharacterLevel)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddCustomSubFeatures(
-                new RogueModifyAdditionalDamageClassLevelHolder(),
+                ModifyAdditionalDamageClassLevelRogue.Instance,
                 new ValidateContextInsteadOfRestrictedProperty(
                     (_, _, _, _, _, mode, _) => (OperationType.Set, ValidatorsWeapon.IsTwoHandedRanged(mode))))
             .AddToDB();
@@ -161,11 +161,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    private sealed class RogueModifyAdditionalDamageClassLevelHolder : IModifyAdditionalDamageClassLevel
-    {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
-    }
 
     //
     // Killing Spree

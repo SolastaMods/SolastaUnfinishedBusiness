@@ -7,10 +7,10 @@ public interface IPhysicalAttackInitiatedOnMe
 {
     [UsedImplicitly]
     IEnumerator OnPhysicalAttackInitiatedOnMe(
-        GameLocationBattleManager __instance,
+        GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,
-        RulesetAttackMode attackerAttackMode);
+        RulesetAttackMode attackMode);
 }

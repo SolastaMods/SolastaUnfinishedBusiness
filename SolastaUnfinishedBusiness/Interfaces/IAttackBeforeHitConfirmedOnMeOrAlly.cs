@@ -11,11 +11,11 @@ public interface IAttackBeforeHitConfirmedOnMeOrAlly
 {
     [UsedImplicitly]
     IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
-        GameLocationBattleManager battle,
+        GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter me,
-        ActionModifier attackModifier,
+        GameLocationCharacter helper,
+        ActionModifier actionModifier,
         RulesetAttackMode attackMode,
         bool rangedAttack,
         AdvantageType advantageType,

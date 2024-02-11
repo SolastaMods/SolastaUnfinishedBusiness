@@ -9,12 +9,6 @@ internal class FeatureDefinitionSummoningAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionSummoningAffinity,
         FeatureDefinitionSummoningAffinityBuilder>
 {
-    internal FeatureDefinitionSummoningAffinityBuilder ClearEffectForms()
-    {
-        Definition.EffectForms.Clear();
-        return this;
-    }
-
     internal FeatureDefinitionSummoningAffinityBuilder SetRequiredMonsterTag(string tag)
     {
         Definition.requiredMonsterTag = tag;

@@ -16,12 +16,6 @@ internal delegate (OperationType, bool) IsContextValidHandler(
 internal class ValidateContextInsteadOfRestrictedProperty(IsContextValidHandler validator)
     : IValidateContextInsteadOfRestrictedProperty
 {
-    internal ValidateContextInsteadOfRestrictedProperty(OperationType operation, IsCharacterValidHandler validator)
-        : this((_, _, character, _, _, _, _) => (operation, validator(character)))
-    {
-        // Empty
-    }
-
     public (OperationType, bool) ValidateContext(
         BaseDefinition definition,
         IRestrictedContextProvider provider,

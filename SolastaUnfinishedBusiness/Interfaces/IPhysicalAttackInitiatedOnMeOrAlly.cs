@@ -7,11 +7,11 @@ public interface IPhysicalAttackInitiatedOnMeOrAlly
 {
     [UsedImplicitly]
     IEnumerator OnPhysicalAttackInitiatedOnMeOrAlly(
-        GameLocationBattleManager __instance,
+        GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationCharacter ally,
+        GameLocationCharacter helper,
         ActionModifier attackModifier,
-        RulesetAttackMode attackerAttackMode);
+        RulesetAttackMode attackMode);
 }

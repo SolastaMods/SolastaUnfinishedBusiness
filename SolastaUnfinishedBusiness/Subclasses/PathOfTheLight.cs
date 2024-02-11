@@ -34,10 +34,12 @@ public sealed class PathOfTheLight : AbstractSubclass
             .ToList();
 
         var attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated =
-            FeatureDefinitionAttackDisadvantageBuilder
+            FeatureDefinitionCombatAffinityBuilder
                 .Create("AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminated")
-                .SetGuiPresentation(Category.Feature)
-                .SetConditionName(ConditionPathOfTheLightIlluminatedName)
+                .SetGuiPresentation(ConditionPathOfTheLightIlluminatedName, Category.Condition,
+                    Gui.NoLocalization)
+                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                .SetSituationalContext(ExtraSituationalContext.IsNotConditionSource)
                 .AddToDB();
 
         var featureSetPathOfTheLightIlluminatedPreventInvisibility = FeatureDefinitionFeatureSetBuilder
@@ -93,7 +95,7 @@ public sealed class PathOfTheLight : AbstractSubclass
                 ConditionOperationDescription.ConditionOperation.Add, conditionPathOfTheLightIlluminated)
             .SetAddLightSource(true)
             .SetLightSourceForm(lightSourceForm)
-            .AddCustomSubFeatures(new BarbarianHolder())
+            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelBarbarian.Instance)
             .AddToDB();
 
         additionalDamagePathOfTheLightIlluminatingStrike.DiceByRankTable[9].diceNumber = 2;
@@ -139,10 +141,10 @@ public sealed class PathOfTheLight : AbstractSubclass
             .Create("FeatureSetPathOfTheLightLightsProtection")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                FeatureDefinitionOpportunityAttackImmunityBuilder
+                FeatureDefinitionBuilder
                     .Create("OpportunityAttackImmunityIfAttackerHasConditionPathOfTheLightLightsProtection")
                     .SetGuiPresentationNoContent(true)
-                    .SetConditionName(ConditionPathOfTheLightIlluminatedName)
+                    .AddCustomSubFeatures(new IgnoreAoOOnMeLightsProtection())
                     .AddToDB())
             .AddToDB();
 
@@ -317,6 +319,14 @@ public sealed class PathOfTheLight : AbstractSubclass
     // behavior classes
     //
 
+    private sealed class IgnoreAoOOnMeLightsProtection : IIgnoreAoOOnMe
+    {
+        public bool CanIgnoreAoOOnSelf(RulesetCharacter defender, RulesetCharacter attacker)
+        {
+            return attacker.HasConditionOfType(ConditionPathOfTheLightIlluminatedName);
+        }
+    }
+
     private sealed class OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst : IOnConditionAddedOrRemoved
     {
         internal static readonly OnConditionAddedOrRemovedIlluminatedOrIlluminatedByBurst Marker = new();
@@ -375,11 +385,5 @@ public sealed class PathOfTheLight : AbstractSubclass
 
             character.PersonalLightSource = null;
         }
-    }
-
-    private sealed class BarbarianHolder : IModifyAdditionalDamageClassLevel
-    {
-        // allows Illuminating Strike damage to scale with barbarian level
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
     }
 }

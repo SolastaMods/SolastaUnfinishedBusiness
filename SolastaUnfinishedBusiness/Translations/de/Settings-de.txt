@@ -96,7 +96,7 @@ ModUi/&EnableCustomPortraits=Aktivieren Sie benutzerdefinierte Porträts
 ModUi/&EnableCustomPortraitsHelp=. Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color>< /b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n. Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixel und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und ohne Schnickschnack, bei dem Assets aus allen Umgebungen gemischt werden]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und reihen Sie <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 ein>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=Aktivieren Sie die Anzeige der erweiterten Kompetenzen <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Gambits und Vielseitigkeiten]</color></i>
+ModUi/&EnableExtendedProficienciesPanelDisplay=Aktivieren Sie die Anzeige der erweiterten Kompetenzen <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Gambits und Vielseitigkeiten]</color></i>\n<b><i><color=#C04040E0>[Leistungseinbußen beim Charakter Inspektion. Nutzung auf eigene Gefahr]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
 ModUi/&EnableFighterWeaponSpecialization=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber einen Nachteil gegenüber allen anderen Waffentyp]</color></i>
@@ -134,7 +134,7 @@ ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><c
 ModUi/&EnableSumD20OnAlternateVotingSystem=. Außerdem erhöht jeder Held das Gewicht um einen W20-Wurf, um ein wenig Zufälligkeit zu gewährleisten
 ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
-ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Distanz im Tooltip des Panels, wenn Sie im Kampf mit der Maus über einen Charakter fahren
+ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in Tooltips, wenn Sie im Kampf mit der Maus über einen Charakter fahren
 ModUi/&EnableUpcastConjureElementalAndFey=Aktivieren Sie die Übertragung von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Fee beschwören</color>
 ModUi/&EnableVttCamera=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(V)</color>, um die VTT-Kamera umzuschalten <i><color=#F0DAA0>[rechtsklicken und ziehen, um die Kamera zu positionieren, WASD zum Schwenken und Bild auf/ Seite nach unten zum Vergrößern]</color></i>
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Leistungsauswahl <i><color=#F0DAA0>[anstelle einer exklusiven Auswahl]</color></i>

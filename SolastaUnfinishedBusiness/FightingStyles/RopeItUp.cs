@@ -46,24 +46,24 @@ internal class RopeItUp : AbstractFightingStyle
         }
 
         public IEnumerator OnPhysicalAttackInitiatedByMe(
-            GameLocationBattleManager __instance,
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
+            RulesetAttackMode attackMode)
         {
             if (attackModifier.Proximity == AttackProximity.Melee)
             {
                 yield break;
             }
 
-            attackerAttackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
-            attackerAttackMode.toHitBonus += 1;
-            attackerAttackMode.ToHitBonusTrends.Add(
+            attackMode.AddAttackTagAsNeeded(TagsDefinitions.MagicalWeapon);
+            attackMode.toHitBonus += 1;
+            attackMode.ToHitBonusTrends.Add(
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, FeatureRopeItUp.Name, FeatureRopeItUp));
 
-            var damage = attackerAttackMode.effectDescription.FindFirstDamageForm();
+            var damage = attackMode.effectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {

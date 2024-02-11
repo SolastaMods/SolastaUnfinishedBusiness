@@ -853,7 +853,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique, 2)
                     .SetTargetProximityData(true, 1)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(
@@ -942,8 +942,8 @@ internal static partial class SpellBuilders
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode,
-            RollOutcome attackRollOutcome,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
             int damageAmount)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -956,7 +956,7 @@ internal static partial class SpellBuilders
                 rulesetCharacter.RemoveCondition(activeCondition);
             }
 
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess)
                 || _secondTarget is null)
             {
                 yield break;
@@ -1029,7 +1029,7 @@ internal static partial class SpellBuilders
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier magicModifier,
+            ActionModifier actionModifier,
             RulesetEffect rulesetEffect,
             List<EffectForm> actualEffectForms,
             bool firstTarget,
