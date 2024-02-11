@@ -83,9 +83,14 @@ internal static class GLBM
      * This method is almost completely original game source provided by TA (1.4.8)
      * All changes made by CE mod should be clearly marked for easy future updates
      */
-    public static void ComputeAndNotifyAdditionalDamage(GameLocationBattleManager instance,
-        GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamageProvider provider,
-        List<EffectForm> actualEffectForms, CharacterActionParams reactionParams, RulesetAttackMode attackMode,
+    public static void ComputeAndNotifyAdditionalDamage(
+        GameLocationBattleManager instance,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        IAdditionalDamageProvider provider,
+        List<EffectForm> actualEffectForms,
+        CharacterActionParams reactionParams,
+        RulesetAttackMode attackMode,
         bool criticalHit)
     {
         var additionalDamageForm = DamageForm.Get();
@@ -202,12 +207,6 @@ internal static class GLBM
                 }
             }
 
-            var diceNumProvider = featureDefinition.GetFirstSubFeatureOfType<ProvideAdditionalDamageDiceNumber>();
-            if (diceNumProvider != null)
-            {
-                diceNumber = diceNumProvider(attacker.RulesetCharacter, featureDefinition);
-            }
-
             // Some specific families may receive more dice (example paladin smiting undead/fiends)
             if (defender.RulesetCharacter != null && provider.FamiliesWithAdditionalDice.Count > 0 &&
                 provider.FamiliesWithAdditionalDice.Contains(defender.RulesetCharacter.CharacterFamily))
@@ -215,36 +214,7 @@ internal static class GLBM
                 diceNumber += provider.FamiliesDiceNumber;
             }
 
-            /*
-             * ######################################
-             * [CE] EDIT START
-             * Support for damage die progression
-             */
-
-            //Commented out original assignment
-            // additionalDamageForm.DieType = provider.DamageDieType;
-
-            //Get die type from features if applicable
-            var rulesetCharacter = attacker.RulesetCharacter;
-            var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<ProvideAdditionalDamageDieType>();
-
-            additionalDamageForm.DieType =
-                dieTypeProvider?.Invoke(rulesetCharacter, provider.DamageDieType) ?? provider.DamageDieType;
-
-            //Mainly to support Closer Quarters feat
-            foreach (var damageDieProviderFromCharacter in attacker.RulesetCharacter
-                         .GetSubFeaturesByType<DamageDieProviderFromCharacter>())
-            {
-                additionalDamageForm.DieType =
-                    damageDieProviderFromCharacter?.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
-                        additionalDamageForm, attackMode, attacker, defender) ?? provider.DamageDieType;
-            }
-
-            /*
-             * Support for damage die progression
-             * [CE] EDIT END
-             * ######################################
-             */
+            additionalDamageForm.DieType = provider.DamageDieType;
             additionalDamageForm.DiceNumber = diceNumber;
         }
         /*
@@ -563,10 +533,16 @@ internal static class GLBM
          */
         var originalDamageType = additionalDamageForm.DamageType;
 
-        additionalDamageForm = hero.GetSubFeaturesByType<IModifyAdditionalDamageForm>()
-            .Aggregate(additionalDamageForm,
-                (current, modifyAdditionalDamageForm) =>
-                    modifyAdditionalDamageForm.AdditionalDamageForm(attacker, defender, provider, current));
+        if (provider is FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage)
+        {
+            var modifier = featureDefinitionAdditionalDamage.GetFirstSubFeatureOfType<IModifyAdditionalDamageForm>();
+
+            if (modifier != null)
+            {
+                additionalDamageForm = modifier
+                    .AdditionalDamageForm(attacker, defender, featureDefinitionAdditionalDamage, additionalDamageForm);
+            }
+        }
 
         var newDamageType = additionalDamageForm.DamageType;
         /*

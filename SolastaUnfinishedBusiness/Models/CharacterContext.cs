@@ -1499,7 +1499,15 @@ internal static class CharacterContext
 
     #region Rogue Cunning Strike
 
-    private static ConditionDefinition _conditionReduceSneakDice;
+    internal static readonly ConditionDefinition ConditionReduceSneakDice = ConditionDefinitionBuilder
+        .Create("ConditionReduceSneakDice")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetConditionType(ConditionType.Detrimental)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
+        .AddToDB();
+
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
     private static FeatureDefinitionFeatureSet _featureSetRogueDeviousStrike;
     private static readonly char[] Separator = ['\t'];
@@ -1778,16 +1786,6 @@ internal static class CharacterContext
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle)
             .AddToDB();
 
-        _conditionReduceSneakDice = ConditionDefinitionBuilder
-            .Create($"Condition{Cunning}ReduceSneakDice")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
-            .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
-            .AddToDB();
-
         _featureSetRogueCunningStrike = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Cunning}")
             .SetGuiPresentation($"Power{Cunning}", Category.Feature)
@@ -1815,7 +1813,7 @@ internal static class CharacterContext
         // only trigger if haven't used sneak attack yet
         if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack") ||
             !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel") ||
-            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishSlayerChainOfExecutionSneakAttack"))
+            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishUmbralStalkerDeadlyShadows"))
         {
             return false;
         }
@@ -1835,31 +1833,6 @@ internal static class CharacterContext
                 // it's a Umbral Stalker and source and target are in dim light or darkness
                 RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType)
         };
-    }
-
-    private sealed class ModifyAdditionalDamageFormRogueCunningStrike : IModifyAdditionalDamageForm
-    {
-        public DamageForm AdditionalDamageForm(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            IAdditionalDamageProvider provider,
-            DamageForm damageForm)
-        {
-            if (provider.NotificationTag != TagsDefinitions.AdditionalDamageSneakAttackTag)
-            {
-                return damageForm;
-            }
-
-            var usableCondition = attacker.RulesetCharacter.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionReduceSneakDice);
-
-            if (usableCondition != null)
-            {
-                damageForm.diceNumber = Math.Max(damageForm.diceNumber - usableCondition.amount, 0);
-            }
-
-            return damageForm;
-        }
     }
 
     private sealed class PhysicalAttackInitiatedByMeCunningStrike(FeatureDefinitionPower powerRogueCunningStrike) :
@@ -1945,7 +1918,7 @@ internal static class CharacterContext
 
             // inflict condition passing power cost on amount to be deducted later on from sneak dice
             rulesetAttacker.InflictCondition(
-                _conditionReduceSneakDice.Name,
+                ConditionReduceSneakDice.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
@@ -1953,7 +1926,7 @@ internal static class CharacterContext
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionReduceSneakDice.Name,
+                ConditionReduceSneakDice.Name,
                 _selectedPower.CostPerUse,
                 0,
                 0);

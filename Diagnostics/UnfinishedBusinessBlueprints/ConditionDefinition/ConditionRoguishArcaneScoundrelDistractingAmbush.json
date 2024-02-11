@@ -12,12 +12,12 @@
   "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
+  "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
     "AbilityCheck",
     "SavingThrow"

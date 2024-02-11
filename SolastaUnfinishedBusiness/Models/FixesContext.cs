@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
@@ -37,6 +38,7 @@ internal static class FixesContext
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
+        FixAdditionalDamageRogueSneakAttack();
         FixArmorClassOnLegendaryArmors();
         FixAttackBuffsAffectingSpellDamage();
         FixBlackDragonLegendaryActions();
@@ -562,6 +564,11 @@ internal static class FixesContext
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
     }
 
+    private static void FixAdditionalDamageRogueSneakAttack()
+    {
+        AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueSneakAttack());
+    }
+
     private static void FixCriticalThresholdModifiers()
     {
         //Changes Champion's Improved Critical to set crit threshold to 19, instead of forcing if worse - fixes stacking with feats
@@ -679,6 +686,89 @@ internal static class FixesContext
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    //
+    // CONSOLIDATED SNEAK ATTACK DAMAGE FORM MODIFIER
+    //
+
+    private sealed class ModifyAdditionalDamageFormRogueSneakAttack : IModifyAdditionalDamageForm
+    {
+        public DamageForm AdditionalDamageForm(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            DamageForm damageForm)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
+
+            if (rulesetAttacker == null)
+            {
+                return damageForm;
+            }
+
+            // handle close quarters feat
+
+            if (attacker.IsWithinRange(defender, 1) &&
+                (rulesetAttacker.TrainedFeats.Contains(ClassFeats.CloseQuartersDex) ||
+                 rulesetAttacker.TrainedFeats.Contains(ClassFeats.CloseQuartersInt)))
+            {
+                damageForm.DieType = DieType.D8;
+            }
+
+            // handle rogue cunning strike feature
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, CharacterContext.ConditionReduceSneakDice.Name,
+                    out var activeCondition))
+            {
+                damageForm.diceNumber = Math.Max(damageForm.diceNumber - activeCondition.amount, 0);
+            }
+
+            // handle arcane scoundrel
+            var arcaneScoundrelLevels = rulesetAttacker.GetSubclassLevel(Rogue, RoguishArcaneScoundrel.Name);
+
+            if (arcaneScoundrelLevels >= RoguishArcaneScoundrel.DistractingAmbushLevel)
+            {
+                RoguishArcaneScoundrel.InflictConditionDistractingAmbush(rulesetAttacker, defender.RulesetCharacter);
+            }
+
+            // handle slayer chain of execution features
+            var slayerLevels = rulesetAttacker.GetSubclassLevel(Rogue, RoguishSlayer.Name);
+
+            if (slayerLevels >= RoguishSlayer.ChainOfExecutionLevel)
+            {
+                RoguishSlayer.InflictConditionChainOfExecution(rulesetAttacker, defender.RulesetCharacter);
+
+                if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, RoguishSlayer.ConditionChainOfExecutionBeneficialName,
+                        out activeCondition))
+                {
+                    switch (slayerLevels)
+                    {
+                        case >= 17:
+                            damageForm.DiceNumber += 5;
+                            break;
+                        case >= 13:
+                            damageForm.DiceNumber += 4;
+                            break;
+                        case >= 9:
+                            damageForm.DiceNumber += 3;
+                            break;
+                    }
+
+                    rulesetAttacker.RemoveCondition(activeCondition);
+                }
+            }
+
+            // handle umbral stalker gloomblade feature
+            if (rulesetAttacker.GetSubclassLevel(Rogue, RoguishUmbralStalker.Name) > 0 &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle))
+            {
+                damageForm.DamageType = DamageTypeNecrotic;
+            }
+
+            return damageForm;
         }
     }
 }

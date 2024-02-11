@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "",
-  "limitedUsage": "OncePerTurn",
+  "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": "AdvantageOrNearbyAlly",
-  "requiredProperty": "FinesseOrRangeWeapon",
+  "triggerCondition": "AlwaysActive",
+  "requiredProperty": "None",
   "attackModeOnly": false,
   "attackOnly": false,
   "requiredTargetCondition": null,
@@ -33,18 +33,7 @@
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": false,
-      "operation": "Add",
-      "conditionName": "",
-      "conditionDefinition": "Definition:ConditionRoguishArcaneScoundrelDistractingAmbush:95ef9352-7875-55dd-9da2-d75f2a4105ed",
-      "saveAffinity": "None",
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn"
-    }
-  ],
+  "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": null,
   "impactParticleReference": null,

@@ -85,8 +85,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionSilhouetteStep, ConditionForm.ConditionOperation.Add,
                             true, true),
@@ -193,7 +193,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         public DamageForm AdditionalDamageForm(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            IAdditionalDamageProvider provider,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
             DamageForm damageForm)
         {
             var rulesetAttacker = attacker.RulesetCharacter;

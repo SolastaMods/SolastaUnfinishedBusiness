@@ -5,7 +5,6 @@ using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -230,78 +229,6 @@ internal static class ClassFeats
 
     #endregion
 
-    #region Close Quarters
-
-    private static FeatDefinition BuildCloseQuarters(List<FeatDefinition> feats)
-    {
-        const string Family = "CloseQuarters";
-        const string Name = "FeatCloseQuarters";
-
-        var featureCloseQuarters = FeatureDefinitionBuilder
-            .Create("FeatureCloseQuarters")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        featureCloseQuarters.AddCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
-
-        var closeQuartersDex = FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{Name}Dex")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
-            .SetFeatFamily(Family)
-            .SetValidators(HasSneakAttack)
-            .AddToDB();
-
-        var closeQuartersInt = FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{Name}Int")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Pakri)
-            .SetFeatFamily(Family)
-            .SetValidators(HasSneakAttack)
-            .AddToDB();
-
-        feats.AddRange(closeQuartersDex, closeQuartersInt);
-
-        return GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupCloseQuarters", Family, HasSneakAttack, closeQuartersDex, closeQuartersInt);
-
-        DieType UpgradeCloseQuartersDice(
-            FeatureDefinitionAdditionalDamage additionalDamage,
-            DamageForm damageForm,
-            RulesetAttackMode attackMode,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var isRogue = rulesetAttacker.GetClassLevel(Rogue) > 0;
-            var isSorrAkkath = rulesetAttacker.GetSubclassLevel(Sorcerer, "SorcerousSorrAkkath") > 0;
-
-            if (attackMode is not { Ranged: false } ||
-                (!isRogue && !isSorrAkkath) ||
-                !attacker.IsWithinRange(defender, 1))
-            {
-                return additionalDamage.DamageDieType;
-            }
-
-            attacker.RulesetCharacter.LogCharacterUsedFeature(featureCloseQuarters);
-
-            return DieType.D8;
-        }
-
-        static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
-        {
-            var isRogue = hero.GetClassLevel(Rogue) > 0;
-            var isSorrAkkath = hero.GetSubclassLevel(Sorcerer, "SorcerousSorrAkkath") > 0;
-            var hasSneakAttack = isRogue || isSorrAkkath;
-
-            var guiFormat = Gui.Format("Tooltip/&PreReqMustKnow", "Feature/&RogueSneakAttackTitle");
-
-            return hasSneakAttack ? (true, guiFormat) : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
-        }
-    }
-
-    #endregion
-
     #region Poisoner
 
     private static FeatDefinitionWithPrerequisites BuildPoisoner()
@@ -332,6 +259,49 @@ internal static class ClassFeats
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Close Quarters
+
+    // close quarters behavior is in CharacterContext Sneak Attack Additional Damage Form modifier
+
+    private const string CloseQuartersName = "CloseQuarters";
+
+    private static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
+    {
+        var isRogue = hero.GetClassLevel(Rogue) > 0;
+        var isSorrAkkath = hero.GetSubclassLevel(Sorcerer, "SorcerousSorrAkkath") > 0;
+        var hasSneakAttack = isRogue || isSorrAkkath;
+
+        var guiFormat = Gui.Format("Tooltip/&PreReqMustKnow", "Feature/&RogueSneakAttackTitle");
+
+        return hasSneakAttack ? (true, guiFormat) : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+    }
+
+    internal static readonly FeatDefinitionWithPrerequisites CloseQuartersDex = FeatDefinitionWithPrerequisitesBuilder
+        .Create("FeatCloseQuartersDex")
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierCreed_Of_Misaye)
+        .SetFeatFamily(CloseQuartersName)
+        .SetValidators(HasSneakAttack)
+        .AddToDB();
+
+    internal static readonly FeatDefinitionWithPrerequisites CloseQuartersInt = FeatDefinitionWithPrerequisitesBuilder
+        .Create("FeatCloseQuartersInt")
+        .SetGuiPresentation(Category.Feat)
+        .SetFeatures(AttributeModifierCreed_Of_Pakri)
+        .SetFeatFamily(CloseQuartersName)
+        .SetValidators(HasSneakAttack)
+        .AddToDB();
+
+    private static FeatDefinition BuildCloseQuarters(List<FeatDefinition> feats)
+    {
+        feats.AddRange(CloseQuartersDex, CloseQuartersInt);
+
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupCloseQuarters", CloseQuartersName, HasSneakAttack, CloseQuartersDex, CloseQuartersInt);
     }
 
     #endregion
