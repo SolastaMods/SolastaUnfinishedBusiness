@@ -327,7 +327,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&PowerSharedPoolCollegeOfLifeFlyTitle",
     "description": "Feature/&PowerSharedPoolCollegeOfLifeFlyDescription",
     "spriteReference": {

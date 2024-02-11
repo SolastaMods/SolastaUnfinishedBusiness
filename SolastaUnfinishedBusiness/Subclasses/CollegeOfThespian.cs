@@ -23,9 +23,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
 
     public CollegeOfThespian()
     {
-        //
         // LEVEL 03
-        //
 
         // Macabre Instruments
 
@@ -68,9 +66,8 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}CombatInspiration")
                     .SetGuiPresentationNoContent(true)
-                    .AddCustomSubFeatures(new ModifyMovementSpeedAdditionCombatInspirationMovement())
+                    .AddCustomSubFeatures(new ModifyMovementSpeedAdditionCombatInspiration())
                     .AddToDB())
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedCombatInspired())
             .AddToDB();
 
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
@@ -91,6 +88,9 @@ public sealed class CollegeOfThespian : AbstractSubclass
             .AddCustomSubFeatures(
                 ValidatorsValidatePowerUse.HasNoneOfConditions(conditionCombatInspirationMovement.Name))
             .AddToDB();
+
+        conditionCombatInspirationMovement.AddCustomSubFeatures(
+            new OnConditionAddedOrRemovedCombatInspired(powerCombatInspiration));
 
         // Terrific Performance
 
@@ -117,18 +117,9 @@ public sealed class CollegeOfThespian : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        //
         // LEVEL 06
-        //
 
         // Finale
-
-        var conditionFinale = ConditionDefinitionBuilder
-            .Create($"Condition{Name}Finale")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedFinale())
-            .AddToDB();
 
         var powerFinale = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Finale")
@@ -137,14 +128,12 @@ public sealed class CollegeOfThespian : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFinale))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeFinale())
             .AddToDB();
 
-        //
-        // Level 14
-        //
+        // LEVEL 14
 
         // Improved Terrific Performance
 
@@ -152,7 +141,6 @@ public sealed class CollegeOfThespian : AbstractSubclass
             .Create($"Power{Name}ImprovedTerrificPerformance")
             .SetUsesFixed(ActivationTime.NoCost)
             .SetGuiPresentation(Category.Feature)
-            .SetOverriddenPower(powerTerrificPerformance)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -162,9 +150,8 @@ public sealed class CollegeOfThespian : AbstractSubclass
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
-                        EffectFormBuilder.Create()
-                            .SetDamageForm(DamageTypePsychic, 2, DieType.D8, overrideWithBardicInspirationDie: true)
-                            .Build(),
+                        EffectFormBuilder.DamageForm(
+                            DamageTypePsychic, 2, DieType.D8, overrideWithBardicInspirationDie: true),
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -174,11 +161,14 @@ public sealed class CollegeOfThespian : AbstractSubclass
                     .SetParticleEffectParameters(SpellDefinitions.Fear)
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .SetOverriddenPower(powerTerrificPerformance)
             .AddToDB();
 
         powerTerrificPerformance.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeTerrificPerformance(powerTerrificPerformance, powerTerrificPerformance));
+
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -188,8 +178,11 @@ public sealed class CollegeOfThespian : AbstractSubclass
                 proficiencyCollegeOfHarlequinFightingStyle,
                 powerCombatInspiration,
                 powerTerrificPerformance)
-            .AddFeaturesAtLevel(6, AttributeModifierCasterFightingExtraAttack, powerFinale)
-            .AddFeaturesAtLevel(14, powerImprovedTerrificPerformance)
+            .AddFeaturesAtLevel(6,
+                AttributeModifierCasterFightingExtraAttack,
+                powerFinale)
+            .AddFeaturesAtLevel(14,
+                powerImprovedTerrificPerformance)
             .AddToDB();
     }
 
@@ -207,28 +200,29 @@ public sealed class CollegeOfThespian : AbstractSubclass
     // Combat Inspired
     //
 
-    private sealed class OnConditionAddedOrRemovedCombatInspired : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedCombatInspired(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerCombatInspiration) : IOnConditionAddedOrRemoved
     {
         private const string Line = "Feedback/&CollegeOfThespianBardicInspiration";
-        private const string Feature = $"Power{Name}CombatInspiration";
 
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var dieType = target.GetBardicInspirationDieValue();
             var dieRoll = RollDie(dieType, AdvantageType.None, out var r1, out var r2);
-            var title = GuiPresentationBuilder.CreateTitleKey(Feature, Category.Feature);
-            var description = GuiPresentationBuilder.CreateDescriptionKey(Feature, Category.Feature);
+            var title = powerCombatInspiration.GuiPresentation.Title;
+            var description = powerCombatInspiration.GuiPresentation.Description;
+
+            rulesetCondition.amount = dieRoll;
 
             target.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.None, title: title);
-            target.LogCharacterActivatesAbility(title, Line, tooltipContent: description,
-                indent: true,
+            target.LogCharacterActivatesAbility(
+                title, Line, tooltipContent: description, indent: true,
                 extra:
                 [
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
                 ]);
-
-            rulesetCondition.amount = dieRoll;
         }
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -241,24 +235,19 @@ public sealed class CollegeOfThespian : AbstractSubclass
     // Finale
     //
 
-    private sealed class OnConditionAddedOrRemovedFinale : IOnConditionAddedOrRemoved
+    private sealed class MagicEffectFinishedByMeFinale : IMagicEffectFinishedByMe
     {
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (target is not RulesetCharacterHero hero)
+            var hero = action.ActingCharacter.RulesetCharacter.GetOriginalHero();
+
+            if (hero == null ||
+                hero.usedBardicInspiration == 0)
             {
-                return;
+                yield break;
             }
 
-            if (hero.usedBardicInspiration > 0)
-            {
-                hero.usedBardicInspiration -= 1;
-            }
-        }
-
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // empty
+            hero.usedBardicInspiration -= 1;
         }
     }
 
@@ -268,8 +257,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
 
     private sealed class OnReducedToZeroHpByMeTerrificPerformance(
         FeatureDefinitionPower powerTerrificPerformance,
-        FeatureDefinitionPower powerImprovedTerrificPerformance)
-        : IOnReducedToZeroHpByMe
+        FeatureDefinitionPower powerImprovedTerrificPerformance) : IOnReducedToZeroHpByMe
     {
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
@@ -326,7 +314,7 @@ public sealed class CollegeOfThespian : AbstractSubclass
         }
     }
 
-    private sealed class ModifyMovementSpeedAdditionCombatInspirationMovement : IModifyMovementSpeedAddition
+    private sealed class ModifyMovementSpeedAdditionCombatInspiration : IModifyMovementSpeedAddition
     {
         public int ModifySpeedAddition(RulesetCharacter character, IMovementAffinityProvider provider)
         {

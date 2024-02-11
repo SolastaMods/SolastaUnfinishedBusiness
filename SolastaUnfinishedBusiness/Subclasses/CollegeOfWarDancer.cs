@@ -20,8 +20,10 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class CollegeOfWarDancer : AbstractSubclass
 {
-    private static readonly FeatureDefinition ImproveWarDance = FeatureDefinitionBuilder
-        .Create("FeatureCollegeOfWarDancerImprovedWarDance")
+    private const string Name = "CollegeOfWarDancer";
+
+    private static readonly FeatureDefinition ImprovedWarDance = FeatureDefinitionBuilder
+        .Create($"Feature{Name}ImprovedWarDance")
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
@@ -114,18 +116,17 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             .AddToDB();
 
         var focusedWarDance = FeatureDefinitionBuilder
-            .Create("FeatureCollegeOfWarDancerFocusedWarDance")
+            .Create($"Feature{Name}FocusedWarDance")
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(new FocusedWarDance())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("CollegeOfWarDancer")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("CollegeOfWarDancer", Resources.CollegeOfWarDancer, 256))
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.CollegeOfWarDancer, 256))
             .AddFeaturesAtLevel(3,
                 powerWarDance, FeatureSetCasterFightingProficiency, MagicAffinityCasterFightingCombatMagic)
-            .AddFeaturesAtLevel(6, ImproveWarDance)
+            .AddFeaturesAtLevel(6, ImprovedWarDance)
             .AddFeaturesAtLevel(14, focusedWarDance)
             .AddToDB();
     }
@@ -194,7 +195,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
 
             //Character isn't War Dancing or doesn't have Improved War Dance, skip
             if (!rulesetCharacter.HasConditionOfType(ConditionWarDance) ||
-                !rulesetCharacter.HasAnyFeature(ImproveWarDance))
+                !rulesetCharacter.HasAnyFeature(ImprovedWarDance))
             {
                 yield break;
             }
@@ -226,7 +227,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
             }
 
             GrantWarDanceCondition(rulesetCharacter, WarDanceExtraAttack);
-            rulesetCharacter.LogCharacterUsedFeature(ImproveWarDance, "Feedback/&ActivateWarDancerAttack", true);
+            rulesetCharacter.LogCharacterUsedFeature(ImprovedWarDance, "Feedback/&ActivateWarDancerAttack", true);
         }
 
         private static int GetExtraAttacks(RulesetActor character)

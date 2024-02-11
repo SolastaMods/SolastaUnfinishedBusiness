@@ -175,8 +175,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolCollegeOfLifeHealingPoolTitle",
-    "description": "Feature/&PowerSharedPoolCollegeOfLifeHealingPoolDescription",
+    "title": "Feature/&PowerCollegeOfLifeTransmuteForceTitle",
+    "description": "Feature/&PowerCollegeOfLifeTransmuteForceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e5185db5ed86ed240bcd5652f23b64df",

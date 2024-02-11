@@ -343,7 +343,13 @@ Your Transmute Force grants you Necrotic Resistance.
 
 * Transmute Force
 
-You can enact your will on reality with special powers a number of times a day equal to your proficiency bonus.
+You can enact your will on reality with special powers a number of times a day equal to your proficiency bonus:
+• Constitution Saves: Use your Transmute Force to grant Superior Darkvision until the next long rest.
+• Elemental Resistance: Use your Transmute Force to grant resistance to acid, cold, fire, lightning, necrotic, poison and thunder damage until the end of your next long rest.
+• Fly: Use your Transmute Force to grant the ability of flight.
+• Heal: Use your Transmute Force to heal up to 6 targets.
+• Revive: Use your Transmute Force to revive a character within 1 minute of death.
+• Superior Darkvision: Use your Transmute Force to grant Superior Darkvision until the next long rest.
 
 
 ### Level 14
@@ -720,8 +726,8 @@ As a bonus action, you can expend a use of your Wild Shape feature to take on a 
 * Cosmos Map
 
 You've created a star chart as part of your heavenly studies. While holding this map, you have these benefits:
-. You know the Guidance cantrip.
-. You have the Guiding Bolt spell prepared and can cast it without expending a spell slot. You can do so a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+• You know the Guidance cantrip.
+• You have the Guiding Bolt spell prepared and can cast it without expending a spell slot. You can do so a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
 
 
 ### Level 6
@@ -729,8 +735,8 @@ You've created a star chart as part of your heavenly studies. While holding this
 * Fate in the Stars
 
 You learn to use your star map to divine the will of the cosmos. Whenever you finish a long rest, you can use a no cost power and until you finish your next long rest, you gain access to a special reaction based on whether you rolled an even or an odd number on the die:
-. Weal: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and add the number rolled to the total.
-. Woe: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and subtract the number rolled from the total.
+• Weal: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and add the number rolled to the total.
+• Woe: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and subtract the number rolled from the total.
 
 
 ### Level 10
@@ -2573,9 +2579,9 @@ The Wildmaster archetype embodies a friendship between the civilized races and t
 
 You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to armor class, attack rolls and damage rolls. It also gains 4 HP per character level and can only take the Dodge action on its turn unless you command it to do otherwise.
 Both Spirit Beast and summoner share the same initiative and you can choose a Bear, an Eagle or a Wolf:
-. The Bear can breath a cone of fire
-. The Eagle a line of electricity
-. The Wolf a cone of cold.
+• The Bear can breath a cone of fire
+• The Eagle a line of electricity
+• The Wolf a cone of cold.
 
 * Deep Integration
 
@@ -2587,9 +2593,9 @@ You and your Spirit Beast help each other in the field. The Spirit Beast gains a
 * True Expertise
 
 The Spirit Beast can now take the Dash or Disengage action on its turn. its attack count as magical for the purpose of overcoming resistance and immunity. The Spirit Beast is also more powerful:
-. The Bear is now resilient to fire
-. The Eagle to electricity
-. The Wolf to cold.
+• The Bear is now resilient to fire
+• The Eagle to electricity
+• The Wolf to cold.
 
 
 ### Level 11
