@@ -505,7 +505,6 @@
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>
-    <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
     <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
     <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
     <AddPickPocketableLoot>true</AddPickPocketableLoot>
@@ -831,6 +830,7 @@
             <value>
                 <ArrayOfString>
                     <string>CircleOfTheAncientForest</string>
+                    <string>CircleOfTheCosmos</string>
                     <string>CircleOfTheForestGuardian</string>
                     <string>CircleOfTheLife</string>
                     <string>CircleOfTheNight</string>
@@ -911,6 +911,7 @@
                     <string>RoguishOpportunist</string>
                     <string>RoguishRavenScion</string>
                     <string>RoguishSlayer</string>
+                    <string>RoguishUmbralStalker</string>
                 </ArrayOfString>
             </value>
         </item>
@@ -937,6 +938,7 @@
                     <string>PatronCelestial</string>
                     <string>PatronEldritchSurge</string>
                     <string>PatronElementalist</string>
+                    <string>PatronMoonlitScion</string>
                     <string>PatronMountain</string>
                     <string>PatronRiftWalker</string>
                     <string>PatronSoulBlade</string>
@@ -1792,6 +1794,7 @@
     <EnableRejoinParty>true</EnableRejoinParty>
     <EnableVttCamera>true</EnableVttCamera>
     <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
+    <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
     <DisableAutoEquip>true</DisableAutoEquip>
     <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
     <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
