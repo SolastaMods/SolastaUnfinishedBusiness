@@ -14,6 +14,18 @@ internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
 internal static class ValidatorsCharacter
 {
+    internal static readonly IsCharacterValidHandler HasAvailableMoves = character =>
+    {
+        var locationCharacter = GameLocationCharacter.GetFromActor(character);
+
+        if (locationCharacter == null)
+        {
+            return false;
+        }
+
+        return locationCharacter.RemainingTacticalMoves > 0;
+    };
+
     internal static readonly IsCharacterValidHandler HasAvailableBonusAction = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);

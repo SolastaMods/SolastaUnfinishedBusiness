@@ -8,8 +8,8 @@
     "Definition:DieRollModifierRoguishUmbralStalkerGloomBlade:95868c96-227e-5210-9c3e-5ef7e3e400cb"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

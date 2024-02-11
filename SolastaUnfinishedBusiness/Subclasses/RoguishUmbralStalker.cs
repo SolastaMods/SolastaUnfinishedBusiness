@@ -69,11 +69,13 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+            .SetImpactParticleReference(AdditionalDamageLifedrinker.impactParticleReference)
             .AddToDB();
 
         var conditionGloomBlade = ConditionDefinitionBuilder
             .Create($"Condition{Name}GloomBlade")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(dieRollModifierDieRollModifier, additionalDamageGloomBlade)
             .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
@@ -105,7 +107,9 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishDarkweaverShadowy)
                     .Build())
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight),
+                new ValidatorsValidatePowerUse(
+                    ValidatorsCharacter.HasAvailableMoves,
+                    ValidatorsCharacter.IsNotInBrightLight),
                 new FilterTargetingPositionShadowStride())
             .AddToDB();
 
@@ -136,14 +140,18 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         // Shadow Dance
 
         var conditionShadowDance = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ShadowDance")
-            .SetGuiPresentation(Category.Condition)
+            .Create(ConditionDefinitions.ConditionBlinded, $"Condition{Name}ShadowDance")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionChildOfDarkness_DimLight)
+            .SetConditionType(ConditionType.Beneficial)
+            .SetPossessive()
+            .SetFeatures()
             .AddCustomSubFeatures(new ForceLightingStateShadowDance())
             .AddToDB();
 
         var powerShadowDance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ShadowDance")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("ShadowDance", Resources.PowerShadowDance, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -151,12 +159,13 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionShadowDance))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain)
                     .Build())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishDuelist, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheSilhouette, 256))
             .AddFeaturesAtLevel(3, featureSetDeadlyShadows, actionAffinityHailOfBladesToggle)
             .AddFeaturesAtLevel(9, powerShadowStride)
             .AddFeaturesAtLevel(13, featureSetUmbralSoul)

@@ -1684,6 +1684,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDomainMischiefStrikeOfChaos14 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainMischiefStrikeOfChaos14");
 
+        internal static FeatureDefinitionPower PowerDomainOblivionHeraldOfPain { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainOblivionHeraldOfPain");
+
         internal static FeatureDefinitionPower PowerDomainOblivionMarkOfFate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainOblivionMarkOfFate");
 
