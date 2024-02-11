@@ -741,7 +741,7 @@ internal static class FixesContext
                     tooltipContent: description, indent: true,
                     extra:
                     [
-                        (ConsoleStyleDuplet.ParameterType.Positive, damageForm.diceNumber.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, damageForm.diceNumber.ToString()),
                         (ConsoleStyleDuplet.ParameterType.Negative, newDiceNumber.ToString())
                     ]);
 
@@ -782,7 +782,7 @@ internal static class FixesContext
                         tooltipContent: description, indent: true,
                         extra:
                         [
-                            (ConsoleStyleDuplet.ParameterType.Negative, damageForm.diceNumber.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.AbilityInfo, damageForm.diceNumber.ToString()),
                             (ConsoleStyleDuplet.ParameterType.Positive, newDiceNumber.ToString())
                         ]);
 
