@@ -140,8 +140,8 @@ Feedback/&TrueSightAndIllusionSpells={0} tem Visão Verdadeira e não é afetado
 Format/&LevelAndExperienceFormat=Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
 Format/&LevelAndExperienceMaxedFormat=Nível: {0}\nExperiência: {1}\nnível máximo alcançado
 Invocation/&DevilsSightExtendedDescription=Você pode ver normalmente na escuridão, tanto mágica quanto não mágica, a uma distância de 25 metros.
-Message/&CharacterExportDuplicateNameErrorDescription=Exportação cancelada:\n\nJá existe um herói com este nome no pool.\nTente um nome diferente.
-Message/&CharacterExportEmptyNameErrorDescription=Exportação cancelada:\n\nPor favor, tente um nome não vazio.
+Message/&CharacterExportDuplicateNameErrorDescription=Exportação cancelada:\nJá existe um herói com este nome no pool.\nTente um nome diferente.
+Message/&CharacterExportEmptyNameErrorDescription=Exportação cancelada:\nPor favor, tente um nome não vazio.
 Message/&CharacterExportModalContentDescription=Digite o nome do herói para exportar:
 Message/&CharacterExportModalTitleDescription=Exportar {0}
 Message/&MessageModWelcomeDescription=O Unfinished Business Mod está repleto de recursos interessantes, mas por padrão nenhum está habilitado. Pressione <color=#F0DAA0>Ctrl-F10</color> para abrir a UI do Unity Mod Manager [UMM] e clique no ícone de configurações próximo a 'Negócios inacabados' para abrir as páginas de configurações. Explore as opções e selecione aquelas que você gosta.\n<b>Por favor, faça uma doação se puder, pois isso ajuda com os custos mensais e mantém a motivação alta após 3 anos de desenvolvimento e manutenção ininterruptos.</b> O botão abaixo levará você ao <color=#F0DAA0>PayPal</color> por padrão, mas você também pode usar o <color=#F0DAA0>Patreon</color> ou o <color=#F0DAA0>GitHub</color> em Mod UI > Personagem .

@@ -12,7 +12,7 @@ ModUi/&AddPaladinSmiteToggle=添加一个开关以允许<color=#D89555>圣骑士
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<i><color=#F0DAA0>[建议<color=#D89555>扒窃</color>专长开启时启用]</color></i>
 ModUi/&AddToStore=添加到商店
 ModUi/&Advanced=<color=#F0DAA0>高级：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&AdvancedHelp=.<b><color=#C04040E0>注意：</color></b>这些设置将要求玩家安装此模组
+ModUi/&AdvancedHelp=•<b><color=#C04040E0>注意：</color></b>这些设置将要求玩家安装此模组
 ModUi/&AllItemInDm=DM中的所有项目
 ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
@@ -52,7 +52,7 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>耐寒性</color>还可以增强对寒冷条件的免疫力，并将冷冻状态降低为冷冻状态
 ModUi/&Combat=<color=#F0DAA0>战斗：</color>
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
-ModUi/&CraftingHelp=.按下按钮即可在当前队伍中立即学习配方\n。添加到商店的物品可能需要队伍离开该地点然后回来
+ModUi/&CraftingHelp=•按下按钮即可在当前队伍中立即学习配方\n。添加到商店的物品可能需要队伍离开该地点然后回来
 ModUi/&Credits=制作人员
 ModUi/&CreditsAndDiagnostics=制作人员与诊断
 ModUi/&Critical=<color=#F0DAA0>暴击：</color>
@@ -75,7 +75,7 @@ ModUi/&DontDisplayHelmets=不在角色图像上显示头盔<b><i><color=#C04040E
 ModUi/&DontEndTurnAfterReady=使用准备动作后不会结束回合<i><color=#F0DAA0>[允许使用奖励动作或任何来自加速或其他来源的额外主要动作]</color></i>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
-ModUi/&DungeonMakerBasicHelp=.这些设置不需要玩家安装这个模组
+ModUi/&DungeonMakerBasicHelp=•这些设置不需要玩家安装这个模组
 ModUi/&DungeonMakerMenu=地城编辑器
 ModUi/&EmpressGarbAppearance=<color=#D89555>皇后服</color>外观
 ModUi/&EnableActionSwitching=启用动作切换栏<i><color=#F0DAA0>[在主要动作之前急于使用紧急动作时有用]</color></i>
@@ -145,7 +145,7 @@ ModUi/&FactionHelp=<color=#C04040E0>加载官方战役游戏以修改派系关�
 ModUi/&FactionRelations=<color=#F0DAA0>派系：</color>
 ModUi/&FasterTimeModifier=<color=white>按下空格键时的游戏时间修改器</color>
 ModUi/&FeatGroups=<color=#F0DAA0>专长组</color>
-ModUi/&FeatGroupsHelp=.每个组都是相似专长的综合<i><color=#F0DAA0>[即：信条、战斗风格、超魔等]</color></i>\n。这些组中的专长将不再直接显示在熟练程度选择阶段\n。该组在被选中后会在下拉列表中提供它们以供选择。
+ModUi/&FeatGroupsHelp=•每个组都是相似专长的综合<i><color=#F0DAA0>[即：信条、战斗风格、超魔等]</color></i>\n。这些组中的专长将不再直接显示在熟练程度选择阶段\n。该组在被选中后会在下拉列表中提供它们以供选择。
 ModUi/&Feats=<color=#F0DAA0>专长</color>
 ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
 ModUi/&FixAsianLanguagesTextWrap=修复亚洲语言的游戏 UI 文本换行<b><i><color=#C04040E0>[需要重启]</color></i></b>
@@ -153,9 +153,9 @@ ModUi/&FixEldritchBlastRange=将<color=#D89555>魔能爆</color>范围更改为2
 ModUi/&FlightSuspendWingedBoots=<i>+使用翼靴官方规则<color=#F0DAA0>[航班暂停时剩余时间不计算]</color></i>
 ModUi/&Formation=<color=#F0DAA0>队形：</color>
 ModUi/&FormationError=<color=#C04040E0>你不能在多人游戏中改变你的阵型...</color>
-ModUi/&FormationHelp1=.使用数字按钮编辑给定的集合<i><color=#F0DAA0>[考虑在输入下启用热键]</color></i>
-ModUi/&FormationHelp2=.<b><color=#1E81B0>@</color></b>代表相对英雄位置
-ModUi/&FormationHelp3=.单击任意2个按钮以交换它们的位置
+ModUi/&FormationHelp1=•使用数字按钮编辑给定的集合<i><color=#F0DAA0>[考虑在输入下启用热键]</color></i>
+ModUi/&FormationHelp2=•<b><color=#1E81B0>@</color></b>代表相对英雄位置
+ModUi/&FormationHelp3=•单击任意2个按钮以交换它们的位置
 ModUi/&FormationHotkey=启用<color=#1E81B0>CTRL-SHIFT-(1..5)</color>在游戏中交换阵型
 ModUi/&FormationResetAllSets=重置全部
 ModUi/&FormationResetThisSet=重置这个
@@ -231,7 +231,7 @@ ModUi/&RemoveSchoolRestrictionsFromSpellBlade=移除<color=#D89555>Spellblade</c
 ModUi/&RestockAntiquarians=补货古文物协会<i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=补货奥术协会<i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=补货丹塔尔之环<i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=.覆盖默认值以强制所有商家的库存随时间补货<i><color=#F0DAA0>[不包括手册和书籍]</color></i>\n。请注意，某些物品最多可能需要7个游戏日才能补货
+ModUi/&RestockHelp=•覆盖默认值以强制所有商家的库存随时间补货<i><color=#F0DAA0>[不包括手册和书籍]</color></i>\n。请注意，某些物品最多可能需要7个游戏日才能补货
 ModUi/&RestockTowerOfKnowledge=补货知识之塔<i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>回滚</color></b>
 ModUi/&Rules=规则
@@ -242,8 +242,8 @@ ModUi/&SelectSuggested=选择建议
 ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>
 ModUi/&SettingsExport=导出
-ModUi/&SettingsHelp=.作为主机，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n.作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
-ModUi/&SettingsLoad=.加载导出的设置
+ModUi/&SettingsHelp=•作为主机，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n•作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
+ModUi/&SettingsLoad=•加载导出的设置
 ModUi/&SettingsOpenFolder=打开导出的设置文件夹
 ModUi/&SettingsRefresh=刷新
 ModUi/&SettingsRemove=移除

@@ -12,7 +12,7 @@ ModUi/&AddPaladinSmiteToggle=<color=#D89555>팔라딘</color>이 치명타를 �
 ModUi/&AddPickPocketableLoot=소매치기 가능한 전리품 추가 <i><color=#F0DAA0>[제안 <color=#D89555>소매치기</color> 가능할 때]</color></i>
 ModUi/&AddToStore=상점에 추가
 ModUi/&Advanced=<color=#F0DAA0>고급:</color> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
-ModUi/&AdvancedHelp=. <b><color=#C04040E0>주의:</color></b> 이 설정을 사용하려면 플레이어에게 이 모드가 설치되어 있어야 함
+ModUi/&AdvancedHelp=• <b><color=#C04040E0>주의:</color></b> 이 설정을 사용하려면 플레이어에게 이 모드가 설치되어 있어야 함
 ModUi/&AllItemInDm=DM 내 모든 아이템
 ModUi/&AllRecipesInDm=DM 내 모든 제조법
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 내러티브 시퀀스에서 모든 플레이어 허용</i>
@@ -52,7 +52,7 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>냉기 저항</color>은 또한 냉각 상태에 대한 면역을 부여하고 냉동에서 냉각으로 감소시킵니다.
 ModUi/&Combat=<color=#F0DAA0>전투:</color>
 ModUi/&Crafting=<color=#F0DAA0>제작:</color>
-ModUi/&CraftingHelp=. 버튼을 누르면 활성화된 파티에서 즉시 제작법을 배울 수 있습니다\n. 상점에 추가돼야 하는 아이템은 파티가 해당 위치를 떠났다가 다시 돌아와야 합니다
+ModUi/&CraftingHelp=• 버튼을 누르면 활성화된 파티에서 즉시 제작법을 배울 수 있습니다\n• 상점에 추가돼야 하는 아이템은 파티가 해당 위치를 떠났다가 다시 돌아와야 합니다
 ModUi/&Credits=제작자들
 ModUi/&CreditsAndDiagnostics=제작자 및 파일 분석
 ModUi/&Critical=<color=#F0DAA0>치명타:</color>
@@ -75,7 +75,7 @@ ModUi/&DontDisplayHelmets=캐릭터 모델링에 머리 방어구 표시 안 함
 ModUi/&DontEndTurnAfterReady=준비 액션을 사용한 후 턴을 종료하지 않음 <i><color=#F0DAA0>[추가 행동 또는 이동이나 다른 출처의 기타 행동을 사용할 수 있습니다]</color></i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있을 때 전투 카메라가 따라가지 않음
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 쓰러져 있거나 화면 가장자리 % 이내인 경우</color></i>
-ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어에게 이 모드가 설치되어 있지 않아도 됨
+ModUi/&DungeonMakerBasicHelp=• 이 설정은 플레이어에게 이 모드가 설치되어 있지 않아도 됨
 ModUi/&DungeonMakerMenu=던전 메이커
 ModUi/&EmpressGarbAppearance=<color=#D89555>황후 의복</color> 외형
 ModUi/&EnableActionSwitching=행동 전환 막대 활성화 <i><color=#F0DAA0>[가속 주문 등으로 생긴 행동과 일반 행동 선택]</color></i>
@@ -93,7 +93,7 @@ ModUi/&EnableCharacterExport=<color=#1E81B0>CTRL-SHIFT-(E)</color>로 캐릭터 
 ModUi/&EnableCharactersOnFireToEmitLight=불에 탄 캐릭터는 빛을 발합니다 <i><color=#F0DAA0>[빛 육면체, 화염 원소, 화염 광대, 화염 수리, 화염 거미 및 화염 상태 계열]</color></i>
 ModUi/&EnableCheatMenu=치트키 메뉴 활성화
 ModUi/&EnableCustomPortraits=맞춤 인물 사진 활성화
-ModUi/&EnableCustomPortraitsHelp=. 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color>< 아래에 넣으세요. /b></i>, 영웅 이름 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n을 따서 명명되었습니다. 투명도 레이어가 포함된 256 x 384 픽셀 크기의 PNG 이미지를 사용하세요. <i><color=#F0DAA0>[최상의 결과를 얻으려면 GIMP 사용]</color></i>
+ModUi/&EnableCustomPortraitsHelp=• 사용자 정의 초상화를 하위 폴더 <i><b><color=#F0DAA0>Personal</color></b></i> 또는 <i><b><color=#F0DAA0>PreGen</color>< 아래에 넣으세요. /b></i>, 영웅 이름 <i><color=#F0DAA0>[예: Anton, Celia, Nialla 등]</color></i>\n을 따서 명명되었습니다. 투명도 레이어가 포함된 256 x 384 픽셀 크기의 PNG 이미지를 사용하세요. <i><color=#F0DAA0>[최상의 결과를 얻으려면 GIMP 사용]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=던전 메이커 프로 활성화\n<i><color=#F0DAA0>[침실, 150x150 및 200x200 던전 크기 포함, 모든 환경의 에셋을 혼합하지 않음]</color></i>
 ModUi/&EnableEpicPointsAndArray=에픽 35 포인트 분배 시스템 및 정해진 능력치 분배 활성화<i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=숙련도 확장 패널 표시 활성화 <i><color=#F0DAA0>[비전 사격, 주입, 갬빗 및 다용도]</color></i>\n<b><i><color=#C04040E0>[캐릭터에 대한 성능 적중 점검. 사용에 따른 책임은 사용자 본인에게 있습니다]</color></i></b>
@@ -131,7 +131,7 @@ ModUi/&EnableRogueSteadyAim=클래스 레벨 3에서 <color=#D89555>도적</colo
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSortingDungeonMakerAssets=던전 만들기 편집기에서 에셋 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
-ModUi/&EnableSumD20OnAlternateVotingSystem=. 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다.
+ModUi/&EnableSumD20OnAlternateVotingSystem=• 또한 각 영웅은 약간의 무작위성을 위해 D20 롤을 가중치에 추가합니다.
 ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color>를 눌러 파티 순간이동 활성화 <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있습니다]</i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=캐릭터 풀에서 토글로 기본 플레이 및 테스트 파티를 설정 활성화
 ModUi/&EnableTooltipDistance=전투 중 캐릭터 위로 마우스를 가져갈 때 툴팁에 거리 표시 활성화
@@ -145,7 +145,7 @@ ModUi/&FactionHelp=<color=#C04040E0>세력 우호도를 수정하려면 공식 �
 ModUi/&FactionRelations=<color=#F0DAA0>세력:</color>
 ModUi/&FasterTimeModifier=<color=white>스페이스 바를 누르고 있을 때 게임 속도 조절</color>
 ModUi/&FeatGroups=<color=#F0DAA0>특성 묶음</color>
-ModUi/&FeatGroupsHelp=. 각 묶음은 유사한 특성 <i><color=#F0DAA0>[예시: 신조, 전투 특화, 메타매직, 등]</color></i>을 통합한 것입니다.\n.이 묶음에 속한 특성은 더 이상 숙련도 선택 단계에서 직접 표시되지 않습니다.\n. 이 묶음을 선택하면 게임 화면을 깔끔하게 정리하기 위해 드롭다운 목록에 표시됩니다
+ModUi/&FeatGroupsHelp=• 각 묶음은 유사한 특성 <i><color=#F0DAA0>[예시: 신조, 전투 특화, 메타매직, 등]</color></i>을 통합한 것입니다.\n•이 묶음에 속한 특성은 더 이상 숙련도 선택 단계에서 직접 표시되지 않습니다.\n• 이 묶음을 선택하면 게임 화면을 깔끔하게 정리하기 위해 드롭다운 목록에 표시됩니다
 ModUi/&Feats=<color=#F0DAA0>재주</color>
 ModUi/&FightingStyles=<color=#F0DAA0>전투 특화</color>
 ModUi/&FixAsianLanguagesTextWrap=아시아 언어 게임 UI 텍스트 래핑 수정 <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
@@ -153,9 +153,9 @@ ModUi/&FixEldritchBlastRange=<color=#D89555>섬뜩한 방출</color>의 사거�
 ModUi/&FlightSuspendWingedBoots=<i>+ 공식 룰의 날개 달린 부츠 사용 <color=#F0DAA0>[비행이 유지되는 동안은 지속시간을 계산하지 않습니다]</color></i>
 ModUi/&Formation=<color=#F0DAA0>진형:</color>
 ModUi/&FormationError=<color=#C04040E0>멀티플레이 게임 중에는 진형을 변경할 수 없습니다...</color>
-ModUi/&FormationHelp1=. 숫자 버튼을 사용하여 단축키를 설정합니다 <i><color=#F0DAA0>[단축키 아래 입력 활성화 고려]</color></i>
-ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b>는 관련있는 영웅 위치를 나타냅니다
-ModUi/&FormationHelp3=. 아무 버튼 2개를 클릭하면 위치가 바뀝니다
+ModUi/&FormationHelp1=• 숫자 버튼을 사용하여 단축키를 설정합니다 <i><color=#F0DAA0>[단축키 아래 입력 활성화 고려]</color></i>
+ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b>는 관련있는 영웅 위치를 나타냅니다
+ModUi/&FormationHelp3=• 아무 버튼 2개를 클릭하면 위치가 바뀝니다
 ModUi/&FormationHotkey=게임에서 진형을 교체하려면 <color=#1E81B0>CTRL-SHIFT-(1..5)</color>를 눌러 활성화
 ModUi/&FormationResetAllSets=모두 초기화
 ModUi/&FormationResetThisSet=이것만 초기화
@@ -230,7 +230,7 @@ ModUi/&RemoveSchoolRestrictionsFromSpellBlade=<color=#D89555>Spellblade</color>�
 ModUi/&RestockAntiquarians=고고학 길드 <i><color=#F0DAA0>[할만 서머]</color></i> 재입고
 ModUi/&RestockArcaneum=아케니움 <i><color=#F0DAA0>[헤들론 슈어스펠]</color></i> 재입고
 ModUi/&RestockCircleOfDanantar=다난타르 서클 <i><color=#F0DAA0>[조리엘 폭스아이]</color></i> 재입고
-ModUi/&RestockHelp=. 기본값을 재정의하여 시간에 따라 모든 상인의 재고가 재입고되도록 강제 <i><color=#F0DAA0>[안내서와 서적 제외]</color></i>\n. 일부 아이템은 재입고까지 최대 7일이 소요될 수 있음
+ModUi/&RestockHelp=• 기본값을 재정의하여 시간에 따라 모든 상인의 재고가 재입고되도록 강제 <i><color=#F0DAA0>[안내서와 서적 제외]</color></i>\n• 일부 아이템은 재입고까지 최대 7일이 소요될 수 있음
 ModUi/&RestockTowerOfKnowledge=지식의 탑 <i><color=#F0DAA0>[매디 그린아일]</color></i> 재입고
 ModUi/&Rollback=<b><color=#D89555>되돌리기</color></b>
 ModUi/&Rules=규칙
@@ -241,8 +241,8 @@ ModUi/&SelectSuggested=추천 선택
 ModUi/&Services=서비스
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>드워프 종족이 허리띠</color>로 <color=white>수염을 두를 확률</color>
 ModUi/&SettingsExport=내보내기
-ModUi/&SettingsHelp=. 호스트는 현재 구성을 내보내고 내보내기 폴더를 열어 동료와 쉽게 공유할 수 있습니다\n. 게스트는 내보내기 폴더를 열고 호스트와 공유한 파일을 붙여넣은 후 불러올 수 있습니다<b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
-ModUi/&SettingsLoad=. 내보낸 설정 불러오기
+ModUi/&SettingsHelp=• 호스트는 현재 구성을 내보내고 내보내기 폴더를 열어 동료와 쉽게 공유할 수 있습니다\n• 게스트는 내보내기 폴더를 열고 호스트와 공유한 파일을 붙여넣은 후 불러올 수 있습니다<b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
+ModUi/&SettingsLoad=• 내보낸 설정 불러오기
 ModUi/&SettingsOpenFolder=내보낸 설정 폴더 열기
 ModUi/&SettingsRefresh=새로고침
 ModUi/&SettingsRemove=제거

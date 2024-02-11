@@ -12,7 +12,7 @@ ModUi/&AddPaladinSmiteToggle=Agregue un interruptor para permitir que <color=#D8
 ModUi/&AddPickPocketableLoot=Agregar botín de carterista <i><color=#F0DAA0>[sugerido si la característica <color=#D89555>Carterista</color> está habilitada]</color></i>
 ModUi/&AddToStore=Añadir a la tienda
 ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
+ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
 ModUi/&AllItemInDm=Todos los artículos en DM
 ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores en secuencias narrativas</i>
@@ -52,7 +52,7 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Resistencia al frío</color> también otorga inmunidad a la condición de frío y reduce la condición de congelado a frío.
 ModUi/&Combat=<color=#F0DAA0>Combate:</color>
 ModUi/&Crafting=<color=#F0DAA0>Fabricación:</color>
-ModUi/&CraftingHelp=. Presiona el botón para aprender recetas al instante en el grupo activo\n. Los artículos agregados a las tiendas pueden necesitar que el grupo se aleje de la ubicación y regrese
+ModUi/&CraftingHelp=• Presiona el botón para aprender recetas al instante en el grupo activo\n• Los artículos agregados a las tiendas pueden necesitar que el grupo se aleje de la ubicación y regrese
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos y Diagnósticos
 ModUi/&Critical=<color=#F0DAA0>Golpe crítico:</color>
@@ -75,7 +75,7 @@ ModUi/&DontDisplayHelmets=No mostrar cascos en caracteres gráficos <b><i><color
 ModUi/&DontEndTurnAfterReady=No finalice el turno después de usar la acción lista <i><color=#F0DAA0>[permite usar la acción adicional o cualquier acción principal adicional de Prisa u otras fuentes]</color></i>
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
 ModUi/&DontFollowMargin=<i><color=blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
-ModUi/&DungeonMakerBasicHelp=. Estas configuraciones no requerirán que el jugador tenga este mod instalado
+ModUi/&DungeonMakerBasicHelp=• Estas configuraciones no requerirán que el jugador tenga este mod instalado
 ModUi/&DungeonMakerMenu=Creador de mazmorras
 ModUi/&EmpressGarbAppearance=Apariencia <color=#D89555>Atuendo de emperatriz</color>
 ModUi/&EnableActionSwitching=Habilitar la barra de cambio de acción <i><color=#F0DAA0>[útil cuando se tiene prisa por usar la acción de prisa antes de la acción principal]</color></i>
@@ -93,7 +93,7 @@ ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes en llamas deberían emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y la familia de personas en llamas]</color></i>
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableCustomPortraits=Habilitar retratos personalizados
-ModUi/&EnableCustomPortraitsHelp=. Coloque sus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color><. /b></i>, llamado así por el nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n. Utilice imágenes PNG, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[use GIMP para obtener mejores resultados]</color></i>
+ModUi/&EnableCustomPortraitsHelp=• Coloque sus retratos personalizados en las subcarpetas <i><b><color=#F0DAA0>Personal</color></b></i> o <i><b><color=#F0DAA0>PreGen</color><. /b></i>, llamado así por el nombre del héroe <i><color=#F0DAA0>[es decir: Anton, Celia, Nialla, etc.]</color></i>\n• Utilice imágenes PNG, de 256 x 384 píxeles de tamaño, con una capa de transparencia <i><color=#F0DAA0>[use GIMP para obtener mejores resultados]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y recursos de mezcla sencillos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Habilitar visualización del panel de competencias extendidas <i><color=#F0DAA0>[Disparos arcanos, infusiones, gambitos y versatilidad]</color></i>\n<b><i><color=#C04040E0>[rendimiento afectado al personaje inspección. úsalo bajo tu propia responsabilidad]</color></i></b>
@@ -131,7 +131,7 @@ ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Rogue</color> <b>Steady Aim<
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
-ModUi/&EnableSumD20OnAlternateVotingSystem=. Además, cada héroe agrega una tirada de D20 al peso para darle un poco de aleatoriedad.
+ModUi/&EnableSumD20OnAlternateVotingSystem=• Además, cada héroe agrega una tirada de D20 al peso para darle un poco de aleatoriedad.
 ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableTooltipDistance=Habilite mostrar la distancia en la información sobre herramientas al pasar el cursor sobre un personaje en combate.
@@ -145,7 +145,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Cargar un juego de campaña oficial para mod
 ModUi/&FactionRelations=<color=#F0DAA0>Facciones:</color>
 ModUi/&FasterTimeModifier=<color=white>Modificador de tiempo de juego al presionar la barra espaciadora</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Grupos de características</color>
-ModUi/&FeatGroupsHelp=. Cada grupo es una consolidación de hazañas similares <i><color=#F0DAA0>[es decir, credos, estilos de lucha, metamagia, etc.]</color></i>\n. Las dotes en estos grupos ya no serán visibles directamente en la etapa de selección de competencia\n. El grupo, cuando se selecciona, los ofrece en una lista desplegable para despejar la pantalla del juego.
+ModUi/&FeatGroupsHelp=• Cada grupo es una consolidación de hazañas similares <i><color=#F0DAA0>[es decir, credos, estilos de lucha, metamagia, etc.]</color></i>\n• Las dotes en estos grupos ya no serán visibles directamente en la etapa de selección de competencia\n• El grupo, cuando se selecciona, los ofrece en una lista desplegable para despejar la pantalla del juego.
 ModUi/&Feats=<color=#F0DAA0>Dotes</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
 ModUi/&FixAsianLanguagesTextWrap=Corrige el ajuste de texto de la interfaz de usuario del juego de los idiomas asiáticos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -153,9 +153,9 @@ ModUi/&FixEldritchBlastRange=Cambia el rango de <color=#D89555>Explosión sobren
 ModUi/&FlightSuspendWingedBoots=<i>+ Usar las reglas oficiales de Winged Boots <color=#F0DAA0>[la duración restante no se cuenta cuando se suspende el vuelo]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante una partida multijugador...</color>
-ModUi/&FormationHelp1=. Use los botones numéricos para editar un conjunto determinado <i><color=#F0DAA0>[considere habilitar las teclas de acceso rápido en la entrada]</color></i>
-ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> representan las posiciones relativas de los héroes
-ModUi/&FormationHelp3=. Haga clic en cualquiera de los 2 botones para intercambiar sus posiciones
+ModUi/&FormationHelp1=• Use los botones numéricos para editar un conjunto determinado <i><color=#F0DAA0>[considere habilitar las teclas de acceso rápido en la entrada]</color></i>
+ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> representan las posiciones relativas de los héroes
+ModUi/&FormationHelp3=• Haga clic en cualquiera de los 2 botones para intercambiar sus posiciones
 ModUi/&FormationHotkey=Activa <color=#1E81B0>CTRL-SHIFT-(1..5)</color> para intercambiar conjuntos de formación en el juego
 ModUi/&FormationResetAllSets=Resetear todo
 ModUi/&FormationResetThisSet=Restablecer esto
@@ -230,7 +230,7 @@ ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Eliminar las restricciones escolar
 ModUi/&RestockAntiquarians=Reponer anticuarios <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Reponer Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Reponer Círculo de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=. Anule los valores predeterminados para forzar que todas las existencias del comerciante se reabastezcan con el tiempo <i><color=#F0DAA0>[excluyendo manuales y tomos]</color></i>\n. Tenga en cuenta que algunos artículos pueden tardar hasta 7 días de juego en reabastecerse
+ModUi/&RestockHelp=• Anule los valores predeterminados para forzar que todas las existencias del comerciante se reabastezcan con el tiempo <i><color=#F0DAA0>[excluyendo manuales y tomos]</color></i>\n• Tenga en cuenta que algunos artículos pueden tardar hasta 7 días de juego en reabastecerse
 ModUi/&RestockTowerOfKnowledge=Reponer Torre del Conocimiento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Restaurar</color></b>
 ModUi/&Rules=Normas
@@ -241,8 +241,8 @@ ModUi/&SelectSuggested=Seleccionar sugerido
 ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
 ModUi/&SettingsExport=Exportar
-ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&SettingsLoad=. Cargar una configuración exportada
+ModUi/&SettingsHelp=• Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n• Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&SettingsLoad=• Cargar una configuración exportada
 ModUi/&SettingsOpenFolder=Abra la carpeta de configuración exportada
 ModUi/&SettingsRefresh=Actualizar
 ModUi/&SettingsRemove=Eliminar

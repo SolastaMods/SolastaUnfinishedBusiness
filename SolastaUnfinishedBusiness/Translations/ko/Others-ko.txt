@@ -140,8 +140,8 @@ Feedback/&TrueSightAndIllusionSpells={0}은(는) 진정한 시력을 갖고 있�
 Format/&LevelAndExperienceFormat=레벨: {0}\n경험치: 레벨 {3}에 도달하는 데 필요한 포인트: {1}\n{2} 포인트
 Format/&LevelAndExperienceMaxedFormat=레벨: {0}\n경험치: {1}\n최대 레벨 도달
 Invocation/&DevilsSightExtendedDescription=당신은 일반적으로 어둠 속에서 마법적이든 비마법적이든 80피트 거리까지 볼 수 있습니다.
-Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n\n이 이름의 영웅이 이미 풀에 있습니다.\n다른 이름을 입력해 보십시오.
-Message/&CharacterExportEmptyNameErrorDescription=내보내기 취소됨:\n\n빈 칸 없이 이름을 입력해 주세요.
+Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n이 이름의 영웅이 이미 풀에 있습니다.\n다른 이름을 입력해 보십시오.
+Message/&CharacterExportEmptyNameErrorDescription=내보내기 취소됨:\n빈 칸 없이 이름을 입력해 주세요.
 Message/&CharacterExportModalContentDescription=내보낼 영웅 이름을 입력합니다:
 Message/&CharacterExportModalTitleDescription={0} 내보내기
 Message/&MessageModWelcomeDescription=미완성 비즈니스 모드는 흥미로운 기능으로 가득 차 있지만 기본적으로 활성화된 기능은 없습니다. <color=#F0DAA0>Ctrl-F10</color>을 눌러 Unity Mod Manager UI[UMM]를 연 다음 '미완성 비즈니스' 옆에 있는 설정 아이콘을 클릭하여 설정 페이지를 엽니다. 옵션을 살펴보고 마음에 드는 옵션을 선택하세요.\n<b>월 비용에 도움이 되고 3년 간의 논스톱 개발 및 유지 관리를 통해 높은 동기를 부여할 수 있도록 기부해 주세요.</b> 아래 버튼 기본적으로 <color=#F0DAA0>PayPal</color>로 연결되지만 Mod UI > Character에서 <color=#F0DAA0>Patreon</color> 또는 <color=#F0DAA0>GitHub</color>를 사용할 수도 있습니다. .

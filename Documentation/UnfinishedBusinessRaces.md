@@ -12,11 +12,10 @@ Constitution +2, increase 1 other score by 1 point.
 * Arcane Resilience
 
 You were created to have remarkable fortitude, represented by the following benefits:
-
-- You gain a +1 bonus to Armor Class.
-- You have advantage on saving throws against being poisoned, and you have resistance to poison damage.
-- You are immune to disease.
-- You don't need to sleep, and magic can't put you to sleep.
+• You gain a +1 bonus to Armor Class.
+• You have advantage on saving throws against being poisoned, and you have resistance to poison damage.
+• You are immune to disease.
+• You don't need to sleep, and magic can't put you to sleep.
 
 * Languages
 

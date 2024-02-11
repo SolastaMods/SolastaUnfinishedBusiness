@@ -1,7 +1,7 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=Arkane Widerstandsfähigkeit
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Konstitution +2, 1 weiteren Punktewert um 1 Punkt erhöhen.
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Erhöhung des Fähigkeitswerts
-Feature/&FeatureSetBattlebornArcaneResilienceDescription=Du wurdest geschaffen, um über eine bemerkenswerte Stärke zu verfügen, die sich in den folgenden Vorteilen widerspiegelt:\n\n- Du erhältst einen Bonus von +1 auf die Rüstungsklasse.\n- Du hast einen Vorteil bei Rettungswürfen gegen Vergiftungen und bist resistent dagegen Giftschaden.\n- Du bist immun gegen Krankheiten.\n- Du brauchst nicht zu schlafen und Magie kann dich nicht einschläfern lassen.
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Du wurdest geschaffen, um über eine bemerkenswerte Stärke zu verfügen, die sich in den folgenden Vorteilen widerspiegelt:\n• Du erhältst einen Bonus von +1 auf die Rüstungsklasse.\n• Du hast einen Vorteil bei Rettungswürfen gegen Vergiftungen und bist resistent dagegen Giftschaden.\n• Du bist immun gegen Krankheiten.\n• Du brauchst nicht zu schlafen und Magie kann dich nicht einschläfern lassen.
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=Arkane Widerstandsfähigkeit
 Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Sie erwerben eine Fertigkeitskompetenz und eine Werkzeugkompetenz Ihrer Wahl.
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Spezialisierte Infusion

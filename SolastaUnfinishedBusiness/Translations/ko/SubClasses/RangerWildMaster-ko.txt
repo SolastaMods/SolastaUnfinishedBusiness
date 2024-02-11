@@ -1,7 +1,7 @@
 Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=와일드마스터 보너스
-Feature/&FeatureSetWildMaster03Description=모험에 동행하며 함께 싸우도록 훈련받은 정령 야수 동료를 얻습니다. 이 야수는 방어 등급, 명중 굴림 및 피해 굴림에 지혜 능력치가 적용됩니다. 또한 캐릭터 레벨당 체력이 4씩 증가하고, 다른 명령을 내리지 않으면 자신의 턴에 회피 행동을 취합니다.\n정령 야수와 소환사는 동일한 우선권을 공유하며, 곰, 독수리, 늑대 중 하나를 선택할 수 있습니다. \n곰은 불 숨결을 뿜어낼 수 있습니다\n. 독수리는 전기를 직선으로 발사합니다.\n늑대는 냉기 숨결을 내뿜습니다.
+Feature/&FeatureSetWildMaster03Description=모험에 동행하며 함께 싸우도록 훈련받은 정령 야수 동료를 얻습니다. 이 야수는 방어 등급, 명중 굴림 및 피해 굴림에 지혜 능력치가 적용됩니다. 또한 캐릭터 레벨당 체력이 4씩 증가하고, 다른 명령을 내리지 않으면 자신의 턴에 회피 행동을 취합니다.\n정령 야수와 소환사는 동일한 우선권을 공유하며, 곰, 독수리, 늑대 중 하나를 선택할 수 있습니다. \n곰은 불 숨결을 뿜어낼 수 있습니다\n• 독수리는 전기를 직선으로 발사합니다.\n늑대는 냉기 숨결을 내뿜습니다.
 Feature/&FeatureSetWildMaster03Title=야수 동료
-Feature/&FeatureSetWildMaster07Description=정령 야수는 이제 자신의 턴에 질주 또는 이탈 행동을 사용할 수 있으며, 저항과 면역을 극복하기 위해 공격이 마법 공격 타입으로 계산됩니다. 정령 야수는 더 강력해졌습니다\n. 곰은 이제 화염에 회복됩니다\n. 독수리는 전기에 회복됩니다\n. 늑대는 냉기에 회복됩니다.
+Feature/&FeatureSetWildMaster07Description=정령 야수는 이제 자신의 턴에 질주 또는 이탈 행동을 사용할 수 있으며, 저항과 면역을 극복하기 위해 공격이 마법 공격 타입으로 계산됩니다. 정령 야수는 더 강력해졌습니다\n• 곰은 이제 화염에 회복됩니다\n• 독수리는 전기에 회복됩니다\n• 늑대는 냉기에 회복됩니다.
 Feature/&FeatureSetWildMaster07Title=진정한 전문가
 Feature/&FeatureSetWildMaster11Description=이제 정령 야수가 사용 가능한 모든 공격을 완전히 사용할 수 있으며, 모든 내성 굴림에 당신의 숙련 보너스를 더합니다. 이제 모든 정령 야수가 투명 상태가 될 수 있습니다.
 Feature/&FeatureSetWildMaster11Title=대가

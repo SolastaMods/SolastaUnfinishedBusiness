@@ -140,8 +140,8 @@ Feedback/&TrueSightAndIllusionSpells={0} a True Sight et n'est pas affecté par 
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
 Invocation/&DevilsSightExtendedDescription=Vous pouvez voir normalement dans l'obscurité, à la fois magique et non magique, jusqu'à une distance de 80 pieds.
-Message/&CharacterExportDuplicateNameErrorDescription=Exportation annulée :\n\nUn héros portant ce nom existe déjà dans le groupe.\nVeuillez essayer un autre nom.
-Message/&CharacterExportEmptyNameErrorDescription=Exportation annulée :\n\nVeuillez essayer un nom non vide.
+Message/&CharacterExportDuplicateNameErrorDescription=Exportation annulée :\nUn héros portant ce nom existe déjà dans le groupe.\nVeuillez essayer un autre nom.
+Message/&CharacterExportEmptyNameErrorDescription=Exportation annulée :\nVeuillez essayer un nom non vide.
 Message/&CharacterExportModalContentDescription=Saisissez le nom du héros à exporter :
 Message/&CharacterExportModalTitleDescription=Exporter {0}
 Message/&MessageModWelcomeDescription=Le module Unfinished Business regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=#F0DAA0>Ctrl-F10</color> pour ouvrir l'interface utilisateur de Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de « Tâches inachevées » pour ouvrir les pages de paramètres. Explorez les options et sélectionnez celles que vous aimez.\n<b>Veuillez faire un don si vous le pouvez, car cela aide à couvrir les coûts mensuels et maintient la motivation élevée après 3 ans de développement et de maintenance non-stop.</b> Le bouton ci-dessous vous amènera à <color=#F0DAA0>PayPal</color> par défaut mais vous pouvez également utiliser <color=#F0DAA0>Patreon</color> ou <color=#F0DAA0>GitHub</color> sous Mod UI > Character .

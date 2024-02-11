@@ -140,8 +140,8 @@ Feedback/&TrueSightAndIllusionSpells={0}は真の視力を持っており、こ�
 Format/&LevelAndExperienceFormat=レベル: {0}\n経験値: {1}\n{2} ポイントがレベル {3} に到達するために必要です
 Format/&LevelAndExperienceMaxedFormat=レベル: {0}\n経験値: {1}\n最大レベルに到達しました
 Invocation/&DevilsSightExtendedDescription=通常、暗闇の中でも、魔法のようなものもそうでないものも、80 フィートの距離まで見ることができます。
-Message/&CharacterExportDuplicateNameErrorDescription=エクスポートがキャンセルされました:\n\nこの名前のヒーローはプールにすでに存在します。\n別の名前を試してください。
-Message/&CharacterExportEmptyNameErrorDescription=エクスポートがキャンセルされました:\n\n空でない名前を試してください。
+Message/&CharacterExportDuplicateNameErrorDescription=エクスポートがキャンセルされました:\nこの名前のヒーローはプールにすでに存在します。\n別の名前を試してください。
+Message/&CharacterExportEmptyNameErrorDescription=エクスポートがキャンセルされました:\n空でない名前を試してください。
 Message/&CharacterExportModalContentDescription=エクスポートするヒーロー名を入力してください:
 Message/&CharacterExportModalTitleDescription={0}をエクスポート
 Message/&MessageModWelcomeDescription=Unfinished Business Mod にはエキサイティングな機能が満載ですが、デフォルトではどれも有効になっていません。 <color=#F0DAA0>Ctrl-F10</color> を押して Unity Mod Manager UI [UMM] を開き、「Unfinished Business」の横にある設定アイコンをクリックして設定ページを開きます。オプションを調べて、気に入ったものを選択してください。\n<b>月々のコストを軽減し、3 年間ノンストップで開発とメンテナンスを行った後のモチベーションを高く保つことができますので、可能であれば寄付してください。</b> 下のボタンデフォルトでは <color=#F0DAA0>PayPal</color> に移動しますが、[Mod UI] > [Character] で <color=#F0DAA0>Patreon</color> または <color=#F0DAA0>GitHub</color> を使用することもできます。 。

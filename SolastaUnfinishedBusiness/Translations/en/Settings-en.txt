@@ -12,7 +12,7 @@ ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</colo
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Add to store
 ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
+ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
 ModUi/&AllItemInDm=All items in DM
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
@@ -52,7 +52,7 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Cold Resistance</color> also grants immunity to chilled condition and reduces frozen to chilled
 ModUi/&Combat=<color=#F0DAA0>Combat:</color>
 ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
-ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active party\n. Items added to stores might need the party to travel away from the location and come back
+ModUi/&CraftingHelp=• Press the button to learn recipes instantly on the active party\n• Items added to stores might need the party to travel away from the location and come back
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits & Diags
 ModUi/&Critical=<color=#F0DAA0>Critical Hit:</color>
@@ -75,7 +75,7 @@ ModUi/&DontDisplayHelmets=Don't display helmets on graphic characters <b><i><col
 ModUi/&DontEndTurnAfterReady=Don't end turn after using <color=#D89555>ready action</color> <i><color=#F0DAA0>[allows to use Bonus Action or any extra Main actions from Haste or other sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
-ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
+ModUi/&DungeonMakerBasicHelp=• These settings won't require the player to have this mod installed
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
 ModUi/&EnableActionSwitching=Enable action switching bar <i><color=#F0DAA0>[useful when hasted to use haste action before main action]</color></i>
@@ -93,7 +93,7 @@ ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to exp
 ModUi/&EnableCharactersOnFireToEmitLight=Characters on fire should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableCustomPortraits=Enable custom portraits
-ModUi/&EnableCustomPortraitsHelp=. Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n. Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i> 
+ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i> 
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Gambits, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
@@ -131,7 +131,7 @@ ModUi/&EnableRogueSteadyAim=Enable <color=#D89555>Rogue</color> <b>Steady Aim</b
 ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
 ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
 ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
-ModUi/&EnableSumD20OnAlternateVotingSystem=. Also each hero adds a D20 roll to weight for a bit of randomness <i><color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
+ModUi/&EnableSumD20OnAlternateVotingSystem=• Also each hero adds a D20 roll to weight for a bit of randomness <i><color=#F0DAA0>[choice weight = votes * hero Charisma modifier + D20 roll]</color></i>
 ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
 ModUi/&EnableTooltipDistance=Enable showing distance on tooltips when hovering over a character in combat
@@ -145,7 +145,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify fac
 ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
 ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
-ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar <color=#D89555>feats</color> <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
+ModUi/&FeatGroupsHelp=• Each group is a consolidation of similar <color=#D89555>feats</color> <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n• Feats in these groups won't be directly visible anymore on the proficiency selection stage\n• The group, when selected, offers them on a dropdown list to de-clutter the game screen
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixAsianLanguagesTextWrap=Fix Asian languages' game UI text wrap <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -153,9 +153,9 @@ ModUi/&FixEldritchBlastRange=Use official 24 cells range with <color=#D89555>Eld
 ModUi/&FlightSuspendWingedBoots=<i>+ Use Winged Boots official rules <color=#F0DAA0>[remaining duration not counted when flight suspended]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>
-ModUi/&FormationHelp1=. Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>
-ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> represent relative hero positions
-ModUi/&FormationHelp3=. Click any 2 buttons to swap their positions
+ModUi/&FormationHelp1=• Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>
+ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> represent relative hero positions
+ModUi/&FormationHelp3=• Click any 2 buttons to swap their positions
 ModUi/&FormationHotkey=Enable <color=#1E81B0>CTRL-SHIFT-(1..5)</color> to swap formation sets in game
 ModUi/&FormationResetAllSets=Reset all
 ModUi/&FormationResetThisSet=Reset this
@@ -230,7 +230,7 @@ ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Remove school restrictions from <c
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=. Override defaults to force all merchant's stock to restock over time <i><color=#F0DAA0>[excluding Manuals and Tomes]</color></i>\n. Note that some items can take up to 7 game days to restock
+ModUi/&RestockHelp=• Override defaults to force all merchant's stock to restock over time <i><color=#F0DAA0>[excluding Manuals and Tomes]</color></i>\n• Note that some items can take up to 7 game days to restock
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Rollback</color></b>
 ModUi/&Rules=Rules
@@ -241,8 +241,8 @@ ModUi/&SelectSuggested=Select Suggested
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
 ModUi/&SettingsExport=Export
-ModUi/&SettingsHelp=. As a host you can export your current configuration, open the exports folder and easily share with your peers\n. As a guest you can open the exports folder, paste the shared file from the host and load it over <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&SettingsLoad=. Load an exported setting
+ModUi/&SettingsHelp=• As a host you can export your current configuration, open the exports folder and easily share with your peers\n• As a guest you can open the exports folder, paste the shared file from the host and load it over <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&SettingsLoad=• Load an exported setting
 ModUi/&SettingsOpenFolder=Open exported settings folder
 ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
