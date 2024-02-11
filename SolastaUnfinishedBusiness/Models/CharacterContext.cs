@@ -1857,24 +1857,17 @@ internal static class CharacterContext
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle) ||
+                !IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
             {
                 yield break;
             }
 
-            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle))
-            {
-                yield break;
-            }
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
-            {
-                yield break;
-            }
-
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null || battleManager is not { IsBattleInProgress: true })
+            if (actionManager == null ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1893,12 +1886,12 @@ internal static class CharacterContext
                 TargetCharacters = { defender }
             };
 
-            var count = manager.PendingReactionRequestGroups.Count;
+            var count = actionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, manager, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!actionParams.ReactionValidated)
             {

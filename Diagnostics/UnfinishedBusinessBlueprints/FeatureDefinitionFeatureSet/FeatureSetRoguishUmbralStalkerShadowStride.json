@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerRoguishUmbralStalkerShadowStride:9be72d78-639b-519d-8317-366a8ea4c552",
+    "Definition:PowerRoguishUmbralStalkerShadowStrideAtWill:21b2d192-191d-531d-bae2-16b81eed8d84"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerRoguishUmbralStalkerShadowStrideTitle",
+    "description": "Feature/&PowerRoguishUmbralStalkerShadowStrideDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b5076915-83a7-5c07-9ff3-fcc34132c3c0",
+  "contentPack": 9999,
+  "name": "FeatureSetRoguishUmbralStalkerShadowStride"
+}

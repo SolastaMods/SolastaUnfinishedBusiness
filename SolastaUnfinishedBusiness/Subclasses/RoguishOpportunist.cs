@@ -42,7 +42,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create($"Condition{Name}Debilitated")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures(savingThrowAffinityDebilitatingStrike)
             .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
@@ -54,6 +53,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
@@ -74,8 +74,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureOpportunity.AddCustomSubFeatures(
-            new ModifyAttackActionModifierOpportunity(featureOpportunity));
+        featureOpportunity.AddCustomSubFeatures(new ModifyAttackActionModifierOpportunity(featureOpportunity));
 
         // LEVEL 09
 
@@ -107,7 +106,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create(ConditionHindered, $"Condition{Name}ImprovedDebilitated")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike)
             .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
@@ -119,6 +117,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
@@ -173,10 +172,11 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetOverriddenPower(powerImprovedDebilitatingStrike)
             .AddToDB();
 
+        // MAIN
+
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("RoguishOpportunist")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("RoguishOpportunist", Resources.RoguishOpportunist, 256))
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishOpportunist, 256))
             .AddFeaturesAtLevel(3, featureOpportunity, powerDebilitatingStrike)
             .AddFeaturesAtLevel(9, featureSeizeTheChance)
             .AddFeaturesAtLevel(13, powerImprovedDebilitatingStrike)
@@ -200,8 +200,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
     private sealed class ModifyAttackActionModifierOpportunity(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureOpportunistQuickStrike)
-        : IModifyAttackActionModifier
+        FeatureDefinition featureOpportunistQuickStrike) : IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(
             RulesetCharacter rulesetAttacker,

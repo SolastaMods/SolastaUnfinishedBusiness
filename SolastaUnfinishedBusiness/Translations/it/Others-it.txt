@@ -125,6 +125,9 @@ Feature/&PowerVanishSummonDescription=Puoi far svanire la tua evocazione.
 Feature/&PowerVanishSummonTitle=Svanire
 Feature/&ToolGainChoicesPluralDescription=Scegli {0} di questi strumenti: {1}
 Feature/&ToolGainChoicesSingleDescription=Scegli uno di questi strumenti: {1}
+Feedback/&ChangeSneakDiceDamageType={1} cambia il danno dei dadi furtivi in {2}
+Feedback/&ChangeSneakDiceDieType={1} cambia il tipo di dado nascosto da {2} a {3}
+Feedback/&ChangeSneakDiceNumber={1} cambia il numero dei dadi furtivi da {2} a {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} tira per mantenere {1} {2} contro DC {3}, tira {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} tira per mantenere {1} contro DC {2}, tira {3} = {4}
 Feedback/&FlankingAttack=Fiancheggiamento

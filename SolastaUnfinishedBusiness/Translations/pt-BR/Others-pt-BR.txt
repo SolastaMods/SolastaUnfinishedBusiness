@@ -124,6 +124,9 @@ Feature/&PowerVanishSummonDescription=Você pode fazer sua invocação desaparec
 Feature/&PowerVanishSummonTitle=Desaparecer
 Feature/&ToolGainChoicesPluralDescription=Escolha {0} destas ferramentas: {1}
 Feature/&ToolGainChoicesSingleDescription=Escolha uma destas ferramentas: {1}
+Feedback/&ChangeSneakDiceDamageType={1} altera o dano dos dados furtivos para {2}
+Feedback/&ChangeSneakDiceDieType={1} altera o tipo do dado furtivo de {2} para {3}
+Feedback/&ChangeSneakDiceNumber={1} altera o número do dado furtivo de {2} para {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rola para manter {1} {2} contra CD {3}, rola {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} rola para manter {1} contra CD {2}, rola {3} = {4}
 Feedback/&FlankingAttack=Flanqueando

@@ -24,9 +24,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
     public RoguishRavenScion()
     {
-        //
         // LEVEL 03
-        //
 
         // Ranged Specialist
 
@@ -65,9 +63,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                     (_, _, _, _, _, mode, _) => (OperationType.Set, ValidatorsWeapon.IsTwoHandedRanged(mode))))
             .AddToDB();
 
-        //
         // LEVEL 09
-        //
 
         // Heart-Seeking Shot
 
@@ -97,9 +93,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
         powerHeartSeekingShot.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
             new AssetReference();
 
-        //
         // LEVEL 13
-        //
 
         // Deadly Focus
 
@@ -112,9 +106,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
         powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyFocus));
 
-        //
         // LEVEL 17
-        //
 
         // Killing Spree
 
@@ -138,9 +130,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                     .AddToDB()))
             .AddToDB();
 
-        //
         // MAIN
-        //
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Roguish{Name}")
@@ -176,19 +166,12 @@ public sealed class RoguishRavenScion : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (activeEffect != null || !ValidatorsWeapon.IsTwoHandedRanged(attackMode))
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.HasAnyConditionOfType(condition.Name))
-            {
-                yield break;
-            }
-
-            if (!attacker.IsMyTurn())
+            if (activeEffect != null ||
+                !attacker.IsMyTurn() ||
+                !ValidatorsWeapon.IsTwoHandedRanged(attackMode) ||
+                rulesetAttacker.HasAnyConditionOfType(condition.Name))
             {
                 yield break;
             }
@@ -225,19 +208,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
             GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            if (action.AttackRollOutcome != RollOutcome.Success)
-            {
-                yield break;
-            }
-
-            if (attacker != helper)
-            {
-                yield break;
-            }
-
-            var sourceDefinition = action.ActionParams.attackMode.SourceDefinition;
-
-            if (sourceDefinition is not ItemDefinition itemDefinition ||
+            if (action.AttackRollOutcome != RollOutcome.Success ||
+                attacker != helper ||
+                action.ActionParams.attackMode.SourceDefinition is not ItemDefinition itemDefinition ||
                 !ValidatorsWeapon.IsTwoHandedRanged(itemDefinition))
             {
                 yield break;
@@ -252,8 +225,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Deadly Focus
     //
 
-    private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power)
-        : ITryAlterOutcomeAttack
+    private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
@@ -291,6 +263,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            // could had used PowerNoCost but looking for a better log message below
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "RavenScionDeadlyFocus",
@@ -327,6 +300,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var advantageTrends =
                 new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, power.Name, power) };
 
+            // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetCharacter.RollAttack(
                 attackMode.toHitBonus,
                 defender.RulesetCharacter,
@@ -340,7 +314,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 out var outcome,
                 out var successDelta,
                 -1,
-                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
                 true);
 
             attackModifier.ignoreAdvantage = false;

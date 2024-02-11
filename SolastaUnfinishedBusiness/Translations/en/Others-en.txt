@@ -124,6 +124,9 @@ Feature/&PowerVanishSummonDescription=You can make your summon vanish.
 Feature/&PowerVanishSummonTitle=Vanish
 Feature/&ToolGainChoicesPluralDescription=Choose {0} of these tools: {1}
 Feature/&ToolGainChoicesSingleDescription=Choose one of these tools: {1}
+Feedback/&ChangeSneakDiceDamageType={1} changes the sneak dice damage to {2}
+Feedback/&ChangeSneakDiceDieType={1} changes the sneak die type from {2} to {3}
+Feedback/&ChangeSneakDiceNumber={1} changes the sneak dice number from {2} to {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rolls to maintain {1} {2} versus DC {3}, rolls {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} rolls to maintain {1} versus DC {2}, rolls {3} = {4}
 Feedback/&FlankingAttack=Flanking

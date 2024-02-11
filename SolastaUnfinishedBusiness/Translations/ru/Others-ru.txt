@@ -124,6 +124,9 @@ Feature/&PowerVanishSummonDescription=Вы можете заставить пр�
 Feature/&PowerVanishSummonTitle=Исчезновение
 Feature/&ToolGainChoicesPluralDescription=Выберите {0} из этих инструментов: {1}
 Feature/&ToolGainChoicesSingleDescription=Выберите один из этих инструментов: {1}
+Feedback/&ChangeSneakDiceDamageType={1} изменяет урон от кубиков скрытности на {2}
+Feedback/&ChangeSneakDiceDieType={1} изменяет тип скрытого кубика с {2} на {3}
+Feedback/&ChangeSneakDiceNumber={1} изменяет номер кубика скрытности с {2} на {3}.
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} бросает для поддержания {1} {2} против Сл {3}, выкидывает {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} бросает для поддержания {1} против Сл {2}, выкидывает {3} = {4}
 Feedback/&FlankingAttack=Угроза с фланга

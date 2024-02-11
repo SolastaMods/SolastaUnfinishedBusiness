@@ -124,6 +124,9 @@ Feature/&PowerVanishSummonDescription=소환을 사라지게 할 수 있습니�
 Feature/&PowerVanishSummonTitle=사라지다
 Feature/&ToolGainChoicesPluralDescription=다음 도구 중 {0}개를 선택합니다: {1}
 Feature/&ToolGainChoicesSingleDescription=다음 도구 중 하나를 선택합니다: {1}
+Feedback/&ChangeSneakDiceDamageType={1}은 몰래 주사위 피해를 {2}로 변경합니다.
+Feedback/&ChangeSneakDiceDieType={1}은 몰래 주사위 유형을 {2}에서 {3}으로 변경합니다.
+Feedback/&ChangeSneakDiceNumber={1}은 몰래 주사위 번호를 {2}에서 {3}으로 변경합니다.
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 굴려 {1} {2} 대 DC {3} 유지, {4} = {5} 굴림
 Feedback/&ConcentrationEffectCheckRolledLine={0} 굴려 {1} 대 DC {2} 유지, {3} = {4} 굴림
 Feedback/&FlankingAttack=측면 공격

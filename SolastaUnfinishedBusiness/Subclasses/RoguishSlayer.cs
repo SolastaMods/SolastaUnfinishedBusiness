@@ -26,9 +26,9 @@ public sealed class RoguishSlayer : AbstractSubclass
 
     public RoguishSlayer()
     {
-        //
+        // LEVEL 03
+
         // Elimination
-        //
 
         var featureElimination = FeatureDefinitionBuilder
             .Create($"Feature{Name}{Elimination}")
@@ -37,15 +37,14 @@ public sealed class RoguishSlayer : AbstractSubclass
 
         featureElimination.AddCustomSubFeatures(new CustomBehaviorElimination(featureElimination));
 
-        //
+        // LEVEL 09
+
         // Chain of Execution
-        //
 
         _ = ConditionDefinitionBuilder
             .Create(ConditionChainOfExecutionBeneficialName)
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBullsStrength)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
         _ = ConditionDefinitionBuilder
@@ -53,7 +52,6 @@ public sealed class RoguishSlayer : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBleeding)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedChainOfExecution())
             .AddToDB();
 
@@ -63,9 +61,9 @@ public sealed class RoguishSlayer : AbstractSubclass
             .AddCustomSubFeatures(new OnReducedToZeroHpByMeChainOfExecution())
             .AddToDB();
 
-        //
+        // LEVEL 13
+
         // Cloak of Shadows
-        //
 
         var powerCloakOfShadows = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{CloakOfShadows}")
@@ -80,9 +78,9 @@ public sealed class RoguishSlayer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        //
+        // LEVEL 17
+
         // Fatal Strike
-        //
 
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
@@ -90,6 +88,8 @@ public sealed class RoguishSlayer : AbstractSubclass
             .AddToDB();
 
         featureFatalStrike.AddCustomSubFeatures(new PhysicalAttackInitiatedByMeFatalStrike(featureFatalStrike));
+
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -113,9 +113,9 @@ public sealed class RoguishSlayer : AbstractSubclass
 
     internal static void InflictConditionChainOfExecution(
         RulesetCharacter rulesetAttacker,
-        RulesetCharacter rulesetDefender)
+        RulesetCharacter rulesetDefender = null)
     {
-        var isBeneficial = rulesetAttacker == rulesetDefender;
+        var isBeneficial = rulesetDefender == null;
 
         var conditionName = isBeneficial
             ? ConditionChainOfExecutionBeneficialName
@@ -130,11 +130,15 @@ public sealed class RoguishSlayer : AbstractSubclass
             return;
         }
 
+        var endOccurrence = isBeneficial
+            ? TurnOccurenceType.EndOfTurn
+            : TurnOccurenceType.StartOfTurn;
+
         rulesetCharacter.InflictCondition(
             conditionName,
             DurationType.Round,
             1,
-            TurnOccurenceType.EndOfTurn,
+            endOccurrence,
             AttributeDefinitions.TagEffect,
             rulesetAttacker.guid,
             rulesetAttacker.CurrentFaction.Name,
@@ -151,9 +155,9 @@ public sealed class RoguishSlayer : AbstractSubclass
 
     private sealed class CustomBehaviorElimination(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition)
-        : IModifyAttackActionModifier, IModifyAttackCriticalThreshold
+        FeatureDefinition featureDefinition) : IModifyAttackActionModifier, IModifyAttackCriticalThreshold
     {
+        // Allow advantage if first round and higher initiative order vs defender
         public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -162,10 +166,6 @@ public sealed class RoguishSlayer : AbstractSubclass
             string effectName,
             ref ActionModifier attackModifier)
         {
-            //
-            // Allow advantage if first round and higher initiative order vs defender
-            //
-
             var battle = Gui.Battle;
 
             // always grant advantage on battle round zero
@@ -229,7 +229,7 @@ public sealed class RoguishSlayer : AbstractSubclass
                 return;
             }
 
-            InflictConditionChainOfExecution(rulesetCharacter, rulesetCharacter);
+            InflictConditionChainOfExecution(rulesetCharacter);
         }
     }
 
@@ -241,9 +241,7 @@ public sealed class RoguishSlayer : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            InflictConditionChainOfExecution(rulesetCharacter, rulesetCharacter);
+            InflictConditionChainOfExecution(attacker.RulesetCharacter);
 
             yield break;
         }
@@ -255,8 +253,7 @@ public sealed class RoguishSlayer : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedByMeFatalStrike(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureFatalStrike)
-        : IPhysicalAttackInitiatedByMe
+        FeatureDefinition featureFatalStrike) : IPhysicalAttackInitiatedByMe
     {
         public IEnumerator OnPhysicalAttackInitiatedByMe(
             GameLocationBattleManager battleManager,
@@ -276,8 +273,8 @@ public sealed class RoguishSlayer : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
-            var advantageTrends = rulesetDefender.actionModifier.savingThrowAdvantageTrends;
+            var modifierTrend = rulesetDefender.actionModifier.SavingThrowModifierTrends;
+            var advantageTrends = rulesetDefender.actionModifier.SavingThrowAdvantageTrends;
             var attackerDexterityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity));
             var attackerProficiencyBonus =
@@ -285,18 +282,17 @@ public sealed class RoguishSlayer : AbstractSubclass
             var defenderConstitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
                 rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution));
 
-            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, featureFatalStrike, modifierTrend,
-                advantageTrends, defenderConstitutionModifier, 8 + attackerProficiencyBonus + attackerDexterityModifier,
-                false,
-                out var savingOutcome,
-                out _);
+            rulesetDefender.RollSavingThrow(
+                0, AttributeDefinitions.Constitution, featureFatalStrike,
+                modifierTrend, advantageTrends, defenderConstitutionModifier,
+                8 + attackerProficiencyBonus + attackerDexterityModifier, false, out var savingOutcome, out _);
 
             if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 yield break;
             }
 
-            attackModifier.attackerDamageMultiplier *= 2;
+            attackModifier.AttackerDamageMultiplier *= 2;
         }
     }
 }

@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
@@ -29,9 +30,9 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
     public RoguishArcaneScoundrel()
     {
-        //
         // LEVEL 3
-        //
+
+        // Spell Casting
 
         var castSpell = FeatureDefinitionCastSpellBuilder
             .Create($"CastSpell{Name}")
@@ -49,11 +50,15 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetSlotsPerLevel(FeatureDefinitionCastSpellBuilder.CasterProgression.OneThird)
             .AddToDB();
 
+        // Arcane Affinity
+
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Arcana")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Arcana)
             .AddToDB();
+
+        // Guileful Casting
 
         var magicAffinityGuilefulCasting = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}GuilefulCasting")
@@ -61,9 +66,9 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetHandsFullCastingModifiers(true, false, true)
             .AddToDB();
 
-        //
         // LEVEL 9
-        //
+
+        // Distracting Ambush
 
         var conditionDistractingAmbush = ConditionDefinitionBuilder
             .Create(ConditionDistractingAmbushName)
@@ -103,9 +108,9 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.None)
             .AddToDB();
 
-        //
         // LEVEL 13
-        //
+
+        // Arcane Backslash
 
         var autoPreparedSpellsArcaneBackslash = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}ArcaneBackslash")
@@ -152,13 +157,11 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerArcaneBacklash.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
-            new ActionFinishedByMeArcaneBackslash(
-                powerArcaneBacklash,
-                powerArcaneBackslashCounterSpell));
+            new ActionFinishedByMeArcaneBackslash(powerArcaneBacklash, powerArcaneBackslashCounterSpell));
 
-        //
         // LEVEL 17
-        //
+
+        // Essence Theft
 
         var conditionPossessed = ConditionDefinitionBuilder
             .Create($"Condition{Name}Possessed")
@@ -203,7 +206,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerEssenceTheft.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(CanUseEssenceTheft),
-            new FilterTargetingCharacterEssenceTheft(powerEssenceTheft, conditionPossessed));
+            new CustomBehaviorEssenceTheft(powerEssenceTheft, conditionPossessed));
 
         var featureSetTricksOfTheTrade = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}TricksOfTheTrade")
@@ -211,20 +214,17 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddFeatureSet(powerPossessed, powerEssenceTheft)
             .AddToDB();
 
+        // MAIN
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("ArcaneScoundrel", Resources.RoguishArcaneScoundrel, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishArcaneScoundrel, 256))
             .AddFeaturesAtLevel(3,
-                castSpell,
-                magicAffinityGuilefulCasting,
-                proficiencyCraftyArcana)
+                castSpell, magicAffinityGuilefulCasting, proficiencyCraftyArcana)
             .AddFeaturesAtLevel(9,
                 additionalDamageDistractingAmbush)
             .AddFeaturesAtLevel(13,
-                autoPreparedSpellsArcaneBackslash,
-                powerArcaneBacklash,
-                powerArcaneBackslashCounterSpell)
+                autoPreparedSpellsArcaneBackslash, powerArcaneBacklash, powerArcaneBackslashCounterSpell)
             .AddFeaturesAtLevel(17,
                 featureSetTricksOfTheTrade)
             .AddToDB();
@@ -334,12 +334,12 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class FilterTargetingCharacterEssenceTheft(
+    private sealed class CustomBehaviorEssenceTheft(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinitionPower powerEssenceTheft,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionPossessed)
-        : IFilterTargetingCharacter
+        : IFilterTargetingCharacter, IModifyEffectDescription
     {
         public bool EnforceFullSelection => false;
 
@@ -364,6 +364,40 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             }
 
             return isValid;
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerEssenceTheft;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var hero = character.GetOriginalHero();
+
+            if (hero == null)
+            {
+                return effectDescription;
+            }
+
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                return effectDescription;
+            }
+
+            if (hero.TrainedFeats.Contains(ClassFeats.CloseQuartersDex) ||
+                hero.TrainedFeats.Contains(ClassFeats.CloseQuartersInt))
+            {
+                damageForm.DieType = DieType.D8;
+            }
+
+            return effectDescription;
         }
     }
 }

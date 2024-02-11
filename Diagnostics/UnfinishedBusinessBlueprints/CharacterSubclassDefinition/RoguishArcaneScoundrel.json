@@ -51,7 +51,7 @@
     "description": "Subclass/&RoguishArcaneScoundrelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3e73a2c2-af6c-59c1-8e47-77947b9d900a",
+      "m_AssetGUID": "4a718f50-fef8-5141-bd02-1f8017fdaa5a",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

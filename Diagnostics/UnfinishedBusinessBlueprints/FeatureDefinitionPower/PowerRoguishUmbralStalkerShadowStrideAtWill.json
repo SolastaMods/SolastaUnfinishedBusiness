@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 24,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "Position",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -30,21 +30,21 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Round",
+    "targetSide": "Ally",
+    "durationType": "Instantaneous",
     "durationParameter": 1,
-    "endOfEffect": "EndOfSourceTurn",
-    "hasSavingThrow": true,
+    "endOfEffect": "EndOfTurn",
+    "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Constitution",
+    "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Dexterity",
-    "fixedSavingThrowDifficultyClass": 8,
+    "difficultyClassComputation": "SpellCastingFeature",
+    "savingThrowDifficultyAbility": "Wisdom",
+    "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "damageAffinitiesByFamily": [],
@@ -63,7 +63,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Motion",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -71,19 +71,17 @@
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionRoguishOpportunistDebilitated",
-          "conditionDefinition": "Definition:ConditionRoguishOpportunistDebilitated:25efa820-65fc-5a19-b218-2a0e9e8f666f",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "motionForm": {
+          "$type": "MotionForm, Assembly-CSharp",
+          "type": "TeleportToDestination",
+          "distance": 0,
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -115,7 +113,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2ce63100f4aeab54abc545c17d51e7bc",
+        "m_AssetGUID": "3d5e3356b30164542aa9cc43955eab41",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -133,13 +131,13 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "9d87bc59e9e6832408d0289920f13160",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "8c183f2d138b26c4f9c8344ea653eb62",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -292,7 +290,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "OnSneakAttackHitAuto",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -328,13 +326,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRoguishOpportunistDebilitatingStrikeTitle",
-    "description": "Feature/&PowerRoguishOpportunistDebilitatingStrikeDescription",
+    "title": "Feature/&PowerRoguishUmbralStalkerShadowStrideTitle",
+    "description": "Feature/&PowerRoguishUmbralStalkerShadowStrideDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "b48525af-3efb-5482-b9c1-e98a51be316a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -349,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "78f2cc86-ecbb-5ae4-b0b4-326f8cb07037",
+  "guid": "21b2d192-191d-531d-bae2-16b81eed8d84",
   "contentPack": 9999,
-  "name": "PowerRoguishOpportunistDebilitatingStrike"
+  "name": "PowerRoguishUmbralStalkerShadowStrideAtWill"
 }
