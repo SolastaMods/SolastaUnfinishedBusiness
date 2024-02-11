@@ -8,7 +8,7 @@ RESPEC MIGHT BE REQUIRED ON: Tactician and Silhouette [if heroes or saves create
 - fixed Burning Blade spell not allowing a second target selection
 - fixed College of War Dancer not granting an extra attack after a non attack one
 - fixed Monk Stunning Strike not checking for ki points availability
-- fixed Overwhelming Attack gambit modal staying open after targets selection
+- fixed no cost powers modal staying open after selection
 - improved Innovation Vitriolist mixtures power descriptions
 - improved Roguish Blade Caller hail of blades reaction descriptions
 - removed backward compatibility blueprints from Tactician and Silhouette

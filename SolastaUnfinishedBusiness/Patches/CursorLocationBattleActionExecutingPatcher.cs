@@ -55,9 +55,8 @@ public static class CursorLocationBattleActionExecutingPatcher
             bool allowUsingDelegatedPowersAsPowers,
             CharacterAction action)
         {
-            // some NoCost powers without Recharge offering the selection again (i.e.: Gambits)
+            // NoCost powers offer the selection again (i.e.: Overwhelming Gambit, Umbral Stalker Shadow Stride, etc.)
             if (action is CharacterActionUsePower actionUsePower &&
-                actionUsePower.activePower.PowerDefinition is FeatureDefinitionPowerSharedPool &&
                 actionUsePower.activePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.NoCost)
             {
                 return ActionDefinitions.ActionStatus.Unavailable;
