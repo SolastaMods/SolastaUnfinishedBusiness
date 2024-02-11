@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -110,7 +111,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 new ValidatorsValidatePowerUse(
                     ValidatorsCharacter.HasAvailableMoves,
                     ValidatorsCharacter.IsNotInBrightLight),
-                new FilterTargetingPositionShadowStride())
+                new CustomBehaviorShadowStride())
             .AddToDB();
 
         // LEVEL 13
@@ -260,12 +261,25 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Shadow Stride
     //
 
-    private sealed class FilterTargetingPositionShadowStride : IFilterTargetingPosition
+    private sealed class CustomBehaviorShadowStride : IFilterTargetingPosition, IMagicEffectInitiatedByMe
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
-            yield return cursorLocationSelectPosition.MyComputeValidPositions(LocationDefinitions.LightingState.Bright,
+            yield return cursorLocationSelectPosition.MyComputeValidPositions(
+                LocationDefinitions.LightingState.Bright,
                 cursorLocationSelectPosition.ActionParams.ActingCharacter.RemainingTacticalMoves);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var sourcePosition = actingCharacter.LocationPosition;
+            var targetPosition = action.ActionParams.Positions[0];
+
+            actingCharacter.UsedTacticalMoves +=
+                DistanceCalculation.GetDistanceFromPositions(sourcePosition, targetPosition);
+
+            yield break;
         }
     }
 
