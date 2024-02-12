@@ -1802,14 +1802,8 @@ internal static class CharacterContext
     internal static bool IsSneakAttackValid(
         ActionModifier attackModifier,
         GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        RulesetAttackMode attackMode)
+        GameLocationCharacter defender)
     {
-        if (attackMode == null)
-        {
-            return false;
-        }
-
         // only trigger if haven't used sneak attack yet
         if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack") ||
             !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel") ||
@@ -1830,7 +1824,7 @@ internal static class CharacterContext
                     .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker) ||
                 // it's a Duelist and target is dueling with him
                 RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
-                // it's a Umbral Stalker and source and target are in dim light or darkness
+                // it's an Umbral Stalker and source and target are in dim light or darkness
                 RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType)
         };
     }
@@ -1857,9 +1851,8 @@ internal static class CharacterContext
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle) ||
-                !IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
+            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle) ||
+                !IsSneakAttackValid(actionModifier, attacker, defender))
             {
                 yield break;
             }

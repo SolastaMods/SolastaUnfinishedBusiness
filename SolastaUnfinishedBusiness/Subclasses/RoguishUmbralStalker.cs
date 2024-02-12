@@ -239,7 +239,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             bool criticalHit)
         {
             if (!ValidatorsWeapon.IsMelee(attackMode) ||
-                !CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
+                !CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender))
             {
                 yield break;
             }
@@ -379,7 +379,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            if (!CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
+            if (!CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender))
             {
                 yield break;
             }

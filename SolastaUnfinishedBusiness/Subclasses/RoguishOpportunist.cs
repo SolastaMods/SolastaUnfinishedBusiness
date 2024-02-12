@@ -1,10 +1,13 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static AttributeDefinitions;
 using static FeatureDefinitionSavingThrowAffinity;
@@ -49,7 +52,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var powerDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DebilitatingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -66,6 +70,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
                     .SetParticleEffectParameters(InflictWounds)
                     .Build())
             .AddToDB();
+
+        powerDebilitatingStrike.AddCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnEnemyDebilitatingStrike(powerDebilitatingStrike));
 
         // Opportunity
 
@@ -113,7 +120,8 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var powerImprovedDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ImprovedDebilitatingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -193,6 +201,51 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Debilitating Strike
+    //
+
+    private sealed class AttackBeforeHitConfirmedOnEnemyDebilitatingStrike(
+        FeatureDefinitionPower powerDebilitatingStrike) : IAttackBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerDebilitatingStrike, rulesetAttacker);
+            // must be spend power otherwise it'll trigger after cunning strike
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
+        }
+    }
 
     //
     // Opportunity
