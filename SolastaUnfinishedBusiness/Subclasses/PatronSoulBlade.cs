@@ -60,7 +60,8 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEmpowered))
             .AddToDB();
 
-        // Common Hex Feature
+        // Hex
+
         var conditionHexDefender = ConditionDefinitionBuilder
             .Create($"Condition{Name}HexDefender")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
@@ -68,13 +69,15 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
+        conditionHexDefender.AddCustomSubFeatures(new OnConditionAddedOrRemovedHex(conditionHexDefender));
+
         var additionalDamageHex = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}Hex")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("Hex")
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetTargetCondition(conditionHexDefender, AdditionalDamageTriggerCondition.TargetHasCondition)
-            .AddCustomSubFeatures(new ModifyCriticalThresholdAgainstHexedTargets(conditionHexDefender.Name))
+            .AddCustomSubFeatures(new ModifyCriticalThresholdHex(conditionHexDefender))
             .AddToDB();
 
         var conditionHexAttacker = ConditionDefinitionBuilder
@@ -84,30 +87,25 @@ public sealed class PatronSoulBlade : AbstractSubclass
             .SetFeatures(additionalDamageHex)
             .AddToDB();
 
-        conditionHexDefender.AddCustomSubFeatures(new OnConditionAddedOrRemovedHex(conditionHexDefender));
-
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
-
-        var effectDescriptionHex = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-            .SetDurationData(DurationType.Minute, 1)
-            .SetParticleEffectParameters(Bane)
-            .SetEffectForms(
-                EffectFormBuilder.ConditionForm(conditionHexDefender),
-                EffectFormBuilder.ConditionForm(conditionHexAttacker, ConditionForm.ConditionOperation.Add, true))
-            .Build();
-
-        // Soul Hex - Basic
 
         var powerHex = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Hex")
             .SetGuiPresentation(Category.Feature, spriteSoulHex)
-            .AddCustomSubFeatures(ForceRetargetAvailability.Mark)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetShowCasting(true)
-            .SetEffectDescription(effectDescriptionHex)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetParticleEffectParameters(Bane)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionHexDefender),
+                        EffectFormBuilder.ConditionForm(
+                            conditionHexAttacker, ConditionForm.ConditionOperation.Add, true))
+                    .Build())
+            .AddCustomSubFeatures(ForceRetargetAvailability.Mark)
             .AddToDB();
 
         //
@@ -183,17 +181,14 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         // Master Hex
 
-        var effectDescriptionMasterHex = EffectDescriptionBuilder
-            .Create(effectDescriptionHex)
-            .AllowRetarget()
-            .Build();
-
         var powerMasterHex = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}MasterHex")
-            .SetGuiPresentation($"Power{Name}Hex", Category.Feature, spriteSoulHex)
+            .Create(powerHex, $"Power{Name}MasterHex")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
-            .SetShowCasting(true)
-            .SetEffectDescription(effectDescriptionMasterHex)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(powerHex)
+                    .AllowRetarget()
+                    .Build())
             .SetOverriddenPower(powerHex)
             .AddToDB();
 
@@ -246,8 +241,9 @@ public sealed class PatronSoulBlade : AbstractSubclass
         return canWeaponBeEmpowered || canTwoHandedBeEmpowered;
     }
 
-    private sealed class ModifyCriticalThresholdAgainstHexedTargets(string hexCondition)
-        : IModifyAttackCriticalThreshold
+    private sealed class ModifyCriticalThresholdHex(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionHex) : IModifyAttackCriticalThreshold
     {
         public int GetCriticalThreshold(
             int current, RulesetCharacter me, RulesetCharacter target, BaseDefinition attackMethod)
@@ -257,7 +253,7 @@ public sealed class PatronSoulBlade : AbstractSubclass
                 return current;
             }
 
-            if (target.HasConditionOfType(hexCondition))
+            if (target.HasConditionOfType(conditionHex.Name))
             {
                 return current - 1;
             }
@@ -278,38 +274,26 @@ public sealed class PatronSoulBlade : AbstractSubclass
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            // SHOULD ONLY TRIGGER ON DEATH
-            if (target is not { IsDeadOrDyingOrUnconscious: true })
-            {
-                return;
-            }
-
-            if (rulesetCondition.ConditionDefinition != conditionHexDefender)
+            if (target is not { IsDeadOrDyingOrUnconscious: true } ||
+                rulesetCondition.ConditionDefinition != conditionHexDefender)
             {
                 return;
             }
 
             var rulesetCaster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
 
-            if (rulesetCaster is not { IsDeadOrDyingOrUnconscious: false })
+            if (rulesetCaster is not { IsDeadOrDyingOrUnconscious: false } ||
+                rulesetCaster.MissingHitPoints == 0)
             {
                 return;
             }
 
-            ReceiveHealing(rulesetCaster);
-        }
-
-        private static void ReceiveHealing(RulesetCharacter rulesetCharacter)
-        {
-            var characterLevel = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var charisma = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
+            var characterLevel = rulesetCaster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var charisma = rulesetCaster.TryGetAttributeValue(AttributeDefinitions.Charisma);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
             var healingReceived = characterLevel + charismaModifier;
 
-            if (rulesetCharacter.MissingHitPoints > 0 && !rulesetCharacter.IsDeadOrDyingOrUnconscious)
-            {
-                rulesetCharacter.ReceiveHealing(healingReceived, true, rulesetCharacter.Guid);
-            }
+            rulesetCaster.ReceiveHealing(healingReceived, true, rulesetCaster.Guid);
         }
     }
 
