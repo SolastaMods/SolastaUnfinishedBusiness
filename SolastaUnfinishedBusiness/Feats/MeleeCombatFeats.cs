@@ -174,7 +174,6 @@ internal static class MeleeCombatFeats
             .Create(REACH_CONDITION)
             .SetGuiPresentation($"Power{NAME}Reach", Category.Feature, ConditionDefinitions.ConditionGuided)
             .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddCustomSubFeatures(
                 new IncreaseWeaponReach(1, validWeapon, ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
             .AddToDB();
@@ -182,23 +181,15 @@ internal static class MeleeCombatFeats
         var powerFeatSpearMasteryReach = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Reach")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite($"Power{NAME}Reach", Resources.SpearMasteryReach, 256, 128))
+                Sprites.GetSprite("SpearMasteryReach", Resources.SpearMasteryReach, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(SpellDefinitions.Shield)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionFeatSpearMasteryReach,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionFeatSpearMasteryReach))
                     .UseQuickAnimations()
                     .Build())
             .AddToDB();
@@ -380,9 +371,7 @@ internal static class MeleeCombatFeats
                         AttributeModifierOperation.AddProficiencyBonus,
                         AttributeDefinitions.ArmorClass)
                     .AddToDB())
-            .SetSpecialInterruptions(
-                ConditionInterruption.AnyBattleTurnEnd,
-                (ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddToDB();
 
         var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
@@ -393,7 +382,7 @@ internal static class MeleeCombatFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDefensiveDuelist))
                     .Build())
@@ -493,8 +482,7 @@ internal static class MeleeCombatFeats
             .Create($"Condition{Name}HammerThePoint")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
             .AllowMultipleInstances()
             .AddToDB();
 
@@ -668,7 +656,6 @@ internal static class MeleeCombatFeats
             .Create("ConditionAlwaysReady")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         var featureAlwaysReady = FeatureDefinitionBuilder
@@ -687,6 +674,7 @@ internal static class MeleeCombatFeats
     }
 
     private sealed class CustomBehaviorAlwaysReady(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDefinition,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureDefinition)
@@ -725,9 +713,9 @@ internal static class MeleeCombatFeats
 
             rulesetCharacter.InflictCondition(
                 conditionDefinition.Name,
-                conditionDefinition.durationType,
-                conditionDefinition.durationParameter,
-                conditionDefinition.turnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
@@ -814,8 +802,6 @@ internal static class MeleeCombatFeats
             .Create($"Condition{Name}Finish")
             .SetGuiPresentation(Category.Condition)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}Finish")
@@ -896,8 +882,9 @@ internal static class MeleeCombatFeats
         return featCleavingAttack;
     }
 
-    private sealed class CustomBehaviorCleaving(ConditionDefinition conditionCleavingAttackFinish)
-        : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe
+    private sealed class CustomBehaviorCleaving(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionCleavingAttackFinish) : IOnReducedToZeroHpByMe, IPhysicalAttackFinishedByMe
     {
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
@@ -922,7 +909,8 @@ internal static class MeleeCombatFeats
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome != RollOutcome.CriticalSuccess || !ValidateCleavingAttack(attackMode))
+            if (rollOutcome != RollOutcome.CriticalSuccess ||
+                !ValidateCleavingAttack(attackMode))
             {
                 yield break;
             }
@@ -934,9 +922,9 @@ internal static class MeleeCombatFeats
         {
             rulesetCharacter.InflictCondition(
                 conditionCleavingAttackFinish.Name,
-                conditionCleavingAttackFinish.DurationType,
-                conditionCleavingAttackFinish.DurationParameter,
-                conditionCleavingAttackFinish.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
@@ -998,7 +986,6 @@ internal static class MeleeCombatFeats
             ConditionDefinitionBuilder
                 .Create("ConditionFeatCrusherCriticalHit")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-                .SetSpecialDuration(DurationType.Round, 1)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
@@ -1155,8 +1142,7 @@ internal static class MeleeCombatFeats
             .Create("ConditionDevastatingStrikes")
             .SetGuiPresentation(NAME, Category.Feat)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddCustomSubFeatures(new ModifyDamageAffinityDevastatingStrikes())
             .AddToDB();
 
@@ -1224,9 +1210,9 @@ internal static class MeleeCombatFeats
 
             rulesetCharacter.InflictCondition(
                 _conditionBypassResistance.Name,
-                _conditionBypassResistance.DurationType,
-                _conditionBypassResistance.DurationParameter,
-                _conditionBypassResistance.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
@@ -1760,7 +1746,6 @@ internal static class MeleeCombatFeats
                     .Create("ConditionFeatSlasherHit")
                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                     .SetConditionType(ConditionType.Detrimental)
-                    .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetFeatures(
                         FeatureDefinitionMovementAffinityBuilder
@@ -1773,7 +1758,6 @@ internal static class MeleeCombatFeats
                     .Create("ConditionFeatSlasherCriticalHit")
                     .SetGuiPresentation(Category.Condition)
                     .SetConditionType(ConditionType.Detrimental)
-                    .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetFeatures(
                         FeatureDefinitionCombatAffinityBuilder

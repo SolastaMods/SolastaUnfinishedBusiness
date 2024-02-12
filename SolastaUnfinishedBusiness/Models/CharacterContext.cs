@@ -176,8 +176,8 @@ internal static class CharacterContext
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(CustomConditionsContext.Distracted))
                 .Build())
         .SetUniqueInstance()
@@ -1504,7 +1504,6 @@ internal static class CharacterContext
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetConditionType(ConditionType.Detrimental)
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
         .AddToDB();
 
@@ -1644,7 +1643,6 @@ internal static class CharacterContext
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
             .AddFeatures(actionAffinityWithdraw)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerWithdraw = FeatureDefinitionPowerSharedPoolBuilder
@@ -1655,8 +1653,8 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
@@ -1679,7 +1677,6 @@ internal static class CharacterContext
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration()
             .AddFeatures(actionAffinityDazedOnlyMovement)
             .AddToDB();
 
@@ -1907,7 +1904,7 @@ internal static class CharacterContext
                 ConditionReduceSneakDice.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
@@ -1965,7 +1962,9 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class ActionFinishedByMeDazed(ConditionDefinition conditionDazedOnlyMovement) : IActionFinishedByMe
+    private sealed class ActionFinishedByMeDazed(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDazedOnlyMovement) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
@@ -1978,9 +1977,9 @@ internal static class CharacterContext
 
             rulesetCharacter.InflictCondition(
                 conditionDazedOnlyMovement.Name,
-                conditionDazedOnlyMovement.DurationType,
-                conditionDazedOnlyMovement.DurationParameter,
-                conditionDazedOnlyMovement.turnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,

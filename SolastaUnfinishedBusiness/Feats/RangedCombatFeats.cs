@@ -281,7 +281,7 @@ internal static class RangedCombatFeats
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                .SetDurationData(DurationType.Round)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(
                     EffectFormBuilder
@@ -293,8 +293,7 @@ internal static class RangedCombatFeats
                                     DatabaseHelper.ConditionDefinitions.ConditionGuided)
                                 .SetPossessive()
                                 .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetSpecialInterruptions(ConditionInterruption.Attacks,
-                                    ConditionInterruption.AnyBattleTurnEnd)
+                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                 .AddFeatures(
                                     FeatureDefinitionCombatAffinityBuilder
                                         .Create($"CombatAffinity{FeatSteadyAim}")
@@ -311,7 +310,6 @@ internal static class RangedCombatFeats
                                 .Create($"Condition{FeatSteadyAim}Restrained")
                                 .SetGuiPresentation(Category.Condition)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .AddFeatures(MovementAffinityConditionRestrained)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add)

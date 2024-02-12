@@ -87,8 +87,8 @@ internal static class RaceKoboldBuilder
 
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .Build();
 
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDarkKoboldGrovelCowerAndBeg;

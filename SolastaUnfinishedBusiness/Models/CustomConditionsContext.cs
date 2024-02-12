@@ -41,7 +41,6 @@ internal static class CustomConditionsContext
         Distracted = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder

@@ -32,8 +32,8 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Round",
-    "durationParameter": 1,
-    "endOfEffect": "StartOfTurn",
+    "durationParameter": 0,
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -82,8 +82,8 @@
           "conditionDefinition": "Definition:ConditionFeatSpearMasteryReach:07af8c69-cb28-56a0-99ef-9ad7f46e8125",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
-          "forceOnSelf": true
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -332,7 +332,7 @@
     "description": "Feature/&PowerFeatSpearMasteryReachDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bf646887-d93f-566f-832b-d54600e1b8ce",
+      "m_AssetGUID": "6ca784d8-ecab-505a-96b1-27f156547f57",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

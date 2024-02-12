@@ -37,8 +37,6 @@ internal static class TwoWeaponCombatFeats
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
             .SetGuiPresentationNoContent(true)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
@@ -46,8 +44,6 @@ internal static class TwoWeaponCombatFeats
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create("AdditionalActionDualFlurry")
@@ -142,9 +138,9 @@ internal static class TwoWeaponCombatFeats
 
             hero.InflictCondition(
                 condition.Name,
-                condition.DurationType,
-                condition.DurationParameter,
-                condition.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 hero.guid,
                 hero.CurrentFaction.Name,
