@@ -51,7 +51,7 @@
     "description": "Subclass/&SorcerousSpellBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ec996dbe-f9aa-56e8-b579-5d085bd8b70e",
+      "m_AssetGUID": "0feeee0a-724f-50de-adc0-530fa8335eb1",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

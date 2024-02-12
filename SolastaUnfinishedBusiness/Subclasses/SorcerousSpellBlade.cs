@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -25,6 +26,8 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
     {
         // LEVEL 01
 
+        // Auto Prepared Spells
+
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
@@ -38,6 +41,8 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
+        // Enchant Weapon
+
         var attackModifierEnchantWeapon = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}EnchantWeapon")
             .SetGuiPresentation("AttackModifierEnchantWeapon", Category.Feature)
@@ -45,6 +50,8 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
                 new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEnchanted),
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
+
+        // Martial Training
 
         var featureSetMartialTraining = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}MartialTraining")
@@ -70,53 +77,49 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
 
         const string MANA_SHIELD_NAME = $"FeatureSet{Name}ManaShield";
 
-        var effectDescriptionManaShield = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(DurationType.Minute, 1)
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetTempHpForm(0, DieType.D1, 0, true)
-                    .Build())
-            .Build();
-
-        var spriteManaShield = Sprites.GetSprite("PowerManaShield", Resources.PowerManaShield, 256, 128);
-
-        var powerManaShield = FeatureDefinitionPowerBuilder
+        var powerManaShieldFixed = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ManaShield")
-            .SetGuiPresentation(MANA_SHIELD_NAME, Category.Feature, spriteManaShield)
+            .SetGuiPresentation(MANA_SHIELD_NAME, Category.Feature,
+                Sprites.GetSprite("PowerManaShield", Resources.PowerManaShield, 256, 128))
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(effectDescriptionManaShield)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm()
+                            .Build())
+                    .Build())
             .AddToDB();
+
+        powerManaShieldFixed.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(
+                character => PowerProvider.Get(powerManaShieldFixed, character).RemainingUses > 0),
+            new ModifyEffectDescriptionManaShield(powerManaShieldFixed));
 
         var powerManaShieldPoints = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ManaShieldPoints")
-            .SetGuiPresentation(MANA_SHIELD_NAME, Category.Feature, spriteManaShield)
+            .Create(powerManaShieldFixed, $"Power{Name}ManaShieldPoints")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2, 0)
-            .SetEffectDescription(effectDescriptionManaShield)
             .AddToDB();
 
-        powerManaShield.AddCustomSubFeatures(
-            new ModifyEffectDescriptionManaShield(powerManaShield, powerManaShieldPoints),
-            new ModifyPowerVisibilityManaShield());
-
         powerManaShieldPoints.AddCustomSubFeatures(
-            new ModifyEffectDescriptionManaShield(powerManaShieldPoints, powerManaShieldPoints),
-            new ModifyPowerVisibilityManaShieldPoints(powerManaShield));
+            new ValidatorsValidatePowerUse(
+                character => PowerProvider.Get(powerManaShieldFixed, character).RemainingUses == 0),
+            new ModifyEffectDescriptionManaShield(powerManaShieldPoints));
 
         var featureSetManaShield = FeatureDefinitionFeatureSetBuilder
             .Create(MANA_SHIELD_NAME)
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerManaShield, powerManaShieldPoints)
+            .AddFeatureSet(powerManaShieldFixed, powerManaShieldPoints)
             .AddToDB();
 
-        // LEVEL 06
-
-        // all from common builders
-
         // LEVEL 14
+
+        // War Sorcerer
 
         var additionalDamageWarSorcererMagic = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}WarSorcererMagic")
@@ -140,7 +143,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .SetIgnoreCriticalDoubleDice(true)
             .AddToDB();
 
-        // had to keep this name off standard for reasons
+        // kept name for backward compatibility
         var additionalDamageWarSorcerer = FeatureDefinitionFeatureSetBuilder
             .Create($"AdditionalDamage{Name}WarSorcerer")
             .SetGuiPresentation(Category.Feature)
@@ -160,9 +163,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
         var proficiencyBattleReflexes = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}BattleReflexes")
             .SetGuiPresentation(BATTLE_REFLEXES_NAME, Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.SavingThrow,
-                AttributeDefinitions.Dexterity)
+            .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Dexterity)
             .AddToDB();
 
         var featureSetBattleReflexes = FeatureDefinitionFeatureSetBuilder
@@ -173,8 +174,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("SorcererSpellBlade", Resources.SorcererSpellBlade, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererSpellBlade, 256))
             .AddFeaturesAtLevel(1,
                 attackModifierEnchantWeapon,
                 featureSetMartialTraining,
@@ -205,25 +205,16 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
     // Mana Shield
     //
 
-    private sealed class ModifyPowerVisibilityManaShield() : ModifyPowerVisibility((character, power, _) =>
-        character.CanUsePower(power) || character.RemainingSorceryPoints < 2);
-
-    private sealed class ModifyPowerVisibilityManaShieldPoints(FeatureDefinitionPower powerManaShield)
-        : ModifyPowerVisibility((character, _, _) =>
-            !character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2);
-
     private sealed class ModifyEffectDescriptionManaShield(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower baseDefinition,
-        FeatureDefinitionPower powerManaShieldPoints)
-        : IModifyEffectDescription
+        FeatureDefinitionPower powerManaShield) : IModifyEffectDescription
     {
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
             EffectDescription effectDescription)
         {
-            return definition == baseDefinition;
+            return definition == powerManaShield;
         }
 
         public EffectDescription GetEffectDescription(
@@ -238,16 +229,6 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             var healing = classLevel + Math.Max(1, charismaModifier);
 
             effectDescription.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
-
-            //TODO: refactor this - we should not do actions when modifying effect descriptions
-            if (baseDefinition != powerManaShieldPoints)
-            {
-                return effectDescription;
-            }
-
-            var usablePower = PowerProvider.Get(powerManaShieldPoints, character);
-
-            character.RepayPowerUse(usablePower);
 
             return effectDescription;
         }

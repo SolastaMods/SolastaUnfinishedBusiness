@@ -27,6 +27,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
     {
         // LEVEL 01
 
+        // Auto Prepared Spells
+
         var autoPreparedSpellsFieldManipulator = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
@@ -39,6 +41,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddPreparedSpellGroup(9, HoldMonster)
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
+
+        // Displacement
 
         PowerSorcerousFieldManipulatorDisplacement = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Displacement")
@@ -67,6 +71,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
 
         // LEVEL 06
 
+        // Arcane Manipulation
+
         MagicAffinityHeightened = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ArcaneManipulation")
             .SetGuiPresentation(Category.Feature)
@@ -74,6 +80,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddToDB();
 
         // LEVEL 14
+
+        // Mental Resistance
 
         var proficiencyMentalResistance = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}MentalResistance")
@@ -85,6 +93,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddToDB();
 
         // LEVEL 18
+
+        // Forceful Step
 
         var powerForcefulStepApply = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepApply")
@@ -120,22 +130,21 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        var effectDescriptionForcefulStep = EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
-            .SetParticleEffectParameters(PowerMelekTeleport)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
-                    .Build())
-            .Build();
-
         var powerForcefulStepFixed = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepFixed")
             .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 3)
-            .SetEffectDescription(effectDescriptionForcefulStep)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+                    .SetParticleEffectParameters(PowerMelekTeleport)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         powerForcefulStepFixed.AddCustomSubFeatures(
@@ -144,10 +153,8 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ForcefulStepPoints")
-            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
+            .Create(powerForcefulStepFixed, $"Power{Name}ForcefulStepPoints")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 4, 0)
-            .SetEffectDescription(effectDescriptionForcefulStep)
             .AddToDB();
 
         powerForcefulStepPoints.AddCustomSubFeatures(
