@@ -82,7 +82,6 @@ public sealed class RoguishDuelist : AbstractSubclass
             .Create(ConditionReflexiveParryName)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var featureReflexiveParry = FeatureDefinitionBuilder
@@ -205,7 +204,7 @@ public sealed class RoguishDuelist : AbstractSubclass
                 conditionReflexiveParty.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,

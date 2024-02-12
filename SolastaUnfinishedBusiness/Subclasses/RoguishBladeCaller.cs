@@ -140,7 +140,6 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetSilent(Silent.WhenRemoved)
             .SetPossessive()
             .AddFeatures(additionalActionBladeSurge, movementAffinityBladeSurge)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var featureBladeSurge = FeatureDefinitionBuilder
@@ -255,7 +254,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                         conditionBladeSurge.Name,
                         DurationType.Round,
                         0,
-                        TurnOccurenceType.StartOfTurn,
+                        TurnOccurenceType.EndOfTurn,
                         AttributeDefinitions.TagEffect,
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,

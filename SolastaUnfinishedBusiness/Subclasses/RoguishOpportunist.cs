@@ -154,7 +154,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create(ConditionHindered, $"Condition{Name}Exposed")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike, combatAffinityOpportunistExposingWeakness)
             .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
@@ -166,6 +165,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)

@@ -168,7 +168,6 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
             .AddToDB();
 
         // kept name for backward compatibility
@@ -179,6 +178,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionPossessed))
                     .Build())
