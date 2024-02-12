@@ -46,8 +46,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
             .Create($"Condition{Name}FlurryOfArrows")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddCustomSubFeatures(new AddExtraFlurryOfArrowsAttack())
             .AddToDB();
 
@@ -187,8 +185,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
             rulesetCharacter.InflictCondition(
                 condition.Name,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,

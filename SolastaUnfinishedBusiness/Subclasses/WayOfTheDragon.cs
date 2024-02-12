@@ -324,7 +324,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 DamageAffinityRadiantResistance,
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerReactiveHide = FeatureDefinitionPowerBuilder
@@ -335,7 +334,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionReactiveHide))
                     .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace)
@@ -368,7 +367,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .SetPossessive()
             .AddFeatures(additionalDamageAcid)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryAcid = FeatureDefinitionPowerBuilder
@@ -379,7 +377,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(AcidSplash)
                     .SetEffectForms(
@@ -410,7 +408,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .SetPossessive()
             .AddFeatures(additionalDamageLightning)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryLightning = FeatureDefinitionPowerBuilder
@@ -421,7 +418,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetParticleEffectParameters(LightningBolt)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
@@ -451,7 +448,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .SetPossessive()
             .AddFeatures(additionalDamagePoison)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryPoison = FeatureDefinitionPowerBuilder
@@ -462,7 +458,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(PoisonSpray)
                     .SetEffectForms(
@@ -493,7 +489,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .SetPossessive()
             .AddFeatures(additionalDamageFire)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryFire = FeatureDefinitionPowerBuilder
@@ -504,7 +499,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(Fireball)
                     .SetEffectForms(
@@ -535,7 +530,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .SetPossessive()
             .AddFeatures(additionalDamageCold)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryCold = FeatureDefinitionPowerBuilder
@@ -546,7 +540,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(ConeOfCold)
                     .SetEffectForms(

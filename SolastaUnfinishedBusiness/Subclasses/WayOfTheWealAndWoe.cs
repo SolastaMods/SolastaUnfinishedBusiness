@@ -33,7 +33,6 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             .Create($"Condition{Name}Weal")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.UntilLongRest)
             .AllowMultipleInstances()
             .SetFeatures(attributeModifierWeal)
             .AddToDB();
@@ -185,9 +184,9 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     // Weal
                     rulesetAttacker.InflictCondition(
                         _conditionWeal.Name,
-                        _conditionWeal.DurationType,
-                        _conditionWeal.DurationParameter,
-                        _conditionWeal.TurnOccurence,
+                        DurationType.UntilAnyRest,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
                         AttributeDefinitions.TagEffect,
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,

@@ -39,17 +39,14 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .Create($"Condition{Name}HadDiscordanceDamageThisTurn")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration()
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var conditionDiscordance = ConditionDefinitionBuilder
             .Create($"Condition{Name}Discordance")
             .SetGuiPresentation(Category.Condition, ConditionRestrictedInsideMagicCircle)
             .SetSilent(Silent.WhenRemoved)
-            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetPossessive()
             .AllowMultipleInstances()
             .AddToDB();
 
@@ -60,6 +57,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionDiscordance, ConditionOperation.Remove),
@@ -151,20 +149,19 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
         var conditionTurmoil = ConditionDefinitionBuilder
             .Create($"Condition{Name}Turmoil")
             .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
-            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
             .CopyParticleReferences(ConditionStrikeOfChaosAttackAdvantage)
-            .AddFeatures(combatAffinityTurmoil, savingThrowAffinityTurmoil)
+            .SetFeatures(combatAffinityTurmoil, savingThrowAffinityTurmoil)
             // required by Tides of Chaos to properly identify turmoil on death
-            .AddCustomSubFeatures(
-                new ForceConditionCategory(TagCombat))
+            .AddCustomSubFeatures(new ForceConditionCategory(TagCombat))
             .AddToDB();
 
         var conditionHadTurmoil = ConditionDefinitionBuilder
             .Create($"Condition{Name}HadTurmoil")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Day, 1)
+            .SetSpecialDuration(DurationType.Permanent)
             .AddToDB();
 
         var powerTurmoil = FeatureDefinitionPowerBuilder
@@ -333,6 +330,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
     private sealed class CustomBehaviorDiscordance(
         FeatureDefinitionPower powerDiscordance,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionDiscordance,
         ConditionDefinition conditionHadDiscordanceDamageThisTurn,
         FeatureDefinitionPower powerTurmoil,
@@ -397,9 +395,9 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             {
                 rulesetDefender.InflictCondition(
                     conditionDiscordance.Name,
-                    conditionDiscordance.DurationType,
-                    conditionDiscordance.DurationParameter,
-                    conditionDiscordance.TurnOccurence,
+                    DurationType.Minute,
+                    1,
+                    TurnOccurenceType.EndOfTurn,
                     TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,
@@ -412,17 +410,17 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 yield break;
             }
 
-            SpendPower(attacker, defender, powerDiscordance);
+            UsePower(attacker, defender, powerDiscordance);
 
             if (monkLevel >= TurmoilLevel &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 !defender.RulesetCharacter.HasConditionOfType(conditionHadTurmoil))
             {
-                SpendPower(attacker, defender, powerTurmoil);
+                UsePower(attacker, defender, powerTurmoil);
             }
         }
 
-        private static void SpendPower(
+        private static void UsePower(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             FeatureDefinitionPower featureDefinitionPower)
@@ -433,12 +431,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetAttacker);
-            //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { defender }
@@ -506,12 +502,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePowerDiscordance = PowerProvider.Get(powerDiscordance, rulesetCharacter);
-            //CHECK: must be power no cost
             var actionParamsDiscordance = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePowerDiscordance, false),
                 UsablePower = usablePowerDiscordance,
                 targetCharacters = targets
@@ -539,12 +533,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             var usablePowerTurmoil = PowerProvider.Get(powerTurmoil, rulesetCharacter);
-            //CHECK: must be power no cost
             var actionParamsTurmoil = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePowerTurmoil, false),
                 UsablePower = usablePowerTurmoil,
                 targetCharacters = targets
@@ -562,9 +554,7 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
 
     private sealed class OnReducedToZeroHpByMeOrAllyTidesOfChaos(
         ConditionDefinition conditionTurmoil,
-        FeatureDefinitionPower powerTidesOfChaos)
-        :
-            IOnReducedToZeroHpByMeOrAlly, IModifyEffectDescription
+        FeatureDefinitionPower powerTidesOfChaos) : IOnReducedToZeroHpByMeOrAlly, IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
@@ -595,15 +585,16 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAlly = ally.RulesetCharacter;
             var markOnceInAnyTurn = powerTidesOfChaos.Name + attacker.Name;
 
-            if (rulesetAlly is not { IsDeadOrDyingOrUnconscious: false }
-                || !ally.OncePerTurnIsValid(markOnceInAnyTurn))
+            if (rulesetAlly is not { IsDeadOrDyingOrUnconscious: false } ||
+                !ally.OncePerTurnIsValid(markOnceInAnyTurn))
             {
                 yield break;
             }
 
             var rulesetDowned = downedCreature.RulesetCharacter;
 
-            if (!rulesetDowned.HasConditionOfType(conditionTurmoil) || !ally.IsWithinRange(downedCreature, 6))
+            if (!rulesetDowned.HasConditionOfType(conditionTurmoil) ||
+                !ally.IsWithinRange(downedCreature, 6))
             {
                 yield break;
             }
@@ -619,12 +610,10 @@ public sealed class WayOfTheDiscordance : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerTidesOfChaos, rulesetAlly);
-            //CHECK: must be power no cost
             var actionParams = new CharacterActionParams(ally, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAlly, usablePower, false),
                 UsablePower = usablePower,
                 TargetCharacters = { ally }
