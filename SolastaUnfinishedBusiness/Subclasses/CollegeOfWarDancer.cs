@@ -68,7 +68,6 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                 .SetIgnoreCriticalDoubleDice(true)
                 .AddCustomSubFeatures(new ModifyAdditionalDamageFormMomentum())
                 .AddToDB())
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
     private static readonly ConditionDefinition WarDanceExtraAttack = ConditionDefinitionBuilder
@@ -85,14 +84,12 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
                 .SetMaxAttacksNumber(1)
                 .SetRestrictedActions(Id.AttackMain)
                 .AddToDB())
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
     private static readonly ConditionDefinition WarDanceMissedAttack = ConditionDefinitionBuilder
         .Create("ConditionWarDanceMissedAttack")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
 
     public CollegeOfWarDancer()
@@ -152,8 +149,8 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         rulesetCharacter.InflictCondition(
             condition.Name,
             DurationType.Round,
-            1,
-            TurnOccurenceType.StartOfTurn,
+            0,
+            TurnOccurenceType.EndOfTurn,
             AttributeDefinitions.TagEffect,
             rulesetCharacter.guid,
             rulesetCharacter.CurrentFaction.Name,

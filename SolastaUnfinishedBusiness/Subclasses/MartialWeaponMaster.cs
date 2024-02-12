@@ -88,7 +88,6 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .Create($"Condition{Name}{FocusedStrikes}")
             .SetGuiPresentation($"Condition{Name}{FocusedStrikes}", Category.Condition, ConditionGuided)
             .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(featureFocusedStrikes)
             .AddToDB();
 
@@ -100,6 +99,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
@@ -118,8 +118,6 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             .Create($"Condition{Name}Momentum")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create($"AdditionalAction{Name}Momentum")
@@ -333,9 +331,9 @@ public sealed class MartialWeaponMaster : AbstractSubclass
 
     private class OnReducedToZeroHpByMeMomentum(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition,
+        FeatureDefinition featureMomentum,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
+        ConditionDefinition conditionMomentum)
         : IOnReducedToZeroHpByMe
     {
         public IEnumerator HandleReducedToZeroHpByMe(
@@ -344,7 +342,7 @@ public sealed class MartialWeaponMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!attacker.OnceInMyTurnIsValid(featureDefinition.Name))
+            if (!attacker.OnceInMyTurnIsValid(featureMomentum.Name))
             {
                 yield break;
             }
@@ -356,18 +354,18 @@ public sealed class MartialWeaponMaster : AbstractSubclass
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd(featureDefinition.Name, 1);
-            rulesetAttacker.LogCharacterUsedFeature(featureDefinition);
+            attacker.UsedSpecialFeatures.TryAdd(featureMomentum.Name, 1);
+            rulesetAttacker.LogCharacterUsedFeature(featureMomentum);
             rulesetAttacker.InflictCondition(
-                conditionDefinition.Name,
+                conditionMomentum.Name,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                conditionDefinition.Name,
+                conditionMomentum.Name,
                 0,
                 0,
                 0);

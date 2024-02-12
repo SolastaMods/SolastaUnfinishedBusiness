@@ -55,7 +55,6 @@ public sealed class DomainDefiler : AbstractSubclass
         var conditionInsidiousDeathMagic = ConditionDefinitionBuilder
             .Create($"Condition{NAME}InsidiousDeathMagic")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)

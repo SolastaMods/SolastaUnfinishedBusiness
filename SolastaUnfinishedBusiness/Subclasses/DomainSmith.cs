@@ -308,13 +308,11 @@ public sealed class DomainSmith : AbstractSubclass
             .Create($"Condition{NAME}BlessedMetal")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetFeatures(
                 damageAffinityBlessedMetalFireImmunity,
                 damageAffinityBlessedMetalBludgeoningResistance,
                 damageAffinityBlessedMetalPiercingResistance,
                 damageAffinityBlessedMetalSlashingResistance)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var featureBlessedMetal = FeatureDefinitionBuilder
@@ -391,8 +389,9 @@ public sealed class DomainSmith : AbstractSubclass
         return !definition.Magical;
     }
 
-    private sealed class PhysicalAttackInitiatedOnMeBlessedMetal(ConditionDefinition conditionBlessedMetal)
-        : IPhysicalAttackInitiatedOnMe
+    private sealed class PhysicalAttackInitiatedOnMeBlessedMetal(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionBlessedMetal) : IPhysicalAttackInitiatedOnMe
     {
         public IEnumerator OnPhysicalAttackInitiatedOnMe(
             GameLocationBattleManager battleManager,
@@ -411,9 +410,9 @@ public sealed class DomainSmith : AbstractSubclass
 
             rulesetDefender.InflictCondition(
                 conditionBlessedMetal.Name,
-                conditionBlessedMetal.DurationType,
-                conditionBlessedMetal.DurationParameter,
-                conditionBlessedMetal.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetDefender.guid,
                 rulesetDefender.CurrentFaction.Name,
