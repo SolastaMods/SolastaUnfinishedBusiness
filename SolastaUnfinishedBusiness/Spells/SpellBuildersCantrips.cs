@@ -230,7 +230,6 @@ internal static partial class SpellBuilders
         var conditionMindSpike = ConditionDefinitionBuilder
             .Create(ConditionBaned, $"Condition{NAME}")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBaned)
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
@@ -248,6 +247,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Intelligence, false,
@@ -493,15 +493,13 @@ internal static partial class SpellBuilders
             .Create("ConditionSunlightBladeMarked")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var conditionSunlightBlade = ConditionDefinitionBuilder
             .Create("ConditionSunlightBlade")
             .SetGuiPresentation(Category.Condition)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAdditionalDamageBuilder
@@ -550,7 +548,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
@@ -577,7 +575,6 @@ internal static partial class SpellBuilders
         .Create("ConditionAcidClaws")
         .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
         .SetConditionType(ConditionType.Detrimental)
-        .SetSpecialDuration(DurationType.Round, 1)
         .SetFeatures(
             FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierAcidClawsACDebuff")
@@ -603,6 +600,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                     .SetEffectForms(
@@ -631,9 +629,7 @@ internal static partial class SpellBuilders
             .Create("ConditionBoomingBladeMarked")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var conditionBoomingBladeSheathed = ConditionDefinitionBuilder
@@ -646,7 +642,6 @@ internal static partial class SpellBuilders
         var conditionBoomingBlade = ConditionDefinitionBuilder
             .Create("ConditionBoomingBlade")
             .SetGuiPresentation(Category.Condition)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAdditionalDamageBuilder
@@ -660,8 +655,7 @@ internal static partial class SpellBuilders
                     .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
                         DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
                     .AddConditionOperation(
-                        ConditionOperationDescription.ConditionOperation.Add,
-                        conditionBoomingBladeSheathed)
+                        ConditionOperationDescription.ConditionOperation.Add, conditionBoomingBladeSheathed)
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
                     .SetImpactParticleReference(Shatter)
                     .AddToDB())
@@ -681,7 +675,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetIgnoreCover()
                     .SetEffectAdvancement( // this is needed for tooltip
