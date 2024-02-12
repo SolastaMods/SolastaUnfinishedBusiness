@@ -632,7 +632,6 @@ internal static partial class SpellBuilders
             .Create($"Condition{Name}Explode")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(powerExplode)
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
@@ -1081,7 +1080,6 @@ internal static partial class SpellBuilders
             .Create(ConditionEyebiteSickened, $"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures()
             .AddToDB();
 
@@ -1181,8 +1179,9 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class MagicEffectFinishedByMeCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
-        : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeCorruptingBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionCorruptingBolt) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1201,9 +1200,9 @@ internal static partial class SpellBuilders
             {
                 rulesetDefender.InflictCondition(
                     conditionCorruptingBolt.Name,
-                    conditionCorruptingBolt.DurationType,
-                    conditionCorruptingBolt.DurationParameter,
-                    conditionCorruptingBolt.TurnOccurence,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfSourceTurn,
                     AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,

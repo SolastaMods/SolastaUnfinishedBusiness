@@ -1312,7 +1312,6 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(Name, Category.Invocation, ConditionDefinitions.ConditionChilled)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration()
             .AddFeatures(DamageAffinityFireVulnerability)
             .AddToDB();
 
@@ -1453,8 +1452,9 @@ internal static class InvocationsBuilders
         }
     }
 
-    private sealed class OnConditionAddedOrRemovedTombOfFrostLazy(ConditionDefinition conditionTombOfFrost)
-        : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedTombOfFrostLazy(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionTombOfFrost) : IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
@@ -1473,9 +1473,9 @@ internal static class InvocationsBuilders
 
             target.InflictCondition(
                 conditionTombOfFrost.Name,
-                conditionTombOfFrost.DurationType,
-                conditionTombOfFrost.DurationParameter,
-                conditionTombOfFrost.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 target.Guid,
                 target.CurrentFaction.Name,

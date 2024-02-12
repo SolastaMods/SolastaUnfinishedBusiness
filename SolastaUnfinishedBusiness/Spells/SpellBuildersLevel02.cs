@@ -626,9 +626,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}NoBonus")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration()
             .SetFeatures(actionAffinityPsychicWhipNoBonus)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var actionAffinityPsychicWhipNoMove = FeatureDefinitionActionAffinityBuilder
@@ -641,9 +639,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}NoMove")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration()
             .SetFeatures(actionAffinityPsychicWhipNoMove)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var actionAffinityPsychicWhipNoMain = FeatureDefinitionActionAffinityBuilder
@@ -656,9 +652,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}NoMain")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration()
             .SetFeatures(actionAffinityPsychicWhipNoMain)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var actionAffinityPsychicWhipNoReaction = FeatureDefinitionActionAffinityBuilder
@@ -781,9 +775,9 @@ internal static partial class SpellBuilders
                 conditions.ForEach(condition =>
                     rulesetCharacter.InflictCondition(
                         condition.Name,
-                        condition.DurationType,
-                        condition.DurationParameter,
-                        condition.TurnOccurence,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfSourceTurn,
                         AttributeDefinitions.TagEffect,
                         caster.guid,
                         caster.CurrentFaction.Name,
