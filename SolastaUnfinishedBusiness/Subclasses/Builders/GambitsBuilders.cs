@@ -101,9 +101,7 @@ internal static class GambitsBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(gambitDieDamage)
-            .SetSpecialInterruptions(
-                ConditionInterruption.AnyBattleTurnEnd,
-                (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
             .AddToDB();
 
         var hasGambitDice =
@@ -826,7 +824,6 @@ internal static class GambitsBuilders
                     .SetAttackOfOpportunityImmunity(true)
                     .SetSituationalContext(SituationalContext.SourceHasCondition, bad)
                     .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         power = FeatureDefinitionPowerSharedPoolBuilder
@@ -1534,7 +1531,7 @@ internal static class GambitsBuilders
                     self.Name,
                     DurationType.Round,
                     0,
-                    TurnOccurenceType.StartOfTurn,
+                    TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
                     target.Guid,
                     target.CurrentFaction.Name,
