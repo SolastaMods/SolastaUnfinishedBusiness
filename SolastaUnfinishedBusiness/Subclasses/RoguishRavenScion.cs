@@ -216,6 +216,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 yield break;
             }
 
+            action.AttackRoll = 20;
             action.AttackRollOutcome = RollOutcome.CriticalSuccess;
             action.AttackSuccessDelta = 0;
         }
