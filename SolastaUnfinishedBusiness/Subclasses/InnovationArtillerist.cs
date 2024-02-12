@@ -257,7 +257,6 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .Create(ConditionCommandCannon)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         var powerEldritchCannonCommand = FeatureDefinitionPowerBuilder
@@ -267,6 +266,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder

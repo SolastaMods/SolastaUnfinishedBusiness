@@ -50,8 +50,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .Create($"Condition{Name}GiftOfTheWindAttacked")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
             .AddToDB();
 
         var additionalDamageGiftOfTheWind = FeatureDefinitionAdditionalDamageBuilder
