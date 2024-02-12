@@ -1,6 +1,7 @@
 1.5.94.53:
 
 - added Gameplay > General > 'Enable Rogue to use DEX or STR modifiers on some powers'
+- fixed Booming Step modal staying open after selection
 - fixed Raven heart-seeking shot not forcing a critical hit
 - improved sneak attack modifiers combat log messages [close quarters, cunning strike, etc.]
 - improved Roguish Opportunist debilitating strike to trigger before cunning strike

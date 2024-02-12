@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -665,16 +666,18 @@ internal static partial class SpellBuilders
                     .ExcludeCaster()
                     .SetParticleEffectParameters(Thunderwave)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectInitiatedByMeBoomingStep(powerExplode))
+            .AddCustomSubFeatures(new CustomBehaviorBoomingStep(powerExplode))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectInitiatedByMeBoomingStep(FeatureDefinitionPower powerExplode)
-        : IMagicEffectInitiatedByMe
+    private sealed class CustomBehaviorBoomingStep(FeatureDefinitionPower powerExplode)
+        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        private readonly List<GameLocationCharacter> _targets = [];
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {
@@ -688,25 +691,34 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
-            var targets = Gui.Battle.AllContenders
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), _targets.Count).ToList(),
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = _targets
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+
+            _targets.SetRange(Gui.Battle.AllContenders
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x != attacker &&
                     !action.ActionParams.TargetCharacters.Contains(x) &&
-                    attacker.IsWithinRange(x, 2))
-                .ToList();
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            // special case don't ExecuteAction on MagicEffectInitiated
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+                    attacker.IsWithinRange(x, 2)));
         }
     }
 
