@@ -45,15 +45,15 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D8, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionDefinition = conditionBlindedByBlindingSmite,
                     hasSavingThrow = true,
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = conditionBlindedByBlindingSmite,
-                    operation = ConditionOperationDescription.ConditionOperation.Add
+                    saveOccurence = TurnOccurenceType.StartOfTurn
                 })
             // doesn't follow the standard impact particle reference
             .SetImpactParticleReference(DivineFavor.EffectDescription.EffectParticleParameters.casterParticleReference)
@@ -587,12 +587,8 @@ internal static partial class SpellBuilders
                                         .SetDamageDice(DieType.D8, 1)
                                         .SetSpecificDamageType(damage)
                                         .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
-                                        .SetConditionOperations(
-                                            new ConditionOperationDescription
-                                            {
-                                                conditionDefinition = noHeal,
-                                                operation = ConditionOperationDescription.ConditionOperation.Add
-                                            })
+                                        .AddConditionOperation(
+                                            ConditionOperationDescription.ConditionOperation.Add, noHeal)
                                         .AddToDB())
                                 .AddToDB(), ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder

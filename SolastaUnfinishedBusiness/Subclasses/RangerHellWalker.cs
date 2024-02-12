@@ -81,15 +81,15 @@ public sealed class RangerHellWalker : AbstractSubclass
             .SetSavingThrowData()
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetIgnoreCriticalDoubleDice(true)
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionDefinition = conditionDammingStrike,
                     canSaveToCancel = true,
                     hasSavingThrow = true,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = conditionDammingStrike,
-                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                    saveAffinity = EffectSavingThrowType.Negates
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn
                 })
             .AddToDB();
 

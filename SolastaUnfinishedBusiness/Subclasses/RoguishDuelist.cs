@@ -43,12 +43,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    Operation = ConditionOperationDescription.ConditionOperation.Add,
-                    ConditionDefinition = conditionDaringDuel
-                })
+            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionDaringDuel)
             .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
 

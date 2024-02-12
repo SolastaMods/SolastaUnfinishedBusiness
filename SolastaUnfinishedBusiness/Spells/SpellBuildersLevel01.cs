@@ -243,7 +243,7 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.Negates,
                 AttributeDefinitions.Strength)
-            .SetConditionOperations(new ConditionOperationDescription
+            .AddConditionOperation(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
                 conditionDefinition = conditionEnsnared,
@@ -404,17 +404,17 @@ internal static partial class SpellBuilders
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None)
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = ConditionDefinitionBuilder
                         .Create(ConditionOnFire, $"Condition{NAME}Enemy")
                         .AddToDB(),
-                    operation = ConditionOperationDescription.ConditionOperation.Add
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn
                 })
             .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -471,19 +471,19 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
                 AttributeDefinitions.Wisdom)
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = ConditionDefinitionBuilder
                         .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
                         .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                         .SetParentCondition(ConditionDefinitions.ConditionFrightened)
                         .AddToDB(),
-                    operation = ConditionOperationDescription.ConditionOperation.Add
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn
                 })
             .SetImpactParticleReference(Fear.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();

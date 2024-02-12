@@ -514,19 +514,14 @@ internal static partial class SpellBuilders
                     .SetSpecificDamageType(DamageTypeRadiant)
                     .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
                         DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
-                    .SetTargetCondition(conditionMarked,
-                        AdditionalDamageTriggerCondition.TargetHasCondition)
-                    .SetConditionOperations(new ConditionOperationDescription
-                    {
-                        hasSavingThrow = false,
-                        operation = ConditionOperationDescription.ConditionOperation.Add,
-                        conditionDefinition = ConditionDefinitionBuilder
+                    .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
+                    .AddConditionOperation(
+                        ConditionOperationDescription.ConditionOperation.Add,
+                        ConditionDefinitionBuilder
                             .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
                             .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                            .SetSpecialDuration(DurationType.Round, 1,
-                                TurnOccurenceType.StartOfTurn)
-                            .AddToDB()
-                    })
+                            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                            .AddToDB())
                     .SetAddLightSource(true)
                     .SetLightSourceForm(new LightSourceForm
                     {
@@ -664,12 +659,9 @@ internal static partial class SpellBuilders
                     .SetSpecificDamageType(DamageTypeThunder)
                     .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel,
                         DiceByRankBuilder.InterpolateDiceByRankTable(0, 20, (5, 1), (11, 2), (17, 3)))
-                    .SetConditionOperations(new ConditionOperationDescription
-                    {
-                        hasSavingThrow = false,
-                        operation = ConditionOperationDescription.ConditionOperation.Add,
-                        conditionDefinition = conditionBoomingBladeSheathed
-                    })
+                    .AddConditionOperation(
+                        ConditionOperationDescription.ConditionOperation.Add,
+                        conditionBoomingBladeSheathed)
                     .SetTargetCondition(conditionMarked, AdditionalDamageTriggerCondition.TargetHasCondition)
                     .SetImpactParticleReference(Shatter)
                     .AddToDB())

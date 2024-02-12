@@ -26,25 +26,22 @@ internal sealed class Crippling : AbstractFightingStyle
                 .SetNotificationTag(Name)
                 .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                 .SetAttackModeOnly()
-                .SetConditionOperations(
-                    new ConditionOperationDescription
-                    {
-                        conditionDefinition = ConditionDefinitionBuilder
-                            .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling")
-                            .SetGuiPresentation(Category.Condition, ConditionSlowed)
-                            .SetSpecialDuration(DurationType.Round, 2)
-                            .SetParentCondition(ConditionHindered)
-                            .SetFeatures(
-                                MovementAffinityConditionHindered,
-                                FeatureDefinitionAttributeModifierBuilder
-                                    .Create("AttributeModifierCripplingACDebuff")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetModifier(AttributeModifierOperation.Additive,
-                                        AttributeDefinitions.ArmorClass, -1)
-                                    .AddToDB())
-                            .AddToDB(),
-                        operation = ConditionOperationDescription.ConditionOperation.Add
-                    })
+                .AddConditionOperation(
+                    ConditionOperationDescription.ConditionOperation.Add,
+                    ConditionDefinitionBuilder
+                        .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling")
+                        .SetGuiPresentation(Category.Condition, ConditionSlowed)
+                        .SetSpecialDuration(DurationType.Round, 2)
+                        .SetParentCondition(ConditionHindered)
+                        .SetFeatures(
+                            MovementAffinityConditionHindered,
+                            FeatureDefinitionAttributeModifierBuilder
+                                .Create("AttributeModifierCripplingACDebuff")
+                                .SetGuiPresentationNoContent(true)
+                                .SetModifier(AttributeModifierOperation.Additive,
+                                    AttributeDefinitions.ArmorClass, -1)
+                                .AddToDB())
+                        .AddToDB())
                 .AddToDB())
         .AddToDB();
 
