@@ -816,9 +816,9 @@ public static class RulesetImplementationManagerPatcher
 
             target.InflictCondition(
                 conditionDefinitionEnemy.Name,
-                conditionDefinitionEnemy.DurationType,
-                conditionDefinitionEnemy.DurationParameter,
-                conditionDefinitionEnemy.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 caster.guid,
                 caster.CurrentFaction.Name,
