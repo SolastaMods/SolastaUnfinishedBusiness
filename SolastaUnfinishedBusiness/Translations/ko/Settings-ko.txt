@@ -128,6 +128,7 @@ ModUi/&EnableRespec=휴식 후 캐릭터 재설정 가능
 ModUi/&EnableRogueCunningStrike=<color=#D89555>로그</color> 5 레벨과 14 레벨에 <b>교활한 일격</b>과 <b>비열한 습격</b> 활성화<i><color=#F0DAA0>[추가 효과를 위해 은신 주사위를 일부 소모합니다]</color></i>
 ModUi/&EnableRogueFightingStyle=레벨 2에서 <color=#D89555>도적</color> <b>격투 스타일</b> 선택 활성화
 ModUi/&EnableRogueSteadyAim=클래스 레벨 3에서 <color=#D89555>도적</color> <b>고정 조준</b>을 활성화하세요. <i><color=#F0DAA0>[다음 경우에 보너스 행동은 현재 턴의 다음 공격 굴림에 이점을 줍니다. 아직 움직이지 않았습니다]</color></i>
+ModUi/&EnableRogueStrSaving=<color=#D89555>도적</color>을 활성화하여 <b>교활한 일격</b>, <b>악마의 일격</b>, <b>쇠약화/향상된 약화 타격</b에 DEX 또는 STR 수정자를 사용하세요. > 및 <b>칼날의 우박</b>
 ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
 ModUi/&EnableSortingDungeonMakerAssets=던전 만들기 편집기에서 에셋 정렬 활성화
 ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>

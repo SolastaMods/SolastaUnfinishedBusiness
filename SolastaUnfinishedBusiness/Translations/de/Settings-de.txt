@@ -128,6 +128,7 @@ ModUi/&EnableRespec=Aktivieren Sie die RESPEC-Nach-Ruhe-Aktion
 ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>Cunning Strike</b> und <b>Devious Strike</b> auf den Klassenstufen 5 und 14 <i><color=#F0DAA0>[Sie lassen darauf verzichten 1 Hinterhältiger Angriffswürfel für zusätzliche Treffereffekte]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schurken</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Klassenstufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sind noch nicht umgezogen]</color></i>
+ModUi/&EnableRogueStrSaving=Aktivieren Sie <color=#D89555>Schurke</color>, um DEX- oder STR-Modifikatoren für <b>Cunning Strike</b>, <b>Devil Strike</b> und <b>Debilitating/Enhanced Debilitating Strike</b> zu verwenden > und <b>Hail of Blades</b>
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>

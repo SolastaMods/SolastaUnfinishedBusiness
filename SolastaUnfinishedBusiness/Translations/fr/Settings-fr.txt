@@ -128,6 +128,7 @@ ModUi/&EnableRespec=Autoriser la respécialisation des personnages après une ac
 ModUi/&EnableRogueCunningStrike=Activer la <b>Frappe Rusée</b> pour le <color=#D89555>Roublard</color> au niveau de classe 5 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets supplémentaires sur l'attaque]</color ></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix de <b>Style de combat</b> du <color=#D89555>Roublard</color> au niveau 2
 ModUi/&EnableRogueSteadyAim=Activez la <b>Visée Stable</b> du <color=#D89555>Roublard</color> au niveau de classe 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
+ModUi/&EnableRogueStrSaving=Activez <color=#D89555>Rogue</color> pour utiliser les modificateurs DEX ou STR sur <b>Frappe rusée</b>, <b>Frappe du diable</b>, <b>Frappe débilitante débilitante/améliorée</b > et <b>Grêle de lames</b>
 ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localités
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>

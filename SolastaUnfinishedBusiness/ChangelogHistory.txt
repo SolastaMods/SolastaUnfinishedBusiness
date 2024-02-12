@@ -1,3 +1,14 @@
+1.5.94.53:
+
+- added Gameplay > General > 'Enable Rogue to use DEX or STR modifiers on some powers'
+- fixed Raven heart-seeking shot not forcing a critical hit
+- improved sneak attack modifiers combat log messages [close quarters, cunning strike, etc.]
+- improved Roguish Opportunist debilitating strike to trigger before cunning strike
+- improved Roguish Umbral Stalker shadow strider to also work off battle
+- improved all translations to enforce consistency on lists
+- reviewed all conditions [hundreds of them] for correct duration determination
+- reviewed all subclasses, feats, FS, and spells for performance improvement and coding standard
+
 1.5.94.52:
 
 RESPEC IS REQUIRED ON: Moonlit and Raven Uncut [previously deprecated in 2023]

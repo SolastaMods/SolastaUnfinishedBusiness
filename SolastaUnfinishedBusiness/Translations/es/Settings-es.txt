@@ -128,6 +128,7 @@ ModUi/&EnableRespec=Habilite la acción RESPEC después del descanso
 ModUi/&EnableRogueCunningStrike=Habilita <color=#D89555>Pícaro</color> <b>Golpe astuto</b> y <b>Golpe engañoso</b> en los niveles de clase 5 y 14 <i><color=#F0DAA0>[dejas pasar 1 dado de ataque furtivo para efectos de golpe adicionales]</color></i>
 ModUi/&EnableRogueFightingStyle=Habilita la elección de <color=#D89555>Pícaro</color> <b>Estilo de lucha</b> en el nivel 2.
 ModUi/&EnableRogueSteadyAim=Habilita <color=#D89555>Rogue</color> <b>Steady Aim</b> en el nivel de clase 3 <i><color=#F0DAA0>[la acción adicional te da ventaja en tu próxima tirada de ataque en el turno actual si aún no me he movido]</color></i>
+ModUi/&EnableRogueStrSaving=Habilite a <color=#D89555>Rogue</color> para que use modificadores DEX o STR en <b>Golpe astuto</b>, <b>Golpe diabólico</b>, <b>Golpe debilitante/debilitante mejorado</b. >, y <b>Lluvia de espadas</b>
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>

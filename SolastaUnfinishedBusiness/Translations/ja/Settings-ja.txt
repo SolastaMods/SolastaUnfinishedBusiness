@@ -128,6 +128,7 @@ ModUi/&EnableRespec=休息後の RESPEC アクションを有効にする
 ModUi/&EnableRogueCunningStrike=<color=#D89555>ローグ</color> の<b>狡猾な攻撃</b>と<b>邪悪な攻撃</b>をクラスレベル5と14で有効にします<i><color=#F0DAA0>[放棄しました]追加のヒット効果のための急所攻撃ダイス 1 個]</color></i>
 ModUi/&EnableRogueFightingStyle=レベル 2 で<color=#D89555>ローグ</color>の<b>戦闘スタイル</b>の選択が可能になります
 ModUi/&EnableRogueSteadyAim=クラスレベル3で<color=#D89555>ローグ</color>の<b>ステディエイム</b>を有効にする<i><color=#F0DAA0>[ボーナスアクションにより、現在のターンの次の攻撃ロールでアドバンテージが得られます。まだ移動していません]</color></i>
+ModUi/&EnableRogueStrSaving=<color=#D89555>ローグ</color>が<b>狡猾な一撃</b>、<b>デビルストライク</b>、<b>弱体化/強化された衰弱化攻撃</b>でDEXまたはSTR補正を使用できるようにします。 > と<b>刃の雹</b>
 ModUi/&EnableSaveByLocation=キャンペーン/場所ごとの保存を有効にする
 ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker エディターでアセットのソートを有効にする
 ModUi/&EnableStatsOnHeroTooltip=ヒーローのツールチップに統計情報を表示します <i><color=#F0DAA0>[例: クリティカル ヒット、クリティカル失敗など]</color></i>

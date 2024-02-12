@@ -270,6 +270,7 @@ internal static class CharacterContext
         SwitchRogueCunningStrike();
         SwitchRogueFightingStyle();
         SwitchRogueSteadyAim();
+        SwitchRogueStrSaving();
         SwitchScimitarWeaponSpecialization();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
@@ -2043,6 +2044,29 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    private static void SwitchRogueStrSaving()
+    {
+        var powerNames = new List<string>
+        {
+            "PowerRogueCunningStrikeDisarm",
+            //"PowerRogueCunningStrikePoison",
+            "PowerRogueCunningStrikeTrip",
+            //"PowerRogueCunningStrikeWithdraw",
+            //"PowerRogueDeviousStrikeDaze",
+            //"PowerRogueDeviousStrikeKnockOut",
+            "PowerRogueDeviousStrikeObscure",
+            "PowerRoguishOpportunistDebilitatingStrike",
+            "PowerRoguishOpportunistImprovedDebilitatingStrike",
+            "PowerRoguishBladeCallerHailOfBlades"
+        };
+
+        foreach (var power in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+                     .Where(x => powerNames.Contains(x.Name)))
+        {
+            power.AddCustomSubFeatures(new ModifyEffectDescriptionSavingThrowRogue(power));
         }
     }
 

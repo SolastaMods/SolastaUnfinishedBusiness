@@ -204,6 +204,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableRogueCunningStrike { get; set; }
     public bool EnableRogueFightingStyle { get; set; }
     public bool EnableRogueSteadyAim { get; set; }
+    public bool EnableRogueStrSaving { get; set; }
 
     // Visuals
     public bool OfferAdditionalLoreFriendlyNames { get; set; }
