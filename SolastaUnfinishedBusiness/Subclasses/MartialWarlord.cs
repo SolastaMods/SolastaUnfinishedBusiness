@@ -501,6 +501,8 @@ public sealed class MartialWarlord : AbstractSubclass
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, false);
         }
+
+        public int PositionRange => 12;
     }
 
     //

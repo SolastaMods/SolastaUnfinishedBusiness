@@ -742,6 +742,8 @@ internal static partial class SpellBuilders
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, false);
         }
+
+        public int PositionRange => 12;
     }
 
     #endregion

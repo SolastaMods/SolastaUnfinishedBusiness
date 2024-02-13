@@ -458,11 +458,44 @@ public static class CursorLocationSelectTargetPatcher
                         //
                         // haven't found a better way to pass the selected characters over
                         // for now adding the GUID of first selected character to actor used features
+                        // most likely this will break any twinned effect on spells (Telekinesis is one)
                         //
-                        if ((__instance.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower &&
-                             rulesetEffectPower.PowerDefinition.HasSubFeatureOfType<ISelectPositionAfterCharacter>()) ||
-                            (__instance.ActionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
-                             rulesetEffectSpell.SpellDefinition.HasSubFeatureOfType<ISelectPositionAfterCharacter>()))
+                        var enableSelectPosition = false;
+
+                        switch (__instance.ActionParams.RulesetEffect)
+                        {
+                            case RulesetEffectPower rulesetEffectPower:
+                            {
+                                var modifier = rulesetEffectPower.PowerDefinition
+                                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
+
+                                if (modifier != null)
+                                {
+                                    __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
+                                        modifier.PositionRange;
+                                    enableSelectPosition = true;
+                                }
+
+                                break;
+                            }
+                            case RulesetEffectSpell rulesetEffectSpell:
+                            {
+                                var modifier = rulesetEffectSpell.SpellDefinition
+                                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
+
+                                if (modifier != null)
+                                {
+                                    __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
+                                        modifier.PositionRange;
+                                    enableSelectPosition = true;
+                                }
+
+                                break;
+                            }
+                        }
+                        
+                        // enable select position if any modifier found
+                        if (enableSelectPosition)
                         {
                             if (!__instance.ActionParams.ActingCharacter.UsedSpecialFeatures
                                     .TryAdd("SelectedCharacter",
@@ -472,12 +505,8 @@ public static class CursorLocationSelectTargetPatcher
                                     (int)__instance.SelectionService.SelectedTargets[0].Guid;
                             }
 
-                            // double the range parameter so we can offer all possible positions from selected target
-                            __instance.ActionParams.activeEffect.EffectDescription.rangeParameter *= 2;
-
-                            // enable select position
-                            __instance.CursorService.ActivateCursor<CursorLocationSelectPosition>(__instance
-                                .ActionParams);
+                            __instance.CursorService
+                                .ActivateCursor<CursorLocationSelectPosition>(__instance.ActionParams);
 
                             return false;
                         }

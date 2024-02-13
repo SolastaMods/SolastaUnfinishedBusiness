@@ -2001,6 +2001,8 @@ internal static class GambitsBuilders
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, false);
         }
+
+        public int PositionRange => 12;
     }
 
     //
