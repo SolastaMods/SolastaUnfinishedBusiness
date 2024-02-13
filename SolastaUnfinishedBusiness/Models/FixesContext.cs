@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using SolastaUnfinishedBusiness.Validators;
@@ -37,6 +39,7 @@ internal static class FixesContext
         AddAdditionalActionTitles();
         ExtendCharmImmunityToDemonicInfluence();
         FixAdditionalDamageRestrictions();
+        FixAdditionalDamageRogueSneakAttack();
         FixArmorClassOnLegendaryArmors();
         FixAttackBuffsAffectingSpellDamage();
         FixBlackDragonLegendaryActions();
@@ -559,7 +562,12 @@ internal static class FixesContext
         //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
         ActionAffinityUncannyDodge.AddCustomSubFeatures(new ValidateDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
-                         character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
+                         character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParryName)));
+    }
+
+    private static void FixAdditionalDamageRogueSneakAttack()
+    {
+        AdditionalDamageRogueSneakAttack.AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueSneakAttack());
     }
 
     private static void FixCriticalThresholdModifiers()
@@ -586,22 +594,19 @@ internal static class FixesContext
         var feature = FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle.GuiPresentation;
 
         feature.title = feat.title;
+
         var parts = Gui.Localize(feat.description).Split('\n');
+
         //last line of feat description
         feature.description = parts[parts.Length - 1].Trim();
     }
 
     private static void AddAdditionalActionTitles()
     {
-        //Main Action
         FeatureDefinitionAdditionalActions.AdditionalActionHasted.GuiPresentation.Title
             = Haste.GuiPresentation.Title;
         FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain.GuiPresentation.Title
             = DatabaseHelper.ActionDefinitions.ActionSurge.GuiPresentation.Title;
-
-        //Bonus Action
-        // FeatureDefinitionAdditionalActions.AdditionalActionExpeditiousRetreat.GuiPresentation.Title
-        //     = ExpeditiousRetreat.GuiPresentation.Title;
     }
 
     private sealed class PhysicalAttackFinishedByMeStunningStrike : IPhysicalAttackFinishedByMe
@@ -679,6 +684,133 @@ internal static class FixesContext
             // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    //
+    // CONSOLIDATED SNEAK ATTACK DAMAGE FORM MODIFIER
+    //
+
+    private sealed class ModifyAdditionalDamageFormRogueSneakAttack : IModifyAdditionalDamageForm
+    {
+        public DamageForm AdditionalDamageForm(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            DamageForm damageForm)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
+
+            if (rulesetAttacker == null)
+            {
+                return damageForm;
+            }
+
+            // handle close quarters feat
+            if (attacker.IsWithinRange(defender, 1) &&
+                (rulesetAttacker.TrainedFeats.Contains(ClassFeats.CloseQuartersDex) ||
+                 rulesetAttacker.TrainedFeats.Contains(ClassFeats.CloseQuartersInt)))
+            {
+                var title = Gui.Format("Feature/&FeatureCloseQuartersTitle");
+                var description = Gui.Format("Feature/&FeatureCloseQuartersDescription");
+
+                rulesetAttacker.LogCharacterActivatesAbility(
+                    title, "Feedback/&ChangeSneakDiceDieType",
+                    tooltipContent: description, indent: true,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D8))
+                    ]);
+
+                damageForm.DieType = DieType.D8;
+            }
+
+            // handle rogue cunning strike feature
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, CharacterContext.ConditionReduceSneakDice.Name,
+                    out var activeCondition))
+            {
+                var newDiceNumber = Math.Max(damageForm.diceNumber - activeCondition.amount, 0);
+
+                var title = Gui.Format("Reaction/&ReactionSpendPowerBundlePowerRogueCunningStrikeTitle");
+                var description = Gui.Format("Reaction/&ReactionSpendPowerBundlePowerRogueCunningStrikeDescription");
+
+                rulesetAttacker.LogCharacterActivatesAbility(
+                    title, "Feedback/&ChangeSneakDiceNumber",
+                    tooltipContent: description, indent: true,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, damageForm.diceNumber.ToString()),
+                        (ConsoleStyleDuplet.ParameterType.Negative, newDiceNumber.ToString())
+                    ]);
+
+                damageForm.diceNumber = newDiceNumber;
+            }
+
+            // handle arcane scoundrel distracting ambush feature
+            var arcaneScoundrelLevels = rulesetAttacker.GetSubclassLevel(Rogue, RoguishArcaneScoundrel.Name);
+
+            if (arcaneScoundrelLevels >= RoguishArcaneScoundrel.DistractingAmbushLevel)
+            {
+                RoguishArcaneScoundrel.InflictConditionDistractingAmbush(rulesetAttacker, defender.RulesetCharacter);
+            }
+
+            // handle slayer chain of execution features
+            var slayerLevels = rulesetAttacker.GetSubclassLevel(Rogue, RoguishSlayer.Name);
+
+            if (slayerLevels >= RoguishSlayer.ChainOfExecutionLevel)
+            {
+                RoguishSlayer.InflictConditionChainOfExecution(rulesetAttacker, defender.RulesetCharacter);
+
+                if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, RoguishSlayer.ConditionChainOfExecutionBeneficialName,
+                        out activeCondition))
+                {
+                    var newDiceNumber = damageForm.DiceNumber + slayerLevels switch
+                    {
+                        >= 17 => 5,
+                        >= 13 => 4,
+                        _ => 3
+                    };
+
+                    var title = Gui.Format("Feature/&FeatureRoguishSlayerChainOfExecutionTitle");
+                    var description = Gui.Format("Feature/&FeatureRoguishSlayerChainOfExecutionDescription");
+
+                    rulesetAttacker.LogCharacterActivatesAbility(
+                        title, "Feedback/&ChangeSneakDiceNumber",
+                        tooltipContent: description, indent: true,
+                        extra:
+                        [
+                            (ConsoleStyleDuplet.ParameterType.AbilityInfo, damageForm.diceNumber.ToString()),
+                            (ConsoleStyleDuplet.ParameterType.Positive, newDiceNumber.ToString())
+                        ]);
+
+                    damageForm.DiceNumber = newDiceNumber;
+                    rulesetAttacker.RemoveCondition(activeCondition);
+                }
+            }
+
+            // handle umbral stalker gloomblade feature
+            // ReSharper disable once InvertIf
+            if (rulesetAttacker.GetSubclassLevel(Rogue, RoguishUmbralStalker.Name) > 0 &&
+                rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle))
+            {
+                var title = Gui.Format("Feature/&ActionAffinityGloomBladeToggleTitle");
+                var description = Gui.Format("Feature/&ActionAffinityGloomBladeToggleDescription");
+
+                rulesetAttacker.LogCharacterActivatesAbility(
+                    title, "Feedback/&ChangeSneakDiceDamageType",
+                    tooltipContent: description, indent: true,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.Localize("Tooltip/&TagDamageNecroticTitle"))
+                    ]);
+
+                damageForm.DamageType = DamageTypeNecrotic;
+            }
+
+            return damageForm;
         }
     }
 }

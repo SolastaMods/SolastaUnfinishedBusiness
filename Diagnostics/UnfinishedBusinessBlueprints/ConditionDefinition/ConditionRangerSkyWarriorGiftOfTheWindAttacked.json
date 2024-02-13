@@ -11,13 +11,11 @@
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
-  "durationParameterDie": "D1",
-  "durationParameter": 1,
+  "durationParameterDie": "D4",
+  "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "turnOccurence": "EndOfSourceTurn",
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",

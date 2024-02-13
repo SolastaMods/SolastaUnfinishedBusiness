@@ -36,8 +36,9 @@ public sealed class CollegeOfValiance : AbstractSubclass
         var conditionDishearteningPerformance = ConditionDefinitionBuilder
             .Create($"Condition{Name}DishearteningPerformance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
-            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            //.SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
 
         conditionDishearteningPerformance.AddCustomSubFeatures(
@@ -50,8 +51,8 @@ public sealed class CollegeOfValiance : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 10, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 10, TargetType.Individuals)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDishearteningPerformance))
                     .SetParticleEffectParameters(PowerCollegeLoreCuttingWords)
                     .Build())
@@ -104,6 +105,8 @@ public sealed class CollegeOfValiance : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.UseHeroicInspiration)
             .AddToDB();
+
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -195,24 +198,15 @@ public sealed class CollegeOfValiance : AbstractSubclass
 
             var bardCharacter = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
 
+            defender.RemoveCondition(activeCondition);
+
             if (bardCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 return;
             }
 
-            // this is almost the same code as RollBardicInspirationDie but dup here for better combat log messages
             var dieType = bardCharacter.GetBardicInspirationDieValue();
-            var inspirationDie = RollDie(dieType, AdvantageType.None, out _, out _);
-            var baseLine = inspirationDie > outcomeDelta
-                ? "Feedback/&DishearteningPerformanceUsedSuccessLine"
-                : "Feedback/&DishearteningPerformanceUsedFailureLine";
-            var console = Gui.Game.GameConsole;
-            var entry = new GameConsoleEntry(baseLine, console.consoleTableDefinition) { Indent = true };
-
-            console.AddCharacterEntry(bardCharacter, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(dieType));
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, inspirationDie.ToString());
-            console.AddEntry(entry);
+            var inspirationDie = RollDie(dieType, AdvantageType.None, out var r1, out var r2);
 
             outcomeDelta -= inspirationDie;
 
@@ -221,7 +215,19 @@ public sealed class CollegeOfValiance : AbstractSubclass
                 outcome = RollOutcome.Failure;
             }
 
-            defender.RemoveCondition(activeCondition);
+            var baseLine = outcome == RollOutcome.Failure
+                ? "Feedback/&DishearteningPerformanceUsedSuccessLine"
+                : "Feedback/&DishearteningPerformanceUsedFailureLine";
+
+            bardCharacter.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.None,
+                title: conditionDishearteningPerformance.GuiPresentation.Title);
+            bardCharacter.LogCharacterActivatesAbility(
+                Gui.NoLocalization, baseLine, true,
+                extra:
+                [
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, inspirationDie.ToString())
+                ]);
         }
     }
 }

@@ -12,7 +12,7 @@ ModUi/&AddPaladinSmiteToggle=Ajoutez un bouton pour permettre aux <color=#D89555
 ModUi/&AddPickPocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[suggéré si la fonctionnalité <color=#D89555>Escamotage</color> est activée]</color></i>
 ModUi/&AddToStore=Ajouter au magasin
 ModUi/&Advanced=<color=#F0DAA0>Avancé :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION :</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
+ModUi/&AdvancedHelp=• <b><color=#C04040E0>ATTENTION :</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
 ModUi/&AllItemInDm=Tous les objets en DM
 ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
@@ -52,7 +52,7 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=L'<color=#D8955
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=La <color=#D89555>Résistance au froid</color> confère également l'immunité au froid et réduit le gel au froid.
 ModUi/&Combat=<color=#F0DAA0>Combat :</color>
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
-ModUi/&CraftingHelp=. Appuyez sur le bouton pour faire apprendre les recettes instantanément au groupe actif\n. Le rafraîchissement des stocks d'articles ajoutés aux magasins peut nécessiter que le groupe quitte puis revienne à la localité
+ModUi/&CraftingHelp=• Appuyez sur le bouton pour faire apprendre les recettes instantanément au groupe actif\n• Le rafraîchissement des stocks d'articles ajoutés aux magasins peut nécessiter que le groupe quitte puis revienne à la localité
 ModUi/&Credits=Crédits
 ModUi/&CreditsAndDiagnostics=Crédits & Diagnostiques
 ModUi/&Critical=<color=#F0DAA0>Coup critique :</color>
@@ -75,7 +75,7 @@ ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les vignettes de perso
 ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir sélectionné une action préparée <i><color=#F0DAA0>[permet d'utiliser l'action bonus ou toute action principale supplémentaire liée à Hâte ou d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas le personnage lorsque celui-ci est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est en dehors ou à moins de % du bord de l'écran</color></i>
-ModUi/&DungeonMakerBasicHelp=. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
+ModUi/&DungeonMakerBasicHelp=• Ces paramètres n'exigeront pas que le joueur ait installé ce mod
 ModUi/&DungeonMakerMenu=Créateur de donjon
 ModUi/&EmpressGarbAppearance=Apparence de la <color=#D89555>Tenue d'impératrice</color>
 ModUi/&EnableActionSwitching=Activer la barre de changement d'Action <i><color=#F0DAA0>[utile quand, sous Hâte, on veut utiliser l'action de hâte avant l'action principale]</color></i>
@@ -93,7 +93,7 @@ ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour 
 ModUi/&EnableCharactersOnFireToEmitLight=Les personnages en feu émettent de la lumière <i><color=#F0DAA0>[Cube de Lumière, Élémentaire de feu, Bouffon de feu, Balbuzard de feu, Araignée de feu et la famille de condition "en feu"]</color></i>
 ModUi/&EnableCheatMenu=Activer le menu de triche
 ModUi/&EnableCustomPortraits=Activer les portraits personnalisés
-ModUi/&EnableCustomPortraitsHelp=. Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>< /b></i>, du nom du prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n. Utilisez des images PNG, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
+ModUi/&EnableCustomPortraitsHelp=• Placez vos portraits personnalisés dans les sous-dossiers <i><b><color=#F0DAA0>Personal</color></b></i> ou <i><b><color=#F0DAA0>PreGen</color>< /b></i>, du nom du prénom du héros <i><color=#F0DAA0>[c'est-à-dire : Anton, Celia, Nialla, etc.]</color></i>\n• Utilisez des images PNG, d'une taille de 256 x 384 pixels, avec un calque de transparence <i><color=#F0DAA0>[utilisez GIMP pour de meilleurs résultats]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les ressources de tous les environnements]</color></i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat et répartition "épique" de 35 points <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Activer l'affichage du panneau de compétences étendues <i><color=#F0DAA0>[Tirs arcaniques, infusions, Gambits et polyvalences]</color></i>\n<b><i><color=#C04040E0>[amélioration des performances du personnage inspection. utilisez à vos propres risques]</color></i></b>
@@ -128,10 +128,11 @@ ModUi/&EnableRespec=Autoriser la respécialisation des personnages après une ac
 ModUi/&EnableRogueCunningStrike=Activer la <b>Frappe Rusée</b> pour le <color=#D89555>Roublard</color> au niveau de classe 5 <i><color=#F0DAA0>[vous renoncez à 1 dé d'attaque sournoise pour des effets supplémentaires sur l'attaque]</color ></i>
 ModUi/&EnableRogueFightingStyle=Activer le choix de <b>Style de combat</b> du <color=#D89555>Roublard</color> au niveau 2
 ModUi/&EnableRogueSteadyAim=Activez la <b>Visée Stable</b> du <color=#D89555>Roublard</color> au niveau de classe 3 <i><color=#F0DAA0>[l'action bonus donne un avantage lors de votre prochain jet d'attaque dans le tour en cours si vous n'avez pas encore bougé]</color></i>
+ModUi/&EnableRogueStrSaving=Activez <color=#D89555>Rogue</color> pour utiliser les modificateurs DEX ou STR sur <b>Frappe rusée/diable</b>, <b>Frappe débilitante/améliorée</b> et <b>Grêle de lames. </b>
 ModUi/&EnableSaveByLocation=Autoriser l'enregistrement par campagnes / localités
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
-ModUi/&EnableSumD20OnAlternateVotingSystem=. De plus, chaque héros ajoute un jet de D20 au poids de leur vote pour rajouter un peu d'aléatoire.
+ModUi/&EnableSumD20OnAlternateVotingSystem=• De plus, chaque héros ajoute un jet de D20 au poids de leur vote pour rajouter un peu d'aléatoire.
 ModUi/&EnableTeleportParty=Acutoriser <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pouvez bloquer des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer des boutons sur le groupe de personnages pour paramétrer votre partie par défaut et votre groupe test
 ModUi/&EnableTooltipDistance=Activer l'affichage de la distance dans les info-bulles lors du survol d'un personnage en combat
@@ -145,7 +146,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Chargez une sauvegarde de campagne officiell
 ModUi/&FactionRelations=<color=#F0DAA0>Factions :</color>
 ModUi/&FasterTimeModifier=<color=white>Modificateur de temps de jeu en appuyant sur la barre d'espace</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Groupement de Dons</color>
-ModUi/&FeatGroupsHelp=. Chaque groupe est une consolidation de Dons similaires <i><color=#F0DAA0>[c'est-à-dire : Croyances, Styles de combat, Métamagie, etc.]</color></i>\n. Les Dons de ces groupes ne seront plus directement visibles lors de l'étape de sélection des compétences\n. Le groupe, lorsqu'il est sélectionné, les propose sur une liste déroulante pour ne pas encombrer l'écran de jeu
+ModUi/&FeatGroupsHelp=• Chaque groupe est une consolidation de Dons similaires <i><color=#F0DAA0>[c'est-à-dire : Croyances, Styles de combat, Métamagie, etc.]</color></i>\n• Les Dons de ces groupes ne seront plus directement visibles lors de l'étape de sélection des compétences\n• Le groupe, lorsqu'il est sélectionné, les propose sur une liste déroulante pour ne pas encombrer l'écran de jeu
 ModUi/&Feats=<color=#F0DAA0>Dons</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixAsianLanguagesTextWrap=Correction de l'habillage de texte de l'interface utilisateur pour les langues asiatiques<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -153,9 +154,9 @@ ModUi/&FixEldritchBlastRange=Changer la portée de la <color=#D89555>Décharge o
 ModUi/&FlightSuspendWingedBoots=<i>+ Utiliser les règles officielles des bottes ailées <color=#F0DAA0>[la durée restante n'est pas comptée lorsque le vol est suspendu]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation :</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>
-ModUi/&FormationHelp1=. Utilisez les touches numériques pour modifier la configuration d'une formation donnée <i><color=#F0DAA0>[envisagez d'activer les raccourcis clavier]</color></i>
-ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> Représente les positions relatives des héros
-ModUi/&FormationHelp3=. Cliquez sur 2 boutons différents pour échanger leurs positions
+ModUi/&FormationHelp1=• Utilisez les touches numériques pour modifier la configuration d'une formation donnée <i><color=#F0DAA0>[envisagez d'activer les raccourcis clavier]</color></i>
+ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> Représente les positions relatives des héros
+ModUi/&FormationHelp3=• Cliquez sur 2 boutons différents pour échanger leurs positions
 ModUi/&FormationHotkey=Activez <color=#1E81B0>CTRL-SHIFT-(1..5)</color> pour changer de formation en jeu
 ModUi/&FormationResetAllSets=Réinitialiser tout
 ModUi/&FormationResetThisSet=Réinitialiser ceci
@@ -230,7 +231,7 @@ ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Supprimer les restrictions scolair
 ModUi/&RestockAntiquarians=Réapprovisionner les Antiquaires <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Réapprovisionner l'Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Réapprovisionner le Cercle de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=. Remplacez les valeurs par défaut de réapprovisionnement de tous les marchands pour forcer un restockage au fil du temps <i><color=#F0DAA0>[à l'exception des manuels et des tomes]</color></i>\n. Notez que certains articles peuvent prendre jusqu'à 7 jours de jeu pour être réapprovisionnés
+ModUi/&RestockHelp=• Remplacez les valeurs par défaut de réapprovisionnement de tous les marchands pour forcer un restockage au fil du temps <i><color=#F0DAA0>[à l'exception des manuels et des tomes]</color></i>\n• Notez que certains articles peuvent prendre jusqu'à 7 jours de jeu pour être réapprovisionnés
 ModUi/&RestockTowerOfKnowledge=Réapprovisionner la Tour du Savoir <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Retour en arrière</color></b>
 ModUi/&Rules=Règles
@@ -241,8 +242,8 @@ ModUi/&SelectSuggested=Sélectionner ce qui est suggéré
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des Nains</color> <color=white>possibilités d'apparition de la barbe</color>
 ModUi/&SettingsExport=Exporter
-ModUi/&SettingsHelp=. En tant qu'hôte, vous pouvez exporter votre configuration actuelle, ouvrir le dossier des exports de configuration et le partager facilement avec vos pairs\n. En tant qu'invité, vous pouvez ouvrir le dossier des exports, copier-coller le fichier partagé par l'hôte et charger la configuration <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&SettingsLoad=. Charger un fichier de configuration exporté
+ModUi/&SettingsHelp=• En tant qu'hôte, vous pouvez exporter votre configuration actuelle, ouvrir le dossier des exports de configuration et le partager facilement avec vos pairs\n• En tant qu'invité, vous pouvez ouvrir le dossier des exports, copier-coller le fichier partagé par l'hôte et charger la configuration <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&SettingsLoad=• Charger un fichier de configuration exporté
 ModUi/&SettingsOpenFolder=Ouvrir le dossier des fichiers de configuration exportés
 ModUi/&SettingsRefresh=Rafraîchir
 ModUi/&SettingsRemove=Retirer

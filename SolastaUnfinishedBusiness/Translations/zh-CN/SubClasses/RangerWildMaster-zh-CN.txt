@@ -1,7 +1,7 @@
 Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=灵兽之王奖励
-Feature/&FeatureSetWildMaster03Description=你获得了一只灵兽伙伴，它会陪伴你进行冒险，并受过训练与你并肩作战。它使你的感知调整值增加到护甲等级(AC)、攻击掷骰和伤害掷骰上。它还会获得每个角色等级 4 的 HP，并且只能在轮到它时采取闪避行动，除非你命令它不这样做。\n灵兽和召唤师共享相同的先攻，你可以选择熊、鹰或狼：\n. 熊可以喷出锥形火焰。\n. 鹰可以喷出线形闪电。\n. 狼可以喷出锥形寒冰。
+Feature/&FeatureSetWildMaster03Description=你获得了一只灵兽伙伴，它会陪伴你进行冒险，并受过训练与你并肩作战。它使你的感知调整值增加到护甲等级(AC)、攻击掷骰和伤害掷骰上。它还会获得每个角色等级 4 的 HP，并且只能在轮到它时采取闪避行动，除非你命令它不这样做。\n灵兽和召唤师共享相同的先攻，你可以选择熊、鹰或狼：\n• 熊可以喷出锥形火焰。\n• 鹰可以喷出线形闪电。\n• 狼可以喷出锥形寒冰。
 Feature/&FeatureSetWildMaster03Title=野兽伙伴
-Feature/&FeatureSetWildMaster07Description=灵兽现在可以在轮到它时执行冲刺或脱离动作。它的攻击被算作魔法武器攻击以穿透抵抗与免疫。灵兽也将变得更加强大：\n. 熊现在拥有火焰抗性。\n. 鹰现在拥有闪电抗性。\n. 狼现在拥有寒冷抗性。
+Feature/&FeatureSetWildMaster07Description=灵兽现在可以在轮到它时执行冲刺或脱离动作。它的攻击被算作魔法武器攻击以穿透抵抗与免疫。灵兽也将变得更加强大：\n• 熊现在拥有火焰抗性。\n• 鹰现在拥有闪电抗性。\n• 狼现在拥有寒冷抗性。
 Feature/&FeatureSetWildMaster07Title=真实专长
 Feature/&FeatureSetWildMaster11Description=灵兽现在可以完全使用所有可用的攻击，并且还可以在所有豁免检定中获得熟练度加值。所有灵兽现在都可以隐身。
 Feature/&FeatureSetWildMaster11Title=大师专长

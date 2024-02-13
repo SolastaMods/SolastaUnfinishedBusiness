@@ -176,8 +176,8 @@ internal static class CharacterContext
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                 .SetEffectForms(EffectFormBuilder.ConditionForm(CustomConditionsContext.Distracted))
                 .Build())
         .SetUniqueInstance()
@@ -270,6 +270,7 @@ internal static class CharacterContext
         SwitchRogueCunningStrike();
         SwitchRogueFightingStyle();
         SwitchRogueSteadyAim();
+        SwitchRogueStrSaving();
         SwitchScimitarWeaponSpecialization();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
@@ -1499,7 +1500,14 @@ internal static class CharacterContext
 
     #region Rogue Cunning Strike
 
-    private static ConditionDefinition _conditionReduceSneakDice;
+    internal static readonly ConditionDefinition ConditionReduceSneakDice = ConditionDefinitionBuilder
+        .Create("ConditionReduceSneakDice")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetConditionType(ConditionType.Detrimental)
+        .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
+        .AddToDB();
+
     private static FeatureDefinitionFeatureSet _featureSetRogueCunningStrike;
     private static FeatureDefinitionFeatureSet _featureSetRogueDeviousStrike;
     private static readonly char[] Separator = ['\t'];
@@ -1636,7 +1644,6 @@ internal static class CharacterContext
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
             .AddFeatures(actionAffinityWithdraw)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerWithdraw = FeatureDefinitionPowerSharedPoolBuilder
@@ -1647,8 +1654,8 @@ internal static class CharacterContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionWithdraw))
                     .Build())
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden, PowerUsesSneakDiceTooltipModifier.Instance)
@@ -1671,7 +1678,6 @@ internal static class CharacterContext
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration()
             .AddFeatures(actionAffinityDazedOnlyMovement)
             .AddToDB();
 
@@ -1778,16 +1784,6 @@ internal static class CharacterContext
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle)
             .AddToDB();
 
-        _conditionReduceSneakDice = ConditionDefinitionBuilder
-            .Create($"Condition{Cunning}ReduceSneakDice")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new ModifyAdditionalDamageFormRogueCunningStrike())
-            .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
-            .AddToDB();
-
         _featureSetRogueCunningStrike = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Cunning}")
             .SetGuiPresentation($"Power{Cunning}", Category.Feature)
@@ -1804,18 +1800,12 @@ internal static class CharacterContext
     internal static bool IsSneakAttackValid(
         ActionModifier attackModifier,
         GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        RulesetAttackMode attackMode)
+        GameLocationCharacter defender)
     {
-        if (attackMode == null)
-        {
-            return false;
-        }
-
         // only trigger if haven't used sneak attack yet
         if (!attacker.OncePerTurnIsValid("AdditionalDamageRogueSneakAttack") ||
             !attacker.OncePerTurnIsValid("AdditionalDamageRoguishDuelistDaringDuel") ||
-            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishSlayerChainOfExecutionSneakAttack"))
+            !attacker.OncePerTurnIsValid("AdditionalDamageRoguishUmbralStalkerDeadlyShadows"))
         {
             return false;
         }
@@ -1832,34 +1822,9 @@ internal static class CharacterContext
                     .IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker) ||
                 // it's a Duelist and target is dueling with him
                 RoguishDuelist.TargetIsDuelingWithRoguishDuelist(attacker, defender, advantageType) ||
-                // it's a Umbral Stalker and source and target are in dim light or darkness
+                // it's an Umbral Stalker and source and target are in dim light or darkness
                 RoguishUmbralStalker.SourceAndTargetAreNotBrightAndWithin5Ft(attacker, defender, advantageType)
         };
-    }
-
-    private sealed class ModifyAdditionalDamageFormRogueCunningStrike : IModifyAdditionalDamageForm
-    {
-        public DamageForm AdditionalDamageForm(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            IAdditionalDamageProvider provider,
-            DamageForm damageForm)
-        {
-            if (provider.NotificationTag != TagsDefinitions.AdditionalDamageSneakAttackTag)
-            {
-                return damageForm;
-            }
-
-            var usableCondition = attacker.RulesetCharacter.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionReduceSneakDice);
-
-            if (usableCondition != null)
-            {
-                damageForm.diceNumber = Math.Max(damageForm.diceNumber - usableCondition.amount, 0);
-            }
-
-            return damageForm;
-        }
     }
 
     private sealed class PhysicalAttackInitiatedByMeCunningStrike(FeatureDefinitionPower powerRogueCunningStrike) :
@@ -1884,24 +1849,16 @@ internal static class CharacterContext
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle) ||
+                !IsSneakAttackValid(actionModifier, attacker, defender))
             {
                 yield break;
             }
 
-            if (!rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.CunningStrikeToggle))
-            {
-                yield break;
-            }
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!IsSneakAttackValid(actionModifier, attacker, defender, attackMode))
-            {
-                yield break;
-            }
-
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null || battleManager is not { IsBattleInProgress: true })
+            if (actionManager == null ||
+                battleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -1920,12 +1877,12 @@ internal static class CharacterContext
                 TargetCharacters = { defender }
             };
 
-            var count = manager.PendingReactionRequestGroups.Count;
+            var count = actionManager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
 
-            manager.AddInterruptRequest(reactionRequest);
+            actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(attacker, manager, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
 
             if (!actionParams.ReactionValidated)
             {
@@ -1945,15 +1902,15 @@ internal static class CharacterContext
 
             // inflict condition passing power cost on amount to be deducted later on from sneak dice
             rulesetAttacker.InflictCondition(
-                _conditionReduceSneakDice.Name,
+                ConditionReduceSneakDice.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionReduceSneakDice.Name,
+                ConditionReduceSneakDice.Name,
                 _selectedPower.CostPerUse,
                 0,
                 0);
@@ -2006,7 +1963,9 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class ActionFinishedByMeDazed(ConditionDefinition conditionDazedOnlyMovement) : IActionFinishedByMe
+    private sealed class ActionFinishedByMeDazed(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDazedOnlyMovement) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
@@ -2019,9 +1978,9 @@ internal static class CharacterContext
 
             rulesetCharacter.InflictCondition(
                 conditionDazedOnlyMovement.Name,
-                conditionDazedOnlyMovement.DurationType,
-                conditionDazedOnlyMovement.DurationParameter,
-                conditionDazedOnlyMovement.turnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
@@ -2085,6 +2044,29 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Rogue.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    private static void SwitchRogueStrSaving()
+    {
+        var powerNames = new List<string>
+        {
+            "PowerRogueCunningStrikeDisarm",
+            //"PowerRogueCunningStrikePoison",
+            "PowerRogueCunningStrikeTrip",
+            //"PowerRogueCunningStrikeWithdraw",
+            //"PowerRogueDeviousStrikeDaze",
+            //"PowerRogueDeviousStrikeKnockOut",
+            "PowerRogueDeviousStrikeObscure",
+            "PowerRoguishOpportunistDebilitatingStrike",
+            "PowerRoguishOpportunistImprovedDebilitatingStrike",
+            "PowerRoguishBladeCallerHailOfBlades"
+        };
+
+        foreach (var power in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+                     .Where(x => powerNames.Contains(x.Name)))
+        {
+            power.AddCustomSubFeatures(new ModifyEffectDescriptionSavingThrowRogue(power));
         }
     }
 

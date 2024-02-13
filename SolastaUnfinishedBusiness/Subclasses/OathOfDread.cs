@@ -31,7 +31,6 @@ public sealed class OathOfDread : AbstractSubclass
         .SetGuiPresentation(ConditionAspectOfDreadName, Category.Condition)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetPossessive()
-        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .SetFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
@@ -156,7 +155,6 @@ public sealed class OathOfDread : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(featureAuraOfDomination)
             .SetConditionParticleReference(ConditionBaned.conditionParticleReference)
             .AddToDB();
@@ -328,7 +326,7 @@ public sealed class OathOfDread : AbstractSubclass
                 CustomConditionsContext.StopMovement.Name,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,

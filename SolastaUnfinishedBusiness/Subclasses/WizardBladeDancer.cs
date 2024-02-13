@@ -21,6 +21,55 @@ public sealed class WizardBladeDancer : AbstractSubclass
     private const string Name = "BladeDancer";
     private const string BladeDanceTitle = $"Feature/&FeatureSet{Name}BladeDanceTitle";
 
+    private static readonly ConditionDefinition ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
+        .Create($"Condition{Name}BladeDance")
+        .SetGuiPresentation(BladeDanceTitle, Gui.NoLocalization, ConditionHeroism)
+        .SetFeatures(
+            FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
+            FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{Name}BladeDance")
+                .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
+                .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
+                .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
+                .AddToDB(),
+            FeatureDefinitionAbilityCheckAffinityBuilder
+                .Create(AbilityCheckAffinityIslandHalflingAcrobatics,
+                    $"AbilityCheckAffinity{Name}BladeDanceAcrobatics")
+                .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
+                .AddToDB(),
+            // keep name for compatibility reasons
+            FeatureDefinitionSavingThrowAffinityBuilder
+                .Create($"AbilityCheckAffinity{Name}BladeDanceConstitution")
+                .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
+                .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Constitution)
+                .AddToDB())
+        .AddCustomSubFeatures(new CheckDanceValidity())
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder
+        .Create(ConditionBladeDancerBladeDance, $"Condition{Name}DanceOfDefense")
+        .AddFeatures(
+            FeatureDefinitionReduceDamageBuilder
+                .Create($"ReduceDamage{Name}DanceOfDefense")
+                .SetNotificationTag("DanceOfDefense")
+                .SetGuiPresentation(Category.Feature)
+                .SetConsumeSpellSlotsReducedDamage(CharacterClassDefinitions.Wizard, (_, _) => 5)
+                .AddToDB())
+        .AddCustomSubFeatures(new CheckDanceValidity())
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionBladeDancerDanceOfVictory = ConditionDefinitionBuilder
+        .Create(ConditionBladeDancerDanceOfDefense, $"Condition{Name}DanceOfVictory")
+        .SetOrUpdateGuiPresentation(Category.Condition)
+        .AddFeatures(
+            FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{Name}DanceOfVictory")
+                .SetGuiPresentation($"Condition{Name}DanceOfVictory", Category.Condition, Gui.NoLocalization)
+                .SetDamageRollModifier(5)
+                .AddToDB())
+        .AddCustomSubFeatures(new CheckDanceValidity())
+        .AddToDB();
+
     public WizardBladeDancer()
     {
         // LEVEL 02
@@ -48,31 +97,6 @@ public sealed class WizardBladeDancer : AbstractSubclass
 
         // Blade Dance
 
-        ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
-            .Create($"Condition{Name}BladeDance")
-            .SetGuiPresentation(BladeDanceTitle, Gui.NoLocalization, ConditionHeroism)
-            .SetFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create($"AttributeModifier{Name}BladeDance")
-                    .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
-                    .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
-                    .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
-                    .AddToDB(),
-                FeatureDefinitionAbilityCheckAffinityBuilder
-                    .Create(AbilityCheckAffinityIslandHalflingAcrobatics,
-                        $"AbilityCheckAffinity{Name}BladeDanceAcrobatics")
-                    .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
-                    .AddToDB(),
-                // keep name for compatibility reasons
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create($"AbilityCheckAffinity{Name}BladeDanceConstitution")
-                    .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
-                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Constitution)
-                    .AddToDB())
-            .AddCustomSubFeatures(new CheckDanceValidity())
-            .AddToDB();
-
         var powerBladeDancerBladeDance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BladeDance")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerClericDivineInterventionWizard)
@@ -96,18 +120,6 @@ public sealed class WizardBladeDancer : AbstractSubclass
 
         // Dance of Defense
 
-        ConditionBladeDancerDanceOfDefense = ConditionDefinitionBuilder
-            .Create(ConditionBladeDancerBladeDance, $"Condition{Name}DanceOfDefense")
-            .AddFeatures(
-                FeatureDefinitionReduceDamageBuilder
-                    .Create($"ReduceDamage{Name}DanceOfDefense")
-                    .SetNotificationTag("DanceOfDefense")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetConsumeSpellSlotsReducedDamage(CharacterClassDefinitions.Wizard, (_, _) => 5)
-                    .AddToDB())
-            .AddCustomSubFeatures(new CheckDanceValidity())
-            .AddToDB();
-
         var powerBladeDancerDanceOfDefense = FeatureDefinitionPowerBuilder
             .Create(powerBladeDancerBladeDance, $"Power{Name}DanceOfDefense")
             .SetEffectDescription(
@@ -128,18 +140,6 @@ public sealed class WizardBladeDancer : AbstractSubclass
 
         // Dance of Victory
 
-        ConditionBladeDancerDanceOfVictory = ConditionDefinitionBuilder
-            .Create(ConditionBladeDancerDanceOfDefense, $"Condition{Name}DanceOfVictory")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .AddFeatures(
-                FeatureDefinitionAttackModifierBuilder
-                    .Create($"AttackModifier{Name}DanceOfVictory")
-                    .SetGuiPresentation($"Condition{Name}DanceOfVictory", Category.Condition, Gui.NoLocalization)
-                    .SetDamageRollModifier(5)
-                    .AddToDB())
-            .AddCustomSubFeatures(new CheckDanceValidity())
-            .AddToDB();
-
         var powerBladeDancerDanceOfVictory = FeatureDefinitionPowerBuilder
             .Create(powerBladeDancerBladeDance, $"Power{Name}DanceOfVictory")
             .SetEffectDescription(
@@ -156,9 +156,7 @@ public sealed class WizardBladeDancer : AbstractSubclass
             .SetOverriddenPower(powerBladeDancerDanceOfDefense)
             .AddToDB();
 
-        //
-        // use sets for better descriptions on level up
-        //
+        // MAIN
 
         var featureSetBladeDancerBladeDance = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}BladeDance")
@@ -198,12 +196,6 @@ public sealed class WizardBladeDancer : AbstractSubclass
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Wizard;
 
     internal override CharacterSubclassDefinition Subclass { get; }
-
-    private static ConditionDefinition ConditionBladeDancerBladeDance { get; set; }
-
-    private static ConditionDefinition ConditionBladeDancerDanceOfDefense { get; set; }
-
-    private static ConditionDefinition ConditionBladeDancerDanceOfVictory { get; set; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;

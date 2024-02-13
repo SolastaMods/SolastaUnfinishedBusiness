@@ -124,6 +124,9 @@ Feature/&PowerVanishSummonDescription=You can make your summon vanish.
 Feature/&PowerVanishSummonTitle=Vanish
 Feature/&ToolGainChoicesPluralDescription=Choose {0} of these tools: {1}
 Feature/&ToolGainChoicesSingleDescription=Choose one of these tools: {1}
+Feedback/&ChangeSneakDiceDamageType={1} changes the sneak dice damage to {2}
+Feedback/&ChangeSneakDiceDieType={1} changes the sneak die type from {2} to {3}
+Feedback/&ChangeSneakDiceNumber={1} changes the sneak dice number from {2} to {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} rolls to maintain {1} {2} versus DC {3}, rolls {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} rolls to maintain {1} versus DC {2}, rolls {3} = {4}
 Feedback/&FlankingAttack=Flanking
@@ -137,8 +140,8 @@ Feedback/&TrueSightAndIllusionSpells={0} has True Sight and is unaffected by thi
 Format/&LevelAndExperienceFormat=Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nExperience: {1}\nmax level reached
 Invocation/&DevilsSightExtendedDescription=You can see normally in darkness, both magical and non-magical, to a distance of 80 feet.
-Message/&CharacterExportDuplicateNameErrorDescription=Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
-Message/&CharacterExportEmptyNameErrorDescription=Export Cancelled:\n\nPlease try a non empty name.
+Message/&CharacterExportDuplicateNameErrorDescription=Export Cancelled:\nA hero with this name already exists in the pool.\nPlease try a different name.
+Message/&CharacterExportEmptyNameErrorDescription=Export Cancelled:\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription=Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription=Export {0}
 Message/&MessageModWelcomeDescription=The Unfinished Business Mod is packed full of exciting features, but by default none are enabled. Press <color=#F0DAA0>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Unfinished Business' to open the settings pages. Explore the options and select the ones you like.\n<b>Please donate if you can as it helps with monthly costs and keeps the motivation high after 3 years of non-stop development and maintenance.</b> The button below will take you to <color=#F0DAA0>PayPal</color> by default but you can also use <color=#F0DAA0>Patreon</color> or <color=#F0DAA0>GitHub</color> under Mod UI > Character.

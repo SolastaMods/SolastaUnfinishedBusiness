@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -67,7 +66,7 @@ internal static class GambitsBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
@@ -75,7 +74,7 @@ internal static class GambitsBuilders
                 })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddCustomSubFeatures(
-                (ProvideAdditionalDamageDieType)((character, _) => GetGambitDieSize(character)),
+                ModifyAdditionalDamageFormGambitDieSize.Marker,
                 ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .AddToDB();
 
@@ -85,7 +84,7 @@ internal static class GambitsBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
@@ -93,7 +92,7 @@ internal static class GambitsBuilders
                 })
             .SetFrequencyLimit(FeatureLimitedUsage.None)
             .AddCustomSubFeatures(
-                (ProvideAdditionalDamageDieType)((character, _) => GetGambitDieSize(character)),
+                ModifyAdditionalDamageFormGambitDieSize.Marker,
                 ValidatorsRestrictedContext.IsMeleeOrUnarmedAttack)
             .AddToDB();
 
@@ -102,9 +101,7 @@ internal static class GambitsBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(gambitDieDamage)
-            .SetSpecialInterruptions(
-                ConditionInterruption.AnyBattleTurnEnd,
-                (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
+            .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
             .AddToDB();
 
         var hasGambitDice =
@@ -678,7 +675,6 @@ internal static class GambitsBuilders
                                 .SetSpecialInterruptions(
                                     ConditionInterruption.Attacked,
                                     (ConditionInterruption)ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
-                                .AddCustomSubFeatures(new ModifyAdditionalDamageFormTacticalStrike())
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -828,7 +824,6 @@ internal static class GambitsBuilders
                     .SetAttackOfOpportunityImmunity(true)
                     .SetSituationalContext(SituationalContext.SourceHasCondition, bad)
                     .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         power = FeatureDefinitionPowerSharedPoolBuilder
@@ -943,8 +938,9 @@ internal static class GambitsBuilders
         #endregion
     }
 
-    // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private sealed class ModifyEffectDescriptionSavingThrow(FeatureDefinitionPower baseDefinition)
+    private sealed class ModifyEffectDescriptionSavingThrow(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower baseDefinition)
         : IModifyEffectDescription
     {
         public bool IsValid(
@@ -977,6 +973,39 @@ internal static class GambitsBuilders
         }
     }
 
+    private sealed class ModifyAdditionalDamageFormGambitDieSize : IModifyAdditionalDamageForm
+    {
+        public static readonly ModifyAdditionalDamageFormGambitDieSize Marker = new();
+
+        public DamageForm AdditionalDamageForm(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            DamageForm damageForm)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, "ConditionGambitUrgent", out var activeCondition))
+            {
+                damageForm.DieType = GetGambitDieSize(attacker.RulesetCharacter);
+
+                return damageForm;
+            }
+
+            var rulesetSource = EffectHelpers.GetCharacterByGuid(activeCondition.SourceGuid);
+
+            if (rulesetSource == null)
+            {
+                return damageForm;
+            }
+
+            damageForm.dieType = GetGambitDieSize(rulesetSource);
+
+            return damageForm;
+        }
+    }
+
     private sealed class InitialPool : IModifyPowerPoolAmount
     {
         private InitialPool()
@@ -989,45 +1018,6 @@ internal static class GambitsBuilders
         public int PoolChangeAmount(RulesetCharacter character)
         {
             return 4;
-        }
-    }
-
-    //
-    // used to change the gambit die size when ally attacks
-    //
-    private sealed class ModifyAdditionalDamageFormTacticalStrike : IModifyAdditionalDamageForm
-    {
-        public DamageForm AdditionalDamageForm(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            IAdditionalDamageProvider provider,
-            DamageForm damageForm)
-        {
-            if (provider.NotificationTag != "GambitDie")
-            {
-                return damageForm;
-            }
-
-            var usableCondition = attacker.RulesetCharacter.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition.Name == "ConditionGambitUrgent");
-
-            if (usableCondition == null)
-            {
-                return damageForm;
-            }
-
-            var sourceCharacter = EffectHelpers.GetCharacterByGuid(usableCondition.SourceGuid);
-
-            if (sourceCharacter == null)
-            {
-                return damageForm;
-            }
-
-            var dieType = GetGambitDieSize(sourceCharacter);
-
-            damageForm.dieType = dieType;
-
-            return damageForm;
         }
     }
 
@@ -1541,7 +1531,7 @@ internal static class GambitsBuilders
                     self.Name,
                     DurationType.Round,
                     0,
-                    TurnOccurenceType.StartOfTurn,
+                    TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
                     target.Guid,
                     target.CurrentFaction.Name,

@@ -8,6 +8,6 @@ public interface IModifyAdditionalDamageForm
     public DamageForm AdditionalDamageForm(
         [UsedImplicitly] GameLocationCharacter attacker,
         [UsedImplicitly] GameLocationCharacter defender,
-        IAdditionalDamageProvider provider,
+        FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
         DamageForm damageForm);
 }

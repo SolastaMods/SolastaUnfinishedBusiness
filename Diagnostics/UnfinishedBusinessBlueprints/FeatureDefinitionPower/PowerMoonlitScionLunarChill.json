@@ -367,7 +367,7 @@
     "description": "Feature/&PowerMoonlitScionLunarChillDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8f5fc961-39d7-5abe-bd66-14d1f2b7a816",
+      "m_AssetGUID": "cef512b7-3718-5e78-90a7-0059571e793e",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

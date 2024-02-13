@@ -124,6 +124,9 @@ Feature/&PowerVanishSummonDescription=你可以让你的召唤消失。
 Feature/&PowerVanishSummonTitle=消失
 Feature/&ToolGainChoicesPluralDescription=从这些工具中选择 {0}：{1}
 Feature/&ToolGainChoicesSingleDescription=选择以下工具之一：{1}
+Feedback/&ChangeSneakDiceDamageType={1} 将潜行骰子伤害更改为 {2}
+Feedback/&ChangeSneakDiceDieType={1} 将潜行骰子类型从 {2} 更改为 {3}
+Feedback/&ChangeSneakDiceNumber={1} 将潜行骰子编号从 {2} 更改为 {3}
 Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine={0} 掷骰以维持 {1} {2} 对抗 DC {3}，掷骰 {4} = {5}
 Feedback/&ConcentrationEffectCheckRolledLine={0} 掷骰以维持 {1} 对抗 DC {2}，掷骰 {3} = {4}
 Feedback/&FlankingAttack=背后夹击

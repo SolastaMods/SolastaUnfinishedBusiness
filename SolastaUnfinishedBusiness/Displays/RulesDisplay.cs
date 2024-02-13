@@ -399,6 +399,14 @@ internal static class RulesDisplay
             CharacterContext.SwitchDragonbornElementalBreathUsages();
         }
 
+        toggle = Main.Settings.EnableRogueStrSaving;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableRogueStrSaving = toggle;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
         {

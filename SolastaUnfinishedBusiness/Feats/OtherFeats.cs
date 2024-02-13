@@ -776,8 +776,6 @@ internal static class OtherFeats
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
                                 .SetPossessive()
-                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
                                 .AddToDB()))
                     .AddToDB())

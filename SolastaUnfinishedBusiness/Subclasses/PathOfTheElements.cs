@@ -176,11 +176,6 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         // Storm
 
-        var conditionElementalBurstStorm = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionShocked, $"Condition{Name}{ElementalBurst}Storm")
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .AddToDB();
-
         var powerElementalBurstStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Storm")
             .SetGuiPresentation(Category.Feature, PowerDomainElementalLightningBlade)
@@ -188,6 +183,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     //.SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .SetSavingThrowData(
@@ -205,7 +201,8 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionElementalBurstStorm, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(ConditionDefinitions.ConditionShocked,
+                                ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
@@ -259,11 +256,6 @@ public sealed class PathOfTheElements : AbstractSubclass
 
         // Wildfire
 
-        var conditionElementalBurstWildfire = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionOnFire, $"Condition{Name}{ElementalBurst}Wildfire")
-            .SetSpecialDuration(DurationType.Minute, 1)
-            .AddToDB();
-
         var powerElementalBurstWildfire = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Wildfire")
             .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
@@ -289,7 +281,8 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionElementalBurstWildfire, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(ConditionDefinitions.ConditionOnFire,
+                                ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())

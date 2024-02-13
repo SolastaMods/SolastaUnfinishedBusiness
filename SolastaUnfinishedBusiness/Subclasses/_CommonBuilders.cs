@@ -108,8 +108,6 @@ internal static class CommonBuilders
                     .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
                     .SetSilent(Silent.WhenRemoved)
                     .SetPossessive()
-                    .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-                    .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                     .AddFeatures(
                         FeatureDefinitionAttackModifierBuilder
                             .Create("PowerCasterFightingWarMagicAttack")
@@ -166,8 +164,10 @@ internal static class CommonBuilders
     private sealed class AttackReplaceWithCantrip : IAttackReplaceWithCantrip;
 
     private sealed class
-        MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(ConditionDefinition conditionDefinition) :
-        IMagicEffectBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
+        MagicEffectBeforeHitConfirmedOnEnemyCasterFightingWarMagic(
+            // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+            ConditionDefinition conditionDefinition)
+        : IMagicEffectBeforeHitConfirmedOnEnemy, IAttackBeforeHitConfirmedOnEnemy
     {
         //supports Sunlit Blade and Resonating Strike
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
@@ -226,9 +226,9 @@ internal static class CommonBuilders
 
             rulesetAttacker.InflictCondition(
                 conditionDefinition.Name,
-                conditionDefinition.durationType,
-                conditionDefinition.durationParameter,
-                conditionDefinition.turnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -45,15 +46,15 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D8, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionDefinition = conditionBlindedByBlindingSmite,
                     hasSavingThrow = true,
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = conditionBlindedByBlindingSmite,
-                    operation = ConditionOperationDescription.ConditionOperation.Add
+                    saveOccurence = TurnOccurenceType.StartOfTurn
                 })
             // doesn't follow the standard impact particle reference
             .SetImpactParticleReference(DivineFavor.EffectDescription.EffectParticleParameters.casterParticleReference)
@@ -587,12 +588,8 @@ internal static partial class SpellBuilders
                                         .SetDamageDice(DieType.D8, 1)
                                         .SetSpecificDamageType(damage)
                                         .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
-                                        .SetConditionOperations(
-                                            new ConditionOperationDescription
-                                            {
-                                                conditionDefinition = noHeal,
-                                                operation = ConditionOperationDescription.ConditionOperation.Add
-                                            })
+                                        .AddConditionOperation(
+                                            ConditionOperationDescription.ConditionOperation.Add, noHeal)
                                         .AddToDB())
                                 .AddToDB(), ConditionForm.ConditionOperation.Add, true, true),
                         EffectFormBuilder
@@ -636,7 +633,6 @@ internal static partial class SpellBuilders
             .Create($"Condition{Name}Explode")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(powerExplode)
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
@@ -670,16 +666,18 @@ internal static partial class SpellBuilders
                     .ExcludeCaster()
                     .SetParticleEffectParameters(Thunderwave)
                     .Build())
-            .AddCustomSubFeatures(new MagicEffectInitiatedByMeBoomingStep(powerExplode))
+            .AddCustomSubFeatures(new CustomBehaviorBoomingStep(powerExplode))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicEffectInitiatedByMeBoomingStep(FeatureDefinitionPower powerExplode)
-        : IMagicEffectInitiatedByMe
+    private sealed class CustomBehaviorBoomingStep(FeatureDefinitionPower powerExplode)
+        : IMagicEffectInitiatedByMe, IMagicEffectFinishedByMe
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        private readonly List<GameLocationCharacter> _targets = [];
+
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             if (Gui.Battle == null)
             {
@@ -693,25 +691,34 @@ internal static partial class SpellBuilders
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerExplode, rulesetAttacker);
-            var targets = Gui.Battle.AllContenders
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), _targets.Count).ToList(),
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = _targets
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+
+            _targets.SetRange(Gui.Battle.AllContenders
                 .Where(x =>
                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     x != attacker &&
                     !action.ActionParams.TargetCharacters.Contains(x) &&
-                    attacker.IsWithinRange(x, 2))
-                .ToList();
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                targetCharacters = targets
-            };
-
-            // special case don't ExecuteAction on MagicEffectInitiated
-            action.ResultingActions.Add(new CharacterActionSpendPower(actionParams));
+                    attacker.IsWithinRange(x, 2)));
         }
     }
 
@@ -1085,7 +1092,6 @@ internal static partial class SpellBuilders
             .Create(ConditionEyebiteSickened, $"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionDoomLaughter)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures()
             .AddToDB();
 
@@ -1185,8 +1191,9 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class MagicEffectFinishedByMeCorruptingBolt(ConditionDefinition conditionCorruptingBolt)
-        : IMagicEffectFinishedByMe
+    private sealed class MagicEffectFinishedByMeCorruptingBolt(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionCorruptingBolt) : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -1205,9 +1212,9 @@ internal static partial class SpellBuilders
             {
                 rulesetDefender.InflictCondition(
                     conditionCorruptingBolt.Name,
-                    conditionCorruptingBolt.DurationType,
-                    conditionCorruptingBolt.DurationParameter,
-                    conditionCorruptingBolt.TurnOccurence,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfSourceTurn,
                     AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,

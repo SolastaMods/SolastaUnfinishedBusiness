@@ -20,7 +20,7 @@
   "damageDieType": "D6",
   "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
-  "specificDamageType": "DamageFire",
+  "specificDamageType": "Radiant",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "ClassLevel",
   "diceByRankTable": [
@@ -147,65 +147,15 @@
     }
   ],
   "addLightSource": false,
-  "lightSourceForm": {
-    "$type": "LightSourceForm, Assembly-CSharp",
-    "lightSourceType": "Basic",
-    "brightRange": 4,
-    "dimAdditionalRange": 4,
-    "color": {
-      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 1.0,
-      "g": 1.0,
-      "b": 1.0,
-      "a": 1.0
-    },
-    "graphicsPrefabReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
-    },
-    "applyToSelf": false,
-    "forceOnSelf": false
-  },
-  "impactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "lightSourceForm": null,
+  "impactParticleReference": null,
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
-  "acidImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "coldImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "fireImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "lightningImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "poisonImpactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "acidImpactParticleReference": null,
+  "coldImpactParticleReference": null,
+  "fireImpactParticleReference": null,
+  "lightningImpactParticleReference": null,
+  "poisonImpactParticleReference": null,
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

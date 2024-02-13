@@ -55,7 +55,6 @@ public sealed class DomainDefiler : AbstractSubclass
         var conditionInsidiousDeathMagic = ConditionDefinitionBuilder
             .Create($"Condition{NAME}InsidiousDeathMagic")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
@@ -133,11 +132,7 @@ public sealed class DomainDefiler : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                ConditionDefinition = conditionInsidiousDeathMagic,
-                Operation = ConditionOperationDescription.ConditionOperation.Add
-            })
+            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionInsidiousDeathMagic)
             .AddToDB();
 
         // LEVEL 14

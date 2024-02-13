@@ -33,7 +33,6 @@ internal sealed class Interception : AbstractFightingStyle
                         .Create($"Condition{Name}")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                         .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
                         .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
                         .AddFeatures(
@@ -57,8 +56,9 @@ internal sealed class Interception : AbstractFightingStyle
         FightingStyleRanger
     ];
 
-    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception(ConditionDefinition conditionDefinition)
-        : IAttackBeforeHitConfirmedOnMeOrAlly
+    private sealed class AttackBeforeHitPossibleOnMeOrAllyInterception(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDefinition) : IAttackBeforeHitConfirmedOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMeOrAlly(
             GameLocationBattleManager battleManager,
@@ -122,9 +122,9 @@ internal sealed class Interception : AbstractFightingStyle
 
             defender.RulesetCharacter.InflictCondition(
                 conditionDefinition.Name,
-                conditionDefinition.DurationType,
-                conditionDefinition.DurationParameter,
-                conditionDefinition.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 helperCharacter.guid,
                 helperCharacter.CurrentFaction.Name,

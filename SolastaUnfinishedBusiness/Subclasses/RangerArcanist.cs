@@ -55,12 +55,7 @@ public sealed class RangerArcanist : AbstractSubclass
             .SetAttackModeOnly()
             .SetDamageDice(DieType.D6, 0)
             .SetTargetCondition(conditionMarkedByArcanist, AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    ConditionDefinition = conditionMarkedByArcanist,
-                    Operation = ConditionOperationDescription.ConditionOperation.Add
-                })
+            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionMarkedByArcanist)
             .AddToDB();
 
         var additionalDamageArcanistArcaneDetonation = FeatureDefinitionAdditionalDamageBuilder
@@ -73,12 +68,7 @@ public sealed class RangerArcanist : AbstractSubclass
             .SetTargetCondition(
                 conditionMarkedByArcanist,
                 AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    ConditionDefinition = conditionMarkedByArcanist,
-                    Operation = ConditionOperationDescription.ConditionOperation.Remove
-                })
+            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Remove, conditionMarkedByArcanist)
             .SetImpactParticleReference(MagicMissile.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 

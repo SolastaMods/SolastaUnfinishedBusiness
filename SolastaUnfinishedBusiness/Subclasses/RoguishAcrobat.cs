@@ -29,9 +29,10 @@ public sealed class RoguishAcrobat : AbstractSubclass
     {
         // LEVEL 03
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(QuarterstaffType);
+        var isQuarterstaff = ValidatorsWeapon.IsOfWeaponType(QuarterstaffType);
 
         // Acrobat Maven
+
         var proficiencyAcrobatConnoisseur = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Maven")
             .SetGuiPresentation(Category.Feature)
@@ -39,6 +40,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         // Acrobat Protector
+
         var attributeModifierAcrobatDefender = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}Protector")
             .SetGuiPresentation(Category.Feature)
@@ -47,16 +49,21 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         // Acrobat Trooper
+
         var featureAcrobatWarrior = FeatureDefinitionBuilder
             .Create($"Feature{Name}Trooper")
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(
                 new AddPolearmFollowUpAttack(QuarterstaffType),
-                new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon),
-                new IncreaseWeaponReach(1, validWeapon, Lunger.Name)) // should not stack with Lunger or Wendigo
+                new AddTagToWeapon(
+                    TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, isQuarterstaff),
+                // should not stack with Lunger or Wendigo
+                new IncreaseWeaponReach(1, isQuarterstaff, Lunger.Name))
             .AddToDB();
 
-        // LEVEL 09 - Swift as the Wind
+        // LEVEL 09
+
+        // Swift as the Wind
 
         const string SWIFT_WIND = $"FeatureSet{Name}SwiftWind";
 
@@ -84,7 +91,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .Create($"Feature{Name}SwiftWind")
             .SetGuiPresentationNoContent(true)
             .AddCustomSubFeatures(
-                new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D6, DieType.D10), validWeapon))
+                new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D6, DieType.D10), isQuarterstaff))
             .AddToDB();
 
         var featureSetSwiftWind = FeatureDefinitionFeatureSetBuilder
@@ -97,7 +104,9 @@ public sealed class RoguishAcrobat : AbstractSubclass
                 featureSwiftWind)
             .AddToDB();
 
-        // LEVEL 13 - Fluid Motions
+        // LEVEL 13
+
+        //  Fluid Motions
 
         var combatAffinityFluidMotions = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}FluidMotions")
@@ -126,17 +135,13 @@ public sealed class RoguishAcrobat : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionDodging,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDodging))
                     .Build())
             .AddToDB();
 
-        // LEVEL 17 - Heroic Uncanny Dodge
+        // LEVEL 17
+
+        //  Heroic Uncanny Dodge
 
         var reduceDamageHeroicUncannyDodge = FeatureDefinitionReduceDamageBuilder
             .Create($"ReduceDamage{Name}HeroicUncannyDodge")
@@ -173,17 +178,13 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("RoguishAcrobat", Resources.RoguishAcrobat, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishAcrobat, 256))
             .AddFeaturesAtLevel(3,
-                proficiencyAcrobatConnoisseur,
-                attributeModifierAcrobatDefender,
-                featureAcrobatWarrior)
+                proficiencyAcrobatConnoisseur, attributeModifierAcrobatDefender, featureAcrobatWarrior)
             .AddFeaturesAtLevel(9,
                 featureSetSwiftWind)
             .AddFeaturesAtLevel(13,
-                combatAffinityFluidMotions,
-                movementAffinityFluidMotions,
-                powerReflexes)
+                combatAffinityFluidMotions, movementAffinityFluidMotions, powerReflexes)
             .AddFeaturesAtLevel(17,
                 powerHeroicUncannyDodge)
             .AddToDB();
@@ -205,7 +206,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
+            GameLocationCharacter defender,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
             bool rangedAttack,
@@ -215,11 +216,12 @@ public sealed class RoguishAcrobat : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            var rulesetMe = me.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (me.IsMyTurn() ||
-                !me.CanReact() ||
-                !rulesetMe.CanUsePower(powerHeroicUncannyDodge))
+            if (defender.IsMyTurn() ||
+                !defender.CanReact() ||
+                !defender.CanPerceiveTarget(attacker) ||
+                !rulesetDefender.CanUsePower(powerHeroicUncannyDodge))
             {
                 yield break;
             }
@@ -235,23 +237,23 @@ public sealed class RoguishAcrobat : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetMe);
+            var usablePower = PowerProvider.Get(powerHeroicUncannyDodge, rulesetDefender);
             var actionParams =
-                new CharacterActionParams(me, ActionDefinitions.Id.PowerReaction)
+                new CharacterActionParams(defender, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "HeroicUncannyDodge",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetMe, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
-                    TargetCharacters = { me }
+                    TargetCharacters = { defender }
                 };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return battleManager.WaitForReactions(me, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(defender, gameLocationActionManager, count);
         }
     }
 }

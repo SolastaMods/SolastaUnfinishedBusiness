@@ -29,7 +29,6 @@ public sealed class OathOfAncients : AbstractSubclass
         .SetGuiPresentation(ConditionElderChampionName, Category.Condition)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetPossessive()
-        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
         .SetFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
@@ -214,8 +213,6 @@ public sealed class OathOfAncients : AbstractSubclass
             .Create($"Condition{Name}ElderChampionAdditionalAttack")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(additionalActionElderChampion)
             .AddToDB();
 
@@ -306,8 +303,9 @@ public sealed class OathOfAncients : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorElderChampion(ConditionDefinition conditionElderChampionAdditionalAttack)
-        : ICharacterTurnStartListener, IActionFinishedByMe
+    private sealed class CustomBehaviorElderChampion(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionElderChampionAdditionalAttack) : ICharacterTurnStartListener, IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
         {
@@ -328,9 +326,9 @@ public sealed class OathOfAncients : AbstractSubclass
 
             rulesetCharacter.InflictCondition(
                 conditionElderChampionAdditionalAttack.Name,
-                conditionElderChampionAdditionalAttack.DurationType,
-                conditionElderChampionAdditionalAttack.DurationParameter,
-                conditionElderChampionAdditionalAttack.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,

@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -15,9 +15,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -88,7 +86,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "Fixed",
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5eb7328f-dbce-54ef-aca6-e7488ebeedeb",
+  "guid": "4d382a47-8037-5313-98d9-c5843ecaf9d2",
   "contentPack": 9999,
-  "name": "ConditionRogueCunningStrikeReduceSneakDice"
+  "name": "ConditionWarDanceMissedAttack"
 }

@@ -8,7 +8,7 @@ While wielding a melee one-handed or versatile weapon and no other weapon or shi
 
 # 3. - Crippling
 
-Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 for 2 turns.
+Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 until the end of your next turn.
 
 # 4. - Executioner
 

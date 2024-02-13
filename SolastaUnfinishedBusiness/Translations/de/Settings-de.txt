@@ -12,7 +12,7 @@ ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>
 ModUi/&AddPickPocketableLoot=Füge Taschendieb-Beute hinzu <i><color=#F0DAA0>[empfohlen, wenn das Talent <color=#D89555>Taschendieb</color> aktiviert ist]</color></i>
 ModUi/&AddToStore=Zum Shop hinzufügen
 ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&AdvancedHelp=. <b><color=#C04040E0>ACHTUNG:</color></b> Für diese Einstellungen muss der Player diesen Mod installiert haben
+ModUi/&AdvancedHelp=• <b><color=#C04040E0>ACHTUNG:</color></b> Für diese Einstellungen muss der Player diesen Mod installiert haben
 ModUi/&AllItemInDm=Alle Artikel in DM
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Alle Spieler in Erzählsequenzen zulassen</i>
@@ -52,7 +52,7 @@ ModUi/&ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition=<color=#D89555>
 ModUi/&ColdResistanceAlsoGrantsImmunityToChilledCondition=<color=#D89555>Kälteresistenz</color> gewährt außerdem Immunität gegen den gekühlten Zustand und reduziert den Zustand „gefroren“ auf „gekühlt“.
 ModUi/&Combat=<color=#F0DAA0>Kampf:</color>
 ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
-ModUi/&CraftingHelp=. Drücken Sie die Taste, um Rezepte sofort auf der aktiven Gruppe zu lernen\n. Für Artikel, die zu Geschäften hinzugefügt werden, kann es erforderlich sein, dass die Gruppe den Standort verlässt und zurückkommt
+ModUi/&CraftingHelp=• Drücken Sie die Taste, um Rezepte sofort auf der aktiven Gruppe zu lernen\n• Für Artikel, die zu Geschäften hinzugefügt werden, kann es erforderlich sein, dass die Gruppe den Standort verlässt und zurückkommt
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits und Diagnosen
 ModUi/&Critical=<color=#F0DAA0>Kritischer Treffer:</color>
@@ -75,7 +75,7 @@ ModUi/&DontDisplayHelmets=Helme nicht auf grafischen Charakteren anzeigen <b><i>
 ModUi/&DontEndTurnAfterReady=Beenden Sie den Zug nicht, nachdem Sie die Bereitschaftsaktion verwendet haben <i><color=#F0DAA0>[ermöglicht die Verwendung der Bonusaktion oder zusätzlicher Hauptaktionen aus Tempo oder anderen Quellen]</color></i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
-ModUi/&DungeonMakerBasicHelp=. Für diese Einstellungen ist es nicht erforderlich, dass der Player diesen Mod installiert hat
+ModUi/&DungeonMakerBasicHelp=• Für diese Einstellungen ist es nicht erforderlich, dass der Player diesen Mod installiert hat
 ModUi/&DungeonMakerMenu=Dungeon Maker
 ModUi/&EmpressGarbAppearance=<color=#D89555>Kaiserin-Gewand</color> Aussehen
 ModUi/&EnableActionSwitching=Aktivieren Sie die Aktionswechselleiste <i><color=#F0DAA0>[nützlich, wenn Sie die Eile-Aktion vor der Hauptaktion schnell verwenden möchten]</color></i>
@@ -93,7 +93,7 @@ ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(E)</co
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere in Flammen sollten Licht aussenden <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und die Familie der Feuerbedingungen]</color></i>
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheats-Menü
 ModUi/&EnableCustomPortraits=Aktivieren Sie benutzerdefinierte Porträts
-ModUi/&EnableCustomPortraitsHelp=. Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color>< /b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n. Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixel und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
+ModUi/&EnableCustomPortraitsHelp=• Platzieren Sie Ihre benutzerdefinierten Porträts in den Unterordnern <i><b><color=#F0DAA0>Personal</color></b></i> oder <i><b><color=#F0DAA0>PreGen</color>< /b></i>, benannt nach dem Vornamen des Helden <i><color=#F0DAA0>[d. h.: Anton, Celia, Nialla usw.]</color></i>\n• Verwenden Sie PNG-Bilder mit einer Größe von 256 x 384 Pixel und einer Transparenzebene <i><color=#F0DAA0>[verwenden Sie GIMP für beste Ergebnisse]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und ohne Schnickschnack, bei dem Assets aus allen Umgebungen gemischt werden]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und reihen Sie <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 ein>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableExtendedProficienciesPanelDisplay=Aktivieren Sie die Anzeige der erweiterten Kompetenzen <i><color=#F0DAA0>[Arkane Schüsse, Infusionen, Gambits und Vielseitigkeiten]</color></i>\n<b><i><color=#C04040E0>[Leistungseinbußen beim Charakter Inspektion. Nutzung auf eigene Gefahr]</color></i></b>
@@ -128,10 +128,11 @@ ModUi/&EnableRespec=Aktivieren Sie die RESPEC-Nach-Ruhe-Aktion
 ModUi/&EnableRogueCunningStrike=Aktivieren Sie <color=#D89555>Rogue</color> <b>Cunning Strike</b> und <b>Devious Strike</b> auf den Klassenstufen 5 und 14 <i><color=#F0DAA0>[Sie lassen darauf verzichten 1 Hinterhältiger Angriffswürfel für zusätzliche Treffereffekte]</color></i>
 ModUi/&EnableRogueFightingStyle=Aktivieren Sie die Wahl des <color=#D89555>Schurken</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableRogueSteadyAim=Aktivieren Sie <color=#D89555>Rogue</color> <b>Steady Aim</b> auf Klassenstufe 3 <i><color=#F0DAA0>[Bonusaktion verschafft Ihnen einen Vorteil bei Ihrem nächsten Angriffswurf in der aktuellen Runde, wenn Sie sind noch nicht umgezogen]</color></i>
+ModUi/&EnableRogueStrSaving=Aktivieren Sie <color=#D89555>Schurke</color>, um DEX- oder STR-Modifikatoren für <b>List/Teufelsschlag</b>, <b>Schwächender/Verbesserter Schlag</b> und <b>Klingenhagel zu verwenden </b>
 ModUi/&EnableSaveByLocation=Aktivieren Sie die Speicherung nach Kampagnen/Standorten
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Statistiken im Tooltip des Helden anzeigen <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
-ModUi/&EnableSumD20OnAlternateVotingSystem=. Außerdem erhöht jeder Held das Gewicht um einen W20-Wurf, um ein wenig Zufälligkeit zu gewährleisten
+ModUi/&EnableSumD20OnAlternateVotingSystem=• Außerdem erhöht jeder Held das Gewicht um einen W20-Wurf, um ein wenig Zufälligkeit zu gewährleisten
 ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie die Schalter für den Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableTooltipDistance=Aktivieren Sie die Anzeige der Entfernung in Tooltips, wenn Sie im Kampf mit der Maus über einen Charakter fahren
@@ -145,7 +146,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um
 ModUi/&FactionRelations=<color=#F0DAA0>Fraktionen:</color>
 ModUi/&FasterTimeModifier=<color=white>Spielzeitmodifikator beim Drücken der Leertaste</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Feature-Gruppen</color>
-ModUi/&FeatGroupsHelp=. Jede Gruppe ist eine Konsolidierung ähnlicher Leistungen <i><color=#F0DAA0>[d. h. Glaubensbekenntnisse, Kampfstile, Metamagie usw.]</color></i>\n. Leistungen in diesen Gruppen werden in der Kompetenzauswahlphase nicht mehr direkt sichtbar sein\n. Wenn die Gruppe ausgewählt ist, werden sie in einer Dropdown-Liste angezeigt, um den Spielbildschirm übersichtlicher zu gestalten
+ModUi/&FeatGroupsHelp=• Jede Gruppe ist eine Konsolidierung ähnlicher Leistungen <i><color=#F0DAA0>[d. h. Glaubensbekenntnisse, Kampfstile, Metamagie usw.]</color></i>\n• Leistungen in diesen Gruppen werden in der Kompetenzauswahlphase nicht mehr direkt sichtbar sein\n• Wenn die Gruppe ausgewählt ist, werden sie in einer Dropdown-Liste angezeigt, um den Spielbildschirm übersichtlicher zu gestalten
 ModUi/&Feats=<color=#F0DAA0>Talente</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
 ModUi/&FixAsianLanguagesTextWrap=Korrigieren Sie den Textumbruch in der Spiel-Benutzeroberfläche für asiatische Sprachen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -153,9 +154,9 @@ ModUi/&FixEldritchBlastRange=Ändern Sie die Reichweite von <color=#D89555>Eldri
 ModUi/&FlightSuspendWingedBoots=<i>+ Offizielle Regeln für Winged Boots verwenden <color=#F0DAA0>[verbleibende Dauer wird bei Flugunterbrechung nicht gezählt]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>Sie können Ihre Formation während eines Mehrspielerspiels nicht ändern...</color>
-ModUi/&FormationHelp1=. Verwenden Sie die Zifferntasten, um einen bestimmten Satz zu bearbeiten <i><color=#F0DAA0>[erwägen Sie die Aktivierung von Hotkeys unter der Eingabe]</color></i>
-ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> stellen relative Heldenpositionen dar
-ModUi/&FormationHelp3=. Klicken Sie auf zwei beliebige Schaltflächen, um ihre Positionen zu tauschen
+ModUi/&FormationHelp1=• Verwenden Sie die Zifferntasten, um einen bestimmten Satz zu bearbeiten <i><color=#F0DAA0>[erwägen Sie die Aktivierung von Hotkeys unter der Eingabe]</color></i>
+ModUi/&FormationHelp2=• <b><color=#1E81B0>@</color></b> stellen relative Heldenpositionen dar
+ModUi/&FormationHelp3=• Klicken Sie auf zwei beliebige Schaltflächen, um ihre Positionen zu tauschen
 ModUi/&FormationHotkey=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(1..5)</color>, um Formationssätze im Spiel auszutauschen
 ModUi/&FormationResetAllSets=Alles zurücksetzen
 ModUi/&FormationResetThisSet=Setzen Sie dies zurück
@@ -230,7 +231,7 @@ ModUi/&RemoveSchoolRestrictionsFromSpellBlade=Entferne die Schulbeschränkungen 
 ModUi/&RestockAntiquarians=Antiquare <i><color=#F0DAA0>[Halman Summer]</color></i> auffüllen
 ModUi/&RestockArcaneum=Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i> auffüllen
 ModUi/&RestockCircleOfDanantar=Füllen Sie den Kreis von Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i> auf
-ModUi/&RestockHelp=. Überschreiben Sie die Standardeinstellungen, um zu erzwingen, dass der Lagerbestand des gesamten Händlers im Laufe der Zeit wieder aufgefüllt wird <i><color=#F0DAA0>[ausgenommen Handbücher und Wälzer]</color></i>\n. Beachten Sie, dass es bis zu 7 Spieltage dauern kann, bis der Vorrat einiger Artikel wieder aufgefüllt ist
+ModUi/&RestockHelp=• Überschreiben Sie die Standardeinstellungen, um zu erzwingen, dass der Lagerbestand des gesamten Händlers im Laufe der Zeit wieder aufgefüllt wird <i><color=#F0DAA0>[ausgenommen Handbücher und Wälzer]</color></i>\n• Beachten Sie, dass es bis zu 7 Spieltage dauern kann, bis der Vorrat einiger Artikel wieder aufgefüllt ist
 ModUi/&RestockTowerOfKnowledge=Füllen Sie den Turm des Wissens <i><color=#F0DAA0>[Maddy Greenisle]</color></i> auf
 ModUi/&Rollback=<b><color=#D89555>Rollback</color></b>
 ModUi/&Rules=Regeln
@@ -241,8 +242,8 @@ ModUi/&SelectSuggested=Wählen Sie „Vorgeschlagen“ aus
 ModUi/&Services=Dienstleistungen
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Gürtel der Zwergen</color> <color=white>Bart-Erscheinungschancen</color>
 ModUi/&SettingsExport=Export
-ModUi/&SettingsHelp=. Als Host können Sie Ihre aktuelle Konfiguration exportieren, den Exportordner öffnen und ganz einfach mit Ihren Kollegen teilen\n. Als Gast können Sie den Exportordner öffnen, die freigegebene Datei vom Host einfügen und über <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b> laden
-ModUi/&SettingsLoad=. Laden Sie eine exportierte Einstellung
+ModUi/&SettingsHelp=• Als Host können Sie Ihre aktuelle Konfiguration exportieren, den Exportordner öffnen und ganz einfach mit Ihren Kollegen teilen\n• Als Gast können Sie den Exportordner öffnen, die freigegebene Datei vom Host einfügen und über <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b> laden
+ModUi/&SettingsLoad=• Laden Sie eine exportierte Einstellung
 ModUi/&SettingsOpenFolder=Öffnen Sie den Ordner mit den exportierten Einstellungen
 ModUi/&SettingsRefresh=Aktualisierung
 ModUi/&SettingsRemove=Entfernen
@@ -289,6 +290,6 @@ ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernangriffe aktivie
 ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Auch für Reichweitenangriffe aktivieren <color=#F0DAA0>[deaktiviert präzise Mathematik]</color></i>
 ModUi/&UseOfficialFlankingRulesButAddAttackModifier=<i>+ Anstelle des Vorteils gewähre +1 auf den Angriffswurf</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
-ModUi/&UseOfficialObscurementRules=Benutzen Sie die offiziellen Kampfregeln für <color=#D89555>Beleuchtung, Verdunkelung und Sicht</color>\n<i><color=#F0DAA0>[Angreifer, der wahrnimmt, Verteidiger, der es nicht wahrnimmt, erhalten ADV, und Angreifer, der dies nicht tut Der Verteidiger, der es wahrnehmen kann, erhält DIS\n. Stark verdeckte Bereiche verursachen einen geblendeten Zustand, in dem Angriffswürfe gegen die Kreatur ADV haben und die Angriffswürfe der Kreatur DIS\n. Alle Distanzzauber, die auf Einzelpersonen abzielen, können nicht gewirkt werden, wenn der Angreifer keine Sicht hat , mit Ausnahme derjenigen, die eindeutig nicht angeben, dass Sehvermögen erforderlich ist]</color></i>
+ModUi/&UseOfficialObscurementRules=Benutzen Sie die offiziellen Kampfregeln für <color=#D89555>Beleuchtung, Verdunkelung und Sicht</color>\n<i><color=#F0DAA0>[Angreifer, der wahrnimmt, Verteidiger, der es nicht wahrnimmt, erhalten ADV, und Angreifer, der dies nicht tut Der Verteidiger, der es wahrnehmen kann, erhält DIS\n• Stark verdeckte Bereiche verursachen einen geblendeten Zustand, in dem Angriffswürfe gegen die Kreatur ADV haben und die Angriffswürfe der Kreatur DIS\n• Alle Distanzzauber, die auf Einzelpersonen abzielen, können nicht gewirkt werden, wenn der Angreifer keine Sicht hat , mit Ausnahme derjenigen, die eindeutig nicht angeben, dass Sehvermögen erforderlich ist]</color></i>
 ModUi/&UseOfficialSmallRacesDisWithHeavyWeapons=Benutze die offiziellen <color=#D89555>Regeln für kleine Rassen</color>, wenn du schwere Waffen führst <i><color=#F0DAA0>[deine Angriffe haben Nachteile]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

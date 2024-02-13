@@ -45,7 +45,7 @@
     "targetSide": "All",
     "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Constitution",

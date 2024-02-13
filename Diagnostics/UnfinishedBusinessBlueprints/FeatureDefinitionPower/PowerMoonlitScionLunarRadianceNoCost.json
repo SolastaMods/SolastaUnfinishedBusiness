@@ -175,8 +175,8 @@
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": null,
-        "m_SubObjectType": null
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
       },
       "effectSubTargetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -367,9 +367,9 @@
     "description": "Feature/&PowerMoonlitScionLunarRadianceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "de4513f2-7827-58cd-9b4b-b20a9d81a4fa",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "863c1137-134f-5090-bedb-291ab0295e08",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

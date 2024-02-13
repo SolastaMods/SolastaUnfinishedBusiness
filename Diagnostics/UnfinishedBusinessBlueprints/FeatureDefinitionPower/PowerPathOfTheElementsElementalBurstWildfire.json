@@ -214,8 +214,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPathOfTheElementsElementalBurstWildfire",
-          "conditionDefinition": "Definition:ConditionPathOfTheElementsElementalBurstWildfire:f37a5a33-6918-569c-b800-7d0f2eec8695",
+          "conditionDefinitionName": "ConditionOnFire",
+          "conditionDefinition": "Definition:ConditionOnFire:16ca5e0ef0891e445a26be9ae27a72de",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

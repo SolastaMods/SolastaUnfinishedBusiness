@@ -482,7 +482,6 @@ internal static class Level20SubclassesContext
             .Create("ConditionMartialCommanderPeerlessCommanderMovement")
             .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFreedomOfMovement)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityMartialCommanderPeerlessCommander")
@@ -498,6 +497,7 @@ internal static class Level20SubclassesContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerMartialCommanderInvigoratingShout)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -1084,8 +1084,6 @@ internal static class Level20SubclassesContext
             .Create("ConditionRoguishDarkweaverDarkAssault")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionStealthy)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddFeatures(additionalActionRoguishDarkweaverDarkAssault, movementAffinityRoguishDarkweaverDarkAssault)
             .AddToDB();
 
@@ -2274,8 +2272,9 @@ internal static class Level20SubclassesContext
     // Dark Assault
     //
 
-    private sealed class CustomBehaviorDarkAssault(ConditionDefinition conditionDarkAssault)
-        : ICharacterTurnStartListener
+    private sealed class CustomBehaviorDarkAssault(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionDarkAssault) : ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -2291,9 +2290,9 @@ internal static class Level20SubclassesContext
                     EffectHelpers.EffectType.Caster);
                 rulesetCharacter.InflictCondition(
                     conditionDarkAssault.Name,
-                    conditionDarkAssault.DurationType,
-                    conditionDarkAssault.DurationParameter,
-                    conditionDarkAssault.TurnOccurence,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
                     rulesetCharacter.Guid,
                     rulesetCharacter.CurrentFaction.Name,

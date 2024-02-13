@@ -12,8 +12,7 @@
   "familyTag": "CloseQuarters",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
-    "Definition:FeatureCloseQuarters:597d8262-667f-58d3-a9c8-b03cfcc74631"
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

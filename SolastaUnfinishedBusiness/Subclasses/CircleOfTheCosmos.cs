@@ -297,48 +297,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
     private static FeatureDefinitionPowerSharedPool BuildArcher(ActivationTime activationTime)
     {
-        var sprite = Sprites.GetSprite("ConstellationFormArcher", Resources.PowerArcher, 256, 128);
-
-        var powerArcherNoCost = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ArcherNoCost")
-            .SetGuiPresentation($"Power{Name}Archer", Category.Feature, sprite)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetUseSpellAttack()
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        var conditionArcherNoCost = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ArcherNoCost")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(powerArcherNoCost)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
-            .AddToDB();
-
-        powerArcherNoCost.EffectDescription.effectParticleParameters.casterParticleReference =
-            PowerOathOfTirmarGoldenSpeech.EffectDescription.EffectParticleParameters.casterParticleReference;
-        powerArcherNoCost.EffectDescription.effectParticleParameters.impactParticleReference = Sunbeam
-            .EffectDescription.EffectParticleParameters.impactParticleReference;
-
-        powerArcherNoCost.AddCustomSubFeatures(
-            ValidatorsValidatePowerUse.InCombat,
-            new ModifyEffectDescriptionArcher(powerArcherNoCost),
-            new MagicEffectFinishedByMeArcherNoCost(conditionArcherNoCost));
-
         var powerArcher = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Archer")
-            .SetGuiPresentation(Category.Feature, sprite)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerArcher", Resources.PowerArcher, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetUseSpellAttack()
             .SetEffectDescription(
@@ -360,6 +322,25 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .EffectDescription.EffectParticleParameters.impactParticleReference;
 
         powerArcher.AddCustomSubFeatures(new ModifyEffectDescriptionArcher(powerArcher));
+
+        var powerArcherNoCost = FeatureDefinitionPowerBuilder
+            .Create(powerArcher, $"Power{Name}ArcherNoCost")
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddToDB();
+
+        var conditionArcherNoCost = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ArcherNoCost")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerArcherNoCost)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        powerArcherNoCost.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.InCombat,
+            new ModifyEffectDescriptionArcher(powerArcherNoCost),
+            new MagicEffectFinishedByMeArcherNoCost(conditionArcherNoCost));
 
         var conditionArcher = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionSunbeam, $"Condition{Name}Archer")

@@ -68,14 +68,13 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
                 AttributeDefinitions.Wisdom)
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = true,
-                    canSaveToCancel = false,
-                    saveAffinity = EffectSavingThrowType.Negates,
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionStaggeringSmiteEnemy,
-                    operation = ConditionOperationDescription.ConditionOperation.Add
+                    hasSavingThrow = true,
+                    saveAffinity = EffectSavingThrowType.Negates
                 })
             .SetImpactParticleReference(Maze.EffectDescription.EffectParticleParameters.effectParticleReference)
             .AddToDB();

@@ -45,9 +45,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SilhouetteArts")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                SenseDarkvision12,
-                powerDarkness)
+            .AddFeatureSet(SenseDarkvision12, powerDarkness)
             .AddToDB();
 
         // Strike the Vitals
@@ -69,7 +67,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .Create($"Condition{Name}SilhouetteStep")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .SetFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{Name}SilhouetteStep")
@@ -85,8 +83,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionSilhouetteStep, ConditionForm.ConditionOperation.Add,
                             true, true),
@@ -193,7 +191,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         public DamageForm AdditionalDamageForm(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            IAdditionalDamageProvider provider,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
             DamageForm damageForm)
         {
             var rulesetAttacker = attacker.RulesetCharacter;

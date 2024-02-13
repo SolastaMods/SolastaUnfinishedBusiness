@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -19,12 +18,14 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class RoguishDuelist : AbstractSubclass
 {
     internal const string Name = "RoguishDuelist";
-    internal const string ConditionReflexiveParry = $"Condition{Name}ReflexiveParry";
+    internal const string ConditionReflexiveParryName = $"Condition{Name}ReflexiveParry";
     private const string SureFooted = "SureFooted";
 
     public RoguishDuelist()
     {
-        // LEVEL 3
+        // LEVEL 03
+
+        // Daring Duel
 
         var conditionDaringDuel = ConditionDefinitionBuilder
             .Create($"Condition{Name}DaringDuel")
@@ -34,7 +35,7 @@ public sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         var additionalDamageDaringDuel = FeatureDefinitionAdditionalDamageBuilder
-            .Create(AdditionalDamageRogueSneakAttack, $"AdditionalDamage{Name}DaringDuel")
+            .Create($"AdditionalDamage{Name}DaringDuel")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
@@ -42,14 +43,11 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    Operation = ConditionOperationDescription.ConditionOperation.Add,
-                    ConditionDefinition = conditionDaringDuel
-                })
+            .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionDaringDuel)
             .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
             .AddToDB();
+
+        // Sure Footed
 
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{SureFooted}")
@@ -66,7 +64,9 @@ public sealed class RoguishDuelist : AbstractSubclass
                 attributeModifierSureFooted)
             .AddToDB();
 
-        // LEVEL 9
+        // LEVEL 09
+
+        // Swirling Dance
 
         var actionAffinitySwirlingDance = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}SwirlingDance")
@@ -76,12 +76,12 @@ public sealed class RoguishDuelist : AbstractSubclass
 
         // LEVEL 13
 
+        // Reflexive Parry
+
         var conditionReflexiveParry = ConditionDefinitionBuilder
-            .Create(ConditionReflexiveParry)
+            .Create(ConditionReflexiveParryName)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var featureReflexiveParry = FeatureDefinitionBuilder
@@ -90,9 +90,11 @@ public sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         featureReflexiveParry.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnMeReflexiveParty(featureReflexiveParry, conditionReflexiveParry));
+            new CustomBehaviorReflexiveParty(featureReflexiveParry, conditionReflexiveParry));
 
         // LEVEL 17
+
+        // Master Duelist
 
         var featureMasterDuelist = FeatureDefinitionBuilder
             .Create($"Feature{Name}MasterDuelist")
@@ -105,6 +107,8 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(featureMasterDuelist)
             .AddToDB();
+
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -144,10 +148,10 @@ public sealed class RoguishDuelist : AbstractSubclass
     // Reflexive Party
     //
 
-    private sealed class AttackBeforeHitConfirmedOnMeReflexiveParty(
+    private sealed class CustomBehaviorReflexiveParty(
         FeatureDefinition featureReflexiveParty,
-        ConditionDefinition conditionReflexiveParty)
-        : IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionReflexiveParty) : IAttackBeforeHitConfirmedOnMe, IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
             GameLocationBattleManager battleManager,
@@ -187,12 +191,9 @@ public sealed class RoguishDuelist : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            if (!defender.CanAct())
+            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                !defender.CanAct() ||
+                !defender.CanPerceiveTarget(attacker))
             {
                 yield break;
             }
@@ -201,9 +202,9 @@ public sealed class RoguishDuelist : AbstractSubclass
 
             rulesetDefender.InflictCondition(
                 conditionReflexiveParty.Name,
-                conditionReflexiveParty.DurationType,
-                conditionReflexiveParty.DurationParameter,
-                conditionReflexiveParty.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetDefender.Guid,
                 rulesetDefender.CurrentFaction.Name,
@@ -221,8 +222,7 @@ public sealed class RoguishDuelist : AbstractSubclass
 
     private sealed class PhysicalAttackFinishedByMeMasterDuelist(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDaringDuel)
-        : IPhysicalAttackFinishedByMe
+        ConditionDefinition conditionDaringDuel) : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,

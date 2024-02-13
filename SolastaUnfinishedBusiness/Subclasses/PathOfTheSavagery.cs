@@ -87,7 +87,6 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             .Create($"Condition{Name}UnbridledFerocity")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionSorcererChildRiftDeflection)
             .SetSilent(Silent.WhenRemoved)
-            .SetSpecialDuration(DurationType.Permanent)
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetPossessive()
             .AllowMultipleInstances()
@@ -177,8 +176,9 @@ public sealed class PathOfTheSavagery : AbstractSubclass
         abilityScoreName = AttributeDefinitions.Strength;
     }
 
-    private sealed class PhysicalAttackFinishedByMeUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
-        : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeUnbridledFerocity(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionUnbridledFerocity) : IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
@@ -206,9 +206,9 @@ public sealed class PathOfTheSavagery : AbstractSubclass
             {
                 rulesetAttacker.InflictCondition(
                     conditionUnbridledFerocity.Name,
-                    conditionUnbridledFerocity.DurationType,
-                    conditionUnbridledFerocity.DurationParameter,
-                    conditionUnbridledFerocity.turnOccurence,
+                    DurationType.Permanent,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
                     AttributeDefinitions.TagEffect,
                     rulesetAttacker.guid,
                     rulesetAttacker.CurrentFaction.Name,

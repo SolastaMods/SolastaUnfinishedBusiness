@@ -96,20 +96,18 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
         var additionalDamageBloodOfSorrAkkath = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{BloodOfSorrAkkath}")
             .SetGuiPresentation($"AdditionalDamage{Name}{SpellSneakAttack}", Category.Feature)
-            // use flat bonus to allow it to interact correct with spell attack
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.None)
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetSavingThrowData()
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = true,
-                    saveOccurence = TurnOccurenceType.EndOfTurn,
-                    saveAffinity = EffectSavingThrowType.Negates,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = conditionBloodOfSorrAkkath
+                    conditionDefinition = conditionBloodOfSorrAkkath,
+                    hasSavingThrow = true,
+                    saveAffinity = EffectSavingThrowType.Negates
                 })
             .AddToDB();
 
@@ -182,36 +180,32 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
 
         const string TOUCH_OF_DARKNESS_NAME = $"FeatureSet{Name}{TouchOfDarkness}";
 
-        var effectTouchOfDarkness = EffectDescriptionBuilder
-            .Create()
-            .SetParticleEffectParameters(VampiricTouch)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeNecrotic, 8, DieType.D8, 0, HealFromInflictedDamage.Half)
-                    .Build())
-            .Build();
-
         var powerTouchOfDarknessFixed = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Fixed")
             .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
             .SetUseSpellAttack()
-            .SetEffectDescription(effectTouchOfDarkness)
-            .AddToDB();
-
-        var powerTouchOfDarknessPoints = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}{TouchOfDarkness}Points")
-            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4, 0)
-            .SetUseSpellAttack()
-            .SetEffectDescription(effectTouchOfDarkness)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(VampiricTouch)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 8, DieType.D8, 0, HealFromInflictedDamage.Half)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         powerTouchOfDarknessFixed.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
                 character => PowerProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
+
+        var powerTouchOfDarknessPoints = FeatureDefinitionPowerBuilder
+            .Create(powerTouchOfDarknessFixed, $"Power{Name}{TouchOfDarkness}Points")
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4, 0)
+            .AddToDB();
 
         powerTouchOfDarknessPoints.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(
@@ -229,9 +223,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererSorrAkkath, 256))
             .AddFeaturesAtLevel(1,
-                autoPreparedSpells,
-                featureSetDeceptiveHeritage,
-                additionalDamageSpellSneakAttack)
+                autoPreparedSpells, featureSetDeceptiveHeritage, additionalDamageSpellSneakAttack)
             .AddFeaturesAtLevel(6,
                 featureSetBloodOfSorrAkkath)
             .AddFeaturesAtLevel(14,

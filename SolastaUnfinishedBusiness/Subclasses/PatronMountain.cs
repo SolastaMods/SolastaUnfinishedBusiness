@@ -174,7 +174,7 @@ public class PatronMountain : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackOnly()
             .SetSavingThrowData()
-            .SetConditionOperations(new ConditionOperationDescription
+            .AddConditionOperation(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
                 conditionDefinition = ConditionDefinitions.ConditionBlindedEndOfNextTurn,

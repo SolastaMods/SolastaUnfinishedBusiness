@@ -32,7 +32,7 @@
     "targetConditionAsset": null,
     "targetSide": "Enemy",
     "durationType": "Round",
-    "durationParameter": 0,
+    "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,

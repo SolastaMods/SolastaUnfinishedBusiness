@@ -594,7 +594,6 @@ public sealed class RangerWildMaster : AbstractSubclass
             .Create(CommandSpiritBeastCondition)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         var powerWildMasterSpiritBeastCommand = FeatureDefinitionPowerBuilder
@@ -604,6 +603,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder

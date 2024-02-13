@@ -1,10 +1,13 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static AttributeDefinitions;
 using static FeatureDefinitionSavingThrowAffinity;
@@ -42,7 +45,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create($"Condition{Name}Debilitated")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures(savingThrowAffinityDebilitatingStrike)
             .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
@@ -50,10 +52,12 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var powerDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DebilitatingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
@@ -67,6 +71,9 @@ public sealed class RoguishOpportunist : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerDebilitatingStrike.AddCustomSubFeatures(
+            new AttackBeforeHitConfirmedOnEnemyDebilitatingStrike(powerDebilitatingStrike));
+
         // Opportunity
 
         var featureOpportunity = FeatureDefinitionBuilder
@@ -74,8 +81,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureOpportunity.AddCustomSubFeatures(
-            new ModifyAttackActionModifierOpportunity(featureOpportunity));
+        featureOpportunity.AddCustomSubFeatures(new ModifyAttackActionModifierOpportunity(featureOpportunity));
 
         // LEVEL 09
 
@@ -107,7 +113,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create(ConditionHindered, $"Condition{Name}ImprovedDebilitated")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike)
             .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
@@ -115,10 +120,12 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var powerImprovedDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ImprovedDebilitatingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
@@ -147,7 +154,6 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .Create(ConditionHindered, $"Condition{Name}Exposed")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(savingThrowAffinityImprovedDebilitatingStrike, combatAffinityOpportunistExposingWeakness)
             .CopyParticleReferences(ConditionSlowed)
             .AddToDB();
@@ -159,6 +165,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetSavingThrowData(false, Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Dexterity, 8)
@@ -173,10 +180,11 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .SetOverriddenPower(powerImprovedDebilitatingStrike)
             .AddToDB();
 
+        // MAIN
+
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("RoguishOpportunist")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("RoguishOpportunist", Resources.RoguishOpportunist, 256))
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RoguishOpportunist, 256))
             .AddFeaturesAtLevel(3, featureOpportunity, powerDebilitatingStrike)
             .AddFeaturesAtLevel(9, featureSeizeTheChance)
             .AddFeaturesAtLevel(13, powerImprovedDebilitatingStrike)
@@ -195,13 +203,57 @@ public sealed class RoguishOpportunist : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
+    // Debilitating Strike
+    //
+
+    private sealed class AttackBeforeHitConfirmedOnEnemyDebilitatingStrike(
+        FeatureDefinitionPower powerDebilitatingStrike) : IAttackBeforeHitConfirmedOnEnemy
+    {
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier actionModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (!CharacterContext.IsSneakAttackValid(actionModifier, attacker, defender))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerDebilitatingStrike, rulesetAttacker);
+            // must be spend power otherwise it'll trigger after cunning strike
+            var actionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower)
+            {
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
+        }
+    }
+
+    //
     // Opportunity
     //
 
     private sealed class ModifyAttackActionModifierOpportunity(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureOpportunistQuickStrike)
-        : IModifyAttackActionModifier
+        FeatureDefinition featureOpportunistQuickStrike) : IModifyAttackActionModifier
     {
         public void OnAttackComputeModifier(
             RulesetCharacter rulesetAttacker,

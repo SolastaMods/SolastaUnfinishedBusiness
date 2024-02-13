@@ -213,7 +213,8 @@ public sealed class InnovationAlchemy : AbstractSubclass
         const string SAVE = AttributeDefinitions.Dexterity;
         const DieType DIE_TYPE = DieType.D6;
         var (toggle, validator) = MakeElementToggleMarker(DAMAGE);
-        var effect = EffectFormBuilder.Create()
+        var effect = EffectFormBuilder
+            .Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(
                 ConditionDefinitionBuilder

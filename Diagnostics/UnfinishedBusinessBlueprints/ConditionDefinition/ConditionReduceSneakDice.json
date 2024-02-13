@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -86,7 +86,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "None",
+  "amountOrigin": "Fixed",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a85cd6d0-7113-5403-a586-3235983b79f0",
+  "guid": "a6e2eedf-e951-5faa-b743-061d407f4f7f",
   "contentPack": 9999,
-  "name": "ConditionCollegeOfThespianFinale"
+  "name": "ConditionReduceSneakDice"
 }

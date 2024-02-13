@@ -1,7 +1,7 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=Resiliencia Arcana
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Constitución +2, aumenta 1 puntuación adicional en 1 punto.
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Aumento de puntuación de habilidad
-Feature/&FeatureSetBattlebornArcaneResilienceDescription=Fuiste creado para tener una fortaleza extraordinaria, representada por los siguientes beneficios:\n\n- Obtienes una bonificación de +1 a la clase de armadura.\n- Tienes ventaja en las tiradas de salvación contra el envenenamiento y tienes resistencia a daño por veneno.\n- Eres inmune a las enfermedades.\n- No necesitas dormir y la magia no puede hacerte dormir.
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Fuiste creado para tener una fortaleza extraordinaria, representada por los siguientes beneficios:\n• Obtienes una bonificación de +1 a la clase de armadura.\n• Tienes ventaja en las tiradas de salvación contra el envenenamiento y tienes resistencia a daño por veneno.\n• Eres inmune a las enfermedades.\n• No necesitas dormir y la magia no puede hacerte dormir.
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=Resiliencia Arcana
 Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Obtienes un dominio de habilidad y un dominio de herramienta de tu elección.
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Infusión Especializada

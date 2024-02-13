@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerSharedPoolCollegeOfLifeConstitution:4674f3b9-93d7-5bb5-9725-22e34aa0f502",
+    "Definition:PowerSharedPoolCollegeOfLifeElementalResistance:b4492193-45f5-5c77-b688-a9ac91c38dbf",
+    "Definition:PowerSharedPoolCollegeOfLifeFly:b20f8cf5-354a-5895-b5b7-bbddd7cc8994",
+    "Definition:PowerSharedPoolCollegeOfLifeHeal:6b5e17c7-fdf9-51f0-ba95-1d89cc9c4024",
+    "Definition:PowerSharedPoolCollegeOfLifeRevive:7fcdc4f2-27b2-5e33-b1e3-897882b03590",
+    "Definition:PowerSharedPoolCollegeOfLifeDarkvision:0cf0959c-3f4c-51ba-be8b-d98489230bbb",
+    "Definition:PowerSharedPoolCollegeOfLifeHealingPool:e197ef97-b732-5855-9dc2-a455625e4ef6"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerCollegeOfLifeTransmuteForceTitle",
+    "description": "Feature/&PowerCollegeOfLifeTransmuteForceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6f2db17c-dffb-5605-bdd6-bf551fec713a",
+  "contentPack": 9999,
+  "name": "FeatureSetCollegeOfLifeTransmuteForce"
+}

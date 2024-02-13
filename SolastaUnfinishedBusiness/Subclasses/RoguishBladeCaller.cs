@@ -74,7 +74,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .AddFeatureSet(additionalDamageBladeMark, combatAffinityBladeMark)
             .AddToDB();
 
-        // LEVEL 09 - Hail of Blades
+        // LEVEL 09
+
+        // Hail of Blades
 
         var powerHailOfBlades = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HailOfBlades")
@@ -114,7 +116,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .AddFeatureSet(actionAffinityHailOfBladesToggle, powerHailOfBlades)
             .AddToDB();
 
-        // LEVEL 13 - Blade Surge
+        // LEVEL 13
+
+        // Blade Surge
 
         var movementAffinityBladeSurge = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}BladeSurge")
@@ -135,9 +139,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHasted)
             .SetSilent(Silent.WhenRemoved)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .AddFeatures(additionalActionBladeSurge, movementAffinityBladeSurge)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var featureBladeSurge = FeatureDefinitionBuilder
@@ -145,7 +147,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        // LEVEL 17 - Blade Storm
+        // LEVEL 17
+
+        // Blade Storm
 
         var featureBladeStorm = FeatureDefinitionBuilder
             .Create($"Feature{Name}BladeStorm")
@@ -206,9 +210,9 @@ public sealed class RoguishBladeCaller : AbstractSubclass
     private sealed class CustomBehaviorBladeMark(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionBladeMark,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionBladeSurge,
-        FeatureDefinitionPower powerHailOfBlades)
-        : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
+        FeatureDefinitionPower powerHailOfBlades) : IPhysicalAttackInitiatedByMe, IPhysicalAttackFinishedByMe
     {
         private BladeMarkStatus _bladeMarkStatus;
 
@@ -243,13 +247,14 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Rogue);
 
                 // inflict Blade Surge
-                if (classLevel >= 13 && !rulesetAttacker.HasAnyConditionOfType(conditionBladeSurge.Name))
+                if (classLevel >= 13 &&
+                    !rulesetAttacker.HasAnyConditionOfType(conditionBladeSurge.Name))
                 {
                     rulesetAttacker.InflictCondition(
                         conditionBladeSurge.Name,
-                        conditionBladeSurge.DurationType,
-                        conditionBladeSurge.DurationParameter,
-                        conditionBladeSurge.TurnOccurence,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
                         AttributeDefinitions.TagEffect,
                         rulesetAttacker.guid,
                         rulesetAttacker.CurrentFaction.Name,
@@ -268,8 +273,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             }
 
             // inflict Blade Mark condition
-            if (_bladeMarkStatus != BladeMarkStatus.Without
-                || !attacker.OnceInMyTurnIsValid(BladeMark))
+            if (_bladeMarkStatus != BladeMarkStatus.Without ||
+                !attacker.OnceInMyTurnIsValid(BladeMark))
             {
                 yield break;
             }
@@ -330,7 +335,8 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!attacker.CanReact() || !rulesetAttacker.CanUsePower(powerHailOfBlades))
+            if (!attacker.CanReact() ||
+                !rulesetAttacker.CanUsePower(powerHailOfBlades))
             {
                 yield break;
             }

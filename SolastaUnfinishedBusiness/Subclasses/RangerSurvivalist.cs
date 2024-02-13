@@ -57,8 +57,9 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetParentCondition(ConditionDefinitions.ConditionHindered)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Minute, 1)
             .AddToDB();
+
+        conditionDisablingStrike.specialDuration = false;
 
         // kept name for backward compatibility
         var additionalDamageDisablingStrike = FeatureDefinitionPowerBuilder
@@ -69,6 +70,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -116,7 +118,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .AddToDB();
 
         // kept name for backward compatibility
-        var additionalDamageImprovedDisablingStrike = FeatureDefinitionPowerBuilder
+        var powerImprovedDisablingStrike = FeatureDefinitionPowerBuilder
             .Create($"AdditionalDamage{Name}ImprovedDisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
@@ -124,6 +126,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.SpellCastingFeature)
@@ -163,7 +166,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .AddFeaturesAtLevel(7,
                 FeatureSetAnalyticalMind)
             .AddFeaturesAtLevel(11,
-                additionalDamageImprovedDisablingStrike)
+                powerImprovedDisablingStrike)
             .AddFeaturesAtLevel(15,
                 savingThrowAffinityUnmatchedExperience,
                 FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice)

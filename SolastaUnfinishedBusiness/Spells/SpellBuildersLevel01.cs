@@ -243,7 +243,7 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.Negates,
                 AttributeDefinitions.Strength)
-            .SetConditionOperations(new ConditionOperationDescription
+            .AddConditionOperation(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
                 conditionDefinition = conditionEnsnared,
@@ -404,17 +404,17 @@ internal static partial class SpellBuilders
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None)
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = ConditionDefinitionBuilder
                         .Create(ConditionOnFire, $"Condition{NAME}Enemy")
                         .AddToDB(),
-                    operation = ConditionOperationDescription.ConditionOperation.Add
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn
                 })
             .SetImpactParticleReference(FireBolt.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -471,19 +471,19 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
                 AttributeDefinitions.Wisdom)
-            .SetConditionOperations(
+            .AddConditionOperation(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = ConditionDefinitionBuilder
                         .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
                         .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                         .SetParentCondition(ConditionDefinitions.ConditionFrightened)
                         .AddToDB(),
-                    operation = ConditionOperationDescription.ConditionOperation.Add
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn
                 })
             .SetImpactParticleReference(Fear.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
@@ -537,7 +537,6 @@ internal static partial class SpellBuilders
         var conditionGravity = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionEncumbered, "ConditionGravity")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(movementAffinityMagnifyGravity)
             .AddToDB();
 
@@ -554,8 +553,8 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)
-                    .SetDurationData(DurationType.Round, 1)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetSavingThrowData(
                         false,
@@ -1104,7 +1103,6 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}Movement")
             .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
-            .SetSpecialDuration()
             .SetFeatures(movementAffinityStrikeWithTheWind)
             .SetConditionParticleReference(ConditionSpellbladeArcaneEscape.conditionParticleReference)
             .AddToDB();
@@ -1128,7 +1126,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetFeatures(additionalDamageStrikeWithTheWind, combatAffinityStrikeWithTheWind)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddCustomSubFeatures(
                 new OnConditionAddedOrRemovedStrikeWithTheWindAttack(conditionStrikeWithTheWindAttackMovement))
             .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
@@ -1180,6 +1178,7 @@ internal static partial class SpellBuilders
     }
 
     private sealed class OnConditionAddedOrRemovedStrikeWithTheWindAttack(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionStrikeWithTheWindMovement) : IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -1191,9 +1190,9 @@ internal static partial class SpellBuilders
         {
             target.InflictCondition(
                 conditionStrikeWithTheWindMovement.Name,
-                conditionStrikeWithTheWindMovement.DurationType,
-                conditionStrikeWithTheWindMovement.DurationParameter,
-                conditionStrikeWithTheWindMovement.TurnOccurence,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 AttributeDefinitions.TagEffect,
                 target.guid,
                 target.CurrentFaction.Name,

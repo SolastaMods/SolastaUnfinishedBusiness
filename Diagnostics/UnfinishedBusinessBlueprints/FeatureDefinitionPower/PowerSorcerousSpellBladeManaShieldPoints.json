@@ -81,7 +81,7 @@
           "diceNumber": 0,
           "dieType": "D1",
           "bonusHitPoints": 0,
-          "applyToSelf": true
+          "applyToSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -331,8 +331,8 @@
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a97abd29-0196-56f5-ad4a-d59d30e29e27",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

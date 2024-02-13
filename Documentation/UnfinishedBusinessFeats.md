@@ -107,7 +107,7 @@ You are experienced with fighting in close quarters and gain the following benef
 
 # 23. - Crippling
 
-Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 for 2 turns.
+Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 until the end of your next turn.
 
 # 24. - Crossbow Mastery
 

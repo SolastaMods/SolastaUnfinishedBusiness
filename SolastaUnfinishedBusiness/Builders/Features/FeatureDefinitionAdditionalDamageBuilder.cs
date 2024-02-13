@@ -99,7 +99,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
-    private FeatureDefinitionAdditionalDamageBuilder AddConditionOperation(ConditionOperationDescription operation)
+    internal FeatureDefinitionAdditionalDamageBuilder AddConditionOperation(ConditionOperationDescription operation)
     {
         Definition.ConditionOperations.Add(operation);
         return this;
@@ -108,8 +108,9 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     internal FeatureDefinitionAdditionalDamageBuilder AddConditionOperation(
         ConditionOperationDescription.ConditionOperation operation, ConditionDefinition condition)
     {
-        return AddConditionOperation(
+        Definition.ConditionOperations.Add(
             new ConditionOperationDescription { operation = operation, conditionDefinition = condition });
+        return this;
     }
 
 #if false

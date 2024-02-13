@@ -26,7 +26,8 @@ public sealed class CollegeOfLife : AbstractSubclass
         MagicAffinityCollegeOfLifeHeightened = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}Heightened")
             .SetGuiPresentation(Category.Feature)
-            .SetWarList(2) // we set spells on later load
+            // spells are set on later load
+            .SetWarList(2)
             .AddToDB();
 
         // LEVEL 06
@@ -36,9 +37,11 @@ public sealed class CollegeOfLife : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var powerSharedPoolCollegeOfLifeHealingPool = FeatureDefinitionPowerBuilder
+        // kept name for backward compatibility
+        var powerCollegeOfLifeTransmuteForce = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}HealingPool")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerPaladinLayOnHands)
+            .SetGuiPresentation($"Power{Name}TransmuteForce", Category.Feature,
+                FeatureDefinitionPowers.PowerPaladinLayOnHands)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
 
@@ -50,13 +53,13 @@ public sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeDarkvision = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}Darkvision")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetSharedPool(ActivationTime.BonusAction, powerCollegeOfLifeTransmuteForce)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -80,13 +83,13 @@ public sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifePoison = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}ElementalResistance")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetSharedPool(ActivationTime.BonusAction, powerCollegeOfLifeTransmuteForce)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -103,13 +106,13 @@ public sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeConstitution = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}Constitution")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetSharedPool(ActivationTime.BonusAction, powerCollegeOfLifeTransmuteForce)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.UntilLongRest)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -120,13 +123,13 @@ public sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeFly = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}Fly")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetSharedPool(ActivationTime.BonusAction, powerCollegeOfLifeTransmuteForce)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.UntilAnyRest)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -137,20 +140,33 @@ public sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeHeal = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}Heal")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetSharedPool(ActivationTime.BonusAction, powerCollegeOfLifeTransmuteForce)
             .SetEffectDescription(MassHealingWord.EffectDescription)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .AddToDB();
 
         var powerSharedPoolCollegeOfLifeRevive = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}Revive")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetSharedPool(ActivationTime.BonusAction, powerCollegeOfLifeTransmuteForce)
             .SetEffectDescription(Revivify.EffectDescription)
             .AddToDB();
 
-        PowerBundle.RegisterPowerBundle(powerSharedPoolCollegeOfLifeHealingPool, false,
+        var featureSetTransmuteForce = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}TransmuteForce")
+            .SetGuiPresentation($"Power{Name}TransmuteForce", Category.Feature)
+            .AddFeatureSet(
+                powerCollegeOfLifeTransmuteForce,
+                powerSharedPoolCollegeOfLifeDarkvision,
+                powerSharedPoolCollegeOfLifePoison,
+                powerSharedPoolCollegeOfLifeConstitution,
+                powerSharedPoolCollegeOfLifeFly,
+                powerSharedPoolCollegeOfLifeHeal,
+                powerSharedPoolCollegeOfLifeRevive)
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerCollegeOfLifeTransmuteForce, false,
             powerSharedPoolCollegeOfLifeDarkvision,
             powerSharedPoolCollegeOfLifePoison,
             powerSharedPoolCollegeOfLifeConstitution,
@@ -164,14 +180,11 @@ public sealed class CollegeOfLife : AbstractSubclass
             .AddFeaturesAtLevel(3,
                 MagicAffinityCollegeOfLifeHeightened)
             .AddFeaturesAtLevel(6,
-                damageAffinityCollegeOfLifeNecroticResistance,
-                powerSharedPoolCollegeOfLifeHealingPool)
+                damageAffinityCollegeOfLifeNecroticResistance, featureSetTransmuteForce)
             .AddFeaturesAtLevel(14,
-                DamageAffinityGenericHardenToNecrotic,
-                PowerCasterCommandUndead)
+                DamageAffinityGenericHardenToNecrotic, PowerCasterCommandUndead)
             .AddToDB();
     }
-
 
     private static FeatureDefinitionMagicAffinity MagicAffinityCollegeOfLifeHeightened { get; set; }
 

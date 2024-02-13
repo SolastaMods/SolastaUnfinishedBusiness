@@ -29,7 +29,6 @@ internal sealed class Sentinel : AbstractFightingStyle
                     new PhysicalAttackFinishedByMeFeatSentinel(
                         ConditionDefinitionBuilder
                             .Create(CustomConditionsContext.StopMovement, "ConditionStopMovementSentinel")
-                            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                             .AddToDB()))
                 .AddToDB())
         .AddToDB();
@@ -43,15 +42,10 @@ internal sealed class Sentinel : AbstractFightingStyle
         FightingStyleRanger
     ];
 
-    private sealed class PhysicalAttackFinishedByMeFeatSentinel : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeFeatSentinel(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionSentinelStopMovement) : IPhysicalAttackFinishedByMe
     {
-        private readonly ConditionDefinition _conditionSentinelStopMovement;
-
-        internal PhysicalAttackFinishedByMeFeatSentinel(ConditionDefinition conditionSentinelStopMovement)
-        {
-            _conditionSentinelStopMovement = conditionSentinelStopMovement;
-        }
-
         public IEnumerator OnPhysicalAttackFinishedByMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -86,7 +80,7 @@ internal sealed class Sentinel : AbstractFightingStyle
             }
 
             rulesetDefender.InflictCondition(
-                _conditionSentinelStopMovement.Name,
+                conditionSentinelStopMovement.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -94,7 +88,7 @@ internal sealed class Sentinel : AbstractFightingStyle
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,
                 1,
-                _conditionSentinelStopMovement.Name,
+                conditionSentinelStopMovement.Name,
                 0,
                 0,
                 0);
