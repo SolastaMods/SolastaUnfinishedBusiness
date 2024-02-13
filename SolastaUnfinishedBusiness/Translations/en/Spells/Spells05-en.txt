@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=You can use a bonus action to teleport up to 60 ft to an unoccupied space you can see.
 Condition/&ConditionFarStepTitle=Ethereal Step
+Condition/&ConditionTelekinesisDescription=You can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest, or target a new creature, ending the restrained effect on the previously affected creature.
+Condition/&ConditionTelekinesisTitle=Telekinesis
 Feature/&PowerSteelWhirlwindTeleportDescription=You can teleport to an unoccupied space you can see within 5 feet of one of the targets you hit or missed on your Steel Whirlwind attack.
 Feature/&PowerSteelWhirlwindTeleportTitle=Teleport
 Feedback/&AdditionalDamageBanishingSmiteFormat=Expelling Smite!

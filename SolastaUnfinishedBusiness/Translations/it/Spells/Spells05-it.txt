@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=Puoi usare un'azione bonus per teletrasportarti fino a 18 metri in uno spazio non occupato che puoi vedere.
 Condition/&ConditionFarStepTitle=Passo lontano
+Condition/&ConditionTelekinesisDescription=Puoi usare la tua azione per tentare di mantenere la presa telecinetica sulla creatura ripetendo la contesa, o prendere di mira una nuova creatura, ponendo fine all'effetto trattenuto sulla creatura precedentemente influenzata.
+Condition/&ConditionTelekinesisTitle=Telecinesi
 Feature/&PowerSteelWhirlwindTeleportDescription=Puoi teletrasportarti in uno spazio non occupato e visibile, entro 1,5 metri da uno dei bersagli colpiti o mancati durante il tuo attacco Turbine d'Acciaio.
 Feature/&PowerSteelWhirlwindTeleportTitle=Teletrasporto
 Feedback/&AdditionalDamageBanishingSmiteFormat=Punizione bandita!

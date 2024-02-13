@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=ボーナス アクションを使用すると、目に見える空いているスペースまで最大 60 フィートまでテレポートできます。
 Condition/&ConditionFarStepTitle=ファーステップ
+Condition/&ConditionTelekinesisDescription=アクションを使用して、コンテストを繰り返すことでクリーチャーのテレキネティックグリップを維持しようとするか、新しいクリーチャーをターゲットにして、以前に影響を受けたクリーチャーに抑制された効果を終わらせることができます。
+Condition/&ConditionTelekinesisTitle=テレキネシス
 Feature/&PowerSteelWhirlwindTeleportDescription=Steel Whirlwind 攻撃で命中または逃したターゲットの 1 つから 5 フィート以内に見える空いているスペースにテレポートできます。
 Feature/&PowerSteelWhirlwindTeleportTitle=テレポート
 Feedback/&AdditionalDamageBanishingSmiteFormat=バニシング・スマイト!

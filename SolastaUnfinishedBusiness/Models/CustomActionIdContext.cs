@@ -594,7 +594,8 @@ public static class CustomActionIdContext
     {
         var extra = (ExtraActionId)id;
 
-        return extra is ExtraActionId.FarStep
-            or ExtraActionId.BondOfTheTalismanTeleport;
+        return extra is ExtraActionId.BondOfTheTalismanTeleport
+            or ExtraActionId.FarStep
+            or ExtraActionId.Telekinesis;
     }
 }

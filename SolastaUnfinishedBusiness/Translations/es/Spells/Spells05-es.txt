@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=Puedes usar una acción adicional para teletransportarte hasta 60 pies a un espacio desocupado que puedas ver.
 Condition/&ConditionFarStepTitle=Paso lejano
+Condition/&ConditionTelekinesisDescription=Puedes usar tu acción para intentar mantener tu control telequinético sobre la criatura repitiendo el concurso, o apuntar a una nueva criatura, poniendo fin al efecto restringido en la criatura previamente afectada.
+Condition/&ConditionTelekinesisTitle=Telequinesia
 Feature/&PowerSteelWhirlwindTeleportDescription=Puedes teletransportarte a un espacio desocupado que puedas ver a 5 pies de uno de los objetivos que golpeaste o fallaste en tu ataque Steel Whirlwind.
 Feature/&PowerSteelWhirlwindTeleportTitle=Teletransportarse
 Feedback/&AdditionalDamageBanishingSmiteFormat=¡Destierro de Smite!

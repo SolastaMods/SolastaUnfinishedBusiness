@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=Vous pouvez utiliser une action bonus pour vous téléporter jusqu'à 18 mètres dans un espace inoccupé que vous pouvez voir.
 Condition/&ConditionFarStepTitle=Pas loin
+Condition/&ConditionTelekinesisDescription=Vous pouvez utiliser votre action pour tenter de maintenir votre emprise télékinésique sur la créature en répétant le concours, ou cibler une nouvelle créature, mettant ainsi fin à l'effet de retenue sur la créature précédemment affectée.
+Condition/&ConditionTelekinesisTitle=Télékinésie
 Feature/&PowerSteelWhirlwindTeleportDescription=Vous pouvez vous téléporter dans un espace inoccupé que vous pouvez voir à moins de 1,50 mètre de l'une des cibles que vous avez touchées ou manquées lors de votre attaque Steel Whirlwind.
 Feature/&PowerSteelWhirlwindTeleportTitle=Téléportation
 Feedback/&AdditionalDamageBanishingSmiteFormat=Châtiment de bannissement !

@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=추가행동으로, 시야로 확인 가능한 60ft 내의 점유되지 않은 공간으로 순간이동할 수 있습니다.
 Condition/&ConditionFarStepTitle=너른 걸음
+Condition/&ConditionTelekinesisDescription=당신은 행동을 사용하여 경쟁을 반복하여 생물에 대한 염력 그립을 유지하려고 시도하거나 새로운 생물을 목표로 삼아 이전에 영향을 받은 생물에 대한 억제 효과를 종료할 수 있습니다.
+Condition/&ConditionTelekinesisTitle=격동
 Feature/&PowerSteelWhirlwindTeleportDescription=강철 회오리 공격으로 적중하거나 빗나간 대상 중 한 명으로부터 5피트 이내에 보이는 비어 있는 공간으로 순간이동할 수 있습니다.
 Feature/&PowerSteelWhirlwindTeleportTitle=순간이동
 Feedback/&AdditionalDamageBanishingSmiteFormat=추방의 강타!

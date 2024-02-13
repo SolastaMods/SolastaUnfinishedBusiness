@@ -666,6 +666,43 @@ internal static partial class SpellBuilders
     {
         const string Name = "Telekinesis";
 
+        var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128);
+
+        var powerTelekinesis = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Spell, sprite)
+            .SetUsesFixed(ActivationTime.Action)
+            .DelegatedToAction()
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
+                    .UseQuickAnimations()
+                    .Build())
+            .AddCustomSubFeatures(new CustomBehaviorTelekinesis())
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Name}")
+            .SetGuiPresentation(Name, Category.Spell, sprite, 71)
+            .SetActionId(ExtraActionId.Telekinesis)
+            .OverrideClassName("UsePower")
+            .SetActionScope(ActionDefinitions.ActionScope.Battle)
+            .SetActionType(ActionDefinitions.ActionType.Main)
+            .SetFormType(ActionDefinitions.ActionFormType.Small)
+            .SetActivatedPower(powerTelekinesis)
+            .AddToDB();
+
+        var conditionTelekinesis = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionGuided)
+            .SetSpecialDuration(DurationType.Minute, 10)
+            .AddFeatures(powerTelekinesis)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
         var spell = SpellDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128))
@@ -676,12 +713,17 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetRequiresConcentration(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionTelekinesis, ConditionForm.ConditionOperation.Add,
+                            true, true))
+                    .UseQuickAnimations()
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorTelekinesis())
             .AddToDB();
@@ -702,7 +744,10 @@ internal static partial class SpellBuilders
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var checkDC = ((CharacterActionCastSpell)action).ActiveSpell.SaveDC;
+            var checkDC = action is CharacterActionCastSpell actionCastSpell
+                ? actionCastSpell.ActiveSpell.SaveDC
+                : rulesetCharacter.SpellsCastByMe
+                    .FirstOrDefault(x => x.SpellDefinition.Name == "Telekinesis")?.SaveDC ?? 0;
 
             var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);

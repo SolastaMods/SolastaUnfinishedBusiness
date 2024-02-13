@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=Mit einer Bonusaktion können Sie sich bis zu 60 Fuß weit zu einem freien, sichtbaren Feld teleportieren.
 Condition/&ConditionFarStepTitle=Weiter Schritt
+Condition/&ConditionTelekinesisDescription=Sie können Ihre Aktion verwenden, um zu versuchen, Ihren telekinetischen Griff auf die Kreatur aufrechtzuerhalten, indem Sie den Wettbewerb wiederholen, oder eine neue Kreatur als Ziel wählen und so den zurückhaltenden Effekt auf die zuvor betroffene Kreatur beenden.
+Condition/&ConditionTelekinesisTitle=Telekinese
 Feature/&PowerSteelWhirlwindTeleportDescription=Sie können sich zu einem unbesetzten Feld teleportieren, das Sie im Umkreis von 5 Fuß um eines der Ziele sehen können, die Sie bei Ihrem „Stählerner Wirbelwind“-Angriff getroffen oder verfehlt haben.
 Feature/&PowerSteelWhirlwindTeleportTitle=Teleportieren
 Feedback/&AdditionalDamageBanishingSmiteFormat=Smite verbannen!

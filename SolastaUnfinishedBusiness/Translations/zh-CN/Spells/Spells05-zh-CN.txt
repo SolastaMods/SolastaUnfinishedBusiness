@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=你可以使用一个附赠动作将最远 60 尺传送到一个你能看到的未被占据的空间。
 Condition/&ConditionFarStepTitle=渺远步
+Condition/&ConditionTelekinesisDescription=你可以用你的动作尝试通过重复比赛来保持对生物的心灵控制，或者瞄准一个新生物，结束对先前受影响的生物的束缚效果。
+Condition/&ConditionTelekinesisTitle=心灵传动
 Feature/&PowerSteelWhirlwindTeleportDescription=你可以传送到一个未占据的空间，你可以传送到一个未被占据的、你可以看到的、你命中活失手目标之一的 5 尺内的一处空间。
 Feature/&PowerSteelWhirlwindTeleportTitle=传送
 Feedback/&AdditionalDamageBanishingSmiteFormat=放逐斩！

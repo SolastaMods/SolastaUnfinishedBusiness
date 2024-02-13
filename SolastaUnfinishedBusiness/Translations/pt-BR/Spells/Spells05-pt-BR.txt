@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=Você pode usar uma ação bônus para se teletransportar até 60 pés para um espaço desocupado que você possa ver.
 Condition/&ConditionFarStepTitle=Passo distante
+Condition/&ConditionTelekinesisDescription=Você pode usar sua ação para tentar manter seu controle telecinético sobre a criatura repetindo a disputa, ou mirar em uma nova criatura, encerrando o efeito restringido na criatura anteriormente afetada.
+Condition/&ConditionTelekinesisTitle=Telecinese
 Feature/&PowerSteelWhirlwindTeleportDescription=Você pode se teletransportar para um espaço desocupado que você possa ver a até 1,5 metro de um dos alvos que você acertou ou errou em seu ataque Redemoinho de Aço.
 Feature/&PowerSteelWhirlwindTeleportTitle=Teleporte
 Feedback/&AdditionalDamageBanishingSmiteFormat=Banindo Smite!
