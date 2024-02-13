@@ -767,12 +767,12 @@ internal static class FixesContext
                         AttributeDefinitions.TagEffect, RoguishSlayer.ConditionChainOfExecutionBeneficialName,
                         out activeCondition))
                 {
-                    var newDiceNumber = damageForm.DiceNumber + (slayerLevels switch
+                    var newDiceNumber = damageForm.DiceNumber + slayerLevels switch
                     {
                         >= 17 => 5,
                         >= 13 => 4,
                         _ => 3
-                    });
+                    };
 
                     var title = Gui.Format("Feature/&FeatureRoguishSlayerChainOfExecutionTitle");
                     var description = Gui.Format("Feature/&FeatureRoguishSlayerChainOfExecutionDescription");

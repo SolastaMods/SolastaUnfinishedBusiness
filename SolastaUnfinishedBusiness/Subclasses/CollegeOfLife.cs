@@ -40,7 +40,8 @@ public sealed class CollegeOfLife : AbstractSubclass
         // kept name for backward compatibility
         var powerCollegeOfLifeTransmuteForce = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}HealingPool")
-            .SetGuiPresentation($"Power{Name}TransmuteForce", Category.Feature, FeatureDefinitionPowers.PowerPaladinLayOnHands)
+            .SetGuiPresentation($"Power{Name}TransmuteForce", Category.Feature,
+                FeatureDefinitionPowers.PowerPaladinLayOnHands)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
 
