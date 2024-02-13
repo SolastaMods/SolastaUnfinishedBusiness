@@ -309,12 +309,6 @@ internal static class CharacterDisplay
             CharacterContext.SwitchRogueSteadyAim();
         }
 
-        toggle = Main.Settings.EnableRogueStrSaving;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableRogueStrSaving"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableRogueStrSaving = toggle;
-        }
-
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&Visuals"));
         UI.Label();

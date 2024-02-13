@@ -128,7 +128,7 @@ ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
 ModUi/&EnableRogueCunningStrike=Abilita <color=#D89555>Ladro</color> <b>Colpo astuto</b> e <b>Colpo subdolo</b> ai livelli di classe 5 e 14 <i><color=#F0DAA0>[lascia perdere 1 dado di attacco furtivo per effetti di colpo aggiuntivi]</color></i>
 ModUi/&EnableRogueFightingStyle=Abilita la scelta dello <color=#D89555>Ladro</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableRogueSteadyAim=Abilita <color=#D89555>Ladro</color> <b>Mira costante</b> al livello di classe 3 <i><color=#F0DAA0>[l'azione bonus dà vantaggio al tuo prossimo tiro per colpire nel turno corrente se non mi sono ancora trasferito]</color></i>
-ModUi/&EnableRogueStrSaving=Abilita <color=#D89555>Ladro</color> per utilizzare i modificatori DEX o STR su <b>Colpo astuto</b>, <b>Colpo del diavolo</b>, <b>Colpo debilitante/migliorato</b > e <b>Grande di Lame</b>
+ModUi/&EnableRogueStrSaving=Abilita <color=#D89555>Ladro</color> per utilizzare i modificatori DEX o FOR su <b>Colpo astuto/diabolico</b>, <b>Colpo debilitante/migliorato</b> e <b>Pianta di lame </b>
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
