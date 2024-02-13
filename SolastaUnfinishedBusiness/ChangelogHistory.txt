@@ -1,14 +1,14 @@
 1.5.94.53:
 
-- added Gameplay > General > 'Enable Rogue to use DEX or STR modifiers on some powers'
+- added Gameplay > Rules > 'Enable Rogue to use DEX or STR modifiers on Cunning/Devil Strike, Debilitated/Improved...'
 - fixed Booming Step modal staying open after selection
 - fixed Raven heart-seeking shot not forcing a critical hit
 - improved sneak attack modifiers combat log messages [close quarters, cunning strike, etc.]
 - improved Roguish Opportunist debilitating strike to trigger before cunning strike
 - improved Roguish Umbral Stalker shadow strider to also work off battle
 - improved all translations to enforce consistency on lists
-- reviewed all conditions [hundreds of them] for correct duration determination
-- reviewed all subclasses, feats, FS, and spells for performance improvement and coding standard
+- reviewed all conditions [hundreds of them] for correct duration and redundant interruptions
+- reviewed all subclasses, feats, FS, gambits, invocations and spells for performance improvement
 
 1.5.94.52:
 
