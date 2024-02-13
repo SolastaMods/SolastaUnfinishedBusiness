@@ -340,7 +340,7 @@
     "description": "Feature/&PowerCircleOfTheCosmosArcherDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ed6ac21d-ca0e-5b8a-b275-addaf28f21d2",
+      "m_AssetGUID": "6caa9cd0-1f43-5728-b187-21954cce8316",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

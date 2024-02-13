@@ -82,48 +82,12 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
         conditionLunarRadianceEnemy.GuiPresentation.description = Gui.NoLocalization;
 
-        // Lunar Radiance No Cost
-
-        var spriteLunarRadiance = Sprites.GetSprite("LunarRadiance", Resources.PowerFullMoon, 256, 128);
-
-        var powerLunarRadianceNoCost = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}LunarRadianceNoCost")
-            .SetGuiPresentation($"Power{Name}LunarRadiance", Category.Feature, spriteLunarRadiance)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetUseSpellAttack()
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
-                        EffectFormBuilder.ConditionForm(conditionLunarRadianceEnemy))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionLightBlindingFlash)
-                    .Build())
-            .AddToDB();
-
-        powerLunarRadianceNoCost.EffectDescription.effectParticleParameters.effectParticleReference =
-            new AssetReference();
-
-        var conditionFullMoonNoCost = ConditionDefinitionBuilder
-            .Create($"Condition{Name}FullMoonNoCost")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(powerLunarRadianceNoCost)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
-            .AddToDB();
-
-        powerLunarRadianceNoCost.AddCustomSubFeatures(
-            ValidatorsValidatePowerUse.InCombat,
-            new MagicEffectFinishedByMeNoCost(conditionFullMoonNoCost));
-
         // Lunar Radiance
 
         var powerLunarRadiance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}LunarRadiance")
-            .SetGuiPresentation(Category.Feature, spriteLunarRadiance)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerFullMoon", Resources.PowerFullMoon, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetUseSpellAttack()
             .SetEffectDescription(
@@ -151,6 +115,26 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .AddToDB();
 
         conditionFullMoon.GuiPresentation.description = Gui.NoLocalization;
+
+        // Lunar Radiance No Cost
+
+        var powerLunarRadianceNoCost = FeatureDefinitionPowerBuilder
+            .Create(powerLunarRadiance, $"Power{Name}LunarRadianceNoCost")
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddToDB();
+
+        var conditionFullMoonNoCost = ConditionDefinitionBuilder
+            .Create($"Condition{Name}FullMoonNoCost")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerLunarRadianceNoCost)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        powerLunarRadianceNoCost.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.InCombat,
+            new MagicEffectFinishedByMeNoCost(conditionFullMoonNoCost));
 
         // Full Moon
 
@@ -199,45 +183,11 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .PowerDomainElementalHeraldOfTheElementsCold
             .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
-        // Lunar Chill No Cost
-
-        var spriteLunarChill = Sprites.GetSprite("LunarChill", Resources.PowerNewMoon, 256, 128);
-
-        var powerLunarChillNoCost = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}LunarChillNoCost")
-            .SetGuiPresentation($"Power{Name}LunarChill", Category.Feature, spriteLunarChill)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetUseSpellAttack()
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeCold, 1, DieType.D8),
-                        EffectFormBuilder.ConditionForm(conditionLunarChillEnemy))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDomainElementalIceLance)
-                    .Build())
-            .AddToDB();
-
-        var conditionNewMoonNoCost = ConditionDefinitionBuilder
-            .Create($"Condition{Name}NewMoonNoCost")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(powerLunarChillNoCost)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
-            .AddToDB();
-
-        powerLunarChillNoCost.AddCustomSubFeatures(
-            ValidatorsValidatePowerUse.InCombat,
-            new MagicEffectFinishedByMeNoCost(conditionNewMoonNoCost));
-
         // Lunar Chill
 
         var powerLunarChill = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}LunarChill")
-            .SetGuiPresentation(Category.Feature, spriteLunarChill)
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerNewMoon", Resources.PowerNewMoon, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetUseSpellAttack()
             .SetEffectDescription(
@@ -268,6 +218,26 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .EffectDescription.EffectParticleParameters.conditionParticleReference;
         conditionNewMoon.conditionEndParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
             .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+
+        // Lunar Chill No Cost
+
+        var powerLunarChillNoCost = FeatureDefinitionPowerBuilder
+            .Create(powerLunarChill, $"Power{Name}LunarChillNoCost")
+            .SetUsesFixed(ActivationTime.NoCost)
+            .AddToDB();
+
+        var conditionNewMoonNoCost = ConditionDefinitionBuilder
+            .Create($"Condition{Name}NewMoonNoCost")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(powerLunarChillNoCost)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddToDB();
+
+        powerLunarChillNoCost.AddCustomSubFeatures(
+            ValidatorsValidatePowerUse.InCombat,
+            new MagicEffectFinishedByMeNoCost(conditionNewMoonNoCost));
 
         // New Moon
 
