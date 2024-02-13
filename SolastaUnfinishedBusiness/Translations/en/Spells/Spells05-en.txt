@@ -24,3 +24,5 @@ Spell/&SonicBoomDescription=A small orb the same color as the balloon used appea
 Spell/&SonicBoomTitle=Sonic Boom
 Spell/&SteelWhirlwindDescription=You flourish the weapon used in the casting and then vanish to strike like the wind. Choose up to five creatures you can see within range. Make a melee spell attack against each target. On a hit, a target takes 6d10 force damage. You can then teleport to an unoccupied space you can see within 5 feet of one of the targets you hit or missed.
 Spell/&SteelWhirlwindTitle=Steel Whirlwind
+Spell/&TelekinesisDescription=You can try to move a Huge or smaller creature. Make an ability check with your spellcasting ability contested by the creature's Strength check. If you win the contest, you move the creature up to 30 feet in any direction, but not beyond the range of this spell. Until the end of your next turn, the creature is restrained in your telekinetic grip. On subsequent rounds, you can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest, or target a new creature, ending the restrained effect on the previously affected creature.
+Spell/&TelekinesisTitle=Telekinesis

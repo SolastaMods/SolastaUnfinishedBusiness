@@ -659,4 +659,90 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+
+    #region Telekinesis
+
+    internal static SpellDefinition BuildTelekinesis()
+    {
+        const string Name = "Telekinesis";
+
+        var spell = SpellDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
+                    .Build())
+            .AddCustomSubFeatures(new CustomBehaviorTelekinesis())
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class CustomBehaviorTelekinesis : IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            action.ActionParams.activeEffect.EffectDescription.rangeParameter = 12;
+
+            if (!action.ActingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var checkDC = ((CharacterActionCastSpell)action).ActiveSpell.SaveDC;
+
+            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
+            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+
+            targetCharacter.RollAbilityCheck(
+                AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, new ActionModifier(),
+                false, -1, out var outcome, out _, true);
+
+            if (outcome == RollOutcome.Success)
+            {
+                yield break;
+            }
+
+            targetRulesetCharacter.InflictCondition(
+                ConditionHindered.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                ConditionHindered.Name,
+                0,
+                0,
+                0);
+
+            var targetPosition = action.ActionParams.Positions[0];
+            var actionParams =
+                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.Pushed)
+                {
+                    Positions = { targetPosition }
+                };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .StopCharacterActions(targetCharacter, CharacterAction.InterruptionType.ForcedMovement);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, false);
+        }
+    }
+
+    #endregion
 }
