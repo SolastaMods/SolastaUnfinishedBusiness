@@ -15,7 +15,7 @@ using static RuleDefinitions;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -70,7 +70,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetImpactParticleReference(AdditionalDamageLifedrinker.impactParticleReference)
+            .SetImpactParticleReference(
+                Power_HornOfBlasting.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
         var conditionGloomBlade = ConditionDefinitionBuilder
@@ -340,11 +341,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             }
 
             var rulesetCharacter = source.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
 
             if (!rulesetCharacter.CanUsePower(powerUmbralSoul))
             {
