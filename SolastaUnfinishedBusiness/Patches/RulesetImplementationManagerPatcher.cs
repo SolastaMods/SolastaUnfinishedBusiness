@@ -243,6 +243,11 @@ public static class RulesetImplementationManagerPatcher
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
             }
 
+            if (rulesetCharacter.HasSubFeatureOfType<IAllowRerollDiceOnAllDamageForms>())
+            {
+                canRerollDice = true;
+            }
+
             var hero = rulesetCharacter.GetOriginalHero();
 
             //TODO: make this a proper interface in case we need to support other use cases

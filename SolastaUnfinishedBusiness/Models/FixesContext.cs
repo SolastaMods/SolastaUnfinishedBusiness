@@ -696,6 +696,7 @@ internal static class FixesContext
         public DamageForm AdditionalDamageForm(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
             DamageForm damageForm)
         {
@@ -794,6 +795,7 @@ internal static class FixesContext
             // handle umbral stalker gloomblade feature
             // ReSharper disable once InvertIf
             if (rulesetAttacker.GetSubclassLevel(Rogue, RoguishUmbralStalker.Name) > 0 &&
+                ValidatorsWeapon.IsMelee(attackMode) &&
                 rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.GloomBladeToggle))
             {
                 var title = Gui.Format("Feature/&ActionAffinityGloomBladeToggleTitle");

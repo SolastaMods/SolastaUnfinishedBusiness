@@ -78,7 +78,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(dieRollModifierDieRollModifier, additionalDamageGloomBlade)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks)
+            .AddCustomSubFeatures(new AllowRerollDiceOnAllDamageFormsGloomBlade())
             .AddToDB();
 
         var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder
@@ -221,9 +221,12 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Gloom Blade
     //
 
+    private sealed class AllowRerollDiceOnAllDamageFormsGloomBlade : IAllowRerollDiceOnAllDamageForms;
+    
     private sealed class AttackBeforeHitConfirmedOnEnemyGloomBlade(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionGloomBlade) : IAttackBeforeHitConfirmedOnEnemy
+        ConditionDefinition conditionGloomBlade) 
+        : IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -259,6 +262,26 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 0,
                 0,
                 0);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionGloomBlade.Name, out var activeCondition))
+            {
+                rulesetAttacker.RemoveCondition(activeCondition);
+            }
+
+            yield break;
         }
     }
 

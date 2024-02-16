@@ -191,6 +191,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         public DamageForm AdditionalDamageForm(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
             DamageForm damageForm)
         {
