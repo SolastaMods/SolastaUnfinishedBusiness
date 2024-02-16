@@ -264,9 +264,9 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             if (gameLocationActionManager == null ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
-                !rulesetOriginalHelper.CanUsePower(power) ||
                 !originalHelper.CanReact() ||
-                !originalHelper.CanPerceiveTarget(defender))
+                !originalHelper.CanPerceiveTarget(defender) ||
+                !rulesetOriginalHelper.CanUsePower(power))
             {
                 yield break;
             }
