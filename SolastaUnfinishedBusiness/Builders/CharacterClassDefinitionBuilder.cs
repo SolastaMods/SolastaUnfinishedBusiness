@@ -14,6 +14,12 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class CharacterClassDefinitionBuilder
     : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
 {
+    internal CharacterClassDefinitionBuilder SetVocalSpellSemeClass(VocalSpellSemeClass vocalSpellSemeClass)
+    {
+        Definition.vocalSpellSemeClass = vocalSpellSemeClass;
+        return this;
+    }
+
     internal CharacterClassDefinitionBuilder SetHitDice(DieType die)
     {
         Definition.hitDice = die;

@@ -378,6 +378,8 @@ internal static class InventorClass
 
         RegisterPoILoot();
 
+        builder.SetVocalSpellSemeClass(VocalSpellSemeClass.Arcana);
+
         Class = builder.AddToDB();
     }
 
