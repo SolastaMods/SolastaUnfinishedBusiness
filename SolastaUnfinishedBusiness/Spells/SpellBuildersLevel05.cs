@@ -678,8 +678,8 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
                     .UseQuickAnimations()
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorTelekinesis())
             .AddToDB();
@@ -698,14 +698,13 @@ internal static partial class SpellBuilders
         var conditionTelekinesis = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionGuided)
-            .SetSpecialDuration(DurationType.Minute, 10)
             .AddFeatures(powerTelekinesis)
             .AddCustomSubFeatures(new AddUsablePowersFromCondition())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128))
+            .SetGuiPresentation(Category.Spell, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.Action)
@@ -719,10 +718,10 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionTelekinesis, ConditionForm.ConditionOperation.Add,
                             true, true))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
                     .UseQuickAnimations()
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorTelekinesis())
