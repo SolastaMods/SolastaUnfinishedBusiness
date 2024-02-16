@@ -479,7 +479,7 @@ public sealed class MartialWarlord : AbstractSubclass
                     Positions = { targetPosition }
                 };
 
-            targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.usedTacticalMoves = 0;
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,

@@ -1977,7 +1977,7 @@ internal static class GambitsBuilders
                     Positions = { targetPosition }
                 };
 
-            targetCharacter.UsedTacticalMoves = 0;
+            targetCharacter.usedTacticalMoves = 0;
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
