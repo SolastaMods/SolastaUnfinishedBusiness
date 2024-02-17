@@ -753,9 +753,9 @@ internal static partial class SpellBuilders
         SpellDefinition spellTelekinesis,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionHinderedByTelekinesis)
-        : IMagicEffectInitiatedByMe, ISelectPositionAfterCharacter
+        : IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
     {
-        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 12;
 
@@ -886,6 +886,7 @@ internal static partial class SpellBuilders
                     0);
 
                 action.ActionParams.activeEffect.trackedConditionGuids.Add(hinderedCondition.Guid);
+                rulesetCharacter.SpellsCastByMe.Add(action.ActionParams.RulesetEffect as RulesetEffectSpell);
 
                 var actionParams =
                     new CharacterActionParams(targetCharacter, ActionDefinitions.Id.Pushed)

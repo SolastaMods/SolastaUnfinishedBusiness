@@ -1,14 +1,16 @@
 1.5.94.54:
 
 - added Interface > Game UI > 'Enable high contrast highlight with AoE and individual targets'
-- added Telekinesis spell at 5th
+- added Telekinesis spell at 5th [know issue: self doesn't lose condition if concentration lost]
 - fixed Close Quarters feat not triggering under Duelist and Umbral Stalker special sneak attacks
 - fixed Inventor quick wit reaction getting offered multiple times
 - fixed Paladin and Ranger multiclass shared slots using incorrect round up calculation
 - fixed Psion mind over matter not triggering a reaction on reduced to zero HP
 - fixed Umbral Stalker umbral soul not triggering a reaction on reduced to zero HP
+- improved Gambit coordinated attack to work under MP
 - improved Inventor spell casting with Arcana vocal spell seme
 - improved Umbral Stalker gloomblade and shadow stride features
+- improved Warlord strategic reposition feature to work under MP
 
 1.5.94.53:
 
