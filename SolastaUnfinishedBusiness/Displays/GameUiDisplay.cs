@@ -23,7 +23,7 @@ internal static class GameUiDisplay
                 _selectedForSwap = false;
                 GameUiContext.ResetAllFormationGrids();
             },
-                UI.Width((float)110));
+            UI.Width((float)110));
 
             if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width((float)165)))
             {
@@ -49,7 +49,7 @@ internal static class GameUiDisplay
                         _selectedForSwap = false;
                         GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
                     },
-                        UI.Width((float)110));
+                    UI.Width((float)110));
                 }
                 else
                 {
@@ -226,9 +226,7 @@ internal static class GameUiDisplay
             {
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = PortraitsContext.PortraitsFolder,
-                    UseShellExecute = true,
-                    Verb = "open"
+                    FileName = PortraitsContext.PortraitsFolder, UseShellExecute = true, Verb = "open"
                 });
             }, UI.Width((float)292));
 

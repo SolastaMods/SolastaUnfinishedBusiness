@@ -465,33 +465,33 @@ public static class CursorLocationSelectTargetPatcher
                         switch (__instance.ActionParams.RulesetEffect)
                         {
                             case RulesetEffectPower rulesetEffectPower:
+                            {
+                                var modifier = rulesetEffectPower.PowerDefinition
+                                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
+
+                                if (modifier != null)
                                 {
-                                    var modifier = rulesetEffectPower.PowerDefinition
-                                        .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
-
-                                    if (modifier != null)
-                                    {
-                                        __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
-                                            modifier.PositionRange;
-                                        enableSelectPosition = true;
-                                    }
-
-                                    break;
+                                    __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
+                                        modifier.PositionRange;
+                                    enableSelectPosition = true;
                                 }
+
+                                break;
+                            }
                             case RulesetEffectSpell rulesetEffectSpell:
+                            {
+                                var modifier = rulesetEffectSpell.SpellDefinition
+                                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
+
+                                if (modifier != null)
                                 {
-                                    var modifier = rulesetEffectSpell.SpellDefinition
-                                        .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
-
-                                    if (modifier != null)
-                                    {
-                                        __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
-                                            modifier.PositionRange;
-                                        enableSelectPosition = true;
-                                    }
-
-                                    break;
+                                    __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
+                                        modifier.PositionRange;
+                                    enableSelectPosition = true;
                                 }
+
+                                break;
+                            }
                         }
 
                         // enable select position if any modifier found
