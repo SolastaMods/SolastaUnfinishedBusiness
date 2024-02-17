@@ -576,7 +576,8 @@ internal static class ClassFeats
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
+                // all disengaging in game is set under TagCombat (why?)
+                AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,

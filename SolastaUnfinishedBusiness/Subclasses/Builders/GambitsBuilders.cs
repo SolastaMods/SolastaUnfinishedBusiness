@@ -1972,7 +1972,8 @@ internal static class GambitsBuilders
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
             var targetPosition = action.ActionParams.Positions[0];
             var actionParams =
-                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
+                new CharacterActionParams(targetCharacter, 
+                    Global.IsMultiplayer ? ActionDefinitions.Id.SpecialMove : ActionDefinitions.Id.TacticalMove)
                 {
                     Positions = { targetPosition }
                 };

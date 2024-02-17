@@ -474,7 +474,8 @@ public sealed class MartialWarlord : AbstractSubclass
             var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
             var targetPosition = action.ActionParams.Positions[0];
             var actionParams =
-                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
+                new CharacterActionParams(targetCharacter,
+                    Global.IsMultiplayer ? ActionDefinitions.Id.SpecialMove : ActionDefinitions.Id.TacticalMove)
                 {
                     Positions = { targetPosition }
                 };
@@ -485,7 +486,8 @@ public sealed class MartialWarlord : AbstractSubclass
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
+                // all disengaging in game is set under TagCombat (why?)
+                AttributeDefinitions.TagCombat,
                 targetRulesetCharacter.Guid,
                 targetRulesetCharacter.CurrentFaction.Name,
                 1,
