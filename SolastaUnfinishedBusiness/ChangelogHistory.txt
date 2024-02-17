@@ -1,5 +1,6 @@
 1.5.94.54:
 
+- added Interface > Game UI > 'Enable high contrast target highlight when using area of effect...'
 - fixed Close Quarters feat not triggering under Duelist and Umbral Stalker sneak triggers
 - fixed Coordinated Attack gambit causing a de-sync in multiplayer
 - fixed Inventor quick wit reaction getting offered multiple times
