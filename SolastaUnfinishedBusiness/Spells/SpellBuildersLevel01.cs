@@ -1150,7 +1150,7 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
             .AddFeatures(powerStrikeWithTheWind)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .SetConditionParticleReference(ConditionStrikeOfChaosAttackAdvantage.conditionParticleReference)
             .AddToDB();
 
@@ -1624,7 +1624,7 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .SetFeatures(powerThunderousSmite)
             .AddCustomSubFeatures(
-                new AddUsablePowersFromCondition(),
+                AddUsablePowersFromCondition.Marker,
                 new PhysicalAttackFinishedByMeThunderousSmite(powerThunderousSmite))
             .AddToDB();
 
@@ -1811,7 +1811,7 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionSpikeBarrage.AddCustomSubFeatures(
-            new AddUsablePowersFromCondition(),
+            AddUsablePowersFromCondition.Marker,
             new PhysicalAttackFinishedByMeSpikeBarrage(powerSpikeBarrage, conditionSpikeBarrage));
 
         var spell = SpellDefinitionBuilder

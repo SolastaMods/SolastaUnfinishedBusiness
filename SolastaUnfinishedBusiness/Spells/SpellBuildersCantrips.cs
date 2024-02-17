@@ -815,7 +815,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(additionalDamageResonatingStrike, powerResonatingStrike)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var customBehavior =

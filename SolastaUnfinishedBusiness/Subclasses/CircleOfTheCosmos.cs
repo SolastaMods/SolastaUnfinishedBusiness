@@ -134,7 +134,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerWealCosmosOmen)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         conditionWealCosmosOmen.GuiPresentation.description = Gui.NoLocalization;
@@ -145,7 +145,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerWoeCosmosOmen)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         conditionWoeCosmosOmen.GuiPresentation.description = Gui.NoLocalization;
@@ -334,7 +334,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(powerArcherNoCost)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         powerArcherNoCost.AddCustomSubFeatures(
@@ -349,7 +349,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerArcher)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         conditionArcher.GuiPresentation.description = Gui.NoLocalization;
@@ -360,7 +360,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         // Archer Main
@@ -427,7 +427,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(powerChalice)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var conditionChalice = ConditionDefinitionBuilder

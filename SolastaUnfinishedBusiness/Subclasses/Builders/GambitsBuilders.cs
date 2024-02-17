@@ -166,7 +166,7 @@ internal static class GambitsBuilders
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage, reactionPower)
-                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -224,7 +224,7 @@ internal static class GambitsBuilders
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage, reactionPower)
-                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -284,7 +284,7 @@ internal static class GambitsBuilders
                                     .SetPossessive()
                                     .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                     .SetFeatures(gambitDieDamage, reactionPower)
-                                    .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                    .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
@@ -345,7 +345,7 @@ internal static class GambitsBuilders
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage, reactionPower)
-                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -414,7 +414,7 @@ internal static class GambitsBuilders
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamage, reactionPower)
-                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -465,7 +465,7 @@ internal static class GambitsBuilders
                                 .SetPossessive()
                                 .SetSpecialInterruptions(ExtraConditionInterruption.AttacksWithWeaponOrUnarmed)
                                 .SetFeatures(gambitDieDamageMelee, reactionPower)
-                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -511,7 +511,7 @@ internal static class GambitsBuilders
                                 .SetGuiPresentationNoContent(true)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetFeatures(powerCoordinatedAttack)
-                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
             .AddToDB();
@@ -538,7 +538,7 @@ internal static class GambitsBuilders
                                 .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
                                 .SetPossessive()
                                 .SetFeatures(reactionPower)
-                                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                                 .AddToDB()))
                     .Build())
             .AddToDB();

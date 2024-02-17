@@ -369,7 +369,7 @@ internal static partial class SpellBuilders
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.UsedActionOrReaction, ConditionInterruption.Moved)
             .SetFeatures(powerTeleport)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -699,7 +699,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionGuided)
             .AddFeatures(powerTelekinesis)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -719,6 +719,7 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(ConditionHindered),
                         EffectFormBuilder.ConditionForm(conditionTelekinesis, ConditionForm.ConditionOperation.Add,
                             true, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
@@ -755,19 +756,19 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            targetRulesetCharacter.InflictCondition(
-                ConditionHindered.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.EndOfSourceTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                ConditionHindered.Name,
-                0,
-                0,
-                0);
+            // targetRulesetCharacter.InflictCondition(
+            //     ConditionHindered.Name,
+            //     DurationType.Round,
+            //     1,
+            //     TurnOccurenceType.EndOfSourceTurn,
+            //     AttributeDefinitions.TagEffect,
+            //     rulesetCharacter.Guid,
+            //     rulesetCharacter.CurrentFaction.Name,
+            //     1,
+            //     ConditionHindered.Name,
+            //     0,
+            //     0,
+            //     0);
 
             var targetPosition = action.ActionParams.Positions[0];
             var actionParams =
