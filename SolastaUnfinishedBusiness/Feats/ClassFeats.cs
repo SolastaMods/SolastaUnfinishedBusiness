@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -295,6 +296,58 @@ internal static class ClassFeats
         .SetFeatFamily(CloseQuartersName)
         .SetValidators(HasSneakAttack)
         .AddToDB();
+
+    internal sealed class ModifyAdditionalDamageFormCloseQuarters : IModifyAdditionalDamageForm
+    {
+        internal static ModifyAdditionalDamageFormCloseQuarters Marker = new();
+
+        public DamageForm AdditionalDamageForm(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            DamageForm damageForm)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter.GetOriginalHero();
+
+            if (rulesetAttacker == null)
+            {
+                return damageForm;
+            }
+
+            HandleCloseQuarters(attacker, rulesetAttacker, defender, damageForm);
+
+            return damageForm;
+        }
+    }
+
+    internal static void HandleCloseQuarters(
+        GameLocationCharacter attacker,
+        RulesetCharacterHero rulesetAttacker,
+        GameLocationCharacter defender,
+        DamageForm damageForm)
+    {
+        if (!attacker.IsWithinRange(defender, 1) ||
+            (!rulesetAttacker.TrainedFeats.Contains(CloseQuartersDex) &&
+             !rulesetAttacker.TrainedFeats.Contains(CloseQuartersInt)))
+        {
+            return;
+        }
+
+        var title = Gui.Format("Feature/&FeatureCloseQuartersTitle");
+        var description = Gui.Format("Feature/&FeatureCloseQuartersDescription");
+
+        rulesetAttacker.LogCharacterActivatesAbility(
+            title, "Feedback/&ChangeSneakDiceDieType",
+            tooltipContent: description, indent: true,
+            extra:
+            [
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
+                (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D8))
+            ]);
+
+        damageForm.DieType = DieType.D8;
+    }
 
     private static FeatDefinition BuildCloseQuarters(List<FeatDefinition> feats)
     {

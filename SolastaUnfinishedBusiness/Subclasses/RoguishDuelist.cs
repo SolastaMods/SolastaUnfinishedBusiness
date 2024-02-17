@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -44,7 +45,9 @@ public sealed class RoguishDuelist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add, conditionDaringDuel)
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
+            .AddCustomSubFeatures(
+                ModifyAdditionalDamageClassLevelRogue.Instance,
+                ClassFeats.ModifyAdditionalDamageFormCloseQuarters.Marker)
             .AddToDB();
 
         // Sure Footed

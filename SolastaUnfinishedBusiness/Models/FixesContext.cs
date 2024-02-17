@@ -708,24 +708,7 @@ internal static class FixesContext
             }
 
             // handle close quarters feat
-            if (attacker.IsWithinRange(defender, 1) &&
-                (rulesetAttacker.TrainedFeats.Contains(ClassFeats.CloseQuartersDex) ||
-                 rulesetAttacker.TrainedFeats.Contains(ClassFeats.CloseQuartersInt)))
-            {
-                var title = Gui.Format("Feature/&FeatureCloseQuartersTitle");
-                var description = Gui.Format("Feature/&FeatureCloseQuartersDescription");
-
-                rulesetAttacker.LogCharacterActivatesAbility(
-                    title, "Feedback/&ChangeSneakDiceDieType",
-                    tooltipContent: description, indent: true,
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D6)),
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(DieType.D8))
-                    ]);
-
-                damageForm.DieType = DieType.D8;
-            }
+            ClassFeats.HandleCloseQuarters(attacker, rulesetAttacker, defender, damageForm);
 
             // handle rogue cunning strike feature
             if (rulesetAttacker.TryGetConditionOfCategoryAndType(

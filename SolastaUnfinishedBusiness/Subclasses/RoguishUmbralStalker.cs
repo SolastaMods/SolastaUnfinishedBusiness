@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -46,7 +47,9 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.SourceAndTargetAreNotBrightAndWithin5Ft)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddCustomSubFeatures(ModifyAdditionalDamageClassLevelRogue.Instance)
+            .AddCustomSubFeatures(
+                ModifyAdditionalDamageClassLevelRogue.Instance,
+                ClassFeats.ModifyAdditionalDamageFormCloseQuarters.Marker)
             .AddToDB();
 
         var featureSetDeadlyShadows = FeatureDefinitionFeatureSetBuilder
@@ -106,7 +109,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                             .Build())
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishDarkweaverShadowy)
+                    .SetParticleEffectParameters(PowerRoguishDarkweaverShadowy)
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
@@ -179,7 +182,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionShadowDance))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerDomainOblivionHeraldOfPain)
+                    .SetParticleEffectParameters(PowerDomainOblivionHeraldOfPain)
                     .Build())
             .AddToDB();
 
@@ -223,10 +226,10 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     //
 
     private sealed class AllowRerollDiceOnAllDamageFormsGloomBlade : IAllowRerollDiceOnAllDamageForms;
-    
+
     private sealed class AttackBeforeHitConfirmedOnEnemyGloomBlade(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionGloomBlade) 
+        ConditionDefinition conditionGloomBlade)
         : IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(

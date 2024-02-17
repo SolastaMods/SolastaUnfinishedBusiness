@@ -1,3 +1,11 @@
+1.5.94.54:
+
+- fixed Close Quarters feat not triggering under Duelist and Umbral Stalker special sneak scenarios
+- fixed Inventor quick wit reaction offering
+- fixed Paladin and Ranger multiclass shared slots calculation
+- improved Inventor with Arcana vocal spell seme
+- improved Roguish Umbral Stalker gloomblade feature
+
 1.5.94.53:
 
 - added Gameplay > Rules > 'Enable Rogue to use DEX or STR modifiers on Cunning/Devil Strike, Debilitated/Improved...'
