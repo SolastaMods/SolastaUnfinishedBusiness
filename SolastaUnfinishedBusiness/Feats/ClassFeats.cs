@@ -299,7 +299,7 @@ internal static class ClassFeats
 
     internal sealed class ModifyAdditionalDamageFormCloseQuarters : IModifyAdditionalDamageForm
     {
-        internal static ModifyAdditionalDamageFormCloseQuarters Marker = new();
+        internal static readonly ModifyAdditionalDamageFormCloseQuarters Marker = new();
 
         public DamageForm AdditionalDamageForm(
             GameLocationCharacter attacker,
