@@ -103,8 +103,8 @@ ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Guerriero</color
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze sugli strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti punteggio abilità invece delle impostazioni razziali predefinite]</color></i>
 ModUi/&EnableHighContrastTargeting=Abilita <color=#D89555>evidenziazione ad alto contrasto</color> con AoE e target individuali
-ModUi/&EnableHighContrastTargetingAoe=Cambia il colore di evidenziazione AoE <i><color=#F0DAA0>[default, b/n, rgb, cmy]</color></i>
-ModUi/&EnableHighContrastTargetingSingle=Cambia il colore di evidenziazione target <i><color=#F0DAA0>[default, b/n, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingAoe=Cambia il <color=$$$$$$>colore evidenziatore AoE</color> <i><color=#F0DAA0>[predefinito, b/n, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingSingle=Cambia il <color=$$$$$$>colore di evidenziazione</color> <i><color=#F0DAA0>[predefinito, b/n, rgb, cmy]</color></i> di destinazione
 ModUi/&EnableHigherGroundRules=Abilita le regole del terreno più alto <i><color=#F0DAA0>[+1 per colpire se si attacca da un terreno più alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare la sovrapposizione di debug
 ModUi/&EnableHotkeyToggleHud=Abilita <color=#1E81B0>CTRL-MAIUSC-(H)</color> per alternare la visualizzazione dell'HUD
@@ -170,7 +170,7 @@ ModUi/&Gameplay=Gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Concedi la <b>Specializzazione arma</b> a Scimitarra a <color=#D89555>Bardi</color> e <color=#D89555>Ladri</color>
-ModUi/&GridSelectedColor=Cambia il colore della griglia <i><color=#F0DAA0>[b/n, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=Cambia il <color=$$$$$$>colore della griglia</color> <i><color=#F0DAA0>[b/n, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non ancora scoperti
 ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% / 75% / 100% invece dei punti ferita esatti
 ModUi/&House=<color=#F0DAA0>Casa:</color>

@@ -103,8 +103,8 @@ ModUi/&EnableFighterWeaponSpecialization=クラスレベル 8 と 16 で<color=#
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[スキルとツールの習熟度を背景から選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトの代わりに能力スコア ポイントを割り当てる]</color></i>
 ModUi/&EnableHighContrastTargeting=AoE と個々のターゲットで<color=#D89555>ハイ コントラスト ハイライト</color>を有効にする
-ModUi/&EnableHighContrastTargetingAoe=AoE ハイライトカラーを変更します<i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
-ModUi/&EnableHighContrastTargetingSingle=ターゲットのハイライトカラーを変更します<i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingAoe=AoE の<color=$$$$$>ハイライト カラー</color> <i><color=#F0DAA0>[デフォルト、白黒、rgb、cmy]</color></i> を変更します。
+ModUi/&EnableHighContrastTargetingSingle=ターゲットの<color=$$$$$>ハイライト カラー</color> <i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i> を変更します。
 ModUi/&EnableHigherGroundRules=高地ルールを有効にする <i><color=#F0DAA0>[高地から攻撃する場合、ヒット数 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=<color=#1E81B0>CTRL-SHIFT-(D)</color> を有効にしてデバッグ オーバーレイを表示します
 ModUi/&EnableHotkeyToggleHud=<color=#1E81B0>CTRL-SHIFT-(H)</color> を有効にして HUD 表示を切り替えます
@@ -170,7 +170,7 @@ ModUi/&Gameplay=ゲームプレイ
 ModUi/&General=<color=#F0DAA0>全般:</color>
 ModUi/&GeneralMenu=全般的
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>吟遊詩人</color>と<color=#D89555>ローグ</color>にシミターの<b>武器特化</b>を付与する
-ModUi/&GridSelectedColor=グリッドの色を変更します<i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=<color=$$$$$$>グリッドの色</color> <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i> を変更します。
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=まだ発見されていない場合は、出口とテレポーターの視覚効果を非表示にします
 ModUi/&HideMonsterHitPoints=正確なヒットポイントではなく、モンスターの体力を 25% / 50% / 75% / 100% の段階で表示します
 ModUi/&House=<color=#F0DAA0>家:</color>

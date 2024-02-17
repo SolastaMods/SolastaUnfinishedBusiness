@@ -1,8 +1,6 @@
 1.5.94.54:
 
-KNOWN ISSUES: Warlord Strategic Reposition and Gambit Coordinated Attack might de-sync MP [need test]
-
-- added Interface > Game UI > 'Enable high contrast target highlight when using area of effect...'
+- added Interface > Game UI > 'Enable high contrast highlight with AoE and individual targets'
 - added Telekinesis spell at 5th
 - fixed Close Quarters feat not triggering under Duelist and Umbral Stalker special sneak attacks
 - fixed Inventor quick wit reaction getting offered multiple times

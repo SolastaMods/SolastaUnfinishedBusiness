@@ -103,8 +103,8 @@ ModUi/&EnableFighterWeaponSpecialization=Activer la <b>Spécialisation d'arme</b
 ModUi/&EnableFlexibleBackgrounds=Activer les Historiques flexibles <i><color=#F0DAA0>[sélectionner les compétences et les maîtrises d'outils de n'importe quels Historiques]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les Ascendances flexibles <i><color=#F0DAA0>[assignez vous-même les points de caractéristiques au lieu des valeurs d'Ascendances par défaut]</color></i>
 ModUi/&EnableHighContrastTargeting=Activer la <color=#D89555>surbrillance à contraste élevé</color> avec AoE et cibles individuelles
-ModUi/&EnableHighContrastTargetingAoe=Changer la couleur de surbrillance AoE <i><color=#F0DAA0>[par défaut, n/b, rgb, cmy]</color></i>
-ModUi/&EnableHighContrastTargetingSingle=Modifier la couleur de surbrillance cible <i><color=#F0DAA0>[par défaut, n/b, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingAoe=Changer l'AoE <color=$$$$$$>couleur de surbrillance</color> <i><color=#F0DAA0>[par défaut, n/b, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingSingle=Changer la <color=$$$$$$>couleur de surbrillance cible</color> <i><color=#F0DAA0>[par défaut, n/b, rgb, cmy]</color></i>
 ModUi/&EnableHigherGroundRules=Activer les règles sur l'élévation <i><color=#F0DAA0>[+1 pour toucher si vous attaquez depuis un point surélevé par rapport à la cible]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la fenêtre de débogage
 ModUi/&EnableHotkeyToggleHud=Activez <color=#1E81B0>CTRL-SHIFT-(H)</color> pour basculer sur l'affichage HUD
@@ -170,7 +170,7 @@ ModUi/&Gameplay=Jouabilité
 ModUi/&General=<color=#F0DAA0>Général :</color>
 ModUi/&GeneralMenu=Général
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accorder la <b>Spécialisation d'arme</b> au Cimeterre aux <color=#D89555>Bardes</color> et aux <color=#D89555>Roublard</color>
-ModUi/&GridSelectedColor=Changer la couleur de la grille <i><color=#F0DAA0>[n/b, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=Changer la <color=$$$$$$>couleur de la grille</color> <i><color=#F0DAA0>[n/b, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
 ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
 ModUi/&House=<color=#F0DAA0>Maison :</color>

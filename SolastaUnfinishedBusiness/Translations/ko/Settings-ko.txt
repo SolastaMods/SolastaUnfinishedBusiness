@@ -103,8 +103,8 @@ ModUi/&EnableFighterWeaponSpecialization=<color=#D89555>파이터</color> 클래
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[종족 기본값 대신 능력치 점수 할당]</color></i>
 ModUi/&EnableHighContrastTargeting=AoE 및 개별 타겟으로 <color=#D89555>고대비 하이라이트</color>를 활성화합니다.
-ModUi/&EnableHighContrastTargetingAoe=AoE 강조 색상 변경 <i><color=#F0DAA0>[기본값, 흑백, rgb, cmy]</color></i>
-ModUi/&EnableHighContrastTargetingSingle=대상 강조 색상 변경 <i><color=#F0DAA0>[기본값, 흑백, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingAoe=AoE <color=$$$$$$>강조 색상</color> <i><color=#F0DAA0>[기본값, 흑백, rgb, cmy]</color></i> 변경
+ModUi/&EnableHighContrastTargetingSingle=대상 <color=$$$$$$>강조 색상</color> 변경 <i><color=#F0DAA0>[기본값, 흑백, rgb, cmy]</color></i>
 ModUi/&EnableHigherGroundRules=고지대 규칙 활성화 <i><color=#F0DAA0>[고지대에서 공격할 경우 명중 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 눌러 활성화
 ModUi/&EnableHotkeyToggleHud=HUD 표시를<color=#1E81B0>CTRL-SHIFT-(H)</color>로 전환 활성화
@@ -170,7 +170,7 @@ ModUi/&Gameplay=게임플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>바드</color>와 <color=#D89555>로그</color>에게 시미터<b>무기특화</b> 부여
-ModUi/&GridSelectedColor=그리드 색상 변경 <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=<color=$$$$$$>격자 색상</color> 변경 <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=발견하지 못한 출구와 순간이동기의 시각 효과 숨기기
 ModUi/&HideMonsterHitPoints=몬스터의 체력을 정확한 수치 대신 25% / 50% / 75% / 100% 만큼 단계별로 표시하기
 ModUi/&House=<color=#F0DAA0>하우스 룰(자체 규칙):</color>

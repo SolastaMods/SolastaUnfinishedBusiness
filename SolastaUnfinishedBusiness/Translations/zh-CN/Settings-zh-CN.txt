@@ -103,8 +103,8 @@ ModUi/&EnableFighterWeaponSpecialization=在8级和16级启用<color=#D89555>战
 ModUi/&EnableFlexibleBackgrounds=启用灵活的背景<i><color=#F0DAA0>[自由选择背景提供的技能和工具熟练项]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[自由分配种族属性加值]</color></i>
 ModUi/&EnableHighContrastTargeting=为 AoE 和单个目标启用<color=#D89555>高对比度高光</color>
-ModUi/&EnableHighContrastTargetingAoe=更改 AoE 高亮颜色<i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
-ModUi/&EnableHighContrastTargetingSingle=更改目标突出显示颜色<i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingAoe=更改范围<color=$$$$$$>突出显示颜色</color> <i><color=#F0DAA0>[默认、黑白、rgb、cmy]</color></i>
+ModUi/&EnableHighContrastTargetingSingle=更改目标<color=$$$$$$>突出显示颜色</color> <i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
 ModUi/&EnableHigherGroundRules=启用夹击规则<i><color=#F0DAA0>[从高处射击时 +1 命中，前后夹击敌人时 +1 命中，如果敌人被四个盟友包围则获得优势]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=启用<color=#1E81B0>CTRL-SHIFT-(D)</color>以显示调试覆盖
 ModUi/&EnableHotkeyToggleHud=启用<color=#1E81B0>CTRL-SHIFT-(H)</color>切换HUD显示
@@ -170,7 +170,7 @@ ModUi/&Gameplay=玩法
 ModUi/&General=<color=#F0DAA0>通用：</color>
 ModUi/&GeneralMenu=通用
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=为<color=#D89555>吟游诗人</color>和<color=#D89555>游荡着</color>授予弯刀<b>武器专精</b>
-ModUi/&GridSelectedColor=更改网格颜色<i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=更改<color=$$$$$$>网格颜色</color> <i><color=#F0DAA0>[b/w、rgb、cmy]</color></i>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
 ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步长显示怪物的生命值，而不是准确生命值
 ModUi/&House=<color=#F0DAA0>房规：</color>

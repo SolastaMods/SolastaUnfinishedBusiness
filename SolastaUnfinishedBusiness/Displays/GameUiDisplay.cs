@@ -299,24 +299,36 @@ internal static class GameUiDisplay
             Main.Settings.EnableHighContrastTargeting = toggle;
         }
 
+        string color;
+        string title;
+        
         if (Main.Settings.EnableHighContrastTargeting)
         {
-            UI.ActionButton(Gui.Localize("ModUi/&EnableHighContrastTargetingAoe"), () =>
+            color = GameUiContext.HighContrastColorStrings[Main.Settings.EnableHighContrastTargetingAoe];
+            title = Gui.Localize("ModUi/&EnableHighContrastTargetingAoe").Replace("$$$$$$", color);
+
+            UI.ActionButton(title, () =>
             {
                 Main.Settings.EnableHighContrastTargetingAoe =
-                    (Main.Settings.EnableHighContrastTargetingAoe + 1) % GameUiContext.GridColors.Length;
-            }, UI.Width((float)450));
+                    (Main.Settings.EnableHighContrastTargetingAoe + 1) % GameUiContext.HighContrastColors.Length;
+            }, UI.Width((float)400));
 
-            UI.ActionButton(Gui.Localize("ModUi/&EnableHighContrastTargetingSingle"), () =>
+            color = GameUiContext.HighContrastColorStrings[Main.Settings.EnableHighContrastTargetingSingle];
+            title = Gui.Localize("ModUi/&EnableHighContrastTargetingSingle").Replace("$$$$$$", color);
+
+            UI.ActionButton(title, () =>
             {
                 Main.Settings.EnableHighContrastTargetingSingle =
-                    (Main.Settings.EnableHighContrastTargetingSingle + 1) % GameUiContext.GridColors.Length;
-            }, UI.Width((float)450));
+                    (Main.Settings.EnableHighContrastTargetingSingle + 1) % GameUiContext.HighContrastColors.Length;
+            }, UI.Width((float)400));
         }
 
         UI.Label();
 
-        UI.ActionButton(Gui.Localize("ModUi/&GridSelectedColor"), () =>
+        color = GameUiContext.GridColorStrings[Main.Settings.GridSelectedColor];
+        title = Gui.Localize("ModUi/&GridSelectedColor").Replace("$$$$$$", color);
+        
+        UI.ActionButton(title, () =>
         {
             Main.Settings.GridSelectedColor = (Main.Settings.GridSelectedColor + 1) % GameUiContext.GridColors.Length;
             Main.Info(Main.Settings.GridSelectedColor.ToString());

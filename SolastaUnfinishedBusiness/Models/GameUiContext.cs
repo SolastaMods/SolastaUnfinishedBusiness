@@ -25,12 +25,27 @@ internal static class GameUiContext
 
     internal static readonly Color DefaultHighContrastColor = new(0.110f, 0.311f, 0.287f, 1.000f);
 
+    internal static readonly string[] HighContrastColorStrings =
+    [
+        "#1C4F49",
+        "#000000", "#FFFFFF",
+        "#FF4040", "#40C040", "#8080FF",
+        "#00FFFF", "#FF40FF", "#FFFF00"
+    ];
+
     internal static readonly Color[] HighContrastColors =
     [
         DefaultHighContrastColor,
         Color.black, Color.white,
         Color.red, Color.green, Color.blue,
         Color.cyan, Color.magenta, Color.yellow
+    ];
+
+    internal static readonly string[] GridColorStrings =
+    [
+        "#000000", "#FFFFFF",
+        "#FF4040", "#40C040", "#8080FF",
+        "#00FFFF", "#FF40FF", "#FFFF00"
     ];
 
     internal static readonly Color[] GridColors =
