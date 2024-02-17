@@ -496,16 +496,8 @@ public static class CursorLocationSelectTargetPatcher
                         // enable select position if any modifier found
                         if (enableSelectPosition)
                         {
-                            var locationCharacterService =
-                                ServiceRepository.GetService<IGameLocationCharacterService>();
-                            var contenders =
-                                (Gui.Battle?.AllContenders ??
-                                 locationCharacterService.PartyCharacters.Union(
-                                     locationCharacterService.GuestCharacters))
-                                .ToList();
-
                             // keep a tab on all selected characters to recover them later on SelectionPositionPatcher
-                            foreach (var selectedTarget in contenders)
+                            foreach (var selectedTarget in __instance.SelectionService.SelectedTargets)
                             {
                                 var rulesetTarget = selectedTarget.RulesetCharacter;
                                 var rulesetAttacker = __instance.ActionParams.ActingCharacter.RulesetCharacter;
