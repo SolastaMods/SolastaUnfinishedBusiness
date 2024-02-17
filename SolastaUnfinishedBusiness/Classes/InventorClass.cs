@@ -930,8 +930,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             action.saveOutcome = RollOutcome.Success;
         }
 
-        var extra = action.SaveOutcomeDelta >= 0 
-            ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle") 
+        var extra = action.SaveOutcomeDelta >= 0
+            ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
             : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
 
         helper.RulesetCharacter.LogCharacterUsedPower(

@@ -233,7 +233,9 @@ public static class CursorLocationGeometricShapePatcher
             [UsedImplicitly]
             public static void Postfix(CursorLocationGeometricShape __instance)
             {
-                __instance.affectedCharacterColor = Main.Settings.EnableHighContrastTargetingAoe ? Color.yellow : new Color(0.110f, 0.311f, 0.287f, 1.000f);
+                __instance.affectedCharacterColor = Main.Settings.EnableHighContrastTargetingAoe
+                    ? Color.yellow
+                    : new Color(0.110f, 0.311f, 0.287f, 1.000f);
             }
         }
     }
