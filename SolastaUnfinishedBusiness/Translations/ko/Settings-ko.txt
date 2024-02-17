@@ -103,7 +103,6 @@ ModUi/&EnableFighterWeaponSpecialization=<color=#D89555>파이터</color> 클래
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[종족 기본값 대신 능력치 점수 할당]</color></i>
 ModUi/&EnableHighContrastTargeting=AoE 및 개별 타겟으로 <color=#D89555>고대비 하이라이트</color>를 활성화합니다.
-ModUi/&EnableHighContrastTargetingAoe=AoE <color=$$$$$$>강조 색상</color> <i><color=#F0DAA0>[기본값, 흑백, rgb, cmy]</color></i> 변경
 ModUi/&EnableHighContrastTargetingSingle=대상 <color=$$$$$$>강조 색상</color> 변경 <i><color=#F0DAA0>[기본값, 흑백, rgb, cmy]</color></i>
 ModUi/&EnableHigherGroundRules=고지대 규칙 활성화 <i><color=#F0DAA0>[고지대에서 공격할 경우 명중 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 눌러 활성화

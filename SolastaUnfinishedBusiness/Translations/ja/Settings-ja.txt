@@ -103,7 +103,6 @@ ModUi/&EnableFighterWeaponSpecialization=クラスレベル 8 と 16 で<color=#
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[スキルとツールの習熟度を背景から選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトの代わりに能力スコア ポイントを割り当てる]</color></i>
 ModUi/&EnableHighContrastTargeting=AoE と個々のターゲットで<color=#D89555>ハイ コントラスト ハイライト</color>を有効にする
-ModUi/&EnableHighContrastTargetingAoe=AoE の<color=$$$$$>ハイライト カラー</color> <i><color=#F0DAA0>[デフォルト、白黒、rgb、cmy]</color></i> を変更します。
 ModUi/&EnableHighContrastTargetingSingle=ターゲットの<color=$$$$$>ハイライト カラー</color> <i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i> を変更します。
 ModUi/&EnableHigherGroundRules=高地ルールを有効にする <i><color=#F0DAA0>[高地から攻撃する場合、ヒット数 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=<color=#1E81B0>CTRL-SHIFT-(D)</color> を有効にしてデバッグ オーバーレイを表示します

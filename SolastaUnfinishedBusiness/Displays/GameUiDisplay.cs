@@ -293,41 +293,29 @@ internal static class GameUiDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableHighContrastTargeting;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHighContrastTargeting"), ref toggle))
+        var color = GameUiContext.HighContrastColorStrings[Main.Settings.EnableHighContrastTargetingAoe];
+        var title = Gui.Localize("ModUi/&EnableHighContrastTargetingAoe").Replace("$$$$$$", color);
+
+        UI.ActionButton(title, () =>
         {
-            Main.Settings.EnableHighContrastTargeting = toggle;
-        }
+            Main.Settings.EnableHighContrastTargetingAoe =
+                (Main.Settings.EnableHighContrastTargetingAoe + 1) % GameUiContext.HighContrastColors.Length;
+        }, UI.Width((float)400));
 
-        string color;
-        string title;
-        
-        if (Main.Settings.EnableHighContrastTargeting)
+        color = GameUiContext.HighContrastColorStrings[Main.Settings.EnableHighContrastTargetingSingle];
+        title = Gui.Localize("ModUi/&EnableHighContrastTargetingSingle").Replace("$$$$$$", color);
+
+        UI.ActionButton(title, () =>
         {
-            color = GameUiContext.HighContrastColorStrings[Main.Settings.EnableHighContrastTargetingAoe];
-            title = Gui.Localize("ModUi/&EnableHighContrastTargetingAoe").Replace("$$$$$$", color);
-
-            UI.ActionButton(title, () =>
-            {
-                Main.Settings.EnableHighContrastTargetingAoe =
-                    (Main.Settings.EnableHighContrastTargetingAoe + 1) % GameUiContext.HighContrastColors.Length;
-            }, UI.Width((float)400));
-
-            color = GameUiContext.HighContrastColorStrings[Main.Settings.EnableHighContrastTargetingSingle];
-            title = Gui.Localize("ModUi/&EnableHighContrastTargetingSingle").Replace("$$$$$$", color);
-
-            UI.ActionButton(title, () =>
-            {
-                Main.Settings.EnableHighContrastTargetingSingle =
-                    (Main.Settings.EnableHighContrastTargetingSingle + 1) % GameUiContext.HighContrastColors.Length;
-            }, UI.Width((float)400));
-        }
+            Main.Settings.EnableHighContrastTargetingSingle =
+                (Main.Settings.EnableHighContrastTargetingSingle + 1) % GameUiContext.HighContrastColors.Length;
+        }, UI.Width((float)400));
 
         UI.Label();
 
         color = GameUiContext.GridColorStrings[Main.Settings.GridSelectedColor];
         title = Gui.Localize("ModUi/&GridSelectedColor").Replace("$$$$$$", color);
-        
+
         UI.ActionButton(title, () =>
         {
             Main.Settings.GridSelectedColor = (Main.Settings.GridSelectedColor + 1) % GameUiContext.GridColors.Length;

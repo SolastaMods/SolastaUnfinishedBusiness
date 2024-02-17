@@ -103,7 +103,6 @@ ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Guerriero</color
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze sugli strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti punteggio abilità invece delle impostazioni razziali predefinite]</color></i>
 ModUi/&EnableHighContrastTargeting=Abilita <color=#D89555>evidenziazione ad alto contrasto</color> con AoE e target individuali
-ModUi/&EnableHighContrastTargetingAoe=Cambia il <color=$$$$$$>colore evidenziatore AoE</color> <i><color=#F0DAA0>[predefinito, b/n, rgb, cmy]</color></i>
 ModUi/&EnableHighContrastTargetingSingle=Cambia il <color=$$$$$$>colore di evidenziazione</color> <i><color=#F0DAA0>[predefinito, b/n, rgb, cmy]</color></i> di destinazione
 ModUi/&EnableHigherGroundRules=Abilita le regole del terreno più alto <i><color=#F0DAA0>[+1 per colpire se si attacca da un terreno più alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare la sovrapposizione di debug
