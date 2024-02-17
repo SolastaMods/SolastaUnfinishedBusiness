@@ -465,35 +465,35 @@ public static class CursorLocationSelectTargetPatcher
                         switch (__instance.ActionParams.RulesetEffect)
                         {
                             case RulesetEffectPower rulesetEffectPower:
-                            {
-                                var modifier = rulesetEffectPower.PowerDefinition
-                                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
-
-                                if (modifier != null)
                                 {
-                                    __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
-                                        modifier.PositionRange;
-                                    enableSelectPosition = true;
-                                }
+                                    var modifier = rulesetEffectPower.PowerDefinition
+                                        .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
 
-                                break;
-                            }
+                                    if (modifier != null)
+                                    {
+                                        __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
+                                            modifier.PositionRange;
+                                        enableSelectPosition = true;
+                                    }
+
+                                    break;
+                                }
                             case RulesetEffectSpell rulesetEffectSpell:
-                            {
-                                var modifier = rulesetEffectSpell.SpellDefinition
-                                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
-
-                                if (modifier != null)
                                 {
-                                    __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
-                                        modifier.PositionRange;
-                                    enableSelectPosition = true;
-                                }
+                                    var modifier = rulesetEffectSpell.SpellDefinition
+                                        .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
 
-                                break;
-                            }
+                                    if (modifier != null)
+                                    {
+                                        __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
+                                            modifier.PositionRange;
+                                        enableSelectPosition = true;
+                                    }
+
+                                    break;
+                                }
                         }
-                        
+
                         // enable select position if any modifier found
                         if (enableSelectPosition)
                         {
@@ -577,6 +577,18 @@ public static class CursorLocationSelectTargetPatcher
             }
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.RefreshHover))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshHover_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(CursorLocationSelectTarget __instance)
+        {
+            __instance.affectedCharacterColor = Main.Settings.EnableHighContrastTargeting ? Color.yellow : new Color(0.110f, 0.310f, 0.286f, 0.000f);
         }
     }
 }

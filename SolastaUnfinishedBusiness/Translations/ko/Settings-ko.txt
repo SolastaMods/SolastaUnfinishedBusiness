@@ -102,6 +102,8 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6, 14에 재주 선택 활
 ModUi/&EnableFighterWeaponSpecialization=<color=#D89555>파이터</color> 클래스 레벨 8 과 16에서 <b>무기 특화</b> 활성화<i><color=#F0DAA0>[명중과 피해에 +1을 얻지만 다른 무기 유형으론 불리점을 받습니다]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[종족 기본값 대신 능력치 점수 할당]</color></i>
+ModUi/&EnableHighContrastTargetingAoe=영역 효과를 사용할 때, 영향을 받는 크리처를 더 잘 식별하기 위해 <color=#FFFF00>고대비 대상 강조</color> 활성화
+ModUi/&EnableHighContrastTargeting=<i>+ 단일 대상에도 적용</i>
 ModUi/&EnableHigherGroundRules=고지대 규칙 활성화 <i><color=#F0DAA0>[고지대에서 공격할 경우 명중 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 눌러 활성화
 ModUi/&EnableHotkeyToggleHud=HUD 표시를<color=#1E81B0>CTRL-SHIFT-(H)</color>로 전환 활성화
