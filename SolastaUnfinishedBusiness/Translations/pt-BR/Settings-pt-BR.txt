@@ -102,8 +102,9 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilite a seleção de talentos nos nívei
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Arma</b> nos níveis de classe 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar planos de fundo flexíveis <i><color=#F0DAA0>[selecione proficiências de habilidades e ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite raças flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
-ModUi/&EnableHighContrastTargetingAoe=Ativar destaque de <color=#FFFF00>alto contraste</color> ao usar área de efeito para melhor identificar criaturas afetadas
-ModUi/&EnableHighContrastTargeting=<i>+ Também ativá-lo para alvos individuais</i>
+ModUi/&EnableHighContrastTargeting=Ative o <color=#D89555>destaque de alto contraste</color> com AoE e alvos individuais
+ModUi/&EnableHighContrastTargetingAoe=Alterar a cor de destaque AoE <i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingSingle=Alterar a cor de destaque de destino <i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
 ModUi/&EnableHigherGroundRules=Habilitar regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se atacar de um terreno mais alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar a exibição do HUD

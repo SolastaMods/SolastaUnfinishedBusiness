@@ -588,8 +588,8 @@ public static class CursorLocationSelectTargetPatcher
         public static void Postfix(CursorLocationSelectTarget __instance)
         {
             __instance.affectedCharacterColor = Main.Settings.EnableHighContrastTargeting
-                ? Color.yellow
-                : OriginalColor;
+                ? GameUiContext.HighContrastColors[Main.Settings.EnableHighContrastTargetingAoe]
+                : GameUiContext.DefaultHighContrastColor;
         }
     }
 }

@@ -381,8 +381,9 @@ public class Settings : UnityModManager.ModSettings
     public int OutlineGridWidthSpeed { get; set; } = 100;
 
     public bool EnableDistanceOnTooltip { get; set; }
-    public bool EnableHighContrastTargetingAoe { get; set; }
     public bool EnableHighContrastTargeting { get; set; }
+    public int EnableHighContrastTargetingAoe { get; set; }
+    public int EnableHighContrastTargetingSingle { get; set; }
 
     // Formation
     public int FormationGridSelectedSet { get; set; } = -1;

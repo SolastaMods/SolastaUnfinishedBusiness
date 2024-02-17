@@ -102,8 +102,9 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=在6级和14级启用专长选择
 ModUi/&EnableFighterWeaponSpecialization=在8级和16级启用<color=#D89555>战士</color><b>武器专攻</b><i><color=#F0DAA0>[获得+1命中和伤害，但是使用其他武器时将获得劣势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活的背景<i><color=#F0DAA0>[自由选择背景提供的技能和工具熟练项]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[自由分配种族属性加值]</color></i>
-ModUi/&EnableHighContrastTargetingAoe=使用范围效果时，<color=#FFFF00>启用高对比度目标突出</color>以更好地识别受影响的生物
-ModUi/&EnableHighContrastTargeting=<i>+ 也为单个目标启用</i>
+ModUi/&EnableHighContrastTargeting=为 AoE 和单个目标启用<color=#D89555>高对比度高光</color>
+ModUi/&EnableHighContrastTargetingAoe=更改 AoE 高亮颜色<i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
+ModUi/&EnableHighContrastTargetingSingle=更改目标突出显示颜色<i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
 ModUi/&EnableHigherGroundRules=启用夹击规则<i><color=#F0DAA0>[从高处射击时 +1 命中，前后夹击敌人时 +1 命中，如果敌人被四个盟友包围则获得优势]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=启用<color=#1E81B0>CTRL-SHIFT-(D)</color>以显示调试覆盖
 ModUi/&EnableHotkeyToggleHud=启用<color=#1E81B0>CTRL-SHIFT-(H)</color>切换HUD显示

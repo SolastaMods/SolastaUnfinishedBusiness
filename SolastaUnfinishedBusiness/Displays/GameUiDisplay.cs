@@ -291,20 +291,27 @@ internal static class GameUiDisplay
             Main.Settings.EnableDistanceOnTooltip = toggle;
         }
 
-        toggle = Main.Settings.EnableHighContrastTargetingAoe;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableHighContrastTargetingAoe"), ref toggle))
+        UI.Label();
+
+        toggle = Main.Settings.EnableHighContrastTargeting;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHighContrastTargeting"), ref toggle))
         {
-            Main.Settings.EnableHighContrastTargetingAoe = toggle;
             Main.Settings.EnableHighContrastTargeting = toggle;
         }
 
-        if (Main.Settings.EnableHighContrastTargetingAoe)
+        if (Main.Settings.EnableHighContrastTargeting)
         {
-            toggle = Main.Settings.EnableHighContrastTargeting;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableHighContrastTargeting"), ref toggle))
+            UI.ActionButton(Gui.Localize("ModUi/&EnableHighContrastTargetingAoe"), () =>
             {
-                Main.Settings.EnableHighContrastTargeting = toggle;
-            }
+                Main.Settings.EnableHighContrastTargetingAoe =
+                    (Main.Settings.EnableHighContrastTargetingAoe + 1) % GameUiContext.GridColors.Length;
+            }, UI.Width((float)450));
+
+            UI.ActionButton(Gui.Localize("ModUi/&EnableHighContrastTargetingSingle"), () =>
+            {
+                Main.Settings.EnableHighContrastTargetingSingle =
+                    (Main.Settings.EnableHighContrastTargetingSingle + 1) % GameUiContext.GridColors.Length;
+            }, UI.Width((float)450));
         }
 
         UI.Label();
