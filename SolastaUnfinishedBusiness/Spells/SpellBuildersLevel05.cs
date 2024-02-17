@@ -660,6 +660,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
+#if false
     #region Telekinesis
 
     internal static SpellDefinition BuildTelekinesis()
@@ -786,4 +787,5 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+#endif
 }
