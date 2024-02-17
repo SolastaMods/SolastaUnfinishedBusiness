@@ -44,7 +44,6 @@ public static class CursorLocationSelectPositionPatcher
             return result;
         }
 
-        //PATCH: supports IFilterTargetingPosition and bugfix on war cast lists not adding additional targets
         [UsedImplicitly]
         public static bool Prefix(CursorLocationSelectPosition __instance, params object[] parameters)
         {
@@ -87,6 +86,30 @@ public static class CursorLocationSelectPositionPatcher
             }
             else
             {
+                // BEGIN PATCH
+                //PATCH: supports `ISelectPositionAfterCharacter`
+                var actionParams = __instance.ActionParams;
+
+                if (Gui.Battle != null)
+                {
+                    actionParams.targetCharacters = [];
+
+                    foreach (var selectedCharacter in Gui.Battle.AllContenders
+                                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
+                    {
+                        if (!selectedCharacter.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                                AttributeDefinitions.TagEffect,
+                                SelectPositionAfterCharacter.ConditionSelectedCharacterName, out var activeCondition))
+                        {
+                            continue;
+                        }
+
+                        actionParams.TargetCharacters.Add(selectedCharacter);
+                        selectedCharacter.RulesetCharacter.RemoveCondition(activeCondition);
+                    }
+                }
+                // END PATCH
+
                 __instance.ActionParams.Positions.Clear();
                 __instance.captionTitle = string.Empty;
                 __instance.selectedPositions.Clear();

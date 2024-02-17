@@ -736,11 +736,6 @@ internal static partial class SpellBuilders
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 12;
 
-            if (!action.ActingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
             var checkDC = action is CharacterActionCastSpell actionCastSpell
@@ -748,8 +743,8 @@ internal static partial class SpellBuilders
                 : rulesetCharacter.SpellsCastByMe
                     .FirstOrDefault(x => x.SpellDefinition.Name == "Telekinesis")?.SaveDC ?? 0;
 
-            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
-            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+            var targetCharacter = action.ActionParams.TargetCharacters[0];
+            var targetRulesetCharacter = targetCharacter.RulesetCharacter;
 
             targetCharacter.RollAbilityCheck(
                 AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, new ActionModifier(),

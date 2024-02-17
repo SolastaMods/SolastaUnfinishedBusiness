@@ -219,8 +219,6 @@ public sealed class MartialWarlord : AbstractSubclass
                     .Create()
                     .ExcludeCaster()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorStrategicReposition())
             .AddToDB();
@@ -290,7 +288,6 @@ public sealed class MartialWarlord : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasUnavailableBonusAction),
@@ -421,18 +418,10 @@ public sealed class MartialWarlord : AbstractSubclass
             cursorLocationSelectPosition.validPositionsCache.Clear();
 
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
-
-            if (!actingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
-            {
-                yield break;
-            }
-
+            var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var visibilityService =
                 ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
-
-            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
-            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
 
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
             var boxInt = new BoxInt(
@@ -464,23 +453,17 @@ public sealed class MartialWarlord : AbstractSubclass
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
 
-            if (!action.ActingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
-            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
-            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+            var targetCharacter = action.ActionParams.TargetCharacters[0];
+            var targetRulesetCharacter = targetCharacter.RulesetCharacter;
             var targetPosition = action.ActionParams.Positions[0];
             var actionParams =
-                new CharacterActionParams(targetCharacter,
-                    Global.IsMultiplayer ? ActionDefinitions.Id.SpecialMove : ActionDefinitions.Id.TacticalMove)
+                new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
                 {
                     Positions = { targetPosition }
                 };
 
-            targetCharacter.usedTacticalMoves = 0;
+            targetCharacter.UsedTacticalMoves = 0;
             targetRulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
@@ -502,6 +485,8 @@ public sealed class MartialWarlord : AbstractSubclass
             targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, false);
+
+            yield break;
         }
 
         public int PositionRange => 12;

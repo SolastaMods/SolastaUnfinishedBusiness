@@ -334,9 +334,14 @@ public static class CharacterActionMagicEffectPatcher
             {
                 if (IsTargeted(effectDescription.TargetType))
                 {
-                    // TARGETED SPELLS (MagicMissile, Firebolt, etc...)
-                    yield return __instance.MagicEffectExecuteOnTargets(
-                        targets, actionModifiers, castingPoint, impactPoint, impactPlanePoint, origin, direction);
+                    //BEGIN PATCH (if statement isn't part of vanilla)
+                    if (!rulesetEffect.SourceDefinition.HasSubFeatureOfType<ISelectPositionAfterCharacter>())
+                    {
+                        // TARGETED SPELLS (MagicMissile, Firebolt, etc...)
+                        yield return __instance.MagicEffectExecuteOnTargets(
+                            targets, actionModifiers, castingPoint, impactPoint, impactPlanePoint, origin, direction);
+                    }
+                    //END PATCH
                 }
                 else
                 {

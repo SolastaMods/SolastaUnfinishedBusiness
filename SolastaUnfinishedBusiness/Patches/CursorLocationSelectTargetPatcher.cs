@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -497,12 +496,33 @@ public static class CursorLocationSelectTargetPatcher
                         // enable select position if any modifier found
                         if (enableSelectPosition)
                         {
-                            if (!__instance.ActionParams.ActingCharacter.UsedSpecialFeatures
-                                    .TryAdd("SelectedCharacter",
-                                        (int)__instance.SelectionService.SelectedTargets[0].Guid))
+                            var locationCharacterService =
+                                ServiceRepository.GetService<IGameLocationCharacterService>();
+                            var contenders =
+                                (Gui.Battle?.AllContenders ??
+                                 locationCharacterService.PartyCharacters.Union(
+                                     locationCharacterService.GuestCharacters))
+                                .ToList();
+
+                            // keep a tab on all selected characters to recover them later on SelectionPositionPatcher
+                            foreach (var selectedTarget in contenders)
                             {
-                                __instance.ActionParams.ActingCharacter.UsedSpecialFeatures["SelectedCharacter"] =
-                                    (int)__instance.SelectionService.SelectedTargets[0].Guid;
+                                var rulesetTarget = selectedTarget.RulesetCharacter;
+                                var rulesetAttacker = __instance.ActionParams.ActingCharacter.RulesetCharacter;
+
+                                rulesetTarget.InflictCondition(
+                                    SelectPositionAfterCharacter.ConditionSelectedCharacterName,
+                                    DurationType.Round,
+                                    0,
+                                    TurnOccurenceType.EndOfSourceTurn,
+                                    AttributeDefinitions.TagEffect,
+                                    rulesetAttacker.guid,
+                                    rulesetAttacker.CurrentFaction.Name,
+                                    1,
+                                    SelectPositionAfterCharacter.ConditionSelectedCharacterName,
+                                    0,
+                                    0,
+                                    0);
                             }
 
                             __instance.CursorService
@@ -585,10 +605,14 @@ public static class CursorLocationSelectTargetPatcher
     [UsedImplicitly]
     public static class RefreshHover_Patch
     {
+        private static readonly Color OriginalColor = new(0.110f, 0.310f, 0.286f, 0.000f);
+
         [UsedImplicitly]
         public static void Postfix(CursorLocationSelectTarget __instance)
         {
-            __instance.affectedCharacterColor = Main.Settings.EnableHighContrastTargeting ? Color.yellow : new Color(0.110f, 0.310f, 0.286f, 0.000f);
+            __instance.affectedCharacterColor = Main.Settings.EnableHighContrastTargeting
+                ? Color.yellow
+                : OriginalColor;
         }
     }
 }
