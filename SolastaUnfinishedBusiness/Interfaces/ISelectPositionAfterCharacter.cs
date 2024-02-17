@@ -5,11 +5,9 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 
 internal static class SelectPositionAfterCharacter
 {
-    internal const string ConditionSelectedCharacterName = "ConditionSelectedCharacter";
-
     [UsedImplicitly] internal static readonly ConditionDefinition ConditionSelectedCharacter =
         ConditionDefinitionBuilder
-            .Create(ConditionSelectedCharacterName)
+            .Create("ConditionSelectedCharacter")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();

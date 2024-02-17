@@ -99,7 +99,7 @@ public static class CursorLocationSelectPositionPatcher
                     {
                         if (!selectedCharacter.RulesetCharacter.TryGetConditionOfCategoryAndType(
                                 AttributeDefinitions.TagEffect,
-                                SelectPositionAfterCharacter.ConditionSelectedCharacterName, out var activeCondition))
+                                SelectPositionAfterCharacter.ConditionSelectedCharacter.Name, out var activeCondition))
                         {
                             continue;
                         }

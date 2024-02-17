@@ -511,7 +511,7 @@ public static class CursorLocationSelectTargetPatcher
                                 var rulesetAttacker = __instance.ActionParams.ActingCharacter.RulesetCharacter;
 
                                 rulesetTarget.InflictCondition(
-                                    SelectPositionAfterCharacter.ConditionSelectedCharacterName,
+                                    SelectPositionAfterCharacter.ConditionSelectedCharacter.Name,
                                     DurationType.Round,
                                     0,
                                     TurnOccurenceType.EndOfSourceTurn,
@@ -519,7 +519,7 @@ public static class CursorLocationSelectTargetPatcher
                                     rulesetAttacker.guid,
                                     rulesetAttacker.CurrentFaction.Name,
                                     1,
-                                    SelectPositionAfterCharacter.ConditionSelectedCharacterName,
+                                    SelectPositionAfterCharacter.ConditionSelectedCharacter.Name,
                                     0,
                                     0,
                                     0);
