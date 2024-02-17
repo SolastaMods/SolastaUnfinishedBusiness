@@ -132,7 +132,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
                     _ => Gui.Battle != null,
-                    ValidatorsCharacter.HasUnavailableMoves,
                     ValidatorsCharacter.IsNotInBrightLight),
                 FilterTargetingPositionShadowStride.MarkerUseMaxMoves,
                 new MagicEffectInitiatedByMeShadowStride(true))
@@ -145,7 +144,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
                     _ => Gui.Battle != null,
-                    ValidatorsCharacter.HasUnavailableMoves,
                     ValidatorsCharacter.IsNotInBrightLight),
                 FilterTargetingPositionShadowStride.MarkerUseMaxMoves,
                 new MagicEffectInitiatedByMeShadowStride(true))
@@ -299,11 +297,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
 
-            if (resetUsedTacticalMoves)
-            {
-                actingCharacter.UsedTacticalMoves = 0;
-            }
-
             if (Gui.Battle == null)
             {
                 yield break;
@@ -313,7 +306,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             var targetPosition = action.ActionParams.Positions[0];
 
             actingCharacter.UsedTacticalMoves +=
-                DistanceCalculation.GetDistanceFromPositions(sourcePosition, targetPosition);
+                DistanceCalculation.GetDistanceFromPositions(sourcePosition, targetPosition) -
+                (resetUsedTacticalMoves ? actingCharacter.MaxTacticalMoves : 0);
         }
     }
 

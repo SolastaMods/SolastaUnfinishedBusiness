@@ -1,10 +1,12 @@
 1.5.94.54:
 
 - fixed Close Quarters feat not triggering under Duelist and Umbral Stalker sneak triggers
+- fixed Coordinated Attack gambit causing a de-sync in multiplayer
 - fixed Inventor quick wit reaction getting offered multiple times
 - fixed Paladin and Ranger multiclass shared slots using incorrect round up calculation
-- fixed Roguish Umbral Stalker umbral soul not triggering a reaction on reduced to zero HP
-- fixed Sorcerous Psion mind over matter not triggering a reaction on reduced to zero HP
+- fixed Psion mind over matter not triggering a reaction on reduced to zero HP
+- fixed Umbral Stalker umbral soul not triggering a reaction on reduced to zero HP
+- fixed Warlord strategic reposition feature causing a de-sync in multiplayer 
 - improved Inventor spell casting with Arcana vocal spell seme
 - improved Umbral Stalker gloomblade and shadow stride features
 
