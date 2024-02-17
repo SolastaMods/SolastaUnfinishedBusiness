@@ -132,6 +132,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
                     _ => Gui.Battle != null,
+                    ValidatorsCharacter.HasAvailableBonusDash,
                     ValidatorsCharacter.IsNotInBrightLight),
                 FilterTargetingPositionShadowStride.MarkerUseMaxMoves,
                 new MagicEffectInitiatedByMeShadowStride(true))
@@ -291,7 +292,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Shadow Stride
     //
 
-    private sealed class MagicEffectInitiatedByMeShadowStride(bool resetUsedTacticalMoves) : IMagicEffectInitiatedByMe
+    private sealed class MagicEffectInitiatedByMeShadowStride(bool subMaxMoves) : IMagicEffectInitiatedByMe
     {
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
@@ -307,11 +308,11 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             actingCharacter.UsedTacticalMoves +=
                 DistanceCalculation.GetDistanceFromPositions(sourcePosition, targetPosition) -
-                (resetUsedTacticalMoves ? actingCharacter.MaxTacticalMoves : 0);
+                (subMaxMoves ? actingCharacter.MaxTacticalMoves : 0);
         }
     }
 
-    private sealed class FilterTargetingPositionShadowStride(bool useMaxMoves = false) : IFilterTargetingPosition
+    private sealed class FilterTargetingPositionShadowStride(bool addMaxMoves = false) : IFilterTargetingPosition
     {
         internal static readonly FilterTargetingPositionShadowStride MarkerUseMaxMoves = new(true);
         internal static readonly FilterTargetingPositionShadowStride MarkerUseRemainingMoves = new(true);
@@ -322,7 +323,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             yield return cursorLocationSelectPosition.MyComputeValidPositions(
                 LocationDefinitions.LightingState.Bright,
-                useMaxMoves ? actingCharacter.MaxTacticalMoves : actingCharacter.RemainingTacticalMoves);
+                actingCharacter.RemainingTacticalMoves +
+                (addMaxMoves ? actingCharacter.MaxTacticalMoves : actingCharacter.RemainingTacticalMoves));
         }
     }
 
