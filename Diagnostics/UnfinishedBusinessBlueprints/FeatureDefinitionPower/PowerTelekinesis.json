@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 5,
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
@@ -25,15 +25,15 @@
     "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
-    "poolFilterDiceNumber": 0,
-    "poolFilterDieType": "D1",
+    "poolFilterDiceNumber": 5,
+    "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "Instantaneous",
+    "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -63,118 +63,12 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
+        "formType": "Condition",
         "addBonusMode": "None",
-        "applyLevel": "DiceNumberByLevelTable",
-        "levelType": "CharacterLevel",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "diceByLevelTable": [
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 0,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 1,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 2,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 3,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 4,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 5,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 6,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 7,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 8,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 9,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 10,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 11,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 12,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 13,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 14,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 15,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 16,
-            "diceNumber": 2
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 17,
-            "diceNumber": 3
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 18,
-            "diceNumber": 3
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 19,
-            "diceNumber": 3
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 20,
-            "diceNumber": 3
-          }
-        ],
+        "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
@@ -182,22 +76,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 0,
-          "dieType": "D8",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 0,
-          "damageType": "DamageFire",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionTelekinesis",
+          "conditionDefinition": "Definition:ConditionTelekinesis:4f68f98a-3a63-5d71-910d-6d1db209be36",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": true
         },
         "hasFilterId": false,
         "filterId": 0
@@ -221,7 +107,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedParameter": -1.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -229,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "57ac66403b963da4bad6f5f570a7d540",
+        "m_AssetGUID": "ebad175333b0c2f44b93ab011cde5123",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -253,7 +139,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "676e8c81a8a1c0a42aab0a14e91f1997",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -265,7 +151,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "478d5aaddd3e7f14d99664def11dcf96",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -277,7 +163,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a2cb9f6aec3460a48a88280b9b516c63",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -403,10 +289,10 @@
     "lightCounterDispellsEffect": false,
     "hideSavingThrowAnimation": false
   },
-  "delegatedToAction": false,
+  "delegatedToAction": true,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -435,18 +321,18 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Spell/&TelekinesisTitle",
+    "description": "Spell/&TelekinesisDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "1ec01396-1d15-5543-a8a6-0490105b8746",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -463,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0f7e45fc-1c0a-549e-b05c-5246d5f68e78",
+  "guid": "12bd998b-b4fd-59a7-be17-ed626a8a7021",
   "contentPack": 9999,
-  "name": "PowerResonatingStrike"
+  "name": "PowerTelekinesis"
 }
