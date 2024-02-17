@@ -100,7 +100,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var powerShadowStride = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ShadowStride")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerSilhouetteStep, 256, 128))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -114,27 +114,47 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
-                    _ => Gui.Battle != null,
                     ValidatorsCharacter.HasAvailableMoves,
                     ValidatorsCharacter.IsNotInBrightLight),
-                FilterTargetingPositionShadowStride.Marker,
-                new MagicEffectInitiatedByMeShadowStride())
+                FilterTargetingPositionShadowStride.MarkerUseRemainingMoves,
+                new MagicEffectInitiatedByMeShadowStride(false))
             .AddToDB();
 
-        var powerShadowStrideAtWill = FeatureDefinitionPowerBuilder
-            .Create(powerShadowStride, $"Power{Name}ShadowStrideAtWill")
-            .SetUsesFixed(ActivationTime.NoCost)
+        var powerShadowStrideBonus = FeatureDefinitionPowerBuilder
+            .Create(powerShadowStride, $"Power{Name}ShadowStrideBonus")
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(powerShadowStride)
+                    .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging,
+                        ConditionForm.ConditionOperation.Add, true, true))
+                    .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(
-                    _ => Gui.Battle == null,
+                    _ => Gui.Battle != null,
+                    ValidatorsCharacter.HasUnavailableMoves,
                     ValidatorsCharacter.IsNotInBrightLight),
-                FilterTargetingPositionShadowStride.Marker)
+                FilterTargetingPositionShadowStride.MarkerUseMaxMoves,
+                new MagicEffectInitiatedByMeShadowStride(true))
+            .AddToDB();
+
+        // kept name for backward compatibility
+        var powerShadowStrideMain = FeatureDefinitionPowerBuilder
+            .Create(powerShadowStrideBonus, $"Power{Name}ShadowStrideAtWill")
+            .SetUsesFixed(ActivationTime.Action)
+            .AddCustomSubFeatures(
+                new ValidatorsValidatePowerUse(
+                    _ => Gui.Battle != null,
+                    ValidatorsCharacter.HasUnavailableMoves,
+                    ValidatorsCharacter.IsNotInBrightLight),
+                FilterTargetingPositionShadowStride.MarkerUseMaxMoves,
+                new MagicEffectInitiatedByMeShadowStride(true))
             .AddToDB();
 
         var featureSetShadowStride = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ShadowStride")
             .SetGuiPresentation($"Power{Name}ShadowStride", Category.Feature)
-            .SetFeatureSet(powerShadowStride, powerShadowStrideAtWill)
+            .SetFeatureSet(powerShadowStride, powerShadowStrideMain, powerShadowStrideBonus)
             .AddToDB();
 
         // LEVEL 13
@@ -273,30 +293,42 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Shadow Stride
     //
 
-    private sealed class MagicEffectInitiatedByMeShadowStride : IMagicEffectInitiatedByMe
+    private sealed class MagicEffectInitiatedByMeShadowStride(bool resetUsedTacticalMoves) : IMagicEffectInitiatedByMe
     {
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
+
+            if (resetUsedTacticalMoves)
+            {
+                actingCharacter.UsedTacticalMoves = 0;
+            }
+
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
             var sourcePosition = actingCharacter.LocationPosition;
             var targetPosition = action.ActionParams.Positions[0];
 
             actingCharacter.UsedTacticalMoves +=
                 DistanceCalculation.GetDistanceFromPositions(sourcePosition, targetPosition);
-
-            yield break;
         }
     }
 
-    private sealed class FilterTargetingPositionShadowStride : IFilterTargetingPosition
+    private sealed class FilterTargetingPositionShadowStride(bool useMaxMoves = false) : IFilterTargetingPosition
     {
-        internal static readonly FilterTargetingPositionShadowStride Marker = new();
+        internal static readonly FilterTargetingPositionShadowStride MarkerUseMaxMoves = new(true);
+        internal static readonly FilterTargetingPositionShadowStride MarkerUseRemainingMoves = new(true);
 
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+
             yield return cursorLocationSelectPosition.MyComputeValidPositions(
                 LocationDefinitions.LightingState.Bright,
-                cursorLocationSelectPosition.ActionParams.ActingCharacter.RemainingTacticalMoves);
+                useMaxMoves ? actingCharacter.MaxTacticalMoves : actingCharacter.RemainingTacticalMoves);
         }
     }
 

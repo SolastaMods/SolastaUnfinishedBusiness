@@ -1,14 +1,12 @@
 1.5.94.54:
 
-- fixed Close Quarters feat not triggering under Duelist and Umbral Stalker special sneak scenarios
-- fixed Inventor quick wit reaction offering
-- fixed Paladin and Ranger multiclass shared slots calculation
+- fixed Close Quarters feat not triggering under Duelist and Umbral Stalker sneak triggers
+- fixed Inventor quick wit reaction getting offered multiple times
+- fixed Paladin and Ranger multiclass shared slots using incorrect round up calculation
 - fixed Roguish Umbral Stalker umbral soul not triggering a reaction on reduced to zero HP
 - fixed Sorcerous Psion mind over matter not triggering a reaction on reduced to zero HP
-- improved Gambit coordinated attack to possibly work under MP
-- improved Inventor with Arcana vocal spell seme
-- improved Martial Warlord strategic reposition to possibly work under MP
-- improved Roguish Umbral Stalker gloomblade feature
+- improved Inventor spell casting with Arcana vocal spell seme
+- improved Umbral Stalker gloomblade and shadow stride features
 
 1.5.94.53:
 
