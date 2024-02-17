@@ -668,6 +668,13 @@ internal static partial class SpellBuilders
 
         var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128);
 
+        var conditionTelekinesis = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Category.Condition, ConditionGuided)
+            .SetPossessive()
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddToDB();
+
         var powerTelekinesis = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Spell, sprite)
@@ -681,8 +688,10 @@ internal static partial class SpellBuilders
                     .UseQuickAnimations()
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorTelekinesis())
+            .AddCustomSubFeatures(new CustomBehaviorTelekinesis(conditionTelekinesis))
             .AddToDB();
+
+        conditionTelekinesis.Features.Add(powerTelekinesis);
 
         _ = ActionDefinitionBuilder
             .Create($"Action{Name}")
@@ -693,14 +702,6 @@ internal static partial class SpellBuilders
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetFormType(ActionDefinitions.ActionFormType.Small)
             .SetActivatedPower(powerTelekinesis)
-            .AddToDB();
-
-        var conditionTelekinesis = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
-            .SetGuiPresentation(Category.Condition, ConditionGuided)
-            .SetPossessive()
-            .AddFeatures(powerTelekinesis)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -719,21 +720,24 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    // this is required to avoid tracked conditions added manually to be cleared out
+                    // it happens in CharacterActionMagicEffect.ExecuteImpl if it cannot find any effect form
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionTelekinesis, ConditionForm.ConditionOperation.Add,
                             true, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
                     .UseQuickAnimations()
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorTelekinesis())
+            .AddCustomSubFeatures(new CustomBehaviorTelekinesis(conditionTelekinesis))
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class CustomBehaviorTelekinesis : IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
+    private sealed class CustomBehaviorTelekinesis(ConditionDefinition conditionTelekinesis)
+        : IMagicEffectInitiatedByMe, ISelectPositionAfterCharacter
     {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 12;
 
@@ -756,7 +760,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            targetRulesetCharacter.InflictCondition(
+            var hinderedCondition = targetRulesetCharacter.InflictCondition(
                 ConditionHindered.Name,
                 DurationType.Round,
                 1,
@@ -769,6 +773,24 @@ internal static partial class SpellBuilders
                 0,
                 0,
                 0);
+
+            action.ActionParams.activeEffect.trackedConditionGuids.Add(hinderedCondition.Guid);
+
+            var telekinesisCondition = rulesetCharacter.InflictCondition(
+                conditionTelekinesis.Name,
+                DurationType.Minute,
+                10,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionTelekinesis.Name,
+                0,
+                0,
+                0);
+
+            action.ActionParams.activeEffect.trackedConditionGuids.Add(telekinesisCondition.Guid);
 
             var targetPosition = action.ActionParams.Positions[0];
             var actionParams =
