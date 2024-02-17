@@ -224,5 +224,17 @@ public static class CursorLocationGeometricShapePatcher
                 new CodeInstruction(OpCodes.Ldfld, geometricParameter2Field),
                 new CodeInstruction(OpCodes.Call, myCubeContainsPointRegularMethod));
         }
+
+        [HarmonyPatch(typeof(CursorLocationGeometricShape), nameof(CursorLocationGeometricShape.RefreshHover))]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        [UsedImplicitly]
+        public static class RefreshHover_Patch
+        {
+            [UsedImplicitly]
+            public static void Postfix(CursorLocationGeometricShape __instance)
+            {
+                __instance.affectedCharacterColor = Main.Settings.EnableHighContrastTargetingAoe ? Color.yellow : new Color(0.110f, 0.311f, 0.287f, 1.000f);
+            }
+        }
     }
 }

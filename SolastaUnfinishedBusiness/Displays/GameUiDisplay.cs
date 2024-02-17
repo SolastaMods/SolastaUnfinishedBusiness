@@ -19,11 +19,11 @@ internal static class GameUiDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Localize("ModUi/&FormationResetAllSets"), () =>
-                {
-                    _selectedForSwap = false;
-                    GameUiContext.ResetAllFormationGrids();
-                },
-                UI.Width((float)110));
+            {
+                _selectedForSwap = false;
+                GameUiContext.ResetAllFormationGrids();
+            },
+            UI.Width((float)110));
 
             if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width((float)165)))
             {
@@ -45,11 +45,11 @@ internal static class GameUiDisplay
                 if (y == 0)
                 {
                     UI.ActionButton(Gui.Localize("ModUi/&FormationResetThisSet"), () =>
-                        {
-                            _selectedForSwap = false;
-                            GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
-                        },
-                        UI.Width((float)110));
+                    {
+                        _selectedForSwap = false;
+                        GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
+                    },
+                    UI.Width((float)110));
                 }
                 else
                 {
@@ -289,6 +289,18 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTooltipDistance"), ref toggle))
         {
             Main.Settings.EnableDistanceOnTooltip = toggle;
+        }
+
+        toggle = Main.Settings.EnableHighContrastTargetingAoe;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHighContrastTargetingAoe"), ref toggle))
+        {
+            Main.Settings.EnableHighContrastTargetingAoe = toggle;
+        }
+
+        toggle = Main.Settings.EnableHighContrastTargeting;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHighContrastTargeting"), ref toggle))
+        {
+            Main.Settings.EnableHighContrastTargeting = toggle;
         }
 
         UI.Label();
