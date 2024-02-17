@@ -698,6 +698,7 @@ internal static partial class SpellBuilders
         var conditionTelekinesis = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionGuided)
+            .SetPossessive()
             .AddFeatures(powerTelekinesis)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
@@ -719,7 +720,6 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(ConditionHindered),
                         EffectFormBuilder.ConditionForm(conditionTelekinesis, ConditionForm.ConditionOperation.Add,
                             true, true))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
@@ -756,19 +756,19 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            // targetRulesetCharacter.InflictCondition(
-            //     ConditionHindered.Name,
-            //     DurationType.Round,
-            //     1,
-            //     TurnOccurenceType.EndOfSourceTurn,
-            //     AttributeDefinitions.TagEffect,
-            //     rulesetCharacter.Guid,
-            //     rulesetCharacter.CurrentFaction.Name,
-            //     1,
-            //     ConditionHindered.Name,
-            //     0,
-            //     0,
-            //     0);
+            targetRulesetCharacter.InflictCondition(
+                ConditionHindered.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                ConditionHindered.Name,
+                0,
+                0,
+                0);
 
             var targetPosition = action.ActionParams.Positions[0];
             var actionParams =
@@ -780,7 +780,7 @@ internal static partial class SpellBuilders
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .StopCharacterActions(targetCharacter, CharacterAction.InterruptionType.ForcedMovement);
             ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
         }
 
         public int PositionRange => 12;
