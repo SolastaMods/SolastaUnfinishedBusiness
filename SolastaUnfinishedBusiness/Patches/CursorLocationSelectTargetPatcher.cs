@@ -3,6 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
@@ -496,26 +497,10 @@ public static class CursorLocationSelectTargetPatcher
                         // enable select position if any modifier found
                         if (enableSelectPosition)
                         {
-                            // keep a tab on all selected characters to recover them later on SelectionPositionPatcher
-                            foreach (var selectedTarget in __instance.SelectionService.SelectedTargets)
-                            {
-                                var rulesetTarget = selectedTarget.RulesetCharacter;
-                                var rulesetAttacker = __instance.ActionParams.ActingCharacter.RulesetCharacter;
+                            var actionParams = __instance.ActionParams;
 
-                                rulesetTarget.InflictCondition(
-                                    SelectPositionAfterCharacter.ConditionSelectedCharacter.Name,
-                                    DurationType.Round,
-                                    0,
-                                    TurnOccurenceType.EndOfSourceTurn,
-                                    AttributeDefinitions.TagEffect,
-                                    rulesetAttacker.guid,
-                                    rulesetAttacker.CurrentFaction.Name,
-                                    1,
-                                    SelectPositionAfterCharacter.ConditionSelectedCharacter.Name,
-                                    0,
-                                    0,
-                                    0);
-                            }
+                            actionParams.TargetCharacters.SetRange(__instance.SelectionService.SelectedTargets);
+                            actionParams.ActionModifiers.SetRange(__instance.ActionModifiersList);
 
                             __instance.CursorService
                                 .ActivateCursor<CursorLocationSelectPosition>(__instance.ActionParams);

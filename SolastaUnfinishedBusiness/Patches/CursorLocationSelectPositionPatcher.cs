@@ -86,30 +86,6 @@ public static class CursorLocationSelectPositionPatcher
             }
             else
             {
-                // BEGIN PATCH
-                //PATCH: supports `ISelectPositionAfterCharacter`
-                var actionParams = __instance.ActionParams;
-
-                if (Gui.Battle != null)
-                {
-                    actionParams.targetCharacters = [];
-
-                    foreach (var selectedCharacter in Gui.Battle.AllContenders
-                                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false }))
-                    {
-                        if (!selectedCharacter.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                                AttributeDefinitions.TagEffect,
-                                SelectPositionAfterCharacter.ConditionSelectedCharacter.Name, out var activeCondition))
-                        {
-                            continue;
-                        }
-
-                        actionParams.TargetCharacters.Add(selectedCharacter);
-                        selectedCharacter.RulesetCharacter.RemoveCondition(activeCondition);
-                    }
-                }
-                // END PATCH
-
                 __instance.ActionParams.Positions.Clear();
                 __instance.captionTitle = string.Empty;
                 __instance.selectedPositions.Clear();
