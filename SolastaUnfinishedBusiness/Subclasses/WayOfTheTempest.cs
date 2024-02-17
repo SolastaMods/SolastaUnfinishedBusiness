@@ -428,7 +428,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

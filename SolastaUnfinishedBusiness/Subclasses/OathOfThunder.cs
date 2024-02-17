@@ -394,7 +394,7 @@ public sealed class OathOfThunder : AbstractSubclass
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

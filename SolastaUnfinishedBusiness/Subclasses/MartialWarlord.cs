@@ -484,7 +484,7 @@ public sealed class MartialWarlord : AbstractSubclass
 
             targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
             ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
 
             yield break;
         }
