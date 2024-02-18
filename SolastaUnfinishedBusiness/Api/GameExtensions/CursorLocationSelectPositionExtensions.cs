@@ -15,7 +15,12 @@ internal static class CursorLocationSelectPositionExtensions
     {
         var boxInt = new BoxInt(__instance.ActionParams.ActingCharacter.LocationPosition, int3.zero, int3.zero);
 
-        boxInt.Inflate((int)(maxDistance == 0 ? __instance.maxDistance : maxDistance));
+        if (maxDistance == 0)
+        {
+            maxDistance = (int)__instance.maxDistance;
+        }
+
+        boxInt.Inflate(maxDistance);
 
         var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
         var visibilityService =
@@ -32,8 +37,7 @@ internal static class CursorLocationSelectPositionExtensions
                 break;
             }
 
-            if (DistanceCalculation.GetDistanceFromPositions(__instance.centerPosition, int3) <=
-                __instance.maxDistance &&
+            if (DistanceCalculation.GetDistanceFromPositions(__instance.centerPosition, int3) <= maxDistance &&
                 positioningService.CanPlaceCharacter(locationCharacter, int3, CellHelpers.PlacementMode.Station) &&
                 positioningService.CanCharacterStayAtPosition_Floor(
                     locationCharacter, int3, onlyCheckCellsWithRealGround: onlyFeedbackGroundCells))
