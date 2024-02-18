@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionHindered:a7ec75561313d2a41aab8635a306ed41",
+  "parentCondition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
   "conditionType": "Detrimental",
   "features": [],
   "allowMultipleInstances": false,
@@ -11,7 +11,7 @@
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Round",
-  "durationParameterDie": "D1",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
@@ -38,19 +38,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "d8e73c164ff3dad4197a0e0830c6573e",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "b8867e443cbc9024db3ffd55201414b1",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "637c9a990c79eb249beaf07c80aae51a",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -263,12 +263,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionHinderedTitle",
-    "description": "Rules/&ConditionHinderedDescription",
+    "title": "Rules/&ConditionRestrainedTitle",
+    "description": "Rules/&ConditionRestrainedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "57125544a666ad64195b2eddc133deb4",
-      "m_SubObjectName": "RayOfFrostConditionHindered",
+      "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
+      "m_SubObjectName": "ConditionRestrained",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -284,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f813a508-b22a-5828-bbb7-2658b96cd9ee",
+  "guid": "6532394f-0e2d-5337-882d-1c47ca644e3f",
   "contentPack": 9999,
-  "name": "ConditionHinderedByTelekinesis"
+  "name": "ConditionTelekinesisRestrained"
 }

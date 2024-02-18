@@ -671,10 +671,35 @@ internal static partial class SpellBuilders
 
         var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128);
 
-        var conditionHinderedByTelekinesis = ConditionDefinitionBuilder
-            .Create(ConditionHindered, "ConditionHinderedByTelekinesis")
-            .SetParentCondition(ConditionHindered)
+        var conditionRestrained = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}Restrained")
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .SetFeatures()
+            .AddToDB();
+
+        var powerTelekinesis = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Spell, sprite)
+            .SetUsesFixed(ActivationTime.Action)
+            .DelegatedToAction()
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, TelekinesisRange, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
+                    .UseQuickAnimations()
+                    .Build())
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Name}")
+            .SetGuiPresentation(Name, Category.Spell, sprite, 71)
+            .SetActionId(ExtraActionId.Telekinesis)
+            .OverrideClassName("UsePower")
+            .SetActionScope(ActionDefinitions.ActionScope.Battle)
+            .SetActionType(ActionDefinitions.ActionType.Main)
+            .SetFormType(ActionDefinitions.ActionFormType.Small)
+            .SetActivatedPower(powerTelekinesis)
             .AddToDB();
 
         var conditionTelekinesis = ConditionDefinitionBuilder
@@ -706,54 +731,30 @@ internal static partial class SpellBuilders
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
                     .UseQuickAnimations()
                     .Build())
-            .AddCustomSubFeatures(new CustomBehaviorTelekinesisSpell(conditionHinderedByTelekinesis))
             .AddToDB();
 
-        var powerTelekinesis = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}")
-            .SetGuiPresentation(Name, Category.Spell, sprite)
-            .SetUsesFixed(ActivationTime.Action)
-            .DelegatedToAction()
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, TelekinesisRange, TargetType.IndividualsUnique)
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
-                    .UseQuickAnimations()
-                    .Build())
-            .AddCustomSubFeatures(new CustomBehaviorTelekinesisPower(spell, conditionHinderedByTelekinesis))
-            .AddToDB();
+        powerTelekinesis.AddCustomSubFeatures(new CustomBehaviorTelekinesisPower(
+            powerTelekinesis, conditionTelekinesis, conditionRestrained, spell));
 
-        conditionTelekinesis.Features.Add(powerTelekinesis);
+        conditionTelekinesis.Features.AddRange(powerTelekinesis);
 
-        _ = ActionDefinitionBuilder
-            .Create($"Action{Name}")
-            .SetGuiPresentation(Name, Category.Spell, sprite, 71)
-            .SetActionId(ExtraActionId.Telekinesis)
-            .OverrideClassName("UsePower")
-            .SetActionScope(ActionDefinitions.ActionScope.Battle)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetFormType(ActionDefinitions.ActionFormType.Small)
-            .SetActivatedPower(powerTelekinesis)
-            .AddToDB();
+        spell.AddCustomSubFeatures(new CustomBehaviorTelekinesisSpell(conditionTelekinesis, conditionRestrained));
 
         return spell;
     }
 
-    private static void ApplyHinderedByTelekinesis(
-        RulesetCharacter rulesetCharacter,
-        // ReSharper disable once SuggestBaseTypeForParameter
-        RulesetCharacter targetRulesetCharacter,
+    private static IEnumerator ApplyRestrainedByTelekinesis(
+        RulesetCharacter actingRulesetCharacter,
         GameLocationCharacter targetCharacter,
         // ReSharper disable once SuggestBaseTypeForParameter
-        ConditionDefinition conditionHinderedByTelekinesis,
+        ConditionDefinition conditionRestrained,
         RulesetEffectSpell rulesetSpell,
         CharacterAction action,
-        int positionIndex = 0)
+        int positionIndex)
     {
         var checkDC = action is CharacterActionCastSpell actionCastSpell
             ? actionCastSpell.ActiveSpell.SaveDC
-            : rulesetCharacter.SpellsCastByMe
+            : actingRulesetCharacter.SpellsCastByMe
                 .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SaveDC ?? 0;
 
         targetCharacter.RollAbilityCheck(
@@ -762,27 +763,11 @@ internal static partial class SpellBuilders
 
         if (outcome == RollOutcome.Success)
         {
-            return;
+            yield break;
         }
 
-        var hinderedCondition = targetRulesetCharacter.InflictCondition(
-            conditionHinderedByTelekinesis.Name,
-            DurationType.Round,
-            1,
-            TurnOccurenceType.EndOfSourceTurn,
-            AttributeDefinitions.TagEffect,
-            rulesetCharacter.Guid,
-            rulesetCharacter.CurrentFaction.Name,
-            1,
-            conditionHinderedByTelekinesis.Name,
-            0,
-            0,
-            0);
-
-        rulesetSpell.TrackedConditionGuids.Add(hinderedCondition.Guid);
-
         var targetPosition = action.ActionParams.Positions[positionIndex];
-        var actionParams =
+        var actionParamsTacticalMove =
             new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
             {
                 Positions = { targetPosition }
@@ -794,21 +779,52 @@ internal static partial class SpellBuilders
         ServiceRepository.GetService<IGameLocationActionService>()?
             .StopCharacterActions(targetCharacter, CharacterAction.InterruptionType.ForcedMovement);
         ServiceRepository.GetService<IGameLocationActionService>()?
-            .ExecuteAction(actionParams, null, true);
+            .ExecuteAction(actionParamsTacticalMove, null, false);
+
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+        while (actionService.IsCharacterActing(targetCharacter))
+        {
+            yield return null;
+        }
+
+        var targetRulesetCharacter = targetCharacter.RulesetCharacter;
+        var activeCondition = targetRulesetCharacter.InflictCondition(
+            conditionRestrained.Name,
+            DurationType.Round,
+            0,
+            TurnOccurenceType.StartOfTurn,
+            AttributeDefinitions.TagEffect,
+            actingRulesetCharacter.guid,
+            actingRulesetCharacter.CurrentFaction.Name,
+            1,
+            conditionRestrained.Name,
+            0,
+            0,
+            0);
+
+        action.ActionParams.RulesetEffect.TrackedConditionGuids.Add(activeCondition.Guid);
     }
 
     private sealed class CustomBehaviorTelekinesisPower(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellTelekinesis,
+        FeatureDefinitionPower powerTelekinesis,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionHinderedByTelekinesis) : IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
+        ConditionDefinition conditionTelekinesis,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionRestrained,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellTelekinesis) 
+        : IMagicEffectFinishedByMe, IModifyEffectDescription, ISelectPositionAfterCharacter
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            // reset target parameter to original state
+            action.ActionParams.RulesetEffect.EffectDescription.targetParameter = 1;
+
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;
-            var targetCharacter = action.ActionParams.TargetCharacters[0];
-            var targetRulesetCharacter = targetCharacter.RulesetCharacter;
+            var targetCharacters = action.ActionParams.TargetCharacters;
             var rulesetSpell =
                 actingRulesetCharacter.SpellsCastByMe.FirstOrDefault(x => x.SpellDefinition == spellTelekinesis);
 
@@ -817,16 +833,15 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            // only one enemy can be hindered at a time (except if twinned on first cast)
             if (Gui.Battle != null)
             {
-                foreach (var rulesetContender in Gui.Battle.AllContenders
-                             .Select(locationContender => locationContender.RulesetCharacter))
+                // need to loop over enemies to cover twinned case
+                // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                foreach (var locationContender in Gui.Battle.EnemyContenders)
                 {
-                    if (!rulesetContender.TryGetConditionOfCategoryAndType(
-                            AttributeDefinitions.TagEffect, conditionHinderedByTelekinesis.Name,
-                            out var activeCondition) ||
-                        activeCondition.SourceGuid != actingRulesetCharacter.Guid)
+                    var rulesetContender = locationContender.RulesetCharacter;
+
+                    if (!rulesetContender.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionRestrained.Name, out var activeCondition) || activeCondition.SourceGuid != actingRulesetCharacter.Guid)
                     {
                         continue;
                     }
@@ -836,13 +851,38 @@ internal static partial class SpellBuilders
                 }
             }
 
-            ApplyHinderedByTelekinesis(
-                actingRulesetCharacter,
-                targetRulesetCharacter,
-                targetCharacter,
-                conditionHinderedByTelekinesis,
-                rulesetSpell,
-                action);
+            for (var i = 0; i < targetCharacters.Count; i++)
+            {
+                var targetCharacter = targetCharacters[i];
+
+                yield return ApplyRestrainedByTelekinesis(
+                    actingRulesetCharacter,
+                    targetCharacter,
+                    conditionRestrained,
+                    rulesetSpell,
+                    action,
+                    i);
+            }
+        }
+
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerTelekinesis;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (character.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionTelekinesis.Name, out var activeCondition))
+            {
+                effectDescription.targetParameter = activeCondition.Amount;
+            }
+
+            return effectDescription;
         }
 
         public int PositionRange => TelekinesisRange;
@@ -850,33 +890,42 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorTelekinesisSpell(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionHinderedByTelekinesis) : IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
+        ConditionDefinition conditionTelekinesis,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionRestrained) : IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            // need to reset number of targets in case this spell was twinned
-            action.actionParams.RulesetEffect.EffectDescription.targetParameter = 1;
+            // reset target parameter to original state
+            action.ActionParams.RulesetEffect.EffectDescription.targetParameter = 1;
 
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;
             var targetCharacters = action.ActionParams.TargetCharacters;
 
+            // keep a track on twinned status for later power consideration
+            if (action is CharacterActionCastSpell actionCastSpell &&
+                actingRulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionTelekinesis.Name, out var activeCondition))
+            {
+                activeCondition.Amount =
+                    actionCastSpell.ActiveSpell.MetamagicOption == MetamagicOptionDefinitions.MetamagicTwinnedSpell
+                        ? 2
+                        : 1;
+            }
+
             for (var i = 0; i < targetCharacters.Count; i++)
             {
                 var targetCharacter = targetCharacters[i];
-                var targetRulesetCharacter = targetCharacter.RulesetCharacter;
 
-                ApplyHinderedByTelekinesis(
+                yield return ApplyRestrainedByTelekinesis(
                     actingRulesetCharacter,
-                    targetRulesetCharacter,
                     targetCharacter,
-                    conditionHinderedByTelekinesis,
+                    conditionRestrained,
                     action.ActionParams.RulesetEffect as RulesetEffectSpell,
                     action,
                     i);
             }
-
-            yield break;
         }
 
         public int PositionRange => 12;
