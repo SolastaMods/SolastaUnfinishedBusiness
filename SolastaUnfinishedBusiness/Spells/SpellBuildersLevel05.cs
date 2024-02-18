@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
-using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -750,41 +749,12 @@ internal static partial class SpellBuilders
         ConditionDefinition conditionTelekinesisNoCost,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellTelekinesis)
-        : IMagicEffectFinishedByMe, IFilterTargetingPosition, ISelectPositionAfterCharacter
+        : IFilterTargetingPosition, IMagicEffectFinishedByMe, ISelectPositionAfterCharacter
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
-            cursorLocationSelectPosition.validPositionsCache.Clear();
-
-            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
-            var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
-            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
-            var visibilityService =
-                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
-
-            var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
-
-            boxInt.Inflate(TelekinesisRange, 0, TelekinesisRange);
-
-            foreach (var position in boxInt.EnumerateAllPositionsWithin())
-            {
-                if (!visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter) ||
-                    !positioningService.CanPlaceCharacter(
-                        targetCharacter, position, CellHelpers.PlacementMode.Station) ||
-                    !positioningService.CanCharacterStayAtPosition_Floor(
-                        targetCharacter, position, onlyCheckCellsWithRealGround: true) ||
-                    DistanceCalculation.GetDistanceFromPositions(actingCharacter.LocationPosition, position) > 12)
-                {
-                    continue;
-                }
-
-                cursorLocationSelectPosition.validPositionsCache.Add(position);
-
-                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
-                {
-                    yield return null;
-                }
-            }
+            yield return cursorLocationSelectPosition
+                .MyComputeValidPositions(LocationDefinitions.LightingState.Bright, TelekinesisRange);
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
