@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -75,6 +77,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetImpactParticleReference(
                 Power_HornOfBlasting.EffectDescription.EffectParticleParameters.impactParticleReference)
+            .AddCustomSubFeatures(ClassFeats.ModifyAdditionalDamageFormCloseQuarters.Marker)
             .AddToDB();
 
         var conditionGloomBlade = ConditionDefinitionBuilder
@@ -100,7 +103,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var powerShadowStride = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ShadowStride")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerSilhouetteStep, 256, 128))
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -112,12 +115,11 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                             .Build())
                     .SetParticleEffectParameters(PowerRoguishDarkweaverShadowy)
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(
-                    ValidatorsCharacter.HasAvailableMoves,
-                    ValidatorsCharacter.IsNotInBrightLight),
-                FilterTargetingPositionShadowStride.MarkerUseRemainingMoves,
-                new MagicEffectInitiatedByMeShadowStride(false))
+            .AddToDB();
+
+        var powerShadowStrideAtWill = FeatureDefinitionPowerBuilder
+            .Create(powerShadowStride, $"Power{Name}ShadowStrideAtWill")
+            .SetUsesFixed(ActivationTime.NoCost)
             .AddToDB();
 
         var powerShadowStrideBonus = FeatureDefinitionPowerBuilder
@@ -129,31 +131,33 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging,
                         ConditionForm.ConditionOperation.Add, true, true))
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(
-                    _ => Gui.Battle != null,
-                    ValidatorsCharacter.HasAvailableBonusDash,
-                    ValidatorsCharacter.IsNotInBrightLight),
-                FilterTargetingPositionShadowStride.MarkerUseMaxMoves,
-                new MagicEffectInitiatedByMeShadowStride(true))
             .AddToDB();
 
-        // kept name for backward compatibility
         var powerShadowStrideMain = FeatureDefinitionPowerBuilder
-            .Create(powerShadowStrideBonus, $"Power{Name}ShadowStrideAtWill")
+            .Create(powerShadowStrideBonus, $"Power{Name}ShadowStrideMain")
             .SetUsesFixed(ActivationTime.Action)
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(
-                    _ => Gui.Battle != null,
-                    ValidatorsCharacter.IsNotInBrightLight),
-                FilterTargetingPositionShadowStride.MarkerUseMaxMoves,
-                new MagicEffectInitiatedByMeShadowStride(true))
             .AddToDB();
+
+        powerShadowStrideAtWill.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(_ => Gui.Battle == null, ValidatorsCharacter.IsNotInBrightLight),
+            new CustomBehaviorShadowStride(powerShadowStrideAtWill, false));
+
+        powerShadowStride.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(c => CanUseShadowStride(c, ValidatorsCharacter.HasAvailableMoves)),
+            new CustomBehaviorShadowStride(powerShadowStride, false));
+
+        powerShadowStrideBonus.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(c => CanUseShadowStride(c, ValidatorsCharacter.HasAvailableBonusDash)),
+            new CustomBehaviorShadowStride(powerShadowStrideBonus, true));
+
+        powerShadowStrideMain.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(c => CanUseShadowStride(c)),
+            new CustomBehaviorShadowStride(powerShadowStrideMain, true));
 
         var featureSetShadowStride = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ShadowStride")
             .SetGuiPresentation($"Power{Name}ShadowStride", Category.Feature)
-            .SetFeatureSet(powerShadowStride, powerShadowStrideMain, powerShadowStrideBonus)
+            .SetFeatureSet(powerShadowStrideAtWill, powerShadowStride, powerShadowStrideMain, powerShadowStrideBonus)
             .AddToDB();
 
         // LEVEL 13
@@ -194,7 +198,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var powerShadowDance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ShadowDance")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("ShadowDance", Resources.PowerShadowDance, 256, 128))
+                Sprites.GetSprite("PowerShadowDance", Resources.PowerShadowDance, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -202,7 +206,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionShadowDance))
-                    .SetParticleEffectParameters(PowerDomainOblivionHeraldOfPain)
+                    .SetParticleEffectParameters(PowerSorakAssassinShadowMurder)
                     .Build())
             .AddToDB();
 
@@ -239,6 +243,18 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             attacker.IsWithinRange(defender, 1) &&
             attacker.LightingState != LocationDefinitions.LightingState.Bright &&
             defender.LightingState != LocationDefinitions.LightingState.Bright;
+    }
+
+
+    private static bool CanUseShadowStride(RulesetCharacter character, IsCharacterValidHandler isValid = null)
+    {
+        var locationCharacter = GameLocationCharacter.GetFromActor(character);
+
+        return Gui.Battle != null &&
+               locationCharacter != null &&
+               locationCharacter.OnceInMyTurnIsValid("ShadowStride") &&
+               ValidatorsCharacter.IsNotInBrightLight(character) &&
+               (isValid == null || isValid(character));
     }
 
     //
@@ -292,8 +308,20 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     // Shadow Stride
     //
 
-    private sealed class MagicEffectInitiatedByMeShadowStride(bool subMaxMoves) : IMagicEffectInitiatedByMe
+    private sealed class CustomBehaviorShadowStride(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerShadowStride,
+        bool isDashing) : IFilterTargetingPosition, IMagicEffectInitiatedByMe, IModifyEffectDescription
     {
+        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            var distance = actingCharacter.RemainingTacticalMoves + (isDashing ? actingCharacter.MaxTacticalMoves : 0);
+
+            yield return cursorLocationSelectPosition
+                .MyComputeValidPositions(LocationDefinitions.LightingState.Bright, distance);
+        }
+
         public IEnumerator OnMagicEffectInitiatedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
             var actingCharacter = action.ActingCharacter;
@@ -305,26 +333,34 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             var sourcePosition = actingCharacter.LocationPosition;
             var targetPosition = action.ActionParams.Positions[0];
-
-            actingCharacter.UsedTacticalMoves +=
+            var distance = (int)Math.Round(
                 DistanceCalculation.GetDistanceFromPositions(sourcePosition, targetPosition) -
-                (subMaxMoves ? actingCharacter.MaxTacticalMoves : 0);
+                (isDashing ? actingCharacter.MaxTacticalMoves : 0));
+
+            actingCharacter.UsedSpecialFeatures.TryAdd("ShadowStride", 1);
+            actingCharacter.UsedTacticalMoves += distance;
         }
-    }
 
-    private sealed class FilterTargetingPositionShadowStride(bool addMaxMoves = false) : IFilterTargetingPosition
-    {
-        internal static readonly FilterTargetingPositionShadowStride MarkerUseMaxMoves = new(true);
-        internal static readonly FilterTargetingPositionShadowStride MarkerUseRemainingMoves = new(true);
-
-        public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
+            return definition == powerShadowStride;
+        }
 
-            yield return cursorLocationSelectPosition.MyComputeValidPositions(
-                LocationDefinitions.LightingState.Bright,
-                actingCharacter.RemainingTacticalMoves +
-                (addMaxMoves ? actingCharacter.MaxTacticalMoves : actingCharacter.RemainingTacticalMoves));
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var locationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            if (locationCharacter != null)
+            {
+                effectDescription.rangeParameter =
+                    locationCharacter.RemainingTacticalMoves + (isDashing ? locationCharacter.MaxTacticalMoves : 0);
+            }
+
+            return effectDescription;
         }
     }
 
@@ -385,6 +421,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
+            EffectHelpers.StartVisualEffect(source, source, PowerDefilerMistyFormEscape,
+                EffectHelpers.EffectType.Caster);
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
         }
