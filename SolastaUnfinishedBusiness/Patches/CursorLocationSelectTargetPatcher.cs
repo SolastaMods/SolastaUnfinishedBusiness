@@ -471,13 +471,7 @@ public static class CursorLocationSelectTargetPatcher
 
                             actionParams.ActionModifiers.SetRange(__instance.ActionModifiersList);
                             actionParams.TargetCharacters.SetRange(__instance.SelectionService.SelectedTargets);
-
-                            actionParams.RulesetEffect.EffectDescription.rangeParameter =
-                                modifier.PositionRange;
-
-                            // supports twinned scenarios
-                            actionParams.RulesetEffect.EffectDescription.targetParameter =
-                                __instance.SelectionService.SelectedTargets.Count;
+                            actionParams.RulesetEffect.EffectDescription.rangeParameter = modifier.PositionRange;
 
                             __instance.CursorService
                                 .ActivateCursor<CursorLocationSelectPosition>(__instance.ActionParams);

@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
+    "targetSide": "All",
     "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -261,7 +261,7 @@
     "lightCounterDispellsEffect": false,
     "hideSavingThrowAnimation": false
   },
-  "delegatedToAction": true,
+  "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "Action",
