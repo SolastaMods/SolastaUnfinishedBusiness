@@ -1267,13 +1267,13 @@ internal static class InvocationsBuilders
 
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
 
-            // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (var gameLocationCharacter in Gui.Battle
                          .GetContenders(actingCharacter)
                          .Where(x => CanApplyHex(x.RulesetCharacter)))
             {
-                var boxInt = new BoxInt(
-                    gameLocationCharacter.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1));
+                var boxInt = new BoxInt(gameLocationCharacter.LocationPosition, int3.zero, int3.zero);
+
+                boxInt.Inflate(1, 0, 1);
 
                 foreach (var position in boxInt.EnumerateAllPositionsWithin())
                 {

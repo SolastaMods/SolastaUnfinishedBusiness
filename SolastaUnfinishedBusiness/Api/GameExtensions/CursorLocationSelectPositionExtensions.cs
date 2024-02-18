@@ -12,7 +12,7 @@ internal static class CursorLocationSelectPositionExtensions
         LocationDefinitions.LightingState additionalBlockedState = LocationDefinitions.LightingState.Darkness,
         int maxDistance = 0)
     {
-        var boxInt = new BoxInt(__instance.ActionParams.ActingCharacter.LocationPosition, new int3(0), new int3(0));
+        var boxInt = new BoxInt(__instance.ActionParams.ActingCharacter.LocationPosition, int3.zero, int3.zero);
 
         boxInt.Inflate((int)(maxDistance == 0 ? __instance.maxDistance : maxDistance));
 

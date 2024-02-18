@@ -1924,10 +1924,9 @@ internal static class GambitsBuilders
                 ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
 
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2;
-            var boxInt = new BoxInt(
-                targetCharacter.LocationPosition,
-                new int3(-halfMaxTacticalMoves, -halfMaxTacticalMoves, -halfMaxTacticalMoves),
-                new int3(halfMaxTacticalMoves, halfMaxTacticalMoves, halfMaxTacticalMoves));
+            var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
+
+            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
