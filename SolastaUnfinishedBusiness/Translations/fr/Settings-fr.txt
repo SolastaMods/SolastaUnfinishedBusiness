@@ -102,8 +102,6 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des Dons aux niveaux 
 ModUi/&EnableFighterWeaponSpecialization=Activer la <b>Spécialisation d'arme</b> pour le <color=#D89555>Guerrier</color> aux niveaux de classe 8 et 16 <i><color=#F0DAA0>[obtenez +1 à la touche et aux dégâts avec l'arme en question mais le désavantage avec n'importe quel autre type d'arme]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les Historiques flexibles <i><color=#F0DAA0>[sélectionner les compétences et les maîtrises d'outils de n'importe quels Historiques]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les Ascendances flexibles <i><color=#F0DAA0>[assignez vous-même les points de caractéristiques au lieu des valeurs d'Ascendances par défaut]</color></i>
-ModUi/&HighContrastTargetingAoeColor=Changer l'AoE <b><color=$$$$$$>couleur de surbrillance</color></b>
-ModUi/&HighContrastTargetingSingleColor=Changer la <b><color=$$$$$$>couleur de surbrillance</color></b> cible
 ModUi/&EnableHigherGroundRules=Activer les règles sur l'élévation <i><color=#F0DAA0>[+1 pour toucher si vous attaquez depuis un point surélevé par rapport à la cible]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la fenêtre de débogage
 ModUi/&EnableHotkeyToggleHud=Activez <color=#1E81B0>CTRL-SHIFT-(H)</color> pour basculer sur l'affichage HUD
@@ -172,6 +170,8 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Accorder la <b>Spécialisation
 ModUi/&GridSelectedColor=Changer la <b><color=$$$$$$>couleur de la grille</color></b> du mouvement
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
 ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
+ModUi/&HighContrastTargetingAoeColor=Changer les créatures AoE <b><color=$$$$$$>surligner la couleur sélectionnée</color></b>
+ModUi/&HighContrastTargetingSingleColor=Changer une seule créature <b><color=$$$$$$>surligner la couleur sélectionnée</color></b>
 ModUi/&House=<color=#F0DAA0>Maison :</color>
 ModUi/&IdentifyAfterRest=Ajoutez un pouvoir pour <color=#D89555>identifier les objets magiques</color> lors d'un repos court ou un repos long
 ModUi/&IgnoreHandXbowFreeHandRequirements=Les <color=#D89555>arbalètes de poing</color> ne nécessitent pas une main libre pour être utilisées

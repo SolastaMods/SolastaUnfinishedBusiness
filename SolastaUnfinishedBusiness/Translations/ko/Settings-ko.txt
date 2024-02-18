@@ -102,8 +102,6 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6, 14에 재주 선택 활
 ModUi/&EnableFighterWeaponSpecialization=<color=#D89555>파이터</color> 클래스 레벨 8 과 16에서 <b>무기 특화</b> 활성화<i><color=#F0DAA0>[명중과 피해에 +1을 얻지만 다른 무기 유형으론 불리점을 받습니다]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 종족 활성화 <i><color=#F0DAA0>[종족 기본값 대신 능력치 점수 할당]</color></i>
-ModUi/&HighContrastTargetingAoeColor=AoE <b><color=$$$$$$>강조 색상</color></b> 변경
-ModUi/&HighContrastTargetingSingleColor=대상 <b><color=$$$$$$>강조 색상</color></b> 변경
 ModUi/&EnableHigherGroundRules=고지대 규칙 활성화 <i><color=#F0DAA0>[고지대에서 공격할 경우 명중 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 눌러 활성화
 ModUi/&EnableHotkeyToggleHud=HUD 표시를<color=#1E81B0>CTRL-SHIFT-(H)</color>로 전환 활성화
@@ -172,6 +170,8 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>바드</color>�
 ModUi/&GridSelectedColor=<b><color=$$$$$$>그리드 색상</color></b> 이동 변경
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=발견하지 못한 출구와 순간이동기의 시각 효과 숨기기
 ModUi/&HideMonsterHitPoints=몬스터의 체력을 정확한 수치 대신 25% / 50% / 75% / 100% 만큼 단계별로 표시하기
+ModUi/&HighContrastTargetingAoeColor=AoE 생물 변경 <b><color=$$$$$$>선택 색상 강조 표시</color></b>
+ModUi/&HighContrastTargetingSingleColor=단일 생물 변경 <b><color=$$$$$$>선택 색상 강조 표시</color></b>
 ModUi/&House=<color=#F0DAA0>하우스 룰(자체 규칙):</color>
 ModUi/&IdentifyAfterRest=짧은 혹은 긴 휴식을 통해 <color=#D89555>마법 아이템 식별</color>에 힘을 추가
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>핸드 크로스보우</color>를 사용하기 위해 빈 손을 요구하지 않음

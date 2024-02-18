@@ -102,8 +102,6 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niv
 ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
-ModUi/&HighContrastTargetingAoeColor=Cambiar el AoE <b><color=$$$$$$>color de resaltado</color></b>
-ModUi/&HighContrastTargetingSingleColor=Cambiar el <b><color=$$$$$$>color de resaltado</color></b>
 ModUi/&EnableHigherGroundRules=Habilitar reglas básicas más altas <i><color=#F0DAA0>[+1 para golpear si se ataca desde un terreno más alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar la pantalla HUD
@@ -172,6 +170,8 @@ ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Otorga la <b>especialización 
 ModUi/&GridSelectedColor=Cambiar el movimiento <b><color=$$$$$$>color de la cuadrícula</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Oculte las salidas y los efectos visuales de los teletransportadores si aún no los ha descubierto.
 ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25 %/50 %/75 %/100 % en lugar de puntos de vida exactos
+ModUi/&HighContrastTargetingAoeColor=Cambiar criaturas AoE <b><color=$$$$$$>resaltar seleccionar color</color></b>
+ModUi/&HighContrastTargetingSingleColor=Cambiar criaturas individuales <b><color=$$$$$$>resaltar seleccionar color</color></b>
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Añade un poder para <color=#D89555>identificar objetos mágicos</color> durante un descanso corto o largo
 ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar <color=#D89555>Ballestas de mano</color>
