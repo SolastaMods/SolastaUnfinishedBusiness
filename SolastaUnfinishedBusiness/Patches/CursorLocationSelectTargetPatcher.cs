@@ -582,13 +582,11 @@ public static class CursorLocationSelectTargetPatcher
     [UsedImplicitly]
     public static class RefreshHover_Patch
     {
-        private static readonly Color OriginalColor = new(0.110f, 0.310f, 0.286f, 0.000f);
-
         [UsedImplicitly]
         public static void Postfix(CursorLocationSelectTarget __instance)
         {
             __instance.affectedCharacterColor =
-                GameUiContext.HighContrastColors[Main.Settings.EnableHighContrastTargetingSingle];
+                GameUiContext.HighContrastColors[Main.Settings.HighContrastTargetingSingleSelectedColor];
         }
     }
 }

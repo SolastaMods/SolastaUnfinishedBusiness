@@ -293,22 +293,22 @@ internal static class GameUiDisplay
 
         UI.Label();
 
-        var color = GameUiContext.HighContrastColorStrings[Main.Settings.EnableHighContrastTargetingAoe];
+        var color = GameUiContext.HighContrastColorStrings[Main.Settings.HighContrastTargetingAoeSelectedColor];
         var title = Gui.Localize("ModUi/&EnableHighContrastTargetingAoe").Replace("$$$$$$", color);
 
         UI.ActionButton(title, () =>
         {
-            Main.Settings.EnableHighContrastTargetingAoe =
-                (Main.Settings.EnableHighContrastTargetingAoe + 1) % GameUiContext.HighContrastColors.Length;
+            Main.Settings.HighContrastTargetingAoeSelectedColor =
+                (Main.Settings.HighContrastTargetingAoeSelectedColor + 1) % GameUiContext.HighContrastColors.Length;
         }, UI.Width((float)400));
 
-        color = GameUiContext.HighContrastColorStrings[Main.Settings.EnableHighContrastTargetingSingle];
+        color = GameUiContext.HighContrastColorStrings[Main.Settings.HighContrastTargetingSingleSelectedColor];
         title = Gui.Localize("ModUi/&EnableHighContrastTargetingSingle").Replace("$$$$$$", color);
 
         UI.ActionButton(title, () =>
         {
-            Main.Settings.EnableHighContrastTargetingSingle =
-                (Main.Settings.EnableHighContrastTargetingSingle + 1) % GameUiContext.HighContrastColors.Length;
+            Main.Settings.HighContrastTargetingSingleSelectedColor =
+                (Main.Settings.HighContrastTargetingSingleSelectedColor + 1) % GameUiContext.HighContrastColors.Length;
         }, UI.Width((float)400));
 
         UI.Label();
@@ -319,7 +319,6 @@ internal static class GameUiDisplay
         UI.ActionButton(title, () =>
         {
             Main.Settings.GridSelectedColor = (Main.Settings.GridSelectedColor + 1) % GameUiContext.GridColors.Length;
-            Main.Info(Main.Settings.GridSelectedColor.ToString());
             GameUiContext.UpdateMovementGrid();
         }, UI.Width((float)300));
 

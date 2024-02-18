@@ -235,7 +235,7 @@ public static class CursorLocationGeometricShapePatcher
             public static void Postfix(CursorLocationGeometricShape __instance)
             {
                 __instance.affectedCharacterColor =
-                    GameUiContext.HighContrastColors[Main.Settings.EnableHighContrastTargetingAoe];
+                    GameUiContext.HighContrastColors[Main.Settings.HighContrastTargetingAoeSelectedColor];
             }
         }
     }

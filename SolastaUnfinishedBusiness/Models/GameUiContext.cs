@@ -23,8 +23,6 @@ internal static class GameUiContext
 {
     internal static bool IsVttCameraEnabled;
 
-    internal static readonly Color DefaultHighContrastColor = new(0.110f, 0.311f, 0.287f, 1.000f);
-
     internal static readonly string[] HighContrastColorStrings =
     [
         "#1C4F49",
@@ -35,7 +33,7 @@ internal static class GameUiContext
 
     internal static readonly Color[] HighContrastColors =
     [
-        DefaultHighContrastColor,
+        new Color(0.110f, 0.311f, 0.287f, 1.000f),
         Color.black, Color.white,
         Color.red, Color.green, Color.blue,
         Color.cyan, Color.magenta, Color.yellow
