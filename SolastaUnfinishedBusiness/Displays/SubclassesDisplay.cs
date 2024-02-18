@@ -14,19 +14,19 @@ internal static class SubclassesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Classes Docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("UnfinishedBusinessClasses.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessClasses.md"), UI.Width(200f));
             20.Space();
             UI.ActionButton("Solasta Classes Docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("SolastaClasses.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("SolastaClasses.md"), UI.Width(200f));
         }
 
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Subclasses Docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("UnfinishedBusinessSubclasses.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessSubclasses.md"), UI.Width(200f));
             20.Space();
             UI.ActionButton("Solasta Subclasses Docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("SolastaSubclasses.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("SolastaSubclasses.md"), UI.Width(200f));
         }
 
         UI.Label();

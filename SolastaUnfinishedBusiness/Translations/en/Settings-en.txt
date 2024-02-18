@@ -102,8 +102,8 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selecti
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableHighContrastTargetingAoe=Enable <color=#D89555>high contrast highlight</color> with AoE and individual targets
-ModUi/&EnableHighContrastTargetingSingle=Change the target <color=$$$$$$>highlight color</color> <i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
+ModUi/&HighContrastTargetingAoeColor=Change the AoE <b><color=$$$$$$>highlight color</color></b>
+ModUi/&HighContrastTargetingSingleColor=Change the target <b><color=$$$$$$>highlight color</color></b>
 ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
 ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display
@@ -169,7 +169,7 @@ ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Grant Scimitar <b>Weapon Specialization</b> to <color=#D89555>Bards</color> and <color=#D89555>Rogues</color>
-ModUi/&GridSelectedColor=Change the <color=$$$$$$>grid color</color> <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&House=<color=#F0DAA0>House:</color>

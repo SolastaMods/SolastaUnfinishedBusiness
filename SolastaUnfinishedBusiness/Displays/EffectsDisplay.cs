@@ -134,7 +134,7 @@ internal static class EffectsDisplay
 
                         EffectHelpers.StartVisualEffect(source, target, effect.Value.First().Item2, effectType);
                     },
-                    UI.Width((float)30));
+                    UI.Width(30f));
 
                 var label = effect.Key + " - " + effect.Value.First().Item1;
 
@@ -220,7 +220,7 @@ internal static class EffectsDisplay
                             0,
                             0);
                     },
-                    UI.Width((float)30));
+                    UI.Width(30f));
 
                 var label = conditionEffect.Key + " - " + conditionEffect.Value.First().Item1;
 

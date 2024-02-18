@@ -102,8 +102,8 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Kl
 ModUi/&EnableFighterWeaponSpecialization=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber einen Nachteil gegenüber allen anderen Waffentyp]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[wählen Sie Fähigkeiten und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
 ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[Weisen Sie Fähigkeitspunktepunkte anstelle der Rassenstandards zu]</color></i>
-ModUi/&EnableHighContrastTargetingAoe=Aktivieren Sie <color=#D89555>High-Contrast-Highlight</color> mit AoE und einzelnen Zielen
-ModUi/&EnableHighContrastTargetingSingle=Ändern Sie die Ziel-<color=$$$$$$>Hervorhebungsfarbe</color> <i><color=#F0DAA0>[Standard, S/W, RGB, CMY]</color></i>
+ModUi/&HighContrastTargetingAoeColor=Ändern Sie die AoE-<b><color=$$$$$$>Hervorhebungsfarbe</color></b>
+ModUi/&HighContrastTargetingSingleColor=Ändern Sie die Ziel-<b><color=$$$$$$>Hervorhebungsfarbe</color></b>
 ModUi/&EnableHigherGroundRules=Aktivieren Sie höhere Bodenregeln <i><color=#F0DAA0>[+1 für Treffer, wenn Sie von einem höheren Boden aus angreifen]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(H)</color>, um die HUD-Anzeige umzuschalten
@@ -169,7 +169,7 @@ ModUi/&Gameplay=Spielweise
 ModUi/&General=<color=#F0DAA0>Allgemein:</color>
 ModUi/&GeneralMenu=Allgemein
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Gewähre <b>Waffenspezialisierung</b> für den Krummsäbel an <color=#D89555>Barden</color> und <color=#D89555>Schurken</color>
-ModUi/&GridSelectedColor=Ändern Sie die <color=$$$$$$>Rasterfarbe</color> <i><color=#F0DAA0>[s/w, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=Ändern Sie die Bewegung <b><color=$$$$$$>Gitterfarbe</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecken Sie die visuellen Effekte von Ausgängen und Teleportern, wenn diese noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
 ModUi/&House=<color=#F0DAA0>Haus:</color>

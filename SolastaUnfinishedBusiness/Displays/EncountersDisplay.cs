@@ -26,10 +26,10 @@ internal static class EncountersDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton(actionText.Bold().Red(), action, UI.Width((float)30));
-            UI.Label($"{hero.Name} {hero.SurName}".Orange().Bold(), UI.Width((float)240));
+            UI.ActionButton(actionText.Bold().Red(), action, UI.Width(30f));
+            UI.Label($"{hero.Name} {hero.SurName}".Orange().Bold(), UI.Width(240f));
             UI.Label($"{hero.RaceDefinition.FormatTitle()} {hero.ClassesHistory[0].FormatTitle()}".White(),
-                UI.Width((float)120));
+                UI.Width(120f));
 
             var attributesLabel = _showAttributes ? "" : "Attributes";
 
@@ -38,17 +38,17 @@ internal static class EncountersDisplay
             if (_showAttributes)
             {
                 UI.Label($"Str: {hero.TryGetAttributeValue(AttributeDefinitions.Strength):0#}".White(),
-                    UI.Width((float)48));
+                    UI.Width(48f));
                 UI.Label($"Dex: {hero.TryGetAttributeValue(AttributeDefinitions.Dexterity):0#}".White(),
-                    UI.Width((float)48));
+                    UI.Width(48f));
                 UI.Label($"Con: {hero.TryGetAttributeValue(AttributeDefinitions.Constitution):0#}".Khaki(),
-                    UI.Width((float)48));
+                    UI.Width(48f));
                 UI.Label($"Int: {hero.TryGetAttributeValue(AttributeDefinitions.Intelligence):0#}".Khaki(),
-                    UI.Width((float)48));
+                    UI.Width(48f));
                 UI.Label($"Wis: {hero.TryGetAttributeValue(AttributeDefinitions.Wisdom):0#}".White(),
-                    UI.Width((float)48));
+                    UI.Width(48f));
                 UI.Label($"Cha: {hero.TryGetAttributeValue(AttributeDefinitions.Charisma):0#}".Khaki(),
-                    UI.Width((float)48));
+                    UI.Width(48f));
             }
 
             var statsLabel = _showStats ? "" : "Stats";
@@ -58,13 +58,13 @@ internal static class EncountersDisplay
             if (_showStats)
             {
                 UI.Label($"AC: {hero.TryGetAttributeValue(AttributeDefinitions.ArmorClass):0#}".White(),
-                    UI.Width((float)48));
-                UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".Khaki(), UI.Width((float)72));
+                    UI.Width(48f));
+                UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".Khaki(), UI.Width(72f));
                 UI.Label($"XP: {hero.TryGetAttributeValue(AttributeDefinitions.Experience)}".White(),
-                    UI.Width((float)72));
+                    UI.Width(72f));
                 UI.Label(
                     $"LV: {hero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel):0#}".White(),
-                    UI.Width((float)48));
+                    UI.Width(48f));
             }
 
             CurrentItemsHeroes.TryGetValue(hero, out flip);
@@ -86,7 +86,7 @@ internal static class EncountersDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.Space((float)30);
+                UI.Space(30f);
                 UI.Label("Inventory".Bold().Cyan());
             }
 
@@ -99,8 +99,8 @@ internal static class EncountersDisplay
 
                 using (UI.HorizontalScope())
                 {
-                    UI.Space((float)60);
-                    UI.Label(slot.EquipedItem.ItemDefinition.FormatTitle(), UI.Width((float)192));
+                    UI.Space(60f);
+                    UI.Label(slot.EquipedItem.ItemDefinition.FormatTitle(), UI.Width(192f));
                 }
             }
         }
@@ -115,9 +115,9 @@ internal static class EncountersDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton(actionText.Bold().Red(), action, UI.Width((float)30));
-            UI.Label($"{monsterDefinition.FormatTitle()}".Orange().Bold(), UI.Width((float)240));
-            UI.Label($"{monsterDefinition.Alignment.SplitCamelCase()}".White(), UI.Width((float)120));
+            UI.ActionButton(actionText.Bold().Red(), action, UI.Width(30f));
+            UI.Label($"{monsterDefinition.FormatTitle()}".Orange().Bold(), UI.Width(240f));
+            UI.Label($"{monsterDefinition.Alignment.SplitCamelCase()}".White(), UI.Width(120f));
 
             var attributesLabel = _showAttributes ? "" : "Attributes";
 
@@ -125,12 +125,12 @@ internal static class EncountersDisplay
 
             if (_showAttributes)
             {
-                UI.Label($"Str: {monsterDefinition.AbilityScores[0]:0#}".White(), UI.Width((float)48));
-                UI.Label($"Dex: {monsterDefinition.AbilityScores[1]:0#}".Khaki(), UI.Width((float)48));
-                UI.Label($"Con: {monsterDefinition.AbilityScores[2]:0#}".White(), UI.Width((float)48));
-                UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".Khaki(), UI.Width((float)48));
-                UI.Label($"Wis: {monsterDefinition.AbilityScores[4]:0#}".White(), UI.Width((float)48));
-                UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".Khaki(), UI.Width((float)48));
+                UI.Label($"Str: {monsterDefinition.AbilityScores[0]:0#}".White(), UI.Width(48f));
+                UI.Label($"Dex: {monsterDefinition.AbilityScores[1]:0#}".Khaki(), UI.Width(48f));
+                UI.Label($"Con: {monsterDefinition.AbilityScores[2]:0#}".White(), UI.Width(48f));
+                UI.Label($"Int: {monsterDefinition.AbilityScores[3]:0#}".Khaki(), UI.Width(48f));
+                UI.Label($"Wis: {monsterDefinition.AbilityScores[4]:0#}".White(), UI.Width(48f));
+                UI.Label($"Cha: {monsterDefinition.AbilityScores[5]:0#}".Khaki(), UI.Width(48f));
             }
 
             var statsLabel = _showStats ? "" : "Stats";
@@ -139,10 +139,10 @@ internal static class EncountersDisplay
 
             if (_showStats)
             {
-                UI.Label($"AC: {monsterDefinition.ArmorClass}".White(), UI.Width((float)48));
+                UI.Label($"AC: {monsterDefinition.ArmorClass}".White(), UI.Width(48f));
                 UI.Label($"HD: {monsterDefinition.HitDice:0#}{monsterDefinition.HitDiceType}".Khaki(),
-                    UI.Width((float)72));
-                UI.Label($"CR: {monsterDefinition.ChallengeRating}".Khaki(), UI.Width((float)72));
+                    UI.Width(72f));
+                UI.Label($"CR: {monsterDefinition.ChallengeRating}".Khaki(), UI.Width(72f));
             }
 
             CurrentAttacksMonster.TryGetValue(monsterDefinition, out flip);
@@ -168,7 +168,7 @@ internal static class EncountersDisplay
             {
                 using (UI.HorizontalScope())
                 {
-                    UI.Space((float)30);
+                    UI.Space(30f);
                     UI.Label("Features".Bold().Cyan());
                 }
 
@@ -183,8 +183,8 @@ internal static class EncountersDisplay
                             title = feature.Name.SplitCamelCase();
                         }
 
-                        UI.Space((float)60);
-                        UI.Label(title, UI.Width((float)192));
+                        UI.Space(60f);
+                        UI.Label(title, UI.Width(192f));
                     }
                 }
             }
@@ -202,7 +202,7 @@ internal static class EncountersDisplay
             {
                 using (UI.HorizontalScope())
                 {
-                    UI.Space((float)30);
+                    UI.Space(30f);
                     UI.Label("Attacks".Bold().Cyan());
                 }
 
@@ -217,24 +217,24 @@ internal static class EncountersDisplay
                             title = attackIteration.MonsterAttackDefinition.name.SplitCamelCase();
                         }
 
-                        UI.Space((float)60);
+                        UI.Space(60f);
                         UI.Label(title,
-                            UI.Width((float)192));
+                            UI.Width(192f));
                         UI.Label($"action type: {attackIteration.MonsterAttackDefinition.ActionType}".Green(),
-                            UI.Width((float)120));
+                            UI.Width(120f));
                         UI.Label($"reach: {attackIteration.MonsterAttackDefinition.ReachRange}".Green(),
-                            UI.Width((float)108));
+                            UI.Width(108f));
                         UI.Label($"hit bonus: {attackIteration.MonsterAttackDefinition.ToHitBonus}".Green(),
-                            UI.Width((float)108));
+                            UI.Width(108f));
                         UI.Label(
                             attackIteration.MonsterAttackDefinition.MaxUses < 0
                                 ? "max uses: inf".Green()
                                 : $"max uses: {attackIteration.MonsterAttackDefinition.MaxUses}".Green(),
-                            UI.Width((float)108));
+                            UI.Width(108f));
 
                         if (attackIteration.MonsterAttackDefinition.Magical)
                         {
-                            UI.Label(TagsDefinitions.Magical.Green(), UI.Width((float)108));
+                            UI.Label(TagsDefinitions.Magical.Green(), UI.Width(108f));
                         }
                     }
                 }
@@ -306,7 +306,7 @@ internal static class EncountersDisplay
                 UI.HStack(playerCharacters[index].Name, 1, () =>
                 {
                     if (UI.SelectionGrid(ref playerCharactersChoices[index], controllers, controllers.Length, 2,
-                            UI.Width((float)300)))
+                            UI.Width(300f)))
                     {
                         PlayerControllerContext.PlayerCharactersChoices = playerCharactersChoices;
                     }

@@ -102,8 +102,8 @@ ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilite a seleção de talentos nos nívei
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Arma</b> nos níveis de classe 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar planos de fundo flexíveis <i><color=#F0DAA0>[selecione proficiências de habilidades e ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite raças flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
-ModUi/&EnableHighContrastTargetingAoe=Ative o <color=#D89555>destaque de alto contraste</color> com AoE e alvos individuais
-ModUi/&EnableHighContrastTargetingSingle=Alterar a <color=$$$$$$>cor de destaque</color> <i><color=#F0DAA0>[default, b/w, rgb, cmy]</color></i>
+ModUi/&HighContrastTargetingAoeColor=Alterar a <b><color=$$$$$$>cor de destaque</color></b> do AoE
+ModUi/&HighContrastTargetingSingleColor=Alterar a <b><color=$$$$$$>cor de destaque</color></b> de destino
 ModUi/&EnableHigherGroundRules=Habilitar regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se atacar de um terreno mais alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar a exibição do HUD
@@ -169,7 +169,7 @@ ModUi/&Gameplay=Jogabilidade
 ModUi/&General=<color=#F0DAA0>Geral:</color>
 ModUi/&GeneralMenu=Em geral
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Conceda <b>Especialização em Arma</b> de Cimitarra a <color=#D89555>Bardos</color> e <color=#D89555>Ladinos</color>
-ModUi/&GridSelectedColor=Alterar a <color=$$$$$$>cor da grade</color> <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=Alterar a <b><color=$$$$$$>cor da grade</color></b> do movimento
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar efeitos visuais de saídas e teletransportadores, caso ainda não tenham sido descobertos
 ModUi/&HideMonsterHitPoints=Exibir a saúde dos monstros em etapas de 25% / 50% / 75% / 100% em vez de pontos de vida exatos
 ModUi/&House=<color=#F0DAA0>Casa:</color>

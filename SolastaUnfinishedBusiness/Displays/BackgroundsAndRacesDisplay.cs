@@ -55,10 +55,10 @@ internal static class BackgroundsAndRacesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Races docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("UnfinishedBusinessRaces.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessRaces.md"), UI.Width(200f));
             20.Space();
             UI.ActionButton("Solasta Races docs".Bold().Khaki(),
-                () => UpdateContext.OpenDocumentation("SolastaRaces.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("SolastaRaces.md"), UI.Width(200f));
         }
 
         UI.Label();

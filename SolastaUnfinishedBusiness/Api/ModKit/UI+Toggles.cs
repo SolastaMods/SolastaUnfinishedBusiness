@@ -135,7 +135,7 @@ internal static partial class UI
         Space((float)-10);
         if (state == ToggleState.None)
         {
-            Space((float)35);
+            Space(35f);
         }
         else
         {
@@ -149,7 +149,7 @@ internal static partial class UI
             {
                 state = state.Flip();
                 applyToChildren(state);
-            }, ToggleStyle, Width((float)35));
+            }, ToggleStyle, Width(35f));
         }
 
         Label(title, ToggleStyle);

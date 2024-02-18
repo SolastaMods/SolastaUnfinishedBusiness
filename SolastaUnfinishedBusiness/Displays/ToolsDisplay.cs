@@ -28,11 +28,11 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(),
-                UI.Width((float)200));
+                UI.Width(200f));
             UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage,
-                UI.Width((float)200));
+                UI.Width(200f));
             UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog,
-                UI.Width((float)200));
+                UI.Width(200f));
         }
 
         UI.Label();
@@ -40,15 +40,15 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Format("ModUi/&Donate", "Github"), UpdateContext.OpenDonateGithub,
-                UI.Width((float)200));
+                UI.Width(200f));
             UI.ActionButton(Gui.Format("ModUi/&Donate", "Patreon"), UpdateContext.OpenDonatePatreon,
-                UI.Width((float)200));
+                UI.Width(200f));
             UI.ActionButton(Gui.Format("ModUi/&Donate", "PayPal"), UpdateContext.OpenDonatePayPal,
-                UI.Width((float)200));
+                UI.Width(200f));
         }
 
         UI.ActionButton(Gui.Localize("ModUi/&OpenSubjectiveGuide"), UpdateContext.OpenSubjectiveGuideToSolasta,
-            UI.Width((float)608));
+            UI.Width(608f));
 
         UI.Label();
 
@@ -139,7 +139,7 @@ internal static class ToolsDisplay
 
         var intValue = Main.Settings.MultiplyTheExperienceGainedBy;
         if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width((float)100)))
+                UI.Width(100f)))
         {
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
             ToolsContext.SwitchEncounterPercentageChance();
@@ -205,11 +205,11 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Localize("ModUi/&IncreaseGameTimeBy"), UI.Width((float)300));
-            UI.ActionButton("1 hour", () => gameCampaign.UpdateTime(60 * 60), UI.Width((float)100));
-            UI.ActionButton("6 hours", () => gameCampaign.UpdateTime(60 * 60 * 6), UI.Width((float)100));
-            UI.ActionButton("12 hours", () => gameCampaign.UpdateTime(60 * 60 * 12), UI.Width((float)100));
-            UI.ActionButton("24 hours", () => gameCampaign.UpdateTime(60 * 60 * 24), UI.Width((float)100));
+            UI.Label(Gui.Localize("ModUi/&IncreaseGameTimeBy"), UI.Width(300f));
+            UI.ActionButton("1 hour", () => gameCampaign.UpdateTime(60 * 60), UI.Width(100f));
+            UI.ActionButton("6 hours", () => gameCampaign.UpdateTime(60 * 60 * 6), UI.Width(100f));
+            UI.ActionButton("12 hours", () => gameCampaign.UpdateTime(60 * 60 * 12), UI.Width(100f));
+            UI.ActionButton("24 hours", () => gameCampaign.UpdateTime(60 * 60 * 24), UI.Width(100f));
         }
     }
 
@@ -224,28 +224,28 @@ internal static class ToolsDisplay
             UI.ActionButton(Gui.Localize("ModUi/&SettingsExport"), () =>
             {
                 Main.SaveSettings(ExportFileName);
-            }, UI.Width((float)144));
+            }, UI.Width(144f));
 
             UI.ActionButton(Gui.Localize("ModUi/&SettingsRemove"), () =>
             {
                 Main.RemoveSettings(ExportFileName);
-            }, UI.Width((float)144));
+            }, UI.Width(144f));
 
             var text = ExportFileName;
 
-            UI.ActionTextField(ref text, String.Empty, s => { ExportFileName = s; }, null, UI.Width((float)144));
+            UI.ActionTextField(ref text, String.Empty, s => { ExportFileName = s; }, null, UI.Width(144f));
         }
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton(Gui.Localize("ModUi/&SettingsRefresh"), Main.LoadSettingFilenames, UI.Width((float)144));
+            UI.ActionButton(Gui.Localize("ModUi/&SettingsRefresh"), Main.LoadSettingFilenames, UI.Width(144f));
             UI.ActionButton(Gui.Localize("ModUi/&SettingsOpenFolder"), () =>
             {
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = Main.SettingsFolder, UseShellExecute = true, Verb = "open"
                 });
-            }, UI.Width((float)292));
+            }, UI.Width(292f));
         }
 
         UI.Label();
@@ -259,7 +259,7 @@ internal static class ToolsDisplay
         UI.Label();
 
         var intValue = -1;
-        if (UI.SelectionGrid(ref intValue, Main.SettingsFiles, Main.SettingsFiles.Length, 4, UI.Width((float)440)))
+        if (UI.SelectionGrid(ref intValue, Main.SettingsFiles, Main.SettingsFiles.Length, 4, UI.Width(440f)))
         {
             Main.LoadSettings(Main.SettingsFiles[intValue]);
         }
