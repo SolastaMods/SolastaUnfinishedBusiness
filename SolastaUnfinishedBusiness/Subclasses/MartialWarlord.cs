@@ -481,7 +481,6 @@ public sealed class MartialWarlord : AbstractSubclass
             EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
-            targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
             ServiceRepository.GetService<IGameLocationActionService>()?
                 .ExecuteAction(actionParams, null, true);
 

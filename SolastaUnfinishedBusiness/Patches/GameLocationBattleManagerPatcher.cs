@@ -186,27 +186,32 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
-            if (__instance.Battle != null && mover.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            if (__instance.Battle == null ||
+                mover.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
-                var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
+                yield break;
+            }
 
-                while (extraEvents.MoveNext())
-                {
-                    yield return extraEvents.Current;
-                }
+            //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
+            var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
+
+            while (extraEvents.MoveNext())
+            {
+                yield return extraEvents.Current;
+            }
+                
+            //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord
+            if (mover.IsMyTurn())
+            {
+                yield break;
             }
 
             var cursorService = ServiceRepository.GetService<ICursorService>();
-
-            //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord
-            // ReSharper disable once InvertIf
-            if (cursorService.CurrentCursor is CursorLocationBattleFriendlyTurn cursorLocationBattleFriendlyTurn &&
-                mover.UsedSpecialFeatures.ContainsKey("MoverNotInTurn"))
-            {
-                cursorLocationBattleFriendlyTurn.dirty = true;
-                cursorLocationBattleFriendlyTurn.ComputeValidDestinations();
-            }
+            var cursorLocationBattleFriendlyTurn =
+                cursorService.AllCursors.OfType<CursorLocationBattleFriendlyTurn>().First();
+                
+            cursorLocationBattleFriendlyTurn.dirty = true;
+            cursorLocationBattleFriendlyTurn.ComputeValidDestinations();
         }
     }
 
