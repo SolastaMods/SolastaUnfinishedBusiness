@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 
@@ -31,7 +32,8 @@ internal static class CursorLocationSelectPositionExtensions
                 break;
             }
 
-            if (int3.Distance(__instance.centerPosition, int3) <= (double)__instance.maxDistance &&
+            if (DistanceCalculation.GetDistanceFromPositions(__instance.centerPosition, int3) <=
+                __instance.maxDistance &&
                 positioningService.CanPlaceCharacter(locationCharacter, int3, CellHelpers.PlacementMode.Station) &&
                 positioningService.CanCharacterStayAtPosition_Floor(
                     locationCharacter, int3, onlyCheckCellsWithRealGround: onlyFeedbackGroundCells))
