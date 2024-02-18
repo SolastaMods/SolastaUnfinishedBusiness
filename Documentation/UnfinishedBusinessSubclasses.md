@@ -1259,7 +1259,7 @@ Your Battlefield Experience now extends to all allied creatures within 30 feet o
 
 * Control the Field
 
-You regain one usage of your Coordinated Assault whenever you roll initiative, and whenever you use your Strategic Reposition feature, you can use your reaction to reuse that feature as a free action before your turn ends.
+You regain one usage of your Coordinated Assault whenever you roll initiative, and whenever you use your Strategic Reposition feature, you can reuse that feature as a free action before your turn ends.
 
 
 
