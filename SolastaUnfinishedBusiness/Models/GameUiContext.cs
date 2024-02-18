@@ -25,8 +25,7 @@ internal static class GameUiContext
 
     internal static readonly string[] HighContrastColorStrings =
     [
-        "#1C4F49",
-        "#000000", "#FFFFFF",
+        "#FFFFFF", // use white to represent default color in mod UI
         "#FF4040", "#40C040", "#8080FF",
         "#00FFFF", "#FF40FF", "#FFFF00"
     ];
@@ -34,7 +33,6 @@ internal static class GameUiContext
     internal static readonly Color[] HighContrastColors =
     [
         new Color(0.110f, 0.311f, 0.287f, 1.000f),
-        Color.black, Color.white,
         Color.red, Color.green, Color.blue,
         Color.cyan, Color.magenta, Color.yellow
     ];
