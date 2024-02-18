@@ -743,67 +743,86 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private static IEnumerator ApplyRestrainedByTelekinesis(
+    private static IEnumerator RollAbilityCheckAndTryMoveApplyRestrained(
         RulesetCharacter actingRulesetCharacter,
-        GameLocationCharacter targetCharacter,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        List<GameLocationCharacter> targetCharacters,
         // ReSharper disable once SuggestBaseTypeForParameter
         ConditionDefinition conditionRestrained,
         RulesetEffectSpell rulesetSpell,
-        CharacterAction action,
-        int positionIndex)
+        CharacterAction action)
     {
-        var checkDC = action is CharacterActionCastSpell actionCastSpell
-            ? actionCastSpell.ActiveSpell.SaveDC
-            : actingRulesetCharacter.SpellsCastByMe
-                .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SaveDC ?? 0;
+        var targetCharactersToApplyRestrained = new List<GameLocationCharacter>();
 
-        targetCharacter.RollAbilityCheck(
-            AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, new ActionModifier(),
-            false, -1, out var outcome, out _, true);
-
-        if (outcome == RollOutcome.Success)
+        for (var i = 0; i < targetCharacters.Count; i++)
         {
-            yield break;
-        }
+            var targetCharacter = targetCharacters[i];
+            var checkDC = action is CharacterActionCastSpell actionCastSpell
+                ? actionCastSpell.ActiveSpell.SaveDC
+                : actingRulesetCharacter.SpellsCastByMe
+                    .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SaveDC ?? 0;
 
-        var targetPosition = action.ActionParams.Positions[positionIndex];
-        var actionParamsTacticalMove =
-            new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
+            targetCharacter.RollAbilityCheck(
+                AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, new ActionModifier(),
+                false, -1, out var outcome, out _, true);
+
+            if (outcome == RollOutcome.Success)
+            {
+                continue;
+            }
+
+            targetCharactersToApplyRestrained.Add(targetCharacter);
+
+            var targetPosition = action.ActionParams.Positions[i];
+            var actionParamsTacticalMove = new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
             {
                 Positions = { targetPosition }
             };
 
-        targetCharacter.UsedTacticalMoves =
-            -DistanceCalculation.GetDistanceFromPositions(targetCharacter.LocationPosition, targetPosition);
+            targetCharacter.UsedTacticalMoves =
+                -DistanceCalculation.GetDistanceFromPositions(targetCharacter.LocationPosition, targetPosition);
 
-        ServiceRepository.GetService<IGameLocationActionService>()?
-            .StopCharacterActions(targetCharacter, CharacterAction.InterruptionType.ForcedMovement);
-        ServiceRepository.GetService<IGameLocationActionService>()?
-            .ExecuteAction(actionParamsTacticalMove, null, false);
-
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-        while (actionService.IsCharacterActing(targetCharacter))
-        {
-            yield return null;
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .StopCharacterActions(targetCharacter, CharacterAction.InterruptionType.ForcedMovement);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParamsTacticalMove, null, false);
         }
 
-        var targetRulesetCharacter = targetCharacter.RulesetCharacter;
-        var activeCondition = targetRulesetCharacter.InflictCondition(
-            conditionRestrained.Name,
-            DurationType.Round,
-            0,
-            TurnOccurenceType.StartOfTurn,
-            AttributeDefinitions.TagEffect,
-            actingRulesetCharacter.guid,
-            actingRulesetCharacter.CurrentFaction.Name,
-            1,
-            conditionRestrained.Name,
-            0,
-            0,
-            0);
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var index = 0;
 
-        action.ActionParams.RulesetEffect.TrackedConditionGuids.Add(activeCondition.Guid);
+        while (targetCharactersToApplyRestrained.Count > 0)
+        {
+            var targetCharacter = targetCharacters[index];
+
+            if (actionService.IsCharacterActing(targetCharacter))
+            {
+                index = (index + 1) % targetCharactersToApplyRestrained.Count;
+
+                yield return null;
+            }
+            else
+            {
+                var targetRulesetCharacter = targetCharacter.RulesetCharacter;
+                var activeCondition = targetRulesetCharacter.InflictCondition(
+                    conditionRestrained.Name,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfSourceTurn,
+                    AttributeDefinitions.TagEffect,
+                    actingRulesetCharacter.guid,
+                    actingRulesetCharacter.CurrentFaction.Name,
+                    1,
+                    conditionRestrained.Name,
+                    0,
+                    0,
+                    0);
+
+                action.ActionParams.RulesetEffect.TrackedConditionGuids.Add(activeCondition.Guid);
+                targetCharactersToApplyRestrained.Remove(targetCharacter);
+                index = 0;
+            }
+        }
     }
 
     private sealed class CustomBehaviorTelekinesisPower(
@@ -814,7 +833,7 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionRestrained,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        SpellDefinition spellTelekinesis) 
+        SpellDefinition spellTelekinesis)
         : IMagicEffectFinishedByMe, IModifyEffectDescription, ISelectPositionAfterCharacter
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -835,13 +854,15 @@ internal static partial class SpellBuilders
 
             if (Gui.Battle != null)
             {
-                // need to loop over enemies to cover twinned case
+                // remove all existing Restrained instances
                 // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
                 foreach (var locationContender in Gui.Battle.EnemyContenders)
                 {
                     var rulesetContender = locationContender.RulesetCharacter;
 
-                    if (!rulesetContender.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect, conditionRestrained.Name, out var activeCondition) || activeCondition.SourceGuid != actingRulesetCharacter.Guid)
+                    if (!rulesetContender.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                            conditionRestrained.Name, out var activeCondition) ||
+                        activeCondition.SourceGuid != actingRulesetCharacter.Guid)
                     {
                         continue;
                     }
@@ -851,18 +872,12 @@ internal static partial class SpellBuilders
                 }
             }
 
-            for (var i = 0; i < targetCharacters.Count; i++)
-            {
-                var targetCharacter = targetCharacters[i];
-
-                yield return ApplyRestrainedByTelekinesis(
-                    actingRulesetCharacter,
-                    targetCharacter,
-                    conditionRestrained,
-                    rulesetSpell,
-                    action,
-                    i);
-            }
+            yield return RollAbilityCheckAndTryMoveApplyRestrained(
+                actingRulesetCharacter,
+                targetCharacters,
+                conditionRestrained,
+                rulesetSpell,
+                action);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
@@ -903,6 +918,11 @@ internal static partial class SpellBuilders
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;
             var targetCharacters = action.ActionParams.TargetCharacters;
 
+            if (action.ActionParams.RulesetEffect is not RulesetEffectSpell rulesetSpell)
+            {
+                yield break;
+            }
+
             // keep a track on twinned status for later power consideration
             if (action is CharacterActionCastSpell actionCastSpell &&
                 actingRulesetCharacter.TryGetConditionOfCategoryAndType(
@@ -914,18 +934,12 @@ internal static partial class SpellBuilders
                         : 1;
             }
 
-            for (var i = 0; i < targetCharacters.Count; i++)
-            {
-                var targetCharacter = targetCharacters[i];
-
-                yield return ApplyRestrainedByTelekinesis(
-                    actingRulesetCharacter,
-                    targetCharacter,
-                    conditionRestrained,
-                    action.ActionParams.RulesetEffect as RulesetEffectSpell,
-                    action,
-                    i);
-            }
+            yield return RollAbilityCheckAndTryMoveApplyRestrained(
+                actingRulesetCharacter,
+                targetCharacters,
+                conditionRestrained,
+                rulesetSpell,
+                action);
         }
 
         public int PositionRange => 12;
