@@ -5,8 +5,10 @@
 - added Telekinesis spell at 5th
 - fixed Close Quarters feat not triggering with Duelist and Umbral Stalker special sneak scenarios
 - fixed Inventor quick wit reaction getting offered multiple times and incorrectly calculating delta
+- fixed Mobile feat always granting immunity to opportunity attacks
 - fixed Paladin and Ranger multiclass shared slots using round up calculation
 - fixed Psion mind over matter and Umbral Stalker umbral soul not triggering when downed
+- fixed Burning Blade cantrip requiring the first and second target to be 5' of the caster
 - improved Inventor spell casting with Arcana vocal spell seme
 - improved Gambit coordinated attack and Warlord strategic reposition to work under multiplayer
 - improved Umbral Stalker gloomblade and shadow stride features
