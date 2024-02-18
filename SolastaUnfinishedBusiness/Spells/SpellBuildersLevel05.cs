@@ -748,7 +748,8 @@ internal static partial class SpellBuilders
         // ReSharper disable once SuggestBaseTypeForParameter
         ConditionDefinition conditionHinderedByTelekinesis,
         RulesetEffectSpell rulesetSpell,
-        CharacterAction action)
+        CharacterAction action,
+        int positionIndex = 0)
     {
         var checkDC = action is CharacterActionCastSpell actionCastSpell
             ? actionCastSpell.ActiveSpell.SaveDC
@@ -780,7 +781,7 @@ internal static partial class SpellBuilders
 
         rulesetSpell.TrackedConditionGuids.Add(hinderedCondition.Guid);
 
-        var targetPosition = action.ActionParams.Positions[0];
+        var targetPosition = action.ActionParams.Positions[positionIndex];
         var actionParams =
             new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
             {
@@ -816,7 +817,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            // only one enemy can be hindered at a time
+            // only one enemy can be hindered at a time (except if twinned on first cast)
             if (Gui.Battle != null)
             {
                 foreach (var rulesetContender in Gui.Battle.AllContenders
@@ -853,11 +854,16 @@ internal static partial class SpellBuilders
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            // need to reset number of targets in case this spell was twinned
+            action.actionParams.RulesetEffect.EffectDescription.targetParameter = 1;
+
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;
+            var targetCharacters = action.ActionParams.TargetCharacters;
 
-            foreach (var targetCharacter in action.ActionParams.TargetCharacters)
+            for (var i = 0; i < targetCharacters.Count; i++)
             {
+                var targetCharacter = targetCharacters[i];
                 var targetRulesetCharacter = targetCharacter.RulesetCharacter;
 
                 ApplyHinderedByTelekinesis(
@@ -866,7 +872,8 @@ internal static partial class SpellBuilders
                     targetCharacter,
                     conditionHinderedByTelekinesis,
                     action.ActionParams.RulesetEffect as RulesetEffectSpell,
-                    action);
+                    action,
+                    i);
             }
 
             yield break;

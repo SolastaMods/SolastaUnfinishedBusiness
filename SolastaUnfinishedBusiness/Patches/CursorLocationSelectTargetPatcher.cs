@@ -455,52 +455,29 @@ public static class CursorLocationSelectTargetPatcher
                     else
                     {
                         // BEGIN PATCH
-                        //
-                        // haven't found a better way to pass the selected characters over
-                        // for now adding the GUID of first selected character to actor used features
-                        // most likely this will break any twinned effect on spells (Telekinesis is one)
-                        //
-                        var enableSelectPosition = false;
-
-                        switch (__instance.ActionParams.RulesetEffect)
+                        var modifier = __instance.ActionParams.RulesetEffect switch
                         {
-                            case RulesetEffectPower rulesetEffectPower:
-                            {
-                                var modifier = rulesetEffectPower.PowerDefinition
-                                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
-
-                                if (modifier != null)
-                                {
-                                    __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
-                                        modifier.PositionRange;
-                                    enableSelectPosition = true;
-                                }
-
-                                break;
-                            }
-                            case RulesetEffectSpell rulesetEffectSpell:
-                            {
-                                var modifier = rulesetEffectSpell.SpellDefinition
-                                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>();
-
-                                if (modifier != null)
-                                {
-                                    __instance.ActionParams.activeEffect.EffectDescription.rangeParameter =
-                                        modifier.PositionRange;
-                                    enableSelectPosition = true;
-                                }
-
-                                break;
-                            }
-                        }
+                            RulesetEffectPower rulesetEffectPower => rulesetEffectPower.PowerDefinition
+                                .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>(),
+                            RulesetEffectSpell rulesetEffectSpell => rulesetEffectSpell.SpellDefinition
+                                .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>(),
+                            _ => null
+                        };
 
                         // enable select position if any modifier found
-                        if (enableSelectPosition)
+                        if (modifier != null)
                         {
                             var actionParams = __instance.ActionParams;
 
-                            actionParams.TargetCharacters.SetRange(__instance.SelectionService.SelectedTargets);
                             actionParams.ActionModifiers.SetRange(__instance.ActionModifiersList);
+                            actionParams.TargetCharacters.SetRange(__instance.SelectionService.SelectedTargets);
+
+                            actionParams.RulesetEffect.EffectDescription.rangeParameter =
+                                modifier.PositionRange;
+
+                            // supports twinned scenarios
+                            actionParams.RulesetEffect.EffectDescription.targetParameter =
+                                __instance.SelectionService.SelectedTargets.Count;
 
                             __instance.CursorService
                                 .ActivateCursor<CursorLocationSelectPosition>(__instance.ActionParams);
