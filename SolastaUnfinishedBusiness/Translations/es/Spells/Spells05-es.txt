@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=Puedes usar una acción adicional para teletransportarte hasta 60 pies a un espacio desocupado que puedas ver.
 Condition/&ConditionFarStepTitle=Paso lejano
+Condition/&ConditionTelekinesisDescription=Puedes usar tu acción para intentar mantener tu control telequinético sobre la criatura repitiendo el concurso, o apuntar a una nueva criatura, poniendo fin al efecto restringido en la criatura previamente afectada.
+Condition/&ConditionTelekinesisTitle=Telequinesia
 Feature/&PowerSteelWhirlwindTeleportDescription=Puedes teletransportarte a un espacio desocupado que puedas ver a 5 pies de uno de los objetivos que golpeaste o fallaste en tu ataque Steel Whirlwind.
 Feature/&PowerSteelWhirlwindTeleportTitle=Teletransportarse
 Feedback/&AdditionalDamageBanishingSmiteFormat=¡Destierro de Smite!
@@ -24,3 +26,5 @@ Spell/&SonicBoomDescription=Un pequeño orbe del mismo color que el globo utiliz
 Spell/&SonicBoomTitle=Estampido supersónico
 Spell/&SteelWhirlwindDescription=Haces florecer el arma utilizada en el lanzamiento y luego desapareces para atacar como el viento. Elige hasta cinco criaturas que puedas ver dentro del alcance. Realiza un ataque de hechizo cuerpo a cuerpo contra cada objetivo. Con un impacto, el objetivo sufre 6d10 de daño de fuerza. Luego puedes teletransportarte a un espacio desocupado que puedas ver a 5 pies de uno de los objetivos que acertaste o fallaste.
 Spell/&SteelWhirlwindTitle=Torbellino de acero
+Spell/&TelekinesisDescription=Puedes intentar mover una criatura enorme o más pequeña. Haz una prueba de habilidad con tu habilidad para lanzar hechizos impugnada por la prueba de Fuerza de la criatura. Si ganas el concurso, mueves a la criatura hasta 30 pies en cualquier dirección, pero no más allá del alcance de este hechizo. Hasta el final de tu siguiente turno, la criatura está restringida en tu control telequinético. En rondas posteriores, puedes usar tu acción para intentar mantener tu control telequinético sobre la criatura repitiendo el concurso, o apuntar a una nueva criatura, finalizando el efecto restringido en la criatura previamente afectada.
+Spell/&TelekinesisTitle=Telequinesia

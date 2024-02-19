@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static RuleDefinitions;
 
@@ -223,6 +224,19 @@ public static class CursorLocationGeometricShapePatcher
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, geometricParameter2Field),
                 new CodeInstruction(OpCodes.Call, myCubeContainsPointRegularMethod));
+        }
+
+        [HarmonyPatch(typeof(CursorLocationGeometricShape), nameof(CursorLocationGeometricShape.RefreshHover))]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        [UsedImplicitly]
+        public static class RefreshHover_Patch
+        {
+            [UsedImplicitly]
+            public static void Postfix(CursorLocationGeometricShape __instance)
+            {
+                __instance.affectedCharacterColor =
+                    GameUiContext.HighContrastColors[Main.Settings.HighContrastTargetingAoeSelectedColor];
+            }
         }
     }
 }

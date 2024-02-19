@@ -167,9 +167,11 @@ ModUi/&Gameplay=Gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Concedi la <b>Specializzazione arma</b> a Scimitarra a <color=#D89555>Bardi</color> e <color=#D89555>Ladri</color>
-ModUi/&GridSelectedColor=Cambia il colore della griglia <i><color=#F0DAA0>[b/n, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=Cambia il <b><color=$$$$$$>colore della griglia</color></b> del movimento
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non ancora scoperti
 ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% / 75% / 100% invece dei punti ferita esatti
+ModUi/&HighContrastTargetingAoeColor=Cambia le creature AoE <b><color=$$$$$$>evidenzia seleziona colore</color></b>
+ModUi/&HighContrastTargetingSingleColor=Cambia singole creature <b><color=$$$$$$>evidenzia seleziona colore</color></b>
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiungi un potere per <color=#D89555>identificare oggetti magici</color> durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare <color=#D89555>Balestre a mano</color>

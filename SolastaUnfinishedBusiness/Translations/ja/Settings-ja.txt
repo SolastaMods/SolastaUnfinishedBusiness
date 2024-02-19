@@ -167,9 +167,11 @@ ModUi/&Gameplay=ゲームプレイ
 ModUi/&General=<color=#F0DAA0>全般:</color>
 ModUi/&GeneralMenu=全般的
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=<color=#D89555>吟遊詩人</color>と<color=#D89555>ローグ</color>にシミターの<b>武器特化</b>を付与する
-ModUi/&GridSelectedColor=グリッドの色を変更します<i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=動きの<b><color=$$$$$$>グリッドの色</color></b>を変更します。
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=まだ発見されていない場合は、出口とテレポーターの視覚効果を非表示にします
 ModUi/&HideMonsterHitPoints=正確なヒットポイントではなく、モンスターの体力を 25% / 50% / 75% / 100% の段階で表示します
+ModUi/&HighContrastTargetingAoeColor=範囲クリーチャーを変更する<b><color=$$$$$$>選択した色をハイライト表示</color></b>
+ModUi/&HighContrastTargetingSingleColor=単一のクリーチャーを変更する<b><color=$$$$$$>選択した色をハイライト表示</color></b>
 ModUi/&House=<color=#F0DAA0>家:</color>
 ModUi/&IdentifyAfterRest=短いまたは長い休憩中に<color=#D89555>魔法のアイテムを識別</color>する能力を追加します
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>ハンドクロスボウ</color>を使用するのにフリーハンドは必要ありません

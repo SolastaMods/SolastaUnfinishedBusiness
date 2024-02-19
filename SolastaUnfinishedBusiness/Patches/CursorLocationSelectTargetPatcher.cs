@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Spells;
@@ -455,29 +455,26 @@ public static class CursorLocationSelectTargetPatcher
                     else
                     {
                         // BEGIN PATCH
-                        //
-                        // haven't found a better way to pass the selected characters over
-                        // for now adding the GUID of first selected character to actor used features
-                        //
-                        if ((__instance.ActionParams.RulesetEffect is RulesetEffectPower rulesetEffectPower &&
-                             rulesetEffectPower.PowerDefinition.HasSubFeatureOfType<ISelectPositionAfterCharacter>()) ||
-                            (__instance.ActionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
-                             rulesetEffectSpell.SpellDefinition.HasSubFeatureOfType<ISelectPositionAfterCharacter>()))
+                        var modifier = __instance.ActionParams.RulesetEffect switch
                         {
-                            if (!__instance.ActionParams.ActingCharacter.UsedSpecialFeatures
-                                    .TryAdd("SelectedCharacter",
-                                        (int)__instance.SelectionService.SelectedTargets[0].Guid))
-                            {
-                                __instance.ActionParams.ActingCharacter.UsedSpecialFeatures["SelectedCharacter"] =
-                                    (int)__instance.SelectionService.SelectedTargets[0].Guid;
-                            }
+                            RulesetEffectPower rulesetEffectPower => rulesetEffectPower.PowerDefinition
+                                .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>(),
+                            RulesetEffectSpell rulesetEffectSpell => rulesetEffectSpell.SpellDefinition
+                                .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>(),
+                            _ => null
+                        };
 
-                            // double the range parameter so we can offer all possible positions from selected target
-                            __instance.ActionParams.activeEffect.EffectDescription.rangeParameter *= 2;
+                        // enable select position if any modifier found
+                        if (modifier != null)
+                        {
+                            var actionParams = __instance.ActionParams;
 
-                            // enable select position
-                            __instance.CursorService.ActivateCursor<CursorLocationSelectPosition>(__instance
-                                .ActionParams);
+                            actionParams.ActionModifiers.SetRange(__instance.ActionModifiersList);
+                            actionParams.TargetCharacters.SetRange(__instance.SelectionService.SelectedTargets);
+                            actionParams.RulesetEffect.EffectDescription.rangeParameter = modifier.PositionRange;
+
+                            __instance.CursorService
+                                .ActivateCursor<CursorLocationSelectPosition>(__instance.ActionParams);
 
                             return false;
                         }
@@ -548,6 +545,19 @@ public static class CursorLocationSelectTargetPatcher
             }
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.RefreshHover))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshHover_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(CursorLocationSelectTarget __instance)
+        {
+            __instance.affectedCharacterColor =
+                GameUiContext.HighContrastColors[Main.Settings.HighContrastTargetingSingleSelectedColor];
         }
     }
 }

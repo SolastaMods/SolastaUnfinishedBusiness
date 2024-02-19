@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
@@ -230,8 +231,7 @@ internal static class Tooltips
             : GetNextControlledCharacterInInitiative(
                 initiativeSortedContenders, activePlayerController, actingCharacter);
 
-        //PATCH: use better distance calculation algorithm
-        return DistanceCalculation.GetDistanceFromCharacters(characterToMeasureFrom, hoveredCharacter);
+        return (int)Math.Round(DistanceCalculation.GetDistanceFromCharacters(characterToMeasureFrom, hoveredCharacter));
     }
 
     private static GameLocationCharacter GetNextControlledCharacterInInitiative(

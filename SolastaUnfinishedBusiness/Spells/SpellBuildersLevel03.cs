@@ -634,7 +634,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(powerExplode)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         powerExplode.AddCustomSubFeatures(

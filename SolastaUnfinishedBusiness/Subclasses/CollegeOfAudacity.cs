@@ -320,19 +320,17 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             {
                 targetCharacters.Add(actionSpendPower.ActionParams.TargetCharacters[0]);
 
-                var conditionDisengaging = ConditionDefinitions.ConditionDisengaging;
-
                 rulesetCharacter.InflictCondition(
-                    conditionDisengaging.Name,
+                    ConditionDisengaging,
                     DurationType.Round,
                     0,
-                    TurnOccurenceType.StartOfTurn,
+                    TurnOccurenceType.EndOfTurn,
                     // all disengaging in game is set under TagCombat (why?)
                     AttributeDefinitions.TagCombat,
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,
                     1,
-                    conditionDisengaging.Name,
+                    ConditionDisengaging,
                     0,
                     0,
                     0);

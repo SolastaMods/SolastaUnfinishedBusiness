@@ -167,9 +167,11 @@ ModUi/&Gameplay=Gameplay
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&GrantScimitarSpecializationToBarkMonkRogue=Grant Scimitar <b>Weapon Specialization</b> to <color=#D89555>Bards</color> and <color=#D89555>Rogues</color>
-ModUi/&GridSelectedColor=Change the grid color <i><color=#F0DAA0>[b/w, rgb, cmy]</color></i>
+ModUi/&GridSelectedColor=Change the movement <b><color=$$$$$$>grid color</color></b>
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
+ModUi/&HighContrastTargetingAoeColor=Change AoE creatures <b><color=$$$$$$>highlight select color</color></b>
+ModUi/&HighContrastTargetingSingleColor=Change single creatures <b><color=$$$$$$>highlight select color</color></b>
 ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IdentifyAfterRest=Add a power to <color=#D89555>identify magic items</color> over a short or long rest
 ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use <color=#D89555>Hand Crossbows</color>

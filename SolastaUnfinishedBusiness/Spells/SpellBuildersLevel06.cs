@@ -380,7 +380,7 @@ internal static partial class SpellBuilders
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerRingOfBlades)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var conditionRingOfBladesFree = ConditionDefinitionBuilder
@@ -388,7 +388,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(powerRingOfBladesFree)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 

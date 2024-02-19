@@ -784,7 +784,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -815,7 +815,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, Gui.EmptyContent)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(additionalDamageResonatingStrike, powerResonatingStrike)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var customBehavior =

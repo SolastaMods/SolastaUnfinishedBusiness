@@ -362,11 +362,6 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
             if (!rulesetCharacter.CanUsePower(powerMindOverMatter))
             {
                 yield break;

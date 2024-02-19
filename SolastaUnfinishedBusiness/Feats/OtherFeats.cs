@@ -770,8 +770,13 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddCustomSubFeatures(
-                        new IgnoreAoOOnMeFeatMobile(),
                         new ActionFinishedByMeFeatMobileDash(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionImmuneAoO")
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .AddCustomSubFeatures(new IgnoreAoOOnMeFeatMobile())
+                                .AddToDB(),
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
@@ -785,33 +790,60 @@ internal static class OtherFeats
 
     private sealed class ActionFinishedByMeFeatMobileDash(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition) : IActionFinishedByMe
+        ConditionDefinition conditionImmuneAoO,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionMovement) : IActionFinishedByMe
     {
         public IEnumerator OnActionFinishedByMe(CharacterAction action)
         {
-            if (action is not (CharacterActionDash or
-                CharacterActionFlurryOfBlows or
-                CharacterActionFlurryOfBlowsSwiftSteps or
-                CharacterActionFlurryOfBlowsUnendingStrikes))
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
+            if (action.ActionId is
+                ActionDefinitions.Id.AttackFree or
+                ActionDefinitions.Id.AttackMain or
+                ActionDefinitions.Id.AttackOff or
+                ActionDefinitions.Id.AttackOpportunity
+                or ActionDefinitions.Id.AttackReadied)
             {
+                if (ValidatorsWeapon.IsMelee(action.ActionParams.AttackMode))
+                {
+                    rulesetAttacker.InflictCondition(
+                        conditionImmuneAoO.Name,
+                        DurationType.Round,
+                        0,
+                        TurnOccurenceType.EndOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetAttacker.guid,
+                        rulesetAttacker.CurrentFaction.Name,
+                        1,
+                        conditionImmuneAoO.Name,
+                        0,
+                        0,
+                        0);
+                }
+
                 yield break;
             }
 
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            rulesetAttacker.InflictCondition(
-                conditionDefinition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionDefinition.Name,
-                0,
-                0,
-                0);
+            if (action.ActionId is 
+                ActionDefinitions.Id.DashBonus or
+                ActionDefinitions.Id.DashMain)
+            {
+                rulesetAttacker.InflictCondition(
+                    conditionMovement.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    AttributeDefinitions.TagEffect,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    conditionMovement.Name,
+                    0,
+                    0,
+                    0);
+            }
         }
     }
 

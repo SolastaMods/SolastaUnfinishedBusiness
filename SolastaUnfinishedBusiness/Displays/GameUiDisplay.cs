@@ -23,9 +23,9 @@ internal static class GameUiDisplay
                     _selectedForSwap = false;
                     GameUiContext.ResetAllFormationGrids();
                 },
-                UI.Width((float)110));
+                UI.Width(110f));
 
-            if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width((float)165)))
+            if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width(165f)))
             {
                 _selectedForSwap = false;
                 Main.Settings.FormationGridSelectedSet = selectedSet;
@@ -49,11 +49,11 @@ internal static class GameUiDisplay
                             _selectedForSwap = false;
                             GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
                         },
-                        UI.Width((float)110));
+                        UI.Width(110f));
                 }
                 else
                 {
-                    UI.Label("", UI.Width((float)110));
+                    UI.Label("", UI.Width(110f));
                 }
 
                 for (var x = 0; x < GameUiContext.GridSize; x++)
@@ -103,7 +103,7 @@ internal static class GameUiDisplay
                             _selectedY = localY;
                             _selectedForSwap = true;
                         }
-                    }, UI.Width((float)30));
+                    }, UI.Width(30f));
 
                     GUI.color = saveColor;
                 }
@@ -228,7 +228,7 @@ internal static class GameUiDisplay
                 {
                     FileName = PortraitsContext.PortraitsFolder, UseShellExecute = true, Verb = "open"
                 });
-            }, UI.Width((float)292));
+            }, UI.Width(292f));
 
             UI.Label();
 
@@ -293,16 +293,38 @@ internal static class GameUiDisplay
 
         UI.Label();
 
-        UI.ActionButton(Gui.Localize("ModUi/&GridSelectedColor"), () =>
+        var color = GameUiContext.HighContrastColorStrings[Main.Settings.HighContrastTargetingAoeSelectedColor];
+        var title = Gui.Localize("ModUi/&HighContrastTargetingAoeColor").Replace("$$$$$$", color);
+
+        UI.ActionButton(title, () =>
+        {
+            Main.Settings.HighContrastTargetingAoeSelectedColor =
+                (Main.Settings.HighContrastTargetingAoeSelectedColor + 1) % GameUiContext.HighContrastColors.Length;
+        }, UI.Width(300f));
+
+        color = GameUiContext.HighContrastColorStrings[Main.Settings.HighContrastTargetingSingleSelectedColor];
+        title = Gui.Localize("ModUi/&HighContrastTargetingSingleColor").Replace("$$$$$$", color);
+
+        UI.ActionButton(title, () =>
+        {
+            Main.Settings.HighContrastTargetingSingleSelectedColor =
+                (Main.Settings.HighContrastTargetingSingleSelectedColor + 1) % GameUiContext.HighContrastColors.Length;
+        }, UI.Width(300f));
+
+        UI.Label();
+
+        color = GameUiContext.GridColorStrings[Main.Settings.GridSelectedColor];
+        title = Gui.Localize("ModUi/&GridSelectedColor").Replace("$$$$$$", color);
+
+        UI.ActionButton(title, () =>
         {
             Main.Settings.GridSelectedColor = (Main.Settings.GridSelectedColor + 1) % GameUiContext.GridColors.Length;
-            Main.Info(Main.Settings.GridSelectedColor.ToString());
             GameUiContext.UpdateMovementGrid();
-        }, UI.Width((float)300));
+        }, UI.Width(300f));
 
         intValue = Main.Settings.MovementGridWidthModifier;
         if (UI.Slider(Gui.Localize("ModUi/&MovementGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width((float)100)))
+                UI.Width(100f)))
         {
             Main.Settings.MovementGridWidthModifier = intValue;
             GameUiContext.UpdateMovementGrid();
@@ -310,7 +332,7 @@ internal static class GameUiDisplay
 
         intValue = Main.Settings.OutlineGridWidthModifier;
         if (UI.Slider(Gui.Localize("ModUi/&OutlineGridWidthModifier"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width((float)100)))
+                UI.Width(100f)))
         {
             Main.Settings.OutlineGridWidthModifier = intValue;
             GameUiContext.UpdateMovementGrid();
@@ -318,7 +340,7 @@ internal static class GameUiDisplay
 
         intValue = Main.Settings.OutlineGridWidthSpeed;
         if (UI.Slider(Gui.Localize("ModUi/&OutlineGridWidthSpeed"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width((float)100)))
+                UI.Width(100f)))
         {
             Main.Settings.OutlineGridWidthSpeed = intValue;
             GameUiContext.UpdateMovementGrid();

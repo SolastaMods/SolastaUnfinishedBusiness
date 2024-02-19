@@ -44,7 +44,7 @@ internal static class ModUi
         {
             UI.Div();
             UI.Label(title);
-            UI.Space((float)7);
+            UI.Space(7f);
         }
 
         UI.SubMenu(ref selectedPane, title != null, null, actions);

@@ -111,7 +111,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetPossessive()
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerLunarRadiance)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         conditionFullMoon.GuiPresentation.description = Gui.NoLocalization;
@@ -129,7 +129,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(powerLunarRadianceNoCost)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         powerLunarRadianceNoCost.AddCustomSubFeatures(
@@ -208,7 +208,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 ConditionDefinitions.ConditionChildOfDarkness_DimLight)
             .SetPossessive()
             .SetFeatures(powerLunarChill, FeatureDefinitionSenses.SenseDarkvision12)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker, new ForceLightingStateNewMoon())
             .AddToDB();
 
         conditionNewMoon.GuiPresentation.description = Gui.NoLocalization;
@@ -232,7 +232,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(powerLunarChillNoCost)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         powerLunarChillNoCost.AddCustomSubFeatures(
@@ -270,13 +270,13 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         var conditionFullMoonMidnightBlessing = ConditionDefinitionBuilder
             .Create(conditionFullMoon, $"Condition{Name}FullMoonMidnightBlessing")
             .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
         var conditionNewMoonMidnightBlessing = ConditionDefinitionBuilder
             .Create(conditionNewMoon, $"Condition{Name}NewMoonMidnightBlessing")
             .AddFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker, new ForceLightingStateNewMoon())
             .AddToDB();
 
         var conditionMidnightBlessing = ConditionDefinitionBuilder
@@ -328,7 +328,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                 .Create(conditionFullMoonMidnightBlessing, $"Condition{Name}FullMoonLunarEmbrace")
                 .SetParentCondition(ConditionDefinitions.ConditionFlying)
                 .AddFeatures(movementAffinityFullMoonLunarEmbrace)
-                .AddCustomSubFeatures(new AddUsablePowersFromCondition())
+                .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
                 .AddToDB();
 
         // there is indeed a typo on tag
@@ -339,7 +339,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .Create(conditionNewMoonMidnightBlessing, $"Condition{Name}NewMoonLunarEmbrace")
             .SetParentCondition(ConditionDefinitions.ConditionFlying)
             .AddFeatures(movementAffinityFullMoonLunarEmbrace)
-            .AddCustomSubFeatures(new AddUsablePowersFromCondition(), new ForceLightingStateNewMoon())
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker, new ForceLightingStateNewMoon())
             .AddToDB();
 
         // there is indeed a typo on tag

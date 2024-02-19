@@ -134,7 +134,7 @@ internal static class ItemsAndCraftingDisplay
 
         intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
         if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
-                0, 100, 50, "%", UI.Width((float)500)))
+                0, 100, 50, "%", UI.Width(500f)))
         {
             Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
             ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
@@ -144,12 +144,12 @@ internal static class ItemsAndCraftingDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width((float)325));
+            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325f));
 
             intValue = Main.Settings.EmpressGarbAppearanceIndex;
             // ReSharper disable once InvertIf
             if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
-                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width((float)440)))
+                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440f)))
             {
                 Main.Settings.EmpressGarbAppearanceIndex = intValue;
                 GameUiContext.SwitchEmpressGarb();
@@ -178,10 +178,10 @@ internal static class ItemsAndCraftingDisplay
 
         using (UI.HorizontalScope(UI.AutoWidth()))
         {
-            UI.Space((float)204);
+            UI.Space(204f);
 
             toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingInStore.Count;
-            if (UI.Toggle(Gui.Localize("ModUi/&AddAllToStore"), ref toggle, UI.Width((float)125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&AddAllToStore"), ref toggle, UI.Width(125f)))
             {
                 Main.Settings.CraftingInStore.Clear();
 
@@ -192,7 +192,7 @@ internal static class ItemsAndCraftingDisplay
             }
 
             toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDm.Count;
-            if (UI.Toggle(Gui.Localize("ModUi/&AllRecipesInDm"), ref toggle, UI.Width((float)125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&AllRecipesInDm"), ref toggle, UI.Width(125f)))
             {
                 Main.Settings.CraftingRecipesInDm.Clear();
 
@@ -203,7 +203,7 @@ internal static class ItemsAndCraftingDisplay
             }
 
             toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDm.Count;
-            if (UI.Toggle(Gui.Localize("ModUi/&AllItemInDm"), ref toggle, UI.Width((float)125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&AllItemInDm"), ref toggle, UI.Width(125f)))
             {
                 Main.Settings.CraftingItemsInDm.Clear();
 
@@ -328,29 +328,29 @@ internal static class ItemsAndCraftingDisplay
         using (UI.HorizontalScope())
         {
             UI.Space(40f);
-            UI.Label("Category".Bold(), UI.Width((float)100));
+            UI.Label("Category".Bold(), UI.Width(100f));
 
             if (CurrentItemsFilterIndex == WeaponIndexItemFilters /* Weapons */)
             {
                 UI.Space(40f);
-                UI.Label("Weapon Tag".Bold(), UI.Width((float)100));
+                UI.Label("Weapon Tag".Bold(), UI.Width(100f));
             }
 
             UI.Space(40f);
-            UI.Label("Item Tag".Bold(), UI.Width((float)100));
+            UI.Label("Item Tag".Bold(), UI.Width(100f));
 
             UI.Space(40f);
             UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
         }
 
-        using (UI.HorizontalScope(UI.Width((float)800), UI.Height(400)))
+        using (UI.HorizontalScope(UI.Width(800f), UI.Height(400)))
         {
             var intValue = CurrentItemsFilterIndex;
             if (UI.SelectionGrid(
                     ref intValue,
                     ItemsFiltersLabels,
                     ItemsFiltersLabels.Length,
-                    1, UI.Width((float)140)))
+                    1, UI.Width(140f)))
             {
                 CurrentItemsFilterIndex = intValue;
 
@@ -367,7 +367,7 @@ internal static class ItemsAndCraftingDisplay
                         ref intValue,
                         ItemsWeaponTagsFiltersLabels,
                         ItemsWeaponTagsFiltersLabels.Length,
-                        1, UI.Width((float)140)))
+                        1, UI.Width(140f)))
                 {
                     CurrentItemsWeaponTagsFilterIndex = intValue;
                 }
@@ -378,7 +378,7 @@ internal static class ItemsAndCraftingDisplay
                     ref intValue,
                     ItemsItemTagsFiltersLabels,
                     ItemsItemTagsFiltersLabels.Length,
-                    1, UI.Width((float)140)))
+                    1, UI.Width(140f)))
             {
                 CurrentItemsItemTagsFilterIndex = intValue;
             }
@@ -490,11 +490,11 @@ internal static class ItemsAndCraftingDisplay
         using (UI.HorizontalScope(UI.AutoWidth()))
         {
             UI.ActionButton(CraftingContext.RecipeTitles[key], () => CraftingContext.LearnRecipes(key),
-                UI.Width((float)180));
-            UI.Space((float)20);
+                UI.Width(180f));
+            UI.Space(20f);
 
             var toggle = Main.Settings.CraftingInStore.Contains(key);
-            if (UI.Toggle(Gui.Localize("ModUi/&AddToStore"), ref toggle, UI.Width((float)125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&AddToStore"), ref toggle, UI.Width(125f)))
             {
                 if (toggle)
                 {
@@ -509,7 +509,7 @@ internal static class ItemsAndCraftingDisplay
             }
 
             toggle = Main.Settings.CraftingRecipesInDm.Contains(key);
-            if (UI.Toggle(Gui.Localize("ModUi/&RecipesInDm"), ref toggle, UI.Width((float)125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&RecipesInDm"), ref toggle, UI.Width(125f)))
             {
                 if (toggle)
                 {
@@ -527,7 +527,7 @@ internal static class ItemsAndCraftingDisplay
             {
                 toggle = Main.Settings.CraftingItemsInDm.Contains(key);
 
-                if (!UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width((float)125)))
+                if (!UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width(125f)))
                 {
                     return;
                 }
@@ -580,7 +580,7 @@ internal static class ItemsAndCraftingDisplay
 
                         characterInspectionScreen.externalContainer.AddSubItem(rulesetItem);
                     },
-                    UI.Width((float)30));
+                    UI.Width(30f));
 
                 var label = item.GuiPresentation.Title.StartsWith("Equipment/&CraftingManual")
                     ? Gui.Format(item.GuiPresentation.Title,

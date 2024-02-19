@@ -1,5 +1,7 @@
 Condition/&ConditionFarStepDescription=추가행동으로, 시야로 확인 가능한 60ft 내의 점유되지 않은 공간으로 순간이동할 수 있습니다.
 Condition/&ConditionFarStepTitle=너른 걸음
+Condition/&ConditionTelekinesisDescription=당신은 행동을 사용하여 경쟁을 반복하여 생물에 대한 염력 그립을 유지하려고 시도하거나 새로운 생물을 목표로 삼아 이전에 영향을 받은 생물에 대한 억제 효과를 종료할 수 있습니다.
+Condition/&ConditionTelekinesisTitle=격동
 Feature/&PowerSteelWhirlwindTeleportDescription=강철 회오리 공격으로 적중하거나 빗나간 대상 중 한 명으로부터 5피트 이내에 보이는 비어 있는 공간으로 순간이동할 수 있습니다.
 Feature/&PowerSteelWhirlwindTeleportTitle=순간이동
 Feedback/&AdditionalDamageBanishingSmiteFormat=추방의 강타!
@@ -24,3 +26,5 @@ Spell/&SonicBoomDescription=사거리 내 지정점 반경 30ft 내의 모든 �
 Spell/&SonicBoomTitle=폭음
 Spell/&SteelWhirlwindDescription=시전에 사용한 무기를 휘두른 채 바람처럼 스쳐 지나가며 공격합니다. 범위 내에 보이는 크리쳐를 최대 5 까지 선택합니다. 각 대상에게 근접 주문 공격을 합니다. 적중하면 대상이 6d10 역장 피해를 받습니다. 그런 다음 명중하거나 빗나간 대상 중 하나에서 5피트 이내에 보이는 비어 있는 공간으로 순간이동할 수 있습니다.
 Spell/&SteelWhirlwindTitle=강철 회오리
+Spell/&TelekinesisDescription=거대하거나 작은 생물을 움직일 수 있습니다. 생물의 힘 체크와 경쟁하는 당신의 주문 시전 능력으로 능력 체크를 하십시오. 당신이 대회에서 이기면 당신은 생물을 어떤 방향으로든 최대 30피트까지 움직일 수 있지만 이 주문의 범위를 벗어나지는 않습니다. 다음 턴이 끝날 때까지 생물은 염력 손아귀에 묶여 있습니다. 후속 라운드에서는 행동을 사용하여 경쟁을 반복하여 생물에 대한 염동력 그립을 유지하려고 시도하거나 새로운 생물을 목표로 삼아 이전에 영향을 받은 생물에 대한 억제 효과를 종료할 수 있습니다.
+Spell/&TelekinesisTitle=격동

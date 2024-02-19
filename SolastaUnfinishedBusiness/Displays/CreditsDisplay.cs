@@ -115,7 +115,7 @@ internal static class CreditsDisplay
 
         if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
         {
-            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width((float)150));
+            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150f));
             UI.Label();
         }
 
@@ -142,8 +142,8 @@ internal static class CreditsDisplay
             {
                 using (UI.HorizontalScope())
                 {
-                    UI.Label(author.Orange(), UI.Width((float)150));
-                    UI.Label(content, UI.Width((float)740));
+                    UI.Label(author.Orange(), UI.Width(150f));
+                    UI.Label(content, UI.Width(740f));
                 }
             }
         }

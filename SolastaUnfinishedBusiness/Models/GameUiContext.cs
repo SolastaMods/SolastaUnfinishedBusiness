@@ -23,6 +23,27 @@ internal static class GameUiContext
 {
     internal static bool IsVttCameraEnabled;
 
+    internal static readonly string[] HighContrastColorStrings =
+    [
+        "#FFFFFF", // use white to represent default color in mod UI
+        "#FF4040", "#40C040", "#8080FF",
+        "#00FFFF", "#FF40FF", "#FFFF00"
+    ];
+
+    internal static readonly Color[] HighContrastColors =
+    [
+        new Color(0.110f, 0.311f, 0.287f, 1.000f),
+        Color.red, Color.green, Color.blue,
+        Color.cyan, Color.magenta, Color.yellow
+    ];
+
+    internal static readonly string[] GridColorStrings =
+    [
+        "#000000", "#FFFFFF",
+        "#FF4040", "#40C040", "#8080FF",
+        "#00FFFF", "#FF40FF", "#FFFF00"
+    ];
+
     internal static readonly Color[] GridColors =
     [
         Color.black, Color.white,

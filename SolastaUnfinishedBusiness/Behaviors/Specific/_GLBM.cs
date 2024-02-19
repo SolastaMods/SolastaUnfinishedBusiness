@@ -540,7 +540,8 @@ internal static class GLBM
             if (modifier != null)
             {
                 additionalDamageForm = modifier
-                    .AdditionalDamageForm(attacker, defender, featureDefinitionAdditionalDamage, additionalDamageForm);
+                    .AdditionalDamageForm(
+                        attacker, defender, attackMode, featureDefinitionAdditionalDamage, additionalDamageForm);
             }
         }
 

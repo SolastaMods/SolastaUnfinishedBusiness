@@ -1419,8 +1419,9 @@ internal static class CharacterContext
             var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var source = cursorLocationSelectPosition.ActionParams.ActingCharacter;
             var summoner = source.RulesetCharacter.GetMySummoner();
-            var boxInt = new BoxInt(
-                summoner.LocationPosition, new int3(-1, -1, -1), new int3(1, 1, 1));
+            var boxInt = new BoxInt(summoner.LocationPosition, int3.zero, int3.zero);
+
+            boxInt.Inflate(1, 0, 1);
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
@@ -1639,8 +1640,7 @@ internal static class CharacterContext
 
         var conditionWithdraw = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Withdraw")
-            .SetGuiPresentation($"Condition/&Condition{Cunning}WithdrawTitle", Gui.NoLocalization,
-                ConditionDefinitions.ConditionDisengaging)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
             .AddFeatures(actionAffinityWithdraw)

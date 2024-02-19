@@ -313,6 +313,7 @@ public sealed class CollegeOfWarDancer : AbstractSubclass
         public DamageForm AdditionalDamageForm(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
             FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
             DamageForm damageForm)
         {

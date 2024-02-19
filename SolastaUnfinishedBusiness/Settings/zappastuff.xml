@@ -1598,6 +1598,8 @@
     <OutlineGridWidthModifier>0</OutlineGridWidthModifier>
     <OutlineGridWidthSpeed>100</OutlineGridWidthSpeed>
     <EnableDistanceOnTooltip>true</EnableDistanceOnTooltip>
+    <HighContrastTargetingAoeSelectedColor>0</HighContrastTargetingAoeSelectedColor>
+    <HighContrastTargetingSingleSelectedColor>0</HighContrastTargetingSingleSelectedColor>
     <FormationGridSelectedSet>0</FormationGridSelectedSet>
     <FormationGridSets>
         <ArrayOfArrayOfInt>

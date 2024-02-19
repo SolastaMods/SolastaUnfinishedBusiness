@@ -115,7 +115,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "08dcbebdb4194834a9c66aca224a946d",
+        "m_AssetGUID": "adedb8b57f2c6784db9a6a1e11909b42",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,7 +261,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "fa9fb7c5d49f47e489ead12eae1ec524",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -332,7 +332,7 @@
     "description": "Feature/&PowerRoguishUmbralStalkerShadowDanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "82b52cf9-7ae9-58bf-8b18-03f4f0229c36",
+      "m_AssetGUID": "0acf2724-dda2-53c3-b2fe-3461b217bc6b",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

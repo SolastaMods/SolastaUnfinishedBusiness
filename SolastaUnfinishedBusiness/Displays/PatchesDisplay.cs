@@ -57,17 +57,17 @@ internal static class PatchesDisplay
                     using (new GUILayout.HorizontalScope())
                     {
                         GUILayout.Label($"{index++}", GUI.skin.box, UI.AutoWidth());
-                        UI.Space((float)10);
+                        UI.Space(10f);
                         GUILayout.Label(
                             $"{returnTypeStr.Grey().Bold()} {methodName.Bold()}\t{typeStr.Grey().Italic()}");
                     }
 
                     var patches = EnabledPatchesForMethod(method);
 
-                    UI.Space((float)15);
+                    UI.Space(15f);
                     using (new GUILayout.HorizontalScope())
                     {
-                        UI.Space((float)50);
+                        UI.Space(50f);
 
                         using (new GUILayout.VerticalScope())
                         {
@@ -77,7 +77,7 @@ internal static class PatchesDisplay
                             }
                         }
 
-                        UI.Space((float)10);
+                        UI.Space(10f);
                         using (new GUILayout.VerticalScope())
                         {
                             foreach (var patch in patches)
@@ -88,7 +88,7 @@ internal static class PatchesDisplay
                             }
                         }
 
-                        UI.Space((float)10);
+                        UI.Space(10f);
                         using (new GUILayout.VerticalScope())
                         {
                             foreach (var patch in patches)
@@ -97,7 +97,7 @@ internal static class PatchesDisplay
                             }
                         }
 
-                        UI.Space((float)10);
+                        UI.Space(10f);
                         using (new GUILayout.VerticalScope())
                         {
                             foreach (var patch in patches)
@@ -110,7 +110,7 @@ internal static class PatchesDisplay
                             }
                         }
 
-                        UI.Space((float)10);
+                        UI.Space(10f);
                         using (new GUILayout.VerticalScope())
                         {
                             foreach (var patch in patches)

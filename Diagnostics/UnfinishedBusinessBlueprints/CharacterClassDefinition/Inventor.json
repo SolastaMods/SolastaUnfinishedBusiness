@@ -484,7 +484,7 @@
   },
   "defaultBattleDecisions": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
   "classAnimationId": "Fighter",
-  "vocalSpellSemeClass": "None",
+  "vocalSpellSemeClass": "Arcana",
   "isUsingRandomUnarmedStrikes": false,
   "randomUnarmedStrikesRangeMin": 0,
   "randomUnarmedStrikesRangeMax": 0,

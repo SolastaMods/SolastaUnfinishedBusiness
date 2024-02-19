@@ -87,7 +87,7 @@ internal static partial class UI
                 }
                 else
                 {
-                    Space((float)153);
+                    Space(153f);
                 }
             }
 

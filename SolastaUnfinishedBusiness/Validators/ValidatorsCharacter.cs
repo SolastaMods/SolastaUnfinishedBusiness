@@ -26,6 +26,20 @@ internal static class ValidatorsCharacter
         return locationCharacter.RemainingTacticalMoves > 0;
     };
 
+    internal static readonly IsCharacterValidHandler HasAvailableBonusDash = character =>
+    {
+        var locationCharacter = GameLocationCharacter.GetFromActor(character);
+
+        if (locationCharacter == null)
+        {
+            return false;
+        }
+
+        return locationCharacter
+                   .GetActionStatus(ActionDefinitions.Id.DashBonus, ActionDefinitions.ActionScope.Battle) ==
+               ActionDefinitions.ActionStatus.Available;
+    };
+
     internal static readonly IsCharacterValidHandler HasAvailableBonusAction = character =>
     {
         var locationCharacter = GameLocationCharacter.GetFromActor(character);

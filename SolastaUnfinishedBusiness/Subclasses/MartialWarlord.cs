@@ -219,8 +219,6 @@ public sealed class MartialWarlord : AbstractSubclass
                     .Create()
                     .ExcludeCaster()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddCustomSubFeatures(new CustomBehaviorStrategicReposition())
             .AddToDB();
@@ -290,7 +288,6 @@ public sealed class MartialWarlord : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasUnavailableBonusAction),
@@ -421,24 +418,15 @@ public sealed class MartialWarlord : AbstractSubclass
             cursorLocationSelectPosition.validPositionsCache.Clear();
 
             var actingCharacter = cursorLocationSelectPosition.ActionParams.ActingCharacter;
-
-            if (!actingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
-            {
-                yield break;
-            }
-
+            var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
             var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
             var visibilityService =
                 ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
 
-            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
-            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
-
             var halfMaxTacticalMoves = (targetCharacter.MaxTacticalMoves + 1) / 2; // half-rounded up
-            var boxInt = new BoxInt(
-                targetCharacter.LocationPosition,
-                new int3(-halfMaxTacticalMoves, -halfMaxTacticalMoves, -halfMaxTacticalMoves),
-                new int3(halfMaxTacticalMoves, halfMaxTacticalMoves, halfMaxTacticalMoves));
+            var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
+
+            boxInt.Inflate(halfMaxTacticalMoves, 0, halfMaxTacticalMoves);
 
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
@@ -464,14 +452,9 @@ public sealed class MartialWarlord : AbstractSubclass
         {
             action.ActionParams.activeEffect.EffectDescription.rangeParameter = 6;
 
-            if (!action.ActingCharacter.UsedSpecialFeatures.TryGetValue("SelectedCharacter", out var targetGuid))
-            {
-                yield break;
-            }
-
             var actingCharacter = action.ActingCharacter;
-            var targetRulesetCharacter = EffectHelpers.GetCharacterByGuid((ulong)targetGuid);
-            var targetCharacter = GameLocationCharacter.GetFromActor(targetRulesetCharacter);
+            var targetCharacter = action.ActionParams.TargetCharacters[0];
+            var targetRulesetCharacter = targetCharacter.RulesetCharacter;
             var targetPosition = action.ActionParams.Positions[0];
             var actionParams =
                 new CharacterActionParams(targetCharacter, ActionDefinitions.Id.TacticalMove)
@@ -484,8 +467,9 @@ public sealed class MartialWarlord : AbstractSubclass
                 ConditionDisengaging,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
+                TurnOccurenceType.EndOfTurn,
+                // all disengaging in game is set under TagCombat (why?)
+                AttributeDefinitions.TagCombat,
                 targetRulesetCharacter.Guid,
                 targetRulesetCharacter.CurrentFaction.Name,
                 1,
@@ -497,10 +481,13 @@ public sealed class MartialWarlord : AbstractSubclass
             EffectHelpers.StartVisualEffect(actingCharacter, targetCharacter,
                 FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun, EffectHelpers.EffectType.Effect);
 
-            targetCharacter.UsedSpecialFeatures.TryAdd("MoverNotInTurn", 0);
             ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
+
+            yield break;
         }
+
+        public int PositionRange => 12;
     }
 
     //

@@ -44,7 +44,6 @@ public static class CursorLocationSelectPositionPatcher
             return result;
         }
 
-        //PATCH: supports IFilterTargetingPosition and bugfix on war cast lists not adding additional targets
         [UsedImplicitly]
         public static bool Prefix(CursorLocationSelectPosition __instance, params object[] parameters)
         {

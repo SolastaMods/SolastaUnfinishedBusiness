@@ -81,18 +81,10 @@ public sealed class WayOfTheTempest : AbstractSubclass
                     .SetDurationData(DurationType.Round)
                     .SetParticleEffectParameters(ShockingGrasp)
                     .AddEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
-                                ConditionForm.ConditionOperation.Add, true)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionDisengaging,
-                                ConditionForm.ConditionOperation.Add, true)
-                            .Build())
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus),
+                        EffectFormBuilder.ConditionForm(
+                            ConditionDefinitions.ConditionDisengaging))
                     .Build())
             .AddToDB();
 
@@ -274,8 +266,8 @@ public sealed class WayOfTheTempest : AbstractSubclass
             rulesetCharacter.InflictCondition(
                 ConditionDisengaging,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 // all disengaging in game is set under TagCombat (why?)
                 AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
@@ -428,7 +420,7 @@ public sealed class WayOfTheTempest : AbstractSubclass
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, false);
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

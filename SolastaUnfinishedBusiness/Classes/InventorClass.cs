@@ -378,6 +378,8 @@ internal static class InventorClass
 
         RegisterPoILoot();
 
+        builder.SetVocalSpellSemeClass(VocalSpellSemeClass.Arcana);
+
         Class = builder.AddToDB();
     }
 
@@ -869,7 +871,8 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             !rulesetDefender.TryGetConditionOfCategoryAndType(
                 AttributeDefinitions.TagEffect,
                 "ConditionInventorFlashOfGeniusAura",
-                out var activeCondition))
+                out var activeCondition) ||
+            activeCondition.SourceGuid != helper.Guid)
         {
             yield break;
         }
@@ -877,18 +880,17 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         var gameLocationActionManager =
             ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        RulesetEntity.TryGetEntity<RulesetCharacter>(activeCondition.SourceGuid, out var rulesetOriginalHelper);
-
-        var originalHelper = GameLocationCharacter.GetFromActor(rulesetOriginalHelper);
-        var intelligence = rulesetOriginalHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+        var rulesetHelper = helper.RulesetCharacter;
+        var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
         var bonus = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
         if (gameLocationActionManager == null ||
             !action.RolledSaveThrow ||
             action.SaveOutcome != RollOutcome.Failure ||
-            !rulesetOriginalHelper.CanUsePower(power) ||
             !helper.CanReact() ||
-            action.SaveOutcomeDelta + bonus >= 0)
+            !helper.CanPerceiveTarget(defender) ||
+            !rulesetHelper.CanUsePower(power) ||
+            action.SaveOutcomeDelta + bonus < 0)
         {
             yield break;
         }
@@ -896,14 +898,14 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         var implementationManagerService =
             ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-        var usablePower = PowerProvider.Get(power, rulesetOriginalHelper);
-        var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
+        var usablePower = PowerProvider.Get(power, rulesetHelper);
+        var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
         {
             StringParameter = "InventorFlashOfGenius",
-            StringParameter2 = FormatReactionDescription(action, attacker, defender, originalHelper),
+            StringParameter2 = FormatReactionDescription(action, attacker, defender, helper),
             RulesetEffect = implementationManagerService
                 //CHECK: no need for AddAsActivePowerToSource
-                .MyInstantiateEffectPower(rulesetOriginalHelper, usablePower, false),
+                .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
             UsablePower = usablePower
         };
 
@@ -911,34 +913,26 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         gameLocationActionManager.ReactToSpendPower(reactionParams);
 
-        yield return battleManager.WaitForReactions(originalHelper, gameLocationActionManager, count);
+        yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
 
         if (!reactionParams.ReactionValidated)
         {
             yield break;
         }
 
-        rulesetOriginalHelper.UsePower(usablePower);
+        rulesetHelper.UsePower(usablePower);
 
         action.RolledSaveThrow = true;
         action.SaveOutcomeDelta += bonus;
 
-        if (action.saveOutcomeDelta + bonus >= 0)
+        if (action.SaveOutcomeDelta >= 0)
         {
             action.saveOutcome = RollOutcome.Success;
         }
 
-        (ConsoleStyleDuplet.ParameterType, string) extra;
-
-        if (action.saveOutcomeDelta >= 0)
-        {
-            action.saveOutcome = RollOutcome.Success;
-            extra = (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle");
-        }
-        else
-        {
-            extra = (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
-        }
+        var extra = action.SaveOutcomeDelta >= 0
+            ? (ConsoleStyleDuplet.ParameterType.Positive, "Feedback/&RollCheckSuccessTitle")
+            : (ConsoleStyleDuplet.ParameterType.Negative, "Feedback/&RollCheckFailureTitle");
 
         helper.RulesetCharacter.LogCharacterUsedPower(
             power,

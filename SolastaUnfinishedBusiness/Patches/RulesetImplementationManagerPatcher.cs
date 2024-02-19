@@ -243,6 +243,11 @@ public static class RulesetImplementationManagerPatcher
                     maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
             }
 
+            if (rulesetCharacter.HasSubFeatureOfType<IAllowRerollDiceOnAllDamageForms>())
+            {
+                canRerollDice = true;
+            }
+
             var hero = rulesetCharacter.GetOriginalHero();
 
             //TODO: make this a proper interface in case we need to support other use cases
@@ -383,7 +388,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
-                foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids)
+                foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids.ToList())
                 {
                     var rulesetLightSource = (RulesetLightSource)null;
                     ref var local = ref rulesetLightSource;
@@ -449,7 +454,7 @@ public static class RulesetImplementationManagerPatcher
                 return;
             }
 
-            foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids)
+            foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids.ToList())
             {
                 var rulesetItemProperty = (RulesetItemProperty)null;
                 ref var local = ref rulesetItemProperty;

@@ -14,6 +14,13 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class CharacterClassDefinitionBuilder
     : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
 {
+    // ReSharper disable once UnusedMethodReturnValue.Global
+    internal CharacterClassDefinitionBuilder SetVocalSpellSemeClass(VocalSpellSemeClass vocalSpellSemeClass)
+    {
+        Definition.vocalSpellSemeClass = vocalSpellSemeClass;
+        return this;
+    }
+
     internal CharacterClassDefinitionBuilder SetHitDice(DieType die)
     {
         Definition.hitDice = die;

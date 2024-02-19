@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 
@@ -12,9 +13,14 @@ internal static class CursorLocationSelectPositionExtensions
         LocationDefinitions.LightingState additionalBlockedState = LocationDefinitions.LightingState.Darkness,
         int maxDistance = 0)
     {
-        var boxInt = new BoxInt(__instance.ActionParams.ActingCharacter.LocationPosition, new int3(0), new int3(0));
+        var boxInt = new BoxInt(__instance.ActionParams.ActingCharacter.LocationPosition, int3.zero, int3.zero);
 
-        boxInt.Inflate((int)(maxDistance == 0 ? __instance.maxDistance : maxDistance));
+        if (maxDistance == 0)
+        {
+            maxDistance = (int)__instance.maxDistance;
+        }
+
+        boxInt.Inflate(maxDistance);
 
         var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
         var visibilityService =
@@ -31,7 +37,7 @@ internal static class CursorLocationSelectPositionExtensions
                 break;
             }
 
-            if (int3.Distance(__instance.centerPosition, int3) <= (double)__instance.maxDistance &&
+            if (DistanceCalculation.GetDistanceFromPositions(__instance.centerPosition, int3) <= maxDistance &&
                 positioningService.CanPlaceCharacter(locationCharacter, int3, CellHelpers.PlacementMode.Station) &&
                 positioningService.CanCharacterStayAtPosition_Floor(
                     locationCharacter, int3, onlyCheckCellsWithRealGround: onlyFeedbackGroundCells))

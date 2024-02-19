@@ -24,7 +24,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-// FIX DESCRIPTIONS    / FIX FLANKING
 internal static class LightingAndObscurementContext
 {
     // called from GLBM.CanAttack to correctly determine ADV/DIS scenarios
