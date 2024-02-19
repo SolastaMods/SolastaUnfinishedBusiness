@@ -662,7 +662,7 @@ internal static partial class SpellBuilders
 
     #region Telekinesis
 
-    private const int TelekinesisRange = 12;
+    private const int TelekinesisRange = 6;
 
     internal static SpellDefinition BuildTelekinesis()
     {
@@ -754,11 +754,13 @@ internal static partial class SpellBuilders
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
             yield return cursorLocationSelectPosition
-                .MyComputeValidPositions(LocationDefinitions.LightingState.Bright, TelekinesisRange);
+                .MyComputeValidPositions(LocationDefinitions.LightingState.Darkness, TelekinesisRange);
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
+            action.ActionParams.RulesetEffect.EffectDescription.targetParameter = TelekinesisRange;
+
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;
 
@@ -788,7 +790,7 @@ internal static partial class SpellBuilders
                 action);
         }
 
-        public int PositionRange => TelekinesisRange;
+        public int PositionRange => TelekinesisRange * 2;
 
         private static void RemoveExistingRestrainedInstances(
             // ReSharper disable once SuggestBaseTypeForParameter
