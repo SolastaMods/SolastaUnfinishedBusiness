@@ -17,10 +17,11 @@ public static class GameLocationCharacterExtensions
         return Gui.Battle != null && Gui.Battle.ActiveContenderIgnoringLegendary == character;
     }
 
-    public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
+    public static bool IsWithinRange(
+        this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
         //PATCH: use better distance calculation algorithm
-        return DistanceCalculation.GetDistanceFromCharacters(source, target) <= range;
+        return DistanceCalculation.GetDistanceFromCharacters(source, target, range > 1) <= range;
     }
 
     // consolidate all checks if a character can perceive another
