@@ -1640,8 +1640,7 @@ internal static class CharacterContext
 
         var conditionWithdraw = ConditionDefinitionBuilder
             .Create($"Condition{Cunning}Withdraw")
-            .SetGuiPresentation($"Condition/&Condition{Cunning}WithdrawTitle", Gui.NoLocalization,
-                ConditionDefinitions.ConditionDisengaging)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, ConditionDefinitions.ConditionDisengaging)
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
             .AddFeatures(actionAffinityWithdraw)

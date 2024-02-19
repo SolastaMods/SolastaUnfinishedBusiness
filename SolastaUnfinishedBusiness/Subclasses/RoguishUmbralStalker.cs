@@ -128,7 +128,8 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(powerShadowStride)
-                    .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionDisengaging,
+                    .AddEffectForms(EffectFormBuilder.ConditionForm(
+                        ConditionDefinitions.ConditionDisengaging,
                         ConditionForm.ConditionOperation.Add, true, true))
                     .Build())
             .AddToDB();

@@ -467,7 +467,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 ConditionDisengaging,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.EndOfTurn,
                 // all disengaging in game is set under TagCombat (why?)
                 AttributeDefinitions.TagCombat,
                 targetRulesetCharacter.Guid,
