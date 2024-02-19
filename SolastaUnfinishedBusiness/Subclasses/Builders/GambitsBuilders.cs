@@ -2102,10 +2102,6 @@ internal static class GambitsBuilders
     }
 
     // supports displaying the gambit die type and remaining usages on action buttons
-    internal interface IActionItemDiceBox
-    {
-        (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character);
-    }
 
     internal sealed class GambitActionDiceBox : IActionItemDiceBox
     {
