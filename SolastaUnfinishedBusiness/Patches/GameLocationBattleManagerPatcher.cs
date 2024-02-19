@@ -199,9 +199,9 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return extraEvents.Current;
             }
-                
+
             //PATCH: set cursor to dirty and reprocess valid positions if ally was moved by Gambit or Warlord
-            if (mover.IsMyTurn())
+            if (mover.IsMyTurn() || mover.Side != Side.Ally)
             {
                 yield break;
             }
@@ -209,7 +209,12 @@ public static class GameLocationBattleManagerPatcher
             var cursorService = ServiceRepository.GetService<ICursorService>();
             var cursorLocationBattleFriendlyTurn =
                 cursorService.AllCursors.OfType<CursorLocationBattleFriendlyTurn>().First();
-                
+
+            if (!cursorLocationBattleFriendlyTurn.Active)
+            {
+                yield break;
+            }
+
             cursorLocationBattleFriendlyTurn.dirty = true;
             cursorLocationBattleFriendlyTurn.ComputeValidDestinations();
         }
