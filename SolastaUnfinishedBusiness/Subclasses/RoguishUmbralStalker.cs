@@ -103,7 +103,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var powerShadowStride = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ShadowStride")
             .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerSilhouetteStep, 256, 128))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -117,9 +117,10 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        // kept for backward compatibility
         var powerShadowStrideAtWill = FeatureDefinitionPowerBuilder
-            .Create(powerShadowStride, $"Power{Name}ShadowStrideAtWill")
-            .SetUsesFixed(ActivationTime.NoCost)
+            .Create($"Power{Name}ShadowStrideAtWill")
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
 
         var powerShadowStrideBonus = FeatureDefinitionPowerBuilder
@@ -139,10 +140,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
             .SetUsesFixed(ActivationTime.Action)
             .AddToDB();
 
-        powerShadowStrideAtWill.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(_ => Gui.Battle == null, ValidatorsCharacter.IsNotInBrightLight),
-            new CustomBehaviorShadowStride(powerShadowStrideAtWill, false));
-
         powerShadowStride.AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(c => CanUseShadowStride(c, ValidatorsCharacter.HasAvailableMoves)),
             new CustomBehaviorShadowStride(powerShadowStride, false));
@@ -158,7 +155,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var featureSetShadowStride = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ShadowStride")
             .SetGuiPresentation($"Power{Name}ShadowStride", Category.Feature)
-            .SetFeatureSet(powerShadowStrideAtWill, powerShadowStride, powerShadowStrideMain, powerShadowStrideBonus)
+            .SetFeatureSet(powerShadowStride, powerShadowStrideMain, powerShadowStrideBonus)
             .AddToDB();
 
         // LEVEL 13
