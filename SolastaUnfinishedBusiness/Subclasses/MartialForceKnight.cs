@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -20,24 +22,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 /*
 
-FORCE KNIGHT
-Force Knights are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
-
-3rd
-
-Psionic Initiate
-Supernatural powers awaken within you, allowing you to channel your mental energy to unleash a variety of psychokinetic abilities. Through extensive use and training, you learned to control these abilities and can use them efficiently in battle.
-You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 point every 3 levels in this class after that. Your Force Points recharge on short or long rest.
-
-Force-Powered Strike
-Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d6 + Intelligence modifier. The damage increases to 1d8 at 5th level, 1d10 at 11th level and 1d12 at 17th level.
-
-Kinetic Barrier
-When you or another allied creature that you can see within 30 feet of you is about to be hit by an attack, you can expend 1 Force Point and use your reaction to form a protective shield of pure force around it, granting it extra AC equal to your Intelligence modifier (minimum +1) against that attack and all subsequent attacks, potentially causing the attacks to miss until the end of the attacking creature's turn.
-
-Force Drive
-You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range. You can use this feature once per short rest without expending a Force Point.
-
 7th
 
 Psionic Adept
@@ -45,11 +29,6 @@ Your psychokinetic abilities grow in strength. Your Force-Powered Strike can imp
 
 Psionic Propulsion
 You can expend 1 Force Point and use your bonus action to gain flying speed equal to twice your walking speed and not provoke opportunity attacks until the end of your turn. You can use this feature once per short rest without expending a Force Point.
-
-10th
-
-Force of Will
-Your psionic energy grants you extraordinary resilience. At the start of each of your turns, you gain temporary hit points equal to your Intelligence modifier (minimum of 1) if you have at least 1 hit point. In addition, you can use your Intelligence modifier instead of your Wisdom and Charisma modifier for saving throws if it's higher.
 
 15th
 
@@ -148,7 +127,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrier))
                     .Build())
             .AddToDB();
@@ -158,7 +137,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         // Force Drive
 
-        var forceDriveSprite = Sprites.GetSprite(Name, Resources.PowerForceDrive, 256, 128);
+        var forceDriveSprite = Sprites.GetSprite("PowerForceDrive", Resources.PowerForceDrive, 256, 128);
 
         var conditionForceDrive = ConditionDefinitionBuilder
             .Create($"Condition{Name}ForceDrive")
@@ -220,6 +199,12 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         // Force of Will
 
+        var featureForceOfWill = FeatureDefinitionBuilder
+            .Create($"Feature{Name}ForceOfWill")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureForceOfWill.AddCustomSubFeatures(new ForceOfWill(featureForceOfWill));
 
         // LEVEL 15
 
@@ -230,6 +215,19 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         // Telekinetic Grasp
 
+        var powerTelekineticGrasp = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}TelekineticGrasp")
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite("Telekinesis", Resources.Telekinesis, 128))
+            .SetSharedPool(ActivationTime.Action, powerPsionicInitiate)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 10)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrier))
+                    .Build())
+            .AddToDB();
 
         // MAIN
 
@@ -240,10 +238,10 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddFeaturesAtLevel(6, powerUseModifierPsionicInitiate)
             .AddFeaturesAtLevel(7)
             .AddFeaturesAtLevel(9, powerUseModifierPsionicInitiate)
-            .AddFeaturesAtLevel(10)
+            .AddFeaturesAtLevel(10, featureForceOfWill)
             .AddFeaturesAtLevel(12, powerUseModifierPsionicInitiate)
             .AddFeaturesAtLevel(15, powerUseModifierPsionicInitiate)
-            .AddFeaturesAtLevel(18, powerUseModifierPsionicInitiate)
+            .AddFeaturesAtLevel(18, powerUseModifierPsionicInitiate, powerTelekineticGrasp)
             .AddToDB();
     }
 
@@ -345,10 +343,6 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             var rulesetHelper = helper.RulesetCharacter;
 
-            var a = rulesetHelper.CanUsePower(powerKineticBarrier);
-            var b = helper.CanPerceiveTarget(defender);
-            var c = helper.CanReact();
-            
             if (!helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
                 !rulesetHelper.CanUsePower(powerKineticBarrier))
@@ -377,14 +371,17 @@ public sealed class MartialForceKnight : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerKineticBarrier, rulesetDefender);
+            var usablePower = PowerProvider.Get(powerKineticBarrier, rulesetHelper);
             var actionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
-                    StringParameter = "KineticBarrier",
+                    StringParameter =
+                        Gui.Format("Reaction/&UseKineticBarrierDescription", defender.Name, attacker.Name),
+                    ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
-                    UsablePower = usablePower
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
                 };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
@@ -423,6 +420,74 @@ public sealed class MartialForceKnight : AbstractSubclass
             attackMode.thrown = true;
             attackMode.closeRange += 6;
             attackMode.maxRange += 6;
+        }
+    }
+    
+    //
+    // Force of Will
+    //
+
+    private sealed class ForceOfWill(FeatureDefinition featureForceOfWill)
+        : ICharacterTurnStartListener, IRollSavingThrowInitiated
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
+
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                intMod, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+        }
+
+        public void OnSavingThrowInitiated(
+            RulesetCharacter caster,
+            RulesetCharacter defender,
+            ref int saveBonus,
+            ref string abilityScoreName,
+            BaseDefinition sourceDefinition,
+            List<TrendInfo> modifierTrends,
+            List<TrendInfo> advantageTrends,
+            ref int rollModifier,
+            int saveDC,
+            bool hasHitVisual,
+            ref RollOutcome outcome,
+            ref int outcomeDelta,
+            List<EffectForm> effectForms)
+        {
+            var intelligence = defender.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            
+            if (abilityScoreName == AttributeDefinitions.Wisdom)
+            {
+                var wisdom = defender.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+
+                if (intelligence > wisdom)
+                {
+                    abilityScoreName = AttributeDefinitions.Intelligence;
+                    
+                    defender.LogCharacterUsedFeature(featureForceOfWill);
+                }
+            }
+
+            // ReSharper disable once InvertIf
+            if (abilityScoreName == AttributeDefinitions.Charisma)
+            {
+                var charisma = defender.TryGetAttributeValue(AttributeDefinitions.Charisma);
+
+                // ReSharper disable once InvertIf
+                if (intelligence > charisma)
+                {
+                    abilityScoreName = AttributeDefinitions.Intelligence;
+                    
+                    defender.LogCharacterUsedFeature(featureForceOfWill);
+                }
+            }
         }
     }
 }

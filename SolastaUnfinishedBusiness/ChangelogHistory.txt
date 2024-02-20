@@ -1,6 +1,6 @@
 1.5.94.55:
 
-- added Martial Force Knight [WIP, 3rd level only]
+- added Martial Force Knight [WIP, 3rd and 10th levels only]
 - fixed distance calculation for ranges up to 5 ft [use a 3x3 cube instead of a cross]
 - fixed game crashing when enemy attempts a legendary action
 - fixed Oath of Hatred ardent hate triggering on anyone's failed attack
