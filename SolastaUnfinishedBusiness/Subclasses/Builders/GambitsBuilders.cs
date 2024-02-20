@@ -1697,14 +1697,10 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (attacker != helper)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (attacker != helper ||
+                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetCharacter.CanUsePower(pool) ||
                 !attacker.CanPerceiveTarget(defender))
             {

@@ -108,8 +108,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureShadowFlurry.AddCustomSubFeatures(
-            new TryAlterOutcomePhysicalAttackByMeShadowFlurry(featureShadowFlurry));
+        featureShadowFlurry.AddCustomSubFeatures(new TryAlterOutcomeAttackShadowFlurry(featureShadowFlurry));
 
         // LEVEL 17
 
@@ -228,7 +227,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
     // Shadow Flurry
     //
 
-    private class TryAlterOutcomePhysicalAttackByMeShadowFlurry(
+    private class TryAlterOutcomeAttackShadowFlurry(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureShadowFlurry) : ITryAlterOutcomeAttack
     {
@@ -255,7 +254,8 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (attacker != helper ||
+                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !attacker.OncePerTurnIsValid(featureShadowFlurry.Name) ||
                 !attacker.CanPerceiveTarget(defender) ||
                 !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
