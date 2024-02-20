@@ -460,6 +460,7 @@ internal static class Level20Context
                     .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
                         .EffectParticleParameters)
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>

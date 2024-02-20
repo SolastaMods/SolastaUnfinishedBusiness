@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -174,6 +175,7 @@ public sealed class CircleOfTheAncientForest : AbstractSubclass
                 .SetGuiPresentation(spell.GuiPresentation)
                 .SetSharedPool(ActivationTime.Rest, powerPoolAncientForestWallOfThorns)
                 .SetEffectDescription(spell.effectDescription)
+                .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
                 .AddToDB();
 
             featureSetWallOfThorns.FeatureSet.Add(wallOfThorns);
