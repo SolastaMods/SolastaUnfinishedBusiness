@@ -318,8 +318,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 -1,
                 true);
 
-            attackModifier.ignoreAdvantage = false;
-            attackModifier.attackAdvantageTrends = advantageTrends;
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;

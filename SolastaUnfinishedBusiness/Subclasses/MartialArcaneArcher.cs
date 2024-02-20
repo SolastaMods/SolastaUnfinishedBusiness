@@ -787,8 +787,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 defender.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
-                false,
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition)],
+                attackModifier.IgnoreAdvantage,
+                attackModifier.AttackAdvantageTrends,
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
@@ -798,9 +798,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 // testMode true avoids the roll to display on combat log as the original one will get there with altered results
                 true);
 
-            attackModifier.ignoreAdvantage = false;
-            attackModifier.attackAdvantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;
