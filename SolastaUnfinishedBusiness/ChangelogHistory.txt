@@ -1,3 +1,14 @@
+1.5.94.55:
+
+- added Martial Force Knight [WIP, 3rd level only]
+- fixed distance calculation for ranges up to 5 ft [use a 3x3 cube instead of a cross]
+- fixed game crashing when enemy attempts a legendary action
+- fixed Oath of Hatred ardent hate triggering on anyone's failed attack
+- fixed Raven heart seek shot triggering on anyone's failed attack
+- fixed Telekinesis contest check, range, and SFX
+- fixed Umbral Stalker shadow stride not getting offered if you initiate surprise round with rogue
+- fixed Way of Silhouette shadow flurry triggering on anyone's failed attack
+
 1.5.94.54:
 
 - added Telekinesis spell at 5th

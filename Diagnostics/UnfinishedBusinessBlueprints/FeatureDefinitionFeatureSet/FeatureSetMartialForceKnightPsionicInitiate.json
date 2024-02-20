@@ -1,9 +1,12 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerRoguishUmbralStalkerShadowStride:9be72d78-639b-519d-8317-366a8ea4c552",
-    "Definition:PowerRoguishUmbralStalkerShadowStrideMain:5f5e83e0-0d6b-570d-9a54-f08fa8c28b1a",
-    "Definition:PowerRoguishUmbralStalkerShadowStrideBonus:58897f79-027a-51e8-897d-3e4a716dc605"
+    "Definition:PowerMartialForceKnightForceDrive:d136d978-11bb-551e-b252-4c752d22bfc7",
+    "Definition:PowerMartialForceKnightForceDriveOncePerShort:17e91e81-846a-5a10-96a6-5961c86f3fcf",
+    "Definition:AdditionalDamageMartialForceKnightForcePoweredStrike:c1d4dd20-c1f8-57d0-b465-2fef6f3664cb",
+    "Definition:PowerMartialForceKnightKineticBarrier:d13c0519-8824-57dd-9d24-9126cf81fe86",
+    "Definition:ActionAffinityForcePoweredStrikeToggle:cbbd4334-c6c1-5523-a29d-08e16284f63f",
+    "Definition:PowerMartialForceKnightPsionicInitiate:f8f85acb-48e6-5907-b452-d4f17ef11934"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -15,8 +18,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRoguishUmbralStalkerShadowStrideTitle",
-    "description": "Feature/&PowerRoguishUmbralStalkerShadowStrideDescription",
+    "title": "Feature/&FeatureSetMartialForceKnightPsionicInitiateTitle",
+    "description": "Feature/&FeatureSetMartialForceKnightPsionicInitiateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b5076915-83a7-5c07-9ff3-fcc34132c3c0",
+  "guid": "611d246a-6d2b-5bc0-a6af-7b05c1649ecc",
   "contentPack": 9999,
-  "name": "FeatureSetRoguishUmbralStalkerShadowStride"
+  "name": "FeatureSetMartialForceKnightPsionicInitiate"
 }

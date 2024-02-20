@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 12,
+    "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
@@ -14,7 +14,7 @@
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": false,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
@@ -31,9 +31,9 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "All",
-    "durationType": "Instantaneous",
+    "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -87,7 +87,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ebad175333b0c2f44b93ab011cde5123",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -99,7 +99,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ebad175333b0c2f44b93ab011cde5123",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -111,7 +111,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "676e8c81a8a1c0a42aab0a14e91f1997",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -135,7 +135,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b1f2078e9d9ca7449a75f3cecbeee2d4",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
