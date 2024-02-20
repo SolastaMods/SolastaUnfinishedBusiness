@@ -332,7 +332,7 @@
     "description": "Feature/&PowerMartialForceKnightForceDriveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e76a7a2a-15ef-584e-8f67-1821694defb5",
+      "m_AssetGUID": "0a2ff803-2143-5117-b2ca-379ecd77fa19",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

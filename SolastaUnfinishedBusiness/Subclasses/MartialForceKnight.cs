@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -19,28 +18,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
-
-/*
-
-7th
-
-Psionic Adept
-Your psychokinetic abilities grow in strength. Your Force-Powered Strike can impose a Strength saving throw upon the creature struck by it (DC = 8 + proficiency + Intelligence modifier). If the creature fails it, you can either knock the creature back 15 feet or knock it prone.
-
-Psionic Propulsion
-You can expend 1 Force Point and use your bonus action to gain flying speed equal to twice your walking speed and not provoke opportunity attacks until the end of your turn. You can use this feature once per short rest without expending a Force Point.
-
-15th
-
-Force Bulwark
-You can shield yourself and others with psychokinetic force. As a bonus action, you can expend 1 Force Point and choose creatures, which can include you, that you can see within 30 feet of you, up to a number of creatures equal to your Intelligence modifier (minimum of one creature). Each of the chosen creatures is protected by half cover for 1 minute or until you're incapacitated.
-
-18th
-
-Telekinetic Grasp
-You can expend 1 Force Point to cast the Telekinesis spell, requiring no components, and your spellcasting ability for the spell is Intelligence. On each of your turns while you concentrate on the spell, including the turn when you cast it, you can make one attack with a weapon as a bonus action.
-
-*/
 
 [UsedImplicitly]
 public sealed class MartialForceKnight : AbstractSubclass
@@ -191,8 +168,10 @@ public sealed class MartialForceKnight : AbstractSubclass
         // LEVEL 07
 
         // Psionic Adept
+        // Your psychokinetic abilities grow in strength. Your Force-Powered Strike can impose a Strength saving throw upon the creature struck by it (DC = 8 + proficiency + Intelligence modifier). If the creature fails it, you can either knock the creature back 15 feet or knock it prone.
 
         // Psionic Propulsion
+        // You can expend 1 Force Point and use your bonus action to gain flying speed equal to twice your walking speed and not provoke opportunity attacks until the end of your turn. You can use this feature once per short rest without expending a Force Point.
 
 
         // LEVEL 10
@@ -210,6 +189,36 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         // Force Bulwark
 
+        var conditionForceBulwark = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ForceBulwark")
+            .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature,
+                ConditionDefinitions.ConditionMagicallyArmored)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{Name}ForceBulwark")
+                    .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature)
+                    .SetPermanentCover(CoverType.Half)
+                    .AddToDB())
+            .AddToDB();
+
+        conditionForceBulwark.GuiPresentation.description = Gui.NoLocalization;
+
+        var powerForceBulwark = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}ForceBulwark")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerForceBulwark", Resources.PowerForceBulwark, 128))
+            .SetSharedPool(ActivationTime.BonusAction, powerPsionicInitiate)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionForceBulwark))
+                    .Build())
+            .AddToDB();
+
+        powerForceBulwark.AddCustomSubFeatures(new ModifyEffectDescriptionForceBulwark(powerForceBulwark));
 
         // LEVEL 18
 
@@ -240,7 +249,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddFeaturesAtLevel(9, powerUseModifierPsionicInitiate)
             .AddFeaturesAtLevel(10, featureForceOfWill)
             .AddFeaturesAtLevel(12, powerUseModifierPsionicInitiate)
-            .AddFeaturesAtLevel(15, powerUseModifierPsionicInitiate)
+            .AddFeaturesAtLevel(15, powerUseModifierPsionicInitiate, powerForceBulwark)
             .AddFeaturesAtLevel(18, powerUseModifierPsionicInitiate, powerTelekineticGrasp)
             .AddToDB();
     }
@@ -254,9 +263,13 @@ public sealed class MartialForceKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    //
-    // Force Powered Strike
-    //
+    private static int GetIntModifier(RulesetCharacter rulesetCharacter)
+    {
+        var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+        var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
+
+        return intMod;
+    }
 
     private static DieType GetForcePoweredStrikeSize(RulesetCharacter character)
     {
@@ -270,6 +283,10 @@ public sealed class MartialForceKnight : AbstractSubclass
             _ => DieType.D6
         };
     }
+
+    //
+    // Force Powered Strike
+    //
 
     private sealed class ModifyAdditionalDamageFormForcePoweredStrike(
         FeatureDefinitionPower powerPsionicInitiate) : IModifyAdditionalDamageForm
@@ -352,15 +369,13 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
             var armorClass = rulesetDefender.RefreshArmorClass(true).CurrentValue;
+            var intMod = GetIntModifier(rulesetHelper);
 
             var totalAttack =
                 attackRoll +
                 actionModifier.AttackRollModifier +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0);
             var requiredACAddition = totalAttack - armorClass + 1;
-
-            var intelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            var intMod = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
 
             // if other actions already blocked it or if intMod isn't enough
             if (requiredACAddition <= 0 || requiredACAddition > intMod)
@@ -396,8 +411,7 @@ public sealed class MartialForceKnight : AbstractSubclass
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var intelligence = target.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            var intMod = Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
+            var intMod = GetIntModifier(target);
 
             rulesetCondition.Amount = intMod;
         }
@@ -422,12 +436,14 @@ public sealed class MartialForceKnight : AbstractSubclass
             attackMode.maxRange += 6;
         }
     }
-    
+
     //
     // Force of Will
     //
 
-    private sealed class ForceOfWill(FeatureDefinition featureForceOfWill)
+    private sealed class ForceOfWill(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition featureForceOfWill)
         : ICharacterTurnStartListener, IRollSavingThrowInitiated
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
@@ -462,7 +478,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             List<EffectForm> effectForms)
         {
             var intelligence = defender.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            
+
             if (abilityScoreName == AttributeDefinitions.Wisdom)
             {
                 var wisdom = defender.TryGetAttributeValue(AttributeDefinitions.Wisdom);
@@ -470,7 +486,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 if (intelligence > wisdom)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
-                    
+
                     defender.LogCharacterUsedFeature(featureForceOfWill);
                 }
             }
@@ -484,10 +500,36 @@ public sealed class MartialForceKnight : AbstractSubclass
                 if (intelligence > charisma)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
-                    
+
                     defender.LogCharacterUsedFeature(featureForceOfWill);
                 }
             }
+        }
+    }
+
+    //
+    // Force Bulwark
+    //
+
+    private sealed class ModifyEffectDescriptionForceBulwark(
+        BaseDefinition powerForceBulwark) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerForceBulwark;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var intMod = GetIntModifier(character);
+
+            effectDescription.targetParameter = intMod;
+
+            return effectDescription;
         }
     }
 }
