@@ -50,6 +50,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition SonicBoom = BuildSonicBoom();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
+    internal static readonly SpellDefinition Telekinesis = BuildTelekinesis();
     internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
     internal static readonly SpellDefinition Web = BuildWeb();
     internal static readonly SpellDefinition Wrack = BuildWrack();
@@ -300,7 +301,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
         RegisterSpell(BuildSteelWhirlwind(), 0, SpellListRanger, SpellListWizard);
         RegisterSpell(SonicBoom, 0, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(BuildTelekinesis(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(Telekinesis, 0, SpellListSorcerer, SpellListWizard);
 
         // 6th level
         RegisterSpell(BuildHeroicInfusion(), 0, SpellListSorcerer, SpellListWizard);

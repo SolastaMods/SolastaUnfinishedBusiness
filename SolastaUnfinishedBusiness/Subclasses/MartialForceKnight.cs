@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
@@ -236,6 +237,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrier))
                     .Build())
+            .AddCustomSubFeatures(new MagicEffectFinishedByMeTelekineticGrasp())
             .AddToDB();
 
         // MAIN
@@ -263,7 +265,9 @@ public sealed class MartialForceKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static int GetIntModifier(RulesetCharacter rulesetCharacter)
+    private static int GetIntModifier(
+        // ReSharper disable once SuggestBaseTypeForParameter
+        RulesetCharacter rulesetCharacter)
     {
         var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
         var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
@@ -530,6 +534,36 @@ public sealed class MartialForceKnight : AbstractSubclass
             effectDescription.targetParameter = intMod;
 
             return effectDescription;
+        }
+    }
+
+    //
+    // Telekinetic Grasp
+    //
+
+    private sealed class MagicEffectFinishedByMeTelekineticGrasp : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+            if (actionService == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            var effectSpell = ServiceRepository.GetService<IRulesetImplementationService>()
+                .InstantiateEffectSpell(rulesetCharacter, null, SpellsContext.Telekinesis, 5, false);
+
+            var actionParams = action.ActionParams.Clone();
+
+            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.CastNoCost];
+            actionParams.RulesetEffect = effectSpell;
+
+            actionService.ExecuteAction(actionParams, null, true);
         }
     }
 }
