@@ -663,7 +663,7 @@ internal static partial class SpellBuilders
 
     #region Telekinesis
 
-    private const int TelekinesisRange = 6;
+    private const int TelekinesisRange = 12;
 
     internal static SpellDefinition BuildTelekinesis()
     {
@@ -689,7 +689,7 @@ internal static partial class SpellBuilders
             .PowerMartialSpellbladeArcaneEscape.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var conditionTelekinesis = ConditionDefinitionBuilder
-            .Create($"Condition{Name}")
+            .Create(ConditionDefinitions.ConditionSpiderClimb, $"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionRevealedByDetectGoodOrEvil)
             .SetPossessive()
             .SetFeatures(powerTelekinesis)
@@ -772,6 +772,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
+            const int RANGE = TelekinesisRange / 2;
             var selectedPosition = cursorLocationSelectPosition.centerPosition;
             var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
 
@@ -780,9 +781,9 @@ internal static partial class SpellBuilders
             foreach (var position in boxInt.EnumerateAllPositionsWithin())
             {
                 if (DistanceCalculation.GetDistanceFromPositions(selectedPosition, position) >
-                    TelekinesisRange ||
+                    RANGE ||
                     DistanceCalculation.GetDistanceFromPositions(actingCharacter.LocationPosition, position) >
-                    TelekinesisRange * 2 ||
+                    TelekinesisRange ||
                     !positioningService.CanPlaceCharacter(targetCharacter, position,
                         CellHelpers.PlacementMode.Station) ||
                     !positioningService.CanCharacterStayAtPosition_Floor(targetCharacter, position,
@@ -834,7 +835,7 @@ internal static partial class SpellBuilders
                 action);
         }
 
-        public int PositionRange => TelekinesisRange * 2;
+        public int PositionRange => TelekinesisRange;
 
         private static void RemoveExistingRestrainedInstances(
             // ReSharper disable once SuggestBaseTypeForParameter
@@ -937,7 +938,9 @@ internal static partial class SpellBuilders
                 conditionRestrained.Name,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                targetRulesetCharacter == actingRulesetCharacter
+                    ? TurnOccurenceType.EndOfTurn
+                    : TurnOccurenceType.EndOfSourceTurn,
                 AttributeDefinitions.TagEffect,
                 actingRulesetCharacter.guid,
                 actingRulesetCharacter.CurrentFaction.Name,
