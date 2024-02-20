@@ -803,7 +803,7 @@ internal static partial class SpellBuilders
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            action.ActionParams.RulesetEffect.EffectDescription.targetParameter = TelekinesisRange;
+            action.ActionParams.RulesetEffect.EffectDescription.rangeParameter = TelekinesisRange;
 
             var actingCharacter = action.ActingCharacter;
             var actingRulesetCharacter = actingCharacter.RulesetCharacter;

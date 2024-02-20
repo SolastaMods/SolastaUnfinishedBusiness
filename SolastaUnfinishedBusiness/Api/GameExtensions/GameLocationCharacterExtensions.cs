@@ -29,6 +29,11 @@ public static class GameLocationCharacterExtensions
         this GameLocationCharacter __instance,
         GameLocationCharacter target)
     {
+        if (__instance == target)
+        {
+            return true;
+        }
+
         if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
             return (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||
