@@ -21,7 +21,7 @@ public static class GameLocationCharacterExtensions
         this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
         //PATCH: use better distance calculation algorithm
-        return DistanceCalculation.GetDistanceFromCharacters(source, target, range > 1) <= range;
+        return DistanceCalculation.GetDistanceFromCharacters(source, target) <= range;
     }
 
     // consolidate all checks if a character can perceive another
