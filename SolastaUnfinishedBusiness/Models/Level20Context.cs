@@ -413,8 +413,7 @@ internal static class Level20Context
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerRogueStrokeOfLuck.AddCustomSubFeatures(
-            new TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+        powerRogueStrokeOfLuck.AddCustomSubFeatures(new TryAlterOutcomeAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -461,6 +460,7 @@ internal static class Level20Context
                     .SetParticleEffectParameters(PowerWizardArcaneRecovery.EffectDescription
                         .EffectParticleParameters)
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -838,7 +838,7 @@ internal static class Level20Context
         }
     }
 
-    private class TryAlterOutcomePhysicalAttackByMeRogueStrokeOfLuck(FeatureDefinitionPower power)
+    private class TryAlterOutcomeAttackRogueStrokeOfLuck(FeatureDefinitionPower power)
         : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
@@ -862,14 +862,10 @@ internal static class Level20Context
                 yield break;
             }
 
-            if (attacker != helper)
-            {
-                yield break;
-            }
-
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (attacker != helper ||
+                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetCharacter.CanUsePower(power) ||
                 !attacker.CanPerceiveTarget(defender))
             {

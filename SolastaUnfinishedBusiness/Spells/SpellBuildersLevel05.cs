@@ -677,10 +677,17 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.All, RangeType.Distance, TelekinesisRange, TargetType.IndividualsUnique)
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
-                    .UseQuickAnimations()
+                    .ExcludeCaster()
+                    .SetParticleEffectParameters(MistyStep)
                     .Build())
+            .AddToDB();
+
+        var conditionRestrained = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}Restrained")
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
+            .SetFeatures()
             .AddToDB();
 
         var conditionTelekinesis = ConditionDefinitionBuilder
@@ -688,7 +695,9 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionRevealedByDetectGoodOrEvil)
             .SetPossessive()
             .SetFeatures(powerTelekinesis)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddCustomSubFeatures(
+                AddUsablePowersFromCondition.Marker,
+                new OnConditionAddedOrRemovedTelekinesis(conditionRestrained))
             .AddToDB();
 
         var powerTelekinesisNoCost = FeatureDefinitionPowerBuilder
@@ -724,15 +733,8 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionTelekinesis),
                         EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost))
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerSpellBladeSpellTyrant)
-                    .UseQuickAnimations()
+                    .SetParticleEffectParameters(MindTwist)
                     .Build())
-            .AddToDB();
-
-        var conditionRestrained = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}Restrained")
-            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFeatures()
             .AddToDB();
 
         var customBehavior = new CustomBehaviorTelekinesis(conditionRestrained, conditionTelekinesisNoCost, spell);
@@ -741,6 +743,47 @@ internal static partial class SpellBuilders
         powerTelekinesisNoCost.AddCustomSubFeatures(customBehavior, ValidatorsValidatePowerUse.InCombat);
 
         return spell;
+    }
+
+    private static void RemoveExistingRestrainedInstances(
+        // ReSharper disable once SuggestBaseTypeForParameter
+        RulesetCharacter rulesetCaster,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        ConditionDefinition conditionRestrained)
+    {
+        if (Gui.Battle == null)
+        {
+            return;
+        }
+
+        foreach (var rulesetContender in Gui.Battle.EnemyContenders
+                     .Select(locationContender => locationContender.RulesetCharacter))
+        {
+            if (!rulesetContender.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                    conditionRestrained.Name, out var activeCondition) ||
+                activeCondition.SourceGuid != rulesetCaster.Guid)
+            {
+                continue;
+            }
+
+            rulesetContender.RemoveCondition(activeCondition);
+
+            break;
+        }
+    }
+
+    private sealed class OnConditionAddedOrRemovedTelekinesis(ConditionDefinition conditionRestrained)
+        : IOnConditionAddedOrRemoved
+    {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            RemoveExistingRestrainedInstances(target, conditionRestrained);
+        }
     }
 
     private sealed class CustomBehaviorTelekinesis(
@@ -753,8 +796,46 @@ internal static partial class SpellBuilders
     {
         public IEnumerator ComputeValidPositions(CursorLocationSelectPosition cursorLocationSelectPosition)
         {
-            yield return cursorLocationSelectPosition
-                .MyComputeValidPositions(LocationDefinitions.LightingState.Bright, TelekinesisRange);
+            var positioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+            var visibilityService =
+                ServiceRepository.GetService<IGameLocationVisibilityService>() as GameLocationVisibilityManager;
+
+            var actingCharacter = cursorLocationSelectPosition.ActionParams?.ActingCharacter;
+            var targetCharacter = cursorLocationSelectPosition.ActionParams?.TargetCharacters[0];
+
+            if (actingCharacter == null || targetCharacter == null)
+            {
+                yield break;
+            }
+
+            const int RANGE = TelekinesisRange / 2;
+            var boxInt = new BoxInt(targetCharacter.LocationPosition, int3.zero, int3.zero);
+
+            boxInt.Inflate(RANGE);
+
+            foreach (var position in boxInt.EnumerateAllPositionsWithin())
+            {
+                if (
+                    // must use vanilla distance calculation here
+                    int3.Distance(targetCharacter.LocationPosition, position) > RANGE ||
+                    // must use vanilla distance calculation here
+                    int3.Distance(actingCharacter.LocationPosition, position) > TelekinesisRange ||
+                    !positioningService.CanPlaceCharacter(targetCharacter, position,
+                        CellHelpers.PlacementMode.Station) ||
+                    !positioningService.CanCharacterStayAtPosition_Floor(targetCharacter, position,
+                        onlyCheckCellsWithRealGround: true) ||
+                    !visibilityService.MyIsCellPerceivedByCharacter(position, actingCharacter))
+                {
+                    continue;
+                }
+
+                cursorLocationSelectPosition.validPositionsCache.Add(position);
+
+                if (cursorLocationSelectPosition.stopwatch.Elapsed.TotalMilliseconds > 0.5)
+                {
+                    yield return null;
+                }
+            }
         }
 
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
@@ -776,7 +857,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            RemoveExistingRestrainedInstances(actingRulesetCharacter, rulesetSpell, conditionRestrained);
+            RemoveExistingRestrainedInstances(actingRulesetCharacter, conditionRestrained);
 
             var targetCharacter = action.ActionParams.TargetCharacters[0];
 
@@ -790,35 +871,6 @@ internal static partial class SpellBuilders
 
         public int PositionRange => TelekinesisRange;
 
-        private static void RemoveExistingRestrainedInstances(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            RulesetCharacter rulesetCaster,
-            RulesetEffect rulesetEffect,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            ConditionDefinition conditionRestrained)
-        {
-            if (Gui.Battle == null)
-            {
-                return;
-            }
-
-            foreach (var rulesetContender in Gui.Battle.EnemyContenders
-                         .Select(locationContender => locationContender.RulesetCharacter))
-            {
-                if (!rulesetContender.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                        conditionRestrained.Name, out var activeCondition) ||
-                    activeCondition.SourceGuid != rulesetCaster.Guid)
-                {
-                    continue;
-                }
-
-                rulesetEffect.TrackedConditionGuids.Remove(activeCondition.Guid);
-                rulesetContender.RemoveCondition(activeCondition);
-
-                break;
-            }
-        }
-
         private static IEnumerator RollAbilityCheckAndTryMoveApplyRestrained(
             RulesetCharacter actingRulesetCharacter,
             // ReSharper disable once SuggestBaseTypeForParameter
@@ -828,20 +880,49 @@ internal static partial class SpellBuilders
             RulesetEffectSpell rulesetSpell,
             CharacterAction action)
         {
+            var targetRulesetCharacter = targetCharacter.RulesetCharacter;
             var isEnemy = actingRulesetCharacter.Side != targetCharacter.Side;
 
             if (isEnemy)
             {
-                var checkDC = action is CharacterActionCastSpell actionCastSpell
-                    ? actionCastSpell.ActiveSpell.SaveDC
-                    : actingRulesetCharacter.SpellsCastByMe
-                        .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SaveDC ?? 0;
+                var spellCastingAbility = actingRulesetCharacter.SpellsCastByMe
+                    .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire
+                    .SpellCastingAbility ?? string.Empty;
 
-                targetCharacter.RollAbilityCheck(
-                    AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None, new ActionModifier(),
-                    false, -1, out var outcome, out _, true);
+                var actingSpellAbility = actingRulesetCharacter.TryGetAttributeValue(spellCastingAbility);
+                var actingSpellAbilityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(actingSpellAbility);
+                var casterRoll = actingRulesetCharacter.RollDie(DieType.D20, RollContext.AbilityCheck, false,
+                    AdvantageType.None, out var r1, out var r2);
+                var casterCheck = actingSpellAbilityModifier + casterRoll;
 
-                if (outcome == RollOutcome.Success)
+                var targetStrength = targetRulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
+                var targetStrengthModifier = AttributeDefinitions.ComputeAbilityScoreModifier(targetStrength);
+                var targetRoll = targetRulesetCharacter.RollDie(DieType.D20, RollContext.AbilityCheck, false,
+                    AdvantageType.None, out r1, out r2);
+                var targetCheck = targetStrengthModifier + targetRoll;
+
+                actingRulesetCharacter.ShowDieRoll(DieType.D20, r1, r2, advantage: AdvantageType.None,
+                    title: "Screen/&CraftingAbilityCheckTitle");
+                targetRulesetCharacter.ShowDieRoll(DieType.D20, r1, r2, advantage: AdvantageType.None,
+                    title: "Screen/&CraftingAbilityCheckTitle");
+
+                actingRulesetCharacter.LogCharacterActivatesAbility(
+                    Gui.NoLocalization, "Feedback/&TelekinesisContestCheck",
+                    true,
+                    extra:
+                    [
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, $"Attribute/&{spellCastingAbility}TitleLong"),
+                        (ConsoleStyleDuplet.ParameterType.Base, $"{casterRoll}+{actingSpellAbilityModifier}"),
+                        (casterCheck >= targetCheck ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            $"{casterCheck}"),
+                        (ConsoleStyleDuplet.ParameterType.Enemy, targetCharacter.Name),
+                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, "Attribute/&StrengthTitleLong"),
+                        (ConsoleStyleDuplet.ParameterType.Base, $"{targetRoll}+{targetStrengthModifier}"),
+                        (targetCheck > casterCheck ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
+                            $"{targetCheck}")
+                    ]);
+
+                if (casterCheck < targetCheck)
                 {
                     yield break;
                 }
@@ -860,8 +941,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var targetRulesetCharacter = targetCharacter.RulesetCharacter;
-            var activeCondition = targetRulesetCharacter.InflictCondition(
+            targetRulesetCharacter.InflictCondition(
                 conditionRestrained.Name,
                 DurationType.Round,
                 1,
@@ -874,8 +954,6 @@ internal static partial class SpellBuilders
                 0,
                 0,
                 0);
-
-            rulesetSpell.TrackedConditionGuids.Add(activeCondition.Guid);
         }
     }
 

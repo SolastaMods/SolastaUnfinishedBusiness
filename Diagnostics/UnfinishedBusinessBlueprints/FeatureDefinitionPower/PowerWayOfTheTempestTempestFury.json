@@ -82,7 +82,7 @@
           "conditionDefinition": "Definition:ConditionMonkFlurryOfBlowsUnarmedStrikeBonus:b86ca48afc417b247b22900df01189c2",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -109,7 +109,7 @@
           "conditionDefinition": "Definition:ConditionDisengaging:9d3de19ca17c6554ea5485fbc3eabd25",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

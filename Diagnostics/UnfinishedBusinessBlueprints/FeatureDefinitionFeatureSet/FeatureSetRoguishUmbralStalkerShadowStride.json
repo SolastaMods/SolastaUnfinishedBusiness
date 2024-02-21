@@ -1,7 +1,6 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerRoguishUmbralStalkerShadowStrideAtWill:21b2d192-191d-531d-bae2-16b81eed8d84",
     "Definition:PowerRoguishUmbralStalkerShadowStride:9be72d78-639b-519d-8317-366a8ea4c552",
     "Definition:PowerRoguishUmbralStalkerShadowStrideMain:5f5e83e0-0d6b-570d-9a54-f08fa8c28b1a",
     "Definition:PowerRoguishUmbralStalkerShadowStrideBonus:58897f79-027a-51e8-897d-3e4a716dc605"

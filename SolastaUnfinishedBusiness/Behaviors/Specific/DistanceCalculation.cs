@@ -1,19 +1,21 @@
-﻿using TA;
+﻿using System;
+using TA;
 
 namespace SolastaUnfinishedBusiness.Behaviors.Specific;
 
 internal static class DistanceCalculation
 {
-    internal static float GetDistanceFromPositions(int3 position1, int3 position2)
+    internal static float GetDistanceFromPositions(int3 position1, int3 position2) //, bool useDefault = false)
     {
-#if false
-         var rawDistance = position1 - position2;
-         var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
+        // if (useDefault)
+        // {
+        //     return int3.Distance(position1, position2);
+        // }
+
+        var rawDistance = position1 - position2;
+        var distance = Math.Max(Math.Max(Math.Abs(rawDistance.x), Math.Abs(rawDistance.z)), Math.Abs(rawDistance.y));
 
         return distance;
-#endif
-
-        return int3.Distance(position1, position2);
     }
 
     internal static float GetDistanceFromCharacters(

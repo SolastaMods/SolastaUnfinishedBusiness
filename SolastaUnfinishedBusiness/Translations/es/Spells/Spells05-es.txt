@@ -6,6 +6,7 @@ Feature/&PowerSteelWhirlwindTeleportDescription=Puedes teletransportarte a un es
 Feature/&PowerSteelWhirlwindTeleportTitle=Teletransportarse
 Feedback/&AdditionalDamageBanishingSmiteFormat=¡Destierro de Smite!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} inflige más daño a {1} a través de un golpe de destierro (+{2})
+Feedback/&TelekinesisContestCheck={0} lanza un cheque {2}: {3} = {4} y disputa un cheque {5} {6}: {7} = {8}.
 Spell/&BanishingSmiteDescription=Tu próximo golpe inflige 5d10 de daño de fuerza adicional con tu arma. Además, si este ataque reduce al objetivo a 50 puntos de golpe o menos, lo destierras durante 1 min.
 Spell/&BanishingSmiteTitle=Castigo de destierro
 Spell/&CircleOfMagicalNegationDescription=La energía divina irradia desde ti, distorsionando y difundiendo energía mágica a 30 pies de ti. Hasta que finaliza el hechizo, la esfera se mueve contigo, centrada en ti. Mientras dure, cada criatura amiga en el área, incluido tú, tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos. Además, cuando una criatura afectada tiene éxito en una tirada de salvación realizada contra un hechizo o efecto mágico que le permite realizar una tirada de salvación para recibir solo la mitad del daño, no sufre daño si tiene éxito en las tiradas de salvación.

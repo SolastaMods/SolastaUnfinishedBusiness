@@ -1230,6 +1230,7 @@ internal static class EldritchVersatilityBuilders
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (gameLocationActionManager == null ||
+                helper.Side != defender.Side ||
                 !action.RolledSaveThrow ||
                 action.SaveOutcome == RollOutcome.Success ||
                 !helper.CanReact() ||

@@ -826,7 +826,7 @@ internal static class OtherFeats
                 yield break;
             }
 
-            if (action.ActionId is 
+            if (action.ActionId is
                 ActionDefinitions.Id.DashBonus or
                 ActionDefinitions.Id.DashMain)
             {

@@ -17,7 +17,8 @@ public static class GameLocationCharacterExtensions
         return Gui.Battle != null && Gui.Battle.ActiveContenderIgnoringLegendary == character;
     }
 
-    public static bool IsWithinRange(this GameLocationCharacter source, GameLocationCharacter target, int range)
+    public static bool IsWithinRange(
+        this GameLocationCharacter source, GameLocationCharacter target, int range)
     {
         //PATCH: use better distance calculation algorithm
         return DistanceCalculation.GetDistanceFromCharacters(source, target) <= range;
@@ -28,6 +29,11 @@ public static class GameLocationCharacterExtensions
         this GameLocationCharacter __instance,
         GameLocationCharacter target)
     {
+        if (__instance == target)
+        {
+            return true;
+        }
+
         if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
             return (__instance.Side == target.Side && __instance.PerceivedAllies.Contains(target)) ||

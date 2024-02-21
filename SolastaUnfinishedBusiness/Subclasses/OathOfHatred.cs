@@ -288,7 +288,8 @@ public sealed class OathOfHatred : AbstractSubclass
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (attacker != helper ||
+                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !attacker.OncePerTurnIsValid(power.Name) ||
                 !attacker.CanPerceiveTarget(defender))
             {

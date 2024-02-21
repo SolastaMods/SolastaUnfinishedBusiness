@@ -1,3 +1,14 @@
+1.5.94.55:
+
+- fixed all powers requiring 5ft range not triggering on diagonals
+- fixed Ardent Hate, Heart Seek Shot, and Shadow Flurry triggering on anyone's failed attack
+- fixed Booming Smite triggering save and damage twice
+- fixed distance calculation for ranges up to 5 ft and against large or bigger targets
+- fixed game crashing on enemies' legendary actions
+- fixed Paladin smites offering one caster level less on modal if at an odd level
+- fixed Telekinesis contest check, range, and SFX
+- fixed Umbral Stalker shadow stride not getting offered if you initiate surprise round with rogue
+
 1.5.94.54:
 
 - added Telekinesis spell at 5th

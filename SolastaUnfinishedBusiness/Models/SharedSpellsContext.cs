@@ -163,7 +163,8 @@ internal static class SharedSpellsContext
         return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == Warlock);
     }
 
-    internal static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    internal static int GetSharedCasterLevel(
+        [CanBeNull] RulesetCharacterHero rulesetCharacterHero, bool isSlotLevel = false)
     {
         if (rulesetCharacterHero?.ClassesAndLevels == null)
         {
@@ -186,8 +187,14 @@ internal static class SharedSpellsContext
                 subclassName = currentCharacterSubclassDefinition.Name;
             }
 
-            var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition.Name,
-                subclassName);
+            var casterType = GetCasterTypeForClassOrSubclass(
+                currentCharacterClassDefinition.Name, subclassName);
+
+            // hack to allow correctly calculate slot level
+            if (isSlotLevel && casterType == CasterProgression.Half)
+            {
+                casterType = CasterProgression.HalfRoundUp;
+            }
 
             casterLevelContext.IncrementCasterLevel(casterType, classAndLevel.Value);
         }
@@ -197,7 +204,7 @@ internal static class SharedSpellsContext
 
     internal static int GetSharedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
     {
-        var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero);
+        var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero, true);
 
         return sharedCasterLevel > 0 ? FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0) : 0;
     }

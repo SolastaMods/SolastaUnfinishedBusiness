@@ -649,6 +649,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionSpellbladeArcaneEscape { get; } =
             GetDefinition<ConditionDefinition>("ConditionSpellbladeArcaneEscape");
 
+        internal static ConditionDefinition ConditionSpiderClimb { get; } =
+            GetDefinition<ConditionDefinition>("ConditionSpiderClimb");
+
         internal static ConditionDefinition ConditionSpiritGuardians { get; } =
             GetDefinition<ConditionDefinition>("ConditionSpiritGuardians");
 
@@ -1791,6 +1794,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMartialCommanderRousingShout { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderRousingShout");
+
+        internal static FeatureDefinitionPower PowerMartialSpellbladeArcaneEscape { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMartialSpellbladeArcaneEscape");
 
         internal static FeatureDefinitionPower PowerMelekTeleport { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMelekTeleport");

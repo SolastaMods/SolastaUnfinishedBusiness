@@ -27,6 +27,7 @@ public static class CustomActionIdContext
         (Id)ExtraActionId.CunningStrikeToggle,
         (Id)ExtraActionId.DyingLightToggle,
         (Id)ExtraActionId.FeatCrusherToggle,
+        (Id)ExtraActionId.ForcePoweredStrikeToggle,
         (Id)ExtraActionId.GloomBladeToggle,
         (Id)ExtraActionId.HailOfBladesToggle,
         (Id)ExtraActionId.MasterfulWhirlToggle,

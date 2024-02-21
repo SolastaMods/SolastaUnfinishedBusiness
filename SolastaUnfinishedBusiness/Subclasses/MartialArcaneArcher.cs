@@ -161,7 +161,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureGuidedShot.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeGuidedShot(featureGuidedShot));
+        featureGuidedShot.AddCustomSubFeatures(new TryAlterOutcomeAttackGuidedShot(featureGuidedShot));
 
         // LEVEL 10
 
@@ -724,8 +724,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
     //
 
     // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-    private class TryAlterOutcomePhysicalAttackByMeGuidedShot(FeatureDefinition featureDefinition)
-        : ITryAlterOutcomeAttack
+    private class TryAlterOutcomeAttackGuidedShot(FeatureDefinition featureDefinition) : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
@@ -748,15 +747,11 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 yield break;
             }
 
-            if (attacker != helper)
-            {
-                yield break;
-            }
-
             var attackMode = action.actionParams.attackMode;
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (attacker != helper ||
+                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !attacker.CanPerceiveTarget(defender) ||
                 !IsBow(attackMode, null, null))
             {
@@ -792,8 +787,8 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 defender.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
-                false,
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition)],
+                attackModifier.IgnoreAdvantage,
+                attackModifier.AttackAdvantageTrends,
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
@@ -803,9 +798,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 // testMode true avoids the roll to display on combat log as the original one will get there with altered results
                 true);
 
-            attackModifier.ignoreAdvantage = false;
-            attackModifier.attackAdvantageTrends =
-                [new TrendInfo(1, FeatureSourceType.CharacterFeature, featureDefinition.Name, featureDefinition)];
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;

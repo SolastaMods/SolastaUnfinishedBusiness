@@ -82,7 +82,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
                             .SetPossessive()
                             .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                            .AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeHeartSeekingShot())
+                            .AddCustomSubFeatures(new TryAlterOutcomeAttackDeadlyAimHeartSeekingShot())
                             .AddToDB()))
                     .SetParticleEffectParameters(PowerPactChainImp)
                     .Build())
@@ -104,7 +104,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomePhysicalAttackByMeDeadlyAim(powerDeadlyFocus));
+        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomeAttackDeadlyAim(powerDeadlyFocus));
 
         // LEVEL 17
 
@@ -198,7 +198,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Heart-Seeking Shot
     //
 
-    private class TryAlterOutcomePhysicalAttackByMeHeartSeekingShot : ITryAlterOutcomeAttack
+    private class TryAlterOutcomeAttackDeadlyAimHeartSeekingShot : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battle,
@@ -226,7 +226,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Deadly Focus
     //
 
-    private class TryAlterOutcomePhysicalAttackByMeDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomeAttack
+    private class TryAlterOutcomeAttackDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
@@ -252,10 +252,11 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var attackMode = action.actionParams.attackMode;
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+            if (attacker != helper ||
+                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !rulesetCharacter.CanUsePower(power) ||
                 !attacker.CanPerceiveTarget(defender) ||
-                !attackMode.ranged)
+                attackMode is not { ranged: true })
             {
                 yield break;
             }
@@ -317,8 +318,6 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 -1,
                 true);
 
-            attackModifier.ignoreAdvantage = false;
-            attackModifier.attackAdvantageTrends = advantageTrends;
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;

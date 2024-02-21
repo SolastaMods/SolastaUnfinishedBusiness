@@ -146,7 +146,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": -1.0,
+    "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -154,7 +154,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ebad175333b0c2f44b93ab011cde5123",
+        "m_AssetGUID": "45697d3bf253f0f4582b1e53e6afa5ce",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -166,7 +166,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ebad175333b0c2f44b93ab011cde5123",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -178,7 +178,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "676e8c81a8a1c0a42aab0a14e91f1997",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -190,7 +190,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f4c89806a028ed0478011913dac0d248",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -202,7 +202,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "288f328d9d10d774f8d7d39f181660a0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -288,19 +288,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "14c7cbd4107c3da46bf04c894e4a61be",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "2493405866ecdfb4290d962e2ee3ab92",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "211c37507a1ae35419d899c49a2712a3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

@@ -631,6 +631,7 @@ internal static class InventorClass
             .Create(POWER_NAME)
             .SetGuiPresentation(Category.Feature, hidden: true)
             .AddCustomSubFeatures(
+                ModifyPowerVisibility.Hidden,
                 new HasActiveInfusions(),
                 new LimitEffectInstances(LimiterName, _ => 1))
             .SetUsesFixed(ActivationTime.Rest)
