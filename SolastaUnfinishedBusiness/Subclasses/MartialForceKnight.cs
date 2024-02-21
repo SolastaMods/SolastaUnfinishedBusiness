@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if false
+using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -567,3 +568,4 @@ public sealed class MartialForceKnight : AbstractSubclass
         }
     }
 }
+#endif
