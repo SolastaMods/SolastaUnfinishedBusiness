@@ -697,6 +697,72 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #region Thunderous Smite
+
+    internal static SpellDefinition BuildThunderousSmite()
+    {
+        const string NAME = "ThunderousSmite";
+
+        var powerThunderousSmite = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}ThunderousSmite")
+            .SetGuiPresentation(NAME, Category.Spell, hidden: true)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder.DamageForm(DamageTypeThunder, 2, DieType.D6),
+                        EffectFormBuilder.Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .Build(),
+                        EffectFormBuilder.Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            .Build())
+                    .SetParticleEffectParameters(Shatter)
+                    .Build())
+            .AddToDB();
+
+        var conditionThunderousSmite = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Gui.NoLocalization,
+                ConditionBrandingSmite)
+            .SetPossessive()
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetFeatures(powerThunderousSmite)
+            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(BrandingSmite, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ThunderousSmite, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionThunderousSmite))
+                    .SetParticleEffectParameters(Shatter)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Ice Blade
 
     internal static SpellDefinition BuildIceBlade()
@@ -1582,120 +1648,6 @@ internal static partial class SpellBuilders
         ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.Familiar, spell);
 
         return spell;
-    }
-
-    #endregion
-
-    #region Thunderous Smite
-
-    internal static SpellDefinition BuildThunderousSmite()
-    {
-        const string NAME = "ThunderousSmite";
-
-        var powerThunderousSmite = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}ThunderousSmite")
-            .SetGuiPresentation(NAME, Category.Spell, hidden: true)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Strength, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder.DamageForm(DamageTypeThunder, 2, DieType.D6),
-                        EffectFormBuilder.Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
-                            .Build(),
-                        EffectFormBuilder.Create()
-                            .SetMotionForm(MotionForm.MotionType.FallProne)
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
-                            .Build())
-                    .SetParticleEffectParameters(Shatter)
-                    .Build())
-            .AddToDB();
-
-        var conditionThunderousSmite = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation($"{NAME}Title".Formatted(Category.Spell), Gui.NoLocalization,
-                ConditionBrandingSmite)
-            .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
-            .SetFeatures(powerThunderousSmite)
-            .AddCustomSubFeatures(
-                AddUsablePowersFromCondition.Marker,
-                new PhysicalAttackFinishedByMeThunderousSmite(powerThunderousSmite))
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder
-            .Create(BrandingSmite, NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ThunderousSmite, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(1)
-            .SetCastingTime(ActivationTime.BonusAction)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(false)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionThunderousSmite))
-                    .SetParticleEffectParameters(Shatter)
-                    .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    private sealed class PhysicalAttackFinishedByMeThunderousSmite(FeatureDefinitionPower powerThunderousSmite)
-        : IPhysicalAttackFinishedByMe
-    {
-        public IEnumerator OnPhysicalAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
-        {
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false }
-                || rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerThunderousSmite, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
-        }
     }
 
     #endregion
