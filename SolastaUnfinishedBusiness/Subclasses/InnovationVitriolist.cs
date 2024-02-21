@@ -420,7 +420,7 @@ public sealed class InnovationVitriolist : AbstractSubclass
                 return false;
             }
 
-            var canUsePowerMixture = character.CanUsePower(powerMixture);
+            var canUsePowerMixture = character.GetRemainingPowerUses(powerMixture) > 0;
             var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
 
             return !canUsePowerMixture && hasSpellSlotsAvailable;

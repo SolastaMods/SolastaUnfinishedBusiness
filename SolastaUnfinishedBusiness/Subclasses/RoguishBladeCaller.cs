@@ -336,7 +336,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!attacker.CanReact() ||
-                !rulesetAttacker.CanUsePower(powerHailOfBlades))
+                rulesetAttacker.GetRemainingPowerUses(powerHailOfBlades) == 0)
             {
                 yield break;
             }
@@ -396,7 +396,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.CanUsePower(powerHailOfBlades))
+            if (rulesetAttacker.GetRemainingPowerUses(powerHailOfBlades) > 0)
             {
                 yield break;
             }

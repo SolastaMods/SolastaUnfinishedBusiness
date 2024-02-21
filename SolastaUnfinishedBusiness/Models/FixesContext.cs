@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -627,7 +628,7 @@ internal static class FixesContext
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
-            if (!rulesetAttacker.CanUsePower(FeatureDefinitionPowers.PowerMonkStunningStrike))
+            if (rulesetAttacker.GetRemainingPowerUses(FeatureDefinitionPowers.PowerMonkStunningStrike) == 0)
             {
                 yield break;
             }

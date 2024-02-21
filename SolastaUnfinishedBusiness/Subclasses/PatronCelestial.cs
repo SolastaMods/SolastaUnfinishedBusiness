@@ -363,7 +363,7 @@ public class PatronCelestial : AbstractSubclass
 
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (!rulesetCharacter.CanUsePower(powerSearingVengeance))
+            if (rulesetCharacter.GetRemainingPowerUses(powerSearingVengeance) == 0)
             {
                 yield break;
             }

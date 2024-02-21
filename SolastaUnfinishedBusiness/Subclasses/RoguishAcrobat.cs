@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -221,7 +222,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             if (defender.IsMyTurn() ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
-                !rulesetDefender.CanUsePower(powerHeroicUncannyDodge))
+                rulesetDefender.GetRemainingPowerUses(powerHeroicUncannyDodge) == 0)
             {
                 yield break;
             }

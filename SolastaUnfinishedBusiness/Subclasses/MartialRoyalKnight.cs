@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -230,7 +231,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class TryAlterOutcomeSavingThrowInspiringProtection(FeatureDefinitionPower power)
+    private class TryAlterOutcomeSavingThrowInspiringProtection(FeatureDefinitionPower powerInspiringProtection)
         : ITryAlterOutcomeSavingThrow
     {
         public IEnumerator OnTryAlterOutcomeSavingThrow(
@@ -266,7 +267,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
                 action.SaveOutcome != RollOutcome.Failure ||
                 !originalHelper.CanReact() ||
                 !originalHelper.CanPerceiveTarget(defender) ||
-                !rulesetOriginalHelper.CanUsePower(power))
+                rulesetOriginalHelper.GetRemainingPowerUses(powerInspiringProtection) == 0)
             {
                 yield break;
             }
@@ -274,7 +275,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(power, rulesetOriginalHelper);
+            var usablePower = PowerProvider.Get(powerInspiringProtection, rulesetOriginalHelper);
             var reactionParams = new CharacterActionParams(originalHelper, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "RoyalKnightInspiringProtection",
@@ -314,7 +315,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             action.SaveOutcome = saveOutcome;
             action.SaveOutcomeDelta = saveOutcomeDelta;
 
-            rulesetOriginalHelper.LogCharacterUsedPower(power, indent: true);
+            rulesetOriginalHelper.LogCharacterUsedPower(powerInspiringProtection, indent: true);
         }
 
         private static string FormatReactionDescription(

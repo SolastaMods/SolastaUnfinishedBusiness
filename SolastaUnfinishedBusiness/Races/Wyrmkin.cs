@@ -347,7 +347,7 @@ internal static class RaceWyrmkinBuilder
 
             if (defender.IsMyTurn() ||
                 !defender.CanReact() ||
-                !rulesetDefender.CanUsePower(powerHighWyrmkinSwiftRetribution))
+                rulesetDefender.GetRemainingPowerUses(powerHighWyrmkinSwiftRetribution) == 0)
             {
                 yield break;
             }

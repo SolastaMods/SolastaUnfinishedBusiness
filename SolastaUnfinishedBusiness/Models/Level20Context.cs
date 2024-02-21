@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -866,7 +867,7 @@ internal static class Level20Context
 
             if (attacker != helper ||
                 rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetCharacter.CanUsePower(power) ||
+                rulesetCharacter.GetRemainingPowerUses(power) == 0 ||
                 !attacker.CanPerceiveTarget(defender))
             {
                 yield break;

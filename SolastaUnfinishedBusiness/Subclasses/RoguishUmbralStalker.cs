@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -391,7 +392,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (!rulesetCharacter.CanUsePower(powerUmbralSoul))
+            if (rulesetCharacter.GetRemainingPowerUses(powerUmbralSoul) == 0)
             {
                 yield break;
             }

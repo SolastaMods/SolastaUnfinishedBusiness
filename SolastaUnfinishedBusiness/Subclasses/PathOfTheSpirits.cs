@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -424,9 +425,9 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var power = rulesetCharacter.CanUsePower(powerNoCost)
+            var power = rulesetCharacter.GetRemainingPowerUses(powerNoCost) > 0
                 ? powerNoCost
-                : rulesetCharacter.CanUsePower(powerRageCost)
+                : rulesetCharacter.GetRemainingPowerUses(powerRageCost) > 0
                     ? powerRageCost
                     : null;
 

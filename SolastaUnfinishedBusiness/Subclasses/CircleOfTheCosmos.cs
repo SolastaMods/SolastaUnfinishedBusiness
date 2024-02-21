@@ -820,7 +820,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (gameLocationActionManager == null ||
                 action.AttackRollOutcome != RollOutcome.Failure ||
                 action.AttackSuccessDelta + MaxDieTypeValue < 0 ||
-                !rulesetHelper.CanUsePower(powerPool) ||
+                rulesetHelper.GetRemainingPowerUses(powerPool) == 0 ||
                 !helper.CanReact() ||
                 attacker.Side != helper.Side ||
                 !helper.IsWithinRange(attacker, 6) ||
@@ -901,7 +901,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
-                !rulesetHelper.CanUsePower(powerPool) ||
+                rulesetHelper.GetRemainingPowerUses(powerPool) == 0 ||
                 !helper.CanReact() ||
                 defender.Side != helper.Side ||
                 !helper.IsWithinRange(defender, 6) ||
@@ -991,7 +991,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (gameLocationActionManager == null ||
                 action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - MaxDieTypeValue >= 0 ||
-                !rulesetHelper.CanUsePower(powerPool) ||
+                rulesetHelper.GetRemainingPowerUses(powerPool) == 0 ||
                 !helper.CanReact() ||
                 !attacker.IsOppositeSide(helper.Side) ||
                 !helper.IsWithinRange(attacker, 6) ||
@@ -1072,7 +1072,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Success ||
                 action.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
-                !rulesetHelper.CanUsePower(powerPool) ||
+                rulesetHelper.GetRemainingPowerUses(powerPool) == 0 ||
                 !helper.CanReact() ||
                 !defender.IsOppositeSide(helper.Side) ||
                 !helper.IsWithinRange(defender, 6) ||

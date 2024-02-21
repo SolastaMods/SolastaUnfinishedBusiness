@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -270,11 +271,11 @@ public class PatronMountain : AbstractSubclass
 
             if (me.IsMyTurn() ||
                 !me.CanReact() ||
-                !rulesetMe.CanUsePower(power) ||
                 me == defender ||
                 !me.CanPerceiveTarget(defender) ||
                 !me.CanPerceiveTarget(attacker) ||
-                !me.IsWithinRange(defender, 7))
+                !me.IsWithinRange(defender, 7) ||
+                rulesetMe.GetRemainingPowerUses(power) == 0)
             {
                 yield break;
             }

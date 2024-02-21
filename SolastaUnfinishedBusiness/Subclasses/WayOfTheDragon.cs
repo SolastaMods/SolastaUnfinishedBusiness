@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -693,7 +694,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            var usablePower = PowerProvider.Get(powerElementalBreathProficiency, character);
             var glc = GameLocationCharacter.GetFromActor(character);
 
             if (glc == null || !glc.OnceInMyTurnIsValid("ElementalBreath"))
@@ -701,7 +701,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 return false;
             }
 
-            return usablePower.RemainingUses > 0;
+            return character.GetRemainingPowerUses(powerElementalBreathProficiency) > 0;
         }
     }
 
@@ -751,7 +751,6 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            var usablePower = PowerProvider.Get(powerElementalBreathProficiency, character);
             var glc = GameLocationCharacter.GetFromActor(character);
 
             if (glc == null || !glc.OnceInMyTurnIsValid("ElementalBreath"))
@@ -759,7 +758,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                 return false;
             }
 
-            return usablePower.RemainingUses == 0;
+            return character.GetRemainingPowerUses(powerElementalBreathProficiency) == 0;
         }
     }
 
@@ -980,7 +979,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!defender.CanReact() ||
-                !rulesetDefender.CanUsePower(powerReactiveHide))
+                rulesetDefender.GetRemainingPowerUses(powerReactiveHide) == 0)
             {
                 yield break;
             }

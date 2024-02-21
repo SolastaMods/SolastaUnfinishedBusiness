@@ -890,7 +890,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             action.SaveOutcome != RollOutcome.Failure ||
             !helper.CanReact() ||
             !helper.CanPerceiveTarget(defender) ||
-            !rulesetHelper.CanUsePower(power) ||
+            rulesetHelper.GetRemainingPowerUses(power) == 0 ||
             action.SaveOutcomeDelta + bonus < 0)
         {
             yield break;

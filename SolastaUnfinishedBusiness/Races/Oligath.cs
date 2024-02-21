@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -153,7 +154,7 @@ internal static class RaceOligathBuilder
         return powerOligathStoneEndurance;
     }
 
-    private class AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower featureDefinitionPower)
+    private class AttackBeforeHitConfirmedOnMeStoneEndurance(FeatureDefinitionPower powerStoneEndurance)
         : IAttackBeforeHitConfirmedOnMe, IMagicEffectBeforeHitConfirmedOnMe
     {
         public IEnumerator OnAttackBeforeHitConfirmedOnMe(
@@ -201,17 +202,13 @@ internal static class RaceOligathBuilder
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.CanUsePower(featureDefinitionPower))
-            {
-                yield break;
-            }
-
             // don't use CanReact() to allow stone endurance when prone
             if (!defender.IsReactionAvailable() ||
                 rulesetDefender is not { IsDeadOrUnconscious: false } ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionIncapacitated) ||
                 rulesetDefender.HasConditionOfTypeOrSubType(ConditionStunned) ||
-                rulesetDefender.HasConditionOfTypeOrSubType(ConditionParalyzed))
+                rulesetDefender.HasConditionOfTypeOrSubType(ConditionParalyzed) ||
+                rulesetDefender.GetRemainingPowerUses(powerStoneEndurance) == 0)
             {
                 yield break;
             }
@@ -219,7 +216,7 @@ internal static class RaceOligathBuilder
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(featureDefinitionPower, rulesetDefender);
+            var usablePower = PowerProvider.Get(powerStoneEndurance, rulesetDefender);
             var actionParams = new CharacterActionParams(defender, Id.PowerReaction)
             {
                 StringParameter = "StoneEndurance",

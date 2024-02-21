@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -267,7 +268,7 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (!rulesetAttacker.CanUsePower(powerImpForestImpishWrath))
+            if (rulesetDefender.GetRemainingPowerUses(powerImpForestImpishWrath) == 0)
             {
                 yield break;
             }

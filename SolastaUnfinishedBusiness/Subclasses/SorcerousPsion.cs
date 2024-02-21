@@ -362,7 +362,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (!rulesetCharacter.CanUsePower(powerMindOverMatter))
+            if (rulesetCharacter.GetRemainingPowerUses(powerMindOverMatter) == 0)
             {
                 yield break;
             }
@@ -443,7 +443,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
             }
 
-            if (!rulesetCharacter.CanUsePower(powerSupremeWill))
+            if (rulesetCharacter.GetRemainingPowerUses(powerSupremeWill) == 0)
             {
                 return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
             }

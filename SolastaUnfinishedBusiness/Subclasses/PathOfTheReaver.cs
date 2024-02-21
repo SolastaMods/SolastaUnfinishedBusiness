@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -155,7 +156,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
         if (rulesetAttacker.MissingHitPoints == 0 ||
             !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) ||
-            !rulesetAttacker.CanUsePower(featureDefinitionPower))
+            rulesetAttacker.GetRemainingPowerUses(featureDefinitionPower) == 0)
         {
             yield break;
         }

@@ -634,7 +634,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!defender.CanReact() ||
-                !rulesetDefender.CanUsePower(powerMoonlightGuise))
+                rulesetDefender.GetRemainingPowerUses(powerMoonlightGuise) == 0)
             {
                 yield break;
             }

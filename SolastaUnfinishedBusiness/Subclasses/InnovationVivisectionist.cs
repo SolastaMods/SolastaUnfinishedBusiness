@@ -267,7 +267,7 @@ public sealed class InnovationVivisectionist : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!rulesetAttacker.CanUsePower(powerOrganDonation))
+            if (rulesetAttacker.GetRemainingPowerUses(powerOrganDonation) == 0)
             {
                 yield break;
             }
