@@ -1,9 +1,10 @@
 1.5.94.55:
 
-- added Martial Force Knight [WIP, 3rd and 10th levels only]
-- fixed distance calculation for ranges up to 5 ft [uses a 3x3 cube instead of a cross. also fixes smites]
-- fixed game crashing on enemies' legendary actions
 - fixed Ardent Hate, Heart Seek Shot, and Shadow Flurry triggering on anyone's failed attack
+- fixed Booming Smite triggering save and applying damage twice
+- fixed distance calculation for ranges up to 5 ft and against large or bigger targets
+- fixed game crashing on enemies' legendary actions
+- fixed Paladin smites randomly triggering and offering one caster level less on modal if at an odd level
 - fixed Telekinesis contest check, range, and SFX
 - fixed Umbral Stalker shadow stride not getting offered if you initiate surprise round with rogue
 

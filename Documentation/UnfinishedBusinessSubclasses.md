@@ -985,41 +985,7 @@ You gain one additional usage of your Arcane Shot technique.
 
 
 
-## 2. Force Knight
-
-Force Knights are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
-
-
-### Level 3
-
-* Psionic Initiate
-
-Supernatural powers awaken within you, allowing you to channel your mental energy to unleash a variety of psychokinetic abilities. Through extensive use and training, you learned to control these abilities and can use them efficiently in battle. You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 point every 3 levels in this class after that. Your Force Points recharge on short or long rest.
-
-
-### Level 10
-
-* Force of Will
-
-Your psionic energy grants you extraordinary resilience. At the start of each of your turns, you gain temporary hit points equal to your Intelligence modifier (minimum of 1) if you have at least 1 hit point. In addition, you can use your Intelligence modifier instead of your Wisdom and Charisma modifier for saving throws if it's higher.
-
-
-### Level 15
-
-* Force Bulwark
-
-You can shield yourself and others with psychokinetic force. As a bonus action, you can expend 1 Force Point and choose creatures, which can include you, that you can see within 30 feet of you, up to a number of creatures equal to your Intelligence modifier (minimum of one creature). Each of the chosen creatures is protected by half cover for 1 minute or until you're incapacitated.
-
-
-### Level 18
-
-* Telekinetic Grasp
-
-You can expend 1 Force Point to cast the Telekinesis spell, requiring no components, and your spellcasting ability for the spell is Intelligence. On each of your turns while you concentrate on the spell, including the turn when you cast it, you can make one attack with a weapon as a bonus action.
-
-
-
-## 3. Guardian
+## 2. Guardian
 
 Guardians are stalwart warriors who use taunts and impregnable defenses to become a living wall between their allies and certain doom. Whether a guardian is a valiant knight, a stubborn sellsword, or a battle-hardened general, there is no one better to have at your side when the situation is at its most dire.
 
@@ -1067,7 +1033,7 @@ You gain resistance to all non magical bludgeoning, piercing and slashing damage
 
 
 
-## 4. Royal Knight
+## 3. Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -1108,7 +1074,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-## 5. Spell Shield
+## 4. Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -1157,7 +1123,7 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 
 
-## 6. Tactician
+## 5. Tactician
 
 For tacticians, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
 
@@ -1249,7 +1215,7 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-## 7. Warlord
+## 6. Warlord
 
 Whether they are loved, respected or feared, warlords are primarily known for one thing – leading soldiers like no one else. A warlord stands side by side with their allies and can shift the tide of any battle, no matter if it requires a sword or a sharp tongue. The sheer presence of these accomplished leaders is enough for a soldier to confidently follow their orders and be the best version of themselves.
 
@@ -1297,7 +1263,7 @@ You regain one usage of your Coordinated Assault whenever you roll initiative, a
 
 
 
-## 8. Weapon Master
+## 7. Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
