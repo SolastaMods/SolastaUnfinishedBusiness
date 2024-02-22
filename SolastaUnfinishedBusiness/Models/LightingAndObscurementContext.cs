@@ -673,7 +673,6 @@ internal static class LightingAndObscurementContext
         SwitchHeavilyObscuredOnObscurementRules();
         SwitchMagicalDarknessOnObscurementRules();
         SwitchMonstersOnObscurementRules();
-        SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
 
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
@@ -802,6 +801,8 @@ internal static class LightingAndObscurementContext
             CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
                 [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
         }
+        
+        SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
     }
 
     internal static void SwitchHeavilyObscuredOnObscurementRules()
