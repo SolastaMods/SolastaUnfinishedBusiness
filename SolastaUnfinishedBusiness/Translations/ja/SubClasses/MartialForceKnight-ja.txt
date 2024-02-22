@@ -1,27 +1,37 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=装備した近接武器の射程距離は 30 フィート増加します。
 Condition/&ConditionMartialForceKnightForceDriveTitle=フォースドライブ
-Condition/&ConditionMartialForceKnightKineticBarrierDescription=Force Knight Intelligence 修正値による AC の増加 (最小 +1)。
-Condition/&ConditionMartialForceKnightKineticBarrierTitle=キネティックバリア
-Feature/&AdditionalDamageMartialForceKnightForcePoweredStrikeDescription=各ターンに 1 回、クリーチャーに武器攻撃を当てると、フォース ポイント 1 を消費して、1d6 + 知力修正値に等しい追加のフォース ダメージを与えることができます。ダメージは5レベルで1d8、11レベルで1d10、17レベルで1d12に増加します。
-Feature/&AdditionalDamageMartialForceKnightForcePoweredStrikeTitle=フォースパワードストライク
 Feature/&FeatureMartialForceKnightForceOfWillDescription=あなたのサイオニックエネルギーはあなたに並外れた回復力を与えます。あなたが少なくとも 1 ヒット ポイントを持っている場合、各ターンの開始時に、あなたは知力修正値 (最小 1) に等しい一時的なヒット ポイントを獲得します。さらに、[知性] 修正値が高い場合は、[知恵] 修正値と [カリスマ性] 修正値の代わりにセーヴィング スローに使用できます。
 Feature/&FeatureMartialForceKnightForceOfWillTitle=意志の力
-Feature/&FeatureSetMartialForceKnightPsionicInitiateDescription=超自然的な力があなたの中で目覚め、精神エネルギーを流し、さまざまな念力能力を解き放つことができます。広範囲にわたる使用と訓練を通じて、これらの能力を制御することを学び、戦闘で効率的に使用できるようになります。さまざまな念力能力を強化するために使用できるフォース ポイントを多数獲得します。最初は 3 フォース ポイントから始まり、その後はこのクラスの 3 レベルごとに 1 ポイントを獲得します。フォース ポイントは短時間または長時間の休憩で再充電されます。
+Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription=Force-Powered Strike で攻撃されたクリーチャーに Strength セーヴィング スローを課すことができるようになりました (難易度 = 8 + 熟練度ボーナス + 知力修正値)。クリーチャーがそれに失敗した場合、クリーチャーを 15 フィート後方にノックバックするか、伏せてノックすることができます。
+Feature/&FeatureSetMartialForceKnightPsionicAdeptTitle=サイオニック・アデプト
+Feature/&FeatureSetMartialForceKnightPsionicInitiateDescription=さまざまな念力能力を強化するために使用できるフォース ポイントを多数獲得します。最初は 3 フォース ポイントから始まり、その後 3 レベルごとに 1 ポイントずつ追加で獲得します。フォース ポイントは短時間または長時間の休憩で再充電されます。 \n• フォースパワードストライク。各ターンに 1 回、クリーチャーに武器攻撃を当てると、フォース ポイント 1 を消費して、1d6 + 知力修正値に等しい追加のフォース ダメージを与えることができます。ダメージは 5 レベルで 1d8、11 レベルで 1d10、17 レベルで 1d12 に増加します。\n• キネティックバリア。あなた、またはあなたから 30 フィート以内に見える他の味方のクリーチャーが攻撃を受けようとしているとき、あなたは 1 フォース ポイントを消費し、その反応を利用してその周りに純粋な力の保護シールドを形成し、追加の AC を与えることができます。攻撃クリーチャーのターン終了時まで、その攻撃とその後のすべての攻撃に対して、あなたの知力修正値（最低+1）が与えられる。\n・フォースドライブ。無料アクションとして 1 フォース ポイントを消費して、念動力を使用して武器を発射できます。ターンの終わりまで、装備した近接武器の射程距離は 30 フィート増加します。
 Feature/&FeatureSetMartialForceKnightPsionicInitiateTitle=サイオニック・イニシエイト
 Feature/&PowerMartialForceKnightForceBulwarkDescription=念動力で自分や他人を守ることができる。ボーナス アクションとして、あなたは 1 フォース ポイントを消費して、あなたの知力修正値と同じ数のクリーチャー (最低 1 体のクリーチャー) まで、あなたから 30 フィート以内に見える、あなたを含むクリーチャーを選択できます。選ばれたそれぞれのクリーチャーは、1分間、またはあなたが無力化されるまで、半分の遮蔽物によって保護されます。
 Feature/&PowerMartialForceKnightForceBulwarkTitle=フォースブルワーク
 Feature/&PowerMartialForceKnightForceDriveDescription=無料アクションとして 1 フォース ポイントを消費して、念動力を使用して武器を発射できます。ターンの終わりまで、装備した近接武器の射程距離は 30 フィート増加します。この機能は、フォース ポイントを消費せずに、短い休憩ごとに 1 回使用できます。
 Feature/&PowerMartialForceKnightForceDriveTitle=フォースドライブ
+Feature/&PowerMartialForceKnightForcePoweredStrikeDescription=各ターンに 1 回、クリーチャーに武器攻撃を当てると、フォース ポイント 1 を消費して、1d6 + 知力修正値に等しい追加のフォース ダメージを与えることができます。ダメージは5レベルで1d8、11レベルで1d10、17レベルで1d12に増加します。
+Feature/&PowerMartialForceKnightForcePoweredStrikeTitle=フォースパワードストライク
 Feature/&PowerMartialForceKnightKineticBarrierDescription=あなた、またはあなたから 30 フィート以内に見える他の味方のクリーチャーが攻撃を受けようとしているとき、あなたは 1 フォース ポイントを消費し、その反応を利用してその周りに純粋な力の保護シールドを形成し、追加の AC を与えることができます。その攻撃とその後のすべての攻撃に対して知力修正値（最低+1）が与えられ、攻撃クリーチャーのターンが終了するまで攻撃が失敗する可能性があります。
 Feature/&PowerMartialForceKnightKineticBarrierTitle=キネティックバリア
+Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=あなたはフォース・パワード・ストライクによって攻撃されたクリーチャーに筋力セーヴィング・スローを課すことができます（難易度 = 8 + 熟練度ボーナス + 知力修正値）。クリーチャーがそれに失敗した場合は、伏せて倒すことができます。
+Feature/&PowerMartialForceKnightPsionicAdeptProneTitle=うつ伏せ
+Feature/&PowerMartialForceKnightPsionicAdeptPushDescription=あなたはフォース・パワード・ストライクによって攻撃されたクリーチャーに筋力セーヴィング・スローを課すことができます（難易度 = 8 + 熟練度ボーナス + 知力修正値）。クリーチャーがそれに失敗した場合、クリーチャーを 15 フィート押し戻すことができます。
+Feature/&PowerMartialForceKnightPsionicAdeptPushTitle=押す
 Feature/&PowerMartialForceKnightPsionicInitiateDescription=超自然的な力があなたの中で目覚め、精神エネルギーを流し、さまざまな念力能力を解き放つことができます。広範囲にわたる使用と訓練を通じて、これらの能力を制御することを学び、戦闘で効率的に使用できるようになります。さまざまな念力能力を強化するために使用できるフォース ポイントを多数獲得します。最初は 3 フォース ポイントから始まり、その後はこのクラスの 3 レベルごとに 1 ポイントを獲得します。フォース ポイントは短時間または長時間の休憩で再充電されます。
 Feature/&PowerMartialForceKnightPsionicInitiateTitle=サイオニック・イニシエイト
+Feature/&PowerMartialForceKnightPsionicPropulsionDescription=あなたは 1 フォース ポイントを消費し、ボーナス アクションを使用して、歩行速度の 2 倍に等しい飛行速度を獲得し、ターンの終わりまで機会攻撃を誘発しません。この機能は、フォース ポイントを消費せずに、短い休憩ごとに 1 回使用できます。
+Feature/&PowerMartialForceKnightPsionicPropulsionTitle=サイオニック推進力
 Feature/&PowerMartialForceKnightTelekineticGraspDescription=あなたは 1 フォース ポイントを消費して Telekinesis 呪文を唱えることができます。コンポーネントは必要ありません。この呪文の呪文発動能力は Intelligence です。呪文を唱えるターンを含め、呪文に集中している間の各ターンで、ボーナス アクションとして武器による攻撃を 1 回行うことができます。
 Feature/&PowerMartialForceKnightTelekineticGraspTitle=念力把握
 Feedback/&AdditionalDamageForcePoweredStrikeFormat=フォースパワードストライク
 Feedback/&AdditionalDamageForcePoweredStrikeLine=フォースパワードストライクは追加の +{2} ダメージを与える！
-Reaction/&UseKineticBarrierDescription=<b>{0}</b> が <b>{1}</b> に攻撃されようとしています!フォース ポイント 1 を消費すると、知力修正値 (最低 +1) に等しい追加 AC を付与できます。
-Reaction/&UseKineticBarrierReactDescription=フォース ポイント 1 を消費して、自分自身または味方を攻撃から守ります。
+Reaction/&ReactionSpendPowerBundlePsionicAdeptDescription=クリーチャーを15フィート後ろにノックするか、うつ伏せにノックすることができます。
+Reaction/&ReactionSpendPowerBundlePsionicAdeptReactDescription=クリーチャーを15フィート後ろにノックするか、うつ伏せにノックすることができます。
+Reaction/&ReactionSpendPowerBundlePsionicAdeptReactTitle=サイオニック・アデプト
+Reaction/&ReactionSpendPowerBundlePsionicAdeptTitle=サイオニック・アデプト
+Reaction/&UseKineticBarrierDescription=あなたまたは味方が攻撃を受けようとしています!フォース ポイント 1 を消費すると、知力修正値 (最低 +1) に等しい追加 AC を付与できます。
+Reaction/&UseKineticBarrierReactDescription=1 フォース ポイントを消費して、自分または味方を攻撃から守ります。
 Reaction/&UseKineticBarrierReactTitle=過ごす
 Reaction/&UseKineticBarrierTitle=キネティックバリア
 Screen/&ForcePoweredStrikeDieDescription=あなたのフォース パワード ストライク ダイスは {0} で、残りの使用回数は {1} です。

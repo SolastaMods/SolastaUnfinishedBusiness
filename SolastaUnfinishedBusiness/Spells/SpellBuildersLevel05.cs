@@ -886,8 +886,9 @@ internal static partial class SpellBuilders
             if (isEnemy)
             {
                 var spellCastingAbility = actingRulesetCharacter.SpellsCastByMe
-                    .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire
-                    .SpellCastingAbility ?? string.Empty;
+                    .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire?
+                    // assume Intelligence if no repertoire (ritual spell only used on Force Knight)
+                    .SpellCastingAbility ?? AttributeDefinitions.Intelligence;
 
                 var actingSpellAbility = actingRulesetCharacter.TryGetAttributeValue(spellCastingAbility);
                 var actingSpellAbilityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(actingSpellAbility);

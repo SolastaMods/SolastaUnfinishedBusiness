@@ -1,4 +1,4 @@
-﻿#if false
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
@@ -39,13 +39,10 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create($"Power{Name}PsionicInitiate")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
-            .AddCustomSubFeatures(HasModifiedUses.Marker, IsModifyPowerPool.Marker, ModifyPowerVisibility.Hidden)
-            .AddToDB();
-
-        var powerUseModifierPsionicInitiate = FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifier{Name}PsionicInitiate")
-            .SetGuiPresentationNoContent(true)
-            .SetFixedValue(powerPsionicInitiate, 1)
+            .AddCustomSubFeatures(
+                HasModifiedUses.Marker,
+                IsModifyPowerPool.Marker,
+                ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // Force-Powered Strike
@@ -66,28 +63,34 @@ public sealed class MartialForceKnight : AbstractSubclass
                 new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerPsionicInitiate)))
             .AddToDB();
 
-        var additionalDamageForcePoweredStrike = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}ForcePoweredStrike")
+        var powerForcePoweredStrike = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}ForcePoweredStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("ForcePoweredStrike")
-            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetAttackModeOnly()
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetDamageDice(DieType.D6, 1)
-            .SetSpecificDamageType(DamageTypeForce)
-            .AddCustomSubFeatures(new ModifyAdditionalDamageFormForcePoweredStrike(powerPsionicInitiate))
+            .SetSharedPool(ActivationTime.NoCost, powerPsionicInitiate)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 1, DieType.D6))
+                    .Build())
             .AddToDB();
+
+        powerForcePoweredStrike.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new CustomBehaviorForcePoweredStrike(powerForcePoweredStrike));
 
         // Kinetic Barrier
 
         var conditionKineticBarrier = ConditionDefinitionBuilder
             .Create($"Condition{Name}KineticBarrier")
-            .SetGuiPresentation(Category.Condition)
-            .SetPossessive()
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}KineticBarrier")
-                    .SetGuiPresentation($"Condition{Name}KineticBarrier", Category.Condition)
+                    .SetGuiPresentation($"Power{Name}KineticBarrier", Category.Feature)
                     .SetModifier(
                         FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
                         AttributeDefinitions.ArmorClass)
@@ -129,6 +132,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create($"Power{Name}ForceDriveOncePerShort")
             .SetGuiPresentation($"Power{Name}ForceDrive", Category.Feature, forceDriveSprite)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -138,10 +142,14 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        powerForceDriveOncePerShort.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForceDriveOncePerShort) > 0));
+
         var powerForceDrive = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ForceDrive")
             .SetGuiPresentation(Category.Feature, forceDriveSprite)
             .SetSharedPool(ActivationTime.NoCost, powerPsionicInitiate)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -149,9 +157,10 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionForceDrive))
                     .Build())
-            .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(c => !c.CanUsePower(powerForceDriveOncePerShort)))
             .AddToDB();
+
+        powerForceDrive.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForceDriveOncePerShort) == 0));
 
         // Psionic Initiate
 
@@ -160,21 +169,144 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 powerPsionicInitiate,
-                actionAffinityForcePoweredStrikeToggle,
-                additionalDamageForcePoweredStrike,
+                powerForcePoweredStrike, actionAffinityForcePoweredStrikeToggle,
                 powerKineticBarrier,
-                powerForceDrive,
-                powerForceDriveOncePerShort)
+                powerForceDrive, powerForceDriveOncePerShort)
             .AddToDB();
 
         // LEVEL 07
 
         // Psionic Adept
-        // Your psychokinetic abilities grow in strength. Your Force-Powered Strike can impose a Strength saving throw upon the creature struck by it (DC = 8 + proficiency + Intelligence modifier). If the creature fails it, you can either knock the creature back 15 feet or knock it prone.
+
+        var powerPsionicAdept = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}PsionicAdept")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        var powerPsionicAdeptPush = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}PsionicAdeptPush")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPsionicAdept)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        var powerPsionicAdeptProne = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}PsionicAdeptProne")
+            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.NoCost, powerPsionicAdept)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerPsionicAdept, true,
+            powerPsionicAdeptProne, powerPsionicAdeptPush);
+
+        powerForcePoweredStrike.AddCustomSubFeatures(new MagicEffectFinishedByMePsionicAdept(powerPsionicAdept));
+
+        var featureSetPsionicAdept = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}PsionicAdept")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerPsionicInitiate, powerPsionicAdeptProne, powerPsionicAdeptPush)
+            .AddToDB();
 
         // Psionic Propulsion
-        // You can expend 1 Force Point and use your bonus action to gain flying speed equal to twice your walking speed and not provoke opportunity attacks until the end of your turn. You can use this feature once per short rest without expending a Force Point.
 
+        var psionicPropulsionSprite =
+            Sprites.GetSprite("PowerPsionicPropulsion", Resources.PowerPsionicPropulsion, 256, 128);
+
+        for (var i = 2; i <= 18; i += 2)
+        {
+            if (!DatabaseRepository.GetDatabase<FeatureDefinitionMoveMode>()
+                    .TryGetElement($"MoveModeFly{i}", out var moveMode))
+            {
+                continue;
+            }
+
+            var conditionPsionicPropulsion = ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionFlying, $"Condition{Name}PsionicPropulsion{i}")
+                .SetOrUpdateGuiPresentation($"Power{Name}PsionicPropulsion", Category.Feature)
+                .SetPossessive()
+                .SetParentCondition(ConditionDefinitions.ConditionFlying)
+                .AddFeatures(moveMode)
+                .AddToDB();
+
+            conditionPsionicPropulsion.GuiPresentation.description = Gui.NoLocalization;
+
+            // there is indeed a typo on tag
+            // ReSharper disable once StringLiteralTypo
+            conditionPsionicPropulsion.ConditionTags.Add("Verticality");
+        }
+
+        var powerPsionicPropulsionOncePerShort = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}PsionicPropulsionOncePerShort")
+            .SetGuiPresentation($"Power{Name}PsionicPropulsion", Category.Feature, psionicPropulsionSprite)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    // only a placeholder
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlying))
+                    .Build())
+            .AddToDB();
+
+        powerPsionicPropulsionOncePerShort.AddCustomSubFeatures(
+            new ModifyEffectDescriptionPsionicPropulsion(powerPsionicPropulsionOncePerShort),
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerPsionicPropulsionOncePerShort) > 0));
+
+        var powerPsionicPropulsion = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}PsionicPropulsion")
+            .SetGuiPresentation(Category.Feature, psionicPropulsionSprite)
+            .SetSharedPool(ActivationTime.NoCost, powerPsionicInitiate)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionFlying))
+                    .Build())
+            .AddToDB();
+
+        powerPsionicPropulsion.AddCustomSubFeatures(
+            new ModifyEffectDescriptionPsionicPropulsion(powerPsionicPropulsion),
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerPsionicPropulsionOncePerShort) == 0));
+
+        var featureSetPsionicPropulsion = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}PsionicPropulsion")
+            .SetGuiPresentation($"Power{Name}PsionicPropulsion", Category.Feature)
+            .AddFeatureSet(powerPsionicPropulsion, powerPsionicPropulsionOncePerShort)
+            .AddToDB();
 
         // LEVEL 10
 
@@ -228,16 +360,9 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var powerTelekineticGrasp = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}TelekineticGrasp")
-            .SetGuiPresentation(Category.Feature, Sprites.GetSprite("Telekinesis", Resources.Telekinesis, 128))
+            .SetGuiPresentation(Category.Feature, SpellsContext.Telekinesis)
             .SetSharedPool(ActivationTime.Action, powerPsionicInitiate)
-            .SetReactionContext(ExtraReactionContext.Custom)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 10)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrier))
-                    .Build())
+            .SetShowCasting(false)
             .AddCustomSubFeatures(new MagicEffectFinishedByMeTelekineticGrasp())
             .AddToDB();
 
@@ -247,13 +372,13 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardGravityMage, 256))
             .AddFeaturesAtLevel(3, featureSetPsionicInitiate)
-            .AddFeaturesAtLevel(6, powerUseModifierPsionicInitiate)
-            .AddFeaturesAtLevel(7)
-            .AddFeaturesAtLevel(9, powerUseModifierPsionicInitiate)
+            .AddFeaturesAtLevel(6, BuildPowerModifier(powerPsionicInitiate, 6))
+            .AddFeaturesAtLevel(7, featureSetPsionicAdept, featureSetPsionicPropulsion)
+            .AddFeaturesAtLevel(9, BuildPowerModifier(powerPsionicInitiate, 9))
             .AddFeaturesAtLevel(10, featureForceOfWill)
-            .AddFeaturesAtLevel(12, powerUseModifierPsionicInitiate)
-            .AddFeaturesAtLevel(15, powerUseModifierPsionicInitiate, powerForceBulwark)
-            .AddFeaturesAtLevel(18, powerUseModifierPsionicInitiate, powerTelekineticGrasp)
+            .AddFeaturesAtLevel(12, BuildPowerModifier(powerPsionicInitiate, 12))
+            .AddFeaturesAtLevel(15, BuildPowerModifier(powerPsionicInitiate, 15), powerForceBulwark)
+            .AddFeaturesAtLevel(18, BuildPowerModifier(powerPsionicInitiate, 18), powerTelekineticGrasp)
             .AddToDB();
     }
 
@@ -266,6 +391,16 @@ public sealed class MartialForceKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    private static FeatureDefinitionPowerUseModifier BuildPowerModifier(
+        FeatureDefinitionPower powerPsionicInitiate, int level)
+    {
+        return FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifier{Name}PsionicInitiate{level:00}")
+            .SetGuiPresentationNoContent(true)
+            .SetFixedValue(powerPsionicInitiate, 1)
+            .AddToDB();
+    }
+
     private static int GetIntModifier(
         // ReSharper disable once SuggestBaseTypeForParameter
         RulesetCharacter rulesetCharacter)
@@ -273,7 +408,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
         var intMod = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
 
-        return intMod;
+        return Math.Max(1, intMod);
     }
 
     private static DieType GetForcePoweredStrikeSize(RulesetCharacter character)
@@ -293,33 +428,91 @@ public sealed class MartialForceKnight : AbstractSubclass
     // Force Powered Strike
     //
 
-    private sealed class ModifyAdditionalDamageFormForcePoweredStrike(
-        FeatureDefinitionPower powerPsionicInitiate) : IModifyAdditionalDamageForm
+    private sealed class CustomBehaviorForcePoweredStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerForcePoweredStrike) : IModifyEffectDescription, IPhysicalAttackFinishedByMe
     {
-        public DamageForm AdditionalDamageForm(
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerForcePoweredStrike;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var dieType = GetForcePoweredStrikeSize(character);
+            var intMod = GetIntModifier(character);
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                return effectDescription;
+            }
+
+            damageForm.BonusDamage = intMod;
+            damageForm.DieType = dieType;
+
+            return effectDescription;
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
-            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
-            DamageForm damageForm)
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (!rulesetAttacker.IsToggleEnabled(ForcePoweredStrikeToggle) ||
-                !rulesetAttacker.CanUsePower(powerPsionicInitiate))
+            if (actionManager == null)
             {
-                damageForm.DiceNumber = 0;
-
-                return damageForm;
+                yield break;
             }
 
-            var usablePower = PowerProvider.Get(powerPsionicInitiate, rulesetAttacker);
-            var dieType = GetForcePoweredStrikeSize(rulesetAttacker);
+            var rulesetDefender = defender.RulesetCharacter;
 
-            rulesetAttacker.UsePower(usablePower);
-            damageForm.DieType = dieType;
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
 
-            return damageForm;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!attacker.OnceInMyTurnIsValid(powerForcePoweredStrike.Name) ||
+                !rulesetAttacker.IsToggleEnabled(ForcePoweredStrikeToggle))
+            {
+                yield break;
+            }
+
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                yield break;
+            }
+
+            attacker.UsedSpecialFeatures.TryAdd(powerForcePoweredStrike.Name, 0);
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerForcePoweredStrike, rulesetAttacker);
+            var actionParams =
+                new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+                {
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
+                };
+
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
@@ -340,7 +533,8 @@ public sealed class MartialForceKnight : AbstractSubclass
     private class AttackBeforeHitPossibleOnMeOrAllyKineticBarrier(FeatureDefinitionPower powerKineticBarrier)
         : IAttackBeforeHitPossibleOnMeOrAlly
     {
-        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
+            GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             GameLocationCharacter helper,
@@ -349,10 +543,9 @@ public sealed class MartialForceKnight : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            if (gameLocationActionManager == null)
+            if (actionManager == null)
             {
                 yield break;
             }
@@ -364,17 +557,17 @@ public sealed class MartialForceKnight : AbstractSubclass
             }
 
             var rulesetHelper = helper.RulesetCharacter;
+            var intMod = GetIntModifier(rulesetHelper);
 
             if (!helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
-                !rulesetHelper.CanUsePower(powerKineticBarrier))
+                rulesetHelper.GetRemainingPowerUses(powerKineticBarrier) == 0)
             {
                 yield break;
             }
 
             var rulesetDefender = defender.RulesetCharacter;
             var armorClass = rulesetDefender.RefreshArmorClass(true).CurrentValue;
-            var intMod = GetIntModifier(rulesetHelper);
 
             var totalAttack =
                 attackRoll +
@@ -395,8 +588,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             var actionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
-                    StringParameter =
-                        Gui.Format("Reaction/&UseKineticBarrierDescription", defender.Name, attacker.Name),
+                    StringParameter = "KineticBarrier",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -404,11 +596,11 @@ public sealed class MartialForceKnight : AbstractSubclass
                     TargetCharacters = { defender }
                 };
 
-            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var count = actionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
+            actionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(helper, actionManager, count);
         }
     }
 
@@ -416,7 +608,14 @@ public sealed class MartialForceKnight : AbstractSubclass
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var intMod = GetIntModifier(target);
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (caster == null)
+            {
+                return;
+            }
+
+            var intMod = GetIntModifier(caster);
 
             rulesetCondition.Amount = intMod;
         }
@@ -428,6 +627,57 @@ public sealed class MartialForceKnight : AbstractSubclass
     }
 
     //
+    // Psionic Adept
+    //
+
+    private sealed class MagicEffectFinishedByMePsionicAdept(FeatureDefinitionPower powerPsionicInitiate) :
+        IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
+        {
+            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionManager == null ||
+                battleManager is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
+
+            if (levels < 7)
+            {
+                yield break;
+            }
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerPsionicInitiate, rulesetCharacter);
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                StringParameter = "PsionicAdept",
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { action.ActionParams.TargetCharacters[0] }
+            };
+
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
+        }
+    }
+
+    //
     // Force Drive
     //
 
@@ -435,10 +685,47 @@ public sealed class MartialForceKnight : AbstractSubclass
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            attackMode.AddAttackTagAsNeeded(TagsDefinitions.WeaponTagThrown);
-            attackMode.thrown = true;
-            attackMode.closeRange += 6;
-            attackMode.maxRange += 6;
+            attackMode.reachRange += 6;
+        }
+    }
+
+    //
+    // Psionic Propulsion
+    //
+
+    private sealed class ModifyEffectDescriptionPsionicPropulsion(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerPsionicPropulsion) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerPsionicPropulsion;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var glc = GameLocationCharacter.GetFromActor(character);
+
+            if (glc == null)
+            {
+                return effectDescription;
+            }
+
+            var flyMoves = Math.Min(glc.MaxTacticalMoves, 9) * 2;
+
+            if (DatabaseRepository.GetDatabase<ConditionDefinition>()
+                .TryGetElement($"Condition{Name}PsionicPropulsion{flyMoves}", out var condition))
+            {
+                return effectDescription;
+            }
+
+            effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = condition;
+
+            return effectDescription;
         }
     }
 
@@ -492,6 +779,9 @@ public sealed class MartialForceKnight : AbstractSubclass
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
 
+                    rollModifier += AttributeDefinitions.ComputeAbilityScoreModifier(intelligence) -
+                                    AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+
                     defender.LogCharacterUsedFeature(featureForceOfWill);
                 }
             }
@@ -505,6 +795,9 @@ public sealed class MartialForceKnight : AbstractSubclass
                 if (intelligence > charisma)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
+
+                    rollModifier += AttributeDefinitions.ComputeAbilityScoreModifier(intelligence) -
+                                    AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
 
                     defender.LogCharacterUsedFeature(featureForceOfWill);
                 }
@@ -568,4 +861,3 @@ public sealed class MartialForceKnight : AbstractSubclass
         }
     }
 }
-#endif
