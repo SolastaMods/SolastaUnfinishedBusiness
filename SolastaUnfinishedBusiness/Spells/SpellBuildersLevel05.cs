@@ -864,23 +864,96 @@ internal static partial class SpellBuilders
             var targetCharacter = action.ActionParams.TargetCharacters[0];
 
             RollAbilityCheckAndTryMoveApplyRestrained(
-                actingRulesetCharacter,
+                actingCharacter,
                 targetCharacter,
                 rulesetSpell,
                 action);
         }
 
         public int PositionRange => TelekinesisRange;
+        
+        private static bool ResolveRolls(
+            GameLocationCharacter actor,
+            GameLocationCharacter opponent,
+            string spellCastingAbility,
+            ActionDefinitions.Id actionId)
+        {
+            var actionModifier1 = new ActionModifier();
+            var actionModifier2 = new ActionModifier();
+
+            var abilityCheckBonus1 = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(spellCastingAbility,
+                actionModifier1.AbilityCheckModifierTrends, string.Empty);
+            var abilityCheckBonus2 = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus("Strength",
+                actionModifier2.AbilityCheckModifierTrends, string.Empty);
+
+            var contextField1 = 0;
+            
+            if (!actor.RulesetCharacter.IsWearingHeavyArmor())
+            {
+                contextField1 |= 64;
+            }
+
+            actor.ComputeAbilityCheckActionModifier(spellCastingAbility, string.Empty, actionModifier1, contextField1);
+            
+            var contextField2 = 1;
+            
+            if (!opponent.RulesetCharacter.IsWearingHeavyArmor())
+            {
+                contextField2 |= 64;
+            }
+
+            opponent.ComputeAbilityCheckActionModifier("Strength", string.Empty, actionModifier2, contextField2);
+
+            actor.RulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
+                actor.RulesetCharacter.FeaturesToBrowse, actor.RulesetCharacter.FeaturesOrigin);
+            
+            foreach (var key in actor.RulesetCharacter.FeaturesToBrowse)
+            {
+                foreach (var executionModifier in ((key as IActionPerformanceProvider)!).ActionExecutionModifiers)
+                {
+                    if (executionModifier.actionId != actionId ||
+                        !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
+                        executionModifier.advantageType == AdvantageType.None)
+                    {
+                        continue;
+                    }
+
+                    var num = executionModifier.advantageType == AdvantageType.Advantage ? 1 : -1;
+                    var featureOrigin = actor.RulesetCharacter.FeaturesOrigin[key];
+                    actionModifier1.AbilityCheckAdvantageTrends.Add(new TrendInfo(num, featureOrigin.sourceType,
+                        featureOrigin.sourceName, featureOrigin.source));
+                }
+            }
+
+            actor.RulesetCharacter.ResolveContestCheck(
+                abilityCheckBonus1,
+                actionModifier1.AbilityCheckModifier,
+                spellCastingAbility,
+                string.Empty,
+                actionModifier1.AbilityCheckAdvantageTrends,
+                actionModifier1.AbilityCheckModifierTrends,
+                abilityCheckBonus2,
+                actionModifier2.AbilityCheckModifier,
+                "Strength",
+                string.Empty,
+                actionModifier2.AbilityCheckAdvantageTrends,
+                actionModifier2.AbilityCheckModifierTrends,
+                opponent.RulesetCharacter,
+                out var outcome);
+            
+            return outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+        }
 
         private static void RollAbilityCheckAndTryMoveApplyRestrained(
-            RulesetCharacter actingRulesetCharacter,
+            GameLocationCharacter actingCharacter,
             // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter targetCharacter,
             RulesetEffectSpell rulesetSpell,
             CharacterAction action)
         {
+            var actingRulesetCharacter = actingCharacter.RulesetCharacter;
             var targetRulesetCharacter = targetCharacter.RulesetCharacter;
-            var isEnemy = actingRulesetCharacter.Side != targetCharacter.Side;
+            var isEnemy = actingCharacter.Side != targetCharacter.Side;
 
             if (isEnemy)
             {
@@ -888,41 +961,10 @@ internal static partial class SpellBuilders
                     .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire?
                     // assume Intelligence if no repertoire (ritual spell only used on Force Knight)
                     .SpellCastingAbility ?? AttributeDefinitions.Intelligence;
+                
+                var result = ResolveRolls(actingCharacter, targetCharacter, spellCastingAbility, action.ActionId);
 
-                var actingSpellAbility = actingRulesetCharacter.TryGetAttributeValue(spellCastingAbility);
-                var actingSpellAbilityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(actingSpellAbility);
-                var casterRoll = actingRulesetCharacter.RollDie(DieType.D20, RollContext.AbilityCheck, false,
-                    AdvantageType.None, out var r1, out var r2);
-                var casterCheck = actingSpellAbilityModifier + casterRoll;
-
-                var targetStrength = targetRulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
-                var targetStrengthModifier = AttributeDefinitions.ComputeAbilityScoreModifier(targetStrength);
-                var targetRoll = targetRulesetCharacter.RollDie(DieType.D20, RollContext.AbilityCheck, false,
-                    AdvantageType.None, out r1, out r2);
-                var targetCheck = targetStrengthModifier + targetRoll;
-
-                actingRulesetCharacter.ShowDieRoll(DieType.D20, r1, r2, advantage: AdvantageType.None,
-                    title: "Screen/&CraftingAbilityCheckTitle");
-                targetRulesetCharacter.ShowDieRoll(DieType.D20, r1, r2, advantage: AdvantageType.None,
-                    title: "Screen/&CraftingAbilityCheckTitle");
-
-                actingRulesetCharacter.LogCharacterActivatesAbility(
-                    Gui.NoLocalization, "Feedback/&TelekinesisContestCheck",
-                    true,
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, $"Attribute/&{spellCastingAbility}TitleLong"),
-                        (ConsoleStyleDuplet.ParameterType.Base, $"{casterRoll}+{actingSpellAbilityModifier}"),
-                        (casterCheck >= targetCheck ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                            $"{casterCheck}"),
-                        (ConsoleStyleDuplet.ParameterType.Enemy, targetCharacter.Name),
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, "Attribute/&StrengthTitleLong"),
-                        (ConsoleStyleDuplet.ParameterType.Base, $"{targetRoll}+{targetStrengthModifier}"),
-                        (targetCheck > casterCheck ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                            $"{targetCheck}")
-                    ]);
-
-                if (casterCheck < targetCheck)
+                if (!result)
                 {
                     return;
                 }

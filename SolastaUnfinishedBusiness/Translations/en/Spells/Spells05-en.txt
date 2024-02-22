@@ -6,7 +6,6 @@ Feature/&PowerSteelWhirlwindTeleportDescription=You can teleport to an unoccupie
 Feature/&PowerSteelWhirlwindTeleportTitle=Teleport
 Feedback/&AdditionalDamageBanishingSmiteFormat=Expelling Smite!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} deals more damage to {1} through a expelling smite (+{2})
-Feedback/&TelekinesisContestCheck={0} rolls a {2} check: {3} = {4}, and contests {5} {6} check: {7} = {8}.
 Spell/&BanishingSmiteDescription=Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 Spell/&BanishingSmiteTitle=Expelling Smite
 Spell/&CircleOfMagicalNegationDescription=Divine energy radiates from you, distorting and diffusing magical energy within 30 feet of you. Until the spell ends, the sphere moves with you, centered on you. For the duration, each friendly creature in the area, including you, has advantage on saving throws against spells and other magical effects. Additionally, when an affected creature succeeds on a saving throw made against a spell or magical effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throws.

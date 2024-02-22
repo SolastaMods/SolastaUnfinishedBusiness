@@ -374,13 +374,13 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .ExcludeCaster()
-                    .SetParticleEffectParameters(SpellDefinitions. MistyStep)
+                    .SetParticleEffectParameters(SpellDefinitions.MistyStep)
                     .Build())
             .AddToDB();
 
         var conditionTelekinesis = ConditionDefinitionBuilder
             .Create($"Condition{Name}TelekineticGrasp")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.  ConditionRevealedByDetectGoodOrEvil)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
             .SetPossessive()
             .SetFeatures(powerTelekinesis)
             .AddCustomSubFeatures(
@@ -424,7 +424,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder.ConditionForm(conditionTelekinesis),
                         EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost))
-                    .SetParticleEffectParameters(SpellDefinitions. MindTwist)
+                    .SetParticleEffectParameters(SpellDefinitions.MindTwist)
                     .Build())
             .AddToDB();
 
@@ -432,7 +432,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         powerTelekinesis.AddCustomSubFeatures(customBehavior);
         powerTelekinesisNoCost.AddCustomSubFeatures(customBehavior, ValidatorsValidatePowerUse.InCombat);
-        
+
         var powerTelekineticGrasp = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}TelekineticGrasp")
             .SetGuiPresentation(Category.Feature, SpellsContext.Telekinesis)
