@@ -1,12 +1,12 @@
 {
-  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -14,7 +14,7 @@
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": false,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "CharacterOnly",
@@ -30,21 +30,21 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Instantaneous",
+    "targetSide": "All",
+    "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": true,
-    "disableSavingThrowOnAllies": true,
-    "savingThrowAbility": "Strength",
-    "ignoreCover": true,
+    "endOfEffect": "EndOfSourceTurn",
+    "hasSavingThrow": false,
+    "disableSavingThrowOnAllies": false,
+    "savingThrowAbility": "Dexterity",
+    "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Intelligence",
-    "fixedSavingThrowDifficultyClass": 8,
+    "difficultyClassComputation": "SpellCastingFeature",
+    "savingThrowDifficultyAbility": "Wisdom",
+    "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "damageAffinitiesByFamily": [],
@@ -60,33 +60,7 @@
     "effectPoolAmount": 60,
     "effectApplication": "All",
     "effectFormFilters": [],
-    "effectForms": [
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Motion",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "motionForm": {
-          "$type": "MotionForm, Assembly-CSharp",
-          "type": "FallProne",
-          "distance": 0,
-          "forceTurnTowardsSourceCharacterAfterPush": false,
-          "forceSourceCharacterTurnTowardsTargetAfterPush": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      }
-    ],
+    "effectForms": [],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
@@ -113,7 +87,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "a4e2a49f9e9efdc4998f511c26659989",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -161,7 +135,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a60bb83d8b65ca84481f1b4f7d53f5c5",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -319,20 +293,20 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerMartialForceKnightPsionicAdeptProneTitle",
-    "description": "Feature/&PowerMartialForceKnightPsionicAdeptProneDescription",
+    "title": "Spell/&TelekinesisTitle",
+    "description": "Spell/&TelekinesisDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "1ec01396-1d15-5543-a8a6-0490105b8746",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -347,7 +321,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "233f277f-a8c4-52c4-aa4d-a6e020fe6ed1",
+  "guid": "89fc3c83-a60a-5e96-9a8b-3b296d8a9272",
   "contentPack": 9999,
-  "name": "PowerMartialForceKnightPsionicAdeptProne"
+  "name": "PowerMartialForceKnightSpellTelekineticGraspNoCost"
 }
