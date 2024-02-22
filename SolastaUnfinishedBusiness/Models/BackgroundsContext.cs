@@ -13,6 +13,7 @@ internal static class BackgroundsContext
     {
         LoadBackground(BackgroundsBuilders.BuildBackgroundDevoted());
         LoadBackground(BackgroundsBuilders.BuildBackgroundFarmer());
+        LoadBackground(BackgroundsBuilders.BuildBackgroundMilitia());
         LoadBackground(BackgroundsBuilders.BuildBackgroundTroublemaker());
 
         // sorting
