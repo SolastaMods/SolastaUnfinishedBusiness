@@ -163,8 +163,7 @@ internal static class SharedSpellsContext
         return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => x.SpellCastingClass == Warlock);
     }
 
-    internal static int GetSharedCasterLevel(
-        [CanBeNull] RulesetCharacterHero rulesetCharacterHero, bool isSlotLevel = false)
+    internal static int GetSharedCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (rulesetCharacterHero?.ClassesAndLevels == null)
         {
@@ -190,12 +189,6 @@ internal static class SharedSpellsContext
             var casterType = GetCasterTypeForClassOrSubclass(
                 currentCharacterClassDefinition.Name, subclassName);
 
-            // hack to allow correctly calculate slot level
-            if (isSlotLevel && casterType == CasterProgression.Half)
-            {
-                casterType = CasterProgression.HalfRoundUp;
-            }
-
             casterLevelContext.IncrementCasterLevel(casterType, classAndLevel.Value);
         }
 
@@ -204,7 +197,7 @@ internal static class SharedSpellsContext
 
     internal static int GetSharedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
     {
-        var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero, true);
+        var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero);
 
         return sharedCasterLevel > 0 ? FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0) : 0;
     }
@@ -277,7 +270,7 @@ internal static class SharedSpellsContext
         // first index is for absence of levels. always 0
         private static readonly int[] FromHalfCaster =
         [
-            0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10
+            0, 0, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10
         ];
 
         private static readonly int[] FromHalfRoundUpCaster =
