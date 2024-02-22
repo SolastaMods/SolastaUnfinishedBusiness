@@ -2342,6 +2342,7 @@ internal static partial class DatabaseHelper
 
     internal static class ItemDefinitions
     {
+        internal static ItemDefinition _10_Gold_Coins { get; } = GetDefinition<ItemDefinition>("10_Gold_Coins");
         internal static ItemDefinition _100_GP_Emerald { get; } = GetDefinition<ItemDefinition>("100_GP_Emerald");
         internal static ItemDefinition _100_GP_Pearl { get; } = GetDefinition<ItemDefinition>("100_GP_Pearl");
         internal static ItemDefinition _1000_GP_Diamond { get; } = GetDefinition<ItemDefinition>("1000_GP_Diamond");
