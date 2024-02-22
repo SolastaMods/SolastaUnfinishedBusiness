@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerMartialForceKnightForceDrive:d136d978-11bb-551e-b252-4c752d22bfc7",
+    "Definition:PowerMartialForceKnightForceDriveOncePerShort:17e91e81-846a-5a10-96a6-5961c86f3fcf",
+    "Definition:PowerMartialForceKnightForcePoweredStrike:d23689be-8825-5a60-8f92-dafabb2b2a47",
+    "Definition:PowerMartialForceKnightKineticBarrier:d13c0519-8824-57dd-9d24-9126cf81fe86",
+    "Definition:ActionAffinityForcePoweredStrikeToggle:cbbd4334-c6c1-5523-a29d-08e16284f63f",
+    "Definition:PowerMartialForceKnightPsionicInitiate:f8f85acb-48e6-5907-b452-d4f17ef11934"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetMartialForceKnightPsionicInitiateTitle",
+    "description": "Feature/&FeatureSetMartialForceKnightPsionicInitiateDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "611d246a-6d2b-5bc0-a6af-7b05c1649ecc",
+  "contentPack": 9999,
+  "name": "FeatureSetMartialForceKnightPsionicInitiate"
+}

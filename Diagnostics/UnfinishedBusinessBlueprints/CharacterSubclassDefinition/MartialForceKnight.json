@@ -1,0 +1,89 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetMartialForceKnightPsionicInitiate:611d246a-6d2b-5bc0-a6af-7b05c1649ecc",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerUseModifierMartialForceKnightPsionicInitiate06:67e0d948-e018-5eec-930f-4a053680e95d",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetMartialForceKnightPsionicAdept:584a617a-6320-5363-9489-30122d7d9fcd",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetMartialForceKnightPsionicPropulsion:5b7fbed9-6bc1-5e93-a61e-52b6ea06b373",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerUseModifierMartialForceKnightPsionicInitiate09:644e849d-3aad-59f8-acba-537313f770bd",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialForceKnightForceOfWill:cd181246-37e0-57e4-8cd0-924d991b4149",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerUseModifierMartialForceKnightPsionicInitiate12:fd7ec924-9679-56ee-9ede-e9781b9225e8",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialForceKnightForceBulwark:e66e7894-4855-5ada-9bc2-d9f439c3e18a",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerUseModifierMartialForceKnightPsionicInitiate15:a78aebe9-156b-5381-ba3f-2680234d9de7",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerUseModifierMartialForceKnightPsionicInitiate18:8135aa02-84e0-5959-aa32-43958ccac666",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialForceKnightTelekineticGrasp:1d8ec1e8-e2f5-503a-a327-d3e42be3fdfc",
+      "level": 18
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&MartialForceKnightTitle",
+    "description": "Subclass/&MartialForceKnightDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "124844dc-4a9d-5c4d-b326-4d2620dff676",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3c3d1f54-1426-5d7d-b53e-585f16a913f3",
+  "contentPack": 9999,
+  "name": "MartialForceKnight"
+}
