@@ -662,7 +662,7 @@ internal static partial class SpellBuilders
 
     #region Telekinesis
 
-    internal const string ConditionTelekinesisRestrainedName = "ConditionTelekinesisRestrained";
+    private const string ConditionTelekinesisRestrainedName = "ConditionTelekinesisRestrained";
 
     private const int TelekinesisRange = 12;
 
@@ -871,7 +871,7 @@ internal static partial class SpellBuilders
         }
 
         public int PositionRange => TelekinesisRange;
-        
+
         private static bool ResolveRolls(
             GameLocationCharacter actor,
             GameLocationCharacter opponent,
@@ -883,33 +883,33 @@ internal static partial class SpellBuilders
 
             var abilityCheckBonus1 = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(spellCastingAbility,
                 actionModifier1.AbilityCheckModifierTrends, string.Empty);
-            var abilityCheckBonus2 = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus("Strength",
+            var abilityCheckBonus2 = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(AttributeDefinitions.Strength,
                 actionModifier2.AbilityCheckModifierTrends, string.Empty);
 
             var contextField1 = 0;
-            
+
             if (!actor.RulesetCharacter.IsWearingHeavyArmor())
             {
                 contextField1 |= 64;
             }
 
             actor.ComputeAbilityCheckActionModifier(spellCastingAbility, string.Empty, actionModifier1, contextField1);
-            
+
             var contextField2 = 1;
-            
+
             if (!opponent.RulesetCharacter.IsWearingHeavyArmor())
             {
                 contextField2 |= 64;
             }
 
-            opponent.ComputeAbilityCheckActionModifier("Strength", string.Empty, actionModifier2, contextField2);
+            opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, string.Empty, actionModifier2, contextField2);
 
             actor.RulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
                 actor.RulesetCharacter.FeaturesToBrowse, actor.RulesetCharacter.FeaturesOrigin);
-            
+
             foreach (var key in actor.RulesetCharacter.FeaturesToBrowse)
             {
-                foreach (var executionModifier in ((key as IActionPerformanceProvider)!).ActionExecutionModifiers)
+                foreach (var executionModifier in (key as IActionPerformanceProvider)!.ActionExecutionModifiers)
                 {
                     if (executionModifier.actionId != actionId ||
                         !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
@@ -934,13 +934,13 @@ internal static partial class SpellBuilders
                 actionModifier1.AbilityCheckModifierTrends,
                 abilityCheckBonus2,
                 actionModifier2.AbilityCheckModifier,
-                "Strength",
+                AttributeDefinitions.Strength,
                 string.Empty,
                 actionModifier2.AbilityCheckAdvantageTrends,
                 actionModifier2.AbilityCheckModifierTrends,
                 opponent.RulesetCharacter,
                 out var outcome);
-            
+
             return outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
         }
 
@@ -961,7 +961,7 @@ internal static partial class SpellBuilders
                     .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire?
                     // assume Intelligence if no repertoire (ritual spell only used on Force Knight)
                     .SpellCastingAbility ?? AttributeDefinitions.Intelligence;
-                
+
                 var result = ResolveRolls(actingCharacter, targetCharacter, spellCastingAbility, action.ActionId);
 
                 if (!result)

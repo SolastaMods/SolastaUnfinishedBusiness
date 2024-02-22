@@ -301,7 +301,10 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
             var advantageTrends =
-                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, powerDeadlyFocus.Name, powerDeadlyFocus) };
+                new List<TrendInfo>
+                {
+                    new(1, FeatureSourceType.CharacterFeature, powerDeadlyFocus.Name, powerDeadlyFocus)
+                };
 
             // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetCharacter.RollAttack(
