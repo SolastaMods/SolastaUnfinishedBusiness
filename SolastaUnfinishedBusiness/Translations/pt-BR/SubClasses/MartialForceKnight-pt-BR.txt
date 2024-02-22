@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Suas armas corpo a corpo equipadas ganham 9 metros de alcance adicional.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Forçar acionamento
+Condition/&ConditionMartialForceKnightTelekineticGraspDescription=Você pode realizar um ataque com uma arma como uma ação bônus. Você pode usar sua ação para tentar manter seu controle telecinético sobre a criatura repetindo a disputa, ou mirar em uma nova criatura, encerrando o efeito restringido na criatura anteriormente afetada.
+Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Telecinese
 Feature/&FeatureMartialForceKnightForceOfWillDescription=Sua energia psiônica lhe concede uma resiliência extraordinária. No início de cada um dos seus turnos, você ganha pontos de vida temporários iguais ao seu modificador de Inteligência (mínimo de 1) se tiver pelo menos 1 ponto de vida. Além disso, você pode usar seu modificador de Inteligência em vez de seu modificador de Sabedoria e Carisma para testes de resistência, se for maior.
 Feature/&FeatureMartialForceKnightForceOfWillTitle=Força de vontade
 Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription=Agora você pode impor um teste de resistência de Força à criatura atingida pelo Golpe Fortalecido (CD = 8 + bônus de proficiência + modificador de Inteligência). Se a criatura falhar, você pode derrubá-la 4,5 metros ou derrubá-la.

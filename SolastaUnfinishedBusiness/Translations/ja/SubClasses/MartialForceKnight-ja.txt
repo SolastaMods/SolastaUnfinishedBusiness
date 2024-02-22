@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=装備した近接武器の射程距離は 30 フィート増加します。
 Condition/&ConditionMartialForceKnightForceDriveTitle=フォースドライブ
+Condition/&ConditionMartialForceKnightTelekineticGraspDescription=ボーナスアクションとして武器による攻撃を1回行うことができます。アクションを使用して、コンテストを繰り返してクリーチャーに対する念動力のグリップを維持しようとしたり、新しいクリーチャーをターゲットにして、以前に影響を受けたクリーチャーに対する拘束効果を終了したりすることができます。
+Condition/&ConditionMartialForceKnightTelekineticGraspTitle=テレキネシス
 Feature/&FeatureMartialForceKnightForceOfWillDescription=あなたのサイオニックエネルギーはあなたに並外れた回復力を与えます。あなたが少なくとも 1 ヒット ポイントを持っている場合、各ターンの開始時に、あなたは知力修正値 (最小 1) に等しい一時的なヒット ポイントを獲得します。さらに、[知性] 修正値が高い場合は、[知恵] 修正値と [カリスマ性] 修正値の代わりにセーヴィング スローに使用できます。
 Feature/&FeatureMartialForceKnightForceOfWillTitle=意志の力
 Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription=Force-Powered Strike で攻撃されたクリーチャーに Strength セーヴィング スローを課すことができるようになりました (難易度 = 8 + 熟練度ボーナス + 知力修正値)。クリーチャーがそれに失敗した場合、クリーチャーを 15 フィート後方にノックバックするか、伏せてノックすることができます。

@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Vos armes de mêlée équipées gagnent 30 pieds de portée supplémentaire.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Entraînement forcé
+Condition/&ConditionMartialForceKnightTelekineticGraspDescription=Vous pouvez effectuer une attaque avec une arme comme action bonus. Vous pouvez utiliser votre action pour tenter de maintenir votre emprise télékinésique sur la créature en répétant le concours, ou cibler une nouvelle créature, mettant ainsi fin à l'effet de retenue sur la créature précédemment affectée.
+Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Télékinésie
 Feature/&FeatureMartialForceKnightForceOfWillDescription=Votre énergie psionique vous confère une résilience extraordinaire. Au début de chacun de vos tours, vous gagnez des points de vie temporaires égaux à votre modificateur d'Intelligence (minimum de 1) si vous possédez au moins 1 point de vie. De plus, vous pouvez utiliser votre modificateur d'Intelligence à la place de votre modificateur de Sagesse et de Charisme pour les jets de sauvegarde s'il est plus élevé.
 Feature/&FeatureMartialForceKnightForceOfWillTitle=Force de volonté
 Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription=Vous pouvez désormais imposer un jet de sauvegarde de Force à la créature frappée par Frappe alimentée par la Force (DD = 8 + bonus de maîtrise + modificateur d'Intelligence). Si la créature échoue, vous pouvez soit la repousser de 15 pieds, soit la mettre à terre.

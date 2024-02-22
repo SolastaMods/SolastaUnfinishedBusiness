@@ -662,11 +662,19 @@ internal static partial class SpellBuilders
 
     #region Telekinesis
 
+    internal const string ConditionTelekinesisRestrainedName = "ConditionTelekinesisRestrained";
+
     private const int TelekinesisRange = 12;
 
     internal static SpellDefinition BuildTelekinesis()
     {
         const string Name = "Telekinesis";
+
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionRestrained, ConditionTelekinesisRestrainedName)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
+            .SetFeatures()
+            .AddToDB();
 
         var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128);
 
@@ -684,12 +692,6 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var conditionRestrained = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}Restrained")
-            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFeatures()
-            .AddToDB();
-
         var conditionTelekinesis = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionRevealedByDetectGoodOrEvil)
@@ -697,7 +699,7 @@ internal static partial class SpellBuilders
             .SetFeatures(powerTelekinesis)
             .AddCustomSubFeatures(
                 AddUsablePowersFromCondition.Marker,
-                new OnConditionAddedOrRemovedTelekinesis(conditionRestrained))
+                OnConditionAddedOrRemovedTelekinesis.Marker)
             .AddToDB();
 
         var powerTelekinesisNoCost = FeatureDefinitionPowerBuilder
@@ -710,7 +712,9 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(powerTelekinesisNoCost)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddCustomSubFeatures(
+                AddUsablePowersFromCondition.Marker,
+                OnConditionAddedOrRemovedTelekinesis.Marker)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
@@ -737,7 +741,7 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var customBehavior = new CustomBehaviorTelekinesis(conditionRestrained, conditionTelekinesisNoCost, spell);
+        var customBehavior = new CustomBehaviorTelekinesis(conditionTelekinesisNoCost, spell);
 
         powerTelekinesis.AddCustomSubFeatures(customBehavior);
         powerTelekinesisNoCost.AddCustomSubFeatures(customBehavior, ValidatorsValidatePowerUse.InCombat);
@@ -747,9 +751,7 @@ internal static partial class SpellBuilders
 
     private static void RemoveExistingRestrainedInstances(
         // ReSharper disable once SuggestBaseTypeForParameter
-        RulesetCharacter rulesetCaster,
-        // ReSharper disable once SuggestBaseTypeForParameter
-        ConditionDefinition conditionRestrained)
+        RulesetCharacter rulesetCaster)
     {
         if (Gui.Battle == null)
         {
@@ -760,7 +762,7 @@ internal static partial class SpellBuilders
                      .Select(locationContender => locationContender.RulesetCharacter))
         {
             if (!rulesetContender.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    conditionRestrained.Name, out var activeCondition) ||
+                    ConditionTelekinesisRestrainedName, out var activeCondition) ||
                 activeCondition.SourceGuid != rulesetCaster.Guid)
             {
                 continue;
@@ -772,9 +774,10 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class OnConditionAddedOrRemovedTelekinesis(ConditionDefinition conditionRestrained)
-        : IOnConditionAddedOrRemoved
+    internal sealed class OnConditionAddedOrRemovedTelekinesis : IOnConditionAddedOrRemoved
     {
+        internal static readonly OnConditionAddedOrRemovedTelekinesis Marker = new();
+
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -782,13 +785,12 @@ internal static partial class SpellBuilders
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            RemoveExistingRestrainedInstances(target, conditionRestrained);
+            RemoveExistingRestrainedInstances(target);
         }
     }
 
-    private sealed class CustomBehaviorTelekinesis(
+    internal sealed class CustomBehaviorTelekinesis(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionRestrained,
         ConditionDefinition conditionTelekinesisNoCost,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellTelekinesis)
@@ -857,26 +859,23 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            RemoveExistingRestrainedInstances(actingRulesetCharacter, conditionRestrained);
+            RemoveExistingRestrainedInstances(actingRulesetCharacter);
 
             var targetCharacter = action.ActionParams.TargetCharacters[0];
 
-            yield return RollAbilityCheckAndTryMoveApplyRestrained(
+            RollAbilityCheckAndTryMoveApplyRestrained(
                 actingRulesetCharacter,
                 targetCharacter,
-                conditionRestrained,
                 rulesetSpell,
                 action);
         }
 
         public int PositionRange => TelekinesisRange;
 
-        private static IEnumerator RollAbilityCheckAndTryMoveApplyRestrained(
+        private static void RollAbilityCheckAndTryMoveApplyRestrained(
             RulesetCharacter actingRulesetCharacter,
             // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter targetCharacter,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            ConditionDefinition conditionRestrained,
             RulesetEffectSpell rulesetSpell,
             CharacterAction action)
         {
@@ -925,7 +924,7 @@ internal static partial class SpellBuilders
 
                 if (casterCheck < targetCheck)
                 {
-                    yield break;
+                    return;
                 }
             }
 
@@ -939,11 +938,11 @@ internal static partial class SpellBuilders
 
             if (!isEnemy)
             {
-                yield break;
+                return;
             }
 
             targetRulesetCharacter.InflictCondition(
-                conditionRestrained.Name,
+                ConditionTelekinesisRestrainedName,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -951,7 +950,7 @@ internal static partial class SpellBuilders
                 actingRulesetCharacter.guid,
                 actingRulesetCharacter.CurrentFaction.Name,
                 1,
-                conditionRestrained.Name,
+                ConditionTelekinesisRestrainedName,
                 0,
                 0,
                 0);

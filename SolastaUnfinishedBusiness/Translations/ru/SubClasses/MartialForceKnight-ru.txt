@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Ваше рукопашное оружие, которое вы держите в руках, получает дополнительную досягаемость в 30 футов.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Движение силы
+Condition/&ConditionMartialForceKnightTelekineticGraspDescription=Бонусным действием вы можете совершить одну атаку оружием. Вы можете действием попытаться сохранить телекинетическую хватку над существом, повторяя состязание, или нацелиться на новое существо, прекратив сдерживающий эффект на ранее затронутое существо.
+Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Телекинез
 Feature/&FeatureMartialForceKnightForceOfWillDescription=Ваша псионическая энергия наделяет вас необычайной стойкостью. В начале каждого вашего хода, если уровень вашего здоровья составляет хотя бы 1 ОЗ, вы получаете временные хиты, равные вашему модификатору Интеллекта (минимум 1). Кроме того, вы можете использовать модификатор Интеллекта вместо модификаторов Мудрости и Харизмы для спасбросков, если он выше.
 Feature/&FeatureMartialForceKnightForceOfWillTitle=Сила воли
 Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription=Теперь вы можете наложить спасбросок Силы на существо, пораженное Ударом Силы (УС = 8 + бонус мастерства + модификатор Интеллекта). Если существо терпит неудачу, вы можете либо отбросить существо на 15 футов, либо сбить его с ног.
