@@ -258,13 +258,8 @@ public static class CursorLocationSelectPositionPatcher
         {
             actionResult = CursorDefinitions.CursorActionResult.None;
 
-            var actionParams = __instance.ActionParams;
-            var effectDescription = actionParams.RulesetEffect.EffectDescription;
-
-            return __instance.validPositionsCache.Contains(__instance.HoveredLocation) ||
-                   !effectDescription.EffectForms.Any(x =>
-                       x.FormType == EffectForm.EffectFormType.Motion &&
-                       x.MotionForm.Type == MotionForm.MotionType.TeleportToDestination);
+            return __instance.validPositionsCache.Count == 0 ||
+                   __instance.validPositionsCache.Contains(__instance.HoveredLocation);
         }
     }
 }
