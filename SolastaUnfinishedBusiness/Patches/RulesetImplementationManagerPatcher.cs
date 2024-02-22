@@ -358,26 +358,131 @@ public static class RulesetImplementationManagerPatcher
         }
     }
 
-    //PATCH:
-    // Call parts of the stuff `RulesetImplementationManagerLocation` does for `RulesetImplementationManagerCampaign`
-    // This makes light and item effects correctly terminate when resting during world travel
-    // The code is prettified decompiled code from `RulesetImplementationManagerLocation`
+
     [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.TerminateEffect))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class TerminateEffect_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
+        public static bool Prefix(RulesetImplementationManager __instance, RulesetEffect activeEffect,
+            bool showGraphics)
         {
-            //PATCH: allows for extra careful tracking of summoned items
-            //removes tracked items from any character, container or loot pile
-            //used for Inventor's item summoning
+            //PATCH:
+            // allows for extra careful tracking of summoned items
+            // removes tracked items from any character, container or loot pile
+            // used for Inventor's item summoning
             TrackItemsCarefully.Process(activeEffect);
+
+            // vanilla code with enumeration protection
+            TerminateEffect(__instance, activeEffect, showGraphics);
+
+            //PATCH:
+            // Call parts of the stuff `RulesetImplementationManagerLocation` does for `RulesetImplementationManagerCampaign`
+            // This makes light and item effects correctly terminate when resting during world travel
+            // The code is prettified decompiled code from `RulesetImplementationManagerLocation`
+            TerminateLightAndItemEffectsOnWorldTravel(__instance, activeEffect);
+
+            return false;
+        }
+
+        // original vanilla code
+        private static void TerminateEffect(
+            RulesetImplementationManager __instance, RulesetEffect activeEffect, bool showGraphics = true)
+        {
+            activeEffect.Terminated = true;
+            __instance.ClearDamageFormsByIndex();
+
+            if (activeEffect.TrackedConditionGuids.Count > 0)
+            {
+                __instance.conditionGuidsToProcess.AddRange(activeEffect.TrackedConditionGuids);
+
+                foreach (var guid in __instance.conditionGuidsToProcess.ToList())
+                {
+                    RulesetCondition rulesetCondition = null;
+                    ref var local = ref rulesetCondition;
+
+                    if (!RulesetEntity.TryGetEntity(guid, out local))
+                    {
+                        continue;
+                    }
+
+                    if (RulesetEntity.TryGetEntity(rulesetCondition.TargetGuid, out RulesetCharacter entity))
+                    {
+                        entity.ConditionRemoved -= activeEffect.ConditionRemoved;
+                    }
+                }
+
+                foreach (var guid in __instance.conditionGuidsToProcess.ToList())
+                {
+                    RulesetCondition rulesetCondition = null;
+                    ref var local = ref rulesetCondition;
+
+                    if (!RulesetEntity.TryGetEntity(guid, out local))
+                    {
+                        continue;
+                    }
+
+                    rulesetCondition.EndOfDurationReached = activeEffect.EndOfDurationReached;
+
+                    if (!RulesetEntity.TryGetEntity(rulesetCondition.TargetGuid, out RulesetCharacter entity1))
+                    {
+                        continue;
+                    }
+
+                    entity1.RemoveCondition(rulesetCondition, showGraphics: showGraphics);
+
+                    var entity2 = RulesetEntity.GetEntity<RulesetCharacter>(rulesetCondition.SourceGuid);
+                    var conditionTrackingStopped = activeEffect.ConditionTrackingStopped;
+
+                    conditionTrackingStopped?.Invoke(
+                        entity2, entity1, activeEffect.EffectDescription, rulesetCondition, showGraphics);
+                }
+
+                activeEffect.TrackedConditionGuids.Clear();
+                __instance.conditionGuidsToProcess.Clear();
+            }
+
+            if (activeEffect.TrackedSummonedItemGuids.Count <= 0)
+            {
+                return;
+            }
+
+            __instance.summonedItemGuidsToProcess.AddRange(activeEffect.TrackedSummonedItemGuids);
+
+            foreach (var guid in __instance.summonedItemGuidsToProcess.ToList())
+            {
+                RulesetItem rulesetItem = null;
+                ref var local = ref rulesetItem;
+
+                if (RulesetEntity.TryGetEntity(guid, out local))
+                {
+                    rulesetItem.ItemDestroyed -= activeEffect.ItemDestroyed;
+                }
+            }
+
+            foreach (var guid in __instance.summonedItemGuidsToProcess.ToList())
+            {
+                RulesetItem itemToLose = null;
+                ref var local = ref itemToLose;
+
+                if (!RulesetEntity.TryGetEntity(guid, out local) ||
+                    !RulesetEntity.TryGetEntity(activeEffect.SourceGuid, out RulesetCharacter entity))
+                {
+                    continue;
+                }
+
+                entity.LoseItem(itemToLose);
+                itemToLose.Unregister();
+            }
+
+            activeEffect.TrackedSummonedItemGuids.Clear();
+            __instance.summonedItemGuidsToProcess.Clear();
         }
 
         [UsedImplicitly]
-        public static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
+        private static void TerminateLightAndItemEffectsOnWorldTravel(
+            RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
             if (__instance is not RulesetImplementationManagerCampaign)
             {
