@@ -43,6 +43,11 @@ internal static class IconsOnPortrait
             pools.Add(PortraitPointEldritchVersatility.Instance);
         }
 
+        if (character.HasAnyFeature(MartialForceKnight.PowerPsionicInitiate))
+        {
+            pools.Add(PortraitPointForcePoints.Instance);
+        }
+
         if (character.HasAnyFeature(MartialWarlord.PowerCoordinatedAssault))
         {
             pools.Add(PortraitPointCoordinatedAssault.Instance);

@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -31,21 +32,19 @@ public sealed class MartialForceKnight : AbstractSubclass
     private const ActionDefinitions.Id ForcePoweredStrikeToggle =
         (ActionDefinitions.Id)ExtraActionId.ForcePoweredStrikeToggle;
 
+    internal static readonly FeatureDefinitionPower PowerPsionicInitiate = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}PsionicInitiate")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
+        .AddCustomSubFeatures(
+            HasModifiedUses.Marker,
+            IsModifyPowerPool.Marker,
+            ModifyPowerVisibility.Hidden)
+        .AddToDB();
+
     public MartialForceKnight()
     {
         // LEVEL 03
-
-        // Psionic Initiate
-
-        var powerPsionicInitiate = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}PsionicInitiate")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 3)
-            .AddCustomSubFeatures(
-                HasModifiedUses.Marker,
-                IsModifyPowerPool.Marker,
-                ModifyPowerVisibility.Hidden)
-            .AddToDB();
 
         // Force-Powered Strike
 
@@ -54,7 +53,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ForcePoweredStrikeToggle)
-            .AddCustomSubFeatures(new ActionItemDiceBoxForcePoweredStrike(powerPsionicInitiate))
+            .AddCustomSubFeatures(new ActionItemDiceBoxForcePoweredStrike(PowerPsionicInitiate))
             .AddToDB();
 
         var actionAffinityForcePoweredStrikeToggle = FeatureDefinitionActionAffinityBuilder
@@ -62,13 +61,13 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(ForcePoweredStrikeToggle)
             .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(powerPsionicInitiate)))
+                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerPsionicInitiate)))
             .AddToDB();
 
         var powerForcePoweredStrike = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ForcePoweredStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, powerPsionicInitiate)
+            .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -87,8 +86,8 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var conditionKineticBarrier = ConditionDefinitionBuilder
             .Create($"Condition{Name}KineticBarrier")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            //.SetGuiPresentationNoContent(true)
+            //.SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}KineticBarrier")
@@ -103,22 +102,21 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var conditionKineticBarrierApply = ConditionDefinitionBuilder
             .Create($"Condition{Name}KineticBarrierApply")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedKineticBarrier(conditionKineticBarrier))
-            .SetFixedAmount(1)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            //.SetGuiPresentationNoContent(true)
+            //.SetSilent(Silent.WhenAddedOrRemoved)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedKineticBarrierApply(conditionKineticBarrier))
+            .SetCancellingConditions(conditionKineticBarrier)
             .AddToDB();
 
         var powerKineticBarrier = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}KineticBarrier")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.Reaction, powerPsionicInitiate)
+            .SetSharedPool(ActivationTime.Reaction, PowerPsionicInitiate)
             .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round)
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrierApply))
                     .Build())
@@ -159,7 +157,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         var powerForceDrive = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ForceDrive")
             .SetGuiPresentation(Category.Feature, forceDriveSprite)
-            .SetSharedPool(ActivationTime.NoCost, powerPsionicInitiate)
+            .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -180,7 +178,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create($"FeatureSet{Name}PsionicInitiate")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                powerPsionicInitiate,
+                PowerPsionicInitiate,
                 powerForcePoweredStrike, actionAffinityForcePoweredStrikeToggle,
                 powerKineticBarrier,
                 powerForceDrive, powerForceDriveOncePerShort)
@@ -249,7 +247,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         var featureSetPsionicAdept = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}PsionicAdept")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerPsionicInitiate, powerPsionicAdeptProne, powerPsionicAdeptPush)
+            .AddFeatureSet(PowerPsionicInitiate, powerPsionicAdeptProne, powerPsionicAdeptPush)
             .AddToDB();
 
         // Psionic Propulsion
@@ -322,7 +320,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         var powerPsionicPropulsion = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}PsionicPropulsion")
             .SetGuiPresentation(Category.Feature, psionicPropulsionSprite)
-            .SetSharedPool(ActivationTime.BonusAction, powerPsionicInitiate)
+            .SetSharedPool(ActivationTime.BonusAction, PowerPsionicInitiate)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -385,7 +383,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create($"Power{Name}ForceBulwark")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerForceBulwark", Resources.PowerForceBulwark, 128))
-            .SetSharedPool(ActivationTime.BonusAction, powerPsionicInitiate)
+            .SetSharedPool(ActivationTime.BonusAction, PowerPsionicInitiate)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -474,11 +472,15 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionTelekinesis),
-                        EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost))
+                        EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost),
+                        EffectFormBuilder.ConditionForm(conditionTelekinesis))
                     .SetParticleEffectParameters(SpellDefinitions.MindTwist)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference = new AssetReference();
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
 
         var customBehavior = new SpellBuilders.CustomBehaviorTelekinesis(conditionTelekinesisNoCost, spell);
 
@@ -488,7 +490,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         var powerTelekineticGrasp = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}TelekineticGrasp")
             .SetGuiPresentation(Category.Feature, SpellsContext.Telekinesis)
-            .SetSharedPool(ActivationTime.Action, powerPsionicInitiate)
+            .SetSharedPool(ActivationTime.Action, PowerPsionicInitiate)
             .SetShowCasting(false)
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionTelekinesis.Name)),
@@ -501,13 +503,13 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardGravityMage, 256))
             .AddFeaturesAtLevel(3, featureSetPsionicInitiate)
-            .AddFeaturesAtLevel(6, BuildPowerModifier(powerPsionicInitiate, 6))
+            .AddFeaturesAtLevel(6, BuildPowerModifier(PowerPsionicInitiate, 6))
             .AddFeaturesAtLevel(7, featureSetPsionicAdept, featureSetPsionicPropulsion)
-            .AddFeaturesAtLevel(9, BuildPowerModifier(powerPsionicInitiate, 9))
+            .AddFeaturesAtLevel(9, BuildPowerModifier(PowerPsionicInitiate, 9))
             .AddFeaturesAtLevel(10, featureForceOfWill)
-            .AddFeaturesAtLevel(12, BuildPowerModifier(powerPsionicInitiate, 12))
-            .AddFeaturesAtLevel(15, BuildPowerModifier(powerPsionicInitiate, 15), powerForceBulwark)
-            .AddFeaturesAtLevel(18, BuildPowerModifier(powerPsionicInitiate, 18), powerTelekineticGrasp)
+            .AddFeaturesAtLevel(12, BuildPowerModifier(PowerPsionicInitiate, 12))
+            .AddFeaturesAtLevel(15, BuildPowerModifier(PowerPsionicInitiate, 15), powerForceBulwark)
+            .AddFeaturesAtLevel(18, BuildPowerModifier(PowerPsionicInitiate, 18), powerTelekineticGrasp)
             .AddToDB();
     }
 
@@ -769,7 +771,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         }
     }
 
-    private sealed class OnConditionAddedOrRemovedKineticBarrier(
+    private sealed class OnConditionAddedOrRemovedKineticBarrierApply(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionKineticBarrier) : IOnConditionAddedOrRemoved
     {
@@ -786,8 +788,8 @@ public sealed class MartialForceKnight : AbstractSubclass
                 conditionKineticBarrier.Name,
                 DurationType.Round,
                 0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagStatus,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
                 caster.Guid,
                 caster.CurrentFaction.Name,
                 1,
