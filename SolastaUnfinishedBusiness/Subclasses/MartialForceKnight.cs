@@ -53,59 +53,57 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ForcePoweredStrikeToggle)
-            .AddCustomSubFeatures(new ActionItemDiceBoxForcePoweredStrike(PowerPsionicInitiate))
+            .AddCustomSubFeatures(new ActionItemDiceBoxForcePoweredStrike())
+            .AddToDB();
+
+        var additionalDamageForcePoweredStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}ForcePoweredStrike")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("ForcePoweredStrike")
+            .SetDamageDice(DieType.D6, 1)
+            .SetSpecificDamageType(DamageTypeForce)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .AddCustomSubFeatures(
+                new ModifyAdditionalDamageFormPoweredStrike(),
+                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
+            .AddToDB();
+
+        var conditionForcePoweredStrike = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ForcePoweredStrike")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamageForcePoweredStrike)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
         var actionAffinityForcePoweredStrikeToggle = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinitySorcererMetamagicToggle, "ActionAffinityForcePoweredStrikeToggle")
             .SetGuiPresentationNoContent(true)
             .SetAuthorizedActions(ForcePoweredStrikeToggle)
-            .AddCustomSubFeatures(
-                new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerPsionicInitiate)))
             .AddToDB();
 
-        var powerForcePoweredStrike = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"Power{Name}ForcePoweredStrike")
-            .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
-            .SetShowCasting(false)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 1, DieType.D6))
-                    .Build())
-            .AddToDB();
-
-        powerForcePoweredStrike.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new CustomBehaviorForcePoweredStrike(powerForcePoweredStrike));
+        // var powerForcePoweredStrike = FeatureDefinitionPowerSharedPoolBuilder
+        //     .Create($"Power{Name}ForcePoweredStrike")
+        //     .SetGuiPresentationNoContent(true)
+        //     .AddToDB();
 
         // Kinetic Barrier
 
         var conditionKineticBarrier = ConditionDefinitionBuilder
             .Create($"Condition{Name}KineticBarrier")
-            //.SetGuiPresentationNoContent(true)
-            //.SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}KineticBarrier")
-                    .SetGuiPresentation($"Power{Name}KineticBarrier", Category.Feature)
+                    .SetGuiPresentation($"Power{Name}KineticBarrier", Category.Feature, Gui.NoLocalization)
                     .SetModifier(
                         FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
                         AttributeDefinitions.ArmorClass)
                     .AddToDB())
             .SetFixedAmount(1)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        var conditionKineticBarrierApply = ConditionDefinitionBuilder
-            .Create($"Condition{Name}KineticBarrierApply")
-            //.SetGuiPresentationNoContent(true)
-            //.SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedKineticBarrierApply(conditionKineticBarrier))
-            .SetCancellingConditions(conditionKineticBarrier)
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedKineticBarrier())
             .AddToDB();
 
         var powerKineticBarrier = FeatureDefinitionPowerSharedPoolBuilder
@@ -118,7 +116,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrierApply))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrier))
                     .Build())
             .AddToDB();
 
@@ -179,9 +177,10 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 PowerPsionicInitiate,
-                powerForcePoweredStrike, actionAffinityForcePoweredStrikeToggle,
+                actionAffinityForcePoweredStrikeToggle,
                 powerKineticBarrier,
-                powerForceDrive, powerForceDriveOncePerShort)
+                powerForceDrive,
+                powerForceDriveOncePerShort)
             .AddToDB();
 
         // LEVEL 07
@@ -242,7 +241,9 @@ public sealed class MartialForceKnight : AbstractSubclass
         PowerBundle.RegisterPowerBundle(powerPsionicAdept, true,
             powerPsionicAdeptProne, powerPsionicAdeptPush);
 
-        powerForcePoweredStrike.AddCustomSubFeatures(new MagicEffectFinishedByMePsionicAdept(powerPsionicAdept));
+        actionAffinityForcePoweredStrikeToggle.AddCustomSubFeatures(
+            new ValidateDefinitionApplication(ValidatorsCharacter.HasAvailablePowerUsage(PowerPsionicInitiate)),
+            new AttackBeforeHitConfirmedOnEnemyForcePoweredStrike(conditionForcePoweredStrike, powerPsionicAdept));
 
         var featureSetPsionicAdept = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}PsionicAdept")
@@ -559,12 +560,13 @@ public sealed class MartialForceKnight : AbstractSubclass
     // Force Powered Strike
     //
 
-    private sealed class CustomBehaviorForcePoweredStrike(
+    private sealed class AttackBeforeHitConfirmedOnEnemyForcePoweredStrike(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerForcePoweredStrike) : IModifyEffectDescription, IAttackBeforeHitConfirmedOnEnemy,
-        IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMe
+        ConditionDefinition conditionForcePoweredStrike,
+        FeatureDefinitionPower powerPsionicAdept) : IPhysicalAttackInitiatedByMe,
+        IAttackBeforeHitConfirmedOnEnemy, IPhysicalAttackFinishedByMe
     {
-        private bool _isCritical;
+        private bool _considerTriggerPsionicAdept;
 
         public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
@@ -579,43 +581,38 @@ public sealed class MartialForceKnight : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            _isCritical = criticalHit;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            yield break;
-        }
-
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            _isCritical = false;
-
-            yield break;
-        }
-
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerForcePoweredStrike;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var dieType = GetForcePoweredStrikeSize(character);
-            var intMod = GetIntModifier(character);
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            if (damageForm == null)
+            if (!attacker.OnceInMyTurnIsValid("ForcePoweredStrike") ||
+                rulesetAttacker.GetRemainingPowerUses(PowerPsionicInitiate) == 0 ||
+                !rulesetAttacker.IsToggleEnabled(ForcePoweredStrikeToggle))
             {
-                return effectDescription;
+                yield break;
             }
 
-            damageForm.BonusDamage = intMod;
-            damageForm.DiceNumber = _isCritical ? 2 : 1;
-            damageForm.DieType = dieType;
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
+            {
+                yield break;
+            }
 
-            return effectDescription;
+            _considerTriggerPsionicAdept = true;
+
+            attacker.UsedSpecialFeatures.TryAdd("ForcePoweredStrike", 0);
+            rulesetAttacker.UpdateUsageForPower(PowerPsionicInitiate, 1);
+
+            rulesetAttacker.InflictCondition(
+                conditionForcePoweredStrike.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                conditionForcePoweredStrike.Name,
+                0,
+                0,
+                0);
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -627,6 +624,11 @@ public sealed class MartialForceKnight : AbstractSubclass
             RollOutcome rollOutcome,
             int damageAmount)
         {
+            if (!_considerTriggerPsionicAdept)
+            {
+                yield break;
+            }
+
             var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (actionManager == null)
@@ -634,56 +636,83 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
+            if (defender.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            if (!attacker.OnceInMyTurnIsValid(powerForcePoweredStrike.Name) ||
-                rulesetAttacker.GetRemainingPowerUses(powerForcePoweredStrike) == 0 ||
-                !rulesetAttacker.IsToggleEnabled(ForcePoweredStrikeToggle))
+            var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
+
+            if (levels < 7)
             {
                 yield break;
             }
-
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(attackMode))
-            {
-                yield break;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(powerForcePoweredStrike.Name, 0);
 
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerForcePoweredStrike, rulesetAttacker);
-            var actionParams =
-                new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-                {
-                    ActionModifiers = { new ActionModifier() },
-                    RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                    UsablePower = usablePower,
-                    TargetCharacters = { defender }
-                };
+            var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetCharacter);
+            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                StringParameter = "PsionicAdept",
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
 
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            var count = actionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
+
+            actionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
+        }
+
+        public IEnumerator OnPhysicalAttackInitiatedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
+        {
+            _considerTriggerPsionicAdept = false;
+
+            yield break;
         }
     }
 
-    private sealed class ActionItemDiceBoxForcePoweredStrike(FeatureDefinitionPower powerPsionicInitiate)
-        : IActionItemDiceBox
+    private sealed class ModifyAdditionalDamageFormPoweredStrike : IModifyAdditionalDamageForm
+    {
+        public DamageForm AdditionalDamageForm(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
+            DamageForm damageForm)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var dieType = GetForcePoweredStrikeSize(rulesetAttacker);
+            var intMod = GetIntModifier(rulesetAttacker);
+
+            damageForm.BonusDamage = intMod;
+            damageForm.DieType = dieType;
+
+            return damageForm;
+        }
+    }
+
+    private sealed class ActionItemDiceBoxForcePoweredStrike : IActionItemDiceBox
     {
         public (DieType type, int number, string format) GetDiceInfo(RulesetCharacter character)
         {
-            return (GetForcePoweredStrikeSize(character), character.GetRemainingPowerUses(powerPsionicInitiate),
-                "Screen/&ForcePoweredStrikeDieDescription");
+            return (GetForcePoweredStrikeSize(character), character.GetRemainingPowerUses(PowerPsionicInitiate),
+                "Tooltip/&ForcePoweredStrikeDieDescription");
         }
     }
 
@@ -771,9 +800,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         }
     }
 
-    private sealed class OnConditionAddedOrRemovedKineticBarrierApply(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionKineticBarrier) : IOnConditionAddedOrRemoved
+    private sealed class OnConditionAddedOrRemovedKineticBarrier : IOnConditionAddedOrRemoved
     {
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
@@ -784,75 +811,14 @@ public sealed class MartialForceKnight : AbstractSubclass
                 return;
             }
 
-            target.InflictCondition(
-                conditionKineticBarrier.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                caster.Guid,
-                caster.CurrentFaction.Name,
-                1,
-                conditionKineticBarrier.Name,
-                GetIntModifier(caster),
-                0,
-                0);
+            rulesetCondition.Amount = GetIntModifier(caster);
+
+            target.RefreshArmorClass();
         }
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
-        }
-    }
-
-    //
-    // Psionic Adept
-    //
-
-    private sealed class MagicEffectFinishedByMePsionicAdept(FeatureDefinitionPower powerPsionicInitiate) :
-        IMagicEffectFinishedByMe
-    {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (actionManager == null ||
-                battleManager is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
-
-            if (levels < 7)
-            {
-                yield break;
-            }
-
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
-            var usablePower = PowerProvider.Get(powerPsionicInitiate, rulesetCharacter);
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                StringParameter = "PsionicAdept",
-                RulesetEffect = implementationManagerService
-                    .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { action.ActionParams.TargetCharacters[0] }
-            };
-
-            var count = actionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestSpendBundlePower(actionParams);
-
-            actionManager.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
         }
     }
 
@@ -914,8 +880,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
     private sealed class ForceOfWill(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureForceOfWill)
-        : ICharacterTurnStartListener, IRollSavingThrowInitiated
+        FeatureDefinition featureForceOfWill) : ICharacterTurnStartListener, IRollSavingThrowInitiated
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -1006,7 +971,8 @@ public sealed class MartialForceKnight : AbstractSubclass
     }
 
     private sealed class ModifyEffectDescriptionForceBulwark(
-        BaseDefinition powerForceBulwark) : IModifyEffectDescription
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerForceBulwark) : IModifyEffectDescription
     {
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
