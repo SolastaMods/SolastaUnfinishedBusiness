@@ -78,6 +78,37 @@ public static class RulesetCharacterPatcher
             !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
 
+    //PATCH: supports `AddFighterLevelToIndomitableSavingReroll`
+    [HarmonyPatch(typeof(RulesetCharacter),
+        nameof(RulesetCharacter.UseIndomitableResistance))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class UseIndomitableResistance_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance)
+        {
+            if (!Main.Settings.AddFighterLevelToIndomitableSavingReroll)
+            {
+                return;
+            }
+
+            __instance.InflictCondition(
+                CharacterContext.ConditionIndomitableSaving.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                __instance.Guid,
+                __instance.CurrentFaction.Name,
+                1,
+                CharacterContext.ConditionIndomitableSaving.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.IsWieldingMonkWeapon))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

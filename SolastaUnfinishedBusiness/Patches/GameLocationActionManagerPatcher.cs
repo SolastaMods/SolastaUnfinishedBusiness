@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -15,39 +14,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationActionManagerPatcher
 {
-    //PATCH: supports `AddFighterLevelToIndomitableSavingReroll`
-    [HarmonyPatch(typeof(GameLocationActionManager),
-        nameof(GameLocationActionManager.ReactToIndomitableResistSavingThrow))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class ReactToIndomitableResistSavingThrow_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(CharacterActionParams reactionParams)
-        {
-            if (!Main.Settings.AddFighterLevelToIndomitableSavingReroll)
-            {
-                return;
-            }
-
-            var rulesetCharacter = reactionParams.ActingCharacter.RulesetCharacter;
-
-            rulesetCharacter.InflictCondition(
-                CharacterContext.ConditionIndomitableSaving.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                CharacterContext.ConditionIndomitableSaving.Name,
-                0,
-                0,
-                0);
-        }
-    }
-
     [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.ReactToSpendSpellSlot))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
