@@ -237,6 +237,7 @@ Tooltip/&CustomMapMarkerCamp=야영지
 Tooltip/&CustomMapMarkerExit=출구
 Tooltip/&CustomMapMarkerTeleport=순간이동기
 Tooltip/&FeatGroupTitle=특성 그룹
+Tooltip/&ForcePointsPortraitPoolFormat=포스 포인트 {1}회 사용 중 {0}회를 사용했습니다.\n짧거나 긴 휴식을 취하면 모든 사용이 복원됩니다.
 Tooltip/&InvocationUsageShortRestAvailableDescription=이 영창을 사용한 후에 다시 활성화하려면 짧은 또는 긴 휴식을 취해야 합니다.
 Tooltip/&InvocationUsageShortRestUsedDescription=이 영창을 다시 활성화하려면 짧은 또는 긴 휴식을 취해야 합니다.
 Tooltip/&LightingTargetPerceiveFormat={0}이(가) 인식되지 않습니다

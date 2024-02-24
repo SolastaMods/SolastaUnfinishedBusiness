@@ -237,6 +237,7 @@ Tooltip/&CustomMapMarkerCamp=Лагерь
 Tooltip/&CustomMapMarkerExit=Выход
 Tooltip/&CustomMapMarkerTeleport=Телепорт
 Tooltip/&FeatGroupTitle=Группа особенностей
+Tooltip/&ForcePointsPortraitPoolFormat=У вас есть {0} из {1} использований очков силы.\nВсе использования восстанавливаются после короткого или длительного отдыха.
 Tooltip/&InvocationUsageShortRestAvailableDescription=После использования этого воззвания необходимо окончить короткий или продолжительный отдых, чтобы воспользоваться им вновь.
 Tooltip/&InvocationUsageShortRestUsedDescription=Для повторной активации этого воззвания необходимо окончить короткий или продолжительный отдых.
 Tooltip/&LightingTargetPerceiveFormat={0} невозможно различить

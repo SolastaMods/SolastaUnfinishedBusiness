@@ -237,6 +237,7 @@ Tooltip/&CustomMapMarkerCamp=キャンプ
 Tooltip/&CustomMapMarkerExit=出口
 Tooltip/&CustomMapMarkerTeleport=テレポーター
 Tooltip/&FeatGroupTitle=偉業グループ
+Tooltip/&ForcePointsPortraitPoolFormat=フォース ポイントを {1} 回中 {0} 回使用しました。\nすべての使用量は、短いまたは長い休憩で回復します。
 Tooltip/&InvocationUsageShortRestAvailableDescription=一度使用すると、この呼び出しを再度アクティブ化するには、短いまたは長い休憩が必要になります。
 Tooltip/&InvocationUsageShortRestUsedDescription=この呼び出しを再度アクティブ化するには、短いまたは長い休憩が必要です。
 Tooltip/&LightingTargetPerceiveFormat={0} は認識されません

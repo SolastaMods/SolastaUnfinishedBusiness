@@ -238,6 +238,7 @@ Tooltip/&CustomMapMarkerCamp=Campo
 Tooltip/&CustomMapMarkerExit=Uscita
 Tooltip/&CustomMapMarkerTeleport=Teletrasporto
 Tooltip/&FeatGroupTitle=Gruppo di imprese
+Tooltip/&ForcePointsPortraitPoolFormat=Hai {0} usi su {1} di Punti Forza.\nTutti gli usi vengono ripristinati con un riposo breve o lungo.
 Tooltip/&InvocationUsageShortRestAvailableDescription=Una volta utilizzata, questa invocazione richiederà un riposo breve o lungo per essere nuovamente attivata.
 Tooltip/&InvocationUsageShortRestUsedDescription=Questa invocazione richiede un riposo breve o lungo per essere riattivata.
 Tooltip/&LightingTargetPerceiveFormat={0} non viene percepito

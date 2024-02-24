@@ -237,6 +237,7 @@ Tooltip/&CustomMapMarkerCamp=Lager
 Tooltip/&CustomMapMarkerExit=Ausfahrt
 Tooltip/&CustomMapMarkerTeleport=Teleporter
 Tooltip/&FeatGroupTitle=Feat-Gruppe
+Tooltip/&ForcePointsPortraitPoolFormat=Sie haben {0} von {1} Nutzungen von Kraftpunkten.\nAlle Nutzungen werden bei einer kurzen oder langen Pause wiederhergestellt.
 Tooltip/&InvocationUsageShortRestAvailableDescription=Nach der Verwendung erfordert dieser Aufruf eine kurze oder lange Pause, um erneut aktiviert zu werden.
 Tooltip/&InvocationUsageShortRestUsedDescription=Dieser Aufruf erfordert eine kurze oder lange Pause, um erneut aktiviert zu werden.
 Tooltip/&LightingTargetPerceiveFormat={0} wird nicht wahrgenommen

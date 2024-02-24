@@ -237,6 +237,7 @@ Tooltip/&CustomMapMarkerCamp=Camp
 Tooltip/&CustomMapMarkerExit=Exit
 Tooltip/&CustomMapMarkerTeleport=Teleporter
 Tooltip/&FeatGroupTitle=Feat Group
+Tooltip/&ForcePointsPortraitPoolFormat=You have {0} out of {1} uses of Force Points.\nAll uses are restored on a short or long rest.
 Tooltip/&InvocationUsageShortRestAvailableDescription=Once it has been used, this invocation will require a short or long rest to be activated again.
 Tooltip/&InvocationUsageShortRestUsedDescription=This invocation requires a short or long rest to be activated again.
 Tooltip/&LightingTargetPerceiveFormat={0} is not Perceived

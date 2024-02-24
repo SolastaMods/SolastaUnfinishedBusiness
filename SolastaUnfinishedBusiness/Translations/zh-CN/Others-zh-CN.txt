@@ -237,6 +237,7 @@ Tooltip/&CustomMapMarkerCamp=营地
 Tooltip/&CustomMapMarkerExit=出口
 Tooltip/&CustomMapMarkerTeleport=传送点
 Tooltip/&FeatGroupTitle=专长组
+Tooltip/&ForcePointsPortraitPoolFormat=您已经使用了 {0} 次力量点，共 {1} 次。\n所有使用次数都会在短暂或长时间休息后恢复。
 Tooltip/&InvocationUsageShortRestAvailableDescription=一旦被使用，该祈唤将需要短休或长休才能再次使用。
 Tooltip/&InvocationUsageShortRestUsedDescription=该祈唤需要短休或长休才能再次使用。
 Tooltip/&LightingTargetPerceiveFormat=未感知到 {0}

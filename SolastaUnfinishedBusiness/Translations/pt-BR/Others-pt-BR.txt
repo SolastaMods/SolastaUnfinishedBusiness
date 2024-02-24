@@ -237,6 +237,7 @@ Tooltip/&CustomMapMarkerCamp=Acampamento
 Tooltip/&CustomMapMarkerExit=Saída
 Tooltip/&CustomMapMarkerTeleport=Teletransportador
 Tooltip/&FeatGroupTitle=Grupo de façanhas
+Tooltip/&ForcePointsPortraitPoolFormat=Você tem {0} de {1} usos de Pontos de Força.\nTodos os usos são restaurados em um descanso curto ou longo.
 Tooltip/&InvocationUsageShortRestAvailableDescription=Depois de usada, essa invocação exigirá um descanso curto ou longo para ser ativada novamente.
 Tooltip/&InvocationUsageShortRestUsedDescription=Esta invocação requer um descanso curto ou longo para ser ativada novamente.
 Tooltip/&LightingTargetPerceiveFormat={0} não é Percebido

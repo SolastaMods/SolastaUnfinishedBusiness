@@ -237,6 +237,7 @@ Tooltip/&CustomMapMarkerCamp=Camp
 Tooltip/&CustomMapMarkerExit=Sortie
 Tooltip/&CustomMapMarkerTeleport=Téléporteur
 Tooltip/&FeatGroupTitle=Groupe de Dons
+Tooltip/&ForcePointsPortraitPoolFormat=Vous avez {0} utilisations de points de force sur {1}.\nToutes les utilisations sont restaurées lors d'un repos court ou long.
 Tooltip/&InvocationUsageShortRestAvailableDescription=Une fois utilisée, cette invocation nécessitera un repos court ou long pour être à nouveau activée.
 Tooltip/&InvocationUsageShortRestUsedDescription=Cette invocation nécessite un repos court ou long pour être réactivée.
 Tooltip/&LightingTargetPerceiveFormat={0} n'est pas perçu
