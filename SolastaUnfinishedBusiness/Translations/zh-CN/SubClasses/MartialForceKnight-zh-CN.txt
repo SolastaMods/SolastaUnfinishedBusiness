@@ -12,8 +12,6 @@ Feature/&PowerMartialForceKnightForceBulwarkDescription=你可以用念动力保
 Feature/&PowerMartialForceKnightForceBulwarkTitle=部队壁垒
 Feature/&PowerMartialForceKnightForceDriveDescription=你可以通过一个自由动作消耗 1 点力量点来使用你的念力发射武器。直到你的回合结束，你装备的近战武器获得 30 英尺的额外射程。您可以在每次短暂休息时使用此功能一次，而无需消耗力量点。
 Feature/&PowerMartialForceKnightForceDriveTitle=力驱动
-Feature/&PowerMartialForceKnightForcePoweredStrikeDescription=在你的每个回合中，当你用武器攻击击中一个生物时，你可以消耗 1 点力量点来造成额外的力量伤害，伤害值等于 1d6 + 智力调整值。伤害在 5 级时增加到 1d8，在 11 级时增加到 1d10，在 17 级时增加到 1d12。
-Feature/&PowerMartialForceKnightForcePoweredStrikeTitle=强力打击
 Feature/&PowerMartialForceKnightKineticBarrierDescription=当你或你周围 30 英尺内可以看到的其他友方生物即将受到攻击时，你可以消耗 1 点力量点并利用你的反应在其周围形成纯粹力量的防护罩，为其提供额外的 AC对抗该攻击和所有后续攻击的智力调整值（至少+1），可能会导致攻击失败，直到攻击生物的回合结束。
 Feature/&PowerMartialForceKnightKineticBarrierTitle=动能屏障
 Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=你可以对被原力打击击中的生物施加一次力量豁免检定（DC = 8 + 熟练加值 + 智力调整值）。如果该生物失败了，你可以将其击倒。
@@ -36,6 +34,6 @@ Reaction/&UseKineticBarrierDescription=你或你的盟友即将被击中！你�
 Reaction/&UseKineticBarrierReactDescription=花费 1 点力量点来保护您或盟友免受攻击。
 Reaction/&UseKineticBarrierReactTitle=花费
 Reaction/&UseKineticBarrierTitle=动能屏障
-Screen/&ForcePoweredStrikeDieDescription=您的原力打击骰子是 {0}，您还可以使用 {1}。
 Subclass/&MartialForceKnightDescription=原力骑士是纪律严明的战士，他们利用广泛的心理动力能力在战斗中占据上风。他们可以轻松适应任何情况，通过注入灵能的攻击来增强自己的力量，或者通过精神创造的障碍和心灵传动来帮助盟友。
 Subclass/&MartialForceKnightTitle=原力骑士
+Tooltip/&ForcePoweredStrikeDieDescription=您的原力打击骰子是 {0}，您还可以使用 {1}。

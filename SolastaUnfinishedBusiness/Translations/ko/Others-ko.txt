@@ -146,7 +146,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n�
 Message/&CharacterExportEmptyNameErrorDescription=내보내기 취소됨:\n빈 칸 없이 이름을 입력해 주세요.
 Message/&CharacterExportModalContentDescription=내보낼 영웅 이름을 입력합니다:
 Message/&CharacterExportModalTitleDescription={0} 내보내기
-Message/&MessageModWelcomeDescription=미완성 비즈니스 모드는 흥미로운 기능으로 가득 차 있지만 기본적으로 활성화된 기능은 없습니다. <color=#F0DAA0>Ctrl-F10</color>을 눌러 Unity Mod Manager UI[UMM]를 연 다음 '미완성 비즈니스' 옆에 있는 설정 아이콘을 클릭하여 설정 페이지를 엽니다. 옵션을 살펴보고 마음에 드는 옵션을 선택하세요.\n<b>월 비용에 도움이 되고 3년 간의 논스톱 개발 및 유지 관리를 통해 높은 동기를 부여할 수 있도록 기부해 주세요.</b> 아래 버튼 기본적으로 <color=#F0DAA0>PayPal</color>로 연결되지만 Mod UI > Character에서 <color=#F0DAA0>Patreon</color> 또는 <color=#F0DAA0>GitHub</color>를 사용할 수도 있습니다. .
+Message/&MessageModWelcomeDescription=미완성 비즈니스 모드는 흥미로운 기능으로 가득 차 있지만 기본적으로 활성화된 기능은 없습니다. <color=#F0DAA0>Ctrl-F10</color>을 눌러 Unity Mod Manager UI[UMM]를 연 다음 '미완성 비즈니스' 옆에 있는 설정 아이콘을 클릭하여 설정 페이지를 엽니다. 옵션을 살펴보고 마음에 드는 것을 선택하세요.\n<b>가능한 경우 기부해 주세요.</b> Mod UI/게임플레이/도구에서 다른 결제 옵션을 사용할 수 있습니다.
 Message/&MessageModWelcomeTitle=끝내지 못한 일 모드
 Message/&ModErrorWarningDescription=솔라스타가 불안정을 감지했습니다. 모든 플레이어에게 게임을 종료하고 <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> 파일을 가져와서 이 로그와 저장 파일을 'Unfinished Business' 모드 커뮤니티에 공유해 달라고 요청해 주세요.
 Message/&ModErrorWarningTitle=주의!

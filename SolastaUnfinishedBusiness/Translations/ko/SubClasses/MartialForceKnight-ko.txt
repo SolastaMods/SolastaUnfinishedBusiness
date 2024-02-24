@@ -12,8 +12,6 @@ Feature/&PowerMartialForceKnightForceBulwarkDescription=정신운동력으로 �
 Feature/&PowerMartialForceKnightForceBulwarkTitle=포스 보루크
 Feature/&PowerMartialForceKnightForceDriveDescription=정신운동 능력을 사용하여 무기를 발사하기 위한 자유 행동으로 1 포스 포인트를 소비할 수 있습니다. 턴이 끝날 때까지 장착한 근접 무기의 사거리가 30피트 증가합니다. 이 기능은 포스 포인트를 소모하지 않고 짧은 휴식마다 한 번씩 사용할 수 있습니다.
 Feature/&PowerMartialForceKnightForceDriveTitle=포스 드라이브
-Feature/&PowerMartialForceKnightForcePoweredStrikeDescription=매 턴마다 한 번씩 무기 공격으로 생물을 공격할 때 1 포스 포인트를 소비하여 1d6 + 지능 수정치에 해당하는 추가 포스 피해를 입힐 수 있습니다. 피해는 5레벨에서 1d8, 11레벨에서 1d10, 17레벨에서 1d12로 증가합니다.
-Feature/&PowerMartialForceKnightForcePoweredStrikeTitle=포스 파워 스트라이크
 Feature/&PowerMartialForceKnightKineticBarrierDescription=당신이나 당신으로부터 30피트 이내에서 볼 수 있는 다른 동맹 생물이 공격을 받으려고 할 때, 당신은 1 포스 포인트를 소비하고 반응을 사용하여 주위에 순수한 힘의 보호막을 형성하여 추가 AC를 부여할 수 있습니다. 해당 공격과 모든 후속 공격에 대해 지능 수정치(최소 +1)에 적용되어 잠재적으로 공격하는 생물의 턴이 끝날 때까지 공격이 실패하게 됩니다.
 Feature/&PowerMartialForceKnightKineticBarrierTitle=키네틱 배리어
 Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=Force-Powered Strike(DC = 8 + 숙련도 보너스 + 지능 수정치)에 맞은 생물에 힘 내성 굴림을 부과할 수 있습니다. 생물이 실패하면 쓰러뜨릴 수 있습니다.
@@ -36,6 +34,6 @@ Reaction/&UseKineticBarrierDescription=당신이나 동료가 곧 공격을 받�
 Reaction/&UseKineticBarrierReactDescription=당신이나 아군을 공격으로부터 보호하려면 포스 포인트 1개를 소비하세요.
 Reaction/&UseKineticBarrierReactTitle=경비
 Reaction/&UseKineticBarrierTitle=키네틱 배리어
-Screen/&ForcePoweredStrikeDieDescription=당신의 Force Powered Strike 주사위는 {0}이고 남은 사용 횟수는 {1}입니다.
 Subclass/&MartialForceKnightDescription=포스 나이트는 전투에서 우위를 점하기 위해 광범위한 정신운동 능력을 활용하는 훈련된 전사입니다. 이들은 어떤 상황에도 쉽게 적응할 수 있고 사이오닉 주입 공격으로 힘을 강화하거나 정신적으로 생성된 장벽과 염력 운동으로 아군을 지원할 수 있습니다.
 Subclass/&MartialForceKnightTitle=포스 나이트
+Tooltip/&ForcePoweredStrikeDieDescription=당신의 Force Powered Strike 주사위는 {0}이고 남은 사용 횟수는 {1}입니다.

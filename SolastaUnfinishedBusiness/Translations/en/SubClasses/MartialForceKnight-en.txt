@@ -12,8 +12,6 @@ Feature/&PowerMartialForceKnightForceBulwarkDescription=You can shield yourself 
 Feature/&PowerMartialForceKnightForceBulwarkTitle=Force Bulwark
 Feature/&PowerMartialForceKnightForceDriveDescription=You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range. You can use this feature once per short rest without expending a Force Point.
 Feature/&PowerMartialForceKnightForceDriveTitle=Force Drive
-Feature/&PowerMartialForceKnightForcePoweredStrikeDescription=Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d6 + Intelligence modifier. The damage increases to 1d8 at 5th, 1d10 at 11th and 1d12 at 17th level.
-Feature/&PowerMartialForceKnightForcePoweredStrikeTitle=Force Powered Strike
 Feature/&PowerMartialForceKnightKineticBarrierDescription=When you or another allied creature that you can see within 30 feet of you is about to be hit by an attack, you can expend 1 Force Point and use your reaction to form a protective shield of pure force around it, granting it extra AC equal to your Intelligence modifier (minimum +1) against that attack and all subsequent attacks, potentially causing the attacks to miss until the end of the attacking creature's turn.
 Feature/&PowerMartialForceKnightKineticBarrierTitle=Kinetic Barrier
 Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=You can impose a Strength saving throw upon the creature struck by Force-Powered Strike (DC = 8 + proficiency bonus + Intelligence modifier). If the creature fails it, you can knock it prone.
@@ -36,6 +34,6 @@ Reaction/&UseKineticBarrierDescription=You or an ally is about to be hit! You ca
 Reaction/&UseKineticBarrierReactDescription=Spend 1 Force Point to shield you or an ally from attack.
 Reaction/&UseKineticBarrierReactTitle=Spend
 Reaction/&UseKineticBarrierTitle=Kinetic Barrier
-Screen/&ForcePoweredStrikeDieDescription=Your Force Powered Strike die is a {0} and you have {1} remaining uses.
 Subclass/&MartialForceKnightDescription=Force Knights are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
 Subclass/&MartialForceKnightTitle=Force Knight
+Tooltip/&ForcePoweredStrikeDieDescription=Your Force Powered Strike die is a {0} and you have {1} remaining uses.

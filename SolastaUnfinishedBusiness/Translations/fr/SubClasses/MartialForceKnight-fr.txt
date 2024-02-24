@@ -12,8 +12,6 @@ Feature/&PowerMartialForceKnightForceBulwarkDescription=Vous pouvez vous protég
 Feature/&PowerMartialForceKnightForceBulwarkTitle=Rempart de force
 Feature/&PowerMartialForceKnightForceDriveDescription=Vous pouvez dépenser 1 Point de Force par une action gratuite pour lancer des armes en utilisant vos pouvoirs psychokinétiques. Jusqu'à la fin de votre tour, vos armes de mêlée équipées gagnent 9 mètres de portée supplémentaire. Vous pouvez utiliser cette fonctionnalité une fois par court repos sans dépenser de point de force.
 Feature/&PowerMartialForceKnightForceDriveTitle=Entraînement forcé
-Feature/&PowerMartialForceKnightForcePoweredStrikeDescription=Une fois à chacun de vos tours, lorsque vous touchez une créature avec une attaque avec une arme, vous pouvez dépenser 1 point de force pour infliger des dégâts de force supplémentaires égaux à 1d6 + modificateur d'Intelligence. Les dégâts augmentent à 1d8 au niveau 5, 1d10 au niveau 11 et 1d12 au niveau 17.
-Feature/&PowerMartialForceKnightForcePoweredStrikeTitle=Frappe alimentée par la force
 Feature/&PowerMartialForceKnightKineticBarrierDescription=Lorsque vous ou une autre créature alliée que vous pouvez voir à moins de 9 mètres de vous êtes sur le point d'être touché par une attaque, vous pouvez dépenser 1 point de Force et utiliser votre réaction pour former un bouclier protecteur de force pure autour d'elle, lui conférant une CA supplémentaire égale à celle-ci. à votre modificateur d'Intelligence (minimum +1) contre cette attaque et toutes les attaques ultérieures, provoquant potentiellement l'échec des attaques jusqu'à la fin du tour de la créature attaquante.
 Feature/&PowerMartialForceKnightKineticBarrierTitle=Barrière cinétique
 Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=Vous pouvez imposer un jet de sauvegarde de Force à la créature frappée par Frappe alimentée par la Force (DD = 8 + bonus de maîtrise + modificateur d'Intelligence). Si la créature échoue, vous pouvez la mettre à terre.
@@ -36,6 +34,6 @@ Reaction/&UseKineticBarrierDescription=Vous ou un allié êtes sur le point d'ê
 Reaction/&UseKineticBarrierReactDescription=Dépensez 1 point de force pour vous protéger, vous ou un allié, des attaques.
 Reaction/&UseKineticBarrierReactTitle=Dépenser
 Reaction/&UseKineticBarrierTitle=Barrière cinétique
-Screen/&ForcePoweredStrikeDieDescription=Votre dé Force Powered Strike est un {0} et il vous reste {1} utilisations.
 Subclass/&MartialForceKnightDescription=Les Chevaliers de Force sont des guerriers disciplinés qui utilisent un large éventail de capacités psychokinétiques pour prendre le dessus au combat. Ils peuvent facilement s'adapter à n'importe quelle situation, augmenter leur puissance avec des attaques infusées de psi ou aider leurs alliés avec des barrières créées mentalement et des mouvements télékinésiques.
 Subclass/&MartialForceKnightTitle=Chevalier de Force
+Tooltip/&ForcePoweredStrikeDieDescription=Votre dé Force Powered Strike est un {0} et il vous reste {1} utilisations.

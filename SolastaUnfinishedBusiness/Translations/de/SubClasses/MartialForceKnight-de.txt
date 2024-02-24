@@ -12,8 +12,6 @@ Feature/&PowerMartialForceKnightForceBulwarkDescription=Sie können sich und and
 Feature/&PowerMartialForceKnightForceBulwarkTitle=Bollwerk erzwingen
 Feature/&PowerMartialForceKnightForceDriveDescription=Sie können 1 Kraftpunkt als kostenlose Aktion ausgeben, um mit Ihren psychokinetischen Kräften Waffen abzufeuern. Bis zum Ende Ihres Zuges erhalten Ihre ausgerüsteten Nahkampfwaffen eine zusätzliche Reichweite von 30 Fuß. Sie können diese Funktion einmal pro kurzer Pause nutzen, ohne einen Kraftpunkt auszugeben.
 Feature/&PowerMartialForceKnightForceDriveTitle=Antrieb erzwingen
-Feature/&PowerMartialForceKnightForcePoweredStrikeDescription=Einmal in jedem deiner Züge, wenn du eine Kreatur mit einem Waffenangriff triffst, kannst du 1 Kraftpunkt ausgeben, um zusätzlichen Kraftschaden in Höhe von 1W6 + Intelligenzmodifikator zu verursachen. Der Schaden erhöht sich auf 1W8 auf der 5. Stufe, 1W10 auf der 11. Stufe und 1W12 auf der 17. Stufe.
-Feature/&PowerMartialForceKnightForcePoweredStrikeTitle=Kraftangetriebener Schlag
 Feature/&PowerMartialForceKnightKineticBarrierDescription=Wenn Sie oder eine andere verbündete Kreatur, die Sie im Umkreis von 30 Fuß um sich herum sehen können, im Begriff sind, von einem Angriff getroffen zu werden, können Sie 1 Kraftpunkt aufwenden und Ihre Reaktion nutzen, um um sie herum einen Schutzschild aus reiner Kraft zu bilden, der ihr zusätzliche AC in Höhe von gleicher Höhe verleiht deinen Intelligenzmodifikator (mindestens +1) gegen diesen Angriff und alle nachfolgenden Angriffe, was möglicherweise dazu führt, dass die Angriffe bis zum Ende des Zuges der angreifenden Kreatur fehlschlagen.
 Feature/&PowerMartialForceKnightKineticBarrierTitle=Kinetische Barriere
 Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=Du kannst der von Force-Powered Strike getroffenen Kreatur einen Kraftrettungswurf auferlegen (SG = 8 + Fähigkeitsbonus + Intelligenzmodifikator). Wenn die Kreatur es nicht schafft, kannst du sie zu Boden werfen.
@@ -36,6 +34,6 @@ Reaction/&UseKineticBarrierDescription=Sie oder ein Verbündeter werden bald get
 Reaction/&UseKineticBarrierReactDescription=Gib 1 Kraftpunkt aus, um dich oder einen Verbündeten vor Angriffen zu schützen.
 Reaction/&UseKineticBarrierReactTitle=Ausgeben
 Reaction/&UseKineticBarrierTitle=Kinetische Barriere
-Screen/&ForcePoweredStrikeDieDescription=Ihr Force Powered Strike-Würfel ist ein {0} und Sie haben noch {1} verbleibende Einsatzmöglichkeiten.
 Subclass/&MartialForceKnightDescription=Force Knights sind disziplinierte Krieger, die ein breites Spektrum an psychokinetischen Fähigkeiten nutzen, um im Kampf die Oberhand zu gewinnen. Sie können sich problemlos an jede Situation anpassen, ihre Macht durch Psi-Angriffe verstärken oder Verbündeten mit mental geschaffenen Barrieren und telekinetischen Bewegungen helfen.
 Subclass/&MartialForceKnightTitle=Machtritter
+Tooltip/&ForcePoweredStrikeDieDescription=Ihr Force Powered Strike-Würfel ist ein {0} und Sie haben noch {1} verbleibende Einsatzmöglichkeiten.

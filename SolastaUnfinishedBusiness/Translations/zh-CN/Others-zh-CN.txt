@@ -146,7 +146,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=导出已取消：\n\n池�
 Message/&CharacterExportEmptyNameErrorDescription=导出已取消：\n\n请尝试非空名称。
 Message/&CharacterExportModalContentDescription=输入要导出的英雄名称：
 Message/&CharacterExportModalTitleDescription=导出 {0}
-Message/&MessageModWelcomeDescription=未竟之业 Mod 充满了令人兴奋的功能，但默认情况下没有启用。按 <color=#F0DAA0>Ctrl-F10</color> 打开 Unity Mod Manager UI [UMM]，然后单击“Unfinished Business”旁边的设置图标打开设置页面。浏览选项并选择你喜欢的选项。\n默认情况下，捐赠按钮会将你带到 PayPal。在 Mod UI> 角色 下还有其他捐赠选项。
+Message/&MessageModWelcomeDescription=未完成的商业模组充满了令人兴奋的功能，但默认情况下没有启用。按 <color=#F0DAA0>Ctrl-F10</color> 打开 Unity Mod Manager UI [UMM]，然后单击“未完成的业务”旁边的设置图标以打开设置页面。探索选项并选择您喜欢的选项。\n<b>请尽可能捐款。</b> Mod UI /游戏玩法/工具下提供其他付款选项。
 Message/&MessageModWelcomeTitle=未竟之业模式
 Message/&ModErrorWarningDescription=Solasta 检测到不稳定情况。请要求每个玩家关闭游戏，获取文件 <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b>，并与 Unfinished Business mod 社区分享这些日志和保存文件。
 Message/&ModErrorWarningTitle=游戏警告！
