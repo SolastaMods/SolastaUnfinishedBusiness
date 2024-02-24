@@ -702,6 +702,13 @@ internal static partial class SpellBuilders
                 OnConditionAddedOrRemovedTelekinesis.Marker)
             .AddToDB();
 
+        conditionTelekinesis.conditionStartParticleReference = SpiderClimb.EffectDescription
+            .EffectParticleParameters.conditionStartParticleReference;
+        conditionTelekinesis.conditionParticleReference = SpiderClimb.EffectDescription
+            .EffectParticleParameters.conditionParticleReference;
+        conditionTelekinesis.conditionEndParticleReference = SpiderClimb.EffectDescription
+            .EffectParticleParameters.conditionEndParticleReference;
+
         var powerTelekinesisNoCost = FeatureDefinitionPowerBuilder
             .Create(powerTelekinesis, $"Power{Name}NoCost")
             .SetUsesFixed(ActivationTime.NoCost)
@@ -883,7 +890,8 @@ internal static partial class SpellBuilders
 
             var abilityCheckBonus1 = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(spellCastingAbility,
                 actionModifier1.AbilityCheckModifierTrends, string.Empty);
-            var abilityCheckBonus2 = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(AttributeDefinitions.Strength,
+            var abilityCheckBonus2 = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+                AttributeDefinitions.Strength,
                 actionModifier2.AbilityCheckModifierTrends, string.Empty);
 
             var contextField1 = 0;
@@ -902,7 +910,8 @@ internal static partial class SpellBuilders
                 contextField2 |= 64;
             }
 
-            opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, string.Empty, actionModifier2, contextField2);
+            opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, string.Empty, actionModifier2,
+                contextField2);
 
             actor.RulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
                 actor.RulesetCharacter.FeaturesToBrowse, actor.RulesetCharacter.FeaturesOrigin);
