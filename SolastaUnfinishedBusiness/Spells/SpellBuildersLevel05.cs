@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -742,11 +743,15 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionTelekinesis),
-                        EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost))
+                        EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost),
+                        EffectFormBuilder.ConditionForm(conditionTelekinesis))
                     .SetParticleEffectParameters(MindTwist)
                     .Build())
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference = new AssetReference();
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
 
         var customBehavior = new CustomBehaviorTelekinesis(conditionTelekinesisNoCost, spell);
 
