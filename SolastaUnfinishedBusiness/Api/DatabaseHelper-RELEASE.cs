@@ -1915,6 +1915,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerSorcererCreateSpellSlot { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererCreateSpellSlot");
 
+        internal static FeatureDefinitionPower PowerSorcererDraconicDragonWingsSprout { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererDraconicDragonWingsSprout");
+
         internal static FeatureDefinitionPower PowerSorcererDraconicElementalResistance { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererDraconicElementalResistance");
 
@@ -1953,6 +1956,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerTraditionLightLuminousKi { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionLightLuminousKi");
+
+        internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
 
         internal static FeatureDefinitionPower PowerTraditionSurvivalUnbreakableBody { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionSurvivalUnbreakableBody");

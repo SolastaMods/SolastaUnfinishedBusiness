@@ -6,7 +6,7 @@ Feature/&FeatureMartialForceKnightForceOfWillDescription=你的灵能赋予你�
 Feature/&FeatureMartialForceKnightForceOfWillTitle=意志力
 Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription=你现在可以对被原力打击击中的生物施加一次力量豁免检定（DC = 8 + 熟练加值 + 智力调整值）。如果该生物失败了，你可以将其击退 15 英尺或将其击倒。
 Feature/&FeatureSetMartialForceKnightPsionicAdeptTitle=灵能专家
-Feature/&FeatureSetMartialForceKnightPsionicInitiateDescription=你获得了一些力量点，可以用来增强各种心理动力能力。您从 3 个力量点开始，此后每 3 级获得 1 个额外点。您的力量点会在短期或长期休息时恢复。 \n• 武力打击。在你的每个回合中，当你用武器攻击击中一个生物时，你可以消耗 1 点力量点来造成额外的力量伤害，伤害值等于 1d6 + 智力调整值。伤害在第 5 级时增加到 1d8，在第 11 级增加到 1d10，在第 17 级增加到 1d12。\n• 动能屏障。当你或你周围 30 英尺内可以看到的其他友方生物即将受到攻击时，你可以消耗 1 点力量点并利用你的反应在其周围形成纯粹力量的防护罩，为其提供额外的 AC直到攻击生物的回合结束为止，针对该攻击和所有后续攻击的智力调整值（至少+1）。\n• 强制驱动。你可以通过一个自由动作消耗 1 点力量点来使用你的念力发射武器。直到你的回合结束，你装备的近战武器获得 30 英尺的额外射程。
+Feature/&FeatureSetMartialForceKnightPsionicInitiateDescription=你获得了许多力量点，可以用来增强各种心理动力能力。您从 3 个力量点开始，此后每 3 级获得 1 个额外点。您的力量点会在短期或长期休息时恢复。 \n• 武力打击。在你的每个回合中，当你用武器攻击击中一个生物时，你可以消耗 1 点力量点来造成额外的力量伤害，伤害值等于 1d6 + 智力调整值。伤害在第 5 级时增加到 1d8，在第 11 级增加到 1d10，在第 17 级增加到 1d12。\n• 动能屏障。当你或你周围 30 英尺内可以看到的其他友方生物即将受到攻击时，你可以消耗 1 点力量点并利用你的反应在其周围形成纯粹力量的防护罩，为其提供额外的 AC直到攻击生物的回合结束为止，针对该攻击和所有后续攻击的智力调整值（至少+1）。\n• 强制驱动。你可以通过一个自由动作消耗 1 点力量点来使用你的念力发射武器。直到你的回合结束，你装备的近战武器获得 30 英尺的额外射程。您可以在每次短暂休息时使用此功能一次，而无需消耗力量点。
 Feature/&FeatureSetMartialForceKnightPsionicInitiateTitle=灵能入门者
 Feature/&PowerMartialForceKnightForceBulwarkDescription=你可以用念动力保护自己和他人。作为一个奖励动作，你可以花费 1 点力量点并选择你可以在 30 英尺内看到的生物，其中可以包括你，最多数量等于你的智力调整值的生物（最少一个生物）。每个选定的生物都会受到半掩体的保护，持续 1 分钟或直到你丧失行动能力。
 Feature/&PowerMartialForceKnightForceBulwarkTitle=部队壁垒
