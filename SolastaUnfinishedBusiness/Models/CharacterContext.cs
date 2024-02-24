@@ -61,7 +61,7 @@ internal static class CharacterContext
                 .SetFeatures(
                     FeatureDefinitionSavingThrowAffinityBuilder
                         .Create("SavingThrowAffinityIndomitableSaving")
-                        .SetGuiPresentation(Category.Feature)
+                        .SetGuiPresentation("Feature/&IndomitableResistanceTitle", Gui.NoLocalization)
                         .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.SourceAbility, DieType.D1, 1,
                             false,
                             AttributeDefinitions.Strength,

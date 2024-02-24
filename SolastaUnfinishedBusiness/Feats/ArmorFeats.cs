@@ -146,7 +146,7 @@ internal static class ArmorFeats
             .SetFeatures(
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}")
-                    .SetGuiPresentation("Feature/&IndomitableResistanceTitle", Gui.NoLocalization)
+                    .SetGuiPresentation(Name, Category.Feat)
                     .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.SourceAbility, DieType.D1, 1, false,
                         AttributeDefinitions.Dexterity)
                     .AddToDB())
