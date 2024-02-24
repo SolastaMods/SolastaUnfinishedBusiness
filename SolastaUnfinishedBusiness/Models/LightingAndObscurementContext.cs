@@ -222,24 +222,17 @@ internal static class LightingAndObscurementContext
             }
         }
 
-        // let vanilla do the heavy lift on perception
-        var result = instance.IsCellPerceivedByCharacter(cellPosition, finalSensor);
-
         // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(finalSensor, cellPosition);
 
-        // if setting is off or vanilla cannot perceive
-        if (!result ||
-            !Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        // use vanilla if setting is off but still supporting additionalBlockedLightingState logic
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
-            if (!result)
-            {
-                return false;
-            }
+            var result = instance.IsCellPerceivedByCharacter(cellPosition, finalSensor);
 
             // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-            return additionalBlockedLightingState == LightingState.Darkness ||
-                   targetLightingState != additionalBlockedLightingState;
+            return result && (additionalBlockedLightingState == LightingState.Darkness ||
+                              targetLightingState != additionalBlockedLightingState);
         }
 
         // determine constraints
@@ -801,7 +794,7 @@ internal static class LightingAndObscurementContext
             CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
                 [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
         }
-        
+
         SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
     }
 
