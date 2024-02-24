@@ -1668,15 +1668,11 @@ internal static class Level20SubclassesContext
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
-            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            ref int rollModifier, int saveDC,
+            int saveDC,
             bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Wisdom

@@ -796,6 +796,40 @@ public static class RulesetImplementationManagerPatcher
         }
 
         [UsedImplicitly]
+        public static void Prefix(
+            RulesetCharacter caster,
+            RulesetActor target,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasSavingThrow,
+            ref string savingThrowAbility,
+            int saveDC,
+            List<EffectForm> effectForms,
+            BaseDefinition sourceDefinition)
+        {
+            var hasForcedSaving = effectForms.Any(effectForm => effectForm.OverrideSavingThrowInfo != null);
+
+            if (!hasForcedSaving && !hasSavingThrow)
+            {
+                return;
+            }
+
+            //PATCH: supports `OnSavingThrowInitiated` interface
+            foreach (var rollSavingThrowInitiated in target.GetSubFeaturesByType<IRollSavingThrowInitiated>())
+            {
+                rollSavingThrowInitiated.OnSavingThrowInitiated(
+                    caster,
+                    target as RulesetCharacter,
+                    ref savingThrowAbility,
+                    sourceDefinition,
+                    actionModifier.SavingThrowAdvantageTrends,
+                    saveDC,
+                    hasHitVisual,
+                    effectForms);
+            }
+        }
+
+        [UsedImplicitly]
         public static void RollSavingThrow(
             RulesetCharacter __instance,
             int saveBonus,
@@ -811,25 +845,6 @@ public static class RulesetImplementationManagerPatcher
             RulesetCharacter caster,
             List<EffectForm> effectForms)
         {
-            //PATCH: supports `IRollSavingThrowFinished` interface
-            foreach (var rollSavingThrowInitiated in __instance.GetSubFeaturesByType<IRollSavingThrowInitiated>())
-            {
-                rollSavingThrowInitiated.OnSavingThrowInitiated(
-                    caster,
-                    __instance,
-                    ref saveBonus,
-                    ref abilityScoreName,
-                    sourceDefinition,
-                    modifierTrends,
-                    advantageTrends,
-                    ref rollModifier,
-                    saveDC,
-                    hasHitVisual,
-                    ref outcome,
-                    ref outcomeDelta,
-                    effectForms);
-            }
-
             __instance.RollSavingThrow(
                 saveBonus, abilityScoreName, sourceDefinition, modifierTrends, advantageTrends,
                 rollModifier, saveDC, hasHitVisual, out outcome, out outcomeDelta);

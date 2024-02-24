@@ -934,16 +934,11 @@ public sealed class MartialForceKnight : AbstractSubclass
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
-            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            ref int rollModifier,
             int saveDC,
             bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
             var intelligence = defender.TryGetAttributeValue(AttributeDefinitions.Intelligence);
@@ -955,9 +950,6 @@ public sealed class MartialForceKnight : AbstractSubclass
                 if (intelligence > wisdom)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
-
-                    rollModifier += AttributeDefinitions.ComputeAbilityScoreModifier(intelligence) -
-                                    AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
 
                     defender.LogCharacterUsedFeature(featureForceOfWill);
                 }
@@ -972,9 +964,6 @@ public sealed class MartialForceKnight : AbstractSubclass
                 if (intelligence > charisma)
                 {
                     abilityScoreName = AttributeDefinitions.Intelligence;
-
-                    rollModifier += AttributeDefinitions.ComputeAbilityScoreModifier(intelligence) -
-                                    AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
 
                     defender.LogCharacterUsedFeature(featureForceOfWill);
                 }

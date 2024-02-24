@@ -96,22 +96,17 @@ public static class RulesetEffectPatcher
                 OathOfDread.ConditionAspectOfDreadEnemy);
             PathOfTheSavagery.OnRollSavingThrowFuriousDefense(__instance, ref abilityScoreName);
 
-            //PATCH: supports `IRollSavingThrowFinished` interface
+            //PATCH: supports `IRollSavingThrowInitiated` interface
             foreach (var rollSavingThrowInitiated in __instance.GetSubFeaturesByType<IRollSavingThrowInitiated>())
             {
                 rollSavingThrowInitiated.OnSavingThrowInitiated(
                     caster,
                     __instance,
-                    ref saveBonus,
                     ref abilityScoreName,
                     sourceDefinition,
-                    modifierTrends,
                     advantageTrends,
-                    ref rollModifier,
                     saveDC,
                     hasHitVisual,
-                    ref outcome,
-                    ref outcomeDelta,
                     effectForms);
             }
 

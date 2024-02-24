@@ -53,7 +53,26 @@ internal static class CharacterContext
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
-        .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving())
+        .AddCustomSubFeatures(new RollSavingThrowInitiatedIndomitableSaving(
+            ConditionDefinitionBuilder
+                .Create("ConditionIndomitableSavingSavingThrow")
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetFeatures(
+                    FeatureDefinitionSavingThrowAffinityBuilder
+                        .Create("SavingThrowAffinityIndomitableSaving")
+                        .SetGuiPresentation(Category.Feature)
+                        .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.SourceAbility, DieType.D1, 1,
+                            false,
+                            AttributeDefinitions.Strength,
+                            AttributeDefinitions.Dexterity,
+                            AttributeDefinitions.Constitution,
+                            AttributeDefinitions.Intelligence,
+                            AttributeDefinitions.Wisdom,
+                            AttributeDefinitions.Charisma)
+                        .AddToDB())
+                .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+                .AddToDB()))
         .AddToDB();
 
     internal static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
@@ -1441,29 +1460,35 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class RollSavingThrowInitiatedIndomitableSaving : IRollSavingThrowInitiated
+    private sealed class RollSavingThrowInitiatedIndomitableSaving(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionIndomitableSaving) : IRollSavingThrowInitiated
     {
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
-            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            ref int rollModifier,
             int saveDC,
             bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
-            var classLevel = defender!.GetClassLevel(Fighter);
+            var classLevel = defender.GetClassLevel(Fighter);
 
-            saveBonus += classLevel;
-            modifierTrends.Add(
-                new TrendInfo(classLevel, FeatureSourceType.CharacterFeature, "Feature/&IndomitableResistanceTitle",
-                    null));
+            defender.InflictCondition(
+                conditionIndomitableSaving.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagStatus,
+                caster.Guid,
+                caster.CurrentFaction.Name,
+                1,
+                conditionIndomitableSaving.Name,
+                0,
+                classLevel,
+                0);
         }
     }
 

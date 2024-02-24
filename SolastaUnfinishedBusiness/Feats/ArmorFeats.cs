@@ -139,6 +139,20 @@ internal static class ArmorFeats
             .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
+        var conditionShieldTechniquesSavingThrow = ConditionDefinitionBuilder
+            .Create($"Condition{Name}SavingThrow")
+            .SetGuiPresentation(Name, Category.Feat)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{Name}")
+                    .SetGuiPresentation("Feature/&IndomitableResistanceTitle", Gui.NoLocalization)
+                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.SourceAbility, DieType.D1, 1, false,
+                        AttributeDefinitions.Dexterity)
+                    .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .AddToDB();
+
         var powerShieldTechniques = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat)
@@ -154,7 +168,7 @@ internal static class ArmorFeats
             .AddToDB();
 
         powerShieldTechniques.AddCustomSubFeatures(
-            new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionShieldTechniquesResistance));
+            new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionShieldTechniquesSavingThrow));
 
         return FeatDefinitionBuilder
             .Create(Name)
@@ -167,9 +181,8 @@ internal static class ArmorFeats
     private sealed class CustomBehaviorShieldTechniques(
         FeatureDefinitionPower powerShieldTechniques,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionShieldTechniquesResistance)
-        :
-            IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
+        ConditionDefinition conditionShieldTechniquesSavingThrow)
+        : IRollSavingThrowInitiated, IMagicEffectBeforeHitConfirmedOnMe
     {
         // halve any damage taken
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnMe(
@@ -230,26 +243,31 @@ internal static class ArmorFeats
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
-            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            ref int rollModifier,
             int saveDC,
             bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta, List<EffectForm> effectForms)
+            List<EffectForm> effectForms)
         {
             if (abilityScoreName != AttributeDefinitions.Dexterity || !defender.IsWearingShield())
             {
                 return;
             }
 
-            rollModifier += 2;
-            modifierTrends.Add(
-                new TrendInfo(2, FeatureSourceType.Condition, conditionShieldTechniquesResistance.Name,
-                    conditionShieldTechniquesResistance));
+            defender.InflictCondition(
+                conditionShieldTechniquesSavingThrow.Name,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                AttributeDefinitions.TagStatus,
+                caster.Guid,
+                caster.CurrentFaction.Name,
+                1,
+                conditionShieldTechniquesSavingThrow.Name,
+                0,
+                2,
+                0);
         }
     }
 }
