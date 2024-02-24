@@ -90,8 +90,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionMartialForceKnightTelekineticGrasp",
-          "conditionDefinition": "Definition:ConditionMartialForceKnightTelekineticGrasp:99c014f3-da2a-5822-86b4-039e9eb3ae6c",
+          "conditionDefinitionName": "ConditionMartialForceKnightTelekineticGraspNoCost",
+          "conditionDefinition": "Definition:ConditionMartialForceKnightTelekineticGraspNoCost:7db9a3b5-0841-5969-9c73-313731ee48bd",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -117,8 +117,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionMartialForceKnightTelekineticGraspNoCost",
-          "conditionDefinition": "Definition:ConditionMartialForceKnightTelekineticGraspNoCost:7db9a3b5-0841-5969-9c73-313731ee48bd",
+          "conditionDefinitionName": "ConditionMartialForceKnightTelekineticGrasp",
+          "conditionDefinition": "Definition:ConditionMartialForceKnightTelekineticGrasp:99c014f3-da2a-5822-86b4-039e9eb3ae6c",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -288,21 +288,21 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "14c7cbd4107c3da46bf04c894e4a61be",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_AssetGUID": "",
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2493405866ecdfb4290d962e2ee3ab92",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_AssetGUID": "",
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "211c37507a1ae35419d899c49a2712a3",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_AssetGUID": "",
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,

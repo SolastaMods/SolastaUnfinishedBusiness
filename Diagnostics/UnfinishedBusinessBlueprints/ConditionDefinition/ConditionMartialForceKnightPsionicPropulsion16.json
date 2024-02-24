@@ -4,9 +4,9 @@
   "parentCondition": "Definition:ConditionFlying:ec82fae48f9a55a41a49fd96d93b49b5",
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
-    "Definition:MagicAffinityConditionFlying:c7178572da6151f47873739b8c52b558",
-    "Definition:MoveModeFly16:165853cd55c2ecc4887f7ee483cd1d0a"
+    "Definition:CombatAffinityDisengaging:9dda4a1eb70c8f94d9fb16a802947a2a",
+    "Definition:MoveModeFly16:165853cd55c2ecc4887f7ee483cd1d0a",
+    "Definition:MoveModeMove16:e8634155-27e4-55ee-b324-b556ffb5fc34"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

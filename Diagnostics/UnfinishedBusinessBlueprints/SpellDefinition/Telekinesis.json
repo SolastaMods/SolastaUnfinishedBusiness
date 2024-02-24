@@ -90,8 +90,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionTelekinesis",
-          "conditionDefinition": "Definition:ConditionTelekinesis:4f68f98a-3a63-5d71-910d-6d1db209be36",
+          "conditionDefinitionName": "ConditionTelekinesisNoCost",
+          "conditionDefinition": "Definition:ConditionTelekinesisNoCost:14f23eae-2232-5423-8613-98eab5569788",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -117,8 +117,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionTelekinesisNoCost",
-          "conditionDefinition": "Definition:ConditionTelekinesisNoCost:14f23eae-2232-5423-8613-98eab5569788",
+          "conditionDefinitionName": "ConditionTelekinesis",
+          "conditionDefinition": "Definition:ConditionTelekinesis:4f68f98a-3a63-5d71-910d-6d1db209be36",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -288,21 +288,21 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "14c7cbd4107c3da46bf04c894e4a61be",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_AssetGUID": "",
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2493405866ecdfb4290d962e2ee3ab92",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_AssetGUID": "",
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "211c37507a1ae35419d899c49a2712a3",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_AssetGUID": "",
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "forceApplyZoneParticle": false,
       "applyEmissionColorOnWeapons": false,
