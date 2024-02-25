@@ -27,6 +27,13 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 {
     private const string Name = "CircleOfTheCosmos";
 
+    private static readonly string[] ConstellationFormConditions =
+    [
+        $"Condition{Name}Archer", $"Condition{Name}Archer14",
+        $"Condition{Name}Chalice", $"Condition{Name}Chalice14",
+        $"Condition{Name}Dragon", $"Condition{Name}Dragon10", $"Condition{Name}Dragon14"
+    ];
+
     public CircleOfTheCosmos()
     {
         // LEVEL 02
@@ -188,7 +195,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(character =>
                 {
-                    if (Gui.Battle == null || !HasConditionConstellationForm(character))
+                    if (Gui.Battle == null || !character.HasAnyConditionOfType(ConstellationFormConditions))
                     {
                         return false;
                     }
@@ -217,7 +224,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create(powerSwitchConstellationForm, $"Power{Name}SwitchConstellationFormAtWill")
             .SetUsesFixed(ActivationTime.NoCost)
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(c => Gui.Battle == null && HasConditionConstellationForm(c)))
+                new ValidatorsValidatePowerUse(c =>
+                    Gui.Battle == null && c.HasAnyConditionOfType(ConstellationFormConditions)))
             .AddToDB();
 
         var powerSwitchConstellationFormArcher = FeatureDefinitionPowerSharedPoolBuilder
@@ -273,19 +281,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddFeaturesAtLevel(10, featureSetTwinklingStars)
             .AddFeaturesAtLevel(14, featureNovaStar)
             .AddToDB();
-
-        return;
-
-        static bool HasConditionConstellationForm(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            RulesetCharacter character)
-        {
-            return character
-                .HasAnyConditionOfType(
-                    $"Condition{Name}Archer", $"Condition{Name}Archer14",
-                    $"Condition{Name}Chalice", $"Condition{Name}Chalice14",
-                    $"Condition{Name}Dragon", $"Condition{Name}Dragon10", $"Condition{Name}Dragon14");
-        }
     }
 
     internal override CharacterClassDefinition Klass => Druid;
@@ -1165,9 +1160,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-
             var activeCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                x.Name is $"Condition{Name}Archer" or $"Condition{Name}Chalice" or $"Condition{Name}Dragon");
+                ConstellationFormConditions.Contains(x.Name));
 
             if (activeCondition == null)
             {

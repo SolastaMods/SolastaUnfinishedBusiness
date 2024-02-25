@@ -319,15 +319,15 @@ internal static class SharedSpellsContext
             // ReSharper disable once InvertIf
             if (totalKeysGreaterThanZero == 1)
             {
-                if (halfLevels > 1/2f ||
+                if (halfLevels > 1 / 2f ||
                     _levels[CasterProgression.HalfRoundUp] > 0)
                 {
-                    halfLevels += 1/2f;
+                    halfLevels += 1 / 2f;
                 }
 
                 if (oneThirdLevels > 0.7f)
                 {
-                    oneThirdLevels += 2/3f;
+                    oneThirdLevels += 2 / 3f;
                 }
             }
 
