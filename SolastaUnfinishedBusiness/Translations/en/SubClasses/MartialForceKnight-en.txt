@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Your equipped melee weapons gain 30 feet of additional range.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Force Drive
+Condition/&ConditionMartialForceKnightKineticBarrierDescription=You have a protective shield of pure force around, granting you extra AC equal to the Force Knight Intelligence modifier.
+Condition/&ConditionMartialForceKnightKineticBarrierTitle=Kinetic Barrier
 Condition/&ConditionMartialForceKnightTelekineticGraspDescription=You can make one attack with a weapon as a bonus action. You can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest, or target a new creature, ending the restrained effect on the previously affected creature.
 Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Telekinesis
 Feature/&FeatureMartialForceKnightForceOfWillDescription=Your psionic energy grants you extraordinary resilience. At the start of each of your turns, you gain temporary hit points equal to your Intelligence modifier (minimum of 1) if you have at least 1 hit point. In addition, you can use your Intelligence modifier instead of your Wisdom and Charisma modifier for saving throws if it's higher.

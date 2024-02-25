@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Tus armas cuerpo a cuerpo equipadas obtienen 30 pies de alcance adicional.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Fuerza de impulsión
+Condition/&ConditionMartialForceKnightKineticBarrierDescription=Tienes un escudo protector de fuerza pura a tu alrededor, lo que te otorga CA adicional igual al modificador de Inteligencia del Caballero de la Fuerza.
+Condition/&ConditionMartialForceKnightKineticBarrierTitle=Barrera cinética
 Condition/&ConditionMartialForceKnightTelekineticGraspDescription=Puedes realizar un ataque con un arma como acción adicional. Puedes usar tu acción para intentar mantener tu control telequinético sobre la criatura repitiendo el concurso, o apuntar a una nueva criatura, poniendo fin al efecto restringido en la criatura previamente afectada.
 Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Telequinesia
 Feature/&FeatureMartialForceKnightForceOfWillDescription=Tu energía psiónica te otorga una resiliencia extraordinaria. Al comienzo de cada uno de tus turnos, obtienes puntos de vida temporales iguales a tu modificador de Inteligencia (mínimo de 1) si tienes al menos 1 punto de vida. Además, puedes usar tu modificador de Inteligencia en lugar de tu modificador de Sabiduría y Carisma para las tiradas de salvación si es mayor.

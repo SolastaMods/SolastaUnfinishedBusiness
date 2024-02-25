@@ -85,7 +85,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddToDB();
 
         // for QA save only
-        _ = FeatureDefinitionPowerSharedPoolBuilder
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcePoweredStrike")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
@@ -94,8 +94,8 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         var conditionKineticBarrier = ConditionDefinitionBuilder
             .Create($"Condition{Name}KineticBarrier")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShielded)
+            .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}KineticBarrier")
@@ -121,6 +121,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrier))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionOpenHandTranquility)
+                    .UseQuickAnimations()
                     .Build())
             .AddToDB();
 

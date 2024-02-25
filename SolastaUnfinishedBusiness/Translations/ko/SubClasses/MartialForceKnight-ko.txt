@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=장착한 근접 무기의 사거리가 30피트 증가합니다.
 Condition/&ConditionMartialForceKnightForceDriveTitle=포스 드라이브
+Condition/&ConditionMartialForceKnightKineticBarrierDescription=당신은 주변에 순수한 힘의 보호막을 가지고 있어 Force Knight Intelligence 수정치와 동일한 추가 AC를 부여합니다.
+Condition/&ConditionMartialForceKnightKineticBarrierTitle=키네틱 배리어
 Condition/&ConditionMartialForceKnightTelekineticGraspDescription=보너스 액션으로 무기로 한 번의 공격을 할 수 있습니다. 당신은 행동을 사용하여 경쟁을 반복하여 생물에 대한 염력 그립을 유지하려고 시도하거나 새로운 생물을 목표로 삼아 이전에 영향을 받은 생물에 대한 억제 효과를 종료할 수 있습니다.
 Condition/&ConditionMartialForceKnightTelekineticGraspTitle=격동
 Feature/&FeatureMartialForceKnightForceOfWillDescription=당신의 사이오닉 에너지는 당신에게 놀라운 회복력을 부여합니다. 각 턴이 시작될 때 체력 수정치(최소 1)와 동일한 임시 체력을 얻습니다(적어도 1개의 체력이 있는 경우). 또한, 더 높은 경우 내성 굴림을 위해 지혜 및 카리스마 수정치 대신 지능 수정치를 사용할 수 있습니다.

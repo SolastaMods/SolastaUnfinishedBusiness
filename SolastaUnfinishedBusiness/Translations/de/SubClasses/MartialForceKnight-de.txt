@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Die Reichweite Ihrer ausgerüsteten Nahkampfwaffen erhöht sich um 30 Fuß.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Antrieb erzwingen
+Condition/&ConditionMartialForceKnightKineticBarrierDescription=Sie sind von einem Schutzschild aus reiner Kraft umgeben, der Ihnen zusätzliche AC in Höhe des Force Knight-Intelligenzmodifikators gewährt.
+Condition/&ConditionMartialForceKnightKineticBarrierTitle=Kinetische Barriere
 Condition/&ConditionMartialForceKnightTelekineticGraspDescription=Als Bonusaktion können Sie einen Angriff mit einer Waffe durchführen. Sie können Ihre Aktion verwenden, um zu versuchen, Ihren telekinetischen Griff auf die Kreatur aufrechtzuerhalten, indem Sie den Wettbewerb wiederholen, oder eine neue Kreatur als Ziel wählen und so den zurückhaltenden Effekt auf die zuvor betroffene Kreatur beenden.
 Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Telekinese
 Feature/&FeatureMartialForceKnightForceOfWillDescription=Ihre psionische Energie verleiht Ihnen außergewöhnliche Widerstandsfähigkeit. Zu Beginn jedes Ihrer Züge erhalten Sie vorübergehende Trefferpunkte in Höhe Ihres Intelligenzmodifikators (mindestens 1), wenn Sie mindestens 1 Trefferpunkt haben. Darüber hinaus können Sie Ihren Intelligenzmodifikator anstelle Ihres Weisheits- und Charismamodifikators für Rettungswürfe verwenden, wenn dieser höher ist.

@@ -1,5 +1,7 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Le tue armi da mischia equipaggiate ottengono 9 metri di portata aggiuntiva.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Forza guida
+Condition/&ConditionMartialForceKnightKineticBarrierDescription=Hai uno scudo protettivo di pura forza intorno, che ti garantisce CA extra pari al modificatore di Intelligenza di Force Knight.
+Condition/&ConditionMartialForceKnightKineticBarrierTitle=Barriera cinetica
 Condition/&ConditionMartialForceKnightTelekineticGraspDescription=Puoi effettuare un attacco con un'arma come azione bonus. Puoi usare la tua azione per tentare di mantenere la presa telecinetica sulla creatura ripetendo la contesa, o prendere di mira una nuova creatura, ponendo fine all'effetto trattenuto sulla creatura precedentemente influenzata.
 Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Telecinesi
 Feature/&FeatureMartialForceKnightForceOfWillDescription=La tua energia psionica ti garantisce una resistenza straordinaria. All'inizio di ciascuno dei tuoi turni, guadagni punti ferita temporanei pari al tuo modificatore di Intelligenza (minimo 1) se hai almeno 1 punto ferita. Inoltre, puoi usare il tuo modificatore di Intelligenza invece del tuo modificatore di Saggezza e Carisma per i tiri salvezza se è più alto.
