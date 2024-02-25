@@ -772,6 +772,12 @@ public sealed class MartialForceKnight : AbstractSubclass
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
 
+            // some other reaction saved it already
+            if (armorClass > totalAttack)
+            {
+                yield break;
+            }
+
             var helperIntelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
             var helperIntelligenceModifier = AttributeDefinitions.ComputeAbilityScoreModifier(helperIntelligence);
 

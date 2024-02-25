@@ -366,7 +366,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{NAME}")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation(NAME, Category.Feat)
                     .SetModifier(
                         AttributeModifierOperation.AddProficiencyBonus,
                         AttributeDefinitions.ArmorClass)
@@ -388,7 +388,8 @@ internal static class MeleeCombatFeats
                     .Build())
             .AddToDB();
 
-        powerDefensiveDuelist.AddCustomSubFeatures(new SpiritualShieldingBlockAttack(powerDefensiveDuelist));
+        powerDefensiveDuelist.AddCustomSubFeatures(
+            new AttackBeforeHitPossibleOnMeOrAllyDefensiveDuelist(powerDefensiveDuelist));
 
         return FeatDefinitionBuilder
             .Create(NAME)
@@ -398,7 +399,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private class SpiritualShieldingBlockAttack(FeatureDefinitionPower powerDefensiveDuelist)
+    private class AttackBeforeHitPossibleOnMeOrAllyDefensiveDuelist(FeatureDefinitionPower powerDefensiveDuelist)
         : IAttackBeforeHitPossibleOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
@@ -435,10 +436,17 @@ internal static class MeleeCombatFeats
             }
 
             var rulesetDefender = defender.RulesetCharacter;
+            var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
+
+            // some other reaction saved it already
+            if (armorClass > totalAttack)
+            {
+                yield break;
+            }
 
             if (!rulesetDefender.CanMagicEffectPreventHit(powerDefensiveDuelist, totalAttack))
             {

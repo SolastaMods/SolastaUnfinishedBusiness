@@ -58,7 +58,8 @@ public sealed class OathOfAltruism : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerSpiritualShielding.AddCustomSubFeatures(new SpiritualShieldingBlockAttack(powerSpiritualShielding));
+        powerSpiritualShielding.AddCustomSubFeatures(
+            new AttackBeforeHitPossibleOnMeOrAllySpiritualShielding(powerSpiritualShielding));
 
         var featureDefensiveStrike = FeatureDefinitionBuilder
             .Create(DefensiveStrike)
@@ -193,7 +194,7 @@ public sealed class OathOfAltruism : AbstractSubclass
         }
     }
 
-    private class SpiritualShieldingBlockAttack(FeatureDefinitionPower powerSpiritualShielding)
+    private class AttackBeforeHitPossibleOnMeOrAllySpiritualShielding(FeatureDefinitionPower powerSpiritualShielding)
         : IAttackBeforeHitPossibleOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
@@ -231,16 +232,17 @@ public sealed class OathOfAltruism : AbstractSubclass
             }
 
             var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.HasConditionOfType(ConditionShielded))
-            {
-                yield break;
-            }
-
+            var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
+
+            // some other reaction saved it already
+            if (armorClass > totalAttack)
+            {
+                yield break;
+            }
 
             if (!rulesetDefender.CanMagicEffectPreventHit(powerSpiritualShielding, totalAttack))
             {

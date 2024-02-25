@@ -1017,43 +1017,35 @@ internal static class EldritchVersatilityBuilders
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            var ownerCharacter = helper.RulesetCharacter;
+            var helperCharacter = helper.RulesetCharacter;
             var defenderCharacter = defender.RulesetCharacter;
-            var alreadyBlocked =
-                EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
-                    defenderCharacter, out var eldritchAegisSupportCondition);
+            var alreadyBlocked = EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
+                defenderCharacter, out var eldritchAegisSupportCondition);
 
-            if (!alreadyBlocked && (!helper.IsWithinRange(defender, 6) || !defender.CanPerceiveTarget(helper)))
+            if (!alreadyBlocked &&
+                (!defender.IsWithinRange(helper, 6) || !helper.CanPerceiveTarget(defender)))
             {
                 yield break;
             }
 
-            // This function also adjust AC to just enough block the attack, so if alreadyBlocked, we should not abort.
-            if ((!helper.CanReact(true) && !alreadyBlocked)
-                || !helper.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
+            if ((!helper.CanReact(true) && !alreadyBlocked) ||
+                !helper.RulesetCharacter.GetVersatilitySupportCondition(out var supportCondition))
             {
                 yield break;
             }
 
-            //Can this unit see defender?
-            if (!helper.CanPerceiveTarget(defender))
-            {
-                yield break;
-            }
-
-            // Get attack roll outcome
+            var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var totalAttack = attackRoll
                               + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
                               + actionModifier.AttackRollModifier;
 
-            var currentValue = defenderCharacter.RefreshArmorClass(true).CurrentValue;
-            var requiredACAddition = totalAttack - currentValue + 1;
-
-            // If other actions already blocked it
-            if (requiredACAddition <= 0)
+            // some other reaction saved it already
+            if (armorClass > totalAttack)
             {
                 yield break;
             }
+
+            var requiredACAddition = totalAttack - armorClass + 1;
 
             var console = Gui.Game.GameConsole;
             var entry =
@@ -1062,11 +1054,11 @@ internal static class EldritchVersatilityBuilders
                     Indent = true
                 };
 
-            console.AddCharacterEntry(ownerCharacter, entry);
+            console.AddCharacterEntry(helperCharacter, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"{requiredACAddition}");
 
             // If already applied, we just auto add AC if it's not enough.
-            var modifier = GetAbilityScoreModifier(ownerCharacter, AttributeDefinitions.Wisdom, supportCondition);
+            var modifier = GetAbilityScoreModifier(helperCharacter, AttributeDefinitions.Wisdom, supportCondition);
 
             if (alreadyBlocked)
             {
@@ -1091,8 +1083,8 @@ internal static class EldritchVersatilityBuilders
 
             // If not, can we prevent hit?
             if (requiredACAddition > modifier ||
-                !supportCondition.TryEarnOrSpendPoints(PointAction.Require, PointUsage.EldritchAegis,
-                    requiredACAddition))
+                !supportCondition.TryEarnOrSpendPoints(
+                    PointAction.Require, PointUsage.EldritchAegis, requiredACAddition))
             {
                 yield break;
             }
@@ -1114,12 +1106,12 @@ internal static class EldritchVersatilityBuilders
                 yield break;
             }
 
-            //Spend points
-            supportCondition.TryEarnOrSpendPoints(PointAction.Modify, PointUsage.EldritchAegis,
-                requiredACAddition);
-            InflictCondition(EldritchAegisSupportRulesetCondition.BindingDefinition, ownerCharacter, defenderCharacter);
-            EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(defenderCharacter,
-                out eldritchAegisSupportCondition);
+            supportCondition.TryEarnOrSpendPoints(
+                PointAction.Modify, PointUsage.EldritchAegis, requiredACAddition);
+            InflictCondition(
+                EldritchAegisSupportRulesetCondition.BindingDefinition, helperCharacter, defenderCharacter);
+            EldritchAegisSupportRulesetCondition.GetCustomConditionFromCharacter(
+                defenderCharacter, out eldritchAegisSupportCondition);
             eldritchAegisSupportCondition.ACBonus = requiredACAddition;
             defenderCharacter.RefreshArmorClass(true);
             console.AddEntry(entry);
