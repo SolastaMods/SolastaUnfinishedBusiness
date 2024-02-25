@@ -1957,6 +1957,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerTraditionLightLuminousKi { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionLightLuminousKi");
 
+        internal static FeatureDefinitionPower PowerTraditionOpenHandTranquility { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandTranquility");
+
         internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
 

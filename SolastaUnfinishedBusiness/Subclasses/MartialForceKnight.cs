@@ -63,6 +63,8 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeForce)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetImpactParticleReference(
+                SpellDefinitions.ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddCustomSubFeatures(
                 new ModifyAdditionalDamageFormPoweredStrike(),
                 ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
@@ -82,10 +84,11 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetAuthorizedActions(ForcePoweredStrikeToggle)
             .AddToDB();
 
-        // var powerForcePoweredStrike = FeatureDefinitionPowerSharedPoolBuilder
-        //     .Create($"Power{Name}ForcePoweredStrike")
-        //     .SetGuiPresentationNoContent(true)
-        //     .AddToDB();
+        // for QA save only
+        _ = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{Name}ForcePoweredStrike")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
 
         // Kinetic Barrier
 
@@ -117,6 +120,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKineticBarrier))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionOpenHandTranquility)
                     .Build())
             .AddToDB();
 
@@ -138,7 +142,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create($"Power{Name}ForceDriveOncePerShort")
             .SetGuiPresentation($"Power{Name}ForceDrive", Category.Feature, forceDriveSprite)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -156,7 +159,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             .Create($"Power{Name}ForceDrive")
             .SetGuiPresentation(Category.Feature, forceDriveSprite)
             .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
