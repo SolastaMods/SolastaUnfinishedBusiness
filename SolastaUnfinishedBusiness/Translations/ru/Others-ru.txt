@@ -146,7 +146,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=Экспортирован
 Message/&CharacterExportEmptyNameErrorDescription=Экспортирование отменено:\nПожалуйста, укажите не пустое имя.
 Message/&CharacterExportModalContentDescription=Введите имя героя для экспортирования:
 Message/&CharacterExportModalTitleDescription=Экспортировать {0}
-Message/&MessageModWelcomeDescription=Мод Неоконченное Дело напичкан множеством захватывающих функций, однако по умолчанию ни одна из них не активирована. Нажмите <color=#F0DAA0>Ctrl-F10</color>, чтобы открыть интерфейс Unity Mod Manager [UMM], затем кликните на значок настроек рядом с 'Неоконченным Делом', чтобы открыть окно настроек. Изучите опции и выберите те, что вам нравятся.\n<b>Пожалуйста, сделайте пожертвование, если можете.</b> Другие варианты оплаты доступны в разделе «Интерфейс мода», «Игровой процесс», «Инструменты».
+Message/&MessageModWelcomeDescription=Мод Неоконченное Дело напичкан множеством захватывающих функций, однако по умолчанию ни одна из них не активирована. Нажмите <color=#F0DAA0>Ctrl-F10</color>, чтобы открыть интерфейс Unity Mod Manager [UMM], затем кликните на значок настроек рядом с 'Неоконченным Делом', чтобы открыть окно настроек. Изучите опции и выберите те, что вам нравятся.\n<b>Пожалуйста, сделайте пожертвование, если можете.</b> Другие варианты оплаты доступны в разделе Интерфейс / Игровой процесс / Инструменты.
 Message/&MessageModWelcomeTitle=Мод Неоконченное Дело
 Message/&ModErrorWarningDescription=В Solasta обнаружена нестабильность. Попросите каждого игрока закрыть игру, найти файл <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> и поделиться этими логами и файлом сохранения с сообществом разработчиков мода Unfinished Business.
 Message/&ModErrorWarningTitle=ПРЕДУПРЕЖДЕНИЕ!
@@ -237,7 +237,7 @@ Tooltip/&CustomMapMarkerCamp=Лагерь
 Tooltip/&CustomMapMarkerExit=Выход
 Tooltip/&CustomMapMarkerTeleport=Телепорт
 Tooltip/&FeatGroupTitle=Группа особенностей
-Tooltip/&ForcePointsPortraitPoolFormat=У вас есть {0} из {1} использований очков силы.\nВсе использования восстанавливаются после короткого или длительного отдыха.
+Tooltip/&ForcePointsPortraitPoolFormat=У вас есть {0} из {1} использований Очков Силы.\nВсе использования восстанавливаются после короткого или продолжительного отдыха.
 Tooltip/&InvocationUsageShortRestAvailableDescription=После использования этого воззвания необходимо окончить короткий или продолжительный отдых, чтобы воспользоваться им вновь.
 Tooltip/&InvocationUsageShortRestUsedDescription=Для повторной активации этого воззвания необходимо окончить короткий или продолжительный отдых.
 Tooltip/&LightingTargetPerceiveFormat={0} невозможно различить
