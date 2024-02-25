@@ -1,6 +1,6 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Ваше рукопашное оружие, которое вы держите в руках, получает дополнительную досягаемость в 30 футов.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Движение силы
-Condition/&ConditionMartialForceKnightKineticBarrierDescription=Вокруг вас есть защитный щит из чистой силы, дающий вам дополнительный КД, равный модификатору Интеллекта Рыцаря Силы.
+Condition/&ConditionMartialForceKnightKineticBarrierDescription=Вокруг вас есть защитное поле, дающее вам дополнительный КД, равный модификатору Интеллекта Рыцаря Силы.
 Condition/&ConditionMartialForceKnightKineticBarrierTitle=Кинетический барьер
 Condition/&ConditionMartialForceKnightTelekineticGraspDescription=Бонусным действием вы можете совершить одну атаку оружием. Вы можете использовать ваше действие, чтобы попытаться сохранить телекинетический захват на существе, повторив проверку, или выбрать новое существо, прекратив эффект опутывания на ранее поражённом существе.
 Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Телекинез
