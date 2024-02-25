@@ -2,11 +2,11 @@
 
 - added Martial Force Knight subclass
 - added Militia and Troublemaker backgrounds
-- fixed 'Add Fighter Level to Indomitable Saving Reroll'
+- fixed 'Add fighter level to indomitable saving reroll'
+- fixed 'Lighting and obscurement rules'
 - fixed Circle of the Cosmos twinkling stars and weal
 - fixed Counterattack gambit die consumption
 - fixed Domain Defiler insidious death magic
-- fixed 'Lighting and Obscurement rules'
 - fixed multiclass caster effective level
 
 1.5.94.55:

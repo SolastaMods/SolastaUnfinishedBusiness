@@ -398,24 +398,24 @@
     <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
     <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
     <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
-    <DisableLevelPrerequisitesOnModFeats>true</DisableLevelPrerequisitesOnModFeats>
+    <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
     <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-    <DisableCastSpellPreRequisitesOnModFeats>true</DisableCastSpellPreRequisitesOnModFeats>
+    <DisableCastSpellPreRequisitesOnModFeats>false</DisableCastSpellPreRequisitesOnModFeats>
     <EnableLevel20>true</EnableLevel20>
     <EnableMulticlass>true</EnableMulticlass>
     <MaxAllowedClasses>3</MaxAllowedClasses>
     <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
-    <EnableRelearnSpells>true</EnableRelearnSpells>
+    <EnableRelearnSpells>false</EnableRelearnSpells>
     <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
     <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
     <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
     <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
-    <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
+    <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
     <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
-    <GrantScimitarSpecializationToBardRogue>true</GrantScimitarSpecializationToBardRogue>
+    <GrantScimitarSpecializationToBardRogue>false</GrantScimitarSpecializationToBardRogue>
     <AddFighterLevelToIndomitableSavingReroll>true</AddFighterLevelToIndomitableSavingReroll>
     <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
-    <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
+    <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
     <EnableRangerNatureShroudAt10>true</EnableRangerNatureShroudAt10>
     <EnableMonkAbundantKi>true</EnableMonkAbundantKi>
     <EnableMonkDoNotRequireAttackActionForBonusUnarmoredAttack>true
@@ -423,9 +423,9 @@
     <EnableMonkDoNotRequireAttackActionForFlurry>true</EnableMonkDoNotRequireAttackActionForFlurry>
     <EnableMonkFightingStyle>true</EnableMonkFightingStyle>
     <EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>true</EnableMonkImprovedUnarmoredMovementToMoveOnTheWall>
-    <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
+    <EnableMonkWeaponSpecialization>false</EnableMonkWeaponSpecialization>
     <EnableRogueCunningStrike>true</EnableRogueCunningStrike>
-    <EnableRogueFightingStyle>true</EnableRogueFightingStyle>
+    <EnableRogueFightingStyle>false</EnableRogueFightingStyle>
     <EnableRogueSteadyAim>true</EnableRogueSteadyAim>
     <OfferAdditionalLoreFriendlyNames>true</OfferAdditionalLoreFriendlyNames>
     <UnlockAllNpcFaces>true</UnlockAllNpcFaces>
@@ -675,6 +675,8 @@
     <BackgroundEnabled>
         <string>BackgroundDevoted</string>
         <string>BackgroundFarmer</string>
+        <string>BackgroundMilitia</string>
+        <string>BackgroundTroublemaker</string>
     </BackgroundEnabled>
     <KlassListSliderPosition>
         <item>
@@ -845,6 +847,7 @@
             <value>
                 <ArrayOfString>
                     <string>MartialArcaneArcher</string>
+                    <string>MartialForceKnight</string>
                     <string>MartialGuardian</string>
                     <string>MartialRoyalKnight</string>
                     <string>MartialSpellShield</string>
@@ -1457,6 +1460,7 @@
                     <string>FarStep</string>
                     <string>Incineration</string>
                     <string>SonicBoom</string>
+                    <string>Telekinesis</string>
                     <string>HeroicInfusion</string>
                     <string>FlashFreeze</string>
                     <string>MysticalCloak</string>
@@ -1560,6 +1564,7 @@
                     <string>Incineration</string>
                     <string>SteelWhirlwind</string>
                     <string>SonicBoom</string>
+                    <string>Telekinesis</string>
                     <string>HeroicInfusion</string>
                     <string>MysticalCloak</string>
                     <string>PoisonWave</string>

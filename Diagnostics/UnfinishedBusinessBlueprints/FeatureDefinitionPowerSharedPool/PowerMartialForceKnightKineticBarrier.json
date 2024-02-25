@@ -107,7 +107,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedParameter": -1.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
