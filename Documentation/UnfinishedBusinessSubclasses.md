@@ -997,7 +997,7 @@ Force Knights are disciplined warriors who utilize a wide range of psychokinetic
 You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 additional point every 3 levels thereafter. Your Force Points recharge on short or long rest. 
 • Force-Powered Strike. Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d6 + Intelligence modifier. The damage increases to 1d8 at 5th, 1d10 at 11th and 1d12 at 17th level.
 • Kinetic Barrier. When you or another allied creature that you can see within 30 feet of you is about to be hit by an attack, you can expend 1 Force Point and use your reaction to form a protective shield of pure force around it, granting it extra AC equal to your Intelligence modifier (minimum +1) against that attack and all subsequent attacks until the end of the attacking creature's turn.
-• Force Drive. You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range.
+• Force Drive. You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range. You can use this feature once per short rest without expending a Force Point.
 
 
 ### Level 7
