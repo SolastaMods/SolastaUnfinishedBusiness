@@ -892,6 +892,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionRestrained { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionRestrained");
 
+        internal static FeatureDefinitionActionAffinity ActionAffinityConditionRetchingReeling { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionRetchingReeling");
+
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionShocked { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionShocked");
 

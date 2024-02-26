@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -610,7 +611,7 @@ internal static class LightingAndObscurementContext
         .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetFeatures(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityConditionRetchingReeling)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
