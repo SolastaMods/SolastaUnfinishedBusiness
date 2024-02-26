@@ -35,7 +35,6 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        // kept name for backward compatibility
         var attributeModifierDraconicResilience = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ProfaneVitality")
             .SetGuiPresentation(Category.Feature)

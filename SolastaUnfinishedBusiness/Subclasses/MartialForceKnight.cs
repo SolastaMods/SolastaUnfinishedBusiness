@@ -84,12 +84,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetAuthorizedActions(ForcePoweredStrikeToggle)
             .AddToDB();
 
-        // for QA save only
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ForcePoweredStrike")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         // Kinetic Barrier
 
         var conditionKineticBarrier = ConditionDefinitionBuilder

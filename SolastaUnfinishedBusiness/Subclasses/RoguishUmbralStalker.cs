@@ -118,12 +118,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ShadowStrideAtWill")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var powerShadowStrideBonus = FeatureDefinitionPowerBuilder
             .Create(powerShadowStride, $"Power{Name}ShadowStrideBonus")
             .SetUsesFixed(ActivationTime.BonusAction)
