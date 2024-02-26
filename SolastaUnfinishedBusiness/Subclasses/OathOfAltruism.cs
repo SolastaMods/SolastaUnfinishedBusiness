@@ -47,8 +47,7 @@ public sealed class OathOfAltruism : AbstractSubclass
         var powerSpiritualShielding = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}SpiritualShielding")
             .SetGuiPresentation(Category.Feature, ShieldOfFaith)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ChannelDivinity)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -59,6 +58,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             .AddToDB();
 
         powerSpiritualShielding.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitPossibleOnMeOrAllySpiritualShielding(powerSpiritualShielding));
 
         var featureDefensiveStrike = FeatureDefinitionBuilder
@@ -232,6 +232,12 @@ public sealed class OathOfAltruism : AbstractSubclass
             }
 
             var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.HasConditionOfType(ConditionShielded))
+            {
+                yield break;
+            }
+
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var totalAttack =
                 attackRoll +
@@ -240,11 +246,6 @@ public sealed class OathOfAltruism : AbstractSubclass
 
             // some other reaction saved it already
             if (armorClass > totalAttack)
-            {
-                yield break;
-            }
-
-            if (!rulesetDefender.CanMagicEffectPreventHit(powerSpiritualShielding, totalAttack))
             {
                 yield break;
             }

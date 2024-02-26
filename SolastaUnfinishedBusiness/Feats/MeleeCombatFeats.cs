@@ -377,18 +377,19 @@ internal static class MeleeCombatFeats
         var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDefensiveDuelist))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerKnightLeadership)
                     .Build())
             .AddToDB();
 
         powerDefensiveDuelist.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitPossibleOnMeOrAllyDefensiveDuelist(powerDefensiveDuelist));
 
         return FeatDefinitionBuilder
@@ -436,6 +437,12 @@ internal static class MeleeCombatFeats
             }
 
             var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+            {
+                yield break;
+            }
+
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var totalAttack =
                 attackRoll +
@@ -444,11 +451,6 @@ internal static class MeleeCombatFeats
 
             // some other reaction saved it already
             if (armorClass > totalAttack)
-            {
-                yield break;
-            }
-
-            if (!rulesetDefender.CanMagicEffectPreventHit(powerDefensiveDuelist, totalAttack))
             {
                 yield break;
             }

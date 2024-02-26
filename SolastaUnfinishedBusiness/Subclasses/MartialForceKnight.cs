@@ -106,8 +106,7 @@ public sealed class MartialForceKnight : AbstractSubclass
         var powerKineticBarrier = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}KineticBarrier")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.Reaction, PowerPsionicInitiate)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetSharedPool(ActivationTime.NoCost, PowerPsionicInitiate)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -120,6 +119,7 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddToDB();
 
         powerKineticBarrier.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitPossibleOnMeOrAllyKineticBarrier(powerKineticBarrier));
 
         // Force Drive
