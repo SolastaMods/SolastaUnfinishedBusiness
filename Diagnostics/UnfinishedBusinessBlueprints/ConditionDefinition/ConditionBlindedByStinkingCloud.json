@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityConditionRetchingReeling:b1c3e99763f0f364dab00f35cd486b7b"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
