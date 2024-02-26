@@ -1546,8 +1546,7 @@ internal static class CharacterContext
         var powerPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Cunning}")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -1557,7 +1556,9 @@ internal static class CharacterContext
                     .Build())
             .AddToDB();
 
-        powerPool.AddCustomSubFeatures(IsModifyPowerPool.Marker,
+        powerPool.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            IsModifyPowerPool.Marker,
             new PhysicalAttackInitiatedByMeCunningStrike(powerPool));
 
         // Disarm

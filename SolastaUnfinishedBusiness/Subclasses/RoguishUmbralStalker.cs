@@ -160,11 +160,12 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var powerUmbralSoul = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}UmbralSoul")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .AddToDB();
 
-        powerUmbralSoul.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyUmbralSoul(powerUmbralSoul));
+        powerUmbralSoul.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new OnReducedToZeroHpByEnemyUmbralSoul(powerUmbralSoul));
 
         var featureSetUmbralSoul = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}UmbralSoul")

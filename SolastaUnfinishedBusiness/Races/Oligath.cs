@@ -137,8 +137,7 @@ internal static class RaceOligathBuilder
         var powerOligathStoneEndurance = FeatureDefinitionPowerBuilder
             .Create("PowerOligathStoneEndurance")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -149,6 +148,7 @@ internal static class RaceOligathBuilder
             .AddToDB();
 
         powerOligathStoneEndurance.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
 
         return powerOligathStoneEndurance;

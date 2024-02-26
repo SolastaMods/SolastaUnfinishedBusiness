@@ -410,11 +410,12 @@ internal static class Level20Context
         var powerRogueStrokeOfLuck = FeatureDefinitionPowerBuilder
             .Create("PowerRogueStrokeOfLuck")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
-        powerRogueStrokeOfLuck.AddCustomSubFeatures(new TryAlterOutcomeAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+        powerRogueStrokeOfLuck.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new TryAlterOutcomeAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {

@@ -1335,8 +1335,7 @@ internal static class InvocationsBuilders
         var powerTombOfFrost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Invocation, sprite)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -1350,7 +1349,9 @@ internal static class InvocationsBuilders
         powerTombOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference =
             RayOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference;
 
-        powerTombOfFrost.AddCustomSubFeatures(new CustomBehaviorTombOfFrost(powerTombOfFrost));
+        powerTombOfFrost.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new CustomBehaviorTombOfFrost(powerTombOfFrost));
 
         return InvocationDefinitionBuilder
             .Create(Name)

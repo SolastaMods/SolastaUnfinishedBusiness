@@ -101,11 +101,12 @@ public sealed class RoguishRavenScion : AbstractSubclass
         var powerDeadlyFocus = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DeadlyFocus")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
-        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomeAttackDeadlyFocus(powerDeadlyFocus));
+        powerDeadlyFocus.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new TryAlterOutcomeAttackDeadlyFocus(powerDeadlyFocus));
 
         // LEVEL 17
 

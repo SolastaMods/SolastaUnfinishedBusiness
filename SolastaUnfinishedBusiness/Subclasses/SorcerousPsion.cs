@@ -194,8 +194,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         var powerMindOverMatter = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MindOverMatter")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -212,7 +211,9 @@ public sealed class SorcerousPsion : AbstractSubclass
         powerMindOverMatter.EffectDescription.EffectParticleParameters.casterParticleReference =
             PowerPatronFiendDarkOnesBlessing.EffectDescription.EffectParticleParameters.effectParticleReference;
 
-        powerMindOverMatter.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyMindOverMatter(powerMindOverMatter));
+        powerMindOverMatter.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new OnReducedToZeroHpByEnemyMindOverMatter(powerMindOverMatter));
 
         // LEVEL 18
 

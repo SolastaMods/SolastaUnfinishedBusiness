@@ -57,8 +57,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
         var powerBloodbath = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Bloodbath")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
         // LEVEL 14
@@ -73,6 +72,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
         featureVoraciousFury.AddCustomSubFeatures(
             new PhysicalAttackFinishedByMeVoraciousFury(featureVoraciousFury, powerBloodbath));
         powerBloodbath.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeBloodbath(powerBloodbath));
         featureCorruptedBlood.AddCustomSubFeatures(
             new PhysicalAttackFinishedOnMeCorruptedBlood(featureCorruptedBlood, powerBloodbath));

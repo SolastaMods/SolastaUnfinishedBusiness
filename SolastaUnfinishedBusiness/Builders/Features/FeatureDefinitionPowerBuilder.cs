@@ -126,14 +126,6 @@ internal abstract class
         return (TBuilder)this;
     }
 
-#if false
-    internal TBuilder SetIsPowerPool()
-    {
-        Definition.overriddenPower = Definition;
-        return (TBuilder)this;
-    }
-#endif
-
     internal TBuilder SetBonusToAttack(
         bool proficiencyBonusToAttack = false,
         bool abilityScoreBonusToAttack = false,
@@ -159,30 +151,12 @@ internal abstract class
         return (TBuilder)this;
     }
 
-    internal TBuilder SetReactionContext(ExtraReactionContext context)
-    {
-        Definition.reactionContext = (ReactionTriggerContext)context;
-        return (TBuilder)this;
-    }
-
     internal TBuilder SetExplicitAbilityScore(string abilityScore)
     {
         Definition.abilityScoreDetermination = AbilityScoreDetermination.Explicit;
         Definition.abilityScore = abilityScore;
         return (TBuilder)this;
     }
-
-#if false
-    internal TBuilder SetTriggeringPower(FeatureDefinitionPower triggerPower, bool copyTarget = false,
-        RechargeRate rechargeRate = RechargeRate.AtWill)
-    {
-        Definition.triggeringPower = triggerPower;
-        Definition.activationTime = ActivationTime.OnPowerActivatedAuto;
-        Definition.copyTargetingFromTriggeringPower = copyTarget;
-        Definition.rechargeRate = rechargeRate;
-        return (TBuilder)this;
-    }
-#endif
 
     #region Constructors
 

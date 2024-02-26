@@ -762,8 +762,7 @@ internal static class Level20SubclassesContext
         var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionSurvivalUnbreakableBody, "PowerTraditionSurvivalPhysicalPerfection")
             .SetGuiPresentation(Category.Feature, PowerTraditionSurvivalUnbreakableBody)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerTraditionSurvivalUnbreakableBody)
@@ -777,6 +776,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerTraditionSurvivalPhysicalPerfection.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByEnemyPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(

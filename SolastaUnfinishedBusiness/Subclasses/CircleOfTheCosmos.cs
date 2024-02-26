@@ -111,28 +111,28 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerCosmosOmenPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CosmosOmenPool")
             .SetGuiPresentationNoContent(true)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerWealCosmosOmen = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}WealCosmosOmen")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.Reaction, powerCosmosOmenPool)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetSharedPool(ActivationTime.NoCost, powerCosmosOmenPool)
             .AddToDB();
 
         powerWealCosmosOmen.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new TryAlterOutcomeSavingThrowWeal(powerCosmosOmenPool, powerWealCosmosOmen));
 
         var powerWoeCosmosOmen = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}WoeCosmosOmen")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.Reaction, powerCosmosOmenPool)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetSharedPool(ActivationTime.NoCost, powerCosmosOmenPool)
             .AddToDB();
 
         powerWoeCosmosOmen.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new TryAlterOutcomeSavingThrowWoe(powerCosmosOmenPool, powerWoeCosmosOmen));
 
         var conditionWealCosmosOmen = ConditionDefinitionBuilder

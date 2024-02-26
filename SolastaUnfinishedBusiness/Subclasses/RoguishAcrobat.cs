@@ -161,8 +161,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
         var powerHeroicUncannyDodge = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HeroicUncannyDodge")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Dexterity)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Dexterity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -173,6 +172,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         powerHeroicUncannyDodge.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitConfirmedOnMeHeroicUncannyDodge(powerHeroicUncannyDodge));
 
         // MAIN

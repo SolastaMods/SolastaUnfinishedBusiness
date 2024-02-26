@@ -202,8 +202,7 @@ public class PatronCelestial : AbstractSubclass
         var powerSearingVengeance = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SearingVengeance")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -224,7 +223,9 @@ public class PatronCelestial : AbstractSubclass
         powerSearingVengeance.EffectDescription.EffectParticleParameters.casterParticleReference =
             HolyAura.EffectDescription.EffectParticleParameters.effectParticleReference;
 
-        powerSearingVengeance.AddCustomSubFeatures(new OnReducedToZeroHpByEnemySearingVengeance(powerSearingVengeance));
+        powerSearingVengeance.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new OnReducedToZeroHpByEnemySearingVengeance(powerSearingVengeance));
 
         //
         // Main

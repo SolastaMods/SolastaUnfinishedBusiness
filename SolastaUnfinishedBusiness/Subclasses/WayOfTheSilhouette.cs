@@ -118,8 +118,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         var powerWayOfSilhouetteShadowySanctuary = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift, $"Power{Name}ShadowySanctuary")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints, 3)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift)
@@ -129,6 +128,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         powerWayOfSilhouetteShadowySanctuary.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new ValidatorsValidatePowerUse(ValidatorsCharacter.IsNotInBrightLight),
             new CustomBehaviorShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
 

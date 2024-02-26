@@ -806,8 +806,8 @@ internal static class InventorClass
         var bonusPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusBonus")
             .SetGuiPresentation("PowerInventorFlashOfGenius", Category.Feature, sprite)
-            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var auraPower = FeatureDefinitionPowerBuilder

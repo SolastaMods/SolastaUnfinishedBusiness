@@ -160,11 +160,6 @@ internal enum ExtraOriginOfAmount
     SourceProficiencyBonusNegative
 }
 
-internal enum ExtraReactionContext
-{
-    Custom = 9000
-}
-
 internal enum ExtraSituationalContext
 {
     HasBladeMasteryWeaponTypesInHands = 9000,

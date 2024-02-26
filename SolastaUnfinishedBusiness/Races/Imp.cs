@@ -131,8 +131,7 @@ internal static class RaceImpBuilder
         var powerImpForestImpishWrath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ImpishWrath")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .DelegatedToAction()
             .AddToDB();
 
@@ -157,6 +156,7 @@ internal static class RaceImpBuilder
             .AddToDB();
 
         powerImpForestImpishWrath.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitConfirmedImpishWrath(powerImpForestImpishWrath));
 
         var featureSetImpForestImpishWrath = FeatureDefinitionFeatureSetBuilder

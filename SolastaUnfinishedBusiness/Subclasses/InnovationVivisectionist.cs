@@ -127,11 +127,11 @@ public sealed class InnovationVivisectionist : AbstractSubclass
         var powerOrganDonation = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}OrganDonation")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
         powerOrganDonation.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeOrganDonation(powerOrganDonation, powerEmergencySurgery, powerEmergencyCure));
 
         // LEVEL 15

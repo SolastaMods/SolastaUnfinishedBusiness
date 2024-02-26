@@ -109,8 +109,8 @@ public sealed class MartialRoyalKnight : AbstractSubclass
         var powerRoyalKnightInspiringProtection = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightInspiringProtection")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerRoyalKnightInspiringProtectionAura = FeatureDefinitionPowerBuilder

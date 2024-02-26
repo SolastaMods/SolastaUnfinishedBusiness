@@ -356,8 +356,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         var powerMoonlightGuise = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MoonlightGuise")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -368,7 +367,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerMoonlightGuise.AddCustomSubFeatures(new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
+        powerMoonlightGuise.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
 
         // MAIN
 

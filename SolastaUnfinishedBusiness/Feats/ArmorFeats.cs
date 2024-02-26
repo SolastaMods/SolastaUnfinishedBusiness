@@ -156,8 +156,7 @@ internal static class ArmorFeats
         var powerShieldTechniques = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -168,6 +167,7 @@ internal static class ArmorFeats
             .AddToDB();
 
         powerShieldTechniques.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new CustomBehaviorShieldTechniques(powerShieldTechniques, conditionShieldTechniquesSavingThrow));
 
         return FeatDefinitionBuilder

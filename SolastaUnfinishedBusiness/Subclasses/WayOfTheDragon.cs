@@ -330,8 +330,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         var powerReactiveHide = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ReactiveHide")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -343,6 +342,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         powerReactiveHide.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new CustomBehaviorReactiveHide(powerReactiveHide, conditionReactiveHide));
 
         return powerReactiveHide;

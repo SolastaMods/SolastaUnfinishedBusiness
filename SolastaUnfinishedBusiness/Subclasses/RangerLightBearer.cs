@@ -133,8 +133,7 @@ public sealed class RangerLightBearer : AbstractSubclass
         var powerBlessedGlow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BlessedGlow")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -155,6 +154,7 @@ public sealed class RangerLightBearer : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily =
