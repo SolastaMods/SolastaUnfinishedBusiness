@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -13,6 +12,7 @@ using static LocationDefinitions;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.EffectProxyDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -611,7 +611,8 @@ internal static class LightingAndObscurementContext
         .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinityConditionRetchingReeling)
+        .SetFeatures(ConditionPoisoned.Features)
+        .AddFeatures(ActionAffinityConditionRetchingReeling)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
