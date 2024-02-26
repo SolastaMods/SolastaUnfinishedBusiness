@@ -9,21 +9,8 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 public class CharacterActionDyingLightToggle(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
-    private const ActionDefinitions.Id Action = (ActionDefinitions.Id)ExtraActionId.DyingLightToggle;
-
     public override IEnumerator ExecuteImpl()
     {
-        var rulesetCharacter = ActingCharacter.RulesetCharacter;
-
-        if (rulesetCharacter.IsToggleEnabled(Action))
-        {
-            rulesetCharacter.DisableToggle(Action);
-        }
-        else
-        {
-            rulesetCharacter.EnableToggle(Action);
-        }
-
-        yield return null;
+        yield return ActingCharacter.RulesetCharacter.FlipToggle(ExtraActionId.DyingLightToggle);
     }
 }
