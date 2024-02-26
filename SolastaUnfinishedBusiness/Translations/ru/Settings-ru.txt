@@ -179,8 +179,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Заклинани
 ModUi/&ImproveLevelUpFeaturesSelection=Улучшить выбор умений при повышении уровня <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>\n<i><color=#F0DAA0>[затрагивает Предпочтительного противника и Родство с местностью <color=#D89555>Следопыта</color>, Родственного зверя <color=#D89555>Друида</color>, Путь элементов и Драконьи архетипы <color=#D89555>Варвара</color>]</color></i>
 ModUi/&IncreaseGameTimeBy=Увеличить время игры на
 ModUi/&IncreaseMaxAttunedItems=Увеличить максимальное возможное для настройки количество предметов до 4 на 10-м уровне и до 5 на 18-м уровне
-ModUi/&IncreaseSenseNormalVision=<color=white>Увеличить дальность <color=#D89555>Нормального зрения</color>, чтобы иметь возможность совершать дальнобойные атаки</color> <b><i><color=#C04040E0>[Необходим перезапуск]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 - идеальное значение, чтобы избежать вовлечения в бой противников, находящихся далеко]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Создание:</color>
 ModUi/&Input=<color=#F0DAA0>Клавиши:</color>
 ModUi/&Interface=Интерфейс
@@ -241,6 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Масштабировать цены торговцев корректно/точно <i><color=#F0DAA0>[больше никаких ошибок округления при конвертировании монет разного номинала]</color></i>
 ModUi/&SelectAll=Выбрать все
 ModUi/&SelectSuggested=Выбрать рекомендуемые
+ModUi/&SenseNormalVisionRangeMultiplier=<color=white>Изменить множитель дальности <color=#D89555>Обычного видения</color> в боях</color>
 ModUi/&Services=Сервисы
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>Шанс появления бороды при ношении</color> <color=#D89555>Пояса Дварфов</color>
 ModUi/&SettingsExport=Экспорт

@@ -496,15 +496,14 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        var intValue = Main.Settings.IncreaseSenseNormalVision;
-        UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
-        if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"),
+        var intValue = Main.Settings.SenseNormalVisionRangeMultiplier;
+        if (UI.Slider(Gui.Localize("ModUi/&SenseNormalVisionRangeMultiplier"),
                 ref intValue,
-                SrdAndHouseRulesContext.DefaultVisionRange,
-                SrdAndHouseRulesContext.MaxVisionRange,
-                SrdAndHouseRulesContext.DefaultVisionRange, "", UI.AutoWidth()))
+                1,
+                3,
+                1, "", UI.AutoWidth()))
         {
-            Main.Settings.IncreaseSenseNormalVision = intValue;
+            Main.Settings.SenseNormalVisionRangeMultiplier = intValue;
         }
 
         UI.Label();

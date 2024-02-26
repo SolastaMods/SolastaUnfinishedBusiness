@@ -179,8 +179,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=幻象法术对范
 ModUi/&ImproveLevelUpFeaturesSelection=改进升级功能选择<b><i><color=#C04040E0>[需要重启]</color></i></b>\n<i><color=#F0DAA0>[影响<color=#D89555>游侠</color>宿敌和擅长地形，<color=#D89555>德鲁伊</color>血缘野兽，<color=#D89555>野蛮人</color>元素之路和龙类子职选择]</color></i>
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=在第10级将最大同调物品增加到4个，在第18级增加到5个
-ModUi/&IncreaseSenseNormalVision=<color=white>增加<color=#D89555>正常视觉</color>范围以启用远程攻击</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40是避免敌人从太远加入的理想选择]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>创作：</color>
 ModUi/&Input=<color=#F0DAA0>输入：</color>
 ModUi/&Interface=界面
@@ -242,6 +240,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD：</color>
 ModUi/&ScaleMerchantPricesCorrectly=正确/准确调整商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入错误]</color></i>
 ModUi/&SelectAll=全选
 ModUi/&SelectSuggested=选择建议
+ModUi/&SenseNormalVisionRangeMultiplier=<color=white>修改战斗中的<color=#D89555>正常视力</color>范围倍增</color>
 ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>
 ModUi/&SettingsExport=导出

@@ -179,8 +179,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusionszauber sc
 ModUi/&ImproveLevelUpFeaturesSelection=Verbesserung der Auswahl der Levelaufstiegsfunktionen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[Auswirkungen auf <color= #D89555>Waldläufer</color> Bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> Verwandtes Biest, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</color></i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl an abgestimmten Gegenständen auf Stufe 10 auf 4 und auf Stufe 18 auf 5
-ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite von <color=#D89555>Sense Normal Vision</color>, um Fernangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 ist ideal, um zu verhindern, dass sich Feinde aus zu großer Entfernung nähern]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Erstellung:</color>
 ModUi/&Input=<color=#F0DAA0>Eingabe:</color>
 ModUi/&Interface=Schnittstelle
@@ -241,6 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Skalieren Sie Händlerpreise korrekt / genau <i><color=#F0DAA0>[keine Rundungsfehler mehr bei der Umrechnung von Münzwerten]</color></i>
 ModUi/&SelectAll=Wählen Sie Alle
 ModUi/&SelectSuggested=Wählen Sie „Vorgeschlagen“ aus
+ModUi/&SenseNormalVisionRangeMultiplier=<color=white>Ändern Sie den Reichweitenmultiplikator für <color=#D89555>Normale Sicht</color> in Schlachten</color>
 ModUi/&Services=Dienstleistungen
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Gürtel der Zwergen</color> <color=white>Bart-Erscheinungschancen</color>
 ModUi/&SettingsExport=Export

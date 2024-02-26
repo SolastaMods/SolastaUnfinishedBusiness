@@ -86,4 +86,39 @@ public static class GameLocationBattlePatcher
             }
         }
     }
+
+    //PATCH: supports `SenseNormalVisionRangeMultiplier`
+    [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.IntroduceNewContender))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IntroduceNewContender_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GameLocationCharacter character)
+        {
+            var multiplier = Main.Settings.SenseNormalVisionRangeMultiplier;
+
+            if (multiplier == 1)
+            {
+                return;
+            }
+
+            var rulesetCharacter = character.RulesetCharacter;
+            var conditionName = $"ConditionSenseNormalVision{(multiplier == 2 ? 24 : 48)}";
+
+            rulesetCharacter.InflictCondition(
+                conditionName,
+                RuleDefinitions.DurationType.Irrelevant,
+                1,
+                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionName,
+                0,
+                0,
+                0);
+        }
+    }
 }
