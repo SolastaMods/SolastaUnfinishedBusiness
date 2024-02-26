@@ -239,7 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Масштабировать цены торговцев корректно/точно <i><color=#F0DAA0>[больше никаких ошибок округления при конвертировании монет разного номинала]</color></i>
 ModUi/&SelectAll=Выбрать все
 ModUi/&SelectSuggested=Выбрать рекомендуемые
-ModUi/&SenseNormalVisionRangeMultiplier=<color=white>Изменить множитель дальности <color=#D89555>Обычного видения</color> в боях</color>
+ModUi/&SenseNormalVisionRangeMultiplier=<color=white>Изменить множитель дальности <color=#D89555>Нормального зрения</color> в бою</color>
 ModUi/&Services=Сервисы
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>Шанс появления бороды при ношении</color> <color=#D89555>Пояса Дварфов</color>
 ModUi/&SettingsExport=Экспорт
