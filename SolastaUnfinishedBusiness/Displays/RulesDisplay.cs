@@ -6,7 +6,8 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class RulesDisplay
 {
-    private static readonly string[] Options = ["0", "1", "2", "3"];
+    private static readonly string[] CriticalHitOptions = ["0", "1", "2", "3"];
+    private static readonly string[] SenseNormalVisionOptions = ["12", "24", "48"];
 
     internal static void DisplayRules()
     {
@@ -497,13 +498,16 @@ internal static class RulesDisplay
         UI.Label();
 
         var intValue = Main.Settings.SenseNormalVisionRangeMultiplier;
-        if (UI.Slider(Gui.Localize("ModUi/&SenseNormalVisionRangeMultiplier"),
-                ref intValue,
-                1,
-                3,
-                1, "", UI.AutoWidth()))
+
+        using (UI.HorizontalScope())
         {
-            Main.Settings.SenseNormalVisionRangeMultiplier = intValue;
+            UI.Label(Gui.Localize("ModUi/&SenseNormalVisionRangeMultiplier"), UI.Width(275f));
+
+            if (UI.SelectionGrid(ref intValue, SenseNormalVisionOptions, SenseNormalVisionOptions.Length, 3,
+                    UI.Width(165f)))
+            {
+                Main.Settings.SenseNormalVisionRangeMultiplier = intValue;
+            }
         }
 
         UI.Label();
@@ -521,7 +525,7 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("Caption/&TargetFilteringAllyCreature"), UI.Width(100f));
 
             intValue = Main.Settings.CriticalHitModeAllies;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220f)))
+            if (UI.SelectionGrid(ref intValue, CriticalHitOptions, CriticalHitOptions.Length, 4, UI.Width(220f)))
             {
                 Main.Settings.CriticalHitModeAllies = intValue;
             }
@@ -532,7 +536,7 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("Caption/&TargetFilteringEnemyCreature"), UI.Width(100f));
 
             intValue = Main.Settings.CriticalHitModeEnemies;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220f)))
+            if (UI.SelectionGrid(ref intValue, CriticalHitOptions, CriticalHitOptions.Length, 4, UI.Width(220f)))
             {
                 Main.Settings.CriticalHitModeEnemies = intValue;
             }
@@ -543,7 +547,7 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("Action/&NeutralCreatureTitle"), UI.Width(100f));
 
             intValue = Main.Settings.CriticalHitModeNeutral;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220f)))
+            if (UI.SelectionGrid(ref intValue, CriticalHitOptions, CriticalHitOptions.Length, 4, UI.Width(220f)))
             {
                 Main.Settings.CriticalHitModeNeutral = intValue;
             }

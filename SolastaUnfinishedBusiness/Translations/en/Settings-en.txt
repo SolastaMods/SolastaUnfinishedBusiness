@@ -239,7 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
 ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
-ModUi/&SenseNormalVisionRangeMultiplier=<color=white>Modify <color=#D89555>Normal Vision</color> range multiplier in battles</color>
+ModUi/&SenseNormalVisionRangeMultiplier=Modify <color=#D89555>Normal Vision</color> range <i><color=#F0DAA0>[only in battles]</color></i>
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
 ModUi/&SettingsExport=Export

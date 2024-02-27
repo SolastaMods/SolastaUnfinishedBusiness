@@ -239,7 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Escale los precios de los comerciantes correctamente/exactamente <i><color=#F0DAA0>[no más errores de redondeo al convertir valores de monedas]</color></i>
 ModUi/&SelectAll=Seleccionar todo
 ModUi/&SelectSuggested=Seleccionar sugerido
-ModUi/&SenseNormalVisionRangeMultiplier=<color=white>Modificar el multiplicador de alcance de <color=#D89555>Visión normal</color> en batallas</color>
+ModUi/&SenseNormalVisionRangeMultiplier=Modificar el rango de <color=#D89555>Visión normal</color> <i><color=#F0DAA0>[solo en batallas]</color></i>
 ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
 ModUi/&SettingsExport=Exportar
