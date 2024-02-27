@@ -502,7 +502,7 @@
     </ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition>
     <AddDarknessPerceptiveToDarkRaces>true</AddDarknessPerceptiveToDarkRaces>
     <RaceLightSensitivityApplyOutdoorsOnly>true</RaceLightSensitivityApplyOutdoorsOnly>
-    <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
+    <SenseNormalVisionRangeMultiplier>1</SenseNormalVisionRangeMultiplier>
     <CriticalHitModeAllies>0</CriticalHitModeAllies>
     <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
     <CriticalHitModeNeutral>0</CriticalHitModeNeutral>

@@ -109,7 +109,7 @@ internal class EffectDescriptionBuilder
         _effect.effectParticleParameters.effectParticleReference = assetReference;
         return this;
     }
-    
+
     internal EffectDescriptionBuilder SetImpactEffectParameters(IMagicEffect reference)
     {
         return SetImpactEffectParameters(reference.EffectDescription.EffectParticleParameters.impactParticleReference);

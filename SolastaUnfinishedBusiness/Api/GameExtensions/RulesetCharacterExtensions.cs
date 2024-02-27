@@ -521,16 +521,6 @@ internal static class RulesetCharacterExtensions
         };
     }
 
-    internal static bool CanMagicEffectPreventHit(
-        this RulesetCharacter character,
-        IMagicEffect effect,
-        int totalAttack)
-    {
-        return character.CanAttackOutcomeFromAlterationMagicalEffectFail(
-            effect.EffectDescription.EffectForms,
-            totalAttack);
-    }
-
     internal static bool IsMyFavoriteEnemy(this RulesetCharacter me, RulesetCharacter enemy)
     {
         if (me == null || enemy == null)
