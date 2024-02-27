@@ -260,11 +260,9 @@ internal static partial class SpellBuilders
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .SetParticleEffectParameters(HolyAura)
+                    .SetImpactEffectParameters(Sunburst)
                     .Build())
             .AddToDB();
-
-        spellRadiant.EffectDescription.EffectParticleParameters.impactParticleReference =
-            Sunburst.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         var spellNecrotic = SpellDefinitionBuilder
             .Create($"{NAME}Necrotic")
@@ -394,12 +392,10 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(
                             conditionTeleport, ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(ArcaneSword)
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeSteelWhirlwind())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
-            ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }

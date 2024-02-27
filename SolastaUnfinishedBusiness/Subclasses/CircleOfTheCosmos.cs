@@ -178,10 +178,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                                 conditionWoeCosmosOmen)
                             .Build())
                     .SetParticleEffectParameters(PowerMagebaneSpellCrusher)
+                    .SetEffectEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
-
-        powerCosmosOmen.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         // LEVEL 10
 
@@ -311,13 +310,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
                             .Build())
+                    .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
+                    .SetImpactEffectParameters(Sunbeam)
                     .Build())
             .AddToDB();
-
-        powerArcher.EffectDescription.effectParticleParameters.casterParticleReference =
-            PowerOathOfTirmarGoldenSpeech.EffectDescription.EffectParticleParameters.casterParticleReference;
-        powerArcher.EffectDescription.effectParticleParameters.impactParticleReference = Sunbeam
-            .EffectDescription.EffectParticleParameters.impactParticleReference;
 
         powerArcher.AddCustomSubFeatures(new ModifyEffectDescriptionArcher(powerArcher));
 
@@ -470,11 +466,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
+                    .SetCasterEffectParameters(PowerDomainLifePreserveLife)
                     .Build())
             .AddToDB();
 
-        powerChaliceConstellationForm.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainLifePreserveLife.EffectDescription.EffectParticleParameters.casterParticleReference;
         powerChaliceConstellationForm.AddCustomSubFeatures(
             new ModifyEffectDescriptionConstellationForm(
                 powerChaliceConstellationForm, conditionChalice, conditionChalice, conditionChalice14));
@@ -584,11 +579,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
+                    .SetCasterEffectParameters(PowerDomainLawForceOfLaw)
                     .Build())
             .AddToDB();
-
-        powerDragonConstellationForm.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainLawForceOfLaw.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         powerDragonConstellationForm.AddCustomSubFeatures(
             new ModifyEffectDescriptionConstellationForm(

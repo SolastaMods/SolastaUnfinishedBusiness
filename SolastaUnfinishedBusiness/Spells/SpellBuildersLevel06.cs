@@ -196,14 +196,10 @@ internal static partial class SpellBuilders
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(PoisonSpray)
+                    .SetImpactEffectParameters(PowerDragonBreath_Poison)
+                    .SetEffectEffectParameters(PowerVrockSpores)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference = PowerVrockSpores
-            .EffectDescription.EffectParticleParameters.effectParticleReference;
-
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference = PowerDragonBreath_Poison
-            .EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
@@ -350,11 +346,9 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
                     .SetParticleEffectParameters(ShadowDagger)
+                    .SetCasterEffectParameters(PowerDomainLawWordOfLaw)
                     .Build())
             .AddToDB();
-
-        powerRingOfBlades.EffectDescription.EffectParticleParameters.casterParticleReference = PowerDomainLawWordOfLaw
-            .EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var powerRingOfBladesFree = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Free")
@@ -367,12 +361,9 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.DamageForm(DamageTypeForce, 4, DieType.D8))
                     .SetParticleEffectParameters(ShadowDagger)
+                    .SetCasterEffectParameters(PowerDomainLawWordOfLaw)
                     .Build())
             .AddToDB();
-
-        powerRingOfBladesFree.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainLawWordOfLaw
-                .EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var conditionRingOfBlades = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -428,12 +419,10 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(conditionRingOfBlades),
                         EffectFormBuilder.ConditionForm(conditionRingOfBladesFree))
                     .SetParticleEffectParameters(HypnoticPattern)
+                    .SetEffectEffectParameters(PowerMagebaneSpellCrusher)
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeSpellRingOfBlades(conditionRingOfBlades))
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference = PowerMagebaneSpellCrusher
-            .EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }
@@ -617,13 +606,12 @@ internal static partial class SpellBuilders
                         .SetConditionForm(conditionFlashFreeze, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
+                .SetCasterEffectParameters(SleetStorm)
                 .Build())
             .AddToDB();
 
         spell.AddCustomSubFeatures(new FilterTargetingCharacterFlashFreeze(spell));
 
-        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
-            SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
         spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
             ConditionDefinitions.ConditionRestrained.conditionStartParticleReference;
         spell.EffectDescription.EffectParticleParameters.conditionParticleReference =

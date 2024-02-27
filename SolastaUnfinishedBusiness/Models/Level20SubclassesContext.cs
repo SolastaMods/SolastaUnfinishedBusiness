@@ -92,11 +92,9 @@ internal static class Level20SubclassesContext
                             .SetSummonCreatureForm(2, "Ice_Elemental")
                             .Build())
                     .SetParticleEffectParameters(ConjureElementalFire)
+                    .SetCasterEffectParameters(SleetStorm)
                     .Build())
             .AddToDB();
-
-        powerDomainColdSummonBlizzard.EffectDescription.EffectParticleParameters.casterParticleReference =
-            SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         DomainElementalCold.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerDomainColdSummonBlizzard, 17));
@@ -1267,12 +1265,10 @@ internal static class Level20SubclassesContext
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
                     .SetParticleEffectParameters(PowerDragonFrightfulPresence)
+                    .SetImpactEffectParameters(new AssetReference())
                     .Build())
             .SetShowCasting(true)
             .AddToDB();
-
-        powerSorcererDraconicBloodlineFearPresence.EffectDescription.EffectParticleParameters.impactParticleReference =
-            new AssetReference();
 
         var featureSetSorcererDraconicBloodlinePresence = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetSorcererDraconicBloodlinePresence")
@@ -1321,11 +1317,9 @@ internal static class Level20SubclassesContext
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
                     .SetParticleEffectParameters(PowerSorcererHauntedSoulSpiritVisage)
+                    .SetImpactEffectParameters(RayOfEnfeeblement)
                     .Build())
             .AddToDB();
-
-        powerSorcererHauntedSoulPossession.EffectDescription.EffectParticleParameters.impactParticleReference =
-            RayOfEnfeeblement.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         SorcerousHauntedSoul.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerSorcererHauntedSoulPossession, 18));

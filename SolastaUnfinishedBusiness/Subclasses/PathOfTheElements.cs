@@ -205,15 +205,12 @@ public sealed class PathOfTheElements : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetCasterEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
             .AddCustomSubFeatures(
                 new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
-
-        // only want the casting SFX
-        powerElementalBurstStorm.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainElementalLightningBlade.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         // Blizzard
 
@@ -244,15 +241,12 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetCasterEffectParameters(PowerDomainElementalIceLance)
                     .Build())
             .AddCustomSubFeatures(
                 new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
-
-        // only want the casting SFX
-        powerElementalBurstBlizzard.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainElementalIceLance.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         // Wildfire
 
@@ -285,15 +279,12 @@ public sealed class PathOfTheElements : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
+                    .SetCasterEffectParameters(PowerDomainElementalFireBurst)
                     .Build())
             .AddCustomSubFeatures(
                 new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
-
-        // only want the casting SFX
-        powerElementalBurstWildfire.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainElementalFireBurst.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         // Elemental Burst
 

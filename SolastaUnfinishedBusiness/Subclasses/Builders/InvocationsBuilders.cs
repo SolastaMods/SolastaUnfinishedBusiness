@@ -719,10 +719,9 @@ internal static class InvocationsBuilders
                         EffectFormBuilder.ConditionForm(conditionPerniciousCloakSelf,
                             ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(PowerDomainOblivionMarkOfFate)
+                    .SetEffectEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
-
-        powerPerniciousCloak.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         var powerPerniciousCloakRemove = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Remove")
@@ -738,13 +737,11 @@ internal static class InvocationsBuilders
                             conditionPerniciousCloak, ConditionForm.ConditionOperation.Remove),
                         EffectFormBuilder.ConditionForm(
                             conditionPerniciousCloakSelf, ConditionForm.ConditionOperation.Remove))
+                    .SetCasterEffectParameters(PowerDomainOblivionMarkOfFate)
                     .Build())
             .AddCustomSubFeatures(
                 new CustomBehaviorPerniciousCloakRemove(powerPerniciousCloak, conditionPerniciousCloakSelf))
             .AddToDB();
-
-        powerPerniciousCloakRemove.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainOblivionMarkOfFate.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var featureSetPerniciousCloak = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}")
@@ -1089,11 +1086,9 @@ internal static class InvocationsBuilders
                         .SetDamageForm(DamageTypePsychic)
                         .Build())
                     .SetParticleEffectParameters(PowerSorakDreadLaughter)
+                    .SetCasterEffectParameters(PowerPactChainPseudodragon)
                     .Build())
             .AddToDB();
-
-        powerInvocationVexingHex.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerPactChainPseudodragon.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         powerInvocationVexingHex.AddCustomSubFeatures(new FilterTargetingCharacterVexingHex(powerInvocationVexingHex));
 
@@ -1343,11 +1338,9 @@ internal static class InvocationsBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionTombOfFrostLazy))
                     .SetParticleEffectParameters(PowerDomainElementalHeraldOfTheElementsCold)
+                    .SetCasterEffectParameters(RayOfFrost)
                     .Build())
             .AddToDB();
-
-        powerTombOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference =
-            RayOfFrost.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         powerTombOfFrost.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,

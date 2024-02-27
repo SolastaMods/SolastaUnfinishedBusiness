@@ -99,6 +99,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
             .Create($"Power{Name}HailOfArrows")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 3, 3)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -106,8 +107,6 @@ public sealed class WayOfZenArchery : AbstractSubclass
                     .Build())
             .AddCustomSubFeatures(new AttackAfterMagicEffectHailOfArrows())
             .AddToDB();
-
-        powerHailOfArrows.EffectDescription.EffectParticleParameters.casterParticleReference = new AssetReference();
 
         var actionHailOfArrows = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.Volley, "ActionHailOfArrows")

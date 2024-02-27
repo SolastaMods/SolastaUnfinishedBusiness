@@ -281,12 +281,10 @@ internal static partial class SpellBuilders
                     // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionEnsnaringStrike))
                     // .SetParticleEffectParameters(Entangle)
+                    .SetCasterEffectParameters(Entangle)
                     .Build())
             .SetRequiresConcentration(true)
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         return spell;
     }
@@ -791,16 +789,11 @@ internal static partial class SpellBuilders
                             .SetDamageForm(DamageTypePiercing, 1, DieType.D10)
                             .Build())
                     .SetParticleEffectParameters(RayOfFrost)
+                    .SetImpactEffectParameters(ShadowDagger)
+                    .SetEffectEffectParameters(ShadowDagger)
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeIceBlade())
             .AddToDB();
-
-        var effectParticleParameters = spell.EffectDescription.EffectParticleParameters;
-
-        effectParticleParameters.effectParticleReference =
-            ShadowDagger.EffectDescription.EffectParticleParameters.effectParticleReference;
-        effectParticleParameters.impactParticleReference =
-            ShadowDagger.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
@@ -1784,11 +1777,10 @@ internal static partial class SpellBuilders
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSpikeBarrage))
+                    .SetCasterEffectParameters(Entangle)
                     .Build())
             .AddToDB();
 
-        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.casterParticleReference;
         spell.EffectDescription.EffectParticleParameters.zoneParticleReference =
             Entangle.EffectDescription.EffectParticleParameters.zoneParticleReference;
 

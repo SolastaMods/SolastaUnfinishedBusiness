@@ -1,5 +1,6 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
@@ -84,6 +85,39 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters parameters)
     {
         _effect.effectParticleParameters.Copy(parameters);
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetCasterEffectParameters(IMagicEffect reference)
+    {
+        return SetCasterEffectParameters(reference.EffectDescription.EffectParticleParameters.casterParticleReference);
+    }
+
+    internal EffectDescriptionBuilder SetCasterEffectParameters(AssetReference assetReference)
+    {
+        _effect.effectParticleParameters.casterParticleReference = assetReference;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetEffectEffectParameters(IMagicEffect reference)
+    {
+        return SetEffectEffectParameters(reference.EffectDescription.EffectParticleParameters.effectParticleReference);
+    }
+
+    internal EffectDescriptionBuilder SetEffectEffectParameters(AssetReference assetReference)
+    {
+        _effect.effectParticleParameters.effectParticleReference = assetReference;
+        return this;
+    }
+    
+    internal EffectDescriptionBuilder SetImpactEffectParameters(IMagicEffect reference)
+    {
+        return SetImpactEffectParameters(reference.EffectDescription.EffectParticleParameters.impactParticleReference);
+    }
+
+    internal EffectDescriptionBuilder SetImpactEffectParameters(AssetReference assetReference)
+    {
+        _effect.effectParticleParameters.impactParticleReference = assetReference;
         return this;
     }
 

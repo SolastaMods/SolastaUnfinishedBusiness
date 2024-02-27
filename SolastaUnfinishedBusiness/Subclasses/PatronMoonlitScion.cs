@@ -99,10 +99,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
                         EffectFormBuilder.ConditionForm(conditionLunarRadianceEnemy))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionLightBlindingFlash)
+                    .SetEffectEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
-
-        powerLunarRadiance.EffectDescription.effectParticleParameters.effectParticleReference = new AssetReference();
 
         var conditionFullMoon = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}FullMoon")

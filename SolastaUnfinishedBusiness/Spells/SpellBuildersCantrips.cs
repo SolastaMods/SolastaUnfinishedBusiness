@@ -97,11 +97,9 @@ internal static partial class SpellBuilders
                                     DamageAffinityPiercingResistance)
                                 .AddToDB()))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPatronHiveReactiveCarapace)
+                    .SetCasterEffectParameters(GuidingBolt)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
-            GuidingBolt.effectDescription.EffectParticleParameters.casterParticleReference;
 
         return spell;
     }
@@ -187,11 +185,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
                     .SetParticleEffectParameters(Bane)
+                    .SetImpactEffectParameters(VenomousSpike)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
-            VenomousSpike.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
@@ -843,11 +839,9 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .ConditionForm(conditionResonatingStrike, ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(BurningHands_B)
+                    .SetImpactEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
-
-        // we don't need impact effects on spell cast but only on additional attack damage and leap damage
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
 
         var customBehavior =
             new CustomBehaviorResonatingStrike(spell, powerResonatingStrike, conditionResonatingStrike);
@@ -927,13 +921,13 @@ internal static partial class SpellBuilders
                     rulesetCaster.TryGetAttributeValue(spellCastingAbility));
             }
         }
-        
+
         // STEP 3: add the spellCastingAbility as bonus damage
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
             return definition == powerResonatingStrike;
         }
-        
+
         public EffectDescription GetEffectDescription(
             BaseDefinition definition,
             EffectDescription effectDescription,

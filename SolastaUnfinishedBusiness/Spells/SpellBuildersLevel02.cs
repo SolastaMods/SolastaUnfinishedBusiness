@@ -364,11 +364,9 @@ internal static partial class SpellBuilders
                             .SetConditionForm(conditionNoxiousSpray, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(PowerDomainOblivionMarkOfFate)
+                    .SetCasterEffectParameters(PoisonSpray)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PoisonSpray.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         return spell;
     }

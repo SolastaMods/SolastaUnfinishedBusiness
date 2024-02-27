@@ -205,11 +205,10 @@ public sealed class SorcerousPsion : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .SetParticleEffectParameters(PowerDomainSunHeraldOfTheSun)
+                    .SetCasterEffectParameters(PowerPatronFiendDarkOnesBlessing.EffectDescription
+                        .EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
-
-        powerMindOverMatter.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerPatronFiendDarkOnesBlessing.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         powerMindOverMatter.AddCustomSubFeatures(
             ModifyPowerVisibility.Hidden,
