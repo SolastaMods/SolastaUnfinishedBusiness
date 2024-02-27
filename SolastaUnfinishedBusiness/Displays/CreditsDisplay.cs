@@ -41,7 +41,7 @@ internal static class CreditsDisplay
             "Circle of the Eternal Grove, " +
             "College of Audacity, College of Thespian, College of Valiance, " +
             "Martial Arcane Archer, Martial Force Knight, Martial Guardian, Martial Warlord, Martial Weapon Master, " +
-            "Oath of Ancients, Oath of Dread, " +
+            "Oath of Dread, " +
             "Path of the Elements, Path of the Reaver, Path of the Savagery, " +
             "Patron Moonlit, " +
             "Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Slayer, Roguish Umbral Stalker, " +
