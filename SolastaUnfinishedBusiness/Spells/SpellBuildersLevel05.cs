@@ -880,6 +880,13 @@ internal static partial class SpellBuilders
 
         public int PositionRange => TelekinesisRange;
 
+        public bool EnforcePositionSelection(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
+
+            return targetCharacter.Side == Side.Ally;
+        }
+
         private static bool ResolveRolls(
             GameLocationCharacter actor,
             GameLocationCharacter opponent,
@@ -980,13 +987,16 @@ internal static partial class SpellBuilders
                 }
             }
 
-            var actionParams = new CharacterActionParams(targetCharacter, ActionDefinitions.Id.SpiritRallyTeleport)
+            if (action.ActionParams.Positions.Count > 0)
             {
-                Positions = { action.ActionParams.Positions[0] }
-            };
+                var actionParams = new CharacterActionParams(targetCharacter, ActionDefinitions.Id.SpiritRallyTeleport)
+                {
+                    Positions = { action.ActionParams.Positions[0] }
+                };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
+            }
 
             if (!isEnemy)
             {

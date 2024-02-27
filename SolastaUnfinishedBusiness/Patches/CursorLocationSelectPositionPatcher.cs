@@ -261,4 +261,55 @@ public static class CursorLocationSelectPositionPatcher
                    __instance.validPositionsCache.Contains(__instance.HoveredLocation);
         }
     }
+
+    //PATCH: supports `ISelectPositionAfterCharacter`
+    [HarmonyPatch(typeof(CursorLocationSelectPosition), nameof(CursorLocationSelectPosition.RefreshCaption))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshCaption_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(CursorLocationSelectPosition __instance)
+        {
+            if (CursorLocation.CaptionLineChanged == null)
+            {
+                return false;
+            }
+
+            var captionCounter = string.Empty;
+            var captionContent = __instance.maxPositions == 1
+                ? Gui.Localize("Caption/&SelectPositionSingleCaption")
+                : Gui.Format("Caption/&SelectPositionMultipleCaption", __instance.remainingPositions.ToString());
+
+            if (__instance.maxPositions > 1)
+            {
+                captionCounter = Gui.FormatCurrentOverMax(__instance.maxPositions - __instance.remainingPositions,
+                    __instance.maxPositions);
+            }
+
+            var canProceed = __instance.maxPositions < 0 ||
+                             (__instance.maxPositions > 1 && __instance.remainingPositions < __instance.maxPositions);
+
+            // BEGIN PATCH
+            var modifier = __instance.ActionParams.RulesetEffect switch
+            {
+                RulesetEffectPower rulesetEffectPower => rulesetEffectPower.PowerDefinition
+                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>(),
+                RulesetEffectSpell rulesetEffectSpell => rulesetEffectSpell.SpellDefinition
+                    .GetFirstSubFeatureOfType<ISelectPositionAfterCharacter>(),
+                _ => null
+            };
+
+            if (modifier != null)
+            {
+                canProceed = canProceed || !modifier.EnforcePositionSelection(__instance);
+            }
+            // END PATCH
+
+            CursorLocation.CaptionLineChanged(__instance.captionTitle, captionContent, captionCounter, string.Empty,
+                string.Empty, string.Empty, canProceed, true);
+
+            return false;
+        }
+    }
 }

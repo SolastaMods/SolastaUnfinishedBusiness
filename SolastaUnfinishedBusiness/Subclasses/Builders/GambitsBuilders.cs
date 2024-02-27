@@ -1993,6 +1993,11 @@ internal static class GambitsBuilders
         }
 
         public int PositionRange => 12;
+
+        public bool EnforcePositionSelection(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            return true;
+        }
     }
 
     //

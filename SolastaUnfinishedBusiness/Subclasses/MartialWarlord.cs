@@ -488,6 +488,11 @@ public sealed class MartialWarlord : AbstractSubclass
         }
 
         public int PositionRange => 12;
+
+        public bool EnforcePositionSelection(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            return true;
+        }
     }
 
     //
