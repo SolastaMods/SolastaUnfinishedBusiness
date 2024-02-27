@@ -1,5 +1,5 @@
 {
-  "$type": "FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
@@ -335,7 +335,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -376,7 +376,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e66e7894-4855-5ada-9bc2-d9f439c3e18a",
+  "guid": "05387881-626f-57f1-9fc4-a0166bfffeb4",
   "contentPack": 9999,
-  "name": "PowerMartialForceKnightForceBulwark"
+  "name": "PowerMartialForceKnightForceBulwarkOncePerLong"
 }

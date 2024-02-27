@@ -354,6 +354,9 @@ public sealed class MartialForceKnight : AbstractSubclass
 
         // Force Bulwark
 
+        var forceBulwarkSprite =
+            Sprites.GetSprite("PowerForceBulwark", Resources.PowerForceBulwark, 256, 128);
+
         var conditionForceBulwark = ConditionDefinitionBuilder
             .Create($"Condition{Name}ForceBulwark")
             .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature,
@@ -377,10 +380,30 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddCustomSubFeatures(new OnConditionAddedOrRemovedForceBulwark(conditionForceBulwark))
             .AddToDB();
 
+        var powerForceBulwarkOncePerLong = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ForceBulwarkOncePerLong")
+            .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature, forceBulwarkSprite)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder.ConditionForm(conditionForceBulwark),
+                        EffectFormBuilder.ConditionForm(conditionForceBulwarkSelf,
+                            ConditionForm.ConditionOperation.Add, true, true))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
+                    .Build())
+            .AddToDB();
+
+        powerForceBulwarkOncePerLong.AddCustomSubFeatures(
+            new ModifyEffectDescriptionForceBulwark(powerForceBulwarkOncePerLong),
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForceBulwarkOncePerLong) > 0));
+
         var powerForceBulwark = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}ForceBulwark")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerForceBulwark", Resources.PowerForceBulwark, 128))
+            .SetGuiPresentation(Category.Feature, forceBulwarkSprite)
             .SetSharedPool(ActivationTime.BonusAction, PowerPsionicInitiate)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -395,7 +418,15 @@ public sealed class MartialForceKnight : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerForceBulwark.AddCustomSubFeatures(new ModifyEffectDescriptionForceBulwark(powerForceBulwark));
+        powerForceBulwark.AddCustomSubFeatures(
+            new ModifyEffectDescriptionForceBulwark(powerForceBulwark),
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForceBulwarkOncePerLong) == 0));
+
+        var featureSetForceBulwark = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ForceBulwark")
+            .SetGuiPresentation($"Power{Name}ForceBulwark", Category.Feature)
+            .AddFeatureSet(powerForceBulwark, powerForceBulwarkOncePerLong)
+            .AddToDB();
 
         // LEVEL 18
 
@@ -485,14 +516,35 @@ public sealed class MartialForceKnight : AbstractSubclass
         powerTelekinesis.AddCustomSubFeatures(customBehavior);
         powerTelekinesisNoCost.AddCustomSubFeatures(customBehavior, ValidatorsValidatePowerUse.InCombat);
 
+        var powerTelekineticGraspOncePerLong = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}TelekineticGraspOncePerLong")
+            .SetGuiPresentation($"Power{Name}TelekineticGrasp", Category.Feature, SpellsContext.Telekinesis)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetShowCasting(false)
+            .AddToDB();
+
+        powerTelekineticGraspOncePerLong.AddCustomSubFeatures(
+            new ValidatorsValidatePowerUse(
+                c => c.GetRemainingPowerUses(powerTelekineticGraspOncePerLong) > 0,
+                ValidatorsCharacter.HasNoneOfConditions(conditionTelekinesis.Name)),
+            new MagicEffectFinishedByMeTelekineticGrasp(spell));
+
         var powerTelekineticGrasp = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}TelekineticGrasp")
             .SetGuiPresentation(Category.Feature, SpellsContext.Telekinesis)
             .SetSharedPool(ActivationTime.Action, PowerPsionicInitiate)
             .SetShowCasting(false)
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionTelekinesis.Name)),
+                new ValidatorsValidatePowerUse(
+                    c => c.GetRemainingPowerUses(powerTelekineticGraspOncePerLong) == 0,
+                    ValidatorsCharacter.HasNoneOfConditions(conditionTelekinesis.Name)),
                 new MagicEffectFinishedByMeTelekineticGrasp(spell))
+            .AddToDB();
+
+        var featureSetTelekineticGrasp = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}TelekineticGrasp")
+            .SetGuiPresentation($"Power{Name}TelekineticGrasp", Category.Feature)
+            .AddFeatureSet(powerTelekineticGrasp, powerTelekineticGraspOncePerLong)
             .AddToDB();
 
         // MAIN
@@ -506,8 +558,8 @@ public sealed class MartialForceKnight : AbstractSubclass
             .AddFeaturesAtLevel(9, BuildPowerModifier(PowerPsionicInitiate, 9))
             .AddFeaturesAtLevel(10, featureForceOfWill)
             .AddFeaturesAtLevel(12, BuildPowerModifier(PowerPsionicInitiate, 12))
-            .AddFeaturesAtLevel(15, BuildPowerModifier(PowerPsionicInitiate, 15), powerForceBulwark)
-            .AddFeaturesAtLevel(18, BuildPowerModifier(PowerPsionicInitiate, 18), powerTelekineticGrasp)
+            .AddFeaturesAtLevel(15, BuildPowerModifier(PowerPsionicInitiate, 15), featureSetForceBulwark)
+            .AddFeaturesAtLevel(18, BuildPowerModifier(PowerPsionicInitiate, 18), featureSetTelekineticGrasp)
             .AddToDB();
     }
 
