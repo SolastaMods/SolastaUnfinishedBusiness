@@ -5,6 +5,7 @@
 - added 'Modify Sense Normal Vision range multiplier in battles'
 - fixed 'Add fighter level to indomitable saving reroll'
 - fixed 'Lighting and obscurement rules'
+- fixed Burning Blade second target position validation
 - fixed Circle of the Cosmos twinkling stars and weal behaviors
 - fixed Counterattack gambit die consumption registration
 - fixed Domain Defiler insidious death magic necrotic validation
