@@ -103,7 +103,7 @@ internal static class SrdAndHouseRulesContext
     private static void LoadSenseNormalVisionRangeMultiplier()
     {
         _ = ConditionDefinitionBuilder
-            .Create("ConditionNormalVision24")
+            .Create("ConditionSenseNormalVision24")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(FeatureDefinitionSenseBuilder
@@ -114,7 +114,7 @@ internal static class SrdAndHouseRulesContext
             .AddToDB();
 
         _ = ConditionDefinitionBuilder
-            .Create("ConditionNormalVision48")
+            .Create("ConditionSenseNormalVision48")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(FeatureDefinitionSenseBuilder
