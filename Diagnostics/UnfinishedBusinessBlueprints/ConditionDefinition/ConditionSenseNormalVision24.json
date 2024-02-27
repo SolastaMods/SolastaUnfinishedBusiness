@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SenseNormalVision48:f91a6b9b-9ceb-5aaa-99e9-4f95aa84be3e"
+    "Definition:SenseNormalVision24:9364490a-b87d-57aa-84fa-3ff8bfde87a6"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -153,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "74bdc4b3-4cb2-5dfa-81e9-a62e212cd758",
+  "guid": "1845364e-e920-535d-8dc8-c3513a2c151c",
   "contentPack": 9999,
-  "name": "ConditionNormalVision48"
+  "name": "ConditionSenseNormalVision24"
 }

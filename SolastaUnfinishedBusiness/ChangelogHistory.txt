@@ -1,8 +1,8 @@
-1.5.94.56:
+1.5.97.0:
 
 - added Martial Force Knight subclass
 - added Militia and Troublemaker backgrounds
-- added 'Modify Sense Normal Vision range multiplier in battles'
+- added 'Modify Normal Vision range 12,24,48 [only in battles]'
 - fixed 'Add fighter level to indomitable saving reroll'
 - fixed 'Lighting and obscurement rules'
 - fixed Burning Blade second target pointer validation
