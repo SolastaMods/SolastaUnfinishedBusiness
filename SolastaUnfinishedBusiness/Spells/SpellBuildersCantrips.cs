@@ -847,7 +847,10 @@ internal static partial class SpellBuilders
             new CustomBehaviorResonatingStrike(spell, powerResonatingStrike, conditionResonatingStrike);
 
         powerResonatingStrike.AddCustomSubFeatures(customBehavior);
-        spell.AddCustomSubFeatures(customBehavior, AttackAfterMagicEffect.ResonatingStrikeAttack);
+        spell.AddCustomSubFeatures(
+            customBehavior,
+            AttackAfterMagicEffect.ResonatingStrikeAttack,
+            new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
