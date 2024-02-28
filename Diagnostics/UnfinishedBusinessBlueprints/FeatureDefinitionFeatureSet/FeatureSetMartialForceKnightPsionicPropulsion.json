@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerMartialForceKnightPsionicPropulsion:5dac5420-bf11-5995-8612-9dacd2983a04",
+    "Definition:PowerMartialForceKnightPsionicPropulsionOncePerShort:222646b5-f106-5c53-907e-723c82f73e3c"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerMartialForceKnightPsionicPropulsionTitle",
+    "description": "Feature/&PowerMartialForceKnightPsionicPropulsionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5b7fbed9-6bc1-5e93-a61e-52b6ea06b373",
+  "contentPack": 9999,
+  "name": "FeatureSetMartialForceKnightPsionicPropulsion"
+}

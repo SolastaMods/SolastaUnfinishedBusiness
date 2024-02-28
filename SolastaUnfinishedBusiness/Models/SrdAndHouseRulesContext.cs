@@ -22,9 +22,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SrdAndHouseRulesContext
 {
-    internal const int DefaultVisionRange = 16;
-    internal const int MaxVisionRange = 120;
-
     private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
 
     internal static readonly HashSet<MonsterDefinition> ConjuredMonsters =
@@ -79,11 +76,9 @@ internal static class SrdAndHouseRulesContext
 
     internal static void LateLoad()
     {
-        //SETTING: modify normal vision range
-        SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
-
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
+        LoadSenseNormalVisionRangeMultiplier();
         SwitchAddBleedingToLesserRestoration();
         SwitchAllowClubsToBeThrown();
         SwitchAllowTargetingSelectionWhenCastingChainLightningSpell();
@@ -103,6 +98,31 @@ internal static class SrdAndHouseRulesContext
         SwitchSchoolRestrictionsFromSpellBlade();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchUseHeightOneCylinderEffect();
+    }
+
+    private static void LoadSenseNormalVisionRangeMultiplier()
+    {
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionSenseNormalVision24")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionSenseBuilder
+                .Create(SenseNormalVision, "SenseNormalVision24")
+                .SetSense(SenseMode.Type.NormalVision, 24)
+                .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .AddToDB();
+
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionSenseNormalVision48")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionSenseBuilder
+                .Create(SenseNormalVision, "SenseNormalVision48")
+                .SetSense(SenseMode.Type.NormalVision, 48)
+                .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .AddToDB();
     }
 
     internal static void SwitchSchoolRestrictionsFromShadowCaster()

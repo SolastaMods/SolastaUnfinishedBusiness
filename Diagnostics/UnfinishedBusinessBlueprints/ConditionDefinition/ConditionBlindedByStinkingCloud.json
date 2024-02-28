@@ -3,7 +3,11 @@
   "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:AbilityCheckAffinityPoisoned:ec7eba4f1cdc2de45ab70077d562c022",
+    "Definition:ActionAffinityConditionRetchingReeling:b1c3e99763f0f364dab00f35cd486b7b",
+    "Definition:CombatAffinityPoisoned:44c97012ec61a4f42b380b291c9f3fce"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,

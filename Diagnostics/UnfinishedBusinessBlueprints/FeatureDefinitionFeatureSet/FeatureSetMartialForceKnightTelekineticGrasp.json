@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerMartialForceKnightTelekineticGrasp:1d8ec1e8-e2f5-503a-a327-d3e42be3fdfc",
+    "Definition:PowerMartialForceKnightTelekineticGraspOncePerLong:b7949d7a-b35f-5006-b658-c1dbc777586d"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerMartialForceKnightTelekineticGraspTitle",
+    "description": "Feature/&PowerMartialForceKnightTelekineticGraspDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9aff2ba3-0fab-5720-b7a2-4aa3717b67e5",
+  "contentPack": 9999,
+  "name": "FeatureSetMartialForceKnightTelekineticGrasp"
+}

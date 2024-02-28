@@ -46,7 +46,8 @@ internal static class ItemsAndCraftingDisplay
     private static readonly string[] ItemsItemTagsFiltersLabels = ItemsItemTagsFilters.Select(x => x.Item1).ToArray();
 
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsWeaponTagsFilters =
-        TagsDefinitions.AllWeaponTags
+    [
+        .. TagsDefinitions.AllWeaponTags
             .Select<string, (string, Func<ItemDefinition, bool>)>(x =>
                 (Gui.Localize($"Tooltip/&Tag{x}Title"),
                     a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains(x)))
@@ -54,7 +55,7 @@ internal static class ItemsAndCraftingDisplay
             .AddItem((Gui.Localize("Tooltip/&TagRangeTitle"),
                 a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains("Range")))
             .OrderBy(x => x.Item1)
-            .ToArray();
+    ];
 
     private static readonly int AllTitleIndexWeaponTagsFilters =
         Array.FindIndex(ItemsWeaponTagsFilters,

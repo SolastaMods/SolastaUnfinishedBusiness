@@ -99,10 +99,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                         EffectFormBuilder.DamageForm(DamageTypeRadiant, 1, DieType.D8),
                         EffectFormBuilder.ConditionForm(conditionLunarRadianceEnemy))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionLightBlindingFlash)
+                    .SetEffectEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
-
-        powerLunarRadiance.EffectDescription.effectParticleParameters.effectParticleReference = new AssetReference();
 
         var conditionFullMoon = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionShine, $"Condition{Name}FullMoon")
@@ -356,8 +355,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         var powerMoonlightGuise = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MoonlightGuise")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -368,7 +366,9 @@ public sealed class PatronMoonlitScion : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerMoonlightGuise.AddCustomSubFeatures(new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
+        powerMoonlightGuise.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new CustomBehaviorMoonlightGuise(powerMoonlightGuise));
 
         // MAIN
 
@@ -634,7 +634,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (!defender.CanReact() ||
-                !rulesetDefender.CanUsePower(powerMoonlightGuise))
+                rulesetDefender.GetRemainingPowerUses(powerMoonlightGuise) == 0)
             {
                 yield break;
             }

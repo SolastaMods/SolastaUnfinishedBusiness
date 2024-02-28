@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionSense, Assembly-CSharp",
+  "senseType": "NormalVision",
+  "senseRange": 24,
+  "stealthBreakerRange": 0,
+  "revealsHiddenObjects": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&VisionNormalVisionTitle",
+    "description": "Feature/&VisionNormalVisionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9364490a-b87d-57aa-84fa-3ff8bfde87a6",
+  "contentPack": 9999,
+  "name": "SenseNormalVision24"
+}

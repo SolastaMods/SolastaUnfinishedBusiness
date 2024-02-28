@@ -23,4 +23,17 @@ public static class GraphicsCharacterHeroPatcher
             ShieldAttack.UseOffhandForShieldAttackAnimation(attackMode, ref __result, ref isThrown, ref leftHand);
         }
     }
+
+    //BUGFIX: fix a vanilla issue that passes a null slot here if hero is downed
+    [HarmonyPatch(typeof(GraphicsCharacterHero), nameof(GraphicsCharacterHero.ItemAltered))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ItemAltered_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetInventorySlot slot, RulesetItem item)
+        {
+            return item != null && slot != null;
+        }
+    }
 }

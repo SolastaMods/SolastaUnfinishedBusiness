@@ -6,7 +6,6 @@ Feature/&PowerSteelWhirlwindTeleportDescription=Puoi teletrasportarti in uno spa
 Feature/&PowerSteelWhirlwindTeleportTitle=Teletrasporto
 Feedback/&AdditionalDamageBanishingSmiteFormat=Punizione bandita!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} infligge più danni a {1} attraverso una punizione esiliante (+{2})
-Feedback/&TelekinesisContestCheck={0} lancia un controllo {2}: {3} = {4} e contesta il controllo {5} {6}: {7} = {8}.
 Spell/&BanishingSmiteDescription=Il tuo prossimo colpo infligge 5d10 danni da forza aggiuntivi con la tua arma. Inoltre, se questo attacco riduce il bersaglio a 50 punti ferita in meno, lo bandisci per 1 min.
 Spell/&BanishingSmiteTitle=Punizione del bando
 Spell/&CircleOfMagicalNegationDescription=L'energia divina si irradia da te, distorcendo e diffondendo l'energia magica entro 9 metri da te. Fino al termine dell'incantesimo, la sfera si muove con te, centrata su di te. Per tutta la durata, ogni creatura amica nell'area, incluso te, ha vantaggio ai tiri salvezza contro incantesimi e altri effetti magici. Inoltre, quando una creatura influenzata supera un Tiro Salvezza effettuato contro un incantesimo o effetto magico che le consente di effettuare un Tiro Salvezza per subire solo la metà dei danni, non subisce invece danni se supera il Tiro Salvezza.

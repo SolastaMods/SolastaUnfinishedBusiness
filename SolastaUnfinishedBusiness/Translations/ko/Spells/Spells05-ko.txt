@@ -6,7 +6,6 @@ Feature/&PowerSteelWhirlwindTeleportDescription=강철 회오리 공격으로 �
 Feature/&PowerSteelWhirlwindTeleportTitle=순간이동
 Feedback/&AdditionalDamageBanishingSmiteFormat=추방의 강타!
 Feedback/&AdditionalDamageBanishingSmiteLine={0}이(가) {1}에게 추방의 강타로 추가 피해를 가합니다 (+{2})
-Feedback/&TelekinesisContestCheck={0}는 {2} 수표를 굴립니다: {3} = {4}, 콘테스트 {5} {6} 수표: {7} = {8}.
 Spell/&BanishingSmiteDescription=다음 무기를 이용한 공격 적중 시 추가로 5d10 역장 피해를 가합니다. 이 공격으로 대상의 HP가 50 이하로 감소했다면, 대상을 1분 간 추방합니다.
 Spell/&BanishingSmiteTitle=추방의 강타
 Spell/&CircleOfMagicalNegationDescription=신성한 에너지가 당신으로부터 방출되어 당신으로부터 30피트 이내의 마법 에너지를 왜곡하고 확산시킵니다. 주문이 끝날 때까지 구체는 당신을 중심으로 당신과 함께 움직입니다. 해당 기간 동안 당신을 포함해 해당 지역에 있는 각 아군 생물은 주문 및 기타 마법 효과에 대한 내성 굴림에 이점을 갖습니다. 또한, 영향을 받은 생물이 주문이나 마법 효과에 대한 내성 굴림에 성공하여 피해를 절반만 받을 수 있는 경우, 대신 내성 굴림에 성공하면 피해를 입지 않습니다.

@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -66,7 +67,6 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .Create($"AdditionalDamage{Name}DisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto, RechargeRate.TurnStart)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -81,6 +81,9 @@ public sealed class RangerSurvivalist : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
                     .Build())
+            .AddCustomSubFeatures(
+                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack,
+                ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
 
         //
@@ -122,7 +125,6 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .Create($"AdditionalDamage{Name}ImprovedDisablingStrike")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -138,6 +140,8 @@ public sealed class RangerSurvivalist : AbstractSubclass
                             .Build())
                     .Build())
             .SetOverriddenPower(additionalDamageDisablingStrike)
+            .AddCustomSubFeatures(
+                ValidatorsRestrictedContext.IsWeaponOrUnarmedAttack)
             .AddToDB();
 
         //

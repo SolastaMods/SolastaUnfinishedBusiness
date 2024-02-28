@@ -110,7 +110,6 @@ Cleric_elementalFire_Level8	Description='CharacterTemplate/&GarradDescription'.
 Cleric_elementalLighting_Level8	Title='CharacterTemplate/&GarradTitle'.
 Cleric_elementalLighting_Level8	Description='CharacterTemplate/&GarradDescription'.
 CombatAffinityForeknowledge	Title='Feature/&CombatAffinityForeknowledgeTitle'.
-CombatAffinityForeknowledge	Description='Feature/&CombatAffinityForeknowledgeDescription'.
 ConditionAffinityCircleLandLandsStride	Title='Feature/&ConditionAffinityCircleLandLandsStrideTitle'.
 ConditionAffinityCircleLandLandsStride	Description='Feature/&ConditionAffinityCircleLandLandsStrideDescription'.
 ConditionAffinityDruidCircleLandNaturesSanctuaryImmunity	Title='Feature/&ConditionAffinityNaturesSanctuaryImmunityTitle'.

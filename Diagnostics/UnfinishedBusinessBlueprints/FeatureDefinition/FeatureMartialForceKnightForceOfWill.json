@@ -3,13 +3,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureOathOfAltruismSpiritualShieldingTitle",
-    "description": "Feature/&FeatureOathOfAltruismSpiritualShieldingDescription",
+    "title": "Feature/&FeatureMartialForceKnightForceOfWillTitle",
+    "description": "Feature/&FeatureMartialForceKnightForceOfWillDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "42d9d312013d64043a49b3d3e82a0ba3",
-      "m_SubObjectName": "ShieldOfFaith",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5ae7a4f1-d00d-5c43-8abc-94f37e7fa58e",
+  "guid": "cd181246-37e0-57e4-8cd0-924d991b4149",
   "contentPack": 9999,
-  "name": "FeatureOathOfAltruismSpiritualShielding"
+  "name": "FeatureMartialForceKnightForceOfWill"
 }

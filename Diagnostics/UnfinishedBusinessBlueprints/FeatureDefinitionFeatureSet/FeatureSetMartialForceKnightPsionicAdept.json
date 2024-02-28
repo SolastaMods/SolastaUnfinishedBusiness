@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerMartialForceKnightPsionicAdeptProne:233f277f-a8c4-52c4-aa4d-a6e020fe6ed1",
+    "Definition:PowerMartialForceKnightPsionicInitiate:f8f85acb-48e6-5907-b452-d4f17ef11934",
+    "Definition:PowerMartialForceKnightPsionicAdeptPush:0aa649b0-c134-5aab-bd4b-1e2d5c227f9b"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetMartialForceKnightPsionicAdeptTitle",
+    "description": "Feature/&FeatureSetMartialForceKnightPsionicAdeptDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "584a617a-6320-5363-9489-30122d7d9fcd",
+  "contentPack": 9999,
+  "name": "FeatureSetMartialForceKnightPsionicAdept"
+}

@@ -78,6 +78,37 @@ public static class RulesetCharacterPatcher
             !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
 
+    //PATCH: supports `AddFighterLevelToIndomitableSavingReroll`
+    [HarmonyPatch(typeof(RulesetCharacter),
+        nameof(RulesetCharacter.UseIndomitableResistance))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class UseIndomitableResistance_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance)
+        {
+            if (!Main.Settings.AddFighterLevelToIndomitableSavingReroll)
+            {
+                return;
+            }
+
+            __instance.InflictCondition(
+                CharacterContext.ConditionIndomitableSaving.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                __instance.Guid,
+                __instance.CurrentFaction.Name,
+                1,
+                CharacterContext.ConditionIndomitableSaving.Name,
+                0,
+                0,
+                0);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.IsWieldingMonkWeapon))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1749,7 +1780,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: allow AddProficiencyBonus to be considered on attribute modifiers used on reaction attacks
     [HarmonyPatch(typeof(RulesetCharacter),
         nameof(RulesetCharacter.CanAttackOutcomeFromAlterationMagicalEffectFail))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -1763,6 +1793,18 @@ public static class RulesetCharacterPatcher
             List<EffectForm> effectForms,
             int totalAttack)
         {
+            __result = CanAttackOutcomeFromAlterationMagicalEffectFail(__instance, effectForms, totalAttack);
+
+            return false;
+        }
+
+        //PATCH: allow AddProficiencyBonus to be considered on attribute modifiers used on reaction attacks
+        private static bool CanAttackOutcomeFromAlterationMagicalEffectFail(
+            RulesetCharacter __instance,
+            // ReSharper disable once ParameterTypeCanBeEnumerable.Local
+            List<EffectForm> effectForms,
+            int totalAttack)
+        {
             foreach (var feature in effectForms
                          .Where(effectForm => effectForm.FormType == EffectForm.EffectFormType.Condition &&
                                               effectForm.ConditionForm.Operation ==
@@ -1773,8 +1815,7 @@ public static class RulesetCharacterPatcher
                     {
                         ModifiedAttribute: AttributeDefinitions.ArmorClass
                     } attributeModifier ||
-                    (attributeModifier.ModifierOperation !=
-                     AttributeModifierOperation.Additive &&
+                    (attributeModifier.ModifierOperation != AttributeModifierOperation.Additive &&
                      attributeModifier.ModifierOperation != AttributeModifierOperation.AddProficiencyBonus))
                 {
                     continue;
@@ -1789,12 +1830,8 @@ public static class RulesetCharacterPatcher
                     continue;
                 }
 
-                __result = true;
-
-                return false;
+                return true;
             }
-
-            __result = false;
 
             return false;
         }

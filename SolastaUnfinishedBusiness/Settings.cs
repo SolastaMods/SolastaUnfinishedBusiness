@@ -284,7 +284,7 @@ public class Settings : UnityModManager.ModSettings
     public bool ColdImmunityAlsoGrantsImmunityToChilledAndFrozenCondition { get; set; }
     public bool AddDarknessPerceptiveToDarkRaces { get; set; }
     public bool RaceLightSensitivityApplyOutdoorsOnly { get; set; }
-    public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
+    public int SenseNormalVisionRangeMultiplier { get; set; } = 1;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }
     public int CriticalHitModeNeutral { get; set; }

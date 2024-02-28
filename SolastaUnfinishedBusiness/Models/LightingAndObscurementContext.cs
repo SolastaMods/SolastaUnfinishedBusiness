@@ -12,6 +12,7 @@ using static LocationDefinitions;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.EffectProxyDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -222,24 +223,17 @@ internal static class LightingAndObscurementContext
             }
         }
 
-        // let vanilla do the heavy lift on perception
-        var result = instance.IsCellPerceivedByCharacter(cellPosition, finalSensor);
-
         // use the improved lighting state detection to diff between darkness and heavily obscured
         var targetLightingState = ComputeLightingStateOnTargetPosition(finalSensor, cellPosition);
 
-        // if setting is off or vanilla cannot perceive
-        if (!result ||
-            !Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+        // use vanilla if setting is off but still supporting additionalBlockedLightingState logic
+        if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
-            if (!result)
-            {
-                return false;
-            }
+            var result = instance.IsCellPerceivedByCharacter(cellPosition, finalSensor);
 
             // Silhouette Step is the only one using additionalBlockedLightingState as it requires to block BRIGHT
-            return additionalBlockedLightingState == LightingState.Darkness ||
-                   targetLightingState != additionalBlockedLightingState;
+            return result && (additionalBlockedLightingState == LightingState.Darkness ||
+                              targetLightingState != additionalBlockedLightingState);
         }
 
         // determine constraints
@@ -617,7 +611,8 @@ internal static class LightingAndObscurementContext
         .Create(ConditionBlinded, "ConditionBlindedByStinkingCloud")
         .SetGuiPresentation(Category.Condition, BlindDescription, ConditionBlinded)
         .SetParentCondition(ConditionBlinded)
-        .SetFeatures()
+        .SetFeatures(ConditionPoisoned.Features)
+        .AddFeatures(ActionAffinityConditionRetchingReeling)
         .AddToDB();
 
     private static readonly ConditionDefinition ConditionLightlyObscured = ConditionDefinitionBuilder
@@ -673,7 +668,6 @@ internal static class LightingAndObscurementContext
         SwitchHeavilyObscuredOnObscurementRules();
         SwitchMagicalDarknessOnObscurementRules();
         SwitchMonstersOnObscurementRules();
-        SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
 
         if (Main.Settings.UseOfficialLightingObscurementAndVisionRules)
         {
@@ -802,6 +796,8 @@ internal static class LightingAndObscurementContext
             CombatAffinityHeavilyObscuredSelf.nullifiedBySelfSenses =
                 [SenseMode.Type.Truesight, SenseMode.Type.Blindsight];
         }
+
+        SrdAndHouseRulesContext.SwitchConditionBlindedShouldNotAllowOpportunityAttack();
     }
 
     internal static void SwitchHeavilyObscuredOnObscurementRules()

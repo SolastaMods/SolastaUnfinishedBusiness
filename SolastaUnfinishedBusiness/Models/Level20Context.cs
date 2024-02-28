@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -409,11 +410,12 @@ internal static class Level20Context
         var powerRogueStrokeOfLuck = FeatureDefinitionPowerBuilder
             .Create("PowerRogueStrokeOfLuck")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
-        powerRogueStrokeOfLuck.AddCustomSubFeatures(new TryAlterOutcomeAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+        powerRogueStrokeOfLuck.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new TryAlterOutcomeAttackRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -866,7 +868,7 @@ internal static class Level20Context
 
             if (attacker != helper ||
                 rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetCharacter.CanUsePower(power) ||
+                rulesetCharacter.GetRemainingPowerUses(power) == 0 ||
                 !attacker.CanPerceiveTarget(defender))
             {
                 yield break;

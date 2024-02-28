@@ -179,8 +179,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Illusion spells au
 ModUi/&ImproveLevelUpFeaturesSelection=Improve level up features selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[impacts <color=#D89555>Ranger</color> Preferred Enemy and Terrain Affinity, <color=#D89555>Druid</color> Kindred Beast, <color=#D89555>Barbarian</color> Path of the Elements and subclasses Draconic choices]</color></i>
 ModUi/&IncreaseGameTimeBy=Increase game time by
 ModUi/&IncreaseMaxAttunedItems=Increase max attuned items to 4 at level 10th and 5 at level 18th
-ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Creation:</color>
 ModUi/&Input=<color=#F0DAA0>Input:</color>
 ModUi/&Interface=Interface
@@ -241,6 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
 ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
+ModUi/&SenseNormalVisionRangeMultiplier=Modify <color=#D89555>Normal Vision</color> range <i><color=#F0DAA0>[only in battles]</color></i>
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
 ModUi/&SettingsExport=Export

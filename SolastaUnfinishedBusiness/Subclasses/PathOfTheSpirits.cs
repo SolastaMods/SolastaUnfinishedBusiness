@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -110,8 +111,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
         var powerSpiritGuardians = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritGuardians")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
@@ -120,13 +120,13 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                         false, AttributeDefinitions.Wisdom, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerSpiritGuardiansRageCost = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SpiritGuardiansRageCost")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.RagePoints)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.RagePoints)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
@@ -144,6 +144,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         powerSpiritGuardiansRageCost.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new ActionFinishedBySpiritWalker(powerSpiritGuardians, powerSpiritGuardiansRageCost));
 
         #endregion
@@ -424,9 +425,9 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var power = rulesetCharacter.CanUsePower(powerNoCost)
+            var power = rulesetCharacter.GetRemainingPowerUses(powerNoCost) > 0
                 ? powerNoCost
-                : rulesetCharacter.CanUsePower(powerRageCost)
+                : rulesetCharacter.GetRemainingPowerUses(powerRageCost) > 0
                     ? powerRageCost
                     : null;
 

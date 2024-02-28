@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "",
-  "limitedUsage": "None",
+  "notificationTag": "ForcePoweredStrike",
+  "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
@@ -15,12 +15,12 @@
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
   "requiredAncestryType": "Sorcerer",
-  "damageValueDetermination": "None",
+  "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D6",
-  "damageDiceNumber": 0,
-  "additionalDamageType": "SameAsBaseDamage",
-  "specificDamageType": "Radiant",
+  "damageDiceNumber": 1,
+  "additionalDamageType": "Specific",
+  "specificDamageType": "DamageForce",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "None",
   "diceByRankTable": [],
@@ -36,7 +36,12 @@
   "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": null,
-  "impactParticleReference": null,
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "7f06ef11e32162e45925324de6f9e1d5",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,
@@ -47,9 +52,9 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle",
-    "description": "Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -69,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8bc23293-e4bc-55c7-818a-75c2e1ea933a",
+  "guid": "c1d4dd20-c1f8-57d0-b465-2fef6f3664cb",
   "contentPack": 9999,
-  "name": "AdditionalDamageRoguishArcaneScoundrelDistractingAmbush"
+  "name": "AdditionalDamageMartialForceKnightForcePoweredStrike"
 }

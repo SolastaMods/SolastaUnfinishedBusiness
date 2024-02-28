@@ -194,8 +194,7 @@ public sealed class SorcerousPsion : AbstractSubclass
         var powerMindOverMatter = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}MindOverMatter")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -206,13 +205,14 @@ public sealed class SorcerousPsion : AbstractSubclass
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .SetParticleEffectParameters(PowerDomainSunHeraldOfTheSun)
+                    .SetCasterEffectParameters(PowerPatronFiendDarkOnesBlessing.EffectDescription
+                        .EffectParticleParameters.effectParticleReference)
                     .Build())
             .AddToDB();
 
-        powerMindOverMatter.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerPatronFiendDarkOnesBlessing.EffectDescription.EffectParticleParameters.effectParticleReference;
-
-        powerMindOverMatter.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyMindOverMatter(powerMindOverMatter));
+        powerMindOverMatter.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new OnReducedToZeroHpByEnemyMindOverMatter(powerMindOverMatter));
 
         // LEVEL 18
 
@@ -362,7 +362,7 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (!rulesetCharacter.CanUsePower(powerMindOverMatter))
+            if (rulesetCharacter.GetRemainingPowerUses(powerMindOverMatter) == 0)
             {
                 yield break;
             }
@@ -443,7 +443,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
             }
 
-            if (!rulesetCharacter.CanUsePower(powerSupremeWill))
+            if (rulesetCharacter.GetRemainingPowerUses(powerSupremeWill) == 0)
             {
                 return rulesetEffectSpell.SpellDefinition.RequiresConcentration;
             }

@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -259,11 +260,9 @@ internal static partial class SpellBuilders
                             .SetMotionForm(MotionForm.MotionType.FallProne)
                             .Build())
                     .SetParticleEffectParameters(HolyAura)
+                    .SetImpactEffectParameters(Sunburst)
                     .Build())
             .AddToDB();
-
-        spellRadiant.EffectDescription.EffectParticleParameters.impactParticleReference =
-            Sunburst.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         var spellNecrotic = SpellDefinitionBuilder
             .Create($"{NAME}Necrotic")
@@ -393,12 +392,10 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.ConditionForm(
                             conditionTeleport, ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(GravitySlam)
+                    .SetImpactEffectParameters(ArcaneSword)
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeSteelWhirlwind())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
-            ArcaneSword.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
@@ -662,11 +659,19 @@ internal static partial class SpellBuilders
 
     #region Telekinesis
 
+    private const string ConditionTelekinesisRestrainedName = "ConditionTelekinesisRestrained";
+
     private const int TelekinesisRange = 12;
 
     internal static SpellDefinition BuildTelekinesis()
     {
         const string Name = "Telekinesis";
+
+        _ = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionRestrained, ConditionTelekinesisRestrainedName)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
+            .SetFeatures()
+            .AddToDB();
 
         var sprite = Sprites.GetSprite(Name, Resources.Telekinesis, 128, 128);
 
@@ -684,12 +689,6 @@ internal static partial class SpellBuilders
                     .Build())
             .AddToDB();
 
-        var conditionRestrained = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrained, $"Condition{Name}Restrained")
-            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
-            .SetFeatures()
-            .AddToDB();
-
         var conditionTelekinesis = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
             .SetGuiPresentation(Category.Condition, ConditionRevealedByDetectGoodOrEvil)
@@ -697,8 +696,15 @@ internal static partial class SpellBuilders
             .SetFeatures(powerTelekinesis)
             .AddCustomSubFeatures(
                 AddUsablePowersFromCondition.Marker,
-                new OnConditionAddedOrRemovedTelekinesis(conditionRestrained))
+                OnConditionAddedOrRemovedTelekinesis.Marker)
             .AddToDB();
+
+        conditionTelekinesis.conditionStartParticleReference = SpiderClimb.EffectDescription
+            .EffectParticleParameters.conditionStartParticleReference;
+        conditionTelekinesis.conditionParticleReference = SpiderClimb.EffectDescription
+            .EffectParticleParameters.conditionParticleReference;
+        conditionTelekinesis.conditionEndParticleReference = SpiderClimb.EffectDescription
+            .EffectParticleParameters.conditionEndParticleReference;
 
         var powerTelekinesisNoCost = FeatureDefinitionPowerBuilder
             .Create(powerTelekinesis, $"Power{Name}NoCost")
@@ -710,7 +716,9 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(powerTelekinesisNoCost)
-            .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .AddCustomSubFeatures(
+                AddUsablePowersFromCondition.Marker,
+                OnConditionAddedOrRemovedTelekinesis.Marker)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
@@ -731,13 +739,17 @@ internal static partial class SpellBuilders
                     .SetDurationData(DurationType.Minute, 10)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
-                        EffectFormBuilder.ConditionForm(conditionTelekinesis),
-                        EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost))
+                        EffectFormBuilder.ConditionForm(conditionTelekinesisNoCost),
+                        EffectFormBuilder.ConditionForm(conditionTelekinesis))
                     .SetParticleEffectParameters(MindTwist)
                     .Build())
             .AddToDB();
 
-        var customBehavior = new CustomBehaviorTelekinesis(conditionRestrained, conditionTelekinesisNoCost, spell);
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference = new AssetReference();
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference = new AssetReference();
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference = new AssetReference();
+
+        var customBehavior = new CustomBehaviorTelekinesis(conditionTelekinesisNoCost, spell);
 
         powerTelekinesis.AddCustomSubFeatures(customBehavior);
         powerTelekinesisNoCost.AddCustomSubFeatures(customBehavior, ValidatorsValidatePowerUse.InCombat);
@@ -747,9 +759,7 @@ internal static partial class SpellBuilders
 
     private static void RemoveExistingRestrainedInstances(
         // ReSharper disable once SuggestBaseTypeForParameter
-        RulesetCharacter rulesetCaster,
-        // ReSharper disable once SuggestBaseTypeForParameter
-        ConditionDefinition conditionRestrained)
+        RulesetCharacter rulesetCaster)
     {
         if (Gui.Battle == null)
         {
@@ -760,7 +770,7 @@ internal static partial class SpellBuilders
                      .Select(locationContender => locationContender.RulesetCharacter))
         {
             if (!rulesetContender.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    conditionRestrained.Name, out var activeCondition) ||
+                    ConditionTelekinesisRestrainedName, out var activeCondition) ||
                 activeCondition.SourceGuid != rulesetCaster.Guid)
             {
                 continue;
@@ -772,9 +782,10 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class OnConditionAddedOrRemovedTelekinesis(ConditionDefinition conditionRestrained)
-        : IOnConditionAddedOrRemoved
+    internal sealed class OnConditionAddedOrRemovedTelekinesis : IOnConditionAddedOrRemoved
     {
+        internal static readonly OnConditionAddedOrRemovedTelekinesis Marker = new();
+
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -782,13 +793,12 @@ internal static partial class SpellBuilders
 
         public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            RemoveExistingRestrainedInstances(target, conditionRestrained);
+            RemoveExistingRestrainedInstances(target);
         }
     }
 
-    private sealed class CustomBehaviorTelekinesis(
+    internal sealed class CustomBehaviorTelekinesis(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionRestrained,
         ConditionDefinition conditionTelekinesisNoCost,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         SpellDefinition spellTelekinesis)
@@ -857,92 +867,144 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            RemoveExistingRestrainedInstances(actingRulesetCharacter, conditionRestrained);
+            RemoveExistingRestrainedInstances(actingRulesetCharacter);
 
             var targetCharacter = action.ActionParams.TargetCharacters[0];
 
-            yield return RollAbilityCheckAndTryMoveApplyRestrained(
-                actingRulesetCharacter,
+            RollAbilityCheckAndTryMoveApplyRestrained(
+                actingCharacter,
                 targetCharacter,
-                conditionRestrained,
                 rulesetSpell,
                 action);
         }
 
         public int PositionRange => TelekinesisRange;
 
-        private static IEnumerator RollAbilityCheckAndTryMoveApplyRestrained(
-            RulesetCharacter actingRulesetCharacter,
+        public bool EnforcePositionSelection(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            var targetCharacter = cursorLocationSelectPosition.ActionParams.TargetCharacters[0];
+
+            return targetCharacter.Side == Side.Ally;
+        }
+
+        private static bool ResolveRolls(
+            GameLocationCharacter actor,
+            GameLocationCharacter opponent,
+            string spellCastingAbility,
+            ActionDefinitions.Id actionId)
+        {
+            var actionModifier1 = new ActionModifier();
+            var actionModifier2 = new ActionModifier();
+
+            var abilityCheckBonus1 = actor.RulesetCharacter.ComputeBaseAbilityCheckBonus(spellCastingAbility,
+                actionModifier1.AbilityCheckModifierTrends, string.Empty);
+            var abilityCheckBonus2 = opponent.RulesetCharacter.ComputeBaseAbilityCheckBonus(
+                AttributeDefinitions.Strength,
+                actionModifier2.AbilityCheckModifierTrends, string.Empty);
+
+            var contextField1 = 0;
+
+            if (!actor.RulesetCharacter.IsWearingHeavyArmor())
+            {
+                contextField1 |= 64;
+            }
+
+            actor.ComputeAbilityCheckActionModifier(spellCastingAbility, string.Empty, actionModifier1, contextField1);
+
+            var contextField2 = 1;
+
+            if (!opponent.RulesetCharacter.IsWearingHeavyArmor())
+            {
+                contextField2 |= 64;
+            }
+
+            opponent.ComputeAbilityCheckActionModifier(AttributeDefinitions.Strength, string.Empty, actionModifier2,
+                contextField2);
+
+            actor.RulesetCharacter.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(
+                actor.RulesetCharacter.FeaturesToBrowse, actor.RulesetCharacter.FeaturesOrigin);
+
+            foreach (var key in actor.RulesetCharacter.FeaturesToBrowse)
+            {
+                foreach (var executionModifier in (key as IActionPerformanceProvider)!.ActionExecutionModifiers)
+                {
+                    if (executionModifier.actionId != actionId ||
+                        !actor.RulesetCharacter.IsMatchingEquipementCondition(executionModifier.equipmentContext) ||
+                        executionModifier.advantageType == AdvantageType.None)
+                    {
+                        continue;
+                    }
+
+                    var num = executionModifier.advantageType == AdvantageType.Advantage ? 1 : -1;
+                    var featureOrigin = actor.RulesetCharacter.FeaturesOrigin[key];
+                    actionModifier1.AbilityCheckAdvantageTrends.Add(new TrendInfo(num, featureOrigin.sourceType,
+                        featureOrigin.sourceName, featureOrigin.source));
+                }
+            }
+
+            actor.RulesetCharacter.ResolveContestCheck(
+                abilityCheckBonus1,
+                actionModifier1.AbilityCheckModifier,
+                spellCastingAbility,
+                string.Empty,
+                actionModifier1.AbilityCheckAdvantageTrends,
+                actionModifier1.AbilityCheckModifierTrends,
+                abilityCheckBonus2,
+                actionModifier2.AbilityCheckModifier,
+                AttributeDefinitions.Strength,
+                string.Empty,
+                actionModifier2.AbilityCheckAdvantageTrends,
+                actionModifier2.AbilityCheckModifierTrends,
+                opponent.RulesetCharacter,
+                out var outcome);
+
+            return outcome is RollOutcome.Success or RollOutcome.CriticalSuccess;
+        }
+
+        private static void RollAbilityCheckAndTryMoveApplyRestrained(
+            GameLocationCharacter actingCharacter,
             // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter targetCharacter,
-            // ReSharper disable once SuggestBaseTypeForParameter
-            ConditionDefinition conditionRestrained,
             RulesetEffectSpell rulesetSpell,
             CharacterAction action)
         {
+            var actingRulesetCharacter = actingCharacter.RulesetCharacter;
             var targetRulesetCharacter = targetCharacter.RulesetCharacter;
-            var isEnemy = actingRulesetCharacter.Side != targetCharacter.Side;
+            var isEnemy = actingCharacter.Side != targetCharacter.Side;
 
             if (isEnemy)
             {
                 var spellCastingAbility = actingRulesetCharacter.SpellsCastByMe
-                    .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire
-                    .SpellCastingAbility ?? string.Empty;
+                    .FirstOrDefault(x => x.SpellDefinition == rulesetSpell.SpellDefinition)?.SpellRepertoire?
+                    // assume Intelligence if no repertoire (ritual spell only used on Force Knight)
+                    .SpellCastingAbility ?? AttributeDefinitions.Intelligence;
 
-                var actingSpellAbility = actingRulesetCharacter.TryGetAttributeValue(spellCastingAbility);
-                var actingSpellAbilityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(actingSpellAbility);
-                var casterRoll = actingRulesetCharacter.RollDie(DieType.D20, RollContext.AbilityCheck, false,
-                    AdvantageType.None, out var r1, out var r2);
-                var casterCheck = actingSpellAbilityModifier + casterRoll;
+                var result = ResolveRolls(actingCharacter, targetCharacter, spellCastingAbility, action.ActionId);
 
-                var targetStrength = targetRulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
-                var targetStrengthModifier = AttributeDefinitions.ComputeAbilityScoreModifier(targetStrength);
-                var targetRoll = targetRulesetCharacter.RollDie(DieType.D20, RollContext.AbilityCheck, false,
-                    AdvantageType.None, out r1, out r2);
-                var targetCheck = targetStrengthModifier + targetRoll;
-
-                actingRulesetCharacter.ShowDieRoll(DieType.D20, r1, r2, advantage: AdvantageType.None,
-                    title: "Screen/&CraftingAbilityCheckTitle");
-                targetRulesetCharacter.ShowDieRoll(DieType.D20, r1, r2, advantage: AdvantageType.None,
-                    title: "Screen/&CraftingAbilityCheckTitle");
-
-                actingRulesetCharacter.LogCharacterActivatesAbility(
-                    Gui.NoLocalization, "Feedback/&TelekinesisContestCheck",
-                    true,
-                    extra:
-                    [
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, $"Attribute/&{spellCastingAbility}TitleLong"),
-                        (ConsoleStyleDuplet.ParameterType.Base, $"{casterRoll}+{actingSpellAbilityModifier}"),
-                        (casterCheck >= targetCheck ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                            $"{casterCheck}"),
-                        (ConsoleStyleDuplet.ParameterType.Enemy, targetCharacter.Name),
-                        (ConsoleStyleDuplet.ParameterType.AbilityInfo, "Attribute/&StrengthTitleLong"),
-                        (ConsoleStyleDuplet.ParameterType.Base, $"{targetRoll}+{targetStrengthModifier}"),
-                        (targetCheck > casterCheck ? ConsoleStyleDuplet.ParameterType.Positive : ConsoleStyleDuplet.ParameterType.Negative,
-                            $"{targetCheck}")
-                    ]);
-
-                if (casterCheck < targetCheck)
+                if (!result)
                 {
-                    yield break;
+                    return;
                 }
             }
 
-            var actionParams = new CharacterActionParams(targetCharacter, ActionDefinitions.Id.SpiritRallyTeleport)
+            if (action.ActionParams.Positions.Count > 0)
             {
-                Positions = { action.ActionParams.Positions[0] }
-            };
+                var actionParams = new CharacterActionParams(targetCharacter, ActionDefinitions.Id.SpiritRallyTeleport)
+                {
+                    Positions = { action.ActionParams.Positions[0] }
+                };
 
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+                ServiceRepository.GetService<IGameLocationActionService>()?
+                    .ExecuteAction(actionParams, null, true);
+            }
 
             if (!isEnemy)
             {
-                yield break;
+                return;
             }
 
             targetRulesetCharacter.InflictCondition(
-                conditionRestrained.Name,
+                ConditionTelekinesisRestrainedName,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfSourceTurn,
@@ -950,7 +1012,7 @@ internal static partial class SpellBuilders
                 actingRulesetCharacter.guid,
                 actingRulesetCharacter.CurrentFaction.Name,
                 1,
-                conditionRestrained.Name,
+                ConditionTelekinesisRestrainedName,
                 0,
                 0,
                 0);

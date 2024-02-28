@@ -97,11 +97,9 @@ internal static partial class SpellBuilders
                                     DamageAffinityPiercingResistance)
                                 .AddToDB()))
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPatronHiveReactiveCarapace)
+                    .SetCasterEffectParameters(GuidingBolt)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
-            GuidingBolt.effectDescription.EffectParticleParameters.casterParticleReference;
 
         return spell;
     }
@@ -187,11 +185,9 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
                     .SetParticleEffectParameters(Bane)
+                    .SetImpactEffectParameters(VenomousSpike)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
-            VenomousSpike.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
@@ -784,7 +780,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -818,11 +814,6 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .AddToDB();
 
-        var customBehavior =
-            new CustomBehaviorResonatingStrike(powerResonatingStrike, conditionResonatingStrike);
-
-        powerResonatingStrike.AddCustomSubFeatures(customBehavior);
-
         var spell = SpellDefinitionBuilder
             .Create("ResonatingStrike")
             .SetGuiPresentation(Category.Spell,
@@ -839,7 +830,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique, 2)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetTargetProximityData(true, 1)
                     .SetIgnoreCover()
                     .SetEffectAdvancement(
@@ -848,31 +839,65 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .ConditionForm(conditionResonatingStrike, ConditionForm.ConditionOperation.Add, true))
                     .SetParticleEffectParameters(BurningHands_B)
+                    .SetImpactEffectParameters(new AssetReference())
                     .Build())
-            .AddCustomSubFeatures(customBehavior, AttackAfterMagicEffect.ResonatingStrikeAttack)
             .AddToDB();
 
-        // we don't need impact effects on spell cast but only on additional attack damage and leap damage
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
+        var customBehavior =
+            new CustomBehaviorResonatingStrike(spell, powerResonatingStrike, conditionResonatingStrike);
+
+        powerResonatingStrike.AddCustomSubFeatures(customBehavior);
+        spell.AddCustomSubFeatures(
+            customBehavior,
+            AttackAfterMagicEffect.ResonatingStrikeAttack,
+            new UpgradeSpellRangeBasedOnWeaponReach(spell));
 
         return spell;
     }
 
-    // chain resonating strike leap damage power
-    private sealed class CustomBehaviorResonatingStrike :
-        IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe, IModifyEffectDescription
+    private sealed class CustomBehaviorResonatingStrike(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        SpellDefinition spellResonatingStrike,
+        FeatureDefinitionPower powerResonatingStrike,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionResonatingStrike) :
+        IMagicEffectFinishedByMe, IPhysicalAttackFinishedByMe, IModifyEffectDescription, IFilterTargetingCharacter
     {
-        private readonly ConditionDefinition _conditionResonatingStrike;
-        private readonly FeatureDefinitionPower _powerResonatingStrike;
         private GameLocationCharacter _secondTarget;
         private int _spellCastingModifier;
 
-        internal CustomBehaviorResonatingStrike(
-            FeatureDefinitionPower powerResonatingStrike,
-            ConditionDefinition conditionResonatingStrike)
+        public bool EnforceFullSelection => false;
+
+        // STEP 0: enforce proper second target selection
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
-            _powerResonatingStrike = powerResonatingStrike;
-            _conditionResonatingStrike = conditionResonatingStrike;
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell
+                || rulesetEffectSpell.SpellDefinition != spellResonatingStrike)
+            {
+                return true;
+            }
+
+            if (__instance.SelectionService.SelectedTargets.Count == 0)
+            {
+                var caster = __instance.SelectionService.SelectedCharacters[0];
+                var attackMode = caster?.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+                if (attackMode is not { SourceObject: RulesetItem })
+                {
+                    return false;
+                }
+
+                if (attackMode.Ranged || !attackMode.Reach)
+                {
+                    return false;
+                }
+
+                return __instance.SelectionService.SelectedCharacters[0].IsWithinRange(target, attackMode.reachRange);
+            }
+
+            var firstTarget = __instance.SelectionService.SelectedTargets[0];
+
+            return firstTarget.IsWithinRange(target, 1);
         }
 
         // STEP 1: collect spellCastingAbility modifier
@@ -903,7 +928,7 @@ internal static partial class SpellBuilders
         // STEP 3: add the spellCastingAbility as bonus damage
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return definition == _powerResonatingStrike;
+            return definition == powerResonatingStrike;
         }
 
         public EffectDescription GetEffectDescription(
@@ -936,7 +961,7 @@ internal static partial class SpellBuilders
 
             if (rulesetCharacter.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect,
-                    _conditionResonatingStrike.Name,
+                    conditionResonatingStrike.Name,
                     out var activeCondition))
             {
                 rulesetCharacter.RemoveCondition(activeCondition);
@@ -948,7 +973,7 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(_powerResonatingStrike, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerResonatingStrike, rulesetCharacter);
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 

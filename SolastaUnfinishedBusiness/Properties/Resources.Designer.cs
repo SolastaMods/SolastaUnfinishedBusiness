@@ -562,6 +562,26 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] BackgroundMilitia {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundMilitia", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] BackgroundTroublemaker {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundTroublemaker", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] BanishmentSmite {
             get {
                 object obj = ResourceManager.GetObject("BanishmentSmite", resourceCulture);
@@ -1305,6 +1325,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] FLashFreeze {
             get {
                 object obj = ResourceManager.GetObject("FLashFreeze", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ForcePointsResourceIcon {
+            get {
+                object obj = ResourceManager.GetObject("ForcePointsResourceIcon", resourceCulture);
                 return ((byte[])(obj));
             }
         }

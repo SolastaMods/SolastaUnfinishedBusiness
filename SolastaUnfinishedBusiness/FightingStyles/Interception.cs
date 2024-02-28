@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -26,24 +27,25 @@ internal sealed class Interception : AbstractFightingStyle
             FeatureDefinitionPowerBuilder
                 .Create($"Power{Name}")
                 .SetGuiPresentation(Name, Category.FightingStyle)
-                .SetUsesFixed(ActivationTime.Reaction)
-                .SetReactionContext(ExtraReactionContext.Custom)
-                .AddCustomSubFeatures(new AttackBeforeHitPossibleOnMeOrAllyInterception(
-                    ConditionDefinitionBuilder
-                        .Create($"Condition{Name}")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-                        .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
-                        .AddFeatures(
-                            FeatureDefinitionReduceDamageBuilder
-                                .Create($"ReduceDamage{Name}")
-                                .SetGuiPresentation(Name, Category.FightingStyle)
-                                .SetAlwaysActiveReducedDamage(
-                                    (_, defender) => defender.RulesetCharacter.AllConditions.FirstOrDefault(
-                                        x => x.ConditionDefinition.Name == $"Condition{Name}")!.Amount)
-                                .AddToDB())
-                        .AddToDB()))
+                .SetUsesFixed(ActivationTime.NoCost)
+                .AddCustomSubFeatures(
+                    ModifyPowerVisibility.Hidden,
+                    new AttackBeforeHitPossibleOnMeOrAllyInterception(
+                        ConditionDefinitionBuilder
+                            .Create($"Condition{Name}")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                            .SetAmountOrigin(ConditionDefinition.OriginOfAmount.Fixed)
+                            .AddFeatures(
+                                FeatureDefinitionReduceDamageBuilder
+                                    .Create($"ReduceDamage{Name}")
+                                    .SetGuiPresentation(Name, Category.FightingStyle)
+                                    .SetAlwaysActiveReducedDamage(
+                                        (_, defender) => defender.RulesetCharacter.AllConditions.FirstOrDefault(
+                                            x => x.ConditionDefinition.Name == $"Condition{Name}")!.Amount)
+                                    .AddToDB())
+                            .AddToDB()))
                 .AddToDB())
         .AddToDB();
 

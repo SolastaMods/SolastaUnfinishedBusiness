@@ -6,7 +6,6 @@ Feature/&PowerSteelWhirlwindTeleportDescription=Vous pouvez vous téléporter da
 Feature/&PowerSteelWhirlwindTeleportTitle=Téléportation
 Feedback/&AdditionalDamageBanishingSmiteFormat=Châtiment de bannissement !
 Feedback/&AdditionalDamageBanishingSmiteLine={0} inflige plus de dégâts à {1} via un châtiment de bannissement (+{2})
-Feedback/&TelekinesisContestCheck={0} lance un chèque de {2} : {3} = {4}, et conteste un chèque de {5} {6} : {7} = {8}.
 Spell/&BanishingSmiteDescription=Votre prochain coup inflige 5d10 dégâts de force supplémentaires avec votre arme. De plus, si cette attaque réduit la cible à 50 points de vie ou moins, vous la bannissez pendant 1 min.
 Spell/&BanishingSmiteTitle=Châtiment de bannissement
 Spell/&CircleOfMagicalNegationDescription=L'énergie divine rayonne de vous, déformant et diffusant l'énergie magique dans un rayon de 9 mètres autour de vous. Jusqu'à la fin du sort, la sphère se déplace avec vous, centrée sur vous. Pendant toute la durée de l'effet, chaque créature amie présente dans la zone, vous y compris, bénéficie d'un avantage aux jets de sauvegarde contre les sorts et autres effets magiques. De plus, lorsqu'une créature affectée réussit un jet de sauvegarde contre un sort ou un effet magique qui lui permet d'effectuer un jet de sauvegarde pour ne subir que la moitié des dégâts, elle ne subit aucun dégât si elle réussit les jets de sauvegarde.

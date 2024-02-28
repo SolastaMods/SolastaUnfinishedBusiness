@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Interfaces;
@@ -88,8 +89,7 @@ public class PatronMountain : AbstractSubclass
         var powerBarrierOfStone = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BarrierOfStone")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Charisma)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -145,12 +145,13 @@ public class PatronMountain : AbstractSubclass
         var powerEternalGuardian = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EternalGuardian")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
             .SetOverriddenPower(powerBarrierOfStone)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         powerBarrierOfStone.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitConfirmedOnMeBarrierOfStone(powerBarrierOfStone, powerEternalGuardian));
 
         // LEVEL 10
@@ -270,11 +271,11 @@ public class PatronMountain : AbstractSubclass
 
             if (me.IsMyTurn() ||
                 !me.CanReact() ||
-                !rulesetMe.CanUsePower(power) ||
                 me == defender ||
                 !me.CanPerceiveTarget(defender) ||
                 !me.CanPerceiveTarget(attacker) ||
-                !me.IsWithinRange(defender, 7))
+                !me.IsWithinRange(defender, 7) ||
+                rulesetMe.GetRemainingPowerUses(power) == 0)
             {
                 yield break;
             }

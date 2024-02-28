@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -34,7 +35,6 @@ public sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        // kept name for backward compatibility
         var attributeModifierDraconicResilience = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ProfaneVitality")
             .SetGuiPresentation(Category.Feature)
@@ -57,8 +57,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
         var powerBloodbath = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Bloodbath")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
         // LEVEL 14
@@ -73,6 +72,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
         featureVoraciousFury.AddCustomSubFeatures(
             new PhysicalAttackFinishedByMeVoraciousFury(featureVoraciousFury, powerBloodbath));
         powerBloodbath.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByMeBloodbath(powerBloodbath));
         featureCorruptedBlood.AddCustomSubFeatures(
             new PhysicalAttackFinishedOnMeCorruptedBlood(featureCorruptedBlood, powerBloodbath));
@@ -155,7 +155,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
         if (rulesetAttacker.MissingHitPoints == 0 ||
             !rulesetAttacker.HasConditionOfTypeOrSubType(ConditionRaging) ||
-            !rulesetAttacker.CanUsePower(featureDefinitionPower))
+            rulesetAttacker.GetRemainingPowerUses(featureDefinitionPower) == 0)
         {
             yield break;
         }

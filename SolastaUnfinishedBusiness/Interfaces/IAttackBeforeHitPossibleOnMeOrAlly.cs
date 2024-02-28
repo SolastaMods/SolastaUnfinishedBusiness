@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Interfaces;
 
@@ -7,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Interfaces;
 public interface IAttackBeforeHitPossibleOnMeOrAlly
 {
     IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
-        GameLocationCharacter attacker,
+        [UsedImplicitly] GameLocationCharacter attacker,
         GameLocationCharacter defender,
         GameLocationCharacter helper,
         ActionModifier actionModifier,

@@ -179,8 +179,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=Les sorts d'illusi
 ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des compétences lors de la montée de niveau <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacte le <color= #D89555>Rôdeur</color> : Ennemis jurés et Terrains favoris, le <color=#D89555>Druide</color> : Compagnon Animal, le <color=#D89555>Barbare</color> : Voie des éléments et choix des sous-classes draconiques (Voie de la Griffe)]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets liés à 4 au niveau 10 et 5 au niveau 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la portée de détection de la <color=#D89555>Vision normale</color> pour activer les attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 est idéal pour éviter que les ennemis ne rejoignent le combat de trop loin]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>
 ModUi/&Input=<color=#F0DAA0>Entrée :</color>
 ModUi/&Interface=Interface
@@ -241,6 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD :</color>
 ModUi/&ScaleMerchantPricesCorrectly=Mettre à l'échelle les prix marchands correctement/exactement <i><color=#F0DAA0>[plus d'erreurs d'arrondi lors de la conversion des valeurs en pièces]</color></i>
 ModUi/&SelectAll=Tout sélectionner
 ModUi/&SelectSuggested=Sélectionner ce qui est suggéré
+ModUi/&SenseNormalVisionRangeMultiplier=Modifier la portée de la <color=#D89555>Vision normale</color> <i><color=#F0DAA0>[uniquement en bataille]</color></i>
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des Nains</color> <color=white>possibilités d'apparition de la barbe</color>
 ModUi/&SettingsExport=Exporter

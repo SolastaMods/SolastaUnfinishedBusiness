@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -162,7 +163,7 @@ internal static class ValidatorsCharacter
 
     internal static IsCharacterValidHandler HasAvailablePowerUsage(FeatureDefinitionPower power)
     {
-        return character => character.CanUsePower(power);
+        return character => character.GetRemainingPowerUses(power) > 0;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

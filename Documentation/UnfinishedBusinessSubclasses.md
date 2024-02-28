@@ -985,7 +985,55 @@ You gain one additional usage of your Arcane Shot technique.
 
 
 
-## 2. Guardian
+## 2. Force Knight
+
+Force Knights are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
+
+
+### Level 3
+
+* Psionic Initiate
+
+You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 additional point every 3 levels thereafter. Your Force Points recharge on short or long rest. 
+• Force-Powered Strike. Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d6 + Intelligence modifier. The damage increases to 1d8 at 5th, 1d10 at 11th and 1d12 at 17th level.
+• Kinetic Barrier. When you or another allied creature that you can see within 30 feet of you is about to be hit by an attack, you can expend 1 Force Point and use your reaction to form a protective shield of pure force around it, granting it extra AC equal to your Intelligence modifier (minimum +1) against that attack and all subsequent attacks until the end of the attacking creature's turn.
+• Force Drive. You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range. You can use this feature once per short rest without expending a Force Point.
+
+
+### Level 7
+
+* Psionic Adept
+
+You can now impose a Strength saving throw upon the creature struck by Force-Powered Strike (DC = 8 + proficiency bonus + Intelligence modifier). If the creature fails it, you can either knock the creature back 15 feet or knock it prone.
+
+* Psionic Propulsion
+
+You can expend 1 Force Point and use your bonus action to gain flying speed equal to twice your walking speed and not provoke opportunity attacks until the end of your turn. You can use this feature once per short rest without expending a Force Point.
+
+
+### Level 10
+
+* Force of Will
+
+Your psionic energy grants you extraordinary resilience. At the start of each of your turns, you gain temporary hit points equal to your Intelligence modifier (minimum of 1) if you have at least 1 hit point. In addition, you can use your Intelligence modifier instead of your Wisdom and Charisma modifier for saving throws if it's higher.
+
+
+### Level 15
+
+* Force Bulwark
+
+You can shield yourself and others with psychokinetic force. As a bonus action, you can expend 1 Force Point and choose creatures, which can include you, that you can see within 30 feet of you, up to a number of creatures equal to your Intelligence modifier (minimum of one creature). Each of the chosen creatures is protected by half cover for 1 minute or until you're incapacitated. You can use this feature once per long rest without expending a Force Point.
+
+
+### Level 18
+
+* Telekinetic Grasp
+
+You can expend 1 Force Point to cast the Telekinesis spell, requiring no components, and your spellcasting ability for the spell is Intelligence. On each of your turns while you concentrate on the spell, including the turn when you cast it, you can make one attack with a weapon as a bonus action. You can use this feature once per long rest without expending a Force Point.
+
+
+
+## 3. Guardian
 
 Guardians are stalwart warriors who use taunts and impregnable defenses to become a living wall between their allies and certain doom. Whether a guardian is a valiant knight, a stubborn sellsword, or a battle-hardened general, there is no one better to have at your side when the situation is at its most dire.
 
@@ -1033,7 +1081,7 @@ You gain resistance to all non magical bludgeoning, piercing and slashing damage
 
 
 
-## 3. Royal Knight
+## 4. Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -1074,7 +1122,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-## 4. Spell Shield
+## 5. Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -1123,7 +1171,7 @@ You can use your action to target up to 4 friendly creatures. Each affected crea
 
 
 
-## 5. Tactician
+## 6. Tactician
 
 For tacticians, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
 
@@ -1215,7 +1263,7 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-## 6. Warlord
+## 7. Warlord
 
 Whether they are loved, respected or feared, warlords are primarily known for one thing – leading soldiers like no one else. A warlord stands side by side with their allies and can shift the tide of any battle, no matter if it requires a sword or a sharp tongue. The sheer presence of these accomplished leaders is enough for a soldier to confidently follow their orders and be the best version of themselves.
 
@@ -1263,7 +1311,7 @@ You regain one usage of your Coordinated Assault whenever you roll initiative, a
 
 
 
-## 7. Weapon Master
+## 8. Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 

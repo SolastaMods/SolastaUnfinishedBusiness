@@ -52,8 +52,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var powerDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DebilitatingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -72,6 +71,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
             .AddToDB();
 
         powerDebilitatingStrike.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitConfirmedOnEnemyDebilitatingStrike(powerDebilitatingStrike));
 
         // Opportunity
@@ -120,8 +120,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
         var powerImprovedDebilitatingStrike = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ImprovedDebilitatingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -138,6 +137,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
                     .SetParticleEffectParameters(InflictWounds)
                     .Build())
             .SetOverriddenPower(powerDebilitatingStrike)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         // LEVEL 17

@@ -34,14 +34,17 @@ public static class Sprites
 
     #region Misc
 
-    internal static AssetReferenceSprite GambitResourceIcon =>
-        GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
+    internal static AssetReferenceSprite BardicDiceResourceIcon =>
+        GetSprite("BardicDiceResourceIcon", Resources.BardicDiceResourceIcon, 64);
 
     internal static AssetReferenceSprite ChannelDivinityResourceIcon =>
         GetSprite("ChannelDivinityResourceIcon", Resources.ChannelDivinityResourceIcon, 64);
 
-    internal static AssetReferenceSprite BardicDiceResourceIcon =>
-        GetSprite("BardicDiceResourceIcon", Resources.BardicDiceResourceIcon, 64);
+    internal static AssetReferenceSprite ForcePointsResourceIcon =>
+        GetSprite("ForcePointsResourceIcon", Resources.ForcePointsResourceIcon, 64);
+
+    internal static AssetReferenceSprite GambitResourceIcon =>
+        GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
 
     internal static AssetReferenceSprite EldritchVersatilityResourceIcon =>
         GetSprite("EldritchVersatilityResourceIcon", Resources.EldritchVersatilityResourceIcon, 64);

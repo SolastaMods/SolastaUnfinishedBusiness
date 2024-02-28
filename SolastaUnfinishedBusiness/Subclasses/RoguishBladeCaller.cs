@@ -81,8 +81,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         var powerHailOfBlades = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}HailOfBlades")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -100,6 +99,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
                         EffectFormBuilder.ConditionForm(conditionBladeMark))
                     .SetParticleEffectParameters(SpellDefinitions.ShadowDagger)
                     .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var actionAffinityHailOfBladesToggle = FeatureDefinitionActionAffinityBuilder
@@ -336,7 +336,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (!attacker.CanReact() ||
-                !rulesetAttacker.CanUsePower(powerHailOfBlades))
+                rulesetAttacker.GetRemainingPowerUses(powerHailOfBlades) == 0)
             {
                 yield break;
             }
@@ -396,7 +396,7 @@ public sealed class RoguishBladeCaller : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.CanUsePower(powerHailOfBlades))
+            if (rulesetAttacker.GetRemainingPowerUses(powerHailOfBlades) > 0)
             {
                 yield break;
             }

@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -206,16 +205,6 @@ internal static class CharacterDisplay
         }
 
         UI.Label();
-
-        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
-
-            DatabaseHelper.ActionDefinitions.UseIndomitableResistance.GuiPresentation.description = toggle
-                ? "Feature/&EnhancedIndomitableResistanceDescription"
-                : "Feature/&IndomitableResistanceDescription";
-        }
 
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))

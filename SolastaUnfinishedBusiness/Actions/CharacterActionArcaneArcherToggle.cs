@@ -9,21 +9,8 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 public class CharacterActionArcaneArcherToggle(CharacterActionParams actionParams) : CharacterAction(actionParams)
 #pragma warning restore CA1050
 {
-    private const ActionDefinitions.Id Action = (ActionDefinitions.Id)ExtraActionId.ArcaneArcherToggle;
-
     public override IEnumerator ExecuteImpl()
     {
-        var rulesetCharacter = ActingCharacter.RulesetCharacter;
-
-        if (rulesetCharacter.IsToggleEnabled(Action))
-        {
-            rulesetCharacter.DisableToggle(Action);
-        }
-        else
-        {
-            rulesetCharacter.EnableToggle(Action);
-        }
-
-        yield return null;
+        yield return ActingCharacter.RulesetCharacter.FlipToggle(ExtraActionId.ArcaneArcherToggle);
     }
 }

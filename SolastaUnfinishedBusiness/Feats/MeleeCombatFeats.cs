@@ -366,7 +366,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{NAME}")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation(NAME, Category.Feat)
                     .SetModifier(
                         AttributeModifierOperation.AddProficiencyBonus,
                         AttributeDefinitions.ArmorClass)
@@ -377,18 +377,20 @@ internal static class MeleeCombatFeats
         var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionDefensiveDuelist))
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerKnightLeadership)
                     .Build())
             .AddToDB();
 
-        powerDefensiveDuelist.AddCustomSubFeatures(new SpiritualShieldingBlockAttack(powerDefensiveDuelist));
+        powerDefensiveDuelist.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new AttackBeforeHitPossibleOnMeOrAllyDefensiveDuelist(powerDefensiveDuelist));
 
         return FeatDefinitionBuilder
             .Create(NAME)
@@ -398,7 +400,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private class SpiritualShieldingBlockAttack(FeatureDefinitionPower powerDefensiveDuelist)
+    private class AttackBeforeHitPossibleOnMeOrAllyDefensiveDuelist(FeatureDefinitionPower powerDefensiveDuelist)
         : IAttackBeforeHitPossibleOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(GameLocationBattleManager battleManager,
@@ -411,30 +413,7 @@ internal static class MeleeCombatFeats
             int attackRoll)
         {
             if (rulesetEffect != null &&
-                rulesetEffect.EffectDescription.RangeType is not (RangeType.Touch or RangeType.MeleeHit))
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (!helper.CanReact() ||
-                helper != defender ||
-                !ValidatorsWeapon.IsMelee(attackMode) ||
-                !ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
-            {
-                yield break;
-            }
-
-            var totalAttack = attackRoll
-                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                              + actionModifier.AttackRollModifier;
-            var armorClass = rulesetDefender.RefreshArmorClass(true).CurrentValue;
-            var requiredACAddition = totalAttack - armorClass + 1;
-            var pb = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            // if other actions already blocked it or if pb isn't enough
-            if (requiredACAddition <= 0 || requiredACAddition > pb)
+                rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit)
             {
                 yield break;
             }
@@ -447,10 +426,39 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
+            var rulesetHelper = defender.RulesetCharacter;
+
+            if (helper != defender ||
+                !helper.CanReact() ||
+                !ValidatorsWeapon.IsMelee(attackMode) ||
+                !ValidatorsWeapon.HasAnyWeaponTag(rulesetHelper.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+            {
+                yield break;
+            }
+
+            var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+            var totalAttack =
+                attackRoll +
+                (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
+                actionModifier.AttackRollModifier;
+
+            // some other reaction saved it already
+            if (armorClass > totalAttack)
+            {
+                yield break;
+            }
+
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetDefender);
+            var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetHelper);
             var actionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
@@ -459,7 +467,7 @@ internal static class MeleeCombatFeats
                     RulesetEffect = implementationManagerService
                         .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
-                    TargetCharacters = { helper }
+                    TargetCharacters = { defender }
                 };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;

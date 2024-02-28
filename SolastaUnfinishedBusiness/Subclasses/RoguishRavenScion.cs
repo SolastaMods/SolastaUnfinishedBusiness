@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -100,11 +101,12 @@ public sealed class RoguishRavenScion : AbstractSubclass
         var powerDeadlyFocus = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DeadlyFocus")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
-        powerDeadlyFocus.AddCustomSubFeatures(new TryAlterOutcomeAttackDeadlyAim(powerDeadlyFocus));
+        powerDeadlyFocus.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new TryAlterOutcomeAttackDeadlyFocus(powerDeadlyFocus));
 
         // LEVEL 17
 
@@ -226,7 +228,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
     // Deadly Focus
     //
 
-    private class TryAlterOutcomeAttackDeadlyAim(FeatureDefinitionPower power) : ITryAlterOutcomeAttack
+    private class TryAlterOutcomeAttackDeadlyFocus(FeatureDefinitionPower powerDeadlyFocus) : ITryAlterOutcomeAttack
     {
         public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
@@ -254,7 +256,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
 
             if (attacker != helper ||
                 rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !rulesetCharacter.CanUsePower(power) ||
+                rulesetCharacter.GetRemainingPowerUses(powerDeadlyFocus) == 0 ||
                 !attacker.CanPerceiveTarget(defender) ||
                 attackMode is not { ranged: true })
             {
@@ -264,7 +266,7 @@ public sealed class RoguishRavenScion : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(power, rulesetCharacter);
+            var usablePower = PowerProvider.Get(powerDeadlyFocus, rulesetCharacter);
             // could had used PowerNoCost but looking for a better log message below
             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
             {
@@ -293,14 +295,17 @@ public sealed class RoguishRavenScion : AbstractSubclass
                 : "Feedback/&CriticalAttackFailureOutcome";
 
             rulesetCharacter.LogCharacterUsedPower(
-                power,
+                powerDeadlyFocus,
                 $"Feedback/&Trigger{Name}RerollLine",
                 false,
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
             var advantageTrends =
-                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, power.Name, power) };
+                new List<TrendInfo>
+                {
+                    new(1, FeatureSourceType.CharacterFeature, powerDeadlyFocus.Name, powerDeadlyFocus)
+                };
 
             // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetCharacter.RollAttack(

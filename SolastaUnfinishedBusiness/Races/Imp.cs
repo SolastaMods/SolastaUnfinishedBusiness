@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -130,8 +131,7 @@ internal static class RaceImpBuilder
         var powerImpForestImpishWrath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ImpishWrath")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .DelegatedToAction()
             .AddToDB();
 
@@ -156,6 +156,7 @@ internal static class RaceImpBuilder
             .AddToDB();
 
         powerImpForestImpishWrath.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new AttackBeforeHitConfirmedImpishWrath(powerImpForestImpishWrath));
 
         var featureSetImpForestImpishWrath = FeatureDefinitionFeatureSetBuilder
@@ -267,7 +268,7 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (!rulesetAttacker.CanUsePower(powerImpForestImpishWrath))
+            if (rulesetDefender.GetRemainingPowerUses(powerImpForestImpishWrath) == 0)
             {
                 yield break;
             }

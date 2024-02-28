@@ -1,0 +1,32 @@
+{
+  "$type": "FeatureDefinitionMoveMode, Assembly-CSharp",
+  "moveMode": "Walk",
+  "speed": 18,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&MoveTitle",
+    "description": "Feature/&MoveWalkDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "911e748e-a21b-552c-b9e8-96652a62cc97",
+  "contentPack": 9999,
+  "name": "MoveModeMove18"
+}

@@ -13,9 +13,11 @@ internal static class BackgroundsContext
     {
         LoadBackground(BackgroundsBuilders.BuildBackgroundDevoted());
         LoadBackground(BackgroundsBuilders.BuildBackgroundFarmer());
+        LoadBackground(BackgroundsBuilders.BuildBackgroundMilitia());
+        LoadBackground(BackgroundsBuilders.BuildBackgroundTroublemaker());
 
         // sorting
-        Backgrounds = Backgrounds.OrderBy(x => x.FormatTitle()).ToHashSet();
+        Backgrounds = [.. Backgrounds.OrderBy(x => x.FormatTitle())];
 
         // settings paring
         foreach (var name in Main.Settings.BackgroundEnabled

@@ -649,9 +649,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionSpellbladeArcaneEscape { get; } =
             GetDefinition<ConditionDefinition>("ConditionSpellbladeArcaneEscape");
 
-        internal static ConditionDefinition ConditionSpiderClimb { get; } =
-            GetDefinition<ConditionDefinition>("ConditionSpiderClimb");
-
         internal static ConditionDefinition ConditionSpiritGuardians { get; } =
             GetDefinition<ConditionDefinition>("ConditionSpiritGuardians");
 
@@ -894,6 +891,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionRestrained { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionRestrained");
+
+        internal static FeatureDefinitionActionAffinity ActionAffinityConditionRetchingReeling { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionRetchingReeling");
 
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionShocked { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionShocked");
@@ -1690,9 +1690,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDomainMischiefStrikeOfChaos14 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainMischiefStrikeOfChaos14");
 
-        internal static FeatureDefinitionPower PowerDomainOblivionHeraldOfPain { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDomainOblivionHeraldOfPain");
-
         internal static FeatureDefinitionPower PowerDomainOblivionMarkOfFate { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainOblivionMarkOfFate");
 
@@ -1794,9 +1791,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMartialCommanderRousingShout { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderRousingShout");
-
-        internal static FeatureDefinitionPower PowerMartialSpellbladeArcaneEscape { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerMartialSpellbladeArcaneEscape");
 
         internal static FeatureDefinitionPower PowerMelekTeleport { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMelekTeleport");
@@ -1924,6 +1918,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerSorcererCreateSpellSlot { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererCreateSpellSlot");
 
+        internal static FeatureDefinitionPower PowerSorcererDraconicDragonWingsSprout { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorcererDraconicDragonWingsSprout");
+
         internal static FeatureDefinitionPower PowerSorcererDraconicElementalResistance { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorcererDraconicElementalResistance");
 
@@ -1962,6 +1959,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerTraditionLightLuminousKi { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionLightLuminousKi");
+
+        internal static FeatureDefinitionPower PowerTraditionOpenHandTranquility { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionOpenHandTranquility");
+
+        internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
 
         internal static FeatureDefinitionPower PowerTraditionSurvivalUnbreakableBody { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionSurvivalUnbreakableBody");
@@ -2342,6 +2345,7 @@ internal static partial class DatabaseHelper
 
     internal static class ItemDefinitions
     {
+        internal static ItemDefinition _10_Gold_Coins { get; } = GetDefinition<ItemDefinition>("10_Gold_Coins");
         internal static ItemDefinition _100_GP_Emerald { get; } = GetDefinition<ItemDefinition>("100_GP_Emerald");
         internal static ItemDefinition _100_GP_Pearl { get; } = GetDefinition<ItemDefinition>("100_GP_Pearl");
         internal static ItemDefinition _1000_GP_Diamond { get; } = GetDefinition<ItemDefinition>("1000_GP_Diamond");

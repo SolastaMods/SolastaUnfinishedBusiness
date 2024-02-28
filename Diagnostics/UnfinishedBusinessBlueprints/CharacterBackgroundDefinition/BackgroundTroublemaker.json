@@ -1,0 +1,114 @@
+{
+  "$type": "CharacterBackgroundDefinition, Assembly-CSharp",
+  "requiresDeity": false,
+  "hasSubtype": false,
+  "banterList": "Formal",
+  "subTypeName": "Specialty",
+  "backgroudSubtypes": [],
+  "features": [
+    "Definition:ProficiencyBackgroundTroublemakerWeapons:d771f14a-509f-5b91-9ca9-d259aad9e7aa",
+    "Definition:ProficiencyBackgroundTroublemakerSkills:fc5dd4a3-efc3-50c0-b0a7-e08614b562e7",
+    "Definition:PointPoolBackgroundLanguageChoice_one:c6ab6f54fa4248243a511ad3151b117c"
+  ],
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ClothesNoble_Valley_Red:e227c546278da1e42986f34077094985",
+              "defaultChoice": "ClothesNoble_Valley_Red",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Rapier:ed13ff01b4757f148b8d5d23840cf4b8",
+              "defaultChoice": "Rapier",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:10_Gold_Coins:f21522223d6f7b14a9e5f34420c62865",
+              "defaultChoice": "10_Gold_Coins",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "staticPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Slang"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Normal"
+    }
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Cynicism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Pragmatism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Greed"
+    }
+  ],
+  "defaultOptionalPersonalityFlags": [
+    "Pragmatism",
+    "Greed"
+  ],
+  "forbiddenAlignments": [],
+  "hasBackgroundQuest": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Background/&BackgroundTroublemakerTitle",
+    "description": "Background/&BackgroundTroublemakerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "09305734-ccdb-54f6-acce-46a4990d7c89",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c1d25766-9c9b-5aa0-9910-36696917882f",
+  "contentPack": 9999,
+  "name": "BackgroundTroublemaker"
+}

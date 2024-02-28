@@ -60,7 +60,6 @@ public static class GameLocationBattlePatcher
         }
     }
 
-    //PATCH: mainly supports Thief level 17th through ICharacterInitiativeEndListener interface
     [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.RollInitiative))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -79,11 +78,70 @@ public static class GameLocationBattlePatcher
                          .Select(character =>
                              (character, character.RulesetCharacter.GetSubFeaturesByType<IInitiativeEndListener>())))
             {
+                //PATCH: supports `SenseNormalVisionRangeMultiplier`
+                var multiplier = Main.Settings.SenseNormalVisionRangeMultiplier;
+
+                if (multiplier > 0)
+                {
+                    var rulesetCharacter = character.RulesetCharacter;
+                    var conditionName = $"ConditionSenseNormalVision{(multiplier == 1 ? 24 : 48)}";
+
+                    rulesetCharacter.InflictCondition(
+                        conditionName,
+                        RuleDefinitions.DurationType.Irrelevant,
+                        1,
+                        RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                        AttributeDefinitions.TagEffect,
+                        rulesetCharacter.guid,
+                        rulesetCharacter.CurrentFaction.Name,
+                        1,
+                        conditionName,
+                        0,
+                        0,
+                        0);
+                }
+
+                //PATCH: mainly supports Thief level 17th through ICharacterInitiativeEndListener interface
                 foreach (var feature in features)
                 {
                     yield return feature.OnInitiativeEnded(character);
                 }
             }
+        }
+    }
+
+    //PATCH: supports `SenseNormalVisionRangeMultiplier`
+    [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.IntroduceNewContender))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IntroduceNewContender_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GameLocationCharacter character)
+        {
+            var multiplier = Main.Settings.SenseNormalVisionRangeMultiplier;
+
+            if (multiplier == 0)
+            {
+                return;
+            }
+
+            var rulesetCharacter = character.RulesetCharacter;
+            var conditionName = $"ConditionSenseNormalVision{(multiplier == 1 ? 24 : 48)}";
+
+            rulesetCharacter.InflictCondition(
+                conditionName,
+                RuleDefinitions.DurationType.Irrelevant,
+                1,
+                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                conditionName,
+                0,
+                0,
+                0);
         }
     }
 }

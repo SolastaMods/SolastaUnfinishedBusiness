@@ -236,14 +236,10 @@ internal static partial class SpellBuilders
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
                     .SetParticleEffectParameters(PowerFunctionWandFearCone)
+                    .SetCasterEffectParameters(Darkness)
+                    .SetImpactEffectParameters(MindTwist)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.casterParticleReference =
-            Darkness.EffectDescription.EffectParticleParameters.casterParticleReference;
-
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
-            MindTwist.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         return spell;
     }
@@ -301,11 +297,9 @@ internal static partial class SpellBuilders
                             .SetConditionForm(conditionAdderFangs, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(VenomousSpike)
+                    .SetEffectEffectParameters(InflictWounds)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
-            InflictWounds.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }
@@ -1131,14 +1125,11 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder.DamageForm(DamageTypeNecrotic, 4, DieType.D8))
                     .SetParticleEffectParameters(FingerOfDeath)
+                    .SetImpactEffectParameters(Disintegrate)
+                    .SetEffectEffectParameters(Disintegrate)
                     .Build())
             .AddCustomSubFeatures(new MagicEffectFinishedByMeCorruptingBolt(conditionCorruptingBolt))
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.impactParticleReference =
-            Disintegrate.EffectDescription.EffectParticleParameters.impactParticleReference;
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
-            Disintegrate.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         conditionCorruptingBolt.AddCustomSubFeatures(
             new ActionFinishedByEnemyCorruptingBolt(conditionCorruptingBolt, spell));
@@ -1252,12 +1243,10 @@ internal static partial class SpellBuilders
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .ExcludeCaster()
                     .SetParticleEffectParameters(FalseLife)
+                    .SetEffectEffectParameters(CureWounds)
                     .Build())
             .AddCustomSubFeatures(new ModifyDiceRollVitalityTransfer())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
-            CureWounds.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }

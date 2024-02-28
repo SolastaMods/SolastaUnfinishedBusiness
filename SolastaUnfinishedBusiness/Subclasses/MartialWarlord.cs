@@ -232,9 +232,9 @@ public sealed class MartialWarlord : AbstractSubclass
         PowerCoordinatedAssault = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CoordinatedAssault")
             .SetGuiPresentation($"FeatureSet{Name}CoordinatedAssault", Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
             .AddCustomSubFeatures(
+                ModifyPowerVisibility.Hidden,
                 new PhysicalAttackFinishedByMeCoordinatedAssault(),
                 new RestrictReactionAttackMode((_, attacker, _, _, _) =>
                     attacker.OnceInMyTurnIsValid(CoordinatedAssaultMarker) &&
@@ -488,6 +488,11 @@ public sealed class MartialWarlord : AbstractSubclass
         }
 
         public int PositionRange => 12;
+
+        public bool EnforcePositionSelection(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            return true;
+        }
     }
 
     //

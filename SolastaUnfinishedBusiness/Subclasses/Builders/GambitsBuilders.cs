@@ -1459,6 +1459,13 @@ internal static class GambitsBuilders
             manager.AddInterruptRequest(reactionRequest);
 
             yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            rulesetCharacter.UpdateUsageForPower(pool, 1);
         }
     }
 
@@ -1986,6 +1993,11 @@ internal static class GambitsBuilders
         }
 
         public int PositionRange => 12;
+
+        public bool EnforcePositionSelection(CursorLocationSelectPosition cursorLocationSelectPosition)
+        {
+            return true;
+        }
     }
 
     //

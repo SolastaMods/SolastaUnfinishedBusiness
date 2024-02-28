@@ -92,11 +92,9 @@ internal static class Level20SubclassesContext
                             .SetSummonCreatureForm(2, "Ice_Elemental")
                             .Build())
                     .SetParticleEffectParameters(ConjureElementalFire)
+                    .SetCasterEffectParameters(SleetStorm)
                     .Build())
             .AddToDB();
-
-        powerDomainColdSummonBlizzard.EffectDescription.EffectParticleParameters.casterParticleReference =
-            SleetStorm.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         DomainElementalCold.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerDomainColdSummonBlizzard, 17));
@@ -762,8 +760,7 @@ internal static class Level20SubclassesContext
         var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionSurvivalUnbreakableBody, "PowerTraditionSurvivalPhysicalPerfection")
             .SetGuiPresentation(Category.Feature, PowerTraditionSurvivalUnbreakableBody)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerTraditionSurvivalUnbreakableBody)
@@ -777,6 +774,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerTraditionSurvivalPhysicalPerfection.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new OnReducedToZeroHpByEnemyPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(
@@ -1267,12 +1265,10 @@ internal static class Level20SubclassesContext
                             .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
                     .SetParticleEffectParameters(PowerDragonFrightfulPresence)
+                    .SetImpactEffectParameters(new AssetReference())
                     .Build())
             .SetShowCasting(true)
             .AddToDB();
-
-        powerSorcererDraconicBloodlineFearPresence.EffectDescription.EffectParticleParameters.impactParticleReference =
-            new AssetReference();
 
         var featureSetSorcererDraconicBloodlinePresence = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetSorcererDraconicBloodlinePresence")
@@ -1321,11 +1317,9 @@ internal static class Level20SubclassesContext
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build())
                     .SetParticleEffectParameters(PowerSorcererHauntedSoulSpiritVisage)
+                    .SetImpactEffectParameters(RayOfEnfeeblement)
                     .Build())
             .AddToDB();
-
-        powerSorcererHauntedSoulPossession.EffectDescription.EffectParticleParameters.impactParticleReference =
-            RayOfEnfeeblement.EffectDescription.EffectParticleParameters.impactParticleReference;
 
         SorcerousHauntedSoul.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerSorcererHauntedSoulPossession, 18));
@@ -1668,15 +1662,11 @@ internal static class Level20SubclassesContext
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
-            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            ref int rollModifier, int saveDC,
+            int saveDC,
             bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Wisdom

@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -117,12 +118,6 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        // kept for backward compatibility
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ShadowStrideAtWill")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var powerShadowStrideBonus = FeatureDefinitionPowerBuilder
             .Create(powerShadowStride, $"Power{Name}ShadowStrideBonus")
             .SetUsesFixed(ActivationTime.BonusAction)
@@ -165,11 +160,12 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
         var powerUmbralSoul = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}UmbralSoul")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
             .AddToDB();
 
-        powerUmbralSoul.AddCustomSubFeatures(new OnReducedToZeroHpByEnemyUmbralSoul(powerUmbralSoul));
+        powerUmbralSoul.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new OnReducedToZeroHpByEnemyUmbralSoul(powerUmbralSoul));
 
         var featureSetUmbralSoul = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}UmbralSoul")
@@ -391,7 +387,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             var rulesetCharacter = source.RulesetCharacter;
 
-            if (!rulesetCharacter.CanUsePower(powerUmbralSoul))
+            if (rulesetCharacter.GetRemainingPowerUses(powerUmbralSoul) == 0)
             {
                 yield break;
             }

@@ -135,6 +135,18 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="BackgroundMilitia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Backgrounds/BackgroundMilitia.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="BackgroundTroublemaker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Backgrounds/BackgroundTroublemaker.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="StrikeWithTheWind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/StrikeWithTheWind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -1577,6 +1589,12 @@
   </data>
   <data name="ChannelDivinityResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\ChannelDivinityResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="ForcePointsResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\ForcePointsResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>

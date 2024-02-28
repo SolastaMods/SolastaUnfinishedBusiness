@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -39,11 +39,27 @@ public sealed class OathOfAltruism : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 
-        var featureSpiritualShielding = FeatureDefinitionBuilder
+        var conditionSpiritualShielding = ConditionDefinitionBuilder
+            .Create(ConditionShielded, $"Condition{Name}SpiritualShielding")
+            .AddToDB();
+
+        // kept name for backward compatibility
+        var powerSpiritualShielding = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}SpiritualShielding")
             .SetGuiPresentation(Category.Feature, ShieldOfFaith)
-            .AddCustomSubFeatures(new SpiritualShieldingBlockAttack())
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ChannelDivinity)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionSpiritualShielding))
+                    .Build())
             .AddToDB();
+
+        powerSpiritualShielding.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new AttackBeforeHitPossibleOnMeOrAllySpiritualShielding(powerSpiritualShielding));
 
         var featureDefensiveStrike = FeatureDefinitionBuilder
             .Create(DefensiveStrike)
@@ -126,7 +142,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             .AddFeaturesAtLevel(3,
                 autoPreparedSpellsAltruism,
                 featureDefensiveStrike,
-                featureSpiritualShielding)
+                powerSpiritualShielding)
             .AddFeaturesAtLevel(7, powerAuraOfTheGuardian)
             .AddFeaturesAtLevel(15, powerTakeThePain)
             .AddFeaturesAtLevel(18, powerAuraOfTheGuardian18)
@@ -178,7 +194,8 @@ public sealed class OathOfAltruism : AbstractSubclass
         }
     }
 
-    private class SpiritualShieldingBlockAttack : IAttackBeforeHitPossibleOnMeOrAlly
+    private class AttackBeforeHitPossibleOnMeOrAllySpiritualShielding(FeatureDefinitionPower powerSpiritualShielding)
+        : IAttackBeforeHitPossibleOnMeOrAlly
     {
         public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
@@ -190,34 +207,26 @@ public sealed class OathOfAltruism : AbstractSubclass
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionService == null)
+            if (rulesetEffect != null &&
+                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
             {
                 yield break;
             }
 
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-            var helperCharacter = helper.RulesetCharacter;
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (helper == defender ||
                 !helper.CanReact(true) ||
-                !helper.CanPerceiveTarget(defender))
-            {
-                yield break;
-            }
-
-            if (rulesetEffect != null &&
-                rulesetEffect.EffectDescription.RangeType != RangeType.Touch &&
-                rulesetEffect.EffectDescription.RangeType != RangeType.MeleeHit)
-            {
-                yield break;
-            }
-
-            var maxUses = helperCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
-
-            if (helperCharacter.UsedChannelDivinity >= maxUses)
+                !helper.CanPerceiveTarget(defender) ||
+                rulesetHelper.GetRemainingPowerUses(powerSpiritualShielding) == 0)
             {
                 yield break;
             }
@@ -229,54 +238,38 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
+            var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
             var totalAttack =
                 attackRoll +
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
 
-            if (!rulesetDefender.CanMagicEffectPreventHit(Shield, totalAttack))
+            // some other reaction saved it already
+            if (armorClass > totalAttack)
             {
                 yield break;
             }
 
-            var actionParams = new CharacterActionParams(helper, (Id)ExtraActionId.DoNothingReaction)
-            {
-                StringParameter = "CustomReactionSpiritualShieldingDescription"
-                    .Formatted(Category.Reaction, defender.Name, attacker.Name)
-            };
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var reactionRequest = new ReactionRequestCustom("SpiritualShielding", actionParams)
-            {
-                Resource = ReactionResourceChannelDivinity.Instance
-            };
+            var usablePower = PowerProvider.Get(powerSpiritualShielding, rulesetHelper);
+            var actionParams =
+                new CharacterActionParams(helper, Id.PowerReaction)
+                {
+                    StringParameter = "SpiritualShielding",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
+                };
 
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionService, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            //Spend resources
-            helperCharacter.UsedChannelDivinity++;
-
-            rulesetDefender.InflictCondition(
-                ConditionShielded.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                helperCharacter.guid,
-                helperCharacter.CurrentFaction.Name,
-                1,
-                ConditionShielded.Name,
-                0,
-                0,
-                0);
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
         }
     }
 }

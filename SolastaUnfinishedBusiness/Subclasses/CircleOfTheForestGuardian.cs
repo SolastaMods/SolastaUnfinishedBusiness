@@ -102,12 +102,9 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionBarkWard))
+                    .SetCasterEffectParameters(SpikeGrowth)
                     .Build())
             .AddToDB();
-
-
-        powerBarkWard.EffectDescription.EffectParticleParameters.casterParticleReference =
-            SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var powerImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}ImprovedBarkWard")
@@ -119,13 +116,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionImprovedBarkWard))
+                    .SetCasterEffectParameters(SpikeGrowth)
                     .Build())
             .SetOverriddenPower(powerBarkWard)
             .AddToDB();
-
-
-        powerImprovedBarkWard.EffectDescription.EffectParticleParameters.casterParticleReference =
-            SpikeGrowth.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         var powerSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")

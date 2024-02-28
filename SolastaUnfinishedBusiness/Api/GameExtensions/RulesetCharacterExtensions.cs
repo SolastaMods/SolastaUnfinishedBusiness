@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -471,6 +472,20 @@ internal static class RulesetCharacterExtensions
         rulesetCharacter.ToggledPowersOn.Add(toggleName);
     }
 
+    internal static IEnumerator FlipToggle(this RulesetCharacter rulesetCharacter, ExtraActionId action)
+    {
+        if (rulesetCharacter.IsToggleEnabled((Id)action))
+        {
+            rulesetCharacter.DisableToggle((Id)action);
+        }
+        else
+        {
+            rulesetCharacter.EnableToggle((Id)action);
+        }
+
+        yield break;
+    }
+
     internal static RulesetAttackMode TryRefreshAttackMode(
         this RulesetCharacter character,
         ActionType actionType,
@@ -504,16 +519,6 @@ internal static class RulesetCharacterExtensions
                 featuresOrigin),
             _ => null
         };
-    }
-
-    internal static bool CanMagicEffectPreventHit(
-        this RulesetCharacter character,
-        IMagicEffect effect,
-        int totalAttack)
-    {
-        return character.CanAttackOutcomeFromAlterationMagicalEffectFail(
-            effect.EffectDescription.EffectForms,
-            totalAttack);
     }
 
     internal static bool IsMyFavoriteEnemy(this RulesetCharacter me, RulesetCharacter enemy)

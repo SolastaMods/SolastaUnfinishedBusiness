@@ -105,10 +105,9 @@ internal static partial class SpellBuilders
                     // .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionStaggeringSmite))
                     .SetParticleEffectParameters(Maze)
+                    .SetEffectEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         return spell;
     }
@@ -298,11 +297,9 @@ internal static partial class SpellBuilders
                             .SetTempHpForm(0, DieType.D8, 3)
                             .Build())
                     .SetParticleEffectParameters(RayOfFrost)
+                    .SetEffectEffectParameters(PowerDomainElementalIceLance)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference = PowerDomainElementalIceLance
-            .EffectDescription.EffectParticleParameters.effectParticleReference;
 
         conditionBlessingOfRime.AddCustomSubFeatures(new CustomBehaviorBlessingOfRime(spell));
 
@@ -330,16 +327,12 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
-            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            ref int rollModifier,
             int saveDC,
             bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta, List<EffectForm> effectForms)
+            List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Constitution)
             {
@@ -474,15 +467,11 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
-            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            ref int rollModifier, int saveDC,
+            int saveDC,
             bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta,
             List<EffectForm> effectForms)
         {
             if (effectForms.Any(x =>
@@ -690,16 +679,12 @@ internal static partial class SpellBuilders
         public void OnSavingThrowInitiated(
             RulesetCharacter caster,
             RulesetCharacter defender,
-            ref int saveBonus,
             ref string abilityScoreName,
             BaseDefinition sourceDefinition,
-            List<TrendInfo> modifierTrends,
             List<TrendInfo> advantageTrends,
-            ref int rollModifier,
             int saveDC,
             bool hasHitVisual,
-            ref RollOutcome outcome,
-            ref int outcomeDelta, List<EffectForm> effectForms)
+            List<EffectForm> effectForms)
         {
             if (abilityScoreName == AttributeDefinitions.Constitution)
             {
@@ -783,11 +768,9 @@ internal static partial class SpellBuilders
                             .SetConditionForm(conditionIrresistiblePerformance, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetParticleEffectParameters(ConjureFey)
+                    .SetEffectEffectParameters(PowerBardTraditionManacalonsPerfection)
                     .Build())
             .AddToDB();
-
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference =
-            PowerBardTraditionManacalonsPerfection.EffectDescription.EffectParticleParameters.effectParticleReference;
 
         return spell;
     }

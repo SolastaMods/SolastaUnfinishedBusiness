@@ -1,11 +1,13 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class RulesDisplay
 {
-    private static readonly string[] Options = ["0", "1", "2", "3"];
+    private static readonly string[] CriticalHitOptions = ["0", "1", "2", "3"];
+    private static readonly string[] SenseNormalVisionOptions = ["12", "24", "48"];
 
     internal static void DisplayRules()
     {
@@ -392,6 +394,16 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AddFighterLevelToIndomitableSavingReroll;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddFighterLevelToIndomitableSavingReroll"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddFighterLevelToIndomitableSavingReroll = toggle;
+
+            DatabaseHelper.ActionDefinitions.UseIndomitableResistance.GuiPresentation.description = toggle
+                ? "Feature/&EnhancedIndomitableResistanceDescription"
+                : "Feature/&IndomitableResistanceDescription";
+        }
+
         toggle = Main.Settings.ChangeDragonbornElementalBreathUsages;
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeDragonbornElementalBreathUsages"), ref toggle, UI.AutoWidth()))
         {
@@ -485,15 +497,17 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        var intValue = Main.Settings.IncreaseSenseNormalVision;
-        UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
-        if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"),
-                ref intValue,
-                SrdAndHouseRulesContext.DefaultVisionRange,
-                SrdAndHouseRulesContext.MaxVisionRange,
-                SrdAndHouseRulesContext.DefaultVisionRange, "", UI.AutoWidth()))
+        var intValue = Main.Settings.SenseNormalVisionRangeMultiplier;
+
+        using (UI.HorizontalScope())
         {
-            Main.Settings.IncreaseSenseNormalVision = intValue;
+            UI.Label(Gui.Localize("ModUi/&SenseNormalVisionRangeMultiplier"), UI.Width(275f));
+
+            if (UI.SelectionGrid(ref intValue, SenseNormalVisionOptions, SenseNormalVisionOptions.Length, 3,
+                    UI.Width(165f)))
+            {
+                Main.Settings.SenseNormalVisionRangeMultiplier = intValue;
+            }
         }
 
         UI.Label();
@@ -511,7 +525,7 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("Caption/&TargetFilteringAllyCreature"), UI.Width(100f));
 
             intValue = Main.Settings.CriticalHitModeAllies;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220f)))
+            if (UI.SelectionGrid(ref intValue, CriticalHitOptions, CriticalHitOptions.Length, 4, UI.Width(220f)))
             {
                 Main.Settings.CriticalHitModeAllies = intValue;
             }
@@ -522,7 +536,7 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("Caption/&TargetFilteringEnemyCreature"), UI.Width(100f));
 
             intValue = Main.Settings.CriticalHitModeEnemies;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220f)))
+            if (UI.SelectionGrid(ref intValue, CriticalHitOptions, CriticalHitOptions.Length, 4, UI.Width(220f)))
             {
                 Main.Settings.CriticalHitModeEnemies = intValue;
             }
@@ -533,7 +547,7 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("Action/&NeutralCreatureTitle"), UI.Width(100f));
 
             intValue = Main.Settings.CriticalHitModeNeutral;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220f)))
+            if (UI.SelectionGrid(ref intValue, CriticalHitOptions, CriticalHitOptions.Length, 4, UI.Width(220f)))
             {
                 Main.Settings.CriticalHitModeNeutral = intValue;
             }

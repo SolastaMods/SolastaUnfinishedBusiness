@@ -1,3 +1,19 @@
+1.5.94.56:
+
+- added Martial Force Knight subclass
+- added Militia and Troublemaker backgrounds
+- added 'Modify Normal Vision range 12,24,48 [only in battles]'
+- fixed 'Add fighter level to indomitable saving reroll'
+- fixed 'Lighting and obscurement rules'
+- fixed a rare vanilla crash when terminating effects on downed allies
+- fixed Burning Blade second target pointer validation
+- fixed Circle of the Cosmos twinkling stars and weal behaviors
+- fixed Counterattack gambit die consumption registration
+- fixed Domain Defiler insidious death magic necrotic validation
+- fixed multiclass caster effective level calculation
+- fixed select positions cursor pointer validation
+- fixed terminating effects over circular relations graphs
+
 1.5.94.55:
 
 - fixed all powers requiring 5ft range not triggering on diagonals

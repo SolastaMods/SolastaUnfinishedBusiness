@@ -179,8 +179,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=환영 주문은 �
 ModUi/&ImproveLevelUpFeaturesSelection=레벨업 특성 선택 개선<b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>\n<i><color=#F0DAA0>[<color=#D89555>레인저</color>의 선호하는 적과 지형 친화도,<color=#D89555>드루이드</color>의 결속 야수, <color=#D89555>바바리안</color>의 원소의 길, 용 서브클래스 선택에 영향을 줍니다]</color></i>
 ModUi/&IncreaseGameTimeBy=게임 시간을 다음만큼 늘립니다
 ModUi/&IncreaseMaxAttunedItems=최대 조율 아이템이 10레벨에서 4개, 18레벨에서 5개로 증가
-ModUi/&IncreaseSenseNormalVision=<color=white>원거리 공격이 가능하도록 <color=#D89555>일반 시야 범위</color> 증가</color> <b><i><color=#C04040E0>[게임 재실행 필요]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40이 너무 멀리서 합류하는 적을 피하는 데 이상적입니다]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>생성:</color>
 ModUi/&Input=<color=#F0DAA0>입력:</color>
 ModUi/&Interface=인터페이스
@@ -241,6 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD(규칙 참조 문서):</color>
 ModUi/&ScaleMerchantPricesCorrectly=판매자 가격을 확실하고 정확하게 조정 <i><color=#F0DAA0>[단위 값 변환 시 더 이상 반올림 오류 없음]</color></i>
 ModUi/&SelectAll=모두 선택
 ModUi/&SelectSuggested=추천 선택
+ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>일반 시야</color> 범위 <i><color=#F0DAA0>[전투에서만]</color></i> 수정
 ModUi/&Services=서비스
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>드워프 종족이 허리띠</color>로 <color=white>수염을 두를 확률</color>
 ModUi/&SettingsExport=내보내기

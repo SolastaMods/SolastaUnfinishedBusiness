@@ -262,8 +262,8 @@ public sealed class DomainDefiler : AbstractSubclass
             // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter defender)
         {
-            if (actualEffectForms.All(x =>
-                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType != DamageTypeNecrotic))
+            if (!actualEffectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeNecrotic))
             {
                 yield break;
             }

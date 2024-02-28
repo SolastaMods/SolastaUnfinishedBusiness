@@ -139,7 +139,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -196,7 +196,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "21b2d192-191d-531d-bae2-16b81eed8d84",
+  "guid": "97e19190-2fed-5b55-8b65-adf3ed091ad3",
   "contentPack": 9999,
-  "name": "PowerRoguishUmbralStalkerShadowStrideAtWill"
+  "name": "PowerMartialForceKnightPsionicAdept"
 }

@@ -179,8 +179,6 @@ ModUi/&IllusionSpellsAutomaticallyFailAgainstTrueSightInRange=イリュージョ
 ModUi/&ImproveLevelUpFeaturesSelection=レベルアップ機能の選択を改善 <b><i><color=#C04040E0>[再起動が必要]</color></i></b>\n<i><color=#F0DAA0>[影響 <color= #D89555>レンジャー</color> 優先敵と地形親和性、<color=#D89555>ドルイド</color> 同族の獣、<color=#D89555>バーバリアン</color> エレメントとサブクラスのパス ドラコニックの選択]</color></i>
 ModUi/&IncreaseGameTimeBy=ゲーム時間を延長する
 ModUi/&IncreaseMaxAttunedItems=最大同調アイテムはレベル10で4個、レベル18で5個に増加します
-ModUi/&IncreaseSenseNormalVision=<color=white><color=#D89555>感覚通常視覚</color>の範囲を広げて長距離攻撃を可能にする</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[遠くからの敵の参加を避けるには 40 が理想的です]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>作成:</color>
 ModUi/&Input=<color=#F0DAA0>入力:</color>
 ModUi/&Interface=インターフェース
@@ -241,6 +239,7 @@ ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=販売者の価格を正しく / 正確にスケールします<i><color=#F0DAA0>[コインの価値を変換する際に四捨五入エラーがなくなりました]</color></i>
 ModUi/&SelectAll=すべて選択
 ModUi/&SelectSuggested=提案されたものを選択してください
+ModUi/&SenseNormalVisionRangeMultiplier=<color=#D89555>通常の視力</color>範囲を変更<i><color=#F0DAA0>[戦闘時のみ]</color></i>
 ModUi/&Services=サービス
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>ドワーフ族のベルト</color> <color=white>ひげが出現するチャンス</color>
 ModUi/&SettingsExport=輸出

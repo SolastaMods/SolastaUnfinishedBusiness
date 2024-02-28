@@ -162,11 +162,11 @@ internal static class RaceWyrmkinBuilder
         var powerHighWyrmkinReactiveRetribution = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ReactiveRetribution")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
         powerHighWyrmkinReactiveRetribution.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new ReactToAttackOnMeReactiveRetribution(powerHighWyrmkinReactiveRetribution));
 
         var effectPsionicWave = EffectDescriptionBuilder
@@ -347,7 +347,7 @@ internal static class RaceWyrmkinBuilder
 
             if (defender.IsMyTurn() ||
                 !defender.CanReact() ||
-                !rulesetDefender.CanUsePower(powerHighWyrmkinSwiftRetribution))
+                rulesetDefender.GetRemainingPowerUses(powerHighWyrmkinSwiftRetribution) == 0)
             {
                 yield break;
             }

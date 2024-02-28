@@ -147,7 +147,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\nU
 Message/&CharacterExportEmptyNameErrorDescription=Esportazione annullata:\nprova con un nome non vuoto.
 Message/&CharacterExportModalContentDescription=Inserisci il nome dell'eroe da esportare:
 Message/&CharacterExportModalTitleDescription=Esporta {0}
-Message/&MessageModWelcomeDescription=La modalità Unfinished Business è ricca di funzionalità interessanti, ma per impostazione predefinita nessuna è abilitata. Premi <color=#F0DAA0>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Unfinished Business" per aprire le pagine delle impostazioni. Esplora le opzioni e seleziona quelle che ti piacciono.\n<b>Fai una donazione se puoi perché aiuta con i costi mensili e mantiene alta la motivazione dopo 3 anni di sviluppo e manutenzione ininterrotti.</b> Il pulsante sotto ti porterà a <color=#F0DAA0>PayPal</color> per impostazione predefinita, ma puoi anche utilizzare <color=#F0DAA0>Patreon</color> o <color=#F0DAA0>GitHub</color> in Mod UI > Carattere .
+Message/&MessageModWelcomeDescription=La modalità Unfinished Business è ricca di funzionalità interessanti, ma per impostazione predefinita nessuna è abilitata. Premi <color=#F0DAA0>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Unfinished Business" per aprire le pagine delle impostazioni. Esplora le opzioni e seleziona quelle che ti piacciono.\n<b>Fai una donazione se puoi.</b> Altre opzioni di pagamento sono disponibili in Mod UI/Gameplay/Strumenti.
 Message/&MessageModWelcomeTitle=Affari incompiuti Mod
 Message/&ModErrorWarningDescription=Solasta ha rilevato un'instabilità. Chiedi a tutti i giocatori di chiudere il gioco, prendere il file <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> e condividere questi registri e il file di salvataggio con la community di mod di Unfinished Business.
 Message/&ModErrorWarningTitle=Avviso di gioco!
@@ -238,6 +238,7 @@ Tooltip/&CustomMapMarkerCamp=Campo
 Tooltip/&CustomMapMarkerExit=Uscita
 Tooltip/&CustomMapMarkerTeleport=Teletrasporto
 Tooltip/&FeatGroupTitle=Gruppo di imprese
+Tooltip/&ForcePointsPortraitPoolFormat=Hai {0} usi su {1} di Punti Forza.\nTutti gli usi vengono ripristinati con un riposo breve o lungo.
 Tooltip/&InvocationUsageShortRestAvailableDescription=Una volta utilizzata, questa invocazione richiederà un riposo breve o lungo per essere nuovamente attivata.
 Tooltip/&InvocationUsageShortRestUsedDescription=Questa invocazione richiede un riposo breve o lungo per essere riattivata.
 Tooltip/&LightingTargetPerceiveFormat={0} non viene percepito

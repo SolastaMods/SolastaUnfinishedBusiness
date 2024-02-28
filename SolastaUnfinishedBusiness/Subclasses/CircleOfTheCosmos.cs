@@ -27,6 +27,13 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 {
     private const string Name = "CircleOfTheCosmos";
 
+    private static readonly string[] ConstellationFormConditions =
+    [
+        $"Condition{Name}Archer", $"Condition{Name}Archer14",
+        $"Condition{Name}Chalice", $"Condition{Name}Chalice14",
+        $"Condition{Name}Dragon", $"Condition{Name}Dragon10", $"Condition{Name}Dragon14"
+    ];
+
     public CircleOfTheCosmos()
     {
         // LEVEL 02
@@ -104,28 +111,28 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         var powerCosmosOmenPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CosmosOmenPool")
             .SetGuiPresentationNoContent(true)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
         var powerWealCosmosOmen = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}WealCosmosOmen")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.Reaction, powerCosmosOmenPool)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetSharedPool(ActivationTime.NoCost, powerCosmosOmenPool)
             .AddToDB();
 
         powerWealCosmosOmen.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new TryAlterOutcomeSavingThrowWeal(powerCosmosOmenPool, powerWealCosmosOmen));
 
         var powerWoeCosmosOmen = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}WoeCosmosOmen")
             .SetGuiPresentation(Category.Feature)
-            .SetSharedPool(ActivationTime.Reaction, powerCosmosOmenPool)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetSharedPool(ActivationTime.NoCost, powerCosmosOmenPool)
             .AddToDB();
 
         powerWoeCosmosOmen.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
             new TryAlterOutcomeSavingThrowWoe(powerCosmosOmenPool, powerWoeCosmosOmen));
 
         var conditionWealCosmosOmen = ConditionDefinitionBuilder
@@ -171,10 +178,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                                 conditionWoeCosmosOmen)
                             .Build())
                     .SetParticleEffectParameters(PowerMagebaneSpellCrusher)
+                    .SetEffectEffectParameters(new AssetReference())
                     .Build())
             .AddToDB();
-
-        powerCosmosOmen.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         // LEVEL 10
 
@@ -188,7 +194,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(character =>
                 {
-                    if (Gui.Battle == null || !HasConditionConstellationForm(character))
+                    if (Gui.Battle == null || !character.HasAnyConditionOfType(ConstellationFormConditions))
                     {
                         return false;
                     }
@@ -217,7 +223,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .Create(powerSwitchConstellationForm, $"Power{Name}SwitchConstellationFormAtWill")
             .SetUsesFixed(ActivationTime.NoCost)
             .AddCustomSubFeatures(
-                new ValidatorsValidatePowerUse(c => Gui.Battle == null && HasConditionConstellationForm(c)))
+                new ValidatorsValidatePowerUse(c =>
+                    Gui.Battle == null && c.HasAnyConditionOfType(ConstellationFormConditions)))
             .AddToDB();
 
         var powerSwitchConstellationFormArcher = FeatureDefinitionPowerSharedPoolBuilder
@@ -273,16 +280,6 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .AddFeaturesAtLevel(10, featureSetTwinklingStars)
             .AddFeaturesAtLevel(14, featureNovaStar)
             .AddToDB();
-
-        return;
-
-        static bool HasConditionConstellationForm(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            RulesetCharacter character)
-        {
-            return character
-                .HasAnyConditionOfType($"Condition{Name}Archer", $"Condition{Name}Chalice", $"Condition{Name}Dragon");
-        }
     }
 
     internal override CharacterClassDefinition Klass => Druid;
@@ -313,13 +310,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
                             .Build())
+                    .SetCasterEffectParameters(PowerOathOfTirmarGoldenSpeech)
+                    .SetImpactEffectParameters(Sunbeam)
                     .Build())
             .AddToDB();
-
-        powerArcher.EffectDescription.effectParticleParameters.casterParticleReference =
-            PowerOathOfTirmarGoldenSpeech.EffectDescription.EffectParticleParameters.casterParticleReference;
-        powerArcher.EffectDescription.effectParticleParameters.impactParticleReference = Sunbeam
-            .EffectDescription.EffectParticleParameters.impactParticleReference;
 
         powerArcher.AddCustomSubFeatures(new ModifyEffectDescriptionArcher(powerArcher));
 
@@ -472,11 +466,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
+                    .SetCasterEffectParameters(PowerDomainLifePreserveLife)
                     .Build())
             .AddToDB();
 
-        powerChaliceConstellationForm.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainLifePreserveLife.EffectDescription.EffectParticleParameters.casterParticleReference;
         powerChaliceConstellationForm.AddCustomSubFeatures(
             new ModifyEffectDescriptionConstellationForm(
                 powerChaliceConstellationForm, conditionChalice, conditionChalice, conditionChalice14));
@@ -586,11 +579,9 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                                 lightSourceForm.lightSourceForm.color,
                                 lightSourceForm.lightSourceForm.graphicsPrefabReference)
                             .Build())
+                    .SetCasterEffectParameters(PowerDomainLawForceOfLaw)
                     .Build())
             .AddToDB();
-
-        powerDragonConstellationForm.EffectDescription.EffectParticleParameters.casterParticleReference =
-            PowerDomainLawForceOfLaw.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         powerDragonConstellationForm.AddCustomSubFeatures(
             new ModifyEffectDescriptionConstellationForm(
@@ -820,7 +811,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (gameLocationActionManager == null ||
                 action.AttackRollOutcome != RollOutcome.Failure ||
                 action.AttackSuccessDelta + MaxDieTypeValue < 0 ||
-                !rulesetHelper.CanUsePower(powerPool) ||
+                rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
                 !helper.CanReact() ||
                 attacker.Side != helper.Side ||
                 !helper.IsWithinRange(attacker, 6) ||
@@ -901,7 +892,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Failure ||
                 action.SaveOutcomeDelta + MaxDieTypeValue < 0 ||
-                !rulesetHelper.CanUsePower(powerPool) ||
+                rulesetHelper.GetRemainingPowerUses(powerWeal) == 0 ||
                 !helper.CanReact() ||
                 defender.Side != helper.Side ||
                 !helper.IsWithinRange(defender, 6) ||
@@ -936,7 +927,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 yield break;
             }
 
-            var dieRoll = -RollDie(DieType, AdvantageType.None, out _, out _);
+            var dieRoll = RollDie(DieType, AdvantageType.None, out _, out _);
 
             action.RolledSaveThrow = true;
             action.saveOutcomeDelta += dieRoll;
@@ -991,7 +982,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             if (gameLocationActionManager == null ||
                 action.AttackRollOutcome != RollOutcome.Success ||
                 action.AttackSuccessDelta - MaxDieTypeValue >= 0 ||
-                !rulesetHelper.CanUsePower(powerPool) ||
+                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
                 !attacker.IsOppositeSide(helper.Side) ||
                 !helper.IsWithinRange(attacker, 6) ||
@@ -1072,7 +1063,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
                 !action.RolledSaveThrow ||
                 action.SaveOutcome != RollOutcome.Success ||
                 action.SaveOutcomeDelta - MaxDieTypeValue >= 0 ||
-                !rulesetHelper.CanUsePower(powerPool) ||
+                rulesetHelper.GetRemainingPowerUses(powerWoe) == 0 ||
                 !helper.CanReact() ||
                 !defender.IsOppositeSide(helper.Side) ||
                 !helper.IsWithinRange(defender, 6) ||
@@ -1162,9 +1153,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
         {
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-
             var activeCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
-                x.Name is $"Condition{Name}Archer" or $"Condition{Name}Chalice" or $"Condition{Name}Dragon");
+                ConstellationFormConditions.Contains(x.Name));
 
             if (activeCondition == null)
             {

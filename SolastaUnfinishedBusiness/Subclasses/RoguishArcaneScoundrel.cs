@@ -101,11 +101,10 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        // kept as additional damage for backward compatibility
-        var additionalDamageDistractingAmbush = FeatureDefinitionAdditionalDamageBuilder
+        // kept name for backward compatibility
+        var additionalDamageDistractingAmbush = FeatureDefinitionBuilder
             .Create($"AdditionalDamage{Name}{DistractingAmbush}")
             .SetGuiPresentation(Category.Feature)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.None)
             .AddToDB();
 
         // LEVEL 13
