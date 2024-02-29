@@ -169,18 +169,10 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .Create(ConditionDefinitions.ConditionHindered_By_Frost, $"Condition{Name}LunarChillEnemy")
             .SetOrUpdateGuiPresentation($"Power{Name}LunarChill", Category.Feature)
             .SetPossessive()
+            .CopyParticleReferences(FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
         conditionLunarChillEnemy.GuiPresentation.description = Gui.NoLocalization;
-        conditionLunarChillEnemy.conditionStartParticleReference = FeatureDefinitionPowers
-            .PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionLunarChillEnemy.conditionParticleReference = FeatureDefinitionPowers
-            .PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionLunarChillEnemy.conditionEndParticleReference = FeatureDefinitionPowers
-            .PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         // Lunar Chill
 
@@ -208,15 +200,10 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetPossessive()
             .SetFeatures(powerLunarChill, FeatureDefinitionSenses.SenseDarkvision12)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker, new ForceLightingStateNewMoon())
+            .CopyParticleReferences(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection)
             .AddToDB();
 
         conditionNewMoon.GuiPresentation.description = Gui.NoLocalization;
-        conditionNewMoon.conditionStartParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
-            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionNewMoon.conditionParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
-            .EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionNewMoon.conditionEndParticleReference = FeatureDefinitionPowers.PowerSorcererChildRiftDeflection
-            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         // Lunar Chill No Cost
 

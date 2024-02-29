@@ -879,14 +879,8 @@ internal static class Level20SubclassesContext
                 DamageAffinityBludgeoningResistance,
                 DamageAffinityPiercingResistance,
                 DamageAffinitySlashingResistance)
+            .CopyParticleReferences(ConditionDefinitions.ConditionShine)
             .AddToDB();
-
-        conditionOathOfJugementFinalJudgementCaster.conditionStartParticleReference =
-            ConditionDefinitions.ConditionShine.conditionStartParticleReference;
-        conditionOathOfJugementFinalJudgementCaster.conditionParticleReference =
-            ConditionDefinitions.ConditionShine.conditionParticleReference;
-        conditionOathOfJugementFinalJudgementCaster.conditionEndParticleReference =
-            new AssetReference();
 
         var powerOathOfJugementFinalJudgement = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfJugementFinalJudgement")
@@ -958,6 +952,7 @@ internal static class Level20SubclassesContext
             .SetPossessive()
             .SetFeatures(
                 additionalDamageOathOfMotherlandFlamesOfMotherland, damageAffinityOathOfMotherlandFlamesOfMotherland)
+            .CopyParticleReferences(FireShieldWarm)
             .AddToDB();
 
         var powerOathOfMotherlandFlamesOfMotherland = FeatureDefinitionPowerBuilder
@@ -977,16 +972,6 @@ internal static class Level20SubclassesContext
                     .SetParticleEffectParameters(Fireball)
                     .Build())
             .AddToDB();
-
-        var effectParticleParameters =
-            powerOathOfMotherlandFlamesOfMotherland.EffectDescription.EffectParticleParameters;
-
-        effectParticleParameters.conditionStartParticleReference =
-            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        effectParticleParameters.conditionParticleReference =
-            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionParticleReference;
-        effectParticleParameters.conditionEndParticleReference =
-            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandFlamesOfMotherland, 20));
 

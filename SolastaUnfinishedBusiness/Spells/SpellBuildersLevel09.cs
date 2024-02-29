@@ -294,16 +294,8 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetInterruptionDamageThreshold(1)
             .SetSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.Damaged)
+            .CopyParticleReferences(ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime)
             .AddToDB();
-
-        conditionTimeStop.conditionStartParticleReference = ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime
-            .conditionStartParticleReference;
-        conditionTimeStop.conditionParticleReference = ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime
-            .conditionParticleReference;
-        conditionTimeStop.conditionEndParticleReference = ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime
-            .conditionStartParticleReference;
-        conditionTimeStop.recurrentEffectParticleReference = ConditionDefinitions.ConditionPatronTimekeeperCurseOfTime
-            .recurrentEffectParticleReference;
 
         return SpellDefinitionBuilder
             .Create(NAME)

@@ -524,15 +524,10 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             .SetFeatures(
                 dieRollModifierDragonAbility,
                 dieRollModifierDragonConcentration)
+            .CopyParticleReferences(PowerSorcererDraconicElementalResistance)
             .AddToDB();
 
         conditionDragon.GuiPresentation.description = Gui.NoLocalization;
-        conditionDragon.conditionStartParticleReference = PowerSorcererDraconicElementalResistance
-            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionDragon.conditionParticleReference = PowerSorcererDraconicElementalResistance
-            .EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionDragon.conditionEndParticleReference = PowerSorcererDraconicElementalResistance
-            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         var conditionDragon10 = ConditionDefinitionBuilder
             .Create(conditionDragon, $"Condition{Name}Dragon10")

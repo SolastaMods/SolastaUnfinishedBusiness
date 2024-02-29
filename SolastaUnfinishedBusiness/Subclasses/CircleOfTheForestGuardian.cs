@@ -62,13 +62,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
-
-        var effectParticleParameters = PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters;
-
-        conditionBarkWard.conditionStartParticleReference = effectParticleParameters.conditionStartParticleReference;
-        conditionBarkWard.conditionParticleReference = effectParticleParameters.conditionParticleReference;
-        conditionBarkWard.conditionEndParticleReference = effectParticleParameters.conditionEndParticleReference;
 
         var conditionImprovedBarkWard = ConditionDefinitionBuilder
             .Create($"Condition{Name}ImprovedBarkWard")
@@ -83,14 +78,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetDamageAffinityType(DamageAffinityType.Immunity)
                     .SetDamageType(DamageTypePoison)
                     .AddToDB())
+            .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
-
-        conditionImprovedBarkWard.conditionStartParticleReference =
-            effectParticleParameters.conditionStartParticleReference;
-        conditionImprovedBarkWard.conditionParticleReference =
-            effectParticleParameters.conditionParticleReference;
-        conditionImprovedBarkWard.conditionEndParticleReference =
-            effectParticleParameters.conditionEndParticleReference;
 
         var powerBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}BarkWard")

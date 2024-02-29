@@ -372,7 +372,10 @@ internal static partial class SpellBuilders
             .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(powerRingOfBlades)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
+            .CopyParticleReferences(PowerSorcererChildRiftDeflection)
             .AddToDB();
+
+        conditionRingOfBlades.GuiPresentation.description = Gui.NoLocalization;
 
         var conditionRingOfBladesFree = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Free")
@@ -382,12 +385,6 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
-
-        conditionRingOfBlades.conditionParticleReference = PowerSorcererChildRiftDeflection.EffectDescription
-            .EffectParticleParameters.conditionParticleReference;
-        conditionRingOfBlades.conditionEndParticleReference = PowerSorcererChildRiftDeflection.EffectDescription
-            .EffectParticleParameters.conditionEndParticleReference;
-        conditionRingOfBlades.GuiPresentation.description = Gui.NoLocalization;
 
         powerRingOfBlades.AddCustomSubFeatures(
             new CustomBehaviorPowerRingOfBlades(powerRingOfBlades, conditionRingOfBlades));

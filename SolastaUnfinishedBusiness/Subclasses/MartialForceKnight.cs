@@ -459,14 +459,8 @@ public sealed class MartialForceKnight : AbstractSubclass
                 AddUsablePowersFromCondition.Marker,
                 SpellBuilders.OnConditionAddedOrRemovedTelekinesis.Marker,
                 new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
+            .CopyParticleReferences(SpellDefinitions.SpiderClimb)
             .AddToDB();
-
-        conditionTelekinesis.conditionStartParticleReference = SpellDefinitions.SpiderClimb.EffectDescription
-            .EffectParticleParameters.conditionStartParticleReference;
-        conditionTelekinesis.conditionParticleReference = SpellDefinitions.SpiderClimb.EffectDescription
-            .EffectParticleParameters.conditionParticleReference;
-        conditionTelekinesis.conditionEndParticleReference = SpellDefinitions.SpiderClimb.EffectDescription
-            .EffectParticleParameters.conditionEndParticleReference;
 
         var powerTelekinesisNoCost = FeatureDefinitionPowerBuilder
             .Create(powerTelekinesis, $"Power{Name}SpellTelekineticGraspNoCost")

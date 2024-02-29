@@ -106,6 +106,18 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder CopyParticleReferences(IMagicEffect magicEffect)
+    {
+        Definition.conditionParticleReference =
+            magicEffect.EffectDescription.EffectParticleParameters.conditionParticleReference;
+        Definition.conditionStartParticleReference =
+            magicEffect.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        Definition.conditionEndParticleReference =
+            magicEffect.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+        Definition.recurrentEffectParticleReference = new AssetReference();
+        return this;
+    }
+
 #if false
     internal ConditionDefinitionBuilder AddConditionTags(params string[] tags)
     {

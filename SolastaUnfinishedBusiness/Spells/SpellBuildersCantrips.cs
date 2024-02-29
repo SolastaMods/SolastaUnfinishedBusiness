@@ -142,8 +142,6 @@ internal static partial class SpellBuilders
         spell.EffectDescription.EffectParticleParameters.impactParticleReference =
             spell.EffectDescription.EffectParticleParameters.effectParticleReference;
 
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
-
         return spell;
     }
 

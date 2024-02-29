@@ -222,16 +222,10 @@ internal static partial class SpellBuilders
                     .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
                     .SetCreatedBy()
                     .Build())
+            .CopyParticleReferences(Entangle)
             .AddToDB();
 
         conditionEnsnared.specialInterruptions.Clear();
-
-        conditionEnsnared.conditionStartParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionEnsnared.conditionParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionEnsnared.conditionEndParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
@@ -1300,17 +1294,11 @@ internal static partial class SpellBuilders
             .SetFeatures(damageAffinitySkinOfRetribution)
             .SetTerminateWhenRemoved()
             .AddCustomSubFeatures(new ActionFinishedByEnemySkinOfRetribution())
+            .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
         powerSkinOfRetribution.AddCustomSubFeatures(
             new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
-
-        conditionSkinOfRetribution.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionSkinOfRetribution.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionSkinOfRetribution.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         return SpellDefinitionBuilder
             .Create(NAME)

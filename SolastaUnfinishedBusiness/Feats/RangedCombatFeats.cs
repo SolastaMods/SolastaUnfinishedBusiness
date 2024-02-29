@@ -315,6 +315,7 @@ internal static class RangedCombatFeats
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionWandFearCommand)
+                .SetImpactEffectParameters(new AssetReference())
                 .Build())
         .AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
@@ -327,8 +328,6 @@ internal static class RangedCombatFeats
 
     private static FeatDefinition BuildSteadyAim()
     {
-        PowerFeatSteadyAim.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
-
         return FeatDefinitionBuilder
             .Create(FeatSteadyAim)
             .SetGuiPresentation(Category.Feat)

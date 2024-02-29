@@ -683,14 +683,8 @@ internal static class InvocationsBuilders
             .SetConditionType(ConditionType.Neutral)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(abilityCheckAffinityPerniciousCloak)
+            .CopyParticleReferences(ConditionDefinitions.ConditionOnAcidPilgrim)
             .AddToDB();
-
-        conditionPerniciousCloakSelf.conditionStartParticleReference =
-            ConditionDefinitions.ConditionOnAcidPilgrim.conditionStartParticleReference;
-        conditionPerniciousCloakSelf.conditionParticleReference =
-            ConditionDefinitions.ConditionOnAcidPilgrim.conditionParticleReference;
-        conditionPerniciousCloakSelf.conditionEndParticleReference =
-            ConditionDefinitions.ConditionOnAcidPilgrim.conditionEndParticleReference;
 
         conditionPerniciousCloakSelf.specialDuration = false;
 
@@ -1308,14 +1302,8 @@ internal static class InvocationsBuilders
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(DamageAffinityFireVulnerability)
+            .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
-
-        conditionTombOfFrost.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionTombOfFrost.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionTombOfFrost.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         conditionTombOfFrost.GuiPresentation.description = Gui.NoLocalization;
 
