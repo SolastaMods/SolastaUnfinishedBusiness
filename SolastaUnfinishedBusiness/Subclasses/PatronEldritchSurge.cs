@@ -261,36 +261,8 @@ public class PatronEldritchSurge : AbstractSubclass
     }
 
     private sealed class BlastReloadCustom :
-        IActionFinishedByMe, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
+        IMagicEffectFinishedByMeAny, ICharacterTurnStartListener, IQualifySpellToRepertoireLine
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            var actingCharacter = action.ActingCharacter;
-            var actionParams = action.ActionParams;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            // only collect cantrips
-            if (Gui.Battle == null
-                || actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell
-                || rulesetEffectSpell.SpellDefinition.SpellLevel != 0)
-            {
-                yield break;
-            }
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
-            if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
-                    rulesetCharacter, out var supportCondition))
-            {
-                yield break;
-            }
-
-            supportCondition.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);
-        }
-
         public void OnCharacterTurnStarted(GameLocationCharacter gameLocationCharacter)
         {
             // clean up cantrips list on every turn start
@@ -309,6 +281,31 @@ public class PatronEldritchSurge : AbstractSubclass
             }
 
             supportCondition.CantripsUsedThisTurn.Clear();
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var actionParams = action.ActionParams;
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            // only collect cantrips
+            if (Gui.Battle == null ||
+                actionParams.activeEffect is not RulesetEffectSpell rulesetEffectSpell ||
+                rulesetEffectSpell.SpellDefinition.SpellLevel != 0)
+            {
+                yield break;
+            }
+
+            if (!BlastReloadSupportRulesetCondition.GetCustomConditionFromCharacter(
+                    rulesetCharacter, out var supportCondition))
+            {
+                yield break;
+            }
+
+            supportCondition.CantripsUsedThisTurn.TryAdd(rulesetEffectSpell.SpellDefinition);
         }
 
         public void QualifySpells(

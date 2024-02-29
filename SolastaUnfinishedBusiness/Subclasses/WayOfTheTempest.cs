@@ -251,17 +251,20 @@ public sealed class WayOfTheTempest : AbstractSubclass
     // Tempest Swiftness
     //
 
-    private sealed class ActionFinishedByMeTempestSwiftness : IActionFinishedByMe
+    private sealed class ActionFinishedByMeTempestSwiftness : IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower
-                || characterActionUsePower.activePower.PowerDefinition != PowerMonkFlurryOfBlows)
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != PowerMonkFlurryOfBlows)
             {
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
                 ConditionDisengaging,

@@ -294,10 +294,12 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
     private sealed class ActionFinishedByMeArcaneBackslash(
         FeatureDefinitionPower powerArcaneBackslash,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerCounterSpell)
-        : IActionFinishedByMe
+        FeatureDefinitionPower powerCounterSpell) : IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
             if ((action is not CharacterActionCastSpell characterActionCastSpell ||
                  characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
@@ -309,15 +311,14 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
                 yield break;
             }
 
-            var actingCharacter = action.ActingCharacter;
-            var rulesetAttacker = actingCharacter.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerArcaneBackslash, rulesetAttacker);
             var targets = action.ActionParams.TargetCharacters.ToList();
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
@@ -329,7 +330,7 @@ public sealed class RoguishArcaneScoundrel : AbstractSubclass
             ServiceRepository.GetService<ICommandService>()?
                 .ExecuteAction(actionParams, null, false);
 
-            actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
+            attacker.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
         }
     }
 

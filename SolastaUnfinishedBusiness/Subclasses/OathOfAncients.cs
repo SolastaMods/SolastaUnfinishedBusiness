@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -305,24 +304,26 @@ public sealed class OathOfAncients : AbstractSubclass
 
     private sealed class CustomBehaviorElderChampion(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionElderChampionAdditionalAttack) : ICharacterTurnStartListener, IActionFinishedByMe
+        ConditionDefinition conditionElderChampionAdditionalAttack)
+        : ICharacterTurnStartListener, IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction characterAction)
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            if (characterAction.ActionType != ActionDefinitions.ActionType.Main ||
-                characterAction is not CharacterActionCastSpell)
+            locationCharacter.RulesetCharacter.ReceiveHealing(10, true, locationCharacter.Guid);
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (action.ActionType != ActionDefinitions.ActionType.Main ||
+                action is not CharacterActionCastSpell)
             {
                 yield break;
             }
 
-            var actingCharacter = characterAction.ActingCharacter;
-
-            if (!actingCharacter.CanAct())
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
             rulesetCharacter.InflictCondition(
                 conditionElderChampionAdditionalAttack.Name,
@@ -337,11 +338,6 @@ public sealed class OathOfAncients : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            locationCharacter.RulesetCharacter.ReceiveHealing(10, true, locationCharacter.Guid);
         }
     }
 }
