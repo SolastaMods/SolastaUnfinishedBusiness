@@ -17,9 +17,9 @@ public sealed class WizardGraviturgist : AbstractSubclass
 
     public WizardGraviturgist()
     {
-        //
+        // LEVEL 02
+
         // Density Increase
-        //
 
         const string POWER_DENSITY_INCREASE = $"Power{Name}DensityIncrease";
 
@@ -69,9 +69,7 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .SetShowCasting(true)
             .AddToDB();
 
-        //
         // Density Decrease
-        //
 
         const string POWER_DENSITY_DECREASE = $"Power{Name}DensityDecrease";
 
@@ -124,9 +122,9 @@ public sealed class WizardGraviturgist : AbstractSubclass
         conditionDensityIncrease.cancellingConditions.Add(conditionDensityDecrease);
         conditionDensityDecrease.cancellingConditions.Add(conditionDensityIncrease);
 
-        //
+        // LEVEL 06
+
         // Gravity Well
-        //
 
         var powerGravityWell = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GravityWell")
@@ -145,9 +143,9 @@ public sealed class WizardGraviturgist : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        //
+        // LEVEL 10
+
         // Violent Attraction
-        //
 
         var conditionViolentAttraction = ConditionDefinitionBuilder
             .Create($"Condition{Name}ViolentAttraction")
@@ -184,9 +182,9 @@ public sealed class WizardGraviturgist : AbstractSubclass
             .SetShowCasting(true)
             .AddToDB();
 
-        //
+        // LEVEL 14
+
         // Event Horizon
-        //
 
         var conditionEventHorizon = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}EventHorizon")

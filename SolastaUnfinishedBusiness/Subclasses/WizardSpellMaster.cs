@@ -18,7 +18,7 @@ public sealed class WizardSpellMaster : AbstractSubclass
 
     public WizardSpellMaster()
     {
-        // level 02
+        // LEVEL 02
 
         var magicAffinitySpellMasterKnowledge = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}Knowledge")
@@ -52,7 +52,7 @@ public sealed class WizardSpellMaster : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        // level 06
+        // LEVEL 06
 
         var magicAffinitySpellMasterScriber = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}Scriber")
@@ -68,7 +68,7 @@ public sealed class WizardSpellMaster : AbstractSubclass
             .OnlyUniqueChoices()
             .AddToDB();
 
-        // level 10
+        // LEVEL 10
 
         var magicAffinitySpellMasterExtraPrepared = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ExtraPrepared")
@@ -77,7 +77,7 @@ public sealed class WizardSpellMaster : AbstractSubclass
                 1f, 1f, 0, AdvantageType.None, PreparedSpellsModifier.SpellcastingAbilityBonus)
             .AddToDB();
 
-        // level 14
+        // LEVEL 14
 
         var savingThrowAffinitySpellMasterSpellResistance = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}SpellResistance")

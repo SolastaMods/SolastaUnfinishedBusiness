@@ -64,6 +64,7 @@ internal static class SubclassesContext
         CollegeOfLife.LateLoad();
         RangerSurvivalist.LateLoad();
         SorcerousFieldManipulator.LateLoad();
+        WizardDeadMaster.LateLoad();
     }
 
     private static void RegisterClassesContext()

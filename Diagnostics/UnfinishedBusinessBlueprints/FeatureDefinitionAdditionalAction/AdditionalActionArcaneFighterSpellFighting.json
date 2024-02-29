@@ -10,9 +10,9 @@
   "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&AdditionalActionArcaneFighterTitle",
-    "description": "Feature/&AdditionalActionArcaneFighterDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2504bfe9-888d-52f3-98f1-cc8a54f7fd20",
+  "guid": "14af4bb5-0bc3-541a-99c1-64272b3050ec",
   "contentPack": 9999,
-  "name": "AdditionalActionSpellFighting"
+  "name": "AdditionalActionArcaneFighterSpellFighting"
 }
