@@ -1,3 +1,9 @@
+1.5.97.0:
+
+- fixed campaigns translator changing nodes tech names
+- fixed Dead Master necromancy bonus DC missing 4 spells
+- fixed Eldritch Versatility Adept feat always getting offered
+
 1.5.94.56:
 
 - added Martial Force Knight subclass

@@ -64,6 +64,7 @@ internal static class OtherFeats
             featArcaneArcherAdept,
             featAstralArms,
             featEldritchAdept,
+            featEldritchVersatilityAdept,
             featFrostAdaptation,
             featHealer,
             featInfusionAdept,
