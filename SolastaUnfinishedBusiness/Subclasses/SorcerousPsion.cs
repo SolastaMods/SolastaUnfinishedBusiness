@@ -59,9 +59,9 @@ public sealed class SorcerousPsion : AbstractSubclass
             .AddToDB();
 
         powerPsychokinesisFixed.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(character =>
-                PowerProvider.Get(powerPsychokinesisFixed, character).RemainingUses > 0
-                || character.GetClassLevel(CharacterClassDefinitions.Sorcerer) < 2));
+            new ValidatorsValidatePowerUse(c =>
+                c.GetRemainingPowerUses(powerPsychokinesisFixed) > 0 ||
+                c.GetClassLevel(CharacterClassDefinitions.Sorcerer) < 2));
 
         var powerPsychokinesisFixedDrag = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}PsychokinesisFixedDrag")
@@ -154,9 +154,9 @@ public sealed class SorcerousPsion : AbstractSubclass
             .AddToDB();
 
         powerPsychokinesisPoints.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(character =>
-                PowerProvider.Get(powerPsychokinesisFixed, character).RemainingUses == 0
-                && character.GetClassLevel(CharacterClassDefinitions.Sorcerer) >= 2));
+            new ValidatorsValidatePowerUse(c =>
+                c.GetRemainingPowerUses(powerPsychokinesisFixed) == 0 &&
+                c.GetClassLevel(CharacterClassDefinitions.Sorcerer) >= 2));
 
         PowerBundle.RegisterPowerBundle(powerPsychokinesisFixed, true,
             powerPsychokinesisFixedPush, powerPsychokinesisFixedDrag);
@@ -267,29 +267,9 @@ public sealed class SorcerousPsion : AbstractSubclass
     // Mind Sculpt
     //
 
-    private sealed class CustomBehaviorMindSculpt : IMagicEffectBeforeHitConfirmedOnEnemy, IActionFinishedByMe
+    private sealed class CustomBehaviorMindSculpt : IMagicEffectBeforeHitConfirmedOnEnemy, IMagicEffectFinishedByMeAny
     {
         private bool _hasDamageChanged;
-
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
-        {
-            if (action is not CharacterActionCastSpell)
-            {
-                yield break;
-            }
-
-            if (!_hasDamageChanged)
-            {
-                yield break;
-            }
-
-            _hasDamageChanged = false;
-
-            var character = action.ActingCharacter.RulesetCharacter;
-
-            character.SpendSorceryPoints(1);
-            character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
-        }
 
         public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
             GameLocationCharacter attacker,
@@ -302,12 +282,12 @@ public sealed class SorcerousPsion : AbstractSubclass
         {
             _hasDamageChanged = false;
 
-            var character = attacker.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (rulesetEffect is RulesetEffectSpell rulesetEffectSpell
-                && rulesetEffectSpell.EffectDescription.HasDamageForm()
-                && character.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle)
-                && character.RemainingSorceryPoints > 0)
+            if (rulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
+                rulesetEffectSpell.EffectDescription.HasDamageForm() &&
+                rulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MindSculptToggle) &&
+                rulesetCharacter.RemainingSorceryPoints > 0)
             {
                 foreach (var effectForm in actualEffectForms
                              .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
@@ -325,7 +305,7 @@ public sealed class SorcerousPsion : AbstractSubclass
             }
 
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                character.TryGetAttributeValue(AttributeDefinitions.Charisma));
+                rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
 
             foreach (var effectForm in actualEffectForms
                          .Where(x =>
@@ -334,6 +314,29 @@ public sealed class SorcerousPsion : AbstractSubclass
             {
                 effectForm.DamageForm.BonusDamage = charismaModifier;
             }
+        }
+
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            if (action is not CharacterActionCastSpell)
+            {
+                yield break;
+            }
+
+            if (!_hasDamageChanged)
+            {
+                yield break;
+            }
+
+            _hasDamageChanged = false;
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.SpendSorceryPoints(1);
+            rulesetAttacker.SorceryPointsAltered?.Invoke(rulesetAttacker, rulesetAttacker.RemainingSorceryPoints);
         }
     }
 
@@ -410,11 +413,14 @@ public sealed class SorcerousPsion : AbstractSubclass
     //
 
     private sealed class CustomBehaviorSupremeWill(FeatureDefinitionPower powerSupremeWill)
-        : IModifyConcentrationRequirement, IActionFinishedByMe
+        : IModifyConcentrationRequirement, IMagicEffectFinishedByMeAny
     {
         private bool _hasConcentrationChanged;
 
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
             if (action is not CharacterActionCastSpell actionCastSpell)
             {
@@ -428,12 +434,12 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             _hasConcentrationChanged = false;
 
-            var character = action.ActingCharacter.RulesetCharacter;
-            var usablePower = PowerProvider.Get(powerSupremeWill, character);
+            var rulesetCharacter = attacker.RulesetCharacter;
+            var usablePower = PowerProvider.Get(powerSupremeWill, rulesetCharacter);
 
-            character.UsePower(usablePower);
-            character.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
-            character.SorceryPointsAltered?.Invoke(character, character.RemainingSorceryPoints);
+            rulesetCharacter.UsePower(usablePower);
+            rulesetCharacter.SpendSorceryPoints(2 * actionCastSpell.ActiveSpell.EffectLevel);
+            rulesetCharacter.SorceryPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingSorceryPoints);
         }
 
         public bool RequiresConcentration(RulesetCharacter rulesetCharacter, RulesetEffectSpell rulesetEffectSpell)

@@ -19,6 +19,10 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
 
     public SorcerousDivineHeart()
     {
+        // LEVEL 01
+
+        // Deity Choice
+
         var autoPreparedSpellsDivineHeartArun = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}Arun")
             .SetGuiPresentation(Category.Feature)
@@ -71,17 +75,25 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
                 autoPreparedSpellsDivineHeartPakri)
             .AddToDB();
 
+        // Divine Fortitude
+
         var attributeModifierDivineHeartDivineFortitude = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}DivineFortitude")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
             .AddToDB();
 
+        // Extended Spells
+
         var magicAffinityDivineHeartClericSpellsList = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ClericSpellsList")
             .SetGuiPresentation(Category.Feature)
             .SetExtendedSpellList(SpellListDefinitions.SpellListCleric)
             .AddToDB();
+
+        // LEVEL 06
+
+        // Empowered Healing
 
         var dieRollModifierEmpoweredHealing = FeatureDefinitionDieRollModifierBuilder
             .Create($"DieRollModifier{Name}EmpoweredHealing")
@@ -91,7 +103,7 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
                 1,
                 1,
                 2,
-                "Feature/&PowerDivineHeartEmpoweredHealingReroll")
+                $"Feature/&Power{Name}EmpoweredHealingReroll")
             .AddToDB();
 
         var conditionDivineHeartEmpoweredHealing = ConditionDefinitionBuilder
@@ -119,6 +131,8 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        // Divine Fount
+
         var powerDivineHeartDivineFount = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DivineFount")
             .SetGuiPresentation(Category.Feature, BeaconOfHope)
@@ -132,12 +146,20 @@ public sealed class SorcerousDivineHeart : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        // LEVEL 14
+
+        // Planar Portal
+
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}PlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(DimensionDoor.EffectDescription)
             .AddToDB();
+
+        // LEVEL 18
+
+        // Divine Recovery
 
         var powerDivineHeartDivineRecovery = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DivineRecovery")
