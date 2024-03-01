@@ -129,9 +129,19 @@ internal static class RaceWildlingBuilder
     }
 }
 
-internal class WildlingTiredOnTurnEnd : ICharacterTurnEndListener
+internal class WildlingTiredOnTurnEnd : ICharacterTurnEndListener, ICharacterBattleEndedListener
 {
+    public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
+    {
+        RemoveTired(locationCharacter);
+    }
+
     public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+    {
+        RemoveTired(locationCharacter);
+    }
+
+    private static void RemoveTired(GameLocationCharacter locationCharacter)
     {
         // remove tired condition
         if (!locationCharacter.RulesetCharacter.HasConditionOfType(RaceWildlingBuilder.ConditionWildlingTiredName))

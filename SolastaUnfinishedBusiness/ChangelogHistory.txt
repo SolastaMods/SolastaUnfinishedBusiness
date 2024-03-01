@@ -3,6 +3,7 @@
 - fixed campaigns translator changing nodes tech names
 - fixed Dead Master necromancy bonus DC missing 4 spells
 - fixed Eldritch Versatility Adept feat always getting offered
+- fixed Wildling feral agility tired condition removal
 
 1.5.94.56:
 
