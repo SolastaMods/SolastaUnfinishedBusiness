@@ -42,6 +42,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static readonly SpellDefinition GoneWithTheWind = BuildGoneWithTheWind();
     internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition PetalStorm = BuildPetalStorm();
     internal static readonly SpellDefinition PsychicWhip = BuildPsychicWhip();
@@ -238,7 +239,7 @@ internal static class SpellsContext
         RegisterSpell(BuildElementalInfusion(), 0, SpellListDruid, SpellListRanger, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(BuildGiftOfAlacrity(), 0, SpellListWizard);
-        RegisterSpell(BuildGoneWithTheWind(), 0, SpellListRanger);
+        RegisterSpell(GoneWithTheWind, 0, SpellListRanger);
         RegisterSpell(BuildIceBlade(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
