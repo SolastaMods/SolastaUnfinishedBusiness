@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Interfaces;
 using TA;
 using UnityEngine;
 using static LocationDefinitions;
@@ -39,6 +40,7 @@ internal static class LightingAndObscurementContext
         const string TAG = "Perceive";
 
         var attackAdvantageTrends = attackParams.attackModifier.AttackAdvantageTrends;
+        var abilityCheckAdvantageTrends = attackParams.attackModifier.AbilityCheckAdvantageTrends;
 
         var attacker = attackParams.attacker;
         var attackerActor = attacker.RulesetActor;
@@ -89,11 +91,14 @@ internal static class LightingAndObscurementContext
         if (adv)
         {
             attackAdvantageTrends.Add(PerceiveAdvantage());
+            abilityCheckAdvantageTrends.Add(PerceiveAdvantage());
         }
 
+        // ReSharper disable once InvertIf
         if (dis)
         {
             attackAdvantageTrends.Add(PerceiveDisadvantage());
+            abilityCheckAdvantageTrends.Add(PerceiveDisadvantage());
         }
 
         return;
@@ -246,9 +251,20 @@ internal static class LightingAndObscurementContext
         var targetIsInvisible =
             target != null && target.RulesetActor.HasConditionOfTypeOrSubType(ConditionInvisible.Name);
 
+        var senseModesToPrevent = new List<SenseMode.Type>();
+
+        if (target != null)
+        {
+            foreach (var modifier in target.RulesetActor.GetSubFeaturesByType<IPreventEnemySenseMode>())
+            {
+                senseModesToPrevent.AddRange(modifier.PreventedSenseModes(finalSensor, target.RulesetCharacter));
+            }
+        }
+
         // try to find any sense mode that is valid for the current lighting state and constraints
-        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var senseMode in sensorCharacter.SenseModes)
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var senseMode in sensorCharacter.SenseModes
+                     .Where(x => !senseModesToPrevent.Contains(x.SenseType)))
         {
             if (distance > senseMode.SenseRange)
             {
