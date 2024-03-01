@@ -61,7 +61,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddFeatureSet(
                 bonusCantripsDeceptiveHeritage,
                 proficiencyDeceptiveHeritage,
-                FeatureDefinitionSenses.SenseDarkvision12)
+                FeatureDefinitionSenses.SenseDarkvision)
             .AddToDB();
 
         // Spell Sneak Attack

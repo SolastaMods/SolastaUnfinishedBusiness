@@ -353,7 +353,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .SetAttackIterations((1, monsterAttackSteelDefender))
             .SetFeatures(
                 FeatureDefinitionMoveModes.MoveModeMove8,
-                FeatureDefinitionSenses.SenseDarkvision12,
+                FeatureDefinitionSenses.SenseDarkvision,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
                 FeatureDefinitionPowerBuilder
                     .Create("PowerInnovationWeaponSteelDefenderRepair")

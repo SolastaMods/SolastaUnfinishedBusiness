@@ -198,7 +198,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             .SetGuiPresentation($"Power{Name}NewMoon", Category.Feature,
                 ConditionDefinitions.ConditionChildOfDarkness_DimLight)
             .SetPossessive()
-            .SetFeatures(powerLunarChill, FeatureDefinitionSenses.SenseDarkvision12)
+            .SetFeatures(powerLunarChill, FeatureDefinitionSenses.SenseDarkvision)
             .AddCustomSubFeatures(AddUsablePowersFromCondition.Marker, new ForceLightingStateNewMoon())
             .CopyParticleReferences(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection)
             .AddToDB();

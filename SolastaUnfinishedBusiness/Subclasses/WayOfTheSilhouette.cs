@@ -46,7 +46,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
         var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SilhouetteArts")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(SenseDarkvision12, powerDarkness)
+            .AddFeatureSet(SenseDarkvision, powerDarkness)
             .AddToDB();
 
         // Strike the Vitals
