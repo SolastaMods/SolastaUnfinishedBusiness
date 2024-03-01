@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-    "Definition:ProficiencySorcerousSorrAkkathDeceptiveHeritage:3fa28dd7-2af9-5867-b2ac-3191bf071bca",
-    "Definition:BonusCantripsSorcerousSorrAkkathDeceptiveHeritage:697865d6-ddc5-515d-8561-d8518d4454e0"
+    "Definition:SavingThrowAffinityCreedOfSolasta:684c3cc4950cbc4448e2f9534c17adf3",
+    "Definition:SavingThrowAffinityCreedOfPakri:9d43e6a909c8f7d49814bf89494ecceb",
+    "Definition:SavingThrowAffinityCreedOfMaraike:39c4d52229518ce4db6805304fd5fba0"
   ],
-  "mode": "Union",
+  "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
   "defaultSelection": 0,
@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageTitle",
-    "description": "Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription",
+    "title": "Feature/&FeatureSetRangerGloomStalkerIronMindTitle",
+    "description": "Feature/&FeatureSetRangerGloomStalkerIronMindDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "18a1678e-0ddf-5f83-b90c-11897aaf8f58",
+  "guid": "f39195a2-c049-5e6a-9562-b25600c44941",
   "contentPack": 9999,
-  "name": "FeatureSetSorcerousSorrAkkathDeceptiveHeritage"
+  "name": "FeatureSetRangerGloomStalkerIronMind"
 }

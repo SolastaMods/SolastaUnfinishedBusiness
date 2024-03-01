@@ -894,6 +894,7 @@
             <value>
                 <ArrayOfString>
                     <string>RangerArcanist</string>
+                    <string>RangerGloomStalker</string>
                     <string>RangerHellWalker</string>
                     <string>RangerLightBearer</string>
                     <string>RangerSkyWarrior</string>

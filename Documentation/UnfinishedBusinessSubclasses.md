@@ -2392,7 +2392,61 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 
 
-## 2. Hellwalker
+## 2. Gloom Stalker
+
+Gloom stalkers are at home in the darkest places: deep under the earth, in gloomy alleyways, in primeval forests, and wherever else the light dims. Most folk enter such places with trepidation, but a gloom stalker ventures boldly into the darkness, seeking to ambush threats before they can reach the broader world. Such rangers are often found in the Underdark, but they will go any place where evil lurks in the shadows.
+
+
+### Level 3
+
+* Dread Ambusher
+
+You can give yourself a bonus to your initiative rolls equal to your Wisdom modifier. At the start of your first turn of each combat, your walking speed increases by 10 feet, which lasts until the end of that turn. If you take the Attack action on that turn, you can make one additional weapon attack. On the next attack that hits, the target takes an extra 1d8 damage of the weapon's damage type.
+
+* Gloom Stalker Bonus Spells
+
+You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:
+
+	I	Swift Strike
+
+	II	Pass Without Trace
+
+	III	Fear
+
+	IV	Greater Invisibility
+
+	V	Ethereal Step
+
+
+
+* Umbral Sight
+
+You gain darkvision out to a range of 60 feet. If you already have darkvision, its range increases by 30 feet. While in darkness, you are invisible to any creature that relies on darkvision to see you.
+
+
+### Level 7
+
+* Iron Mind
+
+You have honed your ability to resist the mind-altering powers of your prey. You gain proficiency in Intelligence, Wisdom or Charisma saving throws.
+
+
+### Level 11
+
+* Stalker's Flurry
+
+Once on each of your turns when you miss with a weapon attack, you automatically reattempt the attack against the same target.
+
+
+### Level 15
+
+* Shadowy Dodge
+
+Whenever a creature makes an attack roll against you and doesn't have advantage on the roll, you can use your reaction to impose disadvantage on it.
+
+
+
+## 3. Hellwalker
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 
@@ -2448,7 +2502,7 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-## 3. Lightbearer
+## 4. Lightbearer
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 
@@ -2500,7 +2554,7 @@ You can use your holy light to temporarily blind assailants. When a creature wit
 
 
 
-## 4. Sky Warrior
+## 5. Sky Warrior
 
 Sky Warriors have been touched by the lingering power of barren windswept landscapes inhabited by nothing but mirages and ghosts. They combine elegant maneuvers of blade and shield with illusion magic to thrive in combat.
 
@@ -2558,7 +2612,7 @@ While wearing a shield, gain a flying speed equal to your walking speed.
 
 
 
-## 5. Survivalist
+## 6. Survivalist
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -2616,7 +2670,7 @@ Gain proficiency in Wisdom saving throws.
 
 
 
-## 6. Wildmaster
+## 7. Wildmaster
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 

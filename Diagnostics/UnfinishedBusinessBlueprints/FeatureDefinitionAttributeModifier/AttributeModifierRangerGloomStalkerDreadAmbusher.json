@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "Initiative",
+  "modifierOperation": "AddAbilityScoreBonus",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Wisdom",
+  "situationalContext": "None",
+  "minimum1": true,
+  "useBonusFromCaster": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AttributeModifierRangerGloomStalkerDreadAmbusherTitle",
+    "description": "Feature/&AttributeModifierRangerGloomStalkerDreadAmbusherDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2fbcfeb8-3c01-50b3-b9a5-a822cba97318",
+  "contentPack": 9999,
+  "name": "AttributeModifierRangerGloomStalkerDreadAmbusher"
+}
