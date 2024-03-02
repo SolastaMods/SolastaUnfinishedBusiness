@@ -2679,39 +2679,28 @@ The Wildmaster archetype embodies a friendship between the civilized races and t
 
 * Beast Companion
 
-You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to armor class, attack rolls and damage rolls. It also gains 4 HP per character level and can only take the Dodge action on its turn unless you command it to do otherwise.
-Both Spirit Beast and summoner share the same initiative and you can choose a Bear, an Eagle or a Wolf:
-• The Bear can breath a cone of fire
-• The Eagle a line of electricity
-• The Wolf a cone of cold.
-
-* Deep Integration
-
-You and your Spirit Beast help each other in the field. The Spirit Beast gains attack advantage whenever engaging an enemy next to you.
+You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to armor class, attack rolls and damage rolls. It also gains 5 + 5 HP per ranger level, both Beast Companion and ranger share the same initiative, and you can choose between a Bear, an Eagle or a Wolf: Bear gains an additional 3 HP per ranger level, Eagle can fly and Wolf has pact tactics.
 
 
 ### Level 7
 
-* True Expertise
+* Advanced Training
 
-The Spirit Beast can now take the Dash or Disengage action on its turn. its attack count as magical for the purpose of overcoming resistance and immunity. The Spirit Beast is also more powerful:
-• The Bear is now resilient to fire
-• The Eagle to electricity
-• The Wolf to cold.
+You can use your bonus action to grant your Beast Companion benefits of Dash or Disengage action and its attacks count as magical for the purpose of overcoming resistance and immunity. 
 
 
 ### Level 11
 
-* Master Expertise
+* True Expertise
 
-The Spirit Beast can now fully use all attacks available and also gains your proficiency bonus to all saving throws. All Spirit Beasts can now become invisible.
+Your Beast Companion can now use all attacks available and gains your proficiency bonus to all saving throws.
 
 
 ### Level 15
 
 * Free Will
 
-The Spirit Beast can now act independently, cannot be surprised and use Eyebite like powers.
+The Spirit Beast can now act independently.
 
 
 

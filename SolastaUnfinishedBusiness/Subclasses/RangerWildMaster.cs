@@ -22,386 +22,127 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class RangerWildMaster : AbstractSubclass
 {
-    private const string SpiritBeastTag = "SpiritBeast";
-    private const string CommandSpiritBeastCondition = "ConditionWildMasterSpiritBeastCommand";
-    private const string SummonSpiritBeastPower = "PowerWildMasterSummonSpiritBeast";
+    private const string Name = "RangerWildMaster";
+    private const string BeastCompanionTag = "BeastCompanion";
+    private const string ConditionCommandBeastCompanionName = $"Condition{Name}CommandBeastCompanion";
+    private const string PowerSummonBeastCompanionName = $"Power{Name}SummonBeastCompanion";
+
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityBeastCompanion =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}BeastCompanion")
+            .SetGuiPresentationNoContent(true)
+            .SetForbiddenActions(
+                Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity,
+                Id.Ready, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+            .AddCustomSubFeatures(new CustomBehaviorBeastCompanion())
+            .AddToDB();
+
+    private static readonly FeatureDefinitionConditionAffinity ConditionAffinityWildMasterBeastCompanion =
+        FeatureDefinitionConditionAffinityBuilder
+            .Create($"ConditionAffinity{Name}BeastCompanion")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .SetConditionType(ConditionDefinitions.ConditionSurprised)
+            .AddCustomSubFeatures(ForceInitiativeToSummoner.Mark)
+            .AddToDB();
 
     public RangerWildMaster()
     {
-        #region COMMON
+        // Beast Companion
 
-        //
-        // required for a better UI presentation on level 15
-        //
+        var powerWildMasterSummonBeastCompanionPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}BeastCompanionPool")
+            .SetGuiPresentation(Category.Feature, MonsterDefinitions.KindredSpiritWolf)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .AddToDB();
 
-        FeatureDefinitionPowers.PowerEyebiteAsleep.guiPresentation.spriteReference =
-            Eyebite.guiPresentation.spriteReference;
+        var powerKindredSpiritEagle03 = BuildBeastCompanionPower(
+            powerWildMasterSummonBeastCompanionPool, MonsterDefinitions.KindredSpiritEagle);
 
-        FeatureDefinitionPowers.PowerEyebitePanicked.guiPresentation.spriteReference =
-            Eyebite.guiPresentation.spriteReference;
+        var powerKindredSpiritBear03 = BuildBeastCompanionPower(
+            powerWildMasterSummonBeastCompanionPool, MonsterDefinitions.KindredSpiritBear);
 
-        FeatureDefinitionPowers.PowerEyebiteSickened.guiPresentation.spriteReference =
-            Eyebite.guiPresentation.spriteReference;
-
-        var actionAffinitySpiritBeast =
-            FeatureDefinitionActionAffinityBuilder
-                .Create("ActionAffinityWildMasterSpiritBeast")
-                .SetGuiPresentationNoContent()
-                .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
-                    Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
-                .AddCustomSubFeatures(new SummonerHasConditionOrKOd())
-                .AddToDB();
-
-        var combatAffinityWildMasterSummonerIsNextToBeast = FeatureDefinitionCombatAffinityBuilder
-            .Create(FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics,
-                "CombatAffinityWildMasterSummonerIsNextToBeast")
+        var combatAffinityWolfTactics = FeatureDefinitionCombatAffinityBuilder
+            .Create(FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics, $"CombatAffinity{Name}WolfTactics")
+            .SetGuiPresentationNoContent(true)
             .SetSituationalContext(ExtraSituationalContext.SummonerIsNextToBeast)
             .AddToDB();
 
-        var conditionAffinityWildMasterSpiritBeastInitiative =
-            FeatureDefinitionConditionAffinityBuilder
-                .Create("ConditionAffinityWildMasterSpiritBeastInitiative")
-                .SetGuiPresentationNoContent()
-                .SetConditionAffinityType(ConditionAffinityType.Immunity)
-                .SetConditionType(ConditionDefinitions.ConditionSurprised)
-                .AddCustomSubFeatures(ForceInitiativeToSummoner.Mark)
-                .AddToDB();
+        var powerKindredSpiritWolf03 = BuildBeastCompanionPower(
+            powerWildMasterSummonBeastCompanionPool, MonsterDefinitions.KindredSpiritWolf, combatAffinityWolfTactics);
 
-        var perceptionAffinitySpiritBeast =
-            FeatureDefinitionPerceptionAffinityBuilder
-                .Create("PerceptionAffinityWildMasterSpiritBeast")
-                .SetGuiPresentationNoContent()
-                .CannotBeSurprised()
-                .AddToDB();
-
-        var powerWildMasterSummonSpiritBeastPool03 = FeatureDefinitionPowerBuilder
-            .Create("PowerWildMasterSummonSpiritBeastPool03")
-            .SetGuiPresentation("PowerWildMasterSummonSpiritBeastPool", Category.Feature,
-                MonsterDefinitions.KindredSpiritWolf)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .AddToDB();
-
-        var powerWildMasterSummonSpiritBeastPool07 = FeatureDefinitionPowerBuilder
-            .Create("PowerWildMasterSummonSpiritBeastPool07")
-            .SetGuiPresentation("PowerWildMasterSummonSpiritBeastPool", Category.Feature,
-                MonsterDefinitions.KindredSpiritWolf)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetOverriddenPower(powerWildMasterSummonSpiritBeastPool03)
-            .AddToDB();
-
-        var powerWildMasterSummonSpiritBeastPool11 = FeatureDefinitionPowerBuilder
-            .Create("PowerWildMasterSummonSpiritBeastPool11")
-            .SetGuiPresentation("PowerWildMasterSummonSpiritBeastPool", Category.Feature,
-                MonsterDefinitions.KindredSpiritWolf)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetOverriddenPower(powerWildMasterSummonSpiritBeastPool07)
-            .AddToDB();
-
-        var powerWildMasterSummonSpiritBeastPool15 = FeatureDefinitionPowerBuilder
-            .Create("PowerWildMasterSummonSpiritBeastPool15")
-            .SetGuiPresentation("PowerWildMasterSummonSpiritBeastPool", Category.Feature,
-                MonsterDefinitions.KindredSpiritWolf)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetOverriddenPower(powerWildMasterSummonSpiritBeastPool11)
-            .AddToDB();
-
-        var powerWildMasterInvisibility = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerFunctionPotionOfInvisibility, "PowerWildMasterInvisibility")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 2)
-            .AddToDB();
-
-        #endregion
-
-        #region EAGLE
-
-        var powerSpiritBeastEyebiteAsleep = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerEyebiteAsleep, "PowerSpiritBeastEyebiteAsleep")
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(EyebiteAsleep)
-                    .Build())
-            .AddToDB();
-
-        powerSpiritBeastEyebiteAsleep.EffectDescription.difficultyClassComputation =
-            EffectDifficultyClassComputation.FixedValue;
-        powerSpiritBeastEyebiteAsleep.EffectDescription.fixedSavingThrowDifficultyClass = 15;
-
-        var powerSpiritBeastBreathWeaponBlue = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue, "PowerSpiritBeastBreathWeaponBlue")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        powerSpiritBeastBreathWeaponBlue.EffectDescription.EffectForms[0].diceByLevelTable = DiceByRankBuilder
-            .BuildDiceByRankTable(0, 1, 4);
-
-        var powerKindredSpiritEagle03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool03,
-            MonsterDefinitions.KindredSpiritEagle, 3, false,
-            powerSpiritBeastBreathWeaponBlue,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritEagle07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool07,
-            MonsterDefinitions.KindredSpiritEagle, 7, false,
-            powerSpiritBeastBreathWeaponBlue,
-            FeatureDefinitionPowers.PowerFiendishResilienceLightning,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritEagle11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool11,
-            MonsterDefinitions.KindredSpiritEagle, 11, true,
-            powerSpiritBeastBreathWeaponBlue,
-            FeatureDefinitionPowers.PowerFiendishResilienceLightning,
-            powerWildMasterInvisibility,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritEagle15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool15,
-            MonsterDefinitions.KindredSpiritEagle, 15, true,
-            powerSpiritBeastBreathWeaponBlue,
-            FeatureDefinitionPowers.PowerFiendishResilienceLightning,
-            powerWildMasterInvisibility,
-            powerSpiritBeastEyebiteAsleep,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            perceptionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        #endregion
-
-        #region BEAR
-
-        var powerSpiritBeastEyebitePanicked = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerEyebitePanicked, "PowerSpiritBeastEyebitePanicked")
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(EyebitePanicked)
-                    .Build())
-            .AddToDB();
-
-        powerSpiritBeastEyebitePanicked.EffectDescription.difficultyClassComputation =
-            EffectDifficultyClassComputation.FixedValue;
-        powerSpiritBeastEyebitePanicked.EffectDescription.fixedSavingThrowDifficultyClass = 15;
-
-        var powerSpiritBeastBreathWeaponGold = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponGold, "PowerSpiritBeastBreathWeaponGold")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        powerSpiritBeastBreathWeaponGold.EffectDescription.EffectForms[0].diceByLevelTable = DiceByRankBuilder
-            .BuildDiceByRankTable(0, 1, 4);
-
-        var powerKindredSpiritBear03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool03,
-            MonsterDefinitions.KindredSpiritBear, 3, false,
-            powerSpiritBeastBreathWeaponGold,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritBear07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool07,
-            MonsterDefinitions.KindredSpiritBear, 7, false,
-            powerSpiritBeastBreathWeaponGold,
-            FeatureDefinitionPowers.PowerFiendishResilienceFire,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritBear11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool11,
-            MonsterDefinitions.KindredSpiritBear, 11, true,
-            powerSpiritBeastBreathWeaponGold,
-            FeatureDefinitionPowers.PowerFiendishResilienceFire,
-            powerWildMasterInvisibility,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritBear15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool15,
-            MonsterDefinitions.KindredSpiritBear, 15, true,
-            powerSpiritBeastBreathWeaponGold,
-            FeatureDefinitionPowers.PowerFiendishResilienceFire,
-            powerWildMasterInvisibility,
-            powerSpiritBeastEyebitePanicked,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            perceptionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        #endregion
-
-        #region WOLF
-
-        var powerSpiritBeastEyebiteSickened = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerEyebiteSickened, "PowerSpiritBeastEyebiteSickened")
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(EyebiteSickened)
-                    .Build())
-            .AddToDB();
-
-        powerSpiritBeastEyebiteSickened.EffectDescription.difficultyClassComputation =
-            EffectDifficultyClassComputation.FixedValue;
-        powerSpiritBeastEyebiteSickened.EffectDescription.fixedSavingThrowDifficultyClass = 15;
-
-        var powerSpiritBeastBreathWeaponSilver = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponSilver, "PowerSpiritBeastBreathWeaponSilver")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        powerSpiritBeastBreathWeaponSilver.EffectDescription.EffectForms[0].diceByLevelTable = DiceByRankBuilder
-            .BuildDiceByRankTable(0, 1, 4);
-
-        var powerKindredSpiritWolf03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool03,
-            MonsterDefinitions.KindredSpiritWolf, 3, false,
-            powerSpiritBeastBreathWeaponSilver,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritWolf07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool07,
-            MonsterDefinitions.KindredSpiritWolf, 7, false,
-            powerSpiritBeastBreathWeaponSilver,
-            FeatureDefinitionPowers.PowerFiendishResilienceCold,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritWolf11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool11,
-            MonsterDefinitions.KindredSpiritWolf, 11, true,
-            powerSpiritBeastBreathWeaponSilver,
-            FeatureDefinitionPowers.PowerFiendishResilienceCold,
-            powerWildMasterInvisibility,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        var powerKindredSpiritWolf15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool15,
-            MonsterDefinitions.KindredSpiritWolf, 15, true,
-            powerSpiritBeastBreathWeaponSilver,
-            FeatureDefinitionPowers.PowerFiendishResilienceCold,
-            powerWildMasterInvisibility,
-            powerSpiritBeastEyebiteSickened,
-            CharacterContext.FeatureDefinitionPowerHelpAction,
-            perceptionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
-            conditionAffinityWildMasterSpiritBeastInitiative);
-
-        #endregion
-
-        #region SUBCLASS
-
-        var featureSetWildMasterBeastIsNextToSummoner = FeatureDefinitionBuilder
-            .Create("FeatureWildMasterBeastIsNextToSummoner")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
+        PowerBundle.RegisterPowerBundle(powerWildMasterSummonBeastCompanionPool, true,
+            powerKindredSpiritBear03,
+            powerKindredSpiritEagle03,
+            powerKindredSpiritWolf03);
 
         var featureSetWildMaster03 = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWildMaster03")
+            .Create($"FeatureSet{Name}03")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                BuildCommandSpiritBeast(),
+                BuildCommandBeastCompanion(),
+                BuildBeastCompanionAffinityLevel03(),
                 FeatureDefinitionHealingModifiers.HealingModifierKindredSpiritBond,
-                BuildSpiritBeastAffinityLevel03(),
-                powerWildMasterSummonSpiritBeastPool03,
+                powerWildMasterSummonBeastCompanionPool,
                 powerKindredSpiritBear03,
                 powerKindredSpiritEagle03,
                 powerKindredSpiritWolf03)
             .AddToDB();
 
         var featureSetWildMaster07 = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWildMaster07")
+            .Create($"FeatureSet{Name}07")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                BuildSpiritBeastAffinityLevel07(),
-                powerWildMasterSummonSpiritBeastPool07,
-                powerKindredSpiritBear07,
-                powerKindredSpiritEagle07,
-                powerKindredSpiritWolf07)
+                FeatureDefinitionSummoningAffinityBuilder
+                    .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritMagicalSpirit,
+                        $"SummoningAffinity{Name}SummonBeastCompanion07")
+                    .SetRequiredMonsterTag(BeastCompanionTag)
+                    .AddToDB())
             .AddToDB();
 
         var featureSetWildMaster11 = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWildMaster11")
+            .Create($"FeatureSet{Name}11")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                BuildSpiritBeastAffinityLevel11(),
-                powerWildMasterSummonSpiritBeastPool11,
-                powerKindredSpiritBear11,
-                powerKindredSpiritEagle11,
-                powerKindredSpiritWolf11)
+                FeatureDefinitionSummoningAffinityBuilder
+                    .Create($"SummoningAffinity{Name}SummonBeastCompanion11")
+                    .SetGuiPresentationNoContent(true)
+                    .SetRequiredMonsterTag(BeastCompanionTag)
+                    .SetAddedConditions(
+                        ConditionDefinitionBuilder
+                            .Create($"Condition{Name}SummonBeastCompanionSaving")
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetFeatures(
+                                FeatureDefinitionSavingThrowAffinityBuilder
+                                    .Create($"SavingThrowAffinity{Name}SummonBeastCompanion")
+                                    .SetGuiPresentationNoContent(true)
+                                    .AddCustomSubFeatures(new AddPBToSummonCheck(1,
+                                        AttributeDefinitions.Strength,
+                                        AttributeDefinitions.Dexterity,
+                                        AttributeDefinitions.Constitution,
+                                        AttributeDefinitions.Intelligence,
+                                        AttributeDefinitions.Wisdom,
+                                        AttributeDefinitions.Charisma))
+                                    .AddToDB())
+                            .AddToDB())
+                    .AddToDB())
             .AddToDB();
 
         var featureSetWildMaster15 = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWildMaster15")
+            .Create($"FeatureSet{Name}15")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                powerWildMasterSummonSpiritBeastPool15,
-                powerKindredSpiritBear15,
-                powerKindredSpiritEagle15,
-                powerKindredSpiritWolf15)
+            .AddFeatureSet()
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("RangerWildMaster")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("RangerWildMaster", Resources.RangerWildMaster, 256))
-            .AddFeaturesAtLevel(3,
-                featureSetWildMaster03,
-                featureSetWildMasterBeastIsNextToSummoner)
-            .AddFeaturesAtLevel(7,
-                featureSetWildMaster07)
-            .AddFeaturesAtLevel(11,
-                featureSetWildMaster11)
-            .AddFeaturesAtLevel(15,
-                featureSetWildMaster15)
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerWildMaster, 256))
+            .AddFeaturesAtLevel(3, featureSetWildMaster03)
+            .AddFeaturesAtLevel(7, featureSetWildMaster07)
+            .AddFeaturesAtLevel(11, featureSetWildMaster11)
+            .AddFeaturesAtLevel(15, featureSetWildMaster15)
             .AddToDB();
-
-        #endregion
-
-        PowerBundle.RegisterPowerBundle(powerWildMasterSummonSpiritBeastPool03, true,
-            powerKindredSpiritBear03,
-            powerKindredSpiritEagle03,
-            powerKindredSpiritWolf03);
-
-        PowerBundle.RegisterPowerBundle(powerWildMasterSummonSpiritBeastPool07, true,
-            powerKindredSpiritBear07,
-            powerKindredSpiritEagle07,
-            powerKindredSpiritWolf07);
-
-        PowerBundle.RegisterPowerBundle(powerWildMasterSummonSpiritBeastPool11, true,
-            powerKindredSpiritBear11,
-            powerKindredSpiritEagle11,
-            powerKindredSpiritWolf11);
-
-        PowerBundle.RegisterPowerBundle(powerWildMasterSummonSpiritBeastPool15, true,
-            powerKindredSpiritBear15,
-            powerKindredSpiritEagle15,
-            powerKindredSpiritWolf15);
-
-        // required to avoid beast duplicates when they get upgraded from 6 to 7, 10 to 11, 14 to 15
-        ForceGlobalUniqueEffects.AddToGroup(ForceGlobalUniqueEffects.Group.WildMasterBeast,
-            powerKindredSpiritBear03,
-            powerKindredSpiritEagle03,
-            powerKindredSpiritWolf03,
-            powerKindredSpiritBear07,
-            powerKindredSpiritEagle07,
-            powerKindredSpiritWolf07,
-            powerKindredSpiritBear11,
-            powerKindredSpiritEagle11,
-            powerKindredSpiritWolf11,
-            powerKindredSpiritBear15,
-            powerKindredSpiritEagle15,
-            powerKindredSpiritWolf15);
     }
 
     internal override CharacterClassDefinition Klass => CharacterClassDefinitions.Ranger;
@@ -414,213 +155,188 @@ public sealed class RangerWildMaster : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static FeatureDefinitionPowerSharedPool BuildSpiritBeastPower(
+    private static FeatureDefinitionPowerSharedPool BuildBeastCompanionPower(
         FeatureDefinitionPower sharedPoolPower,
         MonsterDefinition monsterDefinition,
-        int level,
-        bool groupAttacks,
         params FeatureDefinition[] monsterAdditionalFeatures)
     {
-        var name = SummonSpiritBeastPower + monsterDefinition.name + level;
-        var spiritBeast = BuildSpiritBeastMonster(monsterDefinition, level, groupAttacks, monsterAdditionalFeatures);
+        var beastCompanion03 =
+            MonsterDefinitionBuilder
+                .Create(monsterDefinition, Name + monsterDefinition.name + "03")
+                .AddFeatures(
+                    CharacterContext.FeatureDefinitionPowerHelpAction,
+                    ActionAffinityBeastCompanion,
+                    ConditionAffinityWildMasterBeastCompanion)
+                .AddFeatures(monsterAdditionalFeatures)
+                .SetCreatureTags(BeastCompanionTag)
+                .SetChallengeRating(0)
+                .SetFullyControlledWhenAllied(true)
+                .NoExperienceGain()
+                .SetHitPointsBonus(5)
+                .SetGroupAttacks(false)
+                .AddToDB();
 
+        var beastCompanion11 =
+            MonsterDefinitionBuilder
+                .Create(monsterDefinition, Name + monsterDefinition.name + "11")
+                .AddFeatures(
+                    CharacterContext.FeatureDefinitionPowerHelpAction,
+                    ActionAffinityBeastCompanion,
+                    ConditionAffinityWildMasterBeastCompanion)
+                .AddFeatures(monsterAdditionalFeatures)
+                .SetCreatureTags(BeastCompanionTag)
+                .SetChallengeRating(0)
+                .SetFullyControlledWhenAllied(true)
+                .NoExperienceGain()
+                .SetHitPointsBonus(5)
+                .SetGroupAttacks(true)
+                .AddToDB();
+
+        var beastCompanion15 =
+            MonsterDefinitionBuilder
+                .Create(monsterDefinition, Name + monsterDefinition.name + "15")
+                .AddFeatures(
+                    CharacterContext.FeatureDefinitionPowerHelpAction,
+                    ActionAffinityBeastCompanion,
+                    ConditionAffinityWildMasterBeastCompanion)
+                .AddFeatures(monsterAdditionalFeatures)
+                .SetCreatureTags(BeastCompanionTag)
+                .SetChallengeRating(0)
+                .SetFullyControlledWhenAllied(true)
+                .NoExperienceGain()
+                .SetHitPointsBonus(5)
+                .SetGroupAttacks(true)
+                .AddToDB();
+
+        var name = PowerSummonBeastCompanionName + monsterDefinition.name;
         var title =
-            Gui.Format("Feature/&PowerWildMasterSummonSpiritBeastTitle", spiritBeast.FormatTitle());
+            Gui.Format($"Feature/&Power{Name}SummonBeastCompanionTitle", beastCompanion03.FormatTitle());
         var description =
-            Gui.Format("Feature/&PowerWildMasterSummonSpiritBeastDescription", spiritBeast.FormatTitle());
+            Gui.Format($"Feature/&Power{Name}SummonBeastCompanionDescription", beastCompanion03.FormatTitle());
 
-        return FeatureDefinitionPowerSharedPoolBuilder
+        var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create(name)
             .SetGuiPresentation(title, description, monsterDefinition, true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Permanent)
+                    .SetDurationData(DurationType.UntilLongRest)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetSummonCreatureForm(1, spiritBeast.Name)
+                            .SetSummonCreatureForm(1, beastCompanion03.Name)
                             .Build())
                     .SetParticleEffectParameters(ConjureElementalAir)
                     .Build())
             .SetUniqueInstance()
-            .AddCustomSubFeatures(
-                SkipEffectRemovalOnLocationChange.Always,
-                ValidatorsValidatePowerUse.NotInCombat)
             .AddToDB();
+
+        power.AddCustomSubFeatures(
+            SkipEffectRemovalOnLocationChange.Always,
+            ValidatorsValidatePowerUse.NotInCombat,
+            new ModifyEffectDescriptionSummonBeastCompanion(
+                power, beastCompanion03, beastCompanion11, beastCompanion15));
+
+        return power;
     }
 
-    private static MonsterDefinition BuildSpiritBeastMonster(
-        MonsterDefinition monsterDefinition,
-        int level,
-        bool groupAttacks,
-        params FeatureDefinition[] monsterAdditionalFeatures)
+    private static FeatureDefinitionSummoningAffinity BuildBeastCompanionAffinityLevel03()
     {
-        return MonsterDefinitionBuilder
-            .Create(monsterDefinition, "WildMasterSpiritBeast" + monsterDefinition.name + level)
-            .AddFeatures(monsterAdditionalFeatures)
-            .SetCreatureTags(SpiritBeastTag)
-            .SetChallengeRating(0)
-            .SetFullyControlledWhenAllied(true)
-            .NoExperienceGain()
-            .SetGroupAttacks(groupAttacks)
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionSummoningAffinity BuildSpiritBeastAffinityLevel03()
-    {
-        var acBonus = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierWildMasterSummonSpiritBeastAC")
-            .SetGuiPresentationNoContent()
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass)
-            .AddToDB();
-
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierWildMasterSummonSpiritBeastHP")
-            .SetGuiPresentationNoContent()
+            .Create($"AttributeModifier{Name}SummonBeastCompanionHP")
+            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
             .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
             .AddToDB();
 
+        var acBonus = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}SummonBeastCompanionAC")
+            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass)
+            .AddToDB();
+
         var toHit = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierWildMasterSummonSpiritBeastToHit")
-            .SetGuiPresentationNoContent()
+            .Create($"AttackModifier{Name}SummonBeastCompanionToHit")
+            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
             .SetAttackRollModifier(1, AttackModifierMethod.SourceConditionAmount)
             .AddToDB();
 
         var toDamage = FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierWildMasterSummonSpiritBeastDamage")
-            .SetGuiPresentationNoContent()
+            .Create($"AttackModifier{Name}SummonBeastCompanionDamage")
+            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
             .SetDamageRollModifier(1, AttackModifierMethod.SourceConditionAmount)
             .AddToDB();
 
         return FeatureDefinitionSummoningAffinityBuilder
-            .Create("SummoningAffinityWildMasterSummonSpiritBeast03")
-            .SetGuiPresentationNoContent()
-            .SetRequiredMonsterTag(SpiritBeastTag)
+            .Create($"SummoningAffinity{Name}BeastCompanion03")
+            .SetGuiPresentationNoContent(true)
+            .SetRequiredMonsterTag(BeastCompanionTag)
             .SetAddedConditions(
                 ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastAcBonus")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
-                        Gui.NoLocalization)
+                    .Create($"Condition{Name}SummonBeastCompanionAcBonus")
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(acBonus)
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastSourceProficiencyBonusToHit")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
-                        Gui.NoLocalization)
+                    .Create($"Condition{Name}SummonBeastCompanionSourceProficiencyBonusToHit")
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetPossessive()
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
+                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(toHit)
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastProficiencyBonusToDamage")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle",
-                        Gui.NoLocalization)
+                    .Create($"Condition{Name}SummonBeastCompanionProficiencyBonusToDamage")
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetPossessive()
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
+                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(toDamage)
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastCopyCharacterLevel")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner,
-                        AttributeDefinitions.CharacterLevel)
-                    .AddToDB(),
-                ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastCopyProficiencyBonus")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner,
-                        AttributeDefinitions.ProficiencyBonus)
-                    .AddToDB(),
-                ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastLevel")
+                    .Create($"Condition{Name}SummonBeastCompanionLevel")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceCharacterLevel)
-                    .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus) // 4 HP per level
+                    .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus, hpBonus)
                     .AddToDB())
             .AddToDB();
     }
 
-    private static FeatureDefinitionSummoningAffinity BuildSpiritBeastAffinityLevel07()
+    private static FeatureDefinitionPower BuildCommandBeastCompanion()
     {
-        return FeatureDefinitionSummoningAffinityBuilder
-            .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritMagicalSpirit,
-                "SummoningAffinityWildMasterSummonSpiritBeast07")
-            .SetRequiredMonsterTag(SpiritBeastTag)
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionSummoningAffinity BuildSpiritBeastAffinityLevel11()
-    {
-        return FeatureDefinitionSummoningAffinityBuilder
-            .Create("SummoningAffinityWildMasterSummonSpiritBeast11")
-            .SetGuiPresentationNoContent()
-            .SetRequiredMonsterTag(SpiritBeastTag)
-            .SetAddedConditions(
-                ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastSaving")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
-                    .SetFeatures(
-                        FeatureDefinitionSavingThrowAffinityBuilder
-                            .Create("SavingThrowAffinityWildMasterSummonSpiritBeast")
-                            .SetGuiPresentationNoContent()
-                            .AddCustomSubFeatures(new AddPBToSummonCheck(1,
-                                AttributeDefinitions.Strength,
-                                AttributeDefinitions.Dexterity,
-                                AttributeDefinitions.Constitution,
-                                AttributeDefinitions.Intelligence,
-                                AttributeDefinitions.Wisdom,
-                                AttributeDefinitions.Charisma))
-                            .AddToDB())
-                    .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionPower BuildCommandSpiritBeast()
-    {
-        var condition = ConditionDefinitionBuilder
-            .Create(CommandSpiritBeastCondition)
+        var conditionCommandBeastCompanion = ConditionDefinitionBuilder
+            .Create(ConditionCommandBeastCompanionName)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        var powerWildMasterSpiritBeastCommand = FeatureDefinitionPowerBuilder
-            .Create("PowerWildMasterSpiritBeastCommand")
+        var powerCommandBeastCompanion = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}CommandBeastCompanion")
             .SetGuiPresentation(Category.Feature, Command)
             .SetUsesFixed(ActivationTime.BonusAction)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                            .Build())
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionCommandBeastCompanion))
                     .Build())
-            .AddCustomSubFeatures(new ShowInCombatWhenHasSpiritBeast())
+            .AddCustomSubFeatures(new ValidatorsValidatePowerUse(c =>
+                Gui.Battle != null &&
+                c.PowersUsedByMe.Any(p => p.SourceDefinition.Name.StartsWith(PowerSummonBeastCompanionName))))
             .AddToDB();
 
-        powerWildMasterSpiritBeastCommand.AddCustomSubFeatures(
-            new ApplyOnTurnEnd(condition, powerWildMasterSpiritBeastCommand));
+        powerCommandBeastCompanion.AddCustomSubFeatures(
+            new CharacterTurnEndListenerCommandBeastCompanion(
+                conditionCommandBeastCompanion, powerCommandBeastCompanion));
 
-        return powerWildMasterSpiritBeastCommand;
+        return powerCommandBeastCompanion;
     }
 
-    private class SummonerHasConditionOrKOd : IValidateDefinitionApplication, ICharacterTurnStartListener
+    private sealed class CustomBehaviorBeastCompanion : IValidateDefinitionApplication, ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -662,18 +378,15 @@ public sealed class RangerWildMaster : AbstractSubclass
                 return true;
             }
 
-            //can act if summoner is KO
             return summoner.IsUnconscious ||
-                   //can act if summoner commanded
-                   summoner.HasConditionOfType(CommandSpiritBeastCondition);
+                   summoner.HasConditionOfType(ConditionCommandBeastCompanionName);
         }
     }
 
-    private class ApplyOnTurnEnd(
+    private sealed class CharacterTurnEndListenerCommandBeastCompanion(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition,
-        FeatureDefinitionPower power)
-        : ICharacterTurnEndListener
+        ConditionDefinition conditionCommandBeastCompanion,
+        FeatureDefinitionPower powerCommandBeastCompanion) : ICharacterTurnEndListener
     {
         public void OnCharacterTurnEnded(GameLocationCharacter gameLocationCharacter)
         {
@@ -686,29 +399,54 @@ public sealed class RangerWildMaster : AbstractSubclass
 
             var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
-            rulesetCharacter.LogCharacterUsedPower(power);
+            rulesetCharacter.LogCharacterUsedPower(powerCommandBeastCompanion);
             rulesetCharacter.InflictCondition(
-                condition.Name,
+                conditionCommandBeastCompanion.Name,
                 DurationType.Round,
-                1,
+                0,
                 TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
                 1,
-                condition.Name,
+                conditionCommandBeastCompanion.Name,
                 0,
                 0,
                 0);
         }
     }
 
-    private class ShowInCombatWhenHasSpiritBeast : IValidatePowerUse
+    private sealed class ModifyEffectDescriptionSummonBeastCompanion(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerSummonBeastCompanion,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        MonsterDefinition beastCompanion03,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        MonsterDefinition beastCompanion11,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        MonsterDefinition beastCompanion15) : IModifyEffectDescription
     {
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
         {
-            return Gui.Battle != null &&
-                   character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
+            return definition == powerSummonBeastCompanion;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var level = character.GetClassLevel(CharacterClassDefinitions.Ranger);
+
+            effectDescription.EffectForms[0].SummonForm.monsterDefinitionName = level switch
+            {
+                >= 15 => beastCompanion15.Name,
+                >= 11 => beastCompanion11.Name,
+                _ => beastCompanion03.Name
+            };
+
+            return effectDescription;
         }
     }
 }
