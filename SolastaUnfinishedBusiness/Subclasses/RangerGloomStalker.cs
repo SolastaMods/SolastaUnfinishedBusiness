@@ -295,72 +295,39 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
     private sealed class PhysicalAttackFinishedByMeStalkersFlurry(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureStalkersFlurry) : ITryAlterOutcomeAttack
+        FeatureDefinition featureStalkersFlurry) : IPhysicalAttackFinishedByMe
     {
-        public IEnumerator OnTryAlterOutcomeAttack(
-            GameLocationBattleManager battle,
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            GameLocationCharacter helper,
-            ActionModifier attackModifier)
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
         {
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (gameLocationActionManager == null)
-            {
-                yield break;
-            }
-
-            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
-            {
-                yield break;
-            }
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (attacker != helper ||
-                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !attacker.OncePerTurnIsValid(featureStalkersFlurry.Name) ||
-                !attacker.CanPerceiveTarget(defender))
+            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
+                !attacker.OnceInMyTurnIsValid(featureStalkersFlurry.Name))
             {
                 yield break;
             }
 
             attacker.UsedSpecialFeatures.TryAdd(featureStalkersFlurry.Name, 1);
 
-            var attackMode = action.actionParams.attackMode;
-            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
-            var rollCaption = action.AttackRoll == 1
-                ? "Feedback/&RollCheckCriticalFailureTitle"
-                : "Feedback/&CriticalAttackFailureOutcome";
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-            rulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry,
-                "Feedback/&TriggerRerollLine",
-                false,
-                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
-                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
+            if (actionService == null)
+            {
+                yield break;
+            }
 
-            var roll = rulesetCharacter.RollAttack(
-                attackMode.toHitBonus,
-                defender.RulesetCharacter,
-                attackMode.sourceDefinition,
-                attackModifier.attackToHitTrends,
-                attackModifier.IgnoreAdvantage,
-                attackModifier.AttackAdvantageTrends,
-                attackMode.ranged,
-                false,
-                attackModifier.attackRollModifier,
-                out var outcome,
-                out var successDelta,
-                -1,
-                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
-                true);
+            var actionParams = action.ActionParams.Clone();
 
-            action.AttackRollOutcome = outcome;
-            action.AttackSuccessDelta = successDelta;
-            action.AttackRoll = roll;
+            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
+
+            attacker.RulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry);
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 
