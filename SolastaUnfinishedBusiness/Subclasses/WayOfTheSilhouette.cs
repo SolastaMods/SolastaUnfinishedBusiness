@@ -258,8 +258,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
             if (attacker != helper ||
                 rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
                 !attacker.OncePerTurnIsValid(featureShadowFlurry.Name) ||
-                !attacker.CanPerceiveTarget(defender) ||
-                !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
+                !attacker.CanPerceiveTarget(defender))
             {
                 yield break;
             }
