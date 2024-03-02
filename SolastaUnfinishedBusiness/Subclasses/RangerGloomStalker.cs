@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -34,8 +35,8 @@ public sealed class RangerGloomStalker : AbstractSubclass
             .SetAutoTag("Ranger")
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
-                BuildSpellGroup(2, SpellsContext.GoneWithTheWind),
-                BuildSpellGroup(5, PassWithoutTrace),
+                BuildSpellGroup(2, DetectEvilAndGood),
+                BuildSpellGroup(5, MistyStep),
                 BuildSpellGroup(9, Fear),
                 BuildSpellGroup(13, GreaterInvisibility),
                 BuildSpellGroup(17, SpellsContext.FarStep))
@@ -64,7 +65,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
         var conditionDreadAmbusherMainAttack = ConditionDefinitionBuilder
             .Create($"Condition{Name}DreadAmbusherMainAttack")
             .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            //.SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(actionAffinityDreadAmbusherMainAttack, additionalDamageDreadAmbusher)
             .AddToDB();
 
@@ -79,7 +80,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
         var conditionDreadAmbusherBonusAttack = ConditionDefinitionBuilder
             .Create($"Condition{Name}DreadAmbusherBonusAttack")
             .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            //.SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(actionAffinityDreadAmbusherBonusAttack, additionalDamageDreadAmbusher)
             .AddToDB();
 
@@ -233,12 +234,13 @@ public sealed class RangerGloomStalker : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!attacker.OnceInMyTurnIsValid("DreadAmbusher"))
+            if (battleManager.Battle.CurrentRound > 1 ||
+                !attacker.OnceInMyTurnIsValid(conditionDreadAmbusher.Name))
             {
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd("DreadAmbusher", 1);
+            attacker.UsedSpecialFeatures.TryAdd(conditionDreadAmbusher.Name, 1);
 
             var condition = action.ActionType == ActionDefinitions.ActionType.Main
                 ? conditionDreadAmbusherMainAttack
@@ -367,10 +369,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             GameLocationCharacter defender,
             ActionModifier attackModifier)
         {
-            var advantageType = ComputeAdvantage(attackModifier.AttackAdvantageTrends);
-
-            if (advantageType == AdvantageType.Advantage ||
-                !attacker.CanReact())
+            if (!attacker.CanReact())
             {
                 yield break;
             }
@@ -404,7 +403,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
                 yield break;
             }
 
-            attackModifier.AttackAdvantageTrends.Add(
+            attackModifier.AttackAdvantageTrends.SetRange(
                 new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureShadowyDodge.Name, featureShadowyDodge));
         }
     }
