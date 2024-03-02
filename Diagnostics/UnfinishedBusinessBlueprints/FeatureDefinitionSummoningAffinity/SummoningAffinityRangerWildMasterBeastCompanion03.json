@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "BeastCompanion",
+  "addedConditions": [
+    "Definition:ConditionRangerWildMasterSummonBeastCompanionAcBonus:53a81035-24b8-503c-8a05-b5a7a8b0f0fc",
+    "Definition:ConditionRangerWildMasterSummonBeastCompanionLevel:2dd29b4f-ec80-5d8d-8e80-9bffa200c8e5",
+    "Definition:ConditionRangerWildMasterSummonBeastCompanionProficiencyBonusToDamage:b3c1bb35-f09e-5812-93b5-b9340ace97f0",
+    "Definition:ConditionRangerWildMasterSummonBeastCompanionSourceProficiencyBonusToHit:1d6e8a91-3a21-5759-85c1-4b91d16c8995"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e1091c3f-ba1e-5ba3-bdcb-6dae3cdec1d9",
+  "contentPack": 9999,
+  "name": "SummoningAffinityRangerWildMasterBeastCompanion03"
+}

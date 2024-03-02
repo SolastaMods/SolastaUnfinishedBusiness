@@ -3,27 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWildMaster03:d7255ff8-8ca8-5346-a265-2bf66893c260",
+      "featureDefinition": "Definition:FeatureSetRangerWildMaster03:d881f7e1-ef51-5159-8967-15aa0a09b946",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureWildMasterBeastIsNextToSummoner:fe6a4dfb-87ac-5479-810b-e6f0a8678ab3",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWildMaster07:bb4c0ac8-d7f3-52ee-8e49-f31701e9497c",
+      "featureDefinition": "Definition:FeatureSetRangerWildMaster07:d3ad6483-0b5d-5d8d-869e-d9d07b3e527d",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWildMaster11:a5190c33-d74a-5537-8fe9-391b957d150f",
+      "featureDefinition": "Definition:FeatureSetRangerWildMaster11:c938f695-141f-5997-bba2-d242790b70d3",
       "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWildMaster15:ab3bd289-8ae3-5c31-90b7-34d4a8ade4ac",
+      "featureDefinition": "Definition:FeatureSetRangerWildMaster15:a1380c46-4909-517f-a996-f723c553c5bb",
       "level": 15
     }
   ],
