@@ -29,8 +29,8 @@ internal static class CreditsDisplay
             "Oath of Altruism, Oath of Dread, Oath of Thunder, " +
             "Path of the Elements, Path of the Reaver, Path of the Savagery, Path of the Yeoman, " +
             "Patron Celestial, Patron Moonlit, Patron Mountain, Patron Riftwalker, " +
-            "Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
-            "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Slayer, Roguish Umbral Stalker, " +
+            "Ranger Gloom Stalker, Ranger Hellwalker, Ranger Lightbearer, Ranger Sky Warrior, Ranger Survivalist, Ranger Wildmaster, " +
+            "Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Scion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
             "Way of the Discordance, Way of the Silhouette, Way of the Tempest, Way of Weal and Woe, Way of Zen Archery, " +
             "Wizard Bladedancer, Wizard Deadmaster, " +
@@ -44,16 +44,15 @@ internal static class CreditsDisplay
             "Oath of Dread, " +
             "Path of the Elements, Path of the Reaver, Path of the Savagery, " +
             "Patron Moonlit, " +
-            "Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Slayer, Roguish Umbral Stalker, " +
+            "Roguish Arcane Scoundrel, Roguish Blade Caller, Roguish Duelist, Roguish Raven, Roguish Slayer, Roguish Umbral Stalker, " +
             "Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Psion, Sorcerous Sorr-Akkath, Sorcerous Spellblade, " +
             "Way of the Discordance, Way of the Silhouette, Way of the Tempest, Way of Dragon, Way of Tempest, Way of Zen Archery]"),
 
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, quality of life, rules, " +
             "feats, fighting styles, gambits, invocations, metamagic, spells, " +
-            "Innovation Armor, Innovation Grenadier, Innovation Weapon, " +
-            "Patron Elementalist, Patron Soulblade, " +
-            "Martial Tactician, Inventor, Multiclass"),
+            "Innovation Armor, Innovation Grenadier, Innovation Weapon, Martial Tactician, Patron Elementalist, Patron Soulblade, " +
+            "Inventor, Multiclass"),
 
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
 
@@ -63,7 +62,7 @@ internal static class CreditsDisplay
 
         ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancients, Oath of Hatred, Way of Dragon"),
 
-        ("Nd", "College of Wardancer, Roguish Opportunist, Roguish Raven"),
+        ("Nd", "College of Wardancer, Roguish Opportunist"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("Kloranger", "feats, spells, Wizard Graviturgist"),
@@ -85,7 +84,7 @@ internal static class CreditsDisplay
         ("Kiloku", "quality of life"),
 
         ("DemonicDuck",
-            "QA, homebrew design [rules, feats, fighting styles, spells, Innovation Vivisectionist, Oath of the Thunder, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
+            "QA, homebrew design [rules, feats, fighting styles, spells, Innovation Vivisectionist, Oath of Thunder, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
 
         ("Vess", "QA, homebrew design [Innovation Vitriolist]"),
 

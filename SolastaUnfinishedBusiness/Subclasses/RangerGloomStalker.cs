@@ -112,15 +112,16 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
         // Umbral Sight
 
-        var senseDarkvision6 = FeatureDefinitionSenseBuilder
+        var senseDarkvision18 = FeatureDefinitionSenseBuilder
             .Create(FeatureDefinitionSenses.SenseDarkvision, "SenseDarkvision6")
             .SetGuiPresentationNoContent(true)
+            .SetSense(SenseMode.Type.Darkvision, 18, 9)
             .AddToDB();
 
         var featureUmbralSight = FeatureDefinitionBuilder
             .Create($"Feature{Name}UmbralSight")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new CustomBehaviorUmbralSight(senseDarkvision6))
+            .AddCustomSubFeatures(new CustomBehaviorUmbralSight(senseDarkvision18))
             .AddToDB();
 
         //
@@ -263,7 +264,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
     // Umbral Sight
     //
 
-    private sealed class CustomBehaviorUmbralSight(FeatureDefinitionSense senseDarkvision6)
+    private sealed class CustomBehaviorUmbralSight(FeatureDefinitionSense senseDarkvision18)
         : ICustomLevelUpLogic, IPreventEnemySenseMode
     {
         private static readonly List<SenseMode.Type> Senses = [SenseMode.Type.Darkvision];
@@ -273,7 +274,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
             hero.ActiveFeatures[tag]
                 .TryAdd(hero.GetFeaturesByType<FeatureDefinitionSense>()
                     .Any(x => x.SenseType == SenseMode.Type.Darkvision)
-                    ? senseDarkvision6
+                    ? senseDarkvision18
                     : FeatureDefinitionSenses.SenseDarkvision);
         }
 
@@ -294,39 +295,72 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
     private sealed class PhysicalAttackFinishedByMeStalkersFlurry(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureStalkersFlurry) : IPhysicalAttackFinishedByMe
+        FeatureDefinition featureStalkersFlurry) : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnPhysicalAttackFinishedByMe(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
+            GameLocationCharacter helper,
+            ActionModifier attackModifier)
         {
-            if (rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
-                !attacker.OnceInMyTurnIsValid("StalkersFlurry"))
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
             {
                 yield break;
             }
 
-            attacker.UsedSpecialFeatures.TryAdd("StalkersFlurry", 1);
-
-            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            if (actionService == null)
+            if (action.AttackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 yield break;
             }
 
-            var actionParams = action.ActionParams.Clone();
+            var rulesetCharacter = attacker.RulesetCharacter;
 
-            actionParams.ActionDefinition = actionService.AllActionDefinitions[ActionDefinitions.Id.AttackFree];
+            if (attacker != helper ||
+                rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !attacker.OncePerTurnIsValid(featureStalkersFlurry.Name) ||
+                !attacker.CanPerceiveTarget(defender))
+            {
+                yield break;
+            }
 
-            attacker.RulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry);
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+            attacker.UsedSpecialFeatures.TryAdd(featureStalkersFlurry.Name, 1);
+
+            var attackMode = action.actionParams.attackMode;
+            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
+            var rollCaption = action.AttackRoll == 1
+                ? "Feedback/&RollCheckCriticalFailureTitle"
+                : "Feedback/&CriticalAttackFailureOutcome";
+
+            rulesetCharacter.LogCharacterUsedFeature(featureStalkersFlurry,
+                "Feedback/&TriggerRerollLine",
+                false,
+                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
+
+            var roll = rulesetCharacter.RollAttack(
+                attackMode.toHitBonus,
+                defender.RulesetCharacter,
+                attackMode.sourceDefinition,
+                attackModifier.attackToHitTrends,
+                attackModifier.IgnoreAdvantage,
+                attackModifier.AttackAdvantageTrends,
+                attackMode.ranged,
+                false,
+                attackModifier.attackRollModifier,
+                out var outcome,
+                out var successDelta,
+                -1,
+                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
+                true);
+
+            action.AttackRollOutcome = outcome;
+            action.AttackSuccessDelta = successDelta;
+            action.AttackRoll = roll;
         }
     }
 
