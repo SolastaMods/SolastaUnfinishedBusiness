@@ -370,8 +370,20 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedOnMeShadowyDodge(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureShadowyDodge) : IPhysicalAttackInitiatedOnMe
+        FeatureDefinition featureShadowyDodge) : IMagicalAttackInitiatedOnMe, IPhysicalAttackInitiatedOnMe
     {
+        public IEnumerator OnMagicalAttackInitiatedOnMe(
+            CharacterActionMagicEffect action,
+            RulesetEffect activeEffect,
+            GameLocationCharacter target,
+            ActionModifier attackModifier,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool checkMagicalAttackDamage)
+        {
+            yield return HandleReaction(action.ActionParams.ActingCharacter, target, attackModifier);
+        }
+
         public IEnumerator OnPhysicalAttackInitiatedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -379,6 +391,14 @@ public sealed class RangerGloomStalker : AbstractSubclass
             GameLocationCharacter defender,
             ActionModifier attackModifier,
             RulesetAttackMode attackMode)
+        {
+            yield return HandleReaction(attacker, defender, attackModifier);
+        }
+
+        private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier)
         {
             var advantageType = ComputeAdvantage(attackModifier.AttackAdvantageTrends);
 
@@ -390,8 +410,11 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
             var gameLocationActionManager =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleManager =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionManager == null)
+            if (gameLocationActionManager == null ||
+                gameLocationBattleManager is not { IsBattleInProgress: true })
             {
                 yield break;
             }
@@ -406,7 +429,8 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(defender, gameLocationActionManager, previousReactionCount);
+            yield return gameLocationBattleManager.WaitForReactions(defender, gameLocationActionManager,
+                previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
