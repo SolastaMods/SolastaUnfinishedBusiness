@@ -36,8 +36,6 @@ internal static class TranslatorContext
 
     private static readonly Dictionary<string, string> TranslationsCache = new();
 
-    private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
-
     internal static readonly string[] AvailableLanguages =
     [
         "de", "en", "es", "fr", "ja", "it", "ko", "pt", "ru", "zh-CN"
@@ -326,36 +324,6 @@ internal static class TranslatorContext
         return translation;
     }
 
-    [NotNull]
-    private static Dictionary<string, string> GetWordsDictionary()
-    {
-        var words = new Dictionary<string, string>();
-        var path = Path.Combine(Main.ModFolder, "thesaurus.txt");
-
-        if (!File.Exists(path))
-        {
-            return words;
-        }
-
-        var separator = new[] { '=' };
-
-        foreach (var line in File.ReadLines(path))
-        {
-            try
-            {
-                var columns = line.Split(separator, 2);
-
-                words.Add(columns[0], columns[1]);
-            }
-            catch
-            {
-                Main.Error($"invalid dictionary line \"{line}\".");
-            }
-        }
-
-        return words;
-    }
-
     private static bool IsModTerm(string fullName, string languageCode)
     {
         return fullName.StartsWith(languageCode) && fullName.EndsWith($"{languageCode}.txt");
@@ -414,8 +382,6 @@ internal static class TranslatorContext
 
             var term = split[0];
             var text = split[1];
-
-            text = Glossary.Aggregate(text, (current, kvp) => current.Replace(kvp.Key, kvp.Value));
 
             if (result.ContainsKey(term))
             {
