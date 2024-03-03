@@ -990,18 +990,25 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
-        .AddCustomSubFeatures(new PhysicalAttackFinishedByMeCrusher(
-            ConditionDefinitionBuilder
-                .Create("ConditionFeatCrusherCriticalHit")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-                .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(
-                    FeatureDefinitionCombatAffinityBuilder
-                        .Create("CombatAffinityFeatCrusher")
-                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition, Gui.NoLocalization)
-                        .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-                        .AddToDB())
-                .AddToDB()))
+        .AddCustomSubFeatures(
+            new PhysicalAttackFinishedByMeCrusher(
+                EffectFormBuilder.ConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionFeatCrusherCriticalHit")
+                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+                        .SetConditionType(ConditionType.Detrimental)
+                        .SetFeatures(
+                            FeatureDefinitionCombatAffinityBuilder
+                                .Create("CombatAffinityFeatCrusher")
+                                .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition,
+                                    Gui.NoLocalization)
+                                .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                                .AddToDB())
+                        .AddToDB()),
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                    .Build()))
         .AddToDB();
 
     private static FeatDefinition BuildCrusherStr()
@@ -1032,51 +1039,35 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackFinishedByMeCrusher(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
-        : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeCrusher(EffectForm criticalEffectForm, EffectForm pushEffectForm)
+        : IAttackBeforeHitConfirmedOnEnemy
     {
         private const string SpecialFeatureName = "FeatureCrusher";
 
-        public IEnumerator OnPhysicalAttackFinishedByMe(
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rollOutcome is RollOutcome.CriticalSuccess)
-            {
-                rulesetDefender.InflictCondition(
-                    conditionDefinition.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionDefinition.Name,
-                    0,
-                    0,
-                    0);
-            }
-
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackMode, null, null))
             {
                 yield break;
+            }
+            
+            if ( criticalHit)
+            {
+                actualEffectForms.Add(criticalEffectForm);
             }
 
             if (!attacker.OncePerTurnIsValid(SpecialFeatureName) ||
@@ -1085,54 +1076,8 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var actionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (actionService == null || !battleManager.IsBattleInProgress)
-            {
-                yield break;
-            }
-
-            if (attackMode.ranged ||
-                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackMode, null, null))
-            {
-                yield break;
-            }
-
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("Crusher", reactionParams);
-
-            actionService.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
-            };
-
-            implementationService.ApplyEffectForms(
-                [
-                    EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                        .Build()
-                ],
-                applyFormsParams,
-                [],
-                out _,
-                out _);
-
             attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
+            actualEffectForms.Add(pushEffectForm);
         }
     }
 

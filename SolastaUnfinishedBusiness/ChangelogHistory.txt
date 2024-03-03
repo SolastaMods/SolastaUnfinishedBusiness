@@ -1,11 +1,13 @@
 1.5.97.0:
 
-- added Ranger Gloom Stalker
+- added Ranger Gloom Stalker subclass
 - fixed campaigns translator changing nodes tech names
 - fixed Eldritch Versatility Adept feat always getting offered
-- fixed Ranger Wildmaster [RESPEC is required]
-- fixed Wildling feral agility tired condition removal logic
-- fixed Wizard Deadmaster necromancy bonus DC missing 4 spells
+- fixed Wildling feral agility feature tired condition removal logic
+- fixed Wizard Deadmaster necromancy bonus DC feature missing 4 spells
+- improved Crusher feat to not require a modal on trigger
+- improved Imp impish wrath feature to not require a modal on trigger
+- rebalanced Ranger Wildmaster [RESPEC is required]
 
 1.5.94.56:
 
