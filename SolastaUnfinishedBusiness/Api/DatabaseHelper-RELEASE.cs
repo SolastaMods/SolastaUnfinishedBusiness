@@ -568,6 +568,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionParalyzed { get; } =
             GetDefinition<ConditionDefinition>("ConditionParalyzed");
 
+        internal static ConditionDefinition ConditionPassWithoutTrace { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPassWithoutTrace");
+
         internal static ConditionDefinition ConditionPatronHiveWeakeningPheromones { get; } =
             GetDefinition<ConditionDefinition>("ConditionPatronHiveWeakeningPheromones");
 
@@ -1732,24 +1735,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDruidWildShape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidWildShape");
 
-        internal static FeatureDefinitionPower PowerEyebiteAsleep { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerEyebiteAsleep");
-
-        internal static FeatureDefinitionPower PowerEyebitePanicked { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerEyebitePanicked");
-
-        internal static FeatureDefinitionPower PowerEyebiteSickened { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerEyebiteSickened");
-
-        internal static FeatureDefinitionPower PowerFiendishResilienceCold { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceCold");
-
-        internal static FeatureDefinitionPower PowerFiendishResilienceFire { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceFire");
-
-        internal static FeatureDefinitionPower PowerFiendishResilienceLightning { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceLightning");
-
         internal static FeatureDefinitionPower PowerFighterActionSurge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterActionSurge");
 
@@ -1761,9 +1746,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerFunctionGoodberryHealingOther { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionGoodberryHealingOther");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionOfInvisibility { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfInvisibility");
 
         internal static FeatureDefinitionPower PowerFunctionWandFearCommand { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCommand");
@@ -1875,6 +1857,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerPatronHiveReactiveCarapace { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronHiveReactiveCarapace");
+
+        internal static FeatureDefinitionPower PowerPatronTimekeeperAccelerate { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperAccelerate");
 
         internal static FeatureDefinitionPower PowerPatronTimekeeperTimeShift { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperTimeShift");
@@ -3494,10 +3479,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition ExpeditiousRetreat { get; } =
             GetDefinition<SpellDefinition>("ExpeditiousRetreat");
 
-        internal static SpellDefinition Eyebite { get; } = GetDefinition<SpellDefinition>("Eyebite");
-        internal static SpellDefinition EyebiteAsleep { get; } = GetDefinition<SpellDefinition>("EyebiteAsleep");
-        internal static SpellDefinition EyebitePanicked { get; } = GetDefinition<SpellDefinition>("EyebitePanicked");
-        internal static SpellDefinition EyebiteSickened { get; } = GetDefinition<SpellDefinition>("EyebiteSickened");
         internal static SpellDefinition FaerieFire { get; } = GetDefinition<SpellDefinition>("FaerieFire");
         internal static SpellDefinition FalseLife { get; } = GetDefinition<SpellDefinition>("FalseLife");
         internal static SpellDefinition Fear { get; } = GetDefinition<SpellDefinition>("Fear");

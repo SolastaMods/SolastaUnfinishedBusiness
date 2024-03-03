@@ -65,7 +65,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
         var conditionDreadAmbusherMainAttack = ConditionDefinitionBuilder
             .Create($"Condition{Name}DreadAmbusherMainAttack")
             .SetGuiPresentationNoContent(true)
-            //.SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(actionAffinityDreadAmbusherMainAttack, additionalDamageDreadAmbusher)
             .AddToDB();
 
@@ -80,7 +80,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
         var conditionDreadAmbusherBonusAttack = ConditionDefinitionBuilder
             .Create($"Condition{Name}DreadAmbusherBonusAttack")
             .SetGuiPresentationNoContent(true)
-            //.SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(actionAffinityDreadAmbusherBonusAttack, additionalDamageDreadAmbusher)
             .AddToDB();
 
