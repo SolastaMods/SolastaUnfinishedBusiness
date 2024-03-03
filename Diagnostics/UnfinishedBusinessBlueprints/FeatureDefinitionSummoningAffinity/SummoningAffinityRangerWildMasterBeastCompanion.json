@@ -2,7 +2,10 @@
   "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
   "requiredMonsterTag": "BeastCompanion",
   "addedConditions": [
-    "Definition:ConditionKindredSpiritMagicalSpiritMagicAttack:b46c70c51f36e0a40865b40c9535ddd8"
+    "Definition:ConditionRangerWildMasterBeastCompanionArmorClass:dd8ce970-2b28-5e40-8654-0878ef98cbd9",
+    "Definition:ConditionRangerWildMasterBeastCompanionArmorClassAttackRoll:816b873f-2800-5189-b8c6-536631dcab07",
+    "Definition:ConditionRangerWildMasterBeastCompanionDamageRoll:3f3495b7-2b82-5860-8b9d-263f50516719",
+    "Definition:ConditionRangerWildMasterBeastCompanionHitPoints:d3017af1-810e-576b-8d17-56ed3c66c761"
   ],
   "effectOnConjuredDeath": false,
   "effectForms": [],
@@ -10,14 +13,14 @@
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "73b4118d-4485-5321-b6a6-3cc692b41d1b",
+  "guid": "263b5659-03d7-5132-8ca9-bfc904cdfb97",
   "contentPack": 9999,
-  "name": "SummoningAffinityRangerWildMasterSummonBeastCompanion07"
+  "name": "SummoningAffinityRangerWildMasterBeastCompanion"
 }

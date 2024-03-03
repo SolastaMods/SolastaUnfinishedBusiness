@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
+  "modifiedAttribute": "HitPoints",
   "modifierOperation": "AddConditionAmount",
   "modifierValue": 0,
   "modifierAbilityScore": "Constitution",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2c82733c-134e-5069-a49b-93146f8bd90a",
+  "guid": "1b8d062b-1529-5864-929f-415dc74b1d0e",
   "contentPack": 9999,
-  "name": "AttributeModifierRangerWildMasterSummonBeastCompanionAC"
+  "name": "AttributeModifierRangerWildMasterHitPoints"
 }

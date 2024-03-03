@@ -1,14 +1,11 @@
 {
-  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
-  "requiredMonsterTag": "BeastCompanion",
-  "addedConditions": [
-    "Definition:ConditionRangerWildMasterSummonBeastCompanionAcBonus:53a81035-24b8-503c-8a05-b5a7a8b0f0fc",
-    "Definition:ConditionRangerWildMasterSummonBeastCompanionLevel:2dd29b4f-ec80-5d8d-8e80-9bffa200c8e5",
-    "Definition:ConditionRangerWildMasterSummonBeastCompanionProficiencyBonusToDamage:b3c1bb35-f09e-5812-93b5-b9340ace97f0",
-    "Definition:ConditionRangerWildMasterSummonBeastCompanionSourceProficiencyBonusToHit:1d6e8a91-3a21-5759-85c1-4b91d16c8995"
-  ],
-  "effectOnConjuredDeath": false,
-  "effectForms": [],
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -35,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e1091c3f-ba1e-5ba3-bdcb-6dae3cdec1d9",
+  "guid": "72ef437b-c699-561b-b295-63e89db9acca",
   "contentPack": 9999,
-  "name": "SummoningAffinityRangerWildMasterBeastCompanion03"
+  "name": "SavingThrowAffinityRangerWildMasterTrueExpertise"
 }

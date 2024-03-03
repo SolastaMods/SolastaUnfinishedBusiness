@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AttackModifierRangerWildMasterDamageRoll:f34956fe-7c94-5634-afde-e9a691ffc20a"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -86,7 +88,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": "None",
+  "amountOrigin": "SourceSpellCastingAbility",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -149,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1fa6b777-1724-5d52-a190-1f04ac33e80a",
+  "guid": "3f3495b7-2b82-5860-8b9d-263f50516719",
   "contentPack": 9999,
-  "name": "ConditionWildMasterBeastCompanionCommand"
+  "name": "ConditionRangerWildMasterBeastCompanionDamageRoll"
 }

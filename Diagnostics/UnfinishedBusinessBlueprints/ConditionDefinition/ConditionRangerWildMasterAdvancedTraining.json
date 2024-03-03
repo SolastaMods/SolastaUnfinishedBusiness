@@ -3,12 +3,10 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AttributeModifierRangerWildMasterSummonBeastCompanionAC:2c82733c-134e-5069-a49b-93146f8bd90a"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -87,8 +85,8 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
-  "amountOrigin": "SourceSpellCastingAbility",
+  "possessive": true,
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -129,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionRangerWildMasterAdvancedTrainingTitle",
+    "description": "Condition/&ConditionRangerWildMasterAdvancedTrainingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "7c1f5843eca54a04da6ad54351360c59",
+      "m_SubObjectName": "ConditionPassWithoutTrace",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "53a81035-24b8-503c-8a05-b5a7a8b0f0fc",
+  "guid": "510ce949-e903-5cfc-92a5-48bfca3479e0",
   "contentPack": 9999,
-  "name": "ConditionRangerWildMasterSummonBeastCompanionAcBonus"
+  "name": "ConditionRangerWildMasterAdvancedTraining"
 }

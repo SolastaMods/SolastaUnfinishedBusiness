@@ -6,14 +6,14 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 2,
       "spellsList": [
-        "Definition:StrikeWithTheWind:d641e4ac-7291-5516-a07c-f45b6444dcfe"
+        "Definition:DetectEvilAndGood:e3e901f033c79014bb90853c4c0bf29d"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 5,
       "spellsList": [
-        "Definition:PassWithoutTrace:f6e7156667938ea48ba53c669cc59019"
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
       ]
     },
     {

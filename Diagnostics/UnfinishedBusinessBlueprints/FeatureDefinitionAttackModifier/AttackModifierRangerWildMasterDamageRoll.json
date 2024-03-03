@@ -2,13 +2,13 @@
   "$type": "FeatureDefinitionAttackModifier, Assembly-CSharp",
   "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
-  "attackRollModifierMethod": "SourceConditionAmount",
+  "attackRollModifierMethod": "None",
   "attackRollUseCasterBonus": false,
-  "attackRollModifier": 1,
+  "attackRollModifier": 0,
   "attackRollAbilityScore": "",
-  "damageRollModifierMethod": "None",
+  "damageRollModifierMethod": "SourceConditionAmount",
   "damageRollUseCasterBonus": false,
-  "damageRollModifier": 0,
+  "damageRollModifier": 1,
   "damageRollAbilityScore": "",
   "additionalDamageDice": 0,
   "canDualWieldNonLight": false,
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "347661dc-3985-56ab-bbc6-77e52b73b0e6",
+  "guid": "f34956fe-7c94-5634-afde-e9a691ffc20a",
   "contentPack": 9999,
-  "name": "AttackModifierRangerWildMasterSummonBeastCompanionToHit"
+  "name": "AttackModifierRangerWildMasterDamageRoll"
 }

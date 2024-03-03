@@ -3,22 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRangerWildMaster03:d881f7e1-ef51-5159-8967-15aa0a09b946",
+      "featureDefinition": "Definition:FeatureSetRangerWildMasterBeastCompanion:0ca2f3fd-cea2-5d19-883f-8b9a3e953fb3",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRangerWildMaster07:d3ad6483-0b5d-5d8d-869e-d9d07b3e527d",
+      "featureDefinition": "Definition:FeatureSetRangerWildMasterAdvancedTraining:ab721c6b-103b-59bb-9601-f24fa426a8ef",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRangerWildMaster11:c938f695-141f-5997-bba2-d242790b70d3",
+      "featureDefinition": "Definition:SummoningAffinityRangerWildMasterTrueExpertise:b66ff234-1fd6-508c-8359-733b53e95005",
       "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRangerWildMaster15:a1380c46-4909-517f-a996-f723c553c5bb",
+      "featureDefinition": "Definition:PowerRangerWildMasterKillCommand:b97390d9-0ab4-56a7-8d23-add910b758b3",
       "level": 15
     }
   ],

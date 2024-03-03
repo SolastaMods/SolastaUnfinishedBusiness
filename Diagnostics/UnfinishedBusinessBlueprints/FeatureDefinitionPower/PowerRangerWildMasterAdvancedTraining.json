@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -32,8 +32,8 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Round",
-    "durationParameter": 0,
-    "endOfEffect": "StartOfTurn",
+    "durationParameter": 1,
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -78,8 +78,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionWildMasterBeastCompanionCommand",
-          "conditionDefinition": "Definition:ConditionWildMasterBeastCompanionCommand:1fa6b777-1724-5d52-a190-1f04ac33e80a",
+          "conditionDefinitionName": "ConditionRangerWildMasterAdvancedTraining",
+          "conditionDefinition": "Definition:ConditionRangerWildMasterAdvancedTraining:510ce949-e903-5cfc-92a5-48bfca3479e0",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -321,19 +321,19 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRangerWildMasterCommandBeastCompanionTitle",
-    "description": "Feature/&PowerRangerWildMasterCommandBeastCompanionDescription",
+    "title": "Feature/&PowerRangerWildMasterAdvancedTrainingTitle",
+    "description": "Feature/&PowerRangerWildMasterAdvancedTrainingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6edc0b78da56b1e4b94c3d7fb6c96dec",
-      "m_SubObjectName": "Command",
+      "m_AssetGUID": "c78676582e2ee9c40a5866ae24aaa966",
+      "m_SubObjectName": "Accelerate",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -349,7 +349,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "57a99a5c-8347-5596-812f-bffb1abf8c88",
+  "guid": "2ff339dd-2dfb-575c-bec2-e8403bd5d492",
   "contentPack": 9999,
-  "name": "PowerRangerWildMasterCommandBeastCompanion"
+  "name": "PowerRangerWildMasterAdvancedTraining"
 }

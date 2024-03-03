@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttackModifierRangerWildMasterSummonBeastCompanionToHit:347661dc-3985-56ab-bbc6-77e52b73b0e6"
+    "Definition:AttributeModifierRangerWildMasterArmorClass:297299ef-235d-5334-bd1e-7f0654b744b8"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1d6e8a91-3a21-5759-85c1-4b91d16c8995",
+  "guid": "dd8ce970-2b28-5e40-8654-0878ef98cbd9",
   "contentPack": 9999,
-  "name": "ConditionRangerWildMasterSummonBeastCompanionSourceProficiencyBonusToHit"
+  "name": "ConditionRangerWildMasterBeastCompanionArmorClass"
 }

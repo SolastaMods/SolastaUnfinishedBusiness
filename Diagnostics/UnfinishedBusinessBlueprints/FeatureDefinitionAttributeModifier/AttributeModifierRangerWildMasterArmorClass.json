@@ -1,17 +1,16 @@
 {
-  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
-  "useControllerSavingThrows": false,
-  "priorityAbilityScore": "",
-  "affinityGroups": [],
-  "indomitableSavingThrows": 0,
-  "canBorrowLuck": false,
-  "canUseDiamondSoul": false,
-  "myselfFamilyRestrictions": [],
-  "otherCharacterFamilyRestrictions": [],
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "ArmorClass",
+  "modifierOperation": "AddConditionAmount",
+  "modifierValue": 0,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feedback/&BeastCompanionBonusTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -32,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "180aadf4-20da-53ef-9542-f622ae7d3b30",
+  "guid": "297299ef-235d-5334-bd1e-7f0654b744b8",
   "contentPack": 9999,
-  "name": "SavingThrowAffinityRangerWildMasterSummonBeastCompanion"
+  "name": "AttributeModifierRangerWildMasterArmorClass"
 }

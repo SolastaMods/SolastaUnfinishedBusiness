@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionSense, Assembly-CSharp",
   "senseType": "Darkvision",
-  "senseRange": 12,
-  "stealthBreakerRange": 6,
+  "senseRange": 18,
+  "stealthBreakerRange": 9,
   "revealsHiddenObjects": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

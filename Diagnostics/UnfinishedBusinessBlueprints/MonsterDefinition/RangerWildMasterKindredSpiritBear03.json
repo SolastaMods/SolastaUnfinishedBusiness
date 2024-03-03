@@ -14,8 +14,8 @@
   "armor": "",
   "hitDice": 3,
   "hitDiceType": "D8",
-  "hitPointsBonus": 5,
-  "standardHitPoints": 12,
+  "hitPointsBonus": 6,
+  "standardHitPoints": 5,
   "abilityScores": [
     15,
     10,
@@ -183,7 +183,7 @@
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
-  "groupAttacks": true,
+  "groupAttacks": false,
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
@@ -210,7 +210,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "15c70afa-e89a-583b-bee8-dba0f2e9f7ca",
+  "guid": "79a57472-5409-550b-b82d-f6437f53ba5b",
   "contentPack": 9999,
-  "name": "RangerWildMasterKindredSpiritBear"
+  "name": "RangerWildMasterKindredSpiritBear03"
 }

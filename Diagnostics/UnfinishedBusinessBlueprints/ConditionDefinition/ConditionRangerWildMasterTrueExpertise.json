@@ -4,11 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierRangerWildMasterSummonBeastCompanionHP:5e74bc31-c8a1-5a01-a06b-101158467241",
-    "Definition:AttributeModifierRangerWildMasterSummonBeastCompanionHP:5e74bc31-c8a1-5a01-a06b-101158467241",
-    "Definition:AttributeModifierRangerWildMasterSummonBeastCompanionHP:5e74bc31-c8a1-5a01-a06b-101158467241",
-    "Definition:AttributeModifierRangerWildMasterSummonBeastCompanionHP:5e74bc31-c8a1-5a01-a06b-101158467241",
-    "Definition:AttributeModifierRangerWildMasterSummonBeastCompanionHP:5e74bc31-c8a1-5a01-a06b-101158467241"
+    "Definition:SavingThrowAffinityRangerWildMasterTrueExpertise:72ef437b-c699-561b-b295-63e89db9acca"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -92,7 +88,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": 9001,
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -155,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2dd29b4f-ec80-5d8d-8e80-9bffa200c8e5",
+  "guid": "df0c33a8-7a09-59c3-8187-3c5b619cf553",
   "contentPack": 9999,
-  "name": "ConditionRangerWildMasterSummonBeastCompanionLevel"
+  "name": "ConditionRangerWildMasterTrueExpertise"
 }

@@ -1,16 +1,17 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "HitPoints",
-  "modifierOperation": "AddConditionAmount",
-  "modifierValue": 0,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "BeastCompanion",
+  "addedConditions": [
+    "Definition:ConditionRangerWildMasterTrueExpertise:df0c33a8-7a09-59c3-8187-3c5b619cf553"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feedback/&BeastCompanionBonusTitle",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -31,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5e74bc31-c8a1-5a01-a06b-101158467241",
+  "guid": "b66ff234-1fd6-508c-8359-733b53e95005",
   "contentPack": 9999,
-  "name": "AttributeModifierRangerWildMasterSummonBeastCompanionHP"
+  "name": "SummoningAffinityRangerWildMasterTrueExpertise"
 }

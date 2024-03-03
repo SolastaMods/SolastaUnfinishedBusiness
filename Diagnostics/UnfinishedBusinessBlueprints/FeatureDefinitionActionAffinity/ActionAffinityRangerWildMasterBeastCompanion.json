@@ -11,15 +11,10 @@
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
   "forbiddenActions": [
-    "AttackMain",
-    "AttackOff",
-    "AttackOpportunity",
-    "PowerBonus",
-    "PowerMain",
-    "PowerReaction",
-    "SpendPower",
-    "AttackReadied",
-    "Ready"
+    "DashBonus",
+    "DashMain",
+    "DisengageBonus",
+    "DisengageMain"
   ],
   "authorizedActions": [],
   "restrictedActions": [],
