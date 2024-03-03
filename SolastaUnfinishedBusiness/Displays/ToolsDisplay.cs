@@ -47,9 +47,6 @@ internal static class ToolsDisplay
                 UI.Width(200f));
         }
 
-        UI.ActionButton(Gui.Localize("ModUi/&OpenSubjectiveGuide"), UpdateContext.OpenSubjectiveGuideToSolasta,
-            UI.Width(608f));
-
         UI.Label();
 
         var toggle = Main.Settings.DisableUnofficialTranslations;

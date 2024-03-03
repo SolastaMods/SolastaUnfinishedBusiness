@@ -208,7 +208,6 @@ ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Cambia la
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Cambia las áreas <color=#D89555>oscurecidas mágicamente</color> para que sean bloqueadores de proyectiles <color=#F0DAA0>[cualquier fuente del efecto de hechizo <color=#D89555>Oscuridad</color>]</color >>i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Añade <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> y <color=#D89555>TrueSight</color> a monstruos y NPC cuando sea apropiado.\n <color=#F0DAA0>[colecciones de configuración <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar solo las criaturas más poderosas en la lista de conjuros</i>
-ModUi/&OpenSubjectiveGuide=Abre La guía subjetiva de Solasta de <b><color=#D89555>u/CounterYolo</color></b>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplica el ancho de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplica la velocidad de animación de la cuadrícula del contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Anule los niveles mínimos y máximos requeridos al comenzar nuevas aventuras
