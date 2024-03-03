@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupFightingStyleTitle",
-    "description": "Archery, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Lunger, Merciless, Monastic Shield Training, Overwatch, Polearm Expert, Protection, Pugilist, Remarkable Technique, Rope it Up, Shield Expert, Torchbearer, Two Weapon Fighting, Warden",
+    "description": "Archery, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Merciless, Monastic Shield Training, Polearm Master, Protection, Pugilist, Rope it Up, Sentinel, Shield Expert, Superior Technique, Torchbearer, Two Weapon Fighting",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

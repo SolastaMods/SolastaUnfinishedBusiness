@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupMeleeCombatTitle",
-    "description": "Always Ready, Blade Expert, Cleaving Attack, Daunting Push, Defensive Stance, Destroyer, Devastating Strikes, Distracting Gambit, Elemental Touch, Fencer, Hammer the Point, Longsword Finesse, Martial Might, Old Tactics, Piercing Expert, Power Attack, Reckless Attack, Savage Attack, Slashing Expert, Spear Expert, Trip Attack",
+    "description": "Always Ready, Blade Mastery, Crusher, Daunting Push, Defensive Duelist, Devastating Strikes, Distracting Gambit, Elemental Touch, Fell Handed, Fencer, Great Weapon Master, Hammer the Point, Longsword Finesse, Old Tactics, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

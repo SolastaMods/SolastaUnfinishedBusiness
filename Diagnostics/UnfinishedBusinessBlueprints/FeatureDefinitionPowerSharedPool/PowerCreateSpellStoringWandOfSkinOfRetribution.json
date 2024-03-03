@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Skin of Retribution",
-    "description": "Create a wand that can cast <b>Skin of Retribution (I)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Armor of Agathys",
+    "description": "Create a wand that can cast <b>Armor of Agathys (I)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "331d497f-bb40-5372-93d7-5584cf598a49",

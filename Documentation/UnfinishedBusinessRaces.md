@@ -1,21 +1,32 @@
-# 1. - Battleborn
+# 1. - Aasimar
 
-The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul searching for purpose and meaning.
+Aasimar are divine creations formed in the shape of men to perform the will of their Deities. When they mature, they are able to take an Angelic Form depending on their nature.
 
 
 ## Level 1
 
 * Ability Score Increase
 
-Constitution +2, increase 1 other score by 1 point.
+Charisma +2, increase 1 other score by 1 point.
 
-* Arcane Resilience
+* Angelic Form
 
-You were created to have remarkable fortitude, represented by the following benefits:
-• You gain a +1 bonus to Armor Class.
-• You have advantage on saving throws against being poisoned, and you have resistance to poison damage.
-• You are immune to disease.
-• You don't need to sleep, and magic can't put you to sleep.
+When you reach 3rd level, you can choose an Angelic Form. All Angelic forms use your bonus action.  Once you use this power, you cannot use it until you finish a long rest:
+• Angelic Flight: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. You also gain flying speed equal to your movement speed.
+• Angelic Radiance: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. On the end of each of your turn, you deal 1d4 Radiant damage to enemies 10 feat around you. This damage increases to 1d6, 1d8, 1d10, and 1d12 every four levels.
+• Angelic Visage: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. On activation, every enemy need to roll Charisma saving throw against 8 + your proficiency bonus + Charisma modifier, or be frightened until the end of your next turn.
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Divine Resistance
+
+You are resistant to Radiant and Necrotic damage.
+
+* Healing Touch
+
+You can use your Action to heal an ally you can touch. The target will regain HP equal to your character level. Once you use this power, you can't use it again until you finish a long rest.
 
 * Languages
 
@@ -25,9 +36,16 @@ Common and one language of your choice.
 
 6◎
 
-* Specialized Infusion
+* Aasimar Magic
 
-You gain one skill proficiency and one tool proficiency of your choice.
+You know the Light cantrip.
+
+
+## Level 3
+
+* Angelic Form
+
+You may choose one of Aasimar's Angelic Forms.
 
 
 
@@ -251,13 +269,13 @@ Common, Elvish
 
 * Fairy Magic
 
-You know the Burst of Radiance cantrip. At 3rd level you learn Faerie Fire and at 5th level, Color Burst. Both can be used once per long rest.
+You know the Word of Radiance cantrip. At 3rd level you learn Faerie Fire and at 5th level, Color Burst. Both can be used once per long rest.
 
 
 
 # 10. - Feral
 
- These tieflings display features and abilities which make them much more characteristically demonic such as a forked tail and large bat-like wings. Because of this, many feral tieflings are forced to hiding to avoid scrutiny or being hunted while others embrace this fiendish nature.
+These tieflings display features and abilities which make them much more characteristically demonic such as a forked tail and large bat-like wings. Because of this, many feral tieflings are forced to hiding to avoid scrutiny or being hunted while others embrace this fiendish nature.
 
 
 ## Level 1
@@ -302,7 +320,48 @@ You use your bonus action to Disengage or Hide.
 
 
 
-# 12. - Gray Dwarf
+# 12. - Goliath
+
+Goliaths share ancestry with the giants that live in the northern regions of Solasta.
+
+
+## Level 1
+
+* Attribute Increase
+
+Strength +2
+
+* Attribute Increase
+
+Constitution +1
+
+* Hot-Blooded
+
+You have resistance to cold damage. You are immune to the effects of moderately cold weather. You are also Chilled instead of Frozen in colder weather.
+
+* Language
+
+Common and Giant.
+
+* Move
+
+6◎
+
+* Natural Athlete
+
+You have proficiency in the Athletics skill.
+
+* Powerful Build
+
+You count your size as Large when determining your carrying capacity.
+
+* Stone's Endurance
+
+When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled and reduce incoming damage by that amount. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
+
+
+
+# 13. - Gray Dwarf
 
 The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 
@@ -345,7 +404,7 @@ You can magically turn invisible for up to 1 minute. This invisibility breaks if
 
 
 
-# 13. - Half-Dark Elf
+# 14. - Half-Dark Elf
 
 Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 
@@ -362,7 +421,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 14. - Half-Elf
+# 15. - Half-Elf
 
 Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
@@ -388,7 +447,7 @@ Common, Elvish, and one language of your choice
 
 
 
-# 15. - Half-High Elf
+# 16. - Half-High Elf
 
 Half-High elves are trained to use magic very early.
 
@@ -405,7 +464,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-# 16. - Half-Sylvan Elf
+# 17. - Half-Sylvan Elf
 
 Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 
@@ -418,7 +477,7 @@ Half-Sylvan elves are trained to survive in the wilds and are particularly apt t
 
 
 
-# 17. - High Wyrmkin
+# 18. - High Wyrmkin
 
 High Wyrmkins descended from a race of wyrms that have psionic abilities. Instead of dragon's breath, they can use their psionic powers to deal damage.
 
@@ -443,7 +502,7 @@ When a creature hits you with an attack, you can use your reaction to attack the
 
 
 
-# 18. - Imp
+# 19. - Imp
 
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
@@ -464,7 +523,7 @@ Common and one language of your choice.
 
 
 
-# 19. - Infernal Imp
+# 20. - Infernal Imp
 
 Interplanear experiments during the Manacalon era led to demons and other creatures being brought into the material plane. While many of these creatures were eventually contained or banished, the sneaky imps were able to hide away, secretly adapting and thriving in various pockets of the Badlands ever since. Now, some of them have decided to emerge and explore the world around them, even if those in it may not take kindly to their demonic nature.
 
@@ -485,9 +544,9 @@ You know the Vicious Mockery cantrip. When you reach level 3, you can cast Invis
 
 
 
-# 20. - Ironborn Dwarf
+# 21. - Ironborn Dwarf
 
-Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves. Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance. 
+Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves. Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance.
 
 
 ## Level 1
@@ -506,7 +565,7 @@ Common, Dwarvish
 
 
 
-# 21. - Kobold
+# 22. - Kobold
 
 Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -524,57 +583,6 @@ Common, Draconic.
 * Move
 
 6◎
-
-
-
-# 22. - Malakh
-
-Malakh are divine creations formed in the shape of men to perform the will of their Deities. When they mature, they are able to take an Angelic Form depending on their nature.
-
-
-## Level 1
-
-* Ability Score Increase
-
-Charisma +2, increase 1 other score by 1 point.
-
-* Angelic Form
-
-When you reach 3rd level, you can choose an Angelic Form. All Angelic forms use your bonus action.  Once you use this power, you cannot use it until you finish a long rest:
-• Angelic Flight: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. You also gain flying speed equal to your movement speed.
-• Angelic Radiance: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. On the end of each of your turn, you deal 1d4 Radiant damage to enemies 10 feat around you. This damage increases to 1d6, 1d8, 1d10, and 1d12 every four levels.
-• Angelic Visage: For one minute, once per turn, you deal additional Radiant damage equal to your proficiency bonus when you hit an enemy. On activation, every enemy need to roll Charisma saving throw against 8 + your proficiency bonus + Charisma modifier, or be frightened until the end of your next turn.
-
-* Darkvision
-
-See normally in dim light, and in natural darkness as if in dim light.
-
-* Divine Resistance
-
-You are resistant to Radiant and Necrotic damage.
-
-* Healing Touch
-
-You can use your Action to heal an ally you can touch. The target will regain HP equal to your character level. Once you use this power, you can't use it again until you finish a long rest.
-
-* Languages
-
-Common and one language of your choice.
-
-* Move
-
-6◎
-
-* Malakh Magic
-
-You know the Light cantrip.
-
-
-## Level 3
-
-* Angelic Form
-
-You may choose one of Malakh's Angelic Forms.
 
 
 
@@ -616,48 +624,7 @@ Common, Dwarvish, and Giant
 
 
 
-# 25. - Oligath
-
-Oligaths share ancestry with the giants that live in the northern regions of Solasta.
-
-
-## Level 1
-
-* Attribute Increase
-
-Strength +2
-
-* Attribute Increase
-
-Constitution +1
-
-* Hot-Blooded
-
-You have resistance to cold damage. You are immune to the effects of moderately cold weather. You are also Chilled instead of Frozen in colder weather.
-
-* Language
-
-Common and Giant.
-
-* Move
-
-6◎
-
-* Natural Athlete
-
-You have proficiency in the Athletics skill.
-
-* Powerful Build
-
-You count your size as Large when determining your carrying capacity.
-
-* Stone's Endurance
-
-When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled and reduce incoming damage by that amount. You can use this trait equal to your proficiency bonus, and regain expended uses after long rest.
-
-
-
-# 26. - Oni
+# 25. - Oni
 
 Oni are Demon-like creatures from far eastern island kingdom of Himoto. They came to Solasta through activated major gates.
 
@@ -694,7 +661,7 @@ At 3rd level, you can cast Thunderous Smite once per long rest. Wisdom is your s
 
 
 
-# 27. - Tiefling
+# 26. - Tiefling
 
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 
@@ -716,6 +683,39 @@ You have resistance to fire damage.
 * Move
 
 6◎
+
+
+
+# 27. - Warforged
+
+The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul searching for purpose and meaning.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Constitution +2, increase 1 other score by 1 point.
+
+* Arcane Resilience
+
+You were created to have remarkable fortitude, represented by the following benefits:
+• You gain a +1 bonus to Armor Class.
+• You have advantage on saving throws against being poisoned, and you have resistance to poison damage.
+• You are immune to disease.
+• You don't need to sleep, and magic can't put you to sleep.
+
+* Languages
+
+Common and one language of your choice.
+
+* Move
+
+6◎
+
+* Specialized Infusion
+
+You gain one skill proficiency and one tool proficiency of your choice.
 
 
 

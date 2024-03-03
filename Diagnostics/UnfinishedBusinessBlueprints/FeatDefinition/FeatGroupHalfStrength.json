@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupHalfStrengthTitle",
-    "description": "Awaken the Beast [Str], Creed of Einar, Destroyer [Str], Hardy [Str], Hauler, Heavy Armor Expert, Medium Armor [Str], Might of the Iron Legion, Nimbleness [Str], Old Tactics [Str], Piercing Expertise [Str], Primal Rage [Str], Revenant Great Sword [Str], Slashing Expert [Str]",
+    "description": "Awaken the Beast [Str], Creed of Einar, Crusher [Str], Hardy [Str], Hauler, Heavy Armor Master, Might of the Iron Legion, Moderately Armored [Str], Old Tactics [Str], Piercerise [Str], Primal Rage [Str], Revenant Blade [Str], Slasher [Str], Squat Nimbleness [Str]",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

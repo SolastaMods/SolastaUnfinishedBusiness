@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupPlaneTouchedMagicTitle",
-    "description": "Aegis Touched, Arcane Teleportation, Celestial Touched, Flame Touched, Iridescent Touched, Peregrination Touched, Psychokinesis, Retinue Touched, Umbra Touched, Verdant Touched",
+    "description": "Aegis Touched, Celestial Touched, Fey Teleportation, Flame Touched, Iridescent Touched, Peregrination Touched, Retinue Touched, Shadow Touched, Telekinetic, Verdant Touched",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Ice Blade",
-    "description": "Create a wand that can cast <b>Ice Blade (I)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Ice Knife",
+    "description": "Create a wand that can cast <b>Ice Knife (I)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "27b2cb1d-3404-5b98-8228-c4735f70fe56",

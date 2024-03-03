@@ -6,17 +6,17 @@ Only one additional damage infusion can be active per weapon.
 # 2. - Enhance Defense
 
 Infuse armor or shield to grant a +1 to armor class.
-The bonus increases to +2 when you reach level 10 of Inventor class.
+The bonus increases to +2 when you reach level 10 of Artificer class.
 
 # 3. - Enhance Focus
 
 Infuse staff or a spell focus to grant +1 to spell attack rolls and DC.
-The bonus increases to +2 when you reach level 10 of Inventor class.
+The bonus increases to +2 when you reach level 10 of Artificer class.
 
 # 4. - Enhance Weapon
 
 Infuse weapon to grant +1 to attack and damage rolls.
-The bonus increases to +2 when you reach level 10 of Inventor class. Will replace Repeating Shot or Returning Weapon infusion on weapon it is applied to.
+The bonus increases to +2 when you reach level 10 of Artificer class. Will replace Repeating Shot or Returning Weapon infusion on weapon it is applied to.
 
 # 5. - Major Elemental
 

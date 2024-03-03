@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Potent Spellcaster [Inventor]",
-    "description": "You can add your spellcaster attribute modifier to the damage you deal with any Inventor cantrip in your repertoire.",
+    "title": "Potent Spellcaster [Artificer]",
+    "description": "You can add your spellcaster attribute modifier to the damage you deal with any Artificer cantrip in your repertoire.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupArmorTitle",
-    "description": "Armor Master, Discretion of the Coedymwarth, Heavy Armor Expert, Medium Armor, Medium Armor Expert, Might of the Iron Legion, Sturdiness of the Tundra",
+    "description": "Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Might of the Iron Legion, Moderately Armored, Moderately Armored, Sturdiness of the Tundra",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

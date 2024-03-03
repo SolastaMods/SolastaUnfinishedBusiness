@@ -956,7 +956,7 @@ Mark a creature you see so it receives additional necrotic damage equal to your 
 
 * Keeper of Oblivion
 
-You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.                                                                
+You steal the life-force from your foes as they step to the gates of oblivion, to grant your allies a moment's respite. When an enemy you can see dies within 30 feet of you, allies within 30 ft of you regain hit points from a pool equals to your Cleric level. Allies with lowest health are healed first until the pool is fully consumed. Once you use it, you can't do so again until the start of your next turn.
 
 
 ### Level 20
@@ -2113,7 +2113,7 @@ You can use a bonus action to catch a target within 1 cell of you off guard. The
 
 ### Level 17
 
-* Brutal Assault 
+* Brutal Assault
 
 Starting at 17th level, you gain the following benefits:
 • Whenever the target of your Dirty Fighting fails the saving throw, you can immediately make one weapon attack against that creature as a part of the same bonus action.

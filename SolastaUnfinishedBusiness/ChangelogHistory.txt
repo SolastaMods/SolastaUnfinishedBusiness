@@ -8,6 +8,7 @@
 - fixed Wizard Deadmaster necromancy bonus DC feature missing 4 spells
 - improved Crusher feat to not require a modal on trigger
 - improved Imp impish wrath feature to not require a modal on trigger
+- improved Path of the Elements elemental fury feature description
 - rebalanced Ranger Wildmaster [RESPEC is required]
 
 1.5.94.56:

@@ -230,8 +230,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Wand of Bounden Ice",
-    "description": "This wand allows casting the <b>Bounden Ice</b> spell using spell casting stats of the Inventor who created it.",
+    "title": "Wand of Rime's Binding Ice",
+    "description": "This wand allows casting the <b>Rime's Binding Ice</b> spell using spell casting stats of the Artificer who created it.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "99f5e6021bff7994bb5b9f6832f8145a",

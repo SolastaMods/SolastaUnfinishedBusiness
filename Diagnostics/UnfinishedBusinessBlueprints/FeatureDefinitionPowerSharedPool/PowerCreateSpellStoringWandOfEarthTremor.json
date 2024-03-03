@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Animate Earth",
-    "description": "Create a wand that can cast <b>Animate Earth (I)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Earth Tremor",
+    "description": "Create a wand that can cast <b>Earth Tremor (I)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e6c4119a-dca8-5e6b-a240-1587de7caef6",
