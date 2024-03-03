@@ -20,5 +20,5 @@ Monster/&WildShapeMinotaurEliteDescription=From the ranks of the powerful minota
 Monster/&WildShapeMinotaurEliteTitle=Greymane Minotaur
 Monster/&WildShapeWaterElementalDescription=A Water Elemental is a suffocating torrent of water from the pressure of 3000 swirling gallons of water.
 Monster/&WildShapeWaterElementalTitle=Water Elemental
-Subclass/&CircleOfTheNightDescription=Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
-Subclass/&CircleOfTheNightTitle=Circle of the Night
+Subclass/&CircleOfTheNightDescription=Druids of the Circle of the Moon are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
+Subclass/&CircleOfTheNightTitle=Circle of the Moon

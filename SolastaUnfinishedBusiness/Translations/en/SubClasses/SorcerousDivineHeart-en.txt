@@ -26,4 +26,4 @@ Feature/&PowerDivineHeartEmpoweredHealingTitle=Empowered Healing
 Feature/&PowerDivineHeartPlanarPortalDescription=Opens a portal that can carry a friendly creature and yourself to a specified destination.
 Feature/&PowerDivineHeartPlanarPortalTitle=Planar Portal
 Subclass/&SorcerousDivineHeartDescription=Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
-Subclass/&SorcerousDivineHeartTitle=Divine Heart
+Subclass/&SorcerousDivineHeartTitle=Divine Soul

@@ -13,5 +13,5 @@ Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf=<b>{0}</b> fai
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescription=Spend use of this power to help ally with their saving roll.
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactTitle=Inspiring Protection
 Reaction/&SpendPowerRoyalKnightInspiringProtectionTitle=Inspiring Protection
-Subclass/&MartialRoyalKnightDescription=A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
-Subclass/&MartialRoyalKnightTitle=Royal Knight
+Subclass/&MartialRoyalKnightDescription=A knight who inspires greatness in others by committing brave deeds in battle. A Banneret is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
+Subclass/&MartialRoyalKnightTitle=Banneret

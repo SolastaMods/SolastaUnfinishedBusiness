@@ -1,6 +1,6 @@
 Condition/&ConditionMartialForceKnightForceDriveDescription=Your equipped melee weapons gain 30 feet of additional range.
 Condition/&ConditionMartialForceKnightForceDriveTitle=Force Drive
-Condition/&ConditionMartialForceKnightKineticBarrierDescription=You have a protective shield of pure force around, granting you extra AC equal to the Force Knight Intelligence modifier.
+Condition/&ConditionMartialForceKnightKineticBarrierDescription=You have a protective shield of pure force around, granting you extra AC equal to the Psi Warrior Intelligence modifier.
 Condition/&ConditionMartialForceKnightKineticBarrierTitle=Kinetic Barrier
 Condition/&ConditionMartialForceKnightTelekineticGraspDescription=You can make one attack with a weapon as a bonus action. You can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest, or target a new creature, ending the restrained effect on the previously affected creature.
 Condition/&ConditionMartialForceKnightTelekineticGraspTitle=Telekinesis
@@ -36,6 +36,6 @@ Reaction/&UseKineticBarrierDescription=You or an ally is about to be hit! You ca
 Reaction/&UseKineticBarrierReactDescription=Spend 1 Force Point to shield you or an ally from attack.
 Reaction/&UseKineticBarrierReactTitle=Spend
 Reaction/&UseKineticBarrierTitle=Kinetic Barrier
-Subclass/&MartialForceKnightDescription=Force Knights are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
-Subclass/&MartialForceKnightTitle=Force Knight
+Subclass/&MartialForceKnightDescription=Psi Warriors are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
+Subclass/&MartialForceKnightTitle=Psi Warrior
 Tooltip/&ForcePoweredStrikeDieDescription=Your Force Powered Strike die is a {0} and you have {1} remaining uses.

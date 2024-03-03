@@ -6,4 +6,4 @@ Feature/&FeatureSetBattlebornArcaneResilienceTitle=Arcane Resilience
 Feature/&FeatureSetBattlebornSpecializedInfusionDescription=You gain one skill proficiency and one tool proficiency of your choice.
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Specialized Infusion
 Race/&RaceBattlebornDescription=The battleborn are results of arcane experiments, blending flesh, alchemy and magic to create perfect battlefield soldiers. Created to serve as weapons, they must now find a purpose beyond war. A battleborn can be a loyal ally, a cold-hearted killing machine, or a wandering soul searching for purpose and meaning.
-Race/&RaceBattlebornTitle=Battleborn
+Race/&RaceBattlebornTitle=Warforged

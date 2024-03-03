@@ -12,5 +12,5 @@ Feature/&PowerCollegeOfValianceHeroicInspirationDescription=You can use your bon
 Feature/&PowerCollegeOfValianceHeroicInspirationTitle=Heroic Inspiration
 Feedback/&DishearteningPerformanceUsedFailureLine={0} spends a {2} inspiration die to change the outcome, rolls {3} on the inspiration die but does not change the outcome, which is still success.
 Feedback/&DishearteningPerformanceUsedSuccessLine={0} spends a {2} inspiration die to change the outcome, rolls {3} on the inspiration die and changes the outcome to a failure!
-Subclass/&CollegeOfValianceDescription=Bards of the College of Valiance use music and unwavering determination to embolden the hearts of their allies, while demoralizing their enemies. Drawing inspiration from the stories of heroes of old, great deeds and extraordinary events, these bards courageously fight to preserve their ideals, leaving a long-lasting impression on those around them.
-Subclass/&CollegeOfValianceTitle=College of Valiance
+Subclass/&CollegeOfValianceDescription=Bards of the College of Eloquence use music and unwavering determination to embolden the hearts of their allies, while demoralizing their enemies. Drawing inspiration from the stories of heroes of old, great deeds and extraordinary events, these bards courageously fight to preserve their ideals, leaving a long-lasting impression on those around them.
+Subclass/&CollegeOfValianceTitle=College of Eloquence

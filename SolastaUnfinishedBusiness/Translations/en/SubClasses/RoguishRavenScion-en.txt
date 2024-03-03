@@ -4,12 +4,12 @@ Feature/&AdditionalDamageRavenScionSniperAimDescription=Once per turn, when you 
 Feature/&AdditionalDamageRavenScionSniperAimTitle=Sniper's Aim
 Feature/&FeatureRavenScionKillingSpreeDescription=Once during your turn, when you reduce a creature to 0 hit points, you gain an extra attack as a part of your main action and reset the usage of your Sniper's Aim feature.
 Feature/&FeatureRavenScionKillingSpreeTitle=Killing Spree
-Feature/&FeatureSetRavenScionRangedSpecialistDescription=You are proficient with all two-handed ranged weapons and gain Archery fighting style. 
+Feature/&FeatureSetRavenScionRangedSpecialistDescription=You are proficient with all two-handed ranged weapons and gain Archery fighting style.
 Feature/&FeatureSetRavenScionRangedSpecialistTitle=Ranged Specialist
 Feature/&PowerRavenScionDeadlyFocusDescription=If you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest.
 Feature/&PowerRavenScionDeadlyFocusTitle=Deadly Focus
-Feature/&PowerRavenScionHeartSeekingShotDescription=As a free action, you can make your next ranged weapon attack result in a guaranteed critical hit if it hits a creature. You can use this feature once per short rest. 
-Feature/&PowerRavenScionHeartSeekingShotTitle=Heart-Seeking Shot 
+Feature/&PowerRavenScionHeartSeekingShotDescription=As a free action, you can make your next ranged weapon attack result in a guaranteed critical hit if it hits a creature. You can use this feature once per short rest.
+Feature/&PowerRavenScionHeartSeekingShotTitle=Heart-Seeking Shot
 Feedback/&AdditionalDamageSniperAimFormat=Sniper's Aim
 Feedback/&AdditionalDamageSniperAimLine=Sniper's Aim deals extra +{2} damage!
 Feedback/&TriggerRavenScionRerollLine={0} rolls {1} = {2}. Deadly Focus will force a critical hit.
