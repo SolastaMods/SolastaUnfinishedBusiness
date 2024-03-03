@@ -48,13 +48,13 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(WindWall)
                     .Build())
@@ -133,7 +133,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(SacredFlame)
                     .Build())
@@ -174,13 +174,13 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(Bane)
                     .SetImpactEffectParameters(VenomousSpike)
@@ -250,7 +250,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypePsychic, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -328,7 +328,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(ShadowDagger)
                     .Build())
@@ -399,7 +399,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(Shatter)
                     .Build())
@@ -463,13 +463,13 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionWrack, ConditionForm.ConditionOperation.Add)
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetConditionForm(conditionWrack, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
             .AddToDB();

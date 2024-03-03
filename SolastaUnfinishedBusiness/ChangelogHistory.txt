@@ -1,6 +1,7 @@
 1.5.97.0:
 
 - added Ranger Gloom Stalker subclass
+- fixed all cantrips enforcing save to negate damage form on success
 - fixed campaigns translator changing nodes tech names
 - fixed Eldritch Versatility Adept feat always getting offered
 - fixed Wildling feral agility feature tired condition removal logic
