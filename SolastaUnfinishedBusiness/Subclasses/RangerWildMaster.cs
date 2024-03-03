@@ -184,7 +184,7 @@ public sealed class RangerWildMaster : AbstractSubclass
 
         var summoningAffinityTrueExpertise = FeatureDefinitionSummoningAffinityBuilder
             .Create($"SummoningAffinity{Name}TrueExpertise")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetRequiredMonsterTag(BeastCompanionTag)
             .SetAddedConditions(
                 ConditionDefinitionBuilder

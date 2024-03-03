@@ -36,7 +36,8 @@ internal sealed class ForcePushOrDragFromEffectPoint
             formsParams.position = positions[0];
         }
 
-        return service.ApplyEffectForms(effectForms,
+        return service.ApplyEffectForms(
+            effectForms,
             formsParams,
             effectiveDamageTypes,
             out damageAbsorbedByTemporaryHitPoints,
