@@ -4,12 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageMalakhAngelicForm:e7f6ba68-8bdb-524d-b7af-33f4b608b1ea",
-    "Definition:PowerMalakhAngelicRadianceDamage:edec8afa-5a52-5ec1-9bff-7f3e0b96d80d"
+    "Definition:AdditionalDamageImpForestImpishWrath:ece33173-2235-5585-9190-a7d8d87debce"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -18,7 +17,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "AttacksAndDamages"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -130,14 +131,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionMalakhAngelicRadianceTitle",
-    "description": "Condition/&ConditionMalakhAngelicRadianceDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -152,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5c99cf39-c491-5cda-847f-4117508bfc31",
+  "guid": "92a9b973-38dc-52b1-879e-b78fccdfd97b",
   "contentPack": 9999,
-  "name": "ConditionMalakhAngelicRadiance"
+  "name": "ConditionImpForestImpishWrath"
 }

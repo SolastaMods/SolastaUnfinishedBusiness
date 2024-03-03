@@ -1844,7 +1844,7 @@ You can use your bonus action when you are in dim light or natural darkness to t
 
 * Shadow Flurry
 
-Once per turn when you miss with a monk weapon or unarmed attack while you are in dim light or darkness, you can immediately reroll that attack against the same target. 
+Once on each of your turns when you miss with a monk weapon or unarmed attack, you automatically reattempt the attack against the same target.
 
 
 ### Level 17
@@ -2407,9 +2407,9 @@ You can give yourself a bonus to your initiative rolls equal to your Wisdom modi
 
 You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:
 
-	I	Swift Strike
+	I	Detect Evil and Good
 
-	II	Pass Without Trace
+	II	Misty Step
 
 	III	Fear
 
@@ -2421,7 +2421,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 * Umbral Sight
 
-You gain darkvision out to a range of 60 feet. If you already have darkvision, its range increases by 30 feet. While in darkness, you are invisible to any creature that relies on darkvision to see you.
+You gain darkvision out to a range of 60 feet. If you already have darkvision, its range increases by 30 feet. While you are in natural darkness, creatures cannot use their darkvision sense to perceive you.
 
 
 ### Level 7
@@ -2442,7 +2442,7 @@ Once on each of your turns when you miss with a weapon attack, you automatically
 
 * Shadowy Dodge
 
-Whenever a creature makes an attack roll against you and doesn't have advantage on the roll, you can use your reaction to impose disadvantage on it.
+Whenever a creature is about to hit you with an attack, you can use your reaction to make the creature reroll the attack with disadvantage.
 
 
 
@@ -2686,7 +2686,7 @@ You gain a Spirit Beast companion that accompanies you on your adventures and is
 
 * Advanced Training
 
-You can use your bonus action to grant your Beast Companion benefits of Dash or Disengage action and its attacks count as magical for the purpose of overcoming resistance and immunity. 
+You can use your bonus action to grant your Beast Companion benefits of Dash or Disengage action and its attacks count as magical for the purpose of overcoming resistance and immunity.
 
 
 ### Level 11
@@ -2698,9 +2698,9 @@ Your Beast Companion can now use all attacks available and gains your proficienc
 
 ### Level 15
 
-* Free Will
+* Kill Command
 
-The Spirit Beast can now act independently.
+As a free action, you can instruct your companion to fixate on a target. Your companion gains your proficiency bonus to all attack rolls and damage rolls against that target. You can use this feature a number of times per long rest equal to your proficiency bonus. 
 
 
 

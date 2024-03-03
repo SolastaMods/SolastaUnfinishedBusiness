@@ -75,31 +75,6 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Motion",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": true,
-        "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "motionForm": {
-          "$type": "MotionForm, Assembly-CSharp",
-          "type": "PushFromOrigin",
-          "distance": 1,
-          "forceTurnTowardsSourceCharacterAfterPush": false,
-          "forceSourceCharacterTurnTowardsTargetAfterPush": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
         "addBonusMode": "None",
         "applyLevel": "No",
@@ -109,7 +84,7 @@
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
-        "savingThrowAffinity": "HalfDamage",
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
@@ -129,6 +104,31 @@
           "specialDeathCondition": null,
           "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Motion",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "motionForm": {
+          "$type": "MotionForm, Assembly-CSharp",
+          "type": "PushFromOrigin",
+          "distance": 1,
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0

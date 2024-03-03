@@ -82,7 +82,7 @@
           "conditionDefinition": "Definition:ConditionMalakhAngelicRadiance:5c99cf39-c491-5cda-847f-4117508bfc31",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,
