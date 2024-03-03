@@ -1,6 +1,6 @@
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=힘 +2
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=능력치 증가
-Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=경갑과 평갑에 숙련을 얻습니다.
-Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=아이언본 방어구 훈련
-Race/&RaceIronbornDwarfDescription=강인하며 굳센 아이언본 드워프는 사촌인 스노우 드워프와 함께 살지만 종종 떨어져 지내기도 합니다. 무뚝뚝하고 냉담하지만 설산 동맹의 그 누구와도 어깨를 나란히 할 수 있는 용맹함을 지녔습니다.
+Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=당신은 경갑과 중갑옷에 능숙합니다.
+Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=아이언본 갑옷 훈련
+Race/&RaceIronbornDwarfDescription=강하고 강인한 아이언본 드워프들은 그들의 사촌인 스노우 드워프들과 함께 살지만 종종 그들과 떨어져 생활합니다. 클랜적이고 냉담하지만 그럼에도 불구하고 그들은 Snow Alliance의 누구와도 어깨를 나란히 할 수 있을 것으로 예상됩니다.
 Race/&RaceIronbornDwarfTitle=아이언본 드워프
