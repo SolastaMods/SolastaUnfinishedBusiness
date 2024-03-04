@@ -17,4 +17,4 @@ Feature/&PowerDomainSmithAdamantBenedictionTitle=Непреклонное бла
 Feature/&PowerDomainSmithReinforceArmorDescription=Один раз до короткого отдыха вы можете усилить не магический элемент доспехов или щита. Укрепленный предмет получает дополнительные +{0} КД.
 Feature/&PowerDomainSmithReinforceArmorTitle=Усилить доспех
 Subclass/&DomainSmithDescription=Святые мастера, которые воплощают свою веру в стали и кузнечном деле, укрепляя доспехи союзников и покрывая себя тяжелой броней.
-Subclass/&DomainSmithTitle=Кузнец
+Subclass/&DomainSmithTitle=Кузня
