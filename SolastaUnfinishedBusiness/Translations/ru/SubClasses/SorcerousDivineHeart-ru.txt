@@ -26,4 +26,4 @@ Feature/&PowerDivineHeartEmpoweredHealingTitle=Усиленное исцелен
 Feature/&PowerDivineHeartPlanarPortalDescription=Открывает портал, который может перенести вас и дружественное существо в выбранное место назначения.
 Feature/&PowerDivineHeartPlanarPortalTitle=Планарный портал
 Subclass/&SorcerousDivineHeartDescription=Ваша врождённая магия была дарована вам божеством с целью, которую вы возможно понимаете, а возможно и нет.
-Subclass/&SorcerousDivineHeartTitle=Божественное сердце
+Subclass/&SorcerousDivineHeartTitle=Божественная душа

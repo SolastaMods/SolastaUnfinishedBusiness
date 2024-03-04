@@ -44,5 +44,5 @@ Reaction/&UseSpiritWalkerDescription=Вы можете наложить закл
 Reaction/&UseSpiritWalkerReactDescription=Вы можете наложить заклинание Духовные стражи, которое длится одну минуту.
 Reaction/&UseSpiritWalkerReactTitle=Гуляющий с духами
 Reaction/&UseSpiritWalkerTitle=Гуляющий с духами
-Subclass/&PathOfTheSpiritsDescription=Варвары, следующие по Пути духов, принимают духовное животное в качестве проводника, защитника и вдохновителя, который наполняет их сверхъестественной силой, подпитывая магическим топливом ярость варвара.
-Subclass/&PathOfTheSpiritsTitle=Путь духов
+Subclass/&PathOfTheSpiritsDescription=Варвары, следующие по Пути тотемного воина, принимают духовное животное в качестве проводника, защитника и вдохновителя, который наполняет их сверхъестественной силой, подпитывая магическим топливом ярость варвара.
+Subclass/&PathOfTheSpiritsTitle=Путь тотемного воина

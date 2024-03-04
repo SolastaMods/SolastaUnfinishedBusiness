@@ -45,5 +45,5 @@ Reaction/&SpendPowerWoeCosmosOmenSavingDescription={0} преуспевает в
 Reaction/&SpendPowerWoeCosmosOmenSavingReactDescription=Бросьте D6, чтобы отвлечь врага от спасброска.
 Reaction/&SpendPowerWoeCosmosOmenSavingReactTitle=Горе
 Reaction/&SpendPowerWoeCosmosOmenSavingTitle=Космическое знамение: Горе
-Subclass/&CircleOfTheCosmosDescription=Круг космоса позволяет друидам черпать силу звёздного света. Испокон веков они отслеживали движение звёзд, раскрывая тайны, сокрытые в созвездиях. Открывая и познавая эти секреты, друиды круга космоса стремятся обуздать силы звёзд.
-Subclass/&CircleOfTheCosmosTitle=Круг космоса
+Subclass/&CircleOfTheCosmosDescription=Круг звёзд позволяет друидам черпать силу звёздного света. Испокон веков они отслеживали движение звёзд, раскрывая тайны, сокрытые в созвездиях. Открывая и познавая эти секреты, друиды круга звёзд стремятся обуздать силы космоса.
+Subclass/&CircleOfTheCosmosTitle=Круг звёзд
