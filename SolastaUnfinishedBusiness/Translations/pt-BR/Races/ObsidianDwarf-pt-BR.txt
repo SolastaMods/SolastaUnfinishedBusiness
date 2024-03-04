@@ -1,8 +1,8 @@
 Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=Força +1
-Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Badlands Brawn
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=Músculos do ermo
 Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Você tem resistência a dano de fogo.
-Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Embalado pelo fogo
+Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Embalado pelo Fogo
 Feature/&ProficiencyObsidianDwarfLanguagesDescription=Comum, Anão e Gigante
-Feature/&ProficiencyObsidianDwarfLanguagesTitle=Línguas
-Race/&RaceObsidianDwarfDescription=Em eras passadas, um grupo de anões foi escravizado por gigantes do fogo como mineiros e artesãos. A magia caótica do cataclismo deu a muitos desses anões um pouco da força e resistência de seus opressores. Os anões se rebelaram, conquistaram sua liberdade e se retiraram para Badlands. Chamando a si mesmos de Obsidian Dwarves, eles cresceram e prosperaram.
-Race/&RaceObsidianDwarfTitle=Obsidiana Anão
+Feature/&ProficiencyObsidianDwarfLanguagesTitle=línguas
+Race/&RaceObsidianDwarfDescription=Em épocas passadas, um grupo de anões foi escravizado por gigantes do fogo como mineiros e artesãos. A magia caótica do cataclismo imbuiu muitos desses anões com um pouco da força e resistência de seus opressores. Os anões se rebelaram, conquistaram a liberdade e recuaram para Badlands. Chamando-se a si mesmos de Anões Obsidianos, eles cresceram e prosperaram.
+Race/&RaceObsidianDwarfTitle=Anão Obsidiano

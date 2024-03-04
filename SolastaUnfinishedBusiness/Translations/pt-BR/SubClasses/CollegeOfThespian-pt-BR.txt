@@ -1,4 +1,4 @@
-Condition/&ConditionCollegeOfThespianCombatInspirationCombatDescription=Você tem vantagem em seu próximo ataque.
+Condition/&ConditionCollegeOfThespianCombatInspirationCombatDescription=Você tem vantagem no seu próximo ataque.
 Condition/&ConditionCollegeOfThespianCombatInspirationCombatTitle=Combate Inspirado
 Condition/&ConditionCollegeOfThespianCombatInspirationMovementDescription=Você ganha um bônus em sua velocidade de movimento igual ao seu teste de inspiração bárdica.
 Condition/&ConditionCollegeOfThespianCombatInspirationMovementTitle=Movimento Inspirado

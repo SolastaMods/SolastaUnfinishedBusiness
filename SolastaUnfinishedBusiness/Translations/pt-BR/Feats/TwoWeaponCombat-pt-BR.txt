@@ -1,6 +1,6 @@
 Condition/&ConditionDualFlurryGrantDescription=Seus inimigos estão cambaleando!
-Condition/&ConditionDualFlurryGrantTitle=Flurry duplo
-Feat/&FeatDualFlurryDescription=Você é um mestre em lutar com armas emparelhadas. Em qualquer turno em que você acertar duas vezes com ataques corpo a corpo enquanto empunha uma arma em cada mão, você pode fazer um ataque adicional com a mão inábil ao atacar com sua ação bônus.
-Feat/&FeatDualFlurryTitle=Flurry duplo
+Condition/&ConditionDualFlurryGrantTitle=Agitação Dupla
+Feat/&FeatDualFlurryDescription=Você é um mestre na luta com armas emparelhadas. Em qualquer turno em que você acertar duas vezes com ataques corpo a corpo enquanto empunha uma arma em cada mão, você pode realizar um ataque adicional com a mão secundária ao atacar com sua ação bônus.
+Feat/&FeatDualFlurryTitle=Agitação Dupla
 Feat/&FeatDualWeaponDefenseDescription=Você ganha um bônus de +1 na classe de armadura enquanto estiver empunhando uma arma corpo a corpo separada em cada mão.
-Feat/&FeatDualWeaponDefenseTitle=Defesa de Arma Dupla
+Feat/&FeatDualWeaponDefenseTitle=Defesa com Arma Dupla

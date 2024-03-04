@@ -1,15 +1,15 @@
-Tutorial/&TutorialActionSwitchingDescription=Quando você tem mais de uma ação Principal ou Bônus disponível, você pode clicar no símbolo de status da ação para torná-la sua ação ativa no momento. Isso permite atacar usando a ação Haste ou Horde Breaker e, em seguida, lançar o feitiço com a ação padrão. Ou qualquer outra combinação necessária.\nPassar o mouse sobre o símbolo de status da ação mostra a dica com o nome do recurso ou condição que concedeu a ação.
+Tutorial/&TutorialActionSwitchingDescription=Quando você tiver mais de uma ação principal ou de bônus disponível, você pode clicar no símbolo de status da ação para torná-la sua ação atualmente ativa. Isso permite atacar usando a ação Haste ou Horde Breaker e então lançar feitiço com ação padrão. Ou qualquer outra combinação que você possa precisar.\nPassar o mouse sobre o símbolo de status da ação mostra uma dica com o nome do recurso ou condição que concedeu a ação.
 Tutorial/&TutorialActionSwitchingTitle=Múltiplas Ações
 UI/&Add=Add
 UI/&AdditionalActionSource=Concedido por: {0}
-UI/&Current Party=Parte Atual
+UI/&Current Party=Grupo Atual
 UI/&DistanceFormat=Distância: {0}
 UI/&Experimental Preview:=Visualização experimental <i><color=Yellow>[salvar backup antes de usar]</color></i>:
 UI/&Expert=Especialista
 UI/&From=De
-UI/&PartyEditor=Editor de festas
-UI/&PartyEditorMessage=Este editor de festa simples permite editar personagens em uma sessão de jogo carregada. Por favor, clique no seguinte para relatar problemas:
-UI/&PartyEditorUnavailable=****** Party Editor indisponível: Por favor, carregue um jogo salvo ******
+UI/&PartyEditor=Editor de Grupo
+UI/&PartyEditorMessage=Este editor de grupo simples permite editar personagens em uma sessão de jogo carregada. Clique no seguinte para relatar problemas:
+UI/&PartyEditorUnavailable=****** Party Editor indisponível: carregue um jogo salvo ******
 UI/&Quickies=Rapidinhas
 UI/&Remove=Remover
 UI/&Skilled=Especializado
