@@ -1,4 +1,4 @@
 Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=Puedes usar tus poderes arcanos para protegerte como reacción. Esto te da +3 a tu clase de armadura hasta tu próximo turno.
 Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=Desviación intestinal
-Subclass/&CollegeOfGutsDescription=Los bardos del Colegio de las Tripas se reúnen en salones de hidromiel o alrededor de grandes hogueras para cantar las hazañas de los poderosos, tanto del pasado como del presente. Viajan por la tierra para presenciar grandes eventos de primera mano y para asegurarse de que la memoria de esos eventos no pase del mundo. Con sus canciones, inspiran a otros a alcanzar las mismas alturas de logros que los héroes de antaño.
-Subclass/&CollegeOfGutsTitle=Colegio de tripas
+Subclass/&CollegeOfGutsDescription=Los bardos del Colegio del Valor se reúnen en salones de hidromiel o alrededor de grandes hogueras para cantar las hazañas de los poderosos, tanto del pasado como del presente. Viajan por la tierra para presenciar de primera mano grandes acontecimientos y para asegurarse de que el recuerdo de esos acontecimientos no desaparezca del mundo. Con sus canciones, inspiran a otros a alcanzar las mismas alturas de logros que los héroes de antaño.
+Subclass/&CollegeOfGutsTitle=colegio de valor

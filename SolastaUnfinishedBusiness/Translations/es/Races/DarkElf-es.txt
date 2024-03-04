@@ -1,8 +1,8 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento de puntuación de habilidad
-Feature/&CastSpellDarkelfMagicDescription=Ya conoces el truco de <b>Luces Danzantes</b>. En el nivel 3 aprendes <b>Fuego feérico</b> y en el nivel 5, <b>Oscuridad</b>. Ambos pueden usarse una vez por descanso prolongado.
+Feature/&CastSpellDarkelfMagicDescription=Ya conoces el truco de las <b>luces danzantes</b>. En el nivel 3 aprendes <b>Fuego de hadas</b> y en el nivel 5, <b>Oscuridad</b>. Ambos se pueden utilizar una vez por descanso prolongado.
 Feature/&CastSpellDarkelfMagicTitle=Magia de los elfos oscuros
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=Tienes competencia con estoques, espadas cortas y ballestas de mano.
 Feature/&ProficiencyDarkelfWeaponTrainingTitle=Entrenamiento con armas de los elfos oscuros
-Race/&RaceDarkelfDescription=Los elfos oscuros son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Badlands. Los elfos oscuros son en gran parte nocturnos y se han adaptado a vivir en las antiguas ruinas de Badlands, especialmente en las ruinas subterráneas enterradas. Suelen tener la piel oscura y el pelo pálido.
+Race/&RaceDarkelfDescription=Los elfos oscuros son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Badlands. Los elfos oscuros son en gran medida nocturnos y se han adaptado a vivir en antiguas ruinas de Badlands, especialmente en ruinas subterráneas enterradas. Suelen tener piel oscura y cabello pálido.
 Race/&RaceDarkelfTitle=Duende oscuro

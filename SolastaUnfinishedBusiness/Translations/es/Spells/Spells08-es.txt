@@ -1,4 +1,4 @@
-Condition/&ConditionMindBlankDescription=Inmune al daño psíquico y al estado encantado.
+Condition/&ConditionMindBlankDescription=Inmune al daño psíquico y a la condición de encantado.
 Condition/&ConditionMindBlankTitle=Mente en blanco
-Spell/&MindBlankDescription=Hasta que finalice el conjuro, una criatura voluntaria que toques es inmune al daño psíquico, cualquier efecto que pueda sentir sus emociones o leer sus pensamientos, conjuros de adivinación y la condición encantada.
+Spell/&MindBlankDescription=Hasta que finalice el hechizo, una criatura voluntaria que tocas es inmune al daño psíquico, a cualquier efecto que pueda sentir sus emociones o leer sus pensamientos, hechizos de adivinación y la condición de hechizo.
 Spell/&MindBlankTitle=Mente en blanco

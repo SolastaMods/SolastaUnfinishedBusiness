@@ -1,4 +1,4 @@
-Condition/&ConditionReverseGravityDescription=Atrapado por la gravedad inversa.
+Condition/&ConditionReverseGravityDescription=Atrapado por gravedad inversa.
 Condition/&ConditionReverseGravityTitle=Gravedad inversa
-Spell/&ReverseGravityDescription=Este hechizo invierte la gravedad en un cilindro de 50 pies de radio y 100 pies de altura centrado en un punto dentro del alcance.
+Spell/&ReverseGravityDescription=Este hechizo invierte la gravedad en un cilindro de 50 pies de radio y 100 pies de alto centrado en un punto dentro del alcance.
 Spell/&ReverseGravityTitle=Gravedad inversa

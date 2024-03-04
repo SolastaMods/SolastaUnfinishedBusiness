@@ -1,13 +1,13 @@
-Condition/&AfterRestIdentifyDescription=Identificación de objetos mágicos.
+Condition/&AfterRestIdentifyDescription=Identificar objetos mágicos
 Condition/&AfterRestIdentifyTitle=Identificando
-Condition/&ConditionDistractedByAllyDescription=Esta criatura se ha distraído.
+Condition/&ConditionDistractedByAllyDescription=Esta criatura ha estado distraída.
 Condition/&ConditionDistractedByAllyTitle=Distraído
 Condition/&ConditionLightSensitivityDescription=Tienes Desventaja en las pruebas de Sabiduría (Percepción) con luz brillante y sufres una penalización de -1d4 en las tiradas de ataque.
 Condition/&ConditionLightSensitivityTitle=Sensibilidad a la luz
-Condition/&ConditionStopMovementDescription=Incapaz de moverse. Velocidad puesta a 0.
+Condition/&ConditionStopMovementDescription=Incapaz de moverse. Velocidad establecida en 0.
 Condition/&ConditionStopMovementTitle=Interrumpido
 Condition/&ConditionTauntedDescription=Tienes desventaja en las tiradas de ataque contra criaturas distintas al provocador.
-Condition/&ConditionTauntedTitle=Burlado
+Condition/&ConditionTauntedTitle=burlado
 Feature/&AbilityCheckAffinityDarknessPerceptiveDescription=Tienes Ventaja en las pruebas de Sabiduría (Percepción) mientras no estás iluminado o en oscuridad mágica.
 Feature/&AbilityCheckAffinityDarknessPerceptiveTitle=Oscuridad perceptiva
 Feature/&AbilityCheckAffinityLightSensitivityDescription=Tienes Desventaja en las pruebas de Sabiduría (Percepción).
