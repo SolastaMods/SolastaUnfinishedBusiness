@@ -532,7 +532,7 @@ Starting at 14th level, while you are raging, whenever you hit a creature with a
 
 
 
-## 5. Path Of the Spirits
+## 5. Path of the Totem Warrior
 
 Barbarians who follow the Path of the Totem Warrior accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
@@ -579,7 +579,7 @@ Barbarians following the Path of the Yeoman ignore melee weapons to master the l
 
 * Fletcher
 
-Gain proficiency with Forge's Tools.
+Gain proficiency with Smith's Tools.
 
 * Strong Bow
 
@@ -2592,13 +2592,13 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 ### Level 7
 
+* Ghostly Howl
+
+When an enemy you can see within 60 feet hits you with an attack you can use your reaction to force them to make a Wisdom saving throw against your Ranger spell DC. On a failure, they are frightened for a number of turns equal to your Wisdom modifier (minimum 1). You may use this ability a number of times equal to your Wisdom modifier and regain all uses after you finish a long rest.
+
 * Intangible Form
 
 Gain resistance to bludgeoning damage.
-
-* Zephyr Strike
-
-Gain a bonus to your initiative rolls equal to your Wisdom modifier (minimum 1).
 
 
 ### Level 11
@@ -2664,13 +2664,13 @@ Your Disabling Strike now applies to all weapon attacks you make, and reduces th
 
 ### Level 15
 
+* Blessing of The Wilderness
+
+You are immune to being blinded, deafened, frightened, or poisoned, and any critical hit against you counts as a normal hit instead, unless you are incapacitated or cannot perceive the attacker.
+
 * Favored Enemy
 
 Gain advantage on ability checks towards this creature type, and additional damage against it equal to your knowledge level.
-
-* Unmatched Experience
-
-Gain proficiency in Wisdom saving throws.
 
 
 

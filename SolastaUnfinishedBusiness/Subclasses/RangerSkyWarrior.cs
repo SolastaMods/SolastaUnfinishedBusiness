@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -22,8 +23,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class RangerSkyWarrior : AbstractSubclass
 {
     private const string Name = "RangerSkyWarrior";
-
-    private static ConditionDefinition _conditionGiftOfTheWind;
 
     public RangerSkyWarrior()
     {
@@ -74,7 +73,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .SetSituationalContext(SituationalContext.SourceHasCondition, conditionGiftOfTheWindAttacked)
             .AddToDB();
 
-        _conditionGiftOfTheWind = ConditionDefinitionBuilder
+        var conditionGiftOfTheWind = ConditionDefinitionBuilder
             .Create($"Condition{Name}GiftOfTheWind")
             .SetGuiPresentation($"Condition{Name}GiftOfTheWindAttacked", Category.Condition,
                 Gui.NoLocalization)
@@ -82,7 +81,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .AddFeatures(movementAffinityGiftOfTheWind, combatAffinityGiftOfTheWind)
             .AddToDB();
 
-        _conditionGiftOfTheWind.AddCustomSubFeatures(new CheckConditionValidity(_conditionGiftOfTheWind));
+        conditionGiftOfTheWind.AddCustomSubFeatures(new CheckHeroHasShield(conditionGiftOfTheWind));
 
         var powerGiftOfTheWind = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GiftOfTheWind")
@@ -94,7 +93,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                     .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerFighterSecondWind)
-                    .SetEffectForms(EffectFormBuilder.ConditionForm(_conditionGiftOfTheWind))
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(conditionGiftOfTheWind))
                     .Build())
             .AddCustomSubFeatures(new ValidatorsValidatePowerUse(ValidatorsCharacter.HasShield))
             .AddToDB();
@@ -113,11 +112,37 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
         // Swift Strike
 
-        var attributeModifierSwiftStrike = FeatureDefinitionAttributeModifierBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}SwiftStrike")
             .SetGuiPresentation(Category.Feature)
             .SetModifierAbilityScore(AttributeDefinitions.Initiative, AttributeDefinitions.Wisdom)
             .AddToDB();
+
+        var powerGhostlyHowl = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}GhostlyHowl")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesAbilityBonus(ActivationTime.NoCost, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerGhostlyHowl.AddCustomSubFeatures(
+            ModifyPowerVisibility.Hidden,
+            new CustomBehaviorGhostlyHowl(powerGhostlyHowl));
 
         // Intangible Form
 
@@ -127,19 +152,35 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .SetDamageType(DamageTypeBludgeoning)
             .SetDamageAffinityType(DamageAffinityType.Resistance)
             .AddToDB();
+
         //
         // LEVEL 11
         //
 
         // Death from Above
 
-        var featureDeathFromAbove = FeatureDefinitionBuilder
+        // kept name for backward compatibility
+        var powerDeathFromAbove = FeatureDefinitionPowerBuilder
             .Create($"Feature{Name}DeathFromAbove")
             .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetBonusMode(AddBonusMode.Proficiency)
+                            .SetDamageForm()
+                            .Build())
+                    .Build())
+            .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
 
-        featureDeathFromAbove.AddCustomSubFeatures(
-            new AttackBeforeHitConfirmedOnEnemyDeathFromAbove(featureDeathFromAbove, conditionGiftOfTheWindAttacked));
+        powerDeathFromAbove.AddCustomSubFeatures(
+            new CustomBehaviorDeathFromAbove(
+                powerDeathFromAbove, conditionGiftOfTheWind, conditionGiftOfTheWindAttacked));
 
         //
         // LEVEL 15
@@ -151,7 +192,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}CloudDance")
             .AddToDB();
 
-        conditionCloudDance.AddCustomSubFeatures(new CheckConditionValidity(conditionCloudDance));
+        conditionCloudDance.AddCustomSubFeatures(new CheckHeroHasShield(conditionCloudDance));
 
         var powerAngelicFormSprout = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CloudDanceSprout")
@@ -210,10 +251,10 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                 powerGiftOfTheWind,
                 proficiencyAerialAgility)
             .AddFeaturesAtLevel(7,
-                attributeModifierSwiftStrike,
+                powerGhostlyHowl,
                 damageAffinityIntangibleForm)
             .AddFeaturesAtLevel(11,
-                featureDeathFromAbove)
+                powerDeathFromAbove)
             .AddFeaturesAtLevel(15,
                 featureSetFairyFlight)
             .AddToDB();
@@ -229,7 +270,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CheckConditionValidity(
+    private sealed class CheckHeroHasShield(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition condition) : IOnItemEquipped
     {
@@ -240,99 +281,159 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                 return;
             }
 
-            var rulesetCondition = hero.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == condition);
-
-            if (rulesetCondition != null)
+            if (hero.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
             {
-                hero.RemoveCondition(rulesetCondition);
+                hero.RemoveCondition(activeCondition);
             }
         }
     }
 
-    private sealed class AttackBeforeHitConfirmedOnEnemyDeathFromAbove(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition,
-        ConditionDefinition conditionGiftOfTheWindAttacked)
-        : IAttackBeforeHitConfirmedOnEnemy
+    private class CustomBehaviorGhostlyHowl(FeatureDefinitionPower powerGhostlyHowl)
+        : IAttackBeforeHitPossibleOnMeOrAlly, IModifyEffectDescription
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+        public IEnumerator OnAttackBeforeHitPossibleOnMeOrAlly(
             GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            int attackRoll)
         {
-            if (battleManager is not { IsBattleInProgress: true })
+            if (rulesetEffect != null &&
+                rulesetEffect.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
             {
                 yield break;
             }
 
-            if (rulesetEffect != null)
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
             {
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false })
+            if (helper != defender ||
+                !helper.CanReact() ||
+                !helper.CanPerceiveTarget(attacker) ||
+                rulesetHelper.GetRemainingPowerUses(powerGhostlyHowl) == 0)
             {
                 yield break;
             }
 
-            if (!rulesetAttacker.HasAnyConditionOfType(_conditionGiftOfTheWind.Name))
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
             {
                 yield break;
             }
 
-            var rolls = new List<int>();
-            var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
-                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            rulesetAttacker.LogCharacterUsedFeature(featureDefinition);
-
-            foreach (var gameLocationDefender in battleManager.Battle
-                         .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 1))
-            {
-                var rulesetDefender = gameLocationDefender.RulesetCharacter;
-
-                var damage = new DamageForm
+            var usablePower = PowerProvider.Get(powerGhostlyHowl, rulesetHelper);
+            var actionParams =
+                new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
-                    DamageType = DamageTypeBludgeoning,
-                    DieType = DieType.D1,
-                    DiceNumber = 0,
-                    BonusDamage = bonusDamage
+                    StringParameter = "GhostlyHowl",
+                    ActionModifiers = { new ActionModifier() },
+                    RulesetEffect = implementationManagerService
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                    UsablePower = usablePower,
+                    TargetCharacters = { defender }
                 };
 
-                RulesetActor.InflictDamage(
-                    bonusDamage,
-                    damage,
-                    damage.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                    rulesetDefender,
-                    criticalHit,
-                    rulesetAttacker.Guid,
-                    false,
-                    attackMode.AttackTags,
-                    new RollInfo(damage.DieType, rolls, bonusDamage),
-                    false,
-                    out _);
+            var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-                if (!criticalHit)
-                {
-                    continue;
-                }
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
-                var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(
-                    x => x.ConditionDefinition == conditionGiftOfTheWindAttacked);
+            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+        }
 
-                if (rulesetCondition == null)
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerGhostlyHowl;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(wisdom));
+
+            effectDescription.durationParameter = wisMod;
+
+            return effectDescription;
+        }
+    }
+
+    private sealed class CustomBehaviorDeathFromAbove(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinitionPower powerDeathFromAbove,
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        ConditionDefinition conditionGiftOfTheWind,
+        ConditionDefinition conditionGiftOfTheWindAttacked) : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
+    {
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var rulesetEffect = action.ActionParams.RulesetEffect;
+
+            if (action.AttackRoll == 0 ||
+                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                rulesetEffect?.EffectDescription.RangeType is not (RangeType.MeleeHit or RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            HandleConditionAndDamage(attacker, action.AttackRollOutcome == RollOutcome.CriticalSuccess);
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (action.AttackRoll == 0 ||
+                action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            HandleConditionAndDamage(attacker, action.AttackRollOutcome == RollOutcome.CriticalSuccess);
+        }
+
+        private void HandleConditionAndDamage(GameLocationCharacter attacker, bool criticalHit)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (Gui.Battle == null ||
+                !rulesetAttacker.HasAnyConditionOfType(conditionGiftOfTheWind.Name))
+            {
+                return;
+            }
+
+            var targets = Gui.Battle
+                .GetContenders(attacker, hasToPerceiveTarget: true, withinRange: 1);
+
+            if (criticalHit)
+            {
+                foreach (var rulesetDefender in targets
+                             .Select(gameLocationDefender => gameLocationDefender.RulesetCharacter))
                 {
                     rulesetDefender.InflictCondition(
                         conditionGiftOfTheWindAttacked.Name,
@@ -349,6 +450,22 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                         0);
                 }
             }
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerDeathFromAbove, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                targetCharacters = targets
+            };
+
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
         }
     }
 }

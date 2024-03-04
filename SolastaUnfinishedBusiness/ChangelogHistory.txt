@@ -1,7 +1,7 @@
 1.5.97.0:
 
 - added Ranger Gloom Stalker subclass
-- fixed all cantrips enforcing save to negate damage form on success
+- fixed all cantrips enforcing save to negate any damage form on a success
 - fixed campaigns translator changing nodes tech names
 - fixed Eldritch Versatility Adept feat always getting offered
 - fixed Wildling feral agility feature tired condition removal logic
@@ -9,7 +9,12 @@
 - improved Crusher feat to not require a modal on trigger
 - improved Imp impish wrath feature to not require a modal on trigger
 - improved Path of the Elements elemental fury feature description
-- rebalanced Ranger Wildmaster [RESPEC is required]
+- improved Ranger Wildmaster subclass [RESPEC is required]
+- removed Ring Mail armors and recipes [RESPEC is required]
+- replaced Ranger Sky Warrior swift strike feature with ghostly howl
+- replaced Ranger Survivalist unmatched experience feature with blessing of the wilderness
+
+// check thief's reflexes level 20
 
 1.5.94.56:
 

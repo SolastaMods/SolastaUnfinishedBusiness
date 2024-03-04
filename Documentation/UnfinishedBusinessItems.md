@@ -498,779 +498,755 @@ This enchanted armor was created using the ancient knowledge of Manacalon's mast
 
 
 
-# 126. - Interception Halberd
-
-This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Interception, was offered to the commander of the Euraidd.
-
-# 127. - Interception Long Mace
-
-This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Interception, was offered to the commander of the Euraidd.
-
-# 128. - Interception Morningstar
-
-This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Interception, was offered to the commander of the Euraidd.
-
-# 129. - Interception Pike
-
-This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Interception, was offered to the commander of the Euraidd.
-
-# 130. - Interception Quarterstaff
-
-This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Interception, was offered to the commander of the Euraidd.
-
-# 131. - Interception Rapier
-
-This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Interception, was offered to the commander of the Euraidd.
-
-# 132. - Interception Scimitar
-
-This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Interception, was offered to the commander of the Euraidd.
-
-# 133. - Javelin of Acuteness
+# 126. - Javelin of Acuteness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 134. - Javelin of Sharpness
+# 127. - Javelin of Sharpness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 135. - Leather of Deflection
+# 128. - Leather of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 136. - Leather of Flame Dancing
+# 129. - Leather of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 137. - Leather of Frost Walking
+# 130. - Leather of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 138. - Leather of Robustness
+# 131. - Leather of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 139. - Leather of Sturdiness
+# 132. - Leather of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 140. - Leather of Survival
+# 133. - Leather of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 141. - Light Bearclaw Crossbow
+# 134. - Light Bearclaw Crossbow
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage. The first weapon of this kind was designed by Ildurial Stronghand.
 
-# 142. - Light Crossbow of Accuracy
+# 135. - Light Crossbow of Accuracy
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Its original design bore the sigil of Defineth Sharpsight, a renowned sylvan elf enchanter.
 
-# 143. - Light Crossbow of Sharpshooting
+# 136. - Light Crossbow of Sharpshooting
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
 
-# 144. - Light Frostburn Crossbow
+# 137. - Light Frostburn Crossbow
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. It was designed by Keliandir Moltenheart, who forged this weapon to fight salamanders after an exploration of the elemental planes went awry.
 
-# 145. - Light Lightbringer Crossbow
+# 138. - Light Lightbringer Crossbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 146. - Light Medusa Crossbow
+# 139. - Light Medusa Crossbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Magic melded medusa coral and hardwood to create a deadly bow, favored by the boarding parties of island halflings.
 
-# 147. - Light Storm Crossbow
+# 140. - Light Storm Crossbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 148. - Light Whiteburn Crossbow
+# 141. - Light Whiteburn Crossbow
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 149. - Lightbringer Battleaxe
+# 142. - Lightbringer Battleaxe
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 150. - Lightbringer Club
+# 143. - Lightbringer Club
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 151. - Lightbringer Greataxe
+# 144. - Lightbringer Greataxe
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 152. - Lightbringer Halberd
+# 145. - Lightbringer Halberd
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 153. - Lightbringer Hand Crossbow
+# 146. - Lightbringer Hand Crossbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 154. - Lightbringer Long Mace
+# 147. - Lightbringer Long Mace
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 155. - Lightbringer Maul
+# 148. - Lightbringer Maul
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 156. - Lightbringer Morningstar
+# 149. - Lightbringer Morningstar
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 157. - Lightbringer Pike
+# 150. - Lightbringer Pike
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 158. - Lightbringer Quarterstaff
+# 151. - Lightbringer Quarterstaff
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 159. - Lightbringer Rapier
+# 152. - Lightbringer Rapier
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 160. - Lightbringer Scimitar
+# 153. - Lightbringer Scimitar
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 161. - Lightbringer Shortbow
+# 154. - Lightbringer Shortbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 162. - Lightbringer Spear
+# 155. - Lightbringer Spear
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 163. - Lightbringer Warhammer
+# 156. - Lightbringer Warhammer
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 
-# 164. - Lightning Halberd
+# 157. - Lightning Halberd
 
 
 
-# 165. - Lightning Launcher
+# 158. - Lightning Launcher
 
 
 
-# 166. - Livewood Club
+# 159. - Livewood Club
 
 This club is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
 
-# 167. - Livewood Staff
+# 160. - Livewood Staff
 
 This staff is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
 
-# 168. - Long Mace
+# 161. - Long Mace
 
 
 
-# 169. - Long Mace +1
+# 162. - Long Mace +1
 
 
 
-# 170. - Long Mace +2
+# 163. - Long Mace +2
 
 
 
-# 171. - Long Mace +3
+# 164. - Long Mace +3
 
 
 
-# 172. - Long Mace of Acuteness
-
-This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
-
-# 173. - Maul of Acuteness
+# 165. - Long Mace of Acuteness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 174. - Maul of Power
+# 166. - Maul of Acuteness
+
+This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+
+# 167. - Maul of Power
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Maul to give champions of the Iron Legions the Strength their elven bodies didn't provide.
 
-# 175. - Medusa Hand Crossbow
+# 168. - Medusa Hand Crossbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Magic melded medusa coral and hardwood to create a deadly bow, favored by the boarding parties of island halflings.
 
-# 176. - Medusa Longbow
+# 169. - Medusa Longbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. Magic melded medusa coral and hardwood to create a deadly bow, favored by the boarding parties of island halflings.
 
-# 177. - Monk Clothes of Deflection
+# 170. - Monk Clothes of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 178. - Monk Clothes of Flame Dancing
+# 171. - Monk Clothes of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 179. - Monk Clothes of Frost Walking
+# 172. - Monk Clothes of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 180. - Monk Clothes of Robustness
+# 173. - Monk Clothes of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 181. - Monk Clothes of Sturdiness
+# 174. - Monk Clothes of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 182. - Monk Clothes of Survival
+# 175. - Monk Clothes of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 183. - Morningstar of Acuteness
+# 176. - Morningstar of Acuteness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 184. - Padded Leather of Deflection
+# 177. - Padded Leather of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 185. - Padded Leather of Flame Dancing
+# 178. - Padded Leather of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 186. - Padded Leather of Frost Walking
+# 179. - Padded Leather of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 187. - Padded Leather of Robustness
+# 180. - Padded Leather of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 188. - Padded Leather of Sturdiness
+# 181. - Padded Leather of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 189. - Padded Leather of Survival
+# 182. - Padded Leather of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 190. - Pike
+# 183. - Pike
 
 
 
-# 191. - Pike +1
+# 184. - Pike +1
 
 
 
-# 192. - Pike +2
+# 185. - Pike +2
 
 
 
-# 193. - Pike +3
+# 186. - Pike +3
 
 
 
-# 194. - Pike of Acuteness
+# 187. - Pike of Acuteness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 195. - Plate of Deflection
+# 188. - Plate of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 196. - Plate of Flame Dancing
+# 189. - Plate of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 197. - Plate of Frost Walking
+# 190. - Plate of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 198. - Plate of Robustness
+# 191. - Plate of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 199. - Plate of Sturdiness
+# 192. - Plate of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 200. - Plate of Survival
+# 193. - Plate of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 201. - Primed Halberd
+# 194. - Primed Halberd
 
 
 
-# 202. - Primed Hand Crossbow
+# 195. - Primed Hand Crossbow
 
 
 
-# 203. - Primed Long Mace
+# 196. - Primed Long Mace
 
 
 
-# 204. - Primed Pike
+# 197. - Primed Pike
 
 
 
-# 205. - Psychic Pike
+# 198. - Psychic Pike
 
 
 
-# 206. - Punisher Battleaxe
-
-This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
-
-# 207. - Punisher Club
+# 199. - Punisher Battleaxe
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 
-# 208. - Punisher Greataxe
+# 200. - Punisher Club
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 
-# 209. - Punisher Greatsword
+# 201. - Punisher Greataxe
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 
-# 210. - Punisher Maul
+# 202. - Punisher Greatsword
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 
-# 211. - Punisher Warhammer
+# 203. - Punisher Maul
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 
-# 212. - Quarterstaff of Acuteness
+# 204. - Punisher Warhammer
+
+This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
+
+# 205. - Quarterstaff of Acuteness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 213. - Rapier of Power
+# 206. - Rapier of Power
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Rapier to give champions of the Iron Legions the Strength their elven bodies didn't provide.
 
-# 214. - Ring Mail of Deflection
+# 207. - Scale Mail of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 215. - Ring Mail of Flame Dancing
+# 208. - Scale Mail of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 216. - Ring Mail of Frost Walking
+# 209. - Scale Mail of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 217. - Ring Mail of Robustness
+# 210. - Scale Mail of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 218. - Ring Mail of Sturdiness
+# 211. - Scale Mail of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 219. - Ring Mail of Survival
+# 212. - Scale Mail of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 220. - Scale Mail of Deflection
-
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-
-# 221. - Scale Mail of Flame Dancing
-
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-
-# 222. - Scale Mail of Frost Walking
-
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-
-# 223. - Scale Mail of Robustness
-
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-
-# 224. - Scale Mail of Sturdiness
-
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-
-# 225. - Scale Mail of Survival
-
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
-
-# 226. - Shadow Blade
+# 213. - Shadow Blade
 
 It deals 2d8 psychic damage on a hit and has the finesse, light, and thrown properties.
 
-# 227. - Shield of Deflection
+# 214. - Shield of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 228. - Shield of Flame Dancing
+# 215. - Shield of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 229. - Shield of Frost Walking
+# 216. - Shield of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 230. - Shield of Robustness
+# 217. - Shield of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 231. - Shield of Sturdiness
+# 218. - Shield of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 232. - Shield of Survival
+# 219. - Shield of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 233. - Sorcerer Armor of Deflection
+# 220. - Sorcerer Armor of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 234. - Sorcerer Armor of Flame Dancing
+# 221. - Sorcerer Armor of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 235. - Sorcerer Armor of Frost Walking
+# 222. - Sorcerer Armor of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 236. - Sorcerer Armor of Robustness
+# 223. - Sorcerer Armor of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 237. - Sorcerer Armor of Sturdiness
+# 224. - Sorcerer Armor of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 238. - Sorcerer Armor of Survival
+# 225. - Sorcerer Armor of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 239. - Souldrinker Battleaxe
+# 226. - Souldrinker Battleaxe
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 240. - Souldrinker Club
+# 227. - Souldrinker Club
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 241. - Souldrinker Dart
+# 228. - Souldrinker Dart
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 242. - Souldrinker Greataxe
+# 229. - Souldrinker Greataxe
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 243. - Souldrinker Greatsword
+# 230. - Souldrinker Greatsword
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 244. - Souldrinker Halberd
+# 231. - Souldrinker Halberd
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 245. - Souldrinker Hand Crossbow
+# 232. - Souldrinker Hand Crossbow
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 246. - Souldrinker Handaxe
+# 233. - Souldrinker Handaxe
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 247. - Souldrinker Javelin
+# 234. - Souldrinker Javelin
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 248. - Souldrinker Long Mace
+# 235. - Souldrinker Long Mace
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 249. - Souldrinker Longbow
+# 236. - Souldrinker Longbow
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 250. - Souldrinker Maul
+# 237. - Souldrinker Maul
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 251. - Souldrinker Morningstar
+# 238. - Souldrinker Morningstar
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 252. - Souldrinker Pike
+# 239. - Souldrinker Pike
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 253. - Souldrinker Quarterstaff
+# 240. - Souldrinker Quarterstaff
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 254. - Souldrinker Rapier
+# 241. - Souldrinker Rapier
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 255. - Souldrinker Scimitar
+# 242. - Souldrinker Scimitar
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 256. - Souldrinker Spear
+# 243. - Souldrinker Spear
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 257. - Souldrinker Warhammer
+# 244. - Souldrinker Warhammer
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 
-# 258. - Spear of Acuteness
+# 245. - Spear of Acuteness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 259. - Spear of Sharpness
+# 246. - Spear of Sharpness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 260. - Storm Hand Crossbow
+# 247. - Storm Hand Crossbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 261. - Storm Shortbow
+# 248. - Storm Shortbow
 
 This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 262. - Stormblade Battleaxe
+# 249. - Stormblade Battleaxe
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 263. - Stormblade Club
+# 250. - Stormblade Club
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 264. - Stormblade Halberd
+# 251. - Stormblade Halberd
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 265. - Stormblade Long Mace
+# 252. - Stormblade Long Mace
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 266. - Stormblade Maul
+# 253. - Stormblade Maul
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 267. - Stormblade Morningstar
+# 254. - Stormblade Morningstar
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 268. - Stormblade Pike
+# 255. - Stormblade Pike
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 269. - Stormblade Quarterstaff
+# 256. - Stormblade Quarterstaff
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 270. - Stormblade Rapier
+# 257. - Stormblade Rapier
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 271. - Stormblade Scimitar
+# 258. - Stormblade Scimitar
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 272. - Stormblade Warhammer
+# 259. - Stormblade Warhammer
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 
-# 273. - Studded Leather of Deflection
+# 260. - Studded Leather of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 274. - Studded Leather of Flame Dancing
+# 261. - Studded Leather of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 275. - Studded Leather of Frost Walking
+# 262. - Studded Leather of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 276. - Studded Leather of Robustness
+# 263. - Studded Leather of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 277. - Studded Leather of Sturdiness
+# 264. - Studded Leather of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 278. - Studded Leather of Survival
+# 265. - Studded Leather of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 279. - Thunder Gauntlet
+# 266. - Thunder Gauntlet
 
 
 
-# 280. - Thundering Long Mace
+# 267. - Thundering Long Mace
 
 
 
-# 281. - Warhammer of Acuteness
+# 268. - Warden Halberd
+
+This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+
+# 269. - Warden Long Mace
+
+This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+
+# 270. - Warden Morningstar
+
+This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+
+# 271. - Warden Pike
+
+This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+
+# 272. - Warden Quarterstaff
+
+This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+
+# 273. - Warden Rapier
+
+This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+
+# 274. - Warden Scimitar
+
+This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
+
+# 275. - Warhammer of Acuteness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 
-# 282. - Warhammer of Power
+# 276. - Warhammer of Power
 
 This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Warhammer to give champions of the Iron Legions the Strength their elven bodies didn't provide.
 
-# 283. - Warlock Armor of Deflection
+# 277. - Warlock Armor of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 284. - Warlock Armor of Flame Dancing
+# 278. - Warlock Armor of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 285. - Warlock Armor of Frost Walking
+# 279. - Warlock Armor of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 286. - Warlock Armor of Robustness
+# 280. - Warlock Armor of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 287. - Warlock Armor of Sturdiness
+# 281. - Warlock Armor of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 288. - Warlock Armor of Survival
+# 282. - Warlock Armor of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 289. - Whiteburn Battleaxe
+# 283. - Whiteburn Battleaxe
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 290. - Whiteburn Club
+# 284. - Whiteburn Club
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 291. - Whiteburn Dart
+# 285. - Whiteburn Dart
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 292. - Whiteburn Greataxe
+# 286. - Whiteburn Greataxe
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 293. - Whiteburn Greatsword
+# 287. - Whiteburn Greatsword
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 294. - Whiteburn Halberd
+# 288. - Whiteburn Halberd
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 295. - Whiteburn Hand Crossbow
+# 289. - Whiteburn Hand Crossbow
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 296. - Whiteburn Handaxe
+# 290. - Whiteburn Handaxe
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 297. - Whiteburn Javelin
+# 291. - Whiteburn Javelin
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 298. - Whiteburn Long Mace
+# 292. - Whiteburn Long Mace
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 299. - Whiteburn Longbow
+# 293. - Whiteburn Longbow
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 300. - Whiteburn Maul
+# 294. - Whiteburn Maul
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 301. - Whiteburn Morningstar
+# 295. - Whiteburn Morningstar
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 302. - Whiteburn Pike
+# 296. - Whiteburn Pike
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 303. - Whiteburn Quarterstaff
+# 297. - Whiteburn Quarterstaff
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 304. - Whiteburn Rapier
+# 298. - Whiteburn Rapier
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 305. - Whiteburn Scimitar
+# 299. - Whiteburn Scimitar
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 306. - Whiteburn Spear
+# 300. - Whiteburn Spear
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 307. - Whiteburn Warhammer
+# 301. - Whiteburn Warhammer
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Whiteburn was created by the first Danantar to fight a troll invasion coming from the swamps to the south of his domain between the Sioltafin and the Scarafin.
 
-# 308. - Wizard Clothes of Deflection
+# 302. - Wizard Clothes of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 309. - Wizard Clothes of Flame Dancing
+# 303. - Wizard Clothes of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 310. - Wizard Clothes of Frost Walking
+# 304. - Wizard Clothes of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 311. - Wizard Clothes of Robustness
+# 305. - Wizard Clothes of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 312. - Wizard Clothes of Sturdiness
+# 306. - Wizard Clothes of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 313. - Wizard Clothes of Survival
+# 307. - Wizard Clothes of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 314. - Wooden Shield of Deflection
+# 308. - Wooden Shield of Deflection
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 315. - Wooden Shield of Flame Dancing
+# 309. - Wooden Shield of Flame Dancing
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 316. - Wooden Shield of Frost Walking
+# 310. - Wooden Shield of Frost Walking
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 317. - Wooden Shield of Robustness
+# 311. - Wooden Shield of Robustness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 318. - Wooden Shield of Sturdiness
+# 312. - Wooden Shield of Sturdiness
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
-# 319. - Wooden Shield of Survival
+# 313. - Wooden Shield of Survival
 
 This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 

@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityRangerSkyWarriorIntangibleForm:53057687-5db5-59b9-b02e-09df6647f07a",
+      "featureDefinition": "Definition:PowerRangerSkyWarriorGhostlyHowl:20ca7409-ef20-5f8f-8c40-79b81f3bf712",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierRangerSkyWarriorSwiftStrike:c4fe236e-9228-54a8-b4af-278511de7b52",
+      "featureDefinition": "Definition:DamageAffinityRangerSkyWarriorIntangibleForm:53057687-5db5-59b9-b02e-09df6647f07a",
       "level": 7
     },
     {
