@@ -26,7 +26,7 @@ Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapDescription=呪文で敵
 Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapTitle=生命の樹液
 Feature/&PowerAncientForestRegrowthDescription=あなたには治癒力が蓄えられており、長い休息を取ると補充されます。そのプールを使用すると、ドルイドのレベル × 5 に等しいヒット ポイントの総数を回復できます。
 Feature/&PowerAncientForestRegrowthTitle=再成長
-Feature/&PowerAncientForestRootedDescription=樹上性の蔓が足元から伸びて地面に食い込みます。スピードが 0 になり、押したり、引いたり、伏せたりするセーヴィング スローでアドバンテージが得られます。エンタングルを自在にキャストできます。
+Feature/&PowerAncientForestRootedDescription=樹上性の蔓が足元から伸びて地面に食い込みます。スピードが 0 になり、押したり、引いたり、うつ伏せにしたりするセーヴィング スローで有利になります。エンタングルを自在にキャストできます。
 Feature/&PowerAncientForestRootedTitle=根付いた
 Feature/&PowerPoolAncientForestHerbalBrewDescription=次の長い休憩まで持続するハーブ醸造を作成できます。熟練度ボーナスに等しい合計数のビールを作成します。醸造ごとに、次の効果のいずれかを選択します:\n<color=#add8e6ff>強化醸造</color>: 1 時間、さまざまな種類のダメージに対する耐性を与えます。\n<color=#add8e6ff>急速な醸造</color> color>: 2d4 ヒット ポイントを提供します。\n<color=#add8e6ff>有毒な醸造</color>: 1 分間効果が持続する武器に適用できる毒として機能します。ヒットが命中した場合、ターゲットはヒットごとに 1d4 の毒ダメージを受けます。
 Feature/&PowerPoolAncientForestHerbalBrewTitle=ハーブ醸造
@@ -39,5 +39,5 @@ Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTra
 Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat={0} は {1} を作成します
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} は {1} を作成します
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} は {1} を作成します
-Subclass/&CircleOfTheAncientForestDescription=あなたは、古代のドライアド、アークドルイド、物質界に血を流すフェイワイルドの顕現、原始時代からの忘れられた神々など、強力な自然の実体との関係を築いてきました。それはあなたに自然界を守ることを望んでいるかもしれないし、それが不可能な遠く離れた土地へ旅行したいかもしれないし、あるいは短命の人間には理解できないと思われる別の動機を持っているかもしれない。
+Subclass/&CircleOfTheAncientForestDescription=あなたは、古代のドライアド、アークドルイド、物質界に血を流すフェイワイルドの顕現、原始時代からの忘れられた神々など、強力な自然の実体との関係を築いてきました。それはあなたに自然界を守ることを望んでいるかもしれないし、それが不可能な遠く離れた土地へ旅行したいかもしれないし、あるいは短命の定命の者たちには不可解に見える別の動機を持っているかもしれない。
 Subclass/&CircleOfTheAncientForestTitle=古代の森の輪

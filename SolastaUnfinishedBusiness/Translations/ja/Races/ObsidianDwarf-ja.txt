@@ -4,5 +4,5 @@ Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=あなたは火の
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=火に抱かれて
 Feature/&ProficiencyObsidianDwarfLanguagesDescription=コモン、ドワーフ、ジャイアント
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=言語
-Race/&RaceObsidianDwarfDescription=遠い昔、ドワーフのグループは火の巨人によって鉱山労働者や職人として奴隷にされていました。大変動の混沌とした魔法は、これらのドワーフの多くに抑圧者の強さと抵抗力の一部を吹き込みました。ドワーフたちは反乱を起こし、自由を勝ち取り、バッドランズに撤退しました。彼らは自らをオブシディアン・ドワーフと呼び、成長し、繁栄しました。
+Race/&RaceObsidianDwarfDescription=遠い昔、ドワーフのグループは火の巨人によって鉱山労働者や職人として奴隷にされていました。大変動の混沌とし​​た魔法は、これらのドワーフの多くに抑圧者の強さと抵抗力の一部を吹き込みました。ドワーフたちは反乱を起こし、自由を勝ち取り、バッドランズに撤退しました。彼らは自らをオブシディアン・ドワーフと呼び、成長し、繁栄しました。
 Race/&RaceObsidianDwarfTitle=オブシディアン ドワーフ

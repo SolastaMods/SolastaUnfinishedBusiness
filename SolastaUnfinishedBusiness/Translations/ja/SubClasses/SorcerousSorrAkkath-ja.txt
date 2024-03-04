@@ -1,7 +1,7 @@
 Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackDescription=攻撃ロールにアドバンテージがある場合、ターンごとに 1 回、呪文攻撃を当てたクリーチャー 1 体に追加の 1d6 ダメージを与えることができます。ターゲットの別の敵がターゲットから 5 フィート以内にいて、その敵が無力化されておらず、攻撃ロールで不利にならない場合、攻撃ロールで有利になる必要はありません。ダメージは 5 レベルで 2d6、11 レベルで 3d6、17 レベルで 4d6 に増加します。
 Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackTitle=スペルスニークアタック
 Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathDescription=6レベルから、毒ダメージに対する耐性が得られ、毒状態に対する耐性が得られます。さらに、Spell Sneak Attack 機能でクリーチャーを攻撃すると、そのクリーチャーに憲法セーヴィング スローが課せられます。クリーチャーがそれに失敗すると、次のターンの終わりまで毒状態になります。
-Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathTitle=ソル・アッカスの血
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathTitle=ソール・アッカスの血
 Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription=レベル 14 から開始すると、薄明かりまたは暗闇にいる間、次の効果が得られます:\n・AC に +2。\n・攻撃ロールに +2。\n・セーヴィング スローに +2。{99。 }• ターン終了時にヒット ポイントが +2 回復します。
 Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle=闇の親和性
 Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription=ステルスと欺瞞のスキルに熟練し、ヴェノマス・スパイク・キャントリップを学び、60フィートの暗視を獲得します。

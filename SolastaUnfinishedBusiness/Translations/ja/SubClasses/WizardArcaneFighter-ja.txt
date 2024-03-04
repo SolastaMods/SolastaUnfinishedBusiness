@@ -1,7 +1,7 @@
 Feature/&AdditionalActionArcaneFighterDescription=武器攻撃で敵を倒した後に呪文を唱えることができます。
 Feature/&AdditionalActionArcaneFighterTitle=スペルファイティング
 Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=ターンごとに 1 回、武器攻撃で 1d8 の追加ダメージを与えます。
-Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=魔法の力による攻撃
+Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=混乱した戦闘の経験により、集中力判定で有利になります。
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=集中力の向上
 Feedback/&AdditionalDamageArcaneFighterFormat=アーケインファイター！

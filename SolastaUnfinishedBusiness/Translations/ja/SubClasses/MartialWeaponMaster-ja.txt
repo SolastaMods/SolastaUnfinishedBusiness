@@ -1,4 +1,4 @@
-Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=あなたはターン終了時まで、特殊な武器を使ったすべての攻撃で有利になります。
+Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=あなたはターンの終わりまで、特殊な武器を使ったすべての攻撃で有利になります。
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=集中攻撃
 Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=特殊な武器タイプのヒットとダメージロールに +1 を獲得します。 Martial Weapon Master は他のすべての武器タイプで攻撃するのが不利ですが、レベル 9 から +2 ボーナスが得られ、レベル 17 から +3 ボーナスが得られます。
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=武器の特化

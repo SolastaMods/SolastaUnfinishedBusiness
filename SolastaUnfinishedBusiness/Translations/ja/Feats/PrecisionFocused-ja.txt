@@ -2,5 +2,5 @@ Feat/&FeatArcanePrecisionDescription=インテリジェンスを 1 増加させ�
 Feat/&FeatArcanePrecisionTitle=難解な精度
 Feat/&FeatCharismaticPrecisionDescription=カリスマを 1 増加させ、最大 20 まで増加させます。\nボーナス アクションを使用して武器を選択できます。その攻撃は魔法としてカウントされ、1分間攻撃とダメージロールにカリスマを使用します。この機能は、長い休憩ごとに熟練度ボーナスの回数を使用できます。
 Feat/&FeatCharismaticPrecisionTitle=カリスマ的な精度
-Feat/&FeatWisePrecisionDescription=知恵を 1 増やして、最大 20 まで増やします。\nボーナス アクションを使用して武器を選択できます。その攻撃は魔法としてカウントされ、1分間攻撃とダメージロールに知恵を使用します。この機能は、長い休憩ごとに熟練度ボーナスの回数を使用できます。
+Feat/&FeatWisePrecisionDescription=知恵を 1 増やし、最大 20 まで増やします。\nボーナス アクションを使用して武器を選択できます。その攻撃は魔法としてカウントされ、1分間攻撃とダメージロールに知恵を使用します。この機能は、長い休憩ごとに熟練度ボーナスの回数を使用できます。
 Feat/&FeatWisePrecisionTitle=賢明な精度

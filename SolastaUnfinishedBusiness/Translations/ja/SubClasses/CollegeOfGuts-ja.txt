@@ -1,4 +1,4 @@
 Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=神秘的な力を使って、反応として自分自身を守ることができます。これにより、次のターンまでアーマー クラスが +3 されます。
 Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=腸のたわみ
-Subclass/&CollegeOfGutsDescription=ガッツ大学の吟遊詩人たちは、ミードホールや大きな焚き火の周りに集まり、過去と現在の偉人の偉業を歌います。彼らは、偉大な出来事を直接目撃し、それらの出来事の記憶が世界から消え去らないようにするために土地を旅します。彼らは歌で、昔の英雄と同じ高みに到達するよう他の人たちを鼓舞します。
-Subclass/&CollegeOfGutsTitle=ガッツ大学
+Subclass/&CollegeOfGutsDescription=勇気の大学の吟遊詩人たちは、ミードホールや大きな焚き火の周りに集まり、過去と現在の強者の偉業を歌います。彼らは、偉大な出来事を直接目撃し、それらの出来事の記憶が世界から消え去らないようにするために土地を旅します。彼らは歌で、昔の英雄と同じ高みに到達するよう他の人たちを鼓舞します。
+Subclass/&CollegeOfGutsTitle=カレッジ・オブ・ヴァラー

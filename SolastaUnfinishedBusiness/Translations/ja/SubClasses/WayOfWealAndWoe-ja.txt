@@ -1,11 +1,11 @@
 Feature/&FeatureWayOfWealAndWoeBrutalWealDescription=モンク武器または素手攻撃で攻撃ロールを行い、クリティカルヒットを出した後、武術ダイスの 1 ロールに等しい追加ダメージを与えます。
 Feature/&FeatureWayOfWealAndWoeBrutalWealTitle=残忍なウィール
-Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=モンク武器または素手攻撃で攻撃ロールを行い、クリティカルヒットを出した後、1 ki ポイントを払い戻します。
+Feature/&FeatureWayOfWealAndWoeSelfPropelledWealDescription=モンク武器または素手攻撃で攻撃ロールを行い、クリティカルヒットを出した後、1 Ki ポイントを払い戻します。
 Feature/&FeatureWayOfWealAndWoeSelfPropelledWealTitle=推進力のある小麦
 Feature/&FeatureWayOfWealAndWoeTheirWoeDescription=モンク武器または素手攻撃で攻撃ロールを行い、クリティカルミスした後、代わりに自分自身ではなくターゲットに悲惨なダメージを与えます。
 Feature/&FeatureWayOfWealAndWoeTheirWoeTitle=彼らの災い
 Feature/&FeatureWayOfWealAndWoeWealDescription=モンク武器または素手攻撃による攻撃ロールを行った後、クリティカル ヒットとクリティカル ミスの範囲が 1 増加します。長い休憩を完了したり、クリティカルヒットしたりミスしたりすると、20と1にリセットされます。
-Feature/&FeatureWayOfWealAndWoeWealTitle=ウェル
+Feature/&FeatureWayOfWealAndWoeWealTitle=ウィール
 Feature/&FeatureWayOfWealAndWoeWoeDescription=モンク武器または素手攻撃で攻撃ロールを行い、クリティカルミスをした後、武術ダイスの 1 ロールに等しいダメージを受けます。
 Feature/&FeatureWayOfWealAndWoeWoeTitle=Woe
 Feedback/&WoeReroll={1} のため、{2} は攻撃ロールのダイスを {3} から {4} に振り直します。

@@ -1,6 +1,6 @@
-Feature/&CastSpellFairyDescription=キャントリップは<b>バーストオブラディアンス</b>をご存知でしょうか。 3 レベルでは<b>フェアリー ファイア</b>を、5 レベルでは<b>カラー バースト</b>を学びます。どちらも長期休憩ごとに1回のみ使用できます。
+Feature/&CastSpellFairyDescription=あなたは<b>ワードオブラディアンス</b>のキャントリップを知っています。 3 レベルでは<b>フェアリー ファイア</b>を、5 レベルでは<b>カラー バースト</b>を学びます。どちらも長期休憩ごとに1回のみ使用できます。
 Feature/&CastSpellFairyTitle=フェアリーマジック
-Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=器用さ+2、知性、知恵またはカリスマ性+1
+Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=器用さ +2、知性、知恵またはカリスマ性 +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=能力値
 Feature/&FeatureSetFairyFlightDescription=翼があるため、飛行速度は歩行速度と同じになります。中装甲または重装甲を着ている場合、この飛行速度を使用することはできません。
 Feature/&FeatureSetFairyFlightTitle=フライト

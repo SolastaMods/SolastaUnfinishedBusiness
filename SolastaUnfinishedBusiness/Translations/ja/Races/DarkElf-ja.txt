@@ -1,6 +1,6 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=カリスマ性+1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=能力値増加
-Feature/&CastSpellDarkelfMagicDescription=あなたは<b>ダンシングライツ</b>のキャントリップを知っています。 3 レベルでは<b>フェアリー ファイア</b>を、5 レベルでは<b>闇</b>を学びます。どちらも長期休憩ごとに1回のみ使用できます。
+Feature/&CastSpellDarkelfMagicDescription=あなたは<b>ダンシングライツ</b>のキャントリップを知っています。 3 レベルで<b>フェアリー ファイア</b>を、5 レベルで<b>闇</b>を学びます。どちらも長期休憩ごとに1回のみ使用できます。
 Feature/&CastSpellDarkelfMagicTitle=ダークエルフの魔法
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=あなたはレイピア、ショートソード、ハンドクロスボウの熟練度を持っています。
 Feature/&ProficiencyDarkelfWeaponTrainingTitle=ダークエルフの武器訓練
