@@ -316,7 +316,7 @@ internal static class RaceMalakhBuilder
             };
 
             ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
+                .ExecuteAction(actionParams, null, false);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
