@@ -1,6 +1,6 @@
-Feature/&PointPoolAbilityScore3Description=Usa tre potenziamenti ai punteggi di caratteristica in qualsiasi combinazione di tua scelta.
+Feature/&PointPoolAbilityScore3Description=Usa tre incrementi sui punteggi di caratteristica in qualsiasi combinazione di tua scelta.
 Feature/&PointPoolAbilityScore3Title=Aumento del punteggio di abilità
-Feature/&PointPoolAbilityScore4Description=Usa quattro potenziamenti ai punteggi di caratteristica in qualsiasi combinazione di tua scelta.
+Feature/&PointPoolAbilityScore4Description=Usa quattro incrementi sui punteggi di caratteristica in qualsiasi combinazione a tua scelta.
 Feature/&PointPoolAbilityScore4Title=Aumento del punteggio di abilità
 Feature/&PointPoolSelectBonusFeatsDescription=Seleziona {0} talenti aggiuntivi per il tuo personaggio.
 Feature/&PointPoolSelectBonusFeatsTitle={0} talenti bonus

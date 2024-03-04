@@ -10,5 +10,5 @@ Feature/&PowerSpellShieldArcaneDeflectionDescription=Puoi usare i tuoi poteri ar
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Deviazione Arcana
 Feature/&PowerSpellShieldRangedDeflectionDescription=Puoi usare la tua azione per prendere di mira fino a 4 creature amiche. Ogni creatura influenzata ottiene +2 CA finché dura la barriera. Puoi usare questa capacità una volta per ogni riposo lungo.
 Feature/&PowerSpellShieldRangedDeflectionTitle=Barriera protettiva
-Subclass/&MartialSpellShieldDescription=Gli Scudi magici sono combattenti specializzati in difesa e protezione. Usano la magia per aiutare le loro abilità naturali.
-Subclass/&MartialSpellShieldTitle=Scudo magico
+Subclass/&MartialSpellShieldDescription=Gli Eldritch Knights sono combattenti specializzati nella difesa e nella protezione. Usano la magia per aiutare le loro capacità naturali.
+Subclass/&MartialSpellShieldTitle=Cavaliere Eldritch

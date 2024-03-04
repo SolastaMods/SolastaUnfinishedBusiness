@@ -1,6 +1,6 @@
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=Forza +2
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=Aumento del punteggio di abilità
 Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=Hai competenza con le armature leggere e medie.
-Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Addestramento con armature degli Ironborn
-Race/&RaceIronbornDwarfDescription=Forti e robusti, i Nani di Ferro vivono tra, ma spesso separati, dai loro cugini, i Nani delle Nevi. Clan e distaccati, ciononostante si può contare su di loro per stare spalla a spalla muscolosa con qualsiasi membro dell'Alleanza della Neve.
-Race/&RaceIronbornDwarfTitle=Nano Nato di Ferro
+Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Addestramento all'armatura degli Ironborn
+Race/&RaceIronbornDwarfDescription=Forti e resistenti, i Nani Ironborn vivono insieme, ma spesso separati, dai loro cugini, i Nani delle nevi. Clanistici e distaccati, si può comunque contare sul fatto che saranno fianco a fianco con qualsiasi membro della Snow Alliance.
+Race/&RaceIronbornDwarfTitle=Nano Ironborn

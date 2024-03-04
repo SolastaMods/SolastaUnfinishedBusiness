@@ -1,10 +1,10 @@
-Feature/&AdditionalActionArcaneFighterDescription=Puoi lanciare un incantesimo dopo aver sconfitto un nemico con i tuoi attacchi con le armi.
-Feature/&AdditionalActionArcaneFighterTitle=Incantesimi di combattimento
-Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Una volta per turno, i tuoi attacchi con le armi infliggono 1d8 danni extra.
+Feature/&AdditionalActionArcaneFighterDescription=Puoi lanciare un incantesimo dopo aver sconfitto un nemico con i tuoi attacchi con l'arma.
+Feature/&AdditionalActionArcaneFighterTitle=Lotta con gli incantesimi
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Una volta per turno, gli attacchi con la tua arma infliggono 1d8 danni aggiuntivi.
 Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Attacchi potenziati magicamente
-Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=A causa dell'esperienza nel caos del combattimento, ottieni vantaggio nelle prove di Concentrazione.
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Grazie all'esperienza nel caos del combattimento, ottieni vantaggio nelle prove di concentrazione.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentrazione migliorata
 Feedback/&AdditionalDamageArcaneFighterFormat=Combattente arcano!
-Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter infligge danni extra +{2}!
-Subclass/&WizardArcaneFighterDescription=Gli Arcane Fighters incanalano la magia nelle loro armi per eseguire attacchi devastanti. I loro avversari sono spesso sorpresi dalla ferocia e implacabilità di questi lanciatori di incantesimi.
-Subclass/&WizardArcaneFighterTitle=Guerriero Arcano
+Feedback/&AdditionalDamageArcaneFighterLine=Il Guerriero Arcano infligge +{2} danni extra!
+Subclass/&WizardArcaneFighterDescription=I Guerrieri Arcani incanalano la magia nelle loro armi per eseguire attacchi devastanti. I loro avversari sono spesso sorpresi dalla ferocia e dall'implacabilità di questi lanciatori di incantesimi.
+Subclass/&WizardArcaneFighterTitle=Combattente Arcano

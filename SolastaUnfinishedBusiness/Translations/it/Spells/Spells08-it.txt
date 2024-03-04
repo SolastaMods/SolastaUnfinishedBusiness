@@ -1,4 +1,4 @@
-Condition/&ConditionMindBlankDescription=Immune ai danni psichici e alla condizione incantata.
-Condition/&ConditionMindBlankTitle=Mente Vuota
-Spell/&MindBlankDescription=Finché l'incantesimo non termina, una creatura consenziente che l'incantatore tocca è immune ai danni psichici, a qualsiasi effetto che percepisca le sue emozioni o legga i suoi pensieri, agli incantesimi di divinazione e alla condizione affascinato.
-Spell/&MindBlankTitle=Mente Vuota
+Condition/&ConditionMindBlankDescription=Immune ai danni psichici e alla condizione affascinato.
+Condition/&ConditionMindBlankTitle=Mente vuota
+Spell/&MindBlankDescription=Fino al termine dell'incantesimo, una creatura consenziente toccata dall'incantatore è immune ai danni psichici, a qualsiasi effetto in grado di percepirne le emozioni o leggerne i pensieri, agli incantesimi di divinazione e alla condizione affascinato.
+Spell/&MindBlankTitle=Mente vuota

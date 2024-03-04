@@ -1,9 +1,9 @@
 Feature/&AttributeModifierBattlebornBonusACTitle=Resilienza Arcana
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseDescription=Costituzione +2, aumenta 1 altro punteggio di 1 punto.
 Feature/&FeatureSetBattlebornAbilityScoreIncreaseTitle=Aumento del punteggio di abilità
-Feature/&FeatureSetBattlebornArcaneResilienceDescription=Sei stato creato per avere una notevole forza d'animo, rappresentata dai seguenti vantaggi:\n• Ottieni un bonus di +1 alla Classe Armatura.\n• Hai vantaggio ai tiri salvezza contro l'avvelenamento e hai resistenza all'avvelenamento danni da veleno.\n• Sei immune alle malattie.\n• Non hai bisogno di dormire e la magia non può farti dormire.
+Feature/&FeatureSetBattlebornArcaneResilienceDescription=Sei stato creato per avere una notevole forza d'animo, rappresentata dai seguenti vantaggi:\n• Ottieni un bonus di +1 alla Classe Armatura.\n• Hai vantaggio ai tiri salvezza contro l'avvelenamento e hai resistenza ai danni da veleno. \n• Sei immune alle malattie.\n• Non hai bisogno di dormire e la magia non può farti addormentare.
 Feature/&FeatureSetBattlebornArcaneResilienceTitle=Resilienza Arcana
 Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Ottieni una competenza in un'abilità e una competenza in uno strumento a tua scelta.
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Infusione specializzata
 Race/&RaceBattlebornDescription=I nati in battaglia sono il risultato di esperimenti arcani, che fondono carne, alchimia e magia per creare perfetti soldati sul campo di battaglia. Creati per servire come armi, ora devono trovare uno scopo oltre la guerra. Un nato in battaglia può essere un alleato leale, una macchina per uccidere dal cuore freddo o un'anima errante alla ricerca di uno scopo e di un significato.
-Race/&RaceBattlebornTitle=Nato in battaglia
+Race/&RaceBattlebornTitle=Forgiato

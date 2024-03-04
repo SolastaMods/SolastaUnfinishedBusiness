@@ -1,4 +1,4 @@
 Condition/&ConditionReverseGravityDescription=Catturato dalla gravità inversa.
 Condition/&ConditionReverseGravityTitle=Gravità inversa
-Spell/&ReverseGravityDescription=Questo incantesimo inverte la gravità in un cilindro del raggio di 15 metri e alto 30 metri centrato su un punto entro gittata.
+Spell/&ReverseGravityDescription=Questo incantesimo inverte la gravità in un cilindro del raggio di 15 metri e alto 30 metri centrato su un punto entro la gittata.
 Spell/&ReverseGravityTitle=Gravità inversa
