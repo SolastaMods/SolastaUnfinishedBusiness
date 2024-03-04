@@ -283,9 +283,9 @@ internal static class RaceMalakhBuilder
     }
 
     private sealed class CustomBehaviorAngelicRadiance(FeatureDefinitionPower powerAngelicRadianceDamage)
-        : ICharacterTurnEndListener, IModifyEffectDescription
+        : ICharacterBeforeTurnEndListener, IModifyEffectDescription
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 

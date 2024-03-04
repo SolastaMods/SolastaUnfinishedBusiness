@@ -380,7 +380,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         featureElementalConduitBlizzard.AddCustomSubFeatures(
-            new CharacterTurnEndedElementalConduitBlizzard(featureElementalConduitBlizzard));
+            new CharacterBeforeTurnEndedElementalConduitBlizzard(featureElementalConduitBlizzard));
 
         // Wildfire
 
@@ -438,9 +438,9 @@ public sealed class PathOfTheElements : AbstractSubclass
     //
 
     private sealed class CustomBehaviorElementalFury(FeatureDefinitionPower power)
-        : ICharacterTurnEndListener, IModifyEffectDescription
+        : ICharacterBeforeTurnEndListener, IModifyEffectDescription
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
@@ -533,12 +533,11 @@ public sealed class PathOfTheElements : AbstractSubclass
     // Elemental Conduit - Blizzard
     //
 
-    private sealed class CharacterTurnEndedElementalConduitBlizzard(
+    private sealed class CharacterBeforeTurnEndedElementalConduitBlizzard(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition)
-        : ICharacterTurnEndListener
+        FeatureDefinition featureDefinition) : ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var battle = Gui.Battle;
 
@@ -602,8 +601,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
     private sealed class ReactToAttackOnMeFinishedElementalConduitWildfire(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition)
-        : IPhysicalAttackFinishedOnMe
+        FeatureDefinition featureDefinition) : IPhysicalAttackFinishedOnMe
     {
         public IEnumerator OnPhysicalAttackFinishedOnMe(
             GameLocationBattleManager battleManager,

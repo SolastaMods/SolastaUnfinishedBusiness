@@ -65,7 +65,7 @@ internal static class RaceWildlingBuilder
             .Create($"ActionAffinity{RaceName}Tired")
             .SetGuiPresentationNoContent(true)
             .SetForbiddenActions((ActionDefinitions.Id)ExtraActionId.WildlingFeralAgility)
-            .AddCustomSubFeatures(new WildlingTiredOnTurnEnd())
+            .AddCustomSubFeatures(new CustomBehaviorTired())
             .AddToDB();
 
         ConditionDefinitionBuilder
@@ -129,14 +129,14 @@ internal static class RaceWildlingBuilder
     }
 }
 
-internal class WildlingTiredOnTurnEnd : ICharacterTurnEndListener, ICharacterBattleEndedListener
+internal class CustomBehaviorTired : ICharacterBeforeTurnEndListener, ICharacterBattleEndedListener
 {
     public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
     {
         RemoveTired(locationCharacter);
     }
 
-    public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+    public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
     {
         RemoveTired(locationCharacter);
     }

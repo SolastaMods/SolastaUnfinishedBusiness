@@ -686,9 +686,9 @@ internal static class MeleeCombatFeats
         ConditionDefinition conditionDefinition,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureDefinition)
-        : IPhysicalAttackFinishedByMe, ICharacterTurnEndListener
+        : IPhysicalAttackFinishedByMe, ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
@@ -997,6 +997,8 @@ internal static class MeleeCombatFeats
                         .Create("ConditionFeatCrusherCriticalHit")
                         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
                         .SetConditionType(ConditionType.Detrimental)
+                        .SetSpecialDuration(DurationType.Round, 1,
+                            (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
                         .SetFeatures(
                             FeatureDefinitionCombatAffinityBuilder
                                 .Create("CombatAffinityFeatCrusher")
@@ -1064,8 +1066,8 @@ internal static class MeleeCombatFeats
             {
                 yield break;
             }
-            
-            if ( criticalHit)
+
+            if (criticalHit)
             {
                 actualEffectForms.Add(criticalEffectForm);
             }

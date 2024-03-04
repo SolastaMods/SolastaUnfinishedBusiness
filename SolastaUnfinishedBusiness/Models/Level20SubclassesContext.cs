@@ -1167,7 +1167,7 @@ internal static class Level20SubclassesContext
         var featureRoguishThiefThiefReflexes = FeatureDefinitionBuilder
             .Create("FeatureRoguishThiefThiefReflexes")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new InitiativeEndListenerThiefReflexes())
+            .AddCustomSubFeatures(new CustomBehaviorThiefReflexes())
             .AddToDB();
 
         RoguishThief.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishThiefThiefReflexes, 17));
@@ -2285,9 +2285,9 @@ internal static class Level20SubclassesContext
     // Thief's Reflexes
     //
 
-    private sealed class InitiativeEndListenerThiefReflexes : IInitiativeEndListener, ICharacterTurnEndListener
+    private sealed class CustomBehaviorThiefReflexes : IInitiativeEndListener, ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var battle = Gui.Battle;
 

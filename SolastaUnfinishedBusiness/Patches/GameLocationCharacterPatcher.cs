@@ -165,7 +165,7 @@ public static class GameLocationCharacterPatcher
     public static class EndBattleTurn_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(GameLocationCharacter __instance)
+        public static void Prefix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat turn ended event
             CharacterBattleListenersPatch.OnCharacterTurnEnded(__instance);

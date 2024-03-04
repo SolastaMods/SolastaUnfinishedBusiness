@@ -278,7 +278,7 @@ public sealed class InnovationArtillerist : AbstractSubclass
             .AddToDB();
 
         powerEldritchCannonCommand.AddCustomSubFeatures(
-            new ApplyOnTurnEnd(conditionEldritchCannonCommand, powerEldritchCannonCommand));
+            new ApplyBeforeTurnEnd(conditionEldritchCannonCommand, powerEldritchCannonCommand));
 
         // Dismiss Cannon
 
@@ -985,13 +985,12 @@ public sealed class InnovationArtillerist : AbstractSubclass
         }
     }
 
-    private class ApplyOnTurnEnd(
+    private class ApplyBeforeTurnEnd(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition condition,
-        FeatureDefinitionPower power)
-        : ICharacterTurnEndListener
+        FeatureDefinitionPower power) : ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
 

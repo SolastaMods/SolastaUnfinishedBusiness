@@ -459,7 +459,7 @@ public sealed class InnovationWeapon : AbstractSubclass
             .AddCustomSubFeatures(new ShowInCombatWhenHasBlade())
             .AddToDB();
 
-        power.AddCustomSubFeatures(new ApplyOnTurnEnd(condition, power));
+        power.AddCustomSubFeatures(new ApplyBeforeTurnEnd(condition, power));
 
         return power;
     }
@@ -546,13 +546,12 @@ public sealed class InnovationWeapon : AbstractSubclass
         }
     }
 
-    private class ApplyOnTurnEnd(
+    private class ApplyBeforeTurnEnd(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition condition,
-        FeatureDefinitionPower power)
-        : ICharacterTurnEndListener
+        FeatureDefinitionPower power) : ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
 

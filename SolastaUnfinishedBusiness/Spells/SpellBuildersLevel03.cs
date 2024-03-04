@@ -1342,10 +1342,9 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorHungerOfTheVoid(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionHungerOfTheVoid)
-        : ICharacterTurnStartListener, ICharacterTurnEndListener
+        ConditionDefinition conditionHungerOfTheVoid) : ICharacterTurnStartListener, ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             InflictDamage(DamageTypeAcid, locationCharacter.RulesetCharacter, VenomousSpike, true);
         }

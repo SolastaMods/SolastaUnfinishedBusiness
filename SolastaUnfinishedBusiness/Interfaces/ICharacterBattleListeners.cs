@@ -17,9 +17,9 @@ public interface ICharacterTurnStartListener
     void OnCharacterTurnStarted(GameLocationCharacter locationCharacter);
 }
 
-public interface ICharacterTurnEndListener
+public interface ICharacterBeforeTurnEndListener
 {
-    void OnCharacterTurnEnded(GameLocationCharacter locationCharacter);
+    void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter);
 }
 
 public interface IInitiativeEndListener
@@ -125,11 +125,11 @@ public static class CharacterBattleListenersPatch
             return;
         }
 
-        var listeners = rulesetCharacter.GetSubFeaturesByType<ICharacterTurnEndListener>();
+        var listeners = rulesetCharacter.GetSubFeaturesByType<ICharacterBeforeTurnEndListener>();
 
         foreach (var listener in listeners)
         {
-            listener.OnCharacterTurnEnded(locationCharacter);
+            listener.OnCharacterBeforeTurnEnded(locationCharacter);
         }
     }
 
