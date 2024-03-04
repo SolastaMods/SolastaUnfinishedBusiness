@@ -35,11 +35,24 @@ public sealed class RangerWildMaster : AbstractSubclass
 
     public RangerWildMaster()
     {
+        // Advanced Training
+
+        var actionAffinityAdvancedTraining = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}AdvancedTraining")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions(Id.DashBonus, Id.DisengageBonus)
+            .AddToDB();
+
         var conditionAdvancedTraining = ConditionDefinitionBuilder
             .Create($"Condition{Name}AdvancedTraining")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPassWithoutTrace)
             .SetPossessive()
+            .SetFeatures(actionAffinityAdvancedTraining)
             .AddToDB();
+
+        //
+        // LEVEL 03
+        //
 
         // Beast Companion
 
@@ -68,38 +81,51 @@ public sealed class RangerWildMaster : AbstractSubclass
             .SetAddedConditions(
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}BeastCompanionArmorClass")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(acBonus)
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create($"Condition{Name}BeastCompanionArmorClassAttackRoll")
-                    .SetGuiPresentationNoContent(true)
+                    .Create($"Condition{Name}BeastCompanionAttackRoll")
+                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(toHit)
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}BeastCompanionDamageRoll")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(toDamage)
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}BeastCompanionHitPoints")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceCharacterLevel)
                     .SetFeatures(HpBonus, HpBonus, HpBonus, HpBonus, HpBonus)
                     .AddToDB())
             .AddToDB();
 
-        var actionAffinityBeastCompanion = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{Name}BeastCompanion")
+        var actionAffinityBeastCompanionDashMain = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}BeastCompanionDashMain")
             .SetGuiPresentationNoContent(true)
-            .SetForbiddenActions(Id.DashMain, Id.DashBonus, Id.DisengageMain, Id.DisengageBonus)
+            .SetForbiddenActions(Id.DashMain)
+            .AddCustomSubFeatures(
+                new ValidateDefinitionApplication(
+                    ValidatorsCharacter.HasNoneOfConditions(conditionAdvancedTraining.Name)))
+            .AddToDB();
+
+        var actionAffinityBeastCompanionDisengageMain = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}BeastCompanionDisengageMain")
+            .SetGuiPresentationNoContent(true)
+            .SetForbiddenActions(Id.DisengageMain)
             .AddCustomSubFeatures(
                 new ValidateDefinitionApplication(
                     ValidatorsCharacter.HasNoneOfConditions(conditionAdvancedTraining.Name)))
@@ -120,16 +146,21 @@ public sealed class RangerWildMaster : AbstractSubclass
             .AddToDB();
 
         var powerBeastCompanionBear = BuildBeastCompanionBear(
-            powerWildMasterSummonBeastCompanionPool, actionAffinityBeastCompanion, conditionAffinityBeastCompanion);
+            powerWildMasterSummonBeastCompanionPool,
+            actionAffinityBeastCompanionDashMain, actionAffinityBeastCompanionDisengageMain,
+            conditionAffinityBeastCompanion);
 
         var powerBeastCompanionEagle = BuildBeastCompanionEagle(
-            powerWildMasterSummonBeastCompanionPool, actionAffinityBeastCompanion, conditionAffinityBeastCompanion);
+            powerWildMasterSummonBeastCompanionPool,
+            actionAffinityBeastCompanionDashMain, actionAffinityBeastCompanionDisengageMain,
+            conditionAffinityBeastCompanion);
 
         var powerBeastCompanionWolf = BuildBeastCompanionWolf(
-            powerWildMasterSummonBeastCompanionPool, actionAffinityBeastCompanion, conditionAffinityBeastCompanion,
+            powerWildMasterSummonBeastCompanionPool,
+            actionAffinityBeastCompanionDashMain, actionAffinityBeastCompanionDisengageMain,
+            conditionAffinityBeastCompanion,
             FeatureDefinitionCombatAffinityBuilder
                 .Create(FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics, $"CombatAffinity{Name}WolfTactics")
-                .SetGuiPresentationNoContent(true)
                 .SetSituationalContext(ExtraSituationalContext.SummonerIsNextToBeast)
                 .AddToDB());
 
@@ -147,6 +178,10 @@ public sealed class RangerWildMaster : AbstractSubclass
                 powerBeastCompanionEagle,
                 powerBeastCompanionWolf)
             .AddToDB();
+
+        //
+        // LEVEL 07
+        //
 
         // Advanced Training
 
@@ -180,6 +215,10 @@ public sealed class RangerWildMaster : AbstractSubclass
             .AddFeatureSet(summoningAffinityAdvancedTraining, powerAdvancedTraining)
             .AddToDB();
 
+        //
+        // LEVEL 11
+        //
+
         // True Expertise
 
         var summoningAffinityTrueExpertise = FeatureDefinitionSummoningAffinityBuilder
@@ -189,12 +228,13 @@ public sealed class RangerWildMaster : AbstractSubclass
             .SetAddedConditions(
                 ConditionDefinitionBuilder
                     .Create($"Condition{Name}TrueExpertise")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
+                    .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetFeatures(
                         FeatureDefinitionSavingThrowAffinityBuilder
                             .Create($"SavingThrowAffinity{Name}TrueExpertise")
-                            .SetGuiPresentationNoContent(true)
+                            .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
                             .AddCustomSubFeatures(new AddPBToSummonCheck(1,
                                 AttributeDefinitions.Strength,
                                 AttributeDefinitions.Dexterity,
@@ -205,6 +245,10 @@ public sealed class RangerWildMaster : AbstractSubclass
                             .AddToDB())
                     .AddToDB())
             .AddToDB();
+
+        //
+        // LEVEL 15
+        //
 
         // Kill Command
 
@@ -383,7 +427,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 yield break;
             }
 
-            attackMode.ToHitBonus = pb;
+            attackMode.ToHitBonus += pb;
             attackMode.ToHitBonusTrends.Add(
                 new TrendInfo(pb, FeatureSourceType.Condition, conditionKillCommand.Name, conditionKillCommand));
 
@@ -411,6 +455,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
+                .SetArmorClass(12)
+                .SetAbilityScores(14, 14, 16, 10, 12, 8)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
@@ -424,6 +470,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
+                .SetArmorClass(12)
+                .SetAbilityScores(14, 14, 16, 10, 12, 8)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
@@ -495,6 +543,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
+                .SetArmorClass(13)
+                .SetAbilityScores(10, 16, 12, 14, 8, 14)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
@@ -508,6 +558,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
+                .SetArmorClass(13)
+                .SetAbilityScores(10, 16, 12, 14, 8, 14)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
@@ -558,6 +610,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
+                .SetArmorClass(13)
+                .SetAbilityScores(12, 16, 14, 14, 8, 10)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
@@ -572,6 +626,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetCreatureTags(BeastCompanionTag)
+                .SetArmorClass(13)
+                .SetAbilityScores(12, 16, 14, 14, 8, 10)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
                 .NoExperienceGain()
