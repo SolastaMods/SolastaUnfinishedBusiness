@@ -1,8 +1,11 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
@@ -150,10 +153,27 @@ public sealed class RangerSurvivalist : AbstractSubclass
 
         // Unmatched Experience
 
-        var savingThrowAffinityUnmatchedExperience = FeatureDefinitionSavingThrowAffinityBuilder
+        // kept for backward compatibility
+        _ = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}UnmatchedExperience")
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(CharacterSavingThrowAffinity.ProficiencyBonusOrPlus1, false, AttributeDefinitions.Wisdom)
+            .AddToDB();
+
+        var featureSetBlessingWilderness = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}BlessingWilderness")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionConditionAffinityBuilder
+                    .Create($"ConditionAffinity{Name}DeafenedImmunity")
+                    .SetGuiPresentationNoContent(true)
+                    .SetConditionType(ConditionDefinitions.ConditionDeafened)
+                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                    .AddCustomSubFeatures(new TryAlterOutcomeAttackBlessingWilderness())
+                    .AddToDB(),
+                FeatureDefinitionConditionAffinitys.ConditionAffinityBlindnessImmunity,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity)
             .AddToDB();
 
         //
@@ -172,7 +192,7 @@ public sealed class RangerSurvivalist : AbstractSubclass
             .AddFeaturesAtLevel(11,
                 powerImprovedDisablingStrike)
             .AddFeaturesAtLevel(15,
-                savingThrowAffinityUnmatchedExperience,
+                featureSetBlessingWilderness,
                 FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice)
             .AddToDB();
     }
@@ -191,5 +211,28 @@ public sealed class RangerSurvivalist : AbstractSubclass
     {
         FeatureSetAnalyticalMind.FeatureSet.Add(
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyFeatExecutioner"));
+    }
+
+    private sealed class TryAlterOutcomeAttackBlessingWilderness : ITryAlterOutcomeAttack
+    {
+        public IEnumerator OnTryAlterOutcomeAttack(
+            GameLocationBattleManager instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier actionModifier)
+        {
+            if (action.AttackRollOutcome is not RollOutcome.CriticalSuccess ||
+                defender != helper ||
+                !defender.CanPerceiveTarget(attacker) ||
+                defender.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionIncapacitated))
+            {
+                yield break;
+            }
+
+            action.AttackRoll--;
+            action.AttackRollOutcome = RollOutcome.Success;
+        }
     }
 }

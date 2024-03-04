@@ -1232,6 +1232,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionConditionAffinitys
     {
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityBlindnessImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityBlindnessImmunity");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCalmEmotionCharmedImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCalmEmotionCharmedImmunity");
 
