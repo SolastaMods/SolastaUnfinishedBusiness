@@ -3,7 +3,7 @@
   "requiredMonsterTag": "BeastCompanion",
   "addedConditions": [
     "Definition:ConditionRangerWildMasterBeastCompanionArmorClass:dd8ce970-2b28-5e40-8654-0878ef98cbd9",
-    "Definition:ConditionRangerWildMasterBeastCompanionArmorClassAttackRoll:816b873f-2800-5189-b8c6-536631dcab07",
+    "Definition:ConditionRangerWildMasterBeastCompanionAttackRoll:feb2c8b6-72ec-5dbd-9fa0-3e08ed91a3d6",
     "Definition:ConditionRangerWildMasterBeastCompanionDamageRoll:3f3495b7-2b82-5860-8b9d-263f50516719",
     "Definition:ConditionRangerWildMasterBeastCompanionHitPoints:d3017af1-810e-576b-8d17-56ed3c66c761"
   ],

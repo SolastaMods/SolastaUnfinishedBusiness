@@ -10,19 +10,19 @@
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Unaligned",
-  "armorClass": 12,
+  "armorClass": 13,
   "armor": "",
   "hitDice": 4,
   "hitDiceType": "D10",
   "hitPointsBonus": 1,
   "standardHitPoints": 5,
   "abilityScores": [
+    10,
     16,
-    17,
-    13,
-    8,
+    12,
     14,
-    10
+    8,
+    14
   ],
   "savingThrowScores": [],
   "skillScores": [
@@ -49,7 +49,8 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:ActionAffinityRangerWildMasterBeastCompanion:aa460d0a-194e-57ed-beb9-f23190d2a65d",
+    "Definition:ActionAffinityRangerWildMasterBeastCompanionDashMain:444c78de-36d7-585e-8bed-50835aa06540",
+    "Definition:ActionAffinityRangerWildMasterBeastCompanionDisengageMain:e6229537-2e33-5f33-8ab6-31feef905197",
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
     "Definition:ConditionAffinityRangerWildMasterBeastCompanion:2bd6cfd4-49bf-5687-9b68-4f3765984ce2",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",

@@ -87,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "SourceSpellCastingAbility",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -129,8 +129,8 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feedback/&BeastCompanionBonusTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "816b873f-2800-5189-b8c6-536631dcab07",
+  "guid": "feb2c8b6-72ec-5dbd-9fa0-3e08ed91a3d6",
   "contentPack": 9999,
-  "name": "ConditionRangerWildMasterBeastCompanionArmorClassAttackRoll"
+  "name": "ConditionRangerWildMasterBeastCompanionAttackRoll"
 }

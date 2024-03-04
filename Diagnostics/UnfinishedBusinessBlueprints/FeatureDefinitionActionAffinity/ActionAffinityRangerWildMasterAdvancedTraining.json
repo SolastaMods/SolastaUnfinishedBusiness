@@ -10,13 +10,11 @@
   ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
-  "forbiddenActions": [
+  "forbiddenActions": [],
+  "authorizedActions": [
     "DashBonus",
-    "DashMain",
-    "DisengageBonus",
-    "DisengageMain"
+    "DisengageBonus"
   ],
-  "authorizedActions": [],
   "restrictedActions": [],
   "actionExecutionModifiers": [],
   "specialBehaviour": "None",
@@ -47,7 +45,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aa460d0a-194e-57ed-beb9-f23190d2a65d",
+  "guid": "b47d5dfa-8941-5d6f-9b2f-cc5b380999e6",
   "contentPack": 9999,
-  "name": "ActionAffinityRangerWildMasterBeastCompanion"
+  "name": "ActionAffinityRangerWildMasterAdvancedTraining"
 }
