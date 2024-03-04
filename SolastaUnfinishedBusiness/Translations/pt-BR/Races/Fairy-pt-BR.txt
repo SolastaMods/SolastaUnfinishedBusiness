@@ -1,4 +1,4 @@
-Feature/&CastSpellFairyDescription=Você conhece o truque <b>Palavra de Resplendor</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Color Burst</b>. Ambos podem ser usados ​​uma vez por descanso longo.
+Feature/&CastSpellFairyDescription=Você conhece o truque <b>Palavra de Resplendor</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Color Burst</b>. Ambos podem ser usados uma vez por descanso longo.
 Feature/&CastSpellFairyTitle=Magia de Fada
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Destreza +2, Inteligência, Sabedoria ou Carisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Pontuações de Habilidade
@@ -9,6 +9,6 @@ Feature/&PowerFairyFlightDismissTitle=Dispensar voo
 Feature/&PowerFairyFlightSproutDescription=Como uma ação, você pode obter um deslocamento de voo igual ao seu deslocamento de caminhada. Você não pode usar isso se estiver usando armadura média ou pesada.
 Feature/&PowerFairyFlightSproutTitle=Voo
 Feature/&ProficiencyFairyLanguagesDescription=Comum, Élfico
-Feature/&ProficiencyFairyLanguagesTitle=línguas
+Feature/&ProficiencyFairyLanguagesTitle=Línguas
 Race/&RaceFairyDescription=A Agrestia das Fadas é o lar de muitos povos fantásticos, incluindo fadas. As fadas são um povo pequenino, mas não tanto quanto seus amigos duendes e duendes. As primeiras fadas falavam élfico, goblin ou silvestre, e os encontros com visitantes humanos levaram muitos deles a aprender o idioma comum também.
 Race/&RaceFairyTitle=Fada

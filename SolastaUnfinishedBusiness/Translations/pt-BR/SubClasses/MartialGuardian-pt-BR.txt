@@ -12,5 +12,5 @@ Feature/&ProficiencyMartialGuardianSentinelDescription=Você dominou técnicas p
 Feature/&ProficiencyMartialGuardianSentinelTitle=Frente Robusta
 Feature/&ProficiencyMartialGuardianUnyieldingDescription=Você ganha proficiência em testes de resistência de Sabedoria. Você também é tratado como tendo meia cobertura enquanto estiver usando uma armadura pesada e não estiver incapacitado.
 Feature/&ProficiencyMartialGuardianUnyieldingTitle=Inflexível
-Subclass/&MartialGuardianDescription=Os guardiões são guerreiros robustos que usam provocações e defesas inexpugnáveis ​​para se tornarem uma parede viva entre seus aliados e a destruição certa. Quer o guardião seja um cavaleiro valente, um mercenário teimoso ou um general endurecido pela batalha, não há ninguém melhor para ter ao seu lado quando a situação está mais terrível.
+Subclass/&MartialGuardianDescription=Os guardiões são guerreiros robustos que usam provocações e defesas inexpugnáveis para se tornarem uma parede viva entre seus aliados e a destruição certa. Quer o guardião seja um cavaleiro valente, um mercenário teimoso ou um general endurecido pela batalha, não há ninguém melhor para ter ao seu lado quando a situação está mais terrível.
 Subclass/&MartialGuardianTitle=Guardião

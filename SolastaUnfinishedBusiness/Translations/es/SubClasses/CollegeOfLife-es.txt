@@ -21,4 +21,4 @@ Feature/&PowerSharedPoolCollegeOfLifeHealTitle=Sanar
 Feature/&PowerSharedPoolCollegeOfLifeReviveDescription=Usa tu Transmute Force para revivir a un personaje dentro de 1 minuto de su muerte.
 Feature/&PowerSharedPoolCollegeOfLifeReviveTitle=Reanimar
 Subclass/&CollegeOfLifeDescription=Maestros en la manipulación tanto de la materia como de la energía vital.
-Subclass/&CollegeOfLifeTitle=colegio de la vida
+Subclass/&CollegeOfLifeTitle=Colegio de la vida

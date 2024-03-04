@@ -1,7 +1,7 @@
 Feature/&AdditionalActionArcaneFighterDescription=Puedes lanzar un hechizo después de derrotar a un enemigo con tus ataques con armas.
 Feature/&AdditionalActionArcaneFighterTitle=Lucha contra hechizos
 Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Una vez por turno, tus ataques con armas causan 1d8 de daño adicional.
-Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Ataques impulsados ​​mágicamente
+Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Ataques impulsados mágicamente
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Gracias a la experiencia en el caos del combate, obtén ventaja en las pruebas de concentración.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentración mejorada
 Feedback/&AdditionalDamageArcaneFighterFormat=¡Luchador arcano!

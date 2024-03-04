@@ -14,5 +14,5 @@ Feedback/&ActivateWarDancerAttack={1} concede {0} ataque extra!
 Feedback/&ActivateWarDancerMomentum={0} ganha {1}!
 Feedback/&AdditionalDamageMomentumFormat=Ataque de impulso
 Feedback/&AdditionalDamageMomentumLine={0} desfere um golpe de impulso em {1} (+{2})
-Subclass/&CollegeOfWarDancerDescription=Os bardos dançarinos do College of War dominam a arte da luta e consideram o campo de batalha seu palco e a arma em suas mãos o melhor instrumento. Seus movimentos rápidos e ataques intermináveis ​​são geralmente as últimas belas memórias daqueles que os encontraram.
+Subclass/&CollegeOfWarDancerDescription=Os bardos dançarinos do College of War dominam a arte da luta e consideram o campo de batalha seu palco e a arma em suas mãos o melhor instrumento. Seus movimentos rápidos e ataques intermináveis são geralmente as últimas belas memórias daqueles que os encontraram.
 Subclass/&CollegeOfWarDancerTitle=Dançarina da Faculdade de Guerra

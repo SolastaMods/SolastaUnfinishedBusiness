@@ -55,5 +55,5 @@ Feature/&PowerInnovationAlchemyRefundPoolDescription=Ganhe até 5 cargas de alqu
 Feature/&PowerInnovationAlchemyRefundPoolTitle=Reembolsar cobrança de alquimia
 Screen/&InventorGrenadierSpellDescription=Este feitiço de Granadeiro é sempre considerado preparado.\nEle não conta para seu limite de preparação de feitiço.
 Screen/&InventorGrenadierSpellTitle=Granadeiro
-Subclass/&InnovationAlchemyDescription=Os granadeiros estudam substâncias instáveis ​​e seu uso na criação de explosões de vários tipos.
+Subclass/&InnovationAlchemyDescription=Os granadeiros estudam substâncias instáveis e seu uso na criação de explosões de vários tipos.
 Subclass/&InnovationAlchemyTitle=Granadeiro

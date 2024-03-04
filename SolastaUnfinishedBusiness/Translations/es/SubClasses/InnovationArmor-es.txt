@@ -1,5 +1,5 @@
 Condition/&ConditionInnovationArmorGuardianModeDescription=Gana el arma <b>Thunder Gauntlet</b> (1d8 de daño de Trueno) si tienes la mano libre y la acción adicional de <b>Campo defensivo</b> para ganar HP temporal igual al nivel de Artífice.
-Condition/&ConditionInnovationArmorGuardianModeTitle=guardián
+Condition/&ConditionInnovationArmorGuardianModeTitle=Guardián
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=Obtienes un ataque a distancia del <b>Lanzador de relámpagos</b> (1d6 de daño de relámpago, el primer ataque de la ronda inflige 2d6).
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=Infiltrado
 Condition/&ConditionInventorArmorerInfiltratorDamageDescription=El próximo ataque contra esta criatura tiene ventaja e inflige 1d6 de daño de rayo adicional al golpear.

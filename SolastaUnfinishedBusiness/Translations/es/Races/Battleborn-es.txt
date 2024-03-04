@@ -6,4 +6,4 @@ Feature/&FeatureSetBattlebornArcaneResilienceTitle=Resiliencia Arcana
 Feature/&FeatureSetBattlebornSpecializedInfusionDescription=Obtienes un dominio de habilidad y un dominio de herramienta de tu elección.
 Feature/&FeatureSetBattlebornSpecializedInfusionTitle=Infusión Especializada
 Race/&RaceBattlebornDescription=Los nacidos de batalla son el resultado de experimentos arcanos, que combinan carne, alquimia y magia para crear soldados perfectos en el campo de batalla. Creados para servir como armas, ahora deben encontrar un propósito más allá de la guerra. Un nacido de batalla puede ser un aliado leal, una máquina de matar de corazón frío o un alma errante que busca un propósito y un significado.
-Race/&RaceBattlebornTitle=forjado
+Race/&RaceBattlebornTitle=Forjado

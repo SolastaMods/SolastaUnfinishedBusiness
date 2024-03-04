@@ -1,7 +1,7 @@
 Condition/&ConditionBlindedByBlindingSmiteTitle=Cegado por Castigo Cegador
 Condition/&ConditionBlindedByHungerOfTheVoidTitle=Cegado por el hambre de Hadar
 Condition/&ConditionCorruptingBoltDescription=La criatura es vulnerable a la siguiente instancia dañina que reciba.
-Condition/&ConditionCorruptingBoltTitle=corrupto
+Condition/&ConditionCorruptingBoltTitle=Corrupto
 Condition/&ConditionCrusadersMantleDescription=Obtén una bonificación de 1d4 de daño radiante en tus ataques.
 Condition/&ConditionCrusadersMantleTitle=Manto de cruzado
 Condition/&ConditionFlameArrowsDescription=Infliges 1d6 de daño de fuego adicional con ataques de flechas o rayos.

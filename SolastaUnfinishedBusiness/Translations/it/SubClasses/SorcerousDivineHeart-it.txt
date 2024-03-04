@@ -1,4 +1,4 @@
-Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci un incantesimo di Guarigione in questo turno, ripeti il ​​risultato di 1 o 2.
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci un incantesimo di Guarigione in questo turno, ripeti il risultato di 1 o 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guarigione potenziata
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 punto ferita per livello.
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Fortezza Divina

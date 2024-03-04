@@ -1,7 +1,7 @@
 Action/&ActionTempestFuryDescription=Puedes gastar 2 Ki para usar Tempest's Fury como acción adicional.
 Action/&ActionTempestFuryTitle=Furia tempestad
 Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormDescription=Tienes desventaja en todos los ataques y pruebas de habilidad.
-Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormTitle=escalonado
+Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormTitle=Escalonado
 Condition/&ConditionWayOfTheTempestEyeOfTheStormDescription=Way of Tempest puede hacer explotar esta marca en cualquier momento y causar daño de trueno 3D10, y desventaja en todos los ataques y pruebas de habilidad.
 Condition/&ConditionWayOfTheTempestEyeOfTheStormTitle=La marca de la tempestad
 Feature/&FeatureSetWayOfTheTempestAlternateTempestFuryDescription=A partir del nivel 11, puedes gastar 3 Ki para usar Furia de Tempestad como acción adicional. Es una versión mejorada de tu Ráfaga de Golpes, que además de otorgar beneficios de la acción de desconexión y permitirte realizar dos ataques desarmados como acción adicional, también inicia inmediatamente un ataque desarmado adicional contra cada criatura enemiga dentro de 5 pies de ti. al momento de su activación. Todos los ataques proporcionados por esta función causan un daño de rayo adicional equivalente a tu dado de artes marciales.

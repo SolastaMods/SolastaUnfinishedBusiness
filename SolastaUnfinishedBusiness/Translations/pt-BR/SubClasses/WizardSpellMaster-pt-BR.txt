@@ -12,5 +12,5 @@ Feature/&PointPoolSpellMasterBonusCantripsDescription=Ganhe 2 truques extras con
 Feature/&PointPoolSpellMasterBonusCantripsTitle=Truques bônus
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=Seu treinamento com magia lhe dá vantagem em testes de resistência contra feitiços.
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=Resistência Mágica
-Subclass/&WizardSpellMasterDescription=Os Spellmasters mergulham na magia e tentam aprender todos os feitiços que conseguem. Eles são incomparáveis ​​em seu conhecimento mágico.
+Subclass/&WizardSpellMasterDescription=Os Spellmasters mergulham na magia e tentam aprender todos os feitiços que conseguem. Eles são incomparáveis em seu conhecimento mágico.
 Subclass/&WizardSpellMasterTitle=Feiticeiro

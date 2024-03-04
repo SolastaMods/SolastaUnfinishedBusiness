@@ -4,5 +4,5 @@ Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=Tienes resistencia
 Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=Acunado por el fuego
 Feature/&ProficiencyObsidianDwarfLanguagesDescription=Común, enano y gigante
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=Idiomas
-Race/&RaceObsidianDwarfDescription=En épocas pasadas, un grupo de enanos fueron esclavizados por gigantes de fuego como mineros y artesanos. La magia caótica del cataclismo imbuyó a muchos de estos enanos de algo de la fuerza y ​​resistencia de sus opresores. Los enanos se rebelaron, ganaron su libertad y se retiraron a Badlands. Llamándose a sí mismos los Enanos de Obsidiana, han crecido y prosperado.
+Race/&RaceObsidianDwarfDescription=En épocas pasadas, un grupo de enanos fueron esclavizados por gigantes de fuego como mineros y artesanos. La magia caótica del cataclismo imbuyó a muchos de estos enanos de algo de la fuerza y resistencia de sus opresores. Los enanos se rebelaron, ganaron su libertad y se retiraron a Badlands. Llamándose a sí mismos los Enanos de Obsidiana, han crecido y prosperado.
 Race/&RaceObsidianDwarfTitle=Enano de obsidiana

@@ -1,6 +1,6 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento da pontuação de habilidade
-Feature/&CastSpellDarkelfMagicDescription=Você conhece o truque <b>Dancing Lights</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Darkness</b>. Ambos podem ser usados ​​uma vez por descanso longo.
+Feature/&CastSpellDarkelfMagicDescription=Você conhece o truque <b>Dancing Lights</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Darkness</b>. Ambos podem ser usados uma vez por descanso longo.
 Feature/&CastSpellDarkelfMagicTitle=Magia dos Elfos Negros
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=Você tem proficiência com floretes, espadas curtas e bestas de mão.
 Feature/&ProficiencyDarkelfWeaponTrainingTitle=Treinamento com armas dos Elfos Negros

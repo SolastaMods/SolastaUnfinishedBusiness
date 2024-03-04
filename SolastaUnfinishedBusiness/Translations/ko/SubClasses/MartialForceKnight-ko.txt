@@ -20,7 +20,7 @@ Feature/&PowerMartialForceKnightPsionicAdeptProneDescription=Force-Powered Strik
 Feature/&PowerMartialForceKnightPsionicAdeptProneTitle=엎드린 자세
 Feature/&PowerMartialForceKnightPsionicAdeptPushDescription=Force-Powered Strike(DC = 8 + 숙련도 보너스 + 지능 수정치)에 맞은 생물에 힘 내성 굴림을 부과할 수 있습니다. 생물이 실패하면 생물을 15피트 뒤로 밀어낼 수 있습니다.
 Feature/&PowerMartialForceKnightPsionicAdeptPushTitle=푸시
-Feature/&PowerMartialForceKnightPsionicInitiateDescription=당신 안에 있는 초자연적인 힘이 깨어나 정신 에너지를 집중시켜 다양한 염력 능력을 발휘할 수 있게 해줍니다. 광범위한 사용과 훈련을 통해 이러한 능력을 제어하는 ​​방법을 배웠고 전투에서 효율적으로 사용할 수 있습니다. 당신은 다양한 정신운동 능력을 촉진하는 데 사용할 수 있는 다수의 포스 포인트를 얻습니다. 3개의 포스 포인트로 시작하고 그 이후에는 이 클래스에서 3레벨마다 1포인트를 얻습니다. 단기 또는 장기 휴식 시 포스 포인트가 재충전됩니다.
+Feature/&PowerMartialForceKnightPsionicInitiateDescription=당신 안에 있는 초자연적인 힘이 깨어나 정신 에너지를 집중시켜 다양한 염력 능력을 발휘할 수 있게 해줍니다. 광범위한 사용과 훈련을 통해 이러한 능력을 제어하는 방법을 배웠고 전투에서 효율적으로 사용할 수 있습니다. 당신은 다양한 정신운동 능력을 촉진하는 데 사용할 수 있는 다수의 포스 포인트를 얻습니다. 3개의 포스 포인트로 시작하고 그 이후에는 이 클래스에서 3레벨마다 1포인트를 얻습니다. 단기 또는 장기 휴식 시 포스 포인트가 재충전됩니다.
 Feature/&PowerMartialForceKnightPsionicInitiateTitle=사이오닉 수습생
 Feature/&PowerMartialForceKnightPsionicPropulsionDescription=1 포스 포인트를 소비하고 보너스 액션을 사용하여 걷는 속도의 두 배에 해당하는 비행 속도를 얻고 턴이 끝날 때까지 기회 공격을 유발하지 않을 수 있습니다. 이 기능은 포스 포인트를 소모하지 않고 짧은 휴식마다 한 번씩 사용할 수 있습니다.
 Feature/&PowerMartialForceKnightPsionicPropulsionTitle=사이오닉 추진력

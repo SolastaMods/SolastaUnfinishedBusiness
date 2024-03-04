@@ -13,4 +13,4 @@ Feature/&ProficiencyMartialGuardianSentinelTitle=Frente incondicional
 Feature/&ProficiencyMartialGuardianUnyieldingDescription=Obtienes competencia en las tiradas de salvación de Sabiduría. También se te considera como si tuvieras media cobertura mientras llevas una armadura pesada y no estás incapacitado.
 Feature/&ProficiencyMartialGuardianUnyieldingTitle=Inflexible
 Subclass/&MartialGuardianDescription=Los guardianes son guerreros incondicionales que utilizan burlas y defensas inexpugnables para convertirse en un muro viviente entre sus aliados y una perdición segura. Ya sea que un guardián sea un caballero valiente, un mercenario obstinado o un general curtido en la batalla, no hay nadie mejor para tener a tu lado cuando la situación es más grave.
-Subclass/&MartialGuardianTitle=guardián
+Subclass/&MartialGuardianTitle=Guardián

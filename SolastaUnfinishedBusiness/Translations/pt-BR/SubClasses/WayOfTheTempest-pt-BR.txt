@@ -16,5 +16,5 @@ Feature/&MovementAffinityWayOfTheTempestTempestSwiftnessDescription=A partir do 
 Feature/&MovementAffinityWayOfTheTempestTempestSwiftnessTitle=Rapidez da Tempestade
 Feedback/&AdditionalDamageGatheringStormFormat=Tempestade reunida!
 Feedback/&AdditionalDamageGatheringStormLine={0} atinge {1} com um raio (+{2})
-Subclass/&WayOfTheTempestDescription=Monges do Caminho da Tempestade levam seus corpos além das limitações físicas, utilizando técnicas de manipulação do ki transmitidas por seus mestres e professores. Esses artistas marciais manobram sem esforço o campo de batalha, avançando de um inimigo para outro e desferindo incontáveis ​​golpes sobre eles.
+Subclass/&WayOfTheTempestDescription=Monges do Caminho da Tempestade levam seus corpos além das limitações físicas, utilizando técnicas de manipulação do ki transmitidas por seus mestres e professores. Esses artistas marciais manobram sem esforço o campo de batalha, avançando de um inimigo para outro e desferindo incontáveis golpes sobre eles.
 Subclass/&WayOfTheTempestTitle=Caminho da Tempestade
