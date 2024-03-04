@@ -1,4 +1,4 @@
-Condition/&ConditionSpellShieldBladeWeavingDescription=Du hast beim nächsten Rettungswurf, den du gegen einen Zauberspruch oder Cantrip durchführst, einen Nachteil.
+Condition/&ConditionSpellShieldBladeWeavingDescription=Du hast beim nächsten Rettungswurf, den du gegen einen Zauberspruch oder Cantrip machst, einen Nachteil.
 Condition/&ConditionSpellShieldBladeWeavingTitle=Klingenweben
 Condition/&ConditionSpellShieldProtectiveBarrierDescription=+2 zu Wechselstrom.
 Condition/&ConditionSpellShieldProtectiveBarrierTitle=Schutzbarriere
@@ -10,5 +10,5 @@ Feature/&PowerSpellShieldArcaneDeflectionDescription=Als Reaktion können Sie Ih
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Arkane Ablenkung
 Feature/&PowerSpellShieldRangedDeflectionDescription=Mit deiner Aktion kannst du bis zu 4 befreundete Kreaturen anvisieren. Jede betroffene Kreatur erhält +2 AC, solange die Barriere anhält. Sie können diese Funktion einmal pro langer Pause nutzen.
 Feature/&PowerSpellShieldRangedDeflectionTitle=Schutzbarriere
-Subclass/&MartialSpellShieldDescription=Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie nutzen Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
-Subclass/&MartialSpellShieldTitle=Zauberschild
+Subclass/&MartialSpellShieldDescription=Eldritch Knights sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie nutzen Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
+Subclass/&MartialSpellShieldTitle=Unheimlicher Ritter

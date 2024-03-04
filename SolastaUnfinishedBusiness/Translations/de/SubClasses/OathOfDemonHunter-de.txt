@@ -1,13 +1,13 @@
 Condition/&ConditionOathOfDemonHunterTrialMarkDescription=Du erleidest zusätzlichen Strahlungsschaden, wenn du Waffenschaden von der Probemarkierungsquelle erleidest.
 Condition/&ConditionOathOfDemonHunterTrialMarkTitle=Probemarke
-Feature/&AttributeModifierOathOfDemonHunterDivineCrossbowDescription=Ab der 15. Stufe erfüllen Sie Ihre Armbrust mit göttlicher Kraft. Sie erhalten die folgenden Vorteile:\n· Die Reichweite Ihrer Armbrustwaffen erhöht sich um 30 Fuß.\n· Ihre Bedrohungsreichweite für kritische Treffer erhöht sich um 1 Punkt.
+Feature/&AttributeModifierOathOfDemonHunterDivineCrossbowDescription=Ab der 15. Stufe erfüllen Sie Ihre Armbrust mit göttlicher Kraft. Sie erhalten die folgenden Vorteile:\n· Die Reichweite Ihrer Armbrustwaffen erhöht sich um 30 Fuß.\n· Ihre kritische Trefferbedrohungsreichweite erhöht sich um 1 Punkt.
 Feature/&AttributeModifierOathOfDemonHunterDivineCrossbowTitle=Göttliche Armbrust
 Feature/&DieRollModifierOathOfDemonHunterDemonSlayer=Aufgrund der Dämonentöter-Fähigkeit {0} werden {1} Würfel von {2} auf {3} erneut gewürfelt.
 Feature/&FeatureOathOfDemonHunterDemonHunterDescription=Ab der 3. Stufe können Sie Ihre Fähigkeit „Göttlicher Schlag“ anwenden, wenn Sie einen Feind mit einer leichten Armbrust, einer Handarmbrust oder einer schweren Armbrust treffen.
 Feature/&FeatureOathOfDemonHunterDemonHunterTitle=Geisterjäger
 Feature/&FeatureOathOfDemonHunterLightEnergyCrossbowBoltDescription=Ab der 7. Stufe haben Sie keinen Nachteil mehr, wenn Sie mit Armbrustwaffen Feinde in der Nähe angreifen. Wenn du eine Kreatur ohne das Prüfungszeichen triffst, kannst du göttliche Kraft kanalisieren und ihr das Prüfungszeichen zuweisen.
 Feature/&FeatureOathOfDemonHunterLightEnergyCrossbowBoltTitle=Lichtenergie-Armbrustbolzen
-Feature/&FeatureSetOathOfDemonHunterDemonSlayerDescription=Ab der 20. Stufe töten Sie das Böse und reinigen Dämonen. Du erhältst die folgenden Vorteile:\n· Wenn du deinen göttlichen Schlag verwendest, behandle ihn, als würdest du einen höheren Zauberslot verwenden.\n· Wenn du für Strahlungsschaden würfelst, wirf alle Würfel, die weniger als 3 haben, noch einmal, und die erneut gewürfelten Würfel werden erneut gewürfelt Würfel haben einen Mindestwert von 3.
+Feature/&FeatureSetOathOfDemonHunterDemonSlayerDescription=Ab der 20. Stufe töten Sie das Böse und reinigen Dämonen. Du erhältst die folgenden Vorteile:\n· Wenn du deinen göttlichen Schlag verwendest, behandle ihn, als würde er einen höheren Zauberslot verwenden.\n· Wenn du für Strahlungsschaden würfelst, haben alle Würfel einen Mindestwert von 3.
 Feature/&FeatureSetOathOfDemonHunterDemonSlayerTitle=Dämonen Jäger
 Feature/&PowerOathOfDemonHunterTrialMarkDescription=Als Bonusaktion kanalisieren Sie göttliche Kraft, um eine feindliche Kreatur im Umkreis von 60 Fuß zu markieren, die Sie 1 Minute lang sehen können. Wenn Sie einem Feind mit dem Trial Mark Waffenschaden zufügen, verursachen Sie zusätzlich 1W6 Strahlungsschaden. Dieser Schaden erhöht sich auf 2W6 auf der 7. Stufe, 3W6 auf der 11. Stufe, 4W6 auf der 15. Stufe und 5W6 auf der 19. Stufe.
 Feature/&PowerOathOfDemonHunterTrialMarkTitle=Channel Divinity: Trial Mark

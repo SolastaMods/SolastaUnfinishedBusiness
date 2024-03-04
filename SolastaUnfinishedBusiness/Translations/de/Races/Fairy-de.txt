@@ -1,4 +1,4 @@
-Feature/&CastSpellFairyDescription=Sie kennen den <b>Burst of Radiance</b>-Cantrip. Auf der 3. Stufe lernst du <b>Feenfeuer</b> und auf der 5. Stufe <b>Farbexplosion</b>. Beide können einmal pro langer Pause verwendet werden.
+Feature/&CastSpellFairyDescription=Sie kennen den <b>Wort des Strahlens</b>-Cantrip. Auf der 3. Stufe lernst du <b>Feenfeuer</b> und auf der 5. Stufe <b>Farbexplosion</b>. Beide können einmal pro langer Pause verwendet werden.
 Feature/&CastSpellFairyTitle=Feenmagie
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Geschicklichkeit +2, Intelligenz, Weisheit oder Charisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Fähigkeitswerte

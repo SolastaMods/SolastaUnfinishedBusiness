@@ -1,11 +1,11 @@
 Feat/&FeatElvenAccuracyCharismaDescription=Sie haben eine unheimliche Zielgenauigkeit mit Angriffen, die eher auf Präzision als auf roher Gewalt beruhen. Erhöhen Sie Ihr Charisma um 1 auf maximal 20. Immer wenn Sie bei einem Angriffswurf mit Geschicklichkeit, Intelligenz, Weisheit oder Charisma im Vorteil sind, können Sie einen der Würfel einmal neu würfeln.
-Feat/&FeatElvenAccuracyCharismaTitle=Elfenpräzision [Cha]
+Feat/&FeatElvenAccuracyCharismaTitle=Elfengenauigkeit [Cha]
 Feat/&FeatElvenAccuracyDexterityDescription=Sie haben eine unheimliche Zielgenauigkeit mit Angriffen, die eher auf Präzision als auf roher Gewalt beruhen. Erhöhen Sie Ihre Geschicklichkeit um 1 auf maximal 20. Immer wenn Sie bei einem Angriffswurf mit Geschicklichkeit, Intelligenz, Weisheit oder Charisma im Vorteil sind, können Sie einen der Würfel einmal neu würfeln.
-Feat/&FeatElvenAccuracyDexterityTitle=Elfenpräzision [Geschick]
+Feat/&FeatElvenAccuracyDexterityTitle=Elfengenauigkeit [Geschick]
 Feat/&FeatElvenAccuracyIntelligenceDescription=Sie haben eine unheimliche Zielgenauigkeit mit Angriffen, die eher auf Präzision als auf roher Gewalt beruhen. Erhöhen Sie Ihre Intelligenz um 1, bis zu einem Maximum von 20. Immer wenn Sie bei einem Angriffswurf mit Geschicklichkeit, Intelligenz, Weisheit oder Charisma im Vorteil sind, können Sie einen der Würfel einmal neu würfeln.
-Feat/&FeatElvenAccuracyIntelligenceTitle=Elfenpräzision [Int]
+Feat/&FeatElvenAccuracyIntelligenceTitle=Elfengenauigkeit [Int]
 Feat/&FeatElvenAccuracyWisdomDescription=Sie haben eine unheimliche Zielgenauigkeit mit Angriffen, die eher auf Präzision als auf roher Gewalt beruhen. Erhöhen Sie Ihre Weisheit um 1 auf maximal 20. Immer wenn Sie bei einem Angriffswurf mit Geschicklichkeit, Intelligenz, Weisheit oder Charisma im Vorteil sind, können Sie einen der Würfel einmal neu würfeln.
-Feat/&FeatElvenAccuracyWisdomTitle=Elfenpräzision [Wis]
+Feat/&FeatElvenAccuracyWisdomTitle=Elfengenauigkeit [Wis]
 Feedback/&ElvenAccuracyTriggered={0} verwendet {1}, um {2} zu behalten und erneut {3} zu {4} zu würfeln.
 Tooltip/&FeatElvenAccuracyBaseDescription=Immer wenn Sie bei einem Angriffswurf mit Geschicklichkeit, Intelligenz, Weisheit oder Charisma im Vorteil sind, können Sie einen der Würfel einmal neu würfeln.
-Tooltip/&FeatElvenAccuracyBaseTitle=Elfenpräzision
+Tooltip/&FeatElvenAccuracyBaseTitle=Elfische Genauigkeit
