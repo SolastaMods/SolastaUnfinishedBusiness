@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0} は、{1} の物語の選択肢をロールし
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
 Feedback/&SmallRace=スモールレース
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします
-Feedback/&TriggerRerollLine={0} は、{2} = {3} を再ロールするための {1} パワーを有効にします
+Feedback/&TriggerRerollLine={0} は {1} をアクティブにして、{2} = {3} を再ロールします
 Feedback/&TrueSightAndIllusionSpells={0}は真の視力を持っており、この呪文の影響を受けません
 Format/&LevelAndExperienceFormat=レベル: {0}\n経験値: {1}\n{2} ポイントがレベル {3} に到達するために必要です
 Format/&LevelAndExperienceMaxedFormat=レベル: {0}\n経験値: {1}\n最大レベルに到達しました

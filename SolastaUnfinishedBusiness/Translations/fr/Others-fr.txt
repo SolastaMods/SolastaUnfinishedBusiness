@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0} lance un choix narratif {1} avec un résultat 
 Feedback/&ReturningWeaponActivates={1} revient à {0} !
 Feedback/&SmallRace=Petite course
 Feedback/&TriggerFeatureLine={0} déclenche {1}
-Feedback/&TriggerRerollLine={0} active le pouvoir {1} pour relancer {2} = {3}
+Feedback/&TriggerRerollLine={0} active {1} pour relancer {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} a True Sight et n'est pas affecté par ce sort
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nniveau maximum atteint

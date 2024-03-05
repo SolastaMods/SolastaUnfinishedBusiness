@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0} lancia una scelta narrativa {1} con un risulta
 Feedback/&ReturningWeaponActivates={1} ritorna a {0}!
 Feedback/&SmallRace=Piccola Razza
 Feedback/&TriggerFeatureLine={0} attiva {1}
-Feedback/&TriggerRerollLine={0} attiva il potere {1} per rilanciare {2} = {3}
+Feedback/&TriggerRerollLine={0} attiva {1} per ripetere il lancio di {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} ha Vera Vista e non è influenzato da questo incantesimo
 Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti richiesti per raggiungere il livello {3}
 Format/&LevelAndExperienceMaxedFormat=Livello: {0}\nEsperienza: {1}\nlivello massimo raggiunto

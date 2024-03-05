@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0} würfelt eine Erzählauswahl von {1} mit einem
 Feedback/&ReturningWeaponActivates={1} kehrt zu {0} zurück!
 Feedback/&SmallRace=Kleines Rennen
 Feedback/&TriggerFeatureLine={0} löst {1} aus
-Feedback/&TriggerRerollLine={0} aktiviert die Kraft {1}, um {2} = {3} erneut zu würfeln.
+Feedback/&TriggerRerollLine={0} aktiviert {1}, um {2} = {3} erneut zu würfeln
 Feedback/&TrueSightAndIllusionSpells={0} hat Wahre Sicht und ist von diesem Zauber nicht betroffen
 Format/&LevelAndExperienceFormat=Level: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Level {3} zu erreichen
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nErfahrung: {1}\nmaximales Level erreicht

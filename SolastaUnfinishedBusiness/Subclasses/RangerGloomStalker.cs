@@ -339,48 +339,34 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedOnMeShadowyDodge(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureShadowyDodge) : IMagicalAttackInitiatedOnMe, IPhysicalAttackInitiatedOnMe
+        FeatureDefinition featureShadowyDodge) : ITryAlterOutcomeAttack
     {
-        public IEnumerator OnMagicalAttackInitiatedOnMe(
-            CharacterActionMagicEffect action,
-            RulesetEffect activeEffect,
-            GameLocationCharacter target,
-            ActionModifier attackModifier,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool checkMagicalAttackDamage)
-        {
-            yield return HandleReaction(action.ActionParams.ActingCharacter, target, attackModifier);
-        }
-
-        public IEnumerator OnPhysicalAttackInitiatedOnMe(
+        public IEnumerator OnTryAlterOutcomeAttack(
             GameLocationBattleManager battleManager,
             CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode)
-        {
-            yield return HandleReaction(attacker, defender, attackModifier);
-        }
-
-        private IEnumerator HandleReaction(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
+            GameLocationCharacter helper,
             ActionModifier attackModifier)
         {
-            if (!attacker.CanReact())
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
             {
                 yield break;
             }
 
-            var gameLocationActionManager =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleManager =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            if (action.AttackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
 
-            if (gameLocationActionManager == null ||
-                gameLocationBattleManager is not { IsBattleInProgress: true })
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (defender != helper ||
+                !defender.CanReact() ||
+                !defender.CanPerceiveTarget(attacker))
             {
                 yield break;
             }
@@ -395,16 +381,84 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleManager.WaitForReactions(defender, gameLocationActionManager,
-                previousReactionCount);
+            yield return battleManager.WaitForReactions(defender, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            attackModifier.AttackAdvantageTrends.SetRange(
-                new TrendInfo(-1, FeatureSourceType.CharacterFeature, featureShadowyDodge.Name, featureShadowyDodge));
+            var attackRoll = action.AttackRoll;
+            var outcome = action.AttackRollOutcome;
+            var rollCaption = outcome == RollOutcome.CriticalSuccess
+                ? "Feedback/&RollAttackCriticalSuccessTitle"
+                : "Feedback/&RollAttackSuccessTitle";
+            var advantageTrends =
+                new List<TrendInfo>
+                {
+                    new(-1, FeatureSourceType.CharacterFeature, featureShadowyDodge.Name, featureShadowyDodge)
+                };
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var attackMode = action.actionParams.attackMode;
+            var activeEffect = action.ActionParams.activeEffect;
+
+            int roll;
+            int toHitBonus;
+            int successDelta;
+
+            if (attackMode != null)
+            {
+                toHitBonus = attackMode.ToHitBonus;
+                roll = rulesetAttacker.RollAttack(
+                    toHitBonus,
+                    defender.RulesetCharacter,
+                    attackMode.SourceDefinition,
+                    attackMode.ToHitBonusTrends,
+                    false,
+                    advantageTrends,
+                    attackMode.ranged,
+                    false,
+                    attackModifier.AttackRollModifier,
+                    out outcome,
+                    out successDelta,
+                    -1,
+                    true);
+            }
+            else if (activeEffect != null)
+            {
+                toHitBonus = activeEffect.MagicAttackBonus;
+                roll = rulesetAttacker.RollMagicAttack(
+                    activeEffect,
+                    defender.RulesetCharacter,
+                    activeEffect.GetEffectSource(),
+                    attackModifier.AttacktoHitTrends,
+                    advantageTrends,
+                    false,
+                    attackModifier.AttackRollModifier,
+                    out outcome,
+                    out successDelta,
+                    -1,
+                    true);
+            }
+            // should never happen
+            else
+            {
+                yield break;
+            }
+
+            rulesetDefender.LogCharacterUsedFeature(
+                featureShadowyDodge,
+                "Feedback/&TriggerRerollLine",
+                false,
+                (ConsoleStyleDuplet.ParameterType.Base, $"{attackRoll}+{toHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
+                    Gui.Format(rollCaption, $"{attackRoll + toHitBonus}")));
+
+            attackModifier.AttackAdvantageTrends.SetRange(advantageTrends);
+            action.AttackRollOutcome = outcome;
+            action.AttackSuccessDelta = successDelta;
+            action.AttackRoll = roll;
         }
     }
 }

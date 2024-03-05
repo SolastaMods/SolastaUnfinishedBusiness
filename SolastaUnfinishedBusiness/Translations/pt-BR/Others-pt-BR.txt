@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0} lança uma escolha narrativa {1} com um result
 Feedback/&ReturningWeaponActivates={1} retorna para {0}!
 Feedback/&SmallRace=Corrida Pequena
 Feedback/&TriggerFeatureLine={0} gatilhos {1}
-Feedback/&TriggerRerollLine={0} ativa o poder {1} para rolar novamente {2} = {3}
+Feedback/&TriggerRerollLine={0} ativa {1} para rolar novamente {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} tem Visão Verdadeira e não é afetado por este feitiço
 Format/&LevelAndExperienceFormat=Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
 Format/&LevelAndExperienceMaxedFormat=Nível: {0}\nExperiência: {1}\nnível máximo alcançado

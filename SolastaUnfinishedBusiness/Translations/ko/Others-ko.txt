@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0}는 {2} 결과와 함께 {1} 설명 선택을 �
 Feedback/&ReturningWeaponActivates={1}이(가) {0}(으)로 돌아갑니다!
 Feedback/&SmallRace=소규모 경주
 Feedback/&TriggerFeatureLine={0}은 {1}을 트리거합니다.
-Feedback/&TriggerRerollLine={0}는 {1} 능력을 활성화하여 다시 굴립니다. {2} = {3}
+Feedback/&TriggerRerollLine={0}는 {1}을 활성화하여 {2} = {3}을(를) 다시 굴립니다.
 Feedback/&TrueSightAndIllusionSpells={0}은(는) 진정한 시력을 갖고 있으며 이 주문의 영향을 받지 않습니다.
 Format/&LevelAndExperienceFormat=레벨: {0}\n경험치: {3} 레벨에 도달하려면 {1}\n{2} 포인트가 필요합니다.
 Format/&LevelAndExperienceMaxedFormat=레벨: {0}\n경험치: {1}\n최대 레벨 도달

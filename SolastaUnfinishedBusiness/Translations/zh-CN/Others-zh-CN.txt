@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0} 滚动 {1} 个叙述选项，结果为 {2}。
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！
 Feedback/&SmallRace=小赛
 Feedback/&TriggerFeatureLine={0} 触发 {1}
-Feedback/&TriggerRerollLine={0} 激活 {1} 以重投 {2} = {3}
+Feedback/&TriggerRerollLine={0} 激活 {1} 以重新滚动 {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0}拥有真实视觉并且不受此法术影响
 Format/&LevelAndExperienceFormat=等级：{0}\n经验：{1}\n升到{3}级需要 {2} 经验
 Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验：{1}\n已达到最高等级
