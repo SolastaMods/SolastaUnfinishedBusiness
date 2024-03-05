@@ -65,7 +65,6 @@ Feedback/&AdditionalDamageCrusherLine={0} сокрушает {1}
 Feedback/&AdditionalDamagePiercerFormat=Пронзатель!
 Feedback/&AdditionalDamagePiercerLine={0} критически пронзает {1}
 Feedback/&AdditionalDamageSpearMasteryLine={0} подготовил копьё и наносит дополнительные {2} урона {1}!
-Feedback/&FeatFeatFellHandedDisadvantage={0} наносит урон {1} с помощью {2}:
 Reaction/&ReactionAttackOldTacticsDescription={0} встаёт. {1} может использовать реакцию, чтобы совершить рукопашную атаку по этой цели.
 Reaction/&ReactionAttackOldTacticsReactDescription=Используйте реакцию для атаки.
 Reaction/&ReactionAttackOldTacticsReactTitle=Атака

@@ -65,7 +65,6 @@ Feedback/&AdditionalDamageCrusherLine={0}이(가) {1}을(를) 으깨었습니다
 Feedback/&AdditionalDamagePiercerFormat=피어싱!
 Feedback/&AdditionalDamagePiercerLine={0}이(가) {1}을(를) 치명적으로 관통함
 Feedback/&AdditionalDamageSpearMasteryLine={0}이(가) 창을 준비했으며 {1}에 추가로 {2}의 피해를 입혔습니다!
-Feedback/&FeatFeatFellHandedDisadvantage={0}이(가) {2}까지 {1}에 피해를 입힙니다.
 Reaction/&ReactionAttackOldTacticsDescription={0}님이 일어섰습니다. {1}은(는) 반응을 사용하여 근접 무기 공격을 가할 수 있습니다.
 Reaction/&ReactionAttackOldTacticsReactDescription=반응을 이용해 공격하세요.
 Reaction/&ReactionAttackOldTacticsReactTitle=공격
