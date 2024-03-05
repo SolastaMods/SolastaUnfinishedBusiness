@@ -173,7 +173,6 @@ internal enum ExtraSituationalContext
     IsRagingAndDualWielding = 9008,
     MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 9009,
     NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 9010,
-    SummonerIsNextToBeast = 9011,
     TargetIsFavoriteEnemy = 9012,
     IsNotConditionSource = 9013,
     WearingNoArmorOrLightArmorWithoutShield = 9014,

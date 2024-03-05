@@ -80,9 +80,6 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.TargetIsFavoriteEnemy =>
                 contextParams.source.IsMyFavoriteEnemy(contextParams.target),
 
-            ExtraSituationalContext.SummonerIsNextToBeast =>
-                IsConsciousSummonerNextToBeast(GameLocationCharacter.GetFromActor(contextParams.source)),
-
             ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget =>
                 NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(contextParams),
 
@@ -174,35 +171,6 @@ internal static class CustomSituationalContext
                 var deltas = deltaX + deltaY + deltaZ;
 
                 return deltas == 1;
-            }
-        }
-
-        return false;
-    }
-
-    private static bool IsConsciousSummonerNextToBeast(GameLocationCharacter character)
-    {
-        var gridAccessor = GridAccessor.Default;
-        var battleSizeParameters = character.BattleSizeParameters;
-        var characterLocation = character.LocationPosition;
-        var minExtent = battleSizeParameters.minExtent;
-        var maxExtent = battleSizeParameters.maxExtent;
-        var boxInt = new BoxInt(
-            minExtent - new int3(1, 1, 1) + characterLocation,
-            maxExtent + new int3(1, 1, 1) + characterLocation);
-
-        var summoner = character.RulesetCharacter.GetMySummoner();
-
-        foreach (var position in boxInt.EnumerateAllPositionsWithin())
-        {
-            if (!gridAccessor.Occupants_TryGet(position, out var locationCharacters))
-            {
-                continue;
-            }
-
-            if (locationCharacters.Any(x => x == summoner && x.CanAct()))
-            {
-                return true;
             }
         }
 
