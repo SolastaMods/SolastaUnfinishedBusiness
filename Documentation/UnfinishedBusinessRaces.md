@@ -49,44 +49,7 @@ You may choose one of Aasimar's Angelic Forms.
 
 
 
-# 2. - Bolgrif
-
-Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
-
-
-## Level 1
-
-* Attribute Increase
-
-Strength +1
-
-* Attribute Increase
-
-Wisdom +2
-
-* Language
-
-Common, Elvish and Giant.
-
-* Move
-
-6◎
-
-* Powerful Build
-
-You count your size as Large when determining your carrying capacity.
-
-* Vanish
-
-As a bonus action, you can magically turn invisible for 1 round. This invisibility breaks if you take any offensive action. Once you use this ability, you can't use it again until you finish a short or long rest.
-
-* Druidic Magic
-
-You know one cantrip of your choice from the Druid spell list. Wisdom is your spellcasting ability for it.
-
-
-
-# 3. - Cave Wyrmkin
+# 2. - Cave Wyrmkin
 
 Cave Wyrmkins are wyrms that have adapted living in vast underground network of caves. They are born with strong sense of direction in order to navigate skillfully, and use their powerful claws to dig tunnels.
 
@@ -115,7 +78,7 @@ You can use your claws to make unarmed strike. Attacking with them deals 1d6 + y
 
 
 
-# 4. - Crystal Wyrmkin
+# 3. - Crystal Wyrmkin
 
 Wyrmkins are larger cousins of Dragonborns descended from another race of dragons. Unlike Dragonborns, they can see in the dark.
 
@@ -140,7 +103,7 @@ You are proficient with one of the following skills of your choice: Animal Handl
 
 
 
-# 5. - Dark Elf
+# 4. - Dark Elf
 
 Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 
@@ -177,7 +140,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 6. - Dark Kobold
+# 5. - Dark Kobold
 
 Dark Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -202,7 +165,7 @@ A creature with Pack Tactics has advantage on an attack roll against a creature 
 
 
 
-# 7. - Devil's Tongue
+# 6. - Devil's Tongue
 
 Tieflings with a lineage connected to Malcanthet or other Succubi inherit a fragment of their magical ability to charm and manipulate others.
 
@@ -219,7 +182,7 @@ You know the Vicious Mockery cantrip. At 3rd level you learn Charm Person and at
 
 
 
-# 8. - Draconic Kobold
+# 7. - Draconic Kobold
 
 Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -240,7 +203,7 @@ You know one cantrip of your choice from the Sorcerer spell list. Charisma is yo
 
 
 
-# 9. - Fairy
+# 8. - Fairy
 
 The Feywild is home to many fantastic peoples, including fairies. Fairies are a wee folk, but not nearly as much so as their pixie and sprite friends. The first fairies spoke Elvish, Goblin, or Sylvan, and encounters with human visitors prompted many of them to learn Common as well.
 
@@ -273,7 +236,7 @@ You know the Word of Radiance cantrip. At 3rd level you learn Faerie Fire and at
 
 
 
-# 10. - Feral
+# 9. - Feral
 
 These tieflings display features and abilities which make them much more characteristically demonic such as a forked tail and large bat-like wings. Because of this, many feral tieflings are forced to hiding to avoid scrutiny or being hunted while others embrace this fiendish nature.
 
@@ -291,6 +254,43 @@ Dexterity +1
 * Feral's Magic
 
 You know the Produce Flame cantrip. At 3rd level you learn Burning Hands. It can be used once per long rest.
+
+
+
+# 10. - Firbolg
+
+Filborgs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+
+
+## Level 1
+
+* Attribute Increase
+
+Strength +1
+
+* Attribute Increase
+
+Wisdom +2
+
+* Language
+
+Common, Elvish and Giant.
+
+* Move
+
+6◎
+
+* Powerful Build
+
+You count your size as Large when determining your carrying capacity.
+
+* Vanish
+
+As a bonus action, you can magically turn invisible for 1 round. This invisibility breaks if you take any offensive action. Once you use this ability, you can't use it again until you finish a short or long rest.
+
+* Druidic Magic
+
+You know one cantrip of your choice from the Druid spell list. Wisdom is your spellcasting ability for it.
 
 
 

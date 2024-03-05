@@ -11,4 +11,4 @@ Feature/&PowerBolgrifInvisibilityTitle=Verschwinden
 Feature/&ProficiencyBolgrifLanguagesDescription=Gewöhnlich, Elbisch und Riesig.
 Feature/&ProficiencyBolgrifLanguagesTitle=Sprache
 Race/&RaceBolgrifDescription=Bolgrifs sind Halbriesen, die im gefrorenen Hochland von Solasta leben. Sie sind schlau, vorsichtig, zurückgezogen, misstrauen den meisten Humanoiden außer Elfen und leben lieber fernab der Zivilisation in eng verbundenen Clans. Wenn sie in die Schlacht gedrängt werden, zeigen Bolgrifs beeindruckende Fähigkeiten im Umgang mit Waffen und Naturmagie.
-Race/&RaceBolgrifTitle=Bolgriff
+Race/&RaceBolgrifTitle=Firbolg

@@ -11,4 +11,4 @@ Feature/&PowerBolgrifInvisibilityTitle=사라지다
 Feature/&ProficiencyBolgrifLanguagesDescription=커먼, 엘프, 자이언트.
 Feature/&ProficiencyBolgrifLanguagesTitle=언어
 Race/&RaceBolgrifDescription=볼그리프는 솔라스타의 얼어붙은 고원에 사는 반거인입니다. 그들은 교활하고, 조심스럽고, 은둔적이며, 엘프를 제외한 대부분의 인간형을 불신하고, 문명에서 멀리 떨어진 긴밀한 씨족으로 사는 것을 선호합니다. 전투에 투입되면 볼그리프는 무기와 자연 마법을 사용하여 가공할 만한 능력을 발휘합니다.
-Race/&RaceBolgrifTitle=볼그리프
+Race/&RaceBolgrifTitle=피르볼그

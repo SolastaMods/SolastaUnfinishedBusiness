@@ -11,4 +11,4 @@ Feature/&PowerBolgrifInvisibilityTitle=渐隐
 Feature/&ProficiencyBolgrifLanguagesDescription=通用语，精灵语和巨人语。
 Feature/&ProficiencyBolgrifLanguagesTitle=语言
 Race/&RaceBolgrifDescription=博格里夫是生活在索拉斯塔冰冻高地的半巨人。他们狡猾、谨慎、隐居，不信任除精灵以外的大多数类人生物，并且更喜欢生活在远离文明的紧密联系的氏族中。如果被迫投入战斗，博格里夫会展示出强大的武器和自然魔法技能。
-Race/&RaceBolgrifTitle=博格里夫
+Race/&RaceBolgrifTitle=费尔博格

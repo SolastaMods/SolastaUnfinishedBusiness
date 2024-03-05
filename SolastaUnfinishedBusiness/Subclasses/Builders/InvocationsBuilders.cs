@@ -753,8 +753,7 @@ internal static class InvocationsBuilders
 
     private sealed class CharacterTurnStartListenerPerniciousCloak(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionPerniciousCloak)
-        : ICharacterTurnStartListener
+        ConditionDefinition conditionPerniciousCloak) : ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {

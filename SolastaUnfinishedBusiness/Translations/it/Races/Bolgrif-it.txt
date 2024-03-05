@@ -11,4 +11,4 @@ Feature/&PowerBolgrifInvisibilityTitle=Svanire
 Feature/&ProficiencyBolgrifLanguagesDescription=Comune, Elfico e Gigante.
 Feature/&ProficiencyBolgrifLanguagesTitle=Lingua
 Race/&RaceBolgrifDescription=I Bolgrif sono mezzi giganti che vivono negli altopiani ghiacciati di Solasta. Sono astuti, cauti, solitari, diffidano della maggior parte degli umanoidi tranne gli elfi e preferiscono vivere lontano dalla civiltà in clan affiatati. Se costretti in battaglia, i bolgrif dimostrano abilità formidabili con le armi e la magia della natura.
-Race/&RaceBolgrifTitle=Bolgriff
+Race/&RaceBolgrifTitle=Firbolg

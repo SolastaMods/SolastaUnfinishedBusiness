@@ -11,4 +11,4 @@ Feature/&PowerBolgrifInvisibilityTitle=Исчезновение
 Feature/&ProficiencyBolgrifLanguagesDescription=Общий, Эльфийский и язык Великанов.
 Feature/&ProficiencyBolgrifLanguagesTitle=Языки
 Race/&RaceBolgrifDescription=Болгрифы - полувеликаны, живущие в морозных высокогорьях Соласты. Они хитры, осторожны, замкнуты, не доверяют большинству гуманоидов, кроме эльфов, и предпочитают жить вдали от цивилизации в крепко сплоченных кланах. Если их вынуждают биться, болгрифы демонстрируют грозные навыки обращения с оружием и природной магией.
-Race/&RaceBolgrifTitle=Болгриф
+Race/&RaceBolgrifTitle=Фирболг

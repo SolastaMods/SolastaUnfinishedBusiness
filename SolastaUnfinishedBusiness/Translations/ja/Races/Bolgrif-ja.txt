@@ -11,4 +11,4 @@ Feature/&PowerBolgrifInvisibilityTitle=消える
 Feature/&ProficiencyBolgrifLanguagesDescription=一般、エルフ、巨人。
 Feature/&ProficiencyBolgrifLanguagesTitle=言語
 Race/&RaceBolgrifDescription=ボルグリフはソラスタの凍った高地に住む半巨人です。彼らは狡猾で、用心深く、隠遁的で、エルフを除くほとんどのヒューマノイドを信用せず、文明から遠く離れた結束の強い氏族の中で暮らすことを好みます。戦いに追い込まれると、ボルグリフは武器と自然魔法で恐るべきスキルを発揮します。
-Race/&RaceBolgrifTitle=ボルグリフ
+Race/&RaceBolgrifTitle=フィルボルグ

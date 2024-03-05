@@ -110,9 +110,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetOverriddenPower(powerBarkWard)
             .AddToDB();
 
+        // kept name for backward compatibility
         var powerSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")
-            .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
