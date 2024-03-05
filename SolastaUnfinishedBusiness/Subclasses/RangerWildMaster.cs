@@ -84,7 +84,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
                     .SetFeatures(acBonus)
                     .AddToDB(),
                 ConditionDefinitionBuilder
@@ -92,7 +92,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
                     .SetFeatures(toHit)
                     .AddToDB(),
                 ConditionDefinitionBuilder
@@ -100,7 +100,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
                     .SetPossessive()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
                     .SetFeatures(toDamage)
                     .AddToDB(),
                 ConditionDefinitionBuilder
@@ -194,13 +194,13 @@ public sealed class RangerWildMaster : AbstractSubclass
             .Create($"Power{Name}AdvancedTraining")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerPatronTimekeeperAccelerate)
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionAdvancedTraining))
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerMarksmanRecycler)
                     .Build())
             .AddCustomSubFeatures(
                 new FilterTargetingCharacterAdvancedTraining(),
@@ -256,6 +256,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             .Create($"Condition{Name}KillCommand")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDoomLaughter)
             .SetConditionType(ConditionType.Detrimental)
+            .SetConditionParticleReference(ConditionDefinitions.ConditionPainful.conditionParticleReference)
             .AddToDB();
 
         conditionKillCommand.AddCustomSubFeatures(new PhysicalAttackInitiatedOnMeKillCommand(conditionKillCommand));
@@ -263,14 +264,14 @@ public sealed class RangerWildMaster : AbstractSubclass
         var powerKillCommand = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}KillCommand")
             .SetGuiPresentation(Category.Feature, Command)
-            .SetUsesProficiencyBonus(ActivationTime.NoCost)
-            .SetShowCasting(false)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost, RechargeRate.TurnStart)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetEffectForms(EffectFormBuilder.ConditionForm(conditionKillCommand))
+                    .SetCasterEffectParameters(FeatureDefinitionPowers.PowerPactChainImp)
                     .Build())
             .AddCustomSubFeatures(
                 new ValidatorsValidatePowerUse(c =>
@@ -399,7 +400,7 @@ public sealed class RangerWildMaster : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedOnMeKillCommand(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionKillCommand) : IPhysicalAttackInitiatedOnMe
+        ConditionDefinition conditionKillCommand) : IPhysicalAttackInitiatedOnMe, IOnConditionAddedOrRemoved
     {
         public IEnumerator OnPhysicalAttackInitiatedOnMe(
             GameLocationBattleManager battleManager,
@@ -441,6 +442,30 @@ public sealed class RangerWildMaster : AbstractSubclass
             damage.BonusDamage += pb;
             damage.DamageBonusTrends.Add(
                 new TrendInfo(pb, FeatureSourceType.Condition, conditionKillCommand.Name, conditionKillCommand));
+        }
+
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (Gui.Battle == null)
+            {
+                return;
+            }
+
+            foreach (var enemy in Gui.Battle.GetMyContenders(target.Side)
+                         .Where(x => x.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
+                                     x.RulesetCharacter != target))
+            {
+                if ( enemy.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                    AttributeDefinitions.TagEffect, conditionKillCommand.Name, out var activeCondition))
+                {
+                    enemy.RulesetCharacter.RemoveCondition(activeCondition);
+                }
+            }
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
         }
     }
 
