@@ -65,6 +65,7 @@ Feedback/&AdditionalDamageCrusherLine={0} vernichtet {1}
 Feedback/&AdditionalDamagePiercerFormat=Piercer!
 Feedback/&AdditionalDamagePiercerLine={0} durchbohrt {1} kritisch
 Feedback/&AdditionalDamageSpearMasteryLine={0} hat den Speer bereitgehalten und fügt {1} zusätzlichen {2} Schaden zu!
+Feedback/&FeatFeatFellHandedDisadvantage={0} fügt {1} bis {2} Schaden zu:
 Reaction/&ReactionAttackOldTacticsDescription={0} stand auf. {1} kann eine Reaktion nutzen, um einen Angriff mit einer Nahkampfwaffe durchzuführen.
 Reaction/&ReactionAttackOldTacticsReactDescription=Nutzen Sie Ihre Reaktion zum Angriff.
 Reaction/&ReactionAttackOldTacticsReactTitle=Attacke

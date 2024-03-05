@@ -65,6 +65,7 @@ Feedback/&AdditionalDamageCrusherLine={0} esmaga {1}
 Feedback/&AdditionalDamagePiercerFormat=Perfuradores!
 Feedback/&AdditionalDamagePiercerLine={0} perfura criticamente {1}
 Feedback/&AdditionalDamageSpearMasteryLine={0} preparou a lança e causa {2} de dano extra a {1}!
+Feedback/&FeatFeatFellHandedDisadvantage={0} causa dano a {1} até {2}:
 Reaction/&ReactionAttackOldTacticsDescription={0} se levantou. {1} pode usar uma reação para realizar um ataque corpo a corpo com arma contra ele.
 Reaction/&ReactionAttackOldTacticsReactDescription=Use sua reação para atacar.
 Reaction/&ReactionAttackOldTacticsReactTitle=Ataque

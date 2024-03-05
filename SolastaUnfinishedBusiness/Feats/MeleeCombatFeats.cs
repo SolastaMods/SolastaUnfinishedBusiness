@@ -1305,7 +1305,7 @@ internal static class MeleeCombatFeats
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1314,21 +1314,6 @@ internal static class MeleeCombatFeats
                     .Build())
             .AddToDB();
 
-        var fellHandedDisadvantage = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}Disadvantage")
-            .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}DisadvantageDescription", hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
-                    .SetEffectForms(EffectFormBuilder.DamageForm())
-                    .Build())
-            .AddToDB();
-
-        fellHandedDisadvantage.AddCustomSubFeatures(
-            new ModifyEffectDescriptionPowerDisadvantage(fellHandedDisadvantage));
-
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
@@ -1336,7 +1321,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         fellHandedAdvantage.AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeFeatFellHanded(fellHandedAdvantage, fellHandedDisadvantage, weaponTypes),
+            new PhysicalAttackFinishedByMeFeatFellHanded(fellHandedAdvantage, weaponTypes),
             new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
         return feat;
@@ -1344,18 +1329,24 @@ internal static class MeleeCombatFeats
 
     private sealed class PhysicalAttackFinishedByMeFeatFellHanded : IPhysicalAttackFinishedByMe
     {
-        private readonly FeatureDefinitionPower _powerAdvantage;
-        private readonly FeatureDefinitionPower _powerDisadvantage;
+        private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
+        private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
+        private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
+        private readonly DamageForm _damage;
+        private readonly FeatureDefinitionPower _power;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
 
         public PhysicalAttackFinishedByMeFeatFellHanded(
-            FeatureDefinitionPower powerAdvantage,
-            FeatureDefinitionPower powerDisadvantage,
+            FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
-            _powerAdvantage = powerAdvantage;
-            _powerDisadvantage = powerDisadvantage;
+            _power = power;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+
+            _damage = new DamageForm
+            {
+                DamageType = DamageTypeBludgeoning, DieType = DieType.D1, DiceNumber = 0, BonusDamage = 0
+            };
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -1382,94 +1373,92 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
-
             var attackModifier = action.ActionParams.ActionModifiers[0];
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
             var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
-            var attackRoll = 0;
-
-            FeatureDefinitionPower power = null;
 
             switch (advantageType)
             {
                 case AdvantageType.Advantage when rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
-                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out attackRoll);
-                    power = _powerAdvantage;
+                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
+
+                    var lowOutcome = GLBM.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
+
+                    Gui.Game.GameConsole.AttackRolled(
+                        rulesetAttacker,
+                        rulesetDefender,
+                        _power,
+                        lowOutcome,
+                        lowestAttackRoll + modifier,
+                        lowestAttackRoll,
+                        modifier,
+                        attackModifier.AttacktoHitTrends,
+                        []);
+
+                    if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                    {
+                        var implementationManagerService =
+                            ServiceRepository.GetService<IRulesetImplementationService>() as
+                                RulesetImplementationManager;
+
+                        var usablePower = PowerProvider.Get(_power, rulesetAttacker);
+                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+                        {
+                            ActionModifiers = { new ActionModifier() },
+                            RulesetEffect = implementationManagerService
+                                //CHECK: no need for AddAsActivePowerToSource
+                                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                            UsablePower = usablePower,
+                            TargetCharacters = { defender }
+                        };
+
+                        // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+                        ServiceRepository.GetService<IGameLocationActionService>()?
+                            .ExecuteAction(actionParams, null, true);
+                    }
 
                     break;
                 case AdvantageType.Disadvantage when rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
-                    attacker.UsedSpecialFeatures.TryGetValue("HighestAttackRoll", out attackRoll);
-                    power = _powerDisadvantage;
+                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var highestAttackRoll);
+
+                    var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
+                    var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
+
+                    if (strengthMod <= 0)
+                    {
+                        break;
+                    }
+
+                    var higherOutcome = GLBM.GetAttackResult(highestAttackRoll, modifier, rulesetDefender);
+
+                    if (higherOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+                    {
+                        break;
+                    }
+
+                    rulesetAttacker.LogCharacterAffectsTarget(rulesetDefender,
+                        SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
+
+                    _damage.BonusDamage = strengthMod;
+                    RulesetActor.InflictDamage(
+                        strengthMod,
+                        _damage,
+                        DamageTypeBludgeoning,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                        rulesetDefender,
+                        false,
+                        rulesetAttacker.Guid,
+                        false,
+                        attackMode.AttackTags,
+                        new RollInfo(DieType.D1, [], strengthMod),
+                        true,
+                        out _);
 
                     break;
                 case AdvantageType.None:
                 default:
                     break;
             }
-
-            if (power == null || attackRoll == 0)
-            {
-                yield break;
-            }
-
-            var outcome = GLBM.GetAttackResult(attackRoll, modifier, rulesetDefender);
-
-            Gui.Game.GameConsole.AttackRolled(
-                rulesetAttacker,
-                rulesetDefender,
-                _powerAdvantage,
-                outcome,
-                attackRoll + modifier,
-                attackRoll,
-                modifier,
-                attackModifier.AttacktoHitTrends,
-                []);
-
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                yield break;
-            }
-
-            var usablePower = PowerProvider.Get(power, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-            {
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = implementationManagerService
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower,
-                TargetCharacters = { defender }
-            };
-
-            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-            ServiceRepository.GetService<IGameLocationActionService>()?
-                .ExecuteAction(actionParams, null, true);
-        }
-    }
-
-    private sealed class ModifyEffectDescriptionPowerDisadvantage(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition powerDisadvantage) : IModifyEffectDescription
-    {
-        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
-        {
-            return definition == powerDisadvantage;
-        }
-
-        public EffectDescription GetEffectDescription(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var strMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(strength));
-            var damageForm = effectDescription.FindFirstDamageForm();
-
-            damageForm.BonusDamage = strMod;
-
-            return effectDescription;
         }
     }
 
