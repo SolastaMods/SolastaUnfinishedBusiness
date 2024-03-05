@@ -146,7 +146,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=Exportação cancelada:\nJ
 Message/&CharacterExportEmptyNameErrorDescription=Exportação cancelada:\nTente um nome que não esteja vazio.
 Message/&CharacterExportModalContentDescription=Digite o nome do herói para exportar:
 Message/&CharacterExportModalTitleDescription=Exportar {0}
-Message/&MessageModWelcomeDescription=O Unfinished Business Mod está repleto de recursos interessantes, mas por padrão nenhum está habilitado. Pressione <color=#F0DAA0>Ctrl-F10</color> para abrir a UI do Unity Mod Manager [UMM] e clique no ícone de configurações próximo a 'Negócios inacabados' para abrir as páginas de configurações. Explore as opções e selecione as que você gosta.\n<b>Por favor, doe se puder.</b> Outras opções de pagamento disponíveis em Mod UI / Jogabilidade / Ferramentas.
+Message/&MessageModWelcomeDescription=O Unfinished Business Mod está repleto de recursos interessantes, mas por padrão nenhum está habilitado. Pressione <color=#F0DAA0>Ctrl-F10</color> para abrir a UI do Unity Mod Manager [UMM] e clique no ícone de configurações próximo a 'Negócios inacabados' para abrir as páginas de configurações. Explore as opções e selecione as que você gosta.
 Message/&MessageModWelcomeTitle=Mod de negócios inacabados
 Message/&ModErrorWarningDescription=Solasta detectou uma instabilidade. Por favor, peça a cada jogador para fechar o jogo, pegar o arquivo <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> e compartilhar esses registros e o arquivo salvo com a comunidade de mod Unfinished Business.
 Message/&ModErrorWarningTitle=Aviso de jogo!

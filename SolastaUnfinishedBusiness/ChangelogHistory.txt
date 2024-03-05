@@ -1,4 +1,4 @@
-1.5.97.0:
+1.5.94.57:
 
 - added Ranger Gloom Stalker subclass
 - fixed all cantrips enforcing save to negate any damage form on a success
@@ -15,8 +15,6 @@
 - removed Ring Mail armors and recipes from items & crafting [RESPEC is required]
 - replaced Ranger Sky Warrior swift strike feature with ghostly howl
 - replaced Ranger Survivalist unmatched experience feature with blessing of the wilderness
-
-// check thief's reflexes level 20
 
 1.5.94.56:
 

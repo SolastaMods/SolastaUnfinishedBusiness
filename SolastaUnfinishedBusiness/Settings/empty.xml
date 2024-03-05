@@ -123,6 +123,14 @@
     <DisplaySpellListsToggle>
         <item>
             <key>
+                <string>SpellListInventor</string>
+            </key>
+            <value>
+                <boolean>true</boolean>
+            </value>
+        </item>
+        <item>
+            <key>
                 <string>SpellListBard</string>
             </key>
             <value>
@@ -140,14 +148,6 @@
         <item>
             <key>
                 <string>SpellListDruid</string>
-            </key>
-            <value>
-                <boolean>true</boolean>
-            </value>
-        </item>
-        <item>
-            <key>
-                <string>SpellListInventor</string>
             </key>
             <value>
                 <boolean>true</boolean>
@@ -663,6 +663,14 @@
     <SpellListSliderPosition>
         <item>
             <key>
+                <string>SpellListInventor</string>
+            </key>
+            <value>
+                <int>4</int>
+            </value>
+        </item>
+        <item>
+            <key>
                 <string>SpellListBard</string>
             </key>
             <value>
@@ -680,14 +688,6 @@
         <item>
             <key>
                 <string>SpellListDruid</string>
-            </key>
-            <value>
-                <int>4</int>
-            </value>
-        </item>
-        <item>
-            <key>
-                <string>SpellListInventor</string>
             </key>
             <value>
                 <int>4</int>
@@ -745,6 +745,14 @@
     <SpellListSpellEnabled>
         <item>
             <key>
+                <string>SpellListInventor</string>
+            </key>
+            <value>
+                <ArrayOfString/>
+            </value>
+        </item>
+        <item>
+            <key>
                 <string>SpellListBard</string>
             </key>
             <value>
@@ -762,14 +770,6 @@
         <item>
             <key>
                 <string>SpellListDruid</string>
-            </key>
-            <value>
-                <ArrayOfString/>
-            </value>
-        </item>
-        <item>
-            <key>
-                <string>SpellListInventor</string>
             </key>
             <value>
                 <ArrayOfString/>

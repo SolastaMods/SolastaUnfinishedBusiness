@@ -146,7 +146,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=내보내기 취소됨:\n�
 Message/&CharacterExportEmptyNameErrorDescription=내보내기 취소됨:\n비어 있지 않은 이름을 사용해 보세요.
 Message/&CharacterExportModalContentDescription=내보낼 영웅 이름을 입력하세요:
 Message/&CharacterExportModalTitleDescription={0} 내보내기
-Message/&MessageModWelcomeDescription=미완성 비즈니스 모드는 흥미로운 기능으로 가득 차 있지만 기본적으로 활성화된 기능은 없습니다. <color=#F0DAA0>Ctrl-F10</color>을 눌러 Unity Mod Manager UI[UMM]를 연 다음 '미완성 비즈니스' 옆에 있는 설정 아이콘을 클릭하여 설정 페이지를 엽니다. 옵션을 살펴보고 마음에 드는 것을 선택하세요.\n<b>가능한 경우 기부해 주세요.</b> Mod UI/게임플레이/도구에서 다른 결제 옵션을 사용할 수 있습니다.
+Message/&MessageModWelcomeDescription=미완성 비즈니스 모드는 흥미로운 기능으로 가득 차 있지만 기본적으로 활성화된 기능은 없습니다. <color=#F0DAA0>Ctrl-F10</color>을 눌러 Unity Mod Manager UI[UMM]를 연 다음 '미완성 비즈니스' 옆에 있는 설정 아이콘을 클릭하여 설정 페이지를 엽니다. 옵션을 살펴보고 마음에 드는 것을 선택하세요.
 Message/&MessageModWelcomeTitle=미완성 비즈니스 모드
 Message/&ModErrorWarningDescription=Solasta가 불안정함을 감지했습니다. 모든 플레이어에게 게임을 닫고 <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> 파일을 가져와 이 로그와 저장 파일을 Unfinished Business 모드 커뮤니티와 공유하도록 요청하세요.
 Message/&ModErrorWarningTitle=게임 경고!

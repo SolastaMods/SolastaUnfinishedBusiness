@@ -146,7 +146,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=Esportazione annullata:\nU
 Message/&CharacterExportEmptyNameErrorDescription=Esportazione annullata:\nProva con un nome non vuoto.
 Message/&CharacterExportModalContentDescription=Inserisci il nome dell'eroe da esportare:
 Message/&CharacterExportModalTitleDescription=Esporta {0}
-Message/&MessageModWelcomeDescription=La modalità Unfinished Business è ricca di funzionalità interessanti, ma per impostazione predefinita nessuna è abilitata. Premi <color=#F0DAA0>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Unfinished Business" per aprire le pagine delle impostazioni. Esplora le opzioni e seleziona quelle che ti piacciono.\n<b>Fai una donazione se puoi.</b> Altre opzioni di pagamento sono disponibili in Mod UI/Gameplay/Strumenti.
+Message/&MessageModWelcomeDescription=La modalità Unfinished Business è ricca di funzionalità interessanti, ma per impostazione predefinita nessuna è abilitata. Premi <color=#F0DAA0>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Unfinished Business" per aprire le pagine delle impostazioni. Esplora le opzioni e seleziona quelle che ti piacciono.
 Message/&MessageModWelcomeTitle=Mod. Affari incompiuti
 Message/&ModErrorWarningDescription=Solasta ha rilevato un'instabilità. Chiedi a ogni giocatore di chiudere il gioco, prendere il file <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> e condividere questi registri e il file di salvataggio con la community mod di Unfinished Business.
 Message/&ModErrorWarningTitle=Attenzione al gioco!
