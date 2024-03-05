@@ -2668,10 +2668,6 @@ Your Disabling Strike now applies to all weapon attacks you make, and reduces th
 
 You are immune to being blinded, deafened, frightened, or poisoned, and any critical hit against you counts as a normal hit instead, unless you are incapacitated or cannot perceive the attacker.
 
-* Favored Enemy
-
-Gain advantage on ability checks towards this creature type, and additional damage against it equal to your knowledge level.
-
 
 
 ## 7. Wildmaster
@@ -2690,7 +2686,7 @@ You gain a Spirit Beast companion that accompanies you on your adventures and is
 
 * Advanced Training
 
-You can use your bonus action to grant your Beast Companion benefits of Dash or Disengage action and its attacks count as magical for the purpose of overcoming resistance and immunity.
+As a bonus action, you can instruct your beast companion that is within 30 feet and that you can see to perform combat maneuvers. When you do so, your beast companion can use its bonus action to dash and its bonus or main action to disengage.
 
 
 ### Level 11
@@ -2704,7 +2700,7 @@ Your Beast Companion can now use all attacks available and gains your proficienc
 
 * Kill Command
 
-As a free action, you can instruct your companion to fixate on a target. Your companion gains your proficiency bonus to all attack rolls and damage rolls against that target. You can use this feature a number of times per long rest equal to your proficiency bonus.
+Once per turn as a free action, you can instruct your companion to fixate on a target within 60 feet of you that you can see for one minute. Your companion gains your proficiency bonus to all attack rolls and damage rolls against that target. Only one target can be fixated at a time. You can use this feature a number of times per long rest equal to your proficiency bonus.
 
 
 

@@ -7,8 +7,8 @@
     "Definition:SummoningAffinityRangerWildMasterBearHitPoints:9682d15c-758f-5d27-a601-7214adec64fc"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
