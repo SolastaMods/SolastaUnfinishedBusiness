@@ -235,10 +235,7 @@ public sealed class MartialWarlord : AbstractSubclass
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
             .AddCustomSubFeatures(
                 ModifyPowerVisibility.Hidden,
-                new PhysicalAttackFinishedByMeCoordinatedAssault(),
-                new RestrictReactionAttackMode((_, attacker, _, _, _) =>
-                    attacker.OnceInMyTurnIsValid(CoordinatedAssaultMarker) &&
-                    attacker.RulesetCharacter.IsToggleEnabled(CoordinatedAssaultToggle)))
+                new PhysicalAttackFinishedByMeCoordinatedAssault())
             .AddToDB();
 
         var actionAffinityCoordinatedAssaultToggle = FeatureDefinitionActionAffinityBuilder
@@ -522,7 +519,7 @@ public sealed class MartialWarlord : AbstractSubclass
                 yield break;
             }
 
-            if (!attacker.OncePerTurnIsValid(CoordinatedAssaultMarker))
+            if (!attacker.OnceInMyTurnIsValid(CoordinatedAssaultMarker))
             {
                 yield break;
             }

@@ -37,18 +37,6 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton(Gui.Format("ModUi/&Donate", "Github"), UpdateContext.OpenDonateGithub,
-                UI.Width(200f));
-            UI.ActionButton(Gui.Format("ModUi/&Donate", "Patreon"), UpdateContext.OpenDonatePatreon,
-                UI.Width(200f));
-            UI.ActionButton(Gui.Format("ModUi/&Donate", "PayPal"), UpdateContext.OpenDonatePayPal,
-                UI.Width(200f));
-        }
-
-        UI.Label();
-
         var toggle = Main.Settings.DisableUnofficialTranslations;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslations"), ref toggle, UI.AutoWidth()))
         {

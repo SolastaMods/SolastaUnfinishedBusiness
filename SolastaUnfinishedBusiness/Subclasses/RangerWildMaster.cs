@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -259,12 +260,12 @@ public sealed class RangerWildMaster : AbstractSubclass
             .SetConditionParticleReference(ConditionDefinitions.ConditionPainful.conditionParticleReference)
             .AddToDB();
 
-        conditionKillCommand.AddCustomSubFeatures(new PhysicalAttackInitiatedOnMeKillCommand(conditionKillCommand));
+        conditionKillCommand.AddCustomSubFeatures(new CustomBehaviorKillCommand(conditionKillCommand));
 
         var powerKillCommand = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}KillCommand")
             .SetGuiPresentation(Category.Feature, Command)
-            .SetUsesProficiencyBonus(ActivationTime.NoCost, RechargeRate.TurnStart)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -274,8 +275,10 @@ public sealed class RangerWildMaster : AbstractSubclass
                     .SetCasterEffectParameters(FeatureDefinitionPowers.PowerPactChainImp)
                     .Build())
             .AddCustomSubFeatures(
+                new MagicEffectFinishedByMeKillCommand(),
                 new ValidatorsValidatePowerUse(c =>
                     Gui.Battle != null &&
+                    GameLocationCharacter.GetFromActor(c)?.OnceInMyTurnIsValid($"Power{Name}KillCommand") == true &&
                     c.PowersUsedByMe.Any(x => x.Name.StartsWith(PowerSummonBeastCompanionPrefix))))
             .AddToDB();
 
@@ -398,10 +401,34 @@ public sealed class RangerWildMaster : AbstractSubclass
     // Kill Command
     //
 
-    private sealed class PhysicalAttackInitiatedOnMeKillCommand(
+    private sealed class CustomBehaviorKillCommand(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition conditionKillCommand) : IPhysicalAttackInitiatedOnMe, IOnConditionAddedOrRemoved
     {
+        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (Gui.Battle == null)
+            {
+                return;
+            }
+
+            foreach (var enemy in Gui.Battle.GetMyContenders(target.Side)
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                     x.RulesetCharacter != target))
+            {
+                if (enemy.RulesetCharacter.TryGetConditionOfCategoryAndType(
+                        AttributeDefinitions.TagEffect, conditionKillCommand.Name, out var activeCondition))
+                {
+                    enemy.RulesetCharacter.RemoveCondition(activeCondition);
+                }
+            }
+        }
+
+        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+
         public IEnumerator OnPhysicalAttackInitiatedOnMe(
             GameLocationBattleManager battleManager,
             CharacterAction action,
@@ -443,29 +470,15 @@ public sealed class RangerWildMaster : AbstractSubclass
             damage.DamageBonusTrends.Add(
                 new TrendInfo(pb, FeatureSourceType.Condition, conditionKillCommand.Name, conditionKillCommand));
         }
+    }
 
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
+    private sealed class MagicEffectFinishedByMeKillCommand : IMagicEffectFinishedByMe
+    {
+        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
         {
-            if (Gui.Battle == null)
-            {
-                return;
-            }
+            action.ActingCharacter.UsedSpecialFeatures.TryAdd($"Power{Name}KillCommand", 1);
 
-            foreach (var enemy in Gui.Battle.GetMyContenders(target.Side)
-                         .Where(x => x.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} &&
-                                     x.RulesetCharacter != target))
-            {
-                if ( enemy.RulesetCharacter.TryGetConditionOfCategoryAndType(
-                    AttributeDefinitions.TagEffect, conditionKillCommand.Name, out var activeCondition))
-                {
-                    enemy.RulesetCharacter.RemoveCondition(activeCondition);
-                }
-            }
-        }
-
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // empty
+            yield break;
         }
     }
 
@@ -522,7 +535,7 @@ public sealed class RangerWildMaster : AbstractSubclass
         var conditionBearHitPoints = ConditionDefinitionBuilder
             .Create($"Condition{Name}BearHitPoints")
             .SetGuiPresentationNoContent(true)
-            //.SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(summoningAffinityBearHitPoints)
             .AddToDB();
 

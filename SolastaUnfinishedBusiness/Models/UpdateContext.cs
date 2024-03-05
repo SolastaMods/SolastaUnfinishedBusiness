@@ -142,9 +142,9 @@ internal static class UpdateContext
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             message,
-            "Donate",
+            "ChangeLog",
             "Message/&MessageOkTitle",
-            OpenDonatePayPal,
+            OpenChangeLog,
             () => { });
     }
 
@@ -180,25 +180,10 @@ internal static class UpdateContext
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             "Message/&MessageModWelcomeDescription",
-            "Donate",
+            "ChangeLog",
             "Message/&MessageOkTitle",
-            OpenDonatePayPal,
+            OpenChangeLog,
             () => { });
-    }
-
-    internal static void OpenDonateGithub()
-    {
-        OpenUrl("https://github.com/sponsors/ThyWoof");
-    }
-
-    internal static void OpenDonatePatreon()
-    {
-        OpenUrl("https://patreon.com/SolastaMods");
-    }
-
-    internal static void OpenDonatePayPal()
-    {
-        OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
     }
 
     internal static void OpenChangeLog()
