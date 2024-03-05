@@ -1771,6 +1771,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerMagebaneSpellCrusher { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMagebaneSpellCrusher");
 
+        internal static FeatureDefinitionPower PowerMarksmanRecycler { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMarksmanRecycler");
+
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
 
@@ -2863,7 +2866,6 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition RingDetectInvisible { get; } =
             GetDefinition<ItemDefinition>("RingDetectInvisible");
 
-        internal static ItemDefinition Ringmail { get; } = GetDefinition<ItemDefinition>("Ringmail");
         internal static ItemDefinition RingProtectionPlus1 { get; } = GetDefinition<ItemDefinition>("RingProtection+1");
         internal static ItemDefinition ScaleMail { get; } = GetDefinition<ItemDefinition>("ScaleMail");
         internal static ItemDefinition ScaleMailPlus2 { get; } = GetDefinition<ItemDefinition>("ScaleMail+2");

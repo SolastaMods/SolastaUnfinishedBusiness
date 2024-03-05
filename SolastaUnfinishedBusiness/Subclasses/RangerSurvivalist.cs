@@ -183,17 +183,10 @@ public sealed class RangerSurvivalist : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerSurvivalist, 256))
-            .AddFeaturesAtLevel(3,
-                autoPreparedSpells,
-                additionalDamageDisablingStrike,
-                proficiencyWanderingOutcast)
-            .AddFeaturesAtLevel(7,
-                FeatureSetAnalyticalMind)
-            .AddFeaturesAtLevel(11,
-                powerImprovedDisablingStrike)
-            .AddFeaturesAtLevel(15,
-                featureSetBlessingWilderness,
-                FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice)
+            .AddFeaturesAtLevel(3, autoPreparedSpells, additionalDamageDisablingStrike, proficiencyWanderingOutcast)
+            .AddFeaturesAtLevel(7, FeatureSetAnalyticalMind)
+            .AddFeaturesAtLevel(11, powerImprovedDisablingStrike)
+            .AddFeaturesAtLevel(15, featureSetBlessingWilderness)
             .AddToDB();
     }
 

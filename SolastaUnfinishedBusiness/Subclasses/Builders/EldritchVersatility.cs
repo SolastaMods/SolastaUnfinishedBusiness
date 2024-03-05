@@ -290,8 +290,8 @@ internal static class EldritchVersatilityBuilders
         return false;
     }
 
-    internal class VersatilitySupportRulesetCondition :
-        RulesetConditionCustom<VersatilitySupportRulesetCondition>, IBindToRulesetConditionCustom
+    internal class VersatilitySupportRulesetCondition
+        : RulesetConditionCustom<VersatilitySupportRulesetCondition>, IBindToRulesetConditionCustom
     {
         private static readonly int[] ProficiencyIncreaseLevels = [1, 5, 11, 17];
 
@@ -566,8 +566,7 @@ internal static class EldritchVersatilityBuilders
         }
 
         private sealed class OnConditionAddedOrRemovedVersatility :
-            ICharacterBattleEndedListener,
-            IOnConditionAddedOrRemoved, IMagicEffectBeforeHitConfirmedOnEnemy
+            ICharacterBattleEndedListener, IOnConditionAddedOrRemoved, IMagicEffectBeforeHitConfirmedOnEnemy
         {
             public void OnCharacterBattleEnded(GameLocationCharacter locationCharacter)
             {

@@ -772,9 +772,9 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             }
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
-            var rollCaption = action.AttackRoll == 1
-                ? "Feedback/&RollCheckCriticalFailureTitle"
-                : "Feedback/&CriticalAttackFailureOutcome";
+            var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
+                ? "Feedback/&RollAttackCriticalFailureTitle"
+                : "Feedback/&RollAttackFailureTitle";
 
             rulesetCharacter.LogCharacterUsedFeature(featureDefinition,
                 "Feedback/&TriggerRerollLine",
@@ -782,6 +782,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
                 (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
+            // testMode true avoids the roll to display on combat log as the original one will get there with altered results
             var roll = rulesetCharacter.RollAttack(
                 attackMode.toHitBonus,
                 defender.RulesetCharacter,
@@ -795,7 +796,6 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 out var outcome,
                 out var successDelta,
                 -1,
-                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
                 true);
 
             action.AttackRollOutcome = outcome;
