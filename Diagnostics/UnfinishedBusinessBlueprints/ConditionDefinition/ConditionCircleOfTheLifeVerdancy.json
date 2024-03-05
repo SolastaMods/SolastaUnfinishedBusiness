@@ -14,7 +14,7 @@
   "durationParameterDie": "D1",
   "durationParameter": 3,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
+  "turnOccurence": 9000,
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
