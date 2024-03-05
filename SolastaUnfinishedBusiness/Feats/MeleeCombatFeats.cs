@@ -1269,7 +1269,7 @@ internal static class MeleeCombatFeats
             rulesetAttacker.LogCharacterAffectsTarget(
                 rulesetDefender,
                 DevastatingStrikesTitle,
-                "Feedback/&FeatFeatFellHandedDisadvantage",
+                "Feedback/&FeatFeatDevastatingStrikeDisadvantage",
                 tooltipContent: DevastatingStrikesDescription);
 
             RulesetActor.InflictDamage(
