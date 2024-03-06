@@ -1852,7 +1852,7 @@ internal static class GambitsBuilders
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(me, manager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, manager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {

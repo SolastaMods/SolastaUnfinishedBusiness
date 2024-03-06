@@ -349,7 +349,7 @@ public sealed class SorcerousPsion : AbstractSubclass
     {
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
-            GameLocationCharacter source,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
@@ -363,7 +363,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 yield break;
             }
 
-            var rulesetCharacter = source.RulesetCharacter;
+            var rulesetCharacter = defender.RulesetCharacter;
 
             if (rulesetCharacter.GetRemainingPowerUses(powerMindOverMatter) == 0)
             {
@@ -375,8 +375,8 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerMindOverMatter, rulesetCharacter);
             var targets = gameLocationBattleService.Battle
-                .GetContenders(source, withinRange: 2);
-            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
+                .GetContenders(defender, withinRange: 2);
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "MindOverMatter",
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
@@ -388,9 +388,9 @@ public sealed class SorcerousPsion : AbstractSubclass
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -404,7 +404,7 @@ public sealed class SorcerousPsion : AbstractSubclass
                 tempHitPoints, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn, rulesetCharacter.Guid);
 
             ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
+                .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 

@@ -504,7 +504,7 @@ public static class GameLocationBattleManagerPatcher
 
                         actionService.ReactToSpendSpellSlot(reactionParams);
 
-                        yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
+                        yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
 
                         if (!reactionParams.ReactionValidated)
                         {

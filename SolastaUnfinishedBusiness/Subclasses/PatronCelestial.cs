@@ -347,7 +347,7 @@ public class PatronCelestial : AbstractSubclass
     {
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
-            GameLocationCharacter source,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
@@ -361,7 +361,7 @@ public class PatronCelestial : AbstractSubclass
                 yield break;
             }
 
-            var rulesetCharacter = source.RulesetCharacter;
+            var rulesetCharacter = defender.RulesetCharacter;
 
             if (rulesetCharacter.GetRemainingPowerUses(powerSearingVengeance) == 0)
             {
@@ -373,8 +373,8 @@ public class PatronCelestial : AbstractSubclass
 
             var usablePower = PowerProvider.Get(powerSearingVengeance, rulesetCharacter);
             var targets = gameLocationBattleService.Battle
-                .GetContenders(source, withinRange: 5);
-            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
+                .GetContenders(defender, withinRange: 5);
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "SearingVengeance",
                 ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
@@ -386,9 +386,9 @@ public class PatronCelestial : AbstractSubclass
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -400,7 +400,7 @@ public class PatronCelestial : AbstractSubclass
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
+                ?.ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 }

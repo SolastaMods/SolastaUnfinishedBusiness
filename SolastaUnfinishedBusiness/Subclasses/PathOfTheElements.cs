@@ -653,7 +653,7 @@ public sealed class PathOfTheElements : AbstractSubclass
 
             actionService.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(defender, actionService, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {

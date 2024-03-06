@@ -112,7 +112,7 @@ internal sealed class Interception : AbstractFightingStyle
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

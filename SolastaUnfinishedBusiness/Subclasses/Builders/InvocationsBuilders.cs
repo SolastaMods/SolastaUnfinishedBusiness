@@ -1359,7 +1359,7 @@ internal static class InvocationsBuilders
         {
             if (rulesetEffect == null)
             {
-                yield return HandleReaction(defender);
+                yield return HandleReaction(attacker, defender);
             }
         }
 
@@ -1372,10 +1372,10 @@ internal static class InvocationsBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender);
+            yield return HandleReaction(attacker, defender);
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter defender)
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var gameLocationBattleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -1419,7 +1419,7 @@ internal static class InvocationsBuilders
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(defender, gameLocationActionManager, count);
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!actionParams.ReactionValidated)
             {

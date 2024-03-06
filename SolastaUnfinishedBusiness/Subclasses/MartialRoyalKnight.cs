@@ -291,7 +291,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             gameLocationActionManager.ReactToSpendPower(reactionParams);
 
-            yield return battleManager.WaitForReactions(originalHelper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

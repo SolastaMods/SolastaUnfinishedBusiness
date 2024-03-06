@@ -236,7 +236,7 @@ internal static class ArmorFeats
 
             gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
         }
 
         // add +2 on DEX savings

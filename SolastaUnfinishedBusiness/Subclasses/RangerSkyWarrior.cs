@@ -338,7 +338,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return battleManager.WaitForReactions(defender, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

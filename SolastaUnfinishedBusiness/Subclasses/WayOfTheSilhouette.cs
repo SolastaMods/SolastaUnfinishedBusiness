@@ -333,7 +333,7 @@ public sealed class WayOfTheSilhouette : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            yield return battleManager.WaitForReactions(me, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!actionParams.ReactionValidated)
             {

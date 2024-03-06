@@ -834,7 +834,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             actionService.ReactToSpendPower(reactionParams);
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -915,7 +915,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             actionService.ReactToSpendPower(reactionParams);
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1005,7 +1005,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             actionService.ReactToSpendPower(reactionParams);
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1086,7 +1086,7 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
 
             actionService.ReactToSpendPower(reactionParams);
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

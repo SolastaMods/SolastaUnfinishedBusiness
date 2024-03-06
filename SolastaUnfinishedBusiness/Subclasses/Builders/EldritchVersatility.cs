@@ -1099,7 +1099,7 @@ internal static class EldritchVersatilityBuilders
 
             RequestCustomReaction(actionService, "EldritchAegis", actionParams, requiredACAddition);
 
-            yield return battleManager.WaitForReactions(helper, actionService, count);
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
 
             if (!actionParams.ReactionValidated)
             {
@@ -1258,7 +1258,7 @@ internal static class EldritchVersatilityBuilders
 
             RequestCustomReaction(gameLocationActionManager, "EldritchWard", actionParams, requiredSaveAddition);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!actionParams.ReactionValidated)
             {
