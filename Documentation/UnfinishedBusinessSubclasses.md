@@ -53,7 +53,7 @@ You have learned how to use your artificer infusions to specially modify armors 
 * Perfected Armor
 
 You improve your armor modes:
-• Guardian: Creatures attacked by your Thunder Gauntlet are Slowed until the start of your next turn, unless they succeed CON saving throw against inventor's spellcasting DC.
+• Guardian: Creatures attacked by your Thunder Gauntlet are Slowed until the start of your next turn, unless they succeed CON saving throw against Artificer's spellcasting DC.
 • Infiltrator: Creatures attacked by your Lightning Launcher glimmer with magical light until the start of your next turn. The glimmering creature sheds dim light in a 5-foot radius, and it has disadvantage on attack rolls against you, as the light jolts it if it attacks you. In addition, the next attack roll against it has advantage, and if that attack hits, the target takes an extra 1d6 lightning damage.
 
 
@@ -377,9 +377,9 @@ Barbarians who follow the Path of the Elements learned to harness the destructiv
 * Elemental Fury
 
 Starting at 3rd level, choose one elemental calamity. The calamity dictates the type of magical mantle you create while raging, as well as features you get on higher levels while following this path. If any effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Constitution modifier.
-• Storm: While you are raging, all enemies within 5 feet of you take 1D6 lightning damage.
-• Blizzard: While you are raging, all enemies within 5 feet of you take 1D6 cold damage.
-• Wildfire: While you are raging, all enemies within 5 feet of you take 1D6 fire damage.
+• Storm: While you are raging, all enemies within 5 feet of you take 1D6 lightning damage when you end your turn.
+• Blizzard: While you are raging, all enemies within 5 feet of you take 1D6 cold damage when you end your turn.
+• Wildfire: While you are raging, all enemies within 5 feet of you take 1D6 fire damage when you end your turn.
  These damages increase to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.
 
 

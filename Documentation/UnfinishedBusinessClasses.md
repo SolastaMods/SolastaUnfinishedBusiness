@@ -42,7 +42,7 @@ Can cast spells from the Artificer Spells list. You can use item that bears your
 
 * Infusions
 
-You've gained the ability to imbue mundane items with certain magical infusions, turning those objects into magic items. Learn 4 infusion of your choice. Whenever you gain a level in this class, you can replace one of the inventor infusions you learned with a new one.
+You've gained the ability to imbue mundane items with certain magical infusions, turning those objects into magic items. Learn 4 infusion of your choice. Whenever you gain a level in this class, you can replace one of the Artificer infusions you learned with a new one.
 After each long rest you can infuse 2 items. If you try to exceed your maximum amount of infused object, the oldest infusion ends and then new infusion applies. The infusion also vanishes if you replace your knowledge of the infusion.
 
 

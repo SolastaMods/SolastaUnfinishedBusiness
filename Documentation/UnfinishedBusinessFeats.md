@@ -258,7 +258,7 @@ Fiendish blood runs strong in you, unlocking a resilience akin to that possessed
 
 # 56. - Infusion Adept
 
-You have studied the art of infusing magic into mundane objects to create temporary magical items, granting you two level 2 or below infusions of your choice from the inventor subclass.
+You have studied the art of infusing magic into mundane objects to create temporary magical items, granting you two level 2 or below infusions of your choice from the Artificer class.
 
 # 57. - Inspiring Leader
 
