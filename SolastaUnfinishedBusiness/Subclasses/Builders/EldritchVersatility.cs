@@ -1034,9 +1034,10 @@ internal static class EldritchVersatilityBuilders
             }
 
             var armorClass = defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
-            var totalAttack = attackRoll
-                              + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
-                              + actionModifier.AttackRollModifier;
+            var totalAttack =
+                attackRoll
+                + (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0)
+                + actionModifier.AttackRollModifier;
 
             // some other reaction saved it already
             if (armorClass > totalAttack)

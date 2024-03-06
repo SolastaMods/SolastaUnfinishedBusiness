@@ -54,7 +54,8 @@ internal static class CreditsDisplay
             "Innovation Armor, Innovation Grenadier, Innovation Weapon, Martial Tactician, Patron Elementalist, Patron Soulblade, Artificer"),
 
         ("ImpPhil", "api, builders, infrastructure, gameplay, quality of life, rules"),
-        ("ChrisJohnDigital", "feats, fighting styles, items & crafting, Martial Eldritch Knight, Wizard Arcane Fighter, Wizard Spellmaster"),
+        ("ChrisJohnDigital",
+            "feats, fighting styles, items & crafting, Martial Eldritch Knight, Wizard Arcane Fighter, Wizard Spellmaster"),
 
         ("Haxermn", "spells, Domain Defiler, Domain Forge, Oath of Ancients, Oath of Hatred, Way of Dragon"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Grey Dwarf, Kobold, Sorcerous Divine Soul"),
@@ -75,8 +76,10 @@ internal static class CreditsDisplay
         ("TheRev", "quality of life"),
         ("Kiloku", "quality of life"),
 
-        ("Earandil", "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior, Ranger Survivalist]"),
-        ("DemonicDuck", "QA, homebrew design [Innovation Vivisectionist, Oath of Thunder, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
+        ("Earandil",
+            "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior, Ranger Survivalist]"),
+        ("DemonicDuck",
+            "QA, homebrew design [Innovation Vivisectionist, Oath of Thunder, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
         ("Taco", "sprites, homebrew design [Roguish Acrobat, Domain Defiler, Oath of Altruism]"),
         ("DubhHerder", "quality of life, homebrew design [Patron Elementalist, Patron Riftwalker]"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
@@ -135,7 +138,8 @@ internal static class CreditsDisplay
         else
 #endif
         {
-            UI.Label("<b><color=#D89555>SPECIAL THANKS:</color></b><i><color>Tactical Adventures / JetBrains / WoTC</color></i>");
+            UI.Label(
+                "<b><color=#D89555>SPECIAL THANKS:</color></b><i><color>Tactical Adventures / JetBrains / WoTC</color></i>");
             UI.Label();
 
             // credits

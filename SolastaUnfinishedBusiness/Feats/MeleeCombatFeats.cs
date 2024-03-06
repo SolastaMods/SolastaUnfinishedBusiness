@@ -412,8 +412,8 @@ internal static class MeleeCombatFeats
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            if (rulesetEffect != null &&
-                rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit ||
+            if ((rulesetEffect != null &&
+                 rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
                 !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
@@ -431,8 +431,7 @@ internal static class MeleeCombatFeats
 
             if (helper != defender ||
                 !defender.CanReact() ||
-                !ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse) ||
-                rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+                !ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
             {
                 yield break;
             }
@@ -443,8 +442,13 @@ internal static class MeleeCombatFeats
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
 
+            if (armorClass > totalAttack)
+            {
+                yield break;
+            }
+
             var pb = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            
+
             if (armorClass + pb <= totalAttack)
             {
                 yield break;

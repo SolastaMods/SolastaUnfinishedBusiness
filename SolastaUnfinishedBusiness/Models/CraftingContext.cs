@@ -40,6 +40,8 @@ internal static class CraftingContext
         { "LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title") },
         { "LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle") },
         { "Longbow", Gui.Localize("Equipment/&LongbowTypeTitle") },
+        { "Longsword", Gui.Localize("Equipment/&LongswordTypeTitle") },
+        { "Mace", Gui.Localize("Equipment/&MaceTypeTitle") },
         { "Maul", Gui.Localize("Equipment/&MaulTypeTitle") },
         { "MonkArmor", Gui.Localize("Equipment/&Monk_Armor_Title") },
         { "Morningstar", Gui.Localize("Equipment/&MorningstarTypeTitle") },
@@ -49,12 +51,12 @@ internal static class CraftingContext
         { "Quarterstaff", Gui.Localize("Equipment/&QuarterstaffTypeTitle") },
         { "Rapier", Gui.Localize("Equipment/&RapierTypeTitle") },
         { "RelicForgeries", Gui.Localize("ModUi/&RelicForgeries") },
-        { "Ringmail", Gui.Localize("Equipment/&Armor_RingMailTitle") },
         { "ScaleMail", Gui.Localize("Equipment/&Armor_ScaleMailTitle") },
         { "Scimitar", Gui.Localize("Equipment/&ScimitarTypeTitle") },
         { "Shield_Wooden", Gui.Localize("Equipment/&Shield_Wooden_Title") },
         { "Shield", Gui.Localize("Equipment/&ShieldCategoryTitle") },
         { "Shortbow", Gui.Localize("Equipment/&ShortbowTypeTitle") },
+        { "Shortsword", Gui.Localize("Equipment/&ShortswordTypeTitle") },
         { "SorcererArmor", Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title") },
         { "Spear", Gui.Localize("Equipment/&SpearTypeTitle") },
         { "StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle") },
@@ -89,13 +91,16 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandaxeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandCrossbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongbowData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongswordData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongMaceData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(MaceData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(MorningStarData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(PikeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(QuarterstaffData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(RapierData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ScimitarData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ShortbowData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ShortswordData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(SpearData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ThrowingWeaponData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ArmorAndShieldData.Items, true);

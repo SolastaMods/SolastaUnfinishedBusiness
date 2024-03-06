@@ -227,8 +227,7 @@ public sealed class OathOfAltruism : AbstractSubclass
             if (helper == defender ||
                 !helper.CanReact(true) ||
                 !helper.CanPerceiveTarget(defender) ||
-                rulesetHelper.GetRemainingPowerUses(powerSpiritualShielding) == 0 ||
-                rulesetDefender.HasConditionOfType(ConditionShielded))
+                rulesetHelper.GetRemainingPowerUses(powerSpiritualShielding) == 0)
             {
                 yield break;
             }
@@ -239,7 +238,14 @@ public sealed class OathOfAltruism : AbstractSubclass
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
 
-            if (armorClass + 5 <= totalAttack)
+            if (armorClass > totalAttack)
+            {
+                yield break;
+            }
+
+            const int SHIELD_BONUS = 5;
+
+            if (armorClass + SHIELD_BONUS <= totalAttack)
             {
                 yield break;
             }

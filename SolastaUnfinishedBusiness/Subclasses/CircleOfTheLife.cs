@@ -265,7 +265,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
     }
 
     private sealed class ModifyEffectDescriptionVerdancy(
-        ConditionDefinition conditionVerdancy, ConditionDefinition conditionVerdancy14) : IModifyEffectDescription
+        ConditionDefinition conditionVerdancy,
+        ConditionDefinition conditionVerdancy14) : IModifyEffectDescription
     {
         private readonly EffectForm _verdancy = EffectFormBuilder
             .ConditionForm(conditionVerdancy, ConditionForm.ConditionOperation.Add, true, true);
