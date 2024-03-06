@@ -10,15 +10,15 @@
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Neutral",
-  "armorClass": 12,
+  "armorClass": 13,
   "armor": "",
   "hitDice": 3,
   "hitDiceType": "D8",
   "hitPointsBonus": 6,
   "standardHitPoints": 5,
   "abilityScores": [
-    14,
-    14,
+    16,
+    12,
     16,
     10,
     12,
@@ -54,12 +54,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_SpiritBear_Claw:620af25908bffc644bedd877b0e95b75"
+      "monsterAttackDefinition": "Definition:AttackDefinitionRangerWildMasterRangerWildMasterKindredSpiritBear0301:d1ca9351-9be3-54d1-8c02-d65f5dc9605d"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_SpiritBear_Bite:a7a971ca2eeae8545868bb5ddfa8e3a8"
+      "monsterAttackDefinition": "Definition:AttackDefinitionRangerWildMasterRangerWildMasterKindredSpiritBear0302:f9330dab-eb83-5486-8cfb-91e311bad43a"
     }
   ],
   "sneakStance": "Stealth",

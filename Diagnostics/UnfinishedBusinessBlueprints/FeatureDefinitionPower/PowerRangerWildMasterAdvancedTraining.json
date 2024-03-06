@@ -332,9 +332,9 @@
     "description": "Feature/&PowerRangerWildMasterAdvancedTrainingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c78676582e2ee9c40a5866ae24aaa966",
-      "m_SubObjectName": "Accelerate",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "6665022e-025d-5cd2-90c1-ee246d46fb1a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

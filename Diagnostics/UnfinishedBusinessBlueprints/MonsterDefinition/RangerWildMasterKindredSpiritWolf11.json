@@ -10,7 +10,7 @@
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
   "alignment": "Unaligned",
-  "armorClass": 13,
+  "armorClass": 12,
   "armor": "",
   "hitDice": 2,
   "hitDiceType": "D8",
@@ -78,7 +78,7 @@
   "features": [
     "Definition:ActionAffinityRangerWildMasterBeastCompanionDashMain:444c78de-36d7-585e-8bed-50835aa06540",
     "Definition:ActionAffinityRangerWildMasterBeastCompanionDisengageMain:e6229537-2e33-5f33-8ab6-31feef905197",
-    "Definition:CombatAffinityRangerWildMasterWolfTactics:46d8a944-ed73-57d7-9c21-8ac2bbc7e642",
+    "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93",
     "Definition:ConditionAffinityRangerWildMasterBeastCompanion:2bd6cfd4-49bf-5687-9b68-4f3765984ce2",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
@@ -88,12 +88,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_SpiritWolf_Bite:80c83c5324cfc3c4ca189fef5843243f"
+      "monsterAttackDefinition": "Definition:AttackDefinitionRangerWildMasterRangerWildMasterKindredSpiritWolf0301:a4df10ef-71b5-53ea-ad12-89da2e5d503b"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_SpiritWolf_Bite:80c83c5324cfc3c4ca189fef5843243f"
+      "monsterAttackDefinition": "Definition:AttackDefinitionRangerWildMasterRangerWildMasterKindredSpiritWolf0301:a4df10ef-71b5-53ea-ad12-89da2e5d503b"
     }
   ],
   "sneakStance": "Stealth",

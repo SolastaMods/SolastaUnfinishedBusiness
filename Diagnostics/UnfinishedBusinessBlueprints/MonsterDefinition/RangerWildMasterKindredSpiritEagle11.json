@@ -10,7 +10,7 @@
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Unaligned",
-  "armorClass": 13,
+  "armorClass": 12,
   "armor": "",
   "hitDice": 4,
   "hitDiceType": "D10",
@@ -64,12 +64,12 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_SpiritEagle_Talons:eead6da11a41fe741935d2a6480098d8"
+      "monsterAttackDefinition": "Definition:AttackDefinitionRangerWildMasterRangerWildMasterKindredSpiritEagle0301:fcd5fd66-2cf0-5836-b573-5cf53426ed28"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_SpiritEagle_Beak:26ebe72c2691482418de302ccc5203cb"
+      "monsterAttackDefinition": "Definition:AttackDefinitionRangerWildMasterRangerWildMasterKindredSpiritEagle0302:71c7f05f-6572-541f-b1c7-7753c79c8789"
     }
   ],
   "sneakStance": "Stealth",

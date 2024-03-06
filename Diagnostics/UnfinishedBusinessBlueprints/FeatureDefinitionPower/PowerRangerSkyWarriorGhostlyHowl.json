@@ -74,8 +74,8 @@
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
+        "canSaveToCancel": true,
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionFrightened",
