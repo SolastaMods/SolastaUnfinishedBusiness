@@ -90,7 +90,7 @@ public static class GameLocationActionManagerPatcher
         public static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
             //PATCH: replace `UsePower` reaction for customized one that allows better descriptions
-            if (reactionParams.RulesetEffect is not RulesetEffectPower powerEffect)
+            if (reactionParams.RulesetEffect is not RulesetEffectPower)
             {
                 return true;
             }

@@ -841,7 +841,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
         }
-        
+
         private static string FormatReactionDescription(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
