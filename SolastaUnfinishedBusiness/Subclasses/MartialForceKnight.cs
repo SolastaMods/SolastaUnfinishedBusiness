@@ -791,17 +791,12 @@ public sealed class MartialForceKnight : AbstractSubclass
             }
 
             var rulesetHelper = helper.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
             if (!helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
-                rulesetHelper.GetRemainingPowerUses(powerKineticBarrier) == 0)
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+                rulesetHelper.GetRemainingPowerUses(powerKineticBarrier) == 0 ||
+                rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
             {
                 yield break;
             }
@@ -812,16 +807,9 @@ public sealed class MartialForceKnight : AbstractSubclass
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
 
-            // some other reaction saved it already
-            if (armorClass > totalAttack)
-            {
-                yield break;
-            }
-
-            var helperIntelligence = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-            var helperIntelligenceModifier = AttributeDefinitions.ComputeAbilityScoreModifier(helperIntelligence);
-
-            if (armorClass + helperIntelligenceModifier <= totalAttack)
+            var intMod = GetIntModifier(rulesetDefender);
+            
+            if (armorClass + intMod <= totalAttack)
             {
                 yield break;
             }

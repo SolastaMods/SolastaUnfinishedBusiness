@@ -222,18 +222,13 @@ public sealed class OathOfAltruism : AbstractSubclass
             }
 
             var rulesetHelper = helper.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
             if (helper == defender ||
                 !helper.CanReact(true) ||
                 !helper.CanPerceiveTarget(defender) ||
-                rulesetHelper.GetRemainingPowerUses(powerSpiritualShielding) == 0)
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.HasConditionOfType(ConditionShielded))
+                rulesetHelper.GetRemainingPowerUses(powerSpiritualShielding) == 0 ||
+                rulesetDefender.HasConditionOfType(ConditionShielded))
             {
                 yield break;
             }
@@ -244,8 +239,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
 
-            // some other reaction saved it already
-            if (armorClass > totalAttack)
+            if (armorClass + 5 <= totalAttack)
             {
                 yield break;
             }
@@ -260,7 +254,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                     StringParameter = "SpiritualShielding",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };

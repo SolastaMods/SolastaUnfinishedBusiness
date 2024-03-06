@@ -81,7 +81,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .AddFeatures(movementAffinityGiftOfTheWind, combatAffinityGiftOfTheWind)
             .AddToDB();
 
-        conditionGiftOfTheWind.AddCustomSubFeatures(new CheckHeroHasShield(conditionGiftOfTheWind));
+        conditionGiftOfTheWind.AddCustomSubFeatures(new ItemEquippedCheckHeroStillHasShield(conditionGiftOfTheWind));
 
         var powerGiftOfTheWind = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GiftOfTheWind")
@@ -192,7 +192,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .Create(ConditionDefinitions.ConditionFlyingAdaptive, $"Condition{Name}CloudDance")
             .AddToDB();
 
-        conditionCloudDance.AddCustomSubFeatures(new CheckHeroHasShield(conditionCloudDance));
+        conditionCloudDance.AddCustomSubFeatures(new ItemEquippedCheckHeroStillHasShield(conditionCloudDance));
 
         var powerAngelicFormSprout = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}CloudDanceSprout")
@@ -266,18 +266,14 @@ public sealed class RangerSkyWarrior : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CheckHeroHasShield(
+    private sealed class ItemEquippedCheckHeroStillHasShield(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         ConditionDefinition condition) : IOnItemEquipped
     {
         public void OnItemEquipped(RulesetCharacterHero hero)
         {
-            if (ValidatorsCharacter.HasShield(hero))
-            {
-                return;
-            }
-
-            if (hero.TryGetConditionOfCategoryAndType(
+            if (!ValidatorsCharacter.HasShield(hero) &&
+                hero.TryGetConditionOfCategoryAndType(
                     AttributeDefinitions.TagEffect, condition.Name, out var activeCondition))
             {
                 hero.RemoveCondition(activeCondition);
@@ -312,19 +308,13 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                 yield break;
             }
 
-            var rulesetHelper = helper.RulesetCharacter;
-
-            if (helper != defender ||
-                !helper.CanReact() ||
-                !helper.CanPerceiveTarget(attacker) ||
-                rulesetHelper.GetRemainingPowerUses(powerGhostlyHowl) == 0)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+            if (helper != defender ||
+                !defender.CanReact() ||
+                !defender.CanPerceiveTarget(attacker) ||
+                !defender.IsWithinRange(attacker, 12) ||
+                rulesetDefender.GetRemainingPowerUses(powerGhostlyHowl) == 0)
             {
                 yield break;
             }
@@ -332,23 +322,23 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerGhostlyHowl, rulesetHelper);
+            var usablePower = PowerProvider.Get(powerGhostlyHowl, rulesetDefender);
             var actionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "GhostlyHowl",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
                     UsablePower = usablePower,
-                    TargetCharacters = { defender }
+                    TargetCharacters = { attacker }
                 };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
+            gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(defender, gameLocationActionManager, count);
         }
 
         public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)

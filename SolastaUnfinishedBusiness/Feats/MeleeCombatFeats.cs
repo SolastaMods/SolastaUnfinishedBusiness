@@ -413,7 +413,8 @@ internal static class MeleeCombatFeats
             int attackRoll)
         {
             if (rulesetEffect != null &&
-                rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit)
+                rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit ||
+                !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
             }
@@ -426,19 +427,12 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var rulesetHelper = defender.RulesetCharacter;
-
-            if (helper != defender ||
-                !helper.CanReact() ||
-                !ValidatorsWeapon.IsMelee(attackMode) ||
-                !ValidatorsWeapon.HasAnyWeaponTag(rulesetHelper.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+            if (helper != defender ||
+                !defender.CanReact() ||
+                !ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse) ||
+                rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
             {
                 yield break;
             }
@@ -449,8 +443,9 @@ internal static class MeleeCombatFeats
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
 
-            // some other reaction saved it already
-            if (armorClass > totalAttack)
+            var pb = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            
+            if (armorClass + pb <= totalAttack)
             {
                 yield break;
             }
@@ -458,7 +453,7 @@ internal static class MeleeCombatFeats
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetHelper);
+            var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetDefender);
             var actionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
