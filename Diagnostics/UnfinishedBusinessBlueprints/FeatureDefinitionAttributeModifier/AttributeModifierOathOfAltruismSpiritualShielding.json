@@ -3,14 +3,14 @@
   "modifiedAttribute": "ArmorClass",
   "modifierOperation": "AddAbilityScoreBonus",
   "modifierValue": 1,
-  "modifierAbilityScore": "Intelligence",
+  "modifierAbilityScore": "Charisma",
   "situationalContext": "None",
   "minimum1": true,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionMartialForceKnightKineticBarrierTitle",
+    "title": "Condition/&ConditionOathOfAltruismSpiritualShieldingTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d98c23af-7a8d-543c-9733-1f95e5378ff2",
+  "guid": "2307078b-f200-5c8f-94a1-b22bdfd1b1af",
   "contentPack": 9999,
-  "name": "AttributeModifierMartialForceKnightKineticBarrier"
+  "name": "AttributeModifierOathOfAltruismSpiritualShielding"
 }

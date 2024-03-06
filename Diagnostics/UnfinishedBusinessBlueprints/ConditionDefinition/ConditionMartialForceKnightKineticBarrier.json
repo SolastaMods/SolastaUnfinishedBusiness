@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierMartialForceKnightKineticBarrier:d98c23af-7a8d-543c-9733-1f95e5378ff2"
+    "Definition:AttributeModifierMartialForceKnightKineticBarrier:d98c23af-7a8d-543c-9733-1f95e5378ff2",
+    "Definition:MagicAffinityConditionShielded:d693eed024ffd63478a2c67a97d769e5"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -90,8 +91,8 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": true,
-  "amountOrigin": "Fixed",
-  "baseAmount": 1,
+  "amountOrigin": "None",
+  "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
   "subsequentOnRemoval": null,

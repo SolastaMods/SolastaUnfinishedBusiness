@@ -1984,7 +1984,7 @@ When a friendly creature you can see is hit by an attack, you can spend use of C
 
 * Channel Divinity: Spiritual Shielding
 
-When a friendly creature you can see is about to be hit by attack you can spend use of Channel Divinity to apply effect of Shield spell (+5 AC for a round) on it.
+When a friendly creature you can see is about to be hit by attack you can spend a use of Channel Divinity granting it extra AC equal to your Charisma modifier (minimum +1).
 
 * Oath of Altruism
 
