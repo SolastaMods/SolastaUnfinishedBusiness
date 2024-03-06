@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -11,6 +12,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -41,7 +43,16 @@ public sealed class OathOfAltruism : AbstractSubclass
             .AddToDB();
 
         var conditionSpiritualShielding = ConditionDefinitionBuilder
-            .Create(ConditionShielded, $"Condition{Name}SpiritualShielding")
+            .Create($"Condition{Name}SpiritualShielding")
+            .SetGuiPresentation(Category.Condition, ConditionShielded)
+            .SetPossessive()
+            .SetFeatures(
+                MagicAffinityConditionShielded,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}SpiritualShielding")
+                    .SetGuiPresentation($"Condition{Name}SpiritualShielding", Category.Condition, Gui.NoLocalization)
+                    .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Charisma)
+                    .AddToDB())
             .AddToDB();
 
         // kept name for backward compatibility
@@ -243,9 +254,10 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            const int SHIELD_BONUS = 5;
+            var charisma = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Charisma);
+            var chaMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(charisma));
 
-            if (armorClass + SHIELD_BONUS <= totalAttack)
+            if (armorClass + chaMod <= totalAttack)
             {
                 yield break;
             }

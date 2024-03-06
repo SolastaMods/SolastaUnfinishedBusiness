@@ -21,6 +21,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -92,16 +93,13 @@ public sealed class MartialForceKnight : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShielded)
             .SetPossessive()
             .SetFeatures(
+                MagicAffinityConditionShielded,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}KineticBarrier")
-                    .SetGuiPresentation($"Power{Name}KineticBarrier", Category.Feature, Gui.NoLocalization)
-                    .SetModifier(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
-                        AttributeDefinitions.ArmorClass)
+                    .SetGuiPresentation($"Condition{Name}KineticBarrier", Category.Condition, Gui.NoLocalization)
+                    .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
                     .AddToDB())
-            .SetFixedAmount(1)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddCustomSubFeatures(new OnConditionAddedOrRemovedKineticBarrier())
             .AddToDB();
 
         var powerKineticBarrier = FeatureDefinitionPowerSharedPoolBuilder
@@ -850,28 +848,6 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             return $"UseKineticBarrierReactDescription{text}"
                 .Formatted(Category.Reaction, attacker.Name, defender.Name);
-        }
-    }
-
-    private sealed class OnConditionAddedOrRemovedKineticBarrier : IOnConditionAddedOrRemoved
-    {
-        public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
-
-            if (caster == null)
-            {
-                return;
-            }
-
-            rulesetCondition.Amount = GetIntModifier(caster);
-
-            target.RefreshArmorClass();
-        }
-
-        public void OnConditionRemoved(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            // empty
         }
     }
 

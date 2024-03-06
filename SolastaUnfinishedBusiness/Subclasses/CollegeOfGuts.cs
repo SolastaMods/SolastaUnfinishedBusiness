@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static AttributeDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSubclassChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
@@ -24,6 +25,7 @@ public sealed class CollegeOfGuts : AbstractSubclass
             .Create($"Condition{Name}ArcaneDeflection")
             .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature, ConditionShielded)
             .AddFeatures(
+                MagicAffinityConditionShielded,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}ArcaneDeflection")
                     .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature)
