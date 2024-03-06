@@ -785,7 +785,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         {
             if (attackMode != null)
             {
-                yield return HandleReaction(defender);
+                yield return HandleReaction(attacker, defender);
             }
         }
 
@@ -798,7 +798,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender);
+            yield return HandleReaction(attacker, defender);
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -964,7 +964,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             }
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter defender)
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1001,7 +1001,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
         }
     }
 }

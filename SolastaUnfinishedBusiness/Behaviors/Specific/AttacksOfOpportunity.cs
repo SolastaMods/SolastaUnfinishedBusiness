@@ -210,7 +210,7 @@ internal class CustomReactionAttack
 
         actionManager.AddInterruptRequest(reactionRequest);
 
-        yield return battleManager.WaitForReactions(attacker, actionManager, previousReactionCount);
+        yield return battleManager.WaitForReactions(mover, actionManager, previousReactionCount);
 
         if (AfterReaction != null)
         {

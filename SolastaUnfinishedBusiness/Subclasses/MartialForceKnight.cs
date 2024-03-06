@@ -685,8 +685,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
 
             var levels = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Fighter);
 
@@ -699,7 +698,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPsionicAdept, rulesetCharacter);
-            var actionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 ActionModifiers = { new ActionModifier() },
                 StringParameter = "PsionicAdept",
@@ -714,7 +713,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             actionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(actingCharacter, actionManager, count);
+            yield return battleManager.WaitForReactions(attacker, actionManager, count);
         }
 
         public IEnumerator OnPhysicalAttackInitiatedByMe(
@@ -839,7 +838,7 @@ public sealed class MartialForceKnight : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
 
         private static string FormatReactionDescription(

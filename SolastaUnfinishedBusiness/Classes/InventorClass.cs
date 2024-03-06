@@ -914,7 +914,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         gameLocationActionManager.ReactToSpendPower(reactionParams);
 
-        yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+        yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
         if (!reactionParams.ReactionValidated)
         {

@@ -590,7 +590,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
         {
             if (rulesetEffect == null)
             {
-                yield return HandleReaction(defender);
+                yield return HandleReaction(attacker, defender);
             }
         }
 
@@ -603,10 +603,10 @@ public sealed class PatronMoonlitScion : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender);
+            yield return HandleReaction(attacker, defender);
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter defender)
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var gameLocationBattleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -646,7 +646,7 @@ public sealed class PatronMoonlitScion : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(defender, gameLocationActionManager, count);
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

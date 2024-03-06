@@ -473,7 +473,7 @@ internal static class MeleeCombatFeats
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 
@@ -649,7 +649,7 @@ internal static class MeleeCombatFeats
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(target, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(enemy, gameLocationActionService, count);
         }
     }
 

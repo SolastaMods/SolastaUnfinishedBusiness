@@ -90,7 +90,7 @@ internal static class GuardianAura
 
         RequestCustomReaction("GuardianAura", actionParams);
 
-        yield return battleManager.WaitForReactions(unit, actionService, count);
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
 
         if (!actionParams.ReactionValidated)
         {

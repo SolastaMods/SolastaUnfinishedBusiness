@@ -1042,7 +1042,7 @@ internal static partial class SpellBuilders
         {
             if (attackMode != null)
             {
-                yield return HandleReaction(defender, actualEffectForms);
+                yield return HandleReaction(attacker, defender, actualEffectForms);
             }
         }
 
@@ -1055,10 +1055,11 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender, actualEffectForms);
+            yield return HandleReaction(attacker, defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
@@ -1102,7 +1103,7 @@ internal static partial class SpellBuilders
 
             gameLocationActionService.ReactToSpendSpellSlot(reactionParams);
 
-            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {

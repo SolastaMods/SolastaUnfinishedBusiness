@@ -381,7 +381,7 @@ public sealed class RangerGloomStalker : AbstractSubclass
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(defender, gameLocationActionManager, previousReactionCount);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
