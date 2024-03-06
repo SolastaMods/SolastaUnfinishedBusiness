@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -222,7 +223,6 @@ public sealed class OathOfAltruism : AbstractSubclass
             }
 
             var rulesetHelper = helper.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
 
             if (helper == defender ||
                 !helper.CanReact(true) ||
@@ -258,6 +258,8 @@ public sealed class OathOfAltruism : AbstractSubclass
                 new CharacterActionParams(helper, Id.PowerReaction)
                 {
                     StringParameter = "SpiritualShielding",
+                    StringParameter2 = "UseSpiritualShieldingDescription".Formatted(
+                        Category.Reaction, attacker.Name, defender.Name),
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),

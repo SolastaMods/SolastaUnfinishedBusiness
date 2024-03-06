@@ -822,8 +822,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "WealCosmosOmenAttack",
-                StringParameter2 = Gui.Format("Reaction/&SpendPowerWealCosmosOmenAttackDescription",
-                    attacker.Name, defender.Name, helper.Name),
+                StringParameter2 = "SpendPowerWealCosmosOmenAttackDescription".Formatted(
+                    Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -903,8 +903,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "WealCosmosOmenSaving",
-                StringParameter2 = Gui.Format("Reaction/&SpendPowerWealCosmosOmenSavingDescription",
-                    attacker.Name, defender.Name, helper.Name),
+                StringParameter2 = "SpendPowerWealCosmosOmenSavingDescription".Formatted(
+                    Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -993,8 +993,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "WoeCosmosOmenAttack",
-                StringParameter2 = Gui.Format("Reaction/&SpendPowerWoeCosmosOmenAttackDescription",
-                    attacker.Name, defender.Name, helper.Name),
+                StringParameter2 = "SpendPowerWoeCosmosOmenAttackDescription".Formatted(
+                    Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -1074,8 +1074,8 @@ public sealed class CircleOfTheCosmos : AbstractSubclass
             var reactionParams = new CharacterActionParams(helper, ActionDefinitions.Id.SpendPower)
             {
                 StringParameter = "WoeCosmosOmenSaving",
-                StringParameter2 = Gui.Format("Reaction/&SpendPowerWoeCosmosOmenSavingDescription",
-                    attacker.Name, defender.Name, helper.Name),
+                StringParameter2 = "SpendPowerWoeCosmosOmenSavingDescription".Formatted(
+                    Category.Reaction, attacker.Name, defender.Name, helper.Name),
                 RulesetEffect = implementationManagerService
                     //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetHelper, usablePower, false),

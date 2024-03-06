@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -826,6 +827,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "KineticBarrier",
+                    StringParameter2 = FormatReactionDescription(attacker, defender, helper),
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
@@ -838,6 +840,17 @@ public sealed class MartialForceKnight : AbstractSubclass
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
             yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+        }
+        
+        private static string FormatReactionDescription(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper)
+        {
+            var text = defender == helper ? "Self" : "Ally";
+
+            return $"UseKineticBarrierReactDescription{text}"
+                .Formatted(Category.Reaction, attacker.Name, defender.Name);
         }
     }
 

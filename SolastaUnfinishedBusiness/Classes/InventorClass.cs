@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -905,7 +906,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             StringParameter = "InventorFlashOfGenius",
             StringParameter2 = FormatReactionDescription(action, attacker, defender, helper),
             RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
                 .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
             UsablePower = usablePower
         };
@@ -951,10 +951,9 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         GameLocationCharacter defender,
         GameLocationCharacter helper)
     {
-        var text = defender == helper
-            ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
-            : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
+        var text = defender == helper ? "Self" : "Ally";
 
-        return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+        return $"SpendPowerInventorFlashOfGeniusReactDescription{text}"
+            .Formatted(Category.Reaction, defender.Name, attacker.Name, action.FormatTitle());
     }
 }

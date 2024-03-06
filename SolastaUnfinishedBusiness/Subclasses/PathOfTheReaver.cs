@@ -175,8 +175,8 @@ public sealed class PathOfTheReaver : AbstractSubclass
         var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
         {
             StringParameter = "Bloodbath",
-            StringParameter2 = "UseBloodbathDescription"
-                .Formatted(Category.Reaction, totalHealing.ToString()),
+            StringParameter2 = "UseBloodbathDescription".Formatted(
+                Category.Reaction, totalHealing.ToString()),
             RulesetEffect = implementationManagerService
                 .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
             UsablePower = usablePower
