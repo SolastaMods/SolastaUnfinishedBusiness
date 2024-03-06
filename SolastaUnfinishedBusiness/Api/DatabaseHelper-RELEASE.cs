@@ -1864,9 +1864,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPatronHiveReactiveCarapace { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronHiveReactiveCarapace");
 
-        internal static FeatureDefinitionPower PowerPatronTimekeeperAccelerate { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperAccelerate");
-
         internal static FeatureDefinitionPower PowerPatronTimekeeperTimeShift { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperTimeShift");
 

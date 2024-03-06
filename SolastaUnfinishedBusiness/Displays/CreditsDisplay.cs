@@ -135,7 +135,7 @@ internal static class CreditsDisplay
         else
 #endif
         {
-            UI.Label("<b><color=#D89555>SPECIAL THANKS:</color></b><color><i>Tactical Adventures / JetBrains / WoTC</color></i>");
+            UI.Label("<b><color=#D89555>SPECIAL THANKS:</color></b><i><color>Tactical Adventures / JetBrains / WoTC</color></i>");
             UI.Label();
 
             // credits

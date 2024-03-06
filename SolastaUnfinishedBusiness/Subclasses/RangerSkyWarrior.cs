@@ -135,7 +135,7 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                             .Create()
                             .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
                             .Build())
                     .Build())
             .AddToDB();
@@ -246,13 +246,9 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainBattle)
             .AddFeaturesAtLevel(3,
-                autoPreparedSpells,
-                additionalDamageGiftOfTheWind,
-                powerGiftOfTheWind,
-                proficiencyAerialAgility)
+                autoPreparedSpells, additionalDamageGiftOfTheWind, powerGiftOfTheWind, proficiencyAerialAgility)
             .AddFeaturesAtLevel(7,
-                powerGhostlyHowl,
-                damageAffinityIntangibleForm)
+                powerGhostlyHowl, damageAffinityIntangibleForm)
             .AddFeaturesAtLevel(11,
                 powerDeathFromAbove)
             .AddFeaturesAtLevel(15,

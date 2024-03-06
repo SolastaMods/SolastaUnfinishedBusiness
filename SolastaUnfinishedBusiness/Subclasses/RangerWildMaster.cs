@@ -160,10 +160,7 @@ public sealed class RangerWildMaster : AbstractSubclass
             powerWildMasterSummonBeastCompanionPool,
             actionAffinityBeastCompanionDashMain, actionAffinityBeastCompanionDisengageMain,
             conditionAffinityBeastCompanion,
-            FeatureDefinitionCombatAffinityBuilder
-                .Create(FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics, $"CombatAffinity{Name}WolfTactics")
-                .SetSituationalContext(ExtraSituationalContext.SummonerIsNextToBeast)
-                .AddToDB());
+            FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics);
 
         PowerBundle.RegisterPowerBundle(powerWildMasterSummonBeastCompanionPool, true,
             powerBeastCompanionBear, powerBeastCompanionEagle, powerBeastCompanionWolf);
@@ -193,7 +190,8 @@ public sealed class RangerWildMaster : AbstractSubclass
 
         var powerAdvancedTraining = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AdvancedTraining")
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerPatronTimekeeperAccelerate)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerAdvancedTraining", Resources.PowerAdvancedTraining, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -493,8 +491,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(12)
-                .SetAbilityScores(14, 14, 16, 10, 12, 8)
+                .SetArmorClass(13)
+                .SetAbilityScores(16, 12, 16, 10, 12, 8)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
@@ -503,13 +501,31 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .SetGroupAttacks(false)
                 .AddToDB();
 
+        var beastCompanionAttack1 = MonsterAttackDefinitionBuilder
+            .Create(beastCompanion03.AttackIterations[0].MonsterAttackDefinition,
+                $"AttackDefinition{Name}{beastCompanion03.Name}01")
+            .AddToDB();
+
+        beastCompanionAttack1.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
+
+        var beastCompanionAttack2 = MonsterAttackDefinitionBuilder
+            .Create(beastCompanion03.AttackIterations[0].MonsterAttackDefinition,
+                $"AttackDefinition{Name}{beastCompanion03.Name}02")
+            .AddToDB();
+
+        beastCompanionAttack1.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
+        beastCompanionAttack2.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
+
+        beastCompanion03.AttackIterations[0].monsterAttackDefinition = beastCompanionAttack1;
+        beastCompanion03.AttackIterations[1].monsterAttackDefinition = beastCompanionAttack2;
+
         var beastCompanion11 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(12)
-                .SetAbilityScores(14, 14, 16, 10, 12, 8)
+                .SetArmorClass(13)
+                .SetAbilityScores(16, 12, 16, 10, 12, 8)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
@@ -517,6 +533,9 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .SetStandardHitPoints(5)
                 .SetGroupAttacks(true)
                 .AddToDB();
+
+        beastCompanion11.AttackIterations[0].monsterAttackDefinition = beastCompanionAttack1;
+        beastCompanion11.AttackIterations[1].monsterAttackDefinition = beastCompanionAttack2;
 
         var summoningAffinityBearHitPoints = FeatureDefinitionSummoningAffinityBuilder
             .Create($"SummoningAffinity{Name}BearHitPoints")
@@ -581,7 +600,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(13)
+                .SetArmorClass(12)
                 .SetAbilityScores(10, 16, 12, 14, 8, 14)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
@@ -591,12 +610,30 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .SetGroupAttacks(false)
                 .AddToDB();
 
+        var beastCompanionAttack1 = MonsterAttackDefinitionBuilder
+            .Create(beastCompanion03.AttackIterations[0].MonsterAttackDefinition,
+                $"AttackDefinition{Name}{beastCompanion03.Name}01")
+            .AddToDB();
+
+        beastCompanionAttack1.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
+
+        var beastCompanionAttack2 = MonsterAttackDefinitionBuilder
+            .Create(beastCompanion03.AttackIterations[0].MonsterAttackDefinition,
+                $"AttackDefinition{Name}{beastCompanion03.Name}02")
+            .AddToDB();
+
+        beastCompanionAttack1.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
+        beastCompanionAttack2.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
+
+        beastCompanion03.AttackIterations[0].monsterAttackDefinition = beastCompanionAttack1;
+        beastCompanion03.AttackIterations[1].monsterAttackDefinition = beastCompanionAttack2;
+
         var beastCompanion11 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(13)
+                .SetArmorClass(12)
                 .SetAbilityScores(10, 16, 12, 14, 8, 14)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
@@ -605,6 +642,9 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .SetStandardHitPoints(5)
                 .SetGroupAttacks(true)
                 .AddToDB();
+
+        beastCompanion11.AttackIterations[0].monsterAttackDefinition = beastCompanionAttack1;
+        beastCompanion11.AttackIterations[1].monsterAttackDefinition = beastCompanionAttack2;
 
         var name = PowerSummonBeastCompanionPrefix + monsterDefinition.name;
         var title =
@@ -648,7 +688,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(13)
+                .SetArmorClass(12)
                 .SetAbilityScores(12, 16, 14, 14, 8, 10)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
@@ -658,13 +698,22 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .SetGroupAttacks(false)
                 .AddToDB();
 
+        var beastCompanionAttack1 = MonsterAttackDefinitionBuilder
+            .Create(beastCompanion03.AttackIterations[0].MonsterAttackDefinition,
+                $"AttackDefinition{Name}{beastCompanion03.Name}01")
+            .AddToDB();
+
+        beastCompanionAttack1.EffectDescription.FindFirstDamageForm().BonusDamage = 0;
+
+        beastCompanion03.AttackIterations[0].monsterAttackDefinition = beastCompanionAttack1;
+
         var beastCompanion11 =
             MonsterDefinitionBuilder
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetCreatureTags(BeastCompanionTag)
-                .SetArmorClass(13)
+                .SetArmorClass(12)
                 .SetAbilityScores(12, 16, 14, 14, 8, 10)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
@@ -672,6 +721,8 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .SetStandardHitPoints(5)
                 .SetGroupAttacks(true)
                 .AddToDB();
+
+        beastCompanion11.AttackIterations[0].monsterAttackDefinition = beastCompanionAttack1;
 
         // give wolf a second bite attack
         beastCompanion11.AttackIterations.Add(beastCompanion11.AttackIterations[0]);

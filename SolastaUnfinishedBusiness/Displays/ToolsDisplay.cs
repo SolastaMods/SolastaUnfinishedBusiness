@@ -23,16 +23,15 @@ internal static class ToolsDisplay
     private static void DisplayGeneral()
     {
         UI.Label();
-        UI.Label();
 
         using (UI.HorizontalScope())
         {
             UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(),
-                UI.Width(200f));
+                UI.Width(250f));
             UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage,
-                UI.Width(200f));
+                UI.Width(250f));
             UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog,
-                UI.Width(200f));
+                UI.Width(250f));
         }
 
         UI.Label();
