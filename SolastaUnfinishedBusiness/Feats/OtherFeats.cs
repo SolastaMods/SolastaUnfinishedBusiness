@@ -490,10 +490,9 @@ internal static class OtherFeats
 
         powerFeatHealerMedKit.AddCustomSubFeatures(new ModifyEffectDescriptionMedKit(powerFeatHealerMedKit));
 
-        var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
-        var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
+        _ = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerResuscitate")
-            .SetGuiPresentation(Category.Feature, spriteResuscitate)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -534,7 +533,6 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat, PowerFunctionGoodberryHealingOther)
             .SetFeatures(
                 powerFeatHealerMedKit,
-                powerFeatHealerResuscitate,
                 powerFeatHealerStabilize,
                 proficiencyFeatHealerMedicine)
             .AddToDB();
