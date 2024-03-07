@@ -800,11 +800,18 @@ internal static class InvocationsBuilders
                     gameLocationCaster, locationCharacter, PoisonSpray, EffectHelpers.EffectType.Effect);
             }
 
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = caster,
+                targetCharacter = rulesetCharacter,
+                position = locationCharacter.LocationPosition
+            };
+
             RulesetActor.InflictDamage(
                 charismaModifier,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetCharacter },
+                applyFormsParams,
                 rulesetCharacter,
                 false,
                 caster.Guid,
@@ -1156,13 +1163,19 @@ internal static class InvocationsBuilders
                 var rolls = new List<int>();
                 var damageRoll = rulesetAttacker.RollDamage(
                     damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetAttacker,
+                    targetCharacter = rulesetTarget,
+                    position = target.LocationPosition
+                };
 
                 EffectHelpers.StartVisualEffect(attacker, defender, PowerSorakDreadLaughter);
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
                     damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                    applyFormsParams,
                     rulesetTarget,
                     false,
                     rulesetAttacker.Guid,

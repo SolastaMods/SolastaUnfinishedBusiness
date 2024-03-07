@@ -272,6 +272,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             };
             var damageRoll =
                 rulesetMe.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetMe, targetCharacter = rulesetAttacker, position = attacker.LocationPosition
+            };
 
             rulesetMe.LogCharacterUsedPower(powerBarkOrImprovedBarkWard);
             EffectHelpers.StartVisualEffect(me, me, PowerPatronTreeExplosiveGrowth);
@@ -279,7 +283,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 damageRoll,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                applyFormsParams,
                 rulesetAttacker,
                 false,
                 rulesetMe.Guid,

@@ -845,13 +845,19 @@ internal static partial class SpellBuilders
                     };
                     var damageRoll =
                         rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                    var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                    {
+                        sourceCharacter = rulesetCaster,
+                        targetCharacter = rulesetEnemy,
+                        position = enemy.LocationPosition
+                    };
 
                     EffectHelpers.StartVisualEffect(caster, target, ConeOfCold);
                     RulesetActor.InflictDamage(
                         damageRoll,
                         damageForm,
                         damageForm.DamageType,
-                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetEnemy },
+                        applyFormsParams,
                         rulesetEnemy,
                         isCritical,
                         rulesetCaster.Guid,

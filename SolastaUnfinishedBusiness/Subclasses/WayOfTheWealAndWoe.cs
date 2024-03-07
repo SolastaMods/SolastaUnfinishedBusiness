@@ -204,13 +204,13 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                         if (rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                         {
                             rulesetAttacker.LogCharacterUsedFeature(_featureTheirWoe);
-                            InflictMartialArtDieDamage(rulesetAttacker, rulesetDefender, attackMode, rollOutcome);
+                            InflictMartialArtDieDamage(attacker, defender, attackMode, rollOutcome);
                         }
                     }
                     else
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureWoe);
-                        InflictMartialArtDieDamage(rulesetAttacker, rulesetAttacker, attackMode, rollOutcome);
+                        InflictMartialArtDieDamage(attacker, defender, attackMode, rollOutcome);
                     }
 
                     // Weal (RESET)
@@ -231,7 +231,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                     if (level >= 11 && rulesetDefender is { IsDeadOrDyingOrUnconscious: false })
                     {
                         rulesetAttacker.LogCharacterUsedFeature(_featureBrutalWeal);
-                        InflictMartialArtDieDamage(rulesetAttacker, rulesetDefender, attackMode, rollOutcome);
+                        InflictMartialArtDieDamage(attacker, defender, attackMode, rollOutcome);
                     }
 
                     // Weal (RESET)
@@ -242,8 +242,8 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
         }
 
         private static void InflictMartialArtDieDamage(
-            RulesetCharacter rulesetAttacker,
-            RulesetActor rulesetDefender,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RollOutcome outcome)
         {
@@ -254,6 +254,8 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
                 return;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
             var criticalSuccess = outcome == RollOutcome.CriticalSuccess;
             var monkLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk);
             var dieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
@@ -266,12 +268,18 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
             };
             var damageRoll =
                 rulesetAttacker.RollDamage(damageForm, 0, criticalSuccess, 0, 0, 1, false, false, false, rolls);
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
 
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                applyFormsParams,
                 rulesetDefender,
                 false,
                 rulesetAttacker.Guid,

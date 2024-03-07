@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -349,8 +348,7 @@ public sealed class CollegeOfAudacity : AbstractSubclass
             // apply damage to targets
             var isFirstTarget = true;
 
-            foreach (var rulesetDefender in
-                     targetCharacters.Select(targetCharacter => targetCharacter.RulesetCharacter))
+            foreach (var defender in targetCharacters)
             {
                 if (isFirstTarget)
                 {
@@ -364,11 +362,19 @@ public sealed class CollegeOfAudacity : AbstractSubclass
                         rulesetCharacter.RollDamage(damageForm, 0, _criticalHit, 0, 0, 1, false, false, false, rolls);
                 }
 
+                var rulesetDefender = defender.RulesetActor;
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetCharacter,
+                    targetCharacter = rulesetDefender,
+                    position = defender.LocationPosition
+                };
+
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
                     _damageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                    applyFormsParams,
                     rulesetDefender,
                     false,
                     rulesetCharacter.Guid,

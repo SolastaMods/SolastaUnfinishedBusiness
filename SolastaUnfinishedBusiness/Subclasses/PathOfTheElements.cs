@@ -687,13 +687,19 @@ public sealed class PathOfTheElements : AbstractSubclass
             {
                 DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = classLevel
             };
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
 
             EffectHelpers.StartVisualEffect(defender, attacker, SpellDefinitions.HellishRebuke);
             RulesetActor.InflictDamage(
                 classLevel,
                 damageForm,
                 DamageTypeFire,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                applyFormsParams,
                 rulesetDefender,
                 false,
                 rulesetAttacker.Guid,

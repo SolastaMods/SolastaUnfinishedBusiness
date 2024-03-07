@@ -947,11 +947,18 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             void InflictDamage(IMagicEffect magicEffect)
             {
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetCharacter,
+                    targetCharacter = rulesetAttacker,
+                    position = attacker.LocationPosition
+                };
+
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
                     damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                    applyFormsParams,
                     rulesetAttacker,
                     false,
                     rulesetCharacter.Guid,

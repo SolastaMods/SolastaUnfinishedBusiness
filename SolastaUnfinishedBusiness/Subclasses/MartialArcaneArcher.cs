@@ -631,6 +631,12 @@ public sealed class MartialArcaneArcher : AbstractSubclass
             var rolls = new List<int>();
             var damageRoll = rulesetAttacker.RollDamage(
                 damageForm, 0, criticalSuccess, 0, 0, 1, false, false, false, rolls);
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetTarget,
+                position = target.LocationPosition
+            };
 
             EffectHelpers.StartVisualEffect(
                 attacker, defender, arcaneArcherData.EffectSpell, arcaneArcherData.EffectType);
@@ -638,7 +644,7 @@ public sealed class MartialArcaneArcher : AbstractSubclass
                 damageRoll,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                applyFormsParams,
                 rulesetTarget,
                 false,
                 attacker.Guid,
