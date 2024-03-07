@@ -23,11 +23,11 @@ internal static class FightingStyleContext
         LoadStyle(new Lunger());
         LoadStyle(new Merciless());
         LoadStyle(new MonkShieldExpert());
-        LoadStyle(new PolearmExpert());
+        _ = new PolearmExpert();
         LoadStyle(new Pugilist());
         LoadStyle(new RemarkableTechnique());
         LoadStyle(new RopeItUp());
-        LoadStyle(new Sentinel());
+        _ = new Sentinel();
         LoadStyle(new ShieldExpert());
         LoadStyle(new Torchbearer());
 
