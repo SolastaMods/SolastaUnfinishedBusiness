@@ -10,7 +10,7 @@
   "fullyControlledWhenAllied": true,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Unaligned",
-  "armorClass": 12,
+  "armorClass": 11,
   "armor": "",
   "hitDice": 4,
   "hitDiceType": "D10",

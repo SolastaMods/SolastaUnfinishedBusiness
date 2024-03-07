@@ -28,6 +28,8 @@ public sealed class RangerWildMaster : AbstractSubclass
     private const string BeastCompanionTag = "BeastCompanion";
     private const string PowerSummonBeastCompanionPrefix = $"Power{Name}SummonBeastCompanion";
 
+    private const int BaseAC = 10;
+
     private static readonly FeatureDefinitionAttributeModifier HpBonus = FeatureDefinitionAttributeModifierBuilder
         .Create($"AttributeModifier{Name}HitPoints")
         .SetGuiPresentation("Feedback/&BeastCompanionBonusTitle", Gui.NoLocalization)
@@ -491,7 +493,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(13)
+                .SetArmorClass(BaseAC + 2)
                 .SetAbilityScores(16, 12, 16, 10, 12, 8)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
@@ -524,7 +526,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(13)
+                .SetArmorClass(BaseAC + 2)
                 .SetAbilityScores(16, 12, 16, 10, 12, 8)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
@@ -600,7 +602,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(12)
+                .SetArmorClass(BaseAC + 1)
                 .SetAbilityScores(10, 16, 12, 14, 8, 14)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
@@ -633,7 +635,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "11")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(12)
+                .SetArmorClass(BaseAC + 1)
                 .SetAbilityScores(10, 16, 12, 14, 8, 14)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
@@ -688,7 +690,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .Create(monsterDefinition, Name + monsterDefinition.name + "03")
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
-                .SetArmorClass(12)
+                .SetArmorClass(BaseAC + 1)
                 .SetAbilityScores(12, 16, 14, 14, 8, 10)
                 .SetCreatureTags(BeastCompanionTag)
                 .SetChallengeRating(0)
@@ -713,7 +715,7 @@ public sealed class RangerWildMaster : AbstractSubclass
                 .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
                 .AddFeatures(monsterAdditionalFeatures)
                 .SetCreatureTags(BeastCompanionTag)
-                .SetArmorClass(12)
+                .SetArmorClass(BaseAC + 1)
                 .SetAbilityScores(12, 16, 14, 14, 8, 10)
                 .SetChallengeRating(0)
                 .SetFullyControlledWhenAllied(true)
