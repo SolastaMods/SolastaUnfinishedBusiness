@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Models;
 using UnityModManagerNet;
 using static SolastaUnfinishedBusiness.Displays.BackgroundsAndRacesDisplay;
 using static SolastaUnfinishedBusiness.Displays.BlueprintDisplay;
@@ -22,9 +23,6 @@ using static SolastaUnfinishedBusiness.Displays.SubclassesDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
 using static SolastaUnfinishedBusiness.Displays.TranslationsDisplay;
 
-#if DEBUG
-#endif
-
 namespace SolastaUnfinishedBusiness.Displays;
 
 // ReSharper disable once ClassNeverInstantiated.Global
@@ -32,6 +30,163 @@ internal static class ModUi
 {
     internal const int DontDisplayDescription = 4;
     internal const float PixelsPerColumn = 220;
+
+    private static readonly List<string> Tabletop =
+    [
+        "AirBlast",
+        "AuraOfPerseverance",
+        "AuraOfVitality",
+        "BanishingSmite",
+        "BindingIce",
+        "BladeWard",
+        "BlindFighting",
+        "BlindingSmite",
+        "BoomingBlade",
+        "BoomingStep",
+        "BurstOfRadiance",
+        "ChromaticOrb",
+        "CircleOfMagicalNegation",
+        "CircleOfTheCosmos",
+        "CircleOfTheNight",
+        "CloudOfDaggers",
+        "CollegeOfAudacity",
+        "CollegeOfGuts",
+        "CollegeOfLife",
+        "CollegeOfValiance",
+        "CrusadersMantle",
+        "DivineWrath",
+        "DomainSmith",
+        "EarthTremor",
+        "ElementalInfusion",
+        "ElementalWeapon",
+        "EnduringSting",
+        "EnsnaringStrike",
+        "FarStep",
+        "FeatBlindFighting",
+        "FeatCleavingAttack",
+        "FeatCrippling",
+        "FeatDeadeye",
+        "FeatDefensiveDuelist",
+        "FeatEldritchAdept",
+        "FeatFellHanded",
+        "FeatHealer",
+        "FeatHeavyArmorMaster",
+        "FeatInfernalConstitution",
+        "FeatInspiringLeader",
+        "FeatMediumArmorMaster",
+        "FeatMetamagicAdept",
+        "FeatMobile",
+        "FeatPolearmExpert",
+        "FeatRangedExpert",
+        "FeatRemarkableTechnique",
+        "FeatSavageAttack",
+        "FeatSentinel",
+        "FeatShieldTechniques",
+        "FeatTacticianAdept",
+        "FeatTough",
+        "FeatWarCaster",
+        "FindFamiliar",
+        "FlameArrows",
+        "FlashFreeze",
+        "Foresight",
+        "ForestGuardian",
+        "GiftOfAlacrity",
+        "GravitySinkhole",
+        "HeroicInfusion",
+        "HungerOfTheVoid",
+        "IceBlade",
+        "Incineration",
+        "InnovationArmor",
+        "InnovationArtillerist",
+        "InnovationWeapon",
+        "Interception",
+        "InvocationAbilitiesOfTheChainMaster",
+        "InvocationAspectOfTheMoon",
+        "InvocationEldritchSmite",
+        "InvocationGiftOfTheEverLivingOnes",
+        "InvocationGiftOfTheHunter",
+        "InvocationGiftOfTheProtectors",
+        "InvocationGraspingBlast",
+        "InvocationHinderingBlast",
+        "InvocationImprovedPactWeapon",
+        "InvocationInexorableHex",
+        "InvocationPerniciousCloak",
+        "InvocationShroudOfShadow",
+        "InvocationTombOfFrost",
+        "InvocationTrickstersEscape",
+        "InvocationUndyingServitude",
+        "InvocationVexingHex",
+        "LightningArrow",
+        "MagnifyGravity",
+        "MartialArcaneArcher",
+        "MartialForceKnight",
+        "MartialRoyalKnight",
+        "MartialSpellShield",
+        "MartialTactician",
+        "MeteorSwarmSingleTarget",
+        "MindBlank",
+        "MindSpike",
+        "MirrorImage",
+        "MysticalCloak",
+        "OathOfAncients",
+        "PathOfTheSpirits",
+        "PatronSoulBlade",
+        "PowerWordHeal",
+        "PowerWordKill",
+        "PsychicLance",
+        "PsychicWhip",
+        "PulseWave",
+        "RaceBattleborn",
+        "RaceBolgrif",
+        "RaceDarkelf",
+        "RaceFairy",
+        "RaceGrayDwarf",
+        "RaceHalfElfVariant",
+        "RaceImp",
+        "RaceKobold",
+        "RaceMalakh",
+        "RaceOligath",
+        "RaceOni",
+        "RaceTiefling",
+        "RaceWendigo",
+        "RaceWildling",
+        "RangerGloomStalker",
+        "RangerWildMaster",
+        "RemarkableTechnique",
+        "ResonatingStrike",
+        "ReverseGravity",
+        "RingOfBlades",
+        "RoguishSlayer",
+        "Sanctuary",
+        "SearingSmite",
+        "ShadowBlade",
+        "Shapechange",
+        "SkinOfRetribution",
+        "SonicBoom",
+        "SorcerousDivineHeart",
+        "SpellWeb",
+        "SpikeBarrage",
+        "SpiritShroud",
+        "StaggeringSmite",
+        "SteelWhirlwind",
+        "StrikeWithTheWind",
+        "SwordStorm",
+        "Telekinesis",
+        "ThornyVines",
+        "ThunderousSmite",
+        "ThunderStrike",
+        "TimeStop",
+        "TollTheDead",
+        "VileBrew",
+        "VitalityTransfer",
+        "VoidGrasp",
+        "WayOfSilhouette",
+        "Weird",
+        "WizardBladeDancer",
+        "WizardDeadMaster",
+        "WizardGraviturgist",
+        "WrathfulSmite"
+    ];
 
     internal static void DisplaySubMenu(ref int selectedPane, string title = null, params NamedAction[] actions)
     {
@@ -128,10 +283,19 @@ internal static class ModUi
                     {
                         var definition = registeredDefinitions.ElementAt(current);
                         var title = definition.FormatTitle();
+                        var isTabletop = Tabletop.Contains(definition.Name) ||
+                                         (Main.Settings.AllowAssigningOfficialSpells &&
+                                          definition is SpellDefinition &&
+                                          definition.ContentPack != CeContentPackContext.CeContentPack);
 
                         if (flip)
                         {
                             title = title.Khaki();
+                        }
+
+                        if (isTabletop)
+                        {
+                            title = title.Bold().Italic();
                         }
 
                         toggle = selectedDefinitions.Contains(definition.Name);
@@ -150,6 +314,11 @@ internal static class ModUi
                             if (flip)
                             {
                                 description = description.Khaki();
+                            }
+
+                            if (isTabletop)
+                            {
+                                description = description.Bold().Italic();
                             }
 
                             UI.Label(description, UI.Width(PixelsPerColumn * 3));
