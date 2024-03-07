@@ -1,18 +1,32 @@
-1.5.94.57:
+1.5.97.0:
 
+UPDATED CODE BASE TO GAME VERSION 1.5.97
+
+- added Longsword, Mace, and Shortsword items and respective recipes 
 - added Ranger Gloom Stalker subclass
+- marked any non-homebrew content as bold italic orange under 'Mod UI > Character'
+
 - fixed all cantrips enforcing save to negate any damage form on a success
 - fixed campaigns translator changing nodes tech names
+- fixed Devoted, Militia, and Troublemaker backgrounds interaction with flexible backgrounds
 - fixed Eldritch Versatility Adept feat always getting offered
 - fixed Fell Handed feat disadvantage reroll not using highest dice roll
 - fixed Wildling feral agility feature tired condition removal logic
 - fixed Wizard Deadmaster necromancy bonus DC feature missing 4 spells
+
 - improved Crusher feat to not require a modal on trigger
+- improved Force Knight kinetic barrier feature modal description
 - improved Imp impish wrath feature to not require a modal on trigger
+- improved Oath of Altruism spiritual shielding feature modal description
 - improved Path of the Elements elemental fury feature description
 - improved Ranger Wildmaster subclass [RESPEC is required]
+
+- removed Polearm Expert and Sentinel from fighting styles offering
 - removed Ranger Survivalist favored enemy choice feature from level 15th
-- removed Ring Mail armors and recipes from items & crafting [RESPEC is required]
+- removed Resuscitate power from healer feat
+- removed Ring Mail items and respective recipes [RESPEC is required]
+
+- replaced Dual Weapon Defense feat with Dual Wielder [no dual use of inventory]
 - replaced Ranger Sky Warrior swift strike feature with ghostly howl
 - replaced Ranger Survivalist unmatched experience feature with blessing of the wilderness
 
