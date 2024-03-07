@@ -2,5 +2,5 @@ Condition/&ConditionDualFlurryGrantDescription=¡Tus enemigos están tambaleánd
 Condition/&ConditionDualFlurryGrantTitle=Ráfaga doble
 Feat/&FeatDualFlurryDescription=Eres un maestro en la lucha con armas emparejadas. En cualquier turno en el que golpees dos veces con ataques cuerpo a cuerpo mientras empuñas un arma en cada mano, puedes realizar un ataque adicional con la mano izquierda cuando atacas con tu acción adicional.
 Feat/&FeatDualFlurryTitle=Ráfaga doble
-Feat/&FeatDualWeaponDefenseDescription=Obtienes una bonificación de +1 a la clase de armadura mientras empuñas un arma cuerpo a cuerpo separada en cada mano.
-Feat/&FeatDualWeaponDefenseTitle=Defensa con armas duales
+Feat/&FeatDualWeaponDefenseDescription=Dominas la lucha con dos armas y obtienes los siguientes beneficios:\n• Obtienes una bonificación de +1 a la CA mientras empuñas un arma cuerpo a cuerpo separada en cada mano.\n• Puedes usar la lucha con dos armas incluso cuando el Las armas cuerpo a cuerpo de una mano que empuñas no son ligeras.
+Feat/&FeatDualWeaponDefenseTitle=Doble portador

@@ -2,5 +2,5 @@ Condition/&ConditionDualFlurryGrantDescription=적들이 휘청거리고 있습�
 Condition/&ConditionDualFlurryGrantTitle=듀얼 플러리
 Feat/&FeatDualFlurryDescription=당신은 한 쌍의 무기를 사용하여 싸우는 마스터입니다. 양 손에 무기를 들고 근접 공격으로 두 번 명중하는 턴에 보너스 액션으로 공격할 때 추가 보조 공격을 할 수 있습니다.
 Feat/&FeatDualFlurryTitle=듀얼 플러리
-Feat/&FeatDualWeaponDefenseDescription=당신은 양손에 별도의 근접 무기를 휘두르는 동안 갑옷 등급에 +1 보너스를 얻습니다.
-Feat/&FeatDualWeaponDefenseTitle=이중 무기 방어
+Feat/&FeatDualWeaponDefenseDescription=두 가지 무기로 전투를 마스터하면 다음과 같은 이점을 얻을 수 있습니다.\n• 양손에 별도의 근접 무기를 휘두르는 동안 AC에 +1 보너스를 얻습니다.\n• 두 무기 전투를 사용할 수 있는 경우에도 당신이 휘두르는 한손 근접 무기는 가볍지 않습니다.
+Feat/&FeatDualWeaponDefenseTitle=이중 사용자

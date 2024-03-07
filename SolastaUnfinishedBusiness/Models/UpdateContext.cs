@@ -23,17 +23,17 @@ internal static class UpdateContext
     {
         LatestVersion = GetLatestVersion(out var shouldUpdate);
 
-        var day = DateTime.Now.Date.Day;
-
         if (shouldUpdate)
         {
             DisplayUpdateMessage();
         }
-        else if (Main.Settings.DisplayModMessage != day)
+        else if (Main.Settings.DisplayModMessage == 0)
         {
-            Main.Settings.DisplayModMessage = day;
             DisplayWelcomeMessage();
         }
+
+        // display mod message every 30 launches
+        Main.Settings.DisplayModMessage = (Main.Settings.DisplayModMessage + 1) % 30;
     }
 
     private static string GetInstalledVersion()

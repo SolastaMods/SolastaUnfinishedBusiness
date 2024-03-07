@@ -62,11 +62,14 @@ internal static class ModUi
         "EnduringSting",
         "EnsnaringStrike",
         "FarStep",
+        "FeatBladeMastery",
         "FeatBlindFighting",
         "FeatCleavingAttack",
         "FeatCrippling",
         "FeatDeadeye",
         "FeatDefensiveDuelist",
+        "FeatDragonWings",
+        "FeatDualWeaponDefense",
         "FeatEldritchAdept",
         "FeatFellHanded",
         "FeatHealer",
@@ -102,6 +105,7 @@ internal static class ModUi
         "Interception",
         "InvocationAbilitiesOfTheChainMaster",
         "InvocationAspectOfTheMoon",
+        "InvocationEldritchMind",
         "InvocationEldritchSmite",
         "InvocationGiftOfTheEverLivingOnes",
         "InvocationGiftOfTheHunter",
@@ -112,8 +116,10 @@ internal static class ModUi
         "InvocationInexorableHex",
         "InvocationPerniciousCloak",
         "InvocationShroudOfShadow",
+        "InvocationSuperiorPactWeapon",
         "InvocationTombOfFrost",
         "InvocationTrickstersEscape",
+        "InvocationUltimatePactWeapon",
         "InvocationUndyingServitude",
         "InvocationVexingHex",
         "LightningArrow",
@@ -292,10 +298,9 @@ internal static class ModUi
                         {
                             title = title.Khaki();
                         }
-
-                        if (isTabletop)
+                        else if (isTabletop)
                         {
-                            title = title.Bold().Italic();
+                            title = title.Bold().Italic().Orange();
                         }
 
                         toggle = selectedDefinitions.Contains(definition.Name);
@@ -314,11 +319,6 @@ internal static class ModUi
                             if (flip)
                             {
                                 description = description.Khaki();
-                            }
-
-                            if (isTabletop)
-                            {
-                                description = description.Bold().Italic();
                             }
 
                             UI.Label(description, UI.Width(PixelsPerColumn * 3));
