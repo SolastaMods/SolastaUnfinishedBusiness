@@ -114,11 +114,18 @@ internal static class GuardianAura
 
         if (damage != null)
         {
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = attacker.RulesetCharacter,
+                targetCharacter = unit.RulesetCharacter,
+                position = unit.LocationPosition
+            };
+
             RulesetActor.InflictDamage(
                 damageAmount,
                 damage,
                 damage.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = unit.RulesetCharacter },
+                applyFormsParams,
                 unit.RulesetCharacter,
                 false,
                 attacker.Guid,

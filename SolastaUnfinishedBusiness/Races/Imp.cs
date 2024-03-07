@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -129,21 +128,6 @@ internal static class RaceImpBuilder
                 ActionDefinitions.Id.HideBonus)
             .AddToDB();
 
-        var additionalDamageImpishWrath = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}ImpishWrath")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("ImpishWrath")
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .AddToDB();
-
-        var conditionImpishWrath = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}ImpishWrath")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(additionalDamageImpishWrath)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
-            .AddToDB();
-
         var powerImpForestImpishWrath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}ImpishWrath")
             .SetGuiPresentation(Category.Feature)
@@ -151,8 +135,7 @@ internal static class RaceImpBuilder
             .DelegatedToAction()
             .AddToDB();
 
-        powerImpForestImpishWrath.AddCustomSubFeatures(
-            new CustomBehaviorImpishWrath(powerImpForestImpishWrath, conditionImpishWrath));
+        powerImpForestImpishWrath.AddCustomSubFeatures(new CustomBehaviorImpishWrath(powerImpForestImpishWrath));
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "ImpishWrathToggle")
@@ -193,75 +176,150 @@ internal static class RaceImpBuilder
         return raceImpForest;
     }
 
-    private sealed class CustomBehaviorImpishWrath(
-        FeatureDefinitionPower powerImpishWrath,
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionImpishWrath)
-        : IAttackBeforeHitConfirmedOnEnemy, IMagicEffectBeforeHitConfirmedOnEnemy
+    private class CustomBehaviorImpishWrath(FeatureDefinitionPower powerImpForestImpishWrath)
+        : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
-            GameLocationBattleManager battleManager,
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool firstTarget,
-            bool criticalHit)
+            GameLocationCharacter defender)
         {
-            if (attackMode != null &&
-                actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage))
-            {
-                yield return HandleImpishWrath(attacker);
-            }
-        }
+            var rulesetEffect = action.actionParams.RulesetEffect;
 
-        public IEnumerator OnMagicEffectBeforeHitConfirmedOnEnemy(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier actionModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            if (actualEffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage))
-            {
-                yield return HandleImpishWrath(attacker);
-            }
-        }
-
-        private IEnumerator HandleImpishWrath(
-            // ReSharper disable once SuggestBaseTypeForParameter
-            GameLocationCharacter attacker)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (!attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle) ||
-                rulesetAttacker.GetRemainingPowerUses(powerImpishWrath) == 0)
+            if (!rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
-            var usablePower = PowerProvider.Get(powerImpishWrath, rulesetAttacker);
+            if ((action.RolledSaveThrow &&
+                 action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                (action.AttackRoll != 0 &&
+                 action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield return HandleImpishWrath(attacker,
+                    defender,
+                    [],
+                    rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
+            }
+        }
+
+        public IEnumerator OnPhysicalAttackFinishedByMe(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RollOutcome rollOutcome,
+            int damageAmount)
+        {
+            if (action.AttackRollOutcome != RollOutcome.Success &&
+                action.AttackRollOutcome != RollOutcome.CriticalSuccess)
+            {
+                yield break;
+            }
+
+            yield return HandleImpishWrath(
+                attacker,
+                defender,
+                attackMode.attackTags,
+                attackMode.EffectDescription.FindFirstDamageForm()?.damageType);
+        }
+
+        private IEnumerator HandleImpishWrath(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            List<string> attackTags,
+            string damageType = DamageTypeBludgeoning)
+        {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
+            if (!attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker is not { IsDeadOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender is not { IsDeadOrUnconscious: false })
+            {
+                yield break;
+            }
+
+            if (rulesetDefender.GetRemainingPowerUses(powerImpForestImpishWrath) == 0)
+            {
+                yield break;
+            }
+
+            var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
+            var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
+            {
+                StringParameter = "ImpishWrath",
+                StringParameter2 = Gui.Format("Reaction/&SpendPowerImpishWrathDescription",
+                    bonusDamage.ToString(), rulesetDefender.Name),
+                RulesetEffect = implementationManagerService
+                    //CHECK: no need for AddAsActivePowerToSource
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower
+            };
+
+            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
+
+            gameLocationActionService.ReactToSpendPower(actionParams);
+
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
+
+            if (!actionParams.ReactionValidated)
+            {
+                yield break;
+            }
 
             rulesetAttacker.UsePower(usablePower);
-            rulesetAttacker.InflictCondition(
-                conditionImpishWrath.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
-                1,
-                conditionImpishWrath.Name,
-                0,
-                0,
-                0);
+
+            var damageForm = new DamageForm
+            {
+                DamageType = damageType, DieType = DieType.D1, DiceNumber = 0, BonusDamage = bonusDamage
+            };
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
+
+            RulesetActor.InflictDamage(
+                bonusDamage,
+                damageForm,
+                damageType,
+                applyFormsParams,
+                rulesetDefender,
+                false,
+                rulesetAttacker.Guid,
+                false,
+                attackTags,
+                new RollInfo(DieType.D1, [], bonusDamage),
+                true,
+                out _);
         }
     }
 

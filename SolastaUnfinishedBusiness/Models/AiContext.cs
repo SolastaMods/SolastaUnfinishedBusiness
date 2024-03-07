@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
@@ -12,19 +13,28 @@ internal static class AiContext
     internal const string DoNothing = "1";
     internal const string DoStrengthCheckCasterDC = "2";
 
+    internal static readonly List<string> DoNothingConditions =
+        ["ConditionNoxiousSpray", "ConditionVileBrew", "ConditionGrappledRestrainedIceBound"];
+
+    internal static readonly List<string> DoStrengthCheckCasterDCConditions =
+    [
+        "ConditionFlashFreeze", "ConditionGrappledRestrainedEnsnared",
+        "ConditionGrappledRestrainedSpellWeb", "ConditionRestrainedByEntangle"
+    ];
+
     internal static void Load()
     {
         // order matters as same weight
         // this code needs a refactoring. meanwhile check:
         // - CharacterActionPanelPatcher SelectBreakFreeMode and add condition there if spell also aims allies
-        // - CharacterActionBreakFreePatcher ExecuteImpl and add condition with expected behavior on allies
-        BuildDecisionBreakFreeFromCondition("ConditionNoxiousSpray", DoNothing);
-        BuildDecisionBreakFreeFromCondition("ConditionVileBrew", DoNothing);
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound", DoNothing);
-        BuildDecisionBreakFreeFromCondition("ConditionFlashFreeze", DoStrengthCheckCasterDC);
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedEnsnared", DoStrengthCheckCasterDC);
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", DoStrengthCheckCasterDC);
-        BuildDecisionBreakFreeFromCondition("ConditionRestrainedByEntangle", DoStrengthCheckCasterDC); // vanilla
+        foreach (var condition in DoNothingConditions)
+        {
+            BuildDecisionBreakFreeFromCondition(condition, DoNothing);
+        }
+        foreach (var condition in DoStrengthCheckCasterDCConditions)
+        {
+            BuildDecisionBreakFreeFromCondition(condition, DoStrengthCheckCasterDC);
+        }
     }
 
     // boolParameter false won't do any ability check
