@@ -69,9 +69,10 @@ internal static class SubclassesContext
 
     private static void RegisterClassesContext()
     {
-        foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
+        foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                     .OrderBy(x => x.FormatTitle()))
         {
-            var klassName = klass.Name;
+            var klassName = klass.FormatTitle();
 
             Klasses.Add(klassName, klass);
             KlassListContextTab.Add(klass, new KlassListContext(klass));

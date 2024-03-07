@@ -136,6 +136,7 @@ internal static class ModUi
         "MysticalCloak",
         "OathOfAncients",
         "PathOfTheSpirits",
+        "PatronCelestial",
         "PatronSoulBlade",
         "PowerWordHeal",
         "PowerWordKill",
@@ -298,6 +299,10 @@ internal static class ModUi
                         {
                             title = title.Khaki();
                         }
+                        else if (sliderPosition == 1)
+                        {
+                            title = title.White();
+                        }
                         else if (isTabletop)
                         {
                             title = title.Bold().Italic().Orange();
@@ -316,10 +321,7 @@ internal static class ModUi
                                 ? Gui.Localize($"ModUi/&{definition.Name}Description")
                                 : definition.FormatDescription();
 
-                            if (flip)
-                            {
-                                description = description.Khaki();
-                            }
+                            description = flip ? description.Khaki() : description.White();
 
                             UI.Label(description, UI.Width(PixelsPerColumn * 3));
 
