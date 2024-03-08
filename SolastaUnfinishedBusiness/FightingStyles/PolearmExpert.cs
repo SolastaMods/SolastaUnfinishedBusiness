@@ -14,9 +14,11 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class PolearmExpert : AbstractFightingStyle
 {
+    internal const string PolearmExpertName = "PolearmExpert";
+
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
-        .Create("PolearmExpert")
-        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("PolearmExpert", Resources.PolearmExpert, 256))
+        .Create(PolearmExpertName)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(PolearmExpertName, Resources.PolearmExpert, 256))
         .SetFeatures(
             FeatureDefinitionBuilder
                 .Create("FeaturePolearm")

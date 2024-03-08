@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Validators;
 using static RuleDefinitions;
 
@@ -15,10 +16,23 @@ internal static class FightingStyleFeats
         var fightingStyles = DatabaseRepository
             .GetDatabase<FightingStyleDefinition>()
             .Select(BuildFightingStyleFeat)
-            .ToArray();
+            .ToList();
 
-        GroupFeats.FeatGroupFightingStyle.AddFeats(fightingStyles);
+        // hack to keep backward compatibility on fighting styles and move these feats to better groups
+        var monkShieldExpert = fightingStyles.First(x => x.Name == $"Feat{MonkShieldExpert.ShieldExpertName}");
+        var polearmExpert = fightingStyles.First(x => x.Name == $"Feat{PolearmExpert.PolearmExpertName}");
+        var sentinel = fightingStyles.First(x => x.Name == $"Feat{Sentinel.SentinelName}");
+
         feats.AddRange(fightingStyles);
+
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(monkShieldExpert);
+        GroupFeats.FeatGroupMeleeCombat.AddFeats(polearmExpert);
+        GroupFeats.FeatGroupTwoHandedCombat.AddFeats(polearmExpert);
+        GroupFeats.FeatGroupSupportCombat.AddFeats(sentinel);
+        GroupFeats.FeatGroupFightingStyle.AddFeats(
+            fightingStyles
+                .Where(x => x != monkShieldExpert && x != polearmExpert && x != sentinel)
+                .ToArray());
     }
 
     private static FeatDefinition BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)

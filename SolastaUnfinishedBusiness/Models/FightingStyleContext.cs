@@ -22,14 +22,16 @@ internal static class FightingStyleContext
         LoadStyle(new Interception());
         LoadStyle(new Lunger());
         LoadStyle(new Merciless());
-        LoadStyle(new MonkShieldExpert());
-        _ = new PolearmExpert();
         LoadStyle(new Pugilist());
         LoadStyle(new RemarkableTechnique());
         LoadStyle(new RopeItUp());
-        _ = new Sentinel();
         LoadStyle(new ShieldExpert());
         LoadStyle(new Torchbearer());
+
+        // kept for backward compatibility
+        _ = new MonkShieldExpert();
+        _ = new PolearmExpert();
+        _ = new Sentinel();
 
         // sorting
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
