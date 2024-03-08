@@ -864,7 +864,7 @@ internal static partial class SpellBuilders
                         false,
                         [],
                         new RollInfo(damageForm.DieType, rolls, 0),
-                        true,
+                        false,
                         out _);
                 }
             }

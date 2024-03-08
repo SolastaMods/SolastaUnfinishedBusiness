@@ -1288,7 +1288,7 @@ internal static class MeleeCombatFeats
                 false,
                 attackMode.AttackTags,
                 new RollInfo(damageForm.DieType, rolls, bonusDamage),
-                true,
+                false,
                 out _);
         }
     }

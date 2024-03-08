@@ -1224,7 +1224,7 @@ internal static class EldritchVersatilityBuilders
             if (gameLocationActionManager == null ||
                 helper.Side != defender.Side ||
                 !action.RolledSaveThrow ||
-                action.SaveOutcome == RollOutcome.Success ||
+                action.SaveOutcome != RollOutcome.Failure ||
                 !helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
                 !helper.IsWithinRange(defender, 7))

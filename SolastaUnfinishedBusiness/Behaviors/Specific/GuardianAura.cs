@@ -132,7 +132,7 @@ internal static class GuardianAura
                 false,
                 [],
                 new RollInfo(DieType.D1, [], damageAmount),
-                true,
+                false,
                 out _);
         }
 

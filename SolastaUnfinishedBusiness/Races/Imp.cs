@@ -192,7 +192,7 @@ internal static class RaceImpBuilder
             }
 
             if ((action.RolledSaveThrow &&
-                 action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                 action.SaveOutcome == RollOutcome.Failure) ||
                 (action.AttackRoll != 0 &&
                  action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess))
             {

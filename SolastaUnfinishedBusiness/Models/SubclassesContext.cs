@@ -120,7 +120,7 @@ internal static class SubclassesContext
             AllSubClasses = [];
         }
 
-        private List<string> SelectedSubclasses => Main.Settings.KlassListSubclassEnabled[Klass.Name];
+        private List<string> SelectedSubclasses => Main.Settings.KlassListSubclassEnabled[Klass.FormatTitle()];
         private CharacterClassDefinition Klass { get; }
         internal HashSet<CharacterSubclassDefinition> AllSubClasses { get; }
 
@@ -160,7 +160,7 @@ internal static class SubclassesContext
 
         private void UpdateSubclassVisibility([NotNull] CharacterSubclassDefinition characterSubclassDefinition)
         {
-            var klass = Klass.Name;
+            var klass = Klass.FormatTitle();
             var subclass = characterSubclassDefinition.Name;
 
             if (SubclassesChoiceList.TryGetValue(characterSubclassDefinition, out var choiceList))

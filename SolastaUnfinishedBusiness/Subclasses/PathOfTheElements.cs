@@ -702,7 +702,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 false,
                 attackMode.AttackTags,
                 new RollInfo(DieType.D1, [], classLevel),
-                true,
+                false,
                 out _);
         }
     }

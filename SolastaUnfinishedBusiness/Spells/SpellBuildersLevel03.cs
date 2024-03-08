@@ -1055,7 +1055,7 @@ internal static partial class SpellBuilders
                     false,
                     attackMode.AttackTags,
                     new RollInfo(damageForm.DieType, rolls, 0),
-                    true,
+                    false,
                     out _);
             }
 

@@ -965,7 +965,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
                     false,
                     [],
                     new RollInfo(dieType, rolls, 0),
-                    true,
+                    false,
                     out _);
                 EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
             }
