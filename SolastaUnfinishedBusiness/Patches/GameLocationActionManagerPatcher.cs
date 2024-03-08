@@ -87,7 +87,11 @@ public static class GameLocationActionManagerPatcher
     public static class ReactToUsePower_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
+        public static bool Prefix(
+            GameLocationActionManager __instance,
+            CharacterActionParams reactionParams,
+            string reactionName = "",
+            GameLocationCharacter attacker = null)
         {
             //PATCH: replace `UsePower` reaction for customized one that allows better descriptions
             if (reactionParams.RulesetEffect is not RulesetEffectPower)
@@ -95,7 +99,13 @@ public static class GameLocationActionManagerPatcher
                 return true;
             }
 
-            __instance.AddInterruptRequest(new ReactionRequestUsePowerCustom(reactionParams));
+            __instance.AddInterruptRequest(string.IsNullOrEmpty(reactionName)
+                ? attacker == null
+                    ? new ReactionRequestUsePowerCustom(reactionParams, (string)null)
+                    : new ReactionRequestUsePowerCustom(reactionParams, attacker)
+                : attacker == null
+                    ? new ReactionRequestUsePowerCustom(reactionParams, reactionName)
+                    : new ReactionRequestUsePowerCustom(reactionParams, reactionName, attacker));
 
             return false;
         }
