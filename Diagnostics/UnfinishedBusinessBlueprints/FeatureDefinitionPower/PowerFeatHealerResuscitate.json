@@ -329,7 +329,7 @@
     "description": "Feature/&PowerFeatHealerResuscitateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dbf03edf-92cb-5b1c-9017-265f6c61a476",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

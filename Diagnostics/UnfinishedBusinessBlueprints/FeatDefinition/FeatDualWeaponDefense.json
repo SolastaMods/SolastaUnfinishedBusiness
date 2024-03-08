@@ -12,6 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:AttackModifierFeatAmbidextrous:ff514c746c85d964ab3e030b5b8c207f",
     "Definition:AttributeModifierFeatDualWeaponDefense:33b7066e-6c97-5c27-a498-e940d670c891"
   ],
   "guiPresentation": {

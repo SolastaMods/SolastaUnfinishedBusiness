@@ -1,0 +1,2 @@
+PowerFeatHealerResuscitate	Title='Feature/&PowerFeatHealerResuscitateTitle'.
+PowerFeatHealerResuscitate	Description='Feature/&PowerFeatHealerResuscitateDescription'.
