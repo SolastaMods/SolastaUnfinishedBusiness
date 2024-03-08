@@ -20,7 +20,7 @@ internal static class CreditsDisplay
     [
         ("Zappastuff",
             "gameplay, infrastructure, maintenance, mod UI, quality of life, rules, " +
-            "backgrounds, feats, fighting styles, gambits, invocations, metamagic, spells, " +
+            "backgrounds, feats, fighting styles, maneuvers, invocations, metamagic, spells, " +
             "Fairy, Half-elf, Tiefling, " +
             "Circle of the Ancient Forest, Circle of the Eternal Grove, Circle of the Stars, " +
             "College of Eloquence, College of Life, College of Swords, College of Thespian, College of Valor, " +
@@ -50,7 +50,7 @@ internal static class CreditsDisplay
 
         ("TPABOBAP",
             "behaviors, game UI, infrastructure, gameplay, quality of life, rules, " +
-            "feats, fighting styles, gambits, invocations, metamagic, spells, " +
+            "feats, fighting styles, maneuvers, invocations, metamagic, spells, " +
             "Innovation Armor, Innovation Grenadier, Innovation Weapon, Martial Tactician, Patron Elementalist, Patron Soulblade, Artificer"),
 
         ("ImpPhil", "api, builders, infrastructure, gameplay, quality of life, rules"),
@@ -79,7 +79,7 @@ internal static class CreditsDisplay
         ("Earandil",
             "homebrew design [Patron Mountain, Path of the Savagery, Path of the Yeoman, Ranger Sky Warrior, Ranger Survivalist]"),
         ("DemonicDuck",
-            "QA, homebrew design [Innovation Vivisectionist, Oath of Thunder, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
+            "homebrew design [Innovation Vivisectionist, Oath of Thunder, Sorcerous Sorr-Akkath, Way of Weal and Woe]"),
         ("Taco", "sprites, homebrew design [Roguish Acrobat, Domain Defiler, Oath of Altruism]"),
         ("DubhHerder", "quality of life, homebrew design [Patron Elementalist, Patron Riftwalker]"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),

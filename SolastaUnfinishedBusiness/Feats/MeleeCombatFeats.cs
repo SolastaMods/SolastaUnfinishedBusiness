@@ -100,7 +100,7 @@ internal static class MeleeCombatFeats
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             featGroupCrusher);
 
-        GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
+        GroupFeats.FeatGroupMeleeCombat.AddFeats(
             GroupFeats.FeatGroupElementalTouch,
             GroupFeats.FeatGroupPiercer,
             FeatDefinitions.DauntingPush,
@@ -427,11 +427,11 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (helper != defender ||
                 !defender.CanReact() ||
-                !ValidatorsWeapon.HasAnyWeaponTag(rulesetDefender.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
+                !ValidatorsWeapon.HasAnyWeaponTag(rulesetHelper.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
             {
                 yield break;
             }
@@ -447,7 +447,7 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var pb = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var pb = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             if (armorClass + pb <= totalAttack)
             {
@@ -457,14 +457,14 @@ internal static class MeleeCombatFeats
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetDefender);
+            var usablePower = PowerProvider.Get(powerDefensiveDuelist, rulesetHelper);
             var actionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "DefensiveDuelist",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
