@@ -191,9 +191,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 character.RulesetCharacter.ForceSetHealth(casterHitPoints, false);
                 self.RulesetCharacter.ForceSetHealth(targetHitPoints, false);
 
-                var profBonus = AttributeDefinitions.ComputeProficiencyBonus(self.RulesetCharacter
-                    .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
-
+                var profBonus = self.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                 var myCharismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(self.RulesetCharacter
                     .TryGetAttributeValue(AttributeDefinitions.Charisma));
 

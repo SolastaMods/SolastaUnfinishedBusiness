@@ -561,9 +561,7 @@ public sealed class PathOfTheElements : AbstractSubclass
                 var attackerConModifier =
                     AttributeDefinitions.ComputeAbilityScoreModifier(
                         rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Constitution));
-                var profBonus =
-                    AttributeDefinitions.ComputeProficiencyBonus(
-                        rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+                var profBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                 var defenderStrModifier =
                     AttributeDefinitions.ComputeAbilityScoreModifier(
                         rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Strength));
@@ -665,9 +663,7 @@ public sealed class PathOfTheElements : AbstractSubclass
             var attackerConModifier =
                 AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Constitution));
-            var profBonus =
-                AttributeDefinitions.ComputeProficiencyBonus(
-                    rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+            var profBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var defenderDexModifier =
                 AttributeDefinitions.ComputeAbilityScoreModifier(
                     rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity));

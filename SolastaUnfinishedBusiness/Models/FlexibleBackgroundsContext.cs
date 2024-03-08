@@ -200,7 +200,7 @@ internal static class FlexibleBackgroundsContext
                 [
                     SkillThree,
                     FeatureDefinitionBuilder
-                        .Create($"SuggestedSkillsFarmer{background}")
+                        .Create($"SuggestedSkills{background}Background")
                         .SetGuiPresentation(Category.Background)
                         .AddToDB()
                 ]);

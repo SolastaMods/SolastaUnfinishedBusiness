@@ -242,6 +242,7 @@ public sealed class WayOfTheWealAndWoe : AbstractSubclass
         }
 
         private static void InflictMartialArtDieDamage(
+            // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode,
