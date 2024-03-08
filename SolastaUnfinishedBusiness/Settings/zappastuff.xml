@@ -3,8 +3,8 @@
     <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
-    <DisplayRacesToggle>false</DisplayRacesToggle>
-    <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
+    <DisplayRacesToggle>true</DisplayRacesToggle>
+    <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
     <DisplayFeatsToggle>false</DisplayFeatsToggle>
     <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
     <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -653,20 +653,20 @@
     <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
     <RaceSliderPosition>4</RaceSliderPosition>
     <RaceEnabled>
-        <string>RaceBattleborn</string>
-        <string>RaceBolgrif</string>
+        <string>RaceMalakh</string>
         <string>RaceDarkelf</string>
         <string>RaceFairy</string>
+        <string>RaceBolgrif</string>
+        <string>RaceOligath</string>
         <string>RaceGrayDwarf</string>
         <string>RaceHalfElfVariant</string>
         <string>RaceImp</string>
         <string>RaceIronbornDwarf</string>
         <string>RaceKobold</string>
-        <string>RaceMalakh</string>
         <string>RaceObsidianDwarf</string>
-        <string>RaceOligath</string>
         <string>RaceOni</string>
         <string>RaceTiefling</string>
+        <string>RaceBattleborn</string>
         <string>RaceWendigo</string>
         <string>RaceWildling</string>
         <string>RaceWyrmkin</string>
@@ -985,14 +985,13 @@
         <string>FeatGroupAegisTouched</string>
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>
-        <string>FeatArcaneDefense</string>
         <string>FeatArcaneArcherAdept</string>
+        <string>FeatArcaneDefense</string>
         <string>FeatArcanePrecision</string>
-        <string>FeatGroupTeleportation</string>
         <string>FeatArchery</string>
         <string>FeatAstralArms</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
-        <string>FeatWarCaster</string>
+        <string>FeatTacticianAdept</string>
         <string>FeatBladeMastery</string>
         <string>FeatGroupBlessedSoul</string>
         <string>FeatBlindFighting</string>
@@ -1002,21 +1001,21 @@
         <string>FeatCharismaticDefense</string>
         <string>FeatCharismaticPrecision</string>
         <string>FeatHandAndAHalf</string>
-        <string>FeatCleavingAttack</string>
         <string>FeatGroupCloseQuarters</string>
         <string>FeatCrippling</string>
+        <string>FeatRangedExpert</string>
         <string>FeatCrossbowMastery</string>
+        <string>FeatGroupCrusher</string>
         <string>FeatCunningEscape</string>
-        <string>FeatDeadeye</string>
         <string>FeatDefense</string>
         <string>FeatDefensiveDuelist</string>
-        <string>FeatGroupCrusher</string>
         <string>FeatDevastatingStrikes</string>
         <string>FeatDragonWings</string>
         <string>FeatDualFlurry</string>
         <string>FeatDualWeaponDefense</string>
         <string>FeatDueling</string>
         <string>FeatEldritchAdept</string>
+        <string>FeatEldritchVersatilityAdept</string>
         <string>FeatGroupElementalAdept</string>
         <string>FeatGroupElementalMaster</string>
         <string>FeatGroupElementalTouch</string>
@@ -1025,10 +1024,13 @@
         <string>FeatExpandTheHunt</string>
         <string>FeatExploiter</string>
         <string>FeatGroupFadeAway</string>
+        <string>FeatFellHanded</string>
         <string>FeatFencer</string>
+        <string>FeatGroupTeleportation</string>
         <string>FeatGroupFlameTouched</string>
         <string>FeatFrostAdaptation</string>
         <string>FeatGreatWeapon</string>
+        <string>FeatCleavingAttack</string>
         <string>FeatHammerThePoint</string>
         <string>FeatGroupHardy</string>
         <string>FeatHealer</string>
@@ -1037,23 +1039,21 @@
         <string>FeatInfernalConstitution</string>
         <string>FeatInfusionsAdept</string>
         <string>FeatInspiringLeader</string>
+        <string>FeatInterception</string>
         <string>FeatZenArcher</string>
         <string>FeatGroupIridescentTouched</string>
         <string>FeatLongswordFinesse</string>
         <string>FeatLunger</string>
         <string>FeatGroupMagicInitiate</string>
-        <string>FeatFellHanded</string>
-        <string>FeatGroupMediumArmor</string>
-        <string>FeatMediumArmorMaster</string>
         <string>FeatMerciless</string>
         <string>FeatMetamagicAdept</string>
         <string>FeatMobile</string>
+        <string>FeatMediumArmorMaster</string>
+        <string>FeatGroupMediumArmor</string>
         <string>FeatMonkShieldExpert</string>
         <string>FeatMonkInitiate</string>
         <string>FeatNaturalFluidity</string>
-        <string>FeatGroupSquatNimbleness</string>
         <string>FeatGroupOldTactics</string>
-        <string>FeatSentinel</string>
         <string>FeatGroupPeregrinationTouched</string>
         <string>FeatPickPocket</string>
         <string>FeatGroupPiercer</string>
@@ -1065,16 +1065,16 @@
         <string>FeatGroupPrecisionFocused</string>
         <string>FeatGroupPrimalRage</string>
         <string>FeatProtection</string>
-        <string>FeatGroupTelekinetic</string>
         <string>FeatPugilist</string>
-        <string>FeatRangedExpert</string>
         <string>FeatRecklessAttack</string>
-        <string>FeatRemarkableTechnique</string>
         <string>FeatGroupRetinueTouched</string>
         <string>FeatGroupRevenantGreatSword</string>
         <string>FeatRopeItUp</string>
         <string>FeatSavageAttack</string>
         <string>FeatCraftyScriber</string>
+        <string>FeatSentinel</string>
+        <string>FeatGroupShadowTouched</string>
+        <string>FeatDeadeye</string>
         <string>FeatShieldExpert</string>
         <string>FeatShieldTechniques</string>
         <string>FeatGroupSlasher</string>
@@ -1082,17 +1082,18 @@
         <string>FeatSpearMastery</string>
         <string>FeatGroupSpellSniper</string>
         <string>FeatSpiritualFluidity</string>
+        <string>FeatGroupSquatNimbleness</string>
         <string>FeatSteadyAim</string>
         <string>FeatSuperiorCritical</string>
-        <string>FeatTacticianAdept</string>
+        <string>FeatRemarkableTechnique</string>
+        <string>FeatGroupTelekinetic</string>
         <string>FeatTorchbearer</string>
         <string>FeatTough</string>
         <string>FeatGroupToxicologist</string>
         <string>FeatTwoWeapon</string>
-        <string>FeatGroupShadowTouched</string>
         <string>FeatGroupDefenseExpert</string>
         <string>FeatGroupVerdantTouched</string>
-        <string>FeatInterception</string>
+        <string>FeatWarCaster</string>
         <string>FeatWiseDefense</string>
         <string>FeatWisePrecision</string>
     </FeatEnabled>
@@ -1134,49 +1135,47 @@
         <string>HandAndAHalf</string>
         <string>Crippling</string>
         <string>Executioner</string>
+        <string>Interception</string>
         <string>Lunger</string>
         <string>Merciless</string>
-        <string>MonkShieldExpert</string>
-        <string>Sentinel</string>
-        <string>PolearmExpert</string>
         <string>Pugilist</string>
-        <string>RemarkableTechnique</string>
         <string>RopeItUp</string>
         <string>ShieldExpert</string>
+        <string>RemarkableTechnique</string>
         <string>Torchbearer</string>
-        <string>Interception</string>
     </FightingStyleEnabled>
     <InvocationSliderPosition>4</InvocationSliderPosition>
     <InvocationEnabled>
         <string>InvocationAbilitiesOfTheChainMaster</string>
         <string>InvocationAspectOfTheMoon</string>
+        <string>InvocationBondOfTheTalisman</string>
         <string>InvocationBreakerAndBanisher</string>
         <string>InvocationBreathOfTheNight</string>
         <string>InvocationCallOfTheBeast</string>
         <string>InvocationChillingBlast</string>
+        <string>InvocationPerniciousCloak</string>
         <string>InvocationCorrosiveBlast</string>
         <string>InvocationDiscerningGaze</string>
         <string>InvocationEldritchMind</string>
         <string>InvocationEldritchSmite</string>
-        <string>InvocationBondOfTheTalisman</string>
         <string>InvocationFieryBlast</string>
         <string>InvocationFulminateBlast</string>
         <string>InvocationGiftOfTheEverLivingOnes</string>
         <string>InvocationGiftOfTheHunter</string>
         <string>InvocationGiftOfTheProtectors</string>
         <string>InvocationGraspingBlast</string>
-        <string>InvocationHinderingBlast</string>
         <string>InvocationImprovedPactWeapon</string>
-        <string>InvocationInexorableHex</string>
         <string>InvocationKinesis</string>
+        <string>InvocationHinderingBlast</string>
+        <string>InvocationVexingHex</string>
+        <string>InvocationStasis</string>
         <string>InvocationNecroticBlast</string>
-        <string>InvocationPerniciousCloak</string>
         <string>InvocationPoisonousBlast</string>
         <string>InvocationPsychicBlast</string>
         <string>InvocationRadiantBlast</string>
+        <string>InvocationInexorableHex</string>
         <string>InvocationShroudOfShadow</string>
         <string>InvocationSpectralShield</string>
-        <string>InvocationStasis</string>
         <string>InvocationSuperiorPactWeapon</string>
         <string>InvocationTenaciousPlague</string>
         <string>InvocationThunderBlast</string>
@@ -1185,7 +1184,6 @@
         <string>InvocationUltimatePactWeapon</string>
         <string>InvocationUndyingServitude</string>
         <string>InvocationVerdantArmor</string>
-        <string>InvocationVexingHex</string>
     </InvocationEnabled>
     <MetamagicSliderPosition>4</MetamagicSliderPosition>
     <MetamagicEnabled>

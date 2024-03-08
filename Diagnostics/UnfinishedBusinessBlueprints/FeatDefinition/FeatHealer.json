@@ -13,6 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:PowerFeatHealerMedKit:26cb929d-2f43-5b24-be1c-7b7c2cde50b8",
+    "Definition:PowerFeatHealerResuscitate:8e82c80d-e8c0-533c-ac8b-a5a5ee85b655",
     "Definition:PowerFeatHealerStabilize:456c154f-34d4-511a-a25e-f0ad93009839",
     "Definition:ProficiencyFeatHealerMedicine:0f1b648b-e2fc-55e1-a1c7-7467d4db50e2"
   ],

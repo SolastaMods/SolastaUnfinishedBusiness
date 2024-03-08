@@ -67,17 +67,11 @@ internal static class SubclassesContext
         WizardDeadMaster.LateLoad();
     }
 
-    private static string KlassName(BaseDefinition klass)
-    {
-        return klass == InventorClass.Class ? "Artificer" : klass.Name;
-    }
-
     private static void RegisterClassesContext()
     {
-        foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                     .OrderBy(KlassName))
+        foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
         {
-            var klassName = KlassName(klass);
+            var klassName = klass.Name;
 
             Klasses.Add(klassName, klass);
             KlassListContextTab.Add(klass, new KlassListContext(klass));
@@ -125,7 +119,7 @@ internal static class SubclassesContext
             AllSubClasses = [];
         }
 
-        private List<string> SelectedSubclasses => Main.Settings.KlassListSubclassEnabled[KlassName(Klass)];
+        private List<string> SelectedSubclasses => Main.Settings.KlassListSubclassEnabled[Klass.Name];
         private CharacterClassDefinition Klass { get; }
         internal HashSet<CharacterSubclassDefinition> AllSubClasses { get; }
 
@@ -165,7 +159,7 @@ internal static class SubclassesContext
 
         private void UpdateSubclassVisibility([NotNull] CharacterSubclassDefinition characterSubclassDefinition)
         {
-            var klass = KlassName(Klass);
+            var klass = Klass.Name;
             var subclass = characterSubclassDefinition.Name;
 
             if (SubclassesChoiceList.TryGetValue(characterSubclassDefinition, out var choiceList))
