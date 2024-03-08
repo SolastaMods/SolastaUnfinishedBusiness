@@ -17,6 +17,7 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Spells;
 using SolastaUnfinishedBusiness.Validators;
 using UnityEngine.AddressableAssets;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ActionDefinitions;
@@ -97,9 +98,10 @@ public sealed class MartialForceKnight : AbstractSubclass
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}KineticBarrier")
                     .SetGuiPresentation($"Condition{Name}KineticBarrier", Category.Condition, Gui.NoLocalization)
-                    .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
+                    .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.ArmorClass)
                     .AddToDB())
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
             .AddToDB();
 
         var powerKineticBarrier = FeatureDefinitionPowerSharedPoolBuilder
@@ -789,7 +791,6 @@ public sealed class MartialForceKnight : AbstractSubclass
             }
 
             var rulesetHelper = helper.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
 
             if (!helper.CanReact() ||
                 !helper.CanPerceiveTarget(defender) ||
@@ -809,7 +810,7 @@ public sealed class MartialForceKnight : AbstractSubclass
                 yield break;
             }
 
-            var intMod = GetIntModifier(rulesetDefender);
+            var intMod = GetIntModifier(rulesetHelper);
 
             if (armorClass + intMod <= totalAttack)
             {

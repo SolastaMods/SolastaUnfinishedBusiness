@@ -308,13 +308,13 @@ public sealed class RangerSkyWarrior : AbstractSubclass
                 yield break;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (helper != defender ||
                 !defender.CanReact() ||
                 !defender.CanPerceiveTarget(attacker) ||
                 !defender.IsWithinRange(attacker, 12) ||
-                rulesetDefender.GetRemainingPowerUses(powerGhostlyHowl) == 0)
+                rulesetHelper.GetRemainingPowerUses(powerGhostlyHowl) == 0)
             {
                 yield break;
             }
@@ -322,14 +322,14 @@ public sealed class RangerSkyWarrior : AbstractSubclass
             var implementationManagerService =
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
-            var usablePower = PowerProvider.Get(powerGhostlyHowl, rulesetDefender);
+            var usablePower = PowerProvider.Get(powerGhostlyHowl, rulesetHelper);
             var actionParams =
                 new CharacterActionParams(helper, ActionDefinitions.Id.PowerReaction)
                 {
                     StringParameter = "GhostlyHowl",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { attacker }
                 };
