@@ -23,10 +23,9 @@ UPDATED CODE BASE TO GAME VERSION 1.5.97
 
 - removed Monastic Shield Training, Polearm Expert and Sentinel from fighting styles offering
 - removed Ranger Survivalist favored enemy choice feature from level 15th
-- removed Resuscitate power from healer feat
 - removed Ring Mail items and respective recipes [RESPEC is required]
 
-- replaced Dual Weapon Defense feat with Dual Wielder [no dual use of inventory]
+- replaced Dual Weapon Defense feat with Dual Wielder [no dual use of inventory, sorry]
 - replaced Ranger Sky Warrior swift strike feature with ghostly howl
 - replaced Ranger Survivalist unmatched experience feature with blessing of the wilderness
 
