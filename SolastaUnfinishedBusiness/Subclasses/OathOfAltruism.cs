@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -51,8 +50,11 @@ public sealed class OathOfAltruism : AbstractSubclass
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}SpiritualShielding")
                     .SetGuiPresentation($"Condition{Name}SpiritualShielding", Category.Condition, Gui.NoLocalization)
-                    .SetModifierAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Charisma)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
+                        AttributeDefinitions.ArmorClass)
                     .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Charisma)
             .AddToDB();
 
         // kept name for backward compatibility
@@ -172,32 +174,42 @@ public sealed class OathOfAltruism : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    private static int GetChaModifier(
+        // ReSharper disable once SuggestBaseTypeForParameter
+        RulesetCharacter rulesetCharacter)
+    {
+        var charisma = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
+        var chaMod = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
+
+        return chaMod;
+    }
+
     private sealed class MagicEffectFinishedByMeTakeThePain : IMagicEffectFinishedByMe
     {
         public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition power)
         {
-            var self = action.ActingCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
             foreach (var character in action.ActionParams.targetCharacters)
             {
-                var targetHitPoints = character.RulesetCharacter.currentHitPoints;
-                var casterHitPoints = self.RulesetCharacter.currentHitPoints;
+                var rulesetTarget = character.RulesetCharacter;
+                var targetHitPoints = rulesetTarget.currentHitPoints;
+                var casterHitPoints = rulesetCharacter.currentHitPoints;
 
                 if (casterHitPoints <= targetHitPoints)
                 {
                     continue;
                 }
 
-                character.RulesetCharacter.ForceSetHealth(casterHitPoints, false);
-                self.RulesetCharacter.ForceSetHealth(targetHitPoints, false);
+                rulesetTarget.ForceSetHealth(casterHitPoints, false);
+                rulesetCharacter.ForceSetHealth(targetHitPoints, false);
 
-                var profBonus = self.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                var myCharismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(self.RulesetCharacter
-                    .TryGetAttributeValue(AttributeDefinitions.Charisma));
+                var profBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                var chaMod = GetChaModifier(rulesetCharacter);
 
-                self.RulesetCharacter.ReceiveTemporaryHitPoints((profBonus * 2) + myCharismaModifier,
-                    DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn,
-                    self.RulesetCharacter.guid);
+                rulesetCharacter.ReceiveTemporaryHitPoints((profBonus * 2) + chaMod,
+                    DurationType.UntilAnyRest, 0, TurnOccurenceType.StartOfTurn, rulesetCharacter.guid);
             }
 
             yield break;
@@ -252,8 +264,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 yield break;
             }
 
-            var charisma = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.Charisma);
-            var chaMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(charisma));
+            var chaMod = GetChaModifier(rulesetHelper);
 
             if (armorClass + chaMod <= totalAttack)
             {
@@ -269,7 +280,7 @@ public sealed class OathOfAltruism : AbstractSubclass
                 {
                     StringParameter = "SpiritualShielding",
                     StringParameter2 = "UseSpiritualShieldingDescription".Formatted(
-                        Category.Reaction, attacker.Name, defender.Name),
+                        Category.Reaction, attacker.Name, defender.Name, chaMod.ToString()),
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
                         .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
