@@ -142,9 +142,11 @@ You sprout draconic wings. You gain the ability to fly for a limited time if you
 
 You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 
-# 31. - Dual Weapon Defense
+# 31. - Dual Wielder
 
-You gain a +1 bonus to armor class while you are wielding a separate melee weapon in each hand.
+You master fighting with two weapons, gaining the following benefits:
+• You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
+• You can use two-weapon fighting even when the one handed melee weapons you are wielding aren't light.
 
 # 32. - Dueling
 
@@ -239,7 +241,7 @@ Increase your Strength or Constitution score by 1, to a maximum of 20. Whenever 
 
 # 52. - Healer
 
-You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per long rest equal to your Wisdom modifier.
+You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per long rest equal to your Wisdom modifier.
 
 # 53. - Heavy Armor Master
 

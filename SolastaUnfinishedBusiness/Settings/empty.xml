@@ -17,6 +17,14 @@
     <DisplayKlassToggle>
         <item>
             <key>
+                <string>Inventor</string>
+            </key>
+            <value>
+                <boolean>true</boolean>
+            </value>
+        </item>
+        <item>
+            <key>
                 <string>Barbarian</string>
             </key>
             <value>
@@ -106,14 +114,6 @@
         <item>
             <key>
                 <string>Wizard</string>
-            </key>
-            <value>
-                <boolean>true</boolean>
-            </value>
-        </item>
-        <item>
-            <key>
-                <string>Inventor</string>
             </key>
             <value>
                 <boolean>true</boolean>
@@ -440,6 +440,14 @@
     <KlassListSliderPosition>
         <item>
             <key>
+                <string>Inventor</string>
+            </key>
+            <value>
+                <int>4</int>
+            </value>
+        </item>
+        <item>
+            <key>
                 <string>Barbarian</string>
             </key>
             <value>
@@ -529,14 +537,6 @@
         <item>
             <key>
                 <string>Wizard</string>
-            </key>
-            <value>
-                <int>4</int>
-            </value>
-        </item>
-        <item>
-            <key>
-                <string>Inventor</string>
             </key>
             <value>
                 <int>4</int>
@@ -546,6 +546,14 @@
     <KlassListSubclassEnabled>
         <item>
             <key>
+                <string>Inventor</string>
+            </key>
+            <value>
+                <ArrayOfString/>
+            </value>
+        </item>
+        <item>
+            <key>
                 <string>Barbarian</string>
             </key>
             <value>
@@ -635,14 +643,6 @@
         <item>
             <key>
                 <string>Wizard</string>
-            </key>
-            <value>
-                <ArrayOfString/>
-            </value>
-        </item>
-        <item>
-            <key>
-                <string>Inventor</string>
             </key>
             <value>
                 <ArrayOfString/>

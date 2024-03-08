@@ -6,45 +6,45 @@ Gain additional effects when bound to a creature. When bound to Imp gain greater
 
 You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 
-# 3. - Breaker and Banisher
+# 3. - Bond of The Talisman
+
+You can use Bonus Action to teleport up to 30 ft away to an unoccupied space you can see.
+
+# 4. - Breaker and Banisher
 
 You can cast Dispel Evil and Good using your pact slot once per long rest.
 
-# 4. - Breath of the Night
+# 5. - Breath of the Night
 
 You can cast Fog Cloud at will, without expending a spell slot.
 
-# 5. - Call of the Beast
+# 6. - Call of the Beast
 
 You can cast Conjure Animals using your pact slot once per long rest.
 
-# 6. - Chilling Blast
+# 7. - Chilling Blast
 
 You can change the damage type of the eldritch blast to cold damage instead of force damage.
 
-# 7. - Cloak of Flies
+# 8. - Cloak of Flies
 
 As a bonus action, you can surround yourself with a magical aura that looks like buzzing flies. The aura extends 5 feet from you in every direction, but not through total cover. It lasts until you're incapacitated or you dismiss it as a bonus action. The aura grants you advantage on Charisma (Intimidation) checks but disadvantage on all other Charisma checks. Any other creature that starts its turn in the aura takes poison damage equal to your Charisma modifier. Once you use this invocation, you can't use it again until you finish a short or long rest.
 
-# 8. - Corrosive Blast
+# 9. - Corrosive Blast
 
 You can change the damage type of the eldritch blast to acid damage instead of force damage.
 
-# 9. - Discerning Gaze
+# 10. - Discerning Gaze
 
 You can cast Detect Evil and Good without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 
-# 10. - Eldritch Mind
+# 11. - Eldritch Mind
 
 You have advantage on Constitution saving throws that you make to maintain your concentration on a spell.
 
-# 11. - Eldritch Smite
+# 12. - Eldritch Smite
 
 Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot, and you knock the target prone if it is Huge or smaller.
-
-# 12. - Eldritch Step
-
-You can use Bonus Action to teleport up to 30 ft away to an unoccupied space you can see.
 
 # 13. - Fiery Blast
 
@@ -86,37 +86,37 @@ When you hit a creature with your eldritch blast, you can reduce that creature's
 
 As a bonus action, you cause a psychic disturbance around the target cursed by your Malediction spell, Bestow Curse spell, Sign of Ill Omen invocation, or Soul Hex feature. When you do so, you deal psychic damage to the cursed target and each creature of your choice within 5 feet of it. The psychic damage equals your Charisma modifier. To use this invocation, you must be able to see the cursed target, and it must be within 30 feet of you.
 
-# 23. - Necrotic Blast
+# 23. - Mire the Mind
+
+You can cast Slow without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
+
+# 24. - Necrotic Blast
 
 You can change the damage type of the eldritch blast to necrotic damage instead of force damage.
 
-# 24. - Poisonous Blast
+# 25. - Poisonous Blast
 
 You can change the damage type of the eldritch blast to poison damage instead of force damage.
 
-# 25. - Psychic Blast
+# 26. - Psychic Blast
 
 You can change the damage type of the eldritch blast to psychic damage instead of force damage.
 
-# 26. - Radiant Blast
+# 27. - Radiant Blast
 
 You can change the damage type of the eldritch blast to radiant damage instead of force damage.
 
-# 27. - Relentless Hex
+# 28. - Relentless Hex
 
 Your curse creates a temporary bond between you and your target. As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see within 5 feet of the target cursed by your Malediction spell, Bestow Curse spell, Sign of Ill Omen invocation, or Soul Hex feature. To teleport in this way, you must be able to see the cursed target.
 
-# 28. - Shroud of Shadow
+# 29. - Shroud of Shadow
 
 You can cast Invisibility at will, without expending a spell slot.
 
-# 29. - Spectral Shield
+# 30. - Spectral Shield
 
 You can cast Shield of Faith without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
-
-# 30. - Stasis
-
-You can cast Slow without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
 
 # 31. - Superior Pact Weapon
 

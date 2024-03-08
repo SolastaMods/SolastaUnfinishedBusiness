@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "AddAbilityScoreBonus",
-  "modifierValue": 1,
-  "modifierAbilityScore": "Intelligence",
+  "modifierOperation": "AddConditionAmount",
+  "modifierValue": 0,
+  "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
-  "minimum1": true,
+  "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

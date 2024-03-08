@@ -21,7 +21,7 @@ UPDATED CODE BASE TO GAME VERSION 1.5.97
 - improved Path of the Elements elemental fury feature description
 - improved Ranger Wildmaster subclass [RESPEC is required]
 
-- removed Polearm Expert and Sentinel from fighting styles offering
+- removed Monastic Shield Training, Polearm Expert and Sentinel from fighting styles offering
 - removed Ranger Survivalist favored enemy choice feature from level 15th
 - removed Resuscitate power from healer feat
 - removed Ring Mail items and respective recipes [RESPEC is required]
