@@ -20,19 +20,26 @@ internal static class InvocationsContext
 
     internal static void LateLoad()
     {
+        // kept for backward compatibility
+        _ = BuildBreathOfTheNight();
+        _ = BuildChillingBlast();
+        _ = BuildCorrosiveBlast();
+        _ = BuildFieryBlast();
+        _ = BuildFulminateBlast();
+        _ = BuildNecroticBlast();
+        _ = BuildPoisonousBlast();
+        _ = BuildPsychicBlast();
+        _ = BuildRadiantBlast();
+        _ = BuildThunderBlast();
+
         LoadInvocation(BuildAbilitiesOfTheChainMaster());
         LoadInvocation(BuildAspectOfTheMoon());
         LoadInvocation(BuildBondOfTheTalisman());
         LoadInvocation(BuildBreakerAndBanisher());
-        LoadInvocation(BuildBreathOfTheNight());
         LoadInvocation(BuildCallOfTheBeast());
-        LoadInvocation(BuildChillingBlast());
-        LoadInvocation(BuildCorrosiveBlast());
         LoadInvocation(BuildDiscerningGaze());
         LoadInvocation(BuildEldritchMind());
         LoadInvocation(BuildEldritchSmite());
-        LoadInvocation(BuildFieryBlast());
-        LoadInvocation(BuildFulminateBlast());
         LoadInvocation(BuildGiftOfTheEverLivingOnes());
         LoadInvocation(BuildGiftOfTheHunter());
         LoadInvocation(BuildGiftOfTheProtectors());
@@ -41,17 +48,12 @@ internal static class InvocationsContext
         LoadInvocation(BuildImprovedPactWeapon());
         LoadInvocation(BuildInexorableHex());
         LoadInvocation(BuildKinesis());
-        LoadInvocation(BuildNecroticBlast());
         LoadInvocation(BuildPerniciousCloak());
-        LoadInvocation(BuildPoisonousBlast());
-        LoadInvocation(BuildPsychicBlast());
-        LoadInvocation(BuildRadiantBlast());
         LoadInvocation(BuildShroudOfShadow());
         LoadInvocation(BuildSpectralShield());
         LoadInvocation(BuildStasis());
         LoadInvocation(BuildSuperiorPactWeapon());
         LoadInvocation(BuildTenaciousPlague());
-        LoadInvocation(BuildThunderBlast());
         LoadInvocation(BuildTombOfFrost());
         LoadInvocation(BuildTrickstersEscape());
         LoadInvocation(BuildUltimatePactWeapon());

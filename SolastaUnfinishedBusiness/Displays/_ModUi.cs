@@ -31,7 +31,7 @@ internal static class ModUi
     internal const int DontDisplayDescription = 4;
     internal const float PixelsPerColumn = 220;
 
-    private static readonly List<string> Tabletop =
+    internal static readonly List<string> Tabletop =
     [
         "AirBlast",
         "AuraOfPerseverance",
@@ -123,7 +123,6 @@ internal static class ModUi
         "InvocationEldritchMind",
         "InvocationEldritchSmite",
         "InvocationGiftOfTheEverLivingOnes",
-        "InvocationGiftOfTheHunter",
         "InvocationGiftOfTheProtectors",
         "InvocationGraspingBlast",
         "InvocationHinderingBlast",
@@ -160,6 +159,7 @@ internal static class ModUi
         "PsychicLance",
         "PsychicWhip",
         "PulseWave",
+        "RaceBattleborn",
         "RaceBolgrif",
         "RaceFairy",
         "RaceKobold",

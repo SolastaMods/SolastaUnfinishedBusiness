@@ -37,7 +37,7 @@ internal static class CreditsDisplay
             "Level 20, Lighting and Obscurement, Multiclass"),
 
         ("HiddenHax",
-            "QA master, SFX, sprites, homebrew design [" +
+            "quality assurance, SFX, sprites, homebrew design [" +
             "Circle of the Eternal Grove, " +
             "College of Swords, College of Thespian, College of Eloquence, " +
             "Martial Arcane Archer, Martial Guardian, Martial Psi Warrior, Martial Warlord, Martial Weapon Master, " +
