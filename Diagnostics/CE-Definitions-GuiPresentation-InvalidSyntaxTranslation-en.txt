@@ -887,7 +887,6 @@ InfusedReplicaRingProtection+1	Title='Replica Ring of Protection +1'.
 InfusedReplicaSlippersOfSpiderClimbing	Title='Replica Slippers of Spider Climbing'.
 InfusedReplicaWandOfIdentify	Title='Replica Wand of Identify'.
 InfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
-InvocationUndyingServitude	Description='You can cast <b>Raise Skeletal Enforcer</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.'.
 PointPool1BonusFeats	Title='1 Bonus Feats'.
 PointPool1BonusFeats	Description='Select 1 additional feats for your character.'.
 PointPool2BonusFeats	Title='2 Bonus Feats'.

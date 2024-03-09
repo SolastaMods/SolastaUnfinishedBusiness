@@ -4,7 +4,7 @@
   "requiredLevel": 9,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:SpectralShield:89a37e11-e933-5dba-bac5-e46fbfa1b509",
+  "grantedSpell": "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
