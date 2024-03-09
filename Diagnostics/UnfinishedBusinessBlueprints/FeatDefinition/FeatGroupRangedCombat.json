@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupRangedCombatTitle",
-    "description": "Arcane Archer Adept, Bow Mastery, Crossbow Expert, Crossbow Mastery, Discretion of the Coedymwarth, Intuitive Archery, Piercer, Sharpshooter, Steady Aim, Take Aim, Uncanny Accuracy",
+    "description": "Bow Mastery, Crossbow Expert, Crossbow Mastery, Discretion of the Coedymwarth, Intuitive Archery, Piercer, Sharpshooter, Take Aim, Uncanny Accuracy",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

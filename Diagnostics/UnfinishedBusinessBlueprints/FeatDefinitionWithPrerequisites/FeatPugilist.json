@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FightingStyle",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ProficiencyFeatPugilist:a213f59d-9130-5168-a0ac-0ae7f54fcdb1"

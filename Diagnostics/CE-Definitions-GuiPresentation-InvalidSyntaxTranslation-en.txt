@@ -737,7 +737,7 @@ FeatGroupAgilityCombat	Description='Cunning Escape, Dragon Wings, Eager for Batt
 FeatGroupAlchemist	Description='Initiate Alchemist, Master Alchemist'.
 FeatGroupApothecary	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and medicine, or expertise if already proficient.'.
-FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Might of the Iron Legion, Moderately Armored, Moderately Armored, Sturdiness of the Tundra'.
+FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor Master, Might of the Iron Legion, Moderately Armored, Sturdiness of the Tundra'.
 FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
 FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hauler, Robust, Tough'.
@@ -763,7 +763,7 @@ FeatGroupFadeAway	Description='You have learned a magical trick for fading away 
 FeatGroupFightingStyle	Description='Archery, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Merciless, Protection, Pugilist, Rope it Up, Shield Expert, Superior Technique, Torchbearer, Two Weapon Fighting'.
 FeatGroupFlameTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.'.
-FeatGroupGeneralAdept	Description='Arcane Archer Adept, Battlemaster Adept, Eldritch Adept, Eldritch Versatility Adept, Fighting Style Adept, Infusion Adept, Metamagic Adept'.
+FeatGroupGeneralAdept	Description='Eldritch Adept, Metamagic Adept'.
 FeatGroupHalfAttributes	Description='Half Charisma, Half Constitution, Half Dexterity, Half Intelligence, Half Strength, Half Wisdom'.
 FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
 FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Sturdiness of the Tundra'.
@@ -789,7 +789,7 @@ FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.'.
 FeatGroupPrimalRage	Description='Increase your Strength or Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.'.
 FeatGroupRaceBound	Description='Dragon Wings, Elven Accuracy, Fade Away, Infernal Constitution, Revenant Blade, Squat Nimbleness'.
-FeatGroupRangedCombat	Description='Arcane Archer Adept, Bow Mastery, Crossbow Expert, Crossbow Mastery, Discretion of the Coedymwarth, Intuitive Archery, Piercer, Sharpshooter, Steady Aim, Take Aim, Uncanny Accuracy'.
+FeatGroupRangedCombat	Description='Bow Mastery, Crossbow Expert, Crossbow Mastery, Discretion of the Coedymwarth, Intuitive Archery, Piercer, Sharpshooter, Take Aim, Uncanny Accuracy'.
 FeatGroupRetinueTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.'.
 FeatGroupRevenantGreatSword	Description='You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:

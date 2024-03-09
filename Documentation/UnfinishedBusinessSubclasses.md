@@ -1397,9 +1397,9 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-## 3. Battlemaster
+## 3. Battle Master
 
-For battlemasters, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
+For battle masters, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
 
 
 ### Level 3

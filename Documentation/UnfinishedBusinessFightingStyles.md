@@ -41,8 +41,8 @@ You have trained in the use of a shield as a weapon. It becomes a melee weapon t
 # 11. - Superior Technique
 
 You have martial training that allows you to perform special combat techniques called maneuvers:
-• You learn one maneuver of your choice from the Battlemaster subclass. The Maneuver DC of these maneuvers is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
-• You gain 1 Superiority Die. The die is a d6 and it doesn't increase in size if you are not a Battlemaster. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
+• You learn one maneuver of your choice from the Battle Master subclass. The Maneuver DC of these maneuvers is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
+• You gain 1 Superiority Die. The die is a d6 and it doesn't increase in size if you are not a Battle Master. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
 
 # 12. - Torchbearer
 
