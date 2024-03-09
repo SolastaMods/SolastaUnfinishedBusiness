@@ -37,23 +37,25 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var featArcaneArcherAdept = BuildArcaneArcherAdept();
+        // kept for backward compatibility
+        _ = BuildArcaneArcherAdept();
+        _ = BuildInfusionsAdept();
+        _ = BuildTacticianAdept();
+        _ = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
+
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
         var featFrostAdaptation = BuildFrostAdaptation();
         var featHealer = BuildHealer();
-        var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
         var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
-        var featTacticianAdept = BuildTacticianAdept();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
-        // Static build elsewhere for convenience
-        var featEldritchVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
+
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
@@ -61,34 +63,18 @@ internal static class OtherFeats
         BuildMagicInitiate(feats);
 
         feats.AddRange(
-            featArcaneArcherAdept,
             featAstralArms,
             featEldritchAdept,
-            featEldritchVersatilityAdept,
             featFrostAdaptation,
             featHealer,
-            featInfusionAdept,
             featInspiringLeader,
             featMetamagicAdept,
             featMobile,
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
-            featTacticianAdept,
             featTough,
             featWarCaster);
-
-        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
-            featAstralArms,
-            featMonkInitiate,
-            featPoisonousSkin);
-
-        GroupFeats.FeatGroupSupportCombat.AddFeats(
-            featHealer,
-            featInspiringLeader);
-
-        GroupFeats.FeatGroupRangedCombat.AddFeats(
-            featArcaneArcherAdept);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
             featMobile);
@@ -99,14 +85,14 @@ internal static class OtherFeats
             featWarCaster,
             spellSniperGroup);
 
-        GroupFeats.FeatGroupGeneralAdept.AddFeats(
-            featArcaneArcherAdept,
-            featEldritchAdept,
-            featInfusionAdept,
-            featMetamagicAdept,
-            featTacticianAdept,
-            featEldritchVersatilityAdept
-        );
+        GroupFeats.FeatGroupSupportCombat.AddFeats(
+            featHealer,
+            featInspiringLeader);
+
+        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
+            featAstralArms,
+            featMonkInitiate,
+            featPoisonousSkin);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -118,6 +104,10 @@ internal static class OtherFeats
             FeatDefinitions.Robust,
             featTough,
             featFrostAdaptation);
+
+        GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
+            featEldritchAdept,
+            featMetamagicAdept);
 
         GroupFeats.MakeGroup("FeatGroupSkills", null,
             FeatDefinitions.ArcaneAppraiser,
@@ -132,7 +122,7 @@ internal static class OtherFeats
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatArcaneArcherAdept")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
                 MartialArcaneArcher.PowerArcaneShot,
                 MartialArcaneArcher.InvocationPoolArcaneShotChoice2,
@@ -190,7 +180,7 @@ internal static class OtherFeats
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatTacticianAdept")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
                 GambitsBuilders.GambitPool,
                 GambitsBuilders.Learn2Gambit,
@@ -207,7 +197,7 @@ internal static class OtherFeats
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatInfusionsAdept")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
                 InventorClass.InfusionPool,
                 InventorClass.BuildLearn(2, "FeatInfusionsAdept"),

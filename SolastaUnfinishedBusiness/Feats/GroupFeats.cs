@@ -36,12 +36,6 @@ internal static class GroupFeats
         IcyTouch,
         MeltingTouch);
 
-    internal static FeatDefinition FeatGroupFightingStyle { get; } = MakeGroup("FeatGroupFightingStyle", null);
-
-    internal static FeatDefinition FeatGroupGeneralAdept { get; } = MakeGroup("FeatGroupGeneralAdept",
-        null,
-        FeatGroupFightingStyle);
-
     internal static FeatDefinition FeatGroupPiercer { get; } = MakeGroup("FeatGroupPiercer", Piercer);
 
     internal static FeatDefinition FeatGroupMeleeCombat { get; } = MakeGroup("FeatGroupMeleeCombat", null);

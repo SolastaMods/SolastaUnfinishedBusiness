@@ -82,7 +82,7 @@ internal static class EldritchVersatilityBuilders
 
     public static readonly FeatDefinition FeatEldritchVersatilityAdept = FeatDefinitionBuilder
         .Create($"Feat{Name}Adept")
-        .SetGuiPresentation(Category.Feat)
+        .SetGuiPresentation(Category.Feat, hidden: true)
         .AddFeatures(Learn1Versatility)
         .AddCustomSubFeatures(new EldritchVersatilityAdeptCustom())
         .AddToDB();
