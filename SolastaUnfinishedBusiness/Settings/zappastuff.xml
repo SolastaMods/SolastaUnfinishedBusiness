@@ -3,8 +3,8 @@
     <DisplayModMessage>0</DisplayModMessage>
     <EnableDiagsDump>0</EnableDiagsDump>
     <SelectedTab>0</SelectedTab>
-    <DisplayRacesToggle>true</DisplayRacesToggle>
-    <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
+    <DisplayRacesToggle>false</DisplayRacesToggle>
+    <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
     <DisplayFeatsToggle>false</DisplayFeatsToggle>
     <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
     <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -985,51 +985,41 @@
         <string>FeatGroupAegisTouched</string>
         <string>FeatAlwaysReady</string>
         <string>FeatGroupApothecary</string>
-        <string>FeatArcaneArcherAdept</string>
         <string>FeatArcaneDefense</string>
         <string>FeatArcanePrecision</string>
-        <string>FeatArchery</string>
         <string>FeatAstralArms</string>
         <string>FeatGroupAwakenTheBeastWithin</string>
-        <string>FeatTacticianAdept</string>
         <string>FeatBladeMastery</string>
         <string>FeatGroupBlessedSoul</string>
-        <string>FeatBlindFighting</string>
         <string>FeatBowMastery</string>
         <string>FeatCallForCharge</string>
         <string>FeatGroupCelestialTouched</string>
         <string>FeatCharismaticDefense</string>
         <string>FeatCharismaticPrecision</string>
-        <string>FeatHandAndAHalf</string>
         <string>FeatGroupCloseQuarters</string>
-        <string>FeatCrippling</string>
         <string>FeatRangedExpert</string>
         <string>FeatCrossbowMastery</string>
         <string>FeatGroupCrusher</string>
         <string>FeatCunningEscape</string>
-        <string>FeatDefense</string>
         <string>FeatDefensiveDuelist</string>
         <string>FeatDevastatingStrikes</string>
         <string>FeatDragonWings</string>
         <string>FeatDualFlurry</string>
         <string>FeatDualWeaponDefense</string>
-        <string>FeatDueling</string>
         <string>FeatEldritchAdept</string>
-        <string>FeatEldritchVersatilityAdept</string>
         <string>FeatGroupElementalAdept</string>
         <string>FeatGroupElementalMaster</string>
         <string>FeatGroupElementalTouch</string>
         <string>FeatGroupElvenAccuracy</string>
-        <string>FeatExecutioner</string>
         <string>FeatExpandTheHunt</string>
         <string>FeatExploiter</string>
         <string>FeatGroupFadeAway</string>
         <string>FeatFellHanded</string>
         <string>FeatFencer</string>
         <string>FeatGroupTeleportation</string>
+        <string>FeatGroupFightingStyle</string>
         <string>FeatGroupFlameTouched</string>
         <string>FeatFrostAdaptation</string>
-        <string>FeatGreatWeapon</string>
         <string>FeatCleavingAttack</string>
         <string>FeatHammerThePoint</string>
         <string>FeatGroupHardy</string>
@@ -1037,18 +1027,14 @@
         <string>FeatHeavyArmorMaster</string>
         <string>FeatImprovedCritical</string>
         <string>FeatInfernalConstitution</string>
-        <string>FeatInfusionsAdept</string>
         <string>FeatInspiringLeader</string>
-        <string>FeatInterception</string>
         <string>FeatZenArcher</string>
         <string>FeatGroupIridescentTouched</string>
         <string>FeatLongswordFinesse</string>
-        <string>FeatLunger</string>
         <string>FeatGroupMagicInitiate</string>
-        <string>FeatMerciless</string>
+        <string>FeatMediumArmorMaster</string>
         <string>FeatMetamagicAdept</string>
         <string>FeatMobile</string>
-        <string>FeatMediumArmorMaster</string>
         <string>FeatGroupMediumArmor</string>
         <string>FeatMonkShieldExpert</string>
         <string>FeatMonkInitiate</string>
@@ -1064,18 +1050,14 @@
         <string>FeatPowerAttack</string>
         <string>FeatGroupPrecisionFocused</string>
         <string>FeatGroupPrimalRage</string>
-        <string>FeatProtection</string>
-        <string>FeatPugilist</string>
         <string>FeatRecklessAttack</string>
         <string>FeatGroupRetinueTouched</string>
         <string>FeatGroupRevenantGreatSword</string>
-        <string>FeatRopeItUp</string>
         <string>FeatSavageAttack</string>
         <string>FeatCraftyScriber</string>
         <string>FeatSentinel</string>
         <string>FeatGroupShadowTouched</string>
         <string>FeatDeadeye</string>
-        <string>FeatShieldExpert</string>
         <string>FeatShieldTechniques</string>
         <string>FeatGroupSlasher</string>
         <string>FeatSlayTheEnemies</string>
@@ -1083,14 +1065,10 @@
         <string>FeatGroupSpellSniper</string>
         <string>FeatSpiritualFluidity</string>
         <string>FeatGroupSquatNimbleness</string>
-        <string>FeatSteadyAim</string>
         <string>FeatSuperiorCritical</string>
-        <string>FeatRemarkableTechnique</string>
         <string>FeatGroupTelekinetic</string>
-        <string>FeatTorchbearer</string>
         <string>FeatTough</string>
         <string>FeatGroupToxicologist</string>
-        <string>FeatTwoWeapon</string>
         <string>FeatGroupDefenseExpert</string>
         <string>FeatGroupVerdantTouched</string>
         <string>FeatWarCaster</string>
@@ -1115,7 +1093,6 @@
         <string>FeatGroupCreed</string>
         <string>FeatGroupCriticalVirtuoso</string>
         <string>FeatGroupEnchanter</string>
-        <string>FeatGroupFightingStyle</string>
         <string>FeatGroupGeneralAdept</string>
         <string>FeatGroupHalfAttributes</string>
         <string>FeatGroupHalfCharisma</string>
