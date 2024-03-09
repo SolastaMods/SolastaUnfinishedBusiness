@@ -52,6 +52,8 @@ internal sealed class Interception : AbstractFightingStyle
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
     [
         CharacterContext.FightingStyleChoiceBarbarian,
+        CharacterContext.FightingStyleChoiceMonk,
+        CharacterContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,

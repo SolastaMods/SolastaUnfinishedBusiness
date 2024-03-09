@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
@@ -22,6 +21,5 @@ internal class MonkShieldExpert : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
-        [CharacterContext.FightingStyleChoiceMonk];
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => [];
 }

@@ -32,6 +32,7 @@ internal sealed class Lunger : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
     [
+        CharacterContext.FightingStyleChoiceBarbarian,
         CharacterContext.FightingStyleChoiceMonk,
         CharacterContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,

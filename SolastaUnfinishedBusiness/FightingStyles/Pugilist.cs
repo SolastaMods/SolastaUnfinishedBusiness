@@ -36,6 +36,7 @@ internal sealed class Pugilist : AbstractFightingStyle
     [
         CharacterContext.FightingStyleChoiceBarbarian,
         CharacterContext.FightingStyleChoiceMonk,
+        CharacterContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStyleRanger

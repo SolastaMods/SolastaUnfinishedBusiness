@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 using static SolastaUnfinishedBusiness.Models.CustomWeaponsContext;
 
@@ -36,8 +35,5 @@ internal sealed class PolearmExpert : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
-    [
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
-    ];
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => [];
 }
