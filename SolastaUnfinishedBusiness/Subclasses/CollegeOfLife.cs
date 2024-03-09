@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
@@ -205,10 +204,10 @@ public sealed class CollegeOfLife : AbstractSubclass
         var allSpells = SpellListDefinitions.SpellListAllSpells
             .SpellsByLevel
             .SelectMany(x => x.Spells);
-        
+
         AddSpells(allSpells);
         AddSpells(WizardDeadMaster.DeadMasterSpells);
-        
+
         return;
 
         static void AddSpells(IEnumerable<SpellDefinition> spells)

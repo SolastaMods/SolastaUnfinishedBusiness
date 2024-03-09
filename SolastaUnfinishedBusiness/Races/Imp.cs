@@ -216,7 +216,7 @@ internal static class RaceImpBuilder
             {
                 yield break;
             }
-            
+
             if (action.AttackRoll != 0 &&
                 action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
@@ -236,7 +236,7 @@ internal static class RaceImpBuilder
             string damageType = DamageTypeBludgeoning)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
-            
+
             if (!rulesetAttacker.IsToggleEnabled(ImpishWrathToggle))
             {
                 yield break;
@@ -253,9 +253,9 @@ internal static class RaceImpBuilder
             {
                 yield break;
             }
-            
+
             var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
-            
+
             rulesetAttacker.UsePower(usablePower);
 
             var bonusDamage = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);

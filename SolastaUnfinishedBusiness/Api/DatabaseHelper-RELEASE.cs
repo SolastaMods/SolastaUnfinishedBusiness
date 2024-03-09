@@ -991,7 +991,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionAttackModifier AttackModifierFeatAmbidextrous { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFeatAmbidextrous");
-        
+
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleArchery { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleArchery");
 

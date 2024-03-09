@@ -90,11 +90,11 @@ internal static class Main
 
             Enable = () =>
             {
-                //var finished = DateTime.Now;
+                var finished = DateTime.Now;
 
                 new MenuManager().Enable(modEntry, assembly);
                 LoadSettingFilenames();
-                //ModEntry.Logger.Log($"enabled in {finished - now:T}.");
+                ModEntry.Logger.Log($"enabled in {finished - now:T}.");
 
                 Enabled = true;
             };

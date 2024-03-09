@@ -31,6 +31,7 @@ internal static class AiContext
         {
             BuildDecisionBreakFreeFromCondition(condition, DoNothing);
         }
+
         foreach (var condition in DoStrengthCheckCasterDCConditions)
         {
             BuildDecisionBreakFreeFromCondition(condition, DoStrengthCheckCasterDC);

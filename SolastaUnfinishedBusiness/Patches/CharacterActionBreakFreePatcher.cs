@@ -53,13 +53,13 @@ public static class CharacterActionBreakFreePatcher
             var checkDC = 10;
             var sourceGuid = restrainingCondition.SourceGuid;
             var conditionName = restrainingCondition.ConditionDefinition.Name;
-            
+
             if (AiContext.DoNothingConditions.Contains(conditionName))
             {
                 __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
                 yield break;
             }
-            
+
             if (AiContext.DoStrengthCheckCasterDCConditions.Contains(conditionName))
             {
                 if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
