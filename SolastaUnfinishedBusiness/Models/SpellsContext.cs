@@ -205,7 +205,7 @@ internal static class SpellsContext
         AllowAssigningOfficialSpells();
 
         // Dead Master Spells
-        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
+        // WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
