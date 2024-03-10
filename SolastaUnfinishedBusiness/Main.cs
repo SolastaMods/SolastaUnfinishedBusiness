@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
@@ -10,9 +11,6 @@ using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness;
 
-//#if DEBUG
-//[EnableReloading]
-//#endif
 internal static class Main
 {
     internal static readonly string ModFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -66,17 +64,19 @@ internal static class Main
     [UsedImplicitly]
     internal static bool Load([NotNull] UnityModManager.ModEntry modEntry)
     {
+        ModEntry = modEntry;
+
         var now = DateTime.Now;
+        var assembly = Assembly.GetExecutingAssembly();
+        var harmonyVersion = Assembly.GetAssembly(typeof(HarmonyPatch)).GetName().Version;
+
+        if (harmonyVersion.ToString() != "2.2.2.0" || !assembly.FullName.Contains("1.5.97.0"))
+        {
+            return false;
+        }
 
         try
         {
-            var assembly = Assembly.GetExecutingAssembly();
-
-            ModEntry = modEntry;
-#if DEBUG
-            modEntry.OnUnload = Unload;
-#endif
-
             Mod = new ModManager<Core, Settings>();
             Mod.Enable(modEntry, assembly);
 
@@ -109,13 +109,6 @@ internal static class Main
 
         return true;
     }
-#if DEBUG
-    private static bool Unload(UnityModManager.ModEntry modEntry)
-    {
-        Mod.Unload();
-        return true;
-    }
-#endif
 
     internal static void LoadSettingFilenames()
     {

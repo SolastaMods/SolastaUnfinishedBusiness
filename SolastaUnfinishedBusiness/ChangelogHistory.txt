@@ -1,6 +1,6 @@
 1.5.97.0:
 
-UPDATED CODE BASE TO GAME VERSION 1.5.97
+ATTENTION: latest UMM compatible version is 0.27.10. DON'T USE ANYTHING ABOVE
 
 - added Longsword, Mace, and Shortsword items and respective recipes 
 - added Ranger Gloom Stalker subclass
@@ -10,16 +10,17 @@ UPDATED CODE BASE TO GAME VERSION 1.5.97
 - fixed custom level up granting logic under multiclass scenarios [i.e.: Zen of Archery]
 - fixed Devoted, Militia, and Troublemaker backgrounds interaction with flexible backgrounds
 - fixed Fell Handed feat disadvantage reroll not using highest dice roll
+- fixed Path of Elements elemental burst causing a mod instability
 - fixed summons during combat loosing the selected position and falling
 - fixed Wildling feral agility feature tired condition removal logic
-- fixed Wizard Deadmaster necromancy bonus DC feature missing 4 spells
+- fixed Wizard Dead Master necromancy bonus DC feature missing 4 spells
 
 - improved Crusher feat to not require a modal on trigger
 - improved Force Knight kinetic barrier feature modal description
 - improved Imp impish wrath feature to not require a modal on trigger
 - improved Oath of Altruism spiritual shielding feature modal description
 - improved Path of the Elements elemental fury feature description
-- improved Ranger Wildmaster subclass [RESPEC is required]
+- improved Ranger Wild Master subclass [RESPEC is required]
 
 - removed Ring Mail items and respective recipes [RESPEC is required]
 - replaced Ranger Sky Warrior swift strike at 7th with ghostly howl
