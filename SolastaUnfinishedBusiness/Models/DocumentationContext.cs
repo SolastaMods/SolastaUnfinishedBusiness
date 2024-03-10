@@ -207,7 +207,7 @@ internal static class DocumentationContext
 
             if (ModUi.Tabletop.Contains(title))
             {
-                title = $"*{title}*";
+                title = $"*{title}* \u00a9"; // copyright symbol
             }
 
             outString.AppendLine($"## {counter++}. {title}");
@@ -259,7 +259,7 @@ internal static class DocumentationContext
 
             if (ModUi.Tabletop.Contains(title))
             {
-                title = $"*{title}*";
+                title = $"*{title}* \u00a9";
             }
 
             outString.AppendLine($"# {counter++}. - {title}");
@@ -315,7 +315,7 @@ internal static class DocumentationContext
 
             if (ModUi.Tabletop.Contains(featureDefinition.Name))
             {
-                title = $"*{title}*";
+                title = $"*{title}* \u00a9";
             }
 
             var description = LazyManStripXml(featureDefinition.FormatDescription());

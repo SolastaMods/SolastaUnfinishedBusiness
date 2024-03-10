@@ -1,4 +1,4 @@
-# 1. - *Blind Fighting*
+# 1. - *Blind Fighting* ©
 
 You have blind sight with a range of 10 ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 
@@ -14,7 +14,7 @@ Upon hitting with a melee attack, you can reduce the speed of your opponents by 
 
 You add your proficiency bonus to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 
-# 5. - *Interception*
+# 5. - *Interception* ©
 
 When a creature you can see hits a target, other than you, within 5 feet of you with an attack, you can use your reaction to reduce the damage the target takes by 1d10 + your proficiency bonus. You must wield a shield or a simple or martial weapon to use this reaction.
 
@@ -38,7 +38,7 @@ Your thrown strikes get +1 to attack and damage rolls, you increase both it's lo
 
 You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 
-# 11. - *Superior Technique*
+# 11. - *Superior Technique* ©
 
 You have martial training that allows you to perform special combat techniques called maneuvers:
 • You learn one maneuver of your choice from the Battle Master subclass. The Maneuver DC of these maneuvers is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.

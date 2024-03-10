@@ -316,7 +316,7 @@ internal static class ModUi
                         }
                         else if (isTabletop)
                         {
-                            title = title.Bold().Italic().Orange();
+                            title = title.Color("#D89555").Bold() + " \u00a9".Grey(); // copyright symbol
                         }
 
                         toggle = selectedDefinitions.Contains(definition.Name);
