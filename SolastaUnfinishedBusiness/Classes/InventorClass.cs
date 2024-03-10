@@ -94,7 +94,7 @@ internal static class InventorClass
 
             .SetGuiPresentation(
                 Category.Class,
-                Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576),
+                Sprites.GetSprite(ClassName, Resources.Inventor, 1024, 576),
                 hidden: true)
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
             .SetPictogram(Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128));

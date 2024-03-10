@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Interfaces;
 using static RuleDefinitions;
@@ -103,7 +104,7 @@ internal static class LevelUpContext
 
         levelUpData.GrantedItems = [];
 
-        DatabaseHelper.TryGetDefinition<CharacterClassDefinition>("Inventor", out var inventorClass);
+        DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(InventorClass.ClassName, out var inventorClass);
 
         // Holy Symbol
         var required = (
