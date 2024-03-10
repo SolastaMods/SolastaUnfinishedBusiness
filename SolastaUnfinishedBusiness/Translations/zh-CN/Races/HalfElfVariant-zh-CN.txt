@@ -2,5 +2,5 @@ Race/&RaceHalfElfDarkDescription=半暗精灵是黑暗精灵的后代，他们�
 Race/&RaceHalfElfDarkTitle=半暗精灵
 Race/&RaceHalfElfHighDescription=半高精灵很早就受过使用魔法的训练。
 Race/&RaceHalfElfHighTitle=半高精灵
-Race/&RaceHalfElfSylvanDescription=半森精灵受过在野外生存的训练，精通野外求生。由于他们具有森林精灵的血统，所以从小就接受过剑与弓的训练。
+Race/&RaceHalfElfSylvanDescription=半森精灵受过在野外生存的训练，精通野外求生。由于他们具有森精灵的血统，所以从小就接受过剑与弓的训练。
 Race/&RaceHalfElfSylvanTitle=半森精灵
