@@ -496,37 +496,3 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         attackModes.Add(attackMode);
     }
 }
-
-internal sealed class AddExtraFlurryOfArrowsAttack()
-    : AddExtraAttackBase(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasBowWithoutArmor)
-{
-    protected override AttackModeOrder GetOrder(RulesetCharacter character)
-    {
-        return AttackModeOrder.Start;
-    }
-
-    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
-    {
-        if (character is not RulesetCharacterHero hero || !ValidatorsCharacter.HasBowWithoutArmor(hero))
-        {
-            return null;
-        }
-
-        var mainHandItem = hero.GetMainWeapon();
-        var attackModifiers = hero.attackModifiers;
-        var attackMode = hero.RefreshAttackMode(
-            ActionType,
-            mainHandItem!.ItemDefinition,
-            mainHandItem.ItemDefinition.WeaponDescription,
-            false,
-            true,
-            EquipmentDefinitions.SlotTypeMainHand,
-            attackModifiers,
-            hero.FeaturesOrigin,
-            mainHandItem);
-
-        attackMode.attacksNumber = 1;
-
-        return [attackMode];
-    }
-}

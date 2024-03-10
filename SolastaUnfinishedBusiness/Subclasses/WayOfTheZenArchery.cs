@@ -46,7 +46,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
             .Create($"Condition{Name}FlurryOfArrows")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new AddExtraFlurryOfArrowsAttack())
+            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus,
+                ValidatorsCharacter.HasBowWithoutArmor))
             .AddToDB();
 
         var featureFlurryOfArrows = FeatureDefinitionBuilder
@@ -203,8 +204,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
     private sealed class ModifyWeaponAttackModeUnerringPrecision(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureUnerringPrecision)
-        : IModifyWeaponAttackMode
+        FeatureDefinition featureUnerringPrecision) : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
