@@ -195,8 +195,5 @@ public static class Sprites
     internal static AssetReferenceSprite ActionGambit =>
         GetSprite("ActionGambit", Resources.ActionGambit, 80);
 
-    internal static AssetReferenceSprite ActionEldritchVersatility =>
-        GetSprite("ActionEldritchVersatility", Resources.ActionEldritchVersatility, 80);
-
     #endregion
 }

@@ -22,15 +22,5 @@ public static class SpellRepertoireLinePatcher
             //PATCH: hide reaction spells from spell panel
             spellDefinitions.RemoveAll(x => x.ActivationTime == ActivationTime.Reaction);
         }
-
-        [UsedImplicitly]
-        public static void Postfix([NotNull] List<SpellDefinition> spellDefinitions, SpellRepertoireLine __instance)
-        {
-            //PATCH: Enable Blast Reload feature
-            var hero = __instance.caster.rulesetCharacter;
-
-            hero?.GetSubFeaturesByType<PatronEldritchSurge.IQualifySpellToRepertoireLine>()
-                .ForEach(f => f.QualifySpells(hero, __instance, spellDefinitions));
-        }
     }
 }

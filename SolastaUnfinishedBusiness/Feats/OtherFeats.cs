@@ -42,7 +42,6 @@ internal static class OtherFeats
         _ = BuildArcaneArcherAdept();
         _ = BuildInfusionsAdept();
         _ = BuildTacticianAdept();
-        _ = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
 
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();

@@ -215,12 +215,6 @@ internal class InvocationPoolTypeCustom
                 main: (Id)ExtraActionId.CastPlaneMagicMain,
                 bonus: (Id)ExtraActionId.CastPlaneMagicBonus, hidden: true);
 
-        internal static readonly InvocationPoolTypeCustom EldritchVersatilityPool =
-            Register("EldritchVersatilityPool",
-                main: (Id)ExtraActionId.EldritchVersatilityMain,
-                bonus: (Id)ExtraActionId.EldritchVersatilityBonus,
-                noCost: (Id)ExtraActionId.EldritchVersatilityNoCost);
-
         internal static IEnumerable<InvocationPoolTypeCustom> All => PrivatePools;
     }
 }

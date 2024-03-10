@@ -38,11 +38,6 @@ internal static class IconsOnPortrait
             pools.Add(PortraitPointChannelDivinity.Instance);
         }
 
-        if (character.HasAnyFeature(EldritchVersatilityBuilders.PowerEldritchVersatilityPointPool))
-        {
-            pools.Add(PortraitPointEldritchVersatility.Instance);
-        }
-
         if (character.HasAnyFeature(MartialForceKnight.PowerPsionicInitiate))
         {
             pools.Add(PortraitPointForcePoints.Instance);

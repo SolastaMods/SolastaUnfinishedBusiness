@@ -1174,14 +1174,6 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
-            if (actionType == ActionType.Bonus &&
-                (__instance.GetOriginalHero()?.HasAnyFeature(PatronEldritchSurge.FeatureBlastReload) ?? false))
-            {
-                __result = true;
-
-                return;
-            }
-
             //PATCH: update usage for power pools
             foreach (var invocation in __instance.Invocations)
             {

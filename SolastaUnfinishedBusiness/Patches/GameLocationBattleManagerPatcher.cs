@@ -1031,22 +1031,6 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return values.Current;
             }
-
-            // This also allows utilities out of battle
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var allyCharacters = gameLocationCharacterService.PartyCharacters.Select(x => x.RulesetCharacter);
-
-            foreach (var allyCharacter in allyCharacters.Where(x => x is { IsDeadOrDyingOrUnconscious: false }))
-            {
-                var magicalAttackCastedSpells = allyCharacter.GetSubFeaturesByType<IOnSpellCasted>();
-
-                foreach (var magicalAttackCastedSpell in magicalAttackCastedSpells)
-                {
-                    yield return magicalAttackCastedSpell.OnSpellCasted(
-                        allyCharacter, caster, castAction, selectEffectSpell, selectedRepertoire,
-                        selectedSpellDefinition);
-                }
-            }
         }
     }
 
