@@ -763,7 +763,7 @@ FeatGroupFadeAway	Description='You have learned a magical trick for fading away 
 FeatGroupFightingStyle	Description='Archery, Blind Fighting, Classical Swordplay, Crippling, Defense, Dueling, Executioner, Great Weapon Fighting, Interception, Lunger, Merciless, Protection, Pugilist, Rope it Up, Shield Expert, Superior Technique, Torchbearer, Two Weapon Fighting'.
 FeatGroupFlameTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.'.
-FeatGroupGeneralAdept	Description='Eldritch Adept, Metamagic Adept'.
+FeatGroupGeneralAdept	Description='Eldritch Adept, Fighting Initiate, Magic Initiate, Metamagic Adept'.
 FeatGroupHalfAttributes	Description='Half Charisma, Half Constitution, Half Dexterity, Half Intelligence, Half Strength, Half Wisdom'.
 FeatGroupHalfCharisma	Description='Aegis Touched [Cha], Apothecary [Cha], Awaken the Beast [Cha], Blessed Soul [Paladin], Celestial Touched [Cha], Charismatic Defense, Charismatic Precision, Creed of Solasta, Elven Accuracy [Cha], Fey Teleportation [Cha], Flame Touched [Cha], Iridescent Touched [Cha], Peregrination Touched [Cha], Retinue Touched [Cha], Shadow Touched [Cha], Telekinetic [Cha], Toxicologist [Cha], Verdant Touched [Cha]'.
 FeatGroupHalfConstitution	Description='Awaken the Beast [Con], Badlands Marauder, Creed of Arun, Crusher [Con], Enduring Body, Focused Sleeper, Frost Adaptation, Hard to Kill, Hardy [Con], Infernal Constitution, Primal Rage [Con], Robust, Sturdiness of the Tundra'.

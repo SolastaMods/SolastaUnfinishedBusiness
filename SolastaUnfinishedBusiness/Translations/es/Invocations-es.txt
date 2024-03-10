@@ -84,6 +84,7 @@ Invocation/&InvocationTrickstersEscapeDescription=Puedes lanzar Libertad de movi
 Invocation/&InvocationTrickstersEscapeTitle=La huida del embaucador
 Invocation/&InvocationUltimatePactWeaponDescription=Tu arma obtiene una bonificación de +1 a sus tiradas de ataque y daño.
 Invocation/&InvocationUltimatePactWeaponTitle=Arma definitiva del pacto
+Invocation/&InvocationUndyingServitudeDescription=Puedes lanzar Raise Skeletal Enforcer una vez sin usar un espacio para hechizos de brujo. No podrás volver a hacerlo hasta que termines un descanso largo.
 Invocation/&InvocationUndyingServitudeTitle=Servidumbre eterna
 Invocation/&InvocationVerdantArmorDescription=Puedes lanzar Barkskin una vez sin usar un espacio para hechizos de brujo. No podrás volver a hacerlo hasta que termines un descanso largo.
 Invocation/&InvocationVerdantArmorTitle=Armadura verdeante

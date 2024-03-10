@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -45,9 +46,11 @@ internal static class OtherFeats
 
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
+        var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
+        var featMagicInitiate = BuildMagicInitiate();
         var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
@@ -60,7 +63,10 @@ internal static class OtherFeats
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
 
-        BuildMagicInitiate(feats);
+        // building this way to keep backward compatibility
+        var featMonkShieldExpert = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
+        var featPolearmExpert = BuildFeatFromFightingStyle(PolearmExpert.PolearmExpertName);
+        var featSentinel = BuildFeatFromFightingStyle(Sentinel.SentinelName);
 
         feats.AddRange(
             featAstralArms,
@@ -68,16 +74,29 @@ internal static class OtherFeats
             featFrostAdaptation,
             featHealer,
             featInspiringLeader,
+            featMagicInitiate,
             featMetamagicAdept,
+            featMonkShieldExpert,
             featMobile,
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
+            featPolearmExpert,
+            featSentinel,
             featTough,
             featWarCaster);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
             featMobile);
+
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featMonkShieldExpert);
+
+        GroupFeats.FeatGroupMeleeCombat.AddFeats(
+            featPolearmExpert);
+
+        GroupFeats.FeatGroupTwoHandedCombat.AddFeats(
+            featPolearmExpert);
 
         GroupFeats.FeatGroupSpellCombat.AddFeats(
             elementalAdeptGroup,
@@ -87,7 +106,8 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featHealer,
-            featInspiringLeader);
+            featInspiringLeader,
+            featSentinel);
 
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             featAstralArms,
@@ -107,6 +127,8 @@ internal static class OtherFeats
 
         GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
             featEldritchAdept,
+            featFightingInitiate,
+            featMagicInitiate,
             featMetamagicAdept);
 
         GroupFeats.MakeGroup("FeatGroupSkills", null,
@@ -247,7 +269,7 @@ internal static class OtherFeats
 
     #region Magic Initiate
 
-    private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
+    private static FeatDefinition BuildMagicInitiate()
     {
         const string NAME = "FeatMagicInitiate";
 
@@ -309,9 +331,7 @@ internal static class OtherFeats
             magicInitiateFeats.Add(featMagicInitiate);
         }
 
-        GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
-
-        feats.AddRange(magicInitiateFeats);
+        return GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
     }
 
     #endregion
@@ -1123,6 +1143,58 @@ internal static class OtherFeats
 
             return effectDescription;
         }
+    }
+
+    #endregion
+
+
+    #region Fighting Initiate
+
+    private const string FightingStyle = "FightingStyle";
+
+    private static FeatDefinitionWithPrerequisites BuildFeatFromFightingStyle(string fightingStyleName)
+    {
+        var db = DatabaseRepository.GetDatabase<FightingStyleDefinition>();
+        var feat = BuildFightingStyleFeat(db.GetElement(fightingStyleName));
+
+        feat.Validators.Clear();
+        feat.familyTag = string.Empty;
+        feat.hasFamilyTag = false;
+
+        return feat;
+    }
+
+    private static FeatDefinition BuildFightingInitiate()
+    {
+        var fightingStyles = DatabaseRepository
+            .GetDatabase<FightingStyleDefinition>()
+            .Where(x => x.Name is not (
+                MonkShieldExpert.ShieldExpertName or
+                PolearmExpert.PolearmExpertName or
+                Sentinel.SentinelName))
+            .Select(BuildFightingStyleFeat)
+            .ToList();
+
+        return GroupFeats.MakeGroup("FeatGroupFightingStyle", FightingStyle, fightingStyles);
+    }
+
+    private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
+    {
+        // we need a brand new one to avoid issues with FS getting hidden
+        var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create($"Feat{fightingStyle.Name}")
+            .SetGuiPresentation(guiPresentation)
+            .SetFeatures(
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"ProficiencyFeat{fightingStyle.Name}")
+                    .SetProficiencies(ProficiencyType.FightingStyle, fightingStyle.Name)
+                    .SetGuiPresentation(guiPresentation)
+                    .AddToDB())
+            .SetFeatFamily(FightingStyle)
+            .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
+            .AddToDB();
     }
 
     #endregion
