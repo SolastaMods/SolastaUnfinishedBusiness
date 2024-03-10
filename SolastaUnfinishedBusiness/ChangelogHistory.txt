@@ -7,8 +7,10 @@ UPDATED CODE BASE TO GAME VERSION 1.5.97
 
 - fixed all cantrips enforcing save to negate any damage form on a success
 - fixed campaigns translator changing nodes tech names
+- fixed custom level up granting logic under multiclass scenarios [i.e.: Zen of Archery]
 - fixed Devoted, Militia, and Troublemaker backgrounds interaction with flexible backgrounds
 - fixed Fell Handed feat disadvantage reroll not using highest dice roll
+- fixed summons during combat loosing the selected position and falling
 - fixed Wildling feral agility feature tired condition removal logic
 - fixed Wizard Deadmaster necromancy bonus DC feature missing 4 spells
 

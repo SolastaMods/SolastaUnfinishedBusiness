@@ -153,10 +153,13 @@ public sealed class WayOfZenArchery : AbstractSubclass
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
-            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
-                "CustomInvocationMonkWeaponSpecializationShortbowType"));
-            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
-                "CustomInvocationMonkWeaponSpecializationLongbowType"));
+            const string PREFIX = "CustomInvocationMonkWeaponSpecialization";
+
+            var heroBuildingData = hero.GetHeroBuildingData();
+            var invocationShortbowType = GetDefinition<InvocationDefinition>($"{PREFIX}ShortbowType");
+            var invocationLongbowType = GetDefinition<InvocationDefinition>($"{PREFIX}LongbowType");
+
+            heroBuildingData.LevelupTrainedInvocations.Add(tag, [invocationShortbowType, invocationLongbowType]);
         }
 
         public void RemoveFeature(RulesetCharacterHero hero, string tag)

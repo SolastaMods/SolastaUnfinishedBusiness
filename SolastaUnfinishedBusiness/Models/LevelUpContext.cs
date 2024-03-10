@@ -747,9 +747,9 @@ internal static class LevelUpContext
     internal static void GrantCustomFeatures(RulesetCharacterHero hero)
     {
         var buildingData = hero.GetHeroBuildingData();
-        var level = hero.ClassesHistory.Count;
         var selectedClass = GetSelectedClass(hero);
         var selectedSubclass = GetSelectedSubclass(hero);
+        var level = hero.ClassesHistory.Count(x => x == selectedClass);
 
         foreach (var kvp in buildingData.LevelupTrainedFeats)
         {
