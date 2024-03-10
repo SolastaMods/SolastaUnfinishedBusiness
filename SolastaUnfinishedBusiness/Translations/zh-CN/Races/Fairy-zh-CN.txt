@@ -10,5 +10,5 @@ Feature/&PowerFairyFlightSproutDescription=你可以使用一个动作，使你�
 Feature/&PowerFairyFlightSproutTitle=飞行
 Feature/&ProficiencyFairyLanguagesDescription=通用语，精灵语
 Feature/&ProficiencyFairyLanguagesTitle=语言
-Race/&RaceFairyDescription=妖精荒野是许多神奇民族的家园，包括仙灵。仙子是个娇小的种族，但比起他们的皮克精和小妖精朋友们来说还算大一些。最早的仙灵说的是精灵语、地精语或森林语，与人类来访者的相遇促使他们中的许多人也学会了通用语。
+Race/&RaceFairyDescription=妖精荒野是许多神奇民族的家园，包括仙灵。仙灵是个娇小的种族，但比起他们的皮克精和小妖精朋友们来说还算大一些。最早的仙灵说的是精灵语、地精语或森林语，与人类来访者的相遇促使他们中的许多人也学会了通用语。
 Race/&RaceFairyTitle=仙灵
