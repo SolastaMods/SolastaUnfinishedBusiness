@@ -1,1 +1,1 @@
-Feature/&MartialChampionSuperiorCriticalDescription=I tuoi attacchi con le armi ottengono un colpo critico con un risultato di 18, 19 o 20.
+Feature/&MartialChampionSuperiorCriticalDescription=I tuoi attacchi con l'arma ottengono un colpo critico con un risultato di 18, 19 o 20.

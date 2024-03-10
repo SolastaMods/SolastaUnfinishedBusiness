@@ -358,7 +358,7 @@ public sealed class RoguishOpportunist : AbstractSubclass
 
             gameLocationActionManager.ReactForOpportunityAttack(reactionParams);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

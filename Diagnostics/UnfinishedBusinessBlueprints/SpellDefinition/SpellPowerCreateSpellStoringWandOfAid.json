@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Aid",
-    "description": "Create a wand that can cast <b>Aid (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "description": "Create a wand that can cast <b>Aid (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f0b4ad7b83123234f94ca22704c686f6",

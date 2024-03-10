@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "BeastCompanion",
+  "addedConditions": [
+    "Definition:ConditionRangerWildMasterBeastCompanionBearHitPoints:63ea7f68-2445-5e12-9695-f0899c39077b"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9682d15c-758f-5d27-a601-7214adec64fc",
+  "contentPack": 9999,
+  "name": "SummoningAffinityRangerWildMasterBearHitPoints"
+}

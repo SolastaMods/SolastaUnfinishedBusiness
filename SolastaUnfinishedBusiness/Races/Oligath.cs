@@ -172,7 +172,7 @@ internal static class RaceOligathBuilder
         {
             if (rulesetEffect == null)
             {
-                yield return HandlePowerStoneEndurance(defender);
+                yield return HandlePowerStoneEndurance(attacker, defender);
             }
         }
 
@@ -185,10 +185,10 @@ internal static class RaceOligathBuilder
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandlePowerStoneEndurance(defender);
+            yield return HandlePowerStoneEndurance(attacker, defender);
         }
 
-        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter defender)
+        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -231,7 +231,7 @@ internal static class RaceOligathBuilder
 
             gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
         }
     }
 }

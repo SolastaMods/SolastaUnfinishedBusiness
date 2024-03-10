@@ -62,13 +62,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .SetCancellingConditions(ConditionDefinitions.ConditionIncapacitated)
+            .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
-
-        var effectParticleParameters = PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters;
-
-        conditionBarkWard.conditionStartParticleReference = effectParticleParameters.conditionStartParticleReference;
-        conditionBarkWard.conditionParticleReference = effectParticleParameters.conditionParticleReference;
-        conditionBarkWard.conditionEndParticleReference = effectParticleParameters.conditionEndParticleReference;
 
         var conditionImprovedBarkWard = ConditionDefinitionBuilder
             .Create($"Condition{Name}ImprovedBarkWard")
@@ -83,14 +78,8 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .SetDamageAffinityType(DamageAffinityType.Immunity)
                     .SetDamageType(DamageTypePoison)
                     .AddToDB())
+            .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
-
-        conditionImprovedBarkWard.conditionStartParticleReference =
-            effectParticleParameters.conditionStartParticleReference;
-        conditionImprovedBarkWard.conditionParticleReference =
-            effectParticleParameters.conditionParticleReference;
-        conditionImprovedBarkWard.conditionEndParticleReference =
-            effectParticleParameters.conditionEndParticleReference;
 
         var powerBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"PowerSharedPool{Name}BarkWard")
@@ -121,9 +110,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetOverriddenPower(powerBarkWard)
             .AddToDB();
 
+        // kept name for backward compatibility
         var powerSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create($"PowerSharedPool{Name}SuperiorBarkWard")
-            .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost)
             .AddCustomSubFeatures(ModifyPowerVisibility.Hidden)
             .AddToDB();
@@ -282,6 +272,10 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
             };
             var damageRoll =
                 rulesetMe.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetMe, targetCharacter = rulesetAttacker, position = attacker.LocationPosition
+            };
 
             rulesetMe.LogCharacterUsedPower(powerBarkOrImprovedBarkWard);
             EffectHelpers.StartVisualEffect(me, me, PowerPatronTreeExplosiveGrowth);
@@ -289,7 +283,7 @@ public sealed class CircleOfTheForestGuardian : AbstractSubclass
                 damageRoll,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                applyFormsParams,
                 rulesetAttacker,
                 false,
                 rulesetMe.Guid,

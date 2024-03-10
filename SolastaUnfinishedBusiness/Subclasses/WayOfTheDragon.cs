@@ -785,7 +785,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
         {
             if (attackMode != null)
             {
-                yield return HandleReaction(defender);
+                yield return HandleReaction(attacker, defender);
             }
         }
 
@@ -798,7 +798,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender);
+            yield return HandleReaction(attacker, defender);
         }
 
         public IEnumerator OnPhysicalAttackFinishedOnMe(
@@ -947,24 +947,31 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             void InflictDamage(IMagicEffect magicEffect)
             {
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetCharacter,
+                    targetCharacter = rulesetAttacker,
+                    position = attacker.LocationPosition
+                };
+
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
                     damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                    applyFormsParams,
                     rulesetAttacker,
                     false,
                     rulesetCharacter.Guid,
                     false,
                     [],
                     new RollInfo(dieType, rolls, 0),
-                    true,
+                    false,
                     out _);
                 EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
             }
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter defender)
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1001,7 +1008,7 @@ public sealed class WayOfTheDragon : AbstractSubclass
 
             gameLocationActionService.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
         }
     }
 }

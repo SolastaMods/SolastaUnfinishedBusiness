@@ -371,7 +371,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
     {
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
-            GameLocationCharacter source,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
@@ -385,7 +385,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 yield break;
             }
 
-            var rulesetCharacter = source.RulesetCharacter;
+            var rulesetCharacter = defender.RulesetCharacter;
 
             if (rulesetCharacter.GetRemainingPowerUses(powerUmbralSoul) == 0)
             {
@@ -396,7 +396,7 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerUmbralSoul, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "UmbralSoul",
                 RulesetEffect = implementationManagerService
@@ -406,9 +406,9 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -419,10 +419,10 @@ public sealed class RoguishUmbralStalker : AbstractSubclass
 
             rulesetCharacter.StabilizeAndGainHitPoints(hitPoints);
 
-            EffectHelpers.StartVisualEffect(source, source, PowerDefilerMistyFormEscape,
+            EffectHelpers.StartVisualEffect(defender, defender, PowerDefilerMistyFormEscape,
                 EffectHelpers.EffectType.Caster);
             ServiceRepository.GetService<ICommandService>()?
-                .ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
+                .ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 

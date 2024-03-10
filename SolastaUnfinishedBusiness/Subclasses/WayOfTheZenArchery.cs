@@ -46,7 +46,8 @@ public sealed class WayOfZenArchery : AbstractSubclass
             .Create($"Condition{Name}FlurryOfArrows")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddCustomSubFeatures(new AddExtraFlurryOfArrowsAttack())
+            .AddCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus,
+                ValidatorsCharacter.HasBowWithoutArmor))
             .AddToDB();
 
         var featureFlurryOfArrows = FeatureDefinitionBuilder
@@ -152,10 +153,13 @@ public sealed class WayOfZenArchery : AbstractSubclass
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
-            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
-                "CustomInvocationMonkWeaponSpecializationShortbowType"));
-            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
-                "CustomInvocationMonkWeaponSpecializationLongbowType"));
+            const string PREFIX = "CustomInvocationMonkWeaponSpecialization";
+
+            var heroBuildingData = hero.GetHeroBuildingData();
+            var invocationShortbowType = GetDefinition<InvocationDefinition>($"{PREFIX}ShortbowType");
+            var invocationLongbowType = GetDefinition<InvocationDefinition>($"{PREFIX}LongbowType");
+
+            heroBuildingData.LevelupTrainedInvocations.Add(tag, [invocationShortbowType, invocationLongbowType]);
         }
 
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
@@ -203,8 +207,7 @@ public sealed class WayOfZenArchery : AbstractSubclass
 
     private sealed class ModifyWeaponAttackModeUnerringPrecision(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureUnerringPrecision)
-        : IModifyWeaponAttackMode
+        FeatureDefinition featureUnerringPrecision) : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {

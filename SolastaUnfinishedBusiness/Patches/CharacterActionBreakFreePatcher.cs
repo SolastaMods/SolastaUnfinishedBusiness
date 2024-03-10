@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -38,7 +39,6 @@ public static class CharacterActionBreakFreePatcher
                 yield break;
             }
 
-
             var actionModifier = new ActionModifier();
 
             var abilityScoreName =
@@ -52,50 +52,43 @@ public static class CharacterActionBreakFreePatcher
 
             var checkDC = 10;
             var sourceGuid = restrainingCondition.SourceGuid;
+            var conditionName = restrainingCondition.ConditionDefinition.Name;
 
-            switch (restrainingCondition.ConditionDefinition.Name)
+            if (AiContext.DoNothingConditions.Contains(conditionName))
             {
-                // BEGIN CHANGE
-                case "ConditionVileBrew":
-                case "ConditionGrappledRestrainedIceBound":
-                    __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
-                    yield break;
-                case "ConditionGrappledRestrainedSpellWeb":
-                case "ConditionRestrainedByEntangle":
+                __instance.ActingCharacter.RulesetCharacter.RemoveCondition(restrainingCondition);
+                yield break;
+            }
+
+            if (AiContext.DoStrengthCheckCasterDCConditions.Contains(conditionName))
+            {
+                if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
                 {
-                    if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
-                    {
-                        checkDC = rulesetCharacterHero.SpellRepertoires
-                            .Select(x => x.SaveDC)
-                            .Max();
-                    }
-
-                    proficiencyName = string.Empty;
-
-                    break;
+                    checkDC = rulesetCharacterHero.SpellRepertoires
+                        .Select(x => x.SaveDC)
+                        .Max();
                 }
-                // END CHANGE
-                default:
-                {
-                    if (restrainingCondition.HasSaveOverride)
-                    {
-                        checkDC = restrainingCondition.SaveOverrideDC;
-                    }
-                    else
-                    {
-                        if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetEffect entity1))
-                        {
-                            checkDC = entity1.SaveDC;
-                        }
-                        else if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterMonster entity2))
-                        {
-                            checkDC = 10 + AttributeDefinitions
-                                .ComputeAbilityScoreModifier(entity2.GetAttribute(AttributeDefinitions.Strength)
-                                    .CurrentValue);
-                        }
-                    }
 
-                    break;
+                proficiencyName = string.Empty;
+            }
+            else
+            {
+                if (restrainingCondition.HasSaveOverride)
+                {
+                    checkDC = restrainingCondition.SaveOverrideDC;
+                }
+                else
+                {
+                    if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetEffect entity1))
+                    {
+                        checkDC = entity1.SaveDC;
+                    }
+                    else if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterMonster entity2))
+                    {
+                        checkDC = 10 + AttributeDefinitions
+                            .ComputeAbilityScoreModifier(entity2.GetAttribute(AttributeDefinitions.Strength)
+                                .CurrentValue);
+                    }
                 }
             }
 

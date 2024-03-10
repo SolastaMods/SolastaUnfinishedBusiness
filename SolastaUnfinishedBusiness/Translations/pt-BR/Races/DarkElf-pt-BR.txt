@@ -1,8 +1,8 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento de pontuação de habilidade
-Feature/&CastSpellDarkelfMagicDescription=Você conhece o truque <b>Dancing Lights</b>. No 3º nível você aprende <b>Fogo das Fadas</b> e no 5º nível, <b>Escuridão</b>. Ambos podem ser usados uma vez por descanso longo.
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento da pontuação de habilidade
+Feature/&CastSpellDarkelfMagicDescription=Você conhece o truque <b>Dancing Lights</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Darkness</b>. Ambos podem ser usados uma vez por descanso longo.
 Feature/&CastSpellDarkelfMagicTitle=Magia dos Elfos Negros
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=Você tem proficiência com floretes, espadas curtas e bestas de mão.
-Feature/&ProficiencyDarkelfWeaponTrainingTitle=Treino de armas Dark Elf
-Race/&RaceDarkelfDescription=Elfos negros são descendentes de elfos que foram mudados ao longo do tempo por viverem nas inóspitas Badlands. Elfos negros são em grande parte noturnos e se adaptaram a viver em antigas ruínas de Badlands, especialmente em ruínas subterrâneas enterradas. Eles tendem a ter pele escura e cabelos claros.
+Feature/&ProficiencyDarkelfWeaponTrainingTitle=Treinamento com armas dos Elfos Negros
+Race/&RaceDarkelfDescription=Elfos negros são descendentes de elfos que mudaram ao longo do tempo por viverem nas inóspitas Badlands. Os elfos negros são em grande parte noturnos e se adaptaram a viver em antigas ruínas de Badlands, especialmente em ruínas subterrâneas enterradas. Eles tendem a ter pele escura e cabelos claros.
 Race/&RaceDarkelfTitle=Elfo negro

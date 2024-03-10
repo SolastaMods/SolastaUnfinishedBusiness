@@ -21,6 +21,8 @@ public sealed class WizardArcaneFighter : AbstractSubclass
 
     public WizardArcaneFighter()
     {
+        // LEVEL 02
+
         var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
@@ -35,24 +37,30 @@ public sealed class WizardArcaneFighter : AbstractSubclass
                 new AddTagToWeaponWeaponAttack(TagsDefinitions.MagicalWeapon, CanWeaponBeEnchanted))
             .AddToDB();
 
-        var additionalActionArcaneFighter = FeatureDefinitionBuilder
-            .Create($"AdditionalAction{Name}") //left old name for compatibility
-            .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(
-                new OnReducedToZeroHpByMeSpellFighting(
-                    ConditionDefinitionBuilder
-                        .Create($"Condition{Name}SpellFighting")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetFeatures(
-                            FeatureDefinitionAdditionalActionBuilder
-                                .Create("AdditionalActionSpellFighting")
-                                .SetGuiPresentation($"AdditionalAction{Name}", Category.Feature)
-                                .SetActionType(ActionDefinitions.ActionType.Main)
-                                .SetRestrictedActions(ActionDefinitions.Id.CastMain)
-                                .AddToDB())
-                        .AddToDB()))
+        // LEVEL 10
+
+        var additionalActionSpellFighting = FeatureDefinitionAdditionalActionBuilder
+            .Create($"AdditionalAction{Name}SpellFighting")
+            .SetGuiPresentationNoContent(true)
+            .SetActionType(ActionDefinitions.ActionType.Main)
+            .SetRestrictedActions(ActionDefinitions.Id.CastMain)
             .AddToDB();
+
+        var conditionSpellFighting = ConditionDefinitionBuilder
+            .Create($"Condition{Name}SpellFighting")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalActionSpellFighting)
+            .AddToDB();
+
+        // kept name for backward compatibility
+        var featureSpellFighting = FeatureDefinitionBuilder
+            .Create($"AdditionalAction{Name}")
+            .SetGuiPresentation(Category.Feature)
+            .AddCustomSubFeatures(new OnReducedToZeroHpByMeSpellFighting(conditionSpellFighting))
+            .AddToDB();
+
+        // LEVEL 14
 
         var additionalDamageArcaneFighterBonusWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}BonusWeapon")
@@ -65,8 +73,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Wizard{Name}")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite(Name, Resources.WizardArcaneFighter, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardArcaneFighter, 256))
             .AddFeaturesAtLevel(2,
                 FeatureSetCasterFightingProficiency,
                 magicAffinityArcaneFighterConcentrationAdvantage,
@@ -75,7 +82,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
                 AttributeModifierCasterFightingExtraAttack,
                 AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
-                additionalActionArcaneFighter)
+                featureSpellFighting)
             .AddFeaturesAtLevel(14,
                 additionalDamageArcaneFighterBonusWeapon)
             .AddToDB();
@@ -93,7 +100,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
 
     private sealed class OnReducedToZeroHpByMeSpellFighting(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition condition) : IOnReducedToZeroHpByMe
+        ConditionDefinition conditionSpellFighting) : IOnReducedToZeroHpByMe
     {
         public IEnumerator HandleReducedToZeroHpByMe(
             GameLocationCharacter attacker,
@@ -101,23 +108,15 @@ public sealed class WizardArcaneFighter : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (activeEffect != null || !ValidatorsWeapon.IsMelee(attackMode))
-            {
-                yield break;
-            }
-
-            if (attacker.RulesetCharacter.HasAnyConditionOfType(condition.Name))
-            {
-                yield break;
-            }
-
-            if (!attacker.IsMyTurn())
+            if (!attacker.IsMyTurn() ||
+                !ValidatorsWeapon.IsMelee(attackMode) ||
+                attacker.RulesetCharacter.HasAnyConditionOfType(conditionSpellFighting.Name))
             {
                 yield break;
             }
 
             attacker.RulesetCharacter.InflictCondition(
-                condition.Name,
+                conditionSpellFighting.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -125,7 +124,7 @@ public sealed class WizardArcaneFighter : AbstractSubclass
                 attacker.RulesetCharacter.guid,
                 attacker.RulesetCharacter.CurrentFaction.Name,
                 1,
-                condition.Name,
+                conditionSpellFighting.Name,
                 0,
                 0,
                 0);

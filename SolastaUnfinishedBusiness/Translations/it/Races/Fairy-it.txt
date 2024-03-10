@@ -1,8 +1,8 @@
-Feature/&CastSpellFairyDescription=Conosci il trucchetto <b>Burst of Radiance</b>. Al 3° livello impari <b>Fuoco fatato</b> e al 5° livello, <b>Esplosione di colore</b>. Entrambi possono essere usati una volta per riposo lungo.
+Feature/&CastSpellFairyDescription=Conosci il trucchetto <b>Parola di Radianza</b>. Al 3° livello impari <b>Fuoco fatato</b> e al 5° livello, <b>Esplosione di colori</b>. Entrambi possono essere utilizzati una volta per riposo lungo.
 Feature/&CastSpellFairyTitle=Magia delle fate
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Destrezza +2, Intelligenza, Saggezza o Carisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Punteggi di abilità
-Feature/&FeatureSetFairyFlightDescription=A causa delle tue ali, hai una velocità di volo pari alla tua velocità di camminata. Non puoi usare questa velocità di volo se indossi un'armatura media o pesante.
+Feature/&FeatureSetFairyFlightDescription=Grazie alle tue ali, hai una velocità di volo pari alla velocità di camminata. Non puoi usare questa velocità di volo se indossi un'armatura media o pesante.
 Feature/&FeatureSetFairyFlightTitle=Volo
 Feature/&PowerFairyFlightDismissDescription=Ignora il tuo volo.
 Feature/&PowerFairyFlightDismissTitle=Ignora volo
@@ -10,5 +10,5 @@ Feature/&PowerFairyFlightSproutDescription=Come azione, puoi darti una velocità
 Feature/&PowerFairyFlightSproutTitle=Volo
 Feature/&ProficiencyFairyLanguagesDescription=Comune, Elfico
 Feature/&ProficiencyFairyLanguagesTitle=Le lingue
-Race/&RaceFairyDescription=Il Feywild è la patria di molti popoli fantastici, comprese le fate. Le fate sono una piccola gente, ma non tanto quanto i loro amici folletti e folletti. Le prime fate parlavano Elfico, Goblin o Silvano, e gli incontri con visitatori umani hanno spinto molte di loro a imparare anche il Comune.
+Race/&RaceFairyDescription=La Selva dei Folletti ospita molti popoli fantastici, comprese le fate. Le fate sono un popolo minuscolo, ma non tanto quanto i loro amici folletti e folletti. Le prime fate parlavano Elfico, Goblin o Silvano, e gli incontri con visitatori umani spinsero molte di loro a imparare anche il Comune.
 Race/&RaceFairyTitle=Fata

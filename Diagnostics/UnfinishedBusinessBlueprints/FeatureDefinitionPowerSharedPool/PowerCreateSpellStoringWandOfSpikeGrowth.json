@@ -332,7 +332,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spike Growth",
-    "description": "Create a wand that can cast <b>Spike Growth (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "description": "Create a wand that can cast <b>Spike Growth (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "208062c7f85b58542808ed3ba0d821dc",

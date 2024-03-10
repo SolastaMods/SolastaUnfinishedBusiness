@@ -316,7 +316,7 @@ public class PatronMountain : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", me);
 
-            yield return gameLocationBattleManager.WaitForReactions(me, gameLocationActionManager, count);
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

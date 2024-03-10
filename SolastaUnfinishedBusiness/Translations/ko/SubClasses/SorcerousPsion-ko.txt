@@ -5,12 +5,12 @@ Action/&SupremeWillToggleTitle=최고의 의지
 Feature/&ActionAffinitySorcerousPsionMindSculptDescription=주문으로 심령 피해를 입힐 때마다 해당 주문의 한 피해 판정에 카리스마 수정치를 추가 심령 피해로 추가합니다. 추가적으로, 마법 포인트 1점을 지불하여 당신이 가하는 모든 주문 피해를 정신 피해로 전환할 수 있습니다.
 Feature/&ActionAffinitySorcerousPsionMindSculptTitle=마인드 조각
 Feature/&DamageAffinitySorcerousPsionPsionicMindDescription=정신적 피해에 대한 저항력을 얻습니다.
-Feature/&DamageAffinitySorcerousPsionPsionicMindTitle=사이오닉 마인드
+Feature/&DamageAffinitySorcerousPsionPsionicMindTitle=사이오닉 정신
 Feature/&FeatureSetSorcerousPsionPsychokinesisDescription=당신은 보너스 액션을 사용하여 당신으로부터 30피트 내의 생물을 목표로 삼을 수 있습니다. 그런 다음 목표 생물은 당신을 향해 또는 당신에게서 멀어지는 방향으로 최대 15피트까지 이동합니다. 적 생물은 주문 시전 DC에 대해 근력 내성 굴림을 통과해야 하며, 아군 생물은 내성 굴림 없이 이동하는 동안 선택한 방향으로 이동해야 합니다. 이 기능은 숙련도 보너스만큼 긴 휴식당 여러 번 사용할 수 있으며, 사용하지 않는 경우 대신 마법 포인트 1점을 지불할 수 있습니다.
-Feature/&FeatureSetSorcerousPsionPsychokinesisTitle=염동력
+Feature/&FeatureSetSorcerousPsionPsychokinesisTitle=염력
 Feature/&FeatureSetSorcerousPsionSupremeWillDescription=집중 주문을 시전할 때마다 집중 없이 주문을 시전하기 위해 주문 레벨의 두 배에 해당하는 마법 포인트를 지불할 수 있습니다. 이 기능은 짧은 휴식당 한 번만 사용할 수 있습니다.
 Feature/&FeatureSetSorcerousPsionSupremeWillTitle=최고의 의지
-Feature/&PowerSorcerousPsionMindOverMatterDescription=체력이 0으로 떨어지고 완전히 죽지 않으면 체력 1을 회복하고 일어서서 1분 동안 소서러 레벨의 3배에 해당하는 임시 체력을 얻고 10피트 내의 모든 적을 쓰러뜨릴 수 있습니다. 당신은 경향이 있습니다. 이 효과는 긴 휴식마다 한 번만 발생할 수 있습니다.Feature/&PowerSorcerousPsionMindOverMatterTitle=Mind over Matter
+Feature/&PowerSorcerousPsionMindOverMatterDescription=체력이 0으로 떨어지고 완전히 죽지 않으면 체력 1을 회복하고 일어서서 1분 동안 소서러 레벨의 3배에 해당하는 임시 체력을 얻고 10피트 내의 모든 적을 쓰러뜨릴 수 있습니다. 당신은 경향이 있습니다. 이 효과는 장기간 휴식 시 한 번만 발생할 수 있습니다.
 Feature/&PowerSorcerousPsionMindOverMatterTitle=문제를 통해 마음
 Feature/&PowerSorcerousPsionPsychokinesisDragDescription=당신은 보너스 액션을 사용하여 당신으로부터 30피트 내의 생물을 목표로 삼을 수 있습니다. 그런 다음 목표 생물은 당신을 향해 최대 15피트까지 이동합니다. 적 생물은 주문 시전 DC에 대해 근력 내성 굴림을 통과해야 하며, 아군 생물은 내성 굴림 없이 이동하는 동안 선택한 방향으로 이동해야 합니다. 이 기능은 숙련도 보너스만큼 긴 휴식당 여러 번 사용할 수 있으며, 사용하지 않는 경우 대신 마법 포인트 2점을 지불할 수 있습니다.
 Feature/&PowerSorcerousPsionPsychokinesisDragTitle=염동력 [당기기]

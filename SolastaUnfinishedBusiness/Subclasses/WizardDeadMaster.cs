@@ -25,13 +25,21 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 [UsedImplicitly]
 public sealed class WizardDeadMaster : AbstractSubclass
 {
-    private const string WizardDeadMasterName = "WizardDeadMaster";
+    private const string Name = "WizardDeadMaster";
     private const string CreateDeadTag = "DeadMasterMinion";
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetDeadMasterNecromancyBonusDc =
+        FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDeadMasterNecromancyBonusDC")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 
     internal static readonly List<SpellDefinition> DeadMasterSpells = [];
 
     public WizardDeadMaster()
     {
+        // LEVEL 02
+
         var autoPreparedSpellsDeadMaster = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDeadMaster")
             .SetGuiPresentation(Category.Feature)
@@ -40,27 +48,15 @@ public sealed class WizardDeadMaster : AbstractSubclass
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
             .AddToDB();
 
-        var featureSetDeadMasterNecromancyBonusDc = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetDeadMasterNecromancyBonusDC")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        foreach (var spellDefinition in DatabaseRepository.GetDatabase<SpellDefinition>()
-                     .Where(x => x.SchoolOfMagic == SchoolNecromancy))
-        {
-            featureSetDeadMasterNecromancyBonusDc.FeatureSet.Add(
-                FeatureDefinitionMagicAffinityBuilder
-                    .Create($"MagicAffinityDeadMaster{spellDefinition.Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSpellWithModifiedSaveDc(spellDefinition, 1)
-                    .AddToDB());
-        }
-
         var bypassSpellConcentrationDeadMaster = FeatureDefinitionBuilder
             .Create("BypassSpellConcentrationDeadMaster")
             .SetGuiPresentation(Category.Feature)
             .AddCustomSubFeatures(new ModifyConcentrationRequirementDeadMaster())
             .AddToDB();
+
+        // LEVEL 06
+
+        // Stark Harvest
 
         var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
             .Create("TargetReducedToZeroHpDeadMasterStarkHarvest")
@@ -109,12 +105,11 @@ public sealed class WizardDeadMaster : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(WizardDeadMasterName)
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("WizardDeadMaster", Resources.WizardDeadMaster, 256))
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardDeadMaster, 256))
             .AddFeaturesAtLevel(2,
                 bypassSpellConcentrationDeadMaster,
-                featureSetDeadMasterNecromancyBonusDc,
+                FeatureSetDeadMasterNecromancyBonusDc,
                 autoPreparedSpellsDeadMaster,
                 deadMasterUndeadChains)
             .AddFeaturesAtLevel(6,
@@ -135,6 +130,20 @@ public sealed class WizardDeadMaster : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static void LateLoad()
+    {
+        foreach (var spellDefinition in DatabaseRepository.GetDatabase<SpellDefinition>()
+                     .Where(x => x.SchoolOfMagic == SchoolNecromancy))
+        {
+            FeatureSetDeadMasterNecromancyBonusDc.FeatureSet.Add(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create($"MagicAffinityDeadMaster{spellDefinition.Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSpellWithModifiedSaveDc(spellDefinition, 1)
+                    .AddToDB());
+        }
+    }
 
     [NotNull]
     private static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] GetDeadSpellAutoPreparedGroups()
@@ -267,8 +276,7 @@ public sealed class WizardDeadMaster : AbstractSubclass
         FeatureDefinitionPowers.PowerWightLordRetaliate.rechargeRate = RechargeRate.ShortRest;
         FeatureDefinitionPowers.PowerWightLordRetaliate.activationTime = ActivationTime.BonusAction;
 
-
-        return result.ToArray();
+        return [.. result];
     }
 
     private static MonsterDefinition MakeSummonedMonster(

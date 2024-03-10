@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerRangerWildMasterAdvancedTraining:2ff339dd-2dfb-575c-bec2-e8403bd5d492",
+    "Definition:SummoningAffinityRangerWildMasterAdvancedTraining:58ba0fff-30fc-5cdb-a206-e5d7716c3144"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRangerWildMasterAdvancedTrainingTitle",
+    "description": "Feature/&FeatureSetRangerWildMasterAdvancedTrainingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ab721c6b-103b-59bb-9601-f24fa426a8ef",
+  "contentPack": 9999,
+  "name": "FeatureSetRangerWildMasterAdvancedTraining"
+}

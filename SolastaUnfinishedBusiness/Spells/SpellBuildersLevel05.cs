@@ -697,14 +697,8 @@ internal static partial class SpellBuilders
             .AddCustomSubFeatures(
                 AddUsablePowersFromCondition.Marker,
                 OnConditionAddedOrRemovedTelekinesis.Marker)
+            .CopyParticleReferences(SpiderClimb)
             .AddToDB();
-
-        conditionTelekinesis.conditionStartParticleReference = SpiderClimb.EffectDescription
-            .EffectParticleParameters.conditionStartParticleReference;
-        conditionTelekinesis.conditionParticleReference = SpiderClimb.EffectDescription
-            .EffectParticleParameters.conditionParticleReference;
-        conditionTelekinesis.conditionEndParticleReference = SpiderClimb.EffectDescription
-            .EffectParticleParameters.conditionEndParticleReference;
 
         var powerTelekinesisNoCost = FeatureDefinitionPowerBuilder
             .Create(powerTelekinesis, $"Power{Name}NoCost")

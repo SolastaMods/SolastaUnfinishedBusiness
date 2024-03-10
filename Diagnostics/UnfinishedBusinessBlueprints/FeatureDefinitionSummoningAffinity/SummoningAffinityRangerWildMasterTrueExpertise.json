@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "BeastCompanion",
+  "addedConditions": [
+    "Definition:ConditionRangerWildMasterTrueExpertise:df0c33a8-7a09-59c3-8187-3c5b619cf553"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&SummoningAffinityRangerWildMasterTrueExpertiseTitle",
+    "description": "Feature/&SummoningAffinityRangerWildMasterTrueExpertiseDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b66ff234-1fd6-508c-8359-733b53e95005",
+  "contentPack": 9999,
+  "name": "SummoningAffinityRangerWildMasterTrueExpertise"
+}

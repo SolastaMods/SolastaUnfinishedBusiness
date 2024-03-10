@@ -26,4 +26,4 @@ Feature/&PowerDivineHeartEmpoweredHealingTitle=Kraftvolle Heilung
 Feature/&PowerDivineHeartPlanarPortalDescription=Öffnet ein Portal, das eine freundliche Kreatur und Sie selbst zu einem bestimmten Ziel tragen kann.
 Feature/&PowerDivineHeartPlanarPortalTitle=Planares Portal
 Subclass/&SorcerousDivineHeartDescription=Ihre angeborene Magie wurde Ihnen von einer Gottheit zu einem Zweck verliehen, den Sie vielleicht verstehen oder auch nicht.
-Subclass/&SorcerousDivineHeartTitle=Göttliches Herz
+Subclass/&SorcerousDivineHeartTitle=Göttliche Seele

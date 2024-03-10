@@ -17,5 +17,5 @@ Reaction/&SpendSpellSlotDanceOfDefenseReactDescription=Use reaction to reduce da
 Reaction/&SpendSpellSlotDanceOfDefenseReactTitle=Dance of Defense
 Reaction/&SpendSpellSlotDanceOfDefenseTitle=Dance of Defense
 Reaction/&SubitemSelectDanceOfDefenseTitle=Select slot
-Subclass/&WizardBladeDancerDescription=Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
-Subclass/&WizardBladeDancerTitle=Blade Dancer
+Subclass/&WizardBladeDancerDescription=Bladesingers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
+Subclass/&WizardBladeDancerTitle=Bladesinger

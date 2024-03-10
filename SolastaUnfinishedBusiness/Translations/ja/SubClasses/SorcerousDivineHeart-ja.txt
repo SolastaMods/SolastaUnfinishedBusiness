@@ -26,4 +26,4 @@ Feature/&PowerDivineHeartEmpoweredHealingTitle=強化されたヒーリング
 Feature/&PowerDivineHeartPlanarPortalDescription=友好的な生き物と自分自身を指定された目的地に運ぶことができるポータルを開きます。
 Feature/&PowerDivineHeartPlanarPortalTitle=平面ポータル
 Subclass/&SorcerousDivineHeartDescription=あなたの生来の魔法は、あなたが理解できるか理解できないかの目的のために、神によってあなたに授けられました。
-Subclass/&SorcerousDivineHeartTitle=ディバインハート
+Subclass/&SorcerousDivineHeartTitle=ディバインソウル

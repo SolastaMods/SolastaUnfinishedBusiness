@@ -114,7 +114,7 @@ internal static class DefensiveStrikeAttack
 
         actionManager.AddInterruptRequest(reactionRequest);
 
-        yield return battleManager.WaitForReactions(unit, actionService, count);
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
 
         if (!actionParams.ReactionValidated)
         {

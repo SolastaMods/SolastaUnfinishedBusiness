@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -11,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SubclassesContext
 {
-    internal static readonly SortedList<string, CharacterClassDefinition> Klasses = [];
+    internal static readonly SortedList<string, (string, CharacterClassDefinition)> Klasses = [];
 
     internal static readonly Dictionary<CharacterClassDefinition, KlassListContext> KlassListContextTab = [];
 
@@ -64,6 +65,7 @@ internal static class SubclassesContext
         CollegeOfLife.LateLoad();
         RangerSurvivalist.LateLoad();
         SorcerousFieldManipulator.LateLoad();
+        WizardDeadMaster.LateLoad();
     }
 
     private static void RegisterClassesContext()
@@ -71,8 +73,9 @@ internal static class SubclassesContext
         foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>())
         {
             var klassName = klass.Name;
+            var postfix = klassName == InventorClass.ClassName ? " \u00a9".Grey() : string.Empty;
 
-            Klasses.Add(klassName, klass);
+            Klasses.Add(klass.FormatTitle() + postfix, (klassName, klass));
             KlassListContextTab.Add(klass, new KlassListContext(klass));
             Main.Settings.DisplayKlassToggle.TryAdd(klassName, true);
             Main.Settings.KlassListSliderPosition.TryAdd(klassName, 4);

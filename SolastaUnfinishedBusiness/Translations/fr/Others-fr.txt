@@ -14,7 +14,7 @@ Action/&DyingLightToggleDescription=Activer/désactiver Dying Light
 Action/&DyingLightToggleTitle=Lumière mourante
 Action/&FarStepDescription=Téléportez vous jusqu'à 60 pieds dans un espace inoccupé que vous pouvez voir
 Action/&FarStepTitle=Foulée dimensionnelle
-Action/&FeatCrusherToggleDescription=Proposer une poussée en cas d'attaque réussie avec le don Broyeur
+Action/&FeatCrusherToggleDescription=Permettre au broyeur de pousser la cible lors d'un coup
 Action/&FeatCrusherToggleTitle=Broyeur
 Action/&FlightResumeDescription=Reprend l'effet de Vol précédement suspendu
 Action/&FlightResumeTitle=Voler
@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0} lance un choix narratif {1} avec un résultat 
 Feedback/&ReturningWeaponActivates={1} revient à {0} !
 Feedback/&SmallRace=Petite course
 Feedback/&TriggerFeatureLine={0} déclenche {1}
-Feedback/&TriggerRerollLine={0} active le pouvoir {1} pour relancer {2} = {3}
+Feedback/&TriggerRerollLine={0} active {1} pour relancer {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0} a True Sight et n'est pas affecté par ce sort
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
@@ -146,7 +146,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=Exportation annulée :\nU
 Message/&CharacterExportEmptyNameErrorDescription=Exportation annulée :\nVeuillez essayer un nom non vide.
 Message/&CharacterExportModalContentDescription=Saisissez le nom du héros à exporter :
 Message/&CharacterExportModalTitleDescription=Exporter {0}
-Message/&MessageModWelcomeDescription=Le module Unfinished Business regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=#F0DAA0>Ctrl-F10</color> pour ouvrir l'interface utilisateur de Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de « Tâches inachevées » pour ouvrir les pages de paramètres. Explorez les options et sélectionnez celles que vous aimez.\n<b>Veuillez faire un don si vous le pouvez.</b> Autres options de paiement disponibles sous Mod UI / Gameplay / Tools.
+Message/&MessageModWelcomeDescription=Le module Unfinished Business regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=#F0DAA0>Ctrl-F10</color> pour ouvrir l'interface utilisateur de Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de « Tâches inachevées » pour ouvrir les pages de paramètres. Explorez les options et sélectionnez celles que vous aimez.
 Message/&MessageModWelcomeTitle=Mod Unfinished Business
 Message/&ModErrorWarningDescription=Solasta a détecté une instabilité. Veuillez demander à chaque joueur de fermer le jeu, récupérez le fichier <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b> et partagez ce journal, ainsi que le fichier de sauvegarde, avec la communauté du mod Unfinished Business.
 Message/&ModErrorWarningTitle=Avertissement de jeu !

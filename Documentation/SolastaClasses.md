@@ -1696,7 +1696,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Spell Mastery
 
-You have achieved such mastery over certain spells that you can cast them at will. The first two 1st and 2nd-level wizard spells that you prepare can be cast at their lowest level without expending a spell slot. If you want to cast either spell at a higher level, you must expend a spell slot as normal. 
+You have achieved such mastery over certain spells that you can cast them at will. The first two 1st and 2nd-level wizard spells that you prepare can be cast at their lowest level without expending a spell slot. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
 
 
 ## Level 19

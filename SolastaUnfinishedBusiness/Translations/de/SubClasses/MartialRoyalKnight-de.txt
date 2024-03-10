@@ -13,5 +13,5 @@ Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf=<b>{0}</b> sch
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescription=Nutzen Sie diese Kraft, um einem Verbündeten bei seinem Rettungswurf zu helfen.
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactTitle=Inspirierender Schutz
 Reaction/&SpendPowerRoyalKnightInspiringProtectionTitle=Inspirierender Schutz
-Subclass/&MartialRoyalKnightDescription=Ein Ritter, der andere durch mutige Taten im Kampf zu Größe inspiriert. Ein königlicher Ritter ist ein geschickter Krieger, aber wer eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
-Subclass/&MartialRoyalKnightTitle=Königlicher Ritter
+Subclass/&MartialRoyalKnightDescription=Ein Ritter, der andere durch mutige Taten im Kampf zu Größe inspiriert. Ein Banneret ist ein geschickter Krieger, aber wer eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
+Subclass/&MartialRoyalKnightTitle=Das Banner

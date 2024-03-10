@@ -90,7 +90,7 @@ internal static class GuardianAura
 
         RequestCustomReaction("GuardianAura", actionParams);
 
-        yield return battleManager.WaitForReactions(unit, actionService, count);
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
 
         if (!actionParams.ReactionValidated)
         {
@@ -114,18 +114,25 @@ internal static class GuardianAura
 
         if (damage != null)
         {
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = attacker.RulesetCharacter,
+                targetCharacter = unit.RulesetCharacter,
+                position = unit.LocationPosition
+            };
+
             RulesetActor.InflictDamage(
                 damageAmount,
                 damage,
                 damage.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = unit.RulesetCharacter },
+                applyFormsParams,
                 unit.RulesetCharacter,
                 false,
                 attacker.Guid,
                 false,
                 [],
                 new RollInfo(DieType.D1, [], damageAmount),
-                true,
+                false,
                 out _);
         }
 

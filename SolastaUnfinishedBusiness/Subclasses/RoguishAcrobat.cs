@@ -254,7 +254,7 @@ public sealed class RoguishAcrobat : AbstractSubclass
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return battleManager.WaitForReactions(defender, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 }

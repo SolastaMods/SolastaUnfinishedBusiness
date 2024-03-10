@@ -100,7 +100,7 @@ internal static class MeleeCombatFeats
         GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
             featGroupCrusher);
 
-        GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
+        GroupFeats.FeatGroupMeleeCombat.AddFeats(
             GroupFeats.FeatGroupElementalTouch,
             GroupFeats.FeatGroupPiercer,
             FeatDefinitions.DauntingPush,
@@ -412,8 +412,9 @@ internal static class MeleeCombatFeats
             RulesetEffect rulesetEffect,
             int attackRoll)
         {
-            if (rulesetEffect != null &&
-                rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit)
+            if ((rulesetEffect != null &&
+                 rulesetEffect.EffectDescription.RangeType is not RangeType.MeleeHit) ||
+                !ValidatorsWeapon.IsMelee(attackMode))
             {
                 yield break;
             }
@@ -426,19 +427,11 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var rulesetHelper = defender.RulesetCharacter;
+            var rulesetHelper = helper.RulesetCharacter;
 
             if (helper != defender ||
-                !helper.CanReact() ||
-                !ValidatorsWeapon.IsMelee(attackMode) ||
+                !defender.CanReact() ||
                 !ValidatorsWeapon.HasAnyWeaponTag(rulesetHelper.GetMainWeapon(), TagsDefinitions.WeaponTagFinesse))
-            {
-                yield break;
-            }
-
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionShielded))
             {
                 yield break;
             }
@@ -449,8 +442,14 @@ internal static class MeleeCombatFeats
                 (attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0) +
                 actionModifier.AttackRollModifier;
 
-            // some other reaction saved it already
             if (armorClass > totalAttack)
+            {
+                yield break;
+            }
+
+            var pb = rulesetHelper.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            if (armorClass + pb <= totalAttack)
             {
                 yield break;
             }
@@ -465,7 +464,7 @@ internal static class MeleeCombatFeats
                     StringParameter = "DefensiveDuelist",
                     ActionModifiers = { new ActionModifier() },
                     RulesetEffect = implementationManagerService
-                        .MyInstantiateEffectPower(rulesetDefender, usablePower, false),
+                        .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
                     UsablePower = usablePower,
                     TargetCharacters = { defender }
                 };
@@ -474,7 +473,7 @@ internal static class MeleeCombatFeats
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", helper);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
         }
     }
 
@@ -650,7 +649,7 @@ internal static class MeleeCombatFeats
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(target, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(enemy, gameLocationActionService, count);
         }
     }
 
@@ -686,9 +685,9 @@ internal static class MeleeCombatFeats
         ConditionDefinition conditionDefinition,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
         FeatureDefinition featureDefinition)
-        : IPhysicalAttackFinishedByMe, ICharacterTurnEndListener
+        : IPhysicalAttackFinishedByMe, ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
@@ -990,18 +989,27 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
-        .AddCustomSubFeatures(new PhysicalAttackFinishedByMeCrusher(
-            ConditionDefinitionBuilder
-                .Create("ConditionFeatCrusherCriticalHit")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-                .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(
-                    FeatureDefinitionCombatAffinityBuilder
-                        .Create("CombatAffinityFeatCrusher")
-                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition, Gui.NoLocalization)
-                        .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-                        .AddToDB())
-                .AddToDB()))
+        .AddCustomSubFeatures(
+            new PhysicalAttackFinishedByMeCrusher(
+                EffectFormBuilder.ConditionForm(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionFeatCrusherCriticalHit")
+                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+                        .SetConditionType(ConditionType.Detrimental)
+                        .SetSpecialDuration(DurationType.Round, 1,
+                            (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
+                        .SetFeatures(
+                            FeatureDefinitionCombatAffinityBuilder
+                                .Create("CombatAffinityFeatCrusher")
+                                .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition,
+                                    Gui.NoLocalization)
+                                .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                                .AddToDB())
+                        .AddToDB()),
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                    .Build()))
         .AddToDB();
 
     private static FeatDefinition BuildCrusherStr()
@@ -1032,51 +1040,35 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class PhysicalAttackFinishedByMeCrusher(
-        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionDefinition)
-        : IPhysicalAttackFinishedByMe
+    private sealed class PhysicalAttackFinishedByMeCrusher(EffectForm criticalEffectForm, EffectForm pushEffectForm)
+        : IAttackBeforeHitConfirmedOnEnemy
     {
         private const string SpecialFeatureName = "FeatureCrusher";
 
-        public IEnumerator OnPhysicalAttackFinishedByMe(
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
             GameLocationBattleManager battleManager,
-            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
+            ActionModifier actionModifier,
             RulesetAttackMode attackMode,
-            RollOutcome rollOutcome,
-            int damageAmount)
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rollOutcome is RollOutcome.CriticalSuccess)
-            {
-                rulesetDefender.InflictCondition(
-                    conditionDefinition.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    AttributeDefinitions.TagEffect,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    conditionDefinition.Name,
-                    0,
-                    0,
-                    0);
-            }
-
-            if (rollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackMode, null, null))
             {
                 yield break;
+            }
+
+            if (criticalHit)
+            {
+                actualEffectForms.Add(criticalEffectForm);
             }
 
             if (!attacker.OncePerTurnIsValid(SpecialFeatureName) ||
@@ -1085,54 +1077,8 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            var actionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (actionService == null || !battleManager.IsBattleInProgress)
-            {
-                yield break;
-            }
-
-            if (attackMode.ranged ||
-                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackMode, null, null))
-            {
-                yield break;
-            }
-
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
-            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("Crusher", reactionParams);
-
-            actionService.AddInterruptRequest(reactionRequest);
-
-            yield return battleManager.WaitForReactions(attacker, actionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
-            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-            {
-                sourceCharacter = rulesetAttacker,
-                targetCharacter = rulesetDefender,
-                position = defender.LocationPosition
-            };
-
-            implementationService.ApplyEffectForms(
-                [
-                    EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                        .Build()
-                ],
-                applyFormsParams,
-                [],
-                out _,
-                out _);
-
             attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
+            actualEffectForms.Add(pushEffectForm);
         }
     }
 
@@ -1318,25 +1264,31 @@ internal static class MeleeCombatFeats
             };
             var damageRoll = rulesetAttacker.RollDamage(
                 damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
 
             rulesetAttacker.LogCharacterAffectsTarget(
                 rulesetDefender,
                 DevastatingStrikesTitle,
-                "Feedback/&FeatFeatFellHandedDisadvantage",
+                "Feedback/&FeatFeatDevastatingStrikeDisadvantage",
                 tooltipContent: DevastatingStrikesDescription);
 
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                applyFormsParams,
                 rulesetDefender,
                 false,
                 rulesetAttacker.Guid,
                 false,
                 attackMode.AttackTags,
                 new RollInfo(damageForm.DieType, rolls, bonusDamage),
-                true,
+                false,
                 out _);
         }
     }
@@ -1355,10 +1307,11 @@ internal static class MeleeCombatFeats
             .Create($"Power{NAME}Advantage")
             .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}AdvantageDescription", hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 0, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -1367,6 +1320,22 @@ internal static class MeleeCombatFeats
                     .Build())
             .AddToDB();
 
+        var fellHandedDisadvantage = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Disadvantage")
+            .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}DisadvantageDescription", hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetShowCasting(false)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder.DamageForm())
+                    .Build())
+            .AddToDB();
+
+        fellHandedDisadvantage.AddCustomSubFeatures(
+            new ModifyEffectDescriptionPowerDisadvantage(fellHandedDisadvantage));
+
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
@@ -1374,7 +1343,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         fellHandedAdvantage.AddCustomSubFeatures(
-            new PhysicalAttackFinishedByMeFeatFellHanded(fellHandedAdvantage, weaponTypes),
+            new PhysicalAttackFinishedByMeFeatFellHanded(fellHandedAdvantage, fellHandedDisadvantage, weaponTypes),
             new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
         return feat;
@@ -1382,24 +1351,18 @@ internal static class MeleeCombatFeats
 
     private sealed class PhysicalAttackFinishedByMeFeatFellHanded : IPhysicalAttackFinishedByMe
     {
-        private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
-        private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
-        private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
-        private readonly DamageForm _damage;
-        private readonly FeatureDefinitionPower _power;
+        private readonly FeatureDefinitionPower _powerAdvantage;
+        private readonly FeatureDefinitionPower _powerDisadvantage;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = [];
 
         public PhysicalAttackFinishedByMeFeatFellHanded(
-            FeatureDefinitionPower power,
+            FeatureDefinitionPower powerAdvantage,
+            FeatureDefinitionPower powerDisadvantage,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
-            _power = power;
+            _powerAdvantage = powerAdvantage;
+            _powerDisadvantage = powerDisadvantage;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-
-            _damage = new DamageForm
-            {
-                DamageType = DamageTypeBludgeoning, DieType = DieType.D1, DiceNumber = 0, BonusDamage = 0
-            };
         }
 
         public IEnumerator OnPhysicalAttackFinishedByMe(
@@ -1426,92 +1389,94 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
+            var implementationManagerService =
+                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
+
             var attackModifier = action.ActionParams.ActionModifiers[0];
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
             var advantageType = ComputeAdvantage(attackModifier.attackAdvantageTrends);
+            var attackRoll = 0;
+
+            FeatureDefinitionPower power = null;
 
             switch (advantageType)
             {
                 case AdvantageType.Advantage when rollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
-                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var lowestAttackRoll);
-
-                    var lowOutcome = GLBM.GetAttackResult(lowestAttackRoll, modifier, rulesetDefender);
-
-                    Gui.Game.GameConsole.AttackRolled(
-                        rulesetAttacker,
-                        rulesetDefender,
-                        _power,
-                        lowOutcome,
-                        lowestAttackRoll + modifier,
-                        lowestAttackRoll,
-                        modifier,
-                        attackModifier.AttacktoHitTrends,
-                        []);
-
-                    if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-                    {
-                        var implementationManagerService =
-                            ServiceRepository.GetService<IRulesetImplementationService>() as
-                                RulesetImplementationManager;
-
-                        var usablePower = PowerProvider.Get(_power, rulesetAttacker);
-                        var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
-                        {
-                            ActionModifiers = { new ActionModifier() },
-                            RulesetEffect = implementationManagerService
-                                //CHECK: no need for AddAsActivePowerToSource
-                                .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                            UsablePower = usablePower,
-                            TargetCharacters = { defender }
-                        };
-
-                        // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
-                        ServiceRepository.GetService<IGameLocationActionService>()?
-                            .ExecuteAction(actionParams, null, true);
-                    }
+                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out attackRoll);
+                    power = _powerAdvantage;
 
                     break;
                 case AdvantageType.Disadvantage when rollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
-                    attacker.UsedSpecialFeatures.TryGetValue("LowestAttackRoll", out var highestAttackRoll);
-
-                    var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
-                    var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
-
-                    if (strengthMod <= 0)
-                    {
-                        break;
-                    }
-
-                    var higherOutcome = GLBM.GetAttackResult(highestAttackRoll, modifier, rulesetDefender);
-
-                    if (higherOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-                    {
-                        break;
-                    }
-
-                    rulesetAttacker.LogCharacterAffectsTarget(rulesetDefender,
-                        SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
-
-                    _damage.BonusDamage = strengthMod;
-                    RulesetActor.InflictDamage(
-                        strengthMod,
-                        _damage,
-                        DamageTypeBludgeoning,
-                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                        rulesetDefender,
-                        false,
-                        rulesetAttacker.Guid,
-                        false,
-                        attackMode.AttackTags,
-                        new RollInfo(DieType.D1, [], strengthMod),
-                        true,
-                        out _);
+                    attacker.UsedSpecialFeatures.TryGetValue("HighestAttackRoll", out attackRoll);
+                    power = _powerDisadvantage;
 
                     break;
                 case AdvantageType.None:
                 default:
                     break;
             }
+
+            if (power == null || attackRoll == 0)
+            {
+                yield break;
+            }
+
+            var outcome = GLBM.GetAttackResult(attackRoll, modifier, rulesetDefender);
+
+            Gui.Game.GameConsole.AttackRolled(
+                rulesetAttacker,
+                rulesetDefender,
+                _powerAdvantage,
+                outcome,
+                attackRoll + modifier,
+                attackRoll,
+                modifier,
+                attackModifier.AttacktoHitTrends,
+                []);
+
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var usablePower = PowerProvider.Get(power, rulesetAttacker);
+            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
+            {
+                ActionModifiers = { new ActionModifier() },
+                RulesetEffect = implementationManagerService
+                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
+                UsablePower = usablePower,
+                TargetCharacters = { defender }
+            };
+
+            // must enqueue actions whenever within an attack workflow otherwise game won't consume attack
+            ServiceRepository.GetService<IGameLocationActionService>()?
+                .ExecuteAction(actionParams, null, true);
+        }
+    }
+
+    private sealed class ModifyEffectDescriptionPowerDisadvantage(
+        // ReSharper disable once SuggestBaseTypeForParameterInConstructor
+        FeatureDefinition powerDisadvantage) : IModifyEffectDescription
+    {
+        public bool IsValid(BaseDefinition definition, RulesetCharacter character, EffectDescription effectDescription)
+        {
+            return definition == powerDisadvantage;
+        }
+
+        public EffectDescription GetEffectDescription(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var strMod = Math.Max(1, AttributeDefinitions.ComputeAbilityScoreModifier(strength));
+            var damageForm = effectDescription.FindFirstDamageForm();
+
+            damageForm.BonusDamage = strMod;
+
+            return effectDescription;
         }
     }
 

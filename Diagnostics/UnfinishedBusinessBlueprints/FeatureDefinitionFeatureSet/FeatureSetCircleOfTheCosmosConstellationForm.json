@@ -3,8 +3,8 @@
   "featureSet": [
     "Definition:PowerCircleOfTheCosmosArcherConstellationForm:10c47af4-4956-5d86-a41d-21ef5185e109",
     "Definition:PowerCircleOfTheCosmosChaliceConstellationForm:b2b877c7-1a72-5b8b-9037-fcdc0927079e",
-    "Definition:PowerCircleOfTheCosmosConstellationForm:dbf6e93f-335d-5e15-b1bb-8352a2ccb402",
-    "Definition:PowerCircleOfTheCosmosDragonConstellationForm:eb12a443-cdfb-5ca8-99b2-fe00eb1d64fb"
+    "Definition:PowerCircleOfTheCosmosDragonConstellationForm:eb12a443-cdfb-5ca8-99b2-fe00eb1d64fb",
+    "Definition:PowerCircleOfTheCosmosConstellationForm:dbf6e93f-335d-5e15-b1bb-8352a2ccb402"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

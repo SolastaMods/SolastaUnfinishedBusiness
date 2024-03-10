@@ -463,7 +463,7 @@ internal static class ClassFeats
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(helper, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
         }
     }
 
@@ -628,9 +628,12 @@ internal static class ClassFeats
             "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
-    private sealed class UsePowerFinishedByMeFeatHardy : IActionFinishedByMe
+    private sealed class UsePowerFinishedByMeFeatHardy : IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
             if (action is not CharacterActionUsePower characterActionUsePower
                 || characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
@@ -638,7 +641,7 @@ internal static class ClassFeats
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
             var classLevel = rulesetCharacter.GetClassLevel(Fighter);
             var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
             var healingReceived = classLevel + dieRoll;

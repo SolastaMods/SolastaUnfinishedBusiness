@@ -1,1 +1,1 @@
-Feature/&MartialChampionSuperiorCriticalDescription=당신의 무기 공격의 명중굴림이 18, 19일 때도 치명타가 됩니다
+Feature/&MartialChampionSuperiorCriticalDescription=무기 공격은 18, 19 또는 20이 나올 때 치명타를 기록합니다.

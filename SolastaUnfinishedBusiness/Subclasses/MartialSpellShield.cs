@@ -9,6 +9,7 @@ using static AttributeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
@@ -88,6 +89,7 @@ public sealed class MartialSpellShield : AbstractSubclass
             .Create($"Condition{Name}ArcaneDeflection")
             .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature, ConditionShielded)
             .AddFeatures(
+                MagicAffinityConditionShielded,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create($"AttributeModifier{Name}ArcaneDeflection")
                     .SetGuiPresentation($"Power{Name}ArcaneDeflection", Category.Feature)

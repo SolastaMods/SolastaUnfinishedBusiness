@@ -1,4 +1,4 @@
-Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=3 レベルからは、熟練度ボーナスをまだ使用していないカリスマ判定に熟練度ボーナスの半分が追加されます。さらに、カリスマセーヴィングスローにも熟練します。
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=3 レベルからは、熟練度ボーナスをまだ使用していないカリスマ チェックに熟練度ボーナスの半分が追加されます。さらに、カリスマセーヴィングスローにも熟練します。
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=王室特使
 Feature/&PowerRoyalKnightInspiringProtectionDescription=レベル 15 からは、あなたの行動が他の人たちに戦いを続けるよう促します。 60 フィート以内に見える味方の 1 人がセーヴィング スローに失敗したときは、その反応を利用してその味方のセーブを再ロールさせることができます。この機能は、長い休憩ごとに 3 回使用できます。
 Feature/&PowerRoyalKnightInspiringProtectionTitle=感動的な保護
@@ -10,8 +10,8 @@ Feature/&PowerRoyalKnightSpiritedSurgeDescription=レベル 18 から、Inspirin
 Feature/&PowerRoyalKnightSpiritedSurgeTitle=スピリットサージ
 Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionAlly=<b>{0}</b> は <b>{1}</b> の <b>{2}</b> に対するセーブロールに失敗しました。リアクションを費やして、セーブをリロールする即興のヘルプを作成できます。
 Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf=<b>{0}</b> は <b>{1}</b> の <b>{2}</b> に対するセーブ ロールに失敗しました。リアクションを消費してセーブを再ロールする即興のヘルプを作成できます。
-Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescription=この力を利用して、味方のセービング ロールを支援してください。
+Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescription=このパワーを利用して、味方のセービング ロールを支援してください。
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactTitle=感動的な保護
 Reaction/&SpendPowerRoyalKnightInspiringProtectionTitle=感動的な保護
-Subclass/&MartialRoyalKnightDescription=戦いで勇敢な行為を行うことで他人の偉大さを鼓舞する騎士。 Royal Knight は熟練した戦士ですが、味方の一団を率いれば、最も装備が不十分な民兵さえも凶暴な戦争集団に変えることができます。
-Subclass/&MartialRoyalKnightTitle=ロイヤルナイト
+Subclass/&MartialRoyalKnightDescription=戦いで勇敢な行為を行うことで他人の偉大さを鼓舞する騎士。バナーレットは熟練した戦士ですが、味方の一団を率いると、最も装備が不十分な民兵さえも凶暴な戦闘集団に変えることができます。
+Subclass/&MartialRoyalKnightTitle=バナー

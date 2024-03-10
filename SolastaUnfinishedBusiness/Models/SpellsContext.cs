@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
@@ -205,7 +203,7 @@ internal static class SpellsContext
         AllowAssigningOfficialSpells();
 
         // Dead Master Spells
-        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
+        // WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x, -1));
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);

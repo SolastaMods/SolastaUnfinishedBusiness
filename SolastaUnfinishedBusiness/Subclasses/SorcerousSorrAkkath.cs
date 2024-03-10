@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -61,7 +61,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddFeatureSet(
                 bonusCantripsDeceptiveHeritage,
                 proficiencyDeceptiveHeritage,
-                FeatureDefinitionSenses.SenseDarkvision12)
+                FeatureDefinitionSenses.SenseDarkvision)
             .AddToDB();
 
         // Spell Sneak Attack
@@ -199,8 +199,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddToDB();
 
         powerTouchOfDarknessFixed.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(
-                character => PowerProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses > 0));
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerTouchOfDarknessFixed) > 0));
 
         var powerTouchOfDarknessPoints = FeatureDefinitionPowerBuilder
             .Create(powerTouchOfDarknessFixed, $"Power{Name}{TouchOfDarkness}Points")
@@ -208,8 +207,7 @@ public sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddToDB();
 
         powerTouchOfDarknessPoints.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(
-                character => PowerProvider.Get(powerTouchOfDarknessFixed, character).RemainingUses == 0));
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerTouchOfDarknessFixed) == 0));
 
         var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder
             .Create(TOUCH_OF_DARKNESS_NAME)

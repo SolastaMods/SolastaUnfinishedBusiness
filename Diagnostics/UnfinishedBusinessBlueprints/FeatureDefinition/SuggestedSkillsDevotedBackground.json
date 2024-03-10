@@ -1,0 +1,30 @@
+{
+  "$type": "FeatureDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Background/&SuggestedSkillsDevotedBackgroundTitle",
+    "description": "Background/&SuggestedSkillsDevotedBackgroundDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "43c7a3e0-cdf4-5df6-9743-bc2276802f57",
+  "contentPack": 9999,
+  "name": "SuggestedSkillsDevotedBackground"
+}

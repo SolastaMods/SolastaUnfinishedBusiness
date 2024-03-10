@@ -1,10 +1,10 @@
-Tutorial/&TutorialActionSwitchingDescription=When you have more than one Main or Bonus action available you can click on action status symbol to make it your currently active action. This allows to attack using Haste or Horde Breaker action and then cast spell with default action. Or any other combination you may need.\nHovering over action status symbol shows tooltip with the name of the feature or condition that granted the action. 
+Tutorial/&TutorialActionSwitchingDescription=When you have more than one Main or Bonus action available you can click on action status symbol to make it your currently active action. This allows to attack using Haste or Horde Breaker action and then cast spell with default action. Or any other combination you may need.\nHovering over action status symbol shows tooltip with the name of the feature or condition that granted the action.
 Tutorial/&TutorialActionSwitchingTitle=Multiple Actions
 UI/&Add=Add
 UI/&AdditionalActionSource=Granted by: {0}
 UI/&Current Party=Current Party
 UI/&DistanceFormat=Distance: {0}
-UI/&Experimental Preview:=Experimental Preview <i><color=Yellow>[backup save before using]</color></i>: 
+UI/&Experimental Preview:=Experimental Preview <i><color=Yellow>[backup save before using]</color></i>:
 UI/&Expert=Expert
 UI/&From=From
 UI/&PartyEditor=Party Editor

@@ -104,8 +104,9 @@ public sealed class PathOfTheReaver : AbstractSubclass
     //
 
     private static void InflictDamage(
-        RulesetEntity rulesetAttacker,
-        RulesetActor rulesetDefender,
+        // ReSharper disable once SuggestBaseTypeForParameter
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
         int totalDamage,
         List<string> attackTags)
     {
@@ -113,12 +114,20 @@ public sealed class PathOfTheReaver : AbstractSubclass
         {
             DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
         };
+        var rulesetAttacker = attacker.RulesetCharacter;
+        var rulesetDefender = defender.RulesetActor;
+        var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+        {
+            sourceCharacter = rulesetAttacker,
+            targetCharacter = rulesetDefender,
+            position = defender.LocationPosition
+        };
 
         RulesetActor.InflictDamage(
             totalDamage,
             damageForm,
             DamageTypeNecrotic,
-            new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+            applyFormsParams,
             rulesetDefender,
             false,
             rulesetAttacker.Guid,
@@ -175,8 +184,8 @@ public sealed class PathOfTheReaver : AbstractSubclass
         var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
         {
             StringParameter = "Bloodbath",
-            StringParameter2 = "UseBloodbathDescription"
-                .Formatted(Category.Reaction, totalHealing.ToString()),
+            StringParameter2 = "UseBloodbathDescription".Formatted(
+                Category.Reaction, totalHealing.ToString()),
             RulesetEffect = implementationManagerService
                 .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
             UsablePower = usablePower
@@ -285,7 +294,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             rulesetAttacker.LogCharacterUsedFeature(featureVoraciousFury);
             EffectHelpers.StartVisualEffect(attacker, defender, VampiricTouch, EffectHelpers.EffectType.Effect);
-            InflictDamage(rulesetAttacker, rulesetDefender, totalDamageOrHealing, attackMode.AttackTags);
+            InflictDamage(attacker, defender, totalDamageOrHealing, attackMode.AttackTags);
 
             if (rulesetDefender.IsDeadOrDying)
             {
@@ -361,7 +370,7 @@ public sealed class PathOfTheReaver : AbstractSubclass
 
             rulesetDefender.LogCharacterUsedFeature(featureCorruptedBlood);
             EffectHelpers.StartVisualEffect(attacker, defender, PowerSorcererChildRiftOffering);
-            InflictDamage(rulesetDefender, rulesetAttacker, totalDamage, defenderAttackTags);
+            InflictDamage(attacker, defender, totalDamage, defenderAttackTags);
 
             if (rulesetAttacker.IsDeadOrDying)
             {

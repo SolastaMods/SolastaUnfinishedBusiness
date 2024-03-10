@@ -81,6 +81,36 @@ public static class GameLocationActionManagerPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.ReactToUsePower))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ReactToUsePower_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            GameLocationActionManager __instance,
+            CharacterActionParams reactionParams,
+            string reactionName = "",
+            GameLocationCharacter attacker = null)
+        {
+            //PATCH: replace `UsePower` reaction for customized one that allows better descriptions
+            if (reactionParams.RulesetEffect is not RulesetEffectPower)
+            {
+                return true;
+            }
+
+            __instance.AddInterruptRequest(string.IsNullOrEmpty(reactionName)
+                ? attacker == null
+                    ? new ReactionRequestUsePowerCustom(reactionParams, (string)null)
+                    : new ReactionRequestUsePowerCustom(reactionParams, attacker)
+                : attacker == null
+                    ? new ReactionRequestUsePowerCustom(reactionParams, reactionName)
+                    : new ReactionRequestUsePowerCustom(reactionParams, reactionName, attacker));
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.CharacterDamageReceivedAsync))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

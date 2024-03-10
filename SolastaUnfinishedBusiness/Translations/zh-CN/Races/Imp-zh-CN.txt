@@ -18,7 +18,3 @@ Race/&RaceImpForestTitle=森林小鬼
 Race/&RaceImpInfernalDescription=马纳卡隆时代的星际实验导致恶魔和其他生物被带入物质位面。虽然其中许多生物最终被收容或驱逐，但这些鬼鬼祟祟的小恶魔却能够躲藏起来，从那时起就秘密适应并在荒地的各个地方繁衍生息。现在，他们中的一些人决定出现并探索周围的世界，即使其中的人可能不会善待他们的恶魔本性。
 Race/&RaceImpInfernalTitle=地狱小鬼
 Race/&RaceImpTitle=小鬼
-Reaction/&SpendPowerImpishWrathDescription=对 {1} 造成额外 {0} 点伤害。
-Reaction/&SpendPowerImpishWrathReactDescription=造成相当于你的熟练加值的额外伤害。
-Reaction/&SpendPowerImpishWrathReactTitle=激活
-Reaction/&SpendPowerImpishWrathTitle=小鬼之怒

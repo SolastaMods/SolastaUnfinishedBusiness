@@ -568,6 +568,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionParalyzed { get; } =
             GetDefinition<ConditionDefinition>("ConditionParalyzed");
 
+        internal static ConditionDefinition ConditionPassWithoutTrace { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPassWithoutTrace");
+
         internal static ConditionDefinition ConditionPatronHiveWeakeningPheromones { get; } =
             GetDefinition<ConditionDefinition>("ConditionPatronHiveWeakeningPheromones");
 
@@ -986,6 +989,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionAttackModifiers
     {
+        internal static FeatureDefinitionAttackModifier AttackModifierFeatAmbidextrous { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFeatAmbidextrous");
+
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleArchery { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleArchery");
 
@@ -1229,6 +1235,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionConditionAffinitys
     {
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityBlindnessImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityBlindnessImmunity");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCalmEmotionCharmedImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCalmEmotionCharmedImmunity");
 
@@ -1483,6 +1492,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMagicAffinity MagicAffinityChitinousBoonAdditionalSpellSlot { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityChitinousBoonAdditionalSpellSlot");
 
+        internal static FeatureDefinitionMagicAffinity MagicAffinityConditionShielded { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityConditionShielded");
+
         internal static FeatureDefinitionMagicAffinity MagicAffinitySpellBladeIntoTheFray { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinitySpellBladeIntoTheFray");
     }
@@ -1732,24 +1744,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDruidWildShape { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidWildShape");
 
-        internal static FeatureDefinitionPower PowerEyebiteAsleep { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerEyebiteAsleep");
-
-        internal static FeatureDefinitionPower PowerEyebitePanicked { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerEyebitePanicked");
-
-        internal static FeatureDefinitionPower PowerEyebiteSickened { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerEyebiteSickened");
-
-        internal static FeatureDefinitionPower PowerFiendishResilienceCold { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceCold");
-
-        internal static FeatureDefinitionPower PowerFiendishResilienceFire { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceFire");
-
-        internal static FeatureDefinitionPower PowerFiendishResilienceLightning { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceLightning");
-
         internal static FeatureDefinitionPower PowerFighterActionSurge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterActionSurge");
 
@@ -1761,9 +1755,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerFunctionGoodberryHealingOther { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionGoodberryHealingOther");
-
-        internal static FeatureDefinitionPower PowerFunctionPotionOfInvisibility { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfInvisibility");
 
         internal static FeatureDefinitionPower PowerFunctionWandFearCommand { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFunctionWandFearCommand");
@@ -1785,6 +1776,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMagebaneSpellCrusher { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMagebaneSpellCrusher");
+
+        internal static FeatureDefinitionPower PowerMarksmanRecycler { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMarksmanRecycler");
 
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
@@ -2875,7 +2869,6 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition RingDetectInvisible { get; } =
             GetDefinition<ItemDefinition>("RingDetectInvisible");
 
-        internal static ItemDefinition Ringmail { get; } = GetDefinition<ItemDefinition>("Ringmail");
         internal static ItemDefinition RingProtectionPlus1 { get; } = GetDefinition<ItemDefinition>("RingProtection+1");
         internal static ItemDefinition ScaleMail { get; } = GetDefinition<ItemDefinition>("ScaleMail");
         internal static ItemDefinition ScaleMailPlus2 { get; } = GetDefinition<ItemDefinition>("ScaleMail+2");
@@ -3494,10 +3487,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition ExpeditiousRetreat { get; } =
             GetDefinition<SpellDefinition>("ExpeditiousRetreat");
 
-        internal static SpellDefinition Eyebite { get; } = GetDefinition<SpellDefinition>("Eyebite");
-        internal static SpellDefinition EyebiteAsleep { get; } = GetDefinition<SpellDefinition>("EyebiteAsleep");
-        internal static SpellDefinition EyebitePanicked { get; } = GetDefinition<SpellDefinition>("EyebitePanicked");
-        internal static SpellDefinition EyebiteSickened { get; } = GetDefinition<SpellDefinition>("EyebiteSickened");
         internal static SpellDefinition FaerieFire { get; } = GetDefinition<SpellDefinition>("FaerieFire");
         internal static SpellDefinition FalseLife { get; } = GetDefinition<SpellDefinition>("FalseLife");
         internal static SpellDefinition Fear { get; } = GetDefinition<SpellDefinition>("Fear");

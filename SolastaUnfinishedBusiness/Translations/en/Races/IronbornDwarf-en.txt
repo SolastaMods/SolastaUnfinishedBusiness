@@ -2,5 +2,5 @@ Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseDescription=S
 Feature/&AttributeModifierIronbornDwarfStrengthAbilityScoreIncreaseTitle=Ability Score Increase
 Feature/&ProficiencyIronbornDwarfArmorTrainingDescription=You have proficiency with light and medium armor.
 Feature/&ProficiencyIronbornDwarfArmorTrainingTitle=Ironborn Armor Training
-Race/&RaceIronbornDwarfDescription=Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves. Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance. 
+Race/&RaceIronbornDwarfDescription=Strong and hardy, the Ironborn Dwarves live among, but often apart from, their cousins the Snow Dwarves. Clannish and aloof, they nevertheless can be counted on to stand shoulder to brawny shoulder with any in the Snow Alliance.
 Race/&RaceIronbornDwarfTitle=Ironborn Dwarf

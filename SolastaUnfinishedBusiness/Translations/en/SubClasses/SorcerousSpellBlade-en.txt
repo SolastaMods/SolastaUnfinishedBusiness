@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=When you hit with an attack or deal damage with a spell, add your Charisma modifier as bonus force damage to one damage roll of that attack or spell. 
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=When you hit with an attack or deal damage with a spell, add your Charisma modifier as bonus force damage to one damage roll of that attack or spell.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=War Sorcerer
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Your armor class increases by 2, and you gain proficiency in Dexterity saving throws.
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Battle Reflexes

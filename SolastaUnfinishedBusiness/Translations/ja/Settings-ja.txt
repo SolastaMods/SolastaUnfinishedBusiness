@@ -208,7 +208,6 @@ ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+<color=#D8
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+<color=#D89555>魔法で隠された</color>エリアを発射物ブロッカーに変更<color=#F0DAA0>[<color=#D89555>ダークネス</color>の呪文効果の発生源]</color ></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 必要に応じて、<color=#D89555>ダークビジョン</color>、<color=#D89555>ブラインドサイト</color>、<color=#D89555>トゥルーサイト</color>をモンスターやNPCに追加します\n <color=#F0DAA0>[設定のコレクション <b>MonstersThatShouldHaveDarkvision</b>、<b>MonstersThatShouldHaveTrueSight</b>、<b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 召喚リストで最も強力なクリーチャーのみを表示</i>
-ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b> による「ソラスタの主観ガイド」を開きます
 ModUi/&OutlineGridWidthModifier=<color=white>アウトライングリッドの幅を乗算します</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>アウトライン グリッドのアニメーション速度を 2 倍します</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=新しい冒険を開始するときに必要な最小レベルと最大レベルを上書きします

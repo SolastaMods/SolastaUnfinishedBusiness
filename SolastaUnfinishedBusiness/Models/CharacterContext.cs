@@ -80,13 +80,22 @@ internal static class CharacterContext
             .Create("FightingStyleChoiceBarbarian")
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
-                // "BlindFighting",
-                // "Crippling",
-                // "Executioner",
-                // "HandAndAHalf",
-                // "Interception",
-                // "Merciless",
-                // "Pugilist",
+                // BlindFighting
+                // Crippling
+                // Defense
+                "Dueling",
+                // Executioner
+                "GreatWeapon",
+                // HandAndAHalf
+                // Interception
+                // Lunger
+                // Merciless
+                // Protection
+                // Pugilist
+                // RemarkableTechnique
+                // RopeIpUp
+                // ShieldExpert
+                // Torchbearer
                 "TwoWeapon")
             .AddToDB();
 
@@ -96,14 +105,22 @@ internal static class CharacterContext
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
                 "Archery",
-                // "BlindFighting",
-                // "Crippling",
+                // BlindFighting
+                // Crippling
+                // Defense
                 "Dueling",
-                // "Executioner",
-                // "Lunger",
-                // "MonkShieldExpert",
-                // "Pugilist",
-                // "ZenArcher",
+                // Executioner
+                // GreatWeapon
+                // HandAndAHalf
+                // Interception
+                // Lunger
+                // Merciless
+                // Protection
+                // Pugilist
+                // RemarkableTechnique
+                // RopeIpUp
+                // ShieldExpert
+                // Torchbearer
                 "TwoWeapon")
             .AddToDB();
 
@@ -113,12 +130,22 @@ internal static class CharacterContext
             .SetGuiPresentation("FighterFightingStyle", Category.Feature)
             .SetFightingStyles(
                 "Archery",
-                // "BlindFighting",
-                // "Crippling",
-                "Dueling",
-                // "Executioner",
-                // "Lunger",
-                // "Merciless",
+                // BlindFighting
+                // Crippling
+                "Defense",
+                // Dueling
+                // Executioner
+                // GreatWeapon
+                // HandAndAHalf
+                // Interception
+                // Lunger
+                // Merciless
+                // Protection
+                // Pugilist
+                // RemarkableTechnique
+                // RopeIpUp
+                // ShieldExpert
+                // Torchbearer
                 "TwoWeapon")
             .AddToDB();
 

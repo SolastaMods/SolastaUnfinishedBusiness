@@ -14,7 +14,7 @@ Action/&DyingLightToggleDescription=激活/停用消逝的光芒
 Action/&DyingLightToggleTitle=垂死的光
 Action/&FarStepDescription=传送最多 60 尺到一个你能看到的未被占用的空间
 Action/&FarStepTitle=远步
-Action/&FeatCrusherToggleDescription=启用粉碎者提示弹窗
+Action/&FeatCrusherToggleDescription=使破碎机能够在击中时推动目标
 Action/&FeatCrusherToggleTitle=粉碎者
 Action/&FlightResumeDescription=恢复暂停的飞行效果
 Action/&FlightResumeTitle=Fly
@@ -137,7 +137,7 @@ Feedback/&NarrativeChoiceRoll={0} 滚动 {1} 个叙述选项，结果为 {2}。
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！
 Feedback/&SmallRace=小赛
 Feedback/&TriggerFeatureLine={0} 触发 {1}
-Feedback/&TriggerRerollLine={0} 激活 {1} 以重投 {2} = {3}
+Feedback/&TriggerRerollLine={0} 激活 {1} 以重新滚动 {2} = {3}
 Feedback/&TrueSightAndIllusionSpells={0}拥有真实视觉并且不受此法术影响
 Format/&LevelAndExperienceFormat=等级：{0}\n经验：{1}\n升到{3}级需要 {2} 经验
 Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验：{1}\n已达到最高等级
@@ -146,7 +146,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=导出已取消：\n\n池�
 Message/&CharacterExportEmptyNameErrorDescription=导出已取消：\n\n请尝试非空名称。
 Message/&CharacterExportModalContentDescription=输入要导出的英雄名称：
 Message/&CharacterExportModalTitleDescription=导出 {0}
-Message/&MessageModWelcomeDescription=未完成的商业模组充满了令人兴奋的功能，但默认情况下没有启用。按 <color=#F0DAA0>Ctrl-F10</color> 打开 Unity Mod Manager UI [UMM]，然后单击“未完成的业务”旁边的设置图标以打开设置页面。探索选项并选择您喜欢的选项。\n<b>请尽可能捐款。</b> Mod UI /游戏玩法/工具下提供其他付款选项。
+Message/&MessageModWelcomeDescription=未完成的商业模组充满了令人兴奋的功能，但默认情况下没有启用。按 <color=#F0DAA0>Ctrl-F10</color> 打开 Unity Mod Manager UI [UMM]，然后单击“未完成的业务”旁边的设置图标以打开设置页面。探索选项并选择您喜欢的选项。
 Message/&MessageModWelcomeTitle=未竟之业模式
 Message/&ModErrorWarningDescription=Solasta 检测到不稳定情况。请要求每个玩家关闭游戏，获取文件 <b>%APPDATA%\LocalLow\Tactical Adventures\Player.log</b>，并与 Unfinished Business mod 社区分享这些日志和保存文件。
 Message/&ModErrorWarningTitle=游戏警告！

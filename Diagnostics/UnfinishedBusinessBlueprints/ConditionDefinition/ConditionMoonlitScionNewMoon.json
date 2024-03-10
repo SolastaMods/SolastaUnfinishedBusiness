@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:PowerMoonlitScionLunarChill:e5e8a27e-7f73-5ad8-8310-0d6a3e7d71d2",
-    "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e"
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

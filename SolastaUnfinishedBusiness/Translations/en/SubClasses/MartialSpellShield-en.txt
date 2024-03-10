@@ -10,5 +10,5 @@ Feature/&PowerSpellShieldArcaneDeflectionDescription=You can use your arcane pow
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Arcane Deflection
 Feature/&PowerSpellShieldRangedDeflectionDescription=You can use your action to target up to 4 friendly creatures. Each affected creature gains +2 AC while the barrier lasts. You can use this feature once per long rest.
 Feature/&PowerSpellShieldRangedDeflectionTitle=Protective Barrier
-Subclass/&MartialSpellShieldDescription=Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
-Subclass/&MartialSpellShieldTitle=Spell Shield
+Subclass/&MartialSpellShieldDescription=Eldritch Knights are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
+Subclass/&MartialSpellShieldTitle=Eldritch Knight

@@ -25,7 +25,6 @@ internal static class ArmorAndShieldData
                 (ItemDefinitions.ScaleMail, ItemDefinitions.ScaleMailPlus2),
                 (ItemDefinitions.Breastplate, ItemDefinitions.BreastplatePlus2),
                 (ItemDefinitions.HalfPlate, ItemDefinitions.HalfPlatePlus2),
-                (ItemDefinitions.Ringmail, null),
                 (ItemDefinitions.ChainMail, ItemDefinitions.ChainmailPlus2),
                 (ItemDefinitions.Plate, ItemDefinitions.PlatePlus2),
                 (ItemDefinitions.SorcererArmor, null),

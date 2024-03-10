@@ -290,9 +290,9 @@ public sealed class RoguishRavenScion : AbstractSubclass
             rulesetCharacter.UsePower(usablePower);
 
             var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
-            var rollCaption = action.AttackRoll == 1
-                ? "Feedback/&RollCheckCriticalFailureTitle"
-                : "Feedback/&CriticalAttackFailureOutcome";
+            var rollCaption = action.AttackRollOutcome == RollOutcome.CriticalFailure
+                ? "Feedback/&RollAttackCriticalFailureTitle"
+                : "Feedback/&RollAttackFailureTitle";
 
             rulesetCharacter.LogCharacterUsedPower(
                 powerDeadlyFocus,

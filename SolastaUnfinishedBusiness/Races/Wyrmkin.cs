@@ -379,7 +379,7 @@ internal static class RaceWyrmkinBuilder
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!actionParams.ReactionValidated)
             {

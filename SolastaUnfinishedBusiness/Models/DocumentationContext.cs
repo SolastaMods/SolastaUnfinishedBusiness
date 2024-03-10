@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Displays;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -202,7 +203,14 @@ internal static class DocumentationContext
                 outString.AppendLine();
             }
 
-            outString.AppendLine($"## {counter++}. {subclass.FormatTitle()}");
+            var title = subclass.FormatTitle();
+
+            if (ModUi.Tabletop.Contains(title))
+            {
+                title = $"*{title}* \u00a9"; // copyright symbol
+            }
+
+            outString.AppendLine($"## {counter++}. {title}");
             outString.AppendLine();
             outString.AppendLine(LazyManStripXml(subclass.FormatDescription()));
             outString.AppendLine();
@@ -247,7 +255,14 @@ internal static class DocumentationContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.AppendLine($"# {counter++}. - {race.FormatTitle()}");
+            var title = race.FormatTitle();
+
+            if (ModUi.Tabletop.Contains(title))
+            {
+                title = $"*{title}* \u00a9";
+            }
+
+            outString.AppendLine($"# {counter++}. - {title}");
             outString.AppendLine();
             outString.AppendLine(LazyManStripXml(race.FormatDescription()));
             outString.AppendLine();
@@ -297,6 +312,12 @@ internal static class DocumentationContext
                              : x.FormatTitle()))
         {
             var title = featureDefinition.FormatTitle();
+
+            if (ModUi.Tabletop.Contains(featureDefinition.Name))
+            {
+                title = $"*{title}* \u00a9";
+            }
+
             var description = LazyManStripXml(featureDefinition.FormatDescription());
 
             if (featureDefinition is SpellDefinition spellDefinition)

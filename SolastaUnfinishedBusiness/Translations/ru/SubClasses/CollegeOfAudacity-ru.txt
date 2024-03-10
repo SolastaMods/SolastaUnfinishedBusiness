@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Вихрь
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Вихрь
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Вихрь
-Subclass/&CollegeOfAudacityDescription=Барды Коллегии дерзости развлекают публику лихими приёмами владения оружием. Они выполняют такие трюки, как глотание меча, метание ножей, жонглирование и шуточные бои. Хотя они используют свое оружие для развлечения, они также являются высококвалифицированными и искусными воинами, благодаря их талантам.
-Subclass/&CollegeOfAudacityTitle=Коллегия дерзости
+Subclass/&CollegeOfAudacityDescription=Барды Коллегии мечей развлекают публику лихими приёмами владения оружием. Они выполняют такие трюки, как глотание меча, метание ножей, жонглирование и шуточные бои. Хотя они используют свое оружие для развлечения, они также являются высококвалифицированными и искусными воинами, благодаря их талантам.
+Subclass/&CollegeOfAudacityTitle=Коллегия мечей

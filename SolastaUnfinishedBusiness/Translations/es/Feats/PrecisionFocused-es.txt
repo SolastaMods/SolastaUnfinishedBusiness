@@ -1,6 +1,6 @@
-Feat/&FeatArcanePrecisionDescription=Aumenta tu inteligencia en 1, hasta un máximo de 20.\nPuedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Inteligencia para tus tiradas de ataque y daño durante 1 minuto. Esta función se puede utilizar en tiempos de bonificación de competencia por descanso prolongado.
-Feat/&FeatArcanePrecisionTitle=Precisión Arcana
-Feat/&FeatCharismaticPrecisionDescription=Aumenta tu Carisma en 1, hasta un máximo de 20.\nPuedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Carisma para tus tiradas de ataque y daño durante 1 minuto. Esta función se puede utilizar en tiempos de bonificación de competencia por descanso prolongado.
+Feat/&FeatArcanePrecisionDescription=Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nPuedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Inteligencia para tus tiradas de ataque y daño durante 1 minuto. Esta característica se puede utilizar tiempos de bonificación de competencia por descanso prolongado.
+Feat/&FeatArcanePrecisionTitle=Precisión arcana
+Feat/&FeatCharismaticPrecisionDescription=Aumenta tu carisma en 1, hasta un máximo de 20.\nPuedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Carisma para tus tiradas de ataque y daño durante 1 minuto. Esta característica se puede utilizar tiempos de bonificación de competencia por descanso prolongado.
 Feat/&FeatCharismaticPrecisionTitle=Precisión carismática
-Feat/&FeatWisePrecisionDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nPuedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Sabiduría para tus tiradas de ataque y daño durante 1 minuto. Esta función se puede utilizar en tiempos de bonificación de competencia por descanso prolongado.
-Feat/&FeatWisePrecisionTitle=Precisión sabia
+Feat/&FeatWisePrecisionDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nPuedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Sabiduría para tus tiradas de ataque y daño durante 1 minuto. Esta característica se puede utilizar tiempos de bonificación de competencia por descanso prolongado.
+Feat/&FeatWisePrecisionTitle=Sabia precisión

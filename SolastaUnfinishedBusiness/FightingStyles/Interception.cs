@@ -52,6 +52,8 @@ internal sealed class Interception : AbstractFightingStyle
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
     [
         CharacterContext.FightingStyleChoiceBarbarian,
+        CharacterContext.FightingStyleChoiceMonk,
+        CharacterContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,
         FightingStylePaladin,
@@ -112,7 +114,7 @@ internal sealed class Interception : AbstractFightingStyle
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
-            yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

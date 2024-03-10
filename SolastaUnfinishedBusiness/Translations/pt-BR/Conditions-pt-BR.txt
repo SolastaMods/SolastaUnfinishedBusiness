@@ -1,10 +1,10 @@
 Condition/&AfterRestIdentifyDescription=Identificando itens mágicos
 Condition/&AfterRestIdentifyTitle=Identificando
-Condition/&ConditionDistractedByAllyDescription=Esta criatura foi distraída.
+Condition/&ConditionDistractedByAllyDescription=Esta criatura está distraída.
 Condition/&ConditionDistractedByAllyTitle=Distraído
-Condition/&ConditionLightSensitivityDescription=Você tem Desvantagem em testes de Sabedoria (Percepção) sob luz forte e sofre uma penalidade de -1d4 nas jogadas de ataque.
+Condition/&ConditionLightSensitivityDescription=Você tem Desvantagem em testes de Sabedoria (Percepção) sob luz brilhante e sofre uma penalidade de -1d4 nas jogadas de ataque.
 Condition/&ConditionLightSensitivityTitle=Sensibilidade à luz
-Condition/&ConditionStopMovementDescription=Incapaz de mover-se. Velocidade definida para 0.
+Condition/&ConditionStopMovementDescription=Incapaz de mover-se. Velocidade definida como 0.
 Condition/&ConditionStopMovementTitle=Parou
 Condition/&ConditionTauntedDescription=Você tem desvantagem nas jogadas de ataque contra criaturas que não sejam o provocador.
 Condition/&ConditionTauntedTitle=Provocado

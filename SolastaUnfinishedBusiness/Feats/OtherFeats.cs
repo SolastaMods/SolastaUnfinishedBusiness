@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -37,60 +38,65 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var featArcaneArcherAdept = BuildArcaneArcherAdept();
+        // kept for backward compatibility
+        _ = BuildArcaneArcherAdept();
+        _ = BuildInfusionsAdept();
+        _ = BuildTacticianAdept();
+        _ = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
+
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
+        var featFightingInitiate = BuildFightingInitiate();
         var featFrostAdaptation = BuildFrostAdaptation();
         var featHealer = BuildHealer();
-        var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
+        var featMagicInitiate = BuildMagicInitiate();
         var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
-        var featTacticianAdept = BuildTacticianAdept();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
-        // Static build elsewhere for convenience
-        var featEldritchVersatilityAdept = EldritchVersatilityBuilders.FeatEldritchVersatilityAdept;
+
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
         var elementalMasterGroup = BuildElementalMaster(feats);
 
-        BuildMagicInitiate(feats);
+        // building this way to keep backward compatibility
+        var featMonkShieldExpert = BuildFeatFromFightingStyle(MonkShieldExpert.ShieldExpertName);
+        var featPolearmExpert = BuildFeatFromFightingStyle(PolearmExpert.PolearmExpertName);
+        var featSentinel = BuildFeatFromFightingStyle(Sentinel.SentinelName);
 
         feats.AddRange(
-            featArcaneArcherAdept,
             featAstralArms,
             featEldritchAdept,
             featFrostAdaptation,
             featHealer,
-            featInfusionAdept,
             featInspiringLeader,
+            featMagicInitiate,
             featMetamagicAdept,
+            featMonkShieldExpert,
             featMobile,
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
-            featTacticianAdept,
+            featPolearmExpert,
+            featSentinel,
             featTough,
             featWarCaster);
 
-        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
-            featAstralArms,
-            featMonkInitiate,
-            featPoisonousSkin);
-
-        GroupFeats.FeatGroupSupportCombat.AddFeats(
-            featHealer,
-            featInspiringLeader);
-
-        GroupFeats.FeatGroupRangedCombat.AddFeats(
-            featArcaneArcherAdept);
-
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
             featMobile);
+
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featMonkShieldExpert);
+
+        GroupFeats.FeatGroupMeleeCombat.AddFeats(
+            featPolearmExpert);
+
+        GroupFeats.FeatGroupTwoHandedCombat.AddFeats(
+            featPolearmExpert);
 
         GroupFeats.FeatGroupSpellCombat.AddFeats(
             elementalAdeptGroup,
@@ -98,14 +104,15 @@ internal static class OtherFeats
             featWarCaster,
             spellSniperGroup);
 
-        GroupFeats.FeatGroupGeneralAdept.AddFeats(
-            featArcaneArcherAdept,
-            featEldritchAdept,
-            featInfusionAdept,
-            featMetamagicAdept,
-            featTacticianAdept,
-            featEldritchVersatilityAdept
-        );
+        GroupFeats.FeatGroupSupportCombat.AddFeats(
+            featHealer,
+            featInspiringLeader,
+            featSentinel);
+
+        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
+            featAstralArms,
+            featMonkInitiate,
+            featPoisonousSkin);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -117,6 +124,12 @@ internal static class OtherFeats
             FeatDefinitions.Robust,
             featTough,
             featFrostAdaptation);
+
+        GroupFeats.MakeGroup("FeatGroupGeneralAdept", null,
+            featEldritchAdept,
+            featFightingInitiate,
+            featMagicInitiate,
+            featMetamagicAdept);
 
         GroupFeats.MakeGroup("FeatGroupSkills", null,
             FeatDefinitions.ArcaneAppraiser,
@@ -131,7 +144,7 @@ internal static class OtherFeats
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatArcaneArcherAdept")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
                 MartialArcaneArcher.PowerArcaneShot,
                 MartialArcaneArcher.InvocationPoolArcaneShotChoice2,
@@ -189,7 +202,7 @@ internal static class OtherFeats
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatTacticianAdept")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
                 GambitsBuilders.GambitPool,
                 GambitsBuilders.Learn2Gambit,
@@ -206,7 +219,7 @@ internal static class OtherFeats
     {
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatInfusionsAdept")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
                 InventorClass.InfusionPool,
                 InventorClass.BuildLearn(2, "FeatInfusionsAdept"),
@@ -256,7 +269,7 @@ internal static class OtherFeats
 
     #region Magic Initiate
 
-    private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
+    private static FeatDefinition BuildMagicInitiate()
     {
         const string NAME = "FeatMagicInitiate";
 
@@ -318,9 +331,7 @@ internal static class OtherFeats
             magicInitiateFeats.Add(featMagicInitiate);
         }
 
-        GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
-
-        feats.AddRange(magicInitiateFeats);
+        return GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
     }
 
     #endregion
@@ -1132,6 +1143,58 @@ internal static class OtherFeats
 
             return effectDescription;
         }
+    }
+
+    #endregion
+
+
+    #region Fighting Initiate
+
+    private const string FightingStyle = "FightingStyle";
+
+    private static FeatDefinitionWithPrerequisites BuildFeatFromFightingStyle(string fightingStyleName)
+    {
+        var db = DatabaseRepository.GetDatabase<FightingStyleDefinition>();
+        var feat = BuildFightingStyleFeat(db.GetElement(fightingStyleName));
+
+        feat.Validators.Clear();
+        feat.familyTag = string.Empty;
+        feat.hasFamilyTag = false;
+
+        return feat;
+    }
+
+    private static FeatDefinition BuildFightingInitiate()
+    {
+        var fightingStyles = DatabaseRepository
+            .GetDatabase<FightingStyleDefinition>()
+            .Where(x => x.Name is not (
+                MonkShieldExpert.ShieldExpertName or
+                PolearmExpert.PolearmExpertName or
+                Sentinel.SentinelName))
+            .Select(BuildFightingStyleFeat)
+            .ToList();
+
+        return GroupFeats.MakeGroup("FeatGroupFightingStyle", FightingStyle, fightingStyles);
+    }
+
+    private static FeatDefinitionWithPrerequisites BuildFightingStyleFeat([NotNull] BaseDefinition fightingStyle)
+    {
+        // we need a brand new one to avoid issues with FS getting hidden
+        var guiPresentation = new GuiPresentation(fightingStyle.GuiPresentation);
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create($"Feat{fightingStyle.Name}")
+            .SetGuiPresentation(guiPresentation)
+            .SetFeatures(
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"ProficiencyFeat{fightingStyle.Name}")
+                    .SetProficiencies(ProficiencyType.FightingStyle, fightingStyle.Name)
+                    .SetGuiPresentation(guiPresentation)
+                    .AddToDB())
+            .SetFeatFamily(FightingStyle)
+            .SetValidators(ValidatorsFeat.ValidateNotFightingStyle(fightingStyle))
+            .AddToDB();
     }
 
     #endregion

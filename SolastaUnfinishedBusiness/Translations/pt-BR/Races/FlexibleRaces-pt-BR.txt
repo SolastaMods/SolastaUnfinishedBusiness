@@ -1,6 +1,6 @@
-Feature/&PointPoolAbilityScore3Description=Use três aumentos nos valores de habilidade em qualquer combinação de sua escolha.
-Feature/&PointPoolAbilityScore3Title=Aumento de pontuação de habilidade
-Feature/&PointPoolAbilityScore4Description=Use quatro aumentos nos valores de habilidade em qualquer combinação de sua escolha.
-Feature/&PointPoolAbilityScore4Title=Aumento de pontuação de habilidade
+Feature/&PointPoolAbilityScore3Description=Use três reforços nos valores de habilidade em qualquer combinação de sua escolha.
+Feature/&PointPoolAbilityScore3Title=Aumento da pontuação de habilidade
+Feature/&PointPoolAbilityScore4Description=Use quatro reforços nos valores de habilidade em qualquer combinação de sua escolha.
+Feature/&PointPoolAbilityScore4Title=Aumento da pontuação de habilidade
 Feature/&PointPoolSelectBonusFeatsDescription=Selecione {0} talentos adicionais para seu personagem.
-Feature/&PointPoolSelectBonusFeatsTitle={0} Talentos Bônus
+Feature/&PointPoolSelectBonusFeatsTitle={0} Talentos bônus

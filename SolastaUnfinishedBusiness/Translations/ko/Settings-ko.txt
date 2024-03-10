@@ -208,7 +208,6 @@ ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ <color=#D
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ <color=#D89555>마법으로 가려진</color> 영역을 발사체 차단기로 변경 <color=#F0DAA0>[<color=#D89555>어둠</color> 주문 효과의 모든 소스]</color ></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ 필요할 때마다 몬스터와 NPC에 <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> 및 <color=#D89555>TrueSight</color>를 추가합니다.\n <color=#F0DAA0>[설정 컬렉션 <b>암흑시야를 가져야 하는 괴물</b>, <b>진정한 시야를 가져야 하는 괴물</b>, <b>눈이 멀게 해야 하는 괴물</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 소환 주문 목록에서 가장 강력한 크리쳐만 표시</i>
-ModUi/&OpenSubjectiveGuide=<b><color=#D89555>u/CounterYolo</color></b>의 주관적인 솔라스타 가이드 (영문)
 ModUi/&OutlineGridWidthModifier=<color=white>윤곽선 그리드 너비에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&OutlineGridWidthSpeed=<color=white>윤곽선 그리드 애니메이션 속도에</color> <color=#C04040E0>[%]</color>를 곱합니다.
 ModUi/&OverrideMinMaxLevel=새로운 모험에 필요한 캐릭터의 최소, 최대 레벨 제한 해제

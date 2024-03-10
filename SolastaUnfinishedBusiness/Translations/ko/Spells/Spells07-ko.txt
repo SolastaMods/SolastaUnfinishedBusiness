@@ -1,4 +1,4 @@
-Condition/&ConditionReverseGravityDescription=반중력에 사로잡혔습니다.
-Condition/&ConditionReverseGravityTitle=중력 역전
-Spell/&ReverseGravityDescription=사거리 내 지정점을 중심으로 반경 50ft, 높이 100ft의 원통형 범위 내의 중력을 역전시킵니다.
-Spell/&ReverseGravityTitle=중력 역전
+Condition/&ConditionReverseGravityDescription=역 중력에 의해 잡혔습니다.
+Condition/&ConditionReverseGravityTitle=역 중력
+Spell/&ReverseGravityDescription=이 주문은 범위 내의 한 지점을 중심으로 반경 50피트, 높이 100피트의 원통형으로 중력을 역전시킵니다.
+Spell/&ReverseGravityTitle=역 중력

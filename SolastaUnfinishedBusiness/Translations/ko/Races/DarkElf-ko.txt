@@ -1,8 +1,8 @@
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=매력 +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=카리스마 +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=능력치 증가
-Feature/&CastSpellDarkelfMagicDescription=<b>춤추는 불빛</b> 캔트립을 습득합니다. 3레벨과 5레벨에, <b>요정 불꽃</b>과 <b>암흑</b> 주문을 각각 습득합니다. 해당 두 주문은 긴 휴식을 마칠 때마다 각 1회 사용 가능합니다.
+Feature/&CastSpellDarkelfMagicDescription=<b>댄싱 라이트</b> 캔트립을 아시나요? 3레벨에서는 <b>요정의 불꽃</b>을 배우고, 5레벨에서는 <b>어둠</b>을 배웁니다. 둘 다 긴 휴식 시간에 한 번씩 사용할 수 있습니다.
 Feature/&CastSpellDarkelfMagicTitle=다크 엘프 마법
-Feature/&ProficiencyDarkelfWeaponTrainingDescription=레이피어, 숏소드, 핸드 크로스보우 숙련을 얻습니다.
+Feature/&ProficiencyDarkelfWeaponTrainingDescription=레이피어, 숏소드, 손석궁에 능숙합니다.
 Feature/&ProficiencyDarkelfWeaponTrainingTitle=다크 엘프 무기 훈련
-Race/&RaceDarkelfDescription=다크 엘프는 거친 황무지에서의 긴 삶으로 변한 엘프들의 후손입니다. 다크 엘프는 대부분 야행성이며, 특히 황무지 지저의 폐허에서 살 수 있도록 적응했습니다. 전형적으로 어두운 피부색과 창백한 머리카락 색을 가지고 있습니다.
-Race/&RaceDarkelfTitle=다크 엘프
+Race/&RaceDarkelfDescription=다크 엘프는 척박한 황무지에서 살며 시간이 지나면서 변화된 엘프의 후손입니다. 다크 엘프는 주로 야행성이며 고대 배드랜드 폐허, 특히 지하 폐허에 묻힌 생활에 적응했습니다. 그들은 어두운 피부와 창백한 머리카락을 갖는 경향이 있습니다.
+Race/&RaceDarkelfTitle=다크엘프

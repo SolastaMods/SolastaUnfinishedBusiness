@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupTwoWeaponCombatTitle",
-    "description": "Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade",
+    "description": "Ambidextrous, Dual Flurry, Dual Wielder, Twin Blade",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,6 +1,6 @@
-Feat/&FeatArcaneDefenseDescription=지능이 1, 최대 20까지 증가합니다.\n방어구나 방패를 착용하지 않은 상태에서 방어도가 10 + 민첩 수정치 + 지능 수정치와 같아집니다.
-Feat/&FeatArcaneDefenseTitle=비전 방어술
-Feat/&FeatCharismaticDefenseDescription=매력이 1, 최대 20까지 증가합니다.\n방어구나 방패를 착용하지 않은 상태에서 방어도가 10 + 민첩 수정치 + 매력 수정치와 같아집니다.
-Feat/&FeatCharismaticDefenseTitle=매력적인 방어술
-Feat/&FeatWiseDefenseDescription=지혜가 1, 최대 20까지 증가합니다.\n방어구나 방패를 착용하지 않은 상태에서 방어도가 10 + 민첩 수정치 + 지혜 수정치와 같아집니다.
-Feat/&FeatWiseDefenseTitle=지혜로운 방어술
+Feat/&FeatArcaneDefenseDescription=지능을 1 올려 최대 20까지 높입니다.\n갑옷이나 방패를 착용하지 않은 동안 갑옷 등급은 10 + 민첩 수정치 + 지능 수정치입니다.
+Feat/&FeatArcaneDefenseTitle=비전 방어
+Feat/&FeatCharismaticDefenseDescription=카리스마를 1 올려 최대 20까지 높입니다.\n갑옷이나 방패를 착용하지 않은 동안 갑옷 클래스는 10 + 민첩 수정치 + 카리스마 수정치입니다.
+Feat/&FeatCharismaticDefenseTitle=카리스마 디펜스
+Feat/&FeatWiseDefenseDescription=지혜를 1 올려 최대 20까지 높입니다.\n갑옷이나 방패를 착용하지 않은 동안 갑옷 등급은 10 + 민첩 수정치 + 지혜 수정치입니다.
+Feat/&FeatWiseDefenseTitle=현명한 방어

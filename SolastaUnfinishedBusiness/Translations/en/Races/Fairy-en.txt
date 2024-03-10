@@ -1,4 +1,4 @@
-Feature/&CastSpellFairyDescription=You know the <b>Burst of Radiance</b> cantrip. At 3rd level you learn <b>Faerie Fire</b> and at 5th level, <b>Color Burst</b>. Both can be used once per long rest.
+Feature/&CastSpellFairyDescription=You know the <b>Word of Radiance</b> cantrip. At 3rd level you learn <b>Faerie Fire</b> and at 5th level, <b>Color Burst</b>. Both can be used once per long rest.
 Feature/&CastSpellFairyTitle=Fairy Magic
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Dexterity +2, Intelligence, Wisdom or Charisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Ability Scores

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupSpellCombatTitle",
-    "description": "Battle Caster, Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Marksman",
+    "description": "Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -15,5 +15,5 @@ Feature/&PowerCollegeOfThespianTerrificPerformanceTitle=Excelente rendimiento
 Feature/&ProficiencyCollegeOfThespianFightingStyleDescription=Cuando participas en una pelea con dos armas, puedes agregar tu modificador de habilidad al daño del segundo ataque.
 Feature/&ProficiencyCollegeOfThespianFightingStyleTitle=Estilo de lucha con dos armas
 Feedback/&CollegeOfThespianBardicInspiration={0} gasta un {2} dado de inspiración bárdica para aumentar la velocidad de movimiento en {3} y tener ventaja en el próximo ataque
-Subclass/&CollegeOfThespianDescription=El Colegio de Actores no ve distinción entre arte y guerra. Consideran que es su deber mantener viva la leyenda de la gran batalla del Cataclismo a través de su actuación, ya sea en el escenario o en el campo de batalla.
-Subclass/&CollegeOfThespianTitle=Colegio de Actores
+Subclass/&CollegeOfThespianDescription=El Colegio de Bardos Thespian no ve distinción entre arte y guerra. Consideran que es su deber mantener viva la leyenda de la gran batalla del Cataclismo a través de su actuación, ya sea en el escenario o en el campo de batalla.
+Subclass/&CollegeOfThespianTitle=Colegio de actores

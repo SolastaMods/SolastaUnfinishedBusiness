@@ -28,12 +28,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageRangerFavoredEnemyChoice:2a798d74282db5d4bb4247c6ffe14b63",
-      "level": 15
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SavingThrowAffinityRangerSurvivalistUnmatchedExperience:9a68b999-aeca-5951-86a7-ddd39422a7a4",
+      "featureDefinition": "Definition:FeatureSetRangerSurvivalistBlessingWilderness:dd991f1d-75ae-5752-b571-ae3e98413125",
       "level": 15
     }
   ],

@@ -23,17 +23,17 @@ internal static class UpdateContext
     {
         LatestVersion = GetLatestVersion(out var shouldUpdate);
 
-        var day = DateTime.Now.Date.Day;
-
         if (shouldUpdate)
         {
             DisplayUpdateMessage();
         }
-        else if (Main.Settings.DisplayModMessage != day)
+        else if (Main.Settings.DisplayModMessage == 0)
         {
-            Main.Settings.DisplayModMessage = day;
             DisplayWelcomeMessage();
         }
+
+        // display mod message every 30 launches
+        Main.Settings.DisplayModMessage = (Main.Settings.DisplayModMessage + 1) % 30;
     }
 
     private static string GetInstalledVersion()
@@ -142,9 +142,9 @@ internal static class UpdateContext
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             message,
-            "Donate",
+            "ChangeLog",
             "Message/&MessageOkTitle",
-            OpenDonatePayPal,
+            OpenChangeLog,
             () => { });
     }
 
@@ -180,25 +180,10 @@ internal static class UpdateContext
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
             "Message/&MessageModWelcomeDescription",
-            "Donate",
+            "ChangeLog",
             "Message/&MessageOkTitle",
-            OpenDonatePayPal,
+            OpenChangeLog,
             () => { });
-    }
-
-    internal static void OpenDonateGithub()
-    {
-        OpenUrl("https://github.com/sponsors/ThyWoof");
-    }
-
-    internal static void OpenDonatePatreon()
-    {
-        OpenUrl("https://patreon.com/SolastaMods");
-    }
-
-    internal static void OpenDonatePayPal()
-    {
-        OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
     }
 
     internal static void OpenChangeLog()
@@ -210,11 +195,6 @@ internal static class UpdateContext
     internal static void OpenDocumentation(string filename)
     {
         OpenUrl($"file://{Main.ModFolder}/Documentation/{filename}");
-    }
-
-    internal static void OpenSubjectiveGuideToSolasta()
-    {
-        OpenUrl("https://docs.google.com/presentation/d/1iqXc3JzT_uKUcnmFoB3Tyddj3Jzj-AXfNtf3vWcWqc0");
     }
 
     private static void OpenUrl(string url)

@@ -4,9 +4,9 @@
   "requiredLevel": 5,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:BarkskinNoConcentration:c58f111b-71d9-5a88-bd08-db286a89d525",
+  "grantedSpell": "Definition:Barkskin:fcb74f4deaec07b40814328a9d5aa5f6",
   "consumesSpellSlot": false,
-  "longRestRecharge": false,
+  "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

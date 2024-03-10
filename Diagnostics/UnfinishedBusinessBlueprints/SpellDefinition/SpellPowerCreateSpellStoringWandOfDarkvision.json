@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Darkvision",
-    "description": "Create a wand that can cast <b>Darkvision (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "description": "Create a wand that can cast <b>Darkvision (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9489830f04d9f104083a171ec029479d",

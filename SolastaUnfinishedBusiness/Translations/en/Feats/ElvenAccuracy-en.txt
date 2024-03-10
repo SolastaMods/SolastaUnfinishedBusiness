@@ -1,11 +1,11 @@
 Feat/&FeatElvenAccuracyCharismaDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Charisma by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-Feat/&FeatElvenAccuracyCharismaTitle=Elven Precision [Cha]
+Feat/&FeatElvenAccuracyCharismaTitle=Elven Accuracy [Cha]
 Feat/&FeatElvenAccuracyDexterityDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-Feat/&FeatElvenAccuracyDexterityTitle=Elven Precision [Dex]
+Feat/&FeatElvenAccuracyDexterityTitle=Elven Accuracy [Dex]
 Feat/&FeatElvenAccuracyIntelligenceDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-Feat/&FeatElvenAccuracyIntelligenceTitle=Elven Precision [Int]
+Feat/&FeatElvenAccuracyIntelligenceTitle=Elven Accuracy [Int]
 Feat/&FeatElvenAccuracyWisdomDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-Feat/&FeatElvenAccuracyWisdomTitle=Elven Precision [Wis]
+Feat/&FeatElvenAccuracyWisdomTitle=Elven Accuracy [Wis]
 Feedback/&ElvenAccuracyTriggered={0} uses {1} to keep {2} and re-roll {3} to {4}.
 Tooltip/&FeatElvenAccuracyBaseDescription=Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-Tooltip/&FeatElvenAccuracyBaseTitle=Elven Precision
+Tooltip/&FeatElvenAccuracyBaseTitle=Elven Accuracy

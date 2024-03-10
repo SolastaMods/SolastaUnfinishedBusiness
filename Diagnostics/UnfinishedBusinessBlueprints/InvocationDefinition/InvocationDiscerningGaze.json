@@ -4,7 +4,7 @@
   "requiredLevel": 9,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:DiscerningGaze:519634bc-4635-5a6f-954a-2919c5888d48",
+  "grantedSpell": "Definition:DetectEvilAndGood:e3e901f033c79014bb90853c4c0bf29d",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,

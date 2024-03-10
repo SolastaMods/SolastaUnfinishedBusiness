@@ -55,27 +55,21 @@ public sealed class CircleOfTheLife : AbstractSubclass
         var conditionVerdancy = ConditionDefinitionBuilder
             .Create(ConditionVerdancy)
             .SetGuiPresentation(Category.Condition, ConditionChildOfDarkness_DimLight)
-            // used End of Source Turn but in reality we manage this on TurnStartEvent
-            .SetSpecialDuration(DurationType.Round, 3, TurnOccurenceType.EndOfSourceTurn)
+            .SetSpecialDuration(DurationType.Round, 3, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
-            .AddCustomSubFeatures(
-                new OnConditionAddedOrRemovedVerdancy(),
-                new CharacterTurnStartListenerVerdancy())
+            .AddCustomSubFeatures(OnConditionAddedOrRemovedVerdancy.Marker, CharacterTurnStartListenerVerdancy.Marker)
             .AddToDB();
 
         var conditionVerdancy14 = ConditionDefinitionBuilder
             .Create(ConditionVerdancy14)
             .SetGuiPresentation(ConditionVerdancy, Category.Condition, ConditionChildOfDarkness_DimLight)
-            // used End of Source Turn but in reality we manage this on TurnStartEvent
-            .SetSpecialDuration(DurationType.Round, 5, TurnOccurenceType.EndOfSourceTurn)
+            .SetSpecialDuration(DurationType.Round, 5, (TurnOccurenceType)ExtraTurnOccurenceType.StartOfSourceTurn)
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
-            .AddCustomSubFeatures(
-                new OnConditionAddedOrRemovedVerdancy(),
-                new CharacterTurnStartListenerVerdancy())
+            .AddCustomSubFeatures(OnConditionAddedOrRemovedVerdancy.Marker, CharacterTurnStartListenerVerdancy.Marker)
             .AddToDB();
 
         var featureVerdancy = FeatureDefinitionBuilder
@@ -91,9 +85,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionBlessed)
             .SetPossessive()
             .CopyParticleReferences(ConditionGuided)
-            .AddCustomSubFeatures(
-                new OnConditionAddedOrRemovedSeedOfLife(),
-                new CharacterTurnStartListenerSeedOfLife())
+            .AddCustomSubFeatures(new OnConditionAddedOrRemovedSeedOfLife(), new CharacterTurnStartListenerSeedOfLife())
             .AddToDB();
 
         var powerSeedOfLife = FeatureDefinitionPowerBuilder
@@ -213,6 +205,8 @@ public sealed class CircleOfTheLife : AbstractSubclass
     {
         private const string VerdancyHealedTag = "VerdancyHealed";
 
+        public static readonly CharacterTurnStartListenerVerdancy Marker = new();
+
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
@@ -246,17 +240,19 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
                 rulesetCharacter.ReceiveHealing(effectLevel + harmoniousBloomBonus, true, caster.Guid);
 
-                // have to manually handle condition removal as vanilla is a bit odd depending on initiative order
-                if (rulesetCondition.RemainingRounds == 0)
-                {
-                    rulesetCharacter.RemoveCondition(rulesetCondition);
-                }
+                // have to manually handle condition removal as vanilla is a bit odd depending on initiative order 
+                // if (rulesetCondition.RemainingRounds == 0)
+                // {
+                //     rulesetCharacter.RemoveCondition(rulesetCondition);
+                // }
             }
         }
     }
 
     private sealed class OnConditionAddedOrRemovedVerdancy : IOnConditionAddedOrRemoved
     {
+        public static readonly OnConditionAddedOrRemovedVerdancy Marker = new();
+
         public void OnConditionAdded(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
@@ -270,9 +266,14 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
     private sealed class ModifyEffectDescriptionVerdancy(
         ConditionDefinition conditionVerdancy,
-        ConditionDefinition conditionVerdancy14)
-        : IModifyEffectDescription
+        ConditionDefinition conditionVerdancy14) : IModifyEffectDescription
     {
+        private readonly EffectForm _verdancy = EffectFormBuilder
+            .ConditionForm(conditionVerdancy, ConditionForm.ConditionOperation.Add, true, true);
+
+        private readonly EffectForm _verdancy14 = EffectFormBuilder
+            .ConditionForm(conditionVerdancy14, ConditionForm.ConditionOperation.Add, true, true);
+
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
@@ -288,13 +289,9 @@ public sealed class CircleOfTheLife : AbstractSubclass
             RulesetEffect rulesetEffect)
         {
             var levels = character.GetClassLevel(Druid);
-            var condition = levels >= 14 ? conditionVerdancy14 : conditionVerdancy;
+            var effectForm = levels >= 14 ? _verdancy14 : _verdancy;
 
-            effectDescription.EffectForms.Add(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                    .Build());
+            effectDescription.EffectForms.Add(effectForm);
 
             return effectDescription;
         }
@@ -330,11 +327,11 @@ public sealed class CircleOfTheLife : AbstractSubclass
 
             rulesetCharacter.ReceiveHealing(pb, true, caster.Guid);
 
-            // have to manually handle condition removal as vanilla is a bit odd depending on initiative order
-            if (rulesetCondition.RemainingRounds == 0)
-            {
-                rulesetCharacter.RemoveCondition(rulesetCondition);
-            }
+            // have to manually handle condition removal as vanilla is a bit odd depending on initiative order 
+            // if (rulesetCondition.RemainingRounds == 0)
+            // {
+            //     rulesetCharacter.RemoveCondition(rulesetCondition);
+            // }
         }
     }
 
@@ -361,9 +358,10 @@ public sealed class CircleOfTheLife : AbstractSubclass
     private sealed class ModifyEffectDescriptionRevitalizingBoon(
         ConditionDefinition conditionRevitalizingBoon,
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinitionPower powerSeedOfLife)
-        : IModifyEffectDescription
+        FeatureDefinitionPower powerSeedOfLife) : IModifyEffectDescription
     {
+        private readonly EffectForm _revitalizingBoon = EffectFormBuilder.ConditionForm(conditionRevitalizingBoon);
+
         public bool IsValid(
             BaseDefinition definition,
             RulesetCharacter character,
@@ -378,11 +376,7 @@ public sealed class CircleOfTheLife : AbstractSubclass
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            effectDescription.EffectForms.Add(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
-                    .Build());
+            effectDescription.EffectForms.Add(_revitalizingBoon);
 
             return effectDescription;
         }

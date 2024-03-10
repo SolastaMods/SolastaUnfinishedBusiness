@@ -584,6 +584,22 @@ public static class CharacterActionMagicEffectPatcher
 
             if (needToRollDie)
             {
+                //PATCH: supports `IMagicalAttackInitiatedOnMe`
+                foreach (var magicEffectInitiatedOnMe in target.RulesetActor
+                             .GetSubFeaturesByType<IMagicalAttackInitiatedOnMe>())
+                {
+                    yield return magicEffectInitiatedOnMe.OnMagicalAttackInitiatedOnMe(
+                        __instance,
+                        activeEffect,
+                        target,
+                        attackModifier,
+                        actualEffectForms,
+                        firstTarget,
+                        checkMagicalAttackDamage);
+                }
+
+                // END PATCH
+
                 // Roll dice + handle target reaction
                 __instance.AttackRoll = actingCharacter.RulesetCharacter.RollMagicAttack(
                     activeEffect,
@@ -652,7 +668,8 @@ public static class CharacterActionMagicEffectPatcher
 
                     // Execute the final step of the attack
                     actingCharacter.RulesetCharacter.RollMagicAttack(
-                        activeEffect, target.RulesetActor,
+                        activeEffect,
+                        target.RulesetActor,
                         activeEffect.GetEffectSource(),
                         attackModifier.AttacktoHitTrends,
                         attackModifier.AttackAdvantageTrends,
@@ -686,7 +703,8 @@ public static class CharacterActionMagicEffectPatcher
                 else
                 {
                     actingCharacter.RulesetCharacter.RollMagicAttack(
-                        activeEffect, target.RulesetActor,
+                        activeEffect,
+                        target.RulesetActor,
                         activeEffect.GetEffectSource(),
                         attackModifier.AttacktoHitTrends,
                         attackModifier.AttackAdvantageTrends,

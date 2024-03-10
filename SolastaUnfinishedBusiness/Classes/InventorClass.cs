@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -93,7 +94,7 @@ internal static class InventorClass
 
             .SetGuiPresentation(
                 Category.Class,
-                Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576),
+                Sprites.GetSprite(ClassName, Resources.Inventor, 1024, 576),
                 hidden: true)
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
             .SetPictogram(Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128));
@@ -905,7 +906,6 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
             StringParameter = "InventorFlashOfGenius",
             StringParameter2 = FormatReactionDescription(action, attacker, defender, helper),
             RulesetEffect = implementationManagerService
-                //CHECK: no need for AddAsActivePowerToSource
                 .MyInstantiateEffectPower(rulesetHelper, usablePower, false),
             UsablePower = usablePower
         };
@@ -914,7 +914,7 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
 
         gameLocationActionManager.ReactToSpendPower(reactionParams);
 
-        yield return battleManager.WaitForReactions(helper, gameLocationActionManager, count);
+        yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
         if (!reactionParams.ReactionValidated)
         {
@@ -951,10 +951,9 @@ internal class TryAlterOutcomeSavingThrowFlashOfGenius(FeatureDefinitionPower po
         GameLocationCharacter defender,
         GameLocationCharacter helper)
     {
-        var text = defender == helper
-            ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
-            : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
+        var text = defender == helper ? "Self" : "Ally";
 
-        return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+        return $"SpendPowerInventorFlashOfGeniusReactDescription{text}"
+            .Formatted(Category.Reaction, defender.Name, attacker.Name, action.FormatTitle());
     }
 }

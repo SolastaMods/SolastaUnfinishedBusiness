@@ -215,10 +215,6 @@ public sealed class InnovationArmor : AbstractSubclass
         var guardian = FeatureDefinitionPowerBuilder
             .Create("PowerInventorArmorerPerfectedArmorGuardian")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new RestrictReactionAttackMode(
-                (_, _, _, attackMode, _) =>
-                    attackMode?.sourceDefinition is ItemDefinition weapon &&
-                    weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name))
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -234,15 +230,15 @@ public sealed class InnovationArmor : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .AddToDB();
-
-        var infiltrator = FeatureDefinitionPowerBuilder
-            .Create("PowerInventorArmorerPerfectedArmorInfiltrator")
-            .SetGuiPresentationNoContent() //since this power has no saving throw payer won't see it anywhere
             .AddCustomSubFeatures(new RestrictReactionAttackMode(
                 (_, _, _, attackMode, _) =>
                     attackMode?.sourceDefinition is ItemDefinition weapon &&
                     weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name))
+            .AddToDB();
+
+        var infiltrator = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorArmorerPerfectedArmorInfiltrator")
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -290,6 +286,10 @@ public sealed class InnovationArmor : AbstractSubclass
                                         .AddToDB())
                                 .AddToDB()))
                     .Build())
+            .AddCustomSubFeatures(new RestrictReactionAttackMode(
+                (_, _, _, attackMode, _) =>
+                    attackMode?.sourceDefinition is ItemDefinition weapon &&
+                    weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name))
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder

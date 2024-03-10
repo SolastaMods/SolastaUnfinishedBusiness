@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Longstrider",
-    "description": "Create a wand that can cast <b>Longstrider (I)</b> spell using your Inventor spell attack modifier and save DC.",
+    "description": "Create a wand that can cast <b>Longstrider (I)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "205d0c12bfe517341bf9993bf94954eb",

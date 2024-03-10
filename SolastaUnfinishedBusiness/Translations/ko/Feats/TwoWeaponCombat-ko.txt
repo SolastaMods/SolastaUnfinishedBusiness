@@ -1,6 +1,6 @@
-Condition/&ConditionDualFlurryGrantDescription=적들이 휘청거립니다!
-Condition/&ConditionDualFlurryGrantTitle=쌍폭풍
-Feat/&FeatDualFlurryDescription=당신은 쌍을 이룬 무기로 싸우는 데 능숙합니다. 각 손에 무기를 들고 근접 공격으로 두 번 적중시킨 턴에 추가 행동으로 보조 무기 공격을 할 수 있습니다.
-Feat/&FeatDualFlurryTitle=쌍폭풍
-Feat/&FeatDualWeaponDefenseDescription=각 손에 각각 근접 무기를 들고 있는 동안 방어도에 +1 보너스를 받습니다.
-Feat/&FeatDualWeaponDefenseTitle=쌍수 방어술
+Condition/&ConditionDualFlurryGrantDescription=적들이 휘청거리고 있습니다!
+Condition/&ConditionDualFlurryGrantTitle=듀얼 플러리
+Feat/&FeatDualFlurryDescription=당신은 한 쌍의 무기를 사용하여 싸우는 마스터입니다. 양 손에 무기를 들고 근접 공격으로 두 번 명중하는 턴에 보너스 액션으로 공격할 때 추가 보조 공격을 할 수 있습니다.
+Feat/&FeatDualFlurryTitle=듀얼 플러리
+Feat/&FeatDualWeaponDefenseDescription=두 가지 무기로 전투를 마스터하면 다음과 같은 이점을 얻을 수 있습니다.\n• 양손에 별도의 근접 무기를 휘두르는 동안 AC에 +1 보너스를 얻습니다.\n• 두 무기 전투를 사용할 수 있는 경우에도 당신이 휘두르는 한손 근접 무기는 가볍지 않습니다.
+Feat/&FeatDualWeaponDefenseTitle=이중 사용자

@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Bounden Ice",
-    "description": "Create a wand that can cast <b>Bounden Ice (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Rime's Binding Ice",
+    "description": "Create a wand that can cast <b>Rime's Binding Ice (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "32f6357f-c6a2-5447-8651-34a787ec5194",

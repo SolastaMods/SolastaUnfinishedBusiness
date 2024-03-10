@@ -75,6 +75,7 @@ internal static class TwoWeaponCombatFeats
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
+                FeatureDefinitionAttackModifiers.AttackModifierFeatAmbidextrous,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierFeatDualWeaponDefense")
                     .SetGuiPresentation(NAME, Category.Feat)

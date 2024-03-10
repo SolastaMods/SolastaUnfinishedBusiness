@@ -5,7 +5,7 @@
   "requiredPact": null,
   "grantedFeature": null,
   "grantedSpell": "Definition:ConjureAnimals:f0e0d1125df2d554eb10d3dde3a2050d",
-  "consumesSpellSlot": true,
+  "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {

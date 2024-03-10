@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupSupportCombatTitle",
-    "description": "Call for Charge, Hardy, Healer, Inspiring Presence, Mender",
+    "description": "Call for Charge, Hardy, Healer, Inspiring Leader, Mender, Sentinel",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

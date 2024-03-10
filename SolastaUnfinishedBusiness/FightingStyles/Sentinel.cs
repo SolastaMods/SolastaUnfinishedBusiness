@@ -7,14 +7,13 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Sentinel : AbstractFightingStyle
 {
-    private const string SentinelName = "Sentinel";
+    internal const string SentinelName = "Sentinel";
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(SentinelName)
@@ -33,14 +32,7 @@ internal sealed class Sentinel : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
-    [
-        CharacterContext.FightingStyleChoiceBarbarian,
-        FightingStyleChampionAdditional,
-        FightingStyleFighter,
-        FightingStylePaladin,
-        FightingStyleRanger
-    ];
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => [];
 
     private sealed class PhysicalAttackFinishedByMeFeatSentinel(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor

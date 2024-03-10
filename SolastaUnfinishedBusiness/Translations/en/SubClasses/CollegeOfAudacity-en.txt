@@ -22,5 +22,5 @@ Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlDescriptio
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactDescription=Whirl
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlReactTitle=Whirl
 Reaction/&ReactionSpendPowerBundlePowerCollegeOfAudacityAudaciousWhirlTitle=Whirl
-Subclass/&CollegeOfAudacityDescription=Bards of the College of Audacity entertain through daring feats of weapon prowess. They perform stunts such as sword swallowing, knife throwing and juggling, and mock combats. Though they use their weapons to entertain, they are also highly trained and skilled warriors in their own right.
-Subclass/&CollegeOfAudacityTitle=College of Audacity
+Subclass/&CollegeOfAudacityDescription=Bards of the College of Swords entertain through daring feats of weapon prowess. They perform stunts such as sword swallowing, knife throwing and juggling, and mock combats. Though they use their weapons to entertain, they are also highly trained and skilled warriors in their own right.
+Subclass/&CollegeOfAudacityTitle=College of Swords

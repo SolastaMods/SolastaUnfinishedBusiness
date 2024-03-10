@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
@@ -43,6 +44,12 @@ internal class ShieldExpert : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
     [
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin
+        CharacterContext.FightingStyleChoiceBarbarian,
+        CharacterContext.FightingStyleChoiceMonk,
+        CharacterContext.FightingStyleChoiceRogue,
+        FightingStyleChampionAdditional,
+        FightingStyleFighter,
+        FightingStylePaladin,
+        FightingStyleRanger
     ];
 }

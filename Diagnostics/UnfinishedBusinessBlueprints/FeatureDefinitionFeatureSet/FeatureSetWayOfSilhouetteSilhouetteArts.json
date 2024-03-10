@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:PowerWayOfSilhouetteDarkness:fb406968-b055-586f-9a1a-2b4e4f28a8ce",
-    "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e"
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

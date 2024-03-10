@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -97,8 +98,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .AddToDB();
 
         powerManaShieldFixed.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(
-                character => PowerProvider.Get(powerManaShieldFixed, character).RemainingUses > 0),
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerManaShieldFixed) > 0),
             new ModifyEffectDescriptionManaShield(powerManaShieldFixed));
 
         var powerManaShieldPoints = FeatureDefinitionPowerBuilder
@@ -107,8 +107,7 @@ public sealed class SorcerousSpellBlade : AbstractSubclass
             .AddToDB();
 
         powerManaShieldPoints.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(
-                character => PowerProvider.Get(powerManaShieldFixed, character).RemainingUses == 0),
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerManaShieldFixed) == 0),
             new ModifyEffectDescriptionManaShield(powerManaShieldPoints));
 
         var featureSetManaShield = FeatureDefinitionFeatureSetBuilder

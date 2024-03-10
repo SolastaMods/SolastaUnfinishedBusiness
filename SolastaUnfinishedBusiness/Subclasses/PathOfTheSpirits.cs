@@ -413,9 +413,12 @@ public sealed class PathOfTheSpirits : AbstractSubclass
 
     private sealed class ActionFinishedBySpiritWalker(
         FeatureDefinitionPower powerNoCost,
-        FeatureDefinitionPower powerRageCost) : IActionFinishedByMe
+        FeatureDefinitionPower powerRageCost) : IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != FeatureDefinitionPowers.PowerBarbarianRageStart)
@@ -423,8 +426,7 @@ public sealed class PathOfTheSpirits : AbstractSubclass
                 yield break;
             }
 
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
             var power = rulesetCharacter.GetRemainingPowerUses(powerNoCost) > 0
                 ? powerNoCost
                 : rulesetCharacter.GetRemainingPowerUses(powerRageCost) > 0
@@ -447,20 +449,19 @@ public sealed class PathOfTheSpirits : AbstractSubclass
             }
 
             var usablePower = PowerProvider.Get(power, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(actingCharacter, ActionDefinitions.Id.PowerNoCost)
+            var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "SpiritWalker",
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower
             };
 
             var count = gameLocationActionManager.PendingReactionRequestGroups.Count;
 
-            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", actingCharacter);
+            gameLocationActionManager.ReactToUsePower(reactionParams, "UsePower", attacker);
 
-            yield return gameLocationBattleManager.WaitForReactions(actingCharacter, gameLocationActionManager, count);
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {

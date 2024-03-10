@@ -188,19 +188,30 @@ internal static class FlexibleBackgroundsContext
 
     internal static void Load()
     {
-        var backgroundFarmer = DatabaseHelper.GetDefinition<CharacterBackgroundDefinition>("BackgroundFarmer");
+        var backgrounds = new List<string> { "Devoted", "Farmer", "Militia", "Troublemaker" };
 
-        AddedFeatures.Add(backgroundFarmer,
-        [
-            SkillThree,
-            FeatureDefinitionBuilder
-                .Create("SuggestedSkillsFarmerBackground")
-                .SetGuiPresentation(Category.Background)
-                .AddToDB()
-        ]);
+        foreach (var background in backgrounds)
+        {
+            var backgroundDefinition =
+                DatabaseHelper.GetDefinition<CharacterBackgroundDefinition>($"Background{background}");
 
-        RemovedFeatures.Add(backgroundFarmer,
-            [DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyBackgroundFarmerSkills")]);
+            AddedFeatures.Add(
+                backgroundDefinition,
+                [
+                    SkillThree,
+                    FeatureDefinitionBuilder
+                        .Create($"SuggestedSkills{background}Background")
+                        .SetGuiPresentation(Category.Background)
+                        .AddToDB()
+                ]);
+
+            RemovedFeatures.Add(
+                backgroundDefinition,
+                [
+                    DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>(
+                        $"ProficiencyBackground{background}Skills")
+                ]);
+        }
     }
 
     internal static void SwitchFlexibleBackgrounds()

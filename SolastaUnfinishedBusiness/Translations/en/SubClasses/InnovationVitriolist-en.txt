@@ -30,5 +30,5 @@ Feedback/&AdditionalDamageInfusionFormat=Vitriolist Infusion!
 Feedback/&AdditionalDamageInfusionLine={0} performs an infusion attack on {1}
 Screen/&InnovationVitriolistSpellDescription=This Vitriolist spell is always considered prepared.\nIt does not count towards your spell preparation limit.
 Screen/&InnovationVitriolistSpellTitle=Vitriolist
-Subclass/&InnovationVitriolistDescription=All Inventors use various forms of acids and other magical means to break down ingredients, creature parts or even objects into their base components for their experiments, Some Inventors became focused on the deconstruction process, especially when using acid in this function and have experimented with how it could be used in a far greater capacity when it comes to offensive and defensive capabilities.
+Subclass/&InnovationVitriolistDescription=All Artificers use various forms of acids and other magical means to break down ingredients, creature parts or even objects into their base components for their experiments, Some Artificers became focused on the deconstruction process, especially when using acid in this function and have experimented with how it could be used in a far greater capacity when it comes to offensive and defensive capabilities.
 Subclass/&InnovationVitriolistTitle=Vitriolist

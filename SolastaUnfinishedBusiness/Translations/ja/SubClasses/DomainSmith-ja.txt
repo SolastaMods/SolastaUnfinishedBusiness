@@ -17,4 +17,4 @@ Feature/&PowerDomainSmithAdamantBenedictionTitle=断固とした祝福
 Feature/&PowerDomainSmithReinforceArmorDescription=短い休憩ごとに 1 回、非魔法の鎧または盾を強化できます。強化されたオブジェクトは追加の +{0} AC を獲得します。
 Feature/&PowerDomainSmithReinforceArmorTitle=装甲を強化する
 Subclass/&DomainSmithDescription=鋼鉄と鍛造品を通して信仰を伝える聖なる鍛冶屋。味方の装甲を強化し、自分自身を重装甲にします。
-Subclass/&DomainSmithTitle=スミス
+Subclass/&DomainSmithTitle=フォージ

@@ -1,5 +1,5 @@
 Condition/&ConditionMarkedByArcanistDescription=術者が武器攻撃を受けるとマークが爆発し、影響を受けた者に 1d6 の強制ダメージを与え、マークを破壊します。 11 レベルから、Arcane Detonation によるダメージは 2d6 に増加します。
-Condition/&ConditionMarkedByArcanistTitle=アルカニストのマーク
+Condition/&ConditionMarkedByArcanistTitle=秘術師のマーク
 Feature/&AdditionalDamageArcanistArcaneDetonationDescription=3 レベルから、武器に神秘的な力を吹き込みます。あなたの攻撃を受けたクリーチャーは秘術師の印の影響を受けます。
 Feature/&AdditionalDamageArcanistArcaneDetonationTitle=秘術の爆発
 Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeDescription=11 レベルから、Arcane Detonation によるダメージは 2d6 に増加します。

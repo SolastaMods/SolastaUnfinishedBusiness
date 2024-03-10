@@ -126,22 +126,21 @@ public static class GameLocationBattlePatcher
                 return;
             }
 
+            // don't use InflictCondition here to avoid a too soon character refresh
             var rulesetCharacter = character.RulesetCharacter;
             var conditionName = $"ConditionSenseNormalVision{(multiplier == 1 ? 24 : 48)}";
-
-            rulesetCharacter.InflictCondition(
-                conditionName,
+            var condition = DatabaseRepository.GetDatabase<ConditionDefinition>().GetElement(conditionName);
+            var activeCondition = RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                condition,
                 RuleDefinitions.DurationType.Irrelevant,
                 1,
                 RuleDefinitions.TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagEffect,
-                rulesetCharacter.guid,
+                character.Guid,
                 rulesetCharacter.CurrentFaction.Name,
-                1,
-                conditionName,
-                0,
-                0,
-                0);
+                effectDefinitionName: conditionName);
+
+            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect, activeCondition, false);
         }
     }
 }

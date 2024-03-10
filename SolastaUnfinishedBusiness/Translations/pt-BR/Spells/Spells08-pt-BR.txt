@@ -1,4 +1,4 @@
-Condition/&ConditionMindBlankDescription=Imune a dano psíquico e à condição enfeitiçada.
+Condition/&ConditionMindBlankDescription=Imune a danos psíquicos e à condição encantado.
 Condition/&ConditionMindBlankTitle=Mente em branco
-Spell/&MindBlankDescription=Até que a magia termine, uma criatura voluntária que você tocar é imune a dano psíquico, qualquer efeito que sentiria suas emoções ou leria seus pensamentos, magias de adivinhação e a condição enfeitiçada.
+Spell/&MindBlankDescription=Até a magia terminar, uma criatura voluntária que você tocar é imune a dano psíquico, qualquer efeito que possa sentir suas emoções ou ler seus pensamentos, magias de adivinhação e a condição enfeitiçado.
 Spell/&MindBlankTitle=Mente em branco

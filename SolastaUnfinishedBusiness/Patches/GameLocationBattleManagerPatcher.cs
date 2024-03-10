@@ -504,7 +504,7 @@ public static class GameLocationBattleManagerPatcher
 
                         actionService.ReactToSpendSpellSlot(reactionParams);
 
-                        yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
+                        yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
 
                         if (!reactionParams.ReactionValidated)
                         {
@@ -1067,28 +1067,25 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             int attackRoll)
         {
-            if (__instance.Battle != null)
-            {
-                //PATCH: Support for features before hit possible, e.g. spiritual shielding
-                foreach (var extraEvents in __instance.Battle.GetContenders(attacker)
-                             .SelectMany(featureOwner => featureOwner.RulesetCharacter
-                                 .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>()
-                                 .Select(x =>
-                                     x.OnAttackBeforeHitPossibleOnMeOrAlly(
-                                         __instance, attacker, defender, featureOwner, attackModifier, attackMode,
-                                         rulesetEffect, attackRoll))))
-                {
-                    while (extraEvents.MoveNext())
-                    {
-                        yield return extraEvents.Current;
-                    }
-                }
-            }
-
-            // Put reaction request for shield and the like after our modded features for better experience 
             while (values.MoveNext())
             {
                 yield return values.Current;
+            }
+
+            // ReSharper disable once InvertIf
+            if (__instance.Battle != null)
+            {
+                //PATCH: Support for features before hit possible, e.g. spiritual shielding
+                foreach (var contender in __instance.Battle.GetContenders(attacker))
+                {
+                    foreach (var attackBeforeHitPossibleOnMeOrAlly in contender.RulesetCharacter
+                                 .GetSubFeaturesByType<IAttackBeforeHitPossibleOnMeOrAlly>())
+                    {
+                        yield return attackBeforeHitPossibleOnMeOrAlly.OnAttackBeforeHitPossibleOnMeOrAlly(
+                            __instance, attacker, defender, contender, attackModifier, attackMode,
+                            rulesetEffect, attackRoll);
+                    }
+                }
             }
         }
     }

@@ -1,3 +1,370 @@
+# Artificer
+
+## 1. Armorer
+
+Armorers focus their studies on magical armors and how to use them effectively.
+
+
+### Level 3
+
+* Armor Mode
+
+Once per short rest you can select one of 2 armor modes:
+• Guardian: Gain Thunder Gauntlet weapon if you have a free hand, and Defensive Field bonus action to gain temporary HP equal to Artificer level.
+• Infiltrator: Gain Lightning Launcher ranged attack, 5ft movement speed bonus and advantage on Dexterity (Stealth) checks.
+
+* Armored Up
+
+You gain proficiency with heavy armor and ignore Strength requirements of armor.
+
+* Armorer Spells
+
+Learn and have always prepared:
+
+	I	Magic Missile, Shield
+
+	II	Mirror Image, Shatter
+
+	III	Hypnotic Pattern, Lightning Bolt
+
+	IV	Fire Shield, Greater Invisibility
+
+	V	Far Step, Wall of Force
+
+
+
+
+### Level 5
+
+* Extra Attack
+
+You gain an extra attack and can now attack up to 2 times in your turn.
+
+
+### Level 9
+
+* Armor Modification
+
+You have learned how to use your artificer infusions to specially modify armors - now you can put weapon enhancement infusions on armor and they will affect built-in Thunder Gauntlet and Lightning Launcher weapons. In addition, the maximum number of items you can infuse at once increases by 2.
+
+
+### Level 15
+
+* Perfected Armor
+
+You improve your armor modes:
+• Guardian: Creatures attacked by your Thunder Gauntlet are Slowed until the start of your next turn, unless they succeed CON saving throw against Artificer's spellcasting DC.
+• Infiltrator: Creatures attacked by your Lightning Launcher glimmer with magical light until the start of your next turn. The glimmering creature sheds dim light in a 5-foot radius, and it has disadvantage on attack rolls against you, as the light jolts it if it attacks you. In addition, the next attack roll against it has advantage, and if that attack hits, the target takes an extra 1d6 lightning damage.
+
+
+
+## 2. Artillerist
+
+An Artillerist specializes in using magic to hurl energy, projectiles, and explosions on a battlefield. This destructive power is valued by armies in the wars on many different worlds.
+
+
+### Level 3
+
+* Artillerist Spells
+
+Learn and have always prepared:
+
+	I	Shield, Thunderwave
+
+	II	Scorching Ray, Shatter
+
+	III	Fireball, Wind Wall
+
+	IV	Ice Storm, Wall of Fire
+
+	V	Cone of Cold, Wall of Force
+
+
+
+* Eldritch Cannon
+
+Starting at 3rd level, you've learned how to create a magical cannon. You can take an action to magically create a small or tiny eldritch cannon in an unoccupied space on a horizontal surface within 5 feet of you. A small eldritch cannon with 1D8 + 5 * class level hit points occupies its space, and a tiny one can be held in one hand.
+Once you create a cannon, you can't do so again until you finish a long rest or until you expend a spell slot to create one.
+You can have only one cannon at a time. On each of your turns, you can take a bonus action to cause the cannon to activate. As part of the same bonus action, you can direct the cannon to walk or climb up to 15 feet to an unoccupied space.
+
+
+### Level 5
+
+* Arcane Firearm
+
+Starting at 5th level, You know how to use a weapon you have proficiency with as a spellcasting focus for your artificer spells. When you cast an artificer spell through the weapon, roll a d8, and you gain a bonus to one of the spell's damage rolls equal to the number rolled. This damage increases to 2d8 at 15th level.
+
+
+### Level 9
+
+* Explosive Cannon
+
+Starting at 9th level, every eldritch cannon you create is more destructive:
+• The cannon's damage rolls all increase to 3d8.
+• As an action, you can command the cannon to detonate if you are within 60 feet of it. Doing so destroys the cannon and forces each creature within 20 feet of it to make a Dexterity saving throw against your spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one.
+
+
+### Level 15
+
+* Fortified Position
+
+Starting at 15th level, you're a master at forming well-defended emplacements using Eldritch Cannon:
+• The cannon's damage rolls all increase to 4d8.
+• You can now summon a cannon twice until long rest.
+• You and your allies have half cover while within 10 feet of a cannon you create with Eldritch Cannon, as a result of a shimmering field of magical protection that the cannon emits.
+
+
+
+## 3. Battle Smith
+
+Battle Smiths focus their studies on magical weapons and how to use them effectively.
+
+
+### Level 3
+
+* Battle Smith Spells
+
+Learn and have always prepared:
+
+	I	Heroism, Shield
+
+	II	Branding Smite, Spiritual Weapon
+
+	III	Remove Curse, Beacon of Hope
+
+	IV	Fire Shield, Death Ward
+
+	V	Mass Cure Wounds, Wall of Force
+
+
+
+* Inventive Weapon Use
+
+After experimenting on weapons you learned that you can use your smarts to handle them:
+• You became proficient with all martial weapons
+• You can use Intelligence for attack and damage rolls with magic weapons.
+
+* Steel Defender
+
+Your experiments with weapons has borne you a Steel Defender companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the defender, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the defender can take any action of its choice.
+
+
+### Level 5
+
+* Extra Attack
+
+You gain an extra attack and can now attack up to 2 times in your turn.
+
+
+### Level 9
+
+* Force Jolt
+
+When you hit an enemy with your attack you can channel magical energy through the strike to make target take extra 2d6 Force damage. You can uses this power number of times equal to your Intelligence modifier per long rest, but no more than once per turn.
+
+
+### Level 15
+
+* Improved Defender
+
+Your Arcane Jolt and steel defender become more powerful:
+• The extra damage and the healing of your Arcane Jolt both increase to 4d6.
+• Your steel defender gains a +2 bonus to Armor Class.
+
+
+
+## 4. Grenadier
+
+Grenadiers study unstable substances and their use in creating explosions of various types.
+
+
+### Level 3
+
+* Alchemical Bombs
+
+Spend alchemy points to quickly mix and throw a bomb.
+
+* Alchemy Points
+
+You gain 6 Alchemy points at this level, and 1 more point every level.
+
+* Fast Hands
+
+You have learned to mix reagents and use various devices quickly. You can use a bonus action to activate any device.
+
+* Grenadier Spells
+
+Learn and have always prepared:
+
+	I	Magic Missile, Thunderwave
+
+	II	Shatter, Blindness
+
+	III	Fireball, Stinking Cloud
+
+	IV	Confusion, Fire Shield
+
+	V	Cloudkill, Cone of Cold
+
+
+
+
+### Level 5
+
+* Concentrated Bombs
+
+You can spend additional charge when creating a bomb to make it more potent. Precise bombs allow targeting more enemies. Splash bombs increase explosion radius. Cone bombs increase their damage.
+
+* Elemental Bombs
+
+You've learned how to change damage type of a bomb into Cold, Lightning, Acid or Poison. Those bombs deal slightly less damage than Fire ones, but include additional effects.
+
+* Refund Alchemy Charge
+
+Gain up to 5 alchemy charges by spending spell slots.
+
+
+### Level 9
+
+* Advanced Bombs
+
+You've learned how to change damage type of a bomb into Force, Radiant, Necrotic, Thunder or Psychic. Those bombs deal slightly less damage than Fire ones, but include additional effects.
+
+* Improved Concentrated Bombs
+
+You can spend 2 additional charges when creating a bomb to make it more potent. Precise bombs allow targeting more enemies.
+
+
+### Level 15
+
+* Perfected Concentrated Bombs
+
+You can spend 3 additional charges when creating a bomb to make it more potent. Precise bombs allow targeting more enemies.
+
+
+
+## 5. Vitriolist
+
+All Artificers use various forms of acids and other magical means to break down ingredients, creature parts or even objects into their base components for their experiments, Some Artificers became focused on the deconstruction process, especially when using acid in this function and have experimented with how it could be used in a far greater capacity when it comes to offensive and defensive capabilities.
+
+
+### Level 3
+
+* Vitriolic Mixtures
+
+Starting at 3rd level, you gain the ability to use a Vitriolic Mixture of your own making:
+• Affliction: On a hit the creature takes 2d4 acid damage and 2d4 poison damage. The creature is also poisoned until the end of their next turn.
+• Corrosion: On a hit the creature takes 2d8 acid damage. The creature also gets the AC reduced by 2 until the end of their next turn.
+• Misery: On a hit the creature takes 2d8 acid damage which lingers on their skin dealing an additional 2d4 acid damage at the end of their next turn.
+• Viscosity: On a hit the creature takes 2d8 acid damage. The creature is also confused until the end of their next turn.
+All damage dice increase at 7th, 14th, and 18th levels.
+
+* Vitriolist Spells
+
+Learn and have always prepared:
+
+	I	Caustic Zap, Shield
+
+	II	Acid Arrow, Blindness
+
+	III	Protection from Energy, Stinking Cloud
+
+	IV	Blight, Stoneskin
+
+	V	Cloudkill, Contagion
+
+
+
+
+### Level 5
+
+* Vitriolic Infusion
+
+Starting at 5th level, your consistent exposure to acid has infused your body with Acid Resistance. Your exposure to acid has also granted you an affinity for it and you now add your proficiency bonus as extra damage to any dealt acid damage.
+
+
+### Level 9
+
+* Vitriolist Arsenal
+
+Starting at 9th level, you have learned how to break down your own magic to create additional Vitriolic Mixtures. As an action you can convert a spell slot into uses of your Vitriolic Mixture feature. You regain one use per spell slot level converted.
+You have learned to make your Vitriolic Mixture's so potent that they are able to bypass acid resistance and deal half damage to creatures with acid immunity. Additionally due to their increased potency each Mixture now also shocks the targets system removing their ability to use reactions until the start of their next turn.
+
+
+### Level 15
+
+* Vitriolist Paragon
+
+Starting at 15th level, you have mastered your Vitriolic Mixtures. Whenever a creature is affected by any of your Vitriolic Mixtures it must now also succeed a Wisdom Saving throw or it will become Paralyzed as your mixture slowly consumes it.
+
+
+
+## 6. Vivisectionist
+
+A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist's goals are not always related to healing, but rather to experimentation and knowledge with body parts.
+
+
+### Level 3
+
+* Emergency Surgery
+
+You can take an action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+* Medical Accuracy
+
+Once per turn, you can deal an extra 1d6 damage to one creature you hit with a weapon attack if you have advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The damage increases to 2d6 at 7th level, 3d6 at 11th, 4d6 at 15th, and 5d6 at 19th level.
+
+* Vivisectionist Spells
+
+Learn and have always prepared:
+
+	I	Bless, Inflict Wounds
+
+	II	Enhance Ability, Lesser Restoration
+
+	III	Remove Curse, Revivify
+
+	IV	Death Ward, Identify Creatures
+
+	V	Contagion, Raise Dead
+
+
+
+
+### Level 5
+
+* Emergency Cure
+
+You can take a bonus action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+* War Magic
+
+You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
+
+
+### Level 9
+
+* Organ Donation
+
+Regain one use of your Emergency Surgery and your Emergency Cure when you reduce a hostile creature to 0 hit points. You may do this once per short rest.
+
+* Stable Surgery
+
+When casting a healing spell your minimum healing dice roll is 2.
+
+
+### Level 15
+
+* Master Emergency Cure
+
+You can take a free action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+* Master Emergency Surgery
+
+You can take a bonus action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+
+
 # Barbarian
 
 ## 1. Path of the Elements
@@ -10,6 +377,10 @@ Barbarians who follow the Path of the Elements learned to harness the destructiv
 * Elemental Fury
 
 Starting at 3rd level, choose one elemental calamity. The calamity dictates the type of magical mantle you create while raging, as well as features you get on higher levels while following this path. If any effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Constitution modifier.
+• Storm: While you are raging, all enemies within 5 feet of you take 1D6 lightning damage when you end your turn.
+• Blizzard: While you are raging, all enemies within 5 feet of you take 1D6 cold damage when you end your turn.
+• Wildfire: While you are raging, all enemies within 5 feet of you take 1D6 fire damage when you end your turn.
+ These damages increase to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.
 
 
 ### Level 6
@@ -39,7 +410,7 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.
 • Storm: While you are raging, you gain flying speed equal to your walking speed.
 • Blizzard: While you are raging, any creature damaged by blizzard 3rd level feature must pass a Strength saving throw or have their movement speed be reduced to 0, until the end of their next turn.
-• Wildfire:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to your barbarian level.
+• Wildfire: While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to your barbarian level.
 
 
 
@@ -161,9 +532,9 @@ Starting at 14th level, while you are raging, whenever you hit a creature with a
 
 
 
-## 5. Path Of the Spirits
+## 5. Path of the Totem Warrior
 
-Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
+Barbarians who follow the Path of the Totem Warrior accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
 
 ### Level 3
@@ -188,7 +559,7 @@ Starting at 6th level, you gain a magical aspect based on the spirit animal of y
 
 * Spirit Walker
 
-Whenever you start raging, you can also cast Spirit Guardians spell as a part of Rage feature that lasts for one minute without any components and without requiring concentration. You can use this feature once per long rest. If you start raging and are out of use of this feature, you can instead, expend one Rage charge to use it again. 
+Whenever you start raging, you can also cast Spirit Guardians spell as a part of Rage feature that lasts for one minute without any components and without requiring concentration. You can use this feature once per long rest. If you start raging and are out of use of this feature, you can instead, expend one Rage charge to use it again.
 
 
 ### Level 14
@@ -246,84 +617,42 @@ Increase the damage dice of longbows from d8 to d12. While raging and not wearin
 
 # Bard
 
-## 1. College of Audacity
+## 1. College of Eloquence
 
-Bards of the College of Audacity entertain through daring feats of weapon prowess. They perform stunts such as sword swallowing, knife throwing and juggling, and mock combats. Though they use their weapons to entertain, they are also highly trained and skilled warriors in their own right.
-
-
-### Level 3
-
-* Audacious Whirl
-
-Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a melee weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
-• Defensive Whirl: You add the Bardic Inspiration die roll to your AC until the start of your next turn.
-• Slashing Whirl: You deal the extra damage to all other enemy creatures within 5 feet of you.
-• Mobile Whirl: You gain benefits of disengage until the end of your turn.
-
-* Bonus Proficiencies
-
-You gain proficiency with medium armor and the scimitar. You can also use your weapon as a spellcasting focus for your bard spells.
-
-* Fighting Style
-
-You adopt a particular style of fighting as your specialty. Choose either Dueling or Two Weapon Fighting.
-
-
-### Level 6
-
-* Cantrip Attack
-
-You can replace one of your attacks with a cantrip.
-
-* Extra Attack
-
-You gain an extra attack and can now attack up to 2 times in your turn.
-
-
-### Level 14
-
-* Masterful Whirl
-
-Whenever you use an Audacious Whirl option, you can roll a D6 and use it instead of expending a Bardic Inspiration die.
-
-
-
-## 2. College of Guts
-
-Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
+Bards of the College of Eloquence use music and unwavering determination to embolden the hearts of their allies, while demoralizing their enemies. Drawing inspiration from the stories of heroes of old, great deeds and extraordinary events, these bards courageously fight to preserve their ideals, leaving a long-lasting impression on those around them.
 
 
 ### Level 3
 
-* Armor and Weapons
+* Captivating Presence
 
-You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
+You leave a lasting impression on people around you. When you make a Persuasion or Performance check, you can treat a d20 roll of 9 or lower as a 10.
 
-* Improved War Casting
+* Disheartening Performance
 
-Advantage on concentration checks, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when enemies are within melee range.
+Your valiance in battle demoralizes your enemies. As a bonus action, you can expend one use of your Bardic Inspiration and choose one hostile creature you can see within 60 feet of you. Roll the Bardic Inspiration die. The creature must subtract the number rolled from the first saving throw it succeeds on before the end of your next turn.
 
 
 ### Level 6
 
-* Cantrip Attack
+* Recall Language
 
-You can replace one of your attacks with a cantrip.
+You picked up knowledge of many different languages through reading foreign written works, and you can magically become fluent in those languages, adding Tongues spell to the list of spells known.
 
-* Extra Attack
+* Steadfast Inspiration
 
-You gain an extra attack and can now attack up to 2 times in your turn.
+Your inspiring words are so encouraging that others feel driven to succeed. When a friendly creature adds one of your Bardic Inspiration dice to its ability check, attack roll, or saving throw and the roll fails, the creature can keep the Bardic Inspiration die.
 
 
 ### Level 14
 
-* Gut Deflection
+* Heroic Inspiration
 
-You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
+You can use your bonus action to activate Heroic Inspiration. Heroic Inspiration grants all the benefits of Bardic Inspiration without consuming any Bardic Inspiration usages, and can target two friendly creatures within 60 feet instead of only one. You can use this feature 2 times per long rest.
 
 
 
-## 3. College of Life
+## 2. College of Life
 
 Masters of manipulating both matter and life energy.
 
@@ -361,6 +690,48 @@ You can use your action a number of times a day equal to your proficiency bonus,
 * Harden to Necrotic
 
 You have immunity to necrotic damage, and your hit point maximum can't be reduced.
+
+
+
+## 3. College of Swords
+
+Bards of the College of Swords entertain through daring feats of weapon prowess. They perform stunts such as sword swallowing, knife throwing and juggling, and mock combats. Though they use their weapons to entertain, they are also highly trained and skilled warriors in their own right.
+
+
+### Level 3
+
+* Audacious Whirl
+
+Whenever you take the Attack action on your turn, your walking speed increases by 10 feet until the end of the turn, and if a melee weapon attack that you make as part of this action hits a creature, you can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also choose a particular maneuver:
+• Defensive Whirl: You add the Bardic Inspiration die roll to your AC until the start of your next turn.
+• Slashing Whirl: You deal the extra damage to all other enemy creatures within 5 feet of you.
+• Mobile Whirl: You gain benefits of disengage until the end of your turn.
+
+* Bonus Proficiencies
+
+You gain proficiency with medium armor and the scimitar. You can also use your weapon as a spellcasting focus for your bard spells.
+
+* Fighting Style
+
+You adopt a particular style of fighting as your specialty. Choose either Dueling or Two Weapon Fighting.
+
+
+### Level 6
+
+* Cantrip Attack
+
+You can replace one of your attacks with a cantrip.
+
+* Extra Attack
+
+You gain an extra attack and can now attack up to 2 times in your turn.
+
+
+### Level 14
+
+* Masterful Whirl
+
+Whenever you use an Audacious Whirl option, you can roll a D6 and use it instead of expending a Bardic Inspiration die.
 
 
 
@@ -407,38 +778,38 @@ Any creature that fails its saving throw against your Terrific Performance also 
 
 
 
-## 5. College of Valiance
+## 5. College of Valor
 
-Bards of the College of Valiance use music and unwavering determination to embolden the hearts of their allies, while demoralizing their enemies. Drawing inspiration from the stories of heroes of old, great deeds and extraordinary events, these bards courageously fight to preserve their ideals, leaving a long-lasting impression on those around them.
+Bards of the College of Valor gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 
 
 ### Level 3
 
-* Captivating Presence
+* Armor and Weapons
 
-You leave a lasting impression on people around you. When you make a Persuasion or Performance check, you can treat a d20 roll of 9 or lower as a 10.
+You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
 
-* Disheartening Performance
+* Improved War Casting
 
-Your valiance in battle demoralizes your enemies. As a bonus action, you can expend one use of your Bardic Inspiration and choose one hostile creature you can see within 60 feet of you. Roll the Bardic Inspiration die. The creature must subtract the number rolled from the first saving throw it succeeds on before the end of your next turn.
+Advantage on concentration checks, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when enemies are within melee range.
 
 
 ### Level 6
 
-* Recall Language
+* Cantrip Attack
 
-You picked up knowledge of many different languages through reading foreign written works, and you can magically become fluent in those languages, adding Tongues spell to the list of spells known.
+You can replace one of your attacks with a cantrip.
 
-* Steadfast Inspiration
+* Extra Attack
 
-Your inspiring words are so encouraging that others feel driven to succeed. When a friendly creature adds one of your Bardic Inspiration dice to its ability check, attack roll, or saving throw and the roll fails, the creature can keep the Bardic Inspiration die.
+You gain an extra attack and can now attack up to 2 times in your turn.
 
 
 ### Level 14
 
-* Heroic Inspiration
+* Gut Deflection
 
-You can use your bonus action to activate Heroic Inspiration. Heroic Inspiration grants all the benefits of Bardic Inspiration without consuming any Bardic Inspiration usages, and can target two friendly creatures within 60 feet instead of only one. You can use this feature 2 times per long rest.
+You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
 
 
 
@@ -551,7 +922,7 @@ You learn Circle of Death and Finger of Death spells and it is added to the list
 
 
 
-## 2. Smith
+## 2. Forge
 
 Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
 
@@ -561,11 +932,11 @@ Holy smiths who channel their faith through steel and forges. Reinforcing allied
 * Expanded Spells
 
 
-	I	Identify, Infernal Smite
+	I	Identify, Searing Smite
 
 	II	Heat Metal, Magic Weapon
 
-	III	Protection from Energy, Elemental Enchantment
+	III	Protection from Energy, Elemental Weapon
 
 	IV	Wall of Fire, Stoneskin
 
@@ -712,49 +1083,7 @@ Cast Wall of Thorns a number of times a day equal to your proficiency bonus.
 
 
 
-## 2. Circle of the Cosmos
-
-The Circle of the Cosmos allows druids to draw on the power of starlight. These druids have tracked heavenly patterns since time immemorial, discovering secrets hidden amid the constellations. By revealing and understanding these secrets, the Circle of the Cosmos seeks to harness the powers of the stars.
-
-
-### Level 2
-
-* Constellation Form
-
-As a bonus action, you can expend a use of your Wild Shape feature to take on a starry form, rather than transforming into a beast. While in your starry form, your body becomes luminous. This form sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The form lasts for 10 minutes. It ends early if you dismiss it, are incapacitated, die, or use this feature again. Whenever you assume your starry form, choose which of the following constellations glimmers on your body: Archer, Chalice, or Dragon.
-
-* Cosmos Map
-
-You've created a star chart as part of your heavenly studies. While holding this map, you have these benefits:
-• You know the Guidance cantrip.
-• You have the Guiding Bolt spell prepared and can cast it without expending a spell slot. You can do so a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
-
-
-### Level 6
-
-* Fate in the Stars
-
-You learn to use your star map to divine the will of the cosmos. Whenever you finish a long rest, you can use a no cost power and until you finish your next long rest, you gain access to a special reaction based on whether you rolled an even or an odd number on the die:
-• Weal: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and add the number rolled to the total.
-• Woe: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and subtract the number rolled from the total.
-
-
-### Level 10
-
-* Twinkling Stars
-
-The constellations of your Starry Form improve. The 1d8 of the Archer and the Chalice becomes 2d8, and while the Dragon is active, you have a flying speed of 20 ft. Moreover, if you haven't moved or used any bonus or main action yet while in your Starry Form, you can change which constellation glimmers on your body.
-
-
-### Level 14
-
-* One with The Cosmos
-
-While in your Starry Form, you become partially incorporeal, giving you resistance to bludgeoning, piercing, and slashing damage.
-
-
-
-## 3. Circle of the Eternal Grove
+## 2. Circle of the Eternal Grove
 
 The Circle of the Eternal Grove strives to protect and preserve as many living beings as it can. These druids understand the significance of every lifeform in the natural cycle, be it large or small, and that every one of them is worth saving.
 
@@ -807,7 +1136,7 @@ Starting at 14th level, all healing spells you cast count as being cast at one s
 
 
 
-## 4. Circle of the Forest Guardian
+## 3. Circle of the Forest Guardian
 
 Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 
@@ -816,18 +1145,18 @@ Circle of the Forest Guardian Druids are sworn to protect the forests and all th
 
 * Bark Ward
 
-You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 4 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 6 at 6th level, and the power is improved at 10th. The bark lasts for one minute, or until you become incapacitated. 
+You can use your bonus action and expend an use of your Wild Shape feature to cover yourself with regenerating bark. While the bark is active, you gain 4 temporary hit points at the start of each of your turn, including the turn when you used this feature. The temporary hit points are increased to 6 at 6th level, and the power is improved at 10th. The bark lasts for one minute, or until you become incapacitated.
 
 * Expanded Spells
 
 
-	I	Entangling Strike, Shield
+	I	Ensnaring Strike, Shield
 
 	II	Lesser Restoration, Spike Growth
 
 	III	Protection from Energy, Dispel Magic
 
-	IV	Aura of Vivacity, Freedom of Movement
+	IV	Aura of Life, Freedom of Movement
 
 	V	Greater Restoration, Hold Monster
 
@@ -864,9 +1193,9 @@ When you activate Bark Ward, and on subsequent start of each of your turns while
 
 
 
-## 5. Circle of the Night
+## 4. Circle of the Moon
 
-Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
+Druids of the Circle of the Moon are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
 
 
 ### Level 2
@@ -914,11 +1243,53 @@ Your Combat Healing now heals you for 4d8 hit points.
 
 
 
+## 5. Circle of the Stars
+
+The Circle of the Stars allows druids to draw on the power of starlight. These druids have tracked heavenly patterns since time immemorial, discovering secrets hidden amid the constellations. By revealing and understanding these secrets, the Circle of the Stars seeks to harness the powers of the stars.
+
+
+### Level 2
+
+* Star Map
+
+You've created a star chart as part of your heavenly studies. While holding this map, you have these benefits:
+• You know the Guidance cantrip.
+• You have the Guiding Bolt spell prepared and can cast it without expending a spell slot. You can do so a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
+* Starry Form
+
+As a bonus action, you can expend a use of your Wild Shape feature to take on a starry form, rather than transforming into a beast. While in your starry form, your body becomes luminous. This form sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The form lasts for 10 minutes. It ends early if you dismiss it, are incapacitated, die, or use this feature again. Whenever you assume your starry form, choose which of the following constellations glimmers on your body: Archer, Chalice, or Dragon.
+
+
+### Level 6
+
+* Cosmic Omen
+
+You learn to use your star map to divine the will of the cosmos. Whenever you finish a long rest, you can use a no cost power and until you finish your next long rest, you gain access to a special reaction based on whether you rolled an even or an odd number on the die:
+• Weal: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and add the number rolled to the total.
+• Woe: Whenever a creature you can see within 30 feet of you is about to make an attack roll or a saving throw, you can use your reaction to roll a d6 and subtract the number rolled from the total.
+
+
+### Level 10
+
+* Twinkling Constellations
+
+The constellations of your Starry Form improve. The 1d8 of the Archer and the Chalice becomes 2d8, and while the Dragon is active, you have a flying speed of 20 ft. Moreover, if you haven't moved or used any bonus or main action yet while in your Starry Form, you can change which constellation glimmers on your body.
+
+
+### Level 14
+
+* Full of Stars
+
+While in your Starry Form, you become partially incorporeal, giving you resistance to bludgeoning, piercing, and slashing damage.
+
+
+
 # Fighter
 
-## 1. Arcane Marksman
+## 1. Arcane Archer
 
-An Arcane Marksman studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Marksmen are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
+An Arcane Archer studies a unique elven method of archery that weaves magic into attacks to produce supernatural effects. Arcane Marksmen are some of their most elite warriors among the elves. They stand watch over the fringes of elven domains, keeping a keen eye out for trespassers and using magic-infused arrows to defeat monsters and invaders before they can reach elven settlements. Over the centuries, the methods of these elf archers have been learned by members of other races who can also balance arcane aptitude with archery.
 
 
 ### Level 3
@@ -985,55 +1356,189 @@ You gain one additional usage of your Arcane Shot technique.
 
 
 
-## 2. Force Knight
+## 2. Banneret
 
-Force Knights are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
+A knight who inspires greatness in others by committing brave deeds in battle. A Banneret is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
 
 ### Level 3
 
-* Psionic Initiate
+* Rallying Cry
 
-You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 additional point every 3 levels thereafter. Your Force Points recharge on short or long rest. 
-• Force-Powered Strike. Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d6 + Intelligence modifier. The damage increases to 1d8 at 5th, 1d10 at 11th and 1d12 at 17th level.
-• Kinetic Barrier. When you or another allied creature that you can see within 30 feet of you is about to be hit by an attack, you can expend 1 Force Point and use your reaction to form a protective shield of pure force around it, granting it extra AC equal to your Intelligence modifier (minimum +1) against that attack and all subsequent attacks until the end of the attacking creature's turn.
-• Force Drive. You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range. You can use this feature once per short rest without expending a Force Point.
+Starting at 3rd level, you replace your Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 30 ft.
 
 
 ### Level 7
 
-* Psionic Adept
+* Royal Envoy
 
-You can now impose a Strength saving throw upon the creature struck by Force-Powered Strike (DC = 8 + proficiency bonus + Intelligence modifier). If the creature fails it, you can either knock the creature back 15 feet or knock it prone.
-
-* Psionic Propulsion
-
-You can expend 1 Force Point and use your bonus action to gain flying speed equal to twice your walking speed and not provoke opportunity attacks until the end of your turn. You can use this feature once per short rest without expending a Force Point.
+Starting at 3rd level, you add half of your proficiency bonus to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
 
 
 ### Level 10
 
-* Force of Will
+* Inspiring Surge
 
-Your psionic energy grants you extraordinary resilience. At the start of each of your turns, you gain temporary hit points equal to your Intelligence modifier (minimum of 1) if you have at least 1 hit point. In addition, you can use your Intelligence modifier instead of your Wisdom and Charisma modifier for saving throws if it's higher.
+Starting at 10th level, as a bonus action, you can grant an ally an additional main action for 1 round. You can use this power once per short rest.
 
 
 ### Level 15
 
-* Force Bulwark
+* Inspiring Protection
 
-You can shield yourself and others with psychokinetic force. As a bonus action, you can expend 1 Force Point and choose creatures, which can include you, that you can see within 30 feet of you, up to a number of creatures equal to your Intelligence modifier (minimum of one creature). Each of the chosen creatures is protected by half cover for 1 minute or until you're incapacitated. You can use this feature once per long rest without expending a Force Point.
+Starting at 15th level, your actions inspire others to keep on fighting. Whenever one of your allies that you can see within 60 feet fails a saving throw, you can use your reaction to make that ally reroll their save. You can use this feature three times per long rest.
 
 
 ### Level 18
 
-* Telekinetic Grasp
+* Spirited Surge
 
-You can expend 1 Force Point to cast the Telekinesis spell, requiring no components, and your spellcasting ability for the spell is Intelligence. On each of your turns while you concentrate on the spell, including the turn when you cast it, you can make one attack with a weapon as a bonus action. You can use this feature once per long rest without expending a Force Point.
+Starting at 18th level, your Inspiring Surge also grants advantage on all attacks, saving throws and ability checks for 1 round.
 
 
 
-## 3. Guardian
+## 3. Battle Master
+
+For battle masters, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
+
+
+### Level 3
+
+* Maneuvers
+
+You learn three special techniques called maneuvers. Using a maneuver costs one superiority die. Most maneuvers enhance your attacks in a way and add the superiority die's roll to the attack's damage. You can only have one maneuver active at a time. Some of your maneuvers require your target to make a saving throw to avoid its detrimental effects. The Maneuver DC of these maneuvers is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher.
+
+* Sharp Mind
+
+Gain proficiency with a skill of your choice.
+
+* Superiority Die
+
+You gain four D8 dice called superiority dice that you can spend to use various maneuvers. Spent dice recharge whenever you take a short or long rest. On certain levels these dice increase in size.
+
+
+### Level 7
+
+* Additional Superiority Die
+
+You gain an additional superiority die.
+
+* Honed Skill
+
+Gain expertise with a skill or tool of your choice.
+
+* Maneuvers
+
+Learn 2 maneuvers.
+
+* Replace Maneuver
+
+You can replace one maneuver you know with a new one.
+
+
+### Level 10
+
+* Replace Maneuver
+
+You can replace one maneuver you know with a new one.
+
+* Strategic Plan
+
+You can choose a strategy to deal with prolonged encounters - abilities that would allow you to gain superiority dice under certain circumstances.
+
+* Superiority Die Size (d10)
+
+Your superiority die is upgraded to D10.
+
+
+### Level 15
+
+* Additional Superiority Die
+
+You gain an additional superiority die.
+
+* Battle Clarity
+
+Gain proficiency with a saving throw of your choice.
+
+* Maneuvers
+
+Learn 2 maneuvers.
+
+* Replace Maneuver
+
+You can replace one maneuver you know with a new one.
+
+
+### Level 18
+
+* Replace Maneuver
+
+You can replace one maneuver you know with a new one.
+
+* Superiority Die Size (d12)
+
+Your superiority die is upgraded to D12.
+
+* Tactical Awareness
+
+While you are not incapacitated, you gain the following benefits:
+• Once per turn, your weapon attack deals extra damage equal to your proficiency bonus.
+• Attacks of Opportunity you make are done with advantage.
+• Attacks of Opportunity against you are done with disadvantage.
+
+
+
+## 4. Eldritch Knight
+
+Eldritch Knights are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
+
+
+### Level 3
+
+* Improved War Casting
+
+Advantage on concentration checks, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when enemies are within melee range.
+
+* Spellcasting
+
+Cast Wizard spells and cantrips.
+
+
+### Level 7
+
+* Cantrip Attack
+
+You can replace one of your attacks with a cantrip.
+
+* War Magic
+
+You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
+
+
+### Level 10
+
+* Blade Weaving
+
+When you hit a creature with a weapon attack, that creature has disadvantage on the next saving throw it makes before the end of your next turn.
+
+
+### Level 15
+
+* Arcane Deflection
+
+You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
+
+
+### Level 18
+
+* Protective Barrier
+
+You can use your action to target up to 4 friendly creatures. Each affected creature gains +2 AC while the barrier lasts. You can use this feature once per long rest.
+
+
+
+## 5. Guardian
 
 Guardians are stalwart warriors who use taunts and impregnable defenses to become a living wall between their allies and certain doom. Whether a guardian is a valiant knight, a stubborn sellsword, or a battle-hardened general, there is no one better to have at your side when the situation is at its most dire.
 
@@ -1081,185 +1586,51 @@ You gain resistance to all non magical bludgeoning, piercing and slashing damage
 
 
 
-## 4. Royal Knight
+## 6. Psi Warrior
 
-A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
-
-
-### Level 3
-
-* Rallying Cry
-
-Starting at 3rd level, you replace your Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 30 ft.
-
-
-### Level 7
-
-* Royal Envoy
-
-Starting at 3rd level, you add half of your proficiency bonus to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
-
-
-### Level 10
-
-* Inspiring Surge
-
-Starting at 10th level, as a bonus action, you can grant an ally an additional main action for 1 round. You can use this power once per short rest.
-
-
-### Level 15
-
-* Inspiring Protection
-
-Starting at 15th level, your actions inspire others to keep on fighting. Whenever one of your allies that you can see within 60 feet fails a saving throw, you can use your reaction to make that ally reroll their save. You can use this feature three times per long rest.
-
-
-### Level 18
-
-* Spirited Surge
-
-Starting at 18th level, your Inspiring Surge also grants advantage on all attacks, saving throws and ability checks for 1 round.
-
-
-
-## 5. Spell Shield
-
-Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
+Psi Warriors are disciplined warriors who utilize a wide range of psychokinetic abilities to gain the upper hand in battle. They can easily adapt to any situation, augment their might with psi-infused attacks or aid allies with mentally created barriers and telekinetic movement.
 
 
 ### Level 3
 
-* Improved War Casting
+* Psionic Initiate
 
-Advantage on concentration checks, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when enemies are within melee range.
-
-* Spellcasting
-
-Cast Wizard spells and cantrips.
-
-
-### Level 7
-
-* Cantrip Attack
-
-You can replace one of your attacks with a cantrip.
-
-* War Magic
-
-You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
-
-
-### Level 10
-
-* Blade Weaving
-
-When you hit a creature with a weapon attack, that creature has disadvantage on the next saving throw it makes before the end of your next turn.
-
-
-### Level 15
-
-* Arcane Deflection
-
-You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your armor class until your next turn.
-
-
-### Level 18
-
-* Protective Barrier
-
-You can use your action to target up to 4 friendly creatures. Each affected creature gains +2 AC while the barrier lasts. You can use this feature once per long rest.
-
-
-
-## 6. Tactician
-
-For tacticians, a battle is a test of wit as much as a test of might. They employ various martial techniques passed down by triumphant military leaders, aiming to outmaneuver and outmatch the opposing side using whatever tactic necessary to be victorious.
-
-
-### Level 3
-
-* Gambit Die
-
-You gain four D8 dice called gambit dice that you can spend to use various gambits. Spent dice recharge whenever you take a short or long rest. On certain levels these dice increase in size.
-
-* Gambits
-
-You learn three special techniques called gambits. Using a gambit costs one gambit die. Most gambits enhance your attacks in a way and add the gambit die's roll to the attack's damage. You can only have one gambit active at a time. Some of your gambits require your target to make a saving throw to avoid its detrimental effects. The Gambit DC of these gambits is 8 + proficiency bonus + Strength or Dexterity modifier, whichever is higher. 
-
-* Sharp Mind
-
-Gain proficiency with a skill of your choice.
+You gain a number of Force Points that can be used to fuel various psychokinetic abilities. You start with 3 Force Points and gain 1 additional point every 3 levels thereafter. Your Force Points recharge on short or long rest. 
+• Force-Powered Strike. Once on each of your turns when you hit a creature with a weapon attack, you can expend 1 Force Point to deal additional force damage equal to 1d6 + Intelligence modifier. The damage increases to 1d8 at 5th, 1d10 at 11th and 1d12 at 17th level.
+• Kinetic Barrier. When you or another allied creature that you can see within 30 feet of you is about to be hit by an attack, you can expend 1 Force Point and use your reaction to form a protective shield of pure force around it, granting it extra AC equal to your Intelligence modifier (minimum +1) against that attack and all subsequent attacks until the end of the attacking creature's turn.
+• Force Drive. You can expend 1 Force Point as a free action to launch weapons using your psychokinetic powers. Until the end of your turn, your equipped melee weapons gain 30 feet of additional range. You can use this feature once per short rest without expending a Force Point.
 
 
 ### Level 7
 
-* Additional Gambit Die
+* Psionic Adept
 
-You gain an additional gambit die.
+You can now impose a Strength saving throw upon the creature struck by Force-Powered Strike (DC = 8 + proficiency bonus + Intelligence modifier). If the creature fails it, you can either knock the creature back 15 feet or knock it prone.
 
-* Gambits
+* Psionic Propulsion
 
-Learn 2 gambits.
-
-* Honed Skill
-
-Gain expertise with a skill or tool of your choice.
-
-* Replace Gambit
-
-You can replace one gambit you know with a new one.
+You can expend 1 Force Point and use your bonus action to gain flying speed equal to twice your walking speed and not provoke opportunity attacks until the end of your turn. You can use this feature once per short rest without expending a Force Point.
 
 
 ### Level 10
 
-* Gambit Die Size (d10)
+* Force of Will
 
-Your gambit die is upgraded to D10.
-
-* Replace Gambit
-
-You can replace one gambit you know with a new one.
-
-* Strategic Plan
-
-You can choose a strategy to deal with prolonged encounters - abilities that would allow you to gain gambit dice under certain circumstances.
+Your psionic energy grants you extraordinary resilience. At the start of each of your turns, you gain temporary hit points equal to your Intelligence modifier (minimum of 1) if you have at least 1 hit point. In addition, you can use your Intelligence modifier instead of your Wisdom and Charisma modifier for saving throws if it's higher.
 
 
 ### Level 15
 
-* Additional Gambit Die
+* Force Bulwark
 
-You gain an additional gambit die.
-
-* Battle Clarity
-
-Gain proficiency with a saving throw of your choice.
-
-* Gambits
-
-Learn 2 gambits.
-
-* Replace Gambit
-
-You can replace one gambit you know with a new one.
+You can shield yourself and others with psychokinetic force. As a bonus action, you can expend 1 Force Point and choose creatures, which can include you, that you can see within 30 feet of you, up to a number of creatures equal to your Intelligence modifier (minimum of one creature). Each of the chosen creatures is protected by half cover for 1 minute or until you're incapacitated. You can use this feature once per long rest without expending a Force Point.
 
 
 ### Level 18
 
-* Gambit Die Size (d12)
+* Telekinetic Grasp
 
-Your gambit die is upgraded to D12.
-
-* Replace Gambit
-
-You can replace one gambit you know with a new one.
-
-* Tactical Awareness
-
-While you are not incapacitated, you gain the following benefits:
-• Once per turn, your weapon attack deals extra damage equal to your proficiency bonus.
-• Attacks of Opportunity you make are done with advantage.
-• Attacks of Opportunity against you are done with disadvantage.
+You can expend 1 Force Point to cast the Telekinesis spell, requiring no components, and your spellcasting ability for the spell is Intelligence. On each of your turns while you concentrate on the spell, including the turn when you cast it, you can make one attack with a weapon as a bonus action. You can use this feature once per long rest without expending a Force Point.
 
 
 
@@ -1272,7 +1643,7 @@ Whether they are loved, respected or feared, warlords are primarily known for on
 
 * Battlefield Experience
 
-You gain a bonus to initiative rolls equal to your Wisdom modifier (minimum +1). 
+You gain a bonus to initiative rolls equal to your Wisdom modifier (minimum +1).
 
 * Press the Advantage
 
@@ -1293,7 +1664,7 @@ You can use your bonus action to order an ally other than yourself that you can 
 
 * Coordinated Assault
 
-Once during your turn when you hit a creature with a melee weapon attack, you can issue an order to assault the creature, allowing all allies to use their reaction to make an attack of opportunity against it. You can use this feature three times per long rest. 
+Once during your turn when you hit a creature with a melee weapon attack, you can issue an order to assault the creature, allowing all allies to use their reaction to make an attack of opportunity against it. You can use this feature three times per long rest.
 
 
 ### Level 15
@@ -1364,373 +1735,6 @@ Your Focused Strikes also grants you advantage on all damage rolls while attacki
 
 
 
-# Inventor
-
-## 1. Armorer
-
-Armorers focus their studies on magical armors and how to use them effectively.
-
-
-### Level 3
-
-* Armor Mode
-
-Once per short rest you can select one of 2 armor modes:
-• Guardian: Gain Thunder Gauntlet weapon if you have a free hand, and Defensive Field bonus action to gain temporary HP equal to Inventor level.
-• Infiltrator: Gain Lightning Launcher ranged attack, 5ft movement speed bonus and advantage on Dexterity (Stealth) checks.
-
-* Armored Up
-
-You gain proficiency with heavy armor and ignore Strength requirements of armor.
-
-* Armorer Spells
-
-Learn and have always prepared:
-
-	I	Magic Missile, Shield
-
-	II	Illusory Duplicates, Shatter
-
-	III	Hypnotic Pattern, Lightning Bolt
-
-	IV	Fire Shield, Greater Invisibility
-
-	V	Ethereal Step, Wall of Force
-
-
-
-
-### Level 5
-
-* Extra Attack
-
-You gain an extra attack and can now attack up to 2 times in your turn.
-
-
-### Level 9
-
-* Armor Modification
-
-You have learned how to use your artificer infusions to specially modify armors - now you can put weapon enhancement infusions on armor and they will affect built-in Thunder Gauntlet and Lightning Launcher weapons. In addition, the maximum number of items you can infuse at once increases by 2.
-
-
-### Level 15
-
-* Perfected Armor
-
-You improve your armor modes:
-• Guardian: Creatures attacked by your Thunder Gauntlet are Slowed until the start of your next turn, unless they succeed CON saving throw against inventor's spellcasting DC.
-• Infiltrator: Creatures attacked by your Lightning Launcher glimmer with magical light until the start of your next turn. The glimmering creature sheds dim light in a 5-foot radius, and it has disadvantage on attack rolls against you, as the light jolts it if it attacks you. In addition, the next attack roll against it has advantage, and if that attack hits, the target takes an extra 1d6 lightning damage.
-
-
-
-## 2. Artillerist
-
-An Artillerist specializes in using magic to hurl energy, projectiles, and explosions on a battlefield. This destructive power is valued by armies in the wars on many different worlds.
-
-
-### Level 3
-
-* Artillerist Spells
-
-Learn and have always prepared:
-
-	I	Shield, Thunderwave
-
-	II	Scorching Ray, Shatter
-
-	III	Fireball, Wind Wall
-
-	IV	Ice Storm, Wall of Fire
-
-	V	Cone of Cold, Wall of Force
-
-
-
-* Eldritch Cannon
-
-Starting at 3rd level, you've learned how to create a magical cannon. You can take an action to magically create a small or tiny eldritch cannon in an unoccupied space on a horizontal surface within 5 feet of you. A small eldritch cannon with 1D8 + 5 * class level hit points occupies its space, and a tiny one can be held in one hand.
-Once you create a cannon, you can't do so again until you finish a long rest or until you expend a spell slot to create one.
-You can have only one cannon at a time. On each of your turns, you can take a bonus action to cause the cannon to activate. As part of the same bonus action, you can direct the cannon to walk or climb up to 15 feet to an unoccupied space.
-
-
-### Level 5
-
-* Arcane Firearm
-
-Starting at 5th level, You know how to use a weapon you have proficiency with as a spellcasting focus for your artificer spells. When you cast an artificer spell through the weapon, roll a d8, and you gain a bonus to one of the spell's damage rolls equal to the number rolled. This damage increases to 2d8 at 15th level.
-
-
-### Level 9
-
-* Explosive Cannon
-
-Starting at 9th level, every eldritch cannon you create is more destructive:
-• The cannon's damage rolls all increase to 3d8.
-• As an action, you can command the cannon to detonate if you are within 60 feet of it. Doing so destroys the cannon and forces each creature within 20 feet of it to make a Dexterity saving throw against your spell save DC, taking 3d8 force damage on a failed save or half as much damage on a successful one.
-
-
-### Level 15
-
-* Fortified Position
-
-Starting at 15th level, you're a master at forming well-defended emplacements using Eldritch Cannon:
-• The cannon's damage rolls all increase to 4d8.
-• You can now summon a cannon twice until long rest.
-• You and your allies have half cover while within 10 feet of a cannon you create with Eldritch Cannon, as a result of a shimmering field of magical protection that the cannon emits.
-
-
-
-## 3. Grenadier
-
-Grenadiers study unstable substances and their use in creating explosions of various types.
-
-
-### Level 3
-
-* Alchemical Bombs
-
-Spend alchemy points to quickly mix and throw a bomb.
-
-* Alchemy Points
-
-You gain 6 Alchemy points at this level, and 1 more point every level.
-
-* Fast Hands
-
-You have learned to mix reagents and use various devices quickly. You can use a bonus action to activate any device.
-
-* Grenadier Spells
-
-Learn and have always prepared:
-
-	I	Magic Missile, Thunderwave
-
-	II	Shatter, Blindness
-
-	III	Fireball, Stinking Cloud
-
-	IV	Confusion, Fire Shield
-
-	V	Cloudkill, Cone of Cold
-
-
-
-
-### Level 5
-
-* Concentrated Bombs
-
-You can spend additional charge when creating a bomb to make it more potent. Precise bombs allow targeting more enemies. Splash bombs increase explosion radius. Cone bombs increase their damage.
-
-* Elemental Bombs
-
-You've learned how to change damage type of a bomb into Cold, Lightning, Acid or Poison. Those bombs deal slightly less damage than Fire ones, but include additional effects.
-
-* Refund Alchemy Charge
-
-Gain up to 5 alchemy charges by spending spell slots.
-
-
-### Level 9
-
-* Advanced Bombs
-
-You've learned how to change damage type of a bomb into Force, Radiant, Necrotic, Thunder or Psychic. Those bombs deal slightly less damage than Fire ones, but include additional effects.
-
-* Improved Concentrated Bombs
-
-You can spend 2 additional charges when creating a bomb to make it more potent. Precise bombs allow targeting more enemies.
-
-
-### Level 15
-
-* Perfected Concentrated Bombs
-
-You can spend 3 additional charges when creating a bomb to make it more potent. Precise bombs allow targeting more enemies.
-
-
-
-## 4. Vitriolist
-
-All Inventors use various forms of acids and other magical means to break down ingredients, creature parts or even objects into their base components for their experiments, Some Inventors became focused on the deconstruction process, especially when using acid in this function and have experimented with how it could be used in a far greater capacity when it comes to offensive and defensive capabilities.
-
-
-### Level 3
-
-* Vitriolic Mixtures
-
-Starting at 3rd level, you gain the ability to use a Vitriolic Mixture of your own making:
-• Affliction: On a hit the creature takes 2d4 acid damage and 2d4 poison damage. The creature is also poisoned until the end of their next turn.
-• Corrosion: On a hit the creature takes 2d8 acid damage. The creature also gets the AC reduced by 2 until the end of their next turn.
-• Misery: On a hit the creature takes 2d8 acid damage which lingers on their skin dealing an additional 2d4 acid damage at the end of their next turn.
-• Viscosity: On a hit the creature takes 2d8 acid damage. The creature is also confused until the end of their next turn.
-All damage dice increase at 7th, 14th, and 18th levels.
-
-* Vitriolist Spells
-
-Learn and have always prepared:
-
-	I	Caustic Zap, Shield
-
-	II	Acid Arrow, Blindness
-
-	III	Protection from Energy, Stinking Cloud
-
-	IV	Blight, Stoneskin
-
-	V	Cloudkill, Contagion
-
-
-
-
-### Level 5
-
-* Vitriolic Infusion
-
-Starting at 5th level, your consistent exposure to acid has infused your body with Acid Resistance. Your exposure to acid has also granted you an affinity for it and you now add your proficiency bonus as extra damage to any dealt acid damage.
-
-
-### Level 9
-
-* Vitriolist Arsenal
-
-Starting at 9th level, you have learned how to break down your own magic to create additional Vitriolic Mixtures. As an action you can convert a spell slot into uses of your Vitriolic Mixture feature. You regain one use per spell slot level converted.
-You have learned to make your Vitriolic Mixture's so potent that they are able to bypass acid resistance and deal half damage to creatures with acid immunity. Additionally due to their increased potency each Mixture now also shocks the targets system removing their ability to use reactions until the start of their next turn.
-
-
-### Level 15
-
-* Vitriolist Paragon
-
-Starting at 15th level, you have mastered your Vitriolic Mixtures. Whenever a creature is affected by any of your Vitriolic Mixtures it must now also succeed a Wisdom Saving throw or it will become Paralyzed as your mixture slowly consumes it.
-
-
-
-## 5. Vivisectionist
-
-A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist's goals are not always related to healing, but rather to experimentation and knowledge with body parts.
-
-
-### Level 3
-
-* Emergency Surgery
-
-You can take an action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
-
-* Medical Accuracy
-
-Once per turn, you can deal an extra 1d6 damage to one creature you hit with a weapon attack if you have advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The damage increases to 2d6 at 7th level, 3d6 at 11th, 4d6 at 15th, and 5d6 at 19th level.
-
-* Vivisectionist Spells
-
-Learn and have always prepared:
-
-	I	Bless, Inflict Wounds
-
-	II	Enhance Ability, Lesser Restoration
-
-	III	Remove Curse, Revivify
-
-	IV	Death Ward, Identify Creatures
-
-	V	Contagion, Raise Dead
-
-
-
-
-### Level 5
-
-* Emergency Cure
-
-You can take a bonus action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
-
-* War Magic
-
-You can use your bonus action to attack using the weapon in your main hand after casting a spell (or a cantrip if enabled on mod ui rules).
-
-
-### Level 9
-
-* Organ Donation
-
-Regain one use of your Emergency Surgery and your Emergency Cure when you reduce a hostile creature to 0 hit points. You may do this once per short rest.
-
-* Stable Surgery
-
-When casting a healing spell your minimum healing dice roll is 2.
-
-
-### Level 15
-
-* Master Emergency Cure
-
-You can take a free action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
-
-* Master Emergency Surgery
-
-You can take a bonus action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
-
-
-
-## 6. Weaponsmith
-
-Weaponsmiths focus their studies on magical weapons and how to use them effectively.
-
-
-### Level 3
-
-* Inventive Weapon Use
-
-After experimenting on weapons you learned that you can use your smarts to handle them:
-• You became proficient with all martial weapons
-• You can use Intelligence for attack and damage rolls with magic weapons.
-
-* Steel Defender
-
-Your experiments with weapons has borne you a Steel Defender companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the defender, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the defender can take any action of its choice.
-
-* Weaponsmith Spells
-
-Learn and have always prepared:
-
-	I	Heroism, Shield
-
-	II	Branding Smite, Spiritual Weapon
-
-	III	Remove Curse, Beacon of Hope
-
-	IV	Fire Shield, Death Ward
-
-	V	Mass Cure Wounds, Wall of Force
-
-
-
-
-### Level 5
-
-* Extra Attack
-
-You gain an extra attack and can now attack up to 2 times in your turn.
-
-
-### Level 9
-
-* Force Jolt
-
-When you hit an enemy with your attack you can channel magical energy through the strike to make target take extra 2d6 Force damage. You can uses this power number of times equal to your Intelligence modifier per long rest, but no more than once per turn.
-
-
-### Level 15
-
-* Improved Defender
-
-Your Arcane Jolt and steel defender become more powerful:
-• The extra damage and the healing of your Arcane Jolt both increase to 4d6.
-• Your steel defender gains a +2 bonus to Armor Class.
-
-
-
 # Monk
 
 ## 1. Way of Discordance
@@ -1753,7 +1757,7 @@ You learn to manipulate the inner chaos of your foes. Each time you hit a creatu
 
 * Turmoil
 
-Starting at 6th level, when a creature receives damage from your Discordance feature, it must succeed on Charisma saving throw (DC 8 + proficiency bonus + Wisdom modifier) or receive Turmoil condition for up to one minute, having –1d4 penalty to all attack rolls and saving throws. A creature that fails the saving throw can repeat it at the end of each of its turns. If a creature succeeds at the saving throw or the effect expires, the creature is immune to further effects of Turmoil. 
+Starting at 6th level, when a creature receives damage from your Discordance feature, it must succeed on Charisma saving throw (DC 8 + proficiency bonus + Wisdom modifier) or receive Turmoil condition for up to one minute, having –1d4 penalty to all attack rolls and saving throws. A creature that fails the saving throw can repeat it at the end of each of its turns. If a creature succeeds at the saving throw or the effect expires, the creature is immune to further effects of Turmoil.
 
 
 ### Level 11
@@ -1817,14 +1821,14 @@ You can use your bonus action to sprout a pair of wings, gaining flying speed eq
 
 
 
-## 3. Way of Silhouette
+## 3. Way of Shadow
 
-Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
+Practitioners of the Way of Shadow follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
 
 ### Level 3
 
-* Silhouette Arts
+* Shadow Arts
 
 You can see normally in dim light, and in natural darkness as if in dim light, to a distance of 60 feet. You can also spend 1 ki to cast Darkness as an action without providing material components.
 
@@ -1835,7 +1839,7 @@ Once per turn, you can deal extra damage equal to your martial arts die if you h
 
 ### Level 6
 
-* Silhouette Step
+* Shadow Step
 
 You can use your bonus action when you are in dim light or natural darkness to teleport up to 60 feet to an unoccupied space you can see that is also in dim light or natural darkness. After doing so, the next melee attack you make before your turn ends is rolled with advantage.
 
@@ -1844,7 +1848,7 @@ You can use your bonus action when you are in dim light or natural darkness to t
 
 * Shadow Flurry
 
-Once per turn when you miss with a monk weapon or unarmed attack while you are in dim light or darkness, you can immediately reroll that attack against the same target. 
+Once on each of your turns when you miss with a monk weapon or unarmed attack, you automatically reattempt the attack against the same target.
 
 
 ### Level 17
@@ -1980,7 +1984,7 @@ When a friendly creature you can see is hit by an attack, you can spend use of C
 
 * Channel Divinity: Spiritual Shielding
 
-When a friendly creature you can see is about to be hit by attack you can spend use of Channel Divinity to apply effect of Shield spell (+5 AC for a round) on it.
+When a friendly creature you can see is about to be hit by attack you can spend a use of Channel Divinity granting it extra AC equal to your Charisma modifier.
 
 * Oath of Altruism
 
@@ -2029,7 +2033,69 @@ You passively grant the following benefits:
 
 
 
-## 2. Oath of Demon Hunter
+## 2. Oath of Ancients
+
+An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
+
+
+### Level 3
+
+* Channel Divinity: Nature's Wrath
+
+You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
+
+* Channel Divinity: Turn the Faithless
+
+You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
+
+* Oath of Ancients
+
+In your list and always prepared: 
+ 
+	I	Ensnaring Strike, Animal Friendship
+
+	II	Moon Beam, Misty Step
+
+	III	Protection from Energy, Spirit Guardians
+
+	IV	Ice Storm, Stoneskin
+
+
+### Level 7
+
+* Aura of Warding
+
+Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 ft of you have resistance to damage from spells.
+
+
+### Level 15
+
+* Undying Sentinel
+
+When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
+
+
+### Level 18
+
+* Improved Aura of Warding
+
+Your Aura of Warding range increased to 30 ft.
+
+
+### Level 20
+
+* Elder Champion
+
+As an action, you gain the following benefits for one minute:
+• At the start of each of your turns, you regain 10 hit points.
+• Whenever you cast a paladin spell that has a casting time of 1 action, you can make two weapon attacks as a part of the same action.
+• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity powers.
+
+Once you use this feature, you can't use it again until you finish a long rest.
+
+
+
+## 3. Oath of Demon Hunter
 
 Paladins of the Oath of Demon Hunter are dedicated to eradicating the evil creatures that lurk in the darkness, and maintaining peace in the world.
 
@@ -2089,7 +2155,7 @@ Starting at 20th level, you slay evil and purify demons. You gain the following 
 
 
 
-## 3. Oath of Dread
+## 4. Oath of Dread
 
 Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
 
@@ -2153,7 +2219,7 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-## 4. Oath of Hatred
+## 5. Oath of Hatred
 
 An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 
@@ -2214,68 +2280,6 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-## 5. Oath of Primordials
-
-An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
-
-
-### Level 3
-
-* Channel Divinity: Nature's Retribution
-
-You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
-
-* Channel Divinity: Turn the Wicked
-
-You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
-
-* Oath of Primordials
-
-In your list and always prepared: 
- 
-	I	Entangling Strike, Animal Friendship
-
-	II	Moon Beam, Misty Step
-
-	III	Protection from Energy, Spirit Guardians
-
-	IV	Ice Storm, Stoneskin
-
-
-### Level 7
-
-* Aura of Magical Abatement
-
-Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 ft of you have resistance to damage from spells.
-
-
-### Level 15
-
-* Undying Protector
-
-When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
-
-
-### Level 18
-
-* Improved Aura of Magical Abatement
-
-Your Aura of Warding range increased to 30 ft.
-
-
-### Level 20
-
-* Primordial Champion
-
-As an action, you gain the following benefits for one minute:
-• At the start of each of your turns, you regain 10 hit points.
-• Whenever you cast a paladin spell that has a casting time of 1 action, you can make two weapon attacks as a part of the same action.
-• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity powers.
-
-Once you use this feature, you can't use it again until you finish a long rest.
-
-
-
 ## 6. Oath of Thunder
 
 Paladins of the Thunder were born to end the everlasting war across the planes. Even those, travelling far from home, are still eager to fulfil their duty, striking their enemies with the fury of thunder and power of the ancient gods.
@@ -2299,7 +2303,7 @@ When wielding a War Hammer, they can be thrown with a 20/60 range, and return to
 
 In your list and always prepared: 
  
-	I	Thunderwave, Booming Smite
+	I	Thunderwave, Thunderous Smite
 
 	II	Shatter, Misty Step
 
@@ -2307,7 +2311,7 @@ In your list and always prepared:
 
 	IV	Freedom of Movement, Stoneskin
 
-	V	Ethereal Step, Sonic Boom
+	V	Far Step, Sonic Boom
 
 
 ### Level 7
@@ -2392,7 +2396,61 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 
 
-## 2. Hellwalker
+## 2. Gloom Stalker
+
+Gloom stalkers are at home in the darkest places: deep under the earth, in gloomy alleyways, in primeval forests, and wherever else the light dims. Most folk enter such places with trepidation, but a gloom stalker ventures boldly into the darkness, seeking to ambush threats before they can reach the broader world. Such rangers are often found in the Underdark, but they will go any place where evil lurks in the shadows.
+
+
+### Level 3
+
+* Dread Ambusher
+
+You can give yourself a bonus to your initiative rolls equal to your Wisdom modifier. At the start of your first turn of each combat, your walking speed increases by 10 feet, which lasts until the end of that turn. If you take the Attack action on that turn, you can make one additional weapon attack. On the next attack that hits, the target takes an extra 1d8 damage of the weapon's damage type.
+
+* Gloom Stalker Bonus Spells
+
+You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:
+
+	I	Detect Evil and Good
+
+	II	Misty Step
+
+	III	Fear
+
+	IV	Greater Invisibility
+
+	V	Far Step
+
+
+
+* Umbral Sight
+
+You gain darkvision out to a range of 60 feet. If you already have darkvision, its range increases by 30 feet. While you are in natural darkness, creatures cannot use their darkvision sense to perceive you.
+
+
+### Level 7
+
+* Iron Mind
+
+You have honed your ability to resist the mind-altering powers of your prey. You gain proficiency in Intelligence, Wisdom or Charisma saving throws.
+
+
+### Level 11
+
+* Stalker's Flurry
+
+Once on each of your turns when you miss with a weapon attack, you automatically reattempt the attack against the same target.
+
+
+### Level 15
+
+* Shadowy Dodge
+
+Whenever a creature is about to hit you with an attack, you can use your reaction to make the creature reroll the attack with disadvantage.
+
+
+
+## 3. Hellwalker
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 
@@ -2409,7 +2467,7 @@ When you first hit a creature with an attack on your turn, you can force it to s
 
 * Hellwalker Magic
 
-You can cast Enduring Sting as an action and gain bonus spells that are considered ranger spells for you and don't count against the number of spells you know:
+You can cast Sapping Sting as an action and gain bonus spells that are considered ranger spells for you and don't count against the number of spells you know:
 
 	I	Hellish Rebuke
 
@@ -2419,7 +2477,7 @@ You can cast Enduring Sting as an action and gain bonus spells that are consider
 
 	IV	Wall of Fire
 
-	V	Ethereal Step
+	V	Far Step
 
 
 ### Level 7
@@ -2448,7 +2506,7 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-## 3. Lightbearer
+## 4. Lightbearer
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 
@@ -2471,18 +2529,18 @@ You can cast light as an action and gain bonus spells that are considered ranger
 
 	II	Branding Smite
 
-	III	Luminous Smite
+	III	Blinding Smite
 
 	IV	Guardian of Faith
 
-	V	Expelling Smite
+	V	Banishing Smite
 
 
 ### Level 7
 
 * Blessed Glow
 
-You have the ability to conjure holy light. When you cast Light, you can force all creatures within 20 ft of the light source to succeed on a Constitution saving thrown against your spell saving DC or be blinded for 1 minute. An undead or fiend have disadvantage on this saving throw. You can use this power once per long rest. 
+You have the ability to conjure holy light. When you cast Light, you can force all creatures within 20 ft of the light source to succeed on a Constitution saving thrown against your spell saving DC or be blinded for 1 minute. An undead or fiend have disadvantage on this saving throw. You can use this power once per long rest.
 
 
 ### Level 11
@@ -2500,7 +2558,7 @@ You can use your holy light to temporarily blind assailants. When a creature wit
 
 
 
-## 4. Sky Warrior
+## 5. Sky Warrior
 
 Sky Warriors have been touched by the lingering power of barren windswept landscapes inhabited by nothing but mirages and ghosts. They combine elegant maneuvers of blade and shield with illusion magic to thrive in combat.
 
@@ -2519,9 +2577,9 @@ While wearing a shield, you may use your bonus action to increase your speed by 
 
 You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know:
 
-	0	Air Blast
+	0	Gust
 
-	II	Illusory Duplicates
+	II	Mirror Image
 
 	III	Fly
 
@@ -2534,13 +2592,13 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 ### Level 7
 
+* Ghostly Howl
+
+When an enemy you can see within 60 feet hits you with an attack you can use your reaction to force them to make a Wisdom saving throw against your Ranger spell DC. On a failure, they are frightened for a number of turns equal to your Wisdom modifier (minimum 1). You may use this ability a number of times equal to your Wisdom modifier and regain all uses after you finish a long rest.
+
 * Intangible Form
 
 Gain resistance to bludgeoning damage.
-
-* Swift Strike
-
-Gain a bonus to your initiative rolls equal to your Wisdom modifier (minimum 1).
 
 
 ### Level 11
@@ -2558,7 +2616,7 @@ While wearing a shield, gain a flying speed equal to your walking speed.
 
 
 
-## 5. Survivalist
+## 6. Survivalist
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -2575,7 +2633,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 	I	Entangle
 
-	II	Conjure Web
+	II	Web
 
 	III	Sleet Storm
 
@@ -2606,17 +2664,13 @@ Your Disabling Strike now applies to all weapon attacks you make, and reduces th
 
 ### Level 15
 
-* Favored Enemy
+* Blessing of The Wilderness
 
-Gain advantage on ability checks towards this creature type, and additional damage against it equal to your knowledge level.
-
-* Unmatched Experience
-
-Gain proficiency in Wisdom saving throws.
+You are immune to being blinded, deafened, frightened, or poisoned, and any critical hit against you counts as a normal hit instead, unless you are incapacitated or cannot perceive the attacker.
 
 
 
-## 6. Wildmaster
+## 7. Wildmaster
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 
@@ -2625,39 +2679,28 @@ The Wildmaster archetype embodies a friendship between the civilized races and t
 
 * Beast Companion
 
-You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to armor class, attack rolls and damage rolls. It also gains 4 HP per character level and can only take the Dodge action on its turn unless you command it to do otherwise.
-Both Spirit Beast and summoner share the same initiative and you can choose a Bear, an Eagle or a Wolf:
-• The Bear can breath a cone of fire
-• The Eagle a line of electricity
-• The Wolf a cone of cold.
-
-* Deep Integration
-
-You and your Spirit Beast help each other in the field. The Spirit Beast gains attack advantage whenever engaging an enemy next to you.
+You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to armor class, attack rolls and damage rolls. It also gains 5 + 5 HP per ranger level, both Beast Companion and ranger share the same initiative, and you can choose between a Bear, an Eagle or a Wolf: Bear gains an additional 3 HP per ranger level, Eagle can fly and Wolf has pact tactics.
 
 
 ### Level 7
 
-* True Expertise
+* Advanced Training
 
-The Spirit Beast can now take the Dash or Disengage action on its turn. its attack count as magical for the purpose of overcoming resistance and immunity. The Spirit Beast is also more powerful:
-• The Bear is now resilient to fire
-• The Eagle to electricity
-• The Wolf to cold.
+As a bonus action, you can instruct your beast companion that is within 30 feet and that you can see to perform combat maneuvers. When you do so, your beast companion can use its bonus action to dash and its bonus or main action to disengage.
 
 
 ### Level 11
 
-* Master Expertise
+* True Expertise
 
-The Spirit Beast can now fully use all attacks available and also gains your proficiency bonus to all saving throws. All Spirit Beasts can now become invisible.
+Your Beast Companion can now use all attacks available and gains your proficiency bonus to all saving throws.
 
 
 ### Level 15
 
-* Free Will
+* Kill Command
 
-The Spirit Beast can now act independently, cannot be surprised and use Eyebite like powers.
+Once per turn as a free action, you can instruct your companion to fixate on a target within 60 feet of you that you can see for one minute. Your companion gains your proficiency bonus to all attack rolls and damage rolls against that target. Only one target can be fixated at a time. You can use this feature a number of times per long rest equal to your proficiency bonus.
 
 
 
@@ -2841,7 +2884,7 @@ Starting at 13th level, once per turn while you aren't incapacitated, shocked or
 
 * Master Duelist
 
-Starting at 17th level, immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you. 
+Starting at 17th level, immediately after you use your Sneak Attack, you make another attack against the same target using your main hand weapon, provided you are within 5 ft of it and no other creatures are within 5 ft of you.
 
 
 
@@ -2854,7 +2897,7 @@ Opportunist are those who never let a chance to finish their enemies slide. They
 
 * Debilitating Strike
 
-Starting at 3rd level, whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or roll all saving throws with –1d4 penalty until the end of your next turn. 
+Starting at 3rd level, whenever you sneak attack a creature, that creature must pass a Constitution saving throw (DC 8 + proficiency bonus + Dexterity modifier) or roll all saving throws with –1d4 penalty until the end of your next turn.
 
 * Opportunity
 
@@ -2892,7 +2935,7 @@ Ravens are ranged weapon specialists that are trained to take down enemies quick
 
 * Ranged Specialist
 
-You are proficient with all two-handed ranged weapons and gain Archery fighting style. 
+You are proficient with all two-handed ranged weapons and gain Archery fighting style.
 
 * Sniper's Aim
 
@@ -2901,9 +2944,9 @@ Once per turn, when you hit a creature with a ranged weapon attack, that creatur
 
 ### Level 9
 
-* Heart-Seeking Shot 
+* Heart-Seeking Shot
 
-As a free action, you can make your next ranged weapon attack result in a guaranteed critical hit if it hits a creature. You can use this feature once per short rest. 
+As a free action, you can make your next ranged weapon attack result in a guaranteed critical hit if it hits a creature. You can use this feature once per short rest.
 
 
 ### Level 13
@@ -2995,7 +3038,7 @@ You can use your bonus action to empower yourself with a swirling nimbus of shad
 
 # Sorcerer
 
-## 1. Divine Heart
+## 1. Divine Soul
 
 Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
 
@@ -3106,7 +3149,7 @@ Your non two-handed weapon attacks count as magical and you use your spell casti
 * Expanded Spells
 
 
-	I	Booming Smite
+	I	Thunderous Smite
 
 	II	Misty Step
 
@@ -3147,7 +3190,7 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * War Sorcerer
 
-When you hit with an attack or deal damage with a spell, add your Charisma modifier as bonus force damage to one damage roll of that attack or spell. 
+When you hit with an attack or deal damage with a spell, add your Charisma modifier as bonus force damage to one damage roll of that attack or spell.
 
 
 ### Level 18
@@ -3170,7 +3213,7 @@ Psions are exceptional individuals that possess innate ability to manipulate psi
 
 	I	Shield
 
-	II	Psychic Whip
+	II	Tasha's Mind Whip
 
 	III	Pulse Wave
 
@@ -3184,7 +3227,7 @@ Psions are exceptional individuals that possess innate ability to manipulate psi
 
 You gain resistance to psychic damage.
 
-* Psychokinesis
+* Telekinetic
 
 You can use your bonus action and target a creature within 30 feet of you. The targeted creature is then moved up to 15 feet towards you or away from you. Enemy creatures must pass Strength saving throw against your spellcasting DC or be moved in the chosen direction while allied creatures are moved with no saving throw. You can use this feature a number of times per long rest equal to your proficiency bonus, and can pay 1 sorcery point instead if you are out of uses.
 
@@ -3434,7 +3477,67 @@ Your control of elemental energies has increased to the point than you now have 
 
 
 
-## 4. The Moonlit
+## 4. The Hexblade
+
+You have struck a bargain with a sentient weapon that you feed souls to in return for power.
+
+
+### Level 1
+
+* Armor and Weapons
+
+You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
+
+* Expanded Spells
+
+
+	I	Shield, Wrathful Smite
+
+	II	Blur, Branding Smite
+
+	III	Blinding Smite, Elemental Weapon
+
+	IV	Phantasmal Killer, Staggering Smite
+
+	V	Banishing Smite, Cone of Cold
+
+
+
+* Soul Empowered
+
+Your main weapon single handed attacks count as magical and you use your spell casting modifier on attack and damage rolls. You lift the restriction on single handed if you take Pact of Blade, and you lift the restriction on main attack if you take the Two Weapon fighting style.
+
+* Soul Hex
+
+You can curse one creature you can see within 30 ft of you for one minute. While in effect:
+• You add your proficiency bonus to damage against the cursed creature.
+• Your critical threat range increases by 1 against the cursed creature.
+• You regain hit points equal to your warlock level + your Charisma modifier when the cursed creature dies.
+
+
+### Level 6
+
+* Spiritual Pact Weapon
+
+You can summon forth a spiritual form of a weapon, for one minute, from your pact as a free action. As a bonus action, you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking. The weapon deals 1d8 + Charisma force damage on hit. This damage increases to 2d8 on level 10, and 3d8 on level 14.
+
+
+### Level 10
+
+* Soul Shield
+
+You can use the power of souls to defend yourself. As a reaction, you can gain +5 to your armor class until the start of your next turn. You can use this feature once per short rest.
+
+
+### Level 14
+
+* Master Hex
+
+You can use Soul Hex twice per short rest now and you can use a bonus action to apply the hex to another creature within 30 feet of you if the original target was slain.
+
+
+
+## 5. The Moonlit
 
 Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 
@@ -3485,7 +3588,7 @@ Whenever a creature damages you, you can use your reaction to become invisible u
 
 
 
-## 5. The Mountain
+## 6. The Mountain
 
 You have made a pact with an ancient primal entity that dwells atop the highest mountains of Solasta. Such entities yearn for a simpler epoch when mortals left them to their long slumber above the clouds, raising no cities and delving no mines. Their warlocks disdain the tools of civilization, calling upon the mountain's strength to shield their companions and strike down their foes.
 
@@ -3499,7 +3602,7 @@ When an ally within 30 ft of you takes damage, you may use your reaction to redu
 * Expanded Spells
 
 
-	I	Animate Earth, Sleep
+	I	Earth Tremor, Sleep
 
 	II	Heat Metal, Lesser Restoration
 
@@ -3542,7 +3645,7 @@ Gain immunity to cold damage. The first time you hit an enemy with an attack on 
 
 
 
-## 6. The Riftwalker
+## 7. The Riftwalker
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -3603,66 +3706,6 @@ As a main action, your control of rift portals has increased to the point that y
 
 
 
-## 7. The Soulblade
-
-You have struck a bargain with a sentient weapon that you feed souls to in return for power.
-
-
-### Level 1
-
-* Armor and Weapons
-
-You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
-
-* Expanded Spells
-
-
-	I	Shield, Furious Smite
-
-	II	Blur, Branding Smite
-
-	III	Luminous Smite, Elemental Enchantment
-
-	IV	Phantasmal Killer, Staggering Smite
-
-	V	Expelling Smite, Cone of Cold
-
-
-
-* Soul Empowered
-
-Your main weapon single handed attacks count as magical and you use your spell casting modifier on attack and damage rolls. You lift the restriction on single handed if you take Pact of Blade, and you lift the restriction on main attack if you take the Two Weapon fighting style.
-
-* Soul Hex
-
-You can curse one creature you can see within 30 ft of you for one minute. While in effect:
-• You add your proficiency bonus to damage against the cursed creature.
-• Your critical threat range increases by 1 against the cursed creature.
-• You regain hit points equal to your warlock level + your Charisma modifier when the cursed creature dies.
-
-
-### Level 6
-
-* Spiritual Pact Weapon
-
-You can summon forth a spiritual form of a weapon, for one minute, from your pact as a free action. As a bonus action, you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking. The weapon deals 1d8 + Charisma force damage on hit. This damage increases to 2d8 on level 10, and 3d8 on level 14.
-
-
-### Level 10
-
-* Soul Shield
-
-You can use the power of souls to defend yourself. As a reaction, you can gain +5 to your armor class until the start of your next turn. You can use this feature once per short rest.
-
-
-### Level 14
-
-* Master Hex
-
-You can use Soul Hex twice per short rest now and you can use a bonus action to apply the hex to another creature within 30 feet of you if the original target was slain.
-
-
-
 # Wizard
 
 ## 1. Arcane Fighter
@@ -3711,9 +3754,9 @@ Once per turn, your weapon attacks deal an extra 1d8 damage.
 
 
 
-## 2. Blade Dancer
+## 2. Bladesinger
 
-Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
+Bladesingers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 
 
 ### Level 2
@@ -3851,7 +3894,7 @@ Starting at 10th level, increase the striking power of an ally's weapons by 1d10
 
 * Event Horizon
 
-Starting at 14th level, you can magically emit a powerful field of gravitational energy that tugs at other creatures for up to 1 minute. For the duration, whenever a creature hostile to you starts its turn within 30 feet of you, it must make a Strength saving throw against your spell save DC. On a failed save, it takes 2d10 force damage, and its speed is reduced to 0 until the start of its next turn. On a successful save, it takes half as much damage, and every foot it moves this turn costs 2 extra feet of movement. 
+Starting at 14th level, you can magically emit a powerful field of gravitational energy that tugs at other creatures for up to 1 minute. For the duration, whenever a creature hostile to you starts its turn within 30 feet of you, it must make a Strength saving throw against your spell save DC. On a failed save, it takes 2d10 force damage, and its speed is reduced to 0 until the start of its next turn. On a successful save, it takes half as much damage, and every foot it moves this turn costs 2 extra feet of movement.
 
 
 

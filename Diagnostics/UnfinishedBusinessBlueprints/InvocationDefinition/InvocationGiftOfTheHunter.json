@@ -5,7 +5,7 @@
   "requiredPact": null,
   "grantedFeature": null,
   "grantedSpell": "Definition:GiftOfTheHunter:27583e9b-9f86-5822-93eb-ad03499c60e3",
-  "consumesSpellSlot": false,
+  "consumesSpellSlot": true,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {

@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Illusory Duplicates",
-    "description": "Create a wand that can cast <b>Illusory Duplicates (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Mirror Image",
+    "description": "Create a wand that can cast <b>Mirror Image (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "58f4ba45432da1f4996b13d7dad95e7f",

@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Conjure Web",
-    "description": "Create a wand that can cast <b>Conjure Web (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Web",
+    "description": "Create a wand that can cast <b>Web (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3f48835e-d67d-51fc-bdcc-6c1949f5df89",

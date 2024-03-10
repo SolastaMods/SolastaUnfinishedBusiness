@@ -331,8 +331,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Psychic Whip",
-    "description": "Create a wand that can cast <b>Psychic Whip (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "title": "Tasha's Mind Whip",
+    "description": "Create a wand that can cast <b>Tasha's Mind Whip (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7d03283b-7780-5972-9fc0-1436298fa9cb",

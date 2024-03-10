@@ -12,7 +12,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Invocation/&InvocationUndyingServitudeTitle",
-    "description": "You can cast <b>Raise Skeletal Enforcer</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.",
+    "description": "Invocation/&InvocationUndyingServitudeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "fe1d9130-fa5c-527d-bf25-fab5497dd07c",

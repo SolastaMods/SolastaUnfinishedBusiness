@@ -19,11 +19,10 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 public sealed class WizardBladeDancer : AbstractSubclass
 {
     private const string Name = "BladeDancer";
-    private const string BladeDanceTitle = $"Feature/&FeatureSet{Name}BladeDanceTitle";
 
     private static readonly ConditionDefinition ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
         .Create($"Condition{Name}BladeDance")
-        .SetGuiPresentation(BladeDanceTitle, Gui.NoLocalization, ConditionHeroism)
+        .SetGuiPresentation($"Feature/&FeatureSet{Name}BladeDanceTitle", Gui.NoLocalization, ConditionHeroism)
         .SetFeatures(
             FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
             FeatureDefinitionAttributeModifierBuilder
@@ -37,7 +36,7 @@ public sealed class WizardBladeDancer : AbstractSubclass
                     $"AbilityCheckAffinity{Name}BladeDanceAcrobatics")
                 .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
                 .AddToDB(),
-            // keep name for compatibility reasons
+            // kept name for backward compatibility
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"AbilityCheckAffinity{Name}BladeDanceConstitution")
                 .SetGuiPresentation($"Condition{Name}BladeDance", Category.Condition, Gui.NoLocalization)
@@ -178,8 +177,7 @@ public sealed class WizardBladeDancer : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Wizard{Name}")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite(Name, Resources.WizardBladeDancer, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WizardBladeDancer, 256))
             .AddFeaturesAtLevel(2,
                 featureSetCasterBladeDancerFighting,
                 featureSetBladeDancerBladeDance)

@@ -97,8 +97,8 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, FogCloud)
-            .SetGrantedSpell(FogCloud)
+            .SetGuiPresentation(Category.Invocation, FogCloud, hidden: true)
+            .SetGrantedSpell(FogCloud, true, true)
             .AddToDB();
     }
 
@@ -106,16 +106,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationVerdantArmor";
 
-        var barkskinNoConcentration = SpellDefinitionBuilder
-            .Create(Barkskin, "BarkskinNoConcentration")
-            .SetRequiresConcentration(false)
-            .AddToDB();
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, barkskinNoConcentration)
+            .SetGuiPresentation(Category.Invocation, Barkskin)
             .SetRequirements(5)
-            .SetGrantedSpell(barkskinNoConcentration)
+            .SetGrantedSpell(Barkskin, false, true)
             .AddToDB();
     }
 
@@ -126,7 +121,7 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, ConjureAnimals)
-            .SetGrantedSpell(ConjureAnimals, true, true)
+            .SetGrantedSpell(ConjureAnimals, false, true)
             .SetRequirements(5)
             .AddToDB();
     }
@@ -151,9 +146,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(
-                GuiPresentationBuilder.CreateTitleKey(NAME, Category.Invocation),
-                Gui.Format(GuiPresentationBuilder.CreateDescriptionKey(NAME, Category.Invocation), spell.FormatTitle()),
+            .SetGuiPresentation(Category.Invocation,
                 spell)
             .SetRequirements(5)
             .SetGrantedSpell(spell, false, true)
@@ -367,17 +360,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationKinesis";
 
-        var spellKinesis = SpellDefinitionBuilder
-            .Create(Haste, "Kinesis")
-            .AddToDB();
-
-        spellKinesis.EffectDescription.targetParameter = 2;
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, spellKinesis)
+            .SetGuiPresentation(Category.Invocation, Haste)
             .SetRequirements(7)
-            .SetGrantedSpell(spellKinesis, false, true)
+            .SetGrantedSpell(Haste, false, true)
             .AddToDB();
     }
 
@@ -385,16 +372,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationStasis";
 
-        var spellStasis = SpellDefinitionBuilder
-            .Create(Slow, "Stasis")
-            .SetRequiresConcentration(false)
-            .AddToDB();
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, spellStasis)
+            .SetGuiPresentation(Category.Invocation, Slow)
             .SetRequirements(7)
-            .SetGrantedSpell(spellStasis, false, true)
+            .SetGrantedSpell(Slow, false, true)
             .AddToDB();
     }
 
@@ -406,7 +388,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -427,7 +409,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -450,7 +432,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -471,7 +453,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -492,7 +474,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -513,7 +495,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -535,7 +517,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -556,7 +538,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -578,7 +560,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.RepellingBlast, NAME)
-            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast, hidden: true)
             .SetGrantedFeature(
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -597,15 +579,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationSpectralShield";
 
-        var spellSpectralShield = SpellDefinitionBuilder
-            .Create(ShieldOfFaith, "SpectralShield")
-            .AddToDB();
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, spellSpectralShield)
+            .SetGuiPresentation(Category.Invocation, ShieldOfFaith)
             .SetRequirements(9)
-            .SetGrantedSpell(spellSpectralShield, false, true)
+            .SetGrantedSpell(ShieldOfFaith, false, true)
             .AddToDB();
     }
 
@@ -621,7 +599,7 @@ internal static class InvocationsBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, spellGiftOfTheHunter)
             .SetRequirements(5)
-            .SetGrantedSpell(spellGiftOfTheHunter, false, true)
+            .SetGrantedSpell(spellGiftOfTheHunter, true, true)
             .AddToDB();
     }
 
@@ -630,15 +608,11 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationDiscerningGaze";
 
-        var spellDiscerningGaze = SpellDefinitionBuilder
-            .Create(DetectEvilAndGood, "DiscerningGaze")
-            .AddToDB();
-
         return InvocationDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, spellDiscerningGaze)
+            .SetGuiPresentation(Category.Invocation, DetectEvilAndGood)
             .SetRequirements(9)
-            .SetGrantedSpell(spellDiscerningGaze, false, true)
+            .SetGrantedSpell(DetectEvilAndGood, false, true)
             .AddToDB();
     }
 
@@ -683,14 +657,8 @@ internal static class InvocationsBuilders
             .SetConditionType(ConditionType.Neutral)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(abilityCheckAffinityPerniciousCloak)
+            .CopyParticleReferences(ConditionDefinitions.ConditionOnAcidPilgrim)
             .AddToDB();
-
-        conditionPerniciousCloakSelf.conditionStartParticleReference =
-            ConditionDefinitions.ConditionOnAcidPilgrim.conditionStartParticleReference;
-        conditionPerniciousCloakSelf.conditionParticleReference =
-            ConditionDefinitions.ConditionOnAcidPilgrim.conditionParticleReference;
-        conditionPerniciousCloakSelf.conditionEndParticleReference =
-            ConditionDefinitions.ConditionOnAcidPilgrim.conditionEndParticleReference;
 
         conditionPerniciousCloakSelf.specialDuration = false;
 
@@ -759,8 +727,7 @@ internal static class InvocationsBuilders
 
     private sealed class CharacterTurnStartListenerPerniciousCloak(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionPerniciousCloak)
-        : ICharacterTurnStartListener
+        ConditionDefinition conditionPerniciousCloak) : ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -807,11 +774,18 @@ internal static class InvocationsBuilders
                     gameLocationCaster, locationCharacter, PoisonSpray, EffectHelpers.EffectType.Effect);
             }
 
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = caster,
+                targetCharacter = rulesetCharacter,
+                position = locationCharacter.LocationPosition
+            };
+
             RulesetActor.InflictDamage(
                 charismaModifier,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetCharacter },
+                applyFormsParams,
                 rulesetCharacter,
                 false,
                 caster.Guid,
@@ -1163,13 +1137,19 @@ internal static class InvocationsBuilders
                 var rolls = new List<int>();
                 var damageRoll = rulesetAttacker.RollDamage(
                     damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetAttacker,
+                    targetCharacter = rulesetTarget,
+                    position = target.LocationPosition
+                };
 
                 EffectHelpers.StartVisualEffect(attacker, defender, PowerSorakDreadLaughter);
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
                     damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                    applyFormsParams,
                     rulesetTarget,
                     false,
                     rulesetAttacker.Guid,
@@ -1308,14 +1288,8 @@ internal static class InvocationsBuilders
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(DamageAffinityFireVulnerability)
+            .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
-
-        conditionTombOfFrost.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionTombOfFrost.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionTombOfFrost.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         conditionTombOfFrost.GuiPresentation.description = Gui.NoLocalization;
 
@@ -1372,7 +1346,7 @@ internal static class InvocationsBuilders
         {
             if (rulesetEffect == null)
             {
-                yield return HandleReaction(defender);
+                yield return HandleReaction(attacker, defender);
             }
         }
 
@@ -1385,10 +1359,10 @@ internal static class InvocationsBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender);
+            yield return HandleReaction(attacker, defender);
         }
 
-        private IEnumerator HandleReaction(GameLocationCharacter defender)
+        private IEnumerator HandleReaction(GameLocationCharacter attacker, GameLocationCharacter defender)
         {
             var gameLocationBattleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -1432,7 +1406,7 @@ internal static class InvocationsBuilders
 
             gameLocationActionManager.ReactToUsePower(actionParams, "UsePower", defender);
 
-            yield return gameLocationBattleManager.WaitForReactions(defender, gameLocationActionManager, count);
+            yield return gameLocationBattleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!actionParams.ReactionValidated)
             {

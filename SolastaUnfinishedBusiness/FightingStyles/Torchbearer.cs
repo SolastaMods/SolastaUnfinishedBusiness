@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
@@ -54,5 +55,13 @@ internal sealed class Torchbearer : AbstractFightingStyle
                 .AddToDB())
         .AddToDB();
 
-    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => [FightingStyleRanger];
+    internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
+    [
+        CharacterContext.FightingStyleChoiceBarbarian,
+        CharacterContext.FightingStyleChoiceMonk,
+        CharacterContext.FightingStyleChoiceRogue,
+        FightingStyleChampionAdditional,
+        FightingStyleFighter,
+        FightingStyleRanger
+    ];
 }

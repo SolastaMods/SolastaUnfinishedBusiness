@@ -17,4 +17,4 @@ Feature/&PowerDomainSmithAdamantBenedictionTitle=Adamant Benediction
 Feature/&PowerDomainSmithReinforceArmorDescription=Once per short rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +{0} AC.
 Feature/&PowerDomainSmithReinforceArmorTitle=Reinforce Armor
 Subclass/&DomainSmithDescription=Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
-Subclass/&DomainSmithTitle=Smith
+Subclass/&DomainSmithTitle=Forge

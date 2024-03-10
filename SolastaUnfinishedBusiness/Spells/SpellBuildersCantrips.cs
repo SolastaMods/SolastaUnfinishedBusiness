@@ -48,13 +48,13 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(WindWall)
                     .Build())
@@ -133,7 +133,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeRadiant, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(SacredFlame)
                     .Build())
@@ -141,8 +141,6 @@ internal static partial class SpellBuilders
 
         spell.EffectDescription.EffectParticleParameters.impactParticleReference =
             spell.EffectDescription.EffectParticleParameters.effectParticleReference;
-
-        spell.EffectDescription.EffectParticleParameters.effectParticleReference = new AssetReference();
 
         return spell;
     }
@@ -176,13 +174,13 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(Bane)
                     .SetImpactEffectParameters(VenomousSpike)
@@ -252,7 +250,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypePsychic, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -330,7 +328,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(ShadowDagger)
                     .Build())
@@ -401,7 +399,7 @@ internal static partial class SpellBuilders
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetParticleEffectParameters(Shatter)
                     .Build())
@@ -465,13 +463,13 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionWrack, ConditionForm.ConditionOperation.Add)
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetConditionForm(conditionWrack, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
             .AddToDB();
@@ -745,13 +743,19 @@ internal static partial class SpellBuilders
             };
             var rolls = new List<int>();
             var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
 
             EffectHelpers.StartVisualEffect(attacker, defender, Shatter);
             RulesetActor.InflictDamage(
                 damageRoll,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                applyFormsParams,
                 rulesetDefender,
                 false,
                 rulesetAttacker.Guid,

@@ -12,5 +12,5 @@ Feature/&MetamagicFocusedSpellDescription=集中を必要とする呪文を唱�
 Feature/&MetamagicFocusedSpellTitle=集中呪文
 Feature/&MetamagicPowerfulSpellDescription=呪文レベルごとに 1 ソーサリー ポイントを消費して、ダメージ ダイスの数を 1 つ増やすことができます。
 Feature/&MetamagicPowerfulSpellTitle=強力な呪文
-Feature/&MetamagicWidenedSpellDescription=2 ソーサリー ポイントを消費して、呪文の効果範囲を広げることができます。円錐、立方体、円柱、または球の効果範囲を持つ呪文は、5 フィート単位で寸法が増加します。
+Feature/&MetamagicWidenedSpellDescription=2 ソーサリー ポイントを消費して、呪文の効果範囲を広げることができます。円錐、立方体、円柱、または球の効果範囲を持つ呪文は、最も近い 5 フィートの増分まで寸法が増加します。
 Feature/&MetamagicWidenedSpellTitle=拡張された呪文

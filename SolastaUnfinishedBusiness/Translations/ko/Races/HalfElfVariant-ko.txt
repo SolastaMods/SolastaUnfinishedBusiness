@@ -1,6 +1,6 @@
-Race/&RaceHalfElfDarkDescription=하프 다크 엘프는 거친 황무지의 땅에 살면서 변해버린 엘프들의 후손입니다. 이들의 인간으로서의 핏줄은 밝은 빛 아래에서도 적응할 수 있도록 도와줍니다.
+Race/&RaceHalfElfDarkDescription=Half-Dark 엘프는 척박한 황무지에서 살면서 시간이 지남에 따라 변화된 엘프의 후손입니다. 그들의 인간 유산으로 인해 그들은 밝은 빛에 적응할 수 있게 되었습니다.
 Race/&RaceHalfElfDarkTitle=하프 다크 엘프
-Race/&RaceHalfElfHighDescription=하프 하이 엘프는 일찍부터 마법을 사용할 수 있도록 훈련받습니다.
+Race/&RaceHalfElfHighDescription=하프 하이 엘프는 아주 일찍부터 마법을 사용하도록 훈련받았습니다.
 Race/&RaceHalfElfHighTitle=하프 하이 엘프
-Race/&RaceHalfElfSylvanDescription=하프 실반 엘프는 야생에서 살아남고 적응할 수 있도록 훈련받습니다. 실반 엘프의 핏줄 덕에, 이들은 어릴 적부터 검과 활로 싸울 수 있도록 훈련받았습니다.
+Race/&RaceHalfElfSylvanDescription=Half-Sylvan 엘프는 야생에서 생존하도록 훈련을 받았으며 특히 생존에 적합합니다. 실반 엘프의 유산인 그들은 어린 시절부터 검과 활을 사용하여 싸우는 훈련을 받았습니다.
 Race/&RaceHalfElfSylvanTitle=하프 실반 엘프

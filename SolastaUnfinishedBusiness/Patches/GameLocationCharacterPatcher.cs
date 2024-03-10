@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Validators;
 using TA;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
@@ -54,9 +55,87 @@ public static class GameLocationCharacterPatcher
     public static class ComputeLightingModifierForIlluminable_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix()
+        public static bool Prefix(
+            GameLocationCharacter __instance,
+            IIlluminable target,
+            LocationDefinitions.LightingState targetLightingState,
+            Vector3 gravityCenter,
+            Vector3 targetGravityCenter,
+            ActionModifier actionModifier)
         {
-            return !Main.Settings.UseOfficialLightingObscurementAndVisionRules;
+            if (!Main.Settings.UseOfficialLightingObscurementAndVisionRules)
+            {
+                ComputeLightingModifierForLightingState(
+                    __instance,
+                    (gravityCenter - targetGravityCenter).magnitude,
+                    targetLightingState,
+                    actionModifier,
+                    target.TargetSource);
+            }
+
+            return false;
+        }
+
+        private static void ComputeLightingModifierForLightingState(
+            GameLocationCharacter __instance,
+            float distance,
+            LocationDefinitions.LightingState lightingState,
+            ActionModifier actionModifier,
+            object source = null)
+        {
+            var isValidForLightingState = false;
+            var isDarkvisionOffRange = false;
+            var isWithinRange = false;
+
+            // BEGIN PATCH
+            var senseModesToPrevent = new List<SenseMode.Type>();
+
+            if (source is RulesetCharacter rulesetCharacter)
+            {
+                foreach (var modifier in rulesetCharacter.GetSubFeaturesByType<IPreventEnemySenseMode>())
+                {
+                    senseModesToPrevent.AddRange(modifier.PreventedSenseModes(__instance, rulesetCharacter));
+                }
+            }
+            // END PATCH
+
+            foreach (var senseMode in __instance.RulesetCharacter.SenseModes
+                         .Where(x => !senseModesToPrevent.Contains(x.SenseType)))
+            {
+                if (distance > (double)senseMode.SenseRange)
+                {
+                    if (senseMode.SenseType == SenseMode.Type.Darkvision)
+                    {
+                        isDarkvisionOffRange = true;
+                    }
+                }
+                else
+                {
+                    isWithinRange = true;
+
+                    if (!SenseMode.ValidForLighting(senseMode.SenseType, lightingState))
+                    {
+                        continue;
+                    }
+
+                    isValidForLightingState = true;
+                    break;
+                }
+            }
+
+            if (isValidForLightingState || !isWithinRange)
+            {
+                return;
+            }
+
+            var additionalDetails = isDarkvisionOffRange && lightingState == LocationDefinitions.LightingState.Unlit
+                ? "Tooltip/&OutOfDarkvisionRangeFormat"
+                : string.Empty;
+
+            actionModifier.AttackAdvantageTrends.Add(new TrendInfo(-1, FeatureSourceType.Lighting,
+                lightingState.ToString(), source, additionalDetails));
+            actionModifier.AbilityCheckAdvantageTrends.Add(new TrendInfo(-1, FeatureSourceType.Lighting,
+                lightingState.ToString(), source, additionalDetails));
         }
     }
 
@@ -86,7 +165,7 @@ public static class GameLocationCharacterPatcher
     public static class EndBattleTurn_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(GameLocationCharacter __instance)
+        public static void Prefix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat turn ended event
             CharacterBattleListenersPatch.OnCharacterTurnEnded(__instance);

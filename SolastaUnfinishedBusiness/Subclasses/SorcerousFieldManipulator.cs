@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
+using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -148,8 +149,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddToDB();
 
         powerForcefulStepFixed.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(character =>
-                PowerProvider.Get(powerForcefulStepFixed, character).RemainingUses > 0),
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForcefulStepFixed) > 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
@@ -158,8 +158,7 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddToDB();
 
         powerForcefulStepPoints.AddCustomSubFeatures(
-            new ValidatorsValidatePowerUse(character =>
-                PowerProvider.Get(powerForcefulStepFixed, character).RemainingUses == 0),
+            new ValidatorsValidatePowerUse(c => c.GetRemainingPowerUses(powerForcefulStepFixed) == 0),
             new MagicEffectFinishedByMeForcefulStep(powerForcefulStepApply));
 
         var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
@@ -264,14 +263,14 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 return target.LocationPosition;
             }
 
-            var xCoord = new[] { 0, -1, 1, -2, 2 };
-            var yCoord = new[] { 0, -1, 1, -2, 2 };
+            var xCoordinates = new[] { 0, -1, 1, -2, 2 };
+            var yCoordinates = new[] { 0, -1, 1, -2, 2 };
             var canPlaceCharacter = false;
             var finalPosition = int3.zero;
 
-            foreach (var x in xCoord)
+            foreach (var x in xCoordinates)
             {
-                foreach (var y in yCoord)
+                foreach (var y in yCoordinates)
                 {
                     finalPosition = position + new int3(x, 0, y);
 
@@ -325,12 +324,11 @@ public sealed class SorcerousFieldManipulator : AbstractSubclass
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerApply, rulesetAttacker);
-            var targets = Gui.Battle
-                .GetContenders(attacker, withinRange: 2);
+            var targets = Gui.Battle.GetContenders(attacker, withinRange: 2);
             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost)
             {
+                ActionModifiers = Enumerable.Repeat(new ActionModifier(), targets.Count).ToList(),
                 RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
                     .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
                 UsablePower = usablePower,
                 targetCharacters = targets

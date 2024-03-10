@@ -23,22 +23,23 @@ internal static class RangedCombatFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        // kept for backward compatibility
+        _ = BuildSteadyAim();
+
         var featBowMastery = BuildBowMastery();
         var featCrossbowMastery = BuildCrossbowMastery();
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
-        var featSteadyAim = BuildSteadyAim();
         var featZenArcher = BuildZenArcher();
 
         feats.AddRange(
-            featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featSteadyAim, featZenArcher);
+            featBowMastery, featCrossbowMastery, featDeadEye, featRangedExpert, featZenArcher);
 
         GroupFeats.FeatGroupRangedCombat.AddFeats(
             featBowMastery,
             featCrossbowMastery,
             featDeadEye,
             featRangedExpert,
-            featSteadyAim,
             featZenArcher);
     }
 
@@ -315,6 +316,7 @@ internal static class RangedCombatFeats
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .SetParticleEffectParameters(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionWandFearCommand)
+                .SetImpactEffectParameters(new AssetReference())
                 .Build())
         .AddCustomSubFeatures(
             new ValidatorsValidatePowerUse(character =>
@@ -327,11 +329,9 @@ internal static class RangedCombatFeats
 
     private static FeatDefinition BuildSteadyAim()
     {
-        PowerFeatSteadyAim.EffectDescription.EffectParticleParameters.impactParticleReference = new AssetReference();
-
         return FeatDefinitionBuilder
             .Create(FeatSteadyAim)
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat, hidden: true)
             .SetFeatures(
                 DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
                 PowerFeatSteadyAim)

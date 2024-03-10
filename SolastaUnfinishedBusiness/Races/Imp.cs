@@ -135,15 +135,15 @@ internal static class RaceImpBuilder
             .DelegatedToAction()
             .AddToDB();
 
-        var toggle = ActionDefinitionBuilder
+        powerImpForestImpishWrath.AddCustomSubFeatures(new CustomBehaviorImpishWrath(powerImpForestImpishWrath));
+
+        _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "ImpishWrathToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.ImpishWrathToggle)
             .SetActivatedPower(powerImpForestImpishWrath)
             .AddToDB();
-
-        toggle.parameter = ActionDefinitions.ActionParameter.ActivatePower;
 
         var actionAffinityImpishWrathToggle = FeatureDefinitionActionAffinityBuilder
             .Create(FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
@@ -155,19 +155,11 @@ internal static class RaceImpBuilder
                     ValidatorsCharacter.HasAvailablePowerUsage(powerImpForestImpishWrath)))
             .AddToDB();
 
-        powerImpForestImpishWrath.AddCustomSubFeatures(
-            ModifyPowerVisibility.Hidden,
-            new AttackBeforeHitConfirmedImpishWrath(powerImpForestImpishWrath));
-
         var featureSetImpForestImpishWrath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{NAME}ImpishWrath")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation($"Power{NAME}ImpishWrath", Category.Feature)
             .SetFeatureSet(powerImpForestImpishWrath, actionAffinityImpishWrathToggle)
             .AddToDB();
-
-        featureSetImpForestImpishWrath.guiPresentation.title = powerImpForestImpishWrath.guiPresentation.title;
-        featureSetImpForestImpishWrath.guiPresentation.description =
-            powerImpForestImpishWrath.guiPresentation.description;
 
         var raceImpForest = CharacterRaceDefinitionBuilder
             .Create(raceImp, $"Race{NAME}")
@@ -184,7 +176,7 @@ internal static class RaceImpBuilder
         return raceImpForest;
     }
 
-    private class AttackBeforeHitConfirmedImpishWrath(FeatureDefinitionPower powerImpForestImpishWrath)
+    private class CustomBehaviorImpishWrath(FeatureDefinitionPower powerImpForestImpishWrath)
         : IPhysicalAttackFinishedByMe, IMagicEffectFinishedByMeAny
     {
         public IEnumerator OnMagicEffectFinishedByMeAny(
@@ -200,13 +192,13 @@ internal static class RaceImpBuilder
             }
 
             if ((action.RolledSaveThrow &&
-                 action.SaveOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess) ||
+                 action.SaveOutcome == RollOutcome.Failure) ||
                 (action.AttackRoll != 0 &&
                  action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield return HandleImpishWrath(attacker,
                     defender,
-                    [],
+                    rulesetEffect.SourceTags,
                     rulesetEffect.EffectDescription.FindFirstDamageForm()?.damageType);
             }
         }
@@ -220,43 +212,32 @@ internal static class RaceImpBuilder
             RollOutcome rollOutcome,
             int damageAmount)
         {
-            if (action.AttackRollOutcome != RollOutcome.Success &&
-                action.AttackRollOutcome != RollOutcome.CriticalSuccess)
+            if (!attackMode.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
                 yield break;
             }
 
-            yield return HandleImpishWrath(
-                attacker,
-                defender,
-                attackMode.attackTags,
-                attackMode.EffectDescription.FindFirstDamageForm()?.damageType);
+            if (action.AttackRoll != 0 &&
+                action.AttackRollOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                yield return HandleImpishWrath(
+                    attacker,
+                    defender,
+                    attackMode.AttackTags,
+                    attackMode.EffectDescription.FindFirstDamageForm()?.damageType);
+            }
         }
 
         private IEnumerator HandleImpishWrath(
+            // ReSharper disable once SuggestBaseTypeForParameter
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             List<string> attackTags,
             string damageType = DamageTypeBludgeoning)
         {
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
-            {
-                yield break;
-            }
-
-            if (!attacker.RulesetCharacter.IsToggleEnabled(ImpishWrathToggle))
-            {
-                yield break;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker is not { IsDeadOrUnconscious: false })
+            if (!rulesetAttacker.IsToggleEnabled(ImpishWrathToggle))
             {
                 yield break;
             }
@@ -268,47 +249,20 @@ internal static class RaceImpBuilder
                 yield break;
             }
 
-            if (rulesetDefender.GetRemainingPowerUses(powerImpForestImpishWrath) == 0)
+            if (rulesetAttacker.GetRemainingPowerUses(powerImpForestImpishWrath) == 0)
             {
                 yield break;
             }
-
-            var bonusDamage = AttributeDefinitions.ComputeProficiencyBonus(
-                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
-
-            var implementationManagerService =
-                ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerImpForestImpishWrath, rulesetAttacker);
-            var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower)
-            {
-                StringParameter = "ImpishWrath",
-                StringParameter2 = Gui.Format("Reaction/&SpendPowerImpishWrathDescription",
-                    bonusDamage.ToString(), rulesetDefender.Name),
-                RulesetEffect = implementationManagerService
-                    //CHECK: no need for AddAsActivePowerToSource
-                    .MyInstantiateEffectPower(rulesetAttacker, usablePower, false),
-                UsablePower = usablePower
-            };
-
-            var count = gameLocationActionService.PendingReactionRequestGroups.Count;
-
-            gameLocationActionService.ReactToSpendPower(actionParams);
-
-            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
-
-            if (!actionParams.ReactionValidated)
-            {
-                yield break;
-            }
 
             rulesetAttacker.UsePower(usablePower);
 
+            var bonusDamage = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var damageForm = new DamageForm
             {
                 DamageType = damageType, DieType = DieType.D1, DiceNumber = 0, BonusDamage = bonusDamage
             };
-
             var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
             {
                 sourceCharacter = rulesetAttacker,
@@ -327,7 +281,7 @@ internal static class RaceImpBuilder
                 false,
                 attackTags,
                 new RollInfo(DieType.D1, [], bonusDamage),
-                true,
+                false,
                 out _);
         }
     }

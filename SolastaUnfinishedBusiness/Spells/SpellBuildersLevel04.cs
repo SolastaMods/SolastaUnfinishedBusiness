@@ -517,16 +517,10 @@ internal static partial class SpellBuilders
                 additionalDamage,
                 FeatureDefinitionMovementAffinitys.MovementAffinityCarriedByWind,
                 FeatureDefinitionSenses.SenseDarkvision24)
+            .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
 
         conditionBeast.AddCustomSubFeatures(new ModifyAttackActionModifierBeast(conditionBeast));
-
-        conditionBeast.conditionStartParticleReference =
-            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionBeast.conditionParticleReference =
-            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionBeast.conditionEndParticleReference =
-            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         var spellBeast = SpellDefinitionBuilder
             .Create($"Beast{NAME}")
@@ -559,16 +553,10 @@ internal static partial class SpellBuilders
             .Create($"ConditionTree{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionRangerHideInPlainSight)
             .SetPossessive()
+            .CopyParticleReferences(PowerRangerSwiftBladeBattleFocus)
             .AddToDB();
 
         conditionTree.AddCustomSubFeatures(new CustomBehaviorTree(conditionTree));
-
-        conditionTree.conditionStartParticleReference =
-            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionTree.conditionParticleReference =
-            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionTree.conditionEndParticleReference =
-            PowerRangerSwiftBladeBattleFocus.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         var spellTree = SpellDefinitionBuilder
             .Create($"Tree{NAME}")

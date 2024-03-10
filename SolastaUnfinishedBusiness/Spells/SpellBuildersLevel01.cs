@@ -222,16 +222,10 @@ internal static partial class SpellBuilders
                     .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
                     .SetCreatedBy()
                     .Build())
+            .CopyParticleReferences(Entangle)
             .AddToDB();
 
         conditionEnsnared.specialInterruptions.Clear();
-
-        conditionEnsnared.conditionStartParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionEnsnared.conditionParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionEnsnared.conditionEndParticleReference =
-            Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
@@ -851,20 +845,26 @@ internal static partial class SpellBuilders
                     };
                     var damageRoll =
                         rulesetCaster.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                    var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                    {
+                        sourceCharacter = rulesetCaster,
+                        targetCharacter = rulesetEnemy,
+                        position = enemy.LocationPosition
+                    };
 
                     EffectHelpers.StartVisualEffect(caster, target, ConeOfCold);
                     RulesetActor.InflictDamage(
                         damageRoll,
                         damageForm,
                         damageForm.DamageType,
-                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetEnemy },
+                        applyFormsParams,
                         rulesetEnemy,
                         isCritical,
                         rulesetCaster.Guid,
                         false,
                         [],
                         new RollInfo(damageForm.DieType, rolls, 0),
-                        true,
+                        false,
                         out _);
                 }
             }
@@ -1048,7 +1048,7 @@ internal static partial class SpellBuilders
         {
             if (attackMode != null)
             {
-                yield return HandleReaction(defender, actualEffectForms);
+                yield return HandleReaction(attacker, defender, actualEffectForms);
             }
         }
 
@@ -1061,10 +1061,11 @@ internal static partial class SpellBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            yield return HandleReaction(defender, actualEffectForms);
+            yield return HandleReaction(attacker, defender, actualEffectForms);
         }
 
         private IEnumerator HandleReaction(
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
             IEnumerable<EffectForm> actualEffectForms)
         {
@@ -1108,7 +1109,7 @@ internal static partial class SpellBuilders
 
             gameLocationActionService.ReactToSpendSpellSlot(reactionParams);
 
-            yield return gameLocationBattleService.WaitForReactions(defender, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1300,17 +1301,11 @@ internal static partial class SpellBuilders
             .SetFeatures(damageAffinitySkinOfRetribution)
             .SetTerminateWhenRemoved()
             .AddCustomSubFeatures(new ActionFinishedByEnemySkinOfRetribution())
+            .CopyParticleReferences(PowerDomainElementalHeraldOfTheElementsCold)
             .AddToDB();
 
         powerSkinOfRetribution.AddCustomSubFeatures(
             new ModifyEffectDescriptionSkinOfRetribution(conditionSkinOfRetribution));
-
-        conditionSkinOfRetribution.conditionStartParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        conditionSkinOfRetribution.conditionParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionParticleReference;
-        conditionSkinOfRetribution.conditionEndParticleReference = PowerDomainElementalHeraldOfTheElementsCold
-            .EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         return SpellDefinitionBuilder
             .Create(NAME)

@@ -93,10 +93,10 @@ ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to exp
 ModUi/&EnableCharactersOnFireToEmitLight=Characters on fire should emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableCustomPortraits=Enable custom portraits
-ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i> 
+ModUi/&EnableCustomPortraitsHelp=• Place your custom portraits under subfolders <i><b><color=#F0DAA0>Personal</color></b></i> or <i><b><color=#F0DAA0>PreGen</color></b></i>, named after the hero first name <i><color=#F0DAA0>[i.e.: Anton, Celia, Nialla, etc.]</color></i>\n• Use PNG images, 256 x 384 pixels in size, with a transparency layer <i><color=#F0DAA0>[use GIMP for best results]</color></i>
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Gambits, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
+ModUi/&EnableExtendedProficienciesPanelDisplay=Enable extended proficiencies panel display <i><color=#F0DAA0>[Arcane Shots, Infusions, Maneuvers, and Versatilities]</color></i>\n<b><i><color=#C04040E0>[performance hit on character inspection. use at your own risk]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable <color=#D89555>feats</color> selection at class levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable <color=#D89555>feats</color> selection at class levels 6 and 14
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
@@ -121,7 +121,7 @@ ModUi/&EnableMonkImprovedUnarmoredMovementToMoveOnTheWall=Enable <color=#D89555>
 ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Monk</color> <b>Weapon Specialization</b> at class levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnablePcgRandom=Enable a better random generator algorithm <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
-ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Ranger</color> <b>Nature's Shroud</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
+ModUi/&EnableRangerNatureShroudAt10=Enable <color=#D89555>Ranger</color> <b>Nature's Veil</b> feature at level 10 <i><color=#F0DAA0>[as a bonus action, you can magically become invisible until start of next turn]</color></i>
 ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party around the selected hero or the leader if none is selected <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableRelearnSpells=Enable selection of cantrips or spells already learned from other sources
 ModUi/&EnableRespec=Enable the RESPEC after rest action
@@ -208,7 +208,6 @@ ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Change <c
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Change <color=#D89555>magically obscured</color> areas to be projectile blockers <color=#F0DAA0>[any source of the <color=#D89555>Darkness</color> spell effect]</color></i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Add <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color>, and <color=#D89555>TrueSight</color> to monsters and NPCs whenever appropriate\n<color=#F0DAA0>[settings' collections <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
-ModUi/&OpenSubjectiveGuide=Open The Subjective Guide to Solasta by <b><color=#D89555>u/CounterYolo</color></b>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiply the outline grid width by</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiply the outline grid animation speed by</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Override the required min and max levels when starting new adventures

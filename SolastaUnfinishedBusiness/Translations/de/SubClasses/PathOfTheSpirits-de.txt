@@ -44,5 +44,5 @@ Reaction/&UseSpiritWalkerDescription=Sie können einen Geisterwächterzauber wir
 Reaction/&UseSpiritWalkerReactDescription=Sie können einen Geisterwächterzauber wirken, der eine Minute lang anhält.
 Reaction/&UseSpiritWalkerReactTitle=Geisterwanderer
 Reaction/&UseSpiritWalkerTitle=Geisterwanderer
-Subclass/&PathOfTheSpiritsDescription=Barbaren, die dem Pfad der Geister folgen, akzeptieren ein Krafttier als Führer, Beschützer und Inspiration, das sie mit übernatürlicher Macht erfüllt und der Wut der Barbaren magischen Treibstoff verleiht.
-Subclass/&PathOfTheSpiritsTitle=Pfad der Geister
+Subclass/&PathOfTheSpiritsDescription=Barbaren, die dem Pfad des Totemkriegers folgen, akzeptieren ein Geistertier als Führer, Beschützer und Inspiration, das sie mit übernatürlicher Macht erfüllt und der Wut der Barbaren magischen Treibstoff verleiht.
+Subclass/&PathOfTheSpiritsTitle=Pfad des Totemkriegers

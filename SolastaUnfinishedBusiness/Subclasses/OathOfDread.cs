@@ -351,11 +351,18 @@ public sealed class OathOfDread : AbstractSubclass
                 EffectHelpers.StartVisualEffect(locationCharacterAttacker, locationCharacter, DreadfulOmen);
             }
 
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = locationCharacter.LocationPosition
+            };
+
             RulesetActor.InflictDamage(
                 totalDamage,
                 damageForm,
                 DamageTypePsychic,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                applyFormsParams,
                 rulesetDefender,
                 false,
                 rulesetAttacker.Guid,
@@ -447,7 +454,7 @@ public sealed class OathOfDread : AbstractSubclass
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
-            yield return gameLocationBattleService.WaitForReactions(helper, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
         }
     }
 }

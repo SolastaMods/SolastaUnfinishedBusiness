@@ -59,6 +59,7 @@ internal sealed class Merciless : AbstractFightingStyle
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice =>
     [
         CharacterContext.FightingStyleChoiceBarbarian,
+        CharacterContext.FightingStyleChoiceMonk,
         CharacterContext.FightingStyleChoiceRogue,
         FightingStyleChampionAdditional,
         FightingStyleFighter,

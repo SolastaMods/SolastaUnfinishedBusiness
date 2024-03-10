@@ -167,7 +167,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Grease",
-    "description": "Create a wand that can cast <b>Grease (I)</b> spell using your Inventor spell attack modifier and save DC.",
+    "description": "Create a wand that can cast <b>Grease (I)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c3892af55fbec8d4ebf89090a667f9de",

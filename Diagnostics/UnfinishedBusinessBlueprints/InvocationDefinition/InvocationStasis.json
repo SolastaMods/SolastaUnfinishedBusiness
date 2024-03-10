@@ -4,7 +4,7 @@
   "requiredLevel": 7,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:Stasis:634b3230-ece9-5a13-acb7-a1d1fd24b943",
+  "grantedSpell": "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,

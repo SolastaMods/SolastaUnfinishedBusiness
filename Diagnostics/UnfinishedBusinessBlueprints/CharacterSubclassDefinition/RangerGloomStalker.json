@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierRangerGloomStalkerDreadAmbusher:2fbcfeb8-3c01-50b3-b9a5-a822cba97318",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsRangerGloomStalker:fd684d16-ed62-5c36-a13e-691b532abf69",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRangerGloomStalkerUmbralSight:dd2b7969-07a3-50d5-97a6-3295047aac68",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerGloomStalkerIronMind:f39195a2-c049-5e6a-9562-b25600c44941",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRangerGloomStalkerStalkersFlurry:e6de6649-b6f6-5d5b-a875-5c66feff7d69",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRangerGloomStalkerShadowyDodge:7c7fe1a4-7f54-5d81-8df9-be34758b619a",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RangerGloomStalkerTitle",
+    "description": "Subclass/&RangerGloomStalkerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d23c4872-e030-5892-8864-46686b889880",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a9975efe-0c31-5210-a2a0-929155934442",
+  "contentPack": 9999,
+  "name": "RangerGloomStalker"
+}

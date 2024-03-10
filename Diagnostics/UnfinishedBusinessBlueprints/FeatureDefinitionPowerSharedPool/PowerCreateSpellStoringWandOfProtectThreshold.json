@@ -332,7 +332,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Protect Threshold",
-    "description": "Create a wand that can cast <b>Protect Threshold (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "description": "Create a wand that can cast <b>Protect Threshold (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a81f9ec8-e157-59a6-b347-dcd242d3eca2",

@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Interfaces;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Validators;
+using TA;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -1036,19 +1037,25 @@ internal static partial class SpellBuilders
                 };
                 var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
                 var rulesetDefender = defender.RulesetCharacter;
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetAttacker,
+                    targetCharacter = rulesetDefender,
+                    position = defender.LocationPosition
+                };
 
                 RulesetActor.InflictDamage(
                     damageRoll / 2,
                     damageForm,
                     damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                    applyFormsParams,
                     rulesetDefender,
                     false,
                     rulesetAttacker.Guid,
                     false,
                     attackMode.AttackTags,
                     new RollInfo(damageForm.DieType, rolls, 0),
-                    true,
+                    false,
                     out _);
             }
 
@@ -1342,10 +1349,9 @@ internal static partial class SpellBuilders
 
     private sealed class CustomBehaviorHungerOfTheVoid(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        ConditionDefinition conditionHungerOfTheVoid)
-        : ICharacterTurnStartListener, ICharacterTurnEndListener
+        ConditionDefinition conditionHungerOfTheVoid) : ICharacterTurnStartListener, ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             InflictDamage(DamageTypeAcid, locationCharacter.RulesetCharacter, VenomousSpike, true);
         }
@@ -1418,11 +1424,18 @@ internal static partial class SpellBuilders
                 EffectHelpers.StartVisualEffect(attacker, defender, magicEffect);
             }
 
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetCaster,
+                targetCharacter = rulesetCharacter,
+                position = defender?.LocationPosition ?? int3.zero
+            };
+
             RulesetActor.InflictDamage(
                 totalDamage,
                 damageForm,
                 damageForm.DamageType,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetCharacter },
+                applyFormsParams,
                 rulesetCharacter,
                 false,
                 activeCondition.SourceGuid,

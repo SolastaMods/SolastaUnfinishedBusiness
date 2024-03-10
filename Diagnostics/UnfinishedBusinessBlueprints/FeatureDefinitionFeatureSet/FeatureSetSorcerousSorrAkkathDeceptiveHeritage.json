@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
     "Definition:ProficiencySorcerousSorrAkkathDeceptiveHeritage:3fa28dd7-2af9-5867-b2ac-3191bf071bca",
     "Definition:BonusCantripsSorcerousSorrAkkathDeceptiveHeritage:697865d6-ddc5-515d-8561-d8518d4454e0"
   ],

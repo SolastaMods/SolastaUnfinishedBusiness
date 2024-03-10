@@ -1,4 +1,4 @@
-Condition/&ConditionReverseGravityDescription=Pego por gravidade reversa.
-Condition/&ConditionReverseGravityTitle=Gravidade reversa
+Condition/&ConditionReverseGravityDescription=Capturado pela gravidade reversa.
+Condition/&ConditionReverseGravityTitle=Gravidade Reversa
 Spell/&ReverseGravityDescription=Este feitiço reverte a gravidade em um cilindro de 15 metros de raio e 30 metros de altura centrado em um ponto dentro do alcance.
-Spell/&ReverseGravityTitle=Gravidade reversa
+Spell/&ReverseGravityTitle=Gravidade Reversa

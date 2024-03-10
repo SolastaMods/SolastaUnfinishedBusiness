@@ -1,0 +1,30 @@
+{
+  "$type": "FeatureDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Background/&SuggestedSkillsTroublemakerBackgroundTitle",
+    "description": "Background/&SuggestedSkillsTroublemakerBackgroundDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0487454f-a047-5677-8c23-55a3dc6571fb",
+  "contentPack": 9999,
+  "name": "SuggestedSkillsTroublemakerBackground"
+}

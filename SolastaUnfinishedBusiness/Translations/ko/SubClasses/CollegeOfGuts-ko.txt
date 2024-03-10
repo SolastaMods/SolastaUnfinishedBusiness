@@ -1,4 +1,4 @@
-Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=반응 행동으로 비전 능력을 사용해 스스로를 보호할 수 있습니다. 이렇게 하면 당신의 다음 턴까지 방어력 등급이 +3 더해집니다.
-Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=배포 꺾기
-Subclass/&CollegeOfGutsDescription=배포 학파의 바드들은 초원이나 모닥불 주위에 모여 과거와 현재의 영웅들의 업적을 노래합니다. 이들은 위대한 사건들을 자신들의 두 눈으로 직접 목격하고, 그에 대한 기억이 세상에서 사라지지 않게 하기 위해 이 땅을 여행합니다. 이들은 자신의 노래로, 다른 사람들이 옛 영웅들의 업적에 도달할 수 있도록 영감을 불어 넣습니다.
-Subclass/&CollegeOfGutsTitle=배포 학파
+Feature/&PowerCollegeOfGutsArcaneDeflectionDescription=당신은 신비한 힘을 사용하여 반응으로 자신을 보호할 수 있습니다. 이것은 다음 턴까지 갑옷 클래스에 +3을 제공합니다.
+Feature/&PowerCollegeOfGutsArcaneDeflectionTitle=장 편향
+Subclass/&CollegeOfGutsDescription=용맹 대학의 음유시인들은 미드 홀이나 큰 모닥불 주위에 모여 과거와 현재의 강자들의 업적을 노래합니다. 그들은 큰 사건을 직접 목격하고 그 사건에 대한 기억이 세상에서 사라지지 않도록 하기 위해 땅을 여행합니다. 그들의 노래를 통해 그들은 다른 사람들이 고대의 영웅들과 같은 수준의 성취에 도달하도록 영감을 줍니다.
+Subclass/&CollegeOfGutsTitle=용기의 대학

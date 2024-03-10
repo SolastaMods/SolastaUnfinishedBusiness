@@ -208,7 +208,6 @@ ModUi/&OfficialObscurementRulesHeavilyObscuredAsProjectileBlocker=<i>+ Alterar �
 ModUi/&OfficialObscurementRulesMagicalDarknessAsProjectileBlocker=<i>+ Alterar áreas <color=#D89555>magicamente obscurecidas</color> para serem bloqueadores de projéteis <color=#F0DAA0>[qualquer fonte do efeito do feitiço <color=#D89555>Escuridão</color>]</color </i>
 ModUi/&OfficialObscurementRulesTweakMonsters=<i>+ Adicione <color=#D89555>Darkvision</color>, <color=#D89555>BlindSight</color> e <color=#D89555>TrueSight</color> a monstros e NPCs sempre que apropriado\n <color=#F0DAA0>[coleções de configurações <b>MonstersThatShouldHaveDarkvision</b>, <b>MonstersThatShouldHaveTrueSight</b>, <b>MonstersThatShouldHaveBlindSight</b>]</color></i>
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
-ModUi/&OpenSubjectiveGuide=Abra The Subjective Guide to Solasta por <b><color=#D89555>u/CounterYolo</color></b>
 ModUi/&OutlineGridWidthModifier=<color=white>Multiplique a largura da grade de contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OutlineGridWidthSpeed=<color=white>Multiplique a velocidade de animação da grade de contorno por</color> <color=#C04040E0>[%]</color>
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras

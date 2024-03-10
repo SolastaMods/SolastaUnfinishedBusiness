@@ -679,22 +679,19 @@ internal static class Level20Context
 
     private sealed class ActionFinishedByMeArchDruid(
         // ReSharper disable once SuggestBaseTypeForParameterInConstructor
-        FeatureDefinition featureDefinition) : IActionFinishedByMe
+        FeatureDefinition featureDefinition) : IMagicEffectFinishedByMeAny
     {
-        public IEnumerator OnActionFinishedByMe(CharacterAction action)
+        public IEnumerator OnMagicEffectFinishedByMeAny(
+            CharacterActionMagicEffect action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
         {
             if (action is not CharacterActionUsePower actionUsePower)
             {
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
-            {
-                yield break;
-            }
-
+            var rulesetCharacter = attacker.RulesetCharacter;
             var power = actionUsePower.activePower.PowerDefinition == PowerDruidWildShape
                 ? PowerDruidWildShape
                 : actionUsePower.activePower.PowerDefinition == CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat

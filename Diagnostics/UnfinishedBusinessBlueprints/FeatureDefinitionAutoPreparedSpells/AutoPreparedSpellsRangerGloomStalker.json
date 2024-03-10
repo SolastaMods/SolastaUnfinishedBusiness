@@ -1,0 +1,70 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Ranger",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 2,
+      "spellsList": [
+        "Definition:DetectEvilAndGood:e3e901f033c79014bb90853c4c0bf29d"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 17,
+      "spellsList": [
+        "Definition:FarStep:1adf1412-2248-5b36-805b-5076ef23ea04"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AutoPreparedSpellsRangerGloomStalkerTitle",
+    "description": "Feature/&AutoPreparedSpellsRangerGloomStalkerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "fd684d16-ed62-5c36-a13e-691b532abf69",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsRangerGloomStalker"
+}

@@ -1,8 +1,8 @@
 Background/&BackgroundDevotedDescription=何年にもわたる目的のない放浪と無駄な探索を経て、あなたは自分の目的を見つけました。それが神であれ、宗教であれ、政治運動であれ、哲学的運動であれ、あるいは単にマスター・タッキンの上質なエールとミードの宣伝であれ、あなたは光を見て、自分が選んだ大義を推進することに心から専念しています。
 Background/&BackgroundDevotedTitle=献身的な
-Background/&BackgroundFarmerDescription=あなたは、多くの人々の口を養うために、生まれたときから土地を耕し、家畜を手で育ててきました。農家であれば、日が暮れる前に起きて、日が沈んでから畑仕事をして帰ってきました。あなたは平凡な生活を捨て、スリルや名声、富を求める冒険を求めています。
+Background/&BackgroundFarmerDescription=あなたは、多くの人々の口を養うために、生まれたときから土地を耕し、家畜を手で育ててきました。農家なら、日が暮れる前に起きて、日が沈んでから畑仕事をして帰ってきます。あなたは平凡な生活を捨て、スリルや名声、富を求める冒険を求めています。
 Background/&BackgroundFarmerTitle=農家
-Background/&BackgroundMilitiaDescription=あなたは、入植地の保護に専念する町の警備員または民間民兵の一員でした。
+Background/&BackgroundMilitiaDescription=あなたは、集落の保護に専念する町の警備員または民間民兵の一員でした。
 Background/&BackgroundMilitiaTitle=民兵
 Background/&BackgroundTroublemakerDescription=街の通りや貴族の宮廷に放浪者がいる。
 Background/&BackgroundTroublemakerTitle=トラブルメーカー

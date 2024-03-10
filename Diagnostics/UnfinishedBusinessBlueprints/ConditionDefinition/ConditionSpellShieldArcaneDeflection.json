@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierSpellShieldArcaneDeflection:0fb7e2de-703b-5950-9c2f-01424b936e01"
+    "Definition:AttributeModifierSpellShieldArcaneDeflection:0fb7e2de-703b-5950-9c2f-01424b936e01",
+    "Definition:MagicAffinityConditionShielded:d693eed024ffd63478a2c67a97d769e5"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

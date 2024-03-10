@@ -1,8 +1,8 @@
 Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseDescription=힘 +1
-Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=황무지의 완력
-Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=화염 피해 저항.
-Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=불꽃의 요람
-Feature/&ProficiencyObsidianDwarfLanguagesDescription=공용어, 드워프워, 거인어
+Feature/&AttributeModifierObsidianDwarfStrengthAbilityScoreIncreaseTitle=황무지 브라운
+Feature/&DamageAffinityObsidianDwarfFireResistanceDescription=당신은 화염 피해에 대한 저항력을 가지고 있습니다.
+Feature/&DamageAffinityObsidianDwarfFireResistanceTitle=불의 요람
+Feature/&ProficiencyObsidianDwarfLanguagesDescription=일반, 드워프, 자이언트
 Feature/&ProficiencyObsidianDwarfLanguagesTitle=언어
-Race/&RaceObsidianDwarfDescription=과거에, 한 무리의 드워프들이 광부와 장인으로서의 능력을 부리려 한 화염 거인들에 의해 노예가 되었습니다. 대격변의 혼란스러운 마법은 많은 드워프들에게 그들의 억압자들의 힘과 저항력의 일부를 스며들게 했습니다. 드워프들은 반항했고, 자신들의 자유를 되찾아 황무지로 달아났습니다. 그들은 자신을 옵시디언 드워프라고 부르며, 성장하고 번영했습니다.
-Race/&RaceObsidianDwarfTitle=옵시디언 드워프
+Race/&RaceObsidianDwarfDescription=과거에는 드워프 집단이 광부와 장인으로서 불의 거인의 노예가 되었습니다. 대격변의 혼돈 마법은 이들 드워프 중 다수에게 압제자들의 힘과 저항력을 어느 정도 불어넣었습니다. 드워프들은 반란을 일으키고 자유를 얻었으며 황무지(Badlands)로 후퇴했습니다. 스스로를 흑요석 드워프라고 부르며 그들은 성장하고 번영했습니다.
+Race/&RaceObsidianDwarfTitle=흑요석 드워프

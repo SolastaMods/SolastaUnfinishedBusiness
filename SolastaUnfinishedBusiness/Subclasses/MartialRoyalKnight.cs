@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Behaviors;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -290,7 +291,7 @@ public sealed class MartialRoyalKnight : AbstractSubclass
 
             gameLocationActionManager.ReactToSpendPower(reactionParams);
 
-            yield return battleManager.WaitForReactions(originalHelper, gameLocationActionManager, count);
+            yield return battleManager.WaitForReactions(attacker, gameLocationActionManager, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -324,11 +325,10 @@ public sealed class MartialRoyalKnight : AbstractSubclass
             GameLocationCharacter defender,
             GameLocationCharacter helper)
         {
-            var text = defender == helper
-                ? "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf"
-                : "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionAlly";
+            var text = defender == helper ? "Self" : "Ally";
 
-            return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+            return $"SpendPowerRoyalKnightInspiringProtectionDescription{text}"
+                .Formatted(Category.Reaction, defender.Name, attacker.Name, action.FormatTitle());
         }
     }
 }

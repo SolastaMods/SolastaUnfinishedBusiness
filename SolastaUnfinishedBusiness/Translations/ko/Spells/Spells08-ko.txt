@@ -1,4 +1,4 @@
-Condition/&ConditionMindBlankDescription=정신 피해 면역 및 매혹 상태 면역.
-Condition/&ConditionMindBlankTitle=무심화 상태
-Spell/&MindBlankDescription=주문 종료 시까지, 접촉한 희망하는 크리쳐 하나에게 정신 피해 면역을 부여합니다. 대상은 또한 자신의 감정이나 생각을 읽는 감각, 예지학파 마법, 매혹 상태에 면역이 됩니다.
-Spell/&MindBlankTitle=무심화
+Condition/&ConditionMindBlankDescription=정신 피해와 매혹 상태에 면역입니다.
+Condition/&ConditionMindBlankTitle=마음의 공백
+Spell/&MindBlankDescription=주문이 끝날 때까지 당신이 접촉한 하나의 의지가 있는 생물은 정신 피해, 감정을 감지하거나 생각을 읽는 모든 효과, 점술 주문 및 매혹 상태에 면역입니다.
+Spell/&MindBlankTitle=마음의 공백

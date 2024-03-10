@@ -332,7 +332,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Ray of Enfeeblement",
-    "description": "Create a wand that can cast <b>Ray of Enfeeblement (II)</b> spell using your Inventor spell attack modifier and save DC.",
+    "description": "Create a wand that can cast <b>Ray of Enfeeblement (II)</b> spell using your Artificer spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "5e13b809f2552f841b294d2d6f9ae2f1",

@@ -879,14 +879,8 @@ internal static class Level20SubclassesContext
                 DamageAffinityBludgeoningResistance,
                 DamageAffinityPiercingResistance,
                 DamageAffinitySlashingResistance)
+            .CopyParticleReferences(ConditionDefinitions.ConditionShine)
             .AddToDB();
-
-        conditionOathOfJugementFinalJudgementCaster.conditionStartParticleReference =
-            ConditionDefinitions.ConditionShine.conditionStartParticleReference;
-        conditionOathOfJugementFinalJudgementCaster.conditionParticleReference =
-            ConditionDefinitions.ConditionShine.conditionParticleReference;
-        conditionOathOfJugementFinalJudgementCaster.conditionEndParticleReference =
-            new AssetReference();
 
         var powerOathOfJugementFinalJudgement = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfJugementFinalJudgement")
@@ -958,6 +952,7 @@ internal static class Level20SubclassesContext
             .SetPossessive()
             .SetFeatures(
                 additionalDamageOathOfMotherlandFlamesOfMotherland, damageAffinityOathOfMotherlandFlamesOfMotherland)
+            .CopyParticleReferences(FireShieldWarm)
             .AddToDB();
 
         var powerOathOfMotherlandFlamesOfMotherland = FeatureDefinitionPowerBuilder
@@ -977,16 +972,6 @@ internal static class Level20SubclassesContext
                     .SetParticleEffectParameters(Fireball)
                     .Build())
             .AddToDB();
-
-        var effectParticleParameters =
-            powerOathOfMotherlandFlamesOfMotherland.EffectDescription.EffectParticleParameters;
-
-        effectParticleParameters.conditionStartParticleReference =
-            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        effectParticleParameters.conditionParticleReference =
-            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionParticleReference;
-        effectParticleParameters.conditionEndParticleReference =
-            FireShieldWarm.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandFlamesOfMotherland, 20));
 
@@ -1182,7 +1167,7 @@ internal static class Level20SubclassesContext
         var featureRoguishThiefThiefReflexes = FeatureDefinitionBuilder
             .Create("FeatureRoguishThiefThiefReflexes")
             .SetGuiPresentation(Category.Feature)
-            .AddCustomSubFeatures(new InitiativeEndListenerThiefReflexes())
+            .AddCustomSubFeatures(new CustomBehaviorThiefReflexes())
             .AddToDB();
 
         RoguishThief.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishThiefThiefReflexes, 17));
@@ -1870,7 +1855,7 @@ internal static class Level20SubclassesContext
     {
         public IEnumerator HandleReducedToZeroHpByEnemy(
             GameLocationCharacter attacker,
-            GameLocationCharacter source,
+            GameLocationCharacter defender,
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
@@ -1884,7 +1869,7 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var rulesetCharacter = source.RulesetCharacter;
+            var rulesetCharacter = defender.RulesetCharacter;
 
             if (rulesetCharacter == null)
             {
@@ -1895,21 +1880,21 @@ internal static class Level20SubclassesContext
                 ServiceRepository.GetService<IRulesetImplementationService>() as RulesetImplementationManager;
 
             var usablePower = PowerProvider.Get(powerPhysicalPerfection, rulesetCharacter);
-            var reactionParams = new CharacterActionParams(source, ActionDefinitions.Id.PowerNoCost)
+            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.PowerNoCost)
             {
                 StringParameter = "PhysicalPerfection",
                 ActionModifiers = { new ActionModifier() },
                 RulesetEffect = implementationManagerService
                     .MyInstantiateEffectPower(rulesetCharacter, usablePower, false),
                 UsablePower = usablePower,
-                TargetCharacters = { source }
+                TargetCharacters = { defender }
             };
 
             var count = gameLocationActionService.PendingReactionRequestGroups.Count;
 
-            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", source);
+            gameLocationActionService.ReactToUsePower(reactionParams, "UsePower", defender);
 
-            yield return gameLocationBattleService.WaitForReactions(source, gameLocationActionService, count);
+            yield return gameLocationBattleService.WaitForReactions(attacker, gameLocationActionService, count);
 
             if (!reactionParams.ReactionValidated)
             {
@@ -1920,7 +1905,7 @@ internal static class Level20SubclassesContext
             rulesetCharacter.StabilizeAndGainHitPoints(1);
 
             ServiceRepository.GetService<ICommandService>()
-                ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, true);
+                ?.ExecuteAction(new CharacterActionParams(defender, ActionDefinitions.Id.StandUp), null, true);
         }
     }
 
@@ -2053,12 +2038,18 @@ internal static class Level20SubclassesContext
                 };
                 var rolls = new List<int>();
                 var damageRoll = rulesetAttacker.RollDamage(damageForm, 0, false, 0, 0, 1, false, false, false, rolls);
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetAttacker,
+                    targetCharacter = rulesetTarget,
+                    position = target.LocationPosition
+                };
 
                 RulesetActor.InflictDamage(
                     damageRoll,
                     damageForm,
                     damageForm.DamageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetTarget },
+                    applyFormsParams,
                     rulesetTarget,
                     false,
                     rulesetAttacker.Guid,
@@ -2300,9 +2291,9 @@ internal static class Level20SubclassesContext
     // Thief's Reflexes
     //
 
-    private sealed class InitiativeEndListenerThiefReflexes : IInitiativeEndListener, ICharacterTurnEndListener
+    private sealed class CustomBehaviorThiefReflexes : IInitiativeEndListener, ICharacterBeforeTurnEndListener
     {
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterBeforeTurnEnded(GameLocationCharacter locationCharacter)
         {
             var battle = Gui.Battle;
 

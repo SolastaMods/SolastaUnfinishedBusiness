@@ -1,4 +1,4 @@
 Condition/&ConditionMindBlankDescription=精神的なダメージと魅了された状態に対する免疫。
 Condition/&ConditionMindBlankTitle=マインドブランク
-Spell/&MindBlankDescription=呪文が終了するまで、あなたが触れた自発的なクリーチャー1体は、精神的ダメージ、感情を感知したり思考を読み取る効果、占い呪文、魅了された状態の影響を受けません。
+Spell/&MindBlankDescription=呪文が終了するまで、あなたが触れた意志のあるクリーチャー1体は、精神的ダメージ、感情を感知したり思考を読み取る効果、占い呪文、魅了された状態の影響を受けません。
 Spell/&MindBlankTitle=マインドブランク

@@ -17,6 +17,6 @@ Spell/&PowerWordKillTitle=Machtwort töten
 Spell/&ShapechangeDescription=Du nimmst für die Dauer die Gestalt einer anderen Kreatur an. Die neue Form kann eine beliebige Kreatur sein, deren Herausforderungsbewertung Ihrer Stufe entspricht oder niedriger ist.
 Spell/&ShapechangeTitle=Formänderung
 Spell/&TimeStopDescription=Du unterbrichst kurzzeitig den Fluss der Zeit für alle außer dir selbst. Für andere Kreaturen vergeht keine Zeit, während du 1W4 + 1 Runden hintereinander absolvierst, in denen du wie gewohnt Aktionen ausführen und dich bewegen kannst.
-Spell/&TimeStopTitle=Halt Time
+Spell/&TimeStopTitle=Zeitstopp
 Spell/&WeirdDescription=Ausgehend von den tiefsten Ängsten einer Gruppe von Kreaturen erschaffst du in ihren Köpfen illusorische Kreaturen, die nur für sie sichtbar sind. Jede Kreatur in einer Kugel mit einem Radius von 30 Fuß, die auf einem Punkt Ihrer Wahl in Reichweite zentriert ist, muss einen Weisheitsrettungswurf durchführen. Bei einem fehlgeschlagenen Rettungswurf wird eine Kreatur für die Dauer verängstigt. Die Illusion ruft die tiefsten Ängste der Kreatur hervor und manifestiert ihre schlimmsten Albträume als unerbittliche Bedrohung. Am Ende jedes Zuges der verängstigten Kreatur muss ihr ein Weisheitsrettungswurf gelingen, sonst erleidet sie 4W10 psychischen Schaden. Bei einem erfolgreichen Rettungswurf endet der Zauber für diese Kreatur.
 Spell/&WeirdTitle=Seltsam

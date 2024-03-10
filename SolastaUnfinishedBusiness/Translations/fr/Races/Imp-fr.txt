@@ -18,7 +18,3 @@ Race/&RaceImpForestTitle=Diablotin de la forêt
 Race/&RaceImpInfernalDescription=Les expériences interplanaires de l'ère Manacalon ont conduit à amener des démons et d'autres créatures dans le plan matériel. Alors que beaucoup de ces créatures ont finalement été contenues ou bannies, les diablotins sournois ont pu se cacher, s'adaptant secrètement et prospérant dans diverses poches des Badlands depuis. Maintenant, certains d'entre eux ont décidé d'émerger et d'explorer le monde qui les entoure, même si ceux qui s'y trouvent peuvent ne pas apprécier leur nature démoniaque.
 Race/&RaceImpInfernalTitle=Diablotin infernal
 Race/&RaceImpTitle=Imp
-Reaction/&SpendPowerImpishWrathDescription=Inflige {0} dégâts supplémentaires à {1}.
-Reaction/&SpendPowerImpishWrathReactDescription=Infligez des dégâts supplémentaires égaux à votre bonus de compétence.
-Reaction/&SpendPowerImpishWrathReactTitle=Activer
-Reaction/&SpendPowerImpishWrathTitle=Colère espiègle

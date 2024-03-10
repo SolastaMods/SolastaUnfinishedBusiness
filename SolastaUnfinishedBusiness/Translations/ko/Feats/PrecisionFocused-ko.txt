@@ -1,6 +1,6 @@
-Feat/&FeatArcanePrecisionDescription=지능이 1, 최대 20까지 증가합니다.\n추가 행동으로 무기를 선택할 수 있습니다. 이 무기의 공격은 마법 공격으로 간주되며, 1분 동안 명중 및 피해 굴림에 지능을 사용합니다. 이 기능은 긴 휴식을 취할 때마다 숙련도 보너스 횟수만큼 사용할 수 있습니다.
-Feat/&FeatArcanePrecisionTitle=비전의 정밀함
-Feat/&FeatCharismaticPrecisionDescription=매력이 1, 최대 20까지 증가합니다.\n추가 행동으로 무기를 선택할 수 있습니다. 이 무기의 공격은 마법 공격으로 간주되며, 1분 동안 명중 및 피해 굴림에 매력을 사용합니다. 이 기능은 긴 휴식을 취할 때마다 숙련도 보너스 횟수만큼 사용할 수 있습니다.
-Feat/&FeatCharismaticPrecisionTitle=매력적인 정밀함
-Feat/&FeatWisePrecisionDescription=지혜가 1, 최대 20까지 증가합니다.\n추가 행동으로 무기를 선택할 수 있습니다. 이 무기의 공격은 마법 공격으로 간주되며, 1분 동안 명중 및 피해 굴림에 지혜를 사용합니다. 이 기능은 긴 휴식을 취할 때마다 숙련도 보너스 횟수만큼 사용할 수 있습니다.
-Feat/&FeatWisePrecisionTitle=지혜의 정밀함
+Feat/&FeatArcanePrecisionDescription=지능을 1씩 최대 20까지 높이세요.\n보너스 액션을 사용하여 무기를 선택할 수 있습니다. 공격은 마법으로 간주되며 1분 동안 공격 및 피해 굴림에 지능을 사용합니다. 이 기능은 긴 휴식마다 숙련도 보너스 횟수를 사용할 수 있습니다.
+Feat/&FeatArcanePrecisionTitle=비전 정밀함
+Feat/&FeatCharismaticPrecisionDescription=카리스마를 1씩 최대 20까지 높이세요.\n보너스 액션을 사용하여 무기를 선택할 수 있습니다. 공격은 마법으로 간주되며 1분 동안 공격 및 피해 굴림에 카리스마를 사용합니다. 이 기능은 긴 휴식마다 숙련도 보너스 횟수를 사용할 수 있습니다.
+Feat/&FeatCharismaticPrecisionTitle=카리스마 넘치는 정확성
+Feat/&FeatWisePrecisionDescription=지혜를 1 증가시켜 최대 20까지 증가시킵니다.\n보너스 액션을 사용하여 무기를 선택할 수 있습니다. 공격은 마법으로 간주되며 1분 동안 공격 및 피해 굴림에 지혜를 사용합니다. 이 기능은 긴 휴식마다 숙련도 보너스 횟수를 사용할 수 있습니다.
+Feat/&FeatWisePrecisionTitle=현명한 정확성

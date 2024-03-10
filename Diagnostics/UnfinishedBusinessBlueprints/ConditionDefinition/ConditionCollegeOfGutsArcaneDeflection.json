@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierCollegeOfGutsArcaneDeflection:3f818f1c-df44-52de-b54f-efe328fc947b"
+    "Definition:AttributeModifierCollegeOfGutsArcaneDeflection:3f818f1c-df44-52de-b54f-efe328fc947b",
+    "Definition:MagicAffinityConditionShielded:d693eed024ffd63478a2c67a97d769e5"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

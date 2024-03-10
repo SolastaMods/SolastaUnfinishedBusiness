@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Behaviors.Specific;
 using SolastaUnfinishedBusiness.Builders;
@@ -200,21 +201,31 @@ public sealed class CollegeOfLife : AbstractSubclass
 
     internal static void LateLoad()
     {
-        foreach (var spellDefinition in SpellListDefinitions.SpellListAllSpells
-                     .SpellsByLevel
-                     .SelectMany(x => x.Spells)
-                     .Where(x => x.SchoolOfMagic is SchoolNecromancy or SchoolTransmutation))
+        var allSpells = SpellListDefinitions.SpellListAllSpells
+            .SpellsByLevel
+            .SelectMany(x => x.Spells);
+
+        AddSpells(allSpells);
+        AddSpells(WizardDeadMaster.DeadMasterSpells);
+
+        return;
+
+        static void AddSpells(IEnumerable<SpellDefinition> spells)
         {
-            if (spellDefinition.SpellsBundle)
+            foreach (var spellDefinition in spells
+                         .Where(x => x.SchoolOfMagic is SchoolNecromancy or SchoolTransmutation))
             {
-                foreach (var spellInBundle in spellDefinition.SubspellsList)
+                if (spellDefinition.SpellsBundle)
                 {
-                    MagicAffinityCollegeOfLifeHeightened.WarListSpells.Add(spellInBundle.Name);
+                    foreach (var spellInBundle in spellDefinition.SubspellsList)
+                    {
+                        MagicAffinityCollegeOfLifeHeightened.WarListSpells.Add(spellInBundle.Name);
+                    }
                 }
-            }
-            else
-            {
-                MagicAffinityCollegeOfLifeHeightened.WarListSpells.Add(spellDefinition.Name);
+                else
+                {
+                    MagicAffinityCollegeOfLifeHeightened.WarListSpells.Add(spellDefinition.Name);
+                }
             }
         }
     }

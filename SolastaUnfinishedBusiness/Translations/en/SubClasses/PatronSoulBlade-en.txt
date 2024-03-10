@@ -17,4 +17,4 @@ Feedback/&AdditionalDamageHexLine=Soul Hex makes {1} take +{2} additional damage
 Proxy/&ProxyPactWeaponDescription=Spiritual Pact Weapon that deals 1d8 + Charisma force damage on hit. This damage increases to 2d8 on level 10, and 3d8 on level 14.
 Proxy/&ProxyPactWeaponTitle=Spiritual Pact Weapon
 Subclass/&PatronSoulBladeDescription=You have struck a bargain with a sentient weapon that you feed souls to in return for power.
-Subclass/&PatronSoulBladeTitle=The Soulblade
+Subclass/&PatronSoulBladeTitle=The Hexblade

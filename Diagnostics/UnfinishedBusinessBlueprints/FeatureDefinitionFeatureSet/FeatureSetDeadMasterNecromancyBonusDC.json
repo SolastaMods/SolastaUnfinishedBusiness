@@ -48,7 +48,11 @@
     "Definition:MagicAffinityDeadMasterCreateDeadRisenSkeleton_Marksman:6b9bc5cc-1ec9-5fd6-bc01-b661e0a9125c",
     "Definition:MagicAffinityDeadMasterCreateDeadRisenGhost:4c5f9569-2c93-5e8d-a694-1ab53449b67e",
     "Definition:MagicAffinityDeadMasterCreateDeadRisenWight:96967c9d-7e94-5ef9-acfe-64ae9b86f2ea",
-    "Definition:MagicAffinityDeadMasterCreateDeadRisenWightLord:d55862f7-a4e7-52ef-b96c-88d47647f6a8"
+    "Definition:MagicAffinityDeadMasterCreateDeadRisenWightLord:d55862f7-a4e7-52ef-b96c-88d47647f6a8",
+    "Definition:MagicAffinityDeadMasterMinorLifesteal:4190993a-436b-54c1-8f14-ae88c9ea78b8",
+    "Definition:MagicAffinityDeadMasterTollTheDead:09930554-af85-547f-ac6b-8959a317e45d",
+    "Definition:MagicAffinityDeadMasterSpiritShroud:c51bd406-91f3-5124-9b07-a63fc43d0ae9",
+    "Definition:MagicAffinityDeadMasterVitalityTransfer:5ea8c3b3-5e67-5814-bdf8-5f091e76235f"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
