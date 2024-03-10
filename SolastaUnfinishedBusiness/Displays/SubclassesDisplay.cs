@@ -51,15 +51,16 @@ internal static class SubclassesDisplay
 
         foreach (var kvp in SubclassesContext.Klasses)
         {
-            var klassName = kvp.Key;
-            var klassDefinition = kvp.Value;
+            var displayName = kvp.Key;
+            var klassName = kvp.Value.Item1;
+            var klassDefinition = kvp.Value.Item2;
             var subclassListContext = SubclassesContext.KlassListContextTab[klassDefinition];
             var displayToggle = Main.Settings.DisplayKlassToggle[klassName];
             var sliderPos = Main.Settings.KlassListSliderPosition[klassName];
             var subclassEnabled = Main.Settings.KlassListSubclassEnabled[klassName];
 
             ModUi.DisplayDefinitions(
-                kvp.Key.Khaki(),
+                displayName.Khaki(),
                 subclassListContext.Switch,
                 subclassListContext.AllSubClasses,
                 subclassEnabled,

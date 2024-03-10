@@ -147,7 +147,7 @@ internal static class ProficienciesDisplay
             UI.ActionButton("Arcane Shots docs".Bold().Khaki(),
                 () => UpdateContext.OpenDocumentation("UnfinishedBusinessArcaneShots.md"), UI.Width(200f));
             2.Space();
-            UI.ActionButton("Gambits docs".Bold().Khaki(),
+            UI.ActionButton("Maneuvers docs".Bold().Khaki(),
                 () => UpdateContext.OpenDocumentation("UnfinishedBusinessGambits.md"), UI.Width(200f));
             2.Space();
             UI.ActionButton("Infusions docs".Bold().Khaki(),
