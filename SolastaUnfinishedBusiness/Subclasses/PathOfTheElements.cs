@@ -247,9 +247,9 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetCasterEffectParameters(PowerDomainElementalLightningBlade)
+                    .SetEffectEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
             .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -283,9 +283,9 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetCasterEffectParameters(PowerDomainElementalIceLance)
+                    .SetEffectEffectParameters(PowerDomainElementalIceLance)
                     .Build())
             .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -321,9 +321,9 @@ public sealed class PathOfTheElements : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .SetCasterEffectParameters(PowerDomainElementalFireBurst)
+                    .SetEffectEffectParameters(PowerDomainElementalFireBurst)
                     .Build())
             .AddCustomSubFeatures(
-                new MagicEffectFinishedByMeElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsValidatePowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -509,23 +509,6 @@ public sealed class PathOfTheElements : AbstractSubclass
             }
 
             return effectDescription;
-        }
-    }
-
-    //
-    // Elemental Burst
-    //
-
-    private sealed class MagicEffectFinishedByMeElementalBurst(IMagicEffect magicEffect) : IMagicEffectFinishedByMe
-    {
-        public IEnumerator OnMagicEffectFinishedByMe(CharacterActionMagicEffect action, BaseDefinition baseDefinition)
-        {
-            var attacker = action.ActingCharacter;
-            var defender = action.ActionParams.TargetCharacters[0];
-
-            EffectHelpers.StartVisualEffect(attacker, defender, magicEffect, EffectHelpers.EffectType.Effect);
-
-            yield break;
         }
     }
 
